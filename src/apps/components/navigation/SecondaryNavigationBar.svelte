@@ -1,8 +1,8 @@
 <script>
-    import SecondaryNavigationItem from "./SecondaryNavigationItem.svelte";
+import SecondaryNavigationItem from './SecondaryNavigationItem.svelte';
 
-    export let currentTab;
-    export let tabs;
+export let currentTab;
+export let tabs;
 </script>
 
 <nav class="a5e-secondary-nav">

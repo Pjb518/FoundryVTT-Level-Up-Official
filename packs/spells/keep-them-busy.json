@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"ZXSyi9N3XlabiULj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "v3BqgcbZNfaXeXcS"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"QoQbvrTl5tO6xJM5": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"v3BqgcbZNfaXeXcS"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can instruct your allies to hamper your enemies.&nbsp;While this spell is active, whenever an ally affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature hits a creature with an attack, that creature&rsquo;s speeds are reduced by 5 feet until the end of its next turn.</p>",
@@ -90,16 +87,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -108,9 +95,6 @@
 			"origin": "Item.assxcej9n2hwxjhl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bVhdG4rPZ3ZVP2R2",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -145,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

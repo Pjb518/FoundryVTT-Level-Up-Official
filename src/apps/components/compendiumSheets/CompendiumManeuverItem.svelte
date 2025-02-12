@@ -1,62 +1,54 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import ImportButton from "../ImportButton.svelte";
+import ImportButton from '../ImportButton.svelte';
 
-    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
-    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
+import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
+import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
 
-    export let document;
+export let document;
 
-    function onDragStart(event) {
-        const data = {
-            type: collection.documentName,
-            uuid: collection.getUuid(document._id),
-        };
-        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
-    }
+function onDragStart(event) {
+	const data = {
+		type: collection.documentName,
+		uuid: collection.getUuid(document._id),
+	};
+	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
+}
 
-    function getManeuverDetailsLabel(maneuver) {
-        const maneuverDegree =
-            maneuverDegrees[parseInt(maneuver.system.degree, 10)];
+function getManeuverDetailsLabel(maneuver) {
+	const maneuverDegree = maneuverDegrees[parseInt(maneuver.system.degree, 10)];
 
-        const tradition = maneuverTraditions[maneuver.system.tradition] ?? "";
-        const stance = maneuver.system.isStance ? "Stance" : "";
+	const tradition = maneuverTraditions[maneuver.system.tradition] ?? '';
+	const stance = maneuver.system.isStance ? 'Stance' : '';
 
-        const exertionCost = maneuver.system.exertionCost
-            ? `(${maneuver.system.exertionCost} ${localize(
-                  maneuver.system.exertionCost > 1
-                      ? "A5E.ExertionPointPlural"
-                      : "A5E.ExertionPoint",
-              )})`
-            : "";
+	const exertionCost = maneuver.system.exertionCost
+		? `(${maneuver.system.exertionCost} ${localize(
+				maneuver.system.exertionCost > 1 ? 'A5E.ExertionPointPlural' : 'A5E.ExertionPoint',
+			)})`
+		: '';
 
-        const maneuverProperties = [
-            maneuverDegree,
-            tradition,
-            stance,
-            exertionCost,
-        ]
-            .filter(Boolean)
-            .join(" ");
+	const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]
+		.filter(Boolean)
+		.join(' ');
 
-        return maneuverProperties;
-    }
+	return maneuverProperties;
+}
 
-    function getManeuverSource(maneuver) {
-        if (typeof maneuver.system.source !== "string") return null;
+function getManeuverSource(maneuver) {
+	if (typeof maneuver.system.source !== 'string') return null;
 
-        const source = CONFIG.A5E.products[maneuver.system.source];
+	const source = CONFIG.A5E.products[maneuver.system.source];
 
-        return source || null;
-    }
+	return source || null;
+}
 
-    const collection = getContext("collection");
-    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
+const collection = getContext('collection');
+const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
-    $: maneuverDetails = getManeuverDetailsLabel(document);
-    $: maneuverSource = getManeuverSource(document);
+$: maneuverDetails = getManeuverDetailsLabel(document);
+$: maneuverSource = getManeuverSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -65,8 +57,7 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ??
-            (await collection.getDocument(document._id));
+            collection.get(document._id) ?? (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}

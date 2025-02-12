@@ -44,11 +44,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"QcyfTPro6OfX5JAQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kHQJFMAgZZXTVdfb"
 					}
 				},
 				"uses": {
@@ -61,7 +56,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kHQJFMAgZZXTVdfb"
+				]
 			},
 			"Ga89KvvkPShgZwgr": {
 				"name": "Inject Venom (Spell Point)",
@@ -92,11 +90,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"QcyfTPro6OfX5JAQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Sc2mZI3b222F2ZcQ"
 					}
 				},
 				"uses": {
@@ -109,7 +102,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Sc2mZI3b222F2ZcQ"
+				]
 			},
 			"Uy25pYDN0RkFWh2i": {
 				"name": "Increase To Medium",
@@ -126,13 +122,7 @@
 						"formula": "@classes.warlock.level + @classes.wielder.level + @prof + @spellcasting.mod"
 					}
 				},
-				"prompts": {
-					"1YuWl3FgPxvuaImA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UmtvB2CF1s49mhjU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -143,7 +133,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"UmtvB2CF1s49mhjU"
+				]
 			},
 			"mI0KiR4J6lD73IX4": {
 				"name": "Increase To Large",
@@ -153,13 +146,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"1YuWl3FgPxvuaImA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1mqulW454jo1a45U"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -170,7 +157,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"1mqulW454jo1a45U"
+				]
 			},
 			"x8YlXt8CsB05Ymc0": {
 				"name": "Chains of Hell",
@@ -326,10 +316,6 @@
 		},
 		"prerequisite": "Pactbound Custodian feat, Pact of the Chain, Bonded Artifact is a Weapon of Power",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -338,9 +324,6 @@
 			"origin": "Item.2uNrItUZ92WX9oJ5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EnQ0djqSW4smrsEk",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -352,7 +335,10 @@
 			"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
 			"_id": "kHQJFMAgZZXTVdfb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -393,9 +379,6 @@
 			"origin": "Item.2uNrItUZ92WX9oJ5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Ga89KvvkPShgZwgr",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -407,7 +390,10 @@
 			"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
 			"_id": "Sc2mZI3b222F2ZcQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -447,18 +433,17 @@
 		{
 			"origin": "Item.2uNrItUZ92WX9oJ5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Uy25pYDN0RkFWh2i"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Increase To Medium",
 			"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
 			"_id": "UmtvB2CF1s49mhjU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.height",
@@ -508,18 +493,17 @@
 		{
 			"origin": "Item.2uNrItUZ92WX9oJ5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mI0KiR4J6lD73IX4"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Increase To Large",
 			"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
 			"_id": "1mqulW454jo1a45U",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.height",

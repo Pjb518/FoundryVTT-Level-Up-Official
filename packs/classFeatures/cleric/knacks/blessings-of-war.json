@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"14AaJP7TiWqT8kR9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cX2kxbcdziTTHuRe"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"cX2kxbcdziTTHuRe"
+				]
 			}
 		},
 		"description": "<p>Your faith has a martial aspect and you can bless the weapons of the faithful. When you finish a long rest, you can touch a weapon and bless it. Until the start of your next long rest, the first time the weapon blessed this way would break, it does not break and loses the blessing instead. If the wielder of the weapon has an exertion pool and it is empty, they can also dismiss the blessing as a bonus action to recover 1 point of exertion.</p>",
@@ -64,10 +61,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "cleric"
 	},
@@ -75,18 +68,17 @@
 		{
 			"origin": "Item.SbEZenwQs59oFZnq",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NFaZd7HeFwe1wNWh"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blessed Weapon",
 			"img": "icons/skills/melee/weapons-crossed-swords-yellow.webp",
 			"_id": "cX2kxbcdziTTHuRe",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

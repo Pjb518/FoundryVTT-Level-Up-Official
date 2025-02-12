@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
 
@@ -17,8 +17,8 @@
         const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
 
         if (skill.proficient === 2) return "expertise";
-        else if (skill.proficient) return "proficient";
-        else if (jackOfAllTrades) return "jack";
+        if (skill.proficient) return "proficient";
+        if (jackOfAllTrades) return "jack";
     }
 
     function getProficiencyTooltip(proficiencyLevel) {
@@ -55,13 +55,13 @@
 
         if (showDeterministicBonus) {
             return skillBonus;
-        } else {
-            const checkBonus = getDeterministicBonus(
-                $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
-                $actor.getRollData(),
-            );
-            return skillBonus - checkBonus;
         }
+
+        const checkBonus = getDeterministicBonus(
+            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
+            $actor.getRollData(),
+        );
+        return skillBonus - checkBonus;
     }
 
     const actor = getContext("actor");
@@ -71,13 +71,15 @@
     let showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
 
-    $: abilityBonus = $actor.system.abilities[skill.ability].check.deterministicBonus;
+    $: abilityBonus = $actor.system.abilities[skill.ability].check.mod;
 
     $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
     $: proficiencyLevel = getProficiencyLevel($actor, skill);
     $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>
@@ -161,7 +163,7 @@
         align-items: center;
         gap: 0.5rem;
         padding-inline: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-border-color);
         border-top: 0;
         font-family: var(--a5e-font-serif);
         font-size: var(--a5e-text-size-sm);
@@ -171,7 +173,7 @@
             border-right: 0;
 
             &:nth-last-child(2) {
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid var(--a5e-border-color);
             }
         }
 
@@ -187,12 +189,12 @@
         // Select elements in pairs to produce a striped pattern in the table
         &:nth-child(4n + 1),
         &:nth-child(4n + 2) {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--a5e-skill-background-alternate);
         }
 
         &--column-flow {
             &:nth-child(even) {
-                background: rgba(0, 0, 0, 0.05);
+                background: var(--a5e-skill-background-alternate);
                 border-left: none;
             }
 
@@ -202,7 +204,7 @@
             }
 
             &:nth-child(-n + 10) {
-                border-right: 1px solid #ccc;
+                border-right: 1px solid var(--a5e-border-color);
             }
 
             &:nth-child(10) {
@@ -210,7 +212,7 @@
             }
 
             &:nth-child(19) {
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid var(--a5e-border-color);
             }
         }
 
@@ -219,13 +221,13 @@
             margin: 0;
             padding: 0;
             background: transparent;
-            color: rgba(0, 0, 0, 0.25);
+            color: var(--a5e-button-gray);
 
             transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
-                color: #555;
+                color: var(--a5e-button-gray-hover);
                 box-shadow: none;
                 transform: scale(1.2);
             }
@@ -254,18 +256,18 @@
         }
 
         &__passive {
-            color: #999;
+            color: var(--a5e-color-text-medium);
             min-width: 3ch;
         }
 
         &__proficiency-icon {
             display: flex;
-            color: rgba(0, 0, 0, 0.25);
+            color: var(--a5e-button-gray);
             cursor: pointer;
 
             &--expertise,
             &--proficient {
-                color: var(--a5e-color-primary);
+                color: var(--a5e-skill-proficient-icon-color);
             }
 
             &--locked {
@@ -293,7 +295,7 @@
 
         &__roll-icon {
             display: none;
-            color: #555;
+            color: var(--a5e-button-gray);
             transition: var(--a5e-transition-standard);
 
             &--ctrl {

@@ -31,13 +31,7 @@
 						}
 					}
 				},
-				"prompts": {
-					"P3adDmxWnezPUQRU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "atyEHp1odKKrkMqv"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"atyEHp1odKKrkMqv"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-845983a7-7fff-b589-ff1d-a605bac4b3a6\" dir=\"ltr\">At 1st level, your relic empowers you to impose your will on others. You gain proficiency in Persuasion and Intimidation, or an expertise die if you are already proficient.&nbsp;</p>\n<p dir=\"ltr\">In addition, when you cast a wielder spell that requires an initial Intelligence, Wisdom, or Charisma saving throw before taking effect, you may choose to instead have the spell affect creatures whose current hit points total no more than 2d10 + 2d10 times the level of the spell.&nbsp;</p>\n<p dir=\"ltr\">If the spell can affect multiple creatures, creatures with the lowest number of hit points (excluding unconscious creatures) are affected first. As each creature is affected, subtract its hit points from the total before moving on to the next target.&nbsp;</p>\n<p dir=\"ltr\">A target&rsquo;s hit points must be equal to or less than the total remaining for the spell to have the effects associated with failing the saving throw. Otherwise, only effects that still occur when the saving throw is passed affect the target.</p>\n<p dir=\"ltr\">If the spell affects no creatures, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn. In addition, it suffers any effects that would still occur after a successful saving throw.</p>\n<p dir=\"ltr\">This feature makes no change to the area or number of creatures a spell can affect or target, nor does it change whether creatures make subsequent saving throws after the first.</p>",
@@ -85,10 +82,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "wielder",
 		"class": ""
 	},
@@ -97,9 +90,6 @@
 			"origin": "Item.Ga8kIimMRCUse4VR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SndKbCfcjPHPWeBW",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -111,7 +101,10 @@
 			"img": "icons/magic/control/encase-creature-humanoid-hold.webp",
 			"_id": "atyEHp1odKKrkMqv",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

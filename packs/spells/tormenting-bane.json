@@ -8,9 +8,6 @@
 			"origin": "Item.7i6dnjw1dzudlyvx",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5DV904tuT5qFRZ8M",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -68,6 +65,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -108,11 +109,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"5nMfZxdvmwtFLDNs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PYw6G65D8qrKd8GH"
 					}
 				},
 				"consumers": {
@@ -122,7 +118,10 @@
 						"points": 2,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"PYw6G65D8qrKd8GH"
+				]
 			}
 		},
 		"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Tormenting Bane.</strong> A target affected by this spell has disadvantage on its next saving throw made against fear.</p>",
@@ -157,16 +156,6 @@
 			"secondary": [
 				"affliction"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

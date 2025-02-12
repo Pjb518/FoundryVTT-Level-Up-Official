@@ -1,0 +1,233 @@
+{
+	"folder": null,
+	"name": "Always The Right Words",
+	"type": "feature",
+	"img": "icons/skills/social/thumbsup-approval-like.webp",
+	"system": {
+		"description": "<p>Also at 3rd level, you are able to inspire your allies to greater heights. You have a pool of envoy dice equal to your proficiency bonus. You can use your reaction to expend one envoy die whenever an ally who can hear and understand you makes an ability check or saving throw. That ally may roll the envoy die and add it to the result of their original die roll.</p>\n<p>Your envoy die is a d4. You can donate multiple envoy dice to the same ability check or saving throw; in this case, the envoy dice act like expertise dice, and increase–to a maximum of a d8–in die size by one stage for each additional envoy die, from d4 to d6, to d8.</p>\n<p>You regain spent uses of your envoy dice after you have finished a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"VTWo9fYEwmRaZV02": {
+				"name": "Envoy Die (1d4)",
+				"id": "VTWo9fYEwmRaZV02",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/thumbsup-approval-like.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Ally who can hear and understand you makes an ability check or saving throw"
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"p6xf6tIWxg3vYzIu": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "envoy-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"NmAIZPSfRYO9Hs96": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"zfrFkuEG6Y7fYiib": {
+				"name": "Envoy Die (1d6)",
+				"id": "zfrFkuEG6Y7fYiib",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/thumbsup-approval-like.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Ally who can hear and understand you makes an ability check or saving throw"
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"p6xf6tIWxg3vYzIu": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "envoy-dice-uses",
+						"resource": "classResource",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"NmAIZPSfRYO9Hs96": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"0VazDgrnyM17Ui8r": {
+				"name": "Envoy Die (1d8)",
+				"id": "VTWo9fYEwmRaZV02",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/thumbsup-approval-like.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Ally who can hear and understand you makes an ability check or saving throw"
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"p6xf6tIWxg3vYzIu": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "envoy-dice-uses",
+						"resource": "classResource",
+						"quantity": 3,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"NmAIZPSfRYO9Hs96": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scout",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735930303803,
+		"modifiedTime": 1735930605244,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fOTzIqnbHdT2iJXb"
+}

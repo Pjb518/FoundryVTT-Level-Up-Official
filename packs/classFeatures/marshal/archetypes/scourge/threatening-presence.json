@@ -31,13 +31,7 @@
 						"canCrit": false
 					}
 				},
-				"prompts": {
-					"mXYqToqSzVJVgHhm": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8LgJuvgkTMuCcNgD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -54,7 +48,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"8LgJuvgkTMuCcNgD"
+				]
 			}
 		},
 		"description": "<p>When you select this archetype at 3rd level you can lambast an allied creature within your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} with harsh commands and even threats, no action required, dealing 2d6 psychic damage to them. They gain an expertise die on all attack rolls, saving throws, and ability checks until the start of your next turn.</p>\n<p>You also gain proficiency with Intimidation. If you are already proficient you gain an expertise die instead.</p>",
@@ -92,16 +89,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -110,9 +97,6 @@
 			"origin": "Item.uyxiGhca3U7toEeZ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oEcNMXJs3BMoyRMv",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -124,7 +108,10 @@
 			"img": "icons/skills/melee/maneuver-sword-katana-yellow.webp",
 			"_id": "8LgJuvgkTMuCcNgD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.cha.save.expertiseDice",

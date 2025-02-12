@@ -1,20 +1,20 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import prepareAbilityOptions from '../dataPreparationHelpers/prepareAbilityOptions';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, appId } = getContext("#external").application;
+export let { document, appId } = getContext('#external').application;
 
-    const actor = document;
-    const abilityOptions = prepareAbilityOptions();
+const actor = document;
+const abilityOptions = prepareAbilityOptions();
 
-    $: initiative = $actor._source.system.attributes.initiative;
+$: initiative = $actor._source.system.attributes.initiative;
 </script>
 
 <Section --a5e-section-body-gap="0.75rem" --a5e-section-padding="0.75rem">

@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"2P9QOeY8pucWWYzJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "woDB58PX3XLySsMX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -52,7 +46,10 @@
 					"2j3WeYWqRlfzoDp1": {
 						"range": "touch"
 					}
-				}
+				},
+				"effects": [
+					"woDB58PX3XLySsMX"
+				]
 			},
 			"fK9uan9rZL0aK99C": {
 				"name": "Rely on Nature",
@@ -128,16 +125,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -146,10 +133,6 @@
 			"origin": "Item.ycsVcGqyQ5HgC6DY",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Pu8iRLLLJLTltGdl",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -160,7 +143,10 @@
 			"img": "icons/magic/nature/leaf-drip-light-green.webp",
 			"_id": "woDB58PX3XLySsMX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

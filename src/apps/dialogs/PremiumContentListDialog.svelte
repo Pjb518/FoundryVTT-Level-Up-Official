@@ -2,35 +2,35 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import PremiumContentListIntroduction from "./PremiumContentListIntroduction.svelte";
-    import PremiumContentListPatreon from "./PremiumContentListPatreon.svelte";
-    import PremiumContentListPremium from "./PremiumContentListPremium.svelte";
+import NavigationBar from '../components/navigation/NavigationBar.svelte';
+import PremiumContentListIntroduction from './PremiumContentListIntroduction.svelte';
+import PremiumContentListPatreon from './PremiumContentListPatreon.svelte';
+import PremiumContentListPremium from './PremiumContentListPremium.svelte';
 
-    export let elementRoot;
+export let elementRoot;
 
-    function getCurrentTabComponent({ name }) {
-        switch (name) {
-            case "intro":
-                return PremiumContentListIntroduction;
-            case "premiumContent":
-                return PremiumContentListPremium;
-            case "patreon":
-                return PremiumContentListPatreon;
-            default:
-                return PremiumContentListIntroduction;
-        }
-    }
+function getCurrentTabComponent({ name }) {
+	switch (name) {
+		case 'intro':
+			return PremiumContentListIntroduction;
+		case 'premiumContent':
+			return PremiumContentListPremium;
+		case 'patreon':
+			return PremiumContentListPatreon;
+		default:
+			return PremiumContentListIntroduction;
+	}
+}
 
-    const tabs = [
-        { name: "intro", label: "Introduction" },
-        { name: "premiumContent", label: "Premium Content" },
-        { name: "patreon", label: "Patreon Exclusive" },
-    ];
+const tabs = [
+	{ name: 'intro', label: 'Introduction' },
+	{ name: 'premiumContent', label: 'Premium Content' },
+	{ name: 'patreon', label: 'Patreon Exclusive' },
+];
 
-    let currentTab = tabs[0];
+let currentTab = tabs[0];
 </script>
 
 <ApplicationShell bind:elementRoot>

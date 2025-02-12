@@ -1,0 +1,185 @@
+{
+	"name": "Goo Grenade",
+	"type": "object",
+	"img": "icons/weapons/thrown/grenade-round.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"SeKnu34LE5x9GN0S": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"5dFNJPrVyjVvsERg": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "PeQIYANy4UtkVpnp",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"X8BmhjfSah6AWe0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vAUhpf0mzQssEBqO": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"effects": [
+					"mWJFXi70f1rgh8uq"
+				]
+			}
+		},
+		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Goo</h2>\n<p>When detonated, a goo grenade fills a 10-foot-radius sphere with a quick-hardening, adhesive foam. For the next minute, the ground in the area is difficult terrain. A creature in this area makes a Dexterity saving throw, becoming grappled on a failure (escape DC 10).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "40 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0.5,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.PeQIYANy4UtkVpnp",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"img": "icons/weapons/thrown/grenade-round.webp",
+			"_id": "mWJFXi70f1rgh8uq",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</li>\n<li>If the grappler becomes incapacitated the condition ends.</li>\n<li>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the Doubleteam combat maneuver) the condition ends.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732393738156,
+				"modifiedTime": 1732393775099,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732393686482,
+		"modifiedTime": 1732394180003,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fQDF84HlUMMgTIGl"
+}

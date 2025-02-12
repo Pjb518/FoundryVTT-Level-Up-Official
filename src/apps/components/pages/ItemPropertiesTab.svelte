@@ -1,20 +1,20 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import AmmunitionConfiguration from "../itemPropertiesConfig/AmmunitionConfiguration.svelte";
-    import ArmorClassConfiguration from "../itemPropertiesConfig/ArmorClassConfiguration.svelte";
-    import ArmorConfiguration from "../itemPropertiesConfig/ArmorConfiguration.svelte";
-    import ContainerConfiguration from "../itemPropertiesConfig/ContainerConfiguration.svelte";
-    import FeatureConfiguration from "../itemPropertiesConfig/FeatureConfiguration.svelte";
-    import ManeuverConfiguration from "../itemPropertiesConfig/ManeuverConfiguration.svelte";
-    import MaterialConfiguration from "../itemPropertiesConfig/MaterialConfiguration.svelte";
-    import ObjectConfiguration from "../itemPropertiesConfig/ObjectConfiguration.svelte";
-    import ShieldConfiguration from "../itemPropertiesConfig/ShieldConfiguration.svelte";
-    import SpellConfiguration from "../itemPropertiesConfig/SpellConfiguration.svelte";
-    import WeaponConfiguration from "../itemPropertiesConfig/WeaponConfiguration.svelte";
-    import UsesConfiguration from "../itemPropertiesConfig/UsesConfiguration.svelte";
+import AmmunitionConfiguration from '../itemPropertiesConfig/AmmunitionConfiguration.svelte';
+import ArmorClassConfiguration from '../itemPropertiesConfig/ArmorClassConfiguration.svelte';
+import ArmorConfiguration from '../itemPropertiesConfig/ArmorConfiguration.svelte';
+import ContainerConfiguration from '../itemPropertiesConfig/ContainerConfiguration.svelte';
+import FeatureConfiguration from '../itemPropertiesConfig/FeatureConfiguration.svelte';
+import ManeuverConfiguration from '../itemPropertiesConfig/ManeuverConfiguration.svelte';
+import MaterialConfiguration from '../itemPropertiesConfig/MaterialConfiguration.svelte';
+import ObjectConfiguration from '../itemPropertiesConfig/ObjectConfiguration.svelte';
+import ShieldConfiguration from '../itemPropertiesConfig/ShieldConfiguration.svelte';
+import SpellConfiguration from '../itemPropertiesConfig/SpellConfiguration.svelte';
+import WeaponConfiguration from '../itemPropertiesConfig/WeaponConfiguration.svelte';
+import UsesConfiguration from '../itemPropertiesConfig/UsesConfiguration.svelte';
 
-    const item = getContext("item");
+const item = getContext('item');
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

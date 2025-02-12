@@ -1,52 +1,51 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { localize } from "#runtime/svelte/helper";
+import { localize } from '#runtime/util/i18n';
 
-    export let HUD;
+export let HUD;
 
-    function handleStatusEffectAdd({ id, src }, options = {}) {
-        HUD.object._addStatusEffect({ id, src }, options);
-    }
+function handleStatusEffectAdd({ id, src }, options = {}) {
+	HUD.object._addStatusEffect({ id, src }, options);
+}
 
-    function handleStatusEffectRemove({ id, src }, options = {}) {
-        HUD.object._removeStatusEffect({ id, src }, options);
-    }
+function handleStatusEffectRemove({ id, src }, options = {}) {
+	HUD.object._removeStatusEffect({ id, src }, options);
+}
 
-    const data = HUD.getData();
-    const statusEffects = Object.values(data.statusEffects);
-    const genericEffects = Object.values(data.genericConditions);
-    const activeConditions = HUD.object._getActiveConditions();
+const data = HUD.getData();
+const statusEffects = Object.values(data.statusEffects);
+const genericEffects = Object.values(data.genericConditions);
+const activeConditions = HUD.object._getActiveConditions();
 
-    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
-        if (!c?.statuses?.length) return acc;
+const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
+	if (!c?.statuses?.length) return acc;
 
-        c.statuses.forEach((s) => {
-            acc[s] ??= [];
-            acc[s].push(c.id);
-        });
-        return acc;
-    }, {});
+	c.statuses.forEach((s) => {
+		acc[s] ??= [];
+		acc[s].push(c.id);
+	});
+	return acc;
+}, {});
 
-    $: conditionImmunities =
-        HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
+$: conditionImmunities = HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
 
-    const colors = {
-        1: "#919f00",
-        2: "#a09200",
-        3: "#af8300",
-        4: "#bd7100",
-        5: "#cb5c00",
-        6: "#d63f00",
-        7: "#e00006",
-    };
+const colors = {
+	1: '#919f00',
+	2: '#a09200',
+	3: '#af8300',
+	4: '#bd7100',
+	5: '#cb5c00',
+	6: '#d63f00',
+	7: '#e00006',
+};
 
-    $: conditionsFlowDirection = game.settings.get("a5e", "conditionFlowDirection");
+$: conditionsFlowDirection = game.settings.get('a5e', 'conditionFlowDirection');
 
-    $: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
-    $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
-    $: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
-    $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
+$: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
+$: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
+$: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
+$: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
 </script>
 
 <div
@@ -87,7 +86,15 @@
             />
             <h3
                 class="condition-title"
-                style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
+                style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+                    fatigue
+                ]}; --strife-col: {colors[
+                    strife
+                ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+                    corruption
+                ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[
+                    inebriated
+                ]};"
             >
                 {effect.title}
             </h3>
@@ -139,7 +146,7 @@
             img,
             h3 {
                 font-weight: bold;
-                color: $color-primary-light;
+                color: var(--a5e-color-primary-light);
                 // filter: invert(62%) sepia(32%) saturate(6599%)
                 //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
@@ -168,7 +175,7 @@
         &:focus {
             outline: none;
             box-shadow: none;
-            color: $color-primary-light;
+            color: var(--a5e-color-primary-light);
         }
 
         &:disabled {
@@ -223,7 +230,7 @@
         &.corruption-counter {
             h3::before {
                 content: var(--corruption);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--corruption-col);
             }
@@ -232,7 +239,7 @@
         &.fatigue-counter {
             h3::before {
                 content: var(--fatigue);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--fatigue-col);
             }
@@ -241,7 +248,7 @@
         &.inebriated-counter {
             h3::before {
                 content: var(--inebriated);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--inebriated-col);
             }
@@ -250,7 +257,7 @@
         &.strife-counter {
             h3::before {
                 content: var(--strife);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--strife-col);
             }

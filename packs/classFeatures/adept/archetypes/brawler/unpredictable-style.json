@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.HglrtInHzlVa85Rr",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Zw8mwIuS8Gn4NSJN",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/movement/portal-vortex-orange.webp",
 			"_id": "kP9DHg3etbfEm3gU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -131,13 +129,7 @@
 						"damageType": "bludgeoning"
 					}
 				},
-				"prompts": {
-					"PTVa6Bdu7mjmvjWD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kP9DHg3etbfEm3gU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -148,7 +140,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kP9DHg3etbfEm3gU"
+				]
 			}
 		},
 		"description": "<p>Starting at 11th level, when you make an ability check that could use a skill or tool you are not proficient with, you can roll your martial arts die and add it to that check. On a successful check, you can&rsquo;t use this feature with the same ability until you finish a rest. On a failure, you fall prone and roll your martial arts die, taking damage equal to that amount.</p>",
@@ -169,16 +164,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

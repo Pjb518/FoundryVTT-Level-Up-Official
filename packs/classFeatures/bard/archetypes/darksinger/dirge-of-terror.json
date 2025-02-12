@@ -57,16 +57,6 @@
 							"bonus": ""
 						},
 						"label": "If save failed by 5 or more"
-					},
-					"HF2uRzr9v3FkCRT2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ga5Su9qho0ehUMyX"
-					},
-					"7j0a3Tr2prjlaa7m": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3TNmbgs5NrsqToCl"
 					}
 				},
 				"uses": {
@@ -90,7 +80,11 @@
 					"EveD1kJJByx4ofLH": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"Ga5Su9qho0ehUMyX",
+					"3TNmbgs5NrsqToCl"
+				]
 			}
 		},
 		"description": "<p>At 14th level, you learn to emit a terrifying clamor that causes your opponents terrible distress. As an action, you may spend a use of your Bardic Inspiration to play a Dirge of Terror. Enemy creatures in a 15-foot cone must make a Wisdom save against your spell save DC or take 4d6 psychic damage, suffer a level of strife and become frightened for one minute. Creatures that succeed on their Wisdom save take damage as normal, but are not frightened and do not suffer levels of strife. Creatures that fail by 5 or more suffer a mild heart attack. Such a creature must make a Constitution save against your spell save DC or suffer two levels of fatigue and are stunned until the end of their next turn.</p>",
@@ -111,16 +105,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard",
 		"class": ""
 	},
@@ -129,9 +113,6 @@
 			"origin": "Item.BN9zzuVJL291uz75",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Gl0M2lwfIcGJbdrn",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -180,7 +161,10 @@
 			},
 			"img": "icons/magic/control/debuff-energy-hold-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -189,9 +173,6 @@
 			"origin": "Item.BN9zzuVJL291uz75",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Gl0M2lwfIcGJbdrn",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -203,7 +184,10 @@
 			"img": "icons/magic/control/debuff-energy-hold-pink.webp",
 			"_id": "3TNmbgs5NrsqToCl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.strife",

@@ -27,11 +27,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"kuaRcbFSEXY5w4T3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Pb2XFEguN1hFXOzc"
 					}
 				},
 				"uses": {
@@ -45,7 +40,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/weapons/swords/sword-runed-glowing.webp"
+				"img": "icons/weapons/swords/sword-runed-glowing.webp",
+				"effects": [
+					"Pb2XFEguN1hFXOzc"
+				]
 			},
 			"n6e7EwyxyFSUQq21": {
 				"name": "Lunar Smite",
@@ -67,11 +65,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"CO196MA46U865ko9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bMJXMohOq0G0om3O"
 					}
 				},
 				"uses": {
@@ -85,7 +78,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/magic/time/day-night-sun-moon.webp"
+				"img": "icons/magic/time/day-night-sun-moon.webp",
+				"effects": [
+					"bMJXMohOq0G0om3O"
+				]
 			}
 		},
 		"description": "<p>It is nearly impossible to conceal something you are looking for from you, and your prowess at finding the true nature of supernatural threats is a potent reassurance to those you protect.&nbsp;You gain the following benefits:</p><ul><li><p>You no longer choose which enemy types your @UUID[Compendium.a5e.a5e-class-features.Item.01szspr1nunp0lql]{Divine Sense} detects; it automatically detects all three sets by default. If you have some other benefit that grants you more than three choices, pick three times.</p></li><li><p>You gain the following additional @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite} options:</p></li></ul><ul><li style=\"list-style-type: none;\"><ul><li><strong>Purifying Smite.&nbsp;</strong>If a creature you strike with your smite is possessed by another creature or controlled by a parasite, the damage (including the weapon damage from this attack and your sneak attack, if applicable) is done directly to the controlling or possessing creature instead of to the host, which must make a Charisma save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) to remain in the host. A creature that fails is immediately forced out of the host body and stunned until the end of its next turn. If the damage is enough to kill the possessing or controlling creature, it is first ejected and then dies.</li><li><strong>Lunar Smite. </strong>If the creature you strike with your smite is a shapeshifter, it must make a Constitution save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) or revert to its true form. If the space it currently occupies is not large enough to hold its true form, the creature takes a number of d6s of force damage equal to your proficiency bonus and is stunned until the end of its next round.</li></ul></li></ul>",
@@ -106,16 +102,6 @@
 		"grants": {},
 		"prerequisite": "Breaker of Secrets feat",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"effects": [
@@ -124,9 +110,6 @@
 			"origin": "Item.xoqav6j8gyqi7km0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eF6db6KEp3jsEbso",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -163,6 +146,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -170,9 +157,6 @@
 			"origin": "Item.xoqav6j8gyqi7km0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8Ba0ZaxHJdJlZzPi",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -209,6 +193,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

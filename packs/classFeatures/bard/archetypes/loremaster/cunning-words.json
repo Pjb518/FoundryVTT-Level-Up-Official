@@ -7,9 +7,6 @@
 			"origin": "Item.W3utkj73fBu7JNLI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6EwYo5q7viFtTl2U",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
 			"_id": "DO1gSdRPYX3BgjoH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -113,13 +113,10 @@
 						"formula": "@classResources.bardic-inspiration-die"
 					}
 				},
-				"prompts": {
-					"1tVggmSDrpA8mKDo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DO1gSdRPYX3BgjoH"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"DO1gSdRPYX3BgjoH"
+				]
 			}
 		},
 		"description": "<p>Also at 3rd level, you can use your cunning to detect, discourage, and distract others. When a creature that you can see within 60 feet makes an ability check, attack roll, or damage roll, you can use your reaction to expend a use of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature’s roll. When you roll the minimum or maximum result for your Bardic Inspiration die, the creature is rattled until the end of your next turn. </p><p>You can choose to use this feature after the creature makes its roll, but before the Narrator determines whether the attack roll or ability check succeeds or fails, or before damage is dealt. The creature is immune if it can’t hear you or if it’s immune to being charmed.</p>",
@@ -140,16 +137,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard",
 		"class": ""
 	},

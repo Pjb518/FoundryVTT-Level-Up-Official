@@ -7,10 +7,6 @@
 			"origin": "Item.NqU5g4Md1FdpkuRl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bjWbtcOIhp6coBwI",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/magic/nature/root-vine-fire-entangled-hand.webp",
 			"_id": "5bB9omgia50bxVPg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.baseFormula",
@@ -100,13 +99,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"uomo4iWYTBlhdziZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5bB9omgia50bxVPg"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"5bB9omgia50bxVPg"
+				]
 			},
 			"NqCtnsdTYLFMd4Sd": {
 				"name": "Grappled",
@@ -206,16 +202,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},

@@ -1,0 +1,88 @@
+{
+	"name": "Stack the Deck",
+	"type": "feature",
+	"img": "icons/sundries/gaming/playing-cards-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MhifecxFV7m2Iwaq": {
+				"name": "Stack the Deck",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Creature in your aura of luck makes an attack roll with advantage, or against an enemy that is threatened by other creatures"
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"40EZYJsCuIT9J3Yf": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "risk-dice",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"QuavOzXEUTQm7kEX": {
+						"type": "damage",
+						"default": true,
+						"formula": "((@classResources.risk-dice)d6)"
+					}
+				},
+				"prompts": {}
+			}
+		},
+		"description": "<p>Also at level 1 you gain the ability to stack the deck in favor of your friends. If a creature in your aura of luck makes an attack roll with advantage, or against an enemy that is threatened by other creatures, you may add dice from your risk pool to the damage of your ally’s attack as a reaction after the roll has been made, but before the narrator declares whether the attack was a hit or a miss.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "gambler",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1730904783499,
+		"modifiedTime": 1730904799787,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n9peo3gc18u83rw3"
+}

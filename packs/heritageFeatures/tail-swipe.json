@@ -1,0 +1,95 @@
+{
+	"folder": null,
+	"name": "Tail Swipe",
+	"type": "feature",
+	"img": "icons/creatures/abilities/tail-swipe-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"664cR5qTEKygMDP2": {
+				"name": "Tail Swipe",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"BsD2DGpEWDovSBfv": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"iooLpSuIvlNDuvUJ": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"2HnRmQH4VFZul1P8": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Your tail is edged with spikes, making it a potent weapon. You can use a bonus action to make an attack with your tail with a reach of 5 feet, and which counts as a natural weapon and does piercing damage equal to 1d4 + your Strength modifier. Alternatively, if you use it to trip your target with the @UUID[Compendium.a5e.a5e-maneuvers.Item.zzg7j7cb0vkgctwi]{Knockdown} basic maneuver, the target makes their saving throw at disadvantage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731770930869,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "M9EZyvpcsPNK5Xvi"
+}

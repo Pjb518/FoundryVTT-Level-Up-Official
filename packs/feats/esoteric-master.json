@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"8Z1x9wtswxskqwL3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JyucDPPg3XxK6YbJ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"JyucDPPg3XxK6YbJ"
+				]
 			}
 		},
 		"description": "<p>You no longer merely flow smoothly between martial arts and magical power, you combine them into a unified whole. You gain the following benefits:</p>\n<ul>\n<li>Your Dexterity, Wisdom, or Charisma score increases by 1, to a maximum of 20.</li>\n<li>When you convert sorcery points to exertion, your next maneuver attack deals an additional [[/r 1d4]] points of one of the following damage types of your choice: acid, cold, fire, lightning, poison, or thunder.</li>\n<li>You learn the following new Manifestation. It does not count against your Manifestations learned.</li>\n</ul>\n<p>&nbsp;</p>\n<h3>Spellstrike</h3>\n<p>When you cast a spell that requires an unarmed or weapon attack, you can spend 1 sorcery point and choose one creature you can see. If that creature takes bludgeoning, piercing, or slashing damage from the spell or an attack you make as part of casting the spell, it is rattled and poisoned until the end of its next turn.</p>",
@@ -89,10 +86,6 @@
 		},
 		"prerequisite": "Eldritch Student feat",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -101,9 +94,6 @@
 			"origin": "Item.HaO02lIOdi3OakiZ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "u3p8V1LrqNBx19bg",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -115,7 +105,10 @@
 			"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp",
 			"_id": "JyucDPPg3XxK6YbJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

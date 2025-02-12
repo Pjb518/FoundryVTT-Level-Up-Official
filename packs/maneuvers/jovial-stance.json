@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"l543pcCsghB6faru": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0WROaCITW1TkFIMK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 				"target": {
 					"type": "self",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"0WROaCITW1TkFIMK"
+				]
 			}
 		},
 		"description": "<p>Just the right amount of lightness to a warrior&rsquo;s step can frustrate an opponent and make them easy to trick.</p><p>You gain an expertise die on Acrobatics and nonmusical Performance checks.</p>",
@@ -66,17 +63,7 @@
 		"exertionCost": 1,
 		"isStance": true,
 		"prerequisite": "",
-		"tradition": "comedicJabs",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "comedicJabs"
 	},
 	"effects": [
 		{
@@ -84,10 +71,6 @@
 			"origin": "Item.k2qgksxe1qk94hup",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ypY5qIJiTUwWj4lG",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -127,6 +110,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

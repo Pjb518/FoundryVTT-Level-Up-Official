@@ -1,63 +1,63 @@
 function parseOrString(raw: string): any {
-  try {
-    return JSON.parse(raw);
-  } catch (err) {
-    return raw;
-  }
+	try {
+		return JSON.parse(raw);
+	} catch (err) {
+		return raw;
+	}
 }
 
 function castArray(value: any): any[] {
-  let delta: any[];
+	let delta: any[];
 
-  try {
-    delta = JSON.parse(value);
-    delta = delta instanceof Array ? delta : [delta];
-  } catch (err) {
-    delta = [value];
-  }
+	try {
+		delta = JSON.parse(value);
+		delta = delta instanceof Array ? delta : [delta];
+	} catch (err) {
+		delta = [value];
+	}
 
-  return delta;
+	return delta;
 }
 
 function castObject(value: any): Record<string, any> {
-  let delta: Record<string, any>;
+	let delta: Record<string, any>;
 
-  try {
-    delta = JSON.parse(value);
-    delta = delta instanceof Object ? delta : {};
-  } catch (err) {
-    delta = {};
-  }
+	try {
+		delta = JSON.parse(value);
+		delta = delta instanceof Object ? delta : {};
+	} catch (err) {
+		delta = {};
+	}
 
-  return delta;
+	return delta;
 }
 
 function castSet(value: any): Set<any> {
-  let delta: Set<any>;
+	let delta: Set<any>;
 
-  try {
-    delta = parseOrString(value);
-    delta = delta instanceof Set ? delta : new Set(delta);
-  } catch (err) {
-    delta = new Set([value]);
-  }
+	try {
+		delta = parseOrString(value);
+		delta = delta instanceof Set ? delta : new Set(delta);
+	} catch (err) {
+		delta = new Set([value]);
+	}
 
-  return delta;
+	return delta;
 }
 
 export default function castType(value: any, targetType: string): any {
-  if (targetType === 'Array') return castArray(value);
-  if (targetType === 'Object') return castObject(value);
-  if (targetType === 'Set') return castSet(value);
+	if (targetType === 'Array') return castArray(value);
+	if (targetType === 'Object') return castObject(value);
+	if (targetType === 'Set') return castSet(value);
 
-  if (targetType === 'boolean') return Boolean(parseOrString(value));
+	if (targetType === 'boolean') return Boolean(parseOrString(value));
 
-  if (targetType === 'number') {
-    const delta = Number.fromString(value);
-    return Number.isNaN(delta) ? 0 : delta;
-  }
+	if (targetType === 'number') {
+		const delta = Number.fromString(value);
+		return Number.isNaN(delta) ? 0 : delta;
+	}
 
-  if (targetType === 'string') return String(value);
+	if (targetType === 'string') return String(value);
 
-  return parseOrString(value);
+	return parseOrString(value);
 }

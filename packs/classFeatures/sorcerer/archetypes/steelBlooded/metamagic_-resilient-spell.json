@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"dxczb9VDDEvSUtJN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JsYurBUfYTKfoKRO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"JsYurBUfYTKfoKRO"
+				]
 			}
 		},
 		"description": "<p>When you cast a spell that requires concentration, you may spend 2 sorcery points to grant yourself advantage on the first concentration check to maintain concentration on it.</p>",
@@ -65,10 +62,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -76,19 +69,17 @@
 		{
 			"origin": "Item.QlmG4J3HunSdMEoc",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "k930dzoxhpfjPpMP",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Resilient Spell",
 			"img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
 			"_id": "JsYurBUfYTKfoKRO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.concentration",

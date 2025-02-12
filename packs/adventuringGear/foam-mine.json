@@ -1,0 +1,206 @@
+{
+	"name": "Foam Mine",
+	"type": "object",
+	"img": "icons/environment/traps/pressure-plate.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"QzkmQH4ymtJeA5dC": {
+				"name": "Set Mine",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"8WGynJoIwXP3mEC2": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"8zmbenkKbimLTxVY": {
+				"name": "Detonate",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"X8BmhjfSah6AWe0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vAUhpf0mzQssEBqO": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"effects": [
+					"834Q7GcAylEQ1aO9"
+				]
+			}
+		},
+		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Foam</h2>\n<p>When detonated, a foam grenade fills a 10-foot-radius sphere with slippery, fire-retardant foam. Open flames in the area when the grenade explodes are immediately extinguished. For the next minute, the ground in the area is difficult terrain. A creature in the affected area or one that enters the area for the first time on a turn or begins its turn in the area, makes a DC 10 Dexterity saving throw, falling prone on a failure.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "20 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0.5,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.iHKBIGBM49jcI5bQ",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/weapons/thrown/grenade-round.webp",
+			"_id": "834Q7GcAylEQ1aO9",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732394597844,
+				"modifiedTime": 1732394597844,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732394562874,
+		"modifiedTime": 1732394620905,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "TDF1wjhdsQOezHf4"
+}

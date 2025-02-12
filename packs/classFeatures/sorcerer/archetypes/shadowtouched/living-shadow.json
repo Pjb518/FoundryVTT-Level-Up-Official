@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"tjZSgxZQoZly36iS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Wf1IH3JE1uX189JR"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -52,7 +46,10 @@
 					"type": "self",
 					"quantity": 1
 				},
-				"ranges": {}
+				"ranges": {},
+				"effects": [
+					"Wf1IH3JE1uX189JR"
+				]
 			},
 			"rLVTonXeOdFat0Vv": {
 				"name": "Solid Object",
@@ -99,16 +96,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -117,9 +104,6 @@
 			"origin": "Item.7tc6ApROV2h1wmwI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QnlrD9a9I8HGSef7",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -130,7 +114,10 @@
 			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
 			"_id": "Wf1IH3JE1uX189JR",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

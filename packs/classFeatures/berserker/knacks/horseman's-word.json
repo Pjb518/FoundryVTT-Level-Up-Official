@@ -31,11 +31,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"1dEKwH7xpKtEvm38": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t8FxcjiSOy6ZP03g"
 					}
 				},
 				"uses": {
@@ -48,7 +43,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"t8FxcjiSOy6ZP03g"
+				]
 			}
 		},
 		"description": "<p>When an animal first encounters your might, you can cow them. When you grapple a creature with the beast creature type, you may spend a bonus action to whisper a threat into its ear. The creature understands the intent, if not the words, and must make a Wisdom saving throw against your maneuver DC. On a failure, the creature becomes docile and biddable for ten minutes, after which it reverts to its normal behavior. While the creature is affected in this way, it will not attack and will follow commands that do not counteract its nature. If it takes damage or is commanded to act against its nature (such as asking a cow to cross a cattle guard), it makes another Wisdom saving throw. On a success, the effect ends.</p>",
@@ -69,10 +67,6 @@
 		"grants": {},
 		"prerequisite": "3rd Level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "berserker"
 	},
@@ -81,9 +75,6 @@
 			"origin": "Item.b7Y0nBRT1asueXeO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SyOv3mWK5aiGWDn0",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -94,7 +85,10 @@
 			"img": "icons/environment/creatures/horse-brown.webp",
 			"_id": "t8FxcjiSOy6ZP03g",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

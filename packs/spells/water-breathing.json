@@ -7,11 +7,7 @@
 			"icon": "icons/magic/water/bubbles-air-water-blue.webp",
 			"origin": "Item.Db16fseBzc7LNGlL",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mQx5UmJRh6ALfkZ6"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Water Breathing",
@@ -34,6 +30,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -73,13 +73,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"tUEXRCxlBjcZQ9lC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sPWe6xVnrjj56v82"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"sPWe6xVnrjj56v82"
+				]
 			}
 		},
 		"description": "<p>Until the spell ends, the targets are able to breathe underwater (and still able to respirate normally).</p>",
@@ -125,16 +122,6 @@
 				"utility",
 				"water"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

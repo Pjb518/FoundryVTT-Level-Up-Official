@@ -38,11 +38,6 @@
 						},
 						"label": "",
 						"onSave": "half damage & not burned"
-					},
-					"iYAtusuBeEfhOeK0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Tv2Zwxf6TyVhyqll"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"Tv2Zwxf6TyVhyqll"
+				]
 			},
 			"EY2jbnIZzBkEejzc": {
 				"name": "On Taking an Action or Damage",
@@ -150,16 +148,6 @@
 				"nature"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -168,9 +156,6 @@
 			"origin": "Item.tze4jskf09j9botc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tQe8eOmTYD7Mqkt3",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -210,6 +195,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

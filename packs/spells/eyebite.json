@@ -8,9 +8,6 @@
 			"origin": "Item.uroaodb26zqe1qbh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CKcAWvWaf1OWxzLl",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.uroaodb26zqe1qbh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CKcAWvWaf1OWxzLl",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -91,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -98,9 +100,6 @@
 			"origin": "Item.uroaodb26zqe1qbh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CKcAWvWaf1OWxzLl",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -170,6 +169,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -210,21 +213,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"FFajMm8EEiLkmpdH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pSOsbe7N57UPfaq7"
-					},
-					"Sus6ihPLKdahjKyR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "IJtyuBJKo12gnBV7"
-					},
-					"59K1ZSh6mLAYziP4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Kh147bSZyAEvkvRY"
 					}
 				},
 				"consumers": {
@@ -234,7 +222,12 @@
 						"points": 9,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"pSOsbe7N57UPfaq7",
+					"IJtyuBJKo12gnBV7",
+					"Kh147bSZyAEvkvRY"
+				]
 			}
 		},
 		"description": "<p>Your eyes become an inky void imbued with fell power. One creature of your choice within 60 feet of you that you can see and that can see you must succeed on a Wisdom saving throw or be afflicted by one of the following effects for the duration. Until the spell ends, on each of your turns you can use an action to target a creature that has not already succeeded on a saving throw against this casting of <em>eyebite</em>.</p><ul><li><p><strong>Asleep:</strong> The target falls unconscious, waking if it takes any damage or another creature uses an action to rouse it.</p></li><li><p><strong>Panicked:</strong> The target is frightened of you. On each of its turns, the frightened creature uses its action to take the Dash action and move away from you by the safest and shortest available route unless there is nowhere for it to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</p></li><li><p><strong>Sickened:</strong> The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw, ending this effect on a successful save.</p></li></ul>",
@@ -277,16 +270,6 @@
 				"arcane",
 				"fear"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

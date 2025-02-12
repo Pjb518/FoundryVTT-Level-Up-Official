@@ -1,0 +1,232 @@
+{
+	"folder": null,
+	"name": "Slug Rifle",
+	"type": "object",
+	"img": "icons/weapons/guns/gun-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KKBPesse737UwA3g": {
+				"name": "Slug Rifle",
+				"activation": {},
+				"consumers": {
+					"NtQCZH2iGBKZcMZx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"bivQPKngGsAGcl3B": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"gk4dY3wNTIuAP2nC": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6 + @dex.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"s8XESJ1nbPcb05tR": {
+						"range": "long"
+					},
+					"ACQXxwFIZC5cmIlO": {
+						"range": 360,
+						"unit": "feet"
+					}
+				}
+			},
+			"b9UlMvFiO6UM09pR": {
+				"name": "Burst Fire",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"QgVx1oswu6w0Puez": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 10
+					}
+				},
+				"rolls": {
+					"sSyM9PU7Iy17GahJ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6 + @dex.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {
+					"Y1IUlK1SYU20vccc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"K4jx3CGV0bzRl9pV": {
+						"range": "long",
+						"unit": "feet"
+					},
+					"82Ddt4oOeBCyQnLE": {
+						"range": 360,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"img": "icons/weapons/guns/gun-purple.webp"
+			},
+			"MX7CA7959jB0MlWC": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"VGYXEVBguMCVwQQi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					},
+					"8XqtUdHOs7YIrDYm": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/guns/gun-purple.webp"
+			}
+		},
+		"description": "<p>A slug rifle is an automatic weapon which fires solid ammunition.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "135 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"burstFire",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 8,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"burst"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732314284213,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xQjWZ1w96hZP6HQW"
+}

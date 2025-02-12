@@ -8,10 +8,6 @@
 			"origin": "Item.ydihdjn5jloe5ba7",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "m4G5oiA0mRYvbJoB",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -47,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -54,10 +54,6 @@
 			"origin": "Item.ydihdjn5jloe5ba7",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "m4G5oiA0mRYvbJoB",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -93,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -123,13 +123,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"C2qgvEXjPr6eFSkx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5yOvbYYIyzzmhaFi"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -154,7 +148,10 @@
 					"type": "creature",
 					"quantity": 1
 				},
-				"img": "icons/magic/control/silhouette-hold-change-blue.webp"
+				"img": "icons/magic/control/silhouette-hold-change-blue.webp",
+				"effects": [
+					"5yOvbYYIyzzmhaFi"
+				]
 			},
 			"W9GZmnlt3LtZsHb3": {
 				"name": "Noticed",
@@ -227,16 +224,6 @@
 				"obscurement",
 				"shadow"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

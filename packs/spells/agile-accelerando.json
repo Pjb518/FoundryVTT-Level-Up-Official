@@ -8,9 +8,6 @@
 			"origin": "Item.ymjcywggbedvqu9p",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1T2g8Ks8t177ge59",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -69,6 +66,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -76,9 +77,6 @@
 			"origin": "Item.ymjcywggbedvqu9p",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1T2g8Ks8t177ge59",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -113,6 +111,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -120,9 +122,6 @@
 			"origin": "Item.ymjcywggbedvqu9p",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1T2g8Ks8t177ge59",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -157,6 +156,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -196,23 +199,12 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"YNksuaTUvcAShxgd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6jr6X6lQo0sFcCtI"
-					},
-					"7fXwAQwmlzngeMWd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ce7zognDwdNqLCou"
-					},
-					"cEamudWi4A7db4hT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nvN2hEedEMhnSPx3"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"6jr6X6lQo0sFcCtI",
+					"Ce7zognDwdNqLCou",
+					"nvN2hEedEMhnSPx3"
+				]
 			}
 		},
 		"description": "<p>You play a complex and quick up-tempo piece that gradually gets faster and more complex, instilling the targets with its speed. You cannot cast another spell through your spellcasting focus while concentrating on this spell.</p><p>Until the spell ends, targets gain cumulative benefits the longer you maintain concentration on this spell (including the turn you cast it).</p><ul><li><p><strong>1 Round:</strong> Double Speed.</p></li><li><p><strong>2 Rounds:</strong> +2 bonus to AC.</p></li><li><p><strong>3 Rounds:</strong> Advantage on Dexterity saving throws.</p></li><li><p><strong>4 Rounds:</strong> An additional action each turn. This action can be used only to take the Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.</p></li></ul><p>When the spell ends, a target can't move or take actions until after its next turn as the impact of their frenetic speed catches up to it.</p><p><strong><em>Cast at Higher Levels.</em></strong> You may maintain concentration on this spell for an additional 2 rounds for each slot level above 4th.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Agile Accelerando. </strong>A target’s additional action can be used to escape a grapple, and targets have advantage on saving throws made to avoid or escape a grapple. </p>",
@@ -250,16 +242,6 @@
 				"sound",
 				"time"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

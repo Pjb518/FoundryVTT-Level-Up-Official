@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Xiag26qw9nXjo5rh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oVQq73objA6q9jey"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"oVQq73objA6q9jey"
+				]
 			},
 			"G6PomklR2OGLoo9U": {
 				"name": "Brutal Defense (Damage)",
@@ -101,16 +98,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},
@@ -119,10 +106,6 @@
 			"origin": "Item.KbWiYzLv2JZluN2Z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rzfCv8eEmazkGXb0",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -133,7 +116,10 @@
 			"img": "icons/equipment/shield/kite-wooden-oak-glow.webp",
 			"_id": "oVQq73objA6q9jey",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -7,11 +7,7 @@
 			"icon": "icons/magic/control/silhouette-fall-slip-prone.webp",
 			"origin": "Item.7nBbtscBadfZCM8Y",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2C0fFasoEoB6Ukjm"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -88,14 +88,12 @@
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"type": "savingThrow"
-					},
-					"H27Fw4KV6L9bEu2J": {
-						"type": "effect",
-						"default": true,
-						"effectId": "txaDOOdHGKrYVkmM"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"txaDOOdHGKrYVkmM"
+				]
 			}
 		},
 		"description": "<p>With the right angle, your attack knocks the target sprawling. When you score a critical hit, the target makes a Strength saving throw or is knocked prone. This Furious Critical can be taken a second time to combine its effects with @UUID[Compendium.a5e.a5e-class-features.Item.3ciin5fve17u0jyc]{Overbearing Hit}.</p>",
@@ -116,16 +114,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker"
 	},
 	"folder": null,

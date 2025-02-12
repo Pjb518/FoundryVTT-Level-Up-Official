@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSIconButton } from "#standard/component";
+    import { TJSIconButton } from "#standard/component/button";
 
     import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
     import ChangeValue from "../effectChanges/ChangeValue.svelte";
@@ -109,7 +109,7 @@
         position: absolute;
         top: 0.75rem;
         right: 0.75rem;
-        color: #999;
+        color: var(--a5e-button-gray);
         font-size: var(--a5e-text-size-md);
     }
 
@@ -123,6 +123,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: #999;
+        color: var(--a5e-button-gray);
     }
 </style>

@@ -45,11 +45,6 @@
 						"saveDC": {
 							"type": "con"
 						}
-					},
-					"R3sJ1Hxw5yAJQWME": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ngd6OItglBWTjCKE"
 					}
 				},
 				"uses": {
@@ -72,7 +67,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"Ngd6OItglBWTjCKE"
+				]
 			}
 		},
 		"description": "<p>You gain the ability to spit blinding venom at your foes. Your venom spit is a ranged weapon attack with a range of 40 feet. If you hit, the target suffers 2d6 points of poison damage and must make a Constitution save against a DC equal to 8 + your proficiency bonus + your Constitution modifier or be blinded for until the end of its next turn.</p>",
@@ -93,10 +91,6 @@
 		"grants": {},
 		"prerequisite": "Viper heritage gift",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": ""
 	},
@@ -105,9 +99,6 @@
 			"origin": "Item.FGbgA5dYc9aaNjgR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pI4Y2mrrjMU8rWLT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -146,7 +137,10 @@
 			},
 			"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

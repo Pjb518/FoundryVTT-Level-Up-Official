@@ -9,27 +9,27 @@ import OriginItemA5e from '../documents/item/origin';
 import SpellItemA5e from '../documents/item/spell';
 
 export default function registerDocumentConfig() {
-  return {
-    Actor: {
-      documentClasses: {
-        character: CharacterActorA5E,
-        npc: NPCActorA5E
-      }
-    },
+	return {
+		Actor: {
+			documentClasses: {
+				character: CharacterActorA5E,
+				npc: NPCActorA5E,
+			},
+		},
 
-    Item: {
-      documentClasses: {
-        feature: FeatureItemA5e,
-        object: ObjectItemA5e,
-        spell: SpellItemA5e,
+		Item: {
+			documentClasses: {
+				feature: FeatureItemA5e,
+				object: ObjectItemA5e,
+				spell: SpellItemA5e,
 
-        archetype: ArchetypeItemA5e,
-        background: OriginItemA5e,
-        class: ClassItemA5e,
-        culture: OriginItemA5e,
-        destiny: OriginItemA5e,
-        heritage: OriginItemA5e
-      }
-    }
-  };
+				archetype: ArchetypeItemA5e,
+				background: OriginItemA5e,
+				class: ClassItemA5e,
+				culture: OriginItemA5e,
+				destiny: OriginItemA5e,
+				heritage: OriginItemA5e,
+			},
+		},
+	};
 }

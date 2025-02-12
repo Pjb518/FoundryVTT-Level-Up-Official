@@ -7,9 +7,6 @@
 			"origin": "Item.WyWHy0btzSk6VfE5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6nIMkEWZElls5fgZ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -38,7 +35,10 @@
 			},
 			"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -47,10 +47,6 @@
 			"origin": "Item.WyWHy0btzSk6VfE5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6nIMkEWZElls5fgZ",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -79,7 +75,10 @@
 			},
 			"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -88,9 +87,6 @@
 			"origin": "Item.WyWHy0btzSk6VfE5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "G9PrVxJbJXvzMbah",
 					"duration": {
 						"unit": "hours"
 					}
@@ -101,7 +97,10 @@
 			"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
 			"_id": "TzP8Pvpjz8tOGUSY",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -170,18 +169,11 @@
 						"unit": "feet"
 					}
 				},
-				"prompts": {
-					"9IfLSlHdM5Ml1vw6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eJp8RSGhP05Gj5DC"
-					},
-					"95ePv7joEIv4rybX": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yorFJmwZWCnRPMdX"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"eJp8RSGhP05Gj5DC",
+					"yorFJmwZWCnRPMdX"
+				]
 			},
 			"G9PrVxJbJXvzMbah": {
 				"name": "Mark New Quarry",
@@ -191,13 +183,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"JwQsvjLvRU9yfeEe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "TzP8Pvpjz8tOGUSY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -208,7 +194,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"TzP8Pvpjz8tOGUSY"
+				]
 			}
 		},
 		"description": "<p>You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon attack rolls against the creature, and your weapon attacks against it deal an extra 1d6 damage. In addition, you have advantage on Perception and Survival checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.&nbsp;</p><p>Once you use this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
@@ -229,16 +218,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "ranger",
 		"class": ""
 	},

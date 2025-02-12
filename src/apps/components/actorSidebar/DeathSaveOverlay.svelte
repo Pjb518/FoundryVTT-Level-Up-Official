@@ -1,15 +1,15 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import pressedKeysStore from "../../../stores/pressedKeysStore";
+import pressedKeysStore from '../../../stores/pressedKeysStore';
 
-    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getKeyPressAsOptions from '../../handlers/getKeyPressAsOptions';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    let isBlind = game.settings.get("a5e", "blindDeathSaves");
-    $: death = $actor.system.attributes.death;
+let isBlind = game.settings.get('a5e', 'blindDeathSaves');
+$: death = $actor.system.attributes.death;
 </script>
 
 <div class="death-saves">

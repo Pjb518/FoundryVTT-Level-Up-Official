@@ -37,11 +37,6 @@
 							"bonus": "13"
 						},
 						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
 					}
 				},
 				"uses": {
@@ -53,7 +48,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/commodities/materials/liquid-green.webp"
+				"img": "icons/commodities/materials/liquid-green.webp",
+				"effects": [
+					"5UaBqRqzFKFk9i84"
+				]
 			}
 		},
 		"description": "<p><em>Uncommon, Injury, Instantaneous</em></p><p>This slime can be carefully harvested from&nbsp;a chuul&rsquo;s tentacles. A creature makes a DC 13&nbsp;Constitution saving throw when subjected to this&nbsp;poison, and on a failure it becomes poisoned for&nbsp;1 minute. Creatures poisoned in this way are also&nbsp;paralyzed. The poisoned creature repeats its saving&nbsp;throw at the end of each of its turns, ending the&nbsp;poison&rsquo;s effects on a success.</p>",
@@ -94,16 +92,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -116,9 +104,6 @@
 			"origin": "Item.9q0c74tv6w54ftmj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -156,6 +141,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

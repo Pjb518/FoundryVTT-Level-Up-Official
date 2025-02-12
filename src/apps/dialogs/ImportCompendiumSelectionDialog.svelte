@@ -38,6 +38,5 @@
         width: 100%;
         padding: 0.75rem;
         gap: 1rem;
-        background: $color-sheet-background;
     }
 </style>

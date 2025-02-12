@@ -37,11 +37,6 @@
 							"bonus": "28"
 						},
 						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5UaBqRqzFKFk9i84"
+				]
 			}
 		},
 		"description": "<p><em>Legendary, Ingested, Onset (3 days)</em></p><p>The shredded petals of this black flower&mdash;said to only grow in the land of the dead&mdash;are the most potent known poison. A creature makes a DC 28 Constitution saving throw when it is subjected to this poison, and on a failure it is doomed. Prior to the onset, this poison can only be counteracted by @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} or similar magic.</p>",
@@ -93,16 +91,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -115,9 +103,6 @@
 			"origin": "Item.b2nss18bdlwtrn8d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -154,6 +139,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

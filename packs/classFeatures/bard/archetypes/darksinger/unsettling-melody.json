@@ -31,11 +31,6 @@
 							"type": "spellcasting",
 							"bonus": ""
 						}
-					},
-					"06msMTeWqBOm82P3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "c5TWTQxrruGPLL1A"
 					}
 				},
 				"uses": {
@@ -57,7 +52,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"c5TWTQxrruGPLL1A"
+				]
 			}
 		},
 		"description": "<p>Starting at 6th level, you learn to pepper a feeling of unease into your bolstering abilities. Whenever you use your Bardic Inspiration, you may elect to lower the die size by one step. If you do, you may select a creature within 30 feet of you to unnerve. The creature makes a Wisdom save against your spell save DC, gaining the rattled condition for one minute on a failed save. The creature can repeat the save at the end of each of its rounds, ending the effect on a success. A creature may only be affected by one instance of this effect at a time.</p>",
@@ -78,16 +76,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard",
 		"class": ""
 	},
@@ -96,9 +84,6 @@
 			"origin": "Item.mbvmQdOXHcdCJnSt",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eH78fuus4YLXrlIh",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -141,7 +126,10 @@
 			},
 			"img": "icons/magic/sonic/bell-alarm-red-purple.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

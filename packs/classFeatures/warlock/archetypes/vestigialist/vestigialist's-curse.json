@@ -7,9 +7,6 @@
 			"origin": "Item.B3bLD6m3k1ZNOCqP",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wnuPIVMJ0SNPyu8x",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/unholy/hands-cloud-light-pink.webp",
 			"_id": "8bjnVU8xjwgi2iHM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -70,13 +70,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"M48kSxAb0o8BPoxo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8bjnVU8xjwgi2iHM"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -100,7 +94,10 @@
 					"b3p6bVToyDYMmiu0": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"8bjnVU8xjwgi2iHM"
+				]
 			},
 			"sW868kZu0euBESAP": {
 				"name": "Gain Vestige Die",
@@ -223,16 +220,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},

@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"vH9aoDioxhRNFgtN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "92MbvmeH6BFc6gCI"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +34,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"92MbvmeH6BFc6gCI"
+				]
 			},
 			"dhXDaknPRMbQGnJC": {
 				"name": "Uncurl",
@@ -132,35 +129,23 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"effects": [
 		{
 			"origin": "Item.FklTHO8ePa5lyNdF",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nwBiF49ZXX45LQCP",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Curled",
 			"img": "icons/magic/earth/construct-stone.webp",
 			"_id": "92MbvmeH6BFc6gCI",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.movement.allDistances",

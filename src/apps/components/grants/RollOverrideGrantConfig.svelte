@@ -1,93 +1,93 @@
 <script>
-    import { getContext, onDestroy, setContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext, onDestroy, setContext } from 'svelte';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import GrantConfig from "./GrantConfig.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import prepareExpertiseDiceOptions from "../../dataPreparationHelpers/prepareExpertiseDiceOptions";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import GrantConfig from './GrantConfig.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import prepareExpertiseDiceOptions from '../../dataPreparationHelpers/prepareExpertiseDiceOptions';
 
-    export let { document, grantId, grantType } = getContext("#external").application;
+export let { document, grantId, grantType } = getContext('#external').application;
 
-    function updateImage() {
-        const current = grant?.img;
+function updateImage() {
+	const current = grant?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        if (key === "expertiseType") {
-            updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
-                base: [],
-                options: [],
-                total: 0,
-            });
-        }
+function onUpdateValue(key, value) {
+	if (key === 'expertiseType') {
+		updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
+			base: [],
+			options: [],
+			total: 0,
+		});
+	}
 
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
-    }
+	key = `system.grants.${grantId}.${key}`;
+	updateDocumentDataFromField($item, key, value);
+}
 
-    onDestroy(() => {
-        item.destroy();
-    });
+onDestroy(() => {
+	item.destroy();
+});
 
-    const item = new TJSDocument(document);
-    const configObject = {
-        abilityCheck: {
-            label: "A5E.AbilityCheck",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        abilitySave: {
-            label: "A5E.SavingThrow",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        attack: {
-            label: "A5E.ActionOptionAttack",
-            options: Object.entries(CONFIG.A5E.attackTypes),
-        },
-        initiative: {
-            label: "A5E.Initiative",
-            options: [],
-        },
-        concentration: {
-            label: "A5E.ConditionConcentration",
-            options: [],
-        },
-        deathSave: {
-            label: "Death Save",
-            options: [],
-        },
-        skill: {
-            label: "A5E.Skill",
-            options: Object.entries(CONFIG.A5E.skills),
-        },
-    };
+const item = new TJSDocument(document);
+const configObject = {
+	abilityCheck: {
+		label: 'A5E.AbilityCheck',
+		options: Object.entries(CONFIG.A5E.abilities),
+	},
+	abilitySave: {
+		label: 'A5E.SavingThrow',
+		options: Object.entries(CONFIG.A5E.abilities),
+	},
+	attack: {
+		label: 'A5E.ActionOptionAttack',
+		options: Object.entries(CONFIG.A5E.attackTypes),
+	},
+	initiative: {
+		label: 'A5E.Initiative',
+		options: [],
+	},
+	concentration: {
+		label: 'A5E.ConditionConcentration',
+		options: [],
+	},
+	deathSave: {
+		label: 'Death Save',
+		options: [],
+	},
+	skill: {
+		label: 'A5E.Skill',
+		options: Object.entries(CONFIG.A5E.skills),
+	},
+};
 
-    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
-        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        localize(value),
-    ]);
+const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
+	CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+	localize(value),
+]);
 
-    $: grant = $item.system.grants[grantId];
-    $: rollOverrideType = grant?.rollOverrideType || "ability";
+$: grant = $item.system.grants[grantId];
+$: rollOverrideType = grant?.rollOverrideType || 'ability';
 
-    setContext("item", item);
-    setContext("grantId", grantId);
-    setContext("grantType", grantType);
+setContext('item', item);
+setContext('grantId', grantId);
+setContext('grantType', grantType);
 </script>
 
 <form>
@@ -176,12 +176,12 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
-        background: var(--background, $color-sheet-background);
+        background: var(--background, var(--a5e-color-background-sheet));
     }
 
     .grant-name,
     .grant-name[type="text"] {
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

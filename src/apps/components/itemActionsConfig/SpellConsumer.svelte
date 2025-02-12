@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -44,8 +44,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"

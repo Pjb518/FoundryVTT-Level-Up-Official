@@ -7,13 +7,9 @@
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sYMsgo9ptIskqBHV",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -21,7 +17,10 @@
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "yVpuiuPtMEn2mCAU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -59,18 +58,17 @@
 		{
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sYMsgo9ptIskqBHV"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Not Killed or Captured",
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "T14bCAcw4VJ9B8RZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
@@ -109,9 +107,6 @@
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sYMsgo9ptIskqBHV",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -122,7 +117,10 @@
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "pHPhe2Ipv7rJWlmO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -257,16 +255,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},

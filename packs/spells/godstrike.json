@@ -151,13 +151,7 @@
 						"formula": "3d8 + @spellcasting.mod"
 					}
 				},
-				"prompts": {
-					"NfxtSuKXkwHWUjBs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WDRdXP1wCbmmXePS"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -182,7 +176,10 @@
 					"pIxHS0foDKSjgsOB": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"WDRdXP1wCbmmXePS"
+				]
 			},
 			"PLDdCDcjqwpvH0j1": {
 				"name": "Blast of Terror",
@@ -244,13 +241,7 @@
 						"formula": "3d8 + @spellcasting.mod"
 					}
 				},
-				"prompts": {
-					"STayfCnCP3p4z1nO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cvW2h2zJG6R93muB"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -275,7 +266,10 @@
 					"pIxHS0foDKSjgsOB": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"cvW2h2zJG6R93muB"
+				]
 			}
 		},
 		"description": "<p>You become a conduit for your god’s wrath. You pantomime a crushing fist strike and scream imprecations against your enemies, and an enormous, glowing burst of judgmental energy streaks out from you to destroy the unworthy. Depending on the nature of your god or faith, this may be a crushing fist, an enormous sword, a cosmic tentacle, massive antlers, or some other awe-inspiring display of transcendent puissance.</p><p>As you cast this spell, you may exclude any number of creatures, objects, or structures in the area. All other creatures and objects in the area besides you take damage equal to your unarmed strike damage + 12d6 force damage + your choice of 12d6 radiant, necrotic, or thunder damage. The form, shape, and additional benefits of this spell are also determined when you cast it:</p><ul><li><p><strong>Fortifying Burst</strong>: The spell affects a 30-foot radius centered on you. Creatures inside the area who you excluded from damage regain hit points equal to 3d8 + your spellcasting modifier.</p></li><li><p><strong>Field of Devastation</strong>: The spell affects a 50-foot cube originating from you, and creatures other than you in the area stunned for 2 rounds.</p></li><li><p><strong>Blast of Terror</strong>: The spell affects a 90-foot cone originating from you, and creatures in the area are frightened of you for 1 minute.</p></li></ul>",
@@ -317,16 +311,6 @@
 				"thunder"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -335,9 +319,6 @@
 			"origin": "Item.fjpur3ra9zdzmenj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NDGOPLuqWc16N15h",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -374,6 +355,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -381,9 +366,6 @@
 			"origin": "Item.fjpur3ra9zdzmenj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PLDdCDcjqwpvH0j1",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -419,6 +401,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

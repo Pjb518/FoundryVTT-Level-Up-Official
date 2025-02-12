@@ -1,48 +1,38 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import pressedKeysStore from "../../../stores/pressedKeysStore";
+import pressedKeysStore from '../../../stores/pressedKeysStore';
 
-    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
+import getKeyPressAsOptions from '../../handlers/getKeyPressAsOptions';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+import replaceHyphenWithMinusSign from '../../../utils/replaceHyphenWithMinusSign';
 
-    export let ability;
-    export let abilityLabel;
-    export let idx;
+export let ability;
+export let abilityLabel;
+export let idx;
 
-    function handleCheckClick(abilityLabel) {
-        if (!sheetIsLocked) return;
+function handleCheckClick(abilityLabel) {
+	if (!sheetIsLocked) return;
 
-        $actor.rollAbilityCheck(
-            abilityLabel,
-            getKeyPressAsOptions($pressedKeysStore),
-        );
-    }
+	$actor.rollAbilityCheck(abilityLabel, getKeyPressAsOptions($pressedKeysStore));
+}
 
-    function handleSaveClick(abilityLabel) {
-        if (!sheetIsLocked) {
-            const currentProficiencyState =
-                $actor.system.abilities[abilityLabel]?.save?.proficient;
+function handleSaveClick(abilityLabel) {
+	if (!sheetIsLocked) {
+		const currentProficiencyState = $actor.system.abilities[abilityLabel]?.save?.proficient;
 
-            $actor.update({
-                [`system.abilities.${abilityLabel}.save.proficient`]:
-                    !currentProficiencyState,
-            });
-        } else {
-            $actor.rollSavingThrow(
-                abilityLabel,
-                getKeyPressAsOptions($pressedKeysStore),
-            );
-        }
-    }
+		$actor.update({
+			[`system.abilities.${abilityLabel}.save.proficient`]: !currentProficiencyState,
+		});
+	} else {
+		$actor.rollSavingThrow(abilityLabel, getKeyPressAsOptions($pressedKeysStore));
+	}
+}
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: sourceValue = $actor._source.system.abilities[abilityLabel].value;
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+$: sourceValue = $actor._source.system.abilities[abilityLabel].value;
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li class="a5e-ability-score">

@@ -36,11 +36,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"jkqBlGAO9RXERfgl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cvc0e6MXVdnr6QuT"
 					}
 				},
 				"uses": {
@@ -53,7 +48,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"cvc0e6MXVdnr6QuT"
+				]
 			}
 		},
 		"description": "<p>You have fully integrated the gifts of your mind and the gifts of your patron and can unleash devastating power at will. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence score increases by 1, to a maximum of 20.</li>\n<li>You can expend you psionic focus to reroll an attack roll or damage roll with your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} or to force a creature to reroll a save against your @UUID[Compendium.a5e.a5e-class-features.Item.gd79c49oej8xagdv]{Eldritch Disturbance}.</li>\n<li>When you would suffer a level of strife, you can instead opt to suffer a level of fatigue in its place.&nbsp;</li>\n<li>Creatures attempting to read your mind suffer a number of d8s of psychic damage equal to your Intelligence modifier (minimum 1) and must make a Charisma save against your spell save DC or be stunned until the end of their next turn. You are aware of the contact and can suppress this effect before it triggers (no action required), if desired.</li>\n<li>You gain a benefit based on your pact boon:\n<ul>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.6co2rqjh9npjg3eb]{Pact of the Blade}, your pact weapon deals an additional 1d6 points of psychic damage while you are psychically focused.</li>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.f2mfiz8spijbzs6h]{Pact of the Chain}, while you are psychically focused, you gain the benefits of the speak with animals spell, except it can affect monstrosities and aberrations as well as beasts.</li>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.2dp9b4a11fuxjwbc]{Pact of the Tome}, you choose two additional cantrips that deal psychic, lightning, or force damage and learn them. You also learn a new power of your choice. You must meet the prerequisites for the new power.</li>\n</ul>\n</li>\n</ul>",
@@ -93,10 +91,6 @@
 		},
 		"prerequisite": "Mental Contract feat",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -105,9 +99,6 @@
 			"origin": "Item.M7VDXjeMcLrqxmNv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8Igg3SZstivvoLVZ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -151,7 +142,10 @@
 			},
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

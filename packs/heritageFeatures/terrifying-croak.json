@@ -8,9 +8,6 @@
 			"origin": "Item.OIH9LlAXwwnP3eAc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ccUe1qQJ05Q9eOTn",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -88,12 +89,6 @@
 						},
 						"label": "Terrifying Croak Saving Throw",
 						"onSave": "not frightened"
-					},
-					"BHBQPIQLda9ajL9U": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZtAuDPVM2brjDdKL",
-						"label": "Frightened"
 					}
 				},
 				"uses": {
@@ -120,7 +115,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"ZtAuDPVM2brjDdKL"
+				]
 			}
 		},
 		"description": "<p>All frogfolk communicate through use of croaks and gurgles from their throat pouch, but your croaks boom like thunder and resonate deep within the body of your foes, causing them to shudder with nearly supernatural fear. You gain the following benefits:</p>\n<p><strong>Terrifying Croak. </strong>You can use an action to emit a loud and horrifying croak. Enemy creatures within 30 feet who can hear you must make a Wisdom saving throw (DC 8 + your proficiency bonus + either your Constitution or Charisma modifier) or become frightened of you for 1 minute. Creatures with a CR at least 3 higher than your level have advantage on this saving throw, and creatures with a CR at least 3 lower than your level have disadvantage. Creatures that succeed at this save cannot be affected again by it for 24 hours. Once you use this trait, you can&rsquo;t use it again until you finish a long rest.</p>\n<p id=\"foundryNote\"><strong>Foundry Note:</strong> Ability defaults to highest ability score for DC calculation, if you want to change it make sure to do so!</p>",
@@ -141,16 +139,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"_id": "zmyhuhajuatk5t7i",

@@ -29,18 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"cABOTBPpPTMNtKKO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qIp55BApEbiE3ZtG"
-					},
-					"FDixMTWfyxJ9pRvv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NnHBIceRitjc7k48"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -55,7 +44,11 @@
 				"duration": {
 					"unit": "hour",
 					"value": 4
-				}
+				},
+				"effects": [
+					"qIp55BApEbiE3ZtG",
+					"NnHBIceRitjc7k48"
+				]
 			},
 			"TLXmHenFkBhm4E4Q": {
 				"name": "Dismiss Third-Eye Sight",
@@ -139,10 +132,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "sorcerer"
 	},
@@ -151,9 +140,6 @@
 			"origin": "Item.OyF70GW7B6DYFxi2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4kyHFVwslRyr1yIJ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -164,7 +150,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "qIp55BApEbiE3ZtG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.darkvision.distance",
@@ -198,9 +187,6 @@
 			"origin": "Item.OyF70GW7B6DYFxi2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4kyHFVwslRyr1yIJ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -211,7 +197,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "NnHBIceRitjc7k48",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -257,9 +246,6 @@
 			"origin": "Item.OyF70GW7B6DYFxi2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4kyHFVwslRyr1yIJ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -270,7 +256,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "8cli8aH9z5NSGVNN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

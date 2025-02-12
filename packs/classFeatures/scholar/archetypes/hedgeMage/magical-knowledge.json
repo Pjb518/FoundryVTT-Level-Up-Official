@@ -81,16 +81,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "scholar",
 		"class": ""
 	},
@@ -99,10 +89,6 @@
 			"origin": "Item.1wgR5MTEl0gQ9dac",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2MvizbJiRYfPka7N",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -136,7 +122,10 @@
 			},
 			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

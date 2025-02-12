@@ -19,14 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"JHlIOiCOeLesEFRl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZFGXBb8fP6z9alzu",
-						"label": "Apply Deathrager"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -38,7 +31,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/magic/unholy/projectile-spear-glow-pink.webp"
+				"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+				"effects": [
+					"ZFGXBb8fP6z9alzu"
+				]
 			}
 		},
 		"description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
@@ -59,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -77,10 +63,6 @@
 			"origin": "Item.7E5S9dVFmCYAny67",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RWVh1uIJZBIuAFmc",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -91,7 +73,10 @@
 			"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
 			"_id": "ZFGXBb8fP6z9alzu",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

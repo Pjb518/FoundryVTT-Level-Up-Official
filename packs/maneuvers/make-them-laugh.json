@@ -27,13 +27,7 @@
 						"ability": "cha"
 					}
 				},
-				"prompts": {
-					"RUN9Ie4S5neU89Py": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CAwWGy7XkSbP7eNb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"CAwWGy7XkSbP7eNb"
+				]
 			}
 		},
 		"description": "<p>With unmatched enthusiasm you undertake a fantastic bit of comedic gymnastics&mdash;flipping off of walls, slipping into cartwheels, landing in splits, and otherwise making a grand fool of yourself to the absolute delight of those able to see your exhausting display.</p><p>Make a nonmusical Performance check, gaining a number of rapt onlookers equal to half the result (at the Narrator&rsquo;s discretion, the amount of potential onlookers may be limited by your location). At the end of your routine, roll 1d20 and add 1 per rapt onlooker. On a result of 20 or higher, you gain inspiration. If you do not roll a natural 20 on either roll, you suffer a level of fatigue</span> . Rapt onlookers (including those who are enemies) have <span>disadvantage on Perception and Insight checks until the start of your next turn.</p>",
@@ -65,17 +62,7 @@
 		"exertionCost": 6,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "comedicJabs",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "comedicJabs"
 	},
 	"effects": [
 		{
@@ -83,9 +70,6 @@
 			"origin": "Item.iunj9xeyzpm1jb54",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eFjO5PYXOPckXqN7",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -126,6 +110,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

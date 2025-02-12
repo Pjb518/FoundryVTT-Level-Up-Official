@@ -1,148 +1,148 @@
 import type { SpellBookStats } from 'types/spellBook';
-import A5EDataModel from '../A5EDataModel';
+import type { BaseActorA5e } from '../../documents/actor/base';
+import type SpellItemA5e from '../../documents/item/spell';
 
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
-export default class SpellBook extends A5EDataModel {
-  declare _id: string;
+const { fields } = foundry.data;
 
-  declare name: string;
+const spellBookSchema = () => ({
+	name: new fields.StringField({ required: true, nullable: false, initial: 'New Spell Book' }),
+	img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
-  declare img: string;
+	ability: new fields.StringField({ required: true, initial: 'default' }),
+	disableSpellConsumers: new fields.BooleanField({
+		required: true,
+		nullable: false,
+		initial: false,
+	}),
+	showArtifactCharges: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	showSpellInventions: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	showSpellPoints: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	showSpellSlots: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+});
 
-  declare ability: string;
+export default class SpellBook extends foundry.abstract.DataModel<
+	DataSchema & ReturnType<typeof spellBookSchema>,
+	Actor.ConfiguredInstance
+> {
+	declare _id: string;
 
-  declare disableSpellConsumers: boolean;
+	declare slug: string;
 
-  declare showArtifactCharges: boolean;
+	declare stats: SpellBookStats;
 
-  declare showSpellInventions: boolean;
+	spells: Collection<any> = new foundry.utils.Collection();
 
-  declare showSpellPoints: boolean;
+	constructor(data: any, options: any = {}) {
+		// @ts-ignore
+		super(data, options);
+	}
 
-  declare showSpellSlots: boolean;
+	static override defineSchema() {
+		return {
+			...spellBookSchema(),
+		};
+	}
 
-  declare slug: string;
+	// ======================================
+	// Getters
+	// ======================================
 
-  declare stats: SpellBookStats;
+	get spellIds(): string[] {
+		return this.spells.map((spell: SpellItemA5e) => spell.id!);
+	}
 
-  spells: Collection<any> = new foundry.utils.Collection();
+	// ======================================
+	// Data Preparation
+	// ======================================
+	prepareBaseData(): void {
+		const actor = this.parent as BaseActorA5e;
+		this.spells = new foundry.utils.Collection();
+		if (!actor) return;
 
-  constructor(data: any, options: any = {}) {
-    // @ts-ignore
-    super(data, options);
-  }
+		for (const item of actor.items) {
+			if (!item.isType('spell')) continue;
 
-  static defineSchema() {
-    const { fields } = foundry.data;
+			if (item.system.spellBook !== this._id) continue;
+			this.spells.set(item.id || '', item);
+		}
 
-    return {
-      name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
-      img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
+		this.slug = `spellbook-${this.name}`.slugify({ strict: true });
+		this.prepareSpellBookStats();
+	}
 
-      ability: new fields.StringField({ required: true, initial: 'default' }),
-      disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
-      showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
-      showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
-      showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
-      showSpellSlots: new fields.BooleanField({ required: true, initial: true })
-    };
-  }
+	prepareSpellBookStats(): void {
+		const actor = this.parent as BaseActorA5e;
+		if (!actor) return;
 
-  // ======================================
-  // Getters
-  // ======================================
+		let { ability } = this;
 
-  get spellIds(): string[] {
-    return this.spells.map((spell: typeof Item) => spell.id);
-  }
+		if (this.ability === 'default') ability = actor.system.attributes.spellcasting;
+		if (!ability) ability = 'int';
 
-  // ======================================
-  // Data Preparation
-  // ======================================
-  prepareBaseData(): void {
-    super.prepareBaseData();
-    const actor = this.parent;
-    this.spells = new foundry.utils.Collection();
-    if (!actor) return;
+		const spellDC =
+			getDeterministicBonus(
+				[
+					8,
+					// @ts-expect-error
+					actor.system.attributes.prof,
+					actor.system.bonuses.spellDC || 0,
+					actor.system.abilities[ability].check.mod,
+				].join(' + '),
+				actor.getRollData(),
+			) || 10;
 
-    for (const item of actor.items) {
-      if (item.type !== 'spell') continue;
+		const { abilities } = actor.system;
+		const spellMod = abilities[ability].check.mod;
 
-      if (item.system.spellBook !== this._id) continue;
-      this.spells.set(item.id, item);
-    }
+		const stats = {
+			ability: this.ability,
+			dc: spellDC,
+			mod: spellMod,
+		};
 
-    this.slug = `spellbook-${this.name}`.slugify({ strict: true });
-    this.prepareSpellBookStats();
-  }
+		this.stats = stats;
+	}
 
-  prepareSpellBookStats(): void {
-    const actor = this.parent;
-    if (!actor) return;
+	// ======================================
+	// API Methods
+	// ======================================
+	addSpell(item: SpellItemA5e) {
+		const actor = this.parent;
+		if (!actor) return;
 
-    let { ability } = this;
+		const spell = this.#updateSpellData(item);
+		if (!spell) return;
+		actor.createEmbeddedDocuments('Item', [spell]);
+	}
 
-    if (this.ability === 'default') ability = actor.system.attributes.spellcasting;
-    if (!ability) ability = 'int';
+	addSpells(items: SpellItemA5e[]) {
+		const actor = this.parent;
+		if (!actor) return;
 
-    const spellDC = getDeterministicBonus([
-      8,
-      actor.system.attributes.prof,
-      actor.system.bonuses.spellDC || 0,
-      actor.system.abilities[ability].check.mod
-    ].join(' + '), actor.getRollData()) || 10;
+		const spells = items.map((item) => this.#updateSpellData(item));
+		actor.createEmbeddedDocuments('Item', spells);
+	}
 
-    const { abilities } = actor.system;
-    const spellMod = abilities[ability].check.mod;
+	#updateSpellData(item: SpellItemA5e): any {
+		const actor = this.parent;
+		if (!actor) return null;
 
-    const stats = {
-      ability: this.ability,
-      dc: spellDC,
-      mod: spellMod
-    };
+		const spell = item.toObject();
+		spell.system.spellBook = this._id;
 
-    this.stats = stats;
-  }
+		return spell;
+	}
 
-  // ======================================
-  // API Methods
-  // ======================================
-  addSpell(item: typeof Item) {
-    const actor = this.parent;
-    if (!actor) return;
+	async delete() {
+		const { spellIds } = this;
+		await this.parent.deleteEmbeddedDocuments('Item', spellIds);
 
-    const spell = this.#updateSpellData(item);
-    if (!spell) return;
-    actor.createEmbeddedDocuments('Item', [spell]);
-  }
+		const id = this._id;
 
-  addSpells(items: typeof Item[]) {
-    const actor = this.parent;
-    if (!actor) return;
-
-    const spells = items.map((item) => this.#updateSpellData(item));
-    actor.createEmbeddedDocuments('Item', spells);
-  }
-
-  #updateSpellData(item: typeof Item): any {
-    const actor = this.parent;
-    if (!actor) return null;
-
-    const spell = item.toObject();
-    spell.system.spellBook = this._id;
-
-    return spell;
-  }
-
-  async delete() {
-    const { spellIds } = this;
-    await this.parent.deleteEmbeddedDocuments('Item', spellIds);
-
-    const id = this._id;
-
-    this.parent.update({
-      [`system.spellBooks.-=${id}`]: null
-    });
-  }
+		this.parent.update({
+			[`system.spellBooks.-=${id}`]: null,
+		});
+	}
 }

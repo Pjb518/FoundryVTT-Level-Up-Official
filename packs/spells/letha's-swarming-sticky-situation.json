@@ -38,11 +38,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Not knocked prone and no damage"
-					},
-					"zuZxgXIgn2gafIHN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CuONxIzO0YzGTk5F"
 					}
 				},
 				"uses": {
@@ -69,7 +64,10 @@
 					"shape": "sphere",
 					"quantity": 1,
 					"radius": 50
-				}
+				},
+				"effects": [
+					"CuONxIzO0YzGTk5F"
+				]
 			},
 			"OQOlXgNRT9zhKSio": {
 				"name": "Bees?",
@@ -141,16 +139,6 @@
 				"terrain"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -158,11 +146,7 @@
 			"icon": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
 			"origin": "Item.np3yy82ucehqugq0",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zLduCTliOht3MWsu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone and Restrained",
@@ -195,6 +179,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.fxqoAkP8M6tzDLsB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dz9l8QADgCB87NWE"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Nimble Troops",
 			"img": "icons/environment/people/spearfighter.webp",
 			"_id": "hS6zT8HBtyJkXNMV",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -64,13 +63,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"QX3j8HOwW0N4itjN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hS6zT8HBtyJkXNMV"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -81,7 +74,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"hS6zT8HBtyJkXNMV"
+				]
 			}
 		},
 		"description": "<p>At 7th level, choose either Acrobatics or Athletics. Creatures within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} add your Charisma modifier to checks using the chosen skill.</p>",
@@ -102,16 +98,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},

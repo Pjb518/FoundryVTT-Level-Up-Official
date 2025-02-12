@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Lm3gG4vf2MjDsJo9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t8fjtl1xjnvTLifH"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"t8fjtl1xjnvTLifH"
+				]
 			}
 		},
 		"description": "<p>After you drink this potion, for the next hour you gain resistance to Lightning damage.</p>",
@@ -84,16 +81,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -110,10 +97,6 @@
 			"origin": "Item.DLZ00huLMNoOsMbk",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Xv55n8l1tMb0uBB1",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -124,7 +107,10 @@
 			"img": "icons/consumables/potions/bottle-conical-corked-labeled-shell-cyan.webp",
 			"_id": "t8fjtl1xjnvTLifH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

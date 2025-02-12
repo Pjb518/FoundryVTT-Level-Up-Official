@@ -7,9 +7,6 @@
 			"origin": "Item.Xf2I72nRXBVkCsPT",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Wj2wEtEOK3ej6uIH",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -42,7 +39,10 @@
 			"tint": "#ffffff",
 			"img": "icons/weapons/axes/shortaxe-engraved-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -120,7 +120,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"BzvjZocpxxPNJ6G1": {
 				"name": "Handaxe (Off-Hand)",
@@ -177,7 +178,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"Hc25AqQi6G8oKSRs": {
 				"name": "Handaxe (Throw)",
@@ -240,7 +242,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"UgW3vG1tEMnlllRe": {
 				"name": "Handaxe (Throw, Off-Hand)",
@@ -303,7 +306,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			}
 		},
 		"description": "<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
@@ -351,16 +355,6 @@
 			"vicious"
 		],
 		"weight": 2,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [
 			"wood"
 		],

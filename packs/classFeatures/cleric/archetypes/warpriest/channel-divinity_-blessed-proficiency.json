@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"B5SLeP9mxHymT5Kq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KeZHIGenQ66BWAw4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KeZHIGenQ66BWAw4"
+				]
 			}
 		},
 		"description": "<p>Beginning at 2nd level, you may use @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} to grant yourself proficiency with improvised weapons or one rare weapon until the end of your next long rest.</p>",
@@ -65,16 +62,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -82,19 +69,17 @@
 		{
 			"origin": "Item.87nKTxd1c10FsmY1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pF4ZzH0Ozy1c4CfN",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blessed Proficiency",
 			"img": "icons/commodities/wood/bamboo-brown.webp",
 			"_id": "KeZHIGenQ66BWAw4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

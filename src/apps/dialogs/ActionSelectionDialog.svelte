@@ -9,15 +9,16 @@
         dialog.submit({ actionId: selectedAction });
     }
 
-    let selectedAction = item.actions.keys()[0];
+    let selectedAction = item.actions.default.id;
+    let options = [...item.actions.entries()]
+        .map(([id, action]) => [id, action.name])
+        .sort((a, b) => a[1].localeCompare(b[1]));
 </script>
 
 <form>
     <RadioGroup
         heading="Select an Action"
-        options={item.actions
-            .entries()
-            .map(([id, action]) => [id, action.name])}
+        {options}
         selected={selectedAction}
         on:updateSelection={({ detail }) => (selectedAction = detail)}
     />
@@ -33,6 +34,5 @@
         width: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        background: $color-sheet-background;
     }
 </style>

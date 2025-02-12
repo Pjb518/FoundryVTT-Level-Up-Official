@@ -47,13 +47,7 @@
 						"label": "Insight"
 					}
 				},
-				"prompts": {
-					"oZt4Ol9CBFprFANa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "d8KhFCm1Mfs13NSX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -73,7 +67,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"d8KhFCm1Mfs13NSX"
+				]
 			}
 		},
 		"description": "<p>Starting at 6th level, you know how to strike in order to disrupt concentration at the expense of your other adept techniques.</p>\n<p>Once per turn, when a creature you can see within 60 feet of you casts a spell, you can spend an exertion point to make a Wisdom (Perception) or Wisdom (Insight) against their spell save DC. On a success, you gain the following effects when you take the Attack action against this creature:</p>\n<ul>\n<li>You gain an expertise dice for those attack rolls.</li>\n<li>On a hit, the target&rsquo;s DC for the concentration checks uses your Combat Maneuver DC, or half the damage received, whichever is higher.</li>\n<li>On a hit, the target has disadvantage on checks made to maintain concentration, but has advantage on checks made to resist effects from your Focus Features (such as @UUID[Compendium.a5e.a5e-class-features.Item.5wrw48ctsb9sm48o]{Stunning Strike}).</li>\n</ul>\n<p>These effects last either for one minute, until you choose to end it, or until you use this feature on a different target.</p>",
@@ -94,16 +91,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},
@@ -112,9 +99,6 @@
 			"origin": "Item.inLVZEFNgUK6JTJa",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Tge36GAwZDOfu9Ge",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -148,7 +132,10 @@
 			},
 			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

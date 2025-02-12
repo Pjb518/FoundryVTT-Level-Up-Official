@@ -1,42 +1,42 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+import { localize } from '#runtime/util/i18n';
 
-    function getSpellComponents(item) {
-        if (!item?.system?.components) return [];
+function getSpellComponents(item) {
+	if (!item?.system?.components) return [];
 
-        const { spellComponents, spellComponentAbbreviations } = CONFIG.A5E;
+	const { spellComponents, spellComponentAbbreviations } = CONFIG.A5E;
 
-        const components = Object.entries(item.system.components)
-            .filter(([, hasComponent]) => hasComponent)
-            .map(([component]) => ({
-                label: spellComponentAbbreviations[component] ?? component,
-                tooltip: spellComponents[component] ?? component,
-            }));
+	const components = Object.entries(item.system.components)
+		.filter(([, hasComponent]) => hasComponent)
+		.map(([component]) => ({
+			label: spellComponentAbbreviations[component] ?? component,
+			tooltip: spellComponents[component] ?? component,
+		}));
 
-        if (item.system.concentration) {
-            components.push({
-                label: localize("A5E.SpellConcentrationAbbr"),
-                tooltip: localize("A5E.SpellConcentration"),
-            });
-        }
+	if (item.system.concentration) {
+		components.push({
+			label: localize('A5E.SpellConcentrationAbbr'),
+			tooltip: localize('A5E.SpellConcentration'),
+		});
+	}
 
-        if (item.system.ritual) {
-            components.push({
-                label: localize("A5E.SpellRitualAbbr"),
-                tooltip: localize("A5E.SpellRitual"),
-            });
-        }
+	if (item.system.ritual) {
+		components.push({
+			label: localize('A5E.SpellRitualAbbr'),
+			tooltip: localize('A5E.SpellRitual'),
+		});
+	}
 
-        return components;
-    }
+	return components;
+}
 
-    export let message;
+export let message;
 
-    const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
-    const spellComponents = getSpellComponents(item);
-    const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
+const item = fromUuidSync($message?.flags?.a5e?.itemId ?? '');
+const spellComponents = getSpellComponents(item);
+const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
 
-    const castingLevel = CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
+const castingLevel = CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ''];
 </script>
 
 {#if item?.type === "spell"}

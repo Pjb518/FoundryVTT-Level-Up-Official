@@ -1,0 +1,137 @@
+{
+	"folder": null,
+	"name": "Venomous Mandibles",
+	"type": "feature",
+	"img": "icons/creatures/abilities/stinger-poison-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"wI75HF0RSYswr6bB": {
+				"name": "Mandibles",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"vIzyLDqCNiACtJs6": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"f6smZa0Pj1mJbG73": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"4iQnSL6K8TvPz5pZ": {
+				"name": "Venomous Mandibles",
+				"activation": {},
+				"consumers": {
+					"MUKUYACmLHBFWysD": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"vIzyLDqCNiACtJs6": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"f6smZa0Pj1mJbG73": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "piercing"
+					},
+					"8a1RLS83wqM3ZulH": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d4",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"ddnZZwucAyQZAmq0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your mandibles are natural weapons, which you can use to make unarmed strikes that deal piercing damage equal to 1d4 + your Strength modifier. A creature damaged by your mandibles makes a Constitution saving throw. The DC for this saving throw is 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d4 poison damage on a failed save. You can use the poison element of this feature number of times equal to your proficiency bonus before you need to take a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731768070217,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4o50Ym3Bk33vakZo"
+}

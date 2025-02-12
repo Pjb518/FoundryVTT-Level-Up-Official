@@ -1,9 +1,10 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
@@ -27,15 +28,9 @@
 
     $: ammunitionItems = $item.actor
         ? $item.actor.items
-              .filter(
-                  (i) =>
-                      i.type === "object" &&
-                      i.system.objectType === "ammunition",
-              )
+              .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
               .map((i) => ({ name: i.name, id: i.id }))
-              .sort((a, b) =>
-                  a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-              )
+              .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
         : [];
 </script>
 
@@ -47,8 +42,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"
@@ -57,6 +50,19 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.consumers.${consumerId}.label`,
+            )}
+    />
+</FieldWrapper>
+
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
             )}
     />
 </FieldWrapper>
@@ -88,10 +94,7 @@
     </FieldWrapper>
 
     {#if $item.actor}
-        <FieldWrapper
-            heading="A5E.ItemQuantity"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -106,3 +109,16 @@
         </FieldWrapper>
     {/if}
 </Section>
+
+<FieldWrapper>
+    <Checkbox
+        label="Delete item when quantity reaches zero"
+        checked={consumer.deleteOnZero ?? false}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.deleteOnZero`,
+                detail,
+            )}
+    />
+</FieldWrapper>

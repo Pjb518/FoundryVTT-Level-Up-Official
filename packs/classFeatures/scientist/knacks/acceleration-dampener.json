@@ -1,0 +1,173 @@
+{
+	"folder": null,
+	"name": "Acceleration Dampener",
+	"type": "feature",
+	"img": "icons/consumables/potions/vial-cork-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Vz4TjzoAzfJouVZU": {
+				"name": "Acceleration Dampener",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"AhlMnu93dw6OBEAc",
+					"YB4gCfdTWPpmN5Cq"
+				],
+				"ranges": {
+					"mxSlqpeE7vVt7LlG": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				}
+			}
+		},
+		"description": "<p>You have a vial of unguent which protectively reduces acceleration.&nbsp;Once between long rests, as an action, you can apply it to a willing creature within reach.&nbsp;For 10 minutes, the target gains resistance to nonmagical and nonpsionic bludgeoning, piercing, and slashing damage, and its speed is reduced by 10 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "8th level",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.if9uzCDyKYVukGeP",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Acceleration Dampener",
+			"img": "icons/consumables/potions/vial-cork-green.webp",
+			"_id": "AhlMnu93dw6OBEAc",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For 10 minutes, the target gains resistance to nonmagical and nonpsionic bludgeoning, piercing, and slashing damage, and its speed is reduced by 10 feet.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733522236387,
+				"modifiedTime": 1733522272784,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520376982,
+		"modifiedTime": 1733668633228,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "CUD2rzJ5ft7aNsxh"
+}

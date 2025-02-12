@@ -18,14 +18,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Cqx7RMA5UZyD04hf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ih0bul7AOrKbQJa4",
-						"label": "Goading Stance"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +30,10 @@
 				},
 				"duration": {
 					"unit": "special"
-				}
+				},
+				"effects": [
+					"Ih0bul7AOrKbQJa4"
+				]
 			}
 		},
 		"description": "<p>You command your animal companion to tactically lower its guard. While this stance is active, all melee attack rolls against your animal companion are made with an expertise die of 1d6. On a successful hit, the attacking creature takes damage equal to twice your proficiency bonus as your companion bites and claws at it.</p>",
@@ -58,17 +54,7 @@
 		"exertionCost": 2,
 		"isStance": true,
 		"prerequisite": "",
-		"tradition": "beastUnity",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "beastUnity"
 	},
 	"effects": [
 		{
@@ -76,12 +62,9 @@
 			"origin": "Item.wgnhcnt7y2hshop3",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "3v1SQK19SUt7Sr9S"
+					}
 				}
 			},
 			"transfer": false,
@@ -106,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

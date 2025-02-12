@@ -7,9 +7,6 @@
 			"origin": "Item.dhytznC4l68V9mFO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "665ekNqxmtcwVmFF",
 					"duration": {
 						"unit": "hours"
 					}
@@ -43,7 +40,10 @@
 			},
 			"img": "icons/magic/life/heart-glowing-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -74,13 +74,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"nWZfug4jDG4L30rR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wcjLcZ8OJWNFnUyo"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -91,7 +85,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"wcjLcZ8OJWNFnUyo"
+				]
 			}
 		},
 		"description": "<p>When you succeed on a Persuasion check to influence a creature that is indifferent to you, you can spend 3 exertion to make that creature friendly towards you for 1 hour.</p>",
@@ -112,16 +109,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

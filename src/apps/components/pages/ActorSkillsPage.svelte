@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import FieldWrapper from "../FieldWrapper.svelte";
     import Skill from "../Skill.svelte";
@@ -17,6 +17,10 @@
         if (game.settings.get("a5e", "hideA5eSkills")) {
             delete skills.cul;
             delete skills.eng;
+        }
+
+        if (!game.settings.get("a5e", "showVRCSkills")) {
+            delete skills.sci;
         }
 
         return skills;
@@ -57,8 +61,8 @@
 <div class="skill-page-wrapper">
     {#if showSpecialties}
         <FieldWrapper
-            --a5e-field-wrapper-background="rgba(0, 0, 0, 0.05)"
-            --a5e-field-wrapper-border="1px solid #ccc"
+            --a5e-field-wrapper-background="var(--a5e-skill-specialty-background)"
+            --a5e-field-wrapper-border="1px solid var(--a5e-border-color)"
             --a5e-field-wrapper-padding="0.5rem"
         >
             <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
@@ -115,7 +119,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-border-color);
         border-radius: var(--a5e-border-radius-standard);
 
         &--column-flow {

@@ -7,10 +7,6 @@
 			"origin": "Item.QWazl5SJ4x1X3ivS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8sfQo8WjZVnnqHzU",
-					"applyToSelf": false,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
 			"_id": "OyvX3q2eB0J536xe",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -70,13 +69,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"G6uhv7XUCcVFLpEy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OyvX3q2eB0J536xe"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -87,7 +80,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"OyvX3q2eB0J536xe"
+				]
 			}
 		},
 		"description": "<p>Consuming the dark bitter liquid in this vial removes the poisoned condition and you gain advantage on saving throws against poison for 1 hour.</p>",
@@ -128,16 +124,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

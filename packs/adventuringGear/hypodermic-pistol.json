@@ -1,0 +1,170 @@
+{
+	"folder": null,
+	"name": "Hypodermic Pistol",
+	"type": "object",
+	"img": "icons/skills/ranged/dart-thrown-poison-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"U6ZurFcSjIQRlxfm": {
+				"name": "Hypodermic Pistol",
+				"activation": {},
+				"consumers": {
+					"QwoqnRoNbSzsDegq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"8yMErpyFfnMStA1L": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"ZWaRCDVISJNo6CvH": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @dex.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sF546Z9KxsJVFvls": {
+						"range": "short"
+					},
+					"5GgcZWX86hW10r2c": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"lVQkSZ60rVDISSJb": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"y0bTskkkY3VWAgOq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -5
+					},
+					"HSJ0RAoEf4T833AN": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Hypodermic pistols launch darts equipped with liquid-filled reservoirs. Upon impact, a dart injects the contents of its reservoir into the target. Assassins typically fill their darts with poison, but the darts can also deliver beneficial substances such as medicine. See the medicine section for more information about the types of substances that can be loaded into a hypodermic pistol.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 5,
+			"max": "5",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "35 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"reload",
+			"exotic"
+		],
+		"weight": 2,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732314511604,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "K27Un3XDfxleIuVr"
+}

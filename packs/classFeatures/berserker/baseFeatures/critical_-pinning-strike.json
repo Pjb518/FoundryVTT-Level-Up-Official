@@ -7,11 +7,7 @@
 			"icon": "icons/magic/nature/root-vine-entangled-hands.webp",
 			"origin": "Item.2BfYWeTAdxtkRr4d",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "b8c8jPexFxMk338o"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -100,13 +100,11 @@
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"label": "Dexterity"
-					},
-					"w0skth9ZVpzhns01": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZcCyVkc4EXKc1dpl"
 					}
-				}
+				},
+				"effects": [
+					"ZcCyVkc4EXKc1dpl"
+				]
 			}
 		},
 		"description": "<p>The profound force of your blow breaks the environment, crumbling the stone beneath your target’s feet or knocking shattered timber over their legs. When you score a critical hit, the target is grappled (escape DC equal to your Furious Critical DC).</p>",
@@ -127,16 +125,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker"
 	},
 	"folder": null,

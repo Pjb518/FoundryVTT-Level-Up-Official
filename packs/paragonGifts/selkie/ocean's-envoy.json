@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"3LdT41HnXL42aX6x": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9w3Kddq34HXwyhev"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -67,7 +61,10 @@
 					"quantity": "",
 					"type": "creature"
 				},
-				"img": "icons/magic/water/bubbles-air-water-blue.webp"
+				"img": "icons/magic/water/bubbles-air-water-blue.webp",
+				"effects": [
+					"9w3Kddq34HXwyhev"
+				]
 			}
 		},
 		"description": "<p>You may cast @UUID[Compendium.a5e.a5e-spells.Item.ug1c28d5upbq19x4]{Water Breathing} once per long rest without a spell slot. When you cast this spell in this way, creatures you affect also gain a swim speed equal to their speed for the duration of the spell.</p>",
@@ -88,10 +85,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": ""
 	},
 	"effects": [
@@ -100,9 +93,6 @@
 			"origin": "Item.60YEMIjWgFhXNJv4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NNL0SihbeleUZnDu",
 					"duration": {
 						"unit": "hours"
 					}
@@ -136,6 +126,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

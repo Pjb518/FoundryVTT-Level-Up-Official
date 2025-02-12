@@ -1,3 +1,5 @@
+import type { A5EActionData } from '../src/dataModels/item/actions/ActionDataModel';
+
 type ActionConsumer = {
 
 };
@@ -53,22 +55,24 @@ interface UsesProperties {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
 //      Action Type
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
-export interface Action {
-  name: string;
-  description: string;
-  descriptionOutputs: ('action' | 'item')[];
-  img: string;
-  activation: ActivationProperties;
-  area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
-  duration: DurationProperties
+// export interface Action {
+//   name: string;
+//   description: string;
+//   descriptionOutputs: ('action' | 'item')[];
+//   img: string;
+//   activation: ActivationProperties;
+//   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
+//   duration: DurationProperties
 
-  consumers: { [id: string]: Consumers };
+//   consumers: { [id: string]: Consumers };
 
-  prompts: {};
+//   prompts: {};
 
-  ranges: { [id: string]: ActionRange };
-  rolls: { [id: string]: Rolls };
+//   ranges: { [id: string]: ActionRange };
+//   rolls: { [id: string]: Rolls };
 
-  target: TargetProperties;
-  uses: UsesProperties;
-}
+//   target: TargetProperties;
+//   uses: UsesProperties;
+// }
+
+export type Action = InstanceType<typeof A5EActionData>;

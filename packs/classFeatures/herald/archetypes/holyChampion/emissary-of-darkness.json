@@ -7,10 +7,6 @@
 			"origin": "Item.VMbQt1xbCAZWq4ZC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vHG1h1SSJGAkJRVM",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
 			"_id": "2Z105HiyyKlOxxxh",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.negative",
@@ -100,13 +99,10 @@
 				"rolls": {},
 				"consumers": {},
 				"ranges": {},
-				"prompts": {
-					"dt4L92ZZJiYCn2ya": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2Z105HiyyKlOxxxh"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"2Z105HiyyKlOxxxh"
+				]
 			},
 			"bYche45lvPuDRd0H": {
 				"name": "Necrotic Damage",
@@ -170,16 +166,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},

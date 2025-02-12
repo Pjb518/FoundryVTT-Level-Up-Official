@@ -52,21 +52,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"hwaqpBBLsQW5O39N": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QAApdw0ukepQLEtL"
-					},
-					"X1mllaegThenTuw1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "y4tDjPlxcNhBgFk9"
-					},
-					"Ze816tdhm6VPuaiR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ToNOWcMSk22aSyeN"
 					}
 				},
 				"consumers": {
@@ -83,7 +68,12 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"QAApdw0ukepQLEtL",
+					"y4tDjPlxcNhBgFk9",
+					"ToNOWcMSk22aSyeN"
+				]
 			}
 		},
 		"description": "<p>At 17th level, you are able to manipulate the burning brilliance of the stars themselves. Choose an object or creature within 60 feet. For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. When a creature starts its turn within 30 feet of the target or first enters into a space within 30 feet of the target on its turn, it makes a Constitution saving throw or becomes blinded for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>The first time this feature is used per long rest, any creature within 30 feet of the target takes 12d6 radiant damage on a failed save, or half damage on a success. Magical auras within the light’s radius become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An invisible creature that fails its saving throw against the radiant damage is also revealed and it sheds dim light in a 5-foot radius for 1 hour. </p>",
@@ -104,16 +94,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -122,9 +102,6 @@
 			"origin": "Item.gBdtq0yhsrr9Lm2M",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PNnUEIE46eYKDdL7",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -135,7 +112,10 @@
 			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
 			"_id": "QAApdw0ukepQLEtL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -180,9 +160,6 @@
 			"origin": "Item.gBdtq0yhsrr9Lm2M",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PNnUEIE46eYKDdL7",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -193,7 +170,10 @@
 			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
 			"_id": "y4tDjPlxcNhBgFk9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -234,9 +214,6 @@
 			"origin": "Item.gBdtq0yhsrr9Lm2M",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PNnUEIE46eYKDdL7",
 					"duration": {
 						"unit": "hours"
 					}
@@ -247,7 +224,10 @@
 			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
 			"_id": "ToNOWcMSk22aSyeN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.dim",

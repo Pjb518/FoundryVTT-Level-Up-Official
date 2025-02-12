@@ -1,11 +1,9 @@
 <script>
-    export let hp;
+export let hp;
 
-    $: hpPrimaryPercentage = Math.floor(
-        Math.min((hp.value / hp.max) * 100, 100)
-    );
+$: hpPrimaryPercentage = Math.floor(Math.min((hp.value / hp.max) * 100, 100));
 
-    $: hpTempPercentage = Math.min(((hp.temp || 0) / hp.max) * 100, 100);
+$: hpTempPercentage = Math.min(((hp.temp || 0) / hp.max) * 100, 100);
 </script>
 
 <div

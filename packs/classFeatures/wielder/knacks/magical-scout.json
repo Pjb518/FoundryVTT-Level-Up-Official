@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"1abmuLceRHIVzPoG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zyOeNiKuWcYmAy9p"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"zyOeNiKuWcYmAy9p"
+				]
 			}
 		},
 		"description": "<p>Your torch bearer form is a bit frilly, lacey, and perhaps even pink. The transformation is very distracting as it involves a lot of posing while your wardrobe changes and colorful magic swirls around you. Any creature that witnesses you enter your torch bearer form makes all Perception checks to notice anything but you at disadvantage until you leave your torch bearer form.</p>",
@@ -57,10 +54,6 @@
 		"grants": {},
 		"prerequisite": "Torchbearer archetype",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -68,11 +61,7 @@
 			"icon": "icons/magic/unholy/beams-impact-pink.webp",
 			"origin": "Item.cmHbwPN5d58qvjfN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "J7dnQuyYOXphGIDf"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Magical Scout",
@@ -102,6 +91,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

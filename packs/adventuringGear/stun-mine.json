@@ -1,0 +1,221 @@
+{
+	"name": "Stun Mine",
+	"type": "object",
+	"img": "icons/environment/traps/pressure-plate.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"7OhstgARs5nKTjVI": {
+				"name": "Set Mine",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"bRMVJPisoDNPKOvC": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/environment/traps/pressure-plate.webp"
+			},
+			"6vcXSckxUPT0Gw0z": {
+				"name": "Detonate",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"Tf9Ya0fKkZ61LY8p": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {
+					"X8BmhjfSah6AWe0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Half damage, not rattled"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vAUhpf0mzQssEBqO": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"effects": [
+					"Le7EC72f790E1eq4"
+				]
+			}
+		},
+		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Stun</h2>\n<p>Each creature within 10 feet of the grenade when it explodes makes a Constitution saving throw. On a failed save, the target takes 1d6 thunder damage and is rattled until the end of its next turn. A creature that fails the saving throw by 5 or more is stunned instead of rattled until the end of its next turn. On a success, the target takes half as much damage and isn’t rattled.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "100 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0.5,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.C6yOUbV05De3YSwE",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/weapons/thrown/grenade-round.webp",
+			"_id": "Le7EC72f790E1eq4",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732394948763,
+				"modifiedTime": 1732394948763,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732394925515,
+		"modifiedTime": 1732394958473,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ef2aTKxegCza63yG"
+}

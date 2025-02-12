@@ -1,0 +1,312 @@
+{
+	"folder": null,
+	"name": "Student",
+	"type": "background",
+	"img": "icons/sundries/books/book-stack.webp",
+	"system": {
+		"description": "<p><strong>Ability Score: </strong>+1 to Intelligence and one other ability score.</p>\n<p><strong>Skill Proficiencies:</strong> Choose two from Engineering, History, Medicine, Nature, and Persuasion. You gain proficiency in both, and a specialization in one of them.</p>\n<p><strong>Tool Proficiencies: </strong>Choose one from computers, multi-scanner, and medical pouch.</p>\n<p><strong>Languages:</strong> You can read, sign, speak, and write one additional language of your choice.</p>\n<p><strong>Suggested Equipment (Cost 125 credits):</strong> individual communication device, portable computing device.</p>\n<p><em><strong>Feature: Qualified.</strong></em> You have a qualification in your chosen area of expertise. When in a non-hostile urban area, you are able to gain access to major educational institutions during normal working hours in order to perform research or access specialized equipment.</p>\n<p><em><strong>Adventures and Advancement.</strong></em> In the course of your studies, you may gain higher level qualifications and greater recognition in your field, or even publish a text. Those who are dedicated to the same academic field as you will recognise your name.</p>\n<p><em><strong>Connection and Memento.</strong></em> Roll 1d10, choose, or make up your own.</p>\n<p>@Embed[Compendium.a5e.a5e-roll-tables.RollTable.a3D1RD7hSHoxBmge caption=false cite=true rollable=true]</p>\n<p>@Embed[Compendium.a5e.a5e-roll-tables.RollTable.FjGROwEe9SWVN0AM caption=false cite=true rollable=true]</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"grants": {
+			"LHHq1RqOKKhOsQSF": {
+				"grantType": "ability",
+				"abilities": {
+					"options": [
+						"str",
+						"dex",
+						"con",
+						"wis",
+						"cha"
+					],
+					"total": 1,
+					"base": [
+						"int"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"label": "Default ASI",
+				"_id": "LHHq1RqOKKhOsQSF",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false
+			},
+			"llR9LhD0Ci9xNCXi": {
+				"grantType": "proficiency",
+				"keys": {
+					"total": 2,
+					"options": [
+						"eng",
+						"his",
+						"med",
+						"nat",
+						"per"
+					],
+					"base": []
+				},
+				"proficiencyType": "skill",
+				"label": "Skill Proficiencies",
+				"_id": "llR9LhD0Ci9xNCXi",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"isExpertise": false
+			},
+			"5KnEZg1lhVNYEJcT": {
+				"grantType": "feature",
+				"label": "Background Feature",
+				"_id": "5KnEZg1lhVNYEJcT",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-background-features.Item.q9zu0cryDb7lVf3s",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				}
+			},
+			"cUiftZDrw6YJ8xQA": {
+				"grantType": "item",
+				"label": "Suggested Equipment",
+				"optional": true,
+				"_id": "cUiftZDrw6YJ8xQA",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.WJ2Y1MmlR5XJDzft",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.t7tfskTBxYgau8eM",
+							"quantity": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				}
+			},
+			"pe5L6JeUin3d8B7D": {
+				"grantType": "proficiency",
+				"proficiencyType": "tool",
+				"label": "Tool Proficiencies",
+				"_id": "pe5L6JeUin3d8B7D",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"keys": {
+					"base": [],
+					"options": [
+						"computers",
+						"multiScanner",
+						"medicalPouch"
+					],
+					"total": 1
+				},
+				"isExpertise": false
+			},
+			"F462ircjPckdOxVW": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "F462ircjPckdOxVW",
+				"label": "History Skill Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"arts",
+						"empires",
+						"genealogy",
+						"legends",
+						"militaryHistory",
+						"wars"
+					],
+					"total": 1
+				},
+				"skill": "his",
+				"img": ""
+			},
+			"ueHb8NqF6VjGLO3p": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "ueHb8NqF6VjGLO3p",
+				"label": "Engineering Skill Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"architecture",
+						"chemistry",
+						"explosives",
+						"gadgetry",
+						"mathematics",
+						"mechanicalTraps",
+						"plumbing",
+						"robotics",
+						"siegecraft",
+						"starships",
+						"starshipEngines",
+						"starshipShields",
+						"weaponry"
+					],
+					"total": 1
+				},
+				"skill": "eng",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"u5ikHwRcmm19Ew6C": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "u5ikHwRcmm19Ew6C",
+				"label": "Medicine Skill Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"animals",
+						"autopsy",
+						"diseases",
+						"drugs",
+						"herbalism",
+						"mentalHealth",
+						"poisons",
+						"xenobiology"
+					],
+					"total": 1
+				},
+				"skill": "med",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"YoESeB6lBoOvI9MN": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "YoESeB6lBoOvI9MN",
+				"label": "Nature Skill Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"astronomy",
+						"beastLore",
+						"farming",
+						"fey",
+						"plantLore",
+						"weather"
+					],
+					"total": 1
+				},
+				"skill": "nat",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"vrJgGo5zAUdNWiYg": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "vrJgGo5zAUdNWiYg",
+				"label": "Persuasion Skill Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"bribery",
+						"flattery",
+						"leadership",
+						"negotiation",
+						"peacemaking"
+					],
+					"total": 1
+				},
+				"skill": "per",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"bC5eAMOLGQNoVAVa": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bC5eAMOLGQNoVAVa",
+				"label": "Language",
+				"traits": {
+					"base": [],
+					"options": [
+						"abyssal",
+						"aquan",
+						"auran",
+						"boggard",
+						"celestial",
+						"common",
+						"deep",
+						"draconic",
+						"dwarvish",
+						"elvish",
+						"giant",
+						"gnoll",
+						"gnomish",
+						"goblin",
+						"grimlock",
+						"grippli",
+						"halfling",
+						"ignan",
+						"infernal",
+						"machine",
+						"minotaur",
+						"mycelial",
+						"orc",
+						"primordial",
+						"sylvan",
+						"terran",
+						"undercommon"
+					],
+					"total": 1,
+					"traitType": "languages"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1736544327400,
+		"modifiedTime": 1736544379046,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "eIGMuC05skWC8tcl"
+}

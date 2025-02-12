@@ -39,11 +39,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"dmgg5DxSIE0Dqx2D": {
-						"type": "effect",
-						"default": true,
-						"effectId": "k8jDWnfwseGO5Q7c"
 					}
 				},
 				"uses": {
@@ -56,7 +51,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"k8jDWnfwseGO5Q7c"
+				]
 			}
 		},
 		"description": "<p>At 7th level, you learn to humiliate your foes even as you strike them down. Once per turn, when you hit with a melee weapon attack, choose one damage type from fire, lightning, radiant, or thunder. The attack deals 1d6 bonus damage of the chosen type.&nbsp; The target of the attack must also make a Wisdom saving throw against your maneuver save DC; on a failure, it is rattled until the end of its next turn.</p>",
@@ -77,16 +75,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},
@@ -95,9 +83,6 @@
 			"origin": "Item.fPhA3YYn8X9AeqCO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nhiL9YMLsVVYqFhd",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -109,7 +94,10 @@
 			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
 			"_id": "k8jDWnfwseGO5Q7c",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

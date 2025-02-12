@@ -28,11 +28,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"APK3DjBCjMJ2tNAN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oN9LSZsi5K82jYJo"
 					}
 				},
 				"uses": {
@@ -45,20 +40,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"oN9LSZsi5K82jYJo"
+				]
 			},
 			"sdoYEVLYdoYAqFaI": {
 				"name": "Sneak Attack with Bludgeoning Weapon",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"ldI0u3uaYj4pKl4M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tfjmCLVihWFZmAIn"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -69,7 +61,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"tfjmCLVihWFZmAIn"
+				]
 			}
 		},
 		"description": "<p>In addition to stealth and skill at arms, you have added the potent weapon of fear and menace to your arsenal. After all, the best battles are the ones you don&rsquo;t have to fight in the first place. You gain the following benefits:</p>\n<ul>\n<li>You gain a free specialization for the Intimidation skill.</li>\n<li>Medium armor no longer imposes a stealth penalty on you.</li>\n<li>You can use any weapon that lacks the heavy and two-handed properties with @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack}.</li>\n<li>Once on each of your turns, you can apply an injury poison you have to a weapon as part of making an attack with it.</li>\n<li>When you score a critical hit and also deal Sneak Attack damage with a melee attack, the target must make a Constitution save against your maneuver DC or be rattled until the end of its next turn.</li>\n<li>If you deal Sneak Attack damage with a bludgeoning weapon, you can forgo two dice of sneak attack damage to halve your target&rsquo;s speed until the end of its next turn.</li>\n</ul>",
@@ -132,10 +127,6 @@
 		},
 		"prerequisite": "Alleybasher feat",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -144,9 +135,6 @@
 			"origin": "Item.M3sejXHDwcGfz13D",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "gaIpvcYPFvAyiEO9",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -190,7 +178,10 @@
 			},
 			"img": "icons/skills/ranged/projectile-spiral-gray.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -199,9 +190,6 @@
 			"origin": "Item.M3sejXHDwcGfz13D",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sdoYEVLYdoYAqFaI",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -243,7 +231,10 @@
 			},
 			"img": "icons/skills/ranged/projectile-spiral-gray.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

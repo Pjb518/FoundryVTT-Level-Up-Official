@@ -1,0 +1,275 @@
+{
+	"folder": null,
+	"name": "Plasma Sword",
+	"type": "object",
+	"img": "icons/weapons/swords/greatsword-evil-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Qf8vbgCSF4zbZ60Z": {
+				"name": "Plasma Sword",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"9i54LE3m5Z2t5h3B": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"z07RzJsUDOEWvOtF": {
+						"type": "damage",
+						"default": false,
+						"damageType": "fire",
+						"formula": "1d8 + @str.mod",
+						"label": "One-Handed"
+					},
+					"TBWgduYaRZ5CQX0f": {
+						"type": "damage",
+						"default": false,
+						"damageType": "fire",
+						"formula": "1d10 + @str.mod",
+						"label": "Two-Handed"
+					},
+					"6be2bTrb8zY7DulT": {
+						"type": "damage",
+						"default": false,
+						"label": "Supercharged",
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Km0yBk1PedbD5IxI": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"m2YBrC8O7QLP3phx": {
+				"name": "Supercharge",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"X6xkRv5yy8YLrA6Z": {
+				"name": "Increase Armor Class",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"sFWNX9HCVaBUedBm"
+				]
+			},
+			"rEjwnhgARLPCjqUh": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {
+					"MXH6WZWnL8Vq7G3P": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"coOCm19beP84iR0A": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class Bonus",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "round",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>A plasma sword is a superheated blade, reminiscent of a psyknight’s starglaive–although not as potent.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "70 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"parrying",
+			"versatile"
+		],
+		"weight": 3,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "medium",
+		"energyProperties": "plasma",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "d10",
+		"weaponAugments": [
+			"energy"
+		]
+	},
+	"effects": [
+		{
+			"origin": "Item.ksahKp0B3ZdZIWjw",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive",
+			"img": "icons/weapons/swords/greatsword-evil-green.webp",
+			"_id": "sFWNX9HCVaBUedBm",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732303256686,
+				"modifiedTime": 1732303283078,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732302749905,
+		"modifiedTime": 1732303331721,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "VWFdZtIzxDZGA2qI"
+}

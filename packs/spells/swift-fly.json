@@ -8,9 +8,6 @@
 			"origin": "Item.qzv5fd1ahlina4s9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZxPY0eIIMzSNfXzt",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -44,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -83,13 +84,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"8tkOoEc2qmXRlfxF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hXdmLCSqaWmEA5Nh"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"hXdmLCSqaWmEA5Nh"
+				]
 			}
 		},
 		"description": "<p>The target gains a flying speed of 60 feet. When the spell ends, the target falls if it is off the ground.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Swift Fly.</strong> The target gains a flying speed of 90 feet. </p>",
@@ -125,16 +123,6 @@
 				"arcane",
 				"movement"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

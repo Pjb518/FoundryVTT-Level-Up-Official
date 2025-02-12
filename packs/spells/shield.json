@@ -8,9 +8,6 @@
 			"origin": "Item.nlto7z4j14ips45w",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DfBODFbe1UYn4vIm",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -45,6 +42,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -84,13 +85,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"Gpw63XYtGOkkZmXp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3JSn5GwbNdSgD0oS"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"3JSn5GwbNdSgD0oS"
+				]
 			}
 		},
 		"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
@@ -130,16 +128,6 @@
 				"arcane",
 				"protection"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

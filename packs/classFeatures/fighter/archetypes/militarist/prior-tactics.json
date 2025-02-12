@@ -39,11 +39,6 @@
 						"default": true,
 						"label": "Extra Damage",
 						"formula": "1d8"
-					},
-					"snX0GUCDHvCDnAyG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nZpi3RccV2d4JCt0"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 					"glaRgPU3gkQ2mQnl": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"nZpi3RccV2d4JCt0"
+				]
 			},
 			"4kjKhZj2IQzc8Bzt": {
 				"name": "Additional Exertion",
@@ -112,16 +110,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},
@@ -129,18 +117,17 @@
 		{
 			"origin": "Item.fBWYztPeT96RGlW2",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "V5LycV1NfXttQwLX"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prior Tactics",
 			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
 			"_id": "nZpi3RccV2d4JCt0",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

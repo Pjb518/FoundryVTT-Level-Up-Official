@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"RWNL85zlcIxJz27R": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UT9B4cu7E2R7HhQA"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"CbieT1uWCIpcAeYj": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"UT9B4cu7E2R7HhQA"
+				]
 			},
 			"qIiGMP0BD4qxruS0": {
 				"name": "Melee Weapon Attack",
@@ -118,11 +115,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"xjJBIG5n31BFJeEe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5yI2IBvHYhSFI90g"
 					}
 				},
 				"uses": {
@@ -146,7 +138,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"5yI2IBvHYhSFI90g"
+				]
 			},
 			"c4B5g6YkbGwbAGZ1": {
 				"name": "Bite",
@@ -182,13 +177,7 @@
 						"damageType": "psychic"
 					}
 				},
-				"prompts": {
-					"t5A1nmRISQjosYvZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LRs7l81317XB2N5n"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -209,7 +198,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"LRs7l81317XB2N5n"
+				]
 			},
 			"bR6aQ0Bq1eN0smWF": {
 				"name": "Pull Grappled Creature",
@@ -329,16 +321,6 @@
 				"psychic"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -347,10 +329,6 @@
 			"origin": "Item.vjhks74rnijf518b",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NKePrV4GBUVVsO6r",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -390,6 +368,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -397,9 +379,6 @@
 			"origin": "Item.vjhks74rnijf518b",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "i4NUisRkAOwIWJtZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -435,17 +414,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/death/projectile-skull-flaming-green.webp",
 			"origin": "Item.vjhks74rnijf518b",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "c4B5g6YkbGwbAGZ1"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
@@ -477,6 +456,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

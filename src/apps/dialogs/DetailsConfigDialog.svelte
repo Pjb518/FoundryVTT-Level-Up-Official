@@ -28,12 +28,13 @@
     }
 
     const actor = document;
-    const options = Object.entries(configObject);
+    let options = Object.entries(configObject);
     const isRadioGroup = ["size"].includes(type);
     const { weaponCategories, toolCategories } = CONFIG.A5E;
 
     $: selected = foundry.utils.getProperty($actor, propertyKey);
     $: tooltipData = getTooltipData($actor);
+    $: options = Object.entries(configObject);
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-body-gap="0.75rem">
@@ -45,11 +46,7 @@
                 {selected}
                 allowDeselect={false}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
             />
         </FieldWrapper>
     {:else if type === "weapons"}
@@ -76,11 +73,7 @@
                 {selected}
                 {tooltipData}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
             />
         </FieldWrapper>
     {/if}
@@ -105,11 +98,7 @@
                 label="A5E.CreatureSwarm"
                 checked={$actor.system.details.isSwarm}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        "system.details.isSwarm",
-                        detail,
-                    );
+                    updateDocumentDataFromField($actor, "system.details.isSwarm", detail);
                 }}
             />
         </FieldWrapper>

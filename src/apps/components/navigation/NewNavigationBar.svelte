@@ -1,21 +1,19 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import toggleSheetLockedState from "../../handlers/toggleSheetLockedState";
+import toggleSheetLockedState from '../../handlers/toggleSheetLockedState';
 
-    import NavigationItem from "./NewNavigationItem.svelte";
+import NavigationItem from './NewNavigationItem.svelte';
 
-    export let currentTab;
-    export let tabs;
-    export let showLock = false;
+export let currentTab;
+export let tabs;
+export let showLock = false;
 
-    const actor = getContext("actor");
-    const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
+const actor = getContext('actor');
+const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <nav class="a5e-nav" class:a5e-nav--flat-bottom={currentTab.hasSubNavigation}>
@@ -32,13 +30,7 @@
     <ul class="a5e-nav-list">
         {#each tabs as { name, display, icon, label }}
             {#if display ?? true}
-                <NavigationItem
-                    on:tab-change
-                    {icon}
-                    {label}
-                    {name}
-                    {currentTab}
-                />
+                <NavigationItem on:tab-change {icon} {label} {name} {currentTab} />
             {/if}
         {/each}
 

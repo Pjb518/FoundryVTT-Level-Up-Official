@@ -8,9 +8,6 @@
 			"origin": "Item.vk0Jt5Jt6Zr0dzEu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "e63nPZ8WzIi8yxBZ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -80,14 +81,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"WBmWi8LsLTsyKEW2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "GHdxDKGoTRyYM3qe",
-						"label": "Battle Hymn: Song of Clarity"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"GHdxDKGoTRyYM3qe"
+				]
 			}
 		},
 		"description": "<p>At the start of the target&rsquo;s turn, if it is not at 0 hit points it can expend&nbsp;one of its Hit Dice to regain hit points.</p>",
@@ -108,16 +105,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard"
 	},
 	"folder": null,

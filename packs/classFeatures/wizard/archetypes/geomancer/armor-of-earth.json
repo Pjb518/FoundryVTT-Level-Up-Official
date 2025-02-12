@@ -47,11 +47,6 @@
 						"default": true,
 						"effectId": "",
 						"label": "Mage Armor"
-					},
-					"Tzj6mSx1S2nuVxlV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VQuN5XTMbmVxKUv2"
 					}
 				},
 				"uses": {
@@ -84,7 +79,10 @@
 					"quantity": 1,
 					"type": "other"
 				},
-				"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp"
+				"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+				"effects": [
+					"VQuN5XTMbmVxKUv2"
+				]
 			}
 		},
 		"description": "<p>When you select this archetype at 2nd level, you gain the @UUID[Compendium.a5e.a5e-spells.Item.ip8c3zrbrngrx1oe]{Mage Armor} spell if you do not already have it, it is always prepared, and it does not count against your number of spells prepared. When you cast <em>mage armor</em>, you gain a +1 bonus to your AC.</p>",
@@ -105,16 +103,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wizard",
 		"class": ""
 	},
@@ -123,13 +111,9 @@
 			"origin": "Item.dC7iPbrxbq01V0uS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JlaRs1V8DQB1m5cZ",
 					"duration": {
 						"unit": "hours"
-					},
-					"applyToSelf": false
+					}
 				}
 			},
 			"transfer": false,
@@ -168,7 +152,10 @@
 			},
 			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		},
@@ -176,10 +163,6 @@
 			"origin": "Item.Zf0Zq0t5m962615d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JlaRs1V8DQB1m5cZ",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -190,7 +173,10 @@
 			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
 			"_id": "VQuN5XTMbmVxKUv2",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

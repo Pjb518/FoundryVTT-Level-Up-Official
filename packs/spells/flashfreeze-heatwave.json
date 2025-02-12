@@ -43,11 +43,6 @@
 						},
 						"label": "Frozen Area",
 						"onSave": "half damage, not restrained"
-					},
-					"Zc2rBYwilFEVxS7O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hwg5N40gboQlZPHG"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 					"quantity": 1,
 					"radius": 40,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"hwg5N40gboQlZPHG"
+				]
 			},
 			"Wv2EKxAgFGA53gnO": {
 				"name": "Flames",
@@ -166,16 +164,6 @@
 				"fire"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -183,11 +171,7 @@
 			"icon": "icons/magic/water/ice-crystal-white.webp",
 			"origin": "Item.gc2j4x57gy5ma2fw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Gb5SqxcEzz6CNl5B"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
@@ -219,6 +203,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

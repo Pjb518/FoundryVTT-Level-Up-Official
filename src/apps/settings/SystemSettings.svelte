@@ -2,8 +2,8 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
-    import { localize } from "#runtime/svelte/helper";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
+    import { localize } from "#runtime/util/i18n";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Settings5eTab from "./Settings5eTab.svelte";
@@ -14,6 +14,7 @@
     import SettingsMiscTab from "./SettingsMiscTab.svelte";
     import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
     import SettingsRollTab from "./SettingsRollTab.svelte";
+    import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
     export let elementRoot;
     export let { appId, settings, dialog } = getContext("#external").application;
@@ -72,6 +73,12 @@
             name: "5eSettings",
             label: "A5E.settings.navigation.5eSettings",
             component: Settings5eTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "extraSettings",
+            label: "A5E.settings.navigation.extraSettings",
+            component: SettingsExtraTab,
             display: game.user.isGM,
         },
         {
@@ -137,8 +144,6 @@
         min-height: 30rem;
         padding: 0.75rem;
         gap: 0.5rem;
-
-        background: $color-sheet-background;
     }
 
     .submit {

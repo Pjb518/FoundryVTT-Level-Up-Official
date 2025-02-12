@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "negates effect"
-					},
-					"eca58berxEuivMgk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "V84jd7yLk3ccpiz4"
 					}
 				},
 				"uses": {
@@ -58,7 +53,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"V84jd7yLk3ccpiz4"
+				]
 			}
 		},
 		"description": "<p>You encase the target in a shell of ice.&nbsp;The ice has AC 13, 50 hit points; it is immune to cold damage and vulnerable to fire damage. Any cold damage that would be dealt to the ice instead heals it, up to its maximum hit points. A flying creature immediately falls to the ground, potentially dealing falling damage to the ice rather than the creature. Attacks directed at the target deal damage to the ice first; if the ice is reduced to 0 hp, any remaining damage transfers to the target.</p><p>If you maintain concentration for the full minute, the target is put into suspended animation indefinitely. &nbsp;A creature in suspended animation is unconscious, but no longer ages, and does not need to eat, drink, or breathe. A creature can willingly fail its saving throw. You can end this effect at will, even if you cast it upon yourself, and the creature awakens if the ice is destroyed.</p><p><strong>Cast at Higher Levels.</strong> The ice has 20 additional hit points for every slot level above 5th.</p>",
@@ -102,16 +100,6 @@
 				"time"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -119,11 +107,7 @@
 			"icon": "icons/magic/water/barrier-ice-water-cube.webp",
 			"origin": "Item.3w5r0hl7csgts034",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vmqO9B3diwMd6FBl"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Suspended Animation",
@@ -155,6 +139,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

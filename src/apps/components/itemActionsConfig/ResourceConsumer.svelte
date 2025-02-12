@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -14,6 +14,12 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
+    const { resourceConsumerConfig } = A5E;
+
+    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
+    if (!showFavorPoints) {
+        delete resourceConsumerConfig?.favorPoints;
+    }
 
     function updateResourceSelection() {
         updateDocumentDataFromField(
@@ -35,8 +41,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"
@@ -45,6 +49,19 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.consumers.${consumerId}.label`,
+            )}
+    />
+</FieldWrapper>
+
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
             )}
     />
 </FieldWrapper>

@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"DZgFKYby0GwQInbh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gqo8kZWhxfHTNZut"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"gqo8kZWhxfHTNZut"
+				]
 			}
 		},
 		"description": "<p>Your artifact is an intellectually challenging puzzle you find other challenges easier to parse after you make a breakthrough. Whenever you use your enigma tinkering or unlock potential features to learn a spell or relic art, you gain an expertise die on all Intelligence checks for the next hour (this ability does not stack with itself).</p>",
@@ -57,10 +54,6 @@
 		"grants": {},
 		"prerequisite": "Enigmatist archetype",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -69,10 +62,6 @@
 			"origin": "Item.GXurgEm6mX2Zf6oG",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nsFdeHjFpHWnrUkZ",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -106,6 +95,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

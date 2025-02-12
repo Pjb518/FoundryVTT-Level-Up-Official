@@ -30,11 +30,6 @@
 					}
 				},
 				"prompts": {
-					"cSU7HujiWZnMhnz3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PlIMiUGDe1VJlRS5"
-					},
 					"yDc1hQMq6hEEjzRr": {
 						"type": "savingThrow",
 						"default": true,
@@ -42,11 +37,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"t7agIhHqgXs3s5kR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "G3K91FouTqbnpdDv"
 					}
 				},
 				"uses": {
@@ -67,7 +57,11 @@
 					"T2ROj5XZldetwtHd": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"PlIMiUGDe1VJlRS5",
+					"G3K91FouTqbnpdDv"
+				]
 			},
 			"5qhjLTetEtUuUvjG": {
 				"name": "Subsequent Turns",
@@ -108,13 +102,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"EZcQYZc0ueCCSMqN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Guk7hXRa4xm7RFQs"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -125,7 +113,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Guk7hXRa4xm7RFQs"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You magically funnel fury into yourself, pushing beyond your normal limits.</p><p>To cast this spell, you must have no remaining uses of @UUID[Compendium.a5e.a5e-class-features.Item.htgvror5v9twusgs]{Rage}, or there must be no limit to the number of times you can Rage.</p><p>As part of the action to cast a spell, you enter a Rage, and you take 1d8 damage (which cannot be reduced or prevented in any way). While this Rage lasts, at the beginning of each of your turns you take another 1d4 damage (which cannot be reduced or prevented in any way). Also during this Rage, your melee weapon attacks deal an additional 1d4 psychic damage. When your Rage ends, you must make a Wisdom save against your own spell save DC or gain a level of strife.</p><p>If you have unlimited Rage uses (such as in the case of a 20th level Wrathburner berserker), the bonus weapon damage is instead 2d8 psychic damage. No other effects of this special rage apply to you (including the initial and ongoing damage, or risk of strife).</p>",
@@ -169,16 +160,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -186,12 +167,7 @@
 			"icon": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
 			"origin": "Item.u1cwu0h5gfqbyiou",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "uRj8395xVBYmTAsD",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Well of Wrath",
@@ -221,17 +197,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
 			"origin": "Item.u1cwu0h5gfqbyiou",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "uRj8395xVBYmTAsD"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Strife",
@@ -261,18 +237,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
 			"origin": "Item.u1cwu0h5gfqbyiou",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pXl3R4RhS0RTh8q8",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Well of Wrath",
@@ -302,6 +277,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

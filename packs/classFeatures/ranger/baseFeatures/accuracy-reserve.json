@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"BR8zPOVJj3PraSwG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nP7E14lwHxNIOIVW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"nP7E14lwHxNIOIVW"
+				]
 			}
 		},
 		"description": "<p>If you have not moved since the beginning of your last turn, you gain a +1 bonus to weapon attack rolls until the end of your turn. You lose this bonus if you move.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "ranger"
 	},
 	"effects": [
@@ -76,10 +63,6 @@
 			"origin": "Item.mvh4wb5k64okxies",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "umrEevTSTycYx3N4",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -114,6 +97,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

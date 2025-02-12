@@ -22,14 +22,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"2Jahfqa6g2I2qfJw": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XLlSFdtETTS1R91h",
-						"label": "Potion of Cloud Giant Strength"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +35,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"XLlSFdtETTS1R91h"
+				]
 			}
 		},
 		"description": "<p>After you drink this opaque white potion, for the next hour your Strength score increases to 27.</p><p>The potion has no effect if your Strength is equal to or greater than the giant&rsquo;s Strength score.</p>",
@@ -83,16 +79,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -105,12 +91,9 @@
 			"origin": "Item.qtjdhrulbs9ihz08",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "n9Q2Qouem5tP22tj"
+					}
 				}
 			},
 			"transfer": false,
@@ -142,6 +125,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

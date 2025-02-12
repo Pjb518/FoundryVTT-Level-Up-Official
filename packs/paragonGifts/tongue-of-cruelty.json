@@ -7,11 +7,7 @@
 			"icon": "icons/commodities/materials/slime-thick-blue.webp",
 			"origin": "Item.scnb62z2n2766vb4",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "n8AKzKjfweDan6wd"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tongue of Cruelty",
@@ -41,17 +37,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/commodities/materials/slime-thick-blue.webp",
 			"origin": "Item.scnb62z2n2766vb4",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "izTXbMtf1SJ9ZHqZ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
@@ -83,6 +79,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -117,13 +117,7 @@
 						"bonus": "max(@str.mod, @dex.mod)"
 					}
 				},
-				"prompts": {
-					"BDMURcuxiC60K4DL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UyGOHrAqK7OC8K6V"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -143,7 +137,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"UyGOHrAqK7OC8K6V"
+				]
 			},
 			"HtX5TfBJ2bZeYhsV": {
 				"name": "Enemy Attempts to Detach Tongue",
@@ -210,13 +207,7 @@
 						"bonus": "max(@str.mod, @dex.mod)"
 					}
 				},
-				"prompts": {
-					"BDMURcuxiC60K4DL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cuQd3pan1xeWKmyR"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -236,7 +227,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"cuQd3pan1xeWKmyR"
+				]
 			}
 		},
 		"description": "<p>You have a long sticky tongue capable of immobilizing your prey or enemies. Your tongue is 10 feet long and is dexterous enough to perform simple actions a hand could perform, though it cannot wield weapons.</p><p>On your turn as an action, you can make a melee attack using your tongue. You are considered proficient with your tongue and may use your Strength or Dexterity modifier for the attack, and it has a melee reach of 10 feet. On a hit you deal no damage, but your tongue attaches to the target. A creature attached to your tongue cannot move further away from you and takes a &ndash; 2 penalty to AC as long as the tongue is attached.</p><p>A creature can detach your tongue by succeeding on an opposed Strength (Athletics) check or by dealing slashing damage to the tongue (AC 14). Your tongue is profoundly elastic, so damage to the tongue does not deplete your actual hit points or do lasting harm.</p><p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically.</p><h3>Tongue of Cruelty Upgrade</h3><p>The melee reach of your Wicked Tongue is 30 feet. (All the 10 foot range increments upgrade to 30 feet.) You still cannot move further away from the attached creature than the range of your tongue. If you are forced to, your tongue releases.</p><p>When you hit with your Wicked Tongue, instead of attaching you can drench the target in an extra sticky version of your saliva. The target is restrained until it succeeds on a Strength saving throw at the start of each of its turns; it can also break free as an Action. The DC for the saving throw is 8 + your proficiency bonus + your Constitution modifier, or 13, whichever is higher. Once you use your extra sticky saliva, you can&rsquo;t do so again until you complete a short or long rest.</p><p><strong>Foundry Note:</strong> Will automatically use highest save between Strength and Dexterity, change if desired.</p>",
@@ -257,16 +251,6 @@
 		"grants": {},
 		"prerequisite": "Wicked Tongue gift",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"_id": "scnb62z2n2766vb4",

@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.DIuLYyQIlIzyGQqL",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2c2KULBl3DHkFxrs",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Touched by Thunder (Lightning)",
 			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
 			"_id": "gCWwg3nQHF3t6LIX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -56,19 +54,17 @@
 		{
 			"origin": "Item.DIuLYyQIlIzyGQqL",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2c2KULBl3DHkFxrs",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Touched by Thunder (Thunder)",
 			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
 			"_id": "3OphrW6fpvXZ3Z2j",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -122,13 +118,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"LejbAaC4qPRzUC7q": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gCWwg3nQHF3t6LIX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -139,7 +129,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"gCWwg3nQHF3t6LIX"
+				]
 			},
 			"BB8tqe3eEx7zMG2H": {
 				"name": "Transfer to Different Weapon",
@@ -199,16 +192,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},

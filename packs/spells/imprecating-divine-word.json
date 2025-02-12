@@ -8,9 +8,6 @@
 			"origin": "Item.3bfn50sm01m5n4e9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "H50sNnXuavoSjquR",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.3bfn50sm01m5n4e9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "H50sNnXuavoSjquR",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -92,6 +90,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -99,9 +101,6 @@
 			"origin": "Item.3bfn50sm01m5n4e9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "H50sNnXuavoSjquR",
 					"duration": {
 						"unit": "hours"
 					}
@@ -139,6 +138,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -178,23 +181,12 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"YHlL5vUmAoQn08rk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rnztvfPTLtjTp3O8"
-					},
-					"z03m2cAw3vJNlI4O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "H4ocizG6o9Ll9ksV"
-					},
-					"PAG212eKL4ARtvx6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eOscshLCLDAt9p3u"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"rnztvfPTLtjTp3O8",
+					"H4ocizG6o9Ll9ksV",
+					"eOscshLCLDAt9p3u"
+				]
 			}
 		},
 		"description": "<p>You utter a primordial imprecation that brings woe upon your enemies. A target suffers an effect based on its current hit points.</p><ul><li><p>Fewer than 50 hit points: deafened for 1 minute.</p></li><li><p>Fewer than 40 hit points: blinded and deafened for 10 minutes.</p></li><li><p>Fewer than 30 hit points: stunned, blinded, and deafened for 1 hour.</p></li><li><p>Fewer than 20 hit points: instantly killed outright.</p></li></ul><p>Additionally, when a celestial, elemental, fey, or fiend is affected by this spell it is immediately forced back to its home plane and for 24 hours it is unable to return to your current plane by any means less powerful than a wish spell. Such a creature does not suffer this effect if it is already on its plane of origin.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Imprecating Divine Word.</strong> The spell’s additional effect also targets aberrations and dragons, sending them to a harmless demiplane. </p>",
@@ -230,16 +222,6 @@
 				"affliction",
 				"divine"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

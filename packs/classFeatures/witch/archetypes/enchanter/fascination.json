@@ -37,11 +37,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"EsWXJEyUx8nwQqet": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wEC2rG1zLTwj0Afr"
 					}
 				},
 				"uses": {
@@ -56,7 +51,10 @@
 				"duration": {
 					"unit": "round",
 					"value": 1
-				}
+				},
+				"effects": [
+					"wEC2rG1zLTwj0Afr"
+				]
 			}
 		},
 		"description": "<p>At 10th level you may use an action to cause any number of humanoids, giants, fey, or monstrosities to make a wisdom save against your spell save DC. On a failure, they are entranced by you until the start of your next turn. Their movement speed is 0 and they are incapacitated. This effect ends early if they take any damage, or if another creature uses their action to shake them out of it. At the start of your next turn if any creatures are still affected, you may expend an additional use of this ability to extend the effect. You may use this ability a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest. Monstrosities are only affected if they have an intelligence of 7 or higher.</p>",
@@ -77,16 +75,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "witch",
 		"class": ""
 	},
@@ -95,9 +83,6 @@
 			"origin": "Item.3EjiGT7rjSHHk7SC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0YLg1RYST16AlxSU",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -109,7 +94,10 @@
 			"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
 			"_id": "wEC2rG1zLTwj0Afr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import FieldWrapper from "../FieldWrapper.svelte";
     import Tag from "../Tag.svelte";
@@ -28,9 +28,7 @@
         if (!determineIfPropertyModifiedByEffect($actor, propertyKey))
             return $actor[dialogMethod]({ propertyKey });
 
-        ui.notifications.warn(
-            localize("A5E.validations.warnings.modifiedByEffect"),
-        );
+        ui.notifications.warn(localize("A5E.validations.warnings.modifiedByEffect"));
     }
 
     $: details = [
@@ -145,7 +143,7 @@
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}
@@ -154,16 +152,15 @@
             {heading}
             buttons={[
                 {
-                    classes:
-                        "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
+                    classes: "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
                     display: !sheetIsLocked,
                     handler: () => openConfig(dialogMethod, propertyKey),
                     tooltip,
                 },
             ]}
             --a5e-field-wrapper-heading-weight="400"
-            --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-            --a5e-header-button-color-hover="#555"
+            --a5e-header-button-color="var(--a5e-button-gray)"
+            --a5e-header-button-color-hover="var(--a5e-button-gray-hover)"
         >
             <ul class="details-list">
                 {#each values as tag}
@@ -172,10 +169,10 @@
                         value={tag}
                         tight={true}
                         optionStyles="
-                            color: black;
-                            background-color: rgba(0 0 0 / 0.05);
+                            color: var(--a5e-color-dark);
+                            background-color: var(--a5e-color-background-medium);
                             max-width: 98%;
-                            border: 1px solid #ccc;
+                            border: 1px solid var(--a5e-border-color);
                         "
                         disabled={true}
                     />

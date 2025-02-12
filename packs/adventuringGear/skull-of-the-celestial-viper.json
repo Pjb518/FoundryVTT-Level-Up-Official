@@ -37,14 +37,7 @@
 						"damageType": "poison"
 					}
 				},
-				"prompts": {
-					"PzrL2LwRtXoaUf6P": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XodrJC52wN1k5MMN",
-						"label": "Additional Damage"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +51,10 @@
 				},
 				"duration": {
 					"unit": "instantaneous"
-				}
+				},
+				"effects": [
+					"XodrJC52wN1k5MMN"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">This platinum-plated skull is engraved with intricate magical symbols and meditations in Celestial. It can be used as a spellcasting focus for any one of your spellcasting classes.&nbsp;</p>\n<p dir=\"ltr\">Once per turn while wielding the skull, you can use your reaction to add an additional 1d4 points of radiant and 1d4 points of poison damage when you hit with a melee weapon attack.</p>",
@@ -99,10 +95,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"breakerProperties": [],
 		"capacity": {
 			"type": "weight",
@@ -118,12 +110,7 @@
 		{
 			"origin": "Item.kXZyuYqFFTxvUTdx",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JZX3D8KspQ4kPlbT",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Additional Damage (Skull of the Celestial Viper)",
@@ -161,7 +148,10 @@
 			},
 			"img": "icons/commodities/bones/skull-feline-grey.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

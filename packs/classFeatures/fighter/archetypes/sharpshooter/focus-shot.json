@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.7tPbsIWD98E3FX6t",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oY1CzZ0CnioA6r5R"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blinded",
 			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
 			"_id": "6br7b5eSHUwGqmI7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -57,18 +56,17 @@
 		{
 			"origin": "Item.7tPbsIWD98E3FX6t",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wWLWF1vT7HyNGCW8"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bring it Down",
 			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
 			"_id": "KHXtuSkYboDI1lPm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",
@@ -106,18 +104,17 @@
 		{
 			"origin": "Item.7tPbsIWD98E3FX6t",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rFv9ekYhy6dvfql7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Wing Clip",
 			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
 			"_id": "d0e9YooOrh2Kuiju",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",
@@ -186,11 +183,6 @@
 							"type": "maneuver"
 						}
 					},
-					"vJ1U8c0MjYG08Tih": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6br7b5eSHUwGqmI7"
-					},
 					"PA5HLkFi0taf3UPF": {
 						"type": "savingThrow",
 						"default": true,
@@ -210,7 +202,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"6br7b5eSHUwGqmI7"
+				]
 			},
 			"wWLWF1vT7HyNGCW8": {
 				"name": "Bring it Down",
@@ -231,11 +226,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"69f5YqMx3RWHb0ka": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KHXtuSkYboDI1lPm"
 					}
 				},
 				"uses": {
@@ -248,7 +238,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KHXtuSkYboDI1lPm"
+				]
 			},
 			"Kf5RnWRu32GjWIQK": {
 				"name": "Center of Mass",
@@ -358,11 +351,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"SlK101ZrYVFhyyDF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "d0e9YooOrh2Kuiju"
 					}
 				},
 				"uses": {
@@ -375,7 +363,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"d0e9YooOrh2Kuiju"
+				]
 			}
 		},
 		"description": "<p>At 7th level, you&rsquo;ve become precise enough that when given enough time to focus you can not only strike your target, but hit specific parts of your target to great effect. Once per turn, whenever you take the Attack action and are able to make multiple ranged attacks you may forgo one of those ranged attacks to turn one of your remaining attacks into a Focus Shot. When you make a Focus Shot choose one of the following options and make a ranged weapon attack. You gain an expertise die on the attack, and on a hit it does your chosen effect in addition to the weapon&rsquo;s damage.</p>\n<p><em><strong>Aim for the Eyes.</strong></em> You aim for the creature&rsquo;s weak and delicate eyes. The target makes a Dexterity saving throw against your maneuver DC or is blinded until it recovers.</p>\n<p><em><strong>Bring it Down. </strong></em>You aim for weak points on the creature&rsquo;s legs. The target makes a Constitution saving throw against your maneuver DC or its Speed is reduced by half until it recovers.</p>\n<p><em><strong>Center of Mass.</strong></em> You aim for the heart or its horrid equivalent. Your attack scores a critical hit on a roll of 19&ndash;20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17&ndash;20).</p>\n<p><em><strong>Vein Slice. </strong></em>You aim for a vital vein or artery to bleed your target out. The target makes a Constitution saving throw against your maneuver DC or it takes 1d6 ongoing damage until it recovers.</p>\n<p><em><strong>Wing Clip. </strong></em>You aim for your target&rsquo;s wings. The target makes a Dexterity saving throw against your maneuver DC. On a failure, its flying speed is reduced by half until healed. Creatures who are currently flying when this saving throw is failed immediately plummet 60 feet down and take falling damage as normal.</p>\n<p>Creatures wounded by any of these effects make a Constitution saving throw against your maneuver DC at the end of each of their turns, recovering and ending the effect on itself on a success. Alternatively, the wounded creature (or a creature within 5 feet of it) can use an action to make a Medicine check against your maneuver DC, ending the effect on a success. Healing magically or from a trait (such as Regeneration) also ends the effect. You cannot choose effects that specifically target features a creature does not have.</p>",
@@ -396,16 +387,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},

@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"JFXXyFpCT36qaSfu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KxCEXoyT2HatIxG0"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -35,7 +29,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KxCEXoyT2HatIxG0"
+				]
 			}
 		},
 		"description": "<p>While within 5 feet of a solid wall, you add your proficiency bonus to damage rolls with weapon attacks.</p>",
@@ -56,16 +53,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},
@@ -73,19 +60,17 @@
 		{
 			"origin": "Item.KV7LPYpFhGGxlEWA",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OIu5PQpeCkBOjD6v",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Back to the Wall",
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"_id": "KxCEXoyT2HatIxG0",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

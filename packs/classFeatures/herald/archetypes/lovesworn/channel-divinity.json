@@ -31,13 +31,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"gWVg2r6NY1bMGTUq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LRVR1ZhyM6XXvIxB"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -65,7 +59,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"LRVR1ZhyM6XXvIxB"
+				]
 			},
 			"T8g6431AzAk4zr8O": {
 				"name": "Second Self",
@@ -133,10 +130,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -145,9 +138,6 @@
 			"origin": "Item.8Ua2jWkLLErorMhE",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "aSx5Arb9PlTrxEx3",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -159,7 +149,10 @@
 			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
 			"_id": "LRVR1ZhyM6XXvIxB",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",

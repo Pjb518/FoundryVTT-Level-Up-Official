@@ -78,16 +78,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -96,9 +86,6 @@
 			"origin": "Item.uyxiGhca3U7toEeZ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wrpaZPMFJLcWL0YZ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -110,7 +97,10 @@
 			"img": "icons/skills/melee/maneuver-sword-katana-yellow.webp",
 			"_id": "4Yrh6ANTU1lo01ya",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.cha.save.expertiseDice",

@@ -7,10 +7,6 @@
 			"origin": "Item.bki8bcq2tVrjN4tX",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "VQlKekWR7KJf7NJg",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -52,7 +48,10 @@
 			},
 			"img": "icons/creatures/abilities/wing-batlike-purple-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -97,13 +96,10 @@
 						"range": "medium"
 					}
 				},
-				"prompts": {
-					"yMN8cFKKLSl0p73g": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BYYy75Rz7jK8aCPA"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"BYYy75Rz7jK8aCPA"
+				]
 			}
 		},
 		"description": "<p>When you are in dim light or darkness, you can use a bonus action to teleport up to 60 feet to an unoccupied space you can see that is also in dim light or darkness. You then have advantage on Stealth checks until the start of your next turn.</p>",
@@ -124,16 +120,6 @@
 		"grants": {},
 		"prerequisite": "11th level, proficiency with Stealth",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

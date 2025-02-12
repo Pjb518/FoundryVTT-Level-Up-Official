@@ -6,11 +6,7 @@
 		{
 			"origin": "Item.GJHshKDdPuFIqcIu",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "joed7pA5tmHWngEI"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Chilled",
@@ -47,7 +43,10 @@
 			},
 			"img": "icons/svg/item-bag.svg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -100,13 +99,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"h6lbnHo8IMIMYGUv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "EfgAzIDJB3ChE3Hd"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"EfgAzIDJB3ChE3Hd"
+				]
 			}
 		},
 		"description": "<p>When you cast a spell that deals cold damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes cold damage from the spell, it is also chilled, reducing its movement speeds by 10 feet for a number of rounds equal to the level of the spell (minimum 1 round).</p>",
@@ -127,16 +123,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},

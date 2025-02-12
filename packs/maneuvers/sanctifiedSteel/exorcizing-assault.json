@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"eERRNiy6a1wrOCWr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9XJwwPdDBB7aATpo"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 				"target": {
 					"type": "self",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"9XJwwPdDBB7aATpo"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\"><strong>Requirement:</strong><em> a vial of holy water</em></p>\n<p dir=\"ltr\">You whisper a prayer and anoint your weapon with holy water, expending the vial. For the rest of your turn, if you make weapon attacks against a creature that is possessed by another entity, the damage passes harmlessly through the host and damages the possessing entity directly.</p>\n<p>&nbsp;</p>",
@@ -66,21 +63,13 @@
 		"exertionCost": 2,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "sanctifiedSteel",
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		}
+		"tradition": "sanctifiedSteel"
 	},
 	"effects": [
 		{
 			"origin": "Item.CRsSkEHhFrpQkmKR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0f9ZVsebW8QPUwU8",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -110,7 +99,10 @@
 			},
 			"img": "icons/weapons/swords/sword-winged-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

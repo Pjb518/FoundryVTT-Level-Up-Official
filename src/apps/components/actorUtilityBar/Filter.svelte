@@ -1,76 +1,71 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
-    import { TJSMenu, TJSToggleIconButton } from "#standard/component";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
+import { TJSToggleIconButton } from '#standard/component/button';
+import { TJSMenu } from '#standard/component/menu';
 
-    import arraysAreEqual from "../../../utils/arraysAreEqual";
-    import updateFilters from "../../../utils/updateFilters";
+import arraysAreEqual from '../../../utils/arraysAreEqual';
+import updateFilters from '../../../utils/updateFilters';
 
-    import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
+import MultiStateCheckBoxGroup from '../MultiStateCheckBoxGroup.svelte';
 
-    export let reducerId = "";
-    export let reducerType;
-    export let reducer = null;
+export let reducerId = '';
+export let reducerType;
+export let reducer = null;
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    if (!reducer) {
-        reducer = actor[reducerType];
-    }
+if (!reducer) {
+	reducer = actor[reducerType];
+}
 
-    function getFilterTooltip(numInclusiveFilters, numExclusiveFilters) {
-        if (numInclusiveFilters && numExclusiveFilters) {
-            return `Inclusive Filters: ${numInclusiveFilters} &nbsp;&nbsp;|&nbsp;&nbsp; Exclusive Filers: ${numExclusiveFilters}`;
-        } else if (numInclusiveFilters) {
-            return `Inclusive Filters: ${numInclusiveFilters}`;
-        } else if (numExclusiveFilters) {
-            return `Exclusive Filters: ${numExclusiveFilters}`;
-        } else {
-            return null;
-        }
-    }
+function getFilterTooltip(numInclusiveFilters, numExclusiveFilters) {
+	if (numInclusiveFilters && numExclusiveFilters) {
+		return `Inclusive Filters: ${numInclusiveFilters} &nbsp;&nbsp;|&nbsp;&nbsp; Exclusive Filers: ${numExclusiveFilters}`;
+	} else if (numInclusiveFilters) {
+		return `Inclusive Filters: ${numInclusiveFilters}`;
+	} else if (numExclusiveFilters) {
+		return `Exclusive Filters: ${numExclusiveFilters}`;
+	} else {
+		return null;
+	}
+}
 
-    function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
-        $actor.setFlag("a5e", flagId, {
-            inclusive: inclusiveFilters,
-            exclusive: exclusiveFilters,
-        });
+function onUpdateFilters(inclusiveFilters, exclusiveFilters) {
+	$actor.setFlag('a5e', flagId, {
+		inclusive: inclusiveFilters,
+		exclusive: exclusiveFilters,
+	});
 
-        activeFilters.inclusive = inclusiveFilters;
-        activeFilters.exclusive = exclusiveFilters;
+	activeFilters.inclusive = inclusiveFilters;
+	activeFilters.exclusive = exclusiveFilters;
 
-        updateFilters(reducer, reducerType, activeFilters);
-    }
+	updateFilters(reducer, reducerType, activeFilters);
+}
 
-    function toggleAll(filters) {
-        filters = Object.keys(filters);
-        const sectionFilters = activeFilters?.inclusive?.filter((f) =>
-            filters.includes(f),
-        );
+function toggleAll(filters) {
+	filters = Object.keys(filters);
+	const sectionFilters = activeFilters?.inclusive?.filter((f) => filters.includes(f));
 
-        if (arraysAreEqual(sectionFilters, filters)) {
-            const inclusiveFilters = activeFilters?.inclusive?.filter(
-                (f) => !filters.includes(f),
-            );
-            return onUpdateFilters(inclusiveFilters, []);
-        }
+	if (arraysAreEqual(sectionFilters, filters)) {
+		const inclusiveFilters = activeFilters?.inclusive?.filter((f) => !filters.includes(f));
+		return onUpdateFilters(inclusiveFilters, []);
+	}
 
-        const inclusiveFilters = new Set([...filters, ...activeFilters?.inclusive]);
+	const inclusiveFilters = new Set([...filters, ...activeFilters?.inclusive]);
 
-        return onUpdateFilters([...inclusiveFilters], []);
-    }
+	return onUpdateFilters([...inclusiveFilters], []);
+}
 
-    const filterSections = Object.values(CONFIG.A5E.filters[reducerType] ?? {});
-    const flagId = reducerId
-        ? `filters.${reducerType}.${reducerId}`
-        : `filters.${reducerType}`;
-    let activeFilters = $actor.getFlag("a5e", flagId) ?? {};
+const filterSections = Object.values(CONFIG.A5E.filters[reducerType] ?? {});
+const flagId = reducerId ? `filters.${reducerType}.${reducerId}` : `filters.${reducerType}`;
+let activeFilters = $actor.getFlag('a5e', flagId) ?? {};
 
-    $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
-    $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
-    $: filterTooltip = getFilterTooltip(numInclusiveFilters, numExclusiveFilters);
+$: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
+$: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
+$: filterTooltip = getFilterTooltip(numInclusiveFilters, numExclusiveFilters);
 
-    updateFilters(reducer, reducerType, activeFilters);
+updateFilters(reducer, reducerType, activeFilters);
 </script>
 
 <span

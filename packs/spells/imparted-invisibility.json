@@ -8,9 +8,6 @@
 			"origin": "Item.5vn1rl59pxadpk97",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JmYFAmw4m4fpTJH3",
 					"duration": {
 						"unit": "hours"
 					}
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -90,13 +91,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"G31vUlozIW3a3sPx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o1qvWrwid36w8yeW"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"o1qvWrwid36w8yeW"
+				]
 			}
 		},
 		"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p><p><strong>Rare:&nbsp;<em>Imparted Invisibility.&nbsp;</em></strong>Until the&nbsp;spell ends, any object that the target picks up&nbsp;becomes invisible even after it is dropped.</p>",
@@ -140,16 +138,6 @@
 				"obscurement",
 				"shadow"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

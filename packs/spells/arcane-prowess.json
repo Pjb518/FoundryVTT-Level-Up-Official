@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"h79Jf7d02wEJTrVd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DoSa5lJ7K4wIKsGm"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"56NMj5b45frdupXC": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"DoSa5lJ7K4wIKsGm"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Fighter class<br></em></p><p>You can use magic to enhance the skill of your combat techniques.</p><p>Until the spell ends, the DC of maneuvers you spend exertion on increases by an amount equal to half your proficiency bonus.&nbsp;</p>",
@@ -89,16 +86,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -107,10 +94,6 @@
 			"origin": "Item.rs53z2h2pn1ruwwe",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DuUEC17jOL9R6WMg",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -137,6 +120,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

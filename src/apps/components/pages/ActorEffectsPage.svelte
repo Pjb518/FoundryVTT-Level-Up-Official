@@ -1,17 +1,17 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import EffectCategory from "../EffectCategory.svelte";
-    import Search from "../actorUtilityBar/Search.svelte";
-    import Sort from "../actorUtilityBar/Sort.svelte";
-    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import EffectCategory from '../EffectCategory.svelte';
+import Search from '../actorUtilityBar/Search.svelte';
+import Sort from '../actorUtilityBar/Sort.svelte';
+import UtilityBar from '../actorUtilityBar/UtilityBar.svelte';
 
-    const actor = getContext("actor");
-    const { activeEffects } = actor;
-    const { A5E, statusEffects } = CONFIG;
-    const subTypes = A5E.activeEffectTypes;
-    const reducerType = "activeEffects";
+const actor = getContext('actor');
+const { activeEffects } = actor;
+const { A5E, statusEffects } = CONFIG;
+const subTypes = A5E.activeEffectTypes;
+const reducerType = 'activeEffects';
 </script>
 
 {#if $actor.isOwner}

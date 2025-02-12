@@ -1,0 +1,245 @@
+{
+	"folder": null,
+	"name": "Dueling Sword",
+	"type": "object",
+	"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"08PwnLFTMwUxXcZQ": {
+				"name": "Dueling Sword",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"JipNHhumrIzYKn8m": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"ppUHbzJJlsJgNYv0": {
+						"type": "damage",
+						"default": false,
+						"label": "One-Handed",
+						"formula": "1d8 + @str.mod",
+						"damageType": "slashing"
+					},
+					"ZH08xQgpCwlKTl4u": {
+						"type": "damage",
+						"default": false,
+						"label": "Two-Handed",
+						"formula": "1d10 + @str.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"TWuYkTD8IPFQHmKZ": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"jrSMuVnZwzNBgQSY": {
+				"name": "Increase Armor Class",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"v14g9vjf6DB3EI5y"
+				]
+			},
+			"oRLO0pxrDELNOtxb": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {
+					"FSKFmqgTDRGXYnaF": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"BgCKRscKUlt8lAFD": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class Bonus",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Well-crafted and usually individually designed, dueling swords are often ceremonial–however many cultures still regard hand-to-hand combat as an honorable way to resolve disputes.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "20 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"parrying",
+			"versatile"
+		],
+		"weight": 3,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "medium",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "d10",
+		"energyProperties": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.EUCPnPw7lVdTzoBu",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive",
+			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"_id": "v14g9vjf6DB3EI5y",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732228963152,
+				"modifiedTime": 1732228994376,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732228789829,
+		"modifiedTime": 1732229048280,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3OzzmMUKQoMvuIQ2"
+}

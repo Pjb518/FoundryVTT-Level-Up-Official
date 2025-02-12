@@ -42,11 +42,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"h58GNUM23Bi9FMOd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vDShtcdPsVlDyuti"
 					}
 				},
 				"uses": {
@@ -59,7 +54,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"vDShtcdPsVlDyuti"
+				]
 			},
 			"q8fuyu5XtgxdJfUw": {
 				"name": "Mark Armor/Weapons/Shield",
@@ -130,10 +128,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -142,18 +136,17 @@
 		{
 			"origin": "Item.vAxE4OFoq0aCfORL",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vJWDMZ2SxRKnkR1Y"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Accursed Wound (Failure)",
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"_id": "vDShtcdPsVlDyuti",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -184,18 +177,17 @@
 		{
 			"origin": "Item.vAxE4OFoq0aCfORL",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vJWDMZ2SxRKnkR1Y"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Accursed Wound (Success)",
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"_id": "29ZUsiGvo0yDvkJd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -1,0 +1,330 @@
+{
+	"folder": null,
+	"name": "Polaron Gatling Gun",
+	"type": "object",
+	"img": "icons/magic/light/projectile-beams-salvo-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jnt9NYbKk1Z3HYwp": {
+				"name": "Polaron Gatling Gun",
+				"activation": {},
+				"consumers": {
+					"zW9jEusa4selftiP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"hnbeYf1JXTI7nRGz": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"vf1Mnpb1AHJ6PsV9": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8 + @dex.mod",
+						"damageType": "fire"
+					},
+					"af4dvA1YQtzfbXKC": {
+						"type": "damage",
+						"default": false,
+						"label": "Supercharged",
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bNoAYbkXM5VJzndt": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"ciBwHObPvxXdGBVC": {
+						"range": 600,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"Lz9BTQ1HFFVw9TGq": {
+				"name": "Supercharge",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"IAe5KX275mRRMMca": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"NKxHHSkojfIlfO0U": {
+				"name": "Overkill",
+				"activation": {},
+				"consumers": {
+					"zW9jEusa4selftiP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"nS4mEtAqsMgvqwkL": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"hnbeYf1JXTI7nRGz": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"vf1Mnpb1AHJ6PsV9": {
+						"type": "damage",
+						"default": true,
+						"formula": "2*(2d8 + @dex.mod)",
+						"damageType": "fire"
+					},
+					"af4dvA1YQtzfbXKC": {
+						"type": "damage",
+						"default": false,
+						"label": "Supercharged",
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "minute",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bNoAYbkXM5VJzndt": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"ciBwHObPvxXdGBVC": {
+						"range": 600,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"ozZE46xCf3zKyAEe": {
+				"name": "Burst Fire",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"QgVx1oswu6w0Puez": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 10
+					}
+				},
+				"rolls": {
+					"sSyM9PU7Iy17GahJ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d8 + @dex.mod",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"Y1IUlK1SYU20vccc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"K4jx3CGV0bzRl9pV": {
+						"range": "long",
+						"unit": "feet"
+					},
+					"82Ddt4oOeBCyQnLE": {
+						"range": 360,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"img": "icons/magic/light/projectile-beams-salvo-yellow.webp"
+			},
+			"qbqc2hSwRB6LBKME": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"1W75xiNb5Hg89jjD": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Prerequisite:</strong> Strength 13+</em></p>\n<p>Developed for when just plain brute force is required. The weapon is large and bulky and difficult to wield; however it makes up for this by sheer rate of fire and immense destructive power. There are various modes on the gun ranging from a single burst of 10 shots all the way up to 2,000 rounds a minute. The ammunition/power is stored in a backpack worn by the person firing the weapon.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": true,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "535 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"heavy",
+			"overkill",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 25,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "plasma",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"burst",
+			"energy"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732374704352,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "MdqjBVd2n4RT0f7E"
+}

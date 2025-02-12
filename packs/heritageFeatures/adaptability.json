@@ -26,32 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"vdJ4ryn6WH3LIRAu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VyKVCm34qo6KTwKK",
-						"label": "Amphibious"
-					},
-					"kKUfXQx9s7Y0bi5E": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2mg8XT5r3MucLaRP",
-						"label": "Arboreal"
-					},
-					"wQ1xHy7KJUT2ESxt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8s5YAf1eXJhn4DdU",
-						"label": "Cold Adapted"
-					},
-					"mtHvBxejZesIg8et": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OoYsI7pU60CbFI0n",
-						"label": "Heat Adapted"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -60,7 +35,13 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"VyKVCm34qo6KTwKK",
+					"2mg8XT5r3MucLaRP",
+					"8s5YAf1eXJhn4DdU",
+					"OoYsI7pU60CbFI0n"
+				]
 			},
 			"FTTHLXXNsdbqKbrR": {
 				"name": "Arboreal",
@@ -120,28 +101,13 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"effects": [
 		{
 			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
-				"a5e": {
-					"sort": 4,
-					"transferType": "onUse",
-					"actionId": "bG9C0kc2ZUrkq4G7",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Amphibious",
@@ -168,7 +134,10 @@
 			"statuses": [],
 			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -181,18 +150,17 @@
 		{
 			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bG9C0kc2ZUrkq4G7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Arboreal",
 			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
 			"_id": "2mg8XT5r3MucLaRP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.climb.distance",
@@ -225,18 +193,17 @@
 		{
 			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bG9C0kc2ZUrkq4G7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Cold Adapted",
 			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
 			"_id": "8s5YAf1eXJhn4DdU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -269,18 +236,17 @@
 		{
 			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bG9C0kc2ZUrkq4G7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Heat Adapted",
 			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
 			"_id": "OoYsI7pU60CbFI0n",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

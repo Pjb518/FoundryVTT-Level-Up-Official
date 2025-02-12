@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"QsqxVXjHzXrLeWVH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Y5LtGeLs1lbRtBtg"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +34,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Y5LtGeLs1lbRtBtg"
+				]
 			}
 		},
 		"description": "<p>You can spend a minute respirating normally and focusing on your breath. For the following hour you do not need to breathe.</p>",
@@ -61,10 +58,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "sorcerer"
 	},
@@ -73,10 +66,6 @@
 			"origin": "Item.HpRb3zYygfOuE4gG",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zoPgYm2AeSTfVOZq",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -87,7 +76,10 @@
 			"img": "icons/magic/air/weather-wind-gust.webp",
 			"_id": "Y5LtGeLs1lbRtBtg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

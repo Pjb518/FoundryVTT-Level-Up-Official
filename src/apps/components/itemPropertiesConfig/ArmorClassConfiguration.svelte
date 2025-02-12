@@ -1,23 +1,23 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item = getContext("item");
-    const appId = getContext("appId");
-    const { armorModes } = CONFIG.A5E;
+const item = getContext('item');
+const appId = getContext('appId');
+const { armorModes } = CONFIG.A5E;
 
-    const modes = [
-        ["Add", CONFIG.A5E.ARMOR_MODES.ADD],
-        ["Override", CONFIG.A5E.ARMOR_MODES.OVERRIDE],
-    ];
+const modes = [
+	['Add', CONFIG.A5E.ARMOR_MODES.ADD],
+	['Override', CONFIG.A5E.ARMOR_MODES.OVERRIDE],
+];
 
-    let editMode = false;
+let editMode = false;
 </script>
 
 <Section
@@ -40,11 +40,7 @@
                 id="{appId}-ac-base-formula"
                 value={$item.system.ac?.baseFormula ?? ""}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             />
         </FieldWrapper>
 

@@ -1,17 +1,21 @@
 <script lang="ts">
-    import type { SpellConsumer, SpellConsumerData } from "../../../../types/consumers";
+    import type { BaseActorA5e } from "../../../documents/actor/base";
+    import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
+    import type { ItemA5e } from "../../../documents/item/item";
+    import type SpellItemA5e from "../../../documents/item/spell";
+    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
-    import getActionScalingModes from "../../../utils/getActionScalingModes";
+    import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
-    export let consumers: { spell: SpellConsumer[] };
-    export let spellData: SpellConsumerData;
+    export let consumers: ConsumerHandlerReturnType;
+    export let spellData: ResourceConsumptionManager.SpellConsumerData;
 
     function updateSpellResourceData(level: number) {
         spellData.charges = level;
@@ -19,7 +23,7 @@
         spellData.points = A5E.spellLevelCost[spellData.level];
     }
 
-    function updateConsumeOption(option) {
+    function updateConsumeOption(option: any) {
         spellData.consume = option;
 
         // Update disabled list
@@ -32,7 +36,8 @@
     }
 
     function disableArtifactChargeOptions() {
-        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
         disabled = spellLevels.reduce((acc: string[], [level]) => {
             const l = Number(level);
             if (baseLevel > l) acc.push(level);
@@ -42,13 +47,15 @@
     }
 
     function disableBaseSlotOptions() {
-        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
         disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
     }
 
     function disableSpellSlotOptions() {
         const temp = new Set(spellLevels.map((i) => i[0]));
-        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
         disabled = [
             ...temp.difference(new Set(availableSpellSlots)),
             ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
@@ -56,7 +63,8 @@
     }
 
     function disableSpellPointOptions() {
-        const baseLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
         const cap = Object.entries(A5E.spellLevelCost).reduce((acc, [level, cost]) => {
             if (Number(cost) <= availablePoints) acc = Number(level);
             return acc;
@@ -71,15 +79,18 @@
     function getConsumeHeading(type: string) {
         if (spellData.consume === "artifactCharge") {
             return `${localize("A5E.SpellLevel")} (${spellData.charges} charges)`;
-        } else if (spellData.consume === "spellPoint") {
-            return `${localize("A5E.SpellLevel")} (${spellData.points} points)`;
-        } else {
-            return localize("A5E.SpellLevel");
         }
+
+        if (spellData.consume === "spellPoint") {
+            return `${localize("A5E.SpellLevel")} (${spellData.points} points)`;
+        }
+
+        return localize("A5E.SpellLevel");
     }
 
     function getBaseSpellLevel(): number {
-        const defaultLevel = consumer.spellLevel ?? $item.system?.level ?? 1;
+        const defaultLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
         const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 
         const selection =
@@ -91,16 +102,11 @@
     }
 
     const actionId: string = getContext("actionId");
-    const actor: any = getContext("actor");
-    const item: any = getContext("item");
+    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
+    const item: TJSDocument<ItemA5e> = getContext("item");
 
     const { A5E } = CONFIG;
-    const action = $item.actions[actionId];
     const { isEmpty } = foundry.utils;
-    const spellLevels = Object.entries(A5E.spellLevels as Record<string, string>).slice(
-        1,
-    );
-    const spellBook = $actor.spellBooks.get($item.system.spellBook);
 
     const consumeOptions: Record<string, any> = {
         artifactCharge: "A5E.ArtifactCharges",
@@ -112,65 +118,24 @@
 
     let disabled: string[] = [];
 
-    // =======================================================
-    // Actor data
-    let spellResources: Record<string, any> = $actor.system.spellResources;
-    let availableCharges: number = spellResources.artifactCharges.current;
-    let availablePoints: number = spellResources.points.current;
-
-    let availableSpellSlots = Object.entries(spellResources.slots).reduce(
-        (acc: string[], [level, slot]: [string, any]) => {
-            if (slot.max > 0 && slot.current > 0) acc.push(level);
-            return acc;
-        },
-        [],
+    const parts = ResourceConsumptionManager.prepareSpellData(
+        $actor,
+        $item as SpellItemA5e,
+        consumers,
+        actionId,
     );
 
-    // =======================================================
-    // Consumer data
-    const consumer: SpellConsumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
-    let mode = consumer.mode ?? "variable";
+    let {
+        availableCharges,
+        availablePoints,
+        availableSpellSlots,
+        consumer,
+        mode,
+        spellLevels,
+        spellResources,
+    } = parts;
 
-    spellData.basePoints = consumer.points ?? 1;
-    spellData.baseLevel = consumer.spellLevel ?? $item.system.level ?? 1;
-
-    if (isEmpty(consumer)) {
-        spellData.consume = "noConsume";
-
-        // Set up mode based on scaling type if consumer is empty
-        const scalingTypes = getActionScalingModes(action);
-        if (scalingTypes.size) {
-            if (scalingTypes.has("artifactCharges")) mode = "chargesOnly";
-            else if (scalingTypes.has("spellPoints")) mode = "pointsOnly";
-            else if (scalingTypes.has("spellSlots")) mode = "slotsOnly";
-
-            // Set base points and level to 0 since no consumer data is available
-            spellData.basePoints = 0;
-        }
-    } else {
-        if (mode === "chargesOnly") spellData.consume = "artifactCharge";
-        else if (mode === "pointsOnly") spellData.consume = "spellPoint";
-        else if (mode === "slotsOnly") spellData.consume = "spellSlot";
-        else {
-            // TODO: Actions Rework - Check if spell points are available
-            if (availableCharges > 0) spellData.consume = "artifactCharge";
-            else if (availablePoints > 0) spellData.consume = "spellPoint";
-            else if (availableSpellSlots.length > 0) spellData.consume = "spellSlot";
-            else spellData.consume = "noConsume";
-        }
-    }
-
-    if ($item.system?.level === null || $item.system?.level === undefined) {
-        spellData.consume = "noConsume";
-    }
-
-    if (spellBook?.disableSpellConsumers) {
-        spellData.consume = "noConsume";
-    }
-
-    spellData.level = getBaseSpellLevel();
-    spellData.charges = consumer.charges ?? spellData.level ?? 1;
-    spellData.points = consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
+    spellData = parts.spellData;
 
     if (spellData.consume === "artifactCharge") disableArtifactChargeOptions();
     else if (spellData.consume === "spellPoint") disableSpellPointOptions();
@@ -218,6 +183,7 @@
                     class="number-input"
                     type="number"
                     value={spellResources.artifactCharges.current ??
+                        // @ts-expect-error
                         spellResources.artifactCharges.max}
                     disabled
                 />

@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "negates all effects"
-					},
-					"Eyhd1I4y757bJHDJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YmvfbuZp3yIFGCbA"
 					}
 				},
 				"uses": {
@@ -58,7 +53,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"YmvfbuZp3yIFGCbA"
+				]
 			}
 		},
 		"description": "<p>The spell causes the target to heat up and dry out, inflicting upon it intense incurable thirst. If the creature fails its save, its fatigue is set to 4 levels for the duration of the spell unless it was already higher; these fatigue levels are temporary fatigue levels, and do not stack with fatigue from other sources.</p><p>Two levels of &nbsp;fatigue from this spell is cured if the creature spends an action drinking a full pint of water. A creature may repeat this action once, reducing the fatigue levels from 4 to 2 on the first instance and to 0 on the second. This cannot reduce a creature&rsquo;s fatigue to a level below what it had prior to being affected by the spell.</p><p>For the duration of the spell, the target is compelled to drink water, and will spend its action and movement moving to any visible source of water to drink.</p>",
@@ -102,16 +100,6 @@
 				"fire"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -120,9 +108,6 @@
 			"origin": "Item.m29n6rrcadlj5pxl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NEAGfF0omfiqJtMx",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -156,6 +141,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -163,9 +152,6 @@
 			"origin": "Item.m29n6rrcadlj5pxl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NEAGfF0omfiqJtMx",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -199,6 +185,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -7,11 +7,7 @@
 			"icon": "icons/commodities/biological/tongue-violet.webp",
 			"origin": "Item.DgjUovAxVR9QH0fM",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2wYWawGtWhTcVonx"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Wicked Tongue",
@@ -41,6 +37,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -75,13 +75,7 @@
 						"bonus": "max(@str.mod, @dex.mod)"
 					}
 				},
-				"prompts": {
-					"Mi3nRxpCy42MyPGy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DnT3eKoR2LYlw9zv"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -103,7 +97,10 @@
 						"range": 10,
 						"unit": "feet"
 					}
-				}
+				},
+				"effects": [
+					"DnT3eKoR2LYlw9zv"
+				]
 			},
 			"0QKMrGqgLswEQhfw": {
 				"name": "Enemy Attempts to Detach Tongue",
@@ -172,16 +169,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"_id": "rrwj87yg4ro5humt",

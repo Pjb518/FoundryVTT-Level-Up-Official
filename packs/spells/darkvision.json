@@ -8,9 +8,6 @@
 			"origin": "Item.enc211jxhslyexqz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EpPBhd1zIjGFk6Qw",
 					"duration": {
 						"unit": "hours"
 					}
@@ -44,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -83,13 +84,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"ars27HGOu9f59ftn": {
-						"type": "effect",
-						"default": true,
-						"effectId": "k0mSg1sj30nvHV36"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"k0mSg1sj30nvHV36"
+				]
 			}
 		},
 		"description": "<p>The target gains darkvision out to a range of 60 feet.</p><p><strong><em>Cast at Higher Levels.</em></strong> The range of the target's darkvision increases to 120 feet. In addition, for each slot level above 3rd you may choose an additional target.</p>",
@@ -131,16 +129,6 @@
 				"nature",
 				"senses"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

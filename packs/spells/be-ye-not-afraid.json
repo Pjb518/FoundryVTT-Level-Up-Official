@@ -21,13 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"JUxHcjEn5Nwk8WbQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oXwkfaBAlPr169XO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -49,7 +43,10 @@
 					"wvvavDZBcpGEv7tF": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"oXwkfaBAlPr169XO"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">With a single word of divine power, you transform yourself into a fearsome messenger of divine wrath. Your form transforms into something distinctly non-humanoid. The details are left to you and the narrator, but masses of wings and eyes, burning wheels, and similarly-alien forms are common.</p><p dir=\"ltr\">While the spell lasts, you gain the following benefits:</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain a fly speed of 120 feet and can hover.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You do not need to breathe.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You are immune to radiant, fire, and poison damage.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You are immune to the Blinded, Charmed, Confused, Deafened, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Slowed, and Stunned conditions.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">Hostile creatures who see you must make a saving throw against your spell save DC with disadvantage or become frightened of you until the spell ends. A creature may repeat this save at the end of each of its turns, ending the effect on a success. A creature that fails its save by 10 more suffers a mild heart attack, is stunned for 1 round, and gains a level of fatigue.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">If a friendly creature becomes frightened, you may use your reaction to cancel the effect that caused the condition.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">Friendly creatures within 100 feet of you automatically stabilize when reduced to 0 hit points. If you come within 100 feet of a friendly creature that is already making death saves, it immediately stabilizes.&nbsp;&nbsp;</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain truesight with a range of 60 feet.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain a radiant blast attack. Treat it as a ranged weapon attack dealing 4d8 radiant damage with a range of 60/300 feet.</p></li></ul>",
@@ -93,16 +90,6 @@
 				"transformation"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -111,13 +98,9 @@
 			"origin": "Item.3qevw31l4imcudhs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pljTh0LV76BeBIjk",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -172,6 +155,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"uvfbXCawOUvJTOoD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rpUr71ZgJIry04kd"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -41,7 +35,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"rpUr71ZgJIry04kd"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">While raging you can choose a number of creatures equal to your proficiency bonus. You gain the benefits of the @UUID[Compendium.a5e.a5e-spells.Item.158awzfd5ctjae15]{Telepathic Bond} spell with them.</p>\n<p dir=\"ltr\">Creatures bonded in this way can choose to give in to the rage. If they do so, for the duration of your rage they have advantage on strength checks and strength saving throws, cannot benefit from temporary hit points, gain two rage hit points per round as if they were raging to a maximum of 2 x your berserker level, and cannot cast spells, concentrate on spells, or use the fallback action.</p>\n<p dir=\"ltr\">When using @UUID[Compendium.a5e.a5e-class-features.Item.g9pecyre1ld6mu4q]{Raging Projection} you grant such creatures additional rage hit points rather than temporary hit points.</p>",
@@ -62,16 +59,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -79,18 +66,17 @@
 		{
 			"origin": "Item.dDKrma3YEG7vGTyN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zmfYEvseZsBsG0EQ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Infectious Fury",
 			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
 			"_id": "rpUr71ZgJIry04kd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.str",

@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.qvAPwbVZdQfDiNLU",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qSYjMHbXuh0SkjIm",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Boon of War",
 			"img": "icons/skills/melee/hand-grip-staff-blue.webp",
 			"_id": "ND5NPOMvLE5FUytr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -89,13 +87,10 @@
 						"quantity": 2
 					}
 				},
-				"prompts": {
-					"OEpE5bBFcYT5eRM9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ND5NPOMvLE5FUytr"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"ND5NPOMvLE5FUytr"
+				]
 			}
 		},
 		"description": "<p>When you critically hit a creature, you can use your reaction to spend 2 exertion. If you do, your next successful melee weapon attack deals additional damage equal to your martial arts die plus your proficiency bonus.</p>",
@@ -116,16 +111,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

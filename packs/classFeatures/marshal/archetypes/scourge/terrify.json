@@ -38,11 +38,6 @@
 							"type": "cha"
 						},
 						"onSave": ""
-					},
-					"XSFlYk2o5BLvq1Jf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BAscw2cRWH86YlWb"
 					}
 				},
 				"uses": {
@@ -57,7 +52,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"BAscw2cRWH86YlWb"
+				]
 			}
 		},
 		"description": "<p>At 7th level your reputation for harshness extends from your allies to your enemies.</p><p>When you strike an enemy with a melee weapon attack, you can force them to make a Wisdom saving throw with a DC equal to 8 + your proficiency bonus + your charisma modifier.&nbsp;On a failure, they are frightened of you until the end of your next turn.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>You can do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
@@ -78,16 +76,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -96,9 +84,6 @@
 			"origin": "Item.8ojzVbo6ayO9OXWT",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "FRagRRlIX0UEaKWc",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -110,7 +95,10 @@
 			"img": "icons/magic/control/silhouette-aura-energy.webp",
 			"_id": "BAscw2cRWH86YlWb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

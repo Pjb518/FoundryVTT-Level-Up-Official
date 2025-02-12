@@ -6,17 +6,17 @@
 		{
 			"origin": "Item.clJ0DLrBUVYvzC83",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Loyal to the Code",
 			"img": "icons/sundries/documents/document-sealed-white-orange.webp",
 			"_id": "EHncd0stkDsTpI4I",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.skills.per.expertiseDice",
@@ -55,10 +55,6 @@
 			"origin": "Item.clJ0DLrBUVYvzC83",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "twahffXxHMOcHFHW",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -69,7 +65,10 @@
 			"img": "icons/sundries/documents/document-sealed-white-orange.webp",
 			"_id": "oz0CRwJlJ4LziXRC",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.strife",
@@ -129,13 +128,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"ZVzlII6G6j0iGywh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oz0CRwJlJ4LziXRC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -146,7 +139,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"oz0CRwJlJ4LziXRC"
+				]
 			}
 		},
 		"description": "<p>You are loyal to a specific code of honor. You gain an expertise die on Persuasion checks. However, whenever you break your code you suffer a level of strife and instead have disadvantage on Persuasion checks for the following 7 days. Choose one of the following codes to keep:</p>\n<ul>\n<li>\n<p>I will never harm a creature that has surrendered.</p>\n</li>\n<li>\n<p>I will never steal from a living soul.</p>\n</li>\n<li>\n<p>I will never let a lie pass my lips.</p>\n</li>\n</ul>\n<p>Alternatively, consult the Narrator for any codes specific to the campaign setting.</p>",
@@ -167,16 +163,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},

@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"CczVyMyQDVU8lgZs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DVTqGFiTAITLZwBQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"DVTqGFiTAITLZwBQ"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">At 6th level your anger is distracting to those around you. Whenever you damage a creature when raging, if they are concentrating on a spell they have disadvantage on the save. If your attack is a critical hit, you can automatically break their concentration.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -75,18 +62,17 @@
 		{
 			"origin": "Item.0lLQneesOxlquM5U",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PxsOnh4Nlz1G0o9e"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Mental Disruption",
 			"img": "icons/magic/air/wind-vortex-swirl-red.webp",
 			"_id": "DVTqGFiTAITLZwBQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.concentration",

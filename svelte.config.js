@@ -1,9 +1,9 @@
-import preprocess from 'svelte-preprocess';
+import { sveltePreprocess } from 'svelte-preprocess';
 
 const config = {
-  preprocess: preprocess({
+  preprocess: sveltePreprocess({
     scss: {
-      prependData: '@import "src/scss//old/base/_variables.scss";'
+      prependData: '@use "src/scss/base/_variables.scss";  @use "src/scss/base/_functions.scss";'
     },
     typescript: {
       tsconfigFile: './tsconfig.json'

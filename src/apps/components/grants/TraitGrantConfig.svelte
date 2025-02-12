@@ -1,61 +1,61 @@
 <script>
-    import { getContext, onDestroy, setContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext, onDestroy, setContext } from 'svelte';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+import { localize } from '#runtime/util/i18n';
 
-    import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import prepareTraitGrantConfigObject from '../../../utils/prepareTraitGrantConfigObject';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import CustomTagGroup from "../CustomTagGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import GrantConfig from "./GrantConfig.svelte";
-    import Section from "../Section.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import CustomTagGroup from '../CustomTagGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import GrantConfig from './GrantConfig.svelte';
+import Section from '../Section.svelte';
+import RadioGroup from '../RadioGroup.svelte';
 
-    export let { document, grantId, grantType } = getContext("#external").application;
+export let { document, grantId, grantType } = getContext('#external').application;
 
-    function updateImage() {
-        const current = grant?.img;
+function updateImage() {
+	const current = grant?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        if (key === "traits.traitType") {
-            updateDocumentDataFromField($item, `system.grants.${grantId}.traits`, {
-                base: [],
-                options: [],
-                total: 0,
-            });
-        }
+function onUpdateValue(key, value) {
+	if (key === 'traits.traitType') {
+		updateDocumentDataFromField($item, `system.grants.${grantId}.traits`, {
+			base: [],
+			options: [],
+			total: 0,
+		});
+	}
 
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
-    }
+	key = `system.grants.${grantId}.${key}`;
+	updateDocumentDataFromField($item, key, value);
+}
 
-    onDestroy(() => {
-        item.destroy();
-    });
+onDestroy(() => {
+	item.destroy();
+});
 
-    const item = new TJSDocument(document);
-    const configObject = prepareTraitGrantConfigObject();
+const item = new TJSDocument(document);
+const configObject = prepareTraitGrantConfigObject();
 
-    $: grant = $item.system.grants[grantId];
-    $: traitType = grant?.traits?.traitType || "armorTypes";
-    $: options = configObject[traitType]?.config ?? [];
+$: grant = $item.system.grants[grantId];
+$: traitType = grant?.traits?.traitType || 'armorTypes';
+$: options = configObject[traitType]?.config ?? [];
 
-    setContext("item", item);
-    setContext("grantId", grantId);
-    setContext("grantType", grantType);
+setContext('item', item);
+setContext('grantId', grantId);
+setContext('grantType', grantType);
 </script>
 
 <form>
@@ -139,14 +139,14 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
-        background: var(--background, $color-sheet-background);
+        background: var(--background, var(--a5e-color-background-sheet));
         max-height: 75vh;
         overflow-y: auto;
     }
 
     .grant-name,
     .grant-name[type="text"] {
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

@@ -35,13 +35,7 @@
 						"formula": "max(spellcasting.mod + @classes.warlock.level,1)"
 					}
 				},
-				"prompts": {
-					"JcuuDp3PLZEJORVj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XjIbXSMRoXRu05Yw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -61,7 +55,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"XjIbXSMRoXRu05Yw"
+				]
 			},
 			"99AoIfkJyVpk6mJ5": {
 				"name": "Deal Damage",
@@ -127,10 +124,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -139,9 +132,6 @@
 			"origin": "Item.y9t76Qp4cA6jzVj1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oZgJ7lN9XSpIGV5n",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -175,7 +165,10 @@
 			},
 			"img": "icons/magic/fire/flame-burning-eye.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

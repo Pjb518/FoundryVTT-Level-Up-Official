@@ -1,0 +1,324 @@
+{
+	"folder": null,
+	"name": "Bend Will",
+	"type": "feature",
+	"img": "icons/magic/control/energy-stream-link-large-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"V1dXQ4LU9XZ3GrEA": {
+				"name": "Bend Will",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"TmMgtBzgVmDyyWgX": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Wsa7DJQ5KOEGpMuh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"effects": [
+					"aE6xPy02nIauM2Sh",
+					"WirZlPZzkh9KbqZg",
+					"n0VSgTlvwSYsz1qv",
+					"LqpMoThLsSRKphVZ"
+				],
+				"id": "V1dXQ4LU9XZ3GrEA",
+				"default": false,
+				"description": "",
+				"img": "icons/magic/control/energy-stream-link-large-orange.webp",
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				}
+			},
+			"piSMXQD4lVm1BN7p": {
+				"name": "Command",
+				"consumers": {},
+				"id": "piSMXQD4lVm1BN7p",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/energy-stream-link-large-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"RCkHZ4WX2zVQMuwX": {
+				"name": "Direct Control",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"effects": [
+					"9fMWWZSWT0aSyrTp"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 7th level, you can assert control over a target’s mind by using an action. The type of creature you can target is based on your psion level, as shown in the table below.</p>\n<hr>\n<h4><strong>Table: Bend Will</strong></h4>\n<table style=\"width: 22.6365%;\">\n<thead>\n<tr style=\"text-align: center;\">\n<td style=\"width: 33.2137%;\"><strong>Level</strong></td>\n<td style=\"width: 66.7924%;\"><strong>Target</strong></td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"text-align: center;\">\n<td style=\"width: 33.2137%;\">7th</td>\n<td style=\"width: 66.7924%;\">One beast</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td style=\"width: 33.2137%;\">9th</td>\n<td style=\"width: 66.7924%;\">One humanoid</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td style=\"width: 33.2137%;\">17th</td>\n<td style=\"width: 66.7924%;\">One creature</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>\n<p>The target makes a Wisdom saving throw against your psionics save DC. On a failure, the creature is charmed by you as long as you are channeling this feature. If the target’s saving throw is successful or the effect ends for it, it is immune to this feature for 24 hours. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw. You can channel this feature for 1 minute. The channeling limit increases with your power rating: 10 minutes at a rating of IV, 1 hour at V, and 8 hours at VI.</p>\n<p>Until the charmed condition ends, you establish a telepathic link with the target while you are in the same planetary system. You can use an action to give the creature a command. Alternatively, you can assume direct control over the target. Until the end of your next turn, you experience the world as it does, gaining the benefit of any special sense it has. You decide all of the target’s actions on its turn, and it does nothing you do not allow it to. While doing so you are blind and deaf to your own body’s surroundings. If the creature is killed or falls unconscious while you are controlling it, you suffer a level of strife. While a target is directly controlled in this way, you can also use your own reaction to make it use a reaction.</p>\n<p>The effect ends if you or your companions do anything harmful towards the target. Each time the target takes damage, it makes a new saving throw, ending the effect and breaking your concentration on a success. The target knows it was charmed by you when the effect ends. Once you have used this feature you cannot use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "psion",
+		"migrationData": {
+			"version": 0.02,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		},
+		"macro": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.YnGhzzucGsLhEayK",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Charmed",
+			"img": "icons/magic/control/energy-stream-link-large-orange.webp",
+			"_id": "LqpMoThLsSRKphVZ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734620351757,
+				"modifiedTime": 1734620428543,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.YnGhzzucGsLhEayK",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Strife",
+			"img": "icons/magic/control/energy-stream-link-large-orange.webp",
+			"_id": "9fMWWZSWT0aSyrTp",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734620558853,
+				"modifiedTime": 1734620569397,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734559242259,
+		"modifiedTime": 1734620599307,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5ejikSkOUPf7ciJ3"
+}

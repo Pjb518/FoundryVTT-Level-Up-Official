@@ -8,9 +8,6 @@
 			"origin": "Item.ipq805xo5kbmgyhv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jE0oGbW4c91H4L9s",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -99,7 +100,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"jE0oGbW4c91H4L9s": {
 				"name": "AC +1",
@@ -109,33 +111,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					},
-					"KsLi5Hf2I5z2N7dq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Llj5xb79gCEj7iz8"
-					},
-					"JaSmK7pyGc0SWrmi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uyPf3aBTu6Dbjl7v"
-					},
-					"8KMwTeQKuqHx3rho": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fNsg1fB0AQvNW0yM"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -149,7 +125,14 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp"
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
+				"effects": [
+					"PiHWvQKjPGNpP7A7",
+					"o3RplnB3d2bgc5Cs",
+					"Llj5xb79gCEj7iz8",
+					"uyPf3aBTu6Dbjl7v",
+					"fNsg1fB0AQvNW0yM"
+				]
 			}
 		},
 		"description": "<p>This weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.l6qdjqzvk3sddr2i]{Rapier} but is so sharp that it has the vicious property.</p>",
@@ -194,16 +177,6 @@
 			"vicious"
 		],
 		"weight": 2,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

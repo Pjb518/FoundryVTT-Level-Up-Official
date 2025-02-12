@@ -8,9 +8,6 @@
 			"origin": "Item.9ljpxzspda39mshb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Ee6VgYojbsHqw3U6",
 					"duration": {
 						"type": "seconds",
 						"unit": "hours"
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -98,13 +99,11 @@
 						"default": true,
 						"skill": "ins",
 						"ability": "wis"
-					},
-					"G3syR0wAc0XuA7nb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6JtLkOYlPL3o0iQE"
 					}
-				}
+				},
+				"effects": [
+					"6JtLkOYlPL3o0iQE"
+				]
 			}
 		},
 		"description": "<p>You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically charmed by you for 1 hour. The charm ends early if you or your allies harm the creature. Once you&rsquo;ve used this feature successfully, you can&rsquo;t use it again until you finish a long rest.</p>",
@@ -141,16 +140,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "rogue"
 	},
 	"folder": null,

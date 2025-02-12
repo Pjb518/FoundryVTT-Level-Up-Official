@@ -7,11 +7,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Item.AuNTbpKWJSVi91JW",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "GqcYRA7iuqCLLcxF"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Initiative Expertise",
@@ -41,6 +37,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -62,13 +62,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"FYd2DFOCM6G00UWV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DFWxG7uevzib6M1P"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -79,7 +73,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"DFWxG7uevzib6M1P"
+				]
 			}
 		},
 		"description": "<p>Beginning at 6th level, when you roll initiative, you and each creature friendly to you that are within range of your Commanding Presence gain an expertise die to their initiative check. Additionally, when you roll for initiative, you can switch your result with that of any ally you can see.</p>",
@@ -114,16 +111,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal"
 	},
 	"folder": null,

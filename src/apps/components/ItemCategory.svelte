@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
@@ -69,8 +69,8 @@
             columns = "1fr 4rem";
         }
 
-        areas += ` menu`;
-        columns += ` 2rem`;
+        areas += " menu";
+        columns += " 2rem";
 
         return { areas: `"${areas}"`, columns };
     }
@@ -92,8 +92,8 @@
             columns = "min-content 1fr min-content 4rem";
         }
 
-        areas += ` menu`;
-        columns += ` 2rem`;
+        areas += " menu";
+        columns += " 2rem";
 
         return { areas: `"${areas}"`, columns };
     }
@@ -135,7 +135,7 @@
 
                 {#if type === "spellLevels" && showArtifactCharges}
                     {localize("A5E.ArtifactChargesCost", {
-                        cost: level,
+                        cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
                     })}
                 {/if}
 

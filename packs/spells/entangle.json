@@ -2,7 +2,70 @@
 	"name": "Entangle",
 	"type": "spell",
 	"img": "icons/magic/nature/vines-thorned-entwined-teal.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.9dqroxMs5ooxe1pN",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Restrained",
+			"img": "icons/magic/nature/vines-thorned-entwined-teal.webp",
+			"_id": "Y8VW57psRHsH4jC4",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</li>\n<li>Attack rolls against a restrained creature are made with advantage.</li>\n<li>A restrained creature makes attack rolls with disadvantage.</li>\n<li>The restrained creature has disadvantage on Dexterity saving throws.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1736261990894,
+				"modifiedTime": 1736262337252,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"actions": {
@@ -15,7 +78,7 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": 1
 				},
 				"ranges": {
 					"d3UiEW3SSRoAJkj3": {
@@ -29,8 +92,9 @@
 					"quantity": 1
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 0,
+					"type": "",
+					"scaling": {}
 				},
 				"rolls": {},
 				"prompts": {
@@ -41,7 +105,9 @@
 							"type": "spellcasting",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
@@ -49,12 +115,36 @@
 						"mode": "variable",
 						"spellLevel": 1,
 						"points": 2,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"Y8VW57psRHsH4jC4"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
 					}
 				}
 			}
 		},
-		"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p><p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes restrained as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p><p>When the spell ends, the plants wither away.</p>",
+		"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p>\n<p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes [[/condition id=restrained]] as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p>\n<p>When the spell ends, the plants wither away.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -92,23 +182,25 @@
 				"terrain"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
 			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
+				"schema": null
 			}
 		},
-		"spellBook": ""
+		"discipline": ""
 	},
 	"folder": null,
-	"_id": "cvrja4dkrr0zoerp",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.3",
+		"createdTime": 1736261982226,
+		"modifiedTime": 1736262351221,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "cvrja4dkrr0zoerp"
 }

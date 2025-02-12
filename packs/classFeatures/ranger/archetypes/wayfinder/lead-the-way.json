@@ -20,50 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"61oZF1gXEAPR1iTD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "03y3RBzy0lIuscLx",
-						"label": "Strength Saving Throw"
-					},
-					"fvd6ak68w8RaSRna": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N2jRxdJDoYTJT0EH",
-						"label": "Dexterity Saving Throw"
-					},
-					"anchTgELNO2ju7gB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yTOZphT5vwANOjAd",
-						"label": "Acrobatics Check"
-					},
-					"ApcCPHJJEY0NIv02": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XQhqK0HJG7nRy4Q7",
-						"label": "Animal Handling Check"
-					},
-					"rHHtjzOJpkREo9oW": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cfwMUfsO2lb4YMfj",
-						"label": "Athletics Check"
-					},
-					"j7IGdI3AfRBymhwH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SQWbx6O0lgNqYQvO",
-						"label": "Stealth Check"
-					},
-					"UEYidjZFnPt9XkDO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "szyuPdNTritFJtQH",
-						"label": "Survival Check"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -74,7 +31,16 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"03y3RBzy0lIuscLx",
+					"N2jRxdJDoYTJT0EH",
+					"yTOZphT5vwANOjAd",
+					"XQhqK0HJG7nRy4Q7",
+					"cfwMUfsO2lb4YMfj",
+					"SQWbx6O0lgNqYQvO",
+					"szyuPdNTritFJtQH"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">At 15th level, others have learned to trust your example and confidently follow in your footsteps. Whenever you succeed on a Strength or Dexterity saving throw against an effect, any of your allies who observed you gain advantage on their next saving throw against the same effect in the next 10 minutes. Likewise, whenever you succeed on an Acrobatics, Animal Handling, Athletics, Stealth, or Survival check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes. This ability applies even if your check or saving throw would otherwise be considered simultaneous with that of your ally, such as when making a group ability check, or if you and an ally are both targeted by the same spell. If the check or saving throw is simultaneous, you may also choose one ally to automatically succeed on the check or saving throw instead of gaining advantage.</span></p>",
@@ -95,10 +61,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "ranger",
 		"class": ""
 	},
@@ -107,9 +69,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -120,7 +79,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "03y3RBzy0lIuscLx",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilitySave.str",
@@ -159,9 +121,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -172,7 +131,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "N2jRxdJDoYTJT0EH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
@@ -211,9 +173,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -224,7 +183,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "yTOZphT5vwANOjAd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.acr",
@@ -263,9 +225,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -276,7 +235,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "XQhqK0HJG7nRy4Q7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.ani",
@@ -315,9 +277,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -328,7 +287,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "cfwMUfsO2lb4YMfj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.ath",
@@ -367,9 +329,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -380,7 +339,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "SQWbx6O0lgNqYQvO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
@@ -419,9 +381,6 @@
 			"origin": "Item.BhNPyWTzkkFVkeNC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PPS8MEVnzjDClHyo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -432,7 +391,10 @@
 			"img": "icons/skills/movement/arrow-upward-blue.webp",
 			"_id": "szyuPdNTritFJtQH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.sur",

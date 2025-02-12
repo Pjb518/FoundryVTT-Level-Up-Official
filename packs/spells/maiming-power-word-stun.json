@@ -7,11 +7,7 @@
 			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
 			"origin": "Item.glwtxuy2d9lv118h",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -50,9 +50,6 @@
 			"origin": "Item.glwtxuy2d9lv118h",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -89,6 +86,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -96,9 +97,6 @@
 			"origin": "Item.glwtxuy2d9lv118h",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -141,6 +139,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -148,9 +150,6 @@
 			"origin": "Item.glwtxuy2d9lv118h",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -193,6 +192,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -233,30 +236,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"dZZVpTYOulvIgxCJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XmnbNrYSr8Cs83YZ",
-						"label": "150 HP or Less"
-					},
-					"40OmF1o9bBOpcKWJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3RDhoMrcJ50CBCD3",
-						"label": "More Than 150 HP"
-					},
-					"nvMgf8deFC9KvW4G": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wIrEeKizn1i910qR",
-						"label": "Succeeded Saving Throw"
-					},
-					"l6a4zKQOVGX8zMKi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8vWJ5oGL42EGzvLe",
-						"label": "Succeeded Saving Throw"
 					}
 				},
 				"consumers": {
@@ -266,7 +245,13 @@
 						"points": 11,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"XmnbNrYSr8Cs83YZ",
+					"3RDhoMrcJ50CBCD3",
+					"wIrEeKizn1i910qR",
+					"8vWJ5oGL42EGzvLe"
+				]
 			}
 		},
 		"description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Maiming Power Word Stun.&nbsp; </strong>When a&nbsp;target succeeds on its saving throw, its movement&nbsp;is halved and it is either blinded or deafened (your&nbsp;choice) until the end of its next turn.</p>",
@@ -308,16 +293,6 @@
 				"affliction",
 				"arcane"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

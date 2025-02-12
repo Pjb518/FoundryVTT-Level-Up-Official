@@ -1,0 +1,89 @@
+{
+	"folder": null,
+	"name": "Telekinetic Shield",
+	"type": "feature",
+	"img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": true,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"saQwcdlmrtAvlRrd": {
+				"name": "Telekinetic Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Zf5dLcYA3IC7CDhr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"uF9MiSBgT2UqDCVR": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "3 * @prof"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>You maintain a telekinetic shield to protect yourself from damage. When you are not using a shield, you can use your bonus action to gain temporary hit points equal to 3 times your proficiency bonus. The temporary hit points wear off after 1 minute. You can use this feature a number of times equal to your proficiency bonus. Your uses reset when you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731599957099,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "T5CRh9tRe4MemmWS"
+}

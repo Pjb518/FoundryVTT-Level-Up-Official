@@ -29,16 +29,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"ncqeLn7AzuhAzIbh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vCfVmnmtpPyDol2P"
-					},
-					"tevQwpazkU6dkNZQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7yD1AjSAxgxFqV2x"
 					}
 				},
 				"uses": {
@@ -64,7 +54,11 @@
 				"duration": {
 					"unit": "hour",
 					"value": 8
-				}
+				},
+				"effects": [
+					"vCfVmnmtpPyDol2P",
+					"7yD1AjSAxgxFqV2x"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You curse the language of your foes, casting them into disarray.</p><p dir=\"ltr\">Each creature in the spell&rsquo;s area that fails its save immediately begins speaking a brand-new language unique to itself. The creature perceives itself as speaking the language it has always spoken, but in reality is instead speaking an entirely new tongue with its own vocabulary and grammar. This extends even to writing and sign language. The only way to communicate with affected creatures is via the tongues spell (or a comprehend languages spell for writing) or telepathy. An affected creature can repeat the saving throw every hour, ending the effect for itself on a success.</p><p dir=\"ltr\">A creature that succeeds on its saving throw has disadvantage on all Intelligence ability checks and saves for one minute instead.</p>",
@@ -106,16 +100,6 @@
 				"communication"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -124,9 +108,6 @@
 			"origin": "Item.d22ucrzshn77xlv2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jj4DmR3LgAvFTLwg",
 					"duration": {
 						"unit": "hours"
 					}
@@ -153,6 +134,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -160,9 +145,6 @@
 			"origin": "Item.d22ucrzshn77xlv2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jj4DmR3LgAvFTLwg",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -202,6 +184,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"xNWS2nNrfVpOLmp8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MwrZOJ2Ii1qiDRKw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"MwrZOJ2Ii1qiDRKw"
+				]
 			}
 		},
 		"description": "<p>You can spend 1 minute applying this midnight- blue oil flecked with silver to 5 pieces of piercing ammunition. For the next hour, the coated ammunition is magical and can put creatures hit by it to sleep. When a coated piece of ammunition deals damage to a creature with 100 or fewer hit points, the creature instantly falls unconscious.</p><p>The creature remains unconscious for 3d6 minutes or until it takes damage.</p>",
@@ -85,16 +82,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -106,11 +93,7 @@
 			"icon": "icons/consumables/potions/potion-bottle-corked-blue.webp",
 			"origin": "Item.cto1xzfeaa5bqjrn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NSAmmvcykc8YHaji"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Unconscious",
@@ -142,6 +125,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

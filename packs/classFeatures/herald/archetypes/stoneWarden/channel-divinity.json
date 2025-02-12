@@ -68,13 +68,7 @@
 						"formula": "@classes.herald.level + max(@cha.mod,1)"
 					}
 				},
-				"prompts": {
-					"7aJMyhJ9XBWMM2Kz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BDBqbbiaFfrxN10q"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -89,7 +83,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"BDBqbbiaFfrxN10q"
+				]
 			}
 		},
 		"description": "<p>When you choose this archetype at 3rd level, you gain the following two Channel Divinity options.</p>\n<p><em><strong>Earthen Resolve. </strong></em>When you are subjected to an effect that would alter your behavior (such as becoming charmed, confused, or frightened) or that would allow another creature to dictate your actions (such as the @UUID[Compendium.a5e.a5e-spells.Item.bs1zn1s8ewwa4tfx]{Command} spell), you can use your reaction to negate that effect on you.</p>\n<p><em><strong>Rock Skin. </strong></em>You can use an action to cover yourself in a magical layer of gray stone plates. You gain temporary hit points equal to your herald level + your Charisma modifier (minimum of 1). The temporary hit points last up to 1 hour. While the temporary hit points remain, critical hits against you are treated as normal hits.</p>\n<p>&nbsp;</p>",
@@ -110,16 +107,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -128,10 +115,6 @@
 			"origin": "Item.W4IORJrx91VxTgjD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QFI5s6KoI0lxnuhT",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -142,7 +125,10 @@
 			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
 			"_id": "BDBqbbiaFfrxN10q",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

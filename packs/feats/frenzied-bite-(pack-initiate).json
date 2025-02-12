@@ -3,7 +3,11 @@
 	"type": "feature",
 	"img": "icons/creatures/mammals/wolf-howl-moon-black.webp",
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"a5e": {
+			"showActionList": false
+		}
+	},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,7 +19,136 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"fKHJ9512AA5yyK1v": {
+				"name": "Bonus Action Bite",
+				"id": "fKHJ9512AA5yyK1v",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/creatures/mammals/wolf-howl-moon-black.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"GFA7vWMrUZUqXzFc": {
+						"range": "touch"
+					}
+				},
+				"rolls": {
+					"ObNWrCIWdyM8j7ez": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": "Frenzied Bite"
+					},
+					"cS4JYdqho4xtYanx": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "1d8+@finesse.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"iXysX1gcBDYzZyHL": {
+				"name": "Action Slash",
+				"id": "iXysX1gcBDYzZyHL",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/creatures/mammals/wolf-howl-moon-black.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"1t8Aak1zveXWkyVT": {
+						"range": "touch"
+					}
+				},
+				"rolls": {
+					"jJteJxKQxEtlD7RD": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"hYlONBIYNDNvv04B": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "1d8+@finesse.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
 		"description": "<p>You can use your bite attack as a bonus action.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -34,23 +167,25 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
 			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
+				"schema": null
 			}
 		},
-		"classes": ""
+		"class": ""
 	},
 	"folder": null,
-	"_id": "uoq7ulw9sskqi8oj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.3",
+		"createdTime": 1736493461042,
+		"modifiedTime": 1736493461042,
+		"lastModifiedBy": "lD21h1kcwjlTXNyU"
+	},
+	"_id": "uoq7ulw9sskqi8oj"
 }

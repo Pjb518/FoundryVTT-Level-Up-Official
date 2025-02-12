@@ -1,0 +1,146 @@
+{
+	"folder": null,
+	"name": "Deadly Horns",
+	"type": "feature",
+	"img": "icons/creatures/abilities/stinger-spine-horn-blood.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PQr0FofFz4J37wqO": {
+				"name": "Deadly Horns",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"kzzfg1LeOBDqaJgE": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"WTzHnOmEr2YNPrQW": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @str.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {
+					"WvXhLvuqZUxZACuT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"1eVwyB1jkunBWrdJ"
+				]
+			}
+		},
+		"description": "<p>Your horns are particularly sharp and are considered to be natural weapons with which you are proficient. You can make a horn attack which deals piercing damage equal to 1d6 + your Strength bonus, and if your target is a creature of your Size or smaller it must succeed on a Strength saving throw vs. your maneuver DC or be knocked prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.GlucXwosIEdPzAme",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/creatures/abilities/stinger-spine-horn-blood.webp",
+			"_id": "1eVwyB1jkunBWrdJ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731766651959,
+				"modifiedTime": 1731766664626,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731762773417,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rU7EHzujsyjFdGeu"
+}

@@ -7,12 +7,9 @@
 			"origin": "Item.sAC08dq2yPuR2TLi",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "0Wo8Zn1aXXr27aOd"
+					}
 				}
 			},
 			"transfer": false,
@@ -41,7 +38,10 @@
 			"tint": "#ffffff",
 			"img": "icons/consumables/plants/fern-broad-leaf-damaged-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -79,14 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"TILmkMgsJkIBh9Ow": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oKkqNaq45HJEOQ1B",
-						"label": "Sycamore Petal Poultice"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -99,7 +92,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"oKkqNaq45HJEOQ1B"
+				]
 			}
 		},
 		"description": "<p>Consumption of these pulped petals heightens your senses, and after you eat it you gain an expertise die on Wisdom saving throws for 1 hour.</p>",
@@ -140,16 +136,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

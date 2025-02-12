@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
@@ -63,7 +63,5 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-
-        background: $color-sheet-background;
     }
 </style>

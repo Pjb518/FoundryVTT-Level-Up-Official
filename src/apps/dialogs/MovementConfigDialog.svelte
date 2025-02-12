@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
@@ -53,18 +53,10 @@
                     class="u-w-30"
                     name={`system.attributes.movement.${mode}.unit`}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($actor, target.name, target.value)}
                 >
                     {#each Object.entries(A5E.distanceUnits) as [key, name]}
-                        <option
-                            {key}
-                            value={key}
-                            selected={movementData.unit === key}
-                        >
+                        <option {key} value={key} selected={movementData.unit === key}>
                             {localize(name)}
                         </option>
                     {/each}
@@ -96,6 +88,5 @@
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: $color-sheet-background;
     }
 </style>

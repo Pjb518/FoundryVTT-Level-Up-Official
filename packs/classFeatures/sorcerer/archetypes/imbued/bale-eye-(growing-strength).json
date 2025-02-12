@@ -37,16 +37,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"r1cZSX1IRp37e7HC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ualb9bgPWInoyqik"
-					},
-					"FXqSgmk43lLa857J": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XQ0PEEVOStsOPsj4"
 					}
 				},
 				"uses": {
@@ -74,7 +64,11 @@
 					"length": 30,
 					"placeTemplate": true
 				},
-				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+				"img": "icons/magic/symbols/triangle-glow-purple.webp",
+				"effects": [
+					"Ualb9bgPWInoyqik",
+					"XQ0PEEVOStsOPsj4"
+				]
 			},
 			"IGoja2SPdb0xqa2L": {
 				"name": "Baleful Gaze (Radius)",
@@ -99,16 +93,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"r1cZSX1IRp37e7HC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ualb9bgPWInoyqik"
-					},
-					"FXqSgmk43lLa857J": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XQ0PEEVOStsOPsj4"
 					}
 				},
 				"uses": {
@@ -136,7 +120,11 @@
 					"placeTemplate": true,
 					"radius": 15
 				},
-				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+				"img": "icons/magic/symbols/triangle-glow-purple.webp",
+				"effects": [
+					"Ualb9bgPWInoyqik",
+					"XQ0PEEVOStsOPsj4"
+				]
 			},
 			"6j8UEZBg5ZKPFdWs": {
 				"name": "Recover Use",
@@ -197,10 +185,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -209,9 +193,6 @@
 			"origin": "Item.MWtFxf6FjZVTvp4H",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CHOvzdxzZSAxnDgv",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -223,7 +204,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "Ualb9bgPWInoyqik",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -264,9 +248,6 @@
 			"origin": "Item.Os1ha2o8qwQW6G7t",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CHOvzdxzZSAxnDgv",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -277,7 +258,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "XQ0PEEVOStsOPsj4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -318,9 +302,6 @@
 			"origin": "Item.MWtFxf6FjZVTvp4H",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IGoja2SPdb0xqa2L",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -332,7 +313,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "681QD072BAPerzQQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -373,9 +357,6 @@
 			"origin": "Item.Os1ha2o8qwQW6G7t",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IGoja2SPdb0xqa2L",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -386,7 +367,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "deQHLWv3dp74tz1u",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -427,9 +411,6 @@
 			"origin": "Item.MWtFxf6FjZVTvp4H",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6j8UEZBg5ZKPFdWs",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -441,7 +422,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "f1tHVwE3ECQRRtqZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

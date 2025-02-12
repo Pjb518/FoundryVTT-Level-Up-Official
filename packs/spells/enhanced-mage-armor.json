@@ -7,9 +7,6 @@
 			"origin": "Item.tyVK7WxU9hvsARJ8",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "p54IchHbLju7Y4vP",
 					"duration": {
 						"unit": "hours"
 					}
@@ -51,7 +48,10 @@
 			},
 			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		}
@@ -92,14 +92,7 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"MQ1SDdXebc3wsNbs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xILhsp6xwaUWS7YT",
-						"label": "Enhanced Mage Armor"
-					}
-				},
+				"prompts": {},
 				"rolls": {
 					"qNZuHQR7kv2EL80j": {
 						"type": "healing",
@@ -111,7 +104,10 @@
 						"healingType": "temporaryHealing",
 						"formula": "0"
 					}
-				}
+				},
+				"effects": [
+					"xILhsp6xwaUWS7YT"
+				]
 			}
 		},
 		"description": "<p><strong>Target:&nbsp;</strong>A willing, unarmored creature</p>\n<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>\n<p><strong><em>Rare:</em> Enhanced Mage Armor.</strong> The&nbsp;target&rsquo;s AC becomes 10 + your&nbsp;proficiency bonus + its Dexterity modifier.</p>",
@@ -151,16 +147,6 @@
 				"arcane",
 				"protection"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

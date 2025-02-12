@@ -1,0 +1,235 @@
+{
+	"folder": null,
+	"name": "Flame Bracer",
+	"type": "object",
+	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NldQ5NXSSz3bgsZL": {
+				"name": "Flame Bracer (1 use)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"pRj1E4AZ7b5jQxov": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"0YTVkVUWCZlg9ZCB": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"canCrit": false,
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"54NXaw1oAtD909gt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"pBfq0Uync0kHhvEU": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 15,
+					"width": 5,
+					"placeTemplate": true
+				}
+			},
+			"SADe36scNuy7vYaH": {
+				"name": "Flame Bracer (3 uses)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"pRj1E4AZ7b5jQxov": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"0YTVkVUWCZlg9ZCB": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"canCrit": false,
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"54NXaw1oAtD909gt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"pBfq0Uync0kHhvEU": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 15
+				}
+			},
+			"F0KHKbbEhWRSgv2B": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"viB0RspBi379Cdso": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -3
+					},
+					"UZZV5hqRcvGAgbvC": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/fire/flame-burning-fist-strike.webp"
+			}
+		},
+		"description": "<p>A flame bracer is an anti-personnel weapon designed to be strapped to the user’s forearm. As an action, you can activate the bracer to project a jet of flame in a 15-foot line that is 5 feet wide. Each creature in that line takes 2d4 fire damage, or half as much damage on a successful Dexterity saving throw against your maneuver DC. If you expend three uses of the flame bracer’s fuel canister, you can alter the area of effect to a 15-foot cone instead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 3,
+			"max": "3",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "50 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"exotic",
+			"reload",
+			"handMounted"
+		],
+		"weight": 2,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732311820115,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rnuvRYkz7z6RxlP5"
+}

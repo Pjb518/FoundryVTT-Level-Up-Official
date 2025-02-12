@@ -49,16 +49,6 @@
 							"type": "dex"
 						},
 						"label": "Critical Hit Only"
-					},
-					"Dw6dJmKLybgRNhAl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ODFtGIyxEYm6N7Rj"
-					},
-					"VbcPfRx3ood0E3nI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ERPq3hmdrlXmBrVy"
 					}
 				},
 				"uses": {
@@ -84,20 +74,18 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"ODFtGIyxEYm6N7Rj",
+					"ERPq3hmdrlXmBrVy"
+				]
 			},
 			"jnUYs72jEOTCf6yo": {
 				"name": "Fire Into Air/Ground",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"0bRD1I8NFyvRxHuD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SCfoJMipTXsPIlNP"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,7 +96,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"SCfoJMipTXsPIlNP"
+				]
 			},
 			"4Bacrrkq0zCv5KYd": {
 				"name": "Black Powder Pyrotechnics",
@@ -130,16 +121,6 @@
 						"saveDC": {
 							"type": "dex"
 						}
-					},
-					"nnsNDdClNQGWn17O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xMiFOXwQMjxycQjy"
-					},
-					"5McGYtuRiR4xcHii": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qbRq8QMRKnNVtLts"
 					}
 				},
 				"uses": {
@@ -163,7 +144,11 @@
 					"quantity": 1,
 					"length": 15,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"xMiFOXwQMjxycQjy",
+					"qbRq8QMRKnNVtLts"
+				]
 			},
 			"mUR9S0bz77c6isUI": {
 				"name": "Club",
@@ -264,10 +249,6 @@
 			"clubbing"
 		],
 		"weight": 3,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -284,9 +265,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XulRCOnB4VC0FEx3",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -298,7 +276,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "ODFtGIyxEYm6N7Rj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -339,9 +320,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XulRCOnB4VC0FEx3",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -353,7 +331,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "ERPq3hmdrlXmBrVy",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -393,19 +374,17 @@
 		{
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jnUYs72jEOTCf6yo",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Intimidate",
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "SCfoJMipTXsPIlNP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",
@@ -444,9 +423,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4Bacrrkq0zCv5KYd",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -458,7 +434,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "xMiFOXwQMjxycQjy",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -499,9 +478,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4Bacrrkq0zCv5KYd",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -513,7 +489,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "qbRq8QMRKnNVtLts",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

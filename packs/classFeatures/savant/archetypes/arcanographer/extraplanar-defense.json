@@ -24,13 +24,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"una0u4RNTZozbobp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "edm1n9GHdjW7wG4t"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -41,7 +35,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"edm1n9GHdjW7wG4t"
+				]
 			},
 			"ErohtqiP5KtpvepR": {
 				"name": "Extraplanar Exclusion Zone",
@@ -113,16 +110,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "savant",
 		"class": ""
 	},
@@ -130,19 +117,17 @@
 		{
 			"origin": "Item.OmA3OIwmPT53isaX",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zDMJzEv59kQyONGX",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Extraplanar Defense",
 			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-magenta.webp",
 			"_id": "edm1n9GHdjW7wG4t",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

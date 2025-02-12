@@ -7,10 +7,6 @@
 			"origin": "Item.PzLchwYMKEBEhkBP",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jHdGyPxgN2XvCd0J",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -22,7 +18,10 @@
 			"img": "icons/skills/movement/figure-running-gray.webp",
 			"_id": "VFgBmpMSRk4uKxcD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.all",
@@ -96,13 +95,10 @@
 						"type": "itemUses"
 					}
 				},
-				"prompts": {
-					"RdL1i0YJ2RvleFOq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VFgBmpMSRk4uKxcD"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"VFgBmpMSRk4uKxcD"
+				]
 			}
 		},
 		"description": "<p>When you make a saving throw you can choose to make the saving throw with advantage, but you make all attack rolls with disadvantage until the end of your next turn. Once you use this feature, you cannot do so again until you finish a short rest or long rest.</p>",
@@ -123,16 +119,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},

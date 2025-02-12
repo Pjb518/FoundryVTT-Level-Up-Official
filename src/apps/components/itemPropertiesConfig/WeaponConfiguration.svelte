@@ -1,8 +1,9 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getWeaponProperties from "../../../utils/summaries/getWeaponProperties";
+    import getWeaponAugments from "../../../utils/summaries/getWeaponAugments";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -14,15 +15,16 @@
     const {
         breakerProperties,
         defensiveProperties,
+        energyProperties,
         versatileOptions,
+        weaponAugments,
         weaponProperties,
     } = CONFIG.A5E;
 
     let editMode = false;
 
-    $: selectedWeaponProperties = getWeaponProperties($item)
-        .filter(Boolean)
-        .join(", ");
+    $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(", ");
+    $: selectedWeaponAugments = getWeaponAugments($item).filter(Boolean).join(", ");
 </script>
 
 <Section
@@ -48,6 +50,14 @@
                     "system.weaponProperties",
                     event.detail,
                 )}
+        />
+
+        <CheckboxGroup
+            heading="A5E.WeaponAugments"
+            options={Object.entries(weaponAugments)}
+            selected={$item.system.weaponAugments}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField($item, "system.weaponAugments", event.detail)}
         />
 
         {#if $item.system.weaponProperties.includes("breaker")}
@@ -78,17 +88,27 @@
             />
         {/if}
 
+        {#if $item.system.weaponAugments.includes("energy")}
+            <RadioGroup
+                heading="Energy Property"
+                options={Object.entries(energyProperties)}
+                selected={$item.system.energyProperties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.energyProperties",
+                        event.detail,
+                    )}
+            />
+        {/if}
+
         {#if $item.system.weaponProperties.includes("mounted")}
             <CheckboxGroup
                 heading="Mounted Property"
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.mounted}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.mounted",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.mounted", event.detail)}
             />
         {/if}
 
@@ -98,11 +118,7 @@
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.versatile}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.versatile",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.versatile", event.detail)}
             />
         {/if}
     {:else}
@@ -114,6 +130,16 @@
                     {selectedWeaponProperties || localize("A5E.None")}
                 </dd>
             </div>
+
+            {#if selectedWeaponAugments}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.WeaponAugments")}:</dt>
+
+                    <dd class="u-m-0 u-p-0">
+                        {selectedWeaponAugments || localize("A5E.None")}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </Section>

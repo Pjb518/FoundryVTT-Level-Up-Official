@@ -7,11 +7,7 @@
 			"icon": "icons/magic/unholy/hand-light-green.webp",
 			"origin": "Item.o94b50tj959v55mm",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eYoBeDy7qYbkXOil"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bane",
@@ -66,6 +62,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -110,11 +110,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"ECjFqWzEWvzmljfy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "10bmEifXE2UZdfFf"
 					}
 				},
 				"consumers": {
@@ -124,7 +119,10 @@
 						"points": 2,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"10bmEifXE2UZdfFf"
+				]
 			}
 		},
 		"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p>",
@@ -163,16 +161,6 @@
 			"secondary": [
 				"affliction"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

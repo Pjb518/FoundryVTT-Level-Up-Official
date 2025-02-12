@@ -1,28 +1,28 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import Section from "../Section.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import Section from '../Section.svelte';
 
-    function prepareAmmunitionProperties(item) {
-        const properties = item.system.ammunitionProperties.map(
-            (property) => ammunitionProperties[property] ?? property,
-        );
+function prepareAmmunitionProperties(item) {
+	const properties = item.system.ammunitionProperties.map(
+		(property) => ammunitionProperties[property] ?? property,
+	);
 
-        properties.sort((a, b) => a.localeCompare(b));
+	properties.sort((a, b) => a.localeCompare(b));
 
-        return properties.join(", ");
-    }
+	return properties.join(', ');
+}
 
-    const item = getContext("item");
-    const ammunitionProperties = CONFIG.A5E.ammunitionProperties;
+const item = getContext('item');
+const ammunitionProperties = CONFIG.A5E.ammunitionProperties;
 
-    let editMode = false;
+let editMode = false;
 
-    $: selectedAmmunitionProperties = prepareAmmunitionProperties($item);
+$: selectedAmmunitionProperties = prepareAmmunitionProperties($item);
 </script>
 
 <Section

@@ -13,12 +13,12 @@
     }
 
     &--dark {
-      background-color: rgba(20, 20, 20, 0.6);
+      background-color: var(--a5e-tooltip-dark-background);
       backdrop-filter: blur(3px);
-      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+      filter: drop-shadow(2px 4px 6px var(--a5e-tooltip-drop-shadow));
       box-shadow:
-        0 0 0 1px #e9d7a1,
-        0 0 0 2px #956d58;
+        0 0 0 1px var(--a5e-tooltip-dark-box-shadow-1),
+        0 0 0 2px var(--a5e-tooltip-box-shadow-2);
     }
 
     &--document-source {
@@ -41,10 +41,10 @@
       max-width: 18.75rem;
       font-family: var(--a5e-font-sans-serif);
       color: var(--a5e-color-text-dark);
-      background-color: #ede9e0;
+      background-color: var(--a5e-tooltip-roll-background);
       border-radius: 5px;
-      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
-      box-shadow: 0 0 0 1px #6f6c66;
+      filter: drop-shadow(2px 4px 6px var(--a5e-tooltip-drop-shadow));
+      box-shadow: 0 0 0 1px var(--a5e-tooltip-roll-box-shadow);
     }
   }
 }

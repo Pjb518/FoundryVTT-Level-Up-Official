@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"DBBXs28OEeY6oiIv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ymyGIoZWqY6Catga"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"duration": {
 					"unit": "round",
 					"value": 1
-				}
+				},
+				"effects": [
+					"ymyGIoZWqY6Catga"
+				]
 			}
 		},
 		"description": "<p>As an action, you can magically read the surface thoughts of one creature within 60 feet that you can see. Additionally, until the end of your next turn, you have&nbsp;advantage</span>&nbsp;on&nbsp;attack rolls&nbsp;and Deception, Insight, Intimidation, and Persuasion checks against the creature. You can use this trait a number of times equal to your proficiency bonus. You regain any expended uses when you finish a&nbsp;<span>long rest .</p>",
@@ -72,16 +69,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"effects": [
@@ -90,14 +77,10 @@
 			"origin": "Item.cxgzlooxmdk9pn2k",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rrfwvdq5CkpjlFi8",
 					"duration": {
 						"unit": "minutes",
 						"type": "rounds"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -152,6 +135,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

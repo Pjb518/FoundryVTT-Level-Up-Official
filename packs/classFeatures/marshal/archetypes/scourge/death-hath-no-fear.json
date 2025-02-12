@@ -36,18 +36,7 @@
 						"formula": "1"
 					}
 				},
-				"prompts": {
-					"928QMq2hgINt6CGv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "J53beZqgaULpjCm4"
-					},
-					"TYJg5InMNxEGalIr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1gCRHJ0UvPvfe7qL"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +47,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"J53beZqgaULpjCm4",
+					"1gCRHJ0UvPvfe7qL"
+				]
 			}
 		},
 		"description": "<p>At 18th level if an allied creature within your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} that can see or hear you would be reduced to 0 hit points but not killed outright, you can use your reaction to instill in them a fear greater than death. They instead drop to 1 hit point, they are immune to damage until the end of their next turn (though they must still make a Constitution saving throw or die if they would take massive damage without this immunity), and they have advantage on attack rolls until the end of their next turn.</p>\n<p>However, they are also frightened of you for the next minute. You cannot use any spell or ability to remove this frightened condition, though other creatures can, and if a targeted creature is normally immune to fear they lose that immunity for the duration. This also still counts as being reduced to 0 hit points for the purposes of gaining fatigue or strife at the end of combat.</p>\n<p>Once you have done so, you cannot do so again until you finish a short or long rest.</p>",
@@ -79,16 +72,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -97,9 +80,6 @@
 			"origin": "Item.ALhl5AcQlW9eDer0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nJqOe9Q6aPKyWfTt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -111,7 +91,10 @@
 			"img": "icons/magic/death/skull-energy-light-white.webp",
 			"_id": "J53beZqgaULpjCm4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.damageImmunities.all",
@@ -152,9 +135,6 @@
 			"origin": "Item.ALhl5AcQlW9eDer0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nJqOe9Q6aPKyWfTt",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -165,7 +145,10 @@
 			"img": "icons/magic/death/skull-energy-light-white.webp",
 			"_id": "1gCRHJ0UvPvfe7qL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -37,11 +37,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"r1cZSX1IRp37e7HC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Td8qqjOzGdHTcske"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 					"quantity": 1,
 					"length": 15,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"Td8qqjOzGdHTcske"
+				]
 			},
 			"DPumKPRWj8Z25s1e": {
 				"name": "Recover Use",
@@ -121,10 +119,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -133,9 +127,6 @@
 			"origin": "Item.MWtFxf6FjZVTvp4H",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cUi8V6KyiBof2uGj",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -147,7 +138,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "Td8qqjOzGdHTcske",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

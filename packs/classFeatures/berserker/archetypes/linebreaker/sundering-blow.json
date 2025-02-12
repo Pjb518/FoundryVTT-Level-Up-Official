@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.uUjb94AFRFOBQdoD",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "38brvC4feWm2tz7e"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Broken Armor",
 			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
 			"_id": "bwDnl8938V6biOe8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -55,18 +54,17 @@
 		{
 			"origin": "Item.uUjb94AFRFOBQdoD",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "38brvC4feWm2tz7e"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Broken Shield",
 			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
 			"_id": "C1DRhS4FfkugM61n",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -105,9 +103,6 @@
 			"origin": "Item.uUjb94AFRFOBQdoD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "38brvC4feWm2tz7e",
 					"duration": {
 						"unit": "hours"
 					}
@@ -118,7 +113,10 @@
 			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
 			"_id": "9Ku8Pg8dCHqWkMzx",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -172,23 +170,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"JXQyNfXuosobM4hH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bwDnl8938V6biOe8"
-					},
-					"CBIVprHu8iXSKb8I": {
-						"type": "effect",
-						"default": true,
-						"effectId": "C1DRhS4FfkugM61n"
-					},
-					"jKBUL2MaupZzmeTY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9Ku8Pg8dCHqWkMzx"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -199,7 +181,12 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"bwDnl8938V6biOe8",
+					"C1DRhS4FfkugM61n",
+					"9Ku8Pg8dCHqWkMzx"
+				]
 			}
 		},
 		"description": "<p>Your attacks destroy the protective measures of your foes. When you score a critical hit, you may choose to either impose the broken property on your target&rsquo;s armor or shield (if present) until it is repaired or you reduce the armor class of your target by -2 for one hour if it does not have armor or a shield. A given creature can only be affected by one instance of the -2 armor class reduction at a time.</p>\n<p>In addition, while you are raging, any weapon you wield gains the Breaker property.</p>",
@@ -220,16 +207,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},

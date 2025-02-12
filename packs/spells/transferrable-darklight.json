@@ -7,11 +7,7 @@
 			"icon": "icons/magic/unholy/beams-impact-pink.webp",
 			"origin": "Item.ki2e07qexxr83w8m",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4tWSCZCjiDUJKYEP"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Transferrable Darklight",
@@ -47,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,13 +86,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"SApAXQxW6AxdwD69": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QZOSIUHdqIHY47Qg"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"QZOSIUHdqIHY47Qg"
+				]
 			}
 		},
 		"description": "<p>You create an enchanted flame that surrounds your hand and produces no heat, but sheds bright light in a 20-foot radius around you and dim light for an additional 20 feet. Only you and up to 6 creatures of your choice can see this light.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Transferrable Darklight.</strong> During the spell’s duration, you can use an action to kindle this light on a willing creature’s hand, sharing the effect with them. When the spell’s duration ends, or when any of the flames are dispelled, the spell ends.</p>",
@@ -127,16 +124,6 @@
 			"secondary": [
 				"utility"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

@@ -23,18 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"sOaeKdQolGAcupdd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7JI7tAAKtHnZoGFY"
-					},
-					"bVcQ7TKTMTDyTwSM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "a7KubQDvw2XuZeH9"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -56,7 +45,11 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"7JI7tAAKtHnZoGFY",
+					"a7KubQDvw2XuZeH9"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">Your Fly speed increases to double your speed. As an action, you can reduce your Fly speed back to your speed and instead grant all allies within 30 feet of you a Fly speed equal to their speed (or 20 feet, whichever is greater); both effects last for 1 minute, and using the action a further time resets the duration to 1 minute.</p>",
@@ -95,10 +88,6 @@
 		},
 		"prerequisite": "Elemental Affinity: Air; Wings of Air adaptation; 17th level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "elementalist"
 	},
 	"effects": [
@@ -107,10 +96,6 @@
 			"origin": "Item.OITBcOLggQvBYxwS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CSoktB5cWFjIxgPB",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -144,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -151,9 +140,6 @@
 			"origin": "Item.OITBcOLggQvBYxwS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CSoktB5cWFjIxgPB",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -187,6 +173,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

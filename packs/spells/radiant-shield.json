@@ -8,9 +8,6 @@
 			"origin": "Item.mr1z7pqvtwmqyash",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "STA5gdxQ2x1OvxUC",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -44,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -51,9 +52,6 @@
 			"origin": "Item.mr1z7pqvtwmqyash",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "O8TjPLApd5D5I4GA",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -87,6 +85,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -94,9 +96,6 @@
 			"origin": "Item.mr1z7pqvtwmqyash",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bP2ZRcqyiYJ1JQLD",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -130,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -171,18 +174,16 @@
 					}
 				},
 				"prompts": {
-					"RGZdf7o4jGdcMdaj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rn8UmOgiwz7XSl09"
-					},
 					"KhkVtHO8SiNgoNMr": {
 						"type": "generic",
 						"default": true,
 						"label": "Radiant Damage",
 						"formula": "1d6"
 					}
-				}
+				},
+				"effects": [
+					"rn8UmOgiwz7XSl09"
+				]
 			},
 			"O8TjPLApd5D5I4GA": {
 				"name": "Shield of Faith (4th-level)",
@@ -219,18 +220,16 @@
 					}
 				},
 				"prompts": {
-					"RGZdf7o4jGdcMdaj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rn8UmOgiwz7XSl09"
-					},
 					"nyzHKSTF3wl9zD7u": {
 						"type": "generic",
 						"default": true,
 						"label": "Radiant Damage",
 						"formula": "1d6"
 					}
-				}
+				},
+				"effects": [
+					"rn8UmOgiwz7XSl09"
+				]
 			},
 			"bP2ZRcqyiYJ1JQLD": {
 				"name": "Shield of Faith (7th-level)",
@@ -267,18 +266,16 @@
 					}
 				},
 				"prompts": {
-					"RGZdf7o4jGdcMdaj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rn8UmOgiwz7XSl09"
-					},
 					"vU3WMFLcTLEzhvZx": {
 						"type": "generic",
 						"default": true,
 						"label": "Radiant Damage",
 						"formula": "1d6"
 					}
-				}
+				},
+				"effects": [
+					"rn8UmOgiwz7XSl09"
+				]
 			}
 		},
 		"description": "<p>Until the spell ends, a barrier of divine energy envelops the target and increases its AC by +2.</p><p><strong><em>Cast at Higher Levels.</em></strong> The bonus to AC increases by +1 for every three slot levels above 1st.</p><p><strong><em>Rare:&nbsp;</em>Radiant Shield.&nbsp;</strong>When a creature&nbsp;makes a melee attack against the target, it takes&nbsp;1d6 radiant damage as the shield sparks and flares&nbsp;with holy power.</p>",
@@ -317,16 +314,6 @@
 				"divine",
 				"protection"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

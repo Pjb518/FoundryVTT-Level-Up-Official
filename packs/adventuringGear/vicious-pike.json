@@ -7,9 +7,6 @@
 			"origin": "Item.6z5V0VAHV4klL4QK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -42,7 +39,10 @@
 			"tint": "#ffffff",
 			"img": "icons/weapons/polearms/spear-hooked-spike.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -111,7 +111,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			}
 		},
 		"description": "<p>You have disadvantage when using a pike to attack a target within 5 ft of you.</p><p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
@@ -157,16 +158,6 @@
 			"vicious"
 		],
 		"weight": 13,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "heavy",
 		"flaws": [],

@@ -29,11 +29,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"cgdyWTduBfs4MerL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jMiKlN1fxodyQSCf"
 					}
 				},
 				"uses": {
@@ -53,7 +48,10 @@
 					"BLkQEwhRCaPPdfp1": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"jMiKlN1fxodyQSCf"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Adept class</em></p><p>You infuse your next strike with potent planar energies to punish your enemies and steal their sight. The next time you hit with a melee weapon attack while the spell is active, it deals additional radiant or necrotic damage (your choice) equal to your Martial Arts die. The target must also make a Constitution save against your spell save DC or be blinded until the end of your next turn. The spell then ends.</p><p><strong>Cast at Higher Levels:</strong> The spell deals an additional Martial Arts die of damage for each slot level above 1st.</p>",
@@ -97,16 +95,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -115,9 +103,6 @@
 			"origin": "Item.mq7suxst0efamjpj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M5fquJDpRDpxIWFE",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -154,6 +139,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

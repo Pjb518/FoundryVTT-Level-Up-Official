@@ -7,10 +7,7 @@
 			"icon": "icons/equipment/shield/heater-steel-gold.webp",
 			"origin": "Item.al5bt63sprk6hkxv",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Shield, Heavy",
@@ -53,6 +50,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
@@ -60,10 +61,6 @@
 			"origin": "Item.al5bt63sprk6hkxv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "F3TTzlAfNwLEaLFb",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -99,6 +96,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -232,23 +233,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"1RmCVO4QKQ9DZpDM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WHMM0rfkKVvzUNeB"
-					},
-					"hhUcyCDWAO7SCqQg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3kBjNxOtHfOn47oz"
-					},
-					"aFgjMlp3cCdGnxEr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rws7wAPvY6mq40Bt"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -263,7 +248,12 @@
 						"range": "self"
 					}
 				},
-				"img": "icons/equipment/shield/heater-steel-gold.webp"
+				"img": "icons/equipment/shield/heater-steel-gold.webp",
+				"effects": [
+					"WHMM0rfkKVvzUNeB",
+					"3kBjNxOtHfOn47oz",
+					"rws7wAPvY6mq40Bt"
+				]
 			}
 		},
 		"description": "<p>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</p><p>You cannot squeeze through spaces smaller than your size category.</p><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
@@ -304,16 +294,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 20,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

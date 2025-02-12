@@ -8,10 +8,6 @@
 			"origin": "Item.7gzv54jnj0x55xyh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "c92x5399YcCZ5tZd",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -38,6 +34,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,13 +86,10 @@
 						"label": "More Than 100 HP"
 					}
 				},
-				"prompts": {
-					"2cm9sjS15EjJjuyR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Rxm7KqQEsByqGDQ0"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"Rxm7KqQEsByqGDQ0"
+				]
 			}
 		},
 		"description": "<p>With but a word you snuff out the target's life and it immediately dies. If you cast this on a creature with more than 100 hit points, it takes 50 hit points of damage.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Sacrificial Power Word Kill.&nbsp;</strong>When a&nbsp;target dies from the effects of this spell, you may&nbsp;use its life force to save yourself. For the next&nbsp;8 hours, the first time you would drop to 0 hit&nbsp;points or be outright killed, you instead drop to&nbsp;1 hit point. Once this effect is used, the life force&nbsp;is expended and the effect ends.</p>",
@@ -134,16 +131,6 @@
 				"arcane",
 				"attack"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

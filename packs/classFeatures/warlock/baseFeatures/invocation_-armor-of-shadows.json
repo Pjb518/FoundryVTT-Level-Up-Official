@@ -2,7 +2,62 @@
 	"name": "Invocation: Armor of Shadows",
 	"type": "feature",
 	"img": "icons/magic/defensive/shield-barrier-glowing-triangle-magenta.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.doCoS0eWAsgSuqdk",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Armor of Shadows",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-magenta.webp",
+			"_id": "BnOU25IUwOr6Hjpf",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "13 + @dex.mod[Dexterity Modifier]",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737291797832,
+				"modifiedTime": 1737291823592,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,7 +71,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You are under the constant effects of the&nbsp;<em>mage armor</em>&nbsp;spell. This effect does not emit a magical aura.</p>",
+		"description": "<p>You are under the constant effects of the @UUID[Compendium.a5e.a5e-spells.Item.ip8c3zrbrngrx1oe]{Mage Armor}&nbsp;spell. This effect does not emit a magical aura.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -34,23 +89,25 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
+		"classes": "warlock",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
 			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
+				"schema": null
 			}
 		},
-		"classes": "warlock"
+		"class": ""
 	},
 	"folder": null,
-	"_id": "dyzjx3715zbswg5o",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.4",
+		"createdTime": 1737291737464,
+		"modifiedTime": 1737292004233,
+		"lastModifiedBy": "yJDfDGWSqyOOsGj1"
+	},
+	"_id": "dyzjx3715zbswg5o"
 }

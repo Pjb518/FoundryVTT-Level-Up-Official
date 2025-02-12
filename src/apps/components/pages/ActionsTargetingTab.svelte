@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
@@ -14,8 +17,8 @@
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
-    const actionId = getContext("actionId");
-    const item = getContext("item");
+    const actionId: string = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
 
@@ -67,7 +70,7 @@
         }
     }
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId)!;
 </script>
 
 <section class="a5e-page-wrapper">
@@ -99,6 +102,7 @@
                 {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
                     <input
                         class="small-input"
+                        style="width: 5rem;"
                         type="number"
                         name="targetQuantity"
                         value={action.target?.quantity ?? 1}
@@ -106,9 +110,13 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.target.quantity`,
+                                // @ts-expect-error
                                 Number(target.value || 0),
                             )}
-                        on:click={({ target }) => target.select()}
+                        on:click={({ target }) => {
+                            // @ts-expect-error
+                            target.select();
+                        }}
                     />
                 {/if}
 
@@ -127,7 +135,7 @@
                 {#if ["creature", "object", "creatureObject"].includes(action?.target?.type)}
                     <div class="a5e-field-group scaling-button-wrapper">
                         <button
-                            class="scaling-button"
+                            class="a5e-scaling-button"
                             on:click|preventDefault={onClickTargetScalingButton}
                         >
                             <i
@@ -209,33 +217,6 @@
         margin-right: -0.375rem;
         padding: 0;
         padding-right: 0.375rem;
-    }
-
-    .scaling-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.625rem;
-        width: 1.625rem;
-        padding: 0;
-        margin: 0;
-        font-size: var(--a5e-text-size-md);
-        background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
-        border-radius: var(--a5e-border-radius-standard);
-        cursor: pointer;
-
-        transition: var(--a5e-transition-standard);
-
-        i {
-            margin: 0;
-        }
-
-        &:focus,
-        &:hover {
-            color: #555;
-        }
     }
 
     .scaling-button-wrapper {

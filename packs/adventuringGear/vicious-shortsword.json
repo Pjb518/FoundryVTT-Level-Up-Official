@@ -7,9 +7,6 @@
 			"origin": "Item.RfzoCsKq6flcWPJc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LfiU8RBp5laBi6jt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -42,7 +39,10 @@
 			"tint": "#ffffff",
 			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -115,7 +115,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"vQTQD7tzjEVIJLR0": {
 				"name": "Parry",
@@ -185,16 +186,6 @@
 			"vicious"
 		],
 		"weight": 2,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "medium",
 		"flaws": [],

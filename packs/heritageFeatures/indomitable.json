@@ -1,0 +1,99 @@
+{
+	"folder": null,
+	"name": "Indomitable",
+	"type": "feature",
+	"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"GknqoJFOZj29Aaxo": {
+				"name": "Adrenal Burst",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"MfDzso1isejIeHVA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"NXLDg1ZuKqzxPY0O": {
+						"type": "healing",
+						"default": true,
+						"formula": "3 * @prof"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/movement/arrow-upward-blue.webp"
+			}
+		},
+		"description": "<p>The adrenaline which permeates your body lends you courage. You are immune to the frightened condition. Additionally, you can use a bonus action to use your @UUID[Compendium.a5e.a5e-heritage-features.Item.yPDkAsVIdGrKDjbZ]{Adrenal Burst} feature to recover a number of hit points equal to three times your proficiency bonus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"jmfX4bGm8s2ZV15q": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jmfX4bGm8s2ZV15q",
+				"label": "Indomitable",
+				"traits": {
+					"base": [
+						"frightened"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731766696517,
+		"modifiedTime": 1731793466196,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oHtxSucaQkZNzALD"
+}

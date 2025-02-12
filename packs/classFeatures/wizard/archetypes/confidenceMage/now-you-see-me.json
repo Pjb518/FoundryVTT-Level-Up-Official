@@ -7,10 +7,6 @@
 			"origin": "Item.4lxPeKQkqk95NGKR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vml8YzXvQBCookmn",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -22,7 +18,10 @@
 			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
 			"_id": "sIPMkussFsCugrrw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -84,13 +83,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"n4aaN4y3Cxh6okDI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sIPMkussFsCugrrw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -101,7 +94,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"sIPMkussFsCugrrw"
+				]
 			}
 		},
 		"description": "<p>Beginning at 10th level, your capacity for magical chicanery increases still further. When you cast a spell of at least 1st level, you can choose to become invisible until the beginning of your next turn. You may use this ability a number of times equal to your intelligence modifier, regaining all uses upon finishing a long rest.</p>",
@@ -122,16 +118,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wizard",
 		"class": ""
 	},

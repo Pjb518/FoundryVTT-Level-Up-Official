@@ -20,14 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"NUCDCQhcGzQDR3Ue": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XHqm9rAaTyAgfWo1",
-						"label": "Beautify Creature"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +41,10 @@
 					"HaMYuWJniRazPSLO": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"XHqm9rAaTyAgfWo1"
+				]
 			}
 		},
 		"description": "<p>The creature is immediately and beautifully groomed, as if it had been lovingly attended to by a group of no less than 4 highly-skilled servants. Its clothing (if it has any) will be spotlessly clean with any minor damage mended and, at the creature&rsquo;s option, it may also be festooned with ribbons, be perfumed, and have makeup, face paint, or body paint applied. If the creature desires, its hair, beard, fur, and/or feathers can be styled or cut by this spell. This spell can only provide the most basic of accessories, such as ribbons, simple hair pins, and the like, which disappear in 8 hours.</p><p>The creature gains an expertise die on all non-combat related Charisma (Persuasion) and Charisma (Performance) checks for the next 8 hours. The Narrator may declare this effect ends early if the creature is in a grueling fight, caught in severe weather, or endures any other that may compromise the grooming.</p><p>A truly unwilling creature can resist the spell, but few do; the experience is very pleasant and tailored to the target&rsquo;s wishes and aesthetics, not the caster&rsquo;s.</p>",
@@ -92,16 +88,6 @@
 				"utility"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -110,12 +96,9 @@
 			"origin": "Item.8pje7s5trrbm3f24",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "CVkjCsyZHWedOCSS"
+					}
 				}
 			},
 			"transfer": false,
@@ -153,6 +136,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

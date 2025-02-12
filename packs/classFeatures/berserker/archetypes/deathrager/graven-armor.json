@@ -29,14 +29,7 @@
 						"formula": "(@classes.berserker.level * 2)"
 					}
 				},
-				"prompts": {
-					"1T3WjW8MYcbsPC3S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BjChEPVMS8iPahLT",
-						"label": "Equip Graven Armor"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +41,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/equipment/shield/kite-decorative-steel-claws.webp"
+				"img": "icons/equipment/shield/kite-decorative-steel-claws.webp",
+				"effects": [
+					"BjChEPVMS8iPahLT"
+				]
 			},
 			"cmZ2N8rwWNWm0W5q": {
 				"name": "Destroy Armor",
@@ -96,16 +92,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -113,19 +99,17 @@
 		{
 			"origin": "Item.O2FzEO9ZfE1P2qYb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IifN31erdHZ76Gz1",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Graven Armor",
 			"img": "icons/equipment/shield/kite-decorative-steel-claws.webp",
 			"_id": "BjChEPVMS8iPahLT",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.per",

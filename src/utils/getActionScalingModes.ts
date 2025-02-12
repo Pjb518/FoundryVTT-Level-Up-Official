@@ -1,14 +1,18 @@
-export default function getActionScalingModes(action: Action): Set<string> {
-  const scalableRolls = Object.values(action.rolls ?? {})
-    .filter((r: BaseRoll) => ['damage', 'healing'].includes(r.type));
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel';
 
-  const scalingModes: Set<string> = scalableRolls.reduce((acc, r: DamageRoll | HealingRoll) => {
-    if (r.scaling?.mode) acc.add(r.scaling?.mode);
-    return acc;
-  }, new Set<string>());
+export default function getActionScalingModes(action: A5EActionData): Set<string> {
+	const scalableRolls = Object.values(action.rolls ?? {}).filter((r: BaseRoll) =>
+		['damage', 'healing'].includes(r.type),
+	);
 
-  if (action.target?.scaling?.mode) scalingModes.add(action.target?.scaling?.mode);
-  if (action.area?.scaling?.mode) scalingModes.add(action.area?.scaling?.mode);
+	const scalingModes: Set<string> = scalableRolls.reduce((acc, r) => {
+		// @ts-expect-error
+		if (r.scaling?.mode) acc.add(r.scaling?.mode);
+		return acc;
+	}, new Set<string>());
 
-  return scalingModes;
+	if (action.target?.scaling?.mode) scalingModes.add(action.target?.scaling?.mode);
+	if (action.area?.scaling?.mode) scalingModes.add(action.area?.scaling?.mode);
+
+	return scalingModes;
 }

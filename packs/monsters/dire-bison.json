@@ -1,7 +1,7 @@
 {
 	"name": "Dire Bison",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "icons/creatures/mammals/ox-buffalo-horned-green.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -77,6 +77,39 @@
 					"bonus": ""
 				}
 			}
+		},
+		"bonuses": {
+			"abilities": {},
+			"attacks": {},
+			"damage": {},
+			"exertion": {},
+			"healing": {},
+			"hitPoint": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {},
+			"skills": {},
+			"maneuverDC": "",
+			"spellDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": ""
+		},
+		"currency": {
+			"cp": 0,
+			"sp": 0,
+			"ep": 0,
+			"gp": 0,
+			"pp": 0
+		},
+		"grants": {},
+		"proficiencies": {
+			"armor": [],
+			"languages": [],
+			"tools": [],
+			"traditions": [],
+			"weapons": []
 		},
 		"skills": {
 			"acr": {
@@ -300,74 +333,33 @@
 				}
 			}
 		},
-		"spellResources": {
-			"slots": {
-				"1": {
-					"current": 0,
-					"max": 0
-				},
-				"2": {
-					"current": 0,
-					"max": 0
-				},
-				"3": {
-					"current": 0,
-					"max": 0
-				},
-				"4": {
-					"current": 0,
-					"max": 0
-				},
-				"5": {
-					"current": 0,
-					"max": 0
-				},
-				"6": {
-					"current": 0,
-					"max": 0
-				},
-				"7": {
-					"current": 0,
-					"max": 0
-				},
-				"8": {
-					"current": 0,
-					"max": 0
-				},
-				"9": {
-					"current": 0,
-					"max": 0
-				}
-			},
-			"points": {
-				"current": 0,
-				"max": 0
-			},
-			"artifactCharges": {
-				"current": 0,
-				"max": 0
-			},
-			"inventions": {
-				"current": 0,
-				"max": 0
+		"spellBooks": {
+			"iLLkmvT9H3yVH49A": {
+				"_id": "iLLkmvT9H3yVH49A",
+				"name": "New Spell Book",
+				"img": "icons/svg/book.svg",
+				"ability": "default",
+				"disableSpellConsumers": false,
+				"showSpellPoints": false,
+				"showSpellSlots": true
 			}
 		},
+		"traits": {
+			"size": "huge",
+			"alignment": [],
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
+		"source": "strangerSights",
 		"attributes": {
-			"ac": {
-				"value": 0,
-				"baseFormula": "10 + @dex.mod"
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 66,
-				"baseMax": 66,
-				"temp": 0,
-				"bonus": null
-			},
+			"casterLevel": 0,
 			"hitDice": {
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
 				"d6": {
 					"current": 0,
 					"total": 0
@@ -384,19 +376,29 @@
 					"current": 7,
 					"total": 7
 				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
 				"d20": {
 					"current": 0,
 					"total": 0
 				}
 			},
+			"ac": {
+				"baseFormula": "12 + @dex.mod",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 66,
+				"baseMax": 66,
+				"temp": 0,
+				"bonus": 0
+			},
 			"initiative": {
+				"ability": "dex",
 				"bonus": "",
-				"expertiseDice": 0,
-				"ability": "dex"
+				"expertiseDice": 0
 			},
 			"movement": {
 				"burrow": {
@@ -416,7 +418,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -443,54 +445,24 @@
 				}
 			},
 			"inspiration": false,
+			"corruption": 0,
 			"fatigue": 0,
+			"inebriated": 0,
 			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"attacks": {},
-			"initiative": {},
-			"movement": {},
-			"senses": {},
-			"skills": {},
-			"exertion": {},
-			"hitPoint": {}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
+			"spellcasting": ""
 		},
 		"details": {
+			"cr": 4,
+			"elite": false,
+			"isSquad": false,
+			"isSwarm": false,
+			"notes": "",
+			"privateNotes": "",
+			"terrain": [],
 			"bio": "",
 			"creatureTypes": [
 				"beast"
-			],
-			"isSwarm": false,
-			"cr": 4,
-			"elite": false,
-			"privateNotes": "",
-			"notes": "",
-			"terrain": [],
-			"isSquad": false
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [],
-			"tools": [],
-			"weapons": []
+			]
 		},
 		"resources": {
 			"primary": {
@@ -538,35 +510,56 @@
 				}
 			}
 		},
-		"source": "strangerSights",
-		"traits": {
-			"size": "huge",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": [],
-			"alignment": []
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
+		"spellResources": {
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			},
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
 				}
-			}
-		},
-		"grants": {},
-		"spellBooks": {
-			"iLLkmvT9H3yVH49A": {
-				"_id": "iLLkmvT9H3yVH49A",
-				"name": "New Spell Book",
-				"img": "icons/svg/book.svg",
-				"ability": "default",
-				"disableSpellConsumers": false,
-				"showSpellPoints": false,
-				"showSpellSlots": true
 			}
 		}
 	},
@@ -574,17 +567,24 @@
 		"name": "Dire Bison",
 		"displayName": 0,
 		"actorLink": false,
-		"texture": {
-			"src": "icons/svg/mystery-man.svg",
-			"scaleX": 1,
-			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": null
-		},
+		"appendNumber": false,
+		"prependAdjective": false,
 		"width": 3,
 		"height": 3,
+		"texture": {
+			"src": "icons/creatures/mammals/bull-horns-eyes-glowin-orange.webp",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"offsetX": 0,
+			"offsetY": 0,
+			"fit": "contain",
+			"scaleX": 1,
+			"scaleY": 1,
+			"rotation": 0,
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
+		},
+		"hexagonalShape": 0,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -597,6 +597,8 @@
 			"attribute": null
 		},
 		"light": {
+			"negative": false,
+			"priority": 0,
 			"alpha": 0.5,
 			"angle": 360,
 			"bright": 0,
@@ -620,7 +622,7 @@
 			}
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
@@ -631,17 +633,30 @@
 			"contrast": 0
 		},
 		"detectionModes": [],
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
 		"flags": {},
-		"randomImg": false,
-		"appendNumber": false,
-		"prependAdjective": false
+		"randomImg": false
 	},
 	"items": [
 		{
 			"name": "Ram",
 			"type": "feature",
 			"_id": "YfFcsEjNsK9uQWiF",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/mammals/ox-bull-horned-glowing-orange.webp",
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -653,7 +668,73 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"yIAZubIfjL9grRB9": {
+						"name": "Ram",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"6BdxxRLiC3bSMtW6": {
+								"type": "damage",
+								"default": true,
+								"label": "",
+								"formula": "4d10 + @str.mod",
+								"damageType": "bludgeoning"
+							},
+							"rhtuM0ViXvAuprYP": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"fQR5evw2jKuzMdBr": {
+								"type": "damage",
+								"default": false,
+								"label": "Ram Damage",
+								"formula": "2d8",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"bMkPMvXpODLBKmpX": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": ""
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"rSAe8DCAOeiWzn3u": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						},
+						"effects": [
+							"UQyFScQVVpnptL0v"
+						]
+					}
+				},
 				"description": "<p>If the dire bison moves at least 20 ft. in a straight line and then hits with this attack, the target takes an additional 9 (2d8) bludgeoning damage and must make a DC 15 Strength saving throw or be knocked prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -672,32 +753,81 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"class": "",
+				"classes": ""
 			},
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Actor.QCVyvIsKifw3oGoL.Item.YfFcsEjNsK9uQWiF",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "yIAZubIfjL9grRB9"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"img": "icons/creatures/mammals/ox-bull-horned-glowing-orange.webp",
+					"_id": "UQyFScQVVpnptL0v",
+					"type": "base",
+					"system": {},
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"tint": "#ffffff",
+					"statuses": [
+						"prone"
+					],
+					"sort": 0,
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "0.19.30",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": 1730747619429,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
 			}
 		},
 		{
 			"name": "Trample",
 			"type": "feature",
 			"_id": "9HVH2Tbg0TfA16IE",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/creatures/abilities/bull-head-horns-glowing.webp",
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -709,9 +839,56 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"J4LnbSbnWHpaeaBH": {
+						"name": "Trample",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"utGHHUSvoHDKqMQJ": {
+								"type": "damage",
+								"default": true,
+								"label": "",
+								"formula": "3d8 + @str.mod",
+								"damageType": "bludgeoning",
+								"canCrit": false
+							}
+						},
+						"prompts": {
+							"ZCeSmYkmYcGRgKii": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": ""
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"area": {
+							"shape": "line",
+							"quantity": 1,
+							"length": 40,
+							"placeTemplate": true
+						}
+					}
+				},
 				"description": "<p>The dire bison moves up to its speed in a straight line. It can move through the spaces of Large and smaller creatures without penalty. Each creature in its path makes a DC 15 Dexterity saving throw, taking 18 (3d8 + 5) bludgeoning damage on a failure.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -728,25 +905,22 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": 1730747706344,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
 			}
 		},
 		{
@@ -820,25 +994,20 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "msJlP1LiHbO8RxDT",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -912,25 +1081,20 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "Ij7u6P6JPe9TKhe5",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1013,25 +1177,20 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "nVmxymnAbpjaqkzS",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1105,25 +1264,20 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "b2FDZ56uCl98YrlN",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1197,25 +1351,20 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "OkjU6Rse5jW6oJJy",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1298,40 +1447,42 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": "",
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				}
+				"tradition": ""
 			},
 			"_id": "yq72UASzgNE0CRF8",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.30",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
+	"folder": null,
 	"flags": {
 		"a5e": {
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true,
+			"showSpellTab": false,
+			"doubleCarryCapacity": true,
+			"restoreSpellPointsOnShortRest": false
 		}
 	},
-	"folder": null,
-	"_id": "1fivfgvsdbkudmwe",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.30",
+		"createdTime": 1730747333946,
+		"modifiedTime": 1730747755764,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1fivfgvsdbkudmwe"
 }

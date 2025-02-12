@@ -8,9 +8,6 @@
 			"origin": "Item.yEv4c2qOq6EJFIpz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "imQgmFhEEysgcMYN",
 					"duration": {
 						"type": "seconds"
 					}
@@ -37,6 +34,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -79,14 +80,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"6LYidk7WJixmPvrF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iJZcmn90XEYtiEEK",
-						"label": "Battle Hymn: Willful Serenade"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"iJZcmn90XEYtiEEK"
+				]
 			}
 		},
 		"description": "<p>Until the end of the combat, the target ignores up to 4 levels of&nbsp;fatigue or strife it is suffering from (how much of each to ignore is determined by the&nbsp;creature).</p>",
@@ -107,16 +104,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard"
 	},
 	"folder": null,

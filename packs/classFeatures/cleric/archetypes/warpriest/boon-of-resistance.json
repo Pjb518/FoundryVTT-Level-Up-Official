@@ -25,13 +25,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fX9gRpFP66NMIlEH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OWSJ1fbohjZJrNU9"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +36,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"OWSJ1fbohjZJrNU9"
+				]
 			},
 			"7eG52vfv0ysIszTI": {
 				"name": "Magical Bludgeoning",
@@ -55,13 +52,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fX9gRpFP66NMIlEH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7XiAm9eBed1LUQUJ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -72,7 +63,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"7XiAm9eBed1LUQUJ"
+				]
 			},
 			"ZAlrSyBrD6HUnC7u": {
 				"name": "Magical Piercing",
@@ -85,13 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fX9gRpFP66NMIlEH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WpTQI0q9m79z3i7q"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -102,7 +90,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"WpTQI0q9m79z3i7q"
+				]
 			},
 			"M2ty7OuoVGJOQlyd": {
 				"name": "Magical Slashing",
@@ -115,13 +106,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fX9gRpFP66NMIlEH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YZuNWNHNnxcaD68c"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -132,7 +117,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"YZuNWNHNnxcaD68c"
+				]
 			}
 		},
 		"description": "<p>Starting at 17th level, you may choose after each long rest to gain resistance to bludgeoning, piercing and slashing damage from nonmagical weapons, or to gain resistance to either magical bludgeoning, magical piercing, or magical slashing damage.</p>",
@@ -153,16 +141,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -171,10 +149,6 @@
 			"origin": "Item.Focgf2Zk9EbsxY20",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JII5M8BPhkN2BPcD",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -185,7 +159,10 @@
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"_id": "OWSJ1fbohjZJrNU9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -224,10 +201,6 @@
 			"origin": "Item.Focgf2Zk9EbsxY20",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7eG52vfv0ysIszTI",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -238,7 +211,10 @@
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"_id": "7XiAm9eBed1LUQUJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -277,10 +253,6 @@
 			"origin": "Item.Focgf2Zk9EbsxY20",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZAlrSyBrD6HUnC7u",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -291,7 +263,10 @@
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"_id": "WpTQI0q9m79z3i7q",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -330,10 +305,6 @@
 			"origin": "Item.Focgf2Zk9EbsxY20",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M2ty7OuoVGJOQlyd",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -344,7 +315,10 @@
 			"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
 			"_id": "YZuNWNHNnxcaD68c",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

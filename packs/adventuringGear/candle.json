@@ -7,10 +7,6 @@
 			"origin": "Item.0hpDXHRTpZ43LiVK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EHkVt6KPlRyxHsR9",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/sundries/lights/candle-unlit-yellow.webp",
 			"_id": "TOA1tMuac33DzUhy",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -83,13 +82,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"XC99FVEMGb67x9f7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "TOA1tMuac33DzUhy"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -100,7 +93,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"TOA1tMuac33DzUhy"
+				]
 			}
 		},
 		"description": "<p>A lit candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet for up to 1 hour.</p>",
@@ -141,16 +137,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

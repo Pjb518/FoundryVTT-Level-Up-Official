@@ -19,8 +19,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
@@ -28,8 +27,6 @@
             handler: () => deletePrompt(actionId, promptId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

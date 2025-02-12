@@ -8,14 +8,10 @@
 			"origin": "Item.781o4evp4C5YLbLO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "FtrdSRuv8siHWpqZ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -52,6 +48,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -83,13 +83,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"QNr8Ymx52z8rZdYF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "s162fdLVK2ur9uHa"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -100,7 +94,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"s162fdLVK2ur9uHa"
+				]
 			}
 		},
 		"description": "<p>While exploring a place which you have never been to before, you can use your reaction to gain advantage on ability checks and attack rolls until the end of your next turn. You can do so a number of times equal to your Wisdom modifier, and regain spent uses upon finishing a long rest.</p>",
@@ -121,17 +118,7 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"classes": "herald",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"classes": "herald"
 	},
 	"folder": null,
 	"_id": "o1y67idftch7m18s",

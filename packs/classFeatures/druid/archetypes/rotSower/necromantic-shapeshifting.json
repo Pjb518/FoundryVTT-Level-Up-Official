@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"l5nRJlnt9tONLlnD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nPRmA0fHBBwUa8rS"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"nPRmA0fHBBwUa8rS"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you can take the energy of undeath into yourself. When you use your @UUID[Compendium.a5e.a5e-class-features.Item.3jdfihvtbyhbv9ez]{Wild Shape} ability, you can choose to shift into an undead version of one of your normal forms. An undead form has immunity to poison and necrotic damage, darkvision with a range of 60 feet, and gains an expertise die on Intimidation checks, but only receives half the normal amount of healing from magical healing spells, healing potions, and similar effects. It is also vulnerable to radiant damage.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "druid",
 		"class": ""
 	},
@@ -75,12 +62,7 @@
 		{
 			"origin": "Item.HDOutMKjiGQeCtPz",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Sko0ysdndFm3xvA0",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Necromantic Shape",
@@ -135,7 +117,10 @@
 			},
 			"img": "icons/magic/death/undead-bird-skeleton-purple.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.FCBjOgAKchYefhFe",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "y57Kf1GkTar7STEu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Standing Firm",
 			"img": "icons/skills/social/intimidation-impressing.webp",
 			"_id": "s56juDzvWMyIEjHG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.all",
@@ -75,13 +74,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"hgbdPTUlMth9Z2pc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "s56juDzvWMyIEjHG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -92,7 +85,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"s56juDzvWMyIEjHG"
+				]
 			}
 		},
 		"description": "<p>Also at 3rd level, you gain advantage on checks made to avoid being knocked prone. In addition, when a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll if you are wearing heavy armor.</p>",
@@ -113,16 +109,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},

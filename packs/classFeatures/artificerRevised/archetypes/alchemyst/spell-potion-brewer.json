@@ -91,13 +91,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"IlHcVWJ8vHVaA4Js": {
-						"type": "effect",
-						"default": true,
-						"effectId": "apvESzUcv4dHjzLg"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,7 +102,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"apvESzUcv4dHjzLg"
+				]
 			},
 			"sE9KcdqSktQhuk3f": {
 				"name": "Contact Intoxicants",
@@ -201,21 +198,14 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
-		"classes": "artificerRevised"
+		"classes": "artificerrevised"
 	},
 	"effects": [
 		{
 			"origin": "Item.Mrrkm5qpwBwFOTro",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WkgspibwhlcgHSeX",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -226,7 +216,10 @@
 			"img": "icons/tools/laboratory/vial-orange.webp",
 			"_id": "apvESzUcv4dHjzLg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

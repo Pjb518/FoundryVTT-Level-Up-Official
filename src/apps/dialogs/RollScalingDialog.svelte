@@ -1,21 +1,21 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, actionId, rollId } = getContext("#external").application;
+export let { document, actionId, rollId } = getContext('#external').application;
 
-    function getScalingOptions() {
-        return [[null, "A5E.None"], ...Object.entries(CONFIG.A5E.baseScalingModes)];
-    }
+function getScalingOptions() {
+	return [[null, 'A5E.None'], ...Object.entries(CONFIG.A5E.baseScalingModes)];
+}
 
-    const item = document;
+const item = document;
 
-    $: roll = $item.actions[actionId].rolls[rollId];
-    $: scalingMode = roll.scaling?.mode ?? null;
+$: roll = $item.actions.get(actionId)?.rolls[rollId];
+$: scalingMode = roll.scaling?.mode ?? null;
 </script>
 
 <form>

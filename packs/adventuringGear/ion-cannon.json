@@ -1,0 +1,233 @@
+{
+	"folder": null,
+	"name": "Ion Cannon",
+	"type": "object",
+	"img": "icons/weapons/guns/rifle-fluted.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"9op0gX0Nk6oLBlhj": {
+				"name": "Ion Cannon",
+				"activation": {},
+				"consumers": {
+					"r0Lstp2UQW6dqltK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"7wwbLVGvXxHCgqP4": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"FArDWXZ13NTLR7mC": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8 + @dex.mod",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"6YelELlIjGuHy3aN": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"jCutgBXA5BQ8lXPv": {
+						"range": 600,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"guSx8uudCpewnBzI": {
+				"name": "Overkill",
+				"activation": {},
+				"consumers": {
+					"r0Lstp2UQW6dqltK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"vQ8bg8pjKsj219NI": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"7wwbLVGvXxHCgqP4": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"FArDWXZ13NTLR7mC": {
+						"type": "damage",
+						"default": true,
+						"formula": "2*(2d8 + @dex.mod)",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "minute",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"6YelELlIjGuHy3aN": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"jCutgBXA5BQ8lXPv": {
+						"range": 600,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"ftdecn9euy0vTv5U": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"lIyW4O2GvHwnRC0t": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					},
+					"Yxr4Gql4ElUGoqEc": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Prerequisite:</strong> Strength 13+</em></p>\n<p>Ion cannons are heavy, two-handed weapons which fire blasts of pure force. Ion cannons have superior range and are highly destructive.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "635 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"heavy",
+			"overkill",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 25,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "force",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"energy"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732314862586,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "FIsL2thBPkHkxQPJ"
+}

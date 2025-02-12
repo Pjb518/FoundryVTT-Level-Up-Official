@@ -33,11 +33,6 @@
 					"SW1Fag8O4nud3qtb": {
 						"type": "effect",
 						"default": true
-					},
-					"dfucaTTg1Pc7Q0Sz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BDm5xeBkuJ4wTjEe"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"BDm5xeBkuJ4wTjEe"
+				]
 			}
 		},
 		"description": "<p>At 14th level, you gain the ability to influence fate directly. As a bonus action, you can select a number of creatures that you can see up to your&nbsp;spellcasting</span>&nbsp;modifier. Until the start of your next turn, the creatures you choose have&nbsp;advantage</span>&nbsp;on&nbsp;attack rolls</span>,&nbsp;<span>ability checks, and&nbsp;<span>saving throws&nbsp;. Once you have used this ability, you must finish a&nbsp;<span>long rest before you can do so again.</p>",
@@ -73,16 +71,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -91,9 +79,6 @@
 			"origin": "Item.rYSSRUx6jqaQHqkq",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TN81c4rqAZ0JALU2",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -147,7 +132,10 @@
 			},
 			"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

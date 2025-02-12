@@ -35,16 +35,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"E2wT8NXUlN3Tc7si": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Nb2OMCmcKGHPmNav"
-					},
-					"IoadlUtqSVfhieaz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ksjul4eMgRBjCQy9"
 					}
 				},
 				"uses": {
@@ -67,7 +57,11 @@
 				},
 				"duration": {
 					"unit": "instantaneous"
-				}
+				},
+				"effects": [
+					"Nb2OMCmcKGHPmNav",
+					"Ksjul4eMgRBjCQy9"
+				]
 			}
 		},
 		"description": "<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes no damage, is instead healed for an amount of hit points equal to the weapon’s normal damage + 1d8, and must make a Charisma saving throw against your spell save DC. A creature that fails its save is charmed by you for one minute. A creature that succeeds on its save is still healed, but is not charmed.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.&nbsp;</p><p>If the target is already friendly toward you, it is not charmed and instead gains an expertise die on its next saving throw or ability check.</p>",
@@ -112,16 +106,6 @@
 				"weaponry"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -129,9 +113,6 @@
 			"origin": "Item.g72MyeQVtt9vIzO2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "A3LAY4Xyso7fBlUK",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -142,7 +123,10 @@
 			"img": "icons/magic/life/heart-shadow-red.webp",
 			"_id": "Nb2OMCmcKGHPmNav",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -182,18 +166,17 @@
 		{
 			"origin": "Item.g72MyeQVtt9vIzO2",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "A3LAY4Xyso7fBlUK"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Expertise Die",
 			"img": "icons/magic/life/heart-shadow-red.webp",
 			"_id": "Ksjul4eMgRBjCQy9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.str.save.expertiseDice",

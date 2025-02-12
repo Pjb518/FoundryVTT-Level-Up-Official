@@ -7,11 +7,7 @@
 			"icon": "icons/environment/settlement/wagon.webp",
 			"origin": "Item.jooc0vn77brjvien",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zkzVk4vMDh4AXyDb"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,11 +86,6 @@
 						"saveDC": {
 							"type": "dex"
 						}
-					},
-					"Y6AIlWsyPxLAuV70": {
-						"type": "effect",
-						"default": true,
-						"effectId": "u1d0oslfrISpBsvY"
 					}
 				},
 				"uses": {
@@ -103,7 +98,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"u1d0oslfrISpBsvY"
+				]
 			}
 		},
 		"description": "<p>Caravanners have learned to bowl down obstacles in their way. When you or a mount you’re riding uses the Dash action or a vehicle you’re driving uses the Ahead Full action, you can move through spaces occupied by creatures with a size category smaller than you, or your mount, or the vehicle. Creatures moved through in this way must make a Dexterity saving throw (DC equal to 8 + your Dexterity modifier + your proficiency bonus). On a failed save, creatures are knocked prone and take an amount of bludgeoning damage equal to your level. Creatures cannot be damaged twice from the same trampling charge. Once you use this trait, you cannot do so again until you finish a short or long rest.</p>",
@@ -124,16 +122,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"folder": null,

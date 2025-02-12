@@ -38,16 +38,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Target is deafened but not stunned"
-					},
-					"jyphjB6a50vHx0s2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8CPGsvduCZSJeMt3"
-					},
-					"62LMc9QkU0kMX9KT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qCbCIyYqzkj6iR2T"
 					}
 				},
 				"uses": {
@@ -71,6 +61,10 @@
 				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"8CPGsvduCZSJeMt3",
+					"qCbCIyYqzkj6iR2T"
 				]
 			}
 		},
@@ -92,16 +86,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "ranger",
 		"class": ""
 	},
@@ -110,9 +94,6 @@
 			"origin": "Item.saa1f0Uwb3guqn56",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CUzpcEhphJWpASkf",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -124,7 +105,10 @@
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 			"_id": "8CPGsvduCZSJeMt3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -165,9 +149,6 @@
 			"origin": "Item.saa1f0Uwb3guqn56",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CUzpcEhphJWpASkf",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -179,7 +160,10 @@
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 			"_id": "qCbCIyYqzkj6iR2T",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

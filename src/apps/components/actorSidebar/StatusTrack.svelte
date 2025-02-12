@@ -44,6 +44,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     :global(.tooltip-list) {
         display: flex;
         flex-direction: column;
@@ -86,11 +88,11 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background: $color-light-background;
+            border: 1px solid var(--a5e-border-color);
+            background: var(--a5e-status-track-icon-background);
             border-radius: 50%;
-            box-shadow: 0 0 10px #ccc inset;
-            color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;
+            color: var(--a5e-status-track-icon-color);
             cursor: pointer;
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
@@ -113,17 +115,20 @@
             padding: 0 0.5rem;
             background: transparent;
             border-radius: 0;
+            color: var(--a5e-status-track-item-color);
 
             transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
-                background: darken(#dddace, 2.5%);
+                background: var(--a5e-status-track-item-background-hover);
+                color: var(--a5e-status-track-item-color-hover);
                 box-shadow: none;
             }
 
             &-selected {
-                background: darken(#dddace, 2.5%);
+                background: var(--a5e-status-track-item-background-selected);
+                color: var(--a5e-status-track-item-color-selected);
             }
         }
 
@@ -132,10 +137,10 @@
             display: flex;
             height: 2rem;
             padding: 0 0.75rem 0 1.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--a5e-status-track-items-border);
             border-left: 0;
             margin: 0;
-            background: $color-light-background;
+            background: var(--a5e-status-track-items-background);
             border-radius: 0 1rem 1rem 0;
             list-style: none;
             opacity: 0;

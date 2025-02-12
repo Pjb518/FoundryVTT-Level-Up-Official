@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"7duHd6cG0oLaWWO7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VP4DJTA4cLtKai6Y"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -59,7 +53,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"VP4DJTA4cLtKai6Y"
+				]
 			},
 			"pI2cBlsufvfI5Hmr": {
 				"name": "Use Destiny Die",
@@ -125,16 +122,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -143,9 +130,6 @@
 			"origin": "Item.O8tO1f1lyn40MaQw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "R71TBeT5KAYqMI3z",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -156,7 +140,10 @@
 			"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
 			"_id": "VP4DJTA4cLtKai6Y",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

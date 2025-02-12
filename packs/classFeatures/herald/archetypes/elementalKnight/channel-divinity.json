@@ -32,13 +32,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"cUPP1cqXTpuO1MA6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UYvipW0umfuYElnf"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -64,7 +58,10 @@
 				"id": "DRjIfbNtApa30J5d",
 				"default": false,
 				"img": "icons/magic/fire/flame-burning-fist-strike.webp",
-				"ranges": {}
+				"ranges": {},
+				"effects": [
+					"UYvipW0umfuYElnf"
+				]
 			},
 			"F2EHq37rw0zBycfT": {
 				"name": "Rebuke Elementals",
@@ -94,11 +91,6 @@
 						},
 						"onSave": "",
 						"label": ""
-					},
-					"ns3I9xp0AyBcMCEk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "GmD4AoMs2CioOop1"
 					}
 				},
 				"uses": {
@@ -130,7 +122,10 @@
 					"quantity": 0,
 					"scaling": {},
 					"type": ""
-				}
+				},
+				"effects": [
+					"GmD4AoMs2CioOop1"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">Also at 3rd level, you gain the following two Channel Divinity options.&nbsp;</p>\n<p dir=\"ltr\"><em><strong>Elemental Weapon.</strong></em> As an action, you can imbue one weapon that you are holding with energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (a minimum bonus of +1), changing the damage type the weapon deals to that of your element. The weapon emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.</p>\n<p dir=\"ltr\">You can end this effect on your turn (no action required). If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.</p>\n<p dir=\"ltr\"><em><strong>Rebuke Elementals.</strong></em> As an action, you present your holy symbol and utter a word of elemental power, using your Channel Divinity.</p>\n<p dir=\"ltr\">Each Elemental within 30 feet of you that can see or hear you must make a successful Wisdom saving throw or be turned for 1 minute or until it takes damage.&nbsp;</p>\n<p dir=\"ltr\">Creatures who fail this save by 5 or more regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one.</p>\n<p>&nbsp;</p>",
@@ -151,10 +146,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -163,10 +154,6 @@
 			"origin": "Item.AgugJvkczKrhH1yf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DRjIfbNtApa30J5d",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -177,7 +164,10 @@
 			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
 			"_id": "UYvipW0umfuYElnf",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -228,9 +218,6 @@
 			"origin": "Item.AgugJvkczKrhH1yf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "F2EHq37rw0zBycfT",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -241,7 +228,10 @@
 			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
 			"_id": "GmD4AoMs2CioOop1",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

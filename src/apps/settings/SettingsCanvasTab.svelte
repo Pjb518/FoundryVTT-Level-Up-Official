@@ -1,19 +1,19 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    let visionRules = settings.getStore("automateVisionRules");
-    let charOnlyVisionRules = settings.getStore("visionRulesApplyToCharactersOnly");
-    let placeTemplate = settings.getStore("placeItemTemplateDefault");
+let visionRules = settings.getStore('automateVisionRules');
+let charOnlyVisionRules = settings.getStore('visionRulesApplyToCharactersOnly');
+let placeTemplate = settings.getStore('placeItemTemplateDefault');
 </script>
 
 <Section heading="VIsion Settings" --a5e-section-body-gap="0.5rem">

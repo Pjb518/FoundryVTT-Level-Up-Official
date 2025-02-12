@@ -10,13 +10,13 @@
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
     import ActionsResourceManagementTab from "../components/pages/ActionsResourceManagementTab.svelte";
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
+    import ItemMacroTab from "../components/pages/ItemMacroTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, actionId, dialog } =
-        getContext("#external").application;
+    export let { document, actionId, dialog } = getContext("#external").application;
 
     const item = document;
 
@@ -60,6 +60,11 @@
             label: "A5E.TabEffects",
             component: ActionsEffectsTab,
         },
+        {
+            name: "macro",
+            label: "A5E.TabMacro",
+            component: ItemMacroTab,
+        },
     ];
 
     let currentTab = tabs[0];
@@ -73,7 +78,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
         <img
             class="item-image"
-            src={$item?.actions[actionId]?.img ?? $item.img}
+            src={$item?.actions.get(actionId)?.img ?? $item.img}
             alt="{$item.name} image"
             on:click={() => editDocumentImage($item, { actionId, dialog })}
         />
@@ -105,7 +110,6 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        background: $color-sheet-background;
     }
 
     .action-header {

@@ -1,0 +1,162 @@
+{
+	"folder": null,
+	"name": "Fabrication Device",
+	"type": "feature",
+	"img": "icons/commodities/tech/coil-tesla-large.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"lvTsI2w5OCS2DMvU": {
+				"name": "Fabrication Device",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"gKCkumFDOuml5N91"
+				],
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>As long as you have access to a science bay or field laboratory, once between long rests you can spend one hour to create any item worth 50 credits or less.</p>\n<p>At 11th level, you can also fabricate healthy meals. Once between long rests, you can fabricate a number of Supply equal to twice your proficiency modifier.</p>\n<p>At 15th level, a creature who consumes one of these Supply as part of their long rest during the next 6 hours has the following benefits, which last for 24 hours:</p>\n<ul>\n<li>Advantage on Constitution saving throws.</li>\n<li>Resistance against damage from poison, disease, and radiation.</li>\n<li>The creature’s hit point maximum increases by [[/r 2d10]].</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "7th level",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.XZTXo8sa63d2E6qL",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Consume Supply",
+			"img": "icons/commodities/tech/coil-tesla-large.webp",
+			"_id": "gKCkumFDOuml5N91",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.con",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 21600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<div class=\"editor svelte-85gt6f\">\n<div class=\"editor tinymce tjs-editor svelte-1fiwjzl\" tabindex=\"0\" role=\"textbox\">\n<div id=\"mce_18\" class=\"editor-content tjs-editor-content svelte-1fiwjzl\">\n<p>A creature who consumes one of these Supply as part of their long rest during the next 6 hours has the following benefits, which last for 24 hours:</p>\n<ul>\n<li>Advantage on Constitution saving throws.</li>\n<li>Resistance against damage from poison, disease, and radiation.</li>\n<li>The creature’s hit point maximum increases by <a class=\"inline-roll roll\" data-mode=\"roll\" data-flavor data-formula=\"2d10\" data-tooltip=\"2d10\">2d10</a>.</li>\n</ul>\n</div>\n</div>\n</div>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733584670439,
+				"modifiedTime": 1733584778408,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377247,
+		"modifiedTime": 1733668633403,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "BqfyxLO5JP2H167L"
+}

@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.qJdy24jQKQwp3MYo",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2JKzhWK6I5eFmBxr"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Challenged",
 			"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
 			"_id": "hZLbaG6dn3xhFlvh",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -93,13 +92,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"CSXbpcycL8ISF4vK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hZLbaG6dn3xhFlvh"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"hZLbaG6dn3xhFlvh"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you&rsquo;re confident enough to challenge even the most monstrous threats. You can use a bonus action to expend a use of @UUID[Compendium.a5e.a5e-class-features.Item.r27c0kzdujkn31w5]{Panache} to challenge a creature within 30 feet to an honorable duel. Once you challenge a creature in this way, you have disadvantage on attacks against creatures other than the challenged creature, and the challenged creature has disadvantage on attacks against creatures other than you. A creature remains challenged in this way until either you or the challenged creature are incapacitated, dies, or either ends their turn out of line of sight from the other. The challenge also ends if you use this feature again to challenge a different creature, or if a third creature challenges either you or your challenged creature.</p>",
@@ -120,16 +116,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},

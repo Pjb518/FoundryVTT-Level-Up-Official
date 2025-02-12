@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"O6Q6HSqTkzplDE6S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6JFm6pi1wVW18yiU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -41,7 +35,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"6JFm6pi1wVW18yiU"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Fighter class</em></p><p>You blend magic with raw physicality to defend yourself from harm.</p><p>Until the spell ends, each time you spend exertion, you gain temporary hit points equal to the exertion spent &times; half your proficiency bonus.</p>",
@@ -85,16 +82,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -103,10 +90,6 @@
 			"origin": "Item.niiqdjll2amnswkm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "s4amo2SRG6g4gW6O",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -133,6 +116,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

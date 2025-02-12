@@ -8,10 +8,6 @@
 			"origin": "Item.53qtyzj9dok8ap0u",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rAnzwr9zOB8bPxo9",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -45,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -52,10 +52,6 @@
 			"origin": "Item.53qtyzj9dok8ap0u",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dsmSbvb6cNWbY2B6",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -95,6 +91,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -207,13 +207,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"BDIlnAa1A6lVM5zi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MS53pisnBIj2W1jY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -228,7 +222,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"MS53pisnBIj2W1jY"
+				]
 			},
 			"dsmSbvb6cNWbY2B6": {
 				"name": "Protective Umbra",
@@ -244,13 +241,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"BDIlnAa1A6lVM5zi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FeAkARRCr2RMMMfN"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -265,7 +256,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"FeAkARRCr2RMMMfN"
+				]
 			}
 		},
 		"description": "<p>Dragon cultists are often blessed with power from the object of their devotion so that they may spread their dragon&rsquo;s word or further its plans. As a bonus action, you can cause draconic power to course around you in a draconic umbra. This draconic umbra lasts for 1 minute or until you use a bonus action to end it. Once you have used this trait, you cannot use it again until after you finish a long rest. Choose one of the following effects:</p><p><strong>Damaging Umbra:</strong> Common amongst the chromatic dragons, this umbra burns with draconic power. Once on each of your turns while this umbra is active, you can deal extra damage of the type dealt by your Dragon Breath to one target when you deal damage to it with an attack or a spell. The extra damage equals half your level (minimum 1). If you are not dragonborn, you may choose the damage type dealt by your umbra from those available in the Dragon Breath trait.</p><p><strong>Ethereal Umbra:</strong> Common amongst the essence dragons, this umbra shimmers with draconic will. While this umbra is active you can move through nonmagical solid objects and occupied spaces as if they were difficult terrain. Opportunity attacks made against you while this umbra is active have disadvantage. You cannot move further than 5 feet into walls or other solid objects in this way. If you would end your turn in an occupied space, you are shunted into the nearest unoccupied space and take 1d6 force damage.</p><p><strong>Spiritual Umbra:</strong> Common amongst the gem dragons, this umbra shifts with draconic cunning. While this umbra is active you gain an expertise die on Stealth checks, and once on each of your turns you may alter your appearance (as the @UUID[Compendium.a5e.a5e-spells.Item.vemj08hawvmf44ya]{Disguise Self} spell). When your umbra ends, so do any illusions conjured by it.&nbsp;</p><p><strong>Protective Umbra:</strong> Common amongst the metallic dragons, this umbra sparks with draconic ingenuity. While this umbra is active you gain resistance to the damage type dealt by your Dragon Breath (if you already had resistance to that damage type, you gain immunity instead), and you gain an expertise die on Wisdom or Intelligence checks. If you are not dragonborn, you may choose the damage type for your umbra from those available in the Dragon Breath trait.</p>",
@@ -286,16 +280,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"folder": null,

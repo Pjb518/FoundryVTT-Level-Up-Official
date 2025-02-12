@@ -8,9 +8,6 @@
 			"origin": "Item.Ks8wesP5RTbij3Rl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WQuR13VpluROfze8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -92,11 +93,6 @@
 							"bonus": "8 + @prof + @wis.mod"
 						},
 						"type": "savingThrow"
-					},
-					"oQGhzg8BkT7lB4uT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "P0bGvxhq3fa2UoYO"
 					}
 				},
 				"consumers": {
@@ -106,7 +102,10 @@
 						"resource": "exertion",
 						"quantity": 1
 					}
-				}
+				},
+				"effects": [
+					"P0bGvxhq3fa2UoYO"
+				]
 			}
 		},
 		"description": "<p>When you hit a creature with a melee weapon attack, you can spend 1 exertion to force the target to make a Constitution saving throw. On a failed save, the target is stunned until the end of your next turn.</p>",
@@ -127,16 +126,6 @@
 		"grants": {},
 		"prerequisite": "5th level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept"
 	},
 	"folder": null,

@@ -35,14 +35,10 @@
 						"type": "resource"
 					}
 				},
-				"prompts": {
-					"lzqG6wVTjy0f7gFc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XtVAoH4QR5MM9sU1",
-						"label": "Artillery Stance"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"XtVAoH4QR5MM9sU1"
+				]
 			}
 		},
 		"description": "<p>It can be incredibly hard to pin down a mystical archer. As long as you&rsquo;re in the Artillery stance, you can expend a bonus action on your turn to teleport up to 5ft per point of your proficiency bonus. You must be able to see the destination you wish to move to, which must be an unoccupied square.</p>",
@@ -63,17 +59,7 @@
 		"exertionCost": 2,
 		"isStance": true,
 		"prerequisite": "",
-		"tradition": "arcaneArtillery",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "arcaneArtillery"
 	},
 	"effects": [
 		{
@@ -81,12 +67,9 @@
 			"origin": "Item.0jnwwr6xz9zap4r0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "SpWq8pdyJEHzAvNv"
+					}
 				}
 			},
 			"transfer": false,
@@ -111,6 +94,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

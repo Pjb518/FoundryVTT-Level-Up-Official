@@ -48,8 +48,6 @@
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
@@ -77,7 +75,7 @@
                 )}
         />
 
-        <button class="scaling-button" on:click|preventDefault={onClickScalingButton}>
+        <button class="a5e-scaling-button" on:click|preventDefault={onClickScalingButton}>
             <i
                 class="fa-solid fa-arrow-up-right-dots"
                 data-tooltip="A5E.ConfigureDamageScaling"
@@ -98,32 +96,3 @@
         );
     }}
 />
-
-<style lang="scss">
-    .scaling-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.625rem;
-        width: 1.625rem;
-        padding: 0;
-        margin: 0;
-        font-size: var(--a5e-text-size-md);
-        background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
-        border-radius: var(--a5e-border-radius-standard);
-        cursor: pointer;
-
-        transition: var(--a5e-transition-standard);
-
-        i {
-            margin: 0;
-        }
-
-        &:focus,
-        &:hover {
-            color: #555;
-        }
-    }
-</style>

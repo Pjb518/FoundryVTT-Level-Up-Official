@@ -1,0 +1,204 @@
+{
+	"folder": null,
+	"name": "Transfuse Vitality",
+	"type": "feature",
+	"img": "icons/magic/control/energy-stream-link-teal.webp",
+	"system": {
+		"description": "<p>At 7th level, you can heal a creature you touch by transferring and magnifying life essence from another source. On the round you manifest this feature, and as an action on subsequent turns while channeling it, you can make a ranged psionic attack against a creature within 15 feet. This attack automatically hits a willing donor. On a hit, you deal 1d6 necrotic damage and a chosen creature you can see within 15 feet regains hit points equal to the amount of necrotic damage dealt. You can spend psionic points, up to a number equal to your proficiency bonus, to increase the necrotic damage dealt by 1d6 per psionic point spent. You can channel this feature for 1 minute.</p>\n<p>You can use this feature a number of times equal to your Constitution modifier, you regain all expended uses of whenever you finish a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"qrQiNi8jtKYA8eIR": {
+				"name": "Transfuse Vitality",
+				"rolls": {
+					"5QlZeXC6sYsEZb0v": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "1d6",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {
+							"mode": "spellPoints",
+							"formula": "1d6"
+						}
+					},
+					"89YMZsev0NvE6hcn": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"O8P2JbjKX5CWXSpV": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "qrQiNi8jtKYA8eIR",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/energy-stream-link-teal.webp",
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"Nn1zepDTLphjQwgU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"K7144dPE5wavfmU7": {
+				"name": "Channeling",
+				"rolls": {
+					"5QlZeXC6sYsEZb0v": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "1d6",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {
+							"mode": "spellPoints",
+							"formula": "1d6"
+						}
+					},
+					"89YMZsev0NvE6hcn": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"O8P2JbjKX5CWXSpV": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "qrQiNi8jtKYA8eIR",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/energy-stream-link-teal.webp",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@con.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "psion",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734559242558,
+		"modifiedTime": 1734625562041,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "V6tp6Y9t1ZJCAqxt"
+}

@@ -44,11 +44,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage"
-					},
-					"fs9O3sccl7VxVr5X": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pqRhQYuLicVtNHfH"
 					}
 				},
 				"uses": {
@@ -75,7 +70,10 @@
 					"shape": "emanation",
 					"quantity": 1,
 					"radius": 100
-				}
+				},
+				"effects": [
+					"pqRhQYuLicVtNHfH"
+				]
 			}
 		},
 		"description": "<p>At 14th level, you can issue a ban against a particular action that has some real teeth. As an action, you may Lay Down the Law, which lasts for one minute. As you do, you proscribe one of the following until the beginning of your next turn:</p>\n<ul>\n<li>\n<p>Moving more than 10 feet.</p>\n</li>\n<li>\n<p>Casting spells with a casting time of one action.</p>\n</li>\n<li>\n<p>Melee weapon attacks.</p>\n</li>\n<li>\n<p>Ranged weapon attacks.</p>\n</li>\n<li>\n<p>Non-attack, non-spell actions.</p>\n</li>\n<li>\n<p>Bonus Actions.</p>\n</li>\n<li>\n<p>Reactions.</p>\n</li>\n<li>\n<p>Using consumable equipment.</p>\n</li>\n</ul>\n<p>The ban affects you and all creatures with an intelligence of at least 6 within 100 feet of you, who are all magically aware of the conditions and consequences of the ban. When any creature affected by the ban attempts to defy it, it must make a Charisma saving throw against your spell save DC. On a failure it takes 6d6 psychic damage and is rattled until the end of the creature's next turn. A creature that succeeds takes half damage and is not rattled. While Lay Down the Law persists, at the beginning of each of your turns, you must pick a different option than the previous one, but you are otherwise unrestrained in your choice, and you may alternate between two abilities if you wish.</p>\n<p>Once you have used this feature, you can&rsquo;t do so again until you finish a short or long rest.</p>",
@@ -96,16 +94,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -115,9 +103,6 @@
 			"origin": "Item.HXqErQOmyhE7xRwV",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JxL1yqCwXc1v05A0",
 					"duration": {
 						"unit": "minutes",
 						"type": "rounds"
@@ -129,7 +114,10 @@
 			"img": "icons/magic/symbols/fleur-de-lis-yellow.webp",
 			"_id": "pqRhQYuLicVtNHfH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

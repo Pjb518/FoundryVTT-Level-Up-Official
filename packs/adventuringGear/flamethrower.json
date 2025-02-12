@@ -1,0 +1,235 @@
+{
+	"folder": null,
+	"name": "Flamethrower",
+	"type": "object",
+	"img": "icons/magic/fire/beam-jet-stream-trails-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"uOOgY8AyxsCbnda1": {
+				"name": "Flamethrower (Line)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kRbpSyRhkcfYcjCl": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"cSlRsByhJUwfcjpj": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"dJALu3SQGMtVtFD1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "dex"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"dE9d6ZAG3gBFN7ES": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 30,
+					"width": 5,
+					"placeTemplate": true
+				}
+			},
+			"zaIUBCgChnNxW7jG": {
+				"name": "Flamethrower (Cone)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kRbpSyRhkcfYcjCl": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"cSlRsByhJUwfcjpj": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"dJALu3SQGMtVtFD1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "dex"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"dE9d6ZAG3gBFN7ES": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 15
+				}
+			},
+			"r7JJzzvQx3y0695a": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"viB0RspBi379Cdso": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -3
+					},
+					"UZZV5hqRcvGAgbvC": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/fire/beam-jet-stream-trails-orange.webp"
+			}
+		},
+		"description": "<p>Unlike flame bracers, flamethrowers are military-grade weapons that project wide swaths of flame. As an action, you can choose between a 30-foot line that is 5 feet wide or a 15-foot cone. Each creature in that area takes 2d6 fire damage, or half as much damage on a successful Dexterity saving throw. The DC of this save is 8 + your proficiency modifier + your Dexterity modifier. Unattended flammable objects in the area are ignited.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 3,
+			"max": "3",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "85 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"exotic",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 12,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732312159675,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9f4Y5nHTCd9e8RaM"
+}

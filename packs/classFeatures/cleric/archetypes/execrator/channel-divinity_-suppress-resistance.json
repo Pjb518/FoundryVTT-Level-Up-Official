@@ -7,9 +7,6 @@
 			"origin": "Item.GMYKLH6D4w7OFDja",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jtnivtXzUFCHbUSQ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/lightning/orb-ball-purple.webp",
 			"_id": "gvrKjnZLzMS0zpSe",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilitySave.all",
@@ -85,13 +85,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"b49ubUUjcdtEEc5X": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gvrKjnZLzMS0zpSe"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,7 +102,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"gvrKjnZLzMS0zpSe"
+				]
 			}
 		},
 		"description": "<p>At 2nd level, you may use your @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} as a bonus action to condemn a creature. That creature makes all of its saving throws at disadvantage for the next minute.</p>",
@@ -129,16 +126,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},

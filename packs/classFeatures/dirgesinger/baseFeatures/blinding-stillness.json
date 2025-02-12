@@ -1,0 +1,193 @@
+{
+	"name": "Blinding Stillness",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"LDountDgkOgEWLmN": {
+				"name": "Blinding Stillness",
+				"activation": {},
+				"consumers": {
+					"aZhGTsrZIbCZiVON": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "chant-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"DDZAHlrdqZcqFj43": {
+						"range": "short"
+					}
+				},
+				"effects": [
+					"abF3tF2i0IsLfXZT",
+					"16sbWe8AFCKhRffD"
+				]
+			}
+		},
+		"description": "<p dir=\"ltr\">You cause a creature to gain truesight for as far as it can see for the next minute. The creature only benefits from this truesight while willingly moving. At all other times it is Blinded in all of its senses, even senses that do not require sight. For example, while using a move action or a Cunning Action to move, the creature would have truesight. While using an action or reaction to attack or cast a spell, even if while splitting up a move action, the creature would be Blinded unless the creature is explicitly using an attack, maneuver, or spell that includes willing movement.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "dirgesinger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.y1cr81iQA85pH1WP",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinding Stillness",
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"_id": "abF3tF2i0IsLfXZT",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.senses.truesight.distance",
+					"value": "999",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cause a creature to gain truesight for as far as it can see for the next minute. The creature only benefits from this truesight while willingly moving. At all other times it is Blinded in all of its senses, even senses that do not require sight. For example, while using a move action or a Cunning Action to move, the creature would have truesight. While using an action or reaction to attack or cast a spell, even if while splitting up a move action, the creature would be Blinded unless the creature is explicitly using an attack, maneuver, or spell that includes willing movement.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730204812131,
+				"modifiedTime": 1730204874029,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.y1cr81iQA85pH1WP",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"_id": "16sbWe8AFCKhRffD",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730204876145,
+				"modifiedTime": 1730204904943,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.28",
+		"createdTime": 1730204784914,
+		"modifiedTime": 1730205089595,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "13yxrp7hm4m7qw58"
+}

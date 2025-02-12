@@ -23,6 +23,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     .disable-pointer-events {
         pointer-events: none;
     }
@@ -52,11 +54,11 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background-color: $color-light-background;
+            border: 1px solid var(--a5e-border-color);
+            background: var(--a5e-status-track-icon-background);
             border-radius: 50%;
-            box-shadow: 0 0 10px #ccc inset;
-            color: rgba(0 0 0 / 0.2);
+            box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;
+            color: var(--a5e-status-track-icon-color);
             cursor: pointer;
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
@@ -65,10 +67,10 @@
         }
 
         &:hover {
-            background-color: darken(#dddace, 2.5%);
+            background: var(--a5e-status-track-item-background-hover);
 
             .rest__icon {
-                color: lighten-color(var(--a5e-color-text-dark), 35);
+                color: var(--a5e-status-track-item-color-hover);
             }
         }
     }

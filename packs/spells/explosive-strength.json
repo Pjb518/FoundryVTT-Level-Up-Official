@@ -7,11 +7,7 @@
 			"icon": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
 			"origin": "Item.pkcsy9v878nxchuu",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KjZn7zdPzoU4bGEr"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -87,11 +87,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage, pushedonly 10 feet, not prone"
-					},
-					"ZptvTha3OkUIRij4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1UMxQAEJ2CW4R8PH"
 					}
 				},
 				"uses": {
@@ -118,7 +113,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"1UMxQAEJ2CW4R8PH"
+				]
 			}
 		},
 		"description": "<p>With a roar, your display of sheer strength blows away nearby creatures. Creatures in the area other than you must make a Strength saving throw. On a failed saving throw, a creature takes 8d6 force damage, and is pushed 20 feet and knocked prone. On a success, a creature takes half as much damage, is pushed only 10 feet, and is not knocked prone.</p><p><strong>Cast At Higher Levels.</strong> If you cast this spell using a spell slot of 4th-level or higher, the damage increases by 1d6 for each slot level above 3rd.</p>",
@@ -158,16 +156,6 @@
 				"transformation",
 				"enhancement"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

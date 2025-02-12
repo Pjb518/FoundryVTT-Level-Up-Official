@@ -1,0 +1,247 @@
+{
+	"folder": null,
+	"name": "Synthetic Adrenaline",
+	"type": "object",
+	"img": "icons/consumables/potions/potion-flask-capped-yellow-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"pKxYNjKCnqx2Ddte": {
+				"name": "Synthetic Adrenaline",
+				"activation": {},
+				"consumers": {
+					"6hXty29oUo558xOf": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"bHkKcjpEftRqaWBE",
+					"To2fc8Ed3i3fNyrJ"
+				]
+			}
+		},
+		"description": "<p>Typically used as a combat drug, but sometimes used recreationally, synthetic adrenaline gives the user advantage on Strength, Dexterity, and Constitution checks and saves for one minute. Once the effect ends, the user immediately gains two levels of fatigue. It can only be injected.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "250 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"armorMods": [],
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.98FbOtCpuVFiVngw",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Synthetic Adrenaline",
+			"img": "icons/consumables/potions/potion-flask-capped-yellow-green.webp",
+			"_id": "bHkKcjpEftRqaWBE",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.con",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gives the user advantage on Strength, Dexterity, and Constitution checks and saves for one minute. Once the effect ends, the user immediately gains two levels of fatigue.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732567987270,
+				"modifiedTime": 1732568047257,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.98FbOtCpuVFiVngw",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"img": "icons/consumables/potions/potion-flask-capped-yellow-green.webp",
+			"_id": "To2fc8Ed3i3fNyrJ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732568050919,
+				"modifiedTime": 1732568066027,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732567927393,
+		"modifiedTime": 1732568050976,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "S9pGHdLAZ1uF0A8b"
+}

@@ -135,16 +135,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -153,13 +143,9 @@
 			"origin": "Item.qIpm9D0Pf1L2JO6d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JmYFAmw4m4fpTJH3",
 					"duration": {
 						"unit": "hours"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -200,7 +186,10 @@
 			},
 			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		},
@@ -208,9 +197,6 @@
 			"origin": "Item.yaoaihxyt4dlsysw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "O6YRnhT92HFKpYxs",
 					"duration": {
 						"unit": "hours"
 					}
@@ -244,7 +230,10 @@
 			},
 			"img": "icons/magic/symbols/runes-star-magenta.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -253,9 +242,6 @@
 			"origin": "Item.4eidicv0lyqevtwd",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "36L0AlCMfrZAPp1V",
 					"duration": {
 						"unit": "hours"
 					}
@@ -299,7 +285,10 @@
 			},
 			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		}

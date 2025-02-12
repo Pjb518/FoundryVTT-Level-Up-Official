@@ -31,11 +31,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"16iTTxZEKamfU33F": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cf4yPw3nhjRWpfR9"
 					}
 				},
 				"uses": {
@@ -57,7 +52,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"cf4yPw3nhjRWpfR9"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you take on some of the terrifying aspects of dragonkind. While you are raging, a hostile creature that begins its turn within 10 feet of you must make a Wisdom save against your maneuver DC or be rattled until it moves more than 10 feet away from you or you stop raging. A creature that fails the save by more than 5 is frightened in addition to rattled. A creature that fails the save by more than 10 also gains a level of strife.</p>",
@@ -78,16 +76,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -95,18 +83,17 @@
 		{
 			"origin": "Item.wEZG1NSugKwNugQn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CMDFH69L5cAz1qyH"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rattled",
 			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
 			"_id": "cf4yPw3nhjRWpfR9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -146,18 +133,17 @@
 		{
 			"origin": "Item.wEZG1NSugKwNugQn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CMDFH69L5cAz1qyH"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fails By 5 or More",
 			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
 			"_id": "ACaFXaYMzuZsIf05",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -198,18 +184,17 @@
 		{
 			"origin": "Item.wEZG1NSugKwNugQn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CMDFH69L5cAz1qyH"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fails By 10 or More",
 			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
 			"_id": "AQtgaenst3i06u4N",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

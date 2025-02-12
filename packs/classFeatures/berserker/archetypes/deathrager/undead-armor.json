@@ -66,18 +66,6 @@
 						"onSave": "",
 						"label": "Death Mask Saving Throw"
 					},
-					"QeJMnsmHmyGvEjOq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LOGklESoeclRRWby",
-						"label": "Frightened"
-					},
-					"ju2dKxEsoTad9Dqx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vRyzDRG5Jt8wcCmf",
-						"label": "Mild Heart Attack Failure"
-					},
 					"Pvw7JxuS19YpycHU": {
 						"type": "savingThrow",
 						"default": true,
@@ -87,18 +75,6 @@
 						},
 						"label": "Mild Heart Attack",
 						"onSave": ""
-					},
-					"HieqSJPbDNUSCJYE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dROBjLnk8SdllBru",
-						"label": "Mild Heart Attack Success"
-					},
-					"DUuFX6Hd5mGfc2qs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JENxpmJxzToXHjYl",
-						"label": "Immune to Death Mask"
 					}
 				},
 				"uses": {
@@ -131,7 +107,13 @@
 					"S6Q0g5fgkOE6DMe1": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"LOGklESoeclRRWby",
+					"vRyzDRG5Jt8wcCmf",
+					"dROBjLnk8SdllBru",
+					"JENxpmJxzToXHjYl"
+				]
 			},
 			"Qd6Lko9YCkgmOL09": {
 				"name": "Rotted Wings",
@@ -149,14 +131,7 @@
 						"canCrit": false
 					}
 				},
-				"prompts": {
-					"Ixk4snUh33Zo1D04": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FaPefx8sMVBnqq9t",
-						"label": "Rotted Wings"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -171,7 +146,10 @@
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>You can spend 5 Graven Armor temporary hit points to manifest a ghastly pair of leathery wings as a bonus action, which grants you a flying speed equal to your walking speed. The wings persist until you reabsorb them as a bonus action (which increases your remaining Graven Armor temporary hit points by 5), or you take enough damage to end your Graven Armor or dismiss it.</p>"
+				"description": "<p>You can spend 5 Graven Armor temporary hit points to manifest a ghastly pair of leathery wings as a bonus action, which grants you a flying speed equal to your walking speed. The wings persist until you reabsorb them as a bonus action (which increases your remaining Graven Armor temporary hit points by 5), or you take enough damage to end your Graven Armor or dismiss it.</p>",
+				"effects": [
+					"FaPefx8sMVBnqq9t"
+				]
 			},
 			"Cg8S5vK5Bsi3UQyc": {
 				"name": "Reabsorb Rotted Wings",
@@ -221,16 +199,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -239,9 +207,6 @@
 			"origin": "Item.UNznQygMTZudPLpo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WOeR3Ss4tqxXDLZ9",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -252,7 +217,10 @@
 			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
 			"_id": "LOGklESoeclRRWby",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -293,9 +261,6 @@
 			"origin": "Item.UNznQygMTZudPLpo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WOeR3Ss4tqxXDLZ9",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -307,7 +272,10 @@
 			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
 			"_id": "vRyzDRG5Jt8wcCmf",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -354,9 +322,6 @@
 			"origin": "Item.UNznQygMTZudPLpo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WOeR3Ss4tqxXDLZ9",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -368,7 +333,10 @@
 			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
 			"_id": "dROBjLnk8SdllBru",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -409,9 +377,6 @@
 			"origin": "Item.UNznQygMTZudPLpo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WOeR3Ss4tqxXDLZ9",
 					"duration": {
 						"unit": "hours"
 					}
@@ -422,7 +387,10 @@
 			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
 			"_id": "JENxpmJxzToXHjYl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -453,19 +421,17 @@
 		{
 			"origin": "Item.UNznQygMTZudPLpo",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Qd6Lko9YCkgmOL09",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rotted Wings",
 			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
 			"_id": "FaPefx8sMVBnqq9t",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",

@@ -7,9 +7,6 @@
 			"origin": "Item.tCmP7VsgS5isqTmz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zag0CsGzhtSXQ2j7",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 			"_id": "GGBopxFhEq9VJn2G",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -88,11 +88,6 @@
 							"type": "maneuver"
 						},
 						"onSave": "Immune to the effect for 1 hour"
-					},
-					"MMDRcaxf9wbYGr4m": {
-						"type": "effect",
-						"default": true,
-						"effectId": "GGBopxFhEq9VJn2G"
 					}
 				},
 				"uses": {
@@ -111,7 +106,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"GGBopxFhEq9VJn2G"
+				]
 			}
 		},
 		"description": "<p>At 6th level, your rage becomes frightening to your enemies. While you are raging, the first time each round you make a melee attack against a creature (successful or not), it must make a Wisdom saving throw against your maneuver DC or be frightened of you for one minute. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. Once a creature has successfully saved against your Morale Smasher feature, it is immune to its effects for 1 hour.</p>",
@@ -132,16 +130,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},

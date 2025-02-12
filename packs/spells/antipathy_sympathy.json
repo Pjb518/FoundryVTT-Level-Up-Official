@@ -8,9 +8,6 @@
 			"origin": "Item.7sc6egss8qkw5x4y",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sz6nX4CaI00ngM1V",
 					"duration": {
 						"unit": "hours"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -87,11 +88,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"3YxPOP891nIKJYJh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "IO58N7q33Tfx2zQ9"
 					}
 				},
 				"consumers": {
@@ -101,7 +97,10 @@
 						"points": 11,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"IO58N7q33Tfx2zQ9"
+				]
 			},
 			"IFV5APTOF9gzOo9V": {
 				"name": "Sympathy",
@@ -186,16 +185,6 @@
 			"secondary": [
 				"compulsion"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

@@ -7,9 +7,6 @@
 			"origin": "Item.Aj5mksOl2d0SjHrd",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5l1hpU4QFNsVz63g",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -43,7 +40,10 @@
 			},
 			"img": "icons/skills/wounds/blood-spurt-spray-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -87,13 +87,7 @@
 						"canCrit": false
 					}
 				},
-				"prompts": {
-					"kWufKQGDLmDTrWPC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gbSJc9fhYI7sWoKZ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,7 +102,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"gbSJc9fhYI7sWoKZ"
+				]
 			},
 			"P31n2ihrEu04fZKP": {
 				"name": "Ongoing Damage",
@@ -154,16 +151,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

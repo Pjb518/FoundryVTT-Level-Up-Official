@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -50,8 +50,6 @@
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
@@ -101,7 +99,7 @@
     <FieldWrapper heading="A5E.AttackBonus" --a5e-field-wrapper-grow="1">
         <input
             type="text"
-            value={roll.bonus ?? 0}
+            value={roll.bonus || "0"}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,

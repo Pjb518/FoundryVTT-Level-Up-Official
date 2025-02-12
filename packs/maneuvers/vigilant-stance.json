@@ -18,14 +18,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"h2VyGaOYGMmWZlK4": {
-						"type": "effect",
-						"default": true,
-						"label": "Vigilant Stance",
-						"effectId": "FZ62z6eljXf7hSZi"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +30,10 @@
 				},
 				"duration": {
 					"unit": "special"
-				}
+				},
+				"effects": [
+					"FZ62z6eljXf7hSZi"
+				]
 			}
 		},
 		"description": "<p>You command your animal companion to take a stance. While this stance is active, your animal companion only adds half your proficiency bonus to its attack and damage rolls. However, it also adds half your proficiency bonus to its AC.</p>",
@@ -58,17 +54,7 @@
 		"exertionCost": 1,
 		"isStance": true,
 		"prerequisite": "",
-		"tradition": "beastUnity",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "beastUnity"
 	},
 	"effects": [
 		{
@@ -76,12 +62,9 @@
 			"origin": "Item.62qfr02ztjb20jw8",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "oPBMrbUgQJQtT7eV"
+					}
 				}
 			},
 			"transfer": false,
@@ -106,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

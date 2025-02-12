@@ -7,13 +7,9 @@
 			"origin": "Item.3r8hhPHEKnargtXM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ApMyrcxwGxV3O1oP",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -21,7 +17,10 @@
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"_id": "8w72llAGnrg0KuVS",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -53,9 +52,6 @@
 			"origin": "Item.3r8hhPHEKnargtXM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tCe0b7jdIPok4sv6",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -66,7 +62,10 @@
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"_id": "NWosybErrtYz4O4u",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -129,13 +128,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"wV9q34b8TFQiJt8D": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8w72llAGnrg0KuVS"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -144,20 +137,17 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"8w72llAGnrg0KuVS"
+				]
 			},
 			"tCe0b7jdIPok4sv6": {
 				"name": "0 HP",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"0HZCBtJ4XMZteTEg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NWosybErrtYz4O4u"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -168,7 +158,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"NWosybErrtYz4O4u"
+				]
 			},
 			"hEQBY3LVCquloxhE": {
 				"name": "Revived",
@@ -214,16 +207,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},

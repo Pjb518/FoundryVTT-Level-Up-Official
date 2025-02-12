@@ -41,16 +41,6 @@
 						"saveDC": {
 							"type": "wis"
 						}
-					},
-					"TYJSsHSFYJwtmVrz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7UUPTP0dY2uRmOrs"
-					},
-					"WfKW3cH5jSnDX3Vf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "urCsNFb2wPKa5EMB"
 					}
 				},
 				"uses": {
@@ -72,7 +62,11 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"7UUPTP0dY2uRmOrs",
+					"urCsNFb2wPKa5EMB"
+				]
 			}
 		},
 		"description": "<p>When you choose this archetype at 3rd level, you learn how to get in the heads of your opponents. After you have observed a creature in combat for at least 1 round, you can make a quip at it. Make an Intimidation check opposed by the Wisdom saving throw of a creature within 30 feet that can hear and understand you. On a failed save the creature is compelled to attack you. On its turn, the creature moves towards you and makes as many attacks against you as it can. If the creature failed its saving throw by 5 or more, it has disadvantage on these attack rolls. Additionally, you do not have to spend exertion to use @UUID[Compendium.a5e.a5e-class-features.Item.w24z3b4ki0c5pusd]{Focused Defense} while a creature is under this effect.</p>\n<p>The effects of this feature end after the creature hits you with an attack, when you attack a different creature, or if the creature is unable to attack you. Once you have used this feature a number of times equal to your Wisdom modifier, you cannot do so again until you finish a long rest.</p>",
@@ -93,16 +87,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},
@@ -110,18 +94,17 @@
 		{
 			"origin": "Item.TxgI9JQdPtGNP3D0",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XXT4DXitkaRu2n2g"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Compelled",
 			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
 			"_id": "7UUPTP0dY2uRmOrs",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -152,18 +135,17 @@
 		{
 			"origin": "Item.TxgI9JQdPtGNP3D0",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XXT4DXitkaRu2n2g"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Failed By 5 Or More",
 			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
 			"_id": "urCsNFb2wPKa5EMB",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.all",

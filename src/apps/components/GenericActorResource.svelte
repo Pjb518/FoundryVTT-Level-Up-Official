@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
 
@@ -89,10 +89,13 @@
 
     const genericResources = ["primary", "secondary", "tertiary", "quaternary"];
 
+    // biome-ignore lint/correctness/noSelfAssign: <explanation>
     $: resource = resource;
     $: isClassResource = !genericResources.includes(source);
     $: max = getDeterministicBonus(resource.max, $actor.getRollData());
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
     $: showRechargeButton = canRecharge($actor, sheetIsLocked);
     $: showResource = determineResourceVisibility(sheetIsLocked);
 </script>
@@ -179,7 +182,7 @@
     .resource {
         position: relative;
         padding: 0.125rem 0.25rem 0.25rem 0.25rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-border-color);
         border-radius: var(--a5e-border-radius-standard);
         min-width: 7rem;
     }
@@ -219,12 +222,12 @@
         height: 27px;
         width: fit-content;
         background: transparent;
-        color: var(--a5e-color-text-medium);
+        color: var(--a5e-button-gray);
         cursor: pointer;
 
         &:hover {
             box-shadow: none;
-            color: #555;
+            color: var(--a5e-button-gray-hover);
         }
 
         i {
@@ -245,7 +248,7 @@
         height: 1.125rem;
         padding: 0;
         font-size: var(--a5e-text-size-sm);
-        color: #555;
-        background-color: rgba(0 0 0 / 0.1);
+        color: var(--a5e-button-gray-hover);
+        background-color: transparent;
     }
 </style>

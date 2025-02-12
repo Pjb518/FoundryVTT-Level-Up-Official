@@ -53,11 +53,6 @@
 						},
 						"onSave": "",
 						"label": ""
-					},
-					"E88s05lqHFSPE6fQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jzzZyc01JGi8w4Th"
 					}
 				},
 				"uses": {
@@ -85,7 +80,10 @@
 					"length": 60,
 					"width": 1,
 					"height": 20
-				}
+				},
+				"effects": [
+					"jzzZyc01JGi8w4Th"
+				]
 			},
 			"ohUn5GS8vE0kvxMR": {
 				"name": "Within 5 feet/Enters",
@@ -112,11 +110,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"h8GzSb209ZkOtW8m": {
-						"type": "effect",
-						"default": true,
-						"effectId": "EOIWgDkhwvkhOkj4"
 					}
 				},
 				"uses": {
@@ -129,7 +122,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"EOIWgDkhwvkhOkj4"
+				]
 			}
 		},
 		"description": "<p>You create a wall of continuous vertical bolts of lightning. The wall can rest on a solid surface or be free floating, and be in any orientation of your choosing. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick. The wall blocks sight, and emits bright light out to 120 feet and dim light for an additional 120 feet in all directions.</p><p>When the wall appears, each creature in its area must make a Dexterity saving throw, taking 4d8 lightning damage and being blinded for 1 minute on a failed save; it takes half as much damage and is not blinded on a successful save. A blinded creature makes a Constitution saving throw at the end of each of its turns, ending the blindness on itself on a success.</p><p>A creature takes 4d8 lightning damage if it ends its turn within 5 feet of the wall. It also takes this damage the first time it enters the wall&rsquo;s space on a round. A creature ending its turn within 5 feet of the wall must make a Constitution saving throw or be blinded, as above.</p><p><strong>Cast at Higher Levels.</strong> The damage increases by 1d8 for every slot level above 5th.</p>",
@@ -173,16 +169,6 @@
 				"lightning"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -191,9 +177,6 @@
 			"origin": "Item.o965ubffjwes35mo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Nd3GCYQ3fIyIhodi",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -229,6 +212,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -236,9 +223,6 @@
 			"origin": "Item.o965ubffjwes35mo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ohUn5GS8vE0kvxMR",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -274,6 +258,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

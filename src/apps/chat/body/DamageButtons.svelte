@@ -119,7 +119,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-chat-card-border-color);
         border-radius: var(--a5e-border-radius-standard);
 
         &__item {
@@ -130,7 +130,7 @@
             flex-wrap: nowrap;
             padding: 0.125rem 0.5rem;
             white-space: nowrap;
-            background: #e1ddd5;
+            background: var(--a5e-chat-card-damage-apply-background);
             color: var(--a5e-color-text-medium);
 
             transition: var(--a5e-transition-standard);
@@ -155,8 +155,8 @@
             padding: 0.25rem 0.375rem;
             line-height: 1;
             color: var(--a5e-color-text-medium);
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid #ccc;
+            background: var(--a5e-chat-card-button-background);
+            border: 1px solid var(--a5e-chat-card-border-color);
             border-radius: var(--a5e-border-radius-standard);
 
             transition: var(--a5e-transition-standard);
@@ -176,8 +176,8 @@
         padding: 0.25rem 0.375rem;
         line-height: 1;
         color: var(--a5e-color-text-medium);
-        background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
+        background: var(--a5e-chat-card-button-background);
+        border: 1px solid var(--a5e-chat-card-border-color);
         border-radius: var(--a5e-border-radius-standard);
 
         transition: var(--a5e-transition-standard);

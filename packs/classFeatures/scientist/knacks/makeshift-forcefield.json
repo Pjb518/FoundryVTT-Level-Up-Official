@@ -1,0 +1,213 @@
+{
+	"folder": null,
+	"name": "Makeshift Forcefield",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zrDkV0yevruH3aoq": {
+				"name": "Damage Absorber",
+				"consumers": {
+					"Bv9kMknWrxS6uKRO": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"uses": {
+					"value": 5,
+					"max": "5",
+					"per": "round",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"id": "zrDkV0yevruH3aoq",
+				"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+				"ranges": {
+					"xYvuXNqVwgR4Aus6": {
+						"range": "touch"
+					}
+				},
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"prompts": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"gYoicOk1NhLSgD73": {
+				"name": "Deflect Damage",
+				"consumers": {
+					"P7GCgiCIDa32iokW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Subject to an attack",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 1
+				},
+				"effects": [
+					"BFoMAPfhlRXlmhbS"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>You have a small reserve of imperfect but useful forcefield projector devices. You have a number of these projectors equal to your proficiency bonus, and you replace any used ones when you complete a long rest. You can use a makeshift forcefield in one of two ways:</p>\n<ul>\n<li>\n<p>As an action, you can deploy a projector on yourself or a creature within reach. It is deployed for 1 minute. When the target takes damage, the projector absorbs up to 5 points of damage and is destroyed once its hit points are depleted. At the start of the target’s turn, if the projector has any hit points remaining, it is restored to 5 hit points.</p>\n</li>\n<li>\n<p>As a reaction when you are subject to an attack, you can deploy a projector to deflect sudden harm. Attacks (including the triggering attack) against you are made with disadvantage that lasts until the end of your next turn.</p>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.LbCHMTXgikwhj1WH",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Makeshift Forcefield",
+			"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+			"_id": "BFoMAPfhlRXlmhbS",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Attacks (including the triggering attack) against you are made with disadvantage that lasts until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733586131019,
+				"modifiedTime": 1733586146821,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377301,
+		"modifiedTime": 1733668633557,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DkCA4rlco2zRmcWG"
+}

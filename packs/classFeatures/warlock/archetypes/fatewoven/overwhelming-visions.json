@@ -46,11 +46,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "takes half and isn't stunned"
-					},
-					"c98XqenIk1WriwAi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xDX1f3GBvG72O3mg"
 					}
 				},
 				"uses": {
@@ -70,7 +65,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"xDX1f3GBvG72O3mg"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you can open a creature&rsquo;s senses to the full scope of possibilities before it. As an action, you force vivid visions of discarded pasts and possible futures into the mind of a creature you can see within 60 feet. The target must make a Wisdom&nbsp;saving throw</span>&nbsp;against your spell save DC. On a failed save, the target takes 8d8 psychic damage and is&nbsp;stunned</span>&nbsp;until the end of your next turn. On a success, the target takes half damage and isn&rsquo;t stunned. Furthermore, a creature that successfully saves against the effect finds the wash of possibility insightful, gaining&nbsp;advantage&nbsp;on the next&nbsp;<span>ability check&nbsp;or saving throw it makes before the end of your next turn. Once you have used this ability, you must finish a&nbsp;<span>long rest before you can do so again.</p>",
@@ -91,16 +89,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -109,9 +97,6 @@
 			"origin": "Item.maBQwcglmahG9uqs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "B7XP1K8e2FzW5rVI",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -155,7 +140,10 @@
 			},
 			"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

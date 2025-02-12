@@ -7,11 +7,7 @@
 			"icon": "icons/magic/unholy/strike-hand-glow-pink.webp",
 			"origin": "Item.dTVpmUEAabGtH5Zu",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7GItybN2hQIR3rsg"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "All In",
@@ -53,6 +49,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -60,9 +60,6 @@
 			"origin": "Item.dTVpmUEAabGtH5Zu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7GItybN2hQIR3rsg",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -89,6 +86,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -139,18 +140,11 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"icPMs8pnxKzIIyXO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WkgcS3E5EnkM4VVe"
-					},
-					"MqNG8dLmMjTMIfbt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pP4lak5j5duKo6Yb"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"WkgcS3E5EnkM4VVe",
+					"pP4lak5j5duKo6Yb"
+				]
 			}
 		},
 		"description": "<p>Starting at 14th level, you can use your action to touch one willing creature (or yourself) and choose one of the following effects.</p>\n<p><em><strong>All In.</strong></em> The target gains advantage on its next weapon attack, and deals an extra 1d8 radiant damage on a hit.</p>\n<p><em><strong>Iron Will.</strong></em> For the next minute, as long as you are conscious the target gains advantage on Wisdom saving throws made against spells and other magical effects.</p>\n<p><em><strong>Walk It Off.</strong></em> One spell or condition affecting the target ends.</p>\n<p>Once you have used this feature a number of times equal to your Charisma modifier, you cannot do so again until you finish a long rest.</p>",
@@ -171,16 +165,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald"
 	},
 	"folder": null,

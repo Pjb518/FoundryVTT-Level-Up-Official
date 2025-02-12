@@ -8,9 +8,6 @@
 			"origin": "Item.s4uyrpzug69opmv5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LaDYbbzBJNKgg5LZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.s4uyrpzug69opmv5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LaDYbbzBJNKgg5LZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -91,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -98,9 +100,6 @@
 			"origin": "Item.s4uyrpzug69opmv5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LaDYbbzBJNKgg5LZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -170,6 +169,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -177,9 +180,6 @@
 			"origin": "Item.s4uyrpzug69opmv5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LaDYbbzBJNKgg5LZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -215,6 +215,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -255,26 +259,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"USefBWgX0RLEGS05": {
-						"type": "effect",
-						"default": true,
-						"effectId": "z3YHDb2NjO2ii9dx"
-					},
-					"dVBsYairRIFWQryb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qni12sawICz1WxAc"
-					},
-					"mqRydc3nwBUnSsFZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "TjsMlR3myXC3paqN"
-					},
-					"ViTzhoUuq4oQBKWP": {
-						"type": "effect",
-						"default": true,
-						"effectId": "n0c6OrGKLm1JqHgV"
 					}
 				},
 				"consumers": {
@@ -284,7 +268,13 @@
 						"points": 9,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"z3YHDb2NjO2ii9dx",
+					"qni12sawICz1WxAc",
+					"TjsMlR3myXC3paqN",
+					"n0c6OrGKLm1JqHgV"
+				]
 			}
 		},
 		"description": "<p>Your eyes become an inky void imbued with fell power. One creature of your choice within 60 feet of you that you can see and that can see you must succeed on a Wisdom saving throw or be afflicted by one of the following effects for the duration. Until the spell ends, on each of your turns you can use an action to target a creature that has not already succeeded on a saving throw against this casting of <em>eyebite</em>.</p><ul><li><p><strong>Asleep:</strong> The target falls unconscious, waking if it takes any damage or another creature uses an action to rouse it.</p></li><li><p><strong>Panicked:</strong> The target is frightened of you. On each of its turns, the frightened creature uses its action to take the Dash action and move away from you by the safest and shortest available route unless there is nowhere for it to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</p></li><li><p><strong>Sickened:</strong> The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw, ending this effect on a successful save.</p></li></ul><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Devious Eyebite.</strong> Your eyes glow with a soft purple light. You gain an additional option:<br><strong>Charmed.</strong> The target is charmed by you. On each of its turns while it is charmed, you may beckon it (no action required) to force the target to move closer to you by the shortest, safest route. </p>",
@@ -321,16 +311,6 @@
 				"arcane",
 				"fear"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

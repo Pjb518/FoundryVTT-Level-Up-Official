@@ -1,0 +1,331 @@
+{
+	"folder": null,
+	"name": "Cognitive Dissonance",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-mask-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"IVDTFcofDHBvGsml": {
+				"name": "Cognitive Dissonance",
+				"consumers": {
+					"fmFIVPVRe56rA6F9": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "IVDTFcofDHBvGsml",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/fear-fright-mask-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"cozORVsVJCQyiGIY",
+					"fLSznLo7bF7a8znl"
+				],
+				"macro": "",
+				"prompts": {
+					"KQ2g5NZ0H3PhUmeZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, slowed, not confused",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"47R4dXg0TAwqCOm1": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"theuVVZ3E8MHnGnU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "9d10",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"mode": "spellPoints",
+						"formula": "1"
+					},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"x4C0VxvfwCrZh4ur": {
+				"name": "Channel",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"BhkEeUi4BrOq6A3v": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"di6aMJj2hdI6LEwK": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "1d10",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>At 15th level, you can telepathically fill a creature’s mind with beliefs and attitudes in direct opposition to its typical thinking. Once between long rests you can spend an action to target one creature within 30 feet. The target makes a Wisdom saving throw against your psionics ability DC. On a failure, the creature takes 9d10 psychic damage and becomes confused until the beginning of your next turn. A target that succeeds on its saving throw takes half damage and is slowed rather than confused.</p>\n<p>You can use your reaction to channel this feature for up to 1 minute; while you are channeling, a creature that failed its initial saving throw makes an additional saving throw at the beginning of each of your turns or remains confused and suffers 1d10 psychic damage.</p>\n<p>By spending psionic points, you can enhance the effects of this feature in the following ways:</p>\n<ul>\n<li><strong>Additional Target.</strong> You spend 1 psionic point to target one additional creature within range.</li>\n<li><strong>Increased Range.</strong> Your range for this ability increases to 60 feet.</li>\n</ul>\n<p>A creature that is immune to being charmed is immune to this feature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "psion",
+		"migrationData": {
+			"version": 0.02,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		},
+		"macro": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.uFa3RikWrW4dOuOC",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/control/fear-fright-mask-orange.webp",
+			"_id": "cozORVsVJCQyiGIY",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature can't take reactions.</li>\n<li>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does. \n<ul>\n<li>On a 1 to 4, a confused creature does nothing. </li>\n<li>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction. </li>\n<li>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734620734985,
+				"modifiedTime": 1734620804587,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.uFa3RikWrW4dOuOC",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slowed",
+			"img": "icons/magic/control/fear-fright-mask-orange.webp",
+			"_id": "fLSznLo7bF7a8znl",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734620821197,
+				"modifiedTime": 1734620860788,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734559242344,
+		"modifiedTime": 1734620959984,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "GUiQUkPN9bcAq15A"
+}

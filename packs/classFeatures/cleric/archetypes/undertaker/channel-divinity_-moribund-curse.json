@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"UPuLYHjYudqAW4al": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OKtWZEf2KxlA1nVd"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -56,7 +50,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"OKtWZEf2KxlA1nVd"
+				]
 			}
 		},
 		"description": "<p>Beginning at 2nd level, as a bonus action you can lay a curse on a creature you can see within 30 feet of you, using your @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity}. The next time that creature is hit by an attack before the end of your next turn, that attack&rsquo;s total damage is doubled.</p>",
@@ -77,16 +74,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -95,9 +82,6 @@
 			"origin": "Item.cuIepkFD3VWA5l2Z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sJEexRMkn7819YYt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -109,7 +93,10 @@
 			"img": "icons/magic/death/skull-energy-light-purple.webp",
 			"_id": "OKtWZEf2KxlA1nVd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

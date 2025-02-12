@@ -38,11 +38,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "no effect"
-					},
-					"sDuNCezXK5B7OPAF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dwuTkupqw9j0KijO"
 					}
 				},
 				"uses": {
@@ -75,7 +70,10 @@
 				"target": {
 					"type": "other",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"dwuTkupqw9j0KijO"
+				]
 			},
 			"m0AIhikAbp6shPDD": {
 				"name": "Smoke Cloud",
@@ -170,16 +168,6 @@
 				"obscurement"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -188,9 +176,6 @@
 			"origin": "Item.dv6uvxkwkckg1tjp",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "37bdY0h31qiGck4d",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -227,6 +212,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

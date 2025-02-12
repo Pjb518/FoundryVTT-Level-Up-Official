@@ -1,9 +1,10 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
@@ -52,8 +53,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"
@@ -62,6 +61,19 @@
             updateDocumentDataFromField(
                 $item,
                 `system.actions.${actionId}.consumers.${consumerId}.label`,
+            )}
+    />
+</FieldWrapper>
+
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
             )}
     />
 </FieldWrapper>
@@ -112,3 +124,16 @@
         />
     </FieldWrapper>
 </Section>
+
+<FieldWrapper>
+    <Checkbox
+        label="Delete item when quantity reaches zero"
+        checked={consumer.deleteOnZero ?? false}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.deleteOnZero`,
+                detail,
+            )}
+    />
+</FieldWrapper>

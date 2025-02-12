@@ -1,16 +1,10 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
-    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component";
+    import { localize } from "#runtime/util/i18n";
+    import { TJSProseMirror } from "#standard/component/fvtt/editor";
 
     export let document;
     export let content;
     export let updatePath;
-
-    const descriptionTypes = {
-        secretDescription: "A5E.NoSecretDescription",
-        unidentifiedDescription: "A5E.NoUnidentifiedDescription",
-        description: "A5E.NoDescription",
-    };
 
     function updateEditorContent(event) {
         const { content } = event.detail;
@@ -20,9 +14,26 @@
         });
     }
 
-    async function getEnrichedContent() {
-        return await TextEditor.enrichHTML($document[updatePath]);
-    }
+    const enrichOptions = {
+        secrets: $document.isOwner,
+        relativeTo: $document,
+        rollData:
+            $document.documentName === "Actor"
+                ? $document.getRollData()
+                : ($document.actor?.getRollData($document) ?? undefined),
+    };
+
+    // const options = {
+    //     editable: game.user.isGM || $document.isOwner || false,
+    //     enrichOptions,
+    //     mceConfig: editorOptions,
+    // };
+
+    const descriptionTypes = {
+        secretDescription: "A5E.NoSecretDescription",
+        unidentifiedDescription: "A5E.NoUnidentifiedDescription",
+        description: "A5E.NoDescription",
+    };
 
     let newLabel;
 
@@ -32,23 +43,23 @@
         }
     });
 
-    const editorOptions = TinyMCEHelper.configStandard();
-    editorOptions.toolbar =
-        "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
+    const options = {
+        enrichOptions,
+        editable: game.user.isGM || $document.isOwner || false,
+        styles: {
+            "--tjs-editor-toolbar-background": "var(--a5e-editor-toolbar-background)",
+        },
+    };
 
-    const options = { mceConfig: editorOptions };
-
-    $: (content = content || newLabel) || localize("A5E.NoDescription");
-    $: enrichedContent = Promise.resolve(getEnrichedContent())
-        .then((content) => content)
-        .catch(() => "Error Enriching Content");
+    content = content || newLabel || localize("A5E.NoDescription");
+    let enrichedContent;
 </script>
 
-<div class="editor">
-    <TJSTinyMCE
-        {content}
-        {enrichedContent}
+<div class="a5e-editor">
+    <TJSProseMirror
         {options}
+        bind:content
+        bind:enrichedContent
         on:editor:save={updateEditorContent}
     />
 </div>
@@ -62,10 +73,20 @@
         --tjs-editor-content-padding: 0rem 0.25rem;
     }
 
-    .editor {
-        height: 100%;
+    :global(.a5e-editor .tjs-editor .editor-menu button) {
+        --color-control-bg: var(--a5e-editor-toolbar-button-background);
+    }
 
-        // Nudges the edit icon down 1px. Removing this hides the top border for the button.
-        --tjs-editor-edit-top: 1px;
+    :global(.a5e-editor .editor-enriched) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow-y: scroll;
+    }
+
+    .a5e-editor {
+        position: relative;
+        overflow-y: hidden;
+        height: 100%;
     }
 </style>

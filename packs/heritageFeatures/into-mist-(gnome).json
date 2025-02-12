@@ -7,14 +7,10 @@
 			"origin": "Item.P9Yo5fISC9tPo3k0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hlEemutoj3xs0TmJ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -22,7 +18,10 @@
 			"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
 			"_id": "4aKHtpDl8tfpdsSF",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -58,14 +57,10 @@
 			"origin": "Item.P9Yo5fISC9tPo3k0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "gbUOoaaiXq5E7iLG",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -73,7 +68,10 @@
 			"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
 			"_id": "XuBfayLm1EIyUGtN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -133,13 +131,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"8IYb4Igl7bBl0oRA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4aKHtpDl8tfpdsSF"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -150,7 +142,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"4aKHtpDl8tfpdsSF"
+				]
 			},
 			"gbUOoaaiXq5E7iLG": {
 				"name": "Into Mist",
@@ -167,13 +162,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"8IYb4Igl7bBl0oRA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XuBfayLm1EIyUGtN"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -184,7 +173,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"XuBfayLm1EIyUGtN"
+				]
 			}
 		},
 		"description": "<p>As a bonus action, or as a reaction immediately after taking damage, you can turn invisible. The invisibility lasts until the end of your next turn, and it ends early if you attack, deal damage, cast a spell, or force a creature to make a saving throw. Once you use this feature, you must finish a short or long rest before doing so again.</p>",
@@ -205,16 +197,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"folder": null,

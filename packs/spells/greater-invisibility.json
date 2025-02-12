@@ -8,9 +8,6 @@
 			"origin": "Item.0cdtrkihoe9jdon1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1dVOQi2bOLxhT0C6",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -85,13 +86,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"8vugqrvZ9zTJvpZK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jyK6dZmZykERNKlw"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"jyK6dZmZykERNKlw"
+				]
 			}
 		},
 		"description": "<p>The target is invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession.</p>",
@@ -133,16 +131,6 @@
 				"obscurement",
 				"shadow"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

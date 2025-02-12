@@ -1,0 +1,160 @@
+{
+	"folder": null,
+	"name": "Shockwave",
+	"type": "feature",
+	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2pLCuD5pIBHUmcjD": {
+				"name": "Shockwave",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"w1TAxLXZC93wxWRM": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"rDObYOOV16wIyUQA": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "6d8",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"QcQBFNsvaOwg3vj9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "con"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Yf8Fu2U8pKjIYOox": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"effects": [
+					"kOgri8evpCXzVAy5"
+				]
+			}
+		},
+		"description": "<p>As a bonus action you can emit the energy you consume as a spherical shockwave emanating from you. All creatures within 10 feet of you must make a Strength saving throw with a DC equal to 8 + your proficiency bonus + your Constitution modifier. On a failure, the target takes 6d8 force damage and is pushed 10 feet and knocked prone. On a success, the target takes half damage and is not pushed or knocked prone. Once you have used this feature you cannot use it again until you take a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.IW8U4rSKRbq7bQFC",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+			"_id": "kOgri8evpCXzVAy5",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731760421235,
+				"modifiedTime": 1731760434184,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731760338481,
+		"modifiedTime": 1731760447458,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "NioZOmoWfJaQVMan"
+}

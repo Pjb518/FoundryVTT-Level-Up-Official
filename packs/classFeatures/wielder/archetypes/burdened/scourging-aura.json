@@ -39,13 +39,7 @@
 						"damageType": "psychic"
 					}
 				},
-				"prompts": {
-					"hW3kq0Uksav0cXtz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N87ALvz4ZrvBZgK3"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -67,7 +61,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"N87ALvz4ZrvBZgK3"
+				]
 			},
 			"XyCaewW554tRmurH": {
 				"name": "Scourging Aura (Artifact Charge)",
@@ -93,13 +90,7 @@
 						"damageType": "psychic"
 					}
 				},
-				"prompts": {
-					"hW3kq0Uksav0cXtz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "57E3LFk9G1sCV4jG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -121,7 +112,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"57E3LFk9G1sCV4jG"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-5abefa0c-7fff-5125-6fd9-0c79a61ee44d\" dir=\"ltr\">At 10th level, you can force your artifact to radiate its dangerous power outward, but you don&rsquo;t escape unscathed. As an action, you can activate your artifact&rsquo;s scourging aura by spending an artifact charge. You suffer 1d8 points of psychic damage and every other conscious creature within 20 feet of you suffers 3d8 points of psychic damage. You can keep this aura active at the beginning of subsequent turns by spending an artifact charge (no action required), in which case it does the same damage as when you activated it. Creatures (including you) in the area of Scourging Aura cannot benefit from any effect that would allow you to recover hit points or gain temporary hit points while Scourging Aura is active, and it ends immediately if you fall unconscious or die.</p>",
@@ -142,16 +136,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -159,11 +143,7 @@
 			"icon": "icons/magic/unholy/barrier-fire-pink.webp",
 			"origin": "Item.vfp6m5cp95s3j0bg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8aelZ702NZWR86Bd"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Scourging Aura",
@@ -186,17 +166,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/unholy/barrier-fire-pink.webp",
 			"origin": "Item.vfp6m5cp95s3j0bg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XyCaewW554tRmurH"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Scourging Aura",
@@ -219,6 +199,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

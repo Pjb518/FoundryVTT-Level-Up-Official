@@ -27,9 +27,7 @@
         return acc;
     }, []);
 
-    const defaultSelection = availableHitDice.length
-        ? availableHitDice[0][0]
-        : "";
+    const defaultSelection = availableHitDice.length ? availableHitDice[0][0] : "";
 
     $: selected = consumer.defaultDie ?? defaultSelection;
     $: selected, updateSelection();
@@ -45,8 +43,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"

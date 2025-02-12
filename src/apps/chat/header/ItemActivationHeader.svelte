@@ -1,18 +1,18 @@
 <script>
-    import BaseHeader from "./BaseHeader.svelte";
+import BaseHeader from './BaseHeader.svelte';
 
-    // import hexToRGB from "../../../utils/hexToRGB";
+// import hexToRGB from "../../../utils/hexToRGB";
 
-    export let message;
+export let message;
 
-    function getSubtitle(name, actionName) {
-        if (!actionName || typeof actionName !== "string") return null;
-        if (name.trim() === actionName.trim()) return null;
+function getSubtitle(name, actionName) {
+	if (!actionName || typeof actionName !== 'string') return null;
+	if (name.trim() === actionName.trim()) return null;
 
-        return actionName;
-    }
+	return actionName;
+}
 
-    const { actionName, img, name } = $message.flags?.a5e;
+const { actionName, img, name } = $message.flags?.a5e;
 </script>
 
 <!--

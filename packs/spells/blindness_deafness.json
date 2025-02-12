@@ -8,12 +8,9 @@
 			"origin": "Item.6q34ttse78toj5x0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "minutes"
-					},
-					"actionId": "k3OmeV0X53SUgbLi"
+					}
 				}
 			},
 			"transfer": false,
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -54,12 +55,9 @@
 			"origin": "Item.6q34ttse78toj5x0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "minutes"
-					},
-					"actionId": "k3OmeV0X53SUgbLi"
+					}
 				}
 			},
 			"transfer": false,
@@ -91,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -131,16 +133,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"jfilEvms77itvFx1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tey9cUNf8o3CHPA6"
-					},
-					"qfwfaqBjsdJhptG8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0lA7vqfoDvlNfBe1"
 					}
 				},
 				"consumers": {
@@ -150,7 +142,11 @@
 						"points": 3,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"tey9cUNf8o3CHPA6",
+					"0lA7vqfoDvlNfBe1"
+				]
 			}
 		},
 		"description": "<p>Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 2nd.</p>",
@@ -194,16 +190,6 @@
 				"divine",
 				"senses"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

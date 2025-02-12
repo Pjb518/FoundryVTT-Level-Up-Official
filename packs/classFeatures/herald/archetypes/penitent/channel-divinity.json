@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"MSDno09qRnvl1Lvk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VdteIDQ6H8NCuxo4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -57,7 +51,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"VdteIDQ6H8NCuxo4"
+				]
 			},
 			"tHQ1a26jROfx6lv8": {
 				"name": "Selfless Sacrifice",
@@ -164,10 +161,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -177,10 +170,6 @@
 			"origin": "Item.ZFB4BXJZ5DUpGksr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OwQsyQWZfp522lOQ",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -191,7 +180,10 @@
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
 			"_id": "VdteIDQ6H8NCuxo4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

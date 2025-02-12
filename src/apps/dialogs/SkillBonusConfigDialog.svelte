@@ -1,85 +1,85 @@
 <script>
-    import { getContext, createEventDispatcher } from "svelte";
+import { getContext, createEventDispatcher } from 'svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import CheckboxGroup from '../components/CheckboxGroup.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import Section from '../components/Section.svelte';
 
-    export let { document, bonusID } = getContext("#external").application;
-    export let jsonValue = null;
+export let { document, bonusID } = getContext('#external').application;
+export let jsonValue = null;
 
-    const actor = document;
-    const dispatch = createEventDispatcher();
+const actor = document;
+const dispatch = createEventDispatcher();
 
-    function updateImage() {
-        const current = skillBonus?.img;
+function updateImage() {
+	const current = skillBonus?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        if (jsonValue === null) {
-            key = `system.bonuses.skills.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
-            return;
-        }
+function onUpdateValue(key, value) {
+	if (jsonValue === null) {
+		key = `system.bonuses.skills.${bonusID}.${key}`;
+		updateDocumentDataFromField($actor, key, value);
+		return;
+	}
 
-        const newObj = foundry.utils.expandObject({
-            ...skillBonus,
-            [key]: value,
-        });
-        dispatch("change", JSON.stringify(newObj));
-    }
+	const newObj = foundry.utils.expandObject({
+		...skillBonus,
+		[key]: value,
+	});
+	dispatch('change', JSON.stringify(newObj));
+}
 
-    function getSKillBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.skills[bonusID];
+function getSKillBonus() {
+	if (jsonValue === null) return $actor.system.bonuses.skills[bonusID];
 
-        try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
-            if (typeof obj !== "object") throw new Error();
-            obj.label = obj.label ?? "";
-            obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {
-                skills: [],
-                requiresProficiency: false,
-                passiveOnly: false,
-            };
-            obj.default = obj.default ?? true;
-            obj.img = obj.img || "icons/svg/upgrade.svg";
-            return obj;
-        } catch (error) {
-            return {
-                label: "",
-                formula: "",
-                damageType: "",
-                context: {
-                    skills: [],
-                    requiresProficiency: false,
-                    passiveOnly: false,
-                },
-                default: true,
-                img: "icons/svg/upgrade.svg",
-            };
-        }
-    }
+	try {
+		const obj = JSON.parse(jsonValue || '""') ?? {};
+		if (typeof obj !== 'object') throw new Error();
+		obj.label = obj.label ?? '';
+		obj.formula = obj.formula ?? '';
+		obj.context = obj.context ?? {
+			skills: [],
+			requiresProficiency: false,
+			passiveOnly: false,
+		};
+		obj.default = obj.default ?? true;
+		obj.img = obj.img || 'icons/svg/upgrade.svg';
+		return obj;
+	} catch (error) {
+		return {
+			label: '',
+			formula: '',
+			damageType: '',
+			context: {
+				skills: [],
+				requiresProficiency: false,
+				passiveOnly: false,
+			},
+			default: true,
+			img: 'icons/svg/upgrade.svg',
+		};
+	}
+}
 
-    const { skills } = CONFIG.A5E;
+const { skills } = CONFIG.A5E;
 
-    $: skillBonus = getSKillBonus($actor, jsonValue) ?? {};
-    $: passiveOnly = skillBonus.context.passiveOnly ?? false;
-    $: skillsContext = skillBonus.context.skills ?? [];
-    $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
+$: skillBonus = getSKillBonus($actor, jsonValue) ?? {};
+$: passiveOnly = skillBonus.context.passiveOnly ?? false;
+$: skillsContext = skillBonus.context.skills ?? [];
+$: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
 </script>
 
 <form>
@@ -165,12 +165,12 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        background: var(--background, $color-sheet-background);
+        background: var(--background, var(--a5e-color-background-sheet));
     }
 
     .bonus-name,
     .bonus-name[type="text"] {
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

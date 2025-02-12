@@ -7,9 +7,6 @@
 			"origin": "Item.3RMii0iJn7J36g8i",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ntcYsX8tBuNFY0uL",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "yq1BmcjfmwF7OSsq",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -94,13 +94,7 @@
 						"label": "With Advantage"
 					}
 				},
-				"prompts": {
-					"mWHmqpJ0BblhwRl5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yq1BmcjfmwF7OSsq"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -111,7 +105,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"yq1BmcjfmwF7OSsq"
+				]
 			}
 		},
 		"description": "<p>When a creature threatens you or attempts an Intimidation check against you, you can use your reaction to make an Intimidation check against it with advantage. On a success, the creature is frightened of you for 1 minute. Once you use this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
@@ -132,16 +129,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "rogue",
 		"class": ""
 	},

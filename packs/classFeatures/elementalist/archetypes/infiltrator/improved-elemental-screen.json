@@ -1,0 +1,135 @@
+{
+	"folder": null,
+	"name": "Improved Elemental Screen",
+	"type": "feature",
+	"img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"mEVRxL2DmT1yWNdW": {
+				"name": "Elemental Screen",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ER2DkiQW8bUOjinr": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 15th level, when you use @UUID[Compendium.a5e.a5e-class-features.Item.JLc3R1qEyJkDE4kO]{Elemental Screen}, you can choose to spend 2 spell points when you do. If you do, the screen persists for 1 minute and moves with you. It can still be dispersed by an area of high winds.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitBurningGloom",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "elementalist",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.Rjql16UJWAAnTYx6",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "seconds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Screen",
+			"_id": "wA548z8R4CwvzIpy",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your space is lightly obscured for 1 minute, and the screen moves with you. Your screen cannot be used in areas of high winds; the particles disperse immediately, providing you no benefit. While you are lightly obscured this way, your AC increases by 2.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": null,
+				"modifiedTime": 1733987398449,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733987293443,
+		"modifiedTime": 1733989345346,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "V5jK4Qw5HAuRMNBV"
+}

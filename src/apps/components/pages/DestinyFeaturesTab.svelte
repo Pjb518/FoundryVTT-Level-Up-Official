@@ -1,35 +1,33 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import DropAreaSingular from "../dropAreas/DropAreaSingular.svelte";
+import DropAreaSingular from '../dropAreas/DropAreaSingular.svelte';
 
-    const item = getContext("item");
+const item = getContext('item');
 
-    async function addFeature(event, path) {
-        const [dragEvent] = event.detail;
-        try {
-            const { uuid } = JSON.parse(dragEvent.dataTransfer.getData("text/plain"));
+async function addFeature(event, path) {
+	const [dragEvent] = event.detail;
+	try {
+		const { uuid } = JSON.parse(dragEvent.dataTransfer.getData('text/plain'));
 
-            const doc = await Item.fromDropData({ uuid });
-            if (doc?.type !== "feature" || doc?.system?.featureType !== "destiny")
-                return ui.notifications.warn(
-                    localize("A5E.validations.warnings.InvalidForeignDocument"),
-                );
+		const doc = await Item.fromDropData({ uuid });
+		if (doc?.type !== 'feature' || doc?.system?.featureType !== 'destiny')
+			return ui.notifications.warn(localize('A5E.validations.warnings.InvalidForeignDocument'));
 
-            $item.update({ [`system.${path}`]: uuid });
-        } catch (err) {
-            console.error(err);
-        }
-    }
+		$item.update({ [`system.${path}`]: uuid });
+	} catch (err) {
+		console.error(err);
+	}
+}
 
-    function deleteFeature(event, path) {
-        $item.update({ [`system.${path}`]: "" });
-    }
+function deleteFeature(event, path) {
+	$item.update({ [`system.${path}`]: '' });
+}
 
-    $: source = $item.system.sourceOfInspiration || null;
-    $: inspiration = $item.system.inspirationFeature || null;
-    $: fulfillment = $item.system.fulfillmentFeature || null;
+$: source = $item.system.sourceOfInspiration || null;
+$: inspiration = $item.system.inspirationFeature || null;
+$: fulfillment = $item.system.fulfillmentFeature || null;
 </script>
 
 <article>
@@ -88,7 +86,7 @@
     }
     .section-title {
         font-size: var(--a5e-text-size-sm);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-weight: bold;
         margin-bottom: 0.125rem;
     }

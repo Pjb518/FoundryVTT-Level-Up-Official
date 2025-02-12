@@ -29,11 +29,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Immune for 24 hours"
-					},
-					"ylEYb50o8Dy0uRxd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6O5fksMbpExOHPm8"
 					}
 				},
 				"uses": {
@@ -46,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"6O5fksMbpExOHPm8"
+				]
 			}
 		},
 		"description": "<p>You regard yourself as an apex predator sitting atop the natural world rather than living harmoniously with it, and creatures can sense your predatory intent. You gain an expertise die on all Intimidation checks regarding beasts and plants.</p>\n<p>In addition, whenever a beast or plant attempts to attack you, they must make a Wisdom saving throw with a DC equal to your spellcasting DC. On a failed save the creature is frightened of you for 1 minute. On a successful saving throw creatures are immune to this effect for 24 hours.</p>",
@@ -67,10 +65,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "druid"
 	},
@@ -79,9 +73,6 @@
 			"origin": "Item.12CeNNtRF2JO2uB7",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DRKROF3oXBNKI8co",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -119,7 +110,10 @@
 			},
 			"img": "icons/creatures/abilities/wolf-howl-moon-purple.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

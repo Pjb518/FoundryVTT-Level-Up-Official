@@ -1,0 +1,165 @@
+{
+	"folder": null,
+	"name": "Impervious Defense",
+	"type": "feature",
+	"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"6YEcf8Oumxgi6UUE": {
+				"name": "Impervious Defense",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"egjjQ3YaHhaZwMbI": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 5
+				},
+				"ranges": {
+					"AH56pNqvLKlo9CgF": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "",
+				"effects": [
+					"VlenWWtNRF0ZlA17"
+				]
+			}
+		},
+		"description": "<p>While wielding a starglaive you can use a bonus action and spend 1 exertion point to enter a defensive state of mind. Your starglaive moves so fast, it forms a translucent sphere 5 feet in diameter centered on you until the start of your next turn. Neither matter nor energy can penetrate your shielding sphere, your speed is halved, and you cannot benefit from your extra attack feature, but you can otherwise move and take actions as normal.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [
+		{
+			"origin": "Item.YfxSRjjW3UcmhjIe",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Impervious Defense",
+			"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+			"_id": "VlenWWtNRF0ZlA17",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "(@attributes.movement.walk.distance * 0.5)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your starglaive moves so fast, it forms a translucent sphere 5 feet in diameter centered on you until the start of your next turn. Neither matter nor energy can penetrate your shielding sphere, your speed is halved, and you cannot benefit from your extra attack feature, but you can otherwise move and take actions as normal.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733309832993,
+				"modifiedTime": 1733309902967,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725151,
+		"modifiedTime": 1733309833024,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3JojinXWPqC6rUjF"
+}

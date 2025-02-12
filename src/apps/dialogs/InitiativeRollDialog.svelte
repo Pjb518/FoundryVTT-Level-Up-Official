@@ -16,9 +16,12 @@
         if (hideExpertiseDice) return 0;
 
         return $actor.RollOverrideManager.getExpertiseDice(
-            `initiative`,
+            "initiative",
             options.expertiseDice ?? 0,
-            { ability: abilityKey, skill: skillKey },
+            {
+                ability: abilityKey,
+                skill: skillKey,
+            },
         );
     }
 
@@ -40,27 +43,30 @@
     let abilityKey =
         options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
 
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     $: expertiseDie = getInitialExpertiseDieSelection();
 
     $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
-        `initiative`,
+        "initiative",
         options.expertiseDie ?? 0,
         { ability: abilityKey, skill: skillKey },
     );
 
     $: rollMode = $actor.RollOverrideManager.getRollOverride(
-        `initiative`,
+        "initiative",
         selectedRollMode,
-        { ability: abilityKey, skill: skillKey },
+        {
+            ability: abilityKey,
+            skill: skillKey,
+        },
     );
 
     $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
-        `initiative`,
+        "initiative",
         selectedRollMode,
         { ability: abilityKey, skill: skillKey },
     );
@@ -86,7 +92,10 @@
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
-        { abilityKey, skillKey },
+        {
+            abilityKey,
+            skillKey,
+        },
     );
 
     $: rollFormula = getRollFormula($actor, {
@@ -197,7 +206,7 @@
     .roll-formula-preview {
         padding: 0.5rem;
         font-size: var(--a5e-text-size-sm);
-        border: 1px solid #7a7971;
+        border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
     }
 </style>

@@ -27,13 +27,7 @@
 						"formula": "@classes.fighter.level"
 					}
 				},
-				"prompts": {
-					"Llfnlo79JVpdGxbm": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LkYL0XIntjxSPa4B"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"LkYL0XIntjxSPa4B"
+				]
 			}
 		},
 		"description": "<p>At 10th level, whenever you use the @UUID[Compendium.a5e.a5e-maneuvers.Item.xatq76xpgbfqm53j]{Charge} maneuver and are wielding a shield and no other weapons, choose one creature within 60 feet that can see you. The chosen creature gains temporary hit points equal your fighter level and an expertise die on its next saving throw. Once a creature has benefited from this feature, it cannot benefit from Galvanizing Charger again until it finishes a long rest.</p>",
@@ -74,16 +71,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},
@@ -91,18 +78,17 @@
 		{
 			"origin": "Item.yr7q89yyhaLYRAAm",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1W4C3B1Y4ZztVEjK"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Galvanizing Charger",
 			"img": "icons/creatures/abilities/bull-head-horns-glowing.webp",
 			"_id": "LkYL0XIntjxSPa4B",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

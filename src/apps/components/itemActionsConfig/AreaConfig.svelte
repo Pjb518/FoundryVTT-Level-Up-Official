@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
 
@@ -45,7 +45,8 @@
                 level: getOrdinalNumber($item.system.level ?? 0),
                 step: action.area?.scaling?.step,
             });
-        else if (properties.length === 2)
+
+        if (properties.length === 2)
             return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
                 shape: action?.area.shape,
                 formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
@@ -189,7 +190,7 @@
             {#if action.area.shape}
                 <div class="a5e-field-group scaling-button-wrapper">
                     <button
-                        class="scaling-button"
+                        class="a5e-scaling-button"
                         on:click|preventDefault={onClickScalingButton}
                     >
                         <i
@@ -256,13 +257,13 @@
             display: none;
 
             &:checked + .area-shape-label {
-                background: var(--a5e-color-primary);
-                border-color: darken-color(var(--a5e-color-primary), 5);
-                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
-                color: var(--a5e-color-text-light);
+                background: var(--a5e-action-area-button-checked);
+                border-color: var(--a5e-action-area-button-checked-border);
+                box-shadow: 0 0 10px var(--a5e-action-area-button-checked-shadow) inset;
+                color: var(--a5e-action-area-button-checked-color);
 
                 &:hover {
-                    background: var(--a5e-color-primary);
+                    background: var(--a5e-action-area-button-checked-hover);
                 }
             }
         }
@@ -272,15 +273,16 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
+            background-color: var(--a5e-action-area-label-background);
             border-radius: var(--a5e-border-radius-standard);
-            border: 1px solid #bbb;
+            border: 1px solid var(--a5e-action-area-label-border);
             font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
             transition: var(--a5e-transition-standard);
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: var(--a5e-action-area-label-background-hover);
             }
         }
 
@@ -290,33 +292,6 @@
             width: 100%;
             gap: 0.375rem;
             margin: 0;
-        }
-    }
-
-    .scaling-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.625rem;
-        width: 1.625rem;
-        padding: 0;
-        margin: 0;
-        font-size: var(--a5e-text-size-md);
-        background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
-        border-radius: var(--a5e-border-radius-standard);
-        cursor: pointer;
-
-        transition: var(--a5e-transition-standard);
-
-        i {
-            margin: 0;
-        }
-
-        &:focus,
-        &:hover {
-            color: #555;
         }
     }
 

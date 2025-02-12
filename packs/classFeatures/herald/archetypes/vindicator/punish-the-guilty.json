@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"OpcuHI0mOdWWkUHv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "i2goo8mwhwByuUqD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"i2goo8mwhwByuUqD"
+				]
 			}
 		},
 		"description": "<p>At 7th level, you become especially effective at bringing down the wicked. As a bonus action, you may designate a creature for which you have a warrant, that you have marked with your Render Verdict feature, that has an Evil alignment, and/or that is of the aberration, fey, fiend, or undead types. You have advantage on attacks against that creature and on ability checks to capture it for one minute. Once you have used this feature a number of times equal to your Charisma modifier (minimum once) you must finish a short or long rest before you can do so again.</p>",
@@ -69,16 +66,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -88,10 +75,6 @@
 			"origin": "Item.t5fmSODD7W82IiTc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M1kwQs8jDRQgNm5B",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -102,7 +85,10 @@
 			"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
 			"_id": "i2goo8mwhwByuUqD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

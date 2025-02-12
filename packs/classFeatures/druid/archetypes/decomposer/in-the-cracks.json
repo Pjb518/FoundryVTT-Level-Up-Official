@@ -47,28 +47,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"OdIe0gNkGASww561": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PciANQCapTboCsn3"
-					},
-					"P8KhAQwQhRyuItjB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9uwoz4oP1tweJJSH"
-					},
-					"dKTvNMTd61IXPsfy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tcqQZt4dcn1gK3P0"
-					},
-					"e4gBad5PhbrKiOik": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5tzI8BY8DyzYoWjs"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -79,7 +58,13 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"PciANQCapTboCsn3",
+					"9uwoz4oP1tweJJSH",
+					"tcqQZt4dcn1gK3P0",
+					"5tzI8BY8DyzYoWjs"
+				]
 			},
 			"ldO3XKsQxwcx4rtk": {
 				"name": "Enters Space",
@@ -162,16 +147,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "druid",
 		"class": ""
 	},
@@ -179,19 +154,17 @@
 		{
 			"origin": "Item.F9cp7LvSSyHlab8v",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CkiK3r7hHGXwZOJe",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Resistance",
 			"img": "icons/magic/death/skull-poison-green.webp",
 			"_id": "PciANQCapTboCsn3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -229,18 +202,17 @@
 		{
 			"origin": "Item.F9cp7LvSSyHlab8v",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CkiK3r7hHGXwZOJe"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Opportunity Attacks",
 			"img": "icons/magic/death/skull-poison-green.webp",
 			"_id": "9uwoz4oP1tweJJSH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -271,18 +243,17 @@
 		{
 			"origin": "Item.F9cp7LvSSyHlab8v",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CkiK3r7hHGXwZOJe"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Climb",
 			"img": "icons/magic/death/skull-poison-green.webp",
 			"_id": "tcqQZt4dcn1gK3P0",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.climb.distance",
@@ -320,18 +291,17 @@
 		{
 			"origin": "Item.F9cp7LvSSyHlab8v",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CkiK3r7hHGXwZOJe"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fly",
 			"img": "icons/magic/death/skull-poison-green.webp",
 			"_id": "5tzI8BY8DyzYoWjs",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",

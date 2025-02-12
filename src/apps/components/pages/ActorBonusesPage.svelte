@@ -1,73 +1,67 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import determineIfPropertyModifiedByEffect from '../../../utils/determineIfPropertyModifiedByEffect ';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    // function getDamageBonusSummary(damageBonus) {
-    //     const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
-    //     const damageType = damageTypes[damageBonus.damageType];
+// function getDamageBonusSummary(damageBonus) {
+//     const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
+//     const damageType = damageTypes[damageBonus.damageType];
 
-    //     // TODO: Granular-ize this in the future
-    //     return localize(damageBonusSummariesByContext["all"], {
-    //         formula: damageBonus.formula,
-    //         damageType: damageType
-    //             ? `${damageType.toLowerCase()} damage`
-    //             : "damage",
-    //     });
-    // }
+//     // TODO: Granular-ize this in the future
+//     return localize(damageBonusSummariesByContext["all"], {
+//         formula: damageBonus.formula,
+//         damageType: damageType
+//             ? `${damageType.toLowerCase()} damage`
+//             : "damage",
+//     });
+// }
 
-    // function getHealingBonusSummary(healingBonus) {
-    //     const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
-    //     const healingType = healingTypes[healingBonus.healingType];
+// function getHealingBonusSummary(healingBonus) {
+//     const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
+//     const healingType = healingTypes[healingBonus.healingType];
 
-    //     // TODO: Granular-ize this in the future
-    //     return localize(
-    //         healingBonusSummariesByContext[healingBonus.healingType],
-    //         {
-    //             formula: healingBonus.formula,
-    //             healingType: healingType
-    //                 ? `${healingType.toLowerCase()} healing`
-    //                 : "healing",
-    //         },
-    //     );
-    // }
+//     // TODO: Granular-ize this in the future
+//     return localize(
+//         healingBonusSummariesByContext[healingBonus.healingType],
+//         {
+//             formula: healingBonus.formula,
+//             healingType: healingType
+//                 ? `${healingType.toLowerCase()} healing`
+//                 : "healing",
+//         },
+//     );
+// }
 
-    function getBonusSectionHeader(bonusType) {
-        return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
-    }
+function getBonusSectionHeader(bonusType) {
+	return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
+}
 
-    function getAddButtonLabelForBonus(bonusType) {
-        return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
-    }
+function getAddButtonLabelForBonus(bonusType) {
+	return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
+}
 
-    function getDefaultBonusName(bonusType) {
-        return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
-    }
+function getDefaultBonusName(bonusType) {
+	return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
+}
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
+const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
-    let rightClickConfigure = game.settings.get("a5e", "itemRightClickConfigure") ?? true;
+let rightClickConfigure = game.settings.get('a5e', 'itemRightClickConfigure') ?? true;
 
-    $: disableManeuverDC = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.maneuverDC",
-    );
+$: disableManeuverDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.maneuverDC');
 
-    $: disableSpellDC = determineIfPropertyModifiedByEffect(
-        $actor,
-        "system.bonuses.spellDC",
-    );
+$: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.spellDC');
 
-    // $: grants = [...$actor.grants.values()].map(
-    //     (g) => `${g.type}.${g.bonusId}`,
-    // );
+// $: grants = [...$actor.grants.values()].map(
+//     (g) => `${g.type}.${g.bonusId}`,
+// );
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

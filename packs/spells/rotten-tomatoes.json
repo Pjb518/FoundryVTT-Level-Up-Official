@@ -39,13 +39,7 @@
 						}
 					}
 				},
-				"prompts": {
-					"hOYbjy0Mk2sfUuba": {
-						"type": "effect",
-						"default": true,
-						"effectId": "K7Y5rtDTZHKQsdRe"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -68,7 +62,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"K7Y5rtDTZHKQsdRe"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-e753099c-7fff-6f59-7666-bcb28e5c191a\" dir=\"ltr\">The tomato in your hand immediately rots and turns soft, making it the perfect explosive projectile. Make a ranged spell attack. On a hit, you fling the tomato at the target, dealing [[/r 2d6]] bludgeoning damage. Additionally, the tomato explodes on impact and its juices flood into the target&rsquo;s eyes, temporarily clouding their vision. The creature is blinded until the end of its next turn.</p><p dir=\"ltr\">If this spell is cast in response to a particularly poor performance, the target creature has disadvantage on Performance checks for the next hour.</p><p dir=\"ltr\"><strong>Cast at Higher Levels:</strong></p><p dir=\"ltr\">Increase the damage by [[/r 1d6]] for every level above 2nd.</p>",
@@ -108,16 +105,6 @@
 				"hearth"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -126,9 +113,6 @@
 			"origin": "Item.rnqiyxy1axcecgsw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "F37gkWI34vaMY3jl",
 					"duration": {
 						"unit": "hours"
 					}
@@ -162,6 +146,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

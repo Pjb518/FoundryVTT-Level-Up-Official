@@ -1,18 +1,18 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item: any = getContext("item");
-    const { A5E } = CONFIG;
+const item: any = getContext('item');
+const { A5E } = CONFIG;
 
-    let editMode = false;
+let editMode = false;
 </script>
 
 <Section

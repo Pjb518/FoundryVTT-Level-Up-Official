@@ -39,11 +39,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"FQB41cUCIfhfxqeV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "D1c5oNSspNmfgW7R"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"D1c5oNSspNmfgW7R"
+				]
 			},
 			"kLvp4MeYKcK1qGRm": {
 				"name": "Abjure the Mind",
@@ -141,16 +139,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -159,9 +147,6 @@
 			"origin": "Item.XqO6FHlHfP1WioX2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "591kyZAu0MvfvsD2",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -172,7 +157,10 @@
 			"img": "icons/magic/symbols/triangle-glowing-green.webp",
 			"_id": "D1c5oNSspNmfgW7R",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

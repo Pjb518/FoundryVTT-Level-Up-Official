@@ -1,35 +1,44 @@
 import type {
-  DescriptionData, FavoriteData, SecretDescriptionData, SourceData
+	DescriptionData,
+	FavoriteData,
+	MacroData,
+	SecretDescriptionData,
+	SourceData,
 } from './common';
-import type { SchemaData } from '../common';
+import type { MigrationData } from '../common';
 
-import {
-  description, favorite, secretDescription, source
-} from './common';
-import { schemaData } from '../common';
+import { description, favorite, macro, secretDescription, source } from './common';
+import { migrationData } from '../common';
 
 declare namespace A5EBaseItemData {
-  interface Schema extends DataSchema, DescriptionData,
-    FavoriteData, SecretDescriptionData, SchemaData, SourceData { }
-  interface BaseData { }
-  interface DerivedData { }
+	interface Schema
+		extends DataSchema,
+			DescriptionData,
+			FavoriteData,
+			MacroData,
+			MigrationData,
+			SecretDescriptionData,
+			SourceData {}
+	type BaseData = Record<string, any>;
+	type DerivedData = Record<string, any>;
 }
 
 class A5EBaseItemData<
-  Schema extends A5EBaseItemData.Schema,
-  BaseData extends A5EBaseItemData.BaseData,
-  DerivedData extends A5EBaseItemData.DerivedData
+	Schema extends A5EBaseItemData.Schema,
+	BaseData extends A5EBaseItemData.BaseData,
+	DerivedData extends A5EBaseItemData.DerivedData,
 > extends foundry.abstract.TypeDataModel<Schema, Item.ConfiguredInstance, BaseData, DerivedData> {
-  /** @inheritDoc */
-  static override defineSchema(): A5EBaseItemData.Schema {
-    return {
-      ...description(),
-      ...favorite(),
-      ...secretDescription(),
-      ...schemaData(),
-      ...source()
-    };
-  }
+	/** @inheritDoc */
+	static override defineSchema(): A5EBaseItemData.Schema {
+		return {
+			...description(),
+			...favorite(),
+			...macro(),
+			...migrationData(),
+			...secretDescription(),
+			...source(),
+		};
+	}
 }
 
 // eslint-disable-next-line import/prefer-default-export

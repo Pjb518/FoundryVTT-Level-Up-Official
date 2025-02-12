@@ -7,11 +7,7 @@
 			"icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
 			"origin": "Item.742mibetr67php5i",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eAwDRDxpIDZxroZQ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -83,11 +83,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"vbSbxZUzZ9uE9XVZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3dvmq3UzUk7FNxbW"
 					}
 				},
 				"consumers": {
@@ -97,7 +92,10 @@
 						"points": 11,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"3dvmq3UzUk7FNxbW"
+				]
 			}
 		},
 		"description": "<p>You utter a powerful word that stuns a target with 150 hit points or less. At the end of the target's turn, it makes a Constitution saving throw to end the effect. If the target has more than 150 hit points, it is instead rattled until the end of its next turn.</p>",
@@ -139,16 +137,6 @@
 				"affliction",
 				"arcane"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

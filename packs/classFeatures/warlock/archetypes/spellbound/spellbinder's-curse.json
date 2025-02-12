@@ -7,9 +7,6 @@
 			"origin": "Item.dDs9o0RBEIMLQG3H",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LuAXneiBV3JXIAKK",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/symbols/runes-triangle-orange-purple.webp",
 			"_id": "VEAkhVCeXuUQqB0N",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -95,13 +95,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"gsIDloAOrx4MIkxB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VEAkhVCeXuUQqB0N"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"VEAkhVCeXuUQqB0N"
+				]
 			},
 			"bKRhNSwdBmFwQndr": {
 				"name": "Use Faerie Dice",
@@ -201,16 +198,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},

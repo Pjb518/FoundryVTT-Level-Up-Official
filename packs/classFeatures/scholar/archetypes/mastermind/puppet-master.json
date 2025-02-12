@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"TsVC1PDgpAO9zMMc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KFgWmH5RntsEEQAv"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KFgWmH5RntsEEQAv"
+				]
 			},
 			"nuVyAWmNOSoA36iY": {
 				"name": "Regain Hit Die",
@@ -88,16 +85,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "scholar",
 		"class": ""
 	},
@@ -105,12 +92,7 @@
 		{
 			"origin": "Item.fIOQQcPI4wEghz2h",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dGu5uq4Q2DL9YZGr",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Gain Inspiration",
@@ -147,7 +129,10 @@
 			},
 			"img": "icons/magic/control/control-influence-puppet.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

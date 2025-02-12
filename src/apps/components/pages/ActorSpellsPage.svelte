@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -12,6 +12,7 @@
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
+    import getMaxPreparedSpells from "../../../utils/getMaxPreparedSpells";
 
     const actor = getContext("actor");
     let { spells } = actor;
@@ -27,6 +28,7 @@
         if (initialSpellBookQuantity === 0) {
             updateCurrentSpellBook(newSpellBookId);
         } else {
+            // biome-ignore lint/correctness/noSelfAssign: <explanation>
             currentSpellBook = currentSpellBook; // This is stupid, but it works
         }
 
@@ -38,7 +40,9 @@
             $actor,
             "Configure Spell Book",
             SpellbookConfigDialog,
-            { spellBookId },
+            {
+                spellBookId,
+            },
         );
 
         await dialog.render(true);
@@ -109,7 +113,6 @@
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
-        if (item.type !== "spell") return false;
         if (
             !item.system.prepared ||
             item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
@@ -119,7 +122,11 @@
         return true;
     }).length;
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: maxPrepared = getMaxPreparedSpells($actor);
+
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
     $: spellBooks = $actor.spellBooks;
 
@@ -136,6 +143,10 @@
     );
 
     $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
+
+    $: exertion = $actor.system.attributes.exertion;
+
+    $: startingClass = $actor.system.classes?.startingClass;
 
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
@@ -209,6 +220,25 @@
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
             </span>
+
+            /
+
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner || sheetIsLocked}
+                type="number"
+                name="system.spellResources.maxPrepared"
+                value={maxPrepared}
+                placeholder="0"
+                min="0"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
         </div>
     {/if}
 
@@ -287,18 +317,65 @@
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
-        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellPoints")}
+    {#if startingClass !== "psyknight"}
+        {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
+            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    {localize("A5E.SpellPoints")}
+                </h3>
+
+                <input
+                    class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.spellResources.points.current"
+                    value={spellResources.points.current}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+                /
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="system.spellResources.points.max"
+                    value={spellPointMax ?? 0}
+                    disabled={sheetIsLocked}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateMaxSpellResource("points", Number(target.value))}
+                />
+
+                {#if spellResources.points.current < spellPointMax && spellPointMax && startingClass === "psion"}
+                    <button
+                        class="recharge-button"
+                        data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                        data-tooltip-direction="UP"
+                        on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
+                    >
+                        <i class="fa-solid fa-brain" />
+                    </button>
+                {/if}
+            </div>
+        {/if}
+    {:else}
+        <div class="u-flex u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-sm u-text-bold">
+                {localize("A5E.ExertionPool")}
             </h3>
 
             <input
                 class="a5e-footer-group__input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
-                name="system.spellResources.points.current"
-                value={spellResources.points.current}
+                name="system.attributes.exertion.current"
+                value={exertion.current}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
@@ -312,14 +389,29 @@
             <input
                 class="a5e-footer-group__input"
                 type="number"
-                name="system.spellResources.points.max"
-                value={spellPointMax ?? 0}
-                disabled={sheetIsLocked}
+                name="system.attributes.exertion.max"
+                value={exertion.max}
+                disabled={$actor.automationAvailable}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateMaxSpellResource("points", Number(target.value))}
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
             />
+
+            {#if exertion.current < exertion.max && exertion.max}
+                <button
+                    class="recharge-button"
+                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.recoverExertionUsingHitDice()}
+                >
+                    <i class="fa-solid fa-bolt" />
+                </button>
+            {/if}
         </div>
     {/if}
 
@@ -375,8 +467,9 @@
             font-size: inherit;
             font-family: inherit;
             line-height: 1;
-            background: rgba(0 0 0 / 0.05);
-            border: 1px solid #ccc;
+            background: var(--a5e-color-background-medium);
+            color: var(--a5e-color-text-dark);
+            border: 1px solid var(--a5e-border-color);
             border-radius: var(--a5e-border-radius-standard);
 
             &:focus,
@@ -405,6 +498,29 @@
 
         &:hover {
             transform: scale(1.2);
+        }
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
         }
     }
 </style>

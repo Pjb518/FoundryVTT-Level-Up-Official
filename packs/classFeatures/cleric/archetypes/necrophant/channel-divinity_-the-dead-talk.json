@@ -39,13 +39,10 @@
 						"range": "touch"
 					}
 				},
-				"prompts": {
-					"yDNlO0OTlaGjC0Eh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ORNBdz44szFqorly"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"ORNBdz44szFqorly"
+				]
 			}
 		},
 		"description": "<p>Beginning at 2nd level, you may use your @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} to temporarily animate the body or a pile of bones of a creature you touch. Upon doing so, the undead mutters the name (if any) and the creature type (such as Giant or Humanoid - the GM may choose to be more specific, such as stating Orc, or Elf) of the creature that killed it. For the next 24 hours, you or a creature of your choosing gains advantage on the next ability check made regarding the creature (such as a History check to recall something about it, or a Survival check to track it) or attack roll made against it.</p>",
@@ -66,16 +63,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -84,9 +71,6 @@
 			"origin": "Item.0EaZJVyeBPzIZ5we",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bd1lwND60IUZmW2L",
 					"duration": {
 						"unit": "hours"
 					}
@@ -97,7 +81,10 @@
 			"img": "icons/magic/death/undead-ghost-scream-teal.webp",
 			"_id": "ORNBdz44szFqorly",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.uP3n3lyeaNJYsvKb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OYtAwHVYSihig1QD",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Lock Shields",
 			"img": "icons/skills/melee/shield-block-gray-yellow.webp",
 			"_id": "KJL0iBI2tCpLvI01",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -72,13 +70,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"lff2GSTOIevdEgpd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KJL0iBI2tCpLvI01"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -89,7 +81,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KJL0iBI2tCpLvI01"
+				]
 			}
 		},
 		"description": "<p>You and friendly creatures within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature gain a +1 bonus to AC while wielding a shield and within 5 feet of another friendly creature affected by this feature that is also wielding a shield.</p>",
@@ -110,16 +105,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},

@@ -8,13 +8,9 @@
 			"origin": "Item.odvq2q7j2ijuxfyi",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ifMfM2tWxjAP9ESq",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -45,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -105,13 +105,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"8obdOFxxf54spJht": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oleoyEThfpP2nn2I"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"oleoyEThfpP2nn2I"
+				]
 			}
 		},
 		"description": "<p>You unleash the discipline of your magical training and let arcane power burn from your fists, consuming the material components of the spell. Until the spell ends you have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons, and on each of your turns you can use an action to make a melee spell attack against a target within 5 feet that deals 4d8 force damage on a successful hit.</p><p>For the duration, you cannot cast other spells or concentrate on other spells. The spell ends early if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end this spell early on your turn as a bonus action.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 5th- or 6th-level, the damage increases to 5d8.</p><p>When using a spell slot of 7th- or 8th-level, the damage increases to 6d8. When using a spell slot of 9th-level, the damage increases to 7d8.</p>",
@@ -150,16 +147,6 @@
 				"force",
 				"protection"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

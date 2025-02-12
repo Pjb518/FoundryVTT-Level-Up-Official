@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -27,8 +27,7 @@
     const actionId = getContext("actionId");
 
     const tools = Object.entries(CONFIG.A5E.tools)
-        .map(([_, tools]) => Object.entries(tools))
-        .flat()
+        .flatMap(([_, tools]) => Object.entries(tools))
         .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
 
     $: selectedAbility = roll.ability ?? "none";
@@ -46,8 +45,6 @@
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

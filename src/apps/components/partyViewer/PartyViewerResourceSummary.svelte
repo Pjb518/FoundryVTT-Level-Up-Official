@@ -1,34 +1,34 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+import { localize } from '#runtime/util/i18n';
 
-    export let actor;
-    export let propData = {};
+export let actor;
+export let propData = {};
 
-    function hasArtifactCharges(actor) {
-        return actor?.system?.spellResources?.artifactCharges?.max;
-    }
+function hasArtifactCharges(actor) {
+	return actor?.system?.spellResources?.artifactCharges?.max;
+}
 
-    function hasExertionPool(actor) {
-        return actor?.system?.attributes.exertion?.max;
-    }
+function hasExertionPool(actor) {
+	return actor?.system?.attributes.exertion?.max;
+}
 
-    function hasSpellPoints(actor) {
-        return actor?.system?.spellResources?.points?.max;
-    }
+function hasSpellPoints(actor) {
+	return actor?.system?.spellResources?.points?.max;
+}
 
-    const { spellLevels } = CONFIG.A5E;
+const { spellLevels } = CONFIG.A5E;
 
-    $: actorData = $actor?.system;
-    $: showArtifactCharges = hasArtifactCharges($actor);
-    $: showExertion = hasExertionPool($actor);
-    $: showSpellPoints = hasSpellPoints($actor);
+$: actorData = $actor?.system;
+$: showArtifactCharges = hasArtifactCharges($actor);
+$: showExertion = hasExertionPool($actor);
+$: showSpellPoints = hasSpellPoints($actor);
 
-    $: showResources =
-        propData.partyHasArtifactCharges ||
-        propData.partyHasExertionPool ||
-        propData.partyHasInspiration ||
-        propData.partyHasSpellPointPool ||
-        propData.highestSpellSlotLevel;
+$: showResources =
+	propData.partyHasArtifactCharges ||
+	propData.partyHasExertionPool ||
+	propData.partyHasInspiration ||
+	propData.partyHasSpellPointPool ||
+	propData.highestSpellSlotLevel;
 </script>
 
 {#if showResources}

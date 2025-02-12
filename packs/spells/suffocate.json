@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "negates"
-					},
-					"3Czjq0aul8uTo1bt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o53FydgroSEoqJJz"
 					}
 				},
 				"uses": {
@@ -58,7 +53,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"o53FydgroSEoqJJz"
+				]
 			},
 			"Fk8orgZH2GQg3cjK": {
 				"name": "Psychic Damage",
@@ -128,16 +126,6 @@
 				"arcane"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -146,9 +134,6 @@
 			"origin": "Item.ze3755jxzkq0mdne",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "977eB9k6pn5eAopV",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -175,6 +160,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

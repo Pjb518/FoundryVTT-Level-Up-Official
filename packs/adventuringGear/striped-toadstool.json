@@ -37,11 +37,6 @@
 							"bonus": "12"
 						},
 						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5UaBqRqzFKFk9i84"
+				]
 			}
 		},
 		"description": "<p><em>Common, Ingested, Onset (1 hour)</em></p><p>These red-striped mushrooms are well known as&nbsp;toxic to forest foragers. A creature makes a DC 12&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1d4+2 hours. Creatures poisoned in this way&nbsp;also have disadvantage on Wisdom checks and&nbsp;saving throws. Prior to the onset, this poison can&nbsp;be counteracted by the lesser restoration spell or&nbsp;any ability that would cure the poisoned condition.</p>",
@@ -93,16 +91,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -115,9 +103,6 @@
 			"origin": "Item.gqzbs079wsyd0tev",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
 					"duration": {
 						"unit": "hours"
 					}
@@ -166,6 +151,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

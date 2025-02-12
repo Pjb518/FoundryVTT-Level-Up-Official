@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Z7rrrY7NVhFZUiRV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "IWuG9H5vxgVZt2DD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"duration": {
 					"unit": "day",
 					"value": 1
-				}
+				},
+				"effects": [
+					"IWuG9H5vxgVZt2DD"
+				]
 			}
 		},
 		"description": "<p>It takes an hour to crush and prepare one of these warm, red roots, but when ingested they provide immunity to the effects of cold weather until the creature has taken a long rest.</p>",
@@ -92,10 +89,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"breakerProperties": [],
 		"capacity": {
 			"type": "weight",
@@ -112,10 +105,6 @@
 			"origin": "Item.qDj08OAr6a3Ytkrh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zFU9G8TKtS0Qdzn6",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -126,7 +115,10 @@
 			"img": "icons/consumables/plants/thorned-dried-stem-red.webp",
 			"_id": "IWuG9H5vxgVZt2DD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

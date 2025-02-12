@@ -7,12 +7,7 @@
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.PlvSiUCF6rKfAkeV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "s9LfjFsJQ2pAuPjA",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Courage",
@@ -42,18 +37,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.PlvSiUCF6rKfAkeV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "s9LfjFsJQ2pAuPjA",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Resistance",
@@ -76,18 +70,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.PlvSiUCF6rKfAkeV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "s9LfjFsJQ2pAuPjA",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Willpower",
@@ -117,6 +110,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -144,23 +141,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"bTyv2IGUHZvXpfmK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pSapLrJumPi6xXb4"
-					},
-					"Ob7agioVB4QIQOYg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uX7rl7dTkPhPQIkk"
-					},
-					"p7soXuqDrv50VEVJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2GqbhdJ58dSJUqhH"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -171,7 +152,12 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"pSapLrJumPi6xXb4",
+					"uX7rl7dTkPhPQIkk",
+					"2GqbhdJ58dSJUqhH"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you are able to manifest an aura that aids you and your allies. Each aura has a radius of 15 feet, is centered on you, and you must be conscious for you and your allies to benefit from it. You can have only one of the following auras active at a time, and can change which aura is active whenever you finish a long rest. At 18th level, the range of all auras increases to 30 feet.</p>\n<h2>Aura of Courage</h2>\n<p>You and allies within range cannot be frightened.</p>\n<h2>Aura of Resistance</h2>\n<p>You and allies within range of your aura gain a bonus on saving throws equal to your Charisma modifier (+1).</p>\n<h2>Aura of Willpower</h2>\n<p>You and allies within range cannot be charmed.</p>",
@@ -192,16 +178,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald"
 	},
 	"folder": null,

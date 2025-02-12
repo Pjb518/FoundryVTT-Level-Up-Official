@@ -1,0 +1,352 @@
+{
+	"folder": null,
+	"name": "Combat Knife",
+	"type": "object",
+	"img": "icons/weapons/thrown/dagger-ringed-hollow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"X581kOnYnlDtkx6N": {
+				"name": "Combat Knife",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"IiNTWFS4E5Rfy3YK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"2SnBUEtzZx13ucCb": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ihl7rg281GGOJHgp": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"f1so2lvsDJj4Mbl8": {
+				"name": "Combat Knife (Off-hand)",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"IiNTWFS4E5Rfy3YK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"2SnBUEtzZx13ucCb": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ihl7rg281GGOJHgp": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"rg8c9yX6VhZcP4e3": {
+				"name": "Combat Knife (Thrown)",
+				"activation": {},
+				"consumers": {
+					"csaVVYlZ9IqmfK6U": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"IiNTWFS4E5Rfy3YK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"2SnBUEtzZx13ucCb": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ihl7rg281GGOJHgp": {
+						"range": "short"
+					},
+					"vjd0RvCxfrFFIeEI": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"I2pFVXiTNgpOE3T4": {
+				"name": "Combat Knife (Thrown, Off-hand)",
+				"activation": {},
+				"consumers": {
+					"csaVVYlZ9IqmfK6U": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"IiNTWFS4E5Rfy3YK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"2SnBUEtzZx13ucCb": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ihl7rg281GGOJHgp": {
+						"range": "short"
+					},
+					"vjd0RvCxfrFFIeEI": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"clOLms1CoF9uQC7Y": {
+				"name": "Increase Armor Class",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"ITaqnVswTiX96x4K"
+				]
+			}
+		},
+		"description": "<p>These simple, mass-manufactured duranium blades are sturdy and practical, often carried by military forces as a backup weapon.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "2 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"dualWielding",
+			"finesse",
+			"thrown"
+		],
+		"weight": 2,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "light",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"energyProperties": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.c6AOCsXpF3LOWI4A",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive",
+			"img": "icons/weapons/thrown/dagger-ringed-hollow.webp",
+			"_id": "ITaqnVswTiX96x4K",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732228727208,
+				"modifiedTime": 1732228753965,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732228444319,
+		"modifiedTime": 1732228727236,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "s5ENPtUWFP8KQnn2"
+}

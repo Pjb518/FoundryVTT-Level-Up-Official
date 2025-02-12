@@ -21,13 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"13xrzjsoq9TKmD9N": {
-						"type": "effect",
-						"default": true,
-						"effectId": "T2tTuCaOxeVuzGAA"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +36,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 10
-				}
+				},
+				"effects": [
+					"T2tTuCaOxeVuzGAA"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Adept class</em></p><p>You root yourself in place with supernatural power. Until the spell ends, your speed becomes 0, and you automatically fail Dexterity saving throws. You gain resistance to all damage.</p><p>Also, at the start of each of your turns, roll your Martial Arts die. You gain a bonus to AC equal to the result until the beginning of your next turn..</p>",
@@ -85,16 +82,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -103,10 +90,6 @@
 			"origin": "Item.6y47bvfty8qcuaqe",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "q7X0okO5tbym9qXn",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -146,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

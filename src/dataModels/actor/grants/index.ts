@@ -10,15 +10,15 @@ import ActorSkillSpecialtyGrant from './ActorSkillSpecialtyGrant';
 import ActorTraitGrant from './ActorTraitGrant';
 
 export default {
-  base: ActorBaseGrant,
+	base: ActorBaseGrant,
 
-  bonus: ActorBonusGrant,
-  feature: ActorFeatureGrant,
-  item: ActorItemGrant,
-  exertion: ActorExertionGrant,
-  expertiseDice: ActorExpertiseDiceGrant,
-  proficiency: ActorProficiencyGrant,
-  rollOverride: ActorRollOverrideGrant,
-  skillSpecialty: ActorSkillSpecialtyGrant,
-  trait: ActorTraitGrant
+	bonus: ActorBonusGrant,
+	feature: ActorFeatureGrant,
+	item: ActorItemGrant,
+	exertion: ActorExertionGrant,
+	expertiseDice: ActorExpertiseDiceGrant,
+	proficiency: ActorProficiencyGrant,
+	rollOverride: ActorRollOverrideGrant,
+	skillSpecialty: ActorSkillSpecialtyGrant,
+	trait: ActorTraitGrant,
 };

@@ -38,11 +38,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"v6apdWnOuoOXU0LO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WIB3VqkiYAvPQvpr"
 					}
 				},
 				"uses": {
@@ -68,7 +63,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"WIB3VqkiYAvPQvpr"
+				]
 			},
 			"e76nMY4SzAKaHFAw": {
 				"name": "Break the Body",
@@ -86,13 +84,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"ZQhTxExgKVbUDorn": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N7JEbdqN19hKnSaC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -105,7 +97,10 @@
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>As a bonus action you can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>"
+				"description": "<p>As a bonus action you can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>",
+				"effects": [
+					"N7JEbdqN19hKnSaC"
+				]
 			}
 		},
 		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<h2>Break the Will</h2>\n<p>As an action you force creatures of your choice within 30 feet to make a Wisdom saving throw or be frightened of you until the end of their next turn.</p>\n<h2>Break the Body</h2>\n<p>As a bonus action you can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>",
@@ -126,16 +121,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -144,9 +129,6 @@
 			"origin": "Item.su2679UKYTG97vfZ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "gUB85rEIIFD7gUUG",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -158,7 +140,10 @@
 			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
 			"_id": "WIB3VqkiYAvPQvpr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -199,10 +184,6 @@
 			"origin": "Item.su2679UKYTG97vfZ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "e76nMY4SzAKaHFAw",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -214,7 +195,10 @@
 			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
 			"_id": "N7JEbdqN19hKnSaC",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

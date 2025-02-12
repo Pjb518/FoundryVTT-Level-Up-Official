@@ -12,8 +12,6 @@
             reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
         });
 
-        console.log(options);
-
         options.expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
             "initiative",
             options.expertiseDie ?? 0,
@@ -23,7 +21,9 @@
         options.rollMode = $actor.RollOverrideManager.getRollOverride(
             "initiative",
             options.rollMode,
-            { ability: abilityKey },
+            {
+                ability: abilityKey,
+            },
         );
 
         return options;
@@ -31,7 +31,9 @@
 
     let abilityKey = $actor.system.attributes.initiative.ability ?? "dex";
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li>
@@ -77,7 +79,7 @@
         width: 2.5rem;
         margin: auto;
         font-size: var(--a5e-text-size-xl);
-        color: var(--a5e-color-text-medium);
+        color: var(--a5e-button-gray);
         background: transparent;
         border: 0;
         cursor: pointer;
@@ -86,7 +88,7 @@
 
         &:hover {
             transform: scale(1.2);
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             box-shadow: none;
         }
 

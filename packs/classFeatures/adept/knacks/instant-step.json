@@ -7,10 +7,6 @@
 			"origin": "Item.X0FqlfWJvDpuZ9ca",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nYuEo7WyxLnPFLxX",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -54,7 +50,10 @@
 			},
 			"img": "icons/magic/lightning/bolt-forked-magenta.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -107,13 +106,10 @@
 						"unit": "feet"
 					}
 				},
-				"prompts": {
-					"2fyvVBcfF4mj8tND": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Fejfp8SOWWneAb6B"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"Fejfp8SOWWneAb6B"
+				]
 			}
 		},
 		"description": "<p>You can use an action to spend 4 exertion and choose an unoccupied space you can see within 500 feet. You teleport and arrive at exactly the spot desired. You can bring along your gear, carried items smaller than your arm, and a single creature of your size category or smaller. In addition, you become invisible until the start of your next turn.</p>",
@@ -134,16 +130,6 @@
 		"grants": {},
 		"prerequisite": "Adept Speed, 11th level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

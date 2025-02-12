@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"tPEMH4x3N80yX9FT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eHhSSkIWxbryJxfz"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -38,7 +32,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"eHhSSkIWxbryJxfz"
+				]
 			}
 		},
 		"description": "<div class=\"page\" title=\"Page 87\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>You have learned how to draw upon not just your own elemental energy, but the energy of the world around you.</p>\n<p>At 3rd level, you can use your bonus action to gather energy as long as you have a free hand. While held, the gathered energy remains inside or swirling around your hand, creating an obvious visual display, such as a burning fire ball, a swirling wind, a churning mass of rock, or a swirling orb of water. You can expend your gathered energy when you use your action to attack with elemental blast to gain temporary spell points equal to half your proficiency bonus that can only be used toward an elemental blast augmentation. These temporary spell points cannot be used to exceed your spell point casting limit.</p>\n</div>\n</div>\n</div>\n</div>",
@@ -59,16 +56,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "elementalist"
 	},
 	"effects": [
@@ -76,12 +63,7 @@
 			"icon": "icons/magic/fire/flame-burning-hand-purple.webp",
 			"origin": "Item.bzcOJgTYmueFCOAr",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "B9suC1g4MACBNff8",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Gather Energy",
@@ -104,6 +86,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

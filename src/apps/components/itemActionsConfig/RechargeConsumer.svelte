@@ -1,42 +1,42 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import handleDeterministicInput from "../../../utils/handleDeterministicInput";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import handleDeterministicInput from '../../../utils/handleDeterministicInput';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    export let consumer;
-    export let consumerId;
+export let consumer;
+export let consumerId;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    const rechargeTypes = {
-        item: "A5E.Item",
-        action: "A5E.Action",
-    };
+const rechargeTypes = {
+	item: 'A5E.Item',
+	action: 'A5E.Action',
+};
 
-    function updateType(value) {
-        if (value === "item") {
-            $item.update({
-                [`system.actions.${actionId}.consumers.${consumerId}`]: {
-                    consumeType: value,
-                    [`-=formula`]: null,
-                    [`-=threshold`]: null,
-                },
-            });
-        }
+function updateType(value) {
+	if (value === 'item') {
+		$item.update({
+			[`system.actions.${actionId}.consumers.${consumerId}`]: {
+				consumeType: value,
+				[`-=formula`]: null,
+				[`-=threshold`]: null,
+			},
+		});
+	}
 
-        if (value === "action") {
-            $item.update({
-                [`system.actions.${actionId}.consumers.${consumerId}`]: {
-                    consumeType: value,
-                    formula: "1d6",
-                    threshold: 6,
-                },
-            });
-        }
-    }
+	if (value === 'action') {
+		$item.update({
+			[`system.actions.${actionId}.consumers.${consumerId}`]: {
+				consumeType: value,
+				formula: '1d6',
+				threshold: 6,
+			},
+		});
+	}
+}
 </script>
 
 <section class="action-config__wrapper">
@@ -54,7 +54,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.consumers.${consumerId}.label`,
-                    target.value
+                    target.value,
                 )}
         />
     </div>
@@ -98,7 +98,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.formula`,
-                            target.value
+                            target.value,
                         );
                     }}
                 />
@@ -119,7 +119,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.threshold`,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
             </div>

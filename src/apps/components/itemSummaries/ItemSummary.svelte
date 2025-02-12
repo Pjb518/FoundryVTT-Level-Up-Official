@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     const fields = [
         {
@@ -33,6 +33,10 @@
         {
             field: "duration",
             label: "A5E.ItemDuration",
+        },
+        {
+            field: "savingThrow",
+            label: "A5E.ItemSavingThrow",
         },
     ];
 

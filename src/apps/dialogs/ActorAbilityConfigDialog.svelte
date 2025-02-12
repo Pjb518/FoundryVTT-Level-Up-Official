@@ -94,6 +94,5 @@
         padding: 0.75rem;
         gap: 1rem;
         overflow: auto;
-        background: $color-sheet-background;
     }
 </style>

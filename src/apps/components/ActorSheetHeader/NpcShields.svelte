@@ -13,16 +13,16 @@
         if (value === "1/2") newValue = 0.5;
         else if (value === "1/4") newValue = 0.25;
         else if (value === "1/8") newValue = 0.125;
-        else newValue = parseInt(value, 10);
+        else newValue = Number.parseInt(value, 10);
 
-        if (isNaN(newValue)) newValue = $actor.system.details.cr;
+        if (Number.isNaN(newValue)) newValue = $actor.system.details.cr;
         updateDocumentDataFromField($actor, target.name, newValue);
     }
 
     function displayCr(cr) {
         if (cr === 0.5) return "1/2";
-        else if (cr === 0.25) return "1/4";
-        else if (cr === 0.125) return "1/8";
+        if (cr === 0.25) return "1/4";
+        if (cr === 0.125) return "1/8";
 
         return cr;
     }
@@ -35,8 +35,8 @@
 
 <div class="level-container">
     {#if isElite || !sheetIsLocked}
-        <div class="level-box">
-            <label class="xp-label" for="{$actor.id}-elite">Elite</label>
+        <div class="a5e-details-box">
+            <label class="a5e-details-box__label" for="{$actor.id}-elite">Elite</label>
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -49,12 +49,12 @@
         </div>
     {/if}
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-cr">CR</label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-cr">CR</label>
 
         <input
             id="{$actor.id}-cr"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="text"
             name="system.details.cr"
             value={cr}
@@ -66,20 +66,20 @@
         />
     </div>
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-xp"> XP </label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-xp"> XP </label>
 
-        <span class="xp-input" value={xp}>
+        <span class="a5e-details-box__input" value={xp}>
             {xp}
         </span>
     </div>
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
 
         <input
             id="{$actor.id}-prof"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="number"
             value={$actor.system.attributes.prof}
             placeholder="0"
@@ -96,47 +96,7 @@
         gap: 0.25rem;
         border-radius: 4px;
         height: 100%;
-        font-family: $font-primary;
-    }
-
-    .level-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 4rem;
-        padding: 0.125rem 0;
-        color: var(--a5e-color-text-medium);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background: $color-light-background;
-        box-shadow: 0 0 5px #ccc inset;
-        z-index: 4;
-    }
-
-    .level-box {
-        width: 3rem;
-    }
-
-    .xp-input {
-        display: block;
-        height: unset;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        padding-inline: 0.125rem;
-        font-size: var(--a5e-text-size-sm);
-
-        &:active,
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-
-    .xp-label {
-        font-size: var(--a5e-text-size-xs);
+        font-family: var(--a5e-font-primary);
     }
 
     .shield-elite {
@@ -144,21 +104,22 @@
         border: 0;
         padding: 0.125rem;
         transition: var(--a5e-transition-standard);
+        color: var(--a5e-button-gray);
 
         &--unlocked {
             cursor: pointer;
 
             &:hover {
                 transform: scale(1.2);
-                color: #555;
+                color: var(--a5e-button-gray-hover);
             }
         }
 
         &--active {
-            color: #772020;
+            color: var(--a5e-button-error);
 
             &:hover {
-                color: #772020;
+                color: var(--a5e-button-error);
             }
         }
     }

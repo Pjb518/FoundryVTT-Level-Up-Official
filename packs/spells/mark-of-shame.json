@@ -29,11 +29,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"Reh1BXCUJCtHytIq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9buCyaJRlvQWUmNQ"
 					}
 				},
 				"uses": {
@@ -56,7 +51,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"9buCyaJRlvQWUmNQ"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You place a literal mark of shame upon a creature, indicating to all who see it that the creature has been condemned for some breach of character or law. When you cast this spell, you may choose to mark the affected creature for as little as an hour or up to a week.</p><p dir=\"ltr\">An affected that fails its save suffers a -2 penalty to its effective Prestige score and a 1d4 penalty to any Persuasion or Deception checks it makes while the mark remains. It also suffers disadvantage on stealth checks and cannot benefit from invisibility, as the mark is clearly visible wherever it goes.</p><p dir=\"ltr\">A creature that succeeds on its save instead suffers 2d8 points of psychic damage and is stunned until the beginning of its next turn. A creature may willingly fail its save, accepting the mark and avoiding the damage.</p><p dir=\"ltr\">This spell&rsquo;s effects can be ended early by casting remove curse or similar magic on the target.</p>",
@@ -99,16 +97,6 @@
 				"law"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -116,11 +104,7 @@
 			"icon": "icons/magic/symbols/rune-sigil-white-pink.webp",
 			"origin": "Item.sbdarwetsvc1hyn1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "purWAswTsxnfcc7P"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Mark of Shame",
@@ -156,6 +140,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -7,9 +7,6 @@
 			"origin": "Item.4B83506txdSCcT5b",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DBQN18h7FvqWZbEK",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/skills/social/wave-halt-stop.webp",
 			"_id": "kds0EZJTFMwkDLNb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
@@ -84,13 +84,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"FLEvApSOH7qg3pjy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kds0EZJTFMwkDLNb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -110,7 +104,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"kds0EZJTFMwkDLNb"
+				]
 			}
 		},
 		"description": "<p>By creating a brief diversion or signalling an enemy&rsquo;s vulnerability, your allies can strike true. You can use a bonus action and choose an ally within 30 feet who can see or hear you, granting advantage on the next ability check or attack roll they make before the start of your next turn.</p>",
@@ -131,16 +128,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "rogue",
 		"class": ""
 	},

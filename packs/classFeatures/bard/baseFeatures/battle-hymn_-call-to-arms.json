@@ -8,9 +8,6 @@
 			"origin": "Item.VSBvptAzLWTOKqY0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "T9mQYmm50UQ6by7t",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -80,14 +81,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"PJfGEIMwVRtjl6K6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NHiF2YuZEdpv57JP",
-						"label": "Battle Hymn: Call to Arms"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"NHiF2YuZEdpv57JP"
+				]
 			}
 		},
 		"description": "<p>The target can roll one additional weapon damage die with its weapon&nbsp;attacks. If the target makes at least one weapon attack on its turn and misses with all&nbsp;attacks, you can sustain this battle hymn for 1 round without expending a use of&nbsp;Bardic Inspiration.</p>",
@@ -108,16 +105,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard"
 	},
 	"folder": null,

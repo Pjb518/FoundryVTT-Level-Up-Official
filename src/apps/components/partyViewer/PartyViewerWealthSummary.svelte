@@ -1,8 +1,8 @@
 <script>
-    export let actor;
-    export const propData = {};
+export let actor;
+export const propData = {};
 
-    $: actorData = $actor?.system ?? {};
+$: actorData = $actor?.system ?? {};
 </script>
 
 {#each ["pp", "gp", "ep", "sp", "cp"] as denomination}

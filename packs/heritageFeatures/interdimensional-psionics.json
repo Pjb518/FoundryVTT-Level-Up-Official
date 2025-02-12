@@ -8,14 +8,10 @@
 			"origin": "Item.fc5sng9j3brgpx1m",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bFel1O8RT2D5CFOc",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -46,6 +42,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -130,13 +130,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"izcFVfRqJDQMFcUC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2W9PQWxEgXjiODIn"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -170,6 +164,9 @@
 				"description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p><p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"2W9PQWxEgXjiODIn"
 				]
 			},
 			"bFel1O8RT2D5CFOc": {
@@ -193,18 +190,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Gpw63XYtGOkkZmXp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3JSn5GwbNdSgD0oS"
-					},
-					"VWbl31J4qq0CmY6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "aHHw3LCmuzbvEUjG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -238,6 +224,10 @@
 				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"3JSn5GwbNdSgD0oS",
+					"aHHw3LCmuzbvEUjG"
 				]
 			}
 		},
@@ -259,16 +249,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"_id": "fc5sng9j3brgpx1m",

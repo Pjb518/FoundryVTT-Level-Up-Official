@@ -93,12 +93,6 @@
 					}
 				},
 				"prompts": {
-					"KcIlKeyKyeZ6hud9": {
-						"type": "effect",
-						"default": true,
-						"label": "Black Tentacles",
-						"effectId": "86DCodr4SzgoEb6y"
-					},
 					"7ghwBedcIUTwtt2E": {
 						"type": "savingThrow",
 						"default": true,
@@ -132,7 +126,10 @@
 					"action"
 				],
 				"description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+				"effects": [
+					"86DCodr4SzgoEb6y"
+				]
 			},
 			"WFhtyjFvSHLOajs0": {
 				"name": "Deal Additional Damage to Restrained Targets",
@@ -193,16 +190,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -211,9 +198,6 @@
 			"origin": "Item.8m17sp6akyllr3o5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -249,6 +233,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -256,9 +244,6 @@
 			"origin": "Item.8m17sp6akyllr3o5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -295,17 +280,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
 			"origin": "Item.8m17sp6akyllr3o5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "kIMKWG6qL4Rf5W7V"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Black Tentacles",
@@ -338,17 +323,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
 			"origin": "Item.8m17sp6akyllr3o5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "kIMKWG6qL4Rf5W7V"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Black Tentacles",
@@ -381,17 +366,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
 			"origin": "Item.8m17sp6akyllr3o5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "kIMKWG6qL4Rf5W7V"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Black Tentacles",
@@ -424,6 +409,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

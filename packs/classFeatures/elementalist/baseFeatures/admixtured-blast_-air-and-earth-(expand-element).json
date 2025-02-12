@@ -45,13 +45,7 @@
 						"label": ""
 					}
 				},
-				"prompts": {
-					"GsshLNwMCeEgYqaR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "H9HPeppwPfRhirWY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -74,7 +68,10 @@
 					}
 				},
 				"img": "icons/magic/earth/projectiles-stone-salvo.webp",
-				"description": "<p><span id=\"docs-internal-guid-5d0d632a-7fff-02f1-1ff9-6fe49e4762a3\"><strong>Irritating:</strong> On hit, target suffers disadvantage on Perception checks for 1 round.</span></p>"
+				"description": "<p><span id=\"docs-internal-guid-5d0d632a-7fff-02f1-1ff9-6fe49e4762a3\"><strong>Irritating:</strong> On hit, target suffers disadvantage on Perception checks for 1 round.</span></p>",
+				"effects": [
+					"H9HPeppwPfRhirWY"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-3b9d0d13-7fff-b373-76db-c463e4ae3e8c\">An Admixtured Blast combines the power of two elements into one blast. If you have two or more Elemental Affinities, you gain access to Admixtured Blasts. Admixtured blasts deal two damage types and have their own properties. Admixtured blasts can utilize augments of any of their base elements.</span></p>\n<p>&nbsp;</p>\n<p><strong>Table: Admixtured Blasts</strong></p>\n<table style=\"width: 100%; height: 117.6px;\" border=\"1\"><colgroup><col style=\"width: 16.7315%;\"><col style=\"width: 18.0934%;\"><col style=\"width: 22.5877%;\"><col style=\"width: 42.5874%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: center; height: 16.8px;\">Affinity</td>\n<td style=\"text-align: center; height: 16.8px;\">Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Damage</td>\n<td style=\"text-align: center; height: 16.8px;\">Properties</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: center; height: 16.8px;\">Air/Earth</td>\n<td style=\"text-align: center; height: 16.8px;\">Sand Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Slashing and<br>Piercing</td>\n<td style=\"height: 16.8px;\">Irritating: On hit, target suffers disadvantage on Perception checks for 1 round.</td>\n</tr>\n</tbody>\n</table>",
@@ -95,10 +92,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "elementalist"
 	},
 	"effects": [
@@ -107,9 +100,6 @@
 			"origin": "Item.XF7Hity9tQC2S5z7",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fkNHL3pfIxEN9TPJ",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -144,6 +134,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

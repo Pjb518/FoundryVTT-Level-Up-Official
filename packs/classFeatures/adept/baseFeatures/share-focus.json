@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.gZaCUtkTVF665MyX",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vQAovfdR2eJtb1pk"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Shared Focus",
 			"img": "icons/magic/control/energy-stream-link-large-blue.webp",
 			"_id": "JVCIKMgiFz5gPMIJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -84,13 +83,10 @@
 						"type": "itemUses"
 					}
 				},
-				"prompts": {
-					"9X6luHRuRiR1ZcDa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JVCIKMgiFz5gPMIJ"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"JVCIKMgiFz5gPMIJ"
+				]
 			}
 		},
 		"description": "<p>As an action, choose a creature. That creature can add your martial arts die to its next saving throw. You can&rsquo;t use this feature again until you finish a rest.</p>",
@@ -111,16 +107,6 @@
 		"grants": {},
 		"prerequisite": "11th level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept",
 		"class": ""
 	},

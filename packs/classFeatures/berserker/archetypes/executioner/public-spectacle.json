@@ -35,16 +35,6 @@
 							"type": "maneuver"
 						},
 						"onSave": "Half damage and rattles"
-					},
-					"8ol57c6MY7crsC3H": {
-						"type": "effect",
-						"default": true,
-						"effectId": "lif8IhxrMIvMeWO9"
-					},
-					"I3RxKmGJy1uIiWfK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bTfLyeqkJNLFmBD4"
 					}
 				},
 				"uses": {
@@ -68,7 +58,11 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"lif8IhxrMIvMeWO9",
+					"bTfLyeqkJNLFmBD4"
+				]
 			}
 		},
 		"description": "<p>At 6th level, whenever you kill a creature with @UUID[Compendium.a5e.a5e-class-features.Item.5u9ryymp8zndum2i]{Headsman&rsquo;s Cut}, you may snatch up its head and hold it aloft as part of the attack, causing hostile creatures within 30 feet of you to make a Wisdom saving throw. Creatures that fail their saving throw take 2d6 psychic damage and are frightened of you for one minute. Creatures that succeed take half as much damage and are rattled until the beginning of your next turn. A frightened creature can repeat the save at the end of each of its turns, ending the frightened condition on a success. Once a creature has successfully saved against this feature, it has advantage on future saves against it for the rest of combat, and future successes avoid the damage entirely rather than halving it.</p>",
@@ -89,16 +83,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -108,9 +92,6 @@
 			"origin": "Item.CsXen9WlueZ75CpJ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ndWDr5md0fBfSYmI",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -121,7 +102,10 @@
 			"img": "icons/skills/social/intimidation-impressing.webp",
 			"_id": "lif8IhxrMIvMeWO9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -162,9 +146,6 @@
 			"origin": "Item.CsXen9WlueZ75CpJ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ndWDr5md0fBfSYmI",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -176,7 +157,10 @@
 			"img": "icons/skills/social/intimidation-impressing.webp",
 			"_id": "bTfLyeqkJNLFmBD4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

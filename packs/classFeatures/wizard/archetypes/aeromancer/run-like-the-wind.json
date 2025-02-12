@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"AdvmlFjBTc0nc3pb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BoQo05sjCnh4vxYw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"BoQo05sjCnh4vxYw"
+				]
 			}
 		},
 		"description": "<p>When you select this archetype at 2nd level beneficial winds aid in your movement as you weave your magic. Whenever you cast a spell of 1st level or higher you movement speed is increased by 10 feet and attacks of opportunity have disadvantage against you until the end of your next turn. This ability does not function while in a vacuum, underwater, or otherwise not surrounded by air.</p>",
@@ -57,16 +54,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wizard",
 		"class": ""
 	},
@@ -75,10 +62,6 @@
 			"origin": "Item.WJ8KVAshXCMSfr3z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "i4Lz5RzAdtCTGIxV",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -90,7 +73,10 @@
 			"img": "icons/skills/movement/feet-winged-boots-blue.webp",
 			"_id": "BoQo05sjCnh4vxYw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

@@ -44,11 +44,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"1PrSWW2SF0ItabE3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4vJQrzoViU44Ncs7"
 					}
 				},
 				"uses": {
@@ -76,7 +71,10 @@
 						"mode": "spellLevel",
 						"formula": "1"
 					}
-				}
+				},
+				"effects": [
+					"4vJQrzoViU44Ncs7"
+				]
 			},
 			"wrDa0IoIXvd8Rizd": {
 				"name": "Bonus Damage",
@@ -196,16 +194,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -213,9 +201,6 @@
 			"origin": "Item.6DvCshIDiPiKF5ju",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KmZVOWkm9HEtq8eB",
 					"duration": {
 						"unit": "hours"
 					}
@@ -226,7 +211,10 @@
 			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
 			"_id": "4vJQrzoViU44Ncs7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

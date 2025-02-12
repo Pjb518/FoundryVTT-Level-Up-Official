@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
@@ -61,17 +61,17 @@
         const chatData = {
             author: game.user?.id,
             speaker: ChatMessage.getSpeaker({ actor }),
-            flags: {
-                a5e: {
-                    actorId: actor.uuid,
-                    cardType: "rollTableOutput",
-                    itemDescription: result?.text,
-                    img: critTable?.img,
-                    name: critTable?.name,
-                    actionName: result?.flags?.title,
-                },
+            rolls: [rollOutcome.roll],
+            system: {
+                actorId: actor.uuid,
+                actorName: actor.name,
+                description: result?.text,
+                img: critTable?.img,
+                tableName: critTable?.name,
+                tableId: critTable.uuid,
+                resultTitle: result?.flags?.title,
             },
-            content: "<article></article>",
+            type: "rollTableOutput",
         };
 
         ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
@@ -97,7 +97,7 @@
     let showRollConfig = false;
 
     const message = getContext("message");
-    const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+    const actor = fromUuidSync($message?.system.actorId);
     const { user } = game;
 
     $: isCriticalFailure = determineIfCriticalFailure(roll);
@@ -119,7 +119,7 @@
 
     <header class="roll-header">
         <h3 class="roll-label">
-            {rollData.label}
+            {rollData.label || "Result"}
         </h3>
 
         {#if !showRollConfig && (rollData.expertiseDice || rollData.rollMode || rollData.userLabel)}
@@ -158,6 +158,10 @@
     {/if}
 </div>
 
+{#if showRollConfig}
+    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
+{/if}
+
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}>
@@ -174,10 +178,6 @@
     {/if}
 {/if}
 
-{#if showRollConfig}
-    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
-{/if}
-
 <style lang="scss">
     .roll {
         position: relative;
@@ -189,7 +189,7 @@
         width: 2.5rem;
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
-        border: 0.5px solid var(--a5e-roll-color, #ccc);
+        border: 0.5px solid var(--a5e-roll-color, var(--a5e-chat-card-border-color));
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
@@ -206,12 +206,12 @@
 
         &--max {
             --a5e-roll-color: #97ae8f;
-            color: #18520b;
+            color: var(--a5e-chat-card-roll-color-max);
         }
 
         &--min {
             --a5e-roll-color: #f0b5b5;
-            color: #aa0200;
+            color: var(--a5e-chat-card-roll-color-min);
         }
 
         &--wide {
@@ -253,7 +253,7 @@
         line-height: 1;
         color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-chat-card-border-color);
         border-radius: var(--a5e-border-radius-standard);
 
         transition: var(--a5e-transition-standard);

@@ -8,9 +8,6 @@
 			"origin": "Item.hspbv9emhrtoulnf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "COq2RAnTSNoBlEn1",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -76,6 +73,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -116,11 +117,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"2w2vB53LSVp60Si5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uSWdUVo1KS5blnPN"
 					}
 				},
 				"consumers": {
@@ -130,7 +126,10 @@
 						"points": 2,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"uSWdUVo1KS5blnPN"
+				]
 			}
 		},
 		"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional creature for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Unnerving Bane</strong>. Targets affected by this spell are rattled.</p>",
@@ -165,16 +164,6 @@
 			"secondary": [
 				"affliction"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

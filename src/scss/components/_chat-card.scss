@@ -1,0 +1,200 @@
+.a5e-chat-card {
+  padding: 0;
+  background: var(--a5e-chat-card-background) !important;
+  color: var(--a5e-chat-card-color) !important;
+  border: 0;
+
+  &--background-regular {
+    background: var(--a5e-chat-card-background) !important;
+  }
+
+  &--background-blind {
+    background: var(--a5e-chat-card-background-blind) !important;
+  }
+
+  &--background-whisper {
+    background: var(--a5e-chat-card-background-whisper) !important;
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &__body {
+    border: 1px solid var(--a5e-user-background-color);
+    border-top: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.25rem;
+    padding-inline: 0.25rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    &__header {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+      align-items: center;
+      padding-bottom: 0.275rem;
+      border-bottom: 1px solid var(--a5e-chat-card-border-color);
+
+      &__img {
+        width: 3rem;
+        aspect-ratio: 1 / 1;
+      }
+
+      &__title-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__title {
+        color: var(--a5e-chat-card-color);
+        margin-bottom: 0;
+        border-bottom: 0;
+        text-overflow: ellipsis;
+      }
+
+      &__subtitle {
+        font-size: var(--a5e-text-size-sm);
+        color: darken-color(var(--a5e-chat-card-color), 5);
+        margin-block: 0;
+        margin-left: 0.5rem;
+        font-style: italic;
+        border-bottom: 0;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &__footer {
+    /** background-color: var(--a5e-color-background-light); **/
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-areas: 'image title time deleteButton';
+    grid-template-columns: 2rem 1fr max-content max-content;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 0;
+    background: url('/systems/pf2e/assets/sheet/background.webp');
+    background-size: cover;
+    background-color: var(--a5e-user-background-color);
+    background-blend-mode: multiply;
+    /** padding: 0.25rem 0.5rem; **/
+    padding-left: 0.25rem;
+    padding-right: 0.5rem;
+    padding-block: 0.25rem;
+    font-size: var(--a5e-text-size-sm);
+    color: var(--a5e-user-text-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid var(--a5e-user-background-color);
+
+    &--item {
+      grid-template-areas: 'image title time buttons';
+      grid-template-columns: 2rem 1fr max-content max-content;
+      row-gap: 0;
+    }
+
+    &--item-subtitle {
+      grid-template-areas:
+        'image title time buttons'
+        'image subtitle time buttons';
+      grid-template-columns: 2rem 1fr max-content max-content;
+      row-gap: 0;
+    }
+
+    &--roll {
+      grid-template-areas: 'image title time buttons';
+      grid-template-columns: 2rem 1fr max-content max-content;
+    }
+
+    &__title {
+      color: var(--a5e-user-text-color);
+      grid-area: title;
+      margin-bottom: 0;
+      text-overflow: ellipsis;
+    }
+
+    &__subtitle {
+      font-size: var(--a5e-text-size-xs);
+      color: darken-color(var(--a5e-user-text-color), 5);
+      grid-area: subtitle;
+      margin-bottom: 0;
+      margin-left: 0.125rem;
+      text-overflow: ellipsis;
+    }
+
+    &__time {
+      grid-area: time;
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-area: buttons;
+      gap: 0.275rem;
+    }
+
+    &__button--delete {
+      transition: var(--a5e-transition-standard);
+
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: none;
+      }
+    }
+
+    &__button--crit-toggle {
+      background: transparent;
+      border: 0;
+      color: var(--a5e-user-text-color);
+      /** grid-area: critToggle; **/
+      padding: 0;
+      transition: var(--a5e-transition-standard);
+
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: none;
+      }
+
+      &--crit {
+        /** TODO: Update this style **/
+        color: lighten-color(var(--a5e-color-error), 45);
+
+        &:hover {
+          color: #fedd9e;
+        }
+      }
+    }
+
+    &__button--repeat {
+      color: var(--a5e-user-text-color);
+      background: transparent;
+      padding: 0;
+      border: 0;
+      transition: var(--a5e-transition-standard);
+
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: none;
+      }
+    }
+
+    &__img {
+      width: 2rem;
+      height: 2rem;
+      grid-area: image;
+      border: 0;
+      border-radius: 4px;
+    }
+  }
+}

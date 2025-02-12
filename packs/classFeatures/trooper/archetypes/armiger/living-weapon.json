@@ -1,0 +1,174 @@
+{
+	"folder": null,
+	"name": "Living Weapon",
+	"type": "feature",
+	"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
+	"system": {
+		"description": "<p>At 18th level, the connection you share with your weapons deepens to an almost supernatural level. You can use a bonus action to expend up to 3 Hit Dice. Instead of regaining hit points, you channel your will into a @UUID[Compendium.a5e.a5e-class-features.Item.vKckTQevhrZgeJJ9]{Favored Ordnance} weapon you are holding. For each Hie Die you expend, you gain a +1 bonus to attack and damage rolls you make with the weapon. This bonus lasts for 1 minute or until you no longer hold the weapon, fall unconscious, or use this ability again.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"bKHWYJmxaDl51l33": {
+				"name": "Living Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"effects": [
+					"diIbI2Q4n9jWxu2r"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "trooper",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.dQhcOgPzTpnr2paf",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Living Weapon (1 Hit Die)",
+			"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
+			"_id": "diIbI2Q4n9jWxu2r",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.hitDice.d10.current",
+					"value": "1",
+					"mode": 3,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Living Weapon\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":false,\"img\":\"icons/skills/melee/maneuver-greatsword-yellow.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Living Weapon\",\"formula\":\"1\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/melee/maneuver-greatsword-yellow.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can use a bonus action to expend up to 3 Hit Dice. Instead of regaining hit points, you channel your will into a favored ordnance weapon you are holding. For each Hie Die you expend, you gain a +1 bonus to attack and damage rolls you make with the weapon. This bonus lasts for 1 minute or until you no longer hold the weapon, fall unconscious, or use this ability again.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1734715516291,
+				"modifiedTime": 1734715682198,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1734715404801,
+		"modifiedTime": 1734715642654,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "pyt3OJHNGVqJTAGU"
+}

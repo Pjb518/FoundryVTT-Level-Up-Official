@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"TM43zN8Do1B9mAkt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xYlRdOlpuSlFNBLB"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"xYlRdOlpuSlFNBLB"
+				]
 			},
 			"FyN8omJs8DQKGTdv": {
 				"name": "Augury",
@@ -110,10 +107,6 @@
 		"grants": {},
 		"prerequisite": "5th Level, Meditation",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "adept"
 	},
@@ -121,12 +114,7 @@
 		{
 			"origin": "Item.rCZuQ99TamtFACah",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sgXQFuOoxtj9XYhL",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Spiritual Communion",
@@ -164,7 +152,10 @@
 			},
 			"img": "icons/magic/control/silhouette-aura-energy.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

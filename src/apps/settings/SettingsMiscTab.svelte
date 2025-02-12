@@ -1,47 +1,40 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    const isGM = game.user.isGM;
+const isGM = game.user.isGM;
 
-    const actionTypeOptions = [
-        ["system", "System Defined"],
-        ["action", "New Action"],
-        ["item", "Item Name"],
-    ];
+const actionTypeOptions = [
+	['system', 'System Defined'],
+	['action', 'New Action'],
+	['item', 'Item Name'],
+];
 
-    // Stores
-    let actionNameType = settings.getStore("newActionNameType");
-    let fancySheetsAutoApply = settings.getStore("autoApplyFancySheets");
-    let gamemasterTitle = settings.getStore("gamemasterTitle");
-    let showLimitedDesc = settings.getStore("showDescriptionOnLimitedPerms");
+// Stores
+let actionNameType = settings.getStore('newActionNameType');
+let fancySheetsAutoApply = settings.getStore('autoApplyFancySheets');
+let gamemasterTitle = settings.getStore('gamemasterTitle');
+let showLimitedDesc = settings.getStore('showDescriptionOnLimitedPerms');
 
-    let cascadingDamageAndHealingDelay = settings.getStore(
-        "cascadingDamageAndHealingDelay",
-    );
+let cascadingDamageAndHealingDelay = settings.getStore('cascadingDamageAndHealingDelay');
 
-    let enableCascadingDamageAndHealing = settings.getStore(
-        "enableCascadingDamageAndHealing",
-    );
+let enableCascadingDamageAndHealing = settings.getStore('enableCascadingDamageAndHealing');
 
-    let newCascadingDamageAndHealingDelay =
-        updates.get("cascadingDamageAndHealingDelay") ??
-        $cascadingDamageAndHealingDelay;
+let newCascadingDamageAndHealingDelay =
+	updates.get('cascadingDamageAndHealingDelay') ?? $cascadingDamageAndHealingDelay;
 
-    let selectedNamingMode =
-        updates.get("newActionNameType") ?? $actionNameType ?? "system";
+let selectedNamingMode = updates.get('newActionNameType') ?? $actionNameType ?? 'system';
 
-    let selectedGamemasterTitle =
-        updates.get("gamemasterTitle") ?? $gamemasterTitle;
+let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle;
 </script>
 
 {#if isGM}

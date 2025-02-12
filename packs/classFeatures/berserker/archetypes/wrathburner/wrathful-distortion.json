@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"TGa5ccbjMnfPSEyY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "RucPsT4fH40zeBXK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"RucPsT4fH40zeBXK"
+				]
 			},
 			"arEQlPc6OTevZAhc": {
 				"name": "Etherealness",
@@ -111,16 +108,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -128,12 +115,7 @@
 		{
 			"origin": "Item.SggDEKBqw2HswSsr",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "87ooKtFeLoluYUJt",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Wrathful Distortion",
@@ -163,7 +145,10 @@
 			},
 			"img": "icons/magic/movement/trail-streak-impact-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -47,18 +47,15 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"jfHLcrTBkuEiXzOI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OsLCzk6W3KoMJm3e"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
 					"per": "shortRest"
-				}
+				},
+				"effects": [
+					"OsLCzk6W3KoMJm3e"
+				]
 			},
 			"J6QFBHPEEuioOuSn": {
 				"name": "Gain Necrosis Die",
@@ -155,16 +152,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},
@@ -173,9 +160,6 @@
 			"origin": "Item.RFyeBm5GnOZKs8Bu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Pt7rJ2p16GyopyL0",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -186,7 +170,10 @@
 			"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
 			"_id": "OsLCzk6W3KoMJm3e",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

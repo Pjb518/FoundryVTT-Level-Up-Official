@@ -22,13 +22,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"9fO7QePwl0Z7EYGN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "I8f7ehyV9dBvgagb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -39,7 +33,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"I8f7ehyV9dBvgagb"
+				]
 			},
 			"uOOhbN63EuOCZv0G": {
 				"name": "Ongoing Damage",
@@ -89,16 +86,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -106,19 +93,17 @@
 		{
 			"origin": "Item.M7I0cSLfxzUgRUUJ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2vOt6GVp4pTtqgbh",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Volcanic Weapon",
 			"img": "icons/commodities/stone/stone-chunk-teal.webp",
 			"_id": "I8f7ehyV9dBvgagb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

@@ -1,0 +1,273 @@
+{
+	"folder": null,
+	"name": "Pulse Rifle",
+	"type": "object",
+	"img": "icons/weapons/guns/gun-worn-steel.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TisIaejZfKvYvHsE": {
+				"name": "Pulse Rifle",
+				"activation": {},
+				"consumers": {
+					"n0hRea5a63qrGbs6": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"c1Xu0HE7oSiQPse6": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"6L3VH4XUOlj4lcSi": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "2d6 + @dex.mod",
+						"damageType": "fire"
+					},
+					"wAVqyHxSm4YgRJyO": {
+						"type": "damage",
+						"default": false,
+						"label": "Supercharged",
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"JDLK37Xnot3rKhrU": {
+						"range": "long",
+						"unit": "feet"
+					},
+					"AqIUPt1rGqGsdEB2": {
+						"range": 360,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"5bQGA9NmBGa33NVC": {
+				"name": "Supercharge",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"OkIxOGgcgwvUM9Tj": {
+				"name": "Burst Fire",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"QgVx1oswu6w0Puez": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 10
+					}
+				},
+				"rolls": {
+					"sSyM9PU7Iy17GahJ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6 + @dex.mod",
+						"damageType": "fire"
+					},
+					"lau6aprOIA978UmB": {
+						"type": "damage",
+						"default": false,
+						"label": "Supercharged",
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"Y1IUlK1SYU20vccc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"K4jx3CGV0bzRl9pV": {
+						"range": "long",
+						"unit": "feet"
+					},
+					"82Ddt4oOeBCyQnLE": {
+						"range": 360,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				}
+			},
+			"hqoPDVnxrcmENM0G": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"VGYXEVBguMCVwQQi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					},
+					"8XqtUdHOs7YIrDYm": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Standard issue military fare, a pulse rifle is an automatic weapon which fires plasma bolts.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "135 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"burstFire",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 7,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "plasma",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"burst",
+			"energy"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732312882403,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dEz8qmwl1jfe74gn"
+}

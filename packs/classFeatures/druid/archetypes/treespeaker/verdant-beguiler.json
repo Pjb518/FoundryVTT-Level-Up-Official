@@ -7,12 +7,9 @@
 			"origin": "Item.zf1kpjwhg9fabe01",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "CYBScgC8TOdZTsMv"
+					}
 				}
 			},
 			"transfer": false,
@@ -51,7 +48,10 @@
 			},
 			"img": "icons/magic/control/control-influence-puppet.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		}
@@ -218,16 +218,6 @@
 		"grants": {},
 		"prerequisite": "Verdant Beauty",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "druid",
 		"class": ""
 	},

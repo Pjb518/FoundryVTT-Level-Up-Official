@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"stec08ri18JGnG9S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "w2HPiAkvFwpZvPPu"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"w2HPiAkvFwpZvPPu"
+				]
 			},
 			"cHbenuNUHil2CMFY": {
 				"name": "Petrify",
@@ -57,13 +54,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"lqgzuO69V4QP4306": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yWB2PerwA8AutNMO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -74,7 +65,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"yWB2PerwA8AutNMO"
+				]
 			}
 		},
 		"description": "<p>At 18th level, you perfect your connection to earth and stone. When you cast a spell from the earth school (or that has &ldquo;earth&rdquo; or &ldquo;stone&rdquo; in its name) that has a casting time of 1 action, you can cast it as a bonus action instead.</p><p>Additionally, you gain tremorsense to a range of 60 feet. If you are touching unworked stone, you can use an action to expand your consciousness through it, increasing your tremorsense to a range of 500 feet until the start of your next turn. This provides you with insight into the layout of nearby caves and any creatures on the ground in that area.</p><p>Finally, you can use an action to magically&nbsp;petrify</span>&nbsp;yourself. While petrified in this way, you are aware of your surroundings and immune to all damage. You do not age, nor do you need to eat, sleep, or drink. While petrified in this way, you aren&rsquo;t&nbsp;<span>incapacitated, but you can&rsquo;t take actions or reactions except to end this petrification as an action. You can&rsquo;t be petrified by any other effect, unless you choose to be.</p>",
@@ -110,16 +104,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -127,10 +111,7 @@
 		{
 			"origin": "Item.CqeWQqhGOiF4kCpE",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tremorsense (60 ft.)",
@@ -167,7 +148,10 @@
 			},
 			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -176,14 +160,10 @@
 			"origin": "Item.CqeWQqhGOiF4kCpE",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "A2GqDz0J2zORuPsL",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -221,7 +201,10 @@
 			},
 			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -229,19 +212,17 @@
 		{
 			"origin": "Item.CqeWQqhGOiF4kCpE",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cHbenuNUHil2CMFY",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Petrified",
 			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
 			"_id": "yWB2PerwA8AutNMO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -43,11 +43,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage and not deafened"
-					},
-					"j0Wdm0mN6kz8wTDx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DKJzW8VtTgTbpxAA"
 					}
 				},
 				"uses": {
@@ -76,7 +71,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"DKJzW8VtTgTbpxAA"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you learn to use sound not just as a tool, but as a weapon. As an action, you can emit a powerful blast of sound in a 15-foot cone. Creatures caught in the blast must make a Constitution&nbsp;save</span>&nbsp;against your&nbsp;spell save&nbsp;DC. On a failed saving throw, the target takes 2d8 thunder damage and is&nbsp;<span>deafened until the end of its next turn. On a success, the target takes half damage and isn&rsquo;t deafened. The damage increases to 3d8 at level 11. At 17th level, the damage increases to 4d8 and the blast becomes a 30-foot cone.</p>",
@@ -97,16 +95,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "bard",
 		"class": ""
 	},
@@ -115,9 +103,6 @@
 			"origin": "Item.bjNdSEkx807mdz45",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wqM64OeM4wspgSRL",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -129,7 +114,10 @@
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "DKJzW8VtTgTbpxAA",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

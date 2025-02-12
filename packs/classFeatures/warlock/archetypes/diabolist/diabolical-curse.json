@@ -7,9 +7,6 @@
 			"origin": "Item.MK4taNmOPpg5Fwch",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TdXd11cen5Hbzb3n",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/symbols/runes-triangle-orange.webp",
 			"_id": "0qm44clE9DicV7TW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -93,13 +93,10 @@
 						"type": "itemUses"
 					}
 				},
-				"prompts": {
-					"9Yr0X38x94MmxGXi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0qm44clE9DicV7TW"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"0qm44clE9DicV7TW"
+				]
 			},
 			"F9nKhI5eo9kLosAj": {
 				"name": "Creature Dies",
@@ -192,16 +189,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},

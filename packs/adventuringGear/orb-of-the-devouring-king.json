@@ -214,12 +214,6 @@
 					}
 				},
 				"prompts": {
-					"KcIlKeyKyeZ6hud9": {
-						"type": "effect",
-						"default": true,
-						"label": "Black Tentacles",
-						"effectId": "jtHRTP4hsdLzVW3U"
-					},
 					"7ghwBedcIUTwtt2E": {
 						"type": "savingThrow",
 						"default": true,
@@ -251,7 +245,10 @@
 					"action"
 				],
 				"description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+				"effects": [
+					"jtHRTP4hsdLzVW3U"
+				]
 			},
 			"wHmMd8QukN7EuzE0": {
 				"name": "Black Tentacles (Deal Additional Damage to Restrained Targets)",
@@ -529,16 +526,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -550,10 +537,7 @@
 			"icon": "icons/commodities/biological/organ-heart-pink.webp",
 			"origin": "Item.ox3m78syx29bh1au",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Attuned (Intelligence)",
@@ -590,16 +574,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/commodities/biological/organ-heart-pink.webp",
 			"origin": "Item.ox3m78syx29bh1au",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Attuned (Charisma)",
@@ -636,6 +621,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

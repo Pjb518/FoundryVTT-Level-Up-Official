@@ -40,11 +40,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"2DadoyVAf9cbGD51": {
-						"type": "effect",
-						"default": true,
-						"effectId": "15RFTPq3qnvV4jTL"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 					"VUOXA6BLMPKZ8sAG": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"15RFTPq3qnvV4jTL"
+				]
 			}
 		},
 		"description": "<p>The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon glows with purifying light, and the attack deals an extra 1d6 radiant damage to the target. For the duration of the spell, creatures who make saving throws against ongoing negative effects originating from the target have advantage on those saving throws. Additionally, if the target is a Fiend or an Undead, it must make a Wisdom saving throw. On a failed save, it is restrained until the end of its next turn.</p><p><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. If you cast this spell using a spell slot of 4th level or higher, the target is also subject to your choice of either a&nbsp;<em>@UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} </em>or a&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} effect. This secondary effect replicates a spell slot one level lower than the one used to cast the spell. For example, when casting Purifying Strike with a 4th-level spell slot, the <em>remove curse</em> effect behaves as if it was cast with a 3rd-level spell slot.</p>",
@@ -106,16 +104,6 @@
 				"weaponry"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -124,9 +112,6 @@
 			"origin": "Item.dsp3b0iudb80rm96",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "y36KDHtvfQKDOoki",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -163,6 +148,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

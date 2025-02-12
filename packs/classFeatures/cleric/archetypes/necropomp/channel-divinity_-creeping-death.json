@@ -48,11 +48,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"CQPTkIbqG9AxFDuY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "55pPSWrYoK9GVSti"
 					}
 				},
 				"uses": {
@@ -76,7 +71,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"55pPSWrYoK9GVSti"
+				]
 			}
 		},
 		"description": "<p>At 2nd level you may use your Channel Divinity to mark a creature you can see within 30 feet for death. This mark lasts for 1 minute. The marked creature cannot regain hit points and dies if reduced to 0 hit points. At the start of each of their turns they must make a Constitution saving throw or take 2d4 necrotic damage. This damage increases to 2d6 at level 8 and 2d8 at level 17. If a creature dies while so marked, you may choose to have the mark jump to a new creature if your choice you can see within 30 feet of the creature that died. If you do so, increase the remaining duration by a number of rounds equal to your Wisdom modifier to a maximum of 1 minute. A @UUID[Compendium.a5e.a5e-spells.Item.2fn904xje78xc7de]{Greater Restoration}, @UUID[Compendium.a5e.a5e-spells.Item.i4869qu4aokvlvxr]{Heal}, @UUID[Compendium.a5e.a5e-spells.Item.rcodaq0qz6lz0vop]{Mass Heal}, or similar magic ends the effect on a creature.</p>",
@@ -97,16 +95,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -115,9 +103,6 @@
 			"origin": "Item.AGKPfuPnN0ydiIdi",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KZaTvsOTztftn3Z3",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -128,7 +113,10 @@
 			"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
 			"_id": "55pPSWrYoK9GVSti",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

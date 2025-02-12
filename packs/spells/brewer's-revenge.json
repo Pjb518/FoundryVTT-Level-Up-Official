@@ -21,23 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"1ggIfDPbcjt22JT0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t1feBKT3W7JD6fo4"
-					},
-					"SNW6JGd1gm1MoqeR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3lCtDLtw7VQM76ZT"
-					},
-					"AJvXWa1gPpYxEZyu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MvWmRJzOj3U6jzib"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -60,7 +44,12 @@
 				"target": {
 					"type": "other",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"t1feBKT3W7JD6fo4",
+					"3lCtDLtw7VQM76ZT",
+					"MvWmRJzOj3U6jzib"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-ecd1bea4-7fff-1e07-8f59-0d6b4ed91d2d\" dir=\"ltr\">You reach out and touch a beverage that isn&rsquo;t plain water such as tea, ale, or wine, imbuing it with magical properties for the next hour. Choose one of the following effects. A creature who consumes the beverage must succeed on a Constitution saving throw versus your spell save DC or gain that effect. The effect lasts for 1 minute, after which the creature returns to normal:</p><p dir=\"ltr\"><strong>Hiccups.</strong> The target creature is overcome with hiccups for the next minute. All spells that require a verbal component are cast at disadvantage. If the spell requires the target to make a saving throw against it, that save is made with advantage.</p><p dir=\"ltr\"><strong>Unsteady.</strong> The creature&rsquo;s speed is halved as they are unable to walk in a straight line, no matter how hard they try. They also have disadvantage on initiative rolls.</p><p dir=\"ltr\"><strong>Cross-Eyed.</strong> The creature&rsquo;s vision goes blurry, making it harder for them to see straight. Melee attack rolls are made at disadvantage.</p><p dir=\"ltr\">If a creature can see you touch their beverage as a part of casting this spell, they make their save at advantage.</p>",
@@ -100,16 +89,6 @@
 				"hearth"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -118,9 +97,6 @@
 			"origin": "Item.tksrs8omfz8isxcf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -147,6 +123,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -154,9 +134,6 @@
 			"origin": "Item.tksrs8omfz8isxcf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -220,6 +197,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -227,9 +208,6 @@
 			"origin": "Item.tksrs8omfz8isxcf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -269,6 +247,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

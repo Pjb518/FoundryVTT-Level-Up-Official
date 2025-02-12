@@ -38,7 +38,9 @@
     }
 
     $: spellResources = $actor.system.spellResources;
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
     $: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
 </script>
@@ -141,6 +143,7 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: center;
         font-size: var(--a5e-text-size-xs);
+        color: var(--a5e-color-text-white);
 
         &:active,
         &:focus {

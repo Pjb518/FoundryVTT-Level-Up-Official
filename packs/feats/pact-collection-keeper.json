@@ -33,13 +33,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"TThE0eTpIQy4CNSa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Xyo027vxEOa0f3hM"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -54,7 +48,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"Xyo027vxEOa0f3hM"
+				]
 			},
 			"CcPzQilOfMWGf147": {
 				"name": "Imbue Weapon (Artifact Charge)",
@@ -74,13 +71,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"TThE0eTpIQy4CNSa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sb1G0e52yRQUhrJD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -95,7 +86,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"sb1G0e52yRQUhrJD"
+				]
 			},
 			"dsLDp5lgd0mfJ1NX": {
 				"name": "Charged Exertion",
@@ -141,10 +135,6 @@
 		"grants": {},
 		"prerequisite": "Pactbound Custodian feat, Pact of the Blade, Bonded Artifact is a Font of Power",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -152,17 +142,17 @@
 		{
 			"origin": "Item.OEUYtMyZtCD51WlD",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Wield Pact Weapon and Bonded Artifact",
 			"img": "icons/magic/symbols/star-rising-purple.webp",
 			"_id": "lQxm6uximYwQaUaq",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.bonuses.maneuverDC",
@@ -201,10 +191,6 @@
 			"origin": "Item.OEUYtMyZtCD51WlD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eFpqQHKmbqtSvWKC",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -215,7 +201,10 @@
 			"img": "icons/magic/symbols/star-rising-purple.webp",
 			"_id": "Xyo027vxEOa0f3hM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -254,10 +243,6 @@
 			"origin": "Item.OEUYtMyZtCD51WlD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CcPzQilOfMWGf147",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -268,7 +253,10 @@
 			"img": "icons/magic/symbols/star-rising-purple.webp",
 			"_id": "sb1G0e52yRQUhrJD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

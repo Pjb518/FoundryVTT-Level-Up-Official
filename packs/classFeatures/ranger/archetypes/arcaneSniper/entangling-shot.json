@@ -30,11 +30,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"FI6o83drPUtiNn2g": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gcg1yBBPwGw0bvOd"
 					}
 				},
 				"uses": {
@@ -54,6 +49,9 @@
 				"description": "<p>When this ammunition impacts its target, the target takes weapon damage as normal and must make a Strength save against your spell save DC. A creature that fails is grappled for one minute. The escape DC is equal to your spell save DC. A creature that succeeds is not grappled.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"gcg1yBBPwGw0bvOd"
 				]
 			}
 		},
@@ -75,16 +73,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "ranger",
 		"class": ""
 	},
@@ -93,9 +81,6 @@
 			"origin": "Item.wf5RDKOOiQr7QBTN",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EZrszZT7nrair5RJ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -106,7 +91,10 @@
 			"img": "icons/magic/nature/root-vine-entangled-hand.webp",
 			"_id": "gcg1yBBPwGw0bvOd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

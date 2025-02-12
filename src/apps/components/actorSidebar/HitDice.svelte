@@ -10,6 +10,7 @@
 
 <li class="hit-dice-wrapper">
     <h4 class="hit-die-label">Hit Dice</h4>
+
     <div
         class="hit-dice"
         data-tooltip="A5E.HitDiceRemaining"
@@ -27,7 +28,6 @@
     >
         <g
             transform="translate(0.000000,1189.000000) scale(0.100000,-0.100000)"
-            fill="rgba(0, 0, 0, 0.15)"
             stroke="none"
         >
             <path
@@ -39,14 +39,17 @@
 
 <style lang="scss">
     .hit-dice {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
+        background: none;
         width: 2.5rem;
         height: 2.5rem;
         font-size: var(--a5e-text-size-xl);
         margin: auto;
+        z-index: 1;
     }
 
     .hit-die-label {
@@ -62,6 +65,7 @@
         top: 0.125rem;
         left: 50%;
         transform: translate(-50%, 50%);
+        fill: var(--a5e-color-background-medium);
         z-index: 0;
     }
 

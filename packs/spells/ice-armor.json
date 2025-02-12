@@ -32,13 +32,7 @@
 						"formula": "3d6"
 					}
 				},
-				"prompts": {
-					"lRv1neEkZuF6K0Fp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "IVj4mYGtXn1rAS9X"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -56,7 +50,10 @@
 					"cLH5ve92XHdxrzSB": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"IVj4mYGtXn1rAS9X"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You form a suit of ice around your body.</p><p dir=\"ltr\">When you cast the spell, you gain 3d6 temporary hit points. While you have any of these temporary hit points remaining, you have resistance to cold damage, your AC increases by +1, and creatures grappled by or grappling you take 1d6 points of cold damage at the start of their turn.</p><p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> If you cast this spell with at least a 3rd-level spell slot, you gain an additional 1d6 temporary hit points for each spell slot level above 2nd.</p>",
@@ -99,16 +96,6 @@
 				"protection"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -117,9 +104,6 @@
 			"origin": "Item.5ulns0a481fxakkm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "lN0yyAhVxU1XiDgc",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -159,6 +143,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

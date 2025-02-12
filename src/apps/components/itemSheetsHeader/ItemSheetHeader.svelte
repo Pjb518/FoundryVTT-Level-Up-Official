@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -16,7 +16,7 @@
     }
 
     async function updateClassLevel(value) {
-        value = parseInt(value, 10);
+        value = Number.parseInt(value, 10);
         const currentValue = $item.system.classLevels;
         const diff = Math.abs(currentValue - value);
         const sign = Math.sign(value - currentValue);
@@ -24,7 +24,10 @@
         for (let i = 0; i < diff; i++) {
             if (sign === 1) {
                 await $item.update({
-                    "system.classLevels": $item.system.classLevels + 1,
+                    "system.classLevels": Math.min(
+                        $item.system.classLevels + 1,
+                        $item.system.maxLevel,
+                    ),
                 });
             } else {
                 await $item.update({
@@ -234,6 +237,7 @@
     .item-name[type="text"] {
         font-family: inherit;
         font-size: var(--a5e-text-size-xl);
+        color: var(--a5e-color-text-dark);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;
@@ -250,6 +254,7 @@
         background: transparent;
         font-family: inherit;
         font-size: var(--a5e-text-size-sm);
+        color: var(--a5e-color-text-dark);
 
         &:active,
         &:focus {

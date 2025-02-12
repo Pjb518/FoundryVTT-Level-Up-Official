@@ -1,23 +1,27 @@
-<script>
+<script lang="ts">
+    import type { Action } from "types/action";
+    import type { ItemA5e } from "../../documents/item/item";
+
     import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import formulaIsClassResource from "../../utils/formulaIsClassResource";
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import type ObjectItemA5e from "../../documents/item/object";
 
-    export let item;
-    export let action;
-    export let actionId;
+    export let item: ItemA5e;
+    export let action: Action | null;
+    export let actionId: string | null;
 
-    function getActivationCost(item, action) {
+    function getActivationCost(item: ItemA5e, action: Action) {
         let _action = action;
 
         if (!item.actions) return "";
         if (item.actions?.count === 0) return "";
 
         if (item.actions?.count === 1) {
-            _action = item.actions.values()[0];
+            _action = item.actions.first!;
         }
 
         switch (_action?.activation?.type) {
@@ -25,11 +29,12 @@
                 return "A";
             case "bonusAction":
                 return "B";
-            case "legendaryAction":
+            case "legendaryAction": {
                 const cost = _action?.activation?.cost;
 
                 if (cost === 1 || cost === 0) return "L";
-                else return `${cost}L`;
+                return `${cost}L`;
+            }
             case "reaction":
                 return "R";
             default:
@@ -38,11 +43,11 @@
     }
 
     // TODO: Cleanup - Fix up this gross mess
-    function getActivationCostLabel(item, action, cost) {
+    function getActivationCostLabel(item: ItemA5e, action: Action, cost: string) {
         let _action = action;
 
         if (item.actions?.count === 1) {
-            _action = item.actions.values()[0];
+            _action = item.actions.first!;
         }
 
         switch (cost) {
@@ -61,14 +66,14 @@
         }
     }
 
-    function getSelectedAmmo(item, action) {
+    function getSelectedAmmo(item: ItemA5e, action: Action) {
         let _action = action;
 
         if (!item.actions) return "";
         if (item.actions?.count === 0) return "";
 
         if (item.actions?.count === 1) {
-            _action = item.actions.values()[0];
+            _action = item.actions.first!;
         }
 
         const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
@@ -80,14 +85,14 @@
         return ammoConsumer[1].itemId;
     }
 
-    function hasAmmunition(item, action) {
+    function hasAmmunition(item: ItemA5e, action: Action) {
         let _action = action;
 
         if (!item.actions) return false;
         if (item.actions.count === 0) return false;
 
         if (item.actions.count === 1) {
-            _action = item.actions.values()[0];
+            _action = item.actions.first!;
         }
 
         return Object.entries(_action?.consumers ?? {}).filter(
@@ -103,11 +108,11 @@
         if (item.actions.count === 0) return;
 
         if (item.actions.count === 1) {
-            _actionId = item.actions.keys()[0];
+            _actionId = item.actions.first.id;
         }
 
         const [consumerId] = Object.entries(
-            item.actions[_actionId]?.consumers ?? {},
+            item.actions.get(_actionId || "")?.consumers ?? {},
         ).find(([_, consumer]) => consumer?.type === "ammunition");
 
         if (!consumerId) return;
@@ -119,8 +124,8 @@
         );
     }
 
-    function hasRecharge(item) {
-        if (actionId) return action.uses?.per === "recharge";
+    function hasRecharge(item: ItemA5e) {
+        if (actionId && action) return action.uses?.per === "recharge";
         return item.system?.uses?.per === "recharge";
     }
 
@@ -150,7 +155,7 @@
             return;
         }
 
-        const id = item.actions.keys()?.[0];
+        const id = [...(item.actions.keys() ?? [])].at(0);
         if (!id) {
             item.configureItem();
             return;
@@ -159,7 +164,8 @@
         item.actions?.configure(id);
     }
 
-    function getCapacity() {
+    function getCapacity(item: ObjectItemA5e): number {
+        if (!item.isType("object")) return 0;
         if (item.system?.objectType !== "container") return 0;
 
         const capacity = item.containerItems
@@ -194,8 +200,8 @@
 
         const maxFormula =
             usesType === "action" && action
-                ? action.uses?.max ?? ""
-                : item.system.uses?.max ?? "";
+                ? (action.uses?.max ?? "")
+                : (item.system.uses?.max ?? "");
 
         if (!maxFormula) return uses;
 
@@ -232,11 +238,14 @@
         PREPARED_STATES,
     } = CONFIG.A5E;
 
-    let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
-    let usesType = actionId ? "action" : "item";
+    let hideBrokenAndDamaged = game.settings.get(
+        "a5e",
+        "hideBrokenAndDamaged",
+    ) as boolean;
+    let usesType: "action" | "item" = actionId ? "action" : "item";
 
-    let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+    let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
+        false) as boolean;
 
     $: flags = $actor.flags;
 
@@ -244,7 +253,9 @@
     $: uses = generateUsesConfig($actor, item, action);
 
     $: ammunitionItems = $actor.items
-        .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
+        .filter(
+            (i: ItemA5e) => i.isType("object") && i.system.objectType === "ammunition",
+        )
         .map((i) => ({ name: i.name, id: i.id }))
         .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
@@ -254,7 +265,7 @@
 
     $: activationCost = getActivationCost(item, action);
     $: activationCostLabel = getActivationCostLabel(item, action, activationCost);
-    $: containerCapacity = getCapacity(item);
+    $: containerCapacity = getCapacity(item as ObjectItemA5e);
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
@@ -705,12 +716,12 @@
 
     .number-input {
         background: transparent;
-        border: 1px solid var(--input-border-color, #bbb);
+        border: 1px solid var(--item-input-border-color);
         height: 1.125rem;
         width: 7ch;
 
         &:hover {
-            border: 1px solid var(--input-border-color, #bbb);
+            border: 1px solid var(--item-input-border-color, var(--a5e-border-color));
         }
     }
 

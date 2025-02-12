@@ -1,51 +1,49 @@
 <script lang="ts">
-    import type ClassResourceManager from "../../../managers/ClassResourceManager";
+import type ClassResourceManager from '../../../managers/ClassResourceManager';
 
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
-    import Checkbox from "../Checkbox.svelte";
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
+import Checkbox from '../Checkbox.svelte';
 
-    const item: any = getContext("item");
+const item: any = getContext('item');
 
-    function addResource() {
-        $item.resources.add();
-    }
+function addResource() {
+	$item.resources.add();
+}
 
-    function updateResource(idx: number, key: string, value: string) {
-        const resources: any[] = $item.system.resources.map((r: any) =>
-            foundry.utils.deepClone(r),
-        );
+function updateResource(idx: number, key: string, value: string) {
+	const resources: any[] = $item.system.resources.map((r: any) => foundry.utils.deepClone(r));
 
-        const resource = resources.at(idx);
-        if (!resource) return;
+	const resource = resources.at(idx);
+	if (!resource) return;
 
-        resource[key] = value;
+	resource[key] = value;
 
-        if (key.includes("reference.")) {
-            const [, parsedLevel] = key.split(".");
-            const level = parseInt(parsedLevel, 10);
+	if (key.includes('reference.')) {
+		const [, parsedLevel] = key.split('.');
+		const level = parseInt(parsedLevel, 10);
 
-            Object.keys(resource.reference ?? {}).forEach((l) => {
-                if (parseInt(l, 10) >= level) resource.reference[l] = value;
-            });
-        }
+		Object.keys(resource.reference ?? {}).forEach((l) => {
+			if (parseInt(l, 10) >= level) resource.reference[l] = value;
+		});
+	}
 
-        resources[idx] = resource;
+	resources[idx] = resource;
 
-        updateDocumentDataFromField($item, "system.resources", resources);
-    }
+	updateDocumentDataFromField($item, 'system.resources', resources);
+}
 
-    const recoveryOptions = foundry.utils.deepClone(CONFIG.A5E.resourceRecoveryOptions);
-    delete recoveryOptions.recharge;
+const recoveryOptions = foundry.utils.deepClone(CONFIG.A5E.resourceRecoveryOptions);
+delete recoveryOptions.recharge;
 
-    $: resources = [...($item.resources as ClassResourceManager)];
+$: resources = [...($item.resources as ClassResourceManager)];
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

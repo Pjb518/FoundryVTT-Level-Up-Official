@@ -51,11 +51,6 @@
 						},
 						"label": "Frozen Area",
 						"onSave": "half damage, not restrained"
-					},
-					"Zc2rBYwilFEVxS7O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L2PcPxoZtrpgM76k"
 					}
 				},
 				"uses": {
@@ -84,7 +79,10 @@
 					"radius": 40,
 					"placeTemplate": true
 				},
-				"img": "icons/magic/water/ice-crystal-white.webp"
+				"img": "icons/magic/water/ice-crystal-white.webp",
+				"effects": [
+					"L2PcPxoZtrpgM76k"
+				]
 			},
 			"DRaoagGIA0b6Kf5N": {
 				"name": "Flames",
@@ -158,10 +156,6 @@
 		"grants": {},
 		"prerequisite": "Elemental Focus in Fire and Water",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "elementalist"
 	},
 	"effects": [
@@ -169,11 +163,7 @@
 			"icon": "icons/magic/water/ice-crystal-white.webp",
 			"origin": "Item.gc2j4x57gy5ma2fw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mcipCwwQxIU6jbeu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
@@ -205,17 +195,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/water/ice-crystal-white.webp",
 			"origin": "Item.gc2j4x57gy5ma2fw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DRaoagGIA0b6Kf5N"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
@@ -247,6 +237,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

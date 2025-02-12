@@ -7,9 +7,6 @@
 			"origin": "Item.W7085wDqD6lMG7p6",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QXMQN9Wq7XNSOkw8",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/consumables/plants/kelp-fern-glowing-green.webp",
 			"_id": "04RHARt8phGTTR9D",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",
@@ -108,13 +108,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"5R2ON6jDQv1dQer0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "04RHARt8phGTTR9D"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"04RHARt8phGTTR9D"
+				]
 			}
 		},
 		"description": "<p>Your patron grants you a bag of fairy dust, which contains a number of uses equal to your proficiency bonus. You can use a bonus action to sprinkle this fairy dust on yourself or a creature within 15 feet. A creature benefiting from your fairy dust gains a fly speed of 30 feet (with the ability to hover) for 10 minutes.</p><p>A creature other than you attempting to use the fairy dust must succeed on an Arcana check equal to your spell save DC or it has no effect. When you finish a long rest, your previous bag of fairy dust disappears and you receive a new bag of fairy dust.</p>",
@@ -135,16 +132,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "warlock",
 		"class": ""
 	},

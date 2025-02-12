@@ -110,16 +110,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "fighter",
 		"class": ""
 	},
@@ -127,10 +117,7 @@
 		{
 			"origin": "Item.USCSkxln4xDpDXmM",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tunnel AC",
@@ -167,7 +154,10 @@
 			},
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -175,19 +165,17 @@
 		{
 			"origin": "Item.KV7LPYpFhGGxlEWA",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6PDbzRbJh6fVeUz1",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Back to the Wall",
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"_id": "hhPRQ9q6YIigTClN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -225,19 +213,17 @@
 		{
 			"origin": "Item.Wm6lG7NOaj7tXuVl",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "miDIzaGTwDvykhNL",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tunnel Guardian",
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"_id": "A80SeOCF6J7Nhq7p",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

@@ -1,94 +1,94 @@
-<script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+<script lang="ts">
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import ActionsManager from "../../../managers/ActionsManager";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
-    import QualityConsumer from "../itemActionsConfig/QualityConsumer.svelte";
-    import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
-    import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
-    import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
-    import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
+import { ActionsManager } from '../../../managers/ActionsManager';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import AmmoConsumer from '../itemActionsConfig/AmmoConsumer.svelte';
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import HitDiceConsumer from '../itemActionsConfig/HitDiceConsumer.svelte';
+import QuantityConsumer from '../itemActionsConfig/QuantityConsumer.svelte';
+import QualityConsumer from "../itemActionsConfig/QualityConsumer.svelte";
+import ResourceConsumer from '../itemActionsConfig/ResourceConsumer.svelte';
+import SpellConsumer from '../itemActionsConfig/SpellConsumer.svelte';
+import UsesConsumer from '../itemActionsConfig/UsesConsumer.svelte';
 
-    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
-    import handleDeterministicInput from "../../../utils/handleDeterministicInput";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    function deleteConsumer(actionId, consumerId) {
-        $item.update({
-            [`system.actions.${actionId}.consumers`]: {
-                [`-=${consumerId}`]: null,
-            },
-        });
-    }
+import formulaIsClassResource from '../../../utils/formulaIsClassResource';
+import handleDeterministicInput from '../../../utils/handleDeterministicInput';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const { A5E } = CONFIG;
+function deleteConsumer(actionId: string, consumerId: string) {
+	$item.update({
+		[`system.actions.${actionId}.consumers`]: {
+			[`-=${consumerId}`]: null,
+		},
+	});
+}
 
-    const consumerTypes = {
-        ammunition: {
-            heading: "A5E.ConsumerAmmunition",
-            singleLabel: "A5E.ObjectTypeAmmunition",
-            component: AmmoConsumer,
-        },
-        hitDice: {
-            heading: "A5E.ConsumerHitDice",
-            singleLabel: "A5E.HitDiceLabel",
-            component: HitDiceConsumer,
-        },
-        quality: {
+const item: Writable<ItemA5e> = getContext('item');
+const actionId: string = getContext('actionId');
+const { A5E } = CONFIG;
+
+const consumerTypes = {
+	ammunition: {
+		heading: 'A5E.ConsumerAmmunition',
+		singleLabel: 'A5E.ObjectTypeAmmunition',
+		component: AmmoConsumer,
+	},
+	hitDice: {
+		heading: 'A5E.ConsumerHitDice',
+		singleLabel: 'A5E.HitDiceLabel',
+		component: HitDiceConsumer,
+	},
+    quality: {
             heading: "A5E.ConsumerQuality",
             singleLabel: "A5E.ItemQuality",
             component: QualityConsumer,
         },
-        quantity: {
-            heading: "A5E.ConsumerQuantity",
-            singleLabel: "A5E.ItemQuantity",
-            component: QuantityConsumer,
-        },
-        resource: {
-            heading: "A5E.ConsumerResource",
-            singleLabel: "A5E.Resource",
-            component: ResourceConsumer,
-        },
-        spell: {
-            heading: "A5E.ConsumerSpell",
-            singleLabel: "A5E.Spell",
-            component: SpellConsumer,
-        },
-        actionUses: {
-            heading: "A5E.ConsumerUsesAction",
-            singleLabel: "A5E.ConsumerActionUses",
-            component: UsesConsumer,
-        },
-        itemUses: {
-            heading: "A5E.ConsumerUsesItem",
-            singleLabel: "A5E.ConsumerItemUses",
-            component: UsesConsumer,
-        },
-    };
+	quantity: {
+		heading: 'A5E.ConsumerQuantity',
+		singleLabel: 'A5E.ItemQuantity',
+		component: QuantityConsumer,
+	},
+	resource: {
+		heading: 'A5E.ConsumerResource',
+		singleLabel: 'A5E.Resource',
+		component: ResourceConsumer,
+	},
+	spell: {
+		heading: 'A5E.ConsumerSpell',
+		singleLabel: 'A5E.Spell',
+		component: SpellConsumer,
+	},
+	actionUses: {
+		heading: 'A5E.ConsumerUsesAction',
+		singleLabel: 'A5E.ConsumerActionUses',
+		component: UsesConsumer,
+	},
+	itemUses: {
+		heading: 'A5E.ConsumerUsesItem',
+		singleLabel: 'A5E.ConsumerItemUses',
+		component: UsesConsumer,
+	},
+};
 
-    $: action = $item.actions[actionId];
-    $: consumers = action.consumers ?? {};
-    $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
-    $: isClassResource = formulaIsClassResource(action.uses?.max ?? "");
+$: action = $item.actions.get(actionId)!;
+$: consumers = action.consumers ?? {};
+$: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
+$: isClassResource = formulaIsClassResource(action.uses?.max ?? '');
 
-    $: menuList = Object.entries(consumerTypes).reduce(
-        (acc, [consumerType, { singleLabel }]) => {
-            if (consumerType === "resource" || !existingConsumers.has(consumerType))
-                acc.push([consumerType, singleLabel]);
+$: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { singleLabel }]) => {
+	if (consumerType === 'resource' || !existingConsumers.has(consumerType))
+		acc.push([consumerType, singleLabel]);
 
-            return acc;
-        },
-        [],
-    );
+	return acc;
+}, [] as string[][]);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -102,13 +102,14 @@
             <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
                 <input
                     type="number"
-                    d-type="Number"
                     name="system.actions.{actionId}.uses.value"
                     value={action.uses?.value ?? 0}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
+                            // @ts-expect-error
                             target.name,
+                            // @ts-expect-error
                             Number(target.value),
                         )}
                 />
@@ -121,7 +122,9 @@
                 name="system.actions.{actionId}.uses.max"
                 value={action.uses?.max ?? ""}
                 on:change={({ target }) => {
+                    // @ts-expect-error
                     handleDeterministicInput(target.value);
+                    // @ts-expect-error
                     updateDocumentDataFromField($item, target.name, target.value);
                 }}
             />
@@ -132,12 +135,13 @@
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
+                    // @ts-expect-error
                     updateDocumentDataFromField($item, target.name, target.value)}
             >
                 <option value="" />
 
                 {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
-                    <option {key} value={key} selected={action.uses?.per === key}>
+                    <option value={key} selected={action.uses?.per === key}>
                         {localize(name)}
                     </option>
                 {/each}
@@ -158,10 +162,12 @@
                     value={action.uses?.recharge?.formula ?? "1d6"}
                     placeholder="1d6"
                     on:change={({ target }) => {
+                        // @ts-expect-error
                         handleDeterministicInput(target.value);
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.uses.recharge.formula`,
+                            // @ts-expect-error
                             target.value,
                         );
                     }}
@@ -178,6 +184,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.uses.recharge.threshold`,
+                            // @ts-expect-error
                             Number(target.value),
                         )}
                 />

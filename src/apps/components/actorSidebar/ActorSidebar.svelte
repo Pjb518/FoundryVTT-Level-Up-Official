@@ -14,8 +14,6 @@
     import Details from "./Details.svelte";
     import DeathSaveOverlay from "./DeathSaveOverlay.svelte";
 
-    export let hp;
-
     const actor = getContext("actor");
 
     let fatigueOptions = [
@@ -127,7 +125,7 @@
         height: 100%;
         width: 12.5rem;
         padding: 0.5rem;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid var(--a5e-border-color);
     }
 
     .actor-portrait-wrapper {
@@ -160,7 +158,7 @@
         justify-content: space-evenly;
         align-items: center;
         gap: 0.5rem;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         padding: 0;
         list-style: none;
     }
@@ -177,5 +175,6 @@
     .actor-sidebar-footer {
         display: flex;
         gap: 0.25rem;
+        justify-content: space-around;
     }
 </style>

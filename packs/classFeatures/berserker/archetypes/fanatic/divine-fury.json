@@ -29,18 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"cfCAo2pfq73jCMqx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YJTADL6yxD9pdm4d"
-					},
-					"ZVDZlsIwDfaXvCVf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "i1RrRND332zA4KY4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -54,7 +43,11 @@
 					"unit": "",
 					"value": 1
 				},
-				"ranges": {}
+				"ranges": {},
+				"effects": [
+					"YJTADL6yxD9pdm4d",
+					"i1RrRND332zA4KY4"
+				]
 			}
 		},
 		"description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
@@ -75,16 +68,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "berserker",
 		"class": ""
 	},
@@ -92,18 +75,17 @@
 		{
 			"origin": "Item.Hal38VTP4dNRRVqg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IdmUkvNoYE5xxCV3"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Divine Fury (Radiant)",
 			"img": "icons/magic/holy/yin-yang-balance-symbol.webp",
 			"_id": "YJTADL6yxD9pdm4d",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -141,18 +123,17 @@
 		{
 			"origin": "Item.Hal38VTP4dNRRVqg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IdmUkvNoYE5xxCV3"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Divine Fury (Necrotic)",
 			"img": "icons/magic/holy/yin-yang-balance-symbol.webp",
 			"_id": "i1RrRND332zA4KY4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

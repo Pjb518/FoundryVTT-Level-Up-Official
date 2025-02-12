@@ -28,11 +28,6 @@
 						"type": "effect",
 						"default": true,
 						"effectId": ""
-					},
-					"84GcFpa2TrhzSre3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "AzJlHGz2UqyXMJqk"
 					}
 				},
 				"uses": {
@@ -46,7 +41,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/skills/wounds/blood-drip-droplet-red.webp"
+				"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+				"effects": [
+					"AzJlHGz2UqyXMJqk"
+				]
 			}
 		},
 		"description": "<p>The bonus damage of @UUID[Compendium.a5e.a5e-class-features.Item.lkx4scdvdkfsa8xx]{Bloodthirsty} increases to 1d8 necrotic damage, and enemy creatures within your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} have disadvantage on death saving throws.</p>",
@@ -67,10 +65,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -79,19 +73,17 @@
 		{
 			"origin": "Item.FrS0cHWBu0oKRWWZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3UtQqIPKDK5nvD20",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bloodthirsty",
 			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"_id": "98qdj96VGwygsYgz",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -129,18 +121,17 @@
 		{
 			"origin": "Item.FrS0cHWBu0oKRWWZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3UtQqIPKDK5nvD20"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Two Allied Creatures",
 			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"_id": "ZxcEx1vZQUS0XE9v",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",
@@ -178,18 +169,17 @@
 		{
 			"origin": "Item.BeFSFPHmLMwu2FZm",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3UtQqIPKDK5nvD20"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Enemies",
 			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"_id": "AzJlHGz2UqyXMJqk",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.deathSave",

@@ -35,11 +35,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"x2wQvyFeGKmhsvu8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KntUJ2EOhYTQLCmG"
 					}
 				},
 				"uses": {
@@ -61,7 +56,10 @@
 					"quantity": 1,
 					"radius": 5,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"KntUJ2EOhYTQLCmG"
+				]
 			},
 			"Pfd1RUfnXAOzkx2A": {
 				"name": "Around you in a 5-foot radius",
@@ -114,11 +112,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"q7GvmBMAkv5ZZ9Wx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "StSgRtIWnP6HvZ3h"
 					}
 				},
 				"uses": {
@@ -138,7 +131,10 @@
 					"7wBvya8lMpqkYj5t": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"StSgRtIWnP6HvZ3h"
+				]
 			}
 		},
 		"description": "<p>At 6th level, the very earth on which you walk reacts to your magic. When you cast a spell of 1st level or higher, you can choose one of the following:</p><ul><li>Choose a point you can see within 60 feet. Large or smaller creatures on the ground within 5 feet of that point must make a Dexterity&nbsp;saving throw</span>&nbsp;against your spell save DC, falling&nbsp;prone</span>&nbsp;on a failure.</li><li>Sprouting rock formations erupt around you in a 5-foot radius. The ground in this area is&nbsp;<span>difficult terrain&nbsp;for creatures other than you until the end of your next turn.</li><li>Choose a Large or smaller creature you can see within 30 feet that is on the ground. The creature must make a Strength saving throw against your spell save DC. On a failure, its speed is reduced to 0 until the start of your next turn.</li></ul><p>You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest.</p>",
@@ -159,16 +155,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -176,18 +162,17 @@
 		{
 			"origin": "Item.u06bs8xXyosxphWc",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SGqE90lJtfON0aYp"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
 			"_id": "KntUJ2EOhYTQLCmG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -228,9 +213,6 @@
 			"origin": "Item.u06bs8xXyosxphWc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "u5uwmG5TIyeFKnvT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -242,7 +224,10 @@
 			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
 			"_id": "StSgRtIWnP6HvZ3h",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

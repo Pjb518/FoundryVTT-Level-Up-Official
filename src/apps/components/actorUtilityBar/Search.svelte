@@ -1,6 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { TJSInput } from "#standard/component";
+    import { TJSInput } from "#standard/component/form";
 
     import {
         addSearchFilter,
@@ -23,7 +23,9 @@
 <div class="search-container">
     <TJSInput
         {input}
-        --tjs-input-placeholder-color="#555"
+        --tjs-input-color="var(--a5e-color-text-dark)"
+        --tjs-input-background="var(--a5e-input-background)"
+        --tjs-input-placeholder-color="var(--a5e-input-placeholder-color)"
         --tjs-input-text-margin="0"
         --tjs-input-text-width="100%"
     />

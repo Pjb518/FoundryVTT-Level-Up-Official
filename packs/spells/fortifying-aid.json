@@ -7,9 +7,6 @@
 			"origin": "Item.rbGCItzxcFRQ0XPv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1ldGgSBjc0lHmMBQ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -50,7 +47,10 @@
 			},
 			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -92,13 +92,7 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"WQcAma72QQU3K91i": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6u56Hj8envIvY4Uy"
-					}
-				},
+				"prompts": {},
 				"rolls": {
 					"QXbHAicuwBwzvXVp": {
 						"type": "healing",
@@ -109,7 +103,10 @@
 							"formula": "5"
 						}
 					}
-				}
+				},
+				"effects": [
+					"6u56Hj8envIvY4Uy"
+				]
 			}
 		},
 		"description": "<p>You draw upon divine power, imbuing the targets with fortitude. Until the spell ends, each target increases its hit point maximum and current hit points by 5.</p><p><strong><em>Cast at Higher Levels.</em></strong> The granted hit points increase by an additional 5 for each slot level above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Fortifying Aid.</strong> Once per round each target gains an expertise die on its first saving throw made to resist or end a condition. </p>",
@@ -145,16 +142,6 @@
 				"divine",
 				"enhancement"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

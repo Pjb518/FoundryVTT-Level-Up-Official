@@ -1,0 +1,124 @@
+{
+	"folder": null,
+	"name": "Kinetic Burst",
+	"type": "feature",
+	"img": "icons/magic/light/orbs-hand-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"XczodvE2ZMTbkvPJ": {
+				"name": "Kinetic Burst",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"uDpnbB2NdbIefza2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"a1XB4L0RMgI14Uh1": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"N67Z2X96m15zKApO": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"damageType": "force",
+						"formula": "@classResources.kinetic-burst-damage",
+						"scaling": {
+							"mode": null,
+							"formula": "1d4",
+							"step": 8
+						},
+						"canCrit": true,
+						"critBonus": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"ukvt8HRGhY59OooI": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": ""
+			}
+		},
+		"description": "<p>Starting at 1st level, you can use a bonus action to direct a burst of psychokinetic force at a creature or object within 30 feet.&nbsp;Make a ranged psionic attack against the creature, dealing force damage equal to 1d4 + your Wisdom modifier.&nbsp;Each time your power rating increases (at levels 8, 14, and 20), your Kinetic Burst damage increases by 1d4.&nbsp;You can use this feature a number of times equal to your proficiency bonus, regaining spent uses when you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725162,
+		"modifiedTime": 1733265588246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fALHT3sVDE5fpsAc"
+}

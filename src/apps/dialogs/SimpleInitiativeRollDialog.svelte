@@ -36,13 +36,15 @@
     let situationalMods = options.situationalMods ?? "";
 
     let rollMode = $actor.RollOverrideManager.getRollOverride(
-        `initiative`,
+        "initiative",
         selectedRollMode,
-        { ability: abilityKey },
+        {
+            ability: abilityKey,
+        },
     );
 
-    let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
-        `initiative`,
+    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        "initiative",
         selectedRollMode,
         { ability: abilityKey },
     );
@@ -60,7 +62,9 @@
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
-        { abilityKey },
+        {
+            abilityKey,
+        },
     );
 
     $: rollFormula = getRollFormula($actor, {
@@ -76,9 +80,9 @@
 
 <form>
     <RollModePicker
-        selected={selectedRollMode}
+        selected={rollMode}
         source={rollModeString}
-        on:updateSelection={({ detail }) => (selectedRollMode = detail)}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 
     <RadioGroup

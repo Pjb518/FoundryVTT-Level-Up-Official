@@ -7,13 +7,9 @@
 			"origin": "Item.emBl1qUemWjYoqYh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M9DVbwllZvVFhIgG",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -21,7 +17,10 @@
 			"img": "icons/environment/people/charge.webp",
 			"_id": "w6kjfrSFdGTc99Xt",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -84,13 +83,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"h455TEfdmXBZomew": {
-						"type": "effect",
-						"default": true,
-						"effectId": "w6kjfrSFdGTc99Xt"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -101,7 +94,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"w6kjfrSFdGTc99Xt"
+				]
 			}
 		},
 		"description": "<p>As a bonus action, you can declare No Retreat which lasts for 10 minutes. When you do, you and friendly creatures within the range of your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} become immune to the frightened, confused, stunned, and paralyzed conditions as long as one other friendly creature is conscious and within range. Your Commanding Presence range still applies if you fall unconscious or even die for the purposes of this ability only. If a creature becomes the last one of its allies standing from its group of allies while this feature is active, it is immediately healed to full hit points and loses immunity to the frightened, confused, stunned, and paralyzed conditions, but gains advantage on saving throws against them instead. If another creature is revived from the group, the condition immunity returns. If any additional creatures become the last one standing after the first, they are only healed to half hit points, not full. Once you have used this ability, you can&rsquo;t use it again until you finish a long rest.</p>",
@@ -141,16 +137,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},

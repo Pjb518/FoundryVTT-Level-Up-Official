@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Du3jngHn2DZRV2DN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ascvCcvSkY45ECJK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"hddwjtIYRfvbvthz": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"ascvCcvSkY45ECJK"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Ranger class</em></p><p>You cut a path for others to follow, easing the journey for those who come after you.</p><p>Until the spell ends, you leave a magically-cleared trail behind you. While creating the trail neither you nor your companions can use the Cover Tracks activity. The trail must follow a single route; if you backtrack or cross over the path cleared by this spell before the spell ends, its effect is suppressed until you resume travel from its farthest tip.&nbsp;&nbsp;</p><p>The magically cleared trail is 10 feet wide and made from packed soil, and it lasts indefinitely. Non-magical vegetation and hazards are cleared from the path. Subtle warding magic automatically disarms and dispels natural hazards with a save DC less than your spell save DC.&nbsp;</p><p>Those who follow the trail cannot become lost except due to spell effects of 2nd-level and stronger. They also gain an expertise die on Survival checks made while journeying along the trail.&nbsp;</p>",
@@ -89,16 +86,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -107,9 +94,6 @@
 			"origin": "Item.g6a2e7a15mkh6ua6",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "YPuGT8vnY7FEV1S0",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -143,6 +127,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

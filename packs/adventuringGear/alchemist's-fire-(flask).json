@@ -7,9 +7,6 @@
 			"origin": "Item.geMdjjn7UUF9eU0G",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7VcjnDdvwUB5A3hk",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/weapons/thrown/bomb-fuse-red-black.webp",
 			"_id": "ePvrZah28MBxrq8T",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -115,11 +115,6 @@
 					}
 				},
 				"prompts": {
-					"VStBHijEvQ8AiQj4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ePvrZah28MBxrq8T"
-					},
 					"r5WU2cXt481FEiMv": {
 						"type": "savingThrow",
 						"default": true,
@@ -129,7 +124,10 @@
 							"bonus": "14"
 						}
 					}
-				}
+				},
+				"effects": [
+					"ePvrZah28MBxrq8T"
+				]
 			},
 			"wNwm83FWeV4PFP1p": {
 				"name": "Ongoing Fire Damage",
@@ -198,16 +196,6 @@
 			"thrown"
 		],
 		"weight": 1,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

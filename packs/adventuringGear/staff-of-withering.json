@@ -2,7 +2,78 @@
 	"name": "Staff of Withering",
 	"type": "object",
 	"img": "icons/weapons/staves/staff-animal-skull.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.331OQkAkob0KCTfR",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Staff of Withering",
+			"img": "icons/weapons/staves/staff-animal-skull.webp",
+			"_id": "epu2UOH4xkKIHe4S",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next hour it has disadvantage on Strength and Constitution checks and saving throws.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733972725492,
+				"modifiedTime": 1733972766447,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -30,7 +101,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -52,16 +124,111 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
+			},
+			"EdEh8AlK47o38xJw": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/staves/staff-animal-skull.webp"
+			},
+			"ek8vkszla7je0HmJ": {
+				"name": "Expend Charge",
+				"activation": {},
+				"consumers": {
+					"5DRZgvZihxnzCYWj": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"uIRKeuHycevA98vq": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d10",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"fnmYeSdT7VtoeqG7": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"epu2UOH4xkKIHe4S"
+				]
+			},
+			"4ef4tgHa2kdh65wA": {
+				"name": "Regain Charges",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"S0vRNUmQlVcjoNOp": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d3"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p><em>Parrying, Simple, Two-Handed</em></p>",
+		"description": "<p>This magic quarterstaff has 3 charges and regains 1d3 expended charges each dawn. When you make a successful melee attack with the staff, you can expend 1 charge to deal an extra 2d10 necrotic damage. The target makes a DC 15 Constitution saving throw or for the next hour it has disadvantage on Strength and Constitution checks and saving throws.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "trialsAndTreasures",
 		"uses": {
-			"value": 0,
-			"max": "",
+			"value": 3,
+			"max": "3",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
@@ -73,7 +240,7 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": "Remains of a creature killed by the blight spell",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -97,27 +264,25 @@
 			"twoHanded"
 		],
 		"weight": 4,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "ctfom78jh5rnmxxq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.32",
+		"createdTime": 1733972352586,
+		"modifiedTime": 1733972725532,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ctfom78jh5rnmxxq"
 }

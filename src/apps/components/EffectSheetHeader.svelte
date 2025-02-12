@@ -1,12 +1,12 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import editDocumentImage from "../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import editDocumentImage from '../handlers/editDocumentImage';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    const effect = getContext("effect");
+const effect = getContext('effect');
 
-    const appId = getContext("appId");
+const appId = getContext('appId');
 </script>
 
 <header class="sheet-header">
@@ -51,7 +51,7 @@
 
     .effect-name,
     .effect-name[type="text"] {
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

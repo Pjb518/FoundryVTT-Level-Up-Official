@@ -78,10 +78,6 @@
 				}
 			}
 		},
-		"schemaVersion": {
-			"version": 0.009,
-			"lastMigration": null
-		},
 		"skills": {
 			"acr": {
 				"ability": "dex",
@@ -302,6 +298,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -354,7 +361,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -450,14 +458,12 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
-			"abilities": {
-				"check": "",
-				"save": "",
-				"skill": ""
-			},
+			"abilities": {},
 			"damage": {},
 			"healing": {},
 			"maneuverDC": "",
@@ -479,7 +485,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -500,7 +507,8 @@
 				"understands the languages you speak"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -570,6 +578,13 @@
 		"grants": {},
 		"spellBooks": {
 			"m4uPuxGbr8hOzvPU": {}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
@@ -584,7 +599,12 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
 		},
 		"width": 2,
 		"height": 2,
@@ -619,7 +639,10 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0,
+			"color": null
 		},
 		"sight": {
 			"enabled": true,
@@ -634,7 +657,23 @@
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -658,7 +697,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -671,10 +710,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -684,10 +722,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -709,18 +769,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "DaiDBEmY74D0ungd",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -744,7 +814,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -757,10 +827,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -770,10 +839,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -795,18 +886,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "bWg6VqLYdwAzq5pS",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -830,7 +931,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -843,18 +944,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -865,10 +968,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -890,18 +1014,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "0vJA87NcxncSEzia",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -925,7 +1059,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -938,10 +1072,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -951,10 +1084,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -976,18 +1131,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "F9mQcSemfg2VGwAl",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1011,7 +1176,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -1024,10 +1189,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -1037,10 +1201,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -1062,18 +1248,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "giAAxchRQHTsUJ9V",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1097,7 +1293,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -1110,18 +1306,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1132,10 +1330,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1157,18 +1376,28 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"revitalizeLock": false
 			},
 			"_id": "AmT766dFG89HFxVF",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1204,11 +1433,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "n9jq7JQgLZvqozNK",
 			"img": "icons/svg/item-bag.svg",
@@ -1217,9 +1452,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1255,11 +1495,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "CWvPf130UQPd2PQw",
 			"img": "icons/svg/item-bag.svg",
@@ -1268,9 +1514,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1292,7 +1543,8 @@
 						"name": "Reduce to Small",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1308,7 +1560,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "",
@@ -1329,17 +1597,22 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "BlMonrneGa6Kx62d",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/aura.svg",
 					"origin": "Actor.zrGVqK9lPgtLcHQd.Item.BlMonrneGa6Kx62d",
 					"flags": {
 						"a5e": {
@@ -1370,21 +1643,47 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.6",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1406,7 +1705,8 @@
 						"name": "Enlarge to Medium",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1422,7 +1722,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "",
@@ -1443,17 +1759,22 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "l5X9xzwJbz3W2GxG",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/aura.svg",
 					"origin": "Actor.zrGVqK9lPgtLcHQd.Item.l5X9xzwJbz3W2GxG",
 					"flags": {
 						"a5e": {
@@ -1484,21 +1805,47 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.6",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1518,14 +1865,22 @@
 				"actions": {
 					"btCCAFZKIn7VCk2w": {
 						"name": "Disaster",
-						"activation": {},
+						"activation": {
+							"cost": 1,
+							"type": "",
+							"reactionTrigger": ""
+						},
 						"consumers": {},
 						"rolls": {
 							"6bPBP2UEsIwSOpe9": {
 								"type": "damage",
 								"default": true,
 								"formula": "2d6",
-								"damageType": "cold"
+								"damageType": "cold",
+								"canCrit": true,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
 							}
 						},
 						"prompts": {},
@@ -1540,7 +1895,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "<p><span id=\"docs-internal-guid-f2d8381c-7fff-70af-ba94-d64cace671c8\">Your companion is a violent force of nature akin to a small natural disaster. When it is hit by a melee attack, the attacking creature takes 2d6 damage.</span></p>",
@@ -1561,11 +1932,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "s7kd8IigBEmOfhRB",
 			"img": "icons/svg/item-bag.svg",
@@ -1574,9 +1951,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1612,11 +1994,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "iRevLDaEZi1jXy5I",
 			"img": "icons/svg/item-bag.svg",
@@ -1625,9 +2013,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1663,11 +2056,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "0bsBDFmuPKIYmtHi",
 			"img": "icons/svg/item-bag.svg",
@@ -1676,9 +2075,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1700,7 +2104,8 @@
 						"name": "Slam",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {
@@ -1709,13 +2114,20 @@
 								"default": true,
 								"attackType": "meleeSpellAttack",
 								"proficient": true,
-								"ability": "none"
+								"ability": "none",
+								"bonus": "",
+								"critThreshold": 20,
+								"label": ""
 							},
 							"XIWtsTcU2l42rUri": {
 								"type": "damage",
 								"default": true,
 								"formula": "3d6 + @prof",
-								"damageType": "bludgeoning"
+								"damageType": "bludgeoning",
+								"canCrit": true,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
 							}
 						},
 						"prompts": {},
@@ -1738,8 +2150,19 @@
 						},
 						"target": {
 							"type": "creature",
-							"quantity": 1
-						}
+							"quantity": 1,
+							"scaling": {}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": ""
 					}
 				},
 				"description": "",
@@ -1760,11 +2183,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "pn1rqj6jZqtFM05x",
 			"img": "icons/svg/item-bag.svg",
@@ -1773,9 +2202,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1797,7 +2231,8 @@
 						"name": "Lesser Elemental Blast",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {
@@ -1806,13 +2241,20 @@
 								"default": true,
 								"attackType": "meleeSpellAttack",
 								"proficient": true,
-								"ability": "none"
+								"ability": "none",
+								"bonus": "",
+								"critThreshold": 20,
+								"label": ""
 							},
 							"NDejJSVyE2o5ssbb": {
 								"type": "damage",
 								"default": true,
 								"formula": "3d6 + @prof",
-								"damageType": "bludgeoning"
+								"damageType": "bludgeoning",
+								"canCrit": true,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
 							}
 						},
 						"prompts": {},
@@ -1835,8 +2277,19 @@
 						},
 						"target": {
 							"type": "creature",
-							"quantity": 1
-						}
+							"quantity": 1,
+							"scaling": {}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": ""
 					}
 				},
 				"description": "",
@@ -1857,11 +2310,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "BHKP3kmlGFD4OMMy",
 			"img": "icons/svg/item-bag.svg",
@@ -1870,9 +2329,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1894,7 +2358,8 @@
 						"name": "Reduce to Medium",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1910,7 +2375,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "",
@@ -1931,17 +2412,22 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "IhVRqAXh0tG9M8yQ",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/aura.svg",
 					"origin": "Actor.BBL3SauyLhdNYKAd.Item.IhVRqAXh0tG9M8yQ",
 					"flags": {
 						"a5e": {
@@ -1972,21 +2458,47 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.6",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2008,7 +2520,8 @@
 						"name": "Enlarge to Large",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -2024,7 +2537,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "",
@@ -2045,17 +2574,22 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "5B2x7TnbxZMoawlR",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/aura.svg",
 					"origin": "Actor.BBL3SauyLhdNYKAd.Item.5B2x7TnbxZMoawlR",
 					"flags": {
 						"a5e": {
@@ -2086,21 +2620,47 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.6",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2122,7 +2682,8 @@
 						"name": "Whelm",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -2132,8 +2693,11 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "spellcasting"
-								}
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
 							}
 						},
 						"uses": {
@@ -2147,7 +2711,23 @@
 						},
 						"descriptionOutputs": [
 							"action"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "<p><span id=\"docs-internal-guid-94c0e84c-7fff-c327-2cdd-b0852898c542\">Your elemental companion targets each Large or smaller creature in its space. Each target makes a Strength saving throw against your spell save DC. On a failure, the targets take your </span>water blast damage and are grappled (escape DC equal to your spell save DC); a creature can attempt to escape with an Athletics check instead of a Strength or Dexterity saving throw if it chooses, swimming free. Until this grapple ends, the target is restrained and unable to breathe air. The elemental can move at full speed while carrying grappled creatures inside its space. It can grapple one Large creature or up to four Medium or smaller creatures.</p>",
@@ -2168,11 +2748,17 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.019,
-					"lastMigration": null
+				"classes": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				},
-				"classes": ""
+				"revitalizeLock": false,
+				"class": ""
 			},
 			"_id": "osa8g7sSKqakOc4E",
 			"img": "icons/svg/item-bag.svg",
@@ -2181,28 +2767,86 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [
 		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"origin": "Actor.AwuZ7xq75Ys9DyRW",
 			"flags": {
-				"a5e": {
-					"sort": 0
-				}
+				"a5e": {}
 			},
-			"name": "Puppeteer's Proficiency (2)",
-			"_id": "h5M8lJoxOoiCfrtc",
+			"name": "Puppeteer's Spell Save DC (Change As Needed)",
+			"_id": "NlYVNBCpw9SApfgt",
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"value": "2",
-					"mode": 2,
+					"key": "system.attributes.spellDC",
+					"value": "0[Spell DC]",
+					"mode": 5,
+					"priority": 0
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": 0,
+				"startTurn": 0
+			},
+			"description": "",
+			"transfer": false,
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": "Actor.AkPdXNXBMm9XPiKb.ActiveEffect.qFywymZgA6wfiFg1",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452946482,
+				"modifiedTime": 1738452946482,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
+			"name": "Puppeteer's Proficiency (2)",
+			"_id": "w75FdmGQ9eQUY1nM",
+			"changes": [
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "12 + 2",
+					"mode": 6,
 					"priority": 20
 				},
 				{
@@ -2231,8 +2875,8 @@
 				},
 				{
 					"key": "system.bonuses.abilities.save",
-					"mode": 2,
 					"value": "2",
+					"mode": 2,
 					"priority": null
 				}
 			],
@@ -2243,46 +2887,64 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.h5M8lJoxOoiCfrtc",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452947622,
+				"modifiedTime": 1738452947622,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
 			"name": "Puppeteer's Spellcasting Modifier (Change As Needed)",
-			"_id": "S8OQQjXWTV5TTSx4",
+			"_id": "pvatu3L52mBzKfPR",
 			"changes": [
 				{
 					"key": "system.attributes.hp.value",
-					"value": "Spellcasting Modifier",
+					"value": "0[Spellcasting Modifier]",
 					"mode": 2,
 					"priority": 320
 				},
 				{
 					"key": "system.attributes.hp.max",
-					"value": "Spellcasting Modifier",
+					"value": "0[Spellcasting Modifier]",
 					"mode": 2,
 					"priority": 320
 				},
 				{
-					"key": "system.bonuses.meleeSpellAttack",
-					"value": "Spellcasting Modifier",
-					"mode": 2,
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Attack Bonus\",\"formula\":\"0[Spellcasting Modifier]\",\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
 					"priority": 20
 				}
 			],
@@ -2293,34 +2955,182 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.S8OQQjXWTV5TTSx4",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452948822,
+				"modifiedTime": 1738452948822,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
-			"name": "Puppeteer's Proficiency (3)",
-			"_id": "yKsKoOEBMqYzdhjF",
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
+			"name": "Puppeteer's Level (Change As Needed)",
+			"_id": "GiUWJvhwjtuRw3XJ",
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"value": "3",
+					"key": "system.attributes.hp.value",
+					"value": "4*0[Level]",
 					"mode": 2,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.hp.max",
+					"value": "4*0[Level]",
+					"mode": 2,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.hitDice.d6.current",
+					"value": "0[Level]",
+					"mode": 5,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.hitDice.d6.total",
+					"value": "0[Level]",
+					"mode": 5,
+					"priority": 0
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": 0,
+				"startTurn": 0
+			},
+			"description": "",
+			"transfer": false,
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.7MB0bUKlfFzavdQg",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452950225,
+				"modifiedTime": 1738452950225,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
+			"name": "Guardian",
+			"_id": "x3cnhKDHEdzgxBNY",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": true,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": 0,
+				"startTurn": 0
+			},
+			"description": "",
+			"transfer": false,
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": "Actor.AkPdXNXBMm9XPiKb.ActiveEffect.p4YLEfkqFR4OuMEk",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452951577,
+				"modifiedTime": 1738452951577,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
+			"name": "Puppeteer's Proficiency (3)",
+			"_id": "8aL8N9F31KBmH10M",
+			"changes": [
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "12 + 3",
+					"mode": 6,
 					"priority": 20
 				},
 				{
@@ -2346,12 +3156,6 @@
 					"value": "3",
 					"mode": 2,
 					"priority": 20
-				},
-				{
-					"key": "system.bonuses.abilities.save",
-					"value": "3",
-					"mode": 2,
-					"priority": null
 				}
 			],
 			"disabled": true,
@@ -2361,34 +3165,52 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.yKsKoOEBMqYzdhjF",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452953080,
+				"modifiedTime": 1738452953080,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
 			"name": "Puppeteer's Proficiency (4)",
-			"_id": "iZjHdl506wunVD2A",
+			"_id": "2oInezXAtAAAesGv",
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"value": "4",
-					"mode": 2,
+					"key": "system.attributes.ac.baseFormula",
+					"value": "12 + 4",
+					"mode": 6,
 					"priority": 20
 				},
 				{
@@ -2414,12 +3236,6 @@
 					"value": "4",
 					"mode": 2,
 					"priority": 20
-				},
-				{
-					"key": "system.bonuses.abilities.save",
-					"value": "4",
-					"mode": 2,
-					"priority": null
 				}
 			],
 			"disabled": true,
@@ -2429,34 +3245,52 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.iZjHdl506wunVD2A",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452954331,
+				"modifiedTime": 1738452954331,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
 			"name": "Puppeteer's Proficiency (5)",
-			"_id": "phhrRi8MjwbEgnhY",
+			"_id": "nQiVE8slyVzr2i4q",
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"value": "5",
-					"mode": 2,
+					"key": "system.attributes.ac.baseFormula",
+					"value": "12 + 5",
+					"mode": 6,
 					"priority": 20
 				},
 				{
@@ -2482,12 +3316,6 @@
 					"value": "5",
 					"mode": 2,
 					"priority": 20
-				},
-				{
-					"key": "system.bonuses.abilities.save",
-					"value": "5",
-					"mode": 2,
-					"priority": null
 				}
 			],
 			"disabled": true,
@@ -2497,34 +3325,52 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.phhrRi8MjwbEgnhY",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452955655,
+				"modifiedTime": 1738452955655,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Actor.1RnlTzvgy9Xx8K9E",
+			"flags": {
+				"a5e": {}
+			},
 			"name": "Puppeteer's Proficiency (6)",
-			"_id": "puXNCfsjeXoJMbsn",
+			"_id": "2pHJSbyz10eWUkDE",
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"value": "6",
-					"mode": 2,
+					"key": "system.attributes.ac.baseFormula",
+					"value": "12 + 6",
+					"mode": 6,
 					"priority": 20
 				},
 				{
@@ -2550,12 +3396,6 @@
 					"value": "6",
 					"mode": 2,
 					"priority": 20
-				},
-				{
-					"key": "system.bonuses.abilities.save",
-					"value": "6",
-					"mode": 2,
-					"priority": null
 				}
 			],
 			"disabled": true,
@@ -2565,150 +3405,39 @@
 				"combat": null,
 				"rounds": null,
 				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"startRound": 0,
+				"startTurn": 0
 			},
 			"description": "",
 			"transfer": false,
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.g0brpE462yOmsIwa.ActiveEffect.puXNCfsjeXoJMbsn",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
+				"systemVersion": "1.0.6",
+				"createdTime": 1738452959561,
+				"modifiedTime": 1738452959561,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
 				}
 			},
-			"name": "Guardian",
-			"_id": "WAeTSi3YXAdneSAj",
-			"changes": [
-				{
-					"key": "system.attributes.ac",
-					"mode": 2,
-					"value": "2",
-					"priority": null
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"transfer": false,
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.1RnlTzvgy9Xx8K9E",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"name": "Puppeteer's Level (Change As Needed)",
-			"_id": "E4GPkabVQfZJ3WRa",
-			"changes": [
-				{
-					"key": "system.attributes.hp.value",
-					"value": "6*Level",
-					"mode": 2,
-					"priority": 320
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "6*Level",
-					"mode": 2,
-					"priority": 320
-				},
-				{
-					"key": "system.attributes.hitDice.d10.current",
-					"value": "Level",
-					"mode": 5,
-					"priority": 31250
-				},
-				{
-					"key": "system.attributes.hitDice.d10.total",
-					"value": "Level",
-					"mode": 5,
-					"priority": 31250
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"transfer": false,
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.AwuZ7xq75Ys9DyRW",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"name": "Puppeteer's Spell Save DC (Change As Needed)",
-			"_id": "tQnsp8fkd0mJGNUf",
-			"changes": [
-				{
-					"key": "system.attributes.spellDC",
-					"mode": 5,
-					"value": "Spell DC",
-					"priority": 0
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"transfer": false,
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"folder": null,
@@ -2718,10 +3447,13 @@
 			"currentTab": "features"
 		}
 	},
-	"_id": "0du1qgq0hlu7cxps",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.6",
+		"createdTime": 1738452924066,
+		"modifiedTime": 1738452962294,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0du1qgq0hlu7cxps"
 }

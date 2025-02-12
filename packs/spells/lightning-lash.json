@@ -38,11 +38,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"3Fo3ox84ECI2UueB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PNuI2bN5w4P3TTJb"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"PNuI2bN5w4P3TTJb"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You shape a whip out of lightning and use it to lash your foes, potentially scrambling their reflexes in the process. Make a melee spell attack against a creature within the spell&rsquo;s range. On a hit, the target takes 1d6 lightning damage and must make a Constitution saving throw. On a failed save, it has disadvantage on Dexterity ability checks and saving throws until the end of your next turn.</p><p dir=\"ltr\">This spell&rsquo;s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
@@ -109,16 +107,6 @@
 				"weaponry"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -127,9 +115,6 @@
 			"origin": "Item.kbOxQj8mztBnTY9D",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cr64yEoeDZZjmLvz",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -170,6 +155,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

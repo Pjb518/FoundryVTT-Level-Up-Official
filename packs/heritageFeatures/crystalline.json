@@ -1,0 +1,165 @@
+{
+	"folder": null,
+	"name": "Crystalline",
+	"type": "feature",
+	"img": "icons/commodities/gems/gem-cluster-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"QI1rm2nuVpXqlspF": {
+				"name": "Thunder Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"GscCRIoFQKni3jgS": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"effects": [
+					"zzMsIcBydM2DWdIw"
+				]
+			}
+		},
+		"description": "<p>As a crystalline creature, you do not need to breathe, and are unaffected by vacuum. Additionally, you are immune to poisons and poison damage, but when you take thunder damage you make a DC 10 Constitution saving throw or become rattled until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"QNcv6fKpxGSIwI6Z": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "QNcv6fKpxGSIwI6Z",
+				"label": "Damage Immunity",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				},
+				"img": ""
+			},
+			"UvUDZ9VaTt2VLAcl": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "UvUDZ9VaTt2VLAcl",
+				"label": "Condition Immunity",
+				"traits": {
+					"base": [
+						"poisoned"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.4Ly6tzwAKhceZfrX",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/commodities/gems/gem-cluster-teal.webp",
+			"_id": "zzMsIcBydM2DWdIw",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731706877215,
+				"modifiedTime": 1731706914837,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731706733708,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3hY2FNUFttlfKgUz"
+}

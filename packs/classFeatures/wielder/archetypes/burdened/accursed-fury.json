@@ -23,18 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"2jiu3eMPRI76vN5S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tZ8CIck7vZsJNkek"
-					},
-					"aCZ5G761xxqPijwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Fafh6SrJsgP8WbyV"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +34,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"tZ8CIck7vZsJNkek",
+					"Fafh6SrJsgP8WbyV"
+				]
 			},
 			"jdJJ8HCqf4orzCvc": {
 				"name": "Psychic Damage",
@@ -92,16 +85,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -109,12 +92,7 @@
 			"icon": "icons/magic/unholy/strike-body-life-soul-purple.webp",
 			"origin": "Item.ve5xc72ik6twvlzb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jSWdEMrKWxdwsuav",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Strife",
@@ -144,6 +122,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -151,10 +133,6 @@
 			"origin": "Item.ve5xc72ik6twvlzb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jSWdEMrKWxdwsuav",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -181,6 +159,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -1,87 +1,87 @@
 <script>
-    import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { getContext, createEventDispatcher } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../../components/Checkbox.svelte";
-    import CheckboxGroup from "../../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../../components/FieldWrapper.svelte";
-    import Section from "../../components/Section.svelte";
+import Checkbox from '../../components/Checkbox.svelte';
+import CheckboxGroup from '../../components/CheckboxGroup.svelte';
+import FieldWrapper from '../../components/FieldWrapper.svelte';
+import Section from '../../components/Section.svelte';
 
-    export let { document, bonusID } = getContext("#external").application;
-    export let jsonValue = null;
+export let { document, bonusID } = getContext('#external').application;
+export let jsonValue = null;
 
-    const actor = document;
-    const dispatch = createEventDispatcher();
+const actor = document;
+const dispatch = createEventDispatcher();
 
-    function updateImage() {
-        const current = sensesBonus?.img;
+function updateImage() {
+	const current = sensesBonus?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        if (jsonValue === null) {
-            key = `system.bonuses.senses.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
-            return;
-        }
+function onUpdateValue(key, value) {
+	if (jsonValue === null) {
+		key = `system.bonuses.senses.${bonusID}.${key}`;
+		updateDocumentDataFromField($actor, key, value);
+		return;
+	}
 
-        const newObj = foundry.utils.expandObject({
-            ...sensesBonus,
-            [key]: value,
-        });
-        dispatch("change", JSON.stringify(newObj));
-    }
+	const newObj = foundry.utils.expandObject({
+		...sensesBonus,
+		[key]: value,
+	});
+	dispatch('change', JSON.stringify(newObj));
+}
 
-    function getSensesBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.senses[bonusID];
+function getSensesBonus() {
+	if (jsonValue === null) return $actor.system.bonuses.senses[bonusID];
 
-        try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
-            if (typeof obj !== "object") throw new Error();
-            obj.label = obj.label ?? "";
-            obj.unit = obj.unit || "feet";
-            obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {
-                senses: [],
-                otherwiseBlind: false,
-                // valueIfOriginalIsZero: "",
-            };
-            obj.img = obj.img || "icons/svg/upgrade.svg";
-            return obj;
-        } catch (error) {
-            return {
-                label: "",
-                unit: "feet",
-                formula: "",
-                damageType: "",
-                context: {
-                    senses: [],
-                    otherwiseBlind: false,
-                    // valueIfOriginalIsZero: "",
-                },
-                default: true,
-                img: "icons/svg/upgrade.svg",
-            };
-        }
-    }
+	try {
+		const obj = JSON.parse(jsonValue || '""') ?? {};
+		if (typeof obj !== 'object') throw new Error();
+		obj.label = obj.label ?? '';
+		obj.unit = obj.unit || 'feet';
+		obj.formula = obj.formula ?? '';
+		obj.context = obj.context ?? {
+			senses: [],
+			otherwiseBlind: false,
+			// valueIfOriginalIsZero: "",
+		};
+		obj.img = obj.img || 'icons/svg/upgrade.svg';
+		return obj;
+	} catch (error) {
+		return {
+			label: '',
+			unit: 'feet',
+			formula: '',
+			damageType: '',
+			context: {
+				senses: [],
+				otherwiseBlind: false,
+				// valueIfOriginalIsZero: "",
+			},
+			default: true,
+			img: 'icons/svg/upgrade.svg',
+		};
+	}
+}
 
-    const { senses, visionUnits } = CONFIG.A5E;
+const { senses, visionUnits } = CONFIG.A5E;
 
-    $: sensesBonus = getSensesBonus($actor, jsonValue) ?? {};
-    $: sensesTypes = sensesBonus.context.senses ?? [];
-    $: otherwiseBlind = sensesBonus.context.otherwiseBlind ?? false;
-    // $: valueIfOriginalIsZero = sensesBonus.context.valueIfOriginalIsZero || "";
+$: sensesBonus = getSensesBonus($actor, jsonValue) ?? {};
+$: sensesTypes = sensesBonus.context.senses ?? [];
+$: otherwiseBlind = sensesBonus.context.otherwiseBlind ?? false;
+// $: valueIfOriginalIsZero = sensesBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -188,12 +188,12 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        background: var(--background, $color-sheet-background);
+        background: var(--background, var(--a5e-color-background-sheet));
     }
 
     .bonus-name,
     .bonus-name[type="text"] {
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

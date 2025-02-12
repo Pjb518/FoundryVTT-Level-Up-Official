@@ -1,0 +1,178 @@
+{
+	"folder": null,
+	"name": "Indomitable Soul",
+	"type": "feature",
+	"img": "icons/skills/social/intimidation-impressing.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1chKEhUKgHJhIfqr": {
+				"name": "Indomitable Soul",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"iN6Uv50BtUxxpoaT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"wtqekpl5o30iPvkM": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "1d10 + @classes.trooper.level",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"effects": [
+					"5R68UEjOlPSE50jy"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You never back down, not while lives hang in the balance. While you are bloodied, you can use a bonus action on your turn to gain temporary hit points equal to 1d10 + your trooper level. These temporary hit points last for 1 minute. While the temporary hit points last, you are immune to the frightened and rattled conditions. If you are frightened or rattled when you use this ability, the effects of these conditions are suspended until the end of this effect. Rounds spent under the influence of Indomitable Soul count towards the duration of these frightened and rattled conditions.</p>\n<p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": true,
+		"class": "",
+		"classes": "trooper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.rjsvpCAb4hQMKFfz",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Indomitable Soul",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"_id": "5R68UEjOlPSE50jy",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\",\"rattled\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While the temporary hit points last, you are immune to the frightened and rattled conditions. If you are frightened or rattled when you use this ability, the effects of these conditions are suspended until the end of this effect. Rounds spent under the influence of Indomitable Soul count towards the duration of these frightened and rattled conditions.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734474396597,
+				"modifiedTime": 1734474537109,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734472906820,
+		"modifiedTime": 1734474563515,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nvTAj1YoLdCojlGv"
+}

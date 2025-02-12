@@ -43,18 +43,16 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"rL81fi5wQlgfLrFx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "E8mNfBmMZGdZHVEd"
 					}
 				},
 				"consumers": {
 					"gcqZRp33v6j56oG1": {
 						"type": "itemUses"
 					}
-				}
+				},
+				"effects": [
+					"E8mNfBmMZGdZHVEd"
+				]
 			}
 		},
 		"description": "<p>At 17th level, you can spend an action to so utterly cut to the core of a person&rsquo;s identity that for a moment they might lose the will to live. One creature that can understand you is stunned. At the end of each of its turns it must make a Charisma saving throw against your trick DC or else it gains a level of strife . The effect ends when it succeeds one of these saving throws, or when it has six levels of strife.</p>\n<p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
@@ -75,16 +73,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "savant",
 		"class": ""
 	},
@@ -92,18 +80,17 @@
 		{
 			"origin": "Item.Qre8bUnGIKJjxxCF",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7zxRdBk7uophynj7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
 			"img": "icons/magic/death/skull-energy-light-white.webp",
 			"_id": "E8mNfBmMZGdZHVEd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

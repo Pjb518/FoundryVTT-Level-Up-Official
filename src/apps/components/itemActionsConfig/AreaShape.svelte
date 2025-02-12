@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
@@ -56,13 +56,13 @@
             display: none;
 
             &:checked + .area-shape__label {
-                background: var(--a5e-color-primary);
-                border-color: darken-color(var(--a5e-color-primary), 5);
-                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
-                color: var(--a5e-color-text-light);
+                background: var(--a5e-action-area-button-checked);
+                border-color: var(--a5e-action-area-button-checked-border);
+                box-shadow: 0 0 10px var(--a5e-action-area-button-checked-shadow) inset;
+                color: var(--a5e-action-area-button-checked-color);
 
                 &:hover {
-                    background: var(--a5e-color-primary);
+                    background: var(--a5e-action-area-button-checked-hover);
                 }
             }
         }
@@ -72,15 +72,16 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
+            background-color: var(--a5e-action-area-label-background);
             border-radius: var(--a5e-border-radius-standard);
-            border: 1px solid #bbb;
+            border: 1px solid var(--a5e-action-area-label-border);
             font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
             transition: var(--a5e-transition-standard);
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: var(--a5e-action-area-label-background-hover);
             }
         }
     }

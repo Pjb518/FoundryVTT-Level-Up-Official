@@ -8,9 +8,6 @@
 			"origin": "Item.exr88op9f3kyd9xs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vkbQdk2lBUnbRZrT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -106,14 +107,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"wmbdup2GdEGWxv94": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ccZpMsz2uU6CBYKf",
-						"label": "On Critical Hit"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"ccZpMsz2uU6CBYKf"
+				]
 			}
 		},
 		"description": "<p>You create a floating, incandescent weapon with an appearance of your choosing and use it to attack your enemies. On the round you cast it, you can make a melee spell attack against a creature within 5 feet of the weapon that deals force damage equal to 1d8 + your spellcasting ability modifier.</p><p>As a bonus action on subsequent turns until the spell ends, you can move the weapon up to 20 feet and make another attack against a creature within 5 feet of it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for every two slot levels above 2nd.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Fell Spiritual Weapon.&nbsp;</strong>The weapon&nbsp;deals necrotic damage instead of force damage,&nbsp;and when it scores a critical hit its target is rattled&nbsp;until the end of your next turn.</p>",
@@ -152,16 +149,6 @@
 				"divine",
 				"force"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

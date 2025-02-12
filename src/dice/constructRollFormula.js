@@ -8,37 +8,33 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  *
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula({
-  actor, formula, item, modifiers
-}) {
-  const rollData = actor.getRollData(item);
+export default function constructRollFormula({ actor, formula, item, modifiers }) {
+	const rollData = actor.getRollData(item);
 
-  const parts = [
-    formula,
-    ...(modifiers ?? []).map(({ label, value }) => {
-      if (!value || value === 0) return null;
+	const parts = [
+		formula,
+		...(modifiers ?? []).map(({ label, value }) => {
+			if (!value || value === 0) return null;
 
-      let modifier;
-      try {
-        modifier = new Roll(value.toString(), rollData);
-      } catch (err) {
-        return null;
-      }
+			let modifier;
+			try {
+				modifier = new Roll(value.toString(), rollData);
+			} catch (err) {
+				return null;
+			}
 
-      modifier.terms.forEach((m) => {
-        if (!['OperatorTerm', 'StringTerm'].includes(m.constructor.name)) m.options.flavor ??= label;
-      });
+			modifier.terms.forEach((m) => {
+				if (!['OperatorTerm', 'StringTerm'].includes(m.constructor.name))
+					m.options.flavor ??= label;
+			});
 
-      return modifier.formula;
-    })
-  ];
+			return modifier.formula;
+		}),
+	];
 
-  const { terms } = new Roll(
-    parts.filter((part) => part && part !== '0').join(' + '),
-    rollData
-  );
+	const { terms } = new Roll(parts.filter((part) => part && part !== '0').join(' + '), rollData);
 
-  const simplifiedTerms = simplifyOperatorTerms(terms);
+	const simplifiedTerms = simplifyOperatorTerms(terms);
 
-  return { rollFormula: Roll.getFormula(simplifiedTerms) };
+	return { rollFormula: Roll.getFormula(simplifiedTerms) };
 }

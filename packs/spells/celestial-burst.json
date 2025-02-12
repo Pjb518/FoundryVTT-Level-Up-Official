@@ -27,13 +27,7 @@
 						}
 					}
 				},
-				"prompts": {
-					"IsjFi8qlS1gS4afL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wmr7Gf8AiO0FhPZ7"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -52,7 +46,10 @@
 						"mode": null,
 						"formula": "1"
 					}
-				}
+				},
+				"effects": [
+					"wmr7Gf8AiO0FhPZ7"
+				]
 			}
 		},
 		"description": "<p>You shoot a comet of cosmic light at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 radiant damage. If the target was an object, it takes no damage and instead emits bright light out to 30 ft. until the end of your next turn.</p><p>This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -95,16 +92,6 @@
 				"radiant"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -113,9 +100,6 @@
 			"origin": "Item.gwhpqtmwnza3rh4p",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jy3XiimhPp5Kbj9L",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -150,6 +134,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

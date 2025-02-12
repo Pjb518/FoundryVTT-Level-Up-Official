@@ -20,23 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"o0vGYvhFVYqaQ4sb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eZ2BSzZcmsV0FaN0"
-					},
-					"oRo555ag73U4DuI8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "94NfIPYfgzDTyKe8"
-					},
-					"1Dip39TgDBeUMjAq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qtokCv9lvHIuEBo4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +31,12 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"eZ2BSzZcmsV0FaN0",
+					"94NfIPYfgzDTyKe8",
+					"qtokCv9lvHIuEBo4"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-2b57a1a5-7fff-d3c0-de90-62e72e2ed170\" dir=\"ltr\">At 10th level, you have gained greater mastery over your kitchen magic. You gain the following enhancements to choose from when you use your @UUID[Compendium.a5e.a5e-class-features.Item.dk43kk6a1ccvw0bp]{Kitchen Intention} ability:</p>\n<p dir=\"ltr\"><strong>Fortification.</strong> This hearty meal enriches your muscles, providing you with greater physical prowess. For the duration, you have advantage on Strength ability checks and saving throws and you count yourself as one Size larger in terms of calculating your carrying capacity.</p>\n<p dir=\"ltr\"><strong>Quickness.</strong> Though this meal is more like a collection of delicious morsels, it gives you the energy to stay light on your feet, even in the heat of battle. You gain an expertise die to your initiative and your base walking speed increases by 10 feet.</p>\n<p><strong>Resilience.</strong> This meal bolsters your resolve, granting you heightened resistance to magical effects. You have advantage on saving throws against spells.</p>",
@@ -68,16 +57,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "witch",
 		"class": ""
 	},
@@ -86,9 +65,6 @@
 			"origin": "Item.MYgItQ6y2Cjo3lJz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
 					"duration": {
 						"unit": "hours"
 					}
@@ -129,7 +105,10 @@
 			},
 			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -138,9 +117,6 @@
 			"origin": "Item.MYgItQ6y2Cjo3lJz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
 					"duration": {
 						"unit": "hours"
 					}
@@ -187,7 +163,10 @@
 			},
 			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -196,9 +175,6 @@
 			"origin": "Item.MYgItQ6y2Cjo3lJz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
 					"duration": {
 						"unit": "hours"
 					}
@@ -232,7 +208,10 @@
 			},
 			"img": "icons/magic/defensive/shield-barrier-flaming-pentagon-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

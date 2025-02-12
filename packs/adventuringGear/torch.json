@@ -7,10 +7,6 @@
 			"origin": "Item.ZXkkcOKKjIC2hDRI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WubkgIWC5d19zUDb",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -54,7 +50,10 @@
 			"tint": "#ffffff",
 			"img": "icons/sundries/lights/torch-brown-lit.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -92,13 +91,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"O0J1ig5IuDwcXP6o": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iswsGw5aTV3nSNGd"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -107,7 +100,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"iswsGw5aTV3nSNGd"
+				]
 			},
 			"EzcV7dhxP2t5HUCh": {
 				"name": "Attack",
@@ -210,16 +206,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 1,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],

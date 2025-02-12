@@ -37,11 +37,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"vHf7ZNI49l6hZ5pF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6JFfGNJnUktiwmL9"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 					"shape": "circle",
 					"quantity": 1,
 					"radius": 300
-				}
+				},
+				"effects": [
+					"6JFfGNJnUktiwmL9"
+				]
 			},
 			"aLjD0Xr6CE7XujLb": {
 				"name": "Recover Use",
@@ -182,10 +180,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -194,9 +188,6 @@
 			"origin": "Item.o4WapEpKI0957ocH",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KR9t6KbgWizQkxNO",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -207,7 +198,10 @@
 			"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
 			"_id": "6JFfGNJnUktiwmL9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

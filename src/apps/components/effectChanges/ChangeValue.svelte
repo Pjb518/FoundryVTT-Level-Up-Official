@@ -1,64 +1,64 @@
 <script>
-    import { createEventDispatcher, getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+import { createEventDispatcher, getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import AbilityBonusConfigDialog from "../../dialogs/AbilityBonusConfigDialog.svelte";
-    import DamageBonusConfigDialog from "../../dialogs/DamageBonusConfigDialog.svelte";
-    import HealingBonusConfigDialog from "../../dialogs/HealingBonusConfigDialog.svelte";
-    import SkillBonusConfigDialog from "../../dialogs/SkillBonusConfigDialog.svelte";
+import AbilityBonusConfigDialog from '../../dialogs/AbilityBonusConfigDialog.svelte';
+import DamageBonusConfigDialog from '../../dialogs/DamageBonusConfigDialog.svelte';
+import HealingBonusConfigDialog from '../../dialogs/HealingBonusConfigDialog.svelte';
+import SkillBonusConfigDialog from '../../dialogs/SkillBonusConfigDialog.svelte';
 
-    import CustomTagGroup from "../CustomTagGroup.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import AttackBonusConfigDialog from "../../dialogs/AttackBonusConfigDialog.svelte";
-    import InitiativeBonusConfigDialog from "../../dialogs/InitiativeBonusConfigDialog.svelte";
+import CustomTagGroup from '../CustomTagGroup.svelte';
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import AttackBonusConfigDialog from '../../dialogs/AttackBonusConfigDialog.svelte';
+import InitiativeBonusConfigDialog from '../../dialogs/InitiativeBonusConfigDialog.svelte';
 
-    export let key;
-    export let mode;
-    export let optionsList;
-    export let value;
+export let key;
+export let mode;
+export let optionsList;
+export let value;
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 
-    // Convert value to array if possible
-    function convertToArray(value) {
-        try {
-            const values = JSON.parse((value ?? "").trim());
-            if (Array.isArray(values)) return values;
-            return [values];
-        } catch {
-            return [];
-        }
-    }
+// Convert value to array if possible
+function convertToArray(value) {
+	try {
+		const values = JSON.parse((value ?? '').trim());
+		if (Array.isArray(values)) return values;
+		return [values];
+	} catch {
+		return [];
+	}
+}
 
-    function convertToObject(value) {
-        try {
-            const obj = JSON.parse((value ?? "").trim());
-            if (typeof obj !== "object") throw new Error();
-            obj.comparisonOperator = obj.comparisonOperator ?? "==";
-            obj.comparisonValue = obj.comparisonValue ?? "";
-            obj.positiveValue = obj.positiveValue ?? "";
-            obj.negativeValue = obj.negativeValue ?? "";
-            return obj;
-        } catch {
-            return {
-                comparisonOperator: "==",
-                comparisonValue: "",
-                positiveValue: "",
-                negativeValue: "",
-            };
-        }
-    }
+function convertToObject(value) {
+	try {
+		const obj = JSON.parse((value ?? '').trim());
+		if (typeof obj !== 'object') throw new Error();
+		obj.comparisonOperator = obj.comparisonOperator ?? '==';
+		obj.comparisonValue = obj.comparisonValue ?? '';
+		obj.positiveValue = obj.positiveValue ?? '';
+		obj.negativeValue = obj.negativeValue ?? '';
+		return obj;
+	} catch {
+		return {
+			comparisonOperator: '==',
+			comparisonValue: '',
+			positiveValue: '',
+			negativeValue: '',
+		};
+	}
+}
 
-    function updateObjectValue(obj) {
-        const returnValue = JSON.stringify(obj);
-        dispatch("change", returnValue);
-    }
+function updateObjectValue(obj) {
+	const returnValue = JSON.stringify(obj);
+	dispatch('change', returnValue);
+}
 
-    let conditionalObj = convertToObject(value);
+let conditionalObj = convertToObject(value);
 
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-    $: componentType = optionsList[key]?.type ?? "DEFAULT";
+const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+$: componentType = optionsList[key]?.type ?? 'DEFAULT';
 </script>
 
 <!-- Adding Components Based on Type AND MODE -->

@@ -7,9 +7,6 @@
 			"origin": "Item.Fym2XJ8XctIs5D98",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8OfFxCKaUohz6rRN",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/skills/melee/strike-sword-blood-red.webp",
 			"_id": "TJr0c04k5G8P4cOb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -84,13 +84,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"RjYrp9oV6wVkCZ30": {
-						"type": "effect",
-						"default": true,
-						"effectId": "TJr0c04k5G8P4cOb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -105,7 +99,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"TJr0c04k5G8P4cOb"
+				]
 			}
 		},
 		"description": "<p>As an action you may select a number of friendly creatures equal to your Charisma modifier within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}. Once per turn when an affected creature hits with an attack and has advantage on the attack roll, the attack deals an additional 1d6 damage. You may select a new batch of creatures by spending another action. The effect persists for one minute. Once you have used this ability a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a short or long rest.</p>",
@@ -126,10 +123,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "marshal",
 		"class": ""
 	},

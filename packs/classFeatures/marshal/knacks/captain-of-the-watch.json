@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"mtK4xsK1pQoM8XsW": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kDxFnTGvJ4I1ieZh"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kDxFnTGvJ4I1ieZh"
+				]
 			}
 		},
 		"description": "<p>When you help keep watch during a long rest, you and all other creatures assisting with the watch gain an expertise die to Perception checks until the end of each long rest.</p>",
@@ -58,10 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "marshal"
 	},
@@ -69,18 +62,17 @@
 		{
 			"origin": "Item.MrMb8Igy1LlwIFtf",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "54PURXFKGo9eGTeO"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Captain of the Watch",
 			"img": "icons/environment/people/spearfighter.webp",
 			"_id": "kDxFnTGvJ4I1ieZh",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.prc.expertiseDice",

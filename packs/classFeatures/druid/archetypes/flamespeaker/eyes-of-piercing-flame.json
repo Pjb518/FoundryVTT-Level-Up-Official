@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"ilNsBnZgRBkecx2U": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WZF6DwLkxI79N6BO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +34,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"WZF6DwLkxI79N6BO"
+				]
 			},
 			"H7IpoQC12Xg5dDjF": {
 				"name": "Dismiss",
@@ -82,29 +79,23 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "druid"
 	},
 	"effects": [
 		{
 			"origin": "Item.6qPdbMpanEXSK84U",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fnP1TBItVLpp8BUc",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Eyes of Piercing Flame",
 			"img": "icons/magic/fire/projectile-flaming-eyeball-red.webp",
 			"_id": "WZF6DwLkxI79N6BO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

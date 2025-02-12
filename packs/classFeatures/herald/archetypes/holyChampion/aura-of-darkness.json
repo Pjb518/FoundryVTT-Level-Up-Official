@@ -7,9 +7,6 @@
 			"origin": "Item.aZaVyoW1UHTer0ja",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "m7H84zlkJu42tDc9",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/unholy/barrier-shield-glowing-pink.webp",
 			"_id": "y8EACi2MxhmuMKAN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -95,14 +95,12 @@
 							"bonus": null
 						},
 						"type": "savingThrow"
-					},
-					"Ho69mViqjSjShfcR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "y8EACi2MxhmuMKAN"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"y8EACi2MxhmuMKAN"
+				]
 			}
 		},
 		"description": "<p>After initiative is rolled, when a hostile creature starts its turn in your aura or first enters into it on a turn, it makes a Wisdom saving throw or becomes frightened of you for 1 minute. Once a creature has been frightened by this aura, it is immune to the aura’s effects for 24 hours.</p>",
@@ -123,16 +121,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "herald",
 		"class": ""
 	},

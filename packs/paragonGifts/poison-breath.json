@@ -1,0 +1,106 @@
+{
+	"folder": null,
+	"name": "Poison Breath",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/snake-fangs-bite-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"DqPQ90B5Z4fqqv0j": {
+				"name": "Poison Breath",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"11yM9VUmU2j2hYu3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"y9qU6uJMBEmrEqCp": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d8 + @con.mod",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"d3kMmd4OH63ctyUB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"rCIkMQeZe4EJxOhr": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>You are able to exhale poisonous fumes in a 15-foot cone in front of you. As an action, you exhale poisonous fumes, and all creatures (except yourself and other naato) in the area must make a Constitution saving throw or take poison damage equal to 3d8 + your Constitution modifier. The DC of this saving throw is 8+ your proficiency bonus + your Constitution modifier. You can use this feature a number of times equal to your proficiency bonus, after which you must take a long rest before using it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731790260116,
+		"modifiedTime": 1731790361060,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mubELnvjaF9bXeza"
+}

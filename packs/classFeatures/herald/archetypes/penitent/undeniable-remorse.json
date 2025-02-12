@@ -44,16 +44,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Psychic damage and rattled"
-					},
-					"TUB5FYYbXyfKEr6n": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ijqopDtWB5gSP1bB"
-					},
-					"9uRsWc6wQOiw8Xnx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kvUQNUSAUIYjSOdZ"
 					}
 				},
 				"uses": {
@@ -81,7 +71,11 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"ijqopDtWB5gSP1bB",
+					"kvUQNUSAUIYjSOdZ"
+				]
 			}
 		},
 		"description": "<p>At 15th level, your example compels even the wicked. As an action, or as a reaction when you become bloodied, you can open the eyes of every creature within 30 feet of you to their own moral failings. The effect ends after one hour if you are not bloodied. If you are bloodied, it ends as soon as you receive sufficient healing to no longer be bloodied or after an hour, whichever comes first. Creatures subject to this effect see the full extent of their own sin without the shield of their own justifications or excuses. Creatures with the @UUID[Compendium.a5e.a5e-destinies.Item.35clu7k24yeabt8b]{Atonement} destiny are immune to the effects of this feature, as are Celestials and Aberrations. Fiends, Undead, and creatures with the @UUID[Compendium.a5e.a5e-destinies.Item.asfn5b75vpx3ws9v]{Monster} destiny save automatically, but still suffer the reduced effects.</p>\n<p>All other creatures with an Intelligence of 5 or greater that enter the area or start their turn in the area of this effect must make a Wisdom save against your spell save DC. A creature that fails its save is knocked prone and stunned, and at the Narrator&rsquo;s option, may act in a manner that indicates its profound guilt as a result of this newfound clarity, such as sobbing or confessing its sins. It remains prone and stunned until it takes any damage, has to make another saving throw, or until you move further than 30 feet away from it. Creatures that succeed on their saving throw take 4d4 psychic damage and are rattled until the end of their next turn. Once you have used this feature, you can&rsquo;t do so again until you finish a long rest.</p>\n<p>You may also speak words of reassurance to an affected creature and help it to its feet (requiring an action), at which point the effect ends for it.</p>",
@@ -102,10 +96,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -114,18 +104,17 @@
 		{
 			"origin": "Item.9Z9NDXuuZ8yf7JOd",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IMxoXzBv8O1U0le9"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Undeniable Remorse",
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
 			"_id": "ijqopDtWB5gSP1bB",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -167,9 +156,6 @@
 			"origin": "Item.9Z9NDXuuZ8yf7JOd",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IMxoXzBv8O1U0le9",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -181,7 +167,10 @@
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
 			"_id": "kvUQNUSAUIYjSOdZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

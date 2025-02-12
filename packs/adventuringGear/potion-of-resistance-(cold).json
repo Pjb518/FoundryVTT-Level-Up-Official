@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"1kNKpmSZbSpp1Bfa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8ZyJmzLxd5l5eFOH"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"8ZyJmzLxd5l5eFOH"
+				]
 			}
 		},
 		"description": "<p>After you drink this potion, for the next hour you gain resistance to Cold damage.</p>",
@@ -84,16 +81,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -110,10 +97,6 @@
 			"origin": "Item.ItbDd55dEWZk3BAj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5nzQ7DPrv6YodSIf",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -124,7 +107,10 @@
 			"img": "icons/consumables/potions/bottle-conical-corked-labeled-shell-cyan.webp",
 			"_id": "8ZyJmzLxd5l5eFOH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

@@ -1,0 +1,193 @@
+{
+	"name": "Gas Grenade",
+	"type": "object",
+	"img": "icons/weapons/thrown/grenade-round.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"SeKnu34LE5x9GN0S": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"5dFNJPrVyjVvsERg": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "bXySAnLg4RGTZZ3h",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"X8BmhjfSah6AWe0x": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vAUhpf0mzQssEBqO": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"effects": [
+					"MS4HfjCdEG3ZuwuJ"
+				]
+			}
+		},
+		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Gas</h2>\n<p>When detonated, a gas grenade creates a 10-foot-radius sphere of poisonous gas. A creature that enters the cloud for the first time on a turn, or that starts its turn inside the cloud, makes a Constitution saving throw. Creatures that don’t need to breathe automatically succeed on the saving throw. On a failure, the creature is poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. The gas spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until dispersed by a moderate wind (at least 10 miles per hour).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "40 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0.5,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.bXySAnLg4RGTZZ3h",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/weapons/thrown/grenade-round.webp",
+			"_id": "MS4HfjCdEG3ZuwuJ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732393644474,
+				"modifiedTime": 1732393670263,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732393596312,
+		"modifiedTime": 1732394170000,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "VSawIofswjnzt1hE"
+}

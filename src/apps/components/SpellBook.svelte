@@ -31,6 +31,7 @@
 
     const unsubscribe = reducer.subscribe((_) => {
         const spells = Object.keys(spellLevels).reduce((spellBookSpells, level) => {
+            // biome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
             spellBookSpells.push(...$reducer?._levels[level]);
             return spellBookSpells;
         }, []);
@@ -40,7 +41,9 @@
     $: menuList = Object.entries(spellLevels);
     $: spellBook = $actor?.spellBooks?.get(spellBookId);
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
     $: isSpellLevelVisible = (level) => {
         if (!sheetIsLocked) return true;

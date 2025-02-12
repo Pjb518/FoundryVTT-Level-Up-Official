@@ -1,22 +1,28 @@
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel';
+
 export default function showActivationDialogSection(
-  action: Action,
-  consumerTypes = [],
-  scalingModes = []
+	action: A5EActionData,
+	selectedConsumers: string[],
+	consumerTypes: string[] = [],
+	scalingModes: string[] = [],
 ) {
-  const hasConsumer = Object.values(action.consumers ?? {})
-    .filter((c: any): boolean => consumerTypes.includes(c.type)).length > 0;
+	const hasConsumer =
+		Object.values(action.consumers ?? {}).filter((c) => consumerTypes.includes(c.type)).length > 0;
 
-  const hasDamageScaling = Object.values(action.rolls ?? {})
-    ?.filter((r: DamageRoll | HealingRoll) => ['damage', 'healing'].includes(r.type))
-    ?.some((dr: DamageRoll | HealingRoll) => scalingModes.includes(dr.scaling?.mode));
+	const consumerKeys = Object.entries(action.consumers ?? {}).reduce((acc, [key, { type }]) => {
+		if (consumerTypes.includes(type)) acc.add(key);
+		return acc;
+	}, new Set<string>());
 
-  const hasTargetScaling = scalingModes.includes(action.target?.scaling?.mode);
-  const hasTemplateScaling = scalingModes.includes(action.area?.scaling?.mode);
+	if (!consumerKeys.some((k) => selectedConsumers.includes(k))) return false;
 
-  return (
-    hasConsumer
-    || hasDamageScaling
-    || hasTargetScaling
-    || hasTemplateScaling
-  );
+	const hasDamageScaling = Object.values(action.rolls ?? {})
+		?.filter((r) => ['damage', 'healing'].includes(r.type))
+		// @ts-expect-error
+		?.some((dr) => scalingModes.includes(dr.scaling?.mode));
+
+	const hasTargetScaling = scalingModes.includes(action.target?.scaling?.mode);
+	const hasTemplateScaling = scalingModes.includes(action.area?.scaling?.mode);
+
+	return hasConsumer || hasDamageScaling || hasTargetScaling || hasTemplateScaling;
 }

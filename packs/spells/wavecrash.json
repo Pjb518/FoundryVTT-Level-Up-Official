@@ -22,11 +22,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "only pushed 5 ft, not knocked prone"
-					},
-					"pTyGrtNR6w4nd5Go": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6ozi0XXz4Scmcmwj"
 					}
 				},
 				"uses": {
@@ -57,7 +52,10 @@
 							"width": "5"
 						}
 					}
-				}
+				},
+				"effects": [
+					"6ozi0XXz4Scmcmwj"
+				]
 			}
 		},
 		"description": "<p>You summon a wave of water emanating from your space, shoving creatures and objects away. Creatures in the area are pushed away from you out of the area and fall prone.</p><p>Creatures that succeed their saving throws are pushed 5 feet and do not fall prone, though they may choose to fall prone in their space if they do not wish to be pushed.<br>Unsecured objects within the area are pushed as well. Uncovered non-magical fires are extinguished.</p><p><strong>Cast at Higher Levels.</strong> Increase the area of the spell by 5 feet for every slot level above 1st.</p>",
@@ -100,16 +98,6 @@
 				"water"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -117,11 +105,7 @@
 			"icon": "icons/magic/water/pseudopod-teal.webp",
 			"origin": "Item.1fxe6ezdd9lwee6q",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Ey6TwrUZkVDqEDC1"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -153,6 +137,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -39,11 +39,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage and not rattled"
-					},
-					"m3R4SnOodN2J3ONC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LM3sThY9UJ8Nhbsi"
 					}
 				},
 				"uses": {
@@ -69,7 +64,10 @@
 					"length": 15,
 					"placeTemplate": true
 				},
-				"img": "icons/skills/ranged/tracers-triple-orange.webp"
+				"img": "icons/skills/ranged/tracers-triple-orange.webp",
+				"effects": [
+					"LM3sThY9UJ8Nhbsi"
+				]
 			}
 		},
 		"description": "<p>When you fire the ammunition, instead of making a weapon attack as normal, instead the ammunition explodes into a cone of lethal shards. Creatures in a 15-foot cone must make a Dexterity save against your spell save DC. Creatures that fail take piercing damage equal to the base damage of the weapon + a number of d6s of damage equal to half your proficiency bonus and are rattled until the end of their next turn. Creatures that save successfully take half damage and are not rattled.</p>",
@@ -90,16 +88,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "ranger",
 		"class": ""
 	},
@@ -108,9 +96,6 @@
 			"origin": "Item.JigyfgTUjnFeXNMF",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SQpk6sUkHgKzU0Wz",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -122,7 +107,10 @@
 			"img": "icons/skills/ranged/tracers-triple-orange.webp",
 			"_id": "LM3sThY9UJ8Nhbsi",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

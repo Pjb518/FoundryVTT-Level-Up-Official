@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"uu1KsqYo5B6o3eLZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "C2gNB0g5xxFtR4kR"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 				"target": {
 					"type": "self",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"C2gNB0g5xxFtR4kR"
+				]
 			}
 		},
 		"description": "<p>As a bonus action, you gain blindsight and tremorsense to a range of 30 feet until the end of your next turn.</p>",
@@ -66,11 +63,7 @@
 		"exertionCost": 1,
 		"isStance": false,
 		"prerequisite": "",
-		"tradition": "selflessSentinel",
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		}
+		"tradition": "selflessSentinel"
 	},
 	"effects": [
 		{
@@ -78,10 +71,6 @@
 			"origin": "Item.loWeaOgngqZcjnIR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oeVTxFuOUjDZ1JxK",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -122,6 +111,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

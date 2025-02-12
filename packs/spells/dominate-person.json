@@ -8,9 +8,6 @@
 			"origin": "Item.9s4sb34j24r74328",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "aG3wPaoWup4P5GrB",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,11 +87,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"D2NTY223wBKHCp8z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1xK38WqshsDZYjPq"
 					}
 				},
 				"consumers": {
@@ -100,7 +96,10 @@
 						"points": 7,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"1xK38WqshsDZYjPq"
+				]
 			}
 		},
 		"description": "<p>You assert control over the target humanoid's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 6th-level&mdash;Concentration (10 minutes), 7th-level &mdash;Concentration (1 hour), 8th-level &mdash;Concentration (8 hours).</p>",
@@ -141,16 +140,6 @@
 			"secondary": [
 				"compulsion"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

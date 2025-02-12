@@ -7,12 +7,7 @@
 			"icon": "icons/magic/fire/flame-burning-hand-white.webp",
 			"origin": "Item.krg2pw9p0pa5praw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cEbNoro1kCHgN2YB",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Flame",
@@ -48,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -77,13 +76,10 @@
 				},
 				"rolls": {},
 				"consumers": {},
-				"prompts": {
-					"JWDP4S4Yjv2wE7xD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fX7ykJezw2Vd0NZv"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"fX7ykJezw2Vd0NZv"
+				]
 			},
 			"Y1hfvOpZHGQJ8Mn9": {
 				"name": "Fling Flame",
@@ -122,7 +118,8 @@
 						"damageType": "fire"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			}
 		},
 		"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -164,16 +161,6 @@
 				"nature",
 				"utility"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"CVwr31JiMqdVTCsp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bpSF3HK7eNZadpFD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"bpSF3HK7eNZadpFD"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-7e574256-7fff-ed4f-4c81-066193443f1c\" dir=\"ltr\">At 18th level, while you are in darkness or magical darkness, you are invisible, you are immune to necrotic damage, and the DC of your Affliction school spells increases by 1.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "sorcerer",
 		"class": ""
 	},
@@ -75,12 +62,7 @@
 		{
 			"origin": "Item.BxFCDHXQmoUl65Y9",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7MWlPsnVeyAhYCvg",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Living Shadow",
@@ -125,7 +107,10 @@
 			},
 			"img": "icons/magic/unholy/hand-light-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

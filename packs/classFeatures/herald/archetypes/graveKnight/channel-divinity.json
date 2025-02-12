@@ -39,11 +39,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"mRWliFqbXwwcTYEL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bOvK4OXsM1mBUuCW"
 					}
 				},
 				"uses": {
@@ -67,7 +62,10 @@
 					"quantity": 1,
 					"placeTemplate": true,
 					"radius": 30
-				}
+				},
+				"effects": [
+					"bOvK4OXsM1mBUuCW"
+				]
 			}
 		},
 		"description": "<p>At 3rd level when you choose this archetype, you gain the following Channel Divinity option.</p>\n<p><em><strong>Enervating Field.</strong></em> As an action, you call upon your power to drain the life from the living around you. Each living creature within 30 feet of you must make a Constitution save against your spell save DC or have their movement Speed halved until the end of their next turn.</p>",
@@ -88,10 +86,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -100,9 +94,6 @@
 			"origin": "Item.uQzE1Plooo6hHflp",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Jmvr4MwA1Y3GVBq8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -114,7 +105,10 @@
 			"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
 			"_id": "bOvK4OXsM1mBUuCW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

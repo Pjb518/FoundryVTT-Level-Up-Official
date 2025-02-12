@@ -47,11 +47,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"HUMqbFwwgcYWoyJk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3saTn5H8ZXuB1CZK"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"3saTn5H8ZXuB1CZK"
+				]
 			}
 		},
 		"description": "<p>If you chose Path of the Revenant, you can strangle your foes at range with the sheer power of your hate. As an action, you may spend 4 exertion points to make a ranged spell attack against a creature you can see within 30 feet. It must make a Constitution save against your spell save DC or begin suffocating. The target may repeat this save at the end of each of its turns, ending the effect on a success. The effect also ends if you are knocked unconscious or die or if the target has remove curse or similar magic cast on it. A creature that successfully saves against your Grasp of Vengeance is immune to it for 24 hours.</p>",
@@ -94,10 +92,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"class": "",
 		"classes": "herald"
 	},
@@ -105,18 +99,17 @@
 		{
 			"origin": "Item.3eglgLj6NMEceRQy",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "h6tc6m6MBGT6zJKF"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Suffocating",
 			"img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
 			"_id": "3saTn5H8ZXuB1CZK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

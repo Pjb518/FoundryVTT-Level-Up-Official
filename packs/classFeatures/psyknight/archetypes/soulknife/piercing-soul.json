@@ -1,0 +1,1115 @@
+{
+	"folder": null,
+	"name": "Piercing Soul",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+	"system": {
+		"description": "<p>Beginning at 9th level, once between rests when you hit a creature with a @UUID[Compendium.a5e.a5e-class-features.Item.tt6SYjILhfzQ3kwx]{Psychic Dagger} attack, you can use your reaction to strike directly at the creature’s psyche instead of dealing damage. The target makes a Constitution saving throw against your psionics save DC, suffering your choice of one of the following conditions until the end of your next turn on a failure: [[/condition id=confused]], [[/condition id=frightened]] (with you as the source of their fear), [[/condition id=rattled]], or [[/condition id=slowed]]. On a successful save, the creature is immune to this effect for 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"CdTuX5XTPpzogGhc": {
+				"name": "Piercing Soul",
+				"effects": [
+					"ufuDHh1Ufhh3pQXx",
+					"BCS3ytXO9UzIBRGD",
+					"0V1pswFLjdhuaCaH",
+					"BPLRvnHgFQ9KTvpZ"
+				],
+				"prompts": {
+					"YOoRLgio2stqjHDp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Hit a creature with a psychic dagger attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {
+					"UN7osCp2Gd66Jk9Q": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "psyknight",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "g4ae3j3v5QfQL2sH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Frightened",
+			"img": "icons/magic/control/fear-fright-mask-orange.webp",
+			"_id": "fY0trHyKpKgj2UAO",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li style=\"list-style-type:none\">\n<ul>\n<li>A frightened creature has <strong>disadvantage on ability checks and attack rolls</strong> while it is able to see the source of its fear.</li>\n<li>A frightened creature <strong>can't willingly move closer</strong> to the source of its fear.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused (Copy)",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "xEyyaaFkYIMlcNlS",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused (Copy) (Copy)",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "l9wJolRJNM7iCBmy",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "GLsfRt4hWgJFADPT",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "fV5kL49SogSitsOl",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "xYXJEAeRFFRPrxlN",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused (Copy)",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "iGUcTTqtDp6ahLh4",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused (Copy)",
+			"img": "icons/magic/control/fear-fright-white.webp",
+			"_id": "5QdFpFqxX0nSeFcy",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature <strong>can't take reactions</strong>.</li>\n<li>On its turn, a confused creature rolls a<strong> [[/r 1d8]]</strong> to determine what it does:\n<ul>\n<li><strong>1 to 4:</strong> The creature does nothing.</li>\n<li><strong>5 or 6:</strong> The creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</li>\n<li><strong>7 or 8:</strong> The creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "wDCNBiMQg0zZSpX8",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "EkaTWLs6royNv6ag",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect (Copy)",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "zCbrYvbS2CBbP586",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect (Copy)",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "4D7Imnigx8Sp6iXF",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "ufuDHh1Ufhh3pQXx",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature can't take reactions.</li>\n<li>On its turn a confused creature rolls a d8 to determine what it does. \n<ul>\n<li>On a 1 to 4, a confused creature does nothing. </li>\n<li>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction. </li>\n<li>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Frightened",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "BCS3ytXO9UzIBRGD",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Rattled",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "0V1pswFLjdhuaCaH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.K8dB0gWe8WR985xv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slowed",
+			"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"_id": "BPLRvnHgFQ9KTvpZ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": null,
+				"modifiedTime": 1735658508983,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735658508858,
+		"modifiedTime": 1735658525752,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ttryb9TWQqYPKVMJ"
+}

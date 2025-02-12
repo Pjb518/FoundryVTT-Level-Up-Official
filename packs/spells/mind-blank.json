@@ -8,9 +8,6 @@
 			"origin": "Item.wad0cgw4tcdbuvbr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7cg8bU39fEtHwRmN",
 					"duration": {
 						"unit": "hours"
 					}
@@ -50,6 +47,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -89,13 +90,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"MdTJMP3LIOxH575d": {
-						"type": "effect",
-						"default": true,
-						"effectId": "RBAh2Q7IrMLfxazw"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"RBAh2Q7IrMLfxazw"
+				]
 			}
 		},
 		"description": "<p>The target is immune to psychic damage, any effect that would read its emotions or thoughts, divination spells, and the charmed condition.</p><p>This immunity extends even to the wish spell, and magical effects or spells of similar power that would affect the target's mind or gain information about it.</p>",
@@ -135,16 +133,6 @@
 				"arcane",
 				"negation"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

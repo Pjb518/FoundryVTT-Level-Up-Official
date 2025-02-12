@@ -36,7 +36,7 @@
         font-size: 2rem;
         padding: 0;
         margin: 0;
-        color: var(--a5e-color-text-medium);
+        color: var(--a5e-chat-card-color-medium);
         border: 0;
         transition: var(--a5e-transition-standard);
     }
@@ -74,11 +74,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, var(--a5e-color-text-dark));
+            color: var(--a5e-chat-card-color);
         }
 
         &:hover .die--generic-prompt {
-            color: var(--a5e-color-text-dark);
+            color: var(--a5e-chat-card-color);
         }
     }
 
@@ -86,10 +86,11 @@
         width: 100%;
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
-        color: var(--a5e-color-text-medium);
+        color: var(--a5e-chat-card-color-medium);
     }
 
     .title {
+        color: var(--a5e-chat-card-color);
         font-size: var(--a5e-text-size-sm);
         line-height: 1;
         font-weight: bold;

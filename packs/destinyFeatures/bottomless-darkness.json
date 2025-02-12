@@ -32,11 +32,6 @@
 						"default": true,
 						"label": "Poison Damage",
 						"formula": "1d6"
-					},
-					"eLRV28FRpqnK5hzG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uJ9DsIMSlAkeEv5j"
 					}
 				},
 				"uses": {
@@ -54,7 +49,10 @@
 					"LdXqKIajpEdnIeR0": {
 						"range": "touch"
 					}
-				}
+				},
+				"effects": [
+					"uJ9DsIMSlAkeEv5j"
+				]
 			}
 		},
 		"description": "<p>Your heinous misdeeds sow terror and corruption wherever you go. You may, once per hour and with a touch, do any of the following:</p><ul><li>Poison a well, wither 10,000 square feet of crops, or spoil all of the stored food and drink in a 1000-cubic foot space. Creatures consuming the poisoned fare receive no benefit from it and take 1d6 poison damage per portion they consume. Creatures who eat the food also suffer the poisoned condition for 8 hours.</li><li>Permanently afflict a creature with a CR equal to or less than 1/10th of your character level with a debilitating condition such as chronic pain or cancer. You can choose whether the condition will kill the creature over the course of 1-2 years or consign it to a lifetime of suffering.</li><li>Permanently erase a random pleasant memory from a creature&rsquo;s mind. The creature is aware of the loss.</li><li>Cause a creature&rsquo;s loved ones to stop trusting it for a week.</li><li>Learn the worst thing a creature with a CR up to 1/5th of your level has ever done.</li></ul><p>You may delay the onset of any of the above effects for up to a week in order to conceal your role.</p><p>In addition, you gain the Evil alignment trait, and you emit a strong evil aura for the purposes of any feature, spell, or trait that detects or affects Evil creatures.</p>",
@@ -82,16 +80,6 @@
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": ""
 	},
 	"effects": [
@@ -100,9 +88,6 @@
 			"origin": "Item.5x273px7arx9z8y0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "G2k1oPSrol3y1tHy",
 					"duration": {
 						"unit": "hours"
 					}
@@ -138,6 +123,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

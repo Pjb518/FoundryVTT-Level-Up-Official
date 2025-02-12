@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"yalKatlt7JEF3Rox": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mGsjqnemruEnPRmK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -71,7 +65,10 @@
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>"
+				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
+				"effects": [
+					"mGsjqnemruEnPRmK"
+				]
 			}
 		},
 		"description": "<p>Between the two sets of eyes and supernaturally-enhanced senses, very little escapes the notice of you and your familiar. You gain the following benefits:</p>\n<ul>\n<li>Your familiar gains darkvision with a range of 120 feet or its existing darkvision increases to a range of 120 feet.</li>\n<li>You gain proficiency with Perception if you are not already proficient and an expertise die if you are. Your maximum Perception expertise die size is a d12. You also gain the farsight and invisible objects specialties for the Perception skill.</li>\n<li>You can cast @UUID[Compendium.a5e.a5e-spells.Item.5za0gne3ylcdk11z]{True Seeing} once per long rest without material components or a spell slot.</li>\n<li>You cannot be blinded unless your familiar is also blinded.</li>\n<li>When using your familiar&rsquo;s senses, you can choose to not lose access to your own as normal. If you do this, the flood of sensory information keeps you from having advantage on Perception checks, even if you would normally have it. If you choose to fully focus on your familiar&rsquo;s senses (becoming blind to your own as normal) you do not suffer this penalty.</li>\n<li>You may target creatures your familiar can see but you cannot with spells and ranged attacks at no penalty due to obscured vision as long as there is a clear, direct, unobstructed path for your spell or projectile to follow. Cover still provides its normal bonuses.</li>\n<li>Your familiar watches over you while you sleep. While you are asleep, it gains True Seeing to a range of 60 feet, has advantage on Perception checks, and can wake you as a reaction.</li>\n<li>Your familiar&rsquo;s armor class is equal to 10 + your warlock spellcasting modifier + your proficiency bonus.</li>\n</ul>",
@@ -127,10 +124,6 @@
 		},
 		"prerequisite": "Pactbound Custodian feat, Pact of the Chain, Bonded Artifact is an Armor of Power",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
 		"classes": "",
 		"class": ""
 	},
@@ -139,9 +132,6 @@
 			"origin": "Item.NFkAQwuUQhsVUVWr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "YbSrAGWl2UnKzjvw",
 					"duration": {
 						"unit": "hours"
 					}
@@ -182,7 +172,10 @@
 			},
 			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

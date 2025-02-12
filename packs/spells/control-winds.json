@@ -69,11 +69,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"PASN3XaN3bnJeQiV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QoSOcXMR1yjHEoqg"
 					}
 				},
 				"uses": {
@@ -86,7 +81,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"QoSOcXMR1yjHEoqg"
+				]
 			},
 			"EynKBhGwGauc1Aa7": {
 				"name": "Gusts",
@@ -235,16 +233,6 @@
 				"nature"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -252,11 +240,7 @@
 			"icon": "icons/magic/air/wind-swirl-gray-blue.webp",
 			"origin": "Item.3v9sex1gt12pkg34",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZYBFO286b1YTU36z"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -288,6 +272,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

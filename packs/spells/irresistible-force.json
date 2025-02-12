@@ -21,23 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"XU2syMR93mOmTqV6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "m9AEuxWtZiEYYKFb"
-					},
-					"4sBi0ZrahqeBIGff": {
-						"type": "effect",
-						"default": true,
-						"effectId": "v9BuNsC3D6vapPio"
-					},
-					"oGXoSqM6F4xElZr2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L8n5R9KEgG7ZaTel"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -57,7 +41,12 @@
 					"YPyxgWHZIXEPnunf": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"m9AEuxWtZiEYYKFb",
+					"v9BuNsC3D6vapPio",
+					"L8n5R9KEgG7ZaTel"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You draw upon magical energy to give yourself the capacity to smash through anything in your path.</p><p>The next time you Rage, you become even more dangerous and difficult to stop than normal. For the duration of that Rage, your weapon attacks' damage type changes to force damage, your movement speed can&rsquo;t be reduced below 15 feet, and you ignore nonmagical difficult terrain. Also, if you would become stunned, you are instead rattled.</p><p>When you stop raging, you gain a level of fatigue and the spell ends.</p><p><strong>Cast at Higher Levels:</strong> If the spell level used to cast this is at least 2nd-level, if you would become frightened, you are instead rattled. If it is at least 3rd-level, if you would become paralyzed, you are instead slowed. If it is at least 4th-level, if you would become petrified, you are instead slowed.</p>",
@@ -102,16 +91,6 @@
 				"multiclass"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -119,12 +98,7 @@
 			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"origin": "Item.qwdv1zag0dd1laie",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
@@ -154,17 +128,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"origin": "Item.qwdv1zag0dd1laie",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rattled",
@@ -196,17 +170,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"origin": "Item.qwdv1zag0dd1laie",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Slowed",
@@ -238,6 +212,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -32,11 +32,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"lnjZTCEwS4FLzq9m": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t1wa2BbBjAxjtiOQ"
 					}
 				},
 				"uses": {
@@ -51,7 +46,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"t1wa2BbBjAxjtiOQ"
+				]
 			}
 		},
 		"description": "<p>Beginning at 15th level, when you use your @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite} or strike a creature with a smite spell, the target must succeed on a Constitution saving throw. On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
@@ -72,10 +70,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
 		"classes": "herald",
 		"class": ""
 	},
@@ -84,9 +78,6 @@
 			"origin": "Item.bUiK4WiuDXQ6NzP9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HWeJCwt0wSL5pvcp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -97,7 +88,10 @@
 			"img": "icons/magic/fire/projectile-wave-arrow.webp",
 			"_id": "t1wa2BbBjAxjtiOQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageVulnerabilities",
@@ -136,9 +130,6 @@
 			"origin": "Item.bUiK4WiuDXQ6NzP9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HWeJCwt0wSL5pvcp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -149,7 +140,10 @@
 			"img": "icons/magic/fire/projectile-wave-arrow.webp",
 			"_id": "a7yngbuKBqbrKn4w",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageVulnerabilities",
@@ -188,9 +182,6 @@
 			"origin": "Item.bUiK4WiuDXQ6NzP9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HWeJCwt0wSL5pvcp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -201,7 +192,10 @@
 			"img": "icons/magic/fire/projectile-wave-arrow.webp",
 			"_id": "pqo1fMiZEi6daNlA",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageVulnerabilities",

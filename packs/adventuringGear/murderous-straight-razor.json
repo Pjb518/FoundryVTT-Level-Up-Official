@@ -95,13 +95,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"xLeYf8WYrkNPud8L": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gOR0FfIeVFMUMMUr"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -113,7 +107,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/sundries/survival/razor.webp"
+				"img": "icons/sundries/survival/razor.webp",
+				"effects": [
+					"gOR0FfIeVFMUMMUr"
+				]
 			}
 		},
 		"description": "<p>This otherwise gleaming implement has dark stains that cannot be polished or scrubbed off. You gain a +2 bonus to attack and damage rolls made with this razor. A number of times per day equal to half your proficiency bonus, when you hit with a melee attack you can use a bonus action to channel the inherent hatred of the razor, dealing 2d6 necrotic damage.</p><p><strong>Curse.</strong> Once attuned to this weapon, you are cursed until you are targeted by @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} or similar magic. Your appearance and manner have a hint of murderous rage at all times, giving you disadvantage on Charisma checks and making beasts hostile towards you. Additionally, you have disadvantage on attack rolls with any other weapon and must make a DC 14 Wisdom saving throw to willingly part with the razor, even temporarily.</p>",
@@ -157,16 +154,6 @@
 			"finesse"
 		],
 		"weight": 0.5,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -178,12 +165,7 @@
 			"icon": "icons/sundries/survival/razor.webp",
 			"origin": "Item.bs33uvd26vazepaf",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "MHcgZQQaO19S5uV2",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Murderous Rage",
@@ -213,6 +195,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],

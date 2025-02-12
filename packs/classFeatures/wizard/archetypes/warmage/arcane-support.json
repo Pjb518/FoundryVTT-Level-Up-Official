@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"vLT0goZJOwfkJHxe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "D6ftLjqyrbt7Z4i5"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +52,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"D6ftLjqyrbt7Z4i5"
+				]
 			},
 			"bD3RxwzTaTgE7ecK": {
 				"name": "Enchant",
@@ -74,13 +71,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"4JAvbrTBGujmfrHM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "lPANgx0IAn1fejBl"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -97,7 +88,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"lPANgx0IAn1fejBl"
+				]
 			}
 		},
 		"description": "<p>At level 14, you gain the ability to bolster your allies in battle. As a reaction you can do one of the following:</p>\n<ul data-rte-list=\"default\">\n<li>\n<p>Grant a number of allies within 100 feet equal to twice your proficiency bonus the benefits of your @UUID[Compendium.a5e.a5e-class-features.Item.yo6k8wq1dont2btr]{Arcane Shield} for up to 10 minutes. This effect requires concentration to maintain.</p>\n</li>\n<li>\n<p>Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute. This effect requires concentration to maintain.</p>\n</li>\n</ul>\n<p>Once you have used this feature you cannot do so again until after you have taken a short rest.</p>",
@@ -118,16 +112,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wizard",
 		"class": ""
 	},
@@ -136,12 +120,9 @@
 			"origin": "Item.SuB84uc7txlCOT2P",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "minutes"
-					},
-					"actionId": "TzInaXGBUuvFAwSv"
+					}
 				}
 			},
 			"transfer": false,
@@ -180,7 +161,10 @@
 			},
 			"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null
 		},
@@ -188,9 +172,6 @@
 			"origin": "Item.SuB84uc7txlCOT2P",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bD3RxwzTaTgE7ecK",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -201,7 +182,10 @@
 			"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
 			"_id": "lPANgx0IAn1fejBl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.attacks",

@@ -7,11 +7,7 @@
 			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
 			"origin": "Item.2AaRUIxDqLXcUwyK",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jFrKd7mWIr6jAbeu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -89,11 +89,6 @@
 							"bonus": "8 + @prof + @wis.mod"
 						},
 						"type": "savingThrow"
-					},
-					"auRE0xdj5MKweeTV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Yir0VoKz3HrhM0y1"
 					}
 				},
 				"consumers": {
@@ -116,7 +111,10 @@
 						"formula": "3d6",
 						"damageType": "bludgeoning"
 					}
-				}
+				},
+				"effects": [
+					"Yir0VoKz3HrhM0y1"
+				]
 			}
 		},
 		"description": "<p>You can use an action and spend 3 exertion to hit the ground so hard it creates a shockwave in a 40-foot line that is 5 feet wide. Each creature in that line makes a Dexterity saving throw. On a failed save, the creature takes 4d6 bludgeoning damage and is knocked prone. On a success, the creature takes half damage and isn&rsquo;t knocked prone.</p>",
@@ -137,16 +135,6 @@
 		"grants": {},
 		"prerequisite": "5th level",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "adept"
 	},
 	"folder": null,

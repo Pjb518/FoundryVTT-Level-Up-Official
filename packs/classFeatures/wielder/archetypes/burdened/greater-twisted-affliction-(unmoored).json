@@ -39,16 +39,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"ocpTg4Xds9x5O9f3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "APjUmpvHpUXKHE3q"
-					},
-					"BqXUbid7ECMSCHWT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "akprtVe9HKmWcxe3"
 					}
 				},
 				"uses": {
@@ -88,7 +78,11 @@
 					"quantity": "",
 					"type": ""
 				},
-				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+				"effects": [
+					"APjUmpvHpUXKHE3q",
+					"akprtVe9HKmWcxe3"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-dfb07ad6-7fff-5d5c-d15a-8bf6d1b2a34c\" dir=\"ltr\">Also at 10th level, you have learned to direct more of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.4rawhkoa81x8uqs0]{Resilient Sphere} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight} without using a spell slot once per long rest.</li></ul>",
@@ -109,16 +103,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "wielder"
 	},
 	"effects": [
@@ -127,9 +111,6 @@
 			"origin": "Item.vvzwa9l1woi7jwlq",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -165,6 +146,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -172,9 +157,6 @@
 			"origin": "Item.vvzwa9l1woi7jwlq",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -211,6 +193,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"mSMtGboZc1o4oI0Q": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xbDwBoerTGHbJlYH"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"xbDwBoerTGHbJlYH"
+				]
 			}
 		},
 		"description": "<p>Starting at 6th level, whenever you miss with a melee weapon or melee spell attack, you gain advantage on your next melee weapon or melee spell attack.</p>",
@@ -57,16 +54,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "cleric",
 		"class": ""
 	},
@@ -74,19 +61,17 @@
 		{
 			"origin": "Item.lBxOLgJBfxtVFSQE",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "guSotVSeaSXozJn9",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Clerical Precision",
 			"img": "icons/skills/targeting/target-glowing-yellow.webp",
 			"_id": "xbDwBoerTGHbJlYH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",

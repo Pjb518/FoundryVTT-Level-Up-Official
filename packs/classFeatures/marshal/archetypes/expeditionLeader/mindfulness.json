@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"EsLBwTuUpo2rmBbe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "RmXyDKxj3owze5DC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"RmXyDKxj3owze5DC"
+				]
 			}
 		},
 		"description": "<p>You attune your breathing to the vibrations of the world around you, increasing your ability to sense your immediate surroundings. You and creatures you choose within the radius of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} gain tremorsense to a range of 10 feet.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -75,18 +62,17 @@
 		{
 			"origin": "Item.RM8r3VhP8z2vOD68",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LkpqqCCApXcZPoQV"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Mindfulness",
 			"img": "icons/tools/navigation/map-chart-tan.webp",
 			"_id": "RmXyDKxj3owze5DC",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.senses.tremorsense.distance",

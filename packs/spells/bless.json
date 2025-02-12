@@ -7,11 +7,7 @@
 			"icon": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
 			"origin": "Item.xnm2hvlfzqp792tz",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wy9z5ZXGRkmdFdlT"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bless",
@@ -48,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -91,13 +91,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"Tb3HVK1MehunfQ4G": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BVzQZTrd5DWfDSRB"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"BVzQZTrd5DWfDSRB"
+				]
 			}
 		},
 		"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 1st.</p>",
@@ -137,16 +134,6 @@
 				"divine",
 				"enhancement"
 			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
 		},
 		"spellBook": ""
 	},

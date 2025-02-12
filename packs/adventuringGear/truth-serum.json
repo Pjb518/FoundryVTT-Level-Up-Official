@@ -37,11 +37,6 @@
 							"bonus": "14"
 						},
 						"onSave": ""
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5UaBqRqzFKFk9i84"
+				]
 			}
 		},
 		"description": "<p><em>Uncommon, Ingested, Instantaneous</em></p><p>This clear alchemical concoction unlocks and&nbsp;untethers the mind. A creature makes a DC 14&nbsp;Constitution saving throw when it is subjected to&nbsp;this poison, and on a failure it becomes poisoned&nbsp;for 1 hour. While poisoned in this way a creature&nbsp;cannot knowingly lie (as per @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth}),&nbsp;using the poison&rsquo;s DC as the spell save DC.</p>",
@@ -93,16 +91,6 @@
 		"unidentifiedName": "",
 		"weaponProperties": [],
 		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"breakerProperties": [],
 		"defensiveProperties": "",
 		"flaws": [],
@@ -115,9 +103,6 @@
 			"origin": "Item.0tqedqbdg2p9lg3d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
 					"duration": {
 						"unit": "hours"
 					}
@@ -154,6 +139,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

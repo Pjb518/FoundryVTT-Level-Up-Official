@@ -8,12 +8,9 @@
 			"origin": "Item.i0zwll1k5vjftcce",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "BRjFmfpjPM55F64Y"
+					}
 				}
 			},
 			"transfer": false,
@@ -45,6 +42,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -85,14 +86,10 @@
 						"type": "resource"
 					}
 				},
-				"prompts": {
-					"6wY8fvsDWtWRjMMq": {
-						"type": "effect",
-						"default": true,
-						"label": "Springing Stance",
-						"effectId": "JYAsP3AverE3Tjqe"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"JYAsP3AverE3Tjqe"
+				]
 			}
 		},
 		"description": "<p>Every time you step, slide, or turn you do so more quickly than usual and it becomes much easier to hurl yourself about.</p><p>You increase the distance of your horizontal jumps by a number of feet equal to your proficiency bonus, and the distance of your vertical jumps by a number of feet equal to half your proficiency bonus. In addition, you gain an expertise die on Acrobatics checks and checks made to jump.</p>",
@@ -113,17 +110,7 @@
 		"exertionCost": 1,
 		"isStance": true,
 		"prerequisite": "",
-		"tradition": "toothAndClaw",
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+		"tradition": "toothAndClaw"
 	},
 	"folder": null,
 	"_id": "i0zwll1k5vjftcce",

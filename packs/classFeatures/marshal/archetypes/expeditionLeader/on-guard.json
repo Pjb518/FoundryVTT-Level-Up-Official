@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"XQaOmcZ7EVm3SX66": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QLcdtcssUw6FlZpU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"QLcdtcssUw6FlZpU"
+				]
 			}
 		},
 		"description": "<p>When you use your @UUID[Compendium.a5e.a5e-class-features.Item.qc8h2qnq0of52qct]{Rallying Surge} to allow a creature to regain hit points, that creature also gains an expertise die on one saving throw it makes in the next minute. The creature chooses whether or not to use the expertise die before making the save, and the die is wasted if not used before the effect ends.</p>",
@@ -58,16 +55,6 @@
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
 		"classes": "marshal",
 		"class": ""
 	},
@@ -76,9 +63,6 @@
 			"origin": "Item.Whm3ysqLCYVTrpAr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9nXtD2e9Lg5qjtvL",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -89,7 +73,10 @@
 			"img": "icons/tools/navigation/map-chart-tan.webp",
 			"_id": "QLcdtcssUw6FlZpU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Targets who pass their save are unaffected"
-					},
-					"r5gYp6AA0rZxf3I5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2TkCD6w8w9GRFJ1Q"
 					}
 				},
 				"uses": {
@@ -61,7 +56,10 @@
 					"radius": 15,
 					"placeTemplate": true
 				},
-				"description": "<p>Each creature of your choice within the area is filled with uncontrollable rage. Willing creatures can voluntarily fail their saves to gain the benefits. Affected creatures attack with reckless abandon, gaining advantage to their attack rolls but granting advantage on attacks against them. Affected creatures must make an attack on their turn; if they are unable to make an attack against a creature, they must use their action to dash to the nearest enemy or spend their action furiously thrashing and attacking nearby objects. Affected creatures are unable to cast spells. Affected creatures can make Wisdom saving throws at the end of each of their turns to end this effect if they so choose.</p>"
+				"description": "<p>Each creature of your choice within the area is filled with uncontrollable rage. Willing creatures can voluntarily fail their saves to gain the benefits. Affected creatures attack with reckless abandon, gaining advantage to their attack rolls but granting advantage on attacks against them. Affected creatures must make an attack on their turn; if they are unable to make an attack against a creature, they must use their action to dash to the nearest enemy or spend their action furiously thrashing and attacking nearby objects. Affected creatures are unable to cast spells. Affected creatures can make Wisdom saving throws at the end of each of their turns to end this effect if they so choose.</p>",
+				"effects": [
+					"2TkCD6w8w9GRFJ1Q"
+				]
 			}
 		},
 		"description": "<p>Each creature of your choice within the area is filled with uncontrollable rage. Willing creatures can voluntarily fail their saves to gain the benefits. Affected creatures attack with reckless abandon, gaining advantage to their attack rolls but granting advantage on attacks against them. Affected creatures must make an attack on their turn; if they are unable to make an attack against a creature, they must use their action to dash to the nearest enemy or spend their action furiously thrashing and attacking nearby objects. Affected creatures are unable to cast spells. Affected creatures can make Wisdom saving throws at the end of each of their turns to end this effect if they so choose.</p>",
@@ -106,16 +104,6 @@
 				"compulsion"
 			]
 		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
 		"spellBook": ""
 	},
 	"effects": [
@@ -124,9 +112,6 @@
 			"origin": "Item.e8ide1uylc9yoj90",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "phM9ox42fpNGYCqI",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -160,6 +145,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
