@@ -236,14 +236,14 @@ export default class ObjectItemA5e extends ItemA5e {
 		const container = await fromUuid(this.system.containerId);
 		if (!container) await this.update({ 'system.containerId': '' });
 
-		// Update quantity consumers to set themselves as the target
+		// Update quantity and quality consumers to set themselves as the target
 		const updates = {};
 		const actions = Object.entries(this.system.actions ?? {});
 		actions.forEach(([actionId, action]) => {
 			const consumers = Object.entries(action.consumers ?? {});
 			consumers.forEach(([consumerId, consumer]) => {
 				// @ts-expect-error
-				if (consumer.type !== 'quantity') return;
+				if (consumer.type !== 'quantity' && consumer.type !== 'quality') return;
 				updates[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = this._id;
 			});
 		});
