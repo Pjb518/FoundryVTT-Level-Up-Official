@@ -65,7 +65,7 @@
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.AbilityScore"
+    heading="A5E.abilities.headings.score"
     hint="The ability score modifier to add to the attack roll."
     optionStyles="min-width: 2rem; text-align: center;"
     options={abilityOptions}

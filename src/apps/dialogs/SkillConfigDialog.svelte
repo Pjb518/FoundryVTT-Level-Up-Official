@@ -76,7 +76,7 @@
         {/if}
 
         <RadioGroup
-            heading="A5E.AbilityScore"
+            heading="A5E.abilities.headings.score"
             optionStyles="min-width:2rem; text-align: center;"
             options={[...abilityOptions, ["@attributes.spellcasting", "Spellcasting"]]}
             selected={$actor._source.system.skills[skillKey].ability}

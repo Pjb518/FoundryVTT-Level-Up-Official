@@ -1,6 +1,6 @@
 export default function registerBonusesConfig() {
 	const bonusTypes = {
-		abilities: 'A5E.Ability',
+		abilities: 'A5E.abilities.headings.ability',
 		attacks: 'A5E.Attack',
 		damage: 'A5E.Damage',
 		exertion: 'A5E.Exertion',

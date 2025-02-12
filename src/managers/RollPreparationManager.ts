@@ -439,7 +439,7 @@ class RollPreparationManager {
 		// Check if ability configured
 		if (abilityKey) {
 			modifiers.push({
-				label: localize('A5E.AbilityCheckMod', {
+				label: localize('A5E.abilities.headings.checkMod', {
 					ability: localize(CONFIG.A5E.abilities[abilityKey]),
 				}),
 				value: this.#actor.system.abilities[abilityKey]?.check.mod,
@@ -457,7 +457,7 @@ class RollPreparationManager {
 
 		// Add Global Ability bonus
 		modifiers.push({
-			label: localize('A5E.AbilityCheckBonusGlobal'),
+			label: localize('A5E.abilities.headings.checkBonusGlobal'),
 			value: this.#actor.BonusesManager.getGlobalAbilityBonusesFormula('check'),
 		});
 

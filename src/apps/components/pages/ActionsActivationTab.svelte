@@ -73,7 +73,7 @@
     </FieldWrapper>
 
     {#if action.activation?.type === "reaction"}
-        <FieldWrapper heading="A5E.ActionActivationReactionTrigger">
+        <FieldWrapper heading="A5E.actions.headings.activation.reactionTrigger">
             <div class="action-config__component">
                 <input
                     class="full-size-input"
