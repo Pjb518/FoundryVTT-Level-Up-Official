@@ -13,9 +13,9 @@ export default function getActivationCostLabel(item: ItemA5e, action: Action) {
 
 	if (activation.type === 'reaction') {
 		if (activation.reactionTrigger) {
-			activationLabel = `${localize('A5E.ActionActivationReaction')} (${activation.reactionTrigger})`;
+			activationLabel = `${localize('A5E.actions.headings.activation.reaction')} (${activation.reactionTrigger})`;
 		} else {
-			activationLabel = localize('A5E.ActionActivationReaction');
+			activationLabel = localize('A5E.actions.headings.activation.reaction');
 		}
 	} else if (activation.cost === 0 || activation.cost > 1) {
 		activationLabel = `${activation.cost} ${CONFIG.A5E.abilityActivationTypesPlural[activation.type]}`;

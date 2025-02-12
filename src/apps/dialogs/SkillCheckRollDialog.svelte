@@ -111,7 +111,7 @@ $: rollFormula = getRollFormula($actor, {
     />
 
     <RadioGroup
-        heading="A5E.AbilityScore"
+        heading="A5E.abilities.headings.score"
         options={Object.entries(abilities)}
         selected={abilityKey}
         allowDeselect={false}

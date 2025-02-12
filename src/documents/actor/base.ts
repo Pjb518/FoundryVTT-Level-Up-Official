@@ -1208,7 +1208,7 @@ class BaseActorA5e extends Actor {
 		rollOptions: AbilityCheckRollOptions = {},
 		dialogOptions = {},
 	) {
-		const title = localize('A5E.AbilityCheckPromptTitle', {
+		const title = localize('A5E.abilities.headings.checkPromptTitle', {
 			name: this.name,
 			ability: localize(CONFIG.A5E.abilities[abilityKey]),
 		});
@@ -1558,7 +1558,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureAbilityScore(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.AbilityCheckPromptTitle', {
+		const title = localize('A5E.abilities.headings.checkPromptTitle', {
 			name: this.name,
 			ability: localize(CONFIG.A5E.abilities[data.abilityKey]),
 		});
@@ -1578,7 +1578,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureArmorClass(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ACConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.armorClass.headings.acConfigurationPrompt', { name: this.name });
 		this.#configure('armorClass', title, data, options);
 	}
 
