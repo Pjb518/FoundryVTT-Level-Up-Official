@@ -1,0 +1,230 @@
+{
+	"name": "Alter Aura",
+	"type": "feature",
+	"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BvvuE3I6YKWBYO3N": {
+				"name": "Appealing",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"id": "BvvuE3I6YKWBYO3N",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
+				"effects": [],
+				"macro": "",
+				"ranges": {
+					"eIL9qQV6P5d3kBMb": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			},
+			"Tef3m85ZZz3pLlEj": {
+				"name": "Revolting",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"XHrJY2ncp3enpLTY"
+				],
+				"macro": "",
+				"ranges": {
+					"eIL9qQV6P5d3kBMb": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 0,
+					"placeTemplate": false
+				}
+			}
+		},
+		"description": "<p>By changing your own aura you can create a sense of welcome or unease in other people. As an action you shift your personal aura to present as either appealing or revolting and gain the following effects for up to 10 minutes based on your concentration.</p><p><strong>Appealing</strong>: Regardless of your physical appearance you develop a form of sheer personal magnetism that resonates in other people. The sheer power of which can briefly awe those in your presence and cause them to re-evaluate you as a person. You become the center of attention fairly quickly, and creatures within 20ft of you have disadvantage on perception checks to notice other people.</p><p><strong>Revolting</strong>: Regardless of your physical appearance you become a person to be reviled and disdained, with people going out of their way not to notice you in the way they might overlook those in poverty. You gain expertise on Stealth checks. This revulsion is so strong that people associated with you also gain the Stealth expertise.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": true,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.w8LI23UKFwjtzFjN",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Revolting",
+			"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
+			"_id": "XHrJY2ncp3enpLTY",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain expertise on Stealth checks. This revulsion is so strong that people associated with you also gain the Stealth expertise.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1739900724934,
+				"modifiedTime": 1739900755451,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"a5e": {
+			"placeTemplate": true
+		},
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1739900598303,
+		"modifiedTime": 1739901193628,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "j4bJDRvSJ2ae3Ph4"
+}

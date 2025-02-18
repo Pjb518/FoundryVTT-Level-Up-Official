@@ -50,7 +50,7 @@ export default class Pack {
 		Object.entries(source.flags).forEach(([flagId, flag]) => {
 			if (!['core', 'a5e'].includes(flagId)) delete source.flags[flagId];
 
-			if (Object.keys(flag).length === 0) delete source.flags[flag];
+			if (Object.keys(flag ?? {}).length === 0) delete source.flags[flag];
 		});
 
 		// TODO: Make this more robust in the future
