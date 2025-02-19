@@ -827,6 +827,7 @@ const preparedStates = {
 
 const psionicDisciplines = {
 	dynakinetic: 'A5E.PsionicDisciplineDynakinetic',
+	empathic: 'A5E.PsionicDisciplineEmpathic',
 	kinesthetic: 'A5E.PsionicDisciplineKinesthetic',
 	telekinetic: 'A5E.PsionicDisciplineTelekinetic',
 	telepathic: 'A5E.PsionicDisciplineTelepathic',
