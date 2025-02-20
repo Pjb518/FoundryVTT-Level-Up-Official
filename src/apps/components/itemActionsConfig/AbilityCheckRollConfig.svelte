@@ -77,7 +77,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.AbilityCheckDefaultSelection"
+    label="A5E.abilities.headings.checkDefaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

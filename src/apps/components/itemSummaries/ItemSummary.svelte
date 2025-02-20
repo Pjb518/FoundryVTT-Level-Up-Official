@@ -12,7 +12,7 @@
         },
         {
             field: "activationCost",
-            label: "A5E.ActionActivationCost",
+            label: "A5E.actions.headings.activation.cost",
         },
         {
             field: "ranges",

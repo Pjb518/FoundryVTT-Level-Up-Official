@@ -42,8 +42,8 @@
             component: SavePromptConfig,
         },
         abilityCheck: {
-            heading: "A5E.AbilityCheckPlural",
-            singleLabel: "A5E.AbilityCheck",
+            heading: "A5E.abilities.headings.checkPlural",
+            singleLabel: "A5E.abilities.headings.check",
             component: AbilityCheckPromptConfig,
         },
         skillCheck: {
