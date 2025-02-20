@@ -156,17 +156,17 @@ const abilityAbbreviations = {
  * @enum {string}
  */
 const abilityActivationTypes = {
-	action: 'A5E.ActionActivationAction',
-	bonusAction: 'A5E.ActionActivationBonusAction',
+	action: 'A5E.actions.headings.activation.action',
+	bonusAction: 'A5E.actions.headings.activation.bonusAction',
 	day: 'A5E.DurationDay',
 	hour: 'A5E.DurationHour',
-	lairAction: 'A5E.ActionActivationLairAction',
-	legendaryAction: 'A5E.ActionActivationLegendaryAction',
+	lairAction: 'A5E.actions.headings.activation.lairAction',
+	legendaryAction: 'A5E.actions.headings.activation.legendaryAction',
 	minute: 'A5E.DurationMinute',
-	none: 'A5E.ActionActivationNone',
-	objectInteraction: 'A5E.ActionActivationObjectInteraction',
-	reaction: 'A5E.ActionActivationReaction',
-	special: 'A5E.ActionActivationSpecial',
+	none: 'A5E.None',
+	objectInteraction: 'A5E.actions.headings.activation.objectInteraction',
+	reaction: 'A5E.actions.headings.activation.reaction',
+	special: 'A5E.actions.headings.activation.special',
 };
 
 /**
@@ -174,25 +174,25 @@ const abilityActivationTypes = {
  * @enum {string}
  */
 const abilityActivationTypesPlural = {
-	action: 'A5E.ActionActivationActionPlural',
-	bonusAction: 'A5E.ActionActivationBonusActionPlural',
+	action: 'A5E.actions.headings.activation.actionPlural',
+	bonusAction: 'A5E.actions.headings.activation.bonusActionPlural',
 	day: 'A5E.DurationDayPlural',
 	hour: 'A5E.DurationHourPlural',
-	lairAction: 'A5E.ActionActivationLairActionPlural',
-	legendaryAction: 'A5E.ActionActivationLegendaryActionPlural',
+	lairAction: 'A5E.actions.headings.activation.lairActionPlural',
+	legendaryAction: 'A5E.actions.headings.activation.legendaryActionPlural',
 	minute: 'A5E.DurationMinutePlural',
-	none: 'A5E.ActionActivationNone',
-	objectInteraction: 'A5E.ActionActivationObjectInteractionPlural',
-	reaction: 'A5E.ActionActivationReaction',
-	special: 'A5E.ActionActivationSpecial',
+	none: 'A5E.None',
+	objectInteraction: 'A5E.actions.headings.activation.objectInteractionPlural',
+	reaction: 'A5E.actions.headings.activation.reaction',
+	special: 'A5E.actions.headings.activation.special',
 };
 
 const actionOptions = {
-	abilityCheck: 'A5E.ActionOptionAbilityCheck',
-	attack: 'A5E.ActionOptionAttack',
-	damage: 'A5E.ActionOptionDamage',
-	healing: 'A5E.ActionOptionHealing',
-	savingThrow: 'A5E.ActionOptionSavingThrow',
+	abilityCheck: 'A5E.actions.headings.options.abilityCheck',
+	attack: 'A5E.actions.headings.options.attack',
+	damage: 'A5E.actions.headings.options.damage',
+	healing: 'A5E.actions.headings.options.healing',
+	savingThrow: 'A5E.actions.headings.options.savingThrow',
 };
 
 /**

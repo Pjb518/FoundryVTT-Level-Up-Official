@@ -17,7 +17,7 @@ const item: Writable<ItemA5e> = getContext('item');
 const actionId: string = getContext('actionId');
 
 const descriptionOutputOptions = [
-	['action', 'A5E.ActionActivationAction'],
+	['action', 'A5E.actions.headings.activation.action'],
 	['item', 'A5E.Item'],
 ];
 
@@ -37,8 +37,8 @@ $: summaryData = getSummaryData($item, $item.actions.get(actionId));
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <CheckboxGroup
-        heading="A5E.ActionDescriptionOptions"
-        hint="A5E.ActionDescriptionOptionsHint"
+        heading="A5E.actions.headings.descriptionOptions"
+        hint="A5E.actions.hints.descriptionOptions"
         options={descriptionOutputOptions}
         selected={descriptionOutputs}
         on:updateSelection={({ detail }) =>

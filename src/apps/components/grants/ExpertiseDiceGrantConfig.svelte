@@ -48,7 +48,7 @@ onDestroy(() => {
 const item = new TJSDocument(document);
 const configObject = {
 	abilityCheck: {
-		label: 'A5E.AbilityCheck',
+		label: 'A5E.abilities.headings.check',
 		options: Object.entries(CONFIG.A5E.abilities),
 	},
 	abilitySave: {
@@ -56,7 +56,7 @@ const configObject = {
 		options: Object.entries(CONFIG.A5E.abilities),
 	},
 	attack: {
-		label: 'A5E.ActionOptionAttack',
+		label: 'A5E.actions.headings.options.attack',
 		options: Object.entries(CONFIG.A5E.attackTypes),
 	},
 	initiative: {
