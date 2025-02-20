@@ -167,7 +167,7 @@ export default class ModifierManager {
 
 	#getAttackBonus() {
 		return {
-			label: localize('A5E.AttackBonus'),
+			label: localize('A5E.attacks.headings.bonus'),
 			value: this.rollData.attackBonus ?? 0,
 		};
 	}

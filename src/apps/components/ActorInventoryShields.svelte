@@ -74,7 +74,7 @@
         <!-- Attunement -->
         <div class="shield shield--attunement">
             <h3 class="footer-shield-header">
-                {localize("A5E.Attunement")}
+                {localize("A5E.attument.headings.attunement")}
             </h3>
 
             <span class="a5e-footer-group__value a5e-footer-group__value--attunement">

@@ -43,7 +43,7 @@
 
 <div class="side-by-side">
     {#if showActivationDialogSection(action, selectedConsumers, ["actionUses"], ["actionUses"]) && actionUses?.max}
-        <FieldWrapper heading="A5E.ActionUses">
+        <FieldWrapper heading="A5E.actions.headings.uses">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">
                     <input

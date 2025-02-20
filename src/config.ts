@@ -227,9 +227,9 @@ const alignments = {
 };
 
 const ammunitionProperties = {
-	explosive: 'A5E.AmmunitionPropertyExplosive',
-	flaming: 'A5E.AmmunitionPropertyFlaming',
-	punching: 'A5E.AmmunitionPropertyPunching',
+	explosive: 'A5E.ammunition.properties.explosive',
+	flaming: 'A5E.ammunition.properties.flaming',
+	punching: 'A5E.ammunition.properties.punching',
 };
 
 const appliedArmorTypes = {
@@ -250,15 +250,15 @@ const areaIcons = {
 };
 
 const areaTypes = {
-	circle: 'A5E.AreaCircle',
-	cone: 'A5E.AreaCone',
-	cube: 'A5E.AreaCube',
-	cylinder: 'A5E.AreaCylinder',
-	emanation: 'A5E.AreaEmanation',
-	line: 'A5E.AreaLine',
-	sphere: 'A5E.AreaSphere',
-	square: 'A5E.AreaSquare',
-	wall: 'A5E.AreaWall',
+	circle: 'A5E.area.circle',
+	cone: 'A5E.area.cone',
+	cube: 'A5E.area.cube',
+	cylinder: 'A5E.area.cylinder',
+	emanation: 'A5E.area.emanation',
+	line: 'A5E.area.line',
+	sphere: 'A5E.area.sphere',
+	square: 'A5E.area.square',
+	wall: 'A5E.area.wall',
 };
 
 /**
@@ -279,10 +279,10 @@ const areaTemplates = {
  * @enum {string}
  */
 const armor = {
-	light: 'A5E.ArmorLight',
-	medium: 'A5E.ArmorMedium',
-	heavy: 'A5E.ArmorHeavy',
-	shield: 'A5E.ArmorShield',
+	light: 'A5E.armorClass.types.light',
+	medium: 'A5E.armorClass.types.medium',
+	heavy: 'A5E.armorClass.types.heavy',
+	shield: 'A5E.armorClass.types.shield',
 };
 
 const armorModes = {
@@ -291,32 +291,32 @@ const armorModes = {
 };
 
 const armorMods = {
-	biosensors: 'A5E.ArmorModBiosensors',
-	dronePort: 'A5E.ArmorModDronePort',
-	environmentalRecycling: 'A5E.ArmorModEnvironmentalRecycling',
-	floodlights: 'A5E.ArmorModFloodlights',
-	gliderWings: 'A5E.ArmorModGliderWings',
-	grapplingHook: 'A5E.ArmorModGrapplingHook',
-	groundAnchors: 'A5E.ArmorModGroundAnchors',
-	hazmatSealing: 'A5E.ArmorModHazmatSealing',
-	improvedColdShielding: 'A5E.ArmorModImprovedColdShielding',
-	improvedHeatShielding: 'A5E.ArmorModImprovedHeatShielding',
-	improvedWeaponHatch: 'A5E.ArmorModImprovedWeaponHatch',
-	integratedFirstAid: 'A5E.ArmorModIntegratedFirstAid',
-	integratedJetpack: 'A5E.ArmorModIntegratedJetpack',
-	integratedTool: 'A5E.ArmorModIntegratedTool',
-	kineticAssistance: 'A5E.ArmorModKineticAssistance',
-	massJammer: 'A5E.ArmorModMassJammer',
-	mindshielding: 'A5E.ArmorModMindshielding',
-	nightvisionGoggles: 'A5E.ArmorModNightvisionGoggles',
-	personalJammer: 'A5E.ArmorModPersonalJammer',
-	pocket: 'A5E.ArmorModPocket',
-	powerClaw: 'A5E.ArmorModPowerClaw',
-	rechargePort: 'A5E.ArmorModRechargePort',
-	reconApparatus: 'A5E.ArmorModReconApparatus',
-	repairKit: 'A5E.ArmorModRepairKit',
-	secondaryArmorPlating: 'A5E.ArmorModSecondaryArmorPlating',
-	weaponHatch: 'A5E.ArmorModWeaponHatch',
+	biosensors: 'A5E.armorClass.mods.biosensors',
+	dronePort: 'A5E.armorClass.mods.dronePort',
+	environmentalRecycling: 'A5E.armorClass.mods.environmentalRecycling',
+	floodlights: 'A5E.armorClass.mods.floodlights',
+	gliderWings: 'A5E.armorClass.mods.gliderWings',
+	grapplingHook: 'A5E.armorClass.mods.grapplingHook',
+	groundAnchors: 'A5E.armorClass.mods.groundAnchors',
+	hazmatSealing: 'A5E.armorClass.mods.hazmatSealing',
+	improvedColdShielding: 'A5E.armorClass.mods.improvedColdShielding',
+	improvedHeatShielding: 'A5E.armorClass.mods.improvedHeatShielding',
+	improvedWeaponHatch: 'A5E.armorClass.mods.improvedWeaponHatch',
+	integratedFirstAid: 'A5E.armorClass.mods.integratedFirstAid',
+	integratedJetpack: 'A5E.armorClass.mods.integratedJetpack',
+	integratedTool: 'A5E.armorClass.mods.integratedTool',
+	kineticAssistance: 'A5E.armorClass.mods.kineticAssistance',
+	massJammer: 'A5E.armorClass.mods.massJammer',
+	mindshielding: 'A5E.armorClass.mods.mindshielding',
+	nightvisionGoggles: 'A5E.armorClass.mods.nightvisionGoggles',
+	personalJammer: 'A5E.armorClass.mods.personalJammer',
+	pocket: 'A5E.armorClass.mods.pocket',
+	powerClaw: 'A5E.armorClass.mods.powerClaw',
+	rechargePort: 'A5E.armorClass.mods.rechargePort',
+	reconApparatus: 'A5E.armorClass.mods.reconApparatus',
+	repairKit: 'A5E.armorClass.mods.repairKit',
+	secondaryArmorPlating: 'A5E.armorClass.mods.secondaryArmorPlating',
+	weaponHatch: 'A5E.armorClass.mods.weaponHatch',
 };
 
 /**
@@ -324,14 +324,14 @@ const armorMods = {
  * @enum {string}
  */
 const armorProperties = {
-	camouflaged: 'A5E.ArmorPropertyCamouflaged',
-	cloaking: 'A5E.ArmorPropertyCloaking',
-	coldShielding: 'A5E.ArmorPropertyColdShielding',
-	greased: 'A5E.ArmorPropertyGreased',
-	heatShielding: 'A5E.ArmorPropertyHeatShielding',
-	mirrored: 'A5E.ArmorPropertyMirrored',
-	shearThickening: 'A5E.ArmorPropertyShearThickening',
-	spiked: 'A5E.ArmorPropertySpiked',
+	camouflaged: 'A5E.armorClass.properties.camouflaged',
+	cloaking: 'A5E.armorClass.properties.cloaking',
+	coldShielding: 'A5E.armorClass.properties.coldShielding',
+	greased: 'A5E.armorClass.properties.greased',
+	heatShielding: 'A5E.armorClass.properties.heatShielding',
+	mirrored: 'A5E.armorClass.properties.mirrored',
+	shearThickening: 'A5E.armorClass.properties.shearThickening',
+	spiked: 'A5E.armorClass.properties.spiked',
 	stealthy: 'A5E.objectProperties.stealthy',
 	storage: 'A5E.objectProperties.storage',
 };
@@ -341,17 +341,17 @@ const armorProperties = {
  * @enum {string}
  */
 const armorPlural = {
-	light: 'A5E.ArmorLight',
-	medium: 'A5E.ArmorMedium',
-	heavy: 'A5E.ArmorHeavy',
-	shield: 'A5E.ArmorShieldPlural',
+	light: 'A5E.armorClass.types.light',
+	medium: 'A5E.armorClass.types.medium',
+	heavy: 'A5E.armorClass.types.heavy',
+	shield: 'A5E.armorClass.types.shieldPlural',
 };
 
 const attackTypes = {
-	meleeWeaponAttack: 'A5E.AttackTypeMeleeWeapon',
-	rangedWeaponAttack: 'A5E.AttackTypeRangedWeapon',
-	meleeSpellAttack: 'A5E.AttackTypeMeleeSpell',
-	rangedSpellAttack: 'A5E.AttackTypeRangedSpell',
+	meleeWeaponAttack: 'A5E.attacks.types.meleeWeapon',
+	rangedWeaponAttack: 'A5E.attacks.types.rangedWeapon',
+	meleeSpellAttack: 'A5E.attacks.types.meleeSpell',
+	rangedSpellAttack: 'A5E.attacks.types.rangedSpell',
 };
 
 const carryCapacityMultiplier = {

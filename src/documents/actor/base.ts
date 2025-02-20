@@ -858,7 +858,7 @@ class BaseActorA5e extends Actor {
 		);
 
 		if (tempTotal && tempTotal <= temp) {
-			ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
+			ui.notifications.warn('A5E.actions.warnings.tempHpNotOverwritten', { localize: true });
 			showCascadingTemp = false;
 		} else {
 			updates['system.attributes.hp.temp'] = tempTotal;
@@ -909,7 +909,7 @@ class BaseActorA5e extends Actor {
 
 		if (healingType === 'temporaryHealing') {
 			if (healing <= temp) {
-				ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
+				ui.notifications.warn('A5E.actions.warnings.tempHpNotOverwritten', { localize: true });
 				return this;
 			}
 
@@ -1567,11 +1567,11 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureAlignment(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.AlignmentConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.configurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.Alignments';
+		data.heading ??= 'A5E.traits.headings.alignments';
 		data.propertyKey ??= 'system.traits.alignment';
-		data.configObject ??= CONFIG.A5E.alignments;
+		data.configObject ??= CONFIG.A5E.traits.headings.alignments;
 		data.type ??= 'alignment';
 
 		this.#configure('alignment', title, data, options);
@@ -1583,9 +1583,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureArmorProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.armorClass.headings.proficienciesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ArmorProficiencies';
+		data.heading ??= 'A5E.armorClass.headings.proficiencies';
 		data.propertyKey ??= 'system.proficiencies.armor';
 		data.configObject ??= CONFIG.A5E.armor;
 		data.type ??= 'armorTypes';

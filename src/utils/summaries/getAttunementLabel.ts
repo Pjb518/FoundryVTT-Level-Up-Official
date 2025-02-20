@@ -6,11 +6,11 @@ export default function getAttunementLabel(item: ObjectItemA5e) {
 	const { requiresAttunement, attuned, attunementHint } = item.system;
 
 	if (!requiresAttunement) return '';
-	if (attuned) return localize('A5E.Attuned');
+	if (attuned) return localize('A5E.attument.headings.attuned');
 	if (!item.actor) {
-		if (!attunementHint) return localize('A5E.AttunementRequiredPrompt');
-		return `${localize('A5E.AttunementRequiredPrompt')} ${attunementHint}`;
+		if (!attunementHint) return localize('A5E.attument.headings.requiredPrompt');
+		return `${localize('A5E.attument.headings.requiredPrompt')} ${attunementHint}`;
 	}
 
-	return `${localize('A5E.AttunementRequiredPrompt')} - ${localize('A5E.AttunedNot')}`;
+	return `${localize('A5E.attument.headings.requiredPrompt')} - ${localize('A5E.attument.headings.not')}`;
 }

@@ -59,12 +59,12 @@ export default function registerFilterConfig(A5E) {
 			miscellaneous: {
 				label: 'A5E.FilterLabelMiscellaneous',
 				filters: {
-					attuned: { label: 'A5E.Attuned', key: 'system.attuned', type: 'boolean' },
+					attuned: { label: 'A5E.attument.headings.attuned', key: 'system.attuned', type: 'boolean' },
 					bulky: { label: 'A5E.ItemBulky', key: 'system.bulky', type: 'boolean' },
 					2: { label: 'A5E.ItemEquipped', key: 'system.equippedState', type: 'value' }, // For Equipped State
 					plotItem: { label: 'A5E.PlotItem', key: 'system.plotItem', type: 'boolean' },
 					requiresAttunement: {
-						label: 'A5E.AttunementRequired',
+						label: 'A5E.attument.headings.required',
 						key: 'system.requiredAttunement',
 						type: 'boolean',
 					},

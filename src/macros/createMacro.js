@@ -11,7 +11,7 @@ export default async function createMacro(data, slot) {
 	const action = item.actions.get(data.actionId);
 
 	if (foundry.utils.isEmpty(item) || item.parent === null) {
-		return ui.notifications.warn(game.i18n.localize('A5E.ActionWarningNoMacrosForUnownedItems'));
+		return ui.notifications.warn(game.i18n.localize('A5E.actions.warnings.noMacrosForUnownedItems'));
 	}
 
 	// Create the macro command

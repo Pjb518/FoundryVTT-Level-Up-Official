@@ -53,11 +53,13 @@
 		"headings": {
 			"action": "Action",
 			"descriptionOptions": "Description Chat Output Options",
+			"uses": "Action Uses",
 			"activation": {
 				"action": "Action",
 				"actionPlural": "Actions",
 				"bonusAction": "Bonus Action",
 				"bonusActionPlural": "Bonus Actions",
+				"configuration": "Activation Configuration",
 				"cost": "Activation Cost",
 				"lairAction": "Lair Action",
 				"lairActionPlural": "Lair Actions",
@@ -79,6 +81,10 @@
 		},
 		"hints": {
 			"descriptionOptions": "Choose which description elements should be included in the chat card when using this action."
+		},
+		"warnings": {
+			"noMacrosForUnownedItems": "You can only create macro buttons for owned Items.",
+			"tempHpNotOverwritten": "The target's current temporary hp exceeds the amount being applied. No update was made."
 		}
 	},
 	"A5E.advancementSheet": {
@@ -89,16 +95,41 @@
 		"mandatoryOptions": "Mandatory {type}",
 		"optionalOptions": "Optional {type}"
 	},
+	"A5E.ammunition": {
+		"headings": {
+			"properties": "Ammunition Properties"
+		},
+		"properties": {
+			"explosive": "Explosive",
+			"flaming": "Flaming",
+			"punching": "Punching"
+		}
+	},
+	"A5E.area": {
+		"circle": "Circle",
+		"circleSpecific": "{radius}-foot radius circle",
+		"cone": "Cone",
+		"coneSpecific": "{length}-foot cone",
+		"cube": "Cube",
+		"cubeSpecific": "{width}-foot cube",
+		"cylinder": "Cylinder",
+		"cylinderSpecific": "{height}-foot-tall, {radius}-foot radius cylinder",
+		"cylinderSpecificNoHeight": "{radius}-foot radius cylinder",
+		"emanation": "Emanation",
+		"emanationSpecific": "{radius}-foot radius emanation",
+		"line": "Line",
+		"lineSpecific": "{length}-foot long, {width}-foot wide line",
+		"sphere": "Sphere",
+		"sphereSpecific": "{radius}-foot radius sphere",
+		"square": "Square",
+		"squareSpecific": "{width}-foot square",
+		"wall": "Wall",
+		"wallSpecific": "{length}-foot long, {height}-foot high, {width}-foot thick wall",
+		"wallSpecificNoHeight": "{length}-foot long, {width}-foot thick wall",
+		"wallSpecificNoWidth": "{length}-foot long, {height}-foot high wall",
+		"wallSpecificNoWidthOrHeight": "{length}-foot long wall"
+	},
 	"A5E.armorClass": {
-		"appliedArmorTypes": {
-			"armor": "Armor",
-			"label": "Applied Armor",
-			"underarmor": "Underarmor"
-		},
-		"modes": {
-			"add": "Add",
-			"override": "Override"
-		},
 		"armorAlreadyEquipped": "Unable to equip another armor.",
 		"baseFormula": "Base AC Formula",
 		"formula": "AC Formula",
@@ -110,8 +141,93 @@
 		"requiresUnarmored": "Requires No Armor",
 		"shield": "Shield Bonus",
 		"shieldAlreadyEquipped": "Unable to equip more than 2 shields.",
+		"appliedArmorTypes": {
+			"armor": "Armor",
+			"label": "Applied Armor",
+			"underarmor": "Underarmor"
+		},
 		"headings": {
-			"acConfigurationPrompt": "{name}: Configure Armor Class"
+			"acConfigurationPrompt": "{name}: Configure Armor Class",
+			"armorPlural": "Armors",
+			"category": "Armor Category",
+			"configurationTitle": "Configure Armor Class",
+			"mods": "Armor Mods",
+			"proficiencies": "Armor Proficiencies",
+			"proficienciesConfigurationPrompt": "{name}: Configure Armor Proficiencies",
+			"properties": "Armor Properties"
+		},
+		"modes": {
+			"add": "Add",
+			"override": "Override"
+		},
+		"mods": {
+			"biosensors": "Biosensors",
+			"dronePort": "Drone Port",
+			"environmentalRecycling": "Environmental Recycling",
+			"floodlights": "Floodlights",
+			"gliderWings": "Glider Wings",
+			"grapplingHook": "Grappling Hook",
+			"groundAnchors": "Ground Anchors",
+			"hazmatSealing": "Hazmat Sealing",
+			"improvedColdShielding": "Improved Cold-Shielding",
+			"improvedHeatShielding": "Improved Heat-Shielding",
+			"improvedWeaponHatch": "Improved Weapon Hatch",
+			"integratedFirstAid": "Integrated First Aid",
+			"integratedJetpack": "Integrated Jetpack",
+			"integratedTool": "Integrated Tool",
+			"kineticAssistance": "Kinetic Assistance",
+			"massJammer": "Mass Jammer",
+			"mindshielding": "Mindshielding",
+			"nightvisionGoggles": "Nightvision Goggles",
+			"personalJammer": "Personal Jammer",
+			"pocket": "Pocket",
+			"powerClaw": "Power Claw",
+			"rechargePort": "Recharge Port",
+			"reconApparatus": "Recon Apparatus",
+			"repairKit": "Repair Kit",
+			"secondaryArmorPlating": "Secondary Armor Plating",
+			"weaponHatch": "Weapon Hatch"
+		},
+		"properties": {
+			"camouflaged": "Camouflaged",
+			"cloaking": "Cloaking",
+			"coldShielding": "Cold-Shielding",
+			"greased": "Greased",
+			"heatShielding": "Heat-Shielding",
+			"mirrored": "Mirrored",
+			"shearThickening": "Shear-Thickening",
+			"spiked": "Spiked"
+		},
+		"types": {
+			"light": "Light Armor",
+			"medium": "Medium Armor",
+			"heavy": "Heavy Armor",
+			"shield": "Shield",
+			"shieldPlural": "Shields"
+		}
+	},
+	"A5E.attacks": {
+		"headings": {
+			"bonus": "Attack Bonus",
+			"type": "Attack Type"
+		},
+		"types": {
+			"meleeWeapon": "Melee Weapon Attack",
+			"meleeSpell": "Melee Spell Attack",
+			"rangedWeapon": "Ranged Weapon Attack",
+			"rangedSpell": "Ranged Spell Attack"
+		}
+	},
+	"A5E.attument": {
+		"headings": {
+			"attuned": "Attuned",
+			"attunement": "Attunement",
+			"hint": "Attunement Requirement",
+			"not": "Not Attuned",
+			"notRequired": "Attunement Not Required",
+			"prompt": "Attuned",
+			"required": "Attunement Required",
+			"requiredPrompt": "Requires Attunement"
 		}
 	},
 	"A5E.bonuses": {
@@ -1642,6 +1758,13 @@
 			}
 		}
 	},
+	"A5E.traits": {
+		"headings": {
+			"alignment": "Alignment",
+			"alignments": "Alignments",
+			"configurationPrompt": "{name}: Configure Alignment"
+		}
+	},
 	"A5E.validations": {
 		"warnings": {
 			"actionUses": "Insufficient action uses.",
@@ -1723,125 +1846,13 @@
 		"versatileSpecific": "Versatile ({die})",
 		"vicious": "Vicious"
 	},
-	"A5E.AbilitySaveMod": "{ability} Save Mod",
-	"A5E.AbilityScoreConfigurationPrompt": "{name}: Configure {ability} Bonuses",
-	"A5E.AbilityConfiguration": "{ability} Configuration",
-	"A5E.AdditionalLanguages": "Additional Languages",
-	"A5E.ActionConfigAbilityCheckPrompt": "Ability Check Prompt",
-	"A5E.ActionConfigSavingThrowPrompt": "Saving Throw Prompt",
-	"A5E.ActionConfigSkillCheckPrompt": "Skill Check Prompt",
-	"A5E.ActionNone": "Legendary Action",
-	"A5E.ActionOptions": "Action Options",
-
-	"A5E.ActionWarningNoSelectedTokens": "No tokens are currently selected.",
-	"A5E.ActionWarningTempHpNotOverwritten": "The target's current temporary hp exceeds the amount being applied. No update was made.",
-	"A5E.ActionUses": "Action Uses",
-	"A5E.ActionWarningNoMacrosForUnownedItems": "You can only create macro buttons for owned Items.",
-	"A5E.ActivationConfiguration": "Activation Configuration",
 	"A5E.AddProficiency": "Add Proficiency Bonus",
-	"A5E.Alignment": "Alignment",
-	"A5E.Alignments": "Alignments",
-	"A5E.AlignmentConfigurationPrompt": "{name}: Configure Alignment",
-	"A5E.AmmunitionProperties": "Ammunition Properties",
-	"A5E.AmmunitionPropertyExplosive": "Explosive",
-	"A5E.AmmunitionPropertyFlaming": "Flaming",
-	"A5E.AmmunitionPropertyPunching": "Punching",
 	"A5E.Archetype": "Archetype",
-	"A5E.AreaCircle": "Circle",
-	"A5E.AreaCircleSpecific": "{radius}-foot radius circle",
-	"A5E.AreaCone": "Cone",
-	"A5E.AreaConeSpecific": "{length}-foot cone",
-	"A5E.AreaCube": "Cube",
-	"A5E.AreaCubeSpecific": "{width}-foot cube",
-	"A5E.AreaCylinder": "Cylinder",
-	"A5E.AreaEmanation": "Emanation",
-	"A5E.AreaEmanationSpecific": "{radius}-foot radius emanation",
-	"A5E.AreaCylinderSpecific": "{height}-foot-tall, {radius}-foot radius cylinder",
-	"A5E.AreaCylinderSpecificNoHeight": "{radius}-foot radius cylinder",
-	"A5E.AreaLine": "Line",
-	"A5E.AreaLineSpecific": "{length}-foot long, {width}-foot wide line",
-	"A5E.AreaSphere": "Sphere",
-	"A5E.AreaSphereSpecific": "{radius}-foot radius sphere",
-	"A5E.AreaSquare": "Square",
-	"A5E.AreaSquareSpecific": "{width}-foot square",
-	"A5E.AreaWall": "Wall",
-	"A5E.AreaWallSpecific": "{length}-foot long, {height}-foot high, {width}-foot thick wall",
-	"A5E.AreaWallSpecificNoHeight": "{length}-foot long, {width}-foot thick wall",
-	"A5E.AreaWallSpecificNoWidth": "{length}-foot long, {height}-foot high wall",
-	"A5E.AreaWallSpecificNoWidthOrHeight": "{length}-foot long wall",
-	"A5E.Armor": "Armor",
-	"A5E.ArmorPlural": "Armors",
-	"A5E.ArmorType": "Armor Type",
-	"A5E.ArmorCategory": "Armor Category",
 	"A5E.ArmorClass": "Armor Class",
-	"A5E.ArmorClassConfigurationTitle": "Configure Armor Class",
-	"A5E.ArmorClassAbbr": "AC",
-	"A5E.ArmorModBiosensors": "Biosensors",
-	"A5E.ArmorModDronePort": "Drone Port",
-	"A5E.ArmorModEnvironmentalRecycling": "Environmental Recycling",
-	"A5E.ArmorModFloodlights": "Floodlights",
-	"A5E.ArmorModGliderWings": "Glider Wings",
-	"A5E.ArmorModGrapplingHook": "Grappling Hook",
-	"A5E.ArmorModGroundAnchors": "Ground Anchors",
-	"A5E.ArmorModHazmatSealing": "Hazmat Sealing",
-	"A5E.ArmorModImprovedColdShielding": "Improved Cold-Shielding",
-	"A5E.ArmorModImprovedHeatShielding": "Improved Heat-Shielding",
-	"A5E.ArmorModImprovedWeaponHatch": "Improved Weapon Hatch",
-	"A5E.ArmorModIntegratedFirstAid": "Integrated First Aid",
-	"A5E.ArmorModIntegratedJetpack": "Integrated Jetpack",
-	"A5E.ArmorModIntegratedTool": "Integrated Tool",
-	"A5E.ArmorModKineticAssistance": "Kinetic Assistance",
-	"A5E.ArmorModMassJammer": "Mass Jammer",
-	"A5E.ArmorModMindshielding": "Mindshielding",
-	"A5E.ArmorModNightvisionGoggles": "Nightvision Goggles",
-	"A5E.ArmorModPersonalJammer": "Personal Jammer",
-	"A5E.ArmorModPocket": "Pocket",
-	"A5E.ArmorModPowerClaw": "Power Claw",
-	"A5E.ArmorModRechargePort": "Recharge Port",
-	"A5E.ArmorModReconApparatus": "Recon Apparatus",
-	"A5E.ArmorModRepairKit": "Repair Kit",
-	"A5E.ArmorModSecondaryArmorPlating": "Secondary Armor Plating",
-	"A5E.ArmorModWeaponHatch": "Weapon Hatch",
-	"A5E.ArmorMods": "Armor Mods",
-	"A5E.ArmorProficiencies": "Armor Proficiencies",
-	"A5E.ArmorProficienciesConfigurationPrompt": "{name}: Configure Armor Proficiencies",
-	"A5E.ArmorPropertyCamouflaged": "Camouflaged",
-	"A5E.ArmorPropertyCloaking": "Cloaking",
-	"A5E.ArmorPropertyColdShielding": "Cold-Shielding",
-	"A5E.ArmorPropertyGreased": "Greased",
-	"A5E.ArmorPropertyHeatShielding": "Heat-Shielding",
-	"A5E.ArmorPropertyMirrored": "Mirrored",
-	"A5E.ArmorPropertyShearThickening": "Shear-Thickening",
-	"A5E.ArmorPropertySpiked": "Spiked",
-	"A5E.ArmorProperties": "Armor Properties",
-	"A5E.ArmorLight": "Light Armor",
-	"A5E.ArmorMedium": "Medium Armor",
-	"A5E.ArmorHeavy": "Heavy Armor",
-	"A5E.ArmorShield": "Shield",
-	"A5E.ArmorShieldPlural": "Shields",
 	"A5E.ArtifactCharges": "Artifact Charges",
 	"A5E.ArtifactChargesCost": "({cost} charges)",
-	"A5E.AttackBonus": "Attack Bonus",
-	"A5E.AttackRollModeHeading": "Attack Roll Mode",
-	"A5E.AttackType": "Attack Type",
-	"A5E.AttackTypeMeleeWeapon": "Melee Weapon Attack",
-	"A5E.AttackTypeRangedWeapon": "Ranged Weapon Attack",
-	"A5E.AttackTypeMeleeSpell": "Melee Spell Attack",
-	"A5E.AttackTypeRangedSpell": "Ranged Spell Attack",
-	"A5E.AttackTypeUnarmed": "Unarmed Strike",
-	"A5E.Attuned": "Attuned",
-	"A5E.AttunedNot": "Not Attuned",
-	"A5E.Attunement": "Attunement",
-	"A5E.AttunementHint": "Attunement Requirement",
-	"A5E.AttunementPrompt": "Attuned",
-	"A5E.AttunementRequired": "Attunement Required",
-	"A5E.AttunementNotRequired": "Attunement Not Required",
-	"A5E.AttunementRequiredPrompt": "Requires Attunement",
 	"A5E.AvailableSpellLevels": "Available Spell Levels",
-	"A5E.ASI": "ASI",
-	"A5E.ASIIncludes": "Includes ASI",
-	"A5E.ASIDefault": "Default ASI",
-	"A5E.ASIAdditional": "Additional ASI",
+
 	"A5E.Background": "Background",
 	"A5E.BackgroundConfigurationPrompt": "{name}: Configure Background",
 	"A5E.BackgroundDefaultASI": "Background Default ASI",

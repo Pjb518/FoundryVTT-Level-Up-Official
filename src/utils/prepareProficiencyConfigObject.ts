@@ -1,7 +1,7 @@
 export default function prepareProficiencyConfigObject() {
 	return {
 		armor: {
-			label: 'A5E.ArmorPlural',
+			label: 'A5E.armorClass.headings.armorPlural',
 			config: Object.entries(CONFIG.A5E.armor),
 			propertyKey: 'system.proficiencies.armor',
 		},

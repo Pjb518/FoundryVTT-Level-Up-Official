@@ -61,7 +61,7 @@
 
         <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
-                label="A5E.AttunementRequiredPrompt"
+                label="A5E.attument.headings.requiredPrompt"
                 checked={$item.system.requiresAttunement}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
@@ -73,7 +73,7 @@
 
             {#if $item.actor && $item.system.requiresAttunement}
                 <Checkbox
-                    label="A5E.AttunementPrompt"
+                    label="A5E.attument.headings.prompt"
                     checked={$item.system.attuned}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField($item, "system.attuned", detail)}
@@ -116,7 +116,7 @@
         </Section>
 
         {#if $item.system.requiresAttunement}
-            <FieldWrapper heading="A5E.AttunementHint">
+            <FieldWrapper heading="A5E.attument.headings.hint">
                 <input
                     class="u-pl-lg"
                     type="text"
@@ -261,23 +261,23 @@
             {/if}
 
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.Attunement")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.attument.headings.attunement")}:</dt>
                 <dd class="align-center u-flex u-gap-sm u-m-0 u-p-0">
                     {#if $item.system.requiresAttunement}
-                        {localize("A5E.AttunementRequired")}
+                        {localize("A5E.attument.headings.required")}
 
                         ({localize(
-                            $item.system.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
+                            $item.system.attuned ? "A5E.attument.headings.attuned" : "A5E.attument.headings.not",
                         )})
                     {:else}
-                        {localize("A5E.AttunementNotRequired")}
+                        {localize("A5E.attument.headings.notRequired")}
                     {/if}
                 </dd>
             </div>
 
             {#if $item.system.attunementHint !== ""}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.AttunementHint")}:</dt>
+                    <dt class="u-text-bold">{localize("A5E.attument.headings.hint")}:</dt>
                     <dd class="u-m-0 u-p-0">
                         {$item.system.attunementHint}
                     </dd>

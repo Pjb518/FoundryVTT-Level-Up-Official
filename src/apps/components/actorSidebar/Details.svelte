@@ -97,7 +97,7 @@
             tooltip: "Configure Weapon Proficiencies",
         },
         {
-            heading: localize("A5E.ArmorProficiencies"),
+            heading: localize("A5E.armorClass.headings.proficiencies"),
             values: prepareArmorProficiencies($actor),
             dialogMethod: "configureArmorProficiencies",
             propertyKey: "system.proficiencies.armor",
@@ -133,7 +133,7 @@
             display: $actor.type === "npc",
         },
         {
-            heading: localize("A5E.Alignments"),
+            heading: localize("A5E.traits.headings.alignments"),
             values: prepareAlignment($actor),
             dialogMethod: "configureAlignment",
             propertyKey: "system.traits.alignment",
