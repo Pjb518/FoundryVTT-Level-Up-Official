@@ -120,7 +120,7 @@
                                               [actionId, action],
                                               rollType,
                                           ),
-                                      label: localize("A5E.ButtonAddRoll", {
+                                      label: localize("A5E.buttons.addRoll", {
                                           type: localize(
                                               rollType === "damage"
                                                   ? buttonLabel

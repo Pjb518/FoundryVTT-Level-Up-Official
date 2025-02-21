@@ -421,7 +421,7 @@
                 <button
                     class="action-button fas fa-star"
                     class:active={item.system?.favorite ?? false}
-                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip="A5E.buttons.tooltips.favorite"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleFavorite()}
                 />
@@ -433,10 +433,10 @@
                         class="action-button fa-solid fa-link"
                         class:active={item.system.attuned}
                         data-tooltip={item.system.attuned
-                            ? localize("A5E.ButtonToolTipBreakAttunement", {
+                            ? localize("A5E.buttons.tooltips.breakAttunement", {
                                   item: item.name,
                               })
-                            : localize("A5E.ButtonToolTipAttune", {
+                            : localize("A5E.buttons.tooltips.attune", {
                                   item: item.name,
                               })}
                         data-tooltip-direction="UP"
@@ -507,8 +507,8 @@
                     class="action-button fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
+                        ? "A5E.buttons.tooltips.charged"
+                        : "A5E.buttons.tooltips.recharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
                         item.recharge(actionId, rechargeState)}
@@ -524,8 +524,8 @@
                     class="action-button fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
+                        ? "A5E.buttons.tooltips.charged"
+                        : "A5E.buttons.tooltips.recharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
                         item.recharge(actionId, rechargeState)}

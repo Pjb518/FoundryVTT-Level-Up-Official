@@ -145,7 +145,7 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                                 <li>
                                     <button
                                         class="action-button fas fa-cog"
-                                        data-tooltip="A5E.ButtonToolTipConfigure"
+                                        data-tooltip="A5E.buttons.tooltips.configure"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
                                             $actor.configureBonus(id, bonusType)}
@@ -156,7 +156,7 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                                 <li>
                                     <button
                                         class="action-button fa-solid fa-clone"
-                                        data-tooltip="A5E.ButtonToolTipDuplicate"
+                                        data-tooltip="A5E.buttons.tooltips.duplicate"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
                                             $actor.duplicateBonus(id, bonusType)}
@@ -166,7 +166,7 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                                 <li>
                                     <button
                                         class="action-button delete-button fas fa-trash"
-                                        data-tooltip="A5E.ButtonToolTipDelete"
+                                        data-tooltip="A5E.buttons.tooltips.delete"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
                                             $actor.deleteBonus(id, bonusType)}

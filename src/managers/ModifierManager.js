@@ -202,13 +202,13 @@ export default class ModifierManager {
 
 		switch (attackType) {
 			case 'meleeSpellAttack':
-				return { label: localize('A5E.BonusMeleeSpellAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.meleeSpellAttack'), value };
 			case 'meleeWeaponAttack':
-				return { label: localize('A5E.BonusMeleeWeaponAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.meleeWeaponAttack'), value };
 			case 'rangedSpellAttack':
-				return { label: localize('A5E.BonusRangedSpellAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.rangedSpellAttack'), value };
 			case 'rangedWeaponAttack':
-				return { label: localize('A5E.BonusRangedWeaponAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.rangedWeaponAttack'), value };
 			default:
 				return null;
 		}

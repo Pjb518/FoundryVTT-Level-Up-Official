@@ -108,8 +108,8 @@
                 class:locked={!isGM}
                 disabled={!isGM}
                 data-tooltip={$item.system.unidentified
-                    ? "A5E.ButtonToolTipUnidentified"
-                    : "A5E.ButtonToolTipIdentified"}
+                    ? "A5E.buttons.tooltips.unidentified"
+                    : "A5E.buttons.tooltips.identified"}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleUnidentified()}
             />
@@ -119,10 +119,10 @@
                     class="header-button fa-solid fa-link"
                     class:active={$item.system.attuned}
                     data-tooltip={$item.system.attuned
-                        ? localize("A5E.ButtonToolTipBreakAttunement", {
+                        ? localize("A5E.buttons.tooltips.breakAttunement", {
                               item: $item.name,
                           })
-                        : localize("A5E.ButtonToolTipAttune", {
+                        : localize("A5E.buttons.tooltips.attune", {
                               item: $item.name,
                           })}
                     data-tooltip-direction="UP"

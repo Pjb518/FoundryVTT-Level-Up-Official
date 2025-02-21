@@ -83,7 +83,7 @@
                                         [actionId, action],
                                         promptType,
                                     ),
-                                label: localize("A5E.ButtonAddPrompt", {
+                                label: localize("A5E.buttons.addPrompt", {
                                     type: localize(singleLabel),
                                 }),
                             },

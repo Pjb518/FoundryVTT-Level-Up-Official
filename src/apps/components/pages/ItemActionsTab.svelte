@@ -50,7 +50,7 @@
             {
                 classes: "add-button",
                 handler: addAction,
-                label: "A5E.ButtonAddAction",
+                label: "A5E.buttons.addAction",
             },
         ]}
         --a5e-section-gap="0.125rem"
@@ -83,21 +83,21 @@
 
                         <button
                             class="action-button fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
                             on:click={() => configureAction(id)}
                         />
 
                         <button
                             class="action-button fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             on:click={() => duplicateAction(id)}
                         />
 
                         <button
                             class="action-button delete-button fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             on:click={() => deleteAction(id)}
                         />

@@ -79,7 +79,7 @@
         headerButtons={[
             {
                 classes: "add-button",
-                label: "A5E.ButtonAddRangeIncrement",
+                label: "A5E.buttons.addRangeIncrement",
                 handler: addRangeIncrement,
             },
         ]}
