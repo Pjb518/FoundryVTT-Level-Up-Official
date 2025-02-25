@@ -289,8 +289,8 @@ class RollPreparationManager {
 		if (isCrit) roll = critRoll;
 
 		const label = damageType
-			? localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
-			: localize('A5E.Damage');
+			? localize('A5E.damage.labels.specific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
+			: localize('A5E.damage.title');
 
 		return {
 			baseRoll: baseRoll as EvaluatedRoll,
@@ -376,7 +376,7 @@ class RollPreparationManager {
 		let label: string;
 
 		if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
-		else if (_roll.saveType === 'death') label = localize('A5E.DeathSavingThrow');
+		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
 		else label = localize('A5E.SavingThrowSpecific', { ability });
 
 		return {

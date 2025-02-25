@@ -1349,7 +1349,7 @@ class BaseActorA5e extends Actor {
 		let title: string;
 
 		if (rollOptions.saveType === 'death') {
-			title = localize('A5E.DeathSavingThrowPromptTitle', { name: this.name });
+			title = localize('A5E.deathSavingThrow.promptTitle', { name: this.name });
 		} else {
 			title = localize(
 				'A5E.SavingThrowPromptTitle',
@@ -1633,9 +1633,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.immunitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageImmunities';
 		data.type ??= 'damageImmunities';
@@ -1644,9 +1644,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageResistances(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.resistancesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageResistances';
 		data.type ??= 'damageResistances';
@@ -1655,9 +1655,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageVulnerabilities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageVulnerabilities';
 		data.type ??= 'damageVulnerabilities';

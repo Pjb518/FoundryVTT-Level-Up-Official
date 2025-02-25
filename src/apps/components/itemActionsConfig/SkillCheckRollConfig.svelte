@@ -81,7 +81,7 @@
 
 <RadioGroup
     allowDeselect={false}
-    heading="A5E.DefaultAbilityScore"
+    heading="A5E.abilities.headings.default"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions(false, true)}
     selected={selectedAbility}

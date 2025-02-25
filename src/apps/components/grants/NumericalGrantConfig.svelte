@@ -39,7 +39,7 @@ const item = new TJSDocument(document);
 const configObject = {
 	abilities: {},
 	damage: {
-		selectHeading: 'A5E.DamageType',
+		selectHeading: 'A5E.damage.headings.type',
 		selectTypes: CONFIG.A5E.damageTypes,
 		selectProperty: 'damageType',
 	},

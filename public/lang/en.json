@@ -44,6 +44,7 @@
 			"checkMod": "{ability} Mod",
 			"checkPromptTitle": "{name}: {ability} Check",
 			"checkSpecific": "{ability} Check",
+			"default": "Default Ability Score",
 			"saveBonus": "{ability} Save Bonus",
 			"score": "Ability Score",
 			"scoreConfigurationPrompt": "{name}: Configure {ability} Bonuses"
@@ -493,6 +494,21 @@
 		"save": "Save",
 		"valueIfOriginalIsZero": "Value if Original is Zero"
 	},
+	"A5E.damage": {
+		"title": "Damage",
+		"headings": {
+			"bonusOnCrit": "Bonus Critical Damage",
+			"crit": "Crit Damage",
+			"formula": "Damage Formula",
+			"type": "Damage Type",
+			"typePlural": "Damage Types"
+		},
+		"labels": {
+			"defaultSelection": "Select Damage Source Automatically in Roll Prompt",
+			"doubleOnCrit": "Double Damage on Critical Hit",
+			"specific": "{damageType} Damage"
+		}
+	},
 	"A5E.damageBonuses": {
 		"contexts": {
 			"all": "All Damage Rolls",
@@ -536,11 +552,28 @@
 		"thunder": "Thunder",
 		"unknown": "Unknown Type"
 	},
+	"A5E.deathSavingThrow": {
+		"failure": "Failure",
+		"promptTitle": "{name}: Death Saving Throw",
+		"roll": "Roll Death Saving Throw",
+		"success": "Success",
+		"title": "Death Saving Throw"
+	},
 	"A5E.details": {
+		"age": "Age",
+		"appearance": "Appearance",
 		"archetype": "Archetype",
 		"background": "Background",
+		"backstory": "Backstory",
 		"classPlural": "Classes",
 		"culture": "Culture",
+		"eyeColor": "Eye Color",
+		"gender": "Gender",
+		"hairColor": "Hair Color",
+		"height": "Height",
+		"notesPrivate": "Private Notes",
+		"skinColor": "Skin Color",
+		"weight": "Weight",
 		"creature": {
 			"headings": {
 				"typesConfigurationPrompt": "{name}: Configure Creature Types"
@@ -566,6 +599,12 @@
 				"plant": "Plant",
 				"undead": "Undead"
 			}
+		},
+		"destiny": {
+			"featureFulfillment": "Fulfillment Feature",
+			"featureInspiration": "Inspiration Feature",
+			"featureSource": "Source of Inspiration",
+			"title": "Destiny"
 		}
 	},
 	"A5E.diceRollModes": {
@@ -573,6 +612,29 @@
 		"gm": "Private GM Roll",
 		"public": "Public Roll",
 		"self": "Self Roll"
+	},
+	"A5E.durations": {
+		"day": "Day",
+		"dayPlural": "Days",
+		"hour": "Hour",
+		"hourPlural": "Hours",
+		"instantaneous": "Instantaneous",
+		"minute": "Minute",
+		"minutePlural": "Minutes",
+		"month": "Month",
+		"monthPlural": "Months",
+		"permanent": "Permanent",
+		"round": "Round",
+		"roundPlural": "Rounds",
+		"second": "Second",
+		"secondPlural": "Seconds",
+		"special": "Special",
+		"turn": "Turn",
+		"turnPlural": "Turns",
+		"week": "Week",
+		"weekPlural": "Weeks",
+		"year": "Year",
+		"yearPlural": "Years"
 	},
 	"A5E.encounterElements": {
 		"acid": "Acid",
@@ -1905,7 +1967,15 @@
 		"headings": {
 			"alignment": "Alignment",
 			"alignments": "Alignments",
-			"configurationPrompt": "{name}: Configure Alignment"
+			"configurationPrompt": "{name}: Configure Alignment",
+			"damage": {
+				"immunities": "Damage Immunities",
+				"immunitiesConfigurationPrompt": "{name}: Configure Damage Immunities",
+				"resistances": "Damage Resistances",
+				"resistancesConfigurationPrompt": "{name}: Configure Damage Resistances",
+				"vulnerabilities": "Damage Vulnerabilities",
+				"vulnerabilitiesConfigurationPrompt": "{name}: Configure Damage Vulnerabilities"
+			}
 		}
 	},
 	"A5E.validations": {
@@ -1991,77 +2061,12 @@
 	},
 	"A5E.ConcentrationCheck": "Concentration Check",
 	"A5E.CraftingComponents": "Crafting Components",
-	"A5E.CritDamage": "Crit Damage",
 	"A5E.CriticalHitThreshold": "Critical Hit Threshold",
 	"A5E.Custom": "Custom",
-	
-	"A5E.Damage": "Damage",
-	"A5E.DamageSpecific": "{damageType} Damage",
-	"A5E.DamageAddSource": "Add Damage Source",
-	"A5E.DamageBonusSummary": "{formula} {damageType} on {context}",
-	"A5E.DamageBonusOnCrit": "Bonus Critical Damage",
-	"A5E.DamageDeleteSource": "Delete",
-	"A5E.DamageDoubleOnCrit": "Double Damage on Critical Hit",
-	"A5E.DamageDefaultSelection": "Select Damage Source Automatically in Roll Prompt",
-	"A5E.DamageLabel": "Damage Label",
-	"A5E.DamageFormula": "Damage Formula",
-	"A5E.DamageImmunities": "Damage Immunities",
-	"A5E.DamageImmunitiesConfigurationPrompt": "{name}: Configure Damage Immunities",
-	"A5E.DamageOptionsPrompt": "Select Damage Options",
-	"A5E.DamageResistances": "Damage Resistances",
-	"A5E.DamageResistancesConfigurationPrompt": "{name}: Configure Damage Resistances",
-	"A5E.DamageVulnerabilities": "Damage Vulnerabilities",
-	"A5E.DamageVulnerabilitiesConfigurationPrompt": "{name}: Configure Damage Vulnerabilities",
-	"A5E.DamageType": "Damage Type",
-	"A5E.DamageTypePlural": "Damage Types",
-	"A5E.DestinyFeatureSource": "Source of Inspiration",
-	"A5E.DestinyFeatureInspiration": "Inspiration Feature",
-	"A5E.DestinyFeatureFulfillment": "Fulfillment Feature",
-	"A5E.DC": "DC",
-	"A5E.DeathFailure": "Failure",
-	"A5E.DeathSuccess": "Success",
-	"A5E.DeathSavingThrow": "Death Saving Throw",
-	"A5E.DeathSavingThrowRoll": "Roll Death Saving Throw",
-	"A5E.DeathSavingThrowPromptTitle": "{name}: Death Saving Throw",
-	"A5E.DefaultAbilityScore": "Default Ability Score",
 	"A5E.Description": "Description",
-	"A5E.Destiny": "Destiny",
-	"A5E.Details": "Details",
-	"A5E.DetailsAppearance": "Appearance",
-	"A5E.DetailsAge": "Age",
-	"A5E.DetailsBackstory": "Backstory",
-	"A5E.DetailsEyeColor": "Eye Color",
-	"A5E.DetailsGender": "Gender",
-	"A5E.DetailsHairColor": "Hair Color",
-	"A5E.DetailsHeight": "Height",
-	"A5E.DetailsNotes": "Notes",
-	"A5E.DetailsNotesPrivate": "Private Notes",
-	"A5E.DetailsSkinColor": "Skin Color",
-	"A5E.DetailsWeight": "Weight",
 	"A5E.DetailsWeightLbs": "lbs.",
 	"A5E.DialogSubmitRoll": "Roll",
-	"A5E.DuplicateLinkedDocumentsWarning": "Cannot add two items with the same UUID to the document's equipment section.",
-	"A5E.DurationInstantaneous": "Instantaneous",
-	"A5E.DurationRound": "Round",
-	"A5E.DurationRoundPlural": "Rounds",
-	"A5E.DurationTurn": "Turn",
-	"A5E.DurationTurnPlural": "Turns",
-	"A5E.DurationSecond": "Second",
-	"A5E.DurationSecondPlural": "Seconds",
-	"A5E.DurationMinute": "Minute",
-	"A5E.DurationMinutePlural": "Minutes",
-	"A5E.DurationHour": "Hour",
-	"A5E.DurationHourPlural": "Hours",
-	"A5E.DurationDay": "Day",
-	"A5E.DurationDayPlural": "Days",
-	"A5E.DurationWeek": "Week",
-	"A5E.DurationWeekPlural": "Weeks",
-	"A5E.DurationMonth": "Month",
-	"A5E.DurationMonthPlural": "Months",
-	"A5E.DurationYear": "Year",
-	"A5E.DurationYearPlural": "Years",
-	"A5E.DurationPermanent": "Permanent",
-	"A5E.DurationSpecial": "Special",
+
 	"A5E.Effect": "Effect",
 	"A5E.EffectPlural": "Effects",
 	"A5E.Elite": "Elite",

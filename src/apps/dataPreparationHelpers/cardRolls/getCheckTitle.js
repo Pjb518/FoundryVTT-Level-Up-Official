@@ -17,7 +17,7 @@ export default function getCheckLabel(messageData) {
 				case 'concentration':
 					return localize('A5E.ConcentrationCheck');
 				case 'death':
-					return localize('A5E.DeathSavingThrow');
+					return localize('A5E.deathSavingThrow.title');
 				default:
 					return localize('A5E.SavingThrowSpecific', { ability });
 			}

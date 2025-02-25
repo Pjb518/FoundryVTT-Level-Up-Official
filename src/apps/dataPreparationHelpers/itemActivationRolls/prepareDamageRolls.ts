@@ -9,7 +9,7 @@ export default function prepareDamageRolls(
 
 	return rolls.map(([key, roll]) => {
 		if (!roll.label) {
-			const label = game.i18n.format('A5E.DamageSpecific', {
+			const label = game.i18n.format('A5E.damage.labels.specific', {
 				damageType: game.i18n.localize(CONFIG.A5E.damageTypes[roll.damageType] ?? ''),
 			});
 

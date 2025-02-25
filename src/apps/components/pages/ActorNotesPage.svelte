@@ -38,7 +38,7 @@ const tabs = {
 		label: 'A5E.TabNotes',
 	},
 	privateNotes: {
-		label: 'A5E.DetailsNotesPrivate',
+		label: 'A5E.details.notesPrivate',
 		display: isGM && $actor.type === 'npc',
 	},
 };
@@ -48,19 +48,19 @@ const charChoicesLabel = {
 	archetype: 'A5E.details.archetype',
 	// background: "A5E.details.background",
 	// culture: "A5E.details.culture",
-	// destiny: "A5E.Destiny",
+	// destiny: "A5E.details.destiny.title",
 	// heritage: "A5E.Heritage",
 	prestige: 'A5E.Prestige',
 };
 
 const traitsLabel = {
-	age: 'A5E.DetailsAge',
-	eyeColor: 'A5E.DetailsEyeColor',
-	hairColor: 'A5E.DetailsHairColor',
-	skinColor: 'A5E.DetailsSkinColor',
-	height: 'A5E.DetailsHeight',
-	weight: 'A5E.DetailsWeight',
-	gender: 'A5E.DetailsGender',
+	age: 'A5E.details.age',
+	eyeColor: 'A5E.details.eyeColor',
+	hairColor: 'A5E.details.hairColor',
+	skinColor: 'A5E.details.skinColor',
+	height: 'A5E.details.height',
+	weight: 'A5E.details.weight',
+	gender: 'A5E.details.gender',
 };
 
 let tempSettings = {};

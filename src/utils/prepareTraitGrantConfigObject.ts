@@ -16,17 +16,17 @@ export default function prepareTraitGrantConfigObject() {
 			propertyKey: 'system.details.creatureTypes',
 		},
 		damageImmunities: {
-			label: 'A5E.DamageImmunities',
+			label: 'A5E.traits.headings.damage.immunities',
 			config: Object.entries(CONFIG.A5E.damageTypes),
 			propertyKey: 'system.traits.damageImmunities',
 		},
 		damageResistances: {
-			label: 'A5E.DamageResistances',
+			label: 'A5E.traits.headings.damage.resistances',
 			config: Object.entries(CONFIG.A5E.damageTypes),
 			propertyKey: 'system.traits.damageResistances',
 		},
 		damageVulnerabilities: {
-			label: 'A5E.DamageVulnerabilities',
+			label: 'A5E.traits.headings.damage.vulnerabilities',
 			config: Object.entries(CONFIG.A5E.damageTypes),
 			propertyKey: 'system.traits.damageVulnerabilities',
 		},

@@ -52,7 +52,7 @@
         },
         damage: {
             heading: "A5E.ItemDamageRollPlural",
-            buttonLabel: "A5E.Damage",
+            buttonLabel: "A5E.damage.title",
             singleLabel: "A5E.ItemDamageRoll",
             component: DamageRollConfig,
         },
