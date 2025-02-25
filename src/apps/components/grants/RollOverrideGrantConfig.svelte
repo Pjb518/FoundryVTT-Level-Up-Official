@@ -64,7 +64,7 @@ const configObject = {
 		options: [],
 	},
 	concentration: {
-		label: 'A5E.ConditionConcentration',
+		label: 'A5E.conditions.concentration',
 		options: [],
 	},
 	deathSave: {

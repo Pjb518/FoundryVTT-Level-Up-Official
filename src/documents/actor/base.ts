@@ -1594,9 +1594,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureConditionImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.conditions.immunitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ConditionImmunities';
+		data.heading ??= 'A5E.conditions.immunities';
 		data.configObject ??= CONFIG.A5E.conditions;
 		data.propertyKey ??= 'system.traits.conditionImmunities';
 		data.type ??= 'conditionImmunities';
@@ -1605,9 +1605,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureCreatureTypes(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.creature.headings.typesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.CreatureTypePlural';
+		data.heading ??= 'A5E.details.creature.labels.types';
 		data.configObject ??= CONFIG.A5E.creatureTypes;
 		data.propertyKey ??= 'system.details.creatureTypes';
 		data.type ??= 'creatureTypes';
@@ -1624,7 +1624,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureCreatureTerrains(data: Record<string, any> = {}, options = {}) {
-		data.heading ??= 'A5E.CreatureTerrainsLabel';
+		data.heading ??= 'A5E.details.creature.labels.terrain';
 		data.configObject ??= CONFIG.A5E.terrainTypes;
 		data.propertyKey ??= 'system.details.terrain';
 		data.type ??= 'creatureTerrains';

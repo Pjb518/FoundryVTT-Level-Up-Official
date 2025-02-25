@@ -86,7 +86,7 @@
     on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
-<FieldWrapper heading="A5E.CheckBonus">
+<FieldWrapper heading="A5E.bonuses.labels.checkBonus">
     <input
         type="text"
         value={roll.bonus ?? ""}

@@ -38,7 +38,7 @@
 
             {#if encumbrancePercentage === 100}
                 <span>
-                    {localize("A5E.ConditionEncumbered")}
+                    {localize("A5E.conditions.encumbered")}
                 </span>
             {/if}
         </div>

@@ -36,38 +36,38 @@ const { A5E } = CONFIG;
 
 const consumerTypes = {
 	ammunition: {
-		heading: 'A5E.ConsumerAmmunition',
+		heading: 'A5E.consumers.ammunition',
 		singleLabel: 'A5E.ObjectTypeAmmunition',
 		component: AmmoConsumer,
 	},
 	hitDice: {
-		heading: 'A5E.ConsumerHitDice',
+		heading: 'A5E.consumers.hitDice',
 		singleLabel: 'A5E.HitDiceLabel',
 		component: HitDiceConsumer,
 	},
 	quantity: {
-		heading: 'A5E.ConsumerQuantity',
+		heading: 'A5E.consumers.quantity',
 		singleLabel: 'A5E.ItemQuantity',
 		component: QuantityConsumer,
 	},
 	resource: {
-		heading: 'A5E.ConsumerResource',
+		heading: 'A5E.consumers.resource',
 		singleLabel: 'A5E.Resource',
 		component: ResourceConsumer,
 	},
 	spell: {
-		heading: 'A5E.ConsumerSpell',
+		heading: 'A5E.consumers.spell',
 		singleLabel: 'A5E.Spell',
 		component: SpellConsumer,
 	},
 	actionUses: {
-		heading: 'A5E.ConsumerUsesAction',
-		singleLabel: 'A5E.ConsumerActionUses',
+		heading: 'A5E.consumers.uses.action',
+		singleLabel: 'A5E.consumers.actionUses',
 		component: UsesConsumer,
 	},
 	itemUses: {
-		heading: 'A5E.ConsumerUsesItem',
-		singleLabel: 'A5E.ConsumerItemUses',
+		heading: 'A5E.consumers.uses.item',
+		singleLabel: 'A5E.consumers.itemUses',
 		component: UsesConsumer,
 	},
 };

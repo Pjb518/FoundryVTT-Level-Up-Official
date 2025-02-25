@@ -124,7 +124,7 @@
 </Section>
 
 <Checkbox
-    label="A5E.AddProficiency"
+    label="A5E.bonuses.labels.proficiency.addButton"
     checked={roll.proficient ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

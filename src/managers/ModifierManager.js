@@ -176,7 +176,7 @@ export default class ModifierManager {
 		if (this.rollData.saveType !== 'concentration') return null;
 
 		return {
-			label: localize('A5E.ConcentrationBonus'),
+			label: localize('A5E.bonuses.labels.concentration.defaultName'),
 			value: this.actor.system.abilities.con.save.concentrationBonus,
 		};
 	}

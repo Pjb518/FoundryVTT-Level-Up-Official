@@ -100,7 +100,7 @@
     {/if}
 
     {#if A5E.resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper heading="A5E.ConsumeValue" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.consumers.value" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -118,7 +118,7 @@
 
 {#if A5E.resourceConsumerConfig?.[selectedResource]?.type === "boolean"}
     <Checkbox
-        label="A5E.ConsumerRestoreResourceOnUse"
+        label="A5E.consumers.restoreResourceOnUse"
         checked={consumer.restore ?? false}
         on:updateSelection={({ detail }) =>
             updateDocumentDataFromField(

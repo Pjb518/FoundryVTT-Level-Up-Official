@@ -57,7 +57,7 @@
 </FieldWrapper>
 
 <div class="a5e-field-group u-flex-row u-gap-md">
-    <FieldWrapper heading="A5E.ConsumerSpellMode">
+    <FieldWrapper heading="A5E.consumers.spellMode">
         <select name="{actionId}-{consumerId}-item-id" class="u-w-fit" bind:value={mode}>
             {#each Object.entries(A5E.spellConsumerModes) as [value, label]}
                 <option {value} selected={mode === value}>
@@ -84,7 +84,7 @@
     {/if}
 
     {#if mode === "chargesOnly"}
-        <FieldWrapper heading="A5E.ArtifactCharges" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.spellcasting.artifactCharges" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -133,7 +133,7 @@
 </div>
 
 <FieldWrapper
-    heading="A5E.ConsumerSpellModeHintTitle"
+    heading="A5E.consumers.spellModeHintTitle"
     buttons={[
         {
             classes: `fa-solid ${hintToggle ? "fa-minus" : "fa-plus"}`,

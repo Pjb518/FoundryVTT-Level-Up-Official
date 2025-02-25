@@ -35,7 +35,7 @@ export default function registerFilterConfig(A5E) {
 				label: 'A5E.FilterLabelMiscellaneous',
 				filters: {
 					concentration: {
-						label: 'A5E.ConditionConcentration',
+						label: 'A5E.conditions.concentration',
 						key: 'system.concentration',
 						type: 'boolean',
 					},
@@ -100,7 +100,7 @@ export default function registerFilterConfig(A5E) {
 				label: 'A5E.FilterLabelMiscellaneous',
 				filters: {
 					concentration: {
-						label: 'A5E.ConditionConcentration',
+						label: 'A5E.conditions.concentration',
 						key: 'system.concentration',
 						type: 'boolean',
 					},

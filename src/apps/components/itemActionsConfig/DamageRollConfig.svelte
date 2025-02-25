@@ -156,7 +156,7 @@
             >
                 <i
                     class="fa-solid fa-arrow-up-right-dots"
-                    data-tooltip="A5E.ConfigureDamageScaling"
+                    data-tooltip="A5E.scaling.headings.configureDamage"
                     data-tooltip-direction="UP"
                 />
             </button>

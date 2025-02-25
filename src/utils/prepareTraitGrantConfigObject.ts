@@ -6,12 +6,12 @@ export default function prepareTraitGrantConfigObject() {
 			propertyKey: 'system.traits.alignment',
 		},
 		conditionImmunities: {
-			label: 'A5E.ConditionImmunities',
+			label: 'A5E.conditions.immunities',
 			config: Object.entries(CONFIG.A5E.conditions),
 			propertyKey: 'system.traits.conditionImmunities',
 		},
 		creatureTypes: {
-			label: 'A5E.CreatureTypesLabel',
+			label: 'A5E.details.creature.labels.types',
 			config: Object.entries(CONFIG.A5E.creatureTypes),
 			propertyKey: 'system.details.creatureTypes',
 		},

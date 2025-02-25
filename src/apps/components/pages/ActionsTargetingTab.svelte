@@ -140,7 +140,7 @@
                         >
                             <i
                                 class="fa-solid fa-arrow-up-right-dots"
-                                data-tooltip="A5E.ConfigureTargetScaling"
+                                data-tooltip="A5E.scaling.headings.configureTarget"
                                 data-tooltip-direction="UP"
                             />
                         </button>

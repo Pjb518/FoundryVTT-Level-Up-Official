@@ -54,7 +54,7 @@
             tooltip: "Configure Languages",
         },
         {
-            heading: localize("A5E.ConditionImmunities"),
+            heading: localize("A5E.conditions.immunities"),
             values: prepareConditionImmunities($actor),
             dialogMethod: "configureConditionImmunities",
             propertyKey: "system.traits.conditionImmunities",
@@ -118,14 +118,14 @@
             tooltip: "Configure Size Category",
         },
         {
-            heading: localize("A5E.CreatureTypesLabel"),
+            heading: localize("A5E.details.creature.labels.types"),
             values: prepareCreatureTypes($actor),
             dialogMethod: "configureCreatureTypes",
             propertyKey: "system.details.creatureTypes",
             tooltip: "Configure Creature Types",
         },
         {
-            heading: localize("A5E.CreatureTerrainsLabel"),
+            heading: localize("A5E.details.creature.labels.terrain"),
             values: prepareCreatureTerrains($actor),
             dialogMethod: "configureCreatureTerrains",
             propertyKey: "system.details.terrain",

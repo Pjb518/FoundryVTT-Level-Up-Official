@@ -67,7 +67,7 @@
 
         {#if abilityKey === "con"}
             <FieldWrapper
-                heading="A5E.ConcentrationCheckBonus"
+                heading="A5E.bonuses.labels.concentration.sectionHeader"
                 hint="This field accepts any values valid in roll formulae."
             >
                 <input

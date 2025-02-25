@@ -11,10 +11,10 @@
     const actor = getContext("actor");
 
     const charChoicesLabel = {
-        classes: "A5E.ClassPlural",
-        archetype: "A5E.Archetype",
-        background: "A5E.Background",
-        culture: "A5E.Culture",
+        classes: "A5E.details.classPlural",
+        archetype: "A5E.details.archetype",
+        background: "A5E.details.background",
+        culture: "A5E.details.culture",
         destiny: "A5E.Destiny",
         heritage: "A5E.Heritage",
         prestige: "A5E.Prestige",

@@ -109,11 +109,11 @@
     const { isEmpty } = foundry.utils;
 
     const consumeOptions: Record<string, any> = {
-        artifactCharge: "A5E.ArtifactCharges",
-        spellSlot: "A5E.ConsumeSpellSlot",
+        artifactCharge: "A5E.spellcasting.artifactCharges",
+        spellSlot: "A5E.consumers.spellSlot",
         spellPoint: "A5E.SpellPoints",
         // inventions: "A5E.SpellInventions",
-        noConsume: "A5E.ConsumeNothing",
+        noConsume: "A5E.consumers.nothing",
     };
 
     let disabled: string[] = [];
@@ -156,7 +156,7 @@
 
     {#if !isEmpty(consumer)}
         <RadioGroup
-            heading="A5E.ConsumeOptions"
+            heading="A5E.consumers.options"
             options={Object.entries(consumeOptions)}
             selected={spellData.consume}
             on:updateSelection={({ detail }) => updateConsumeOption(detail)}
@@ -166,7 +166,7 @@
 
 <!-- Artifact Charges -->
 {#if mode === "chargesOnly"}
-    <FieldWrapper heading="A5E.ArtifactCharges">
+    <FieldWrapper heading="A5E.spellcasting.artifactCharges">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
                 <input
@@ -194,7 +194,7 @@
     <FieldWrapper>
         {#if !isEmpty(consumer)}
             <Checkbox
-                label="A5E.ConsumeSpellPoints"
+                label="A5E.consumers.spellPoints"
                 checked={spellData.consume === "artifactCharge" ? true : false}
                 on:updateSelection={({ detail }) => {
                     spellData.consume = detail ? "artifactCharge" : "noConsume";
@@ -228,7 +228,7 @@
     <FieldWrapper>
         {#if !isEmpty(consumer)}
             <Checkbox
-                label="A5E.ConsumeSpellPoints"
+                label="A5E.consumers.spellPoints"
                 checked={spellData.consume === "spellPoint" ? true : false}
                 on:updateSelection={({ detail }) => {
                     spellData.consume = detail ? "spellPoint" : "noConsume";

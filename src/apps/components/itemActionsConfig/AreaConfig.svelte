@@ -195,7 +195,7 @@
                     >
                         <i
                             class="fa-solid fa-arrow-up-right-dots"
-                            data-tooltip="A5E.ConfigureAreaScaling"
+                            data-tooltip="A5E.scaling.headings.configureArea"
                             data-tooltip-direction="UP"
                         />
                     </button>

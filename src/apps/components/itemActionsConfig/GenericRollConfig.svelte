@@ -78,7 +78,7 @@
         <button class="a5e-scaling-button" on:click|preventDefault={onClickScalingButton}>
             <i
                 class="fa-solid fa-arrow-up-right-dots"
-                data-tooltip="A5E.ConfigureDamageScaling"
+                data-tooltip="A5E.scaling.headings.configureDamage"
                 data-tooltip-direction="UP"
             />
         </button>

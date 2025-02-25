@@ -59,11 +59,11 @@ export default function registerActionsConfig() {
 	};
 
 	const spellConsumerModes = {
-		variable: 'A5E.ConsumerSpellModeVariable',
-		chargesOnly: 'A5E.ConsumerSpellModeChargesOnly',
-		inventionsOnly: 'A5E.ConsumerSpellModeInventionsOnly',
-		pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
-		slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly',
+		variable: 'A5E.consumers.modes.variable',
+		chargesOnly: 'A5E.consumers.modes.chargesOnly',
+		inventionsOnly: 'A5E.consumers.modes.inventionsOnly',
+		pointsOnly: 'A5E.consumers.modes.pointsOnly',
+		slotsOnly: 'A5E.consumers.modes.slotsOnly',
 	};
 
 	return {
