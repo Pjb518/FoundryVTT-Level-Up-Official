@@ -3,7 +3,7 @@ export default function registerBonusesConfig() {
 		abilities: 'A5E.abilities.headings.ability',
 		attacks: 'A5E.Attack',
 		damage: 'A5E.damage.title',
-		exertion: 'A5E.Exertion',
+		exertion: 'A5E.exertion.title',
 		healing: 'A5E.Healing',
 		hitPoint: 'A5E.HitPoints',
 		initiative: 'A5E.Initiative',

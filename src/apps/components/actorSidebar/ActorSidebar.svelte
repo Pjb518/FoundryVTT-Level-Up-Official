@@ -78,7 +78,7 @@
 
         <StatusTrack
             icon="fa-running"
-            tooltipText={replaceFatigueAndStrife ? "A5E.Exhaustion" : "A5E.Fatigue"}
+            tooltipText={replaceFatigueAndStrife ? "A5E.conditions.exhaustion" : "A5E.conditions.fatigue"}
             trackProperty="fatigue"
             options={fatigueOptions}
             selectedOption={$actor.system.attributes.fatigue}

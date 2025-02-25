@@ -41,7 +41,7 @@
     function getExpertiseLabel({ expertiseDice }) {
         if (!expertiseDice) return null;
 
-        return localize("A5E.ExpertiseDieSpecific", {
+        return localize("A5E.expertiseDie.dieSpecific", {
             dieSize: getExpertiseDieSize(expertiseDice),
         });
     }

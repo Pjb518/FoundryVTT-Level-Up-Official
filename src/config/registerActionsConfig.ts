@@ -28,7 +28,7 @@ export default function registerActionsConfig() {
 
 	const resourceConsumerConfig = {
 		classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
-		exertion: { path: 'attributes.exertion.current', label: 'A5E.Exertion', type: 'value' },
+		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
 			label: 'A5E.FavorPoints',

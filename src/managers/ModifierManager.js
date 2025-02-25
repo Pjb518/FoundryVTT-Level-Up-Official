@@ -183,7 +183,7 @@ export default class ModifierManager {
 
 	#getExpertiseDice() {
 		return {
-			label: localize('A5E.ExpertiseDie'),
+			label: localize('A5E.expertiseDie.title'),
 			value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0),
 		};
 	}

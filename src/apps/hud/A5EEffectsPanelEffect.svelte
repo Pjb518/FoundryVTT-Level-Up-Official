@@ -84,7 +84,7 @@ function getEffectDescription(actor) {
 		return localize(`A5E.tracks.corruption.hints.${corruption}`);
 	}
 
-	if (name === localize('A5E.Exhaustion')) {
+	if (name === localize('A5E.conditions.exhaustion')) {
 		return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
 	}
 

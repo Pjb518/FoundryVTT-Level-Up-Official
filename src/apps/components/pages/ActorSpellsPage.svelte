@@ -367,7 +367,7 @@
     {:else}
         <div class="u-flex u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
-                {localize("A5E.ExertionPool")}
+                {localize("A5E.exertion.pool")}
             </h3>
 
             <input
@@ -405,7 +405,7 @@
             {#if exertion.current < exertion.max && exertion.max}
                 <button
                     class="recharge-button"
-                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip="A5E.exertion.rechargeFromHitDice"
                     data-tooltip-direction="UP"
                     on:click={() => $actor.recoverExertionUsingHitDice()}
                 >
