@@ -1666,7 +1666,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureHealth(data: Record<string, any> = {}, options: Record<string, any> = {}) {
-		const title = localize('A5E.HitPointsConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.hitPoints.configurationPrompt', { name: this.name });
 		options.width ??= 380;
 		this.#configure('health', title, data, options);
 	}

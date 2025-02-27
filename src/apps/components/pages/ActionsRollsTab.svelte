@@ -58,7 +58,7 @@
         },
         healing: {
             heading: "A5E.ItemHealingRollPlural",
-            singleLabel: "A5E.Healing",
+            singleLabel: "A5E.healing.title",
             component: HealingRollConfig,
         },
         abilityCheck: {

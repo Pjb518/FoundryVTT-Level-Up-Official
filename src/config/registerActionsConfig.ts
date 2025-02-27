@@ -34,7 +34,7 @@ export default function registerActionsConfig() {
 			label: 'A5E.FavorPoints',
 			type: 'value',
 		},
-		hp: { path: 'attributes.hp.value', label: 'A5E.HitPoints', type: 'value' },
+		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
 		inspiration: { path: 'attributes.inspiration', label: 'A5E.Inspiration', type: 'boolean' },
 		primaryResource: {
 			path: 'resources.primary.value',

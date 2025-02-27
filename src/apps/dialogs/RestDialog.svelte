@@ -93,7 +93,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
     {#if restType === "short"}
         <Section --a5e-section-body-padding="0">
-            <FieldWrapper heading="A5E.HitDiceLabel">
+            <FieldWrapper heading="A5E.hitDice.title">
                 <div class="u-flex u-gap-md u-text-md">
                     {#each ["d6", "d8", "d10", "d12"] as die}
                         <div class="a5e-hit-die-wrapper">

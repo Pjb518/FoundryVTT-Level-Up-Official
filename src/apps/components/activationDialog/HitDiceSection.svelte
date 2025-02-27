@@ -28,7 +28,7 @@ hitDiceData = parts.hitDiceData;
 let hitDice = $actor.system.attributes.hitDice;
 </script>
 
-<FieldWrapper heading="A5E.HitDiceLabel">
+<FieldWrapper heading="A5E.hitDice.title">
     <!-- Type -->
     <div class="u-flex u-gap-md u-text-md">
         {#each availableHitDice as die}

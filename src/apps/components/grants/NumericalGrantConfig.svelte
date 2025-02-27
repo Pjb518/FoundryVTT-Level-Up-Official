@@ -44,7 +44,7 @@ const configObject = {
 		selectProperty: 'damageType',
 	},
 	healing: {
-		selectHeading: 'A5E.HealingType',
+		selectHeading: 'A5E.healing.type',
 		selectTypes: CONFIG.A5E.healingTypes,
 		selectProperty: 'healingType',
 	},

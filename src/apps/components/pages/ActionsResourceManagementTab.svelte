@@ -42,7 +42,7 @@ const consumerTypes = {
 	},
 	hitDice: {
 		heading: 'A5E.consumers.hitDice',
-		singleLabel: 'A5E.HitDiceLabel',
+		singleLabel: 'A5E.hitDice.title',
 		component: HitDiceConsumer,
 	},
 	quantity: {

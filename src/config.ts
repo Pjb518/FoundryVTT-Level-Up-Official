@@ -540,8 +540,8 @@ const featureTypes = {
  * @enum {string}
  */
 const healingTypes = {
-	healing: 'A5E.Healing',
-	temporaryHealing: 'A5E.HealingTemporary',
+	healing: 'A5E.healing.title',
+	temporaryHealing: 'A5E.healing.temporary',
 };
 
 const healingColors = {

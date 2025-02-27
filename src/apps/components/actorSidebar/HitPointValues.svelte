@@ -70,7 +70,7 @@
     <div class="hp-config__container">
         <button class="a5e-button" on:click={() => $actor.configureHealth()}>
             <i class="fas fa-gear" />
-            {localize("A5E.HitPointsConfigurationTooltip")}
+            {localize("A5E.hitPoints.configurationTooltip")}
         </button>
     </div>
 {/if}

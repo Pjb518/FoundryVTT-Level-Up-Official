@@ -37,7 +37,7 @@ $: resource = $actor.system.resources[source];
     </FieldWrapper>
 
     {#if !resource.hideMax}
-        <FieldWrapper heading="A5E.GenericResourceMaxFormula">
+        <FieldWrapper heading="A5E.genericResources.maxFormula">
             <input
                 class="a5e-input"
                 type="text"
@@ -56,7 +56,7 @@ $: resource = $actor.system.resources[source];
 
     <FieldWrapper>
         <Checkbox
-            label="A5E.GenericResourceHideMax"
+            label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(

@@ -49,7 +49,7 @@ const charChoicesLabel = {
 	// background: "A5E.details.background",
 	// culture: "A5E.details.culture",
 	// destiny: "A5E.details.destiny.title",
-	// heritage: "A5E.Heritage",
+	// heritage: "A5E.details.heritage",
 	prestige: 'A5E.Prestige',
 };
 
