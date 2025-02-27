@@ -165,7 +165,7 @@
                 disabled={disableFulfil}
                 on:click={() => fulfilDestiny()}
             >
-                {localize("A5E.FulfilDestiny")}
+                {localize("A5E.details.destiny.fulfilDestiny")}
             </button>
         {/if}
     </div>

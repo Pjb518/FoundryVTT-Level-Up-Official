@@ -522,17 +522,17 @@ const expertiseDiceSidesMap = {
 };
 
 const featureTypes = {
-	background: 'A5E.FeatureBackground',
-	boon: 'A5E.FeatureBoon',
-	class: 'A5E.FeatureClass',
-	culture: 'A5E.FeatureCulture',
-	destiny: 'A5E.FeatureDestiny',
-	feat: 'A5E.FeatureFeat',
-	heritage: 'A5E.FeatureHeritage',
-	knack: 'A5E.FeatureKnack',
-	legendaryAction: 'A5E.FeatureLegendaryAction',
-	naturalWeapon: 'A5E.FeatureNaturalWeapon',
-	other: 'A5E.FeatureOther',
+	background: 'A5E.features.types.background',
+	boon: 'A5E.features.types.boon',
+	class: 'A5E.features.types.class',
+	culture: 'A5E.features.types.culture',
+	destiny: 'A5E.features.types.destiny',
+	feat: 'A5E.features.types.feat',
+	heritage: 'A5E.features.types.heritage',
+	knack: 'A5E.features.types.knack',
+	legendaryAction: 'A5E.features.types.legendaryAction',
+	naturalWeapon: 'A5E.features.types.naturalWeapon',
+	other: 'A5E.features.types.other',
 };
 
 /**

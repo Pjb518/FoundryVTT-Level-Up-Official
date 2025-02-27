@@ -18,21 +18,21 @@ export default function registerFilterConfig(A5E) {
 	A5E.filters = {
 		features: {
 			activationCost: {
-				label: 'A5E.FilterLabelActivationCost',
+				label: 'A5E.filterLabels.activationCost',
 				filters: { ...abilityActionFilters },
 			},
 		},
 		maneuvers: {
 			activationCost: {
-				label: 'A5E.FilterLabelActivationCost',
+				label: 'A5E.filterLabels.activationCost',
 				filters: { ...abilityActionFilters },
 			},
 			traditions: {
-				label: 'A5E.FilterLabelManueverTraditions',
+				label: 'A5E.filterLabels.manueverTraditions',
 				filters: {},
 			},
 			miscellaneous: {
-				label: 'A5E.FilterLabelMiscellaneous',
+				label: 'A5E.filterLabels.miscellaneous',
 				filters: {
 					concentration: {
 						label: 'A5E.conditions.concentration',
@@ -49,15 +49,15 @@ export default function registerFilterConfig(A5E) {
 		},
 		objects: {
 			activationCost: {
-				label: 'A5E.FilterLabelActivationCost',
+				label: 'A5E.filterLabels.activationCost',
 				filters: { ...abilityActionFilters },
 			},
 			rarity: {
-				label: 'A5E.FilterLabelRarity',
+				label: 'A5E.filterLabels.rarity',
 				filters: {},
 			},
 			miscellaneous: {
-				label: 'A5E.FilterLabelMiscellaneous',
+				label: 'A5E.filterLabels.miscellaneous',
 				filters: {
 					attuned: { label: 'A5E.attument.headings.attuned', key: 'system.attuned', type: 'boolean' },
 					bulky: { label: 'A5E.ItemBulky', key: 'system.bulky', type: 'boolean' },
@@ -73,11 +73,11 @@ export default function registerFilterConfig(A5E) {
 		},
 		spells: {
 			activationCost: {
-				label: 'A5E.FilterLabelActivationCost',
+				label: 'A5E.filterLabels.activationCost',
 				filters: { ...abilityActionFilters },
 			},
 			components: {
-				label: 'A5E.FilterLabelSpellComponents',
+				label: 'A5E.filterLabels.spellComponents',
 				filters: {
 					material: {
 						label: 'A5E.SpellComponentMaterial',
@@ -97,7 +97,7 @@ export default function registerFilterConfig(A5E) {
 				},
 			},
 			miscellaneous: {
-				label: 'A5E.FilterLabelMiscellaneous',
+				label: 'A5E.filterLabels.miscellaneous',
 				filters: {
 					concentration: {
 						label: 'A5E.conditions.concentration',
@@ -117,7 +117,7 @@ export default function registerFilterConfig(A5E) {
 				},
 			},
 			primarySpellSchools: {
-				label: 'A5E.FilterLabelPrimarySpellSchools',
+				label: 'A5E.filterLabels.primarySpellSchools',
 				filters: {},
 			},
 		},
