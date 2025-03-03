@@ -47,7 +47,7 @@
             tooltip: "Configure Senses",
         },
         {
-            heading: localize("A5E.Languages"),
+            heading: localize("A5E.details.languages"),
             values: prepareLanguageProficiencies($actor),
             dialogMethod: "configureLanguages",
             propertyKey: "system.proficiencies.languages",

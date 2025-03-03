@@ -1677,9 +1677,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureLanguages(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.languagesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.Languages';
+		data.heading ??= 'A5E.details.languages';
 		data.configObject ??= CONFIG.A5E.languages;
 		data.propertyKey ??= 'system.proficiencies.languages';
 		data.type ??= 'languages';

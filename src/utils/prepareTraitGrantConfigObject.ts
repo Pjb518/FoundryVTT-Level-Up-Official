@@ -31,7 +31,7 @@ export default function prepareTraitGrantConfigObject() {
 			propertyKey: 'system.traits.damageVulnerabilities',
 		},
 		languages: {
-			label: 'A5E.Languages',
+			label: 'A5E.details.languages',
 			config: Object.entries(CONFIG.A5E.languages),
 			propertyKey: 'system.proficiencies.languages',
 		},
