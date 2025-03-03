@@ -124,7 +124,7 @@ export default class ModifierManager {
 		if (!jackOfAllTrades) return null;
 
 		return {
-			label: localize('A5E.ProficiencyBonusJack'),
+			label: localize('A5E.proficiency.jack'),
 			value: Math.floor(this.actor.system.attributes.prof / 2),
 		};
 	}
@@ -160,7 +160,7 @@ export default class ModifierManager {
 		const proficiencyBonus = this.actor.system.attributes.prof;
 
 		return {
-			label: localize('A5E.ProficiencyBonus'),
+			label: localize('A5E.proficiency.bonus'),
 			value: proficient ? proficiencyBonus : 0,
 		};
 	}
@@ -240,7 +240,7 @@ export default class ModifierManager {
 		if (!this.rollData.proficient) return null;
 
 		return {
-			label: localize('A5E.ProficiencyBonus'),
+			label: localize('A5E.proficiency.bonus'),
 			value: this.actor.system.attributes.prof,
 		};
 	}
@@ -254,9 +254,9 @@ export default class ModifierManager {
 		const jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades;
 		const skill = this.actor.system.skills[skillKey];
 
-		if (skill?.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
-		else if (skill?.proficient) labelKey = 'A5E.ProficiencyBonus';
-		else if (jackOfAllTrades) labelKey = 'A5E.ProficiencyBonusJack';
+		if (skill?.proficient === 2) labelKey = 'A5E.proficiency.bonusExpertise';
+		else if (skill?.proficient) labelKey = 'A5E.proficiency.bonus';
+		else if (jackOfAllTrades) labelKey = 'A5E.proficiency.jack';
 
 		return {
 			label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',

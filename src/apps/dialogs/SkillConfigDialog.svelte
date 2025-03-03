@@ -48,7 +48,7 @@
                 ></RadioGroup>
             {:else}
                 <Checkbox
-                    label="A5E.ProficiencyProficient"
+                    label="A5E.proficiency.proficient"
                     checked={skill.proficient}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(

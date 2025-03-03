@@ -50,7 +50,7 @@ const charChoicesLabel = {
 	// culture: "A5E.details.culture",
 	// destiny: "A5E.details.destiny.title",
 	// heritage: "A5E.details.heritage",
-	prestige: 'A5E.Prestige',
+	prestige: 'A5E.details.prestige',
 };
 
 const traitsLabel = {

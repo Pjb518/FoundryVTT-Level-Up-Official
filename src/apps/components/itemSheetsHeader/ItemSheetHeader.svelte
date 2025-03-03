@@ -83,7 +83,7 @@
         {#if prerequisiteTypes.includes($item.type)}
             <div class="prerequisites">
                 <label class="prerequisite-label" for="{appId}-prerequisites">
-                    {localize("A5E.Prerequisite")}:
+                    {localize("A5E.items.headings.prerequisite")}:
                 </label>
 
                 <input

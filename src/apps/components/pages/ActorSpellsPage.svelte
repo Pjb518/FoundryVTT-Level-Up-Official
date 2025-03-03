@@ -355,7 +355,7 @@
                 {#if spellResources.points.current < spellPointMax && spellPointMax && startingClass === "psion"}
                     <button
                         class="recharge-button"
-                        data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                        data-tooltip="A5E.psionicDisciplines.rechargeFromHitDice"
                         data-tooltip-direction="UP"
                         on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
                     >

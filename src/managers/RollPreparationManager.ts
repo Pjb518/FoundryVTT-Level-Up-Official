@@ -449,7 +449,7 @@ class RollPreparationManager {
 		// Check tool prof
 		if (isProficient) {
 			modifiers.push({
-				label: localize('A5E.Proficiency'),
+				label: localize('A5E.proficiency.title'),
 				// @ts-expect-error
 				value: this.#actor.system.attributes.prof,
 			});

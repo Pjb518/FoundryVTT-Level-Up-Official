@@ -82,7 +82,7 @@
 
             {#if isGM}
                 <Checkbox
-                    label="A5E.PlotItem"
+                    label="A5E.objects.plotItem"
                     checked={$item.system.plotItem}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField($item, "system.plotItem", detail)}

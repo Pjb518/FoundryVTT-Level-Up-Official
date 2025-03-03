@@ -92,7 +92,7 @@
 
         {#if showVRCPsionicDisciplines}
             <RadioGroup
-                heading="A5E.PsionicDiscipline"
+                heading="A5E.psionicDisciplines.title"
                 options={Object.entries(psionicDisciplines)}
                 selected={$item.system.discipline}
                 on:updateSelection={(event) =>
@@ -248,7 +248,7 @@
                 {#if showVRCPsionicDisciplines}
                     <div class="summary-list__item">
                         <dt class="summary-list__label">
-                            {localize("A5E.PsionicDiscipline")}:
+                            {localize("A5E.psionicDisciplines.title")}:
                         </dt>
 
                         <dd class="summary-list__value">
