@@ -764,17 +764,17 @@ const movementAbbreviations = {
  * @enum {string}
  */
 const distanceUnits = {
-	feet: 'A5E.DistanceUnitFeet',
-	miles: 'A5E.DistanceUnitMiles',
-	meters: 'A5E.DistanceUnitMeters',
-	kilometers: 'A5E.DistanceUnitKilometers',
+	feet: 'A5E.distances.full.feet',
+	miles: 'A5E.distances.full.miles',
+	meters: 'A5E.distances.full.meters',
+	kilometers: 'A5E.distances.full.kilometers',
 };
 
 const distanceAbbreviations = {
-	feet: 'A5E.DistanceFeetAbbr',
-	miles: 'A5E.DistanceMilesAbbr',
-	meters: 'A5E.DistanceMetersAbbr',
-	kilometers: 'A5E.DistanceKilometersAbbr',
+	feet: 'A5E.distances.abbr.feet',
+	miles: 'A5E.distances.abbr.miles',
+	meters: 'A5E.distances.abbr.meters',
+	kilometers: 'A5E.distances.abbr.kilometers',
 };
 
 const visionUnits = {
@@ -787,17 +787,17 @@ const visionUnits = {
  * @enum {string}
  */
 const objectTypes = {
-	armor: 'A5E.ObjectTypeArmor',
-	ammunition: 'A5E.ObjectTypeAmmunition',
-	clothing: 'A5E.ObjectTypeClothing',
-	consumable: 'A5E.ObjectTypeConsumable',
-	container: 'A5E.ObjectTypeContainer',
-	helm: 'A5E.ObjectTypeHelm',
-	jewelry: 'A5E.ObjectTypeJewelry',
-	miscellaneous: 'A5E.ObjectTypeMiscellaneous',
-	shield: 'A5E.ObjectTypeShield',
-	tool: 'A5E.ObjectTypeTool',
-	weapon: 'A5E.ObjectTypeWeapon',
+	armor: 'A5E.objects.types.singular.armor',
+	ammunition: 'A5E.objects.types.singular.ammunition',
+	clothing: 'A5E.objects.types.singular.clothing',
+	consumable: 'A5E.objects.types.singular.consumable',
+	container: 'A5E.objects.types.singular.container',
+	helm: 'A5E.objects.types.singular.helm',
+	jewelry: 'A5E.objects.types.singular.jewelry',
+	miscellaneous: 'A5E.objects.types.singular.miscellaneous',
+	shield: 'A5E.objects.types.singular.shield',
+	tool: 'A5E.objects.types.singular.tool',
+	weapon: 'A5E.objects.types.singular.weapon',
 };
 
 /**
@@ -805,17 +805,17 @@ const objectTypes = {
  * @enum {string}
  */
 const objectTypesPlural = {
-	armor: 'A5E.ObjectTypeArmorPlural',
-	ammunition: 'A5E.ObjectTypeAmmunition',
-	clothing: 'A5E.ObjectTypeClothing',
-	consumable: 'A5E.ObjectTypeConsumablePlural',
-	container: 'A5E.ObjectTypeContainerPlural',
-	helm: 'A5E.ObjectTypeHelmPlural',
-	jewelry: 'A5E.ObjectTypeJewelry',
-	miscellaneous: 'A5E.ObjectTypeMiscellaneous',
-	shield: 'A5E.ObjectTypeShieldPlural',
-	tool: 'A5E.ObjectTypeToolPlural',
-	weapon: 'A5E.ObjectTypeWeaponPlural',
+	armor: 'A5E.objects.types.plural.armor',
+	ammunition: 'A5E.objects.types.singular.ammunition',
+	clothing: 'A5E.objects.types.singular.clothing',
+	consumable: 'A5E.objects.types.plural.consumable',
+	container: 'A5E.objects.types.plural.container',
+	helm: 'A5E.objects.types.plural.helm',
+	jewelry: 'A5E.objects.types.singular.jewelry',
+	miscellaneous: 'A5E.objects.types.singular.miscellaneous',
+	shield: 'A5E.objects.types.plural.shield',
+	tool: 'A5E.objects.types.plural.tool',
+	weapon: 'A5E.objects.types.plural.weapon',
 };
 
 const preparedStates = {
@@ -1523,7 +1523,7 @@ const tokenHPColors = {
 const toolCategories = {
 	artisansTools: 'A5E.ToolsArtisanTools',
 	gamingSets: 'A5E.ToolsGamingSets',
-	musicalInstruments: 'A5E.MusicalInstruments',
+	musicalInstruments: 'A5E.instruments.title',
 	miscellaneous: 'A5E.ToolsMiscellaneous',
 	specialist: 'A5E.ToolsSpecialist',
 	vehicles: 'A5E.ToolsVehicles',

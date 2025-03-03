@@ -52,8 +52,8 @@
             component: SkillCheckPromptConfig,
         },
         generic: {
-            heading: "A5E.OtherPlural",
-            singleLabel: "A5E.Other",
+            heading: "A5E.actions.labels.otherPlural",
+            singleLabel: "A5E.actions.labels.other",
             component: GenericPromptConfig,
         },
     };

@@ -34,7 +34,7 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ObjectTypePrompt"
+            heading="A5E.objects.typePrompt"
             options={Object.entries(A5E.objectTypes)}
             selected={$item.system.objectType}
             on:updateSelection={(event) =>
@@ -235,7 +235,7 @@
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.ObjectTypePrompt")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.objects.typePrompt")}:</dt>
                 <dd class="u-m-0 u-p-0">
                     {A5E.objectTypes[$item.system.objectType] ?? localize("A5E.None")}
                 </dd>

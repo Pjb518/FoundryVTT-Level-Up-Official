@@ -37,7 +37,7 @@ const { A5E } = CONFIG;
 const consumerTypes = {
 	ammunition: {
 		heading: 'A5E.consumers.ammunition',
-		singleLabel: 'A5E.ObjectTypeAmmunition',
+		singleLabel: 'A5E.objects.types.singular.ammunition',
 		component: AmmoConsumer,
 	},
 	hitDice: {
