@@ -1771,8 +1771,8 @@ class BaseActorA5e extends Actor {
 
 		const newBonus = foundry.utils.duplicate(this.system.bonuses[type][id]);
 
-		if (type === 'damage') defaultLabel = localize('A5E.NewDamageBonus');
-		else if (type === 'healing') defaultLabel = localize('A5E.NewHealingBonus');
+		if (type === 'damage') defaultLabel = localize('A5E.bonuses.labels.damage.new');
+		else if (type === 'healing') defaultLabel = localize('A5E.bonuses.labels.healing.new');
 		else defaultLabel = 'New Bonus';
 
 		newBonus.label = `${newBonus.label || defaultLabel} (Copy)`;
