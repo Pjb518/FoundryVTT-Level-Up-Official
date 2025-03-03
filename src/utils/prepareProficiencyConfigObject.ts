@@ -6,7 +6,7 @@ export default function prepareProficiencyConfigObject() {
 			propertyKey: 'system.proficiencies.armor',
 		},
 		tradition: {
-			label: 'A5E.ManeuverTraditionPlural',
+			label: 'A5E.maneuvers.headings.traditionPlural',
 			config: Object.entries(CONFIG.A5E.maneuverTraditions),
 			propertyKey: 'system.proficiencies.traditions',
 		},

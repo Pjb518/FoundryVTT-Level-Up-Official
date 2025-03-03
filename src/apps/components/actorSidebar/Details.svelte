@@ -33,7 +33,7 @@
 
     $: details = [
         {
-            heading: localize("A5E.Movement"),
+            heading: localize("A5E.details.movement.title"),
             values: prepareMovementData($actor),
             dialogMethod: "configureMovement",
             propertyKey: "system.attributes.movement",
@@ -82,7 +82,7 @@
             tooltip: "Configure Damage Vulnerabilities",
         },
         {
-            heading: localize("A5E.ManeuverTraditionPlural"),
+            heading: localize("A5E.maneuvers.headings.traditionPlural"),
             values: prepareManeuverTraditions($actor),
             dialogMethod: "configureManeuverTraditions",
             propertyKey: "system.proficiencies.traditions",

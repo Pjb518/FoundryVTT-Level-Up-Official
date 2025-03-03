@@ -72,7 +72,7 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
     >
         <div class="global-bonus-container">
             <FieldWrapper
-                heading="A5E.ManeuverDCBonus"
+                heading="A5E.maneuvers.dc"
                 showWarning={disableManeuverDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
             >

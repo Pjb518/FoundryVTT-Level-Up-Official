@@ -26,14 +26,14 @@
         <div class="track-text-container">
             <span>
                 {inventoryWeight?.toFixed(1)}
-                {localize("A5E.MeasurementPoundsAbbr")}
+                {localize("A5E.objects.weightLbs")}
             </span>
 
             /
 
             <span>
                 {carryCapacity}
-                {localize("A5E.MeasurementPoundsAbbr")}
+                {localize("A5E.objects.weightLbs")}
             </span>
 
             {#if encumbrancePercentage === 100}

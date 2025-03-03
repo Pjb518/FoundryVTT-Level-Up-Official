@@ -31,7 +31,7 @@ let editMode = false;
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ManeuverDegreePrompt"
+            heading="A5E.maneuvers.headings.degreePrompt"
             options={objectEntriesNumberKeyConverter(maneuverDegrees)}
             selected={parseInt($item.system.degree, 10)}
             on:updateSelection={(event) =>
@@ -40,7 +40,7 @@ let editMode = false;
 
         {#if $item.system.degree > 0}
             <RadioGroup
-                heading="A5E.ManeuverTraditionPrompt"
+                heading="A5E.maneuvers.headings.tradition"
                 options={Object.entries(maneuverTraditions)}
                 selected={$item.system.tradition}
                 on:updateSelection={(event) =>
@@ -49,7 +49,7 @@ let editMode = false;
 
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.ManeuverIsStance"
+                    label="A5E.maneuvers.labels.isStance"
                     checked={$item.system.isStance}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField($item, "system.isStance", detail);
@@ -93,14 +93,14 @@ let editMode = false;
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.ManeuverDegreePrompt")}:
+                    {localize("A5E.maneuvers.headings.degreePrompt")}:
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
                     {maneuverDegrees[$item.system.degree]}
 
                     {#if $item.system.degree > 0 && $item.system.isStance}
-                        {localize("A5E.ManeuverStance")}
+                        {localize("A5E.maneuvers.labels.stance")}
                     {/if}
                 </dd>
             </div>
@@ -108,7 +108,7 @@ let editMode = false;
             {#if $item.system.degree > 0}
                 <div class="u-flex u-gap-md">
                     <dt class="u-text-bold">
-                        {localize("A5E.ManeuverTraditionPrompt")}:
+                        {localize("A5E.maneuvers.headings.tradition")}:
                     </dt>
 
                     <dd class="u-m-0 u-p-0">

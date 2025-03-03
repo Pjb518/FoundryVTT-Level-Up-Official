@@ -657,12 +657,12 @@ const languages = {
 };
 
 const maneuverDegrees = {
-	0: 'A5E.ManeuverBasic',
-	1: 'A5E.ManeuverDegree1',
-	2: 'A5E.ManeuverDegree2',
-	3: 'A5E.ManeuverDegree3',
-	4: 'A5E.ManeuverDegree4',
-	5: 'A5E.ManeuverDegree5',
+	0: 'A5E.maneuvers.degrees.basic',
+	1: 'A5E.maneuvers.degrees.1',
+	2: 'A5E.maneuvers.degrees.2',
+	3: 'A5E.maneuvers.degrees.3',
+	4: 'A5E.maneuvers.degrees.4',
+	5: 'A5E.maneuvers.degrees.5',
 };
 
 /**
@@ -670,52 +670,52 @@ const maneuverDegrees = {
  * @enum {string}
  */
 const maneuverTraditions = {
-	aceStarfighter: 'A5E.maneuverTraditions.aceStarfighter',
-	adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
-	arcaneArtillery: 'A5E.maneuverTraditions.arcaneArtillery',
-	arcaneKnight: 'A5E.maneuverTraditions.arcaneKnight',
-	awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
-	beastUnity: 'A5E.maneuverTraditions.beastUnity',
-	bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
-	blazingStarglaive: 'A5E.maneuverTraditions.blazingStarglaive',
-	comedicJabs: 'A5E.maneuverTraditions.comedicJabs',
-	cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
-	eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
-	gallantHeart: 'A5E.maneuverTraditions.gallantHeart',
-	grindingCog: 'A5E.maneuverTraditions.grindingCog',
-	mindfulBody: 'A5E.maneuverTraditions.mindfulBody',
-	mirrorsGlint: 'A5E.maneuverTraditions.mirrorsGlint',
-	mistAndShade: 'A5E.maneuverTraditions.mistAndShade',
-	rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',
-	razorsEdge: 'A5E.maneuverTraditions.razorsEdge',
-	sanctifiedSteel: 'A5E.maneuverTraditions.sanctifiedSteel',
-	sanguineKnot: 'A5E.maneuverTraditions.sanguineKnot',
-	selflessSentinel: 'A5E.maneuverTraditions.selflessSentinel',
-	spiritedSteed: 'A5E.maneuverTraditions.spiritedSteed',
-	temperedIron: 'A5E.maneuverTraditions.temperedIron',
-	toothAndClaw: 'A5E.maneuverTraditions.toothAndClaw',
-	unendingWheel: 'A5E.maneuverTraditions.unendingWheel',
-	viciousVein: 'A5E.maneuverTraditions.viciousVein',
-	vipersFangs: 'A5E.maneuverTraditions.vipersFangs',
+	aceStarfighter: 'A5E.maneuvers.traditions.aceStarfighter',
+	adamantMountain: 'A5E.maneuvers.traditions.adamantMountain',
+	arcaneArtillery: 'A5E.maneuvers.traditions.arcaneArtillery',
+	arcaneKnight: 'A5E.maneuvers.traditions.arcaneKnight',
+	awakenedMind: 'A5E.maneuvers.traditions.awakenedMind',
+	beastUnity: 'A5E.maneuvers.traditions.beastUnity',
+	bitingZephyr: 'A5E.maneuvers.traditions.bitingZephyr',
+	blazingStarglaive: 'A5E.maneuvers.traditions.blazingStarglaive',
+	comedicJabs: 'A5E.maneuvers.traditions.comedicJabs',
+	cuttingOmen: 'A5E.maneuvers.traditions.cuttingOmen',
+	eldritchBlackguard: 'A5E.maneuvers.traditions.eldritchBlackguard',
+	gallantHeart: 'A5E.maneuvers.traditions.gallantHeart',
+	grindingCog: 'A5E.maneuvers.traditions.grindingCog',
+	mindfulBody: 'A5E.maneuvers.traditions.mindfulBody',
+	mirrorsGlint: 'A5E.maneuvers.traditions.mirrorsGlint',
+	mistAndShade: 'A5E.maneuvers.traditions.mistAndShade',
+	rapidCurrent: 'A5E.maneuvers.traditions.rapidCurrent',
+	razorsEdge: 'A5E.maneuvers.traditions.razorsEdge',
+	sanctifiedSteel: 'A5E.maneuvers.traditions.sanctifiedSteel',
+	sanguineKnot: 'A5E.maneuvers.traditions.sanguineKnot',
+	selflessSentinel: 'A5E.maneuvers.traditions.selflessSentinel',
+	spiritedSteed: 'A5E.maneuvers.traditions.spiritedSteed',
+	temperedIron: 'A5E.maneuvers.traditions.temperedIron',
+	toothAndClaw: 'A5E.maneuvers.traditions.toothAndClaw',
+	unendingWheel: 'A5E.maneuvers.traditions.unendingWheel',
+	viciousVein: 'A5E.maneuvers.traditions.viciousVein',
+	vipersFangs: 'A5E.maneuvers.traditions.vipersFangs',
 };
 
 const materialProperties = {
-	comfortable: 'A5E.MaterialPropertyComfortable',
-	feybane: 'A5E.MaterialPropertyFeybane',
-	flaw: 'A5E.MaterialPropertyFlaw',
-	fortified: 'A5E.MaterialPropertyFortified',
-	hackable: 'A5E.MaterialPropertyHackable',
-	hardy: 'A5E.MaterialPropertyHardy',
-	highQuality: 'A5E.MaterialPropertyHighQuality',
-	lightweight: 'A5E.MaterialPropertyLightweight',
-	lowMaintenance: 'A5E.MaterialPropertyLowMaintenance',
-	rust: 'A5E.MaterialPropertyRust',
-	silvered: 'A5E.MaterialPropertySilvered',
-	spacefaring: 'A5E.MaterialPropertySpacefaring',
-	strength: 'A5E.MaterialPropertyStrength',
-	underarmor: 'A5E.MaterialPropertyUnderarmor',
-	weighty: 'A5E.MaterialPropertyWeighty',
-	wild: 'A5E.MaterialPropertyWild',
+	comfortable: 'A5E.objects.properties.comfortable',
+	feybane: 'A5E.objects.properties.feybane',
+	flaw: 'A5E.objects.properties.flaw',
+	fortified: 'A5E.objects.properties.fortified',
+	hackable: 'A5E.objects.properties.hackable',
+	hardy: 'A5E.objects.properties.hardy',
+	highQuality: 'A5E.objects.properties.highQuality',
+	lightweight: 'A5E.objects.properties.lightweight',
+	lowMaintenance: 'A5E.objects.properties.lowMaintenance',
+	rust: 'A5E.objects.properties.rust',
+	silvered: 'A5E.objects.properties.silvered',
+	spacefaring: 'A5E.objects.properties.spacefaring',
+	strength: 'A5E.objects.properties.strength',
+	underarmor: 'A5E.objects.properties.underarmor',
+	weighty: 'A5E.objects.properties.weighty',
+	wild: 'A5E.objects.properties.wild',
 };
 
 const flaws = {
@@ -741,11 +741,11 @@ const modPorts = {
  * @enum {string}
  */
 const movement = {
-	walk: 'A5E.MovementWalkingSpeed',
-	burrow: 'A5E.MovementBurrowingSpeed',
-	climb: 'A5E.MovementClimbingSpeed',
-	fly: 'A5E.MovementFlyingSpeed',
-	swim: 'A5E.MovementSwimmingSpeed',
+	walk: 'A5E.details.movement.types.walk',
+	burrow: 'A5E.details.movement.types.burrow',
+	climb: 'A5E.details.movement.types.climb',
+	fly: 'A5E.details.movement.types.fly',
+	swim: 'A5E.details.movement.types.swim',
 };
 
 /**
@@ -753,11 +753,11 @@ const movement = {
  * @enum {string}
  */
 const movementAbbreviations = {
-	walk: 'A5E.MovementWalkingSpeedAbbr',
-	burrow: 'A5E.MovementBurrowingSpeedAbbr',
-	climb: 'A5E.MovementClimbingSpeedAbbr',
-	fly: 'A5E.MovementFlyingSpeedAbbr',
-	swim: 'A5E.MovementSwimmingSpeedAbbr',
+	walk: 'A5E.details.movement.typesAbbr.walk',
+	burrow: 'A5E.details.movement.typesAbbr.burrow',
+	climb: 'A5E.details.movement.typesAbbr.climb',
+	fly: 'A5E.details.movement.typesAbbr.fly',
+	swim: 'A5E.details.movement.typesAbbr.swim',
 };
 
 /**

@@ -1688,14 +1688,14 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureMovement(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.movement.configurationPrompt', { name: this.name });
 		this.#configure('movement', title, data, options);
 	}
 
 	configureManeuverTraditions(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ManeuverTraditionsConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.maneuvers.headings.configurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ManeuverTraditionPlural';
+		data.heading ??= 'A5E.maneuvers.headings.traditionPlural';
 		data.configObject ??= CONFIG.A5E.maneuverTraditions;
 		data.propertyKey ??= 'system.proficiencies.traditions';
 		data.type ??= 'maneuverTraditions';
