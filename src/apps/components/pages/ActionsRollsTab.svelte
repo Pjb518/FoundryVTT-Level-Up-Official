@@ -46,18 +46,18 @@
 
     const rollTypes = {
         attack: {
-            heading: "A5E.ItemAttackRoll",
-            singleLabel: "A5E.ItemAttackRoll",
+            heading: "A5E.items.headings.attackRoll",
+            singleLabel: "A5E.items.headings.attackRoll",
             component: AttackRollConfig,
         },
         damage: {
-            heading: "A5E.ItemDamageRollPlural",
+            heading: "A5E.actions.labels.damageRollPlural",
             buttonLabel: "A5E.damage.title",
-            singleLabel: "A5E.ItemDamageRoll",
+            singleLabel: "A5E.actions.labels.damageRoll",
             component: DamageRollConfig,
         },
         healing: {
-            heading: "A5E.ItemHealingRollPlural",
+            heading: "A5E.actions.labels.healingRollPlural",
             singleLabel: "A5E.healing.title",
             component: HealingRollConfig,
         },

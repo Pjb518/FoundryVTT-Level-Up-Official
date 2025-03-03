@@ -111,11 +111,11 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
 
         {#if $item.system.uses.per === "recharge"}
             <Section
-                heading="A5E.ItemRechargeConfiguration"
+                heading="A5E.actions.headings.recharge.configuration"
                 --a5e-section-body-direction="row"
                 --a5e-section-body-gap="0.5rem"
             >
-                <FieldWrapper heading="A5E.ItemRechargeFormula">
+                <FieldWrapper heading="A5E.actions.headings.recharge.formula">
                     <input
                         id="{$item.id}-recharge-formula"
                         type="text"
@@ -132,7 +132,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                     />
                 </FieldWrapper>
 
-                <FieldWrapper heading="A5E.ItemRechargeThreshold">
+                <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
                     <input
                         id="{$item.id}-recharge-threshold"
                         class="u-text-center"

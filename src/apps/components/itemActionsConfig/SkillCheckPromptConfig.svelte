@@ -82,7 +82,7 @@
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.ItemAbilityCheckType"
+    heading="A5E.items.headings.abilityCheckType"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions(false, true)}
     selected={selectedAbility}

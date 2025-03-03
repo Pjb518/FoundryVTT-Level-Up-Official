@@ -12,7 +12,7 @@ const item = getContext('item');
 const actionId = getContext('actionId');
 
 const rechargeTypes = {
-	item: 'A5E.Item',
+	item: 'A5E.items.title',
 	action: 'A5E.actions.headings.action',
 };
 
@@ -61,7 +61,7 @@ function updateType(value) {
 
     <div class="a5e-field-group">
         <label for="{actionId}-recharge-type">
-            {localize("A5E.ItemRechargeType")}
+            {localize("A5E.actions.headings.recharge.type")}
         </label>
 
         <select
@@ -85,7 +85,7 @@ function updateType(value) {
         <div class="row">
             <div class="a5e-field-group a5e-field-group--formula u-flex-grow">
                 <label for="{actionId}-recharge-formula">
-                    {localize("A5E.ItemRechargeFormula")}
+                    {localize("A5E.actions.headings.recharge.formula")}
                 </label>
 
                 <input
@@ -107,7 +107,7 @@ function updateType(value) {
             <!-- Threshold -->
             <div class="a5e-field-group u-w-30">
                 <label for="{actionId}-recharge-threshold">
-                    {localize("A5E.ItemRechargeThreshold")}
+                    {localize("A5E.actions.headings.recharge.threshold")}
                 </label>
 
                 <input

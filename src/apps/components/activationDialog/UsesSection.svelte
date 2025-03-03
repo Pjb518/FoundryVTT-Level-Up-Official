@@ -64,7 +64,7 @@
     {/if}
 
     {#if showActivationDialogSection(action, selectedConsumers, ["itemUses"], ["itemUses"]) && itemUses?.max}
-        <FieldWrapper heading="A5E.ItemUses">
+        <FieldWrapper heading="A5E.consumers.usesItem">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">
                     <input

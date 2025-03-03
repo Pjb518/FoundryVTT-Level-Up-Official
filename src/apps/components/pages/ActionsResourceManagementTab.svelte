@@ -145,11 +145,11 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
 
     {#if action.uses?.per === "recharge"}
         <Section
-            heading="A5E.ItemRechargeConfiguration"
+            heading="A5E.actions.headings.recharge.configuration"
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
+            <FieldWrapper heading="A5E.actions.headings.recharge.formula" --a5e-field-wrapper-grow="1">
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"
@@ -168,7 +168,7 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.ItemRechargeThreshold">
+            <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
                 <input
                     id="{actionId}-recharge-threshold"
                     class="u-text-center"

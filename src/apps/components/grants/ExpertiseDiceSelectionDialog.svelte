@@ -54,7 +54,7 @@ const configObject = {
 		options: Object.entries(CONFIG.A5E.attackTypes),
 	},
 	initiative: {
-		label: 'A5E.Initiative',
+		label: 'A5E.initiative.title',
 		options: [],
 	},
 	skill: {

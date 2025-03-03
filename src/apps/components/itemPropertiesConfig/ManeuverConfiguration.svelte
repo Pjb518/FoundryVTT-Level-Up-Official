@@ -71,7 +71,7 @@ let editMode = false;
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.ItemExertionCost">
+            <FieldWrapper heading="A5E.consumers.exertionCost">
                 <div class="u-w-20">
                     <input
                         type="number"
@@ -119,7 +119,7 @@ let editMode = false;
 
                 <div class="u-flex u-gap-md">
                     <dt class="u-text-bold">
-                        {localize("A5E.ItemExertionCost")}:
+                        {localize("A5E.consumers.exertionCost")}:
                     </dt>
 
                     <dd class="u-m-0 u-p-0">

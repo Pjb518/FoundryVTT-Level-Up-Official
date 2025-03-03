@@ -1672,7 +1672,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureInitiative(data: Record<string, any> = {}, options: Record<string, any> = {}) {
-		const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.initiative.configurationPrompt', { name: this.name });
 		this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
 	}
 

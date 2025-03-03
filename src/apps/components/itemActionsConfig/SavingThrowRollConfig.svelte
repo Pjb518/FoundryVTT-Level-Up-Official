@@ -55,7 +55,7 @@
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.ItemSavingThrowType"
+    heading="A5E.actions.headings.savingThrows.type"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions()}
     selected={selectedAbility}

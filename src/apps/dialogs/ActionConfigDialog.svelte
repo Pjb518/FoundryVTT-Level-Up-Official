@@ -27,7 +27,7 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
+            label: "A5E.Description",
             component: ActionsDescriptionTab,
         },
         {

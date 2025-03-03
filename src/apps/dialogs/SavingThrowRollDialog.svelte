@@ -127,7 +127,7 @@ $: rollFormula = getRollFormula($actor, {
 
     {#if abilityKey === "con" && saveType !== "death"}
         <RadioGroup
-            heading="A5E.ItemSavingThrowType"
+            heading="A5E.actions.headings.savingThrows.type"
             options={saveTypes}
             selected={saveType}
             on:updateSelection={(event) => (saveType = event.detail)}

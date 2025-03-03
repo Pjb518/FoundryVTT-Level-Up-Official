@@ -39,13 +39,13 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
+            label: "A5E.Description",
             component: ItemDescriptionTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "unidentifiedDescription",
-            label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+            label: "A5E.objects.unidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
             display:
                 $item.type === "object" && ($item.system.unidentified || game.user.isGM),
@@ -64,7 +64,7 @@
         },
         {
             name: "equipment",
-            label: "A5E.Equipment",
+            label: "A5E.objects.equipment",
             component: ItemEquipmentTab,
             display:
                 $item.type === "object" &&

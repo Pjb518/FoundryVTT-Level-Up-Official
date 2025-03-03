@@ -231,7 +231,7 @@ export default class ModifierManager {
 		}
 
 		return {
-			label: localize('A5E.InitiativeBonus'),
+			label: localize('A5E.initiative.bonus'),
 			value: value || null,
 		};
 	}

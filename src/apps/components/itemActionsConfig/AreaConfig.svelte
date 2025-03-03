@@ -75,7 +75,7 @@
 </script>
 
 <Section
-    heading="A5E.ItemAreaShape"
+    heading="A5E.items.headings.areaShape"
     --a5e-section-body-gap="0.75rem"
     --a5e-section-gap="0.5rem"
 >
@@ -237,7 +237,7 @@
     {#if action.area?.shape}
         <FieldWrapper>
             <Checkbox
-                label="A5E.ItemPlaceTemplate"
+                label="A5E.actions.labels.placeTemplate"
                 checked={action.area?.placeTemplate ?? false}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(

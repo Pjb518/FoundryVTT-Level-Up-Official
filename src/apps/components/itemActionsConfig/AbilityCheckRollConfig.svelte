@@ -55,7 +55,7 @@
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.ItemAbilityCheckType"
+    heading="A5E.items.headings.abilityCheckType"
     optionStyles="min-width: 2rem; text-align: center;"
     options={Object.entries(abilities)}
     selected={selectedAbility}

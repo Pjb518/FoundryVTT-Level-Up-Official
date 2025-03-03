@@ -87,7 +87,7 @@ $: resource = $actor.system.resources[source];
     />
 
     {#if resource.per === "recharge"}
-        <FieldWrapper heading="A5E.ItemRechargeFormula">
+        <FieldWrapper heading="A5E.actions.headings.recharge.formula">
             <input
                 class="a5e-input"
                 type="text"
@@ -104,7 +104,7 @@ $: resource = $actor.system.resources[source];
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.ItemRechargeThreshold">
+        <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
             <input
                 class="a5e-input u-text-center"
                 type="number"

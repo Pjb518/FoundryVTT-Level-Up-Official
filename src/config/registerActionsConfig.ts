@@ -31,11 +31,11 @@ export default function registerActionsConfig() {
 		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
-			label: 'A5E.FavorPoints',
+			label: 'A5E.consumers.favorPoints',
 			type: 'value',
 		},
 		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
-		inspiration: { path: 'attributes.inspiration', label: 'A5E.Inspiration', type: 'boolean' },
+		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'boolean' },
 		primaryResource: {
 			path: 'resources.primary.value',
 			label: 'A5E.ResourcesPrimary',

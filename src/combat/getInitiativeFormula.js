@@ -14,7 +14,7 @@ export default async function getInitiativeFormula(options) {
 		return getDefaultInitiativeFormula(this.actor, options);
 	}
 
-	const title = game.i18n.format('A5E.InitiativePromptTitle', { name: this.name });
+	const title = game.i18n.format('A5E.initiative.promptTitle', { name: this.name });
 	const component = game.settings.get('a5e', 'simpleInitiative')
 		? SimpleInitiativeRollDialog
 		: InitiativeRollDialog;
