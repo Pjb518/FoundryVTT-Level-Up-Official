@@ -32,15 +32,15 @@ function getInitialExpertiseDieSelection() {
 function getSubmitButtonText(saveType, abilityKey) {
 	if (saveType === 'death') return 'Roll Death Saving Throw';
 	else if (abilityKey === 'con' && saveType === 'concentration') {
-		return localize('A5E.RollConcentrationCheck');
+		return localize('A5E.rollLabels.rollConcentrationCheck');
 	} else {
 		if (options.dc)
-			return localize('A5E.RollPromptSavingThrowWithDC', {
+			return localize('A5E.rollLabels.prompts.savingThrowWithDC', {
 				ability: localizeSave,
 				dc: options.dc,
 			});
 		else
-			return localize('A5E.RollPromptSavingThrow', {
+			return localize('A5E.rollLabels.prompts.savingThrow', {
 				ability: localizeSave,
 			});
 	}
@@ -48,7 +48,7 @@ function getSubmitButtonText(saveType, abilityKey) {
 
 const saveTypes = [
 	['standard', 'A5E.SavingThrowNormal'],
-	['concentration', 'A5E.ConcentrationCheck'],
+	['concentration', 'A5E.rollLabels.concentrationCheck'],
 ];
 
 const actor = new TJSDocument(document);

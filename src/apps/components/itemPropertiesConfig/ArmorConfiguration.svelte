@@ -99,7 +99,7 @@
         />
 
         <Section --a5e-section-body-direction="row">
-            <FieldWrapper heading="A5E.RepairabilityDC">
+            <FieldWrapper heading="A5E.armorClass.repairability.dc">
                 <input
                     type="number"
                     data-dtype="Number"
@@ -116,7 +116,7 @@
             </FieldWrapper>
 
             <CheckboxGroup
-                heading="A5E.RepairabilityTools"
+                heading="A5E.armorClass.repairability.tools"
                 options={Object.entries(repairTools)}
                 selected={$item.system.repairTools}
                 on:updateSelection={(event) =>
@@ -160,7 +160,7 @@
             {/if}
 
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.Repairability")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.armorClass.repairability.title")}:</dt>
 
                 <dd class="u-m-0 u-p-0">
                     {#if repairabilityDC != "0"}DC {repairabilityDC},

@@ -199,7 +199,7 @@
         <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.RequiresBloodied"
+                    label="A5E.items.requiresBloodied"
                     checked={$item.system.requiresBloodied}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField(

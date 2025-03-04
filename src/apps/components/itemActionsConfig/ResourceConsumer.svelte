@@ -67,7 +67,7 @@
 </FieldWrapper>
 
 <div class="a5e-field-group u-flex-row u-gap-md">
-    <FieldWrapper heading="A5E.Resource">
+    <FieldWrapper heading="A5E.consumers.resources.title">
         <select
             name="{actionId}-{consumerId}-item-id"
             class="u-w-fit"

@@ -62,7 +62,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.RollFormula" --a5e-field-wrapper-grow="1">
+<FieldWrapper heading="A5E.rollLabels.rollFormula" --a5e-field-wrapper-grow="1">
     <div class="u-flex u-gap-sm u-w-full">
         <input
             type="text"

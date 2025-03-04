@@ -230,6 +230,11 @@
 			"shearThickening": "Shear-Thickening",
 			"spiked": "Spiked"
 		},
+		"repairability": {
+			"dc": "Repairability DC",
+			"title": "Repairability",
+			"tools": "Repairability Tools"
+		},
 		"types": {
 			"light": "Light Armor",
 			"medium": "Medium Armor",
@@ -492,7 +497,7 @@
 		"nothing": "Don't Consume Resource",
 		"options": "Resource to Consume",
 		"quantity": "Quantity Consumer",
-		"resource": "Resource Consumer",
+		"recoverResourceAt": "Recover Every",
 		"restoreResourceOnUse": "Restore resource when item is activated.",
 		"spell": "Spell Resource Consumer",
 		"spellMode": "Mode",
@@ -507,6 +512,15 @@
 			"pointsOnly": "Points Only",
 			"slotsOnly": "Slots Only",
 			"variable": "Variable"
+		},
+		"resources": {
+			"consumer": "Resource Consumer",
+			"quaternary": "Resource 4",
+			"primary": "Resource 1",
+			"secondary": "Resource 2",
+			"tertiary": "Resource 3",
+			"title": "Resource",
+			"titlePlural": "Resources"
 		},
 		"uses": {
 			"action": "Action Uses Consumer",
@@ -1544,6 +1558,7 @@
 	},
 	"A5E.items": {
 		"new": "New {type}",
+		"requiresBloodied": "Can only be used while Bloodied",
 		"title": "Item",
 		"headings": {
 			"abilityCheckType": "Ability Check Type",
@@ -1755,6 +1770,16 @@
 			"telepathic": "Telepathic"
 		}
 	},
+	"A5E.ranges": {
+		"fiveFeet": "5 ft.",
+		"long": "Long",
+		"medium": "Medium",
+		"other": "Other",
+		"self": "Self",
+		"short": "Short",
+		"touch": "Touch",
+		"unlimited": "Unlimited"
+	},
 	"A5E.repairTools": {
 		"forge": "Access to a Forge",
 		"engineersToolbox": "Engineer's Toolbox",
@@ -1762,6 +1787,36 @@
 		"sewingKit": "Sewing Kit",
 		"smithsTools": "Smith's Tools",
 		"tinkersTools": "Tinker's Tools"
+	},
+	"A5E.rest": {
+		"configurationPrompt": "{name}: Configure Rest",
+		"havenPrompt": "Resting in a Haven?",
+		"long": "Long Rest",
+		"short": "Short Rest",
+		"title": "Rest",
+		"type": "Rest Type"
+	},
+	"A5E.rollLabels": {
+		"abilityCheck": "Roll Ability Check",
+		"concentrationCheck": "Concentration Check",
+		"formula": "Formula",
+		"generic": "Other Roll",
+		"hint": "Select which rolls to display on the chat card.",
+		"initiative": "Roll Initiative",
+		"modeHeading": "Roll Mode",
+		"rollConcentrationCheck": "Roll Concentration Check",
+		"rollFormula": "Roll Formula",
+		"savingThrow": "Roll Saving Throw",
+		"modes": {
+			"advantage": "Advantage",
+			"disadvantage": "Disadvantage",
+			"normal": "Normal"
+		},
+		"prompts": {
+			"abilityCheck": "Roll {ability} Check",
+			"savingThrow": "{ability} Saving Throw",
+			"savingThrowWithDC": "{ability} Saving Throw (DC {dc})"
+		}
 	},
 	"A5E.scaling": {
 		"headings": {
@@ -2369,14 +2424,10 @@
 		"versatileSpecific": "Versatile ({die})",
 		"vicious": "Vicious"
 	},
-	"A5E.ConcentrationCheck": "Concentration Check",
 	"A5E.CriticalHitThreshold": "Critical Hit Threshold",
 	"A5E.Custom": "Custom",
 	"A5E.Description": "Description",
 	"A5E.FavoriteItems": "Favorites",
-	"A5E.Formula": "Formula",
-	"A5E.GenericRoll": "Other Roll",
-	"A5E.HavenPrompt": "Resting in a Haven?",
 	"A5E.HintSeparateBySemiColon": "Enter values separated by a semi-colon ( ; )",
 	"A5E.ItemUsesConfiguration": "Uses Configuration",
 	"A5E.ItemPrepared": "Prepared",
@@ -2392,48 +2443,7 @@
 	"A5E.NoUnidentifiedDescription": "No unidentified description available.",
 	"A5E.PromptDefaultSelection": "Select Prompt Automatically in Roll Prompt",
 	"A5E.PromptsHint": "Select which prompt buttons to display on the chat card.",
-	
-	"A5E.RangeSelf": "Self",
-	"A5E.RangeFiveFeet": "5 ft.",
-	"A5E.RangeTouch": "Touch",
-	"A5E.RangeShort": "Short",
-	"A5E.RangeMedium": "Medium",
-	"A5E.RangeLong": "Long",
-	"A5E.RangeOther": "Other",
-	"A5E.RangeUnlimited": "Unlimited",
-	"A5E.Recovery": "Recovery",
-	"A5E.RecoverResourceAt": "Recover Every",
-	"A5E.Repairability": "Repairability",
-	"A5E.RepairabilityDC": "Repairability DC",
-	"A5E.RepairabilityTools": "Repairability Tools",
-	"A5E.RequiresBloodied": "Can only be used while Bloodied",
-	"A5E.Resource": "Resource",
-	"A5E.Resources": "Resources",
-	"A5E.ResourceConfigurationTitle": "Configure Resource",
-	"A5E.ResourcesPrimary": "Resource 1",
-	"A5E.ResourcesSecondary": "Resource 2",
-	"A5E.ResourcesTertiary": "Resource 3",
-	"A5E.ResourcesQuaternary": "Resource 4",
-	"A5E.Rest": "Rest",
-	"A5E.RestConfigurationPrompt": "{name}: Configure Rest",
-	"A5E.RestShort": "Short Rest",
-	"A5E.RestLong": "Long Rest",
-	"A5E.RestType": "Rest Type",
-	"A5E.RollConcentrationCheck": "Roll Concentration Check",
-	"A5E.RollFormula": "Roll Formula",
-	"A5E.RollLabelAttack": "Attack Roll",
-	"A5E.RollLabelDamage": "Damage",
-	"A5E.RollModeHeading": "Roll Mode",
-	"A5E.RollModeNormal": "Normal",
-	"A5E.RollModeAdvantage": "Advantage",
-	"A5E.RollModeDisadvantage": "Disadvantage",
-	"A5E.RollAbilityCheck": "Roll Ability Check",
-	"A5E.RollInitiative": "Roll Initiative",
-	"A5E.RollSavingThrow": "Roll Saving Throw",
-	"A5E.RollPromptAbilityCheck": "Roll {ability} Check",
-	"A5E.RollPromptSavingThrow": "{ability} Saving Throw",
-	"A5E.RollPromptSavingThrowWithDC": "{ability} Saving Throw (DC {dc})",
-	"A5E.RollsHint": "Select which rolls to display on the chat card.",
+
 	"A5E.SaveBonus": "Save Bonus",
 	"A5E.SaveSubmit": "Save",
 	"A5E.SavingThrow": "Saving Throw",

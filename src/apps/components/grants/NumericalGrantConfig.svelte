@@ -98,7 +98,7 @@ setContext('grantType', grantType);
         --a5e-section-body-direction={hasSelectDialog ? "row" : "column"}
     >
         <FieldWrapper
-            heading="A5E.Formula"
+            heading="A5E.rollLabels.formula"
             --a5e-field-wrapper-grow={hasSelectDialog ? "1" : "0"}
         >
             <input

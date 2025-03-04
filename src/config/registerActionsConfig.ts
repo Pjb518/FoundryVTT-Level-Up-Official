@@ -38,22 +38,22 @@ export default function registerActionsConfig() {
 		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'boolean' },
 		primaryResource: {
 			path: 'resources.primary.value',
-			label: 'A5E.ResourcesPrimary',
+			label: 'A5E.consumers.resources.primary',
 			type: 'value',
 		},
 		secondaryResource: {
 			path: 'resources.secondary.value',
-			label: 'A5E.ResourcesSecondary',
+			label: 'A5E.consumers.resources.secondary',
 			type: 'value',
 		},
 		tertiaryResource: {
 			path: 'resources.tertiary.value',
-			label: 'A5E.ResourcesTertiary',
+			label: 'A5E.consumers.resources.tertiary',
 			type: 'value',
 		},
 		quaternaryResource: {
 			path: 'resources.quaternary.value',
-			label: 'A5E.ResourcesQuaternary',
+			label: 'A5E.consumers.resources.quaternary',
 			type: 'value',
 		},
 	};

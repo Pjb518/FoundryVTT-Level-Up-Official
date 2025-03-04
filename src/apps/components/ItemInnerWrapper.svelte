@@ -295,7 +295,7 @@
         {#if !action && item.system.requiresBloodied}
             <i
                 class="action-button action-button--bloodied fa-solid fa-droplet"
-                data-tooltip={"A5E.RequiresBloodied"}
+                data-tooltip={"A5E.items.requiresBloodied"}
                 data-tooltip-direction="UP"
             />
         {/if}

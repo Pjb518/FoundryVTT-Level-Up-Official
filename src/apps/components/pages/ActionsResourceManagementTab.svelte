@@ -51,8 +51,8 @@ const consumerTypes = {
 		component: QuantityConsumer,
 	},
 	resource: {
-		heading: 'A5E.consumers.resource',
-		singleLabel: 'A5E.Resource',
+		heading: 'A5E.consumers.resources.consumer',
+		singleLabel: 'A5E.consumers.resources.title',
 		component: ResourceConsumer,
 	},
 	spell: {

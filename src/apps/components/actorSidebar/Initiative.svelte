@@ -45,7 +45,7 @@
             class:initiative-roll-button--shift={$pressedKeysStore.Shift}
             class:initiative-roll-button--ctrl={$pressedKeysStore.Control}
             class:disable-pointer-events={!$actor.isOwner}
-            data-tooltip="A5E.RollInitiative"
+            data-tooltip="A5E.rollLabels.initiative"
             data-tooltip-direction="DOWN"
             on:click={() =>
                 $actor.rollInitiative({

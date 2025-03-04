@@ -779,7 +779,7 @@ const distanceAbbreviations = {
 
 const visionUnits = {
 	...distanceUnits,
-	unlimited: 'A5E.RangeUnlimited',
+	unlimited: 'A5E.ranges.unlimited',
 };
 
 /**
@@ -836,18 +836,18 @@ const psionicDisciplines = {
  * @enum {string}
  */
 const rangeDescriptors = {
-	self: 'A5E.RangeSelf',
-	touch: 'A5E.RangeTouch',
-	fiveFeet: 'A5E.RangeFiveFeet',
-	short: 'A5E.RangeShort',
-	medium: 'A5E.RangeMedium',
-	long: 'A5E.RangeLong',
-	other: 'A5E.RangeOther',
+	self: 'A5E.ranges.self',
+	touch: 'A5E.ranges.touch',
+	fiveFeet: 'A5E.ranges.fiveFeet',
+	short: 'A5E.ranges.short',
+	medium: 'A5E.ranges.medium',
+	long: 'A5E.ranges.long',
+	other: 'A5E.ranges.other',
 };
 
 const rangeValues = {
-	self: 'A5E.RangeSelf',
-	touch: 'A5E.RangeTouch',
+	self: 'A5E.ranges.self',
+	touch: 'A5E.ranges.touch',
 	fiveFeet: 5,
 	short: 30,
 	medium: 60,
@@ -868,8 +868,8 @@ const repairTools = {
 };
 
 const resourceRecoveryOptions = {
-	shortRest: 'A5E.RestShort',
-	longRest: 'A5E.RestLong',
+	shortRest: 'A5E.rest.short',
+	longRest: 'A5E.rest.long',
 	recharge: 'A5E.actions.headings.recharge.title',
 	round: 'A5E.durations.round',
 	turn: 'A5E.durations.turn',
@@ -882,9 +882,9 @@ const resourceRecoveryOptions = {
 };
 
 const rollModes = {
-	normal: 'A5E.RollModeNormal',
-	advantage: 'A5E.RollModeAdvantage',
-	disadvantage: 'A5E.RollModeDisadvantage',
+	normal: 'A5E.rollLabels.modes.normal',
+	advantage: 'A5E.rollLabels.modes.advantage',
+	disadvantage: 'A5E.rollLabels.modes.disadvantage',
 };
 
 // TODO: Localization - Add localizations for these roll types.

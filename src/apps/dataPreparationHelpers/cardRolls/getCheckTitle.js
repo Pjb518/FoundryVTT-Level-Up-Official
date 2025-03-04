@@ -15,7 +15,7 @@ export default function getCheckLabel(messageData) {
 		case 'savingThrow':
 			switch (saveType) {
 				case 'concentration':
-					return localize('A5E.ConcentrationCheck');
+					return localize('A5E.rollLabels.concentrationCheck');
 				case 'death':
 					return localize('A5E.deathSavingThrow.title');
 				default:

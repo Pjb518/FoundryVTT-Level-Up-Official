@@ -75,7 +75,7 @@ $: resource = $actor.system.resources[source];
     --a5e-section-padding="0 0.75rem 0.75rem 0.75rem"
 >
     <RadioGroup
-        heading="A5E.RecoverResourceAt"
+        heading="A5E.consumers.recoverResourceAt"
         options={recoveryOptions}
         selected={resource.per}
         on:updateSelection={(event) =>

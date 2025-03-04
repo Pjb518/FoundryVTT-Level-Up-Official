@@ -10,7 +10,7 @@
     class="rest"
     class:rest--5e={replaceFatigueAndStrife}
     class:disable-pointer-events={!$actor.isOwner}
-    data-tooltip="A5E.Rest"
+    data-tooltip="A5E.rest.title"
     data-tooltip-direction="DOWN"
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->

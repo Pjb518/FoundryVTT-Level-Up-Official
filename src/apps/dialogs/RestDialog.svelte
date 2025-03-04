@@ -13,8 +13,8 @@ export let { document, appId } = getContext('#external').application;
 const actor = document;
 
 const restTypeOptions = {
-	short: 'A5E.RestShort',
-	long: 'A5E.RestLong',
+	short: 'A5E.rest.short',
+	long: 'A5E.rest.long',
 };
 
 let restType = 'short';
@@ -49,7 +49,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
 <form class="form">
     <RadioGroup
-        heading="A5E.RestType"
+        heading="A5E.rest.type"
         options={Object.entries(restTypeOptions)}
         selected={restType}
         on:updateSelection={({ detail }) => (restType = detail)}
@@ -59,7 +59,7 @@ $: hitDice = $actor.system.attributes.hitDice;
         <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.HavenPrompt"
+                    label="A5E.rest.havenPrompt"
                     checked={haven}
                     on:updateSelection={({ detail }) => {
                         haven = detail;
@@ -119,7 +119,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
         <i class="fas fa-campground" />
-        {localize("A5E.Rest")}
+        {localize("A5E.rest.title")}
     </button>
 </form>
 

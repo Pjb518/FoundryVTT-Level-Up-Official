@@ -93,7 +93,7 @@ let editMode = false;
 
         <FieldWrapper>
             <Checkbox
-                label="A5E.RequiresBloodied"
+                label="A5E.items.requiresBloodied"
                 checked={$item.system.requiresBloodied}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField($item, "system.requiresBloodied", detail);
