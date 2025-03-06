@@ -80,17 +80,17 @@ export default function registerFilterConfig(A5E) {
 				label: 'A5E.filterLabels.spellComponents',
 				filters: {
 					material: {
-						label: 'A5E.SpellComponentMaterial',
+						label: 'A5E.spells.components.material',
 						key: 'system.components.material',
 						type: 'boolean',
 					},
 					seen: {
-						label: 'A5E.SpellComponentSeen',
+						label: 'A5E.spells.components.seen',
 						key: 'system.components.seen',
 						type: 'boolean',
 					},
 					vocalized: {
-						label: 'A5E.SpellComponentVocalized',
+						label: 'A5E.spells.components.vocalized',
 						key: 'system.components.vocalized',
 						type: 'boolean',
 					},
@@ -105,12 +105,12 @@ export default function registerFilterConfig(A5E) {
 						type: 'boolean',
 					},
 					ritual: {
-						label: 'A5E.SpellRitual',
+						label: 'A5E.spells.ritual',
 						key: 'system.ritual',
 						type: 'boolean',
 					},
 					prepared: {
-						label: 'A5E.SpellPrepared',
+						label: 'A5E.spells.prepared',
 						key: 'system.prepared',
 						type: 'boolean',
 					},

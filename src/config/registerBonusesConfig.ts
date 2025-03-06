@@ -8,8 +8,8 @@ export default function registerBonusesConfig() {
 		hitPoint: 'A5E.hitPoints.title',
 		initiative: 'A5E.initiative.title',
 		movement: 'A5E.details.movement.title',
-		senses: 'A5E.Senses',
-		skills: 'A5E.Skill',
+		senses: 'A5E.senses.title',
+		skills: 'A5E.skillLabels.title',
 	};
 
 	const bonusDialogKeys = {

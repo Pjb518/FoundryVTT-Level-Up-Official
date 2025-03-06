@@ -63,7 +63,7 @@
     on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
-<FieldWrapper heading="A5E.SaveBonus">
+<FieldWrapper heading="A5E.bonuses.labels.saveBonus">
     <input
         id="{actionId}-{rollId}-bonus"
         type="text"
@@ -78,7 +78,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.SavingThrowDefaultSelection"
+    label="A5E.rollLabels.savingThrows.defaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

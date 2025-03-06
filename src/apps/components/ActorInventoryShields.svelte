@@ -107,7 +107,7 @@
                 data-tooltip={supplyTooltip}
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.Supply")}
+                {localize("A5E.supply.title")}
             </h3>
 
             {#if !sheetIsLocked}

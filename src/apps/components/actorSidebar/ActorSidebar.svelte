@@ -87,7 +87,7 @@
         {#if !replaceFatigueAndStrife}
             <StatusTrack
                 icon="fa-brain"
-                tooltipText="A5E.Strife"
+                tooltipText="A5E.conditions.strife"
                 trackProperty="strife"
                 options={strifeOptions}
                 selectedOption={$actor.system.attributes.strife}

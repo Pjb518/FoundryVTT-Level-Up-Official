@@ -246,7 +246,7 @@
     {#if $actor.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.spellcasting.artifactCharges")}
+                {localize("A5E.spells.spellcasting.artifactCharges")}
             </h3>
 
             <input
@@ -283,7 +283,7 @@
     {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellInventions")}
+                {localize("A5E.spells.spellcasting.inventions")}
             </h3>
 
             <!-- <input
@@ -321,7 +321,7 @@
         {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                    {localize("A5E.SpellPoints")}
+                    {localize("A5E.spells.spellcasting.points")}
                 </h3>
 
                 <input

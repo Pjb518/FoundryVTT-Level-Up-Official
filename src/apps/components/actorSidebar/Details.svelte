@@ -40,7 +40,7 @@
             tooltip: "Configure Movement",
         },
         {
-            heading: localize("A5E.SensesSpecial"),
+            heading: localize("A5E.senses.special"),
             values: prepareSenses($actor),
             dialogMethod: "configureSenses",
             propertyKey: "system.attributes.senses",
@@ -111,7 +111,7 @@
             tooltip: "Configure Tool Proficiencies",
         },
         {
-            heading: localize("A5E.Size"),
+            heading: localize("A5E.traits.size.title"),
             values: prepareCreatureSize($actor),
             dialogMethod: "configureSizeCategory",
             propertyKey: "system.traits.size",

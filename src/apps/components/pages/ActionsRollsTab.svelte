@@ -67,8 +67,8 @@
             component: AbilityCheckRollConfig,
         },
         skillCheck: {
-            heading: "A5E.SkillCheckPlural",
-            singleLabel: "A5E.SkillCheckSingular",
+            heading: "A5E.skillLabels.checks.titlePlural",
+            singleLabel: "A5E.skillLabels.checks.title",
             component: SkillCheckRollConfig,
         },
         toolCheck: {
@@ -77,8 +77,8 @@
             component: ToolCheckRollConfig,
         },
         savingThrow: {
-            heading: "A5E.SavingThrowPlural",
-            singleLabel: "A5E.SavingThrow",
+            heading: "A5E.rollLabels.savingThrows.titlePlural",
+            singleLabel: "A5E.rollLabels.savingThrows.title",
             component: SavingThrowRollConfig,
         },
         generic: {

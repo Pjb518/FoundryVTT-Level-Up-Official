@@ -63,7 +63,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.Skill">
+<FieldWrapper heading="A5E.skillLabels.title">
     <select
         class="u-w-fit"
         on:change={({ target }) =>

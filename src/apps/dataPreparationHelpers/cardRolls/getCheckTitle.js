@@ -19,12 +19,12 @@ export default function getCheckLabel(messageData) {
 				case 'death':
 					return localize('A5E.deathSavingThrow.title');
 				default:
-					return localize('A5E.SavingThrowSpecific', { ability });
+					return localize('A5E.rollLabels.prompts.savingThrow', { ability });
 			}
 		case 'skillCheck':
 			return ability
-				? localize('A5E.SkillCheckAbility', { skill, ability })
-				: localize('A5E.SkillCheck', { skill });
+				? localize('A5E.skillLabels.checks.ability', { skill, ability })
+				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 		default:
 			return null;
 	}

@@ -47,7 +47,7 @@ function getSubmitButtonText(saveType, abilityKey) {
 }
 
 const saveTypes = [
-	['standard', 'A5E.SavingThrowNormal'],
+	['standard', 'A5E.rollLabels.savingThrows.normal'],
 	['concentration', 'A5E.rollLabels.concentrationCheck'],
 ];
 

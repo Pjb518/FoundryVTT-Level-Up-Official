@@ -28,7 +28,7 @@
         },
         {
             field: "spellComponents",
-            label: "A5E.SpellComponents",
+            label: "A5E.spells.components.title",
         },
         {
             field: "duration",

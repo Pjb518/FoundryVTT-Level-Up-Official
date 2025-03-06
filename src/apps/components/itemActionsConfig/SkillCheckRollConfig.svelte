@@ -61,7 +61,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.Skill">
+<FieldWrapper heading="A5E.skillLabels.title">
     <select
         class="u-w-fit"
         on:change={({ target }) =>
@@ -102,7 +102,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.SkillCheckDefaultSelection"
+    label="A5E.skillLabels.checks.defaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

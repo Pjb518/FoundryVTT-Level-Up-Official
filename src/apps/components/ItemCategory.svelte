@@ -134,19 +134,19 @@
                 {/if}
 
                 {#if type === "spellLevels" && showArtifactCharges}
-                    {localize("A5E.spellcasting.artifactChargesCost", {
+                    {localize("A5E.spells.spellcasting.artifactChargesCost", {
                         cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
                     })}
                 {/if}
 
                 <!-- {#if type === "spellLevels" && showSpellInventions}
-                    {localize("A5E.SpellInventionsCost", {
+                    {localize("A5E.spells.spellcasting.inventionsCost", {
                         cost: 1,
                     })}
                 {/if} -->
 
                 {#if type === "spellLevels" && showSpellPoints}
-                    {localize("A5E.SpellPointsCost", {
+                    {localize("A5E.spells.spellcasting.pointsCost", {
                         cost: A5E.spellLevelCost[level],
                     })}
                 {/if}

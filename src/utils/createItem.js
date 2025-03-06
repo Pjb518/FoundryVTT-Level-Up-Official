@@ -14,7 +14,7 @@ function getItemName(itemType, subType) {
 
 	if (itemType === 'spell') {
 		const spellLevel = parseInt(subType, 10);
-		return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : 'A5E.Spell');
+		return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : 'A5E.spells.title');
 	}
 
 	return localize(CONFIG.A5E.itemTypes[itemType]);

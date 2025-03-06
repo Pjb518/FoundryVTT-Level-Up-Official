@@ -11,12 +11,12 @@ export default function prepareProficiencyConfigObject() {
 			propertyKey: 'system.proficiencies.traditions',
 		},
 		skill: {
-			label: 'A5E.SkillPlural',
+			label: 'A5E.skillLabels.titlePlural',
 			config: Object.entries(CONFIG.A5E.skills),
 			propertyKey: '',
 		},
 		savingThrow: {
-			label: 'A5E.SavingThrowPlural',
+			label: 'A5E.rollLabels.savingThrows.titlePlural',
 			config: Object.entries(CONFIG.A5E.abilities),
 			propertyKey: '',
 		},

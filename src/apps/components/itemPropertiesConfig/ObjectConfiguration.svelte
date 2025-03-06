@@ -98,7 +98,7 @@
 
             {#if $item.system.objectType == "consumable"}
                 <Checkbox
-                    label="A5E.Supply"
+                    label="A5E.supply.title"
                     checked={$item.system.supply}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField($item, "system.supply", detail)}

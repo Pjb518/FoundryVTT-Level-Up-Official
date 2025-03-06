@@ -68,7 +68,7 @@
     </FieldWrapper>
 
     {#if ["variable", "slotsOnly"].includes(mode)}
-        <FieldWrapper heading="A5E.SpellLevel">
+        <FieldWrapper heading="A5E.spells.level">
             <select
                 name="{actionId}-{consumerId}-item-id"
                 class="u-w-fit"
@@ -84,7 +84,7 @@
     {/if}
 
     {#if mode === "chargesOnly"}
-        <FieldWrapper heading="A5E.spellcasting.artifactCharges" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.spells.spellcasting.artifactCharges" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -100,7 +100,7 @@
     {/if}
 
     {#if mode === "inventionsOnly"}
-        <FieldWrapper heading="A5E.SpellInventions" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.spells.spellcasting.inventions" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -116,7 +116,7 @@
     {/if}
 
     {#if mode === "pointsOnly"}
-        <FieldWrapper heading="A5E.SpellPoints" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.spells.spellcasting.points" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"

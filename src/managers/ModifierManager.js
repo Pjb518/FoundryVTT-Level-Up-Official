@@ -250,7 +250,7 @@ export default class ModifierManager {
 
 		if (!skillKey) return null;
 
-		let labelKey = 'A5E.SkillCheckMod';
+		let labelKey = 'A5E.skillLabels.checks.mod';
 		const jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades;
 		const skill = this.actor.system.skills[skillKey];
 
@@ -276,7 +276,7 @@ export default class ModifierManager {
 		}
 
 		return {
-			label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
+			label: localize('A5E.bonuses.labels.skillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
 			value: value || null,
 		};
 	}

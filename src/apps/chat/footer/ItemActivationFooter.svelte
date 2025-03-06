@@ -15,15 +15,15 @@ function getSpellComponents(item) {
 
 	if (item.system.concentration) {
 		components.push({
-			label: localize('A5E.SpellConcentrationAbbr'),
+			label: localize('A5E.spells.concentrationAbbr'),
 			tooltip: localize('A5E.SpellConcentration'),
 		});
 	}
 
 	if (item.system.ritual) {
 		components.push({
-			label: localize('A5E.SpellRitualAbbr'),
-			tooltip: localize('A5E.SpellRitual'),
+			label: localize('A5E.spells.ritualAbbr'),
+			tooltip: localize('A5E.spells.ritual'),
 		});
 	}
 

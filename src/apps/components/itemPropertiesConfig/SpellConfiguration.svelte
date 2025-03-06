@@ -71,7 +71,7 @@
         />
 
         <RadioGroup
-            heading="A5E.SpellLevel"
+            heading="A5E.spells.level"
             options={objectEntriesNumberKeyConverter(spellLevels)}
             selected={$item.system.level}
             on:updateSelection={(event) =>
@@ -79,7 +79,7 @@
         />
 
         <RadioGroup
-            heading="A5E.SpellSchoolPrimary"
+            heading="A5E.spells.schoolPrimary"
             options={Object.entries(spellSchools.primary)}
             selected={$item.system.schools.primary}
             on:updateSelection={(event) =>
@@ -101,7 +101,7 @@
         {/if}
 
         <CheckboxGroup
-            heading="A5E.SpellSchoolSecondaryPlural"
+            heading="A5E.spells.schoolSecondaryPlural"
             options={Object.entries(spellSchools.secondary)}
             selected={$item.system.schools.secondary}
             on:updateSelection={(event) =>
@@ -112,7 +112,7 @@
                 )}
         />
 
-        <FieldWrapper heading="A5E.SpellComponents">
+        <FieldWrapper heading="A5E.spells.components.title">
             <ul
                 class="u-flex u-flex-wrap u-gap-sm u-list-style-none u-m-0 u-p-0 u-text-xs u-w-full"
             >
@@ -133,7 +133,7 @@
         </FieldWrapper>
 
         {#if $item.system.components.material}
-            <FieldWrapper heading="A5E.SpellMaterials">
+            <FieldWrapper heading="A5E.spells.materials">
                 <input
                     class="a5e-input"
                     type="text"
@@ -179,7 +179,7 @@
 
             {#if $item.system.level > 0}
                 <Checkbox
-                    label="A5E.SpellRitual"
+                    label="A5E.spells.ritual"
                     checked={$item.system.ritual}
                     on:updateSelection={({ detail }) => {
                         updateDocumentDataFromField($item, "system.ritual", detail);
@@ -188,7 +188,7 @@
             {/if}
 
             <Checkbox
-                label="A5E.SpellRare"
+                label="A5E.spells.rare"
                 checked={$item.system.rare}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField($item, "system.rare", detail);
@@ -216,7 +216,7 @@
             <dl class="summary-list">
                 <div class="summary-list__item">
                     <dt class="summary-list__label">
-                        {localize("A5E.SpellLevel")}:
+                        {localize("A5E.spells.level")}:
                     </dt>
 
                     <dd class="summary-list__value">
@@ -226,7 +226,7 @@
 
                 <div class="summary-list__item">
                     <dt class="summary-list__label">
-                        {localize("A5E.SpellSchoolPrimary")}:
+                        {localize("A5E.spells.schoolPrimary")}:
                     </dt>
 
                     <dd class="summary-list__value">
@@ -237,7 +237,7 @@
 
                 <div class="summary-list__item">
                     <dt class="summary-list__label">
-                        {localize("A5E.SpellSchoolSecondaryPlural")}:
+                        {localize("A5E.spells.schoolSecondaryPlural")}:
                     </dt>
 
                     <dd class="summary-list__value">
@@ -262,7 +262,7 @@
 
                 <div class="summary-list__item">
                     <dt class="summary-list__label">
-                        {localize("A5E.SpellComponents")}:
+                        {localize("A5E.spells.components.title")}:
                     </dt>
 
                     <dd class="summary-list__value">
@@ -273,7 +273,7 @@
                 {#if $item.system.components.material && $item.system.materials}
                     <div class="summary-list__item">
                         <dt class="summary-list__label">
-                            {localize("A5E.SpellMaterials")}:
+                            {localize("A5E.spells.materials")}:
                         </dt>
 
                         <dd class="summary-list__value">

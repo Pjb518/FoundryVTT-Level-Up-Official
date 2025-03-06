@@ -1352,7 +1352,7 @@ class BaseActorA5e extends Actor {
 			title = localize('A5E.deathSavingThrow.promptTitle', { name: this.name });
 		} else {
 			title = localize(
-				'A5E.SavingThrowPromptTitle',
+				'A5E.rollLabels.prompts.savingThrowPromptTitle',
 				// @ts-expect-error
 				{ name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) },
 			);
@@ -1495,7 +1495,7 @@ class BaseActorA5e extends Actor {
 		rollOptions: SkillCheckRollOptions = {},
 		dialogOptions = {},
 	) {
-		const title = localize('A5E.SkillPromptTitle', {
+		const title = localize('A5E.skillLabels.checks.promptTitle', {
 			name: this.name,
 			skill: localize(CONFIG.A5E.skills[skillKey]),
 		});
@@ -1704,14 +1704,14 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureSenses(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.SensesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.senses.configurationPrompt', { name: this.name });
 		this.#configure('senses', title, data, options);
 	}
 
 	configureSizeCategory(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.size.categoryConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.SizeCategory';
+		data.heading ??= 'A5E.traits.size.category';
 		data.configObject ??= CONFIG.A5E.actorSizes;
 		data.propertyKey ??= 'system.traits.size';
 		data.type ??= 'size';
@@ -1720,7 +1720,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureSkill(data: Record<string, any> = {}, options = { width: 440 }) {
-		const title = localize('A5E.SkillConfigurationPrompt', {
+		const title = localize('A5E.bonuses.labels.skillConfigurationPrompt', {
 			name: this.name,
 			skill: localize(CONFIG.A5E.skills[data.skillKey]),
 		});

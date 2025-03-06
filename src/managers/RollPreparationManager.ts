@@ -377,7 +377,7 @@ class RollPreparationManager {
 
 		if (_roll.saveType === 'concentration') label = localize('A5E.rollLabels.concentrationCheck');
 		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
-		else label = localize('A5E.SavingThrowSpecific', { ability });
+		else label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 
 		return {
 			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
@@ -409,11 +409,11 @@ class RollPreparationManager {
 
 		const label =
 			ability && ability !== 'none'
-				? localize('A5E.SkillCheckAbility', {
+				? localize('A5E.skillLabels.checks.ability', {
 						skill,
 						ability: CONFIG.A5E.abilityAbbreviations[ability],
 					})
-				: localize('A5E.SkillCheck', { skill });
+				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 
 		return {
 			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,

@@ -36,7 +36,7 @@ export default function prepareTraitGrantConfigObject() {
 			propertyKey: 'system.proficiencies.languages',
 		},
 		size: {
-			label: 'A5E.Size',
+			label: 'A5E.traits.size.title',
 			config: Object.entries(CONFIG.A5E.actorSizes),
 			propertyKey: 'system.traits.size',
 		},

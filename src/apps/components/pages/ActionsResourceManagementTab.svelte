@@ -57,7 +57,7 @@ const consumerTypes = {
 	},
 	spell: {
 		heading: 'A5E.consumers.spell',
-		singleLabel: 'A5E.Spell',
+		singleLabel: 'A5E.spells.title',
 		component: SpellConsumer,
 	},
 	actionUses: {
