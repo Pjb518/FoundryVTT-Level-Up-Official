@@ -1601,10 +1601,10 @@ const tools = {
 		multiScanner: 'A5E.tools.singular.multiScanner',
 	},
 	vehicles: {
-		landVehicles: 'A5E.VehicleLand',
-		waterVehicles: 'A5E.VehicleWater',
-		airVehicles: 'A5E.VehicleAir',
-		spaceVehicles: 'A5E.VehicleSpace',
+		landVehicles: 'A5E.vehicles.singular.land',
+		waterVehicles: 'A5E.vehicles.singular.water',
+		airVehicles: 'A5E.vehicles.singular.air',
+		spaceVehicles: 'A5E.vehicles.singular.space',
 	},
 };
 
@@ -1678,10 +1678,10 @@ const toolsPlural = {
 		multiScanner: 'A5E.tools.plural.multiScanner',
 	},
 	vehicles: {
-		landVehicles: 'A5E.VehicleLandPlural',
-		waterVehicles: 'A5E.VehicleWaterPlural',
-		airVehicles: 'A5E.VehicleAirPlural',
-		spaceVehicles: 'A5E.VehicleSpacePlural',
+		landVehicles: 'A5E.vehicles.plural.land',
+		waterVehicles: 'A5E.vehicles.plural.water',
+		airVehicles: 'A5E.vehicles.plural.air',
+		spaceVehicles: 'A5E.vehicles.plural.space',
 	},
 };
 
