@@ -18,7 +18,7 @@ let editMode = false;
 </script>
 
 <Section
-    heading="A5E.TabManeuverProperties"
+    heading="A5E.tabs.maneuverProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,

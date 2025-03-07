@@ -21,7 +21,7 @@ export default function prepareProficiencyConfigObject() {
 			propertyKey: '',
 		},
 		tool: {
-			label: 'A5E.ToolPlural',
+			label: 'A5E.tools.titlePlural',
 			config: CONFIG.A5E.tools,
 			propertyKey: 'system.proficiencies.tools',
 		},

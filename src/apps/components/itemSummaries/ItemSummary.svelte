@@ -24,7 +24,7 @@
         },
         {
             field: "area",
-            label: "A5E.TargetArea",
+            label: "A5E.targets.area",
         },
         {
             field: "spellComponents",

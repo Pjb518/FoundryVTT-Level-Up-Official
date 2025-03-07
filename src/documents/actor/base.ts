@@ -1729,9 +1729,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureToolProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.tools.proficienciesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ToolProficiencies';
+		data.heading ??= 'A5E.tools.proficiencies';
 		data.configObject ??= CONFIG.A5E.tools;
 		data.propertyKey ??= 'system.proficiencies.tools';
 		data.type ??= 'tools';

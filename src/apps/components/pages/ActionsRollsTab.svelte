@@ -72,8 +72,8 @@
             component: SkillCheckRollConfig,
         },
         toolCheck: {
-            heading: "A5E.ToolCheckPlural",
-            singleLabel: "A5E.ToolCheck",
+            heading: "A5E.actions.labels.toolCheckPlural",
+            singleLabel: "A5E.actions.labels.toolCheck",
             component: ToolCheckRollConfig,
         },
         savingThrow: {

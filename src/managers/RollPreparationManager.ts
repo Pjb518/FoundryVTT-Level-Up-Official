@@ -434,7 +434,7 @@ class RollPreparationManager {
 		// Flatten the tools array
 		const tools = Object.values(CONFIG.A5E.tools).reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
-		const label = localize('A5E.ToolCheckSpecific', { tool: localize(tools[_roll?.tool] ?? '') });
+		const label = localize('A5E.actions.labels.toolCheckSpecific', { tool: localize(tools[_roll?.tool] ?? '') });
 
 		// Check if ability configured
 		if (abilityKey) {

@@ -104,7 +104,7 @@
             tooltip: "Configure Armor Proficiencies",
         },
         {
-            heading: localize("A5E.ToolProficiencies"),
+            heading: localize("A5E.tools.proficiencies"),
             values: prepareToolProficiencies($actor),
             dialogMethod: "configureToolProficiencies",
             propertyKey: "system.proficiencies.tools",

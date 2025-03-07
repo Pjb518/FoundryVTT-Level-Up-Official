@@ -59,7 +59,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.Tool">
+<FieldWrapper heading="A5E.tools.title">
     <select
         class="u-w-fit"
         on:change={({ target }) =>
@@ -100,7 +100,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.ToolCheckDefaultSelection"
+    label="A5E.actions.labels.toolCheckDefaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

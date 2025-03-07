@@ -31,11 +31,11 @@ const tabs = {
 		display: $actor.type === 'character',
 	},
 	bio: {
-		label: $actor.type === 'npc' ? 'A5E.TabBiography' : 'Backstory',
+		label: $actor.type === 'npc' ? 'A5E.tabs.biography' : 'Backstory',
 		display: $actor.type === 'character' || (isGM && $actor.type === 'npc'),
 	},
 	notes: {
-		label: 'A5E.TabNotes',
+		label: 'A5E.tabs.notes',
 	},
 	privateNotes: {
 		label: 'A5E.details.notesPrivate',

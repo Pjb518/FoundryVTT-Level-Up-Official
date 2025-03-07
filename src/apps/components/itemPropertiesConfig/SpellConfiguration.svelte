@@ -49,7 +49,7 @@
 </script>
 
 <Section
-    heading="A5E.TabSpellConfiguration"
+    heading="A5E.tabs.spellConfiguration"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,

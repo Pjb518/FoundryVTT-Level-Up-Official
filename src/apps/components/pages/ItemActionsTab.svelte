@@ -45,7 +45,7 @@
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section
-        heading="A5E.TabActions"
+        heading="A5E.tabs.actions"
         headerButtons={[
             {
                 classes: "add-button",

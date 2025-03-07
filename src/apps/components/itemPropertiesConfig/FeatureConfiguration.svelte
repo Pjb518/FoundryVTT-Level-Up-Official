@@ -22,7 +22,7 @@ let editMode = false;
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.tabs.featureProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
