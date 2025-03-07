@@ -57,7 +57,7 @@
 
                 <p class="u-text-xs">
                     ( {actionUses.value} / {actionMaxUses}
-                    {localize("A5E.UsesRemaining")})
+                    {localize("A5E.consumers.uses.remaining")})
                 </p>
             </div>
         </FieldWrapper>
@@ -78,7 +78,7 @@
 
                 <p class="u-text-xs">
                     ( {itemUses.value} / {itemMaxUses}
-                    {localize("A5E.UsesRemaining")})
+                    {localize("A5E.consumers.uses.remaining")})
                 </p>
             </div>
         </FieldWrapper>
