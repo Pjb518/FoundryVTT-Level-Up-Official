@@ -90,7 +90,7 @@
             display: $actor.type === "character",
         },
         {
-            heading: localize("A5E.WeaponProficiencies"),
+            heading: localize("A5E.weapons.proficiencies"),
             values: prepareWeaponProficiencies($actor),
             dialogMethod: "configureWeaponProficiencies",
             propertyKey: "system.proficiencies.weapons",

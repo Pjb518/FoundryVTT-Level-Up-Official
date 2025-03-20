@@ -26,7 +26,7 @@ export default function prepareProficiencyConfigObject() {
 			propertyKey: 'system.proficiencies.tools',
 		},
 		weapon: {
-			label: 'A5E.Weapons',
+			label: 'A5E.weapons.titlePlural',
 			config: CONFIG.A5E.weapons,
 			propertyKey: 'system.proficiencies.weapons',
 		},

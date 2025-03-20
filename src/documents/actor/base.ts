@@ -1740,7 +1740,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureWeaponProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.weapons.proficienciesConfigurationPrompt', { name: this.name });
 
 		data.heading ??= 'A5E.WeaponPlural';
 		data.configObject ??= CONFIG.A5E.weapons;

@@ -14,7 +14,7 @@ export default function getMountedProperties(item: ObjectItemA5e) {
 		});
 
 	if (properties.length) {
-		return localize('A5E.weaponProperties.mountedSpecific', { dice: properties.join(' / ') });
+		return localize('A5E.weapons.properties.mountedSpecific', { dice: properties.join(' / ') });
 	}
 
 	return weaponProperties.mounted;
