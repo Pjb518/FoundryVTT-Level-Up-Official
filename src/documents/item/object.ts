@@ -232,7 +232,6 @@ export default class ObjectItemA5e extends ItemA5e {
 			}
 		}
 
-		
 		// Clean containerId on object creation
 		const container = await fromUuid(this.system.containerId);
 		if (!container) await this.update({ 'system.containerId': '' });
