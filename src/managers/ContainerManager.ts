@@ -259,7 +259,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 		await Promise.all(
 			containerData.map(async ({ quantityOverride, uuid }) => {
 				let doc = await fromUuid(uuid);
-				if (!doc) return;
+				if (!doc || !doc.system.containerId) return;
 
 				doc = doc.toObject();
 				doc.system.containerId = item.uuid;
