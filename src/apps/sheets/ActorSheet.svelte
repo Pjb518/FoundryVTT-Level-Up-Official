@@ -8,9 +8,7 @@
         onDestroy,
     } from "svelte";
 
-    import { ApplicationShell } from "#runtime/svelte/component/application";
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
-    import type { ActorSheetApplicationProps } from "../../../types/applicationProps";
 
     import ActorBonusesPage from "../components/pages/ActorBonusesPage.svelte";
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";
@@ -28,12 +26,8 @@
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
 
-    // export const application: ActorSheetApplicationProps = getContext("#external");
-
-    // export let { document, sheet } = application;
     export let document: TJSDocument;
     export let sheet: any;
-    export let elementRoot: any;
 
     function updateCurrentTab(event) {
         const { uuid } = $actor;
@@ -145,12 +139,10 @@
     });
 
     const actor: TJSDocument = document;
-    console.log(actor);
-    console.log($actor);
 
     // Required to get the tabs to update as the actor flags change
     let tabs = getTabs($actor);
-    // $: tabs = getTabs($actor);
+    $: tabs = getTabs($actor);
 
     let currentTab =
         tabs.find(

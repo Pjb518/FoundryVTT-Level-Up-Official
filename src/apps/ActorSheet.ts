@@ -6,7 +6,6 @@ import type FeatureItemA5e from "../documents/item/feature";
 import type SpellItemA5e from "../documents/item/spell";
 
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
-// import { SvelteApplication } from "#runtime/svelte/application";
 import { localize } from "#runtime/util/i18n";
 
 import ActorDocument from "./ActorDocument";
@@ -21,7 +20,6 @@ import getDocumentSourceTooltip from "../utils/getDocumentSourceTooltip";
 export default class ActorSheet extends SvelteApplicationMixin(
   foundry.applications.sheets.ActorSheetV2,
 ) {
-  // export default class ActorSheet extends SvelteApplication {
   public actor: BaseActorA5e;
 
   declare public options: any;
@@ -34,8 +32,6 @@ export default class ActorSheet extends SvelteApplicationMixin(
    * @inheritDoc
    */
   constructor(actor: { document: BaseActorA5e }, options: any = {}) {
-    console.log(actor);
-
     if (
       [
         CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
@@ -48,11 +44,9 @@ export default class ActorSheet extends SvelteApplicationMixin(
         "a5e-actor-sheet",
         "a5e-actor-sheet--limited",
       ];
-      options.width = 512;
+      options.position.width = 512;
       options.resizable = false;
     } else {
-      options.width = 755;
-      options.height = 706;
       options.resizable = true;
     }
 
@@ -62,65 +56,22 @@ export default class ActorSheet extends SvelteApplicationMixin(
       }),
     );
 
-    // super(
-    //   foundry.utils.mergeObject(options, {
-    //     baseApplication: "ActorSheet",
-    //     // @ts-expect-error
-    //     id: `actor-sheet-${actor.isToken ? actor.parent?.id : actor.id}`,
-    //     title: actor.name,
-    //     token: null,
-    //     svelte: {
-    //       props: {
-    //         document: null,
-    //       },
-    //     },
-    //   }),
-    // );
-
-    // @ts-expect-error
-    // this.actor = actor.isToken ? actor.parent.actor : actor;
     this.actor = actor.document.isToken
-      ? actor.document.parent.actor
+      ? actor.document.parent?.actor
       : actor.document;
-
-    // this.options.svelte.props.document = new ActorDocument(this.actor, {
-    //   delete: this.close.bind(this),
-    // });
 
     // this.options.svelte.props.sheet = this;
     this.tempSettings = {};
     ActorSheetTempSettingsStore.subscribe((store) => {
       this.tempSettings = store;
     });
-
-    // this.position.subscribe((pos) => this.setPosition(pos, false));
   }
-
-  // /**
-  //  * Default Application options
-  //  *
-  //  * @returns {object} options - Application options.
-  //  * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
-  //  */
-  // static get defaultOptions(): any {
-  //   // @ts-expect-error
-  //   return foundry.utils.mergeObject(super.defaultOptions, {
-  //     baseApplication: "ActorSheet",
-  //     classes: ["a5e-sheet", "a5e-actor-sheet"],
-  //     minimizable: true,
-  //     svelte: {
-  //       target: document.body,
-  //     },
-  //     token: null,
-  //   });
-  // }
 
   static override DEFAULT_OPTIONS = {
     baseApplication: "ActorSheet",
     classes: ["a5e-sheet", "a5e-actor-sheet"],
     position: { width: 755, height: 706 },
     minimizable: true,
-    token: null,
   };
 
   protected override async _prepareContext() {
@@ -130,168 +81,6 @@ export default class ActorSheet extends SvelteApplicationMixin(
       }),
       sheet: this,
     };
-  }
-
-  // get document() {
-  //   return this.actor;
-  // }
-
-  // get object() {
-  //   return this.actor;
-  // }
-
-  // get token() {
-  //   return this.options?.token || this.actor.token || null;
-  // }
-
-  // override setPosition(pos: any, propagate = true): any {
-  //   if (!propagate) return this.position.get();
-  //   return super.setPosition(pos);
-  // }
-
-  // _getHeaderButtons() {
-  //   // @ts-expect-error
-  //   const buttons: any[] = super._getHeaderButtons();
-
-  //   const PERMS = {
-  //     isGM: game.user?.isGM,
-  //     isOwner: this.actor.isOwner,
-  //     canConfigure: game.user?.can("TOKEN_CONFIGURE"),
-  //     isPack: this.actor.pack,
-  //   };
-
-  //   if (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure)) {
-  //     buttons.unshift({
-  //       label: this.options.token ? "Token" : "Prototype Token",
-  //       class: "configure-token",
-  //       icon: "fas fa-user-circle",
-  //       onclick: ({ event }) => this._onConfigureToken(event),
-  //     });
-  //   }
-
-  //   if (!PERMS.isPack) {
-  //     buttons.unshift({
-  //       label: "Sheet Configuration",
-  //       class: "configure-sheet",
-  //       icon: "fas fa-cog fa-fw",
-  //       title: "Configure Sheet",
-  //       onclick: ({ event }) => this._onConfigureSheet(event),
-  //     });
-  //   }
-
-  //   const warpGateActive = game.modules.get("warpgate")?.active;
-
-  //   if (
-  //     warpGateActive &&
-  //     !PERMS.isPack &&
-  //     (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))
-  //   ) {
-  //     const shouldAddRevert = (token) => {
-  //       if (!(token instanceof TokenDocument)) return false;
-  //       // @ts-expect-error
-  //       const mutateStack = warpgate.mutationStack(token).stack;
-  //       if (mutateStack.length === 0) return false;
-  //       return true;
-  //     };
-
-  //     if (shouldAddRevert(this.token)) {
-  //       buttons.unshift({
-  //         label: "Revert",
-  //         class: "revert-wrapgate",
-  //         icon: "fas fa-undo-alt",
-  //         title: "Revert",
-  //         onclick: async ({ event }) => {
-  //           const shouldShow = (shiftKey) => {
-  //             const mode = game.settings.get(
-  //               "warpgate",
-  //               "revertButtonBehavior",
-  //             );
-  //             const show = mode === "menu" ? !shiftKey : shiftKey;
-  //             return show;
-  //           };
-
-  //           const mutateStack = this.token?.actor?.getFlag(
-  //             "warpgate",
-  //             "mutate",
-  //           );
-
-  //           let name;
-  //           const showMenu = shouldShow(event.shiftKey);
-
-  //           if (showMenu) {
-  //             const warpButtons = mutateStack.map((mutation) => ({
-  //               label: mutation.name,
-  //               value: mutation.name,
-  //             }));
-  //             // @ts-expect-error
-  //             name = await warpgate.buttonDialog(
-  //               {
-  //                 warpButtons,
-  //                 title: localize("warpgate.display.revertDialogTitle"),
-  //               },
-  //               "column",
-  //             );
-  //             if (name === false) return;
-  //           }
-
-  //           // @ts-expect-error
-  //           warpgate.revert(this.token);
-  //           // @ts-expect-error
-  //           this?.render(false);
-  //         },
-  //       });
-  //     }
-  //   }
-
-  //   if (PERMS.isPack) {
-  //     buttons.unshift({
-  //       label: "Import",
-  //       class: "import",
-  //       icon: "fas fa-download",
-  //       onclick: ({ event }) => this._onImport(event),
-  //     });
-  //   }
-
-  //   // Remove any duplicate buttons that made if in due to multiple calls to _getHeaderButtons
-  //   const labels: Set<string> = new Set();
-  //   const uniqueButtons: any[] = [];
-  //   buttons.forEach(({ label }, idx) => {
-  //     if (labels.has(label)) return;
-
-  //     labels.add(label);
-  //     uniqueButtons.push(buttons[idx]);
-  //   });
-
-  //   return uniqueButtons;
-  // }
-
-  _onImport(event) {
-    if (event) event.preventDefault();
-    return (
-      this.actor.collection
-        // @ts-expect-error
-        .importFromCompendium(this.actor.compendium, this.actor.id)
-    );
-  }
-
-  _onConfigureToken(event) {
-    console.log(event);
-    if (event) event.preventDefault();
-    if (this.token) return this.token.sheet.render(true);
-    // @ts-expect-error TODO: Types - Look into why this is broken
-    // eslint-disable-next-line new-cap
-    return new CONFIG.Token.prototypeSheetClass(
-      this.actor.prototypeToken,
-    ).render(true);
-  }
-
-  _onConfigureSheet(event) {
-    if (event) event.preventDefault();
-
-    const sheetConfigDialog = new DocumentSheetConfig(this.actor, {
-      top: this.position.top + 40,
-    });
-    sheetConfigDialog.render(true);
   }
 
   async _onDrop(event: DragEvent, options: Record<string, any> = {}) {
@@ -504,78 +293,71 @@ export default class ActorSheet extends SvelteApplicationMixin(
     createdItem.update(updateData);
   }
 
-  /** @inheritdoc */
-  async close(options) {
-    this.options.token = null;
-    // @ts-expect-error
-    return super.close(options);
-  }
+  // async _render(force = false, options = {}) {
+  //   // @ts-expect-error
+  //   await super._render(force, options);
 
-  async _render(force = false, options = {}) {
-    // @ts-expect-error
-    await super._render(force, options);
+  //   // @ts-expect-error
+  //   const sheet = this.element?.[0];
+  //   if (!sheet) return;
 
-    // @ts-expect-error
-    const sheet = this.element?.[0];
-    if (!sheet) return;
+  //   const sheetTitle = sheet.querySelector(".window-header .window-title");
 
-    const sheetTitle = sheet.querySelector(".window-header .window-title");
+  //   const existingIdLink = sheetTitle.querySelector(".document-id-link");
+  //   if (existingIdLink) return;
 
-    const existingIdLink = sheetTitle.querySelector(".document-id-link");
-    if (existingIdLink) return;
+  //   const documentID = this.token?.id ?? this.actor?.id;
+  //   const documentUUID = this.token?.uuid ?? this.actor?.uuid;
+  //   const documentSource = CONFIG.A5E.products[this.actor?.system?.source];
 
-    const documentID = this.token?.id ?? this.actor?.id;
-    const documentUUID = this.token?.uuid ?? this.actor?.uuid;
-    const documentSource = CONFIG.A5E.products[this.actor?.system?.source];
+  //   if (documentSource?.abbreviation) {
+  //     const sourceLink = document.createElement("a");
+  //     sourceLink.classList.add("a5e-document-source-link");
+  //     sourceLink.setAttribute("alt", documentSource?.title);
+  //     sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
+  //     sourceLink.dataset.tooltipClass =
+  //       "a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source";
+  //     sourceLink.dataset.tooltipDirection = "DOWN";
+  //     sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
+  //     sourceLink.href = documentSource?.url;
+  //     sourceLink.target = "_blank";
 
-    if (documentSource?.abbreviation) {
-      const sourceLink = document.createElement("a");
-      sourceLink.classList.add("a5e-document-source-link");
-      sourceLink.setAttribute("alt", documentSource?.title);
-      sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
-      sourceLink.dataset.tooltipClass =
-        "a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source";
-      sourceLink.dataset.tooltipDirection = "DOWN";
-      sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
-      sourceLink.href = documentSource?.url;
-      sourceLink.target = "_blank";
+  //     sheetTitle.append(sourceLink);
+  //   }
 
-      sheetTitle.append(sourceLink);
-    }
+  //   const idLink = document.createElement("a");
+  //   idLink.classList.add("document-id-link");
+  //   idLink.setAttribute("alt", "Copy Document ID");
+  //   idLink.dataset.tooltip = "Copy Document ID";
+  //   idLink.dataset.tooltipDirection = "DOWN";
+  //   idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
 
-    const idLink = document.createElement("a");
-    idLink.classList.add("document-id-link");
-    idLink.setAttribute("alt", "Copy Document ID");
-    idLink.dataset.tooltip = "Copy Document ID";
-    idLink.dataset.tooltipDirection = "DOWN";
-    idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
+  //   idLink.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     // @ts-expect-error
+  //     game.clipboard.copyPlainText(documentID);
+  //     ui.notifications.info(
+  //       game.i18n.format("DOCUMENT.IdCopiedClipboard", {
+  //         label: "Actor",
+  //         type: "id",
+  //         id: documentID,
+  //       }),
+  //     );
+  //   });
 
-    idLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      // @ts-expect-error
-      game.clipboard.copyPlainText(documentID);
-      ui.notifications.info(
-        game.i18n.format("DOCUMENT.IdCopiedClipboard", {
-          label: "Actor",
-          type: "id",
-          id: documentID,
-        }),
-      );
-    });
+  //   idLink.addEventListener("contextmenu", (event) => {
+  //     event.preventDefault();
+  //     // @ts-expect-error
+  //     game.clipboard.copyPlainText(documentUUID);
+  //     ui.notifications.info(
+  //       game.i18n.format("DOCUMENT.IdCopiedClipboard", {
+  //         label: "Actor",
+  //         type: "uuid",
+  //         id: documentUUID,
+  //       }),
+  //     );
+  //   });
 
-    idLink.addEventListener("contextmenu", (event) => {
-      event.preventDefault();
-      // @ts-expect-error
-      game.clipboard.copyPlainText(documentUUID);
-      ui.notifications.info(
-        game.i18n.format("DOCUMENT.IdCopiedClipboard", {
-          label: "Actor",
-          type: "uuid",
-          id: documentUUID,
-        }),
-      );
-    });
-
-    sheetTitle.append(idLink);
-  }
+  //   sheetTitle.append(idLink);
+  // }
 }
