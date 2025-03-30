@@ -2,15 +2,13 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import DestinyFeaturesTab from "../components/pages/DestinyFeaturesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { document } = getContext("#external").application;
-    export let elementRoot;
+    export let document;
 
     const item = document;
 
@@ -36,15 +34,13 @@
     setContext("item", item);
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main>
-        <ItemSheetHeader />
+<main>
+    <ItemSheetHeader />
 
-        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <svelte:component this={currentTab.component} />
-    </main>
-</ApplicationShell>
+    <svelte:component this={currentTab.component} />
+</main>
 
 <style lang="scss">
     main {

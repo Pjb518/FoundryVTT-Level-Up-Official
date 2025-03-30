@@ -17,8 +17,9 @@
     import getSummaryData from "../../utils/summaries/getSummaryData";
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
 
-    export let { appId, document, sheet } = getContext("#external").application;
-    export let elementRoot;
+    export let appId;
+    export let document;
+    export let sheet;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
@@ -48,7 +49,8 @@
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
             display:
-                $item.type === "object" && ($item.system.unidentified || game.user.isGM),
+                $item.type === "object" &&
+                ($item.system.unidentified || game.user.isGM),
         },
         {
             name: "gmNotes",
@@ -93,11 +95,14 @@
             name: "macro",
             label: "A5E.TabMacro",
             component: ItemMacroTab,
-            display: ["feature", "maneuver", "object", "spell"].includes($item.type),
+            display: ["feature", "maneuver", "object", "spell"].includes(
+                $item.type,
+            ),
         },
     ];
 
-    let currentTab = $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
+    let currentTab =
+        $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
 
     setContext("item", item);
     setContext("appId", appId);
@@ -105,15 +110,13 @@
     $: summaryData = getSummaryData($item);
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
-        <ItemSheetHeader />
+<main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
+    <ItemSheetHeader />
 
-        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <svelte:component this={currentTab.component} {summaryData} />
-    </main>
-</ApplicationShell>
+    <svelte:component this={currentTab.component} {summaryData} />
+</main>
 
 <style lang="scss">
     main {

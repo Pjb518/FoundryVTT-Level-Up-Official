@@ -2,7 +2,6 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
     import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
@@ -11,8 +10,8 @@
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { document, sheet } = getContext("#external").application;
-    export let elementRoot;
+    export let document;
+    export let sheet;
 
     const item = document;
 
@@ -58,15 +57,13 @@
     setContext("item", item);
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
-        <ItemSheetHeader />
+<main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
+    <ItemSheetHeader />
 
-        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <svelte:component this={currentTab.component} />
-    </main>
-</ApplicationShell>
+    <svelte:component this={currentTab.component} />
+</main>
 
 <style lang="scss">
     main {

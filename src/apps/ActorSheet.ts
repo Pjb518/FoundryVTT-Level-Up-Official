@@ -32,6 +32,8 @@ export default class ActorSheet extends SvelteApplicationMixin(
    * @inheritDoc
    */
   constructor(actor: { document: BaseActorA5e }, options: any = {}) {
+    let root;
+
     if (
       [
         CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
@@ -45,8 +47,10 @@ export default class ActorSheet extends SvelteApplicationMixin(
         "a5e-actor-sheet--limited",
       ];
       options.position.width = 512;
+      root = LimitedSheetComponent;
       options.resizable = false;
     } else {
+      root = ActorSheetComponent;
       options.resizable = true;
     }
 
@@ -56,6 +60,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
       }),
     );
 
+    this.root = root;
     this.actor = actor.document.isToken
       ? actor.document.parent?.actor
       : actor.document;
