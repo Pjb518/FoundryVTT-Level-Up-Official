@@ -1,21 +1,21 @@
-import * as svelte from 'svelte';
+import * as svelte from "svelte";
 
 interface SvelteApplicationRenderContext {
-    /** State data tracked by the root component: objects herein must be plain object. */
-    state: object;
-    /** This application instance */
-    foundryApp: SvelteApplication;
+  /** State data tracked by the root component: objects herein must be plain object. */
+  state: object;
+  /** This application instance */
+  foundryApp: SvelteApplication;
 }
 
 function SvelteApplicationMixin(Base) {
   abstract class SvelteApplication extends Base {
     static override DEFAULT_OPTIONS = {
-      classes: ["a5e"]
-    }
+      classes: ["a5e"],
+    };
 
     protected abstract root: svelte.Component<any>;
 
-    protected $state: object = $state({});
+    protected $state: object = {}; // TODO: Svelte 5 Update $state({});
 
     #mount: object = {};
 
@@ -23,23 +23,33 @@ function SvelteApplicationMixin(Base) {
       return context;
     }
 
-    protected override _replaceHTML(result: SvelteApplicationRenderContext, content: HTMLElement, options: any) {
+    protected override _replaceHTML(
+      result: SvelteApplicationRenderContext,
+      content: HTMLElement,
+      options: any,
+    ) {
       Object.assign(this.$state, result.state);
       if (options.isFirstRender) {
-        this.#mount = svelte.mount(this.root, { target: content, props: { ...result, state: this.$state });
-
+        // this.#mount = svelte.mount(this.root, { target: content, props: { ...result, state: this.$state });
+        this.#mount = new this.root({
+          target: content,
+          props: { ...result, state: this.$state },
+        });
       }
     }
 
     protected override _onClose(options: any) {
       super._onClose(options);
-      svelte.unmount(this.#mount);
+      // svelte.unmount(this.#mount);
+      this.#mount.$destroy();
     }
   }
 
   return SvelteApplication;
 }
 
-type SvelteApplication = InstanceType<ReturnType<typeof SvelteApplicationMixin>>;
+type SvelteApplication = InstanceType<
+  ReturnType<typeof SvelteApplicationMixin>
+>;
 
 export { SvelteApplicationMixin, type SvelteApplicationRenderContext };

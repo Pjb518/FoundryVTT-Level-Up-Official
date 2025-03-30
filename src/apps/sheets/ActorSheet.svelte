@@ -1,7 +1,12 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { getContext, setContext, type ComponentType, onDestroy } from "svelte";
+    import {
+        getContext,
+        setContext,
+        type ComponentType,
+        onDestroy,
+    } from "svelte";
 
     import { ApplicationShell } from "#runtime/svelte/component/application";
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
@@ -23,9 +28,11 @@
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
 
-    export const application: ActorSheetApplicationProps = getContext("#external");
+    // export const application: ActorSheetApplicationProps = getContext("#external");
 
-    export let { document, sheet } = application;
+    // export let { document, sheet } = application;
+    export let document: TJSDocument;
+    export let sheet: any;
     export let elementRoot: any;
 
     function updateCurrentTab(event) {
@@ -138,14 +145,17 @@
     });
 
     const actor: TJSDocument = document;
+    console.log(actor);
+    console.log($actor);
 
     // Required to get the tabs to update as the actor flags change
     let tabs = getTabs($actor);
-    $: tabs = getTabs($actor);
+    // $: tabs = getTabs($actor);
 
     let currentTab =
-        tabs.find((tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab) ??
-        tabs[0];
+        tabs.find(
+            (tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab,
+        ) ?? tabs[0];
 
     setContext("actor", actor);
     setContext("sheet", sheet);
@@ -155,24 +165,22 @@
     });
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main on:drop|preventDefault|stopPropagation={(event) => sheet._onDrop(event)}>
-        <ActorSidebar />
+<main on:drop|preventDefault|stopPropagation={(event) => sheet._onDrop(event)}>
+    <ActorSidebar />
 
-        <section class="main-container">
-            <ActorSheetHeader />
+    <section class="main-container">
+        <ActorSheetHeader />
 
-            <NewNavigationBar
-                {currentTab}
-                {tabs}
-                showLock={true}
-                on:tab-change={updateCurrentTab}
-            />
+        <NewNavigationBar
+            {currentTab}
+            {tabs}
+            showLock={true}
+            on:tab-change={updateCurrentTab}
+        />
 
-            <svelte:component this={currentTab.component} />
-        </section>
-    </main>
-</ApplicationShell>
+        <svelte:component this={currentTab.component} />
+    </section>
+</main>
 
 <style lang="scss">
     main {
