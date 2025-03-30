@@ -16,7 +16,11 @@
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, actionId, dialog } = getContext("#external").application;
+    export let document;
+    export let actionId;
+    export let dialog;
+
+    console.log(document, actionId, dialog);
 
     const item = document;
 
