@@ -1,85 +1,86 @@
 <script>
-import { getContext, createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../components/Checkbox.svelte';
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
-export let { document, bonusID } = getContext('#external').application;
-export let jsonValue = null;
+    export let document;
+    export let bonusID;
+    export let jsonValue = null;
 
-const actor = document;
-const dispatch = createEventDispatcher();
+    const actor = document;
+    const dispatch = createEventDispatcher();
 
-function updateImage() {
-	const current = attackBonus?.img;
+    function updateImage() {
+        const current = attackBonus?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	if (jsonValue === null) {
-		key = `system.bonuses.attacks.${bonusID}.${key}`;
-		updateDocumentDataFromField($actor, key, value);
-		return;
-	}
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.attacks.${bonusID}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
 
-	const newObj = foundry.utils.expandObject({
-		...attackBonus,
-		[key]: value,
-	});
-	dispatch('change', JSON.stringify(newObj));
-}
+        const newObj = foundry.utils.expandObject({
+            ...attackBonus,
+            [key]: value,
+        });
+        dispatch("change", JSON.stringify(newObj));
+    }
 
-function getAttackBonus() {
-	if (jsonValue === null) return $actor.system.bonuses.attacks[bonusID];
+    function getAttackBonus() {
+        if (jsonValue === null) return $actor.system.bonuses.attacks[bonusID];
 
-	try {
-		const obj = JSON.parse(jsonValue || '""') ?? {};
-		if (typeof obj !== 'object') throw new Error();
-		obj.label = obj.label ?? '';
-		obj.formula = obj.formula ?? '';
-		obj.context = obj.context ?? {
-			attackTypes: [],
-			spellLevels: [],
-			requiresProficiency: false,
-		};
-		obj.default = obj.default ?? true;
-		obj.img = obj.img || 'icons/svg/upgrade.svg';
-		return obj;
-	} catch (error) {
-		return {
-			label: '',
-			formula: '',
-			context: {
-				attackTypes: [],
-				spellLevels: [],
-				requiresProficiency: false,
-			},
-			default: true,
-			img: 'icons/svg/upgrade.svg',
-		};
-	}
-}
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.formula = obj.formula ?? "";
+            obj.context = obj.context ?? {
+                attackTypes: [],
+                spellLevels: [],
+                requiresProficiency: false,
+            };
+            obj.default = obj.default ?? true;
+            obj.img = obj.img || "icons/svg/upgrade.svg";
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                context: {
+                    attackTypes: [],
+                    spellLevels: [],
+                    requiresProficiency: false,
+                },
+                default: true,
+                img: "icons/svg/upgrade.svg",
+            };
+        }
+    }
 
-const { attackTypes, spellLevels } = CONFIG.A5E;
+    const { attackTypes, spellLevels } = CONFIG.A5E;
 
-$: attackBonus = getAttackBonus($actor, jsonValue) ?? {};
-$: attackTypesContext = attackBonus.context.attackTypes ?? [];
-$: spellLevelsContext = attackBonus.context.spellLevels ?? [];
-$: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
+    $: attackBonus = getAttackBonus($actor, jsonValue) ?? {};
+    $: attackTypesContext = attackBonus.context.attackTypes ?? [];
+    $: spellLevelsContext = attackBonus.context.spellLevels ?? [];
+    $: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
 </script>
 
 <form>
@@ -105,12 +106,16 @@ $: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
         </div>
     </header>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
         <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={attackBonus.formula ?? ""}
-                on:change={({ target }) => onUpdateValue("formula", target.value)}
+                on:change={({ target }) =>
+                    onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
     </Section>

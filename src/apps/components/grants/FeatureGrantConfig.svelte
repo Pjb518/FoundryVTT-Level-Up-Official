@@ -1,97 +1,101 @@
 <script>
-import { getContext, onDestroy, setContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import { getContext, onDestroy, setContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import DropArea from '../dropAreas/DropArea.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
-import GrantConfig from './GrantConfig.svelte';
+    import DropArea from "../dropAreas/DropArea.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
 
-export let { document, grantId, grantType } = getContext('#external').application;
+    export let document;
+    export let grantId;
+    export let grantType;
 
-function updateImage() {
-	const current = grant?.img;
+    function updateImage() {
+        const current = grant?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-async function openDocument(uuid) {
-	const doc = await fromUuid(uuid);
-	doc.sheet.render(true);
-}
+    async function openDocument(uuid) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
+    }
 
-function onUpdateValue(key, value) {
-	key = `system.grants.${grantId}.${key}`;
-	updateDocumentDataFromField($item, key, value);
-}
+    function onUpdateValue(key, value) {
+        key = `system.grants.${grantId}.${key}`;
+        updateDocumentDataFromField($item, key, value);
+    }
 
-function updateFeature(type, idx, key, value) {
-	const features = type === 'base' ? baseFeatures : optionalFeatures;
-	const feature = features[idx];
-	feature[key] = value;
+    function updateFeature(type, idx, key, value) {
+        const features = type === "base" ? baseFeatures : optionalFeatures;
+        const feature = features[idx];
+        feature[key] = value;
 
-	onUpdateValue(`features.${type}`, features);
-}
+        onUpdateValue(`features.${type}`, features);
+    }
 
-function onDropUpdate(key, value) {
-	const feature = fromUuidSync(value);
-	if (!feature) return;
+    function onDropUpdate(key, value) {
+        const feature = fromUuidSync(value);
+        if (!feature) return;
 
-	if (feature.type !== 'feature') {
-		return ui.notifications.error('Invalid Document - Must be a Feature.');
-	}
+        if (feature.type !== "feature") {
+            return ui.notifications.error(
+                "Invalid Document - Must be a Feature.",
+            );
+        }
 
-	const entry = {
-		uuid: value,
-		limitedReselection: true,
-		selectionLimit: 1,
-	};
+        const entry = {
+            uuid: value,
+            limitedReselection: true,
+            selectionLimit: 1,
+        };
 
-	if (key === 'features.base') {
-		onUpdateValue(key, [...baseFeatures, entry]);
-	}
+        if (key === "features.base") {
+            onUpdateValue(key, [...baseFeatures, entry]);
+        }
 
-	if (key === 'features.options') {
-		onUpdateValue(key, [...optionalFeatures, entry]);
-	}
-}
+        if (key === "features.options") {
+            onUpdateValue(key, [...optionalFeatures, entry]);
+        }
+    }
 
-function getFeatureData(data) {
-	return data.map((e) => {
-		const feature = fromUuidSync(e.uuid);
-		return {
-			uuid: e.uuid,
-			name: feature?.name || 'Unknown Feature',
-			img: feature?.img || '',
-			limitedReselection: e.limitedReselection,
-			selectionLimit: e.selectionLimit,
-		};
-	});
-}
+    function getFeatureData(data) {
+        return data.map((e) => {
+            const feature = fromUuidSync(e.uuid);
+            return {
+                uuid: e.uuid,
+                name: feature?.name || "Unknown Feature",
+                img: feature?.img || "",
+                limitedReselection: e.limitedReselection,
+                selectionLimit: e.selectionLimit,
+            };
+        });
+    }
 
-onDestroy(() => {
-	item.destroy();
-});
+    onDestroy(() => {
+        item.destroy();
+    });
 
-const item = new TJSDocument(document);
+    const item = new TJSDocument(document);
 
-$: grant = $item.system.grants[grantId];
-$: baseFeatures = getFeatureData(grant.features.base ?? []);
-$: optionalFeatures = getFeatureData(grant.features.options ?? []);
+    $: grant = $item.system.grants[grantId];
+    $: baseFeatures = getFeatureData(grant.features.base ?? []);
+    $: optionalFeatures = getFeatureData(grant.features.options ?? []);
 
-setContext('item', item);
-setContext('grantId', grantId);
-setContext('grantType', grantType);
+    setContext("item", item);
+    setContext("grantId", grantId);
+    setContext("grantType", grantType);
 </script>
 
 <form>
@@ -130,7 +134,9 @@ setContext('grantType', grantType);
                 <header class="feature-table__header">
                     <span class="feature-table__heading"></span>
                     <span class="feature-table__heading"></span>
-                    <span class="feature-table__heading"> Limited Reselection </span>
+                    <span class="feature-table__heading">
+                        Limited Reselection
+                    </span>
                     <span class="feature-table__heading">Selection Limit</span>
                     <span class="feature-table__heading"></span>
                 </header>
@@ -213,7 +219,9 @@ setContext('grantType', grantType);
                 <header class="feature-table__header">
                     <span class="feature-table__heading"></span>
                     <span class="feature-table__heading"></span>
-                    <span class="feature-table__heading"> Limited Reselection </span>
+                    <span class="feature-table__heading">
+                        Limited Reselection
+                    </span>
                     <span class="feature-table__heading">Selection Limit</span>
                     <span class="feature-table__heading"></span>
                 </header>

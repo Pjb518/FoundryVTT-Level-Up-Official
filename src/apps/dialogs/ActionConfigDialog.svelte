@@ -20,8 +20,6 @@
     export let actionId;
     export let dialog;
 
-    console.log(document, actionId, dialog);
-
     const item = document;
 
     function updateCurrentTab(event) {

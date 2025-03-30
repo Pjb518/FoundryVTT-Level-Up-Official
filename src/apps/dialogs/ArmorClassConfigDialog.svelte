@@ -1,17 +1,18 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
-import getACComponents from '../../utils/getACComponents';
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import getACComponents from "../../utils/getACComponents";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, appId } = getContext('#external').application;
+    export let document;
+    export let appId;
 
-const actor = document;
+    const actor = document;
 
-$: acFormula = getACComponents($actor);
+    $: acFormula = getACComponents($actor);
 </script>
 
 <Section --a5e-section-body-gap="0.75rem" --a5e-section-padding="0.75rem">

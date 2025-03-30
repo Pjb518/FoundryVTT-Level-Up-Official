@@ -6,9 +6,9 @@
     import RadioGroup from "../components/RadioGroup.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
 
-    export let { dialog, packOptions, defaultSelection } =
-        // @ts-ignore
-        getContext("#external").application;
+    export let dialog;
+    export let packOptions;
+    export let defaultSelection;
 
     function onSubmit() {
         dialog.submit({ pack: selected });

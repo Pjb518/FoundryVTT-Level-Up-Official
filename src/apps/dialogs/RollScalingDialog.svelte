@@ -1,21 +1,26 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, actionId, rollId } = getContext('#external').application;
+    export let document;
+    export let actionId;
+    export let rollId;
 
-function getScalingOptions() {
-	return [[null, 'A5E.None'], ...Object.entries(CONFIG.A5E.baseScalingModes)];
-}
+    function getScalingOptions() {
+        return [
+            [null, "A5E.None"],
+            ...Object.entries(CONFIG.A5E.baseScalingModes),
+        ];
+    }
 
-const item = document;
+    const item = document;
 
-$: roll = $item.actions.get(actionId)?.rolls[rollId];
-$: scalingMode = roll.scaling?.mode ?? null;
+    $: roll = $item.actions.get(actionId)?.rolls[rollId];
+    $: scalingMode = roll.scaling?.mode ?? null;
 </script>
 
 <form>
@@ -44,7 +49,11 @@ $: scalingMode = roll.scaling?.mode ?? null;
                 name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                 value={roll.scaling?.formula ?? 0}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($item, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     {:else if scalingMode === "spellLevel"}
@@ -63,12 +72,20 @@ $: scalingMode = roll.scaling?.mode ?? null;
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                         value={roll.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField($item, target.name, target.value)}
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
                     />
                 </div>
 
-                <div class="a5e-field-group u-w-12 a5e-field-group--spell-level">
-                    <label for="{actionId}-{rollId}-roll-scaling-step"> Per </label>
+                <div
+                    class="a5e-field-group u-w-12 a5e-field-group--spell-level"
+                >
+                    <label for="{actionId}-{rollId}-roll-scaling-step">
+                        Per
+                    </label>
 
                     <input
                         id="{actionId}-{rollId}-roll-scaling-step"
@@ -89,8 +106,8 @@ $: scalingMode = roll.scaling?.mode ?? null;
                 </div>
 
                 <small>
-                    This increment will be applied automatically to your roll based the
-                    spell slot used during activation.
+                    This increment will be applied automatically to your roll
+                    based the spell slot used during activation.
                 </small>
             </section>
         </FieldWrapper>
@@ -108,12 +125,18 @@ $: scalingMode = roll.scaling?.mode ?? null;
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                         value={roll.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField($item, target.name, target.value)}
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
                     />
                 </div>
 
                 <div class="a5e-field-group u-w-12">
-                    <label for="{actionId}-{rollId}-roll-scaling-step"> Per </label>
+                    <label for="{actionId}-{rollId}-roll-scaling-step">
+                        Per
+                    </label>
 
                     <input
                         id="{actionId}-{rollId}-roll-scaling-step"
@@ -132,7 +155,9 @@ $: scalingMode = roll.scaling?.mode ?? null;
 
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">
-                        Additional {scalingMode === "spellPoints" ? "Points" : "Uses"}
+                        Additional {scalingMode === "spellPoints"
+                            ? "Points"
+                            : "Uses"}
                     </span>
                 </div>
             </section>

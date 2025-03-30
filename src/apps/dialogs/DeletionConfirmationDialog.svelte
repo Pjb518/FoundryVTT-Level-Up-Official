@@ -1,20 +1,25 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-export let { dialog, itemDocument, hideDeleteSection } = getContext('#external').application;
+    export let dialog;
+    export let itemDocument;
+    export let hideDeleteSection;
 
-function onSubmit() {
-	dialog.submit({ confirmDeletion: true, hideDeleteConfirmation });
-}
+    function onSubmit() {
+        dialog.submit({ confirmDeletion: true, hideDeleteConfirmation });
+    }
 
-function onCancelDeletion() {
-	dialog.submit({ confirmDeletion: false });
-}
+    function onCancelDeletion() {
+        dialog.submit({ confirmDeletion: false });
+    }
 
-let hideDeleteConfirmation = game.settings.get('a5e', 'hideDeleteConfirmation');
+    let hideDeleteConfirmation = game.settings.get(
+        "a5e",
+        "hideDeleteConfirmation",
+    );
 </script>
 
 <form>

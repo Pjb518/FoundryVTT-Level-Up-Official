@@ -10,7 +10,9 @@
     import getRollFormula from "../../utils/getRollFormula";
     import RollModePicker from "../components/RollModePicker.svelte";
 
-    export let { document, dialog, options } = getContext("#external").application;
+    export let document;
+    export let dialog;
+    export let options;
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -41,7 +43,9 @@
     }
 
     let abilityKey =
-        options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
+        options.abilityKey ??
+        $actor.system.attributes.initiative.ability ??
+        "dex";
 
     let skillKey = options.skillKey ?? "none";
     let rollFormula;
@@ -71,24 +75,36 @@
         { ability: abilityKey, skill: skillKey },
     );
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "check",
+    );
 
-    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey);
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
+        skillKey,
+        abilityKey,
+    );
 
     $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
         abilityKey,
         skillKey,
     });
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
-        abilityKey,
-        abilityType: "check",
-    });
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        {
+            abilityKey,
+            abilityType: "check",
+        },
+    );
 
-    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections("skills", {
-        skillKey,
-        abilityKey,
-    });
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
+        "skills",
+        {
+            skillKey,
+            abilityKey,
+        },
+    );
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
@@ -149,7 +165,8 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -173,7 +190,8 @@
                 initiativeBonus.label || initiativeBonus.defaultLabel,
             ])}
             selected={selectedInitiativeBonuses}
-            on:updateSelection={({ detail }) => (selectedInitiativeBonuses = detail)}
+            on:updateSelection={({ detail }) =>
+                (selectedInitiativeBonuses = detail)}
         />
     {/if}
 

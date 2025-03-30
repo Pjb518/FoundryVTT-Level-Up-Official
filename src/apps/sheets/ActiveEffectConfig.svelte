@@ -10,7 +10,9 @@
     import EffectSheetHeader from "../components/EffectSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { appId, document, sheet } = getContext("#external").application;
+    export let appId;
+    export let document;
+    export let sheet;
     export let elementRoot;
 
     const effect = document;

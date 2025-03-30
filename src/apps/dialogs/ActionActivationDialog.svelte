@@ -28,12 +28,13 @@
     import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
     import Checkbox from "../components/Checkbox.svelte";
 
-    export let { application } = getContext("#external") as { application: any };
+    export let application;
     export let {
         actionId,
         options,
         dialog,
-    }: { actionId: string; options: ActionActivationOptions; dialog: any } = application;
+    }: { actionId: string; options: ActionActivationOptions; dialog: any } =
+        application;
     export let {
         actorDocument,
         itemDocument,
@@ -86,18 +87,32 @@
     const effects = RollPreparationManager.prepareEffects($item, actionId);
     const prompts = RollPreparationManager.preparePrompts($item, actionId);
     const rolls = RollPreparationManager.prepareRolls($item, actionId);
-    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
-    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
+    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses(
+        $item,
+        rolls,
+    );
+    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses(
+        $item,
+        rolls,
+    );
 
-    const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
+    const attackRoll = rolls.attack?.length
+        ? rolls.attack[0][1]
+        : ({} as AttackRollData);
     const consumerOptions = Object.entries(consumers ?? {}).reduce(
         (acc, [type, data]) => {
             if (type === "resource") {
                 data.forEach((e, idx) =>
-                    acc.push([e[0], e[1].label || `Resource Consumer #${idx + 1}`]),
+                    acc.push([
+                        e[0],
+                        e[1].label || `Resource Consumer #${idx + 1}`,
+                    ]),
                 );
             } else {
-                acc.push([data[0], data[1].label || `${type.capitalize()} Consumer `]);
+                acc.push([
+                    data[0],
+                    data[1].label || `${type.capitalize()} Consumer `,
+                ]);
             }
 
             return acc;
@@ -141,12 +156,16 @@
     let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
         damageBonuses,
     });
-    let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
-        healingBonuses,
-    });
-    let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
+    let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses(
+        {
+            healingBonuses,
+        },
+    );
+    let selectedPrompts =
+        BonusesManager.getDefaultSelectionsFromBonuses(prompts);
     let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
-    let selectedEffects = RollPreparationManager.getDefaultSelectedEffects(effects);
+    let selectedEffects =
+        RollPreparationManager.getDefaultSelectedEffects(effects);
     let visibilityMode = game.settings?.get("core", "rollMode")!;
 
     let placeTemplate =
@@ -158,9 +177,15 @@
     const isValidTemplate = validateTemplateData(action.area);
 
     // Validator
-    const validator = new ConsumptionValidator($actor, $item, action, consumers);
+    const validator = new ConsumptionValidator(
+        $actor,
+        $item,
+        action,
+        consumers,
+    );
     const preventActionRollOnWarning =
-        (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ?? false;
+        (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ??
+        false;
 
     $: consumerData = {
         actionUses: actionUsesData,
@@ -216,7 +241,8 @@
                         damageBonus.label || damageBonus.defaultLabel || "",
                     ])}
                     selected={selectedDamageBonuses}
-                    on:updateSelection={({ detail }) => (selectedDamageBonuses = detail)}
+                    on:updateSelection={({ detail }) =>
+                        (selectedDamageBonuses = detail)}
                 />
             {/if}
 
@@ -228,7 +254,8 @@
                         healingBonus.label || healingBonus.defaultLabel || "",
                     ])}
                     selected={selectedHealingBonuses}
-                    on:updateSelection={({ detail }) => (selectedHealingBonuses = detail)}
+                    on:updateSelection={({ detail }) =>
+                        (selectedHealingBonuses = detail)}
                 />
             {/if}
         </Section>
@@ -249,7 +276,8 @@
                     heading="Selected Consumers to apply on roll"
                     options={consumerOptions}
                     selected={selectedConsumers}
-                    on:updateSelection={({ detail }) => (selectedConsumers = detail)}
+                    on:updateSelection={({ detail }) =>
+                        (selectedConsumers = detail)}
                 />
             </FieldWrapper>
 

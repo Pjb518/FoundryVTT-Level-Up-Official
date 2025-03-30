@@ -1,15 +1,15 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-export let { dialog } = getContext('#external').application;
+    export let dialog;
 
-function onSubmit() {
-	dialog.submit({ confirmReset: true });
-}
+    function onSubmit() {
+        dialog.submit({ confirmReset: true });
+    }
 
-function onCancelReset() {
-	dialog.submit({ confirmReset: false });
-}
+    function onCancelReset() {
+        dialog.submit({ confirmReset: false });
+    }
 </script>
 
 <form>

@@ -7,7 +7,8 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, appId } = getContext("#external").application;
+    export let document;
+    export let appId;
 
     const actor = document;
     const { A5E } = CONFIG;
@@ -53,10 +54,18 @@
                     class="u-w-30"
                     name={`system.attributes.movement.${mode}.unit`}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($actor, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value,
+                        )}
                 >
                     {#each Object.entries(A5E.distanceUnits) as [key, name]}
-                        <option {key} value={key} selected={movementData.unit === key}>
+                        <option
+                            {key}
+                            value={key}
+                            selected={movementData.unit === key}
+                        >
                             {localize(name)}
                         </option>
                     {/each}

@@ -1,64 +1,70 @@
 <script>
-import { getContext, onDestroy, setContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, onDestroy, setContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { localize } from "#runtime/util/i18n";
 
-import prepareProficiencyConfigObject from '../../../utils/prepareProficiencyConfigObject';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import prepareProficiencyConfigObject from "../../../utils/prepareProficiencyConfigObject";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import GrantConfig from './GrantConfig.svelte';
-import Checkbox from '../Checkbox.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import ComplexDetailEmbed from '../ComplexDetailEmbed.svelte';
-import CustomTagGroup from '../CustomTagGroup.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
+    import Checkbox from "../Checkbox.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
 
-export let { document, grantId, grantType } = getContext('#external').application;
+    export let document;
+    export let grantId;
+    export let grantType;
 
-function updateImage() {
-	const current = grant?.img;
+    function updateImage() {
+        const current = grant?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	if (key === 'proficiencyType') {
-		updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
-			base: [],
-			options: [],
-			total: 0,
-		});
-	}
+    function onUpdateValue(key, value) {
+        if (key === "proficiencyType") {
+            updateDocumentDataFromField(
+                $item,
+                `system.grants.${grantId}.keys`,
+                {
+                    base: [],
+                    options: [],
+                    total: 0,
+                },
+            );
+        }
 
-	key = `system.grants.${grantId}.${key}`;
-	updateDocumentDataFromField($item, key, value);
-}
+        key = `system.grants.${grantId}.${key}`;
+        updateDocumentDataFromField($item, key, value);
+    }
 
-onDestroy(() => {
-	item.destroy();
-});
+    onDestroy(() => {
+        item.destroy();
+    });
 
-const item = new TJSDocument(document);
-const configObject = prepareProficiencyConfigObject();
-const { weaponCategories, toolCategories } = CONFIG.A5E;
+    const item = new TJSDocument(document);
+    const configObject = prepareProficiencyConfigObject();
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-$: grant = $item.system.grants[grantId];
-$: proficiencyType = grant?.proficiencyType || 'armor';
-$: options = configObject[proficiencyType]?.config ?? [];
+    $: grant = $item.system.grants[grantId];
+    $: proficiencyType = grant?.proficiencyType || "armor";
+    $: options = configObject[proficiencyType]?.config ?? [];
 
-setContext('item', item);
-setContext('grantId', grantId);
-setContext('grantType', grantType);
+    setContext("item", item);
+    setContext("grantId", grantId);
+    setContext("grantType", grantType);
 </script>
 
 <form>
@@ -96,7 +102,8 @@ setContext('grantType', grantType);
             ])}
             selected={proficiencyType}
             allowDeselect={false}
-            on:updateSelection={({ detail }) => onUpdateValue("proficiencyType", detail)}
+            on:updateSelection={({ detail }) =>
+                onUpdateValue("proficiencyType", detail)}
         />
 
         <!-- Keep this else it breaks when switching from tools to weapons -->
@@ -190,7 +197,8 @@ setContext('grantType', grantType);
             <Checkbox
                 label="Grant 5e expertise in these instead of proficiency"
                 checked={grant.isExpertise ?? false}
-                on:updateSelection={({ detail }) => onUpdateValue("isExpertise", detail)}
+                on:updateSelection={({ detail }) =>
+                    onUpdateValue("isExpertise", detail)}
             />
         {/if}
     </Section>

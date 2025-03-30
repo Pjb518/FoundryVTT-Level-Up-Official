@@ -1,85 +1,86 @@
 <script>
-import { getContext, createEventDispatcher } from 'svelte';
+    import { getContext, createEventDispatcher } from "svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../components/Checkbox.svelte';
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
-export let { document, bonusID } = getContext('#external').application;
-export let jsonValue = null;
+    export let document;
+    export let bonusID;
+    export let jsonValue = null;
 
-const actor = document;
-const dispatch = createEventDispatcher();
+    const actor = document;
+    const dispatch = createEventDispatcher();
 
-function updateImage() {
-	const current = abilityBonus?.img;
+    function updateImage() {
+        const current = abilityBonus?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	if (jsonValue === null) {
-		key = `system.bonuses.abilities.${bonusID}.${key}`;
-		updateDocumentDataFromField($actor, key, value);
-		return;
-	}
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.abilities.${bonusID}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
 
-	const newObj = foundry.utils.expandObject({
-		...abilityBonus,
-		[key]: value,
-	});
-	dispatch('change', JSON.stringify(newObj));
-}
+        const newObj = foundry.utils.expandObject({
+            ...abilityBonus,
+            [key]: value,
+        });
+        dispatch("change", JSON.stringify(newObj));
+    }
 
-function getAbilityBonus() {
-	if (jsonValue === null) return $actor.system.bonuses.abilities[bonusID];
+    function getAbilityBonus() {
+        if (jsonValue === null) return $actor.system.bonuses.abilities[bonusID];
 
-	try {
-		const obj = JSON.parse(jsonValue || '""') ?? {};
-		if (typeof obj !== 'object') throw new Error();
-		obj.label = obj.label ?? '';
-		obj.formula = obj.formula ?? '';
-		obj.context = obj.context ?? {
-			abilities: [],
-			types: [],
-			requiresProficiency: false,
-		};
-		obj.default = obj.default ?? true;
-		obj.img = obj.img || 'icons/svg/upgrade.svg';
-		return obj;
-	} catch (error) {
-		return {
-			label: '',
-			formula: '',
-			damageType: '',
-			context: {
-				abilities: [],
-				types: [],
-				requiresProficiency: false,
-			},
-			default: true,
-			img: 'icons/svg/upgrade.svg',
-		};
-	}
-}
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.formula = obj.formula ?? "";
+            obj.context = obj.context ?? {
+                abilities: [],
+                types: [],
+                requiresProficiency: false,
+            };
+            obj.default = obj.default ?? true;
+            obj.img = obj.img || "icons/svg/upgrade.svg";
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                damageType: "",
+                context: {
+                    abilities: [],
+                    types: [],
+                    requiresProficiency: false,
+                },
+                default: true,
+                img: "icons/svg/upgrade.svg",
+            };
+        }
+    }
 
-const { abilities, abilityBonusContexts } = CONFIG.A5E;
+    const { abilities, abilityBonusContexts } = CONFIG.A5E;
 
-$: abilityBonus = getAbilityBonus($actor, jsonValue) ?? {};
-$: abilitiesContext = abilityBonus.context?.abilities ?? [];
-$: abilityTypeContext = abilityBonus.context?.types ?? [];
-$: requiresProficiency = abilityBonus.context?.requiresProficiency ?? false;
+    $: abilityBonus = getAbilityBonus($actor, jsonValue) ?? {};
+    $: abilitiesContext = abilityBonus.context?.abilities ?? [];
+    $: abilityTypeContext = abilityBonus.context?.types ?? [];
+    $: requiresProficiency = abilityBonus.context?.requiresProficiency ?? false;
 </script>
 
 <form>
@@ -110,7 +111,8 @@ $: requiresProficiency = abilityBonus.context?.requiresProficiency ?? false;
             <input
                 type="text"
                 value={abilityBonus.formula ?? ""}
-                on:change={({ target }) => onUpdateValue("formula", target.value)}
+                on:change={({ target }) =>
+                    onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
     </Section>

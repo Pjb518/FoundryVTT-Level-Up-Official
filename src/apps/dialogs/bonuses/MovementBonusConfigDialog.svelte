@@ -1,88 +1,89 @@
 <script>
-import { getContext, createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../../components/Checkbox.svelte';
-import CheckboxGroup from '../../components/CheckboxGroup.svelte';
-import FieldWrapper from '../../components/FieldWrapper.svelte';
-import Section from '../../components/Section.svelte';
+    import Checkbox from "../../components/Checkbox.svelte";
+    import CheckboxGroup from "../../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../../components/FieldWrapper.svelte";
+    import Section from "../../components/Section.svelte";
 
-export let { document, bonusID } = getContext('#external').application;
-export let jsonValue = null;
+    export let document;
+    export let bonusID;
+    export let jsonValue = null;
 
-const actor = document;
-const dispatch = createEventDispatcher();
+    const actor = document;
+    const dispatch = createEventDispatcher();
 
-function updateImage() {
-	const current = movementBonus?.img;
+    function updateImage() {
+        const current = movementBonus?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	if (jsonValue === null) {
-		key = `system.bonuses.movement.${bonusID}.${key}`;
-		updateDocumentDataFromField($actor, key, value);
-		return;
-	}
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.movement.${bonusID}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
 
-	const newObj = foundry.utils.expandObject({
-		...movementBonus,
-		[key]: value,
-	});
-	dispatch('change', JSON.stringify(newObj));
-}
+        const newObj = foundry.utils.expandObject({
+            ...movementBonus,
+            [key]: value,
+        });
+        dispatch("change", JSON.stringify(newObj));
+    }
 
-function getMovementBonus() {
-	if (jsonValue === null) return $actor.system.bonuses.movement[bonusID];
+    function getMovementBonus() {
+        if (jsonValue === null) return $actor.system.bonuses.movement[bonusID];
 
-	try {
-		const obj = JSON.parse(jsonValue || '""') ?? {};
-		if (typeof obj !== 'object') throw new Error();
-		obj.label = obj.label ?? '';
-		obj.unit = obj.unit || 'feet';
-		obj.formula = obj.formula ?? '';
-		obj.context = obj.context ?? {
-			movementTypes: [],
-			isHover: false,
-			// valueIfOriginalIsZero: "",
-		};
-		obj.img = obj.img || 'icons/svg/upgrade.svg';
-		return obj;
-	} catch (error) {
-		return {
-			label: '',
-			formula: '',
-			unit: 'feet',
-			damageType: '',
-			context: {
-				movementTypes: [],
-				isHover: false,
-				// valueIfOriginalIsZero: "",
-			},
-			default: true,
-			img: 'icons/svg/upgrade.svg',
-		};
-	}
-}
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.unit = obj.unit || "feet";
+            obj.formula = obj.formula ?? "";
+            obj.context = obj.context ?? {
+                movementTypes: [],
+                isHover: false,
+                // valueIfOriginalIsZero: "",
+            };
+            obj.img = obj.img || "icons/svg/upgrade.svg";
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                unit: "feet",
+                damageType: "",
+                context: {
+                    movementTypes: [],
+                    isHover: false,
+                    // valueIfOriginalIsZero: "",
+                },
+                default: true,
+                img: "icons/svg/upgrade.svg",
+            };
+        }
+    }
 
-const { movement, distanceUnits } = CONFIG.A5E;
+    const { movement, distanceUnits } = CONFIG.A5E;
 
-$: movementBonus = getMovementBonus($actor, jsonValue) ?? {};
-$: movementTypes = movementBonus.context.movementTypes ?? [];
-$: isHover = movementBonus.context.isHover ?? false;
-// $: valueIfOriginalIsZero =
-//     movementBonus.context.valueIfOriginalIsZero || "";
+    $: movementBonus = getMovementBonus($actor, jsonValue) ?? {};
+    $: movementTypes = movementBonus.context.movementTypes ?? [];
+    $: isHover = movementBonus.context.isHover ?? false;
+    // $: valueIfOriginalIsZero =
+    //     movementBonus.context.valueIfOriginalIsZero || "";
 </script>
 
 <form>
@@ -108,12 +109,16 @@ $: isHover = movementBonus.context.isHover ?? false;
         </div>
     </header>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
         <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={movementBonus.formula ?? ""}
-                on:change={({ target }) => onUpdateValue("formula", target.value)}
+                on:change={({ target }) =>
+                    onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 

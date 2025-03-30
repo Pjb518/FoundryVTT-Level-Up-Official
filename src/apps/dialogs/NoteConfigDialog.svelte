@@ -7,7 +7,8 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { actorDocument, updatePath } = getContext("#external").application;
+    export let actorDocument;
+    export let updatePath;
 
     const actor = new TJSDocument(actorDocument);
     const getProperty = foundry.utils.getProperty;
@@ -20,7 +21,11 @@
             value={getProperty($actor, `${updatePath}.title`)}
             placeholder="Note Name"
             on:change={({ target }) =>
-                updateDocumentDataFromField($actor, `${updatePath}.title`, target.value)}
+                updateDocumentDataFromField(
+                    $actor,
+                    `${updatePath}.title`,
+                    target.value,
+                )}
         />
     </FieldWrapper>
 

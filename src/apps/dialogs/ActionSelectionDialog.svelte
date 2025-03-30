@@ -3,7 +3,8 @@
 
     import RadioGroup from "../components/RadioGroup.svelte";
 
-    export let { dialog, item } = getContext("#external").application;
+    export let dialog;
+    export let item;
 
     function onSubmit() {
         dialog.submit({ actionId: selectedAction });

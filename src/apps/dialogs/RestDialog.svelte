@@ -1,50 +1,53 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
-export let { application } = getContext('#external');
-export let { document, appId } = getContext('#external').application;
+    export let appId;
+    export let document;
+    export let dialog;
 
-const actor = document;
+    const actor = document;
 
-const restTypeOptions = {
-	short: 'A5E.RestShort',
-	long: 'A5E.RestLong',
-};
+    const restTypeOptions = {
+        short: "A5E.RestShort",
+        long: "A5E.RestLong",
+    };
 
-let restType = 'short';
-let haven = true;
-let recoverStrifeAndFatigue = true;
-let simpleRests = game.settings.get('a5e', 'simpleRests');
-let consumeSupply = false;
+    let restType = "short";
+    let haven = true;
+    let recoverStrifeAndFatigue = true;
+    let simpleRests = game.settings.get("a5e", "simpleRests");
+    let consumeSupply = false;
 
-async function rollHitDie(dieSize) {
-	try {
-		await $actor.rollHitDice(dieSize);
-	} catch (e) {
-		// TODO: Error System - Display a useful error to the user when hit die updates fail
-		console.log(e);
-		return;
-	}
-}
+    async function rollHitDie(dieSize) {
+        try {
+            await $actor.rollHitDice(dieSize);
+        } catch (e) {
+            // TODO: Error System - Display a useful error to the user when hit die updates fail
+            console.log(e);
+            return;
+        }
+    }
 
-function onSubmit() {
-	const simpleRests = game.settings.get('a5e', 'simpleRests');
+    function onSubmit() {
+        const simpleRests = game.settings.get("a5e", "simpleRests");
 
-	application.submit({
-		consumeSupply: simpleRests ? false : consumeSupply,
-		haven: simpleRests ? true : haven,
-		restType,
-		recoverStrifeAndFatigue: simpleRests ? true : recoverStrifeAndFatigue,
-	});
-}
+        dialog.submit({
+            consumeSupply: simpleRests ? false : consumeSupply,
+            haven: simpleRests ? true : haven,
+            restType,
+            recoverStrifeAndFatigue: simpleRests
+                ? true
+                : recoverStrifeAndFatigue,
+        });
+    }
 
-$: hitDice = $actor.system.attributes.hitDice;
+    $: hitDice = $actor.system.attributes.hitDice;
 </script>
 
 <form class="form">
@@ -56,7 +59,10 @@ $: hitDice = $actor.system.attributes.hitDice;
     />
 
     {#if restType === "long" && !simpleRests}
-        <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-padding="0"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper>
                 <Checkbox
                     label="A5E.HavenPrompt"

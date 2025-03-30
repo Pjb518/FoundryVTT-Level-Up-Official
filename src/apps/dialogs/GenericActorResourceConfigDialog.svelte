@@ -1,20 +1,21 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
-import handleDeterministicInput from '../../utils/handleDeterministicInput';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import handleDeterministicInput from "../../utils/handleDeterministicInput";
 
-export let { document, source } = getContext('#external').application;
+    export let document;
+    export let source;
 
-const actor = document;
-const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
+    const actor = document;
+    const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
 
-$: resource = $actor.system.resources[source];
+    $: resource = $actor.system.resources[source];
 </script>
 
 <Section

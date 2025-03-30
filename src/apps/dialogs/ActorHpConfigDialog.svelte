@@ -6,7 +6,8 @@
     import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, appId } = getContext("#external").application;
+    export let document;
+    export let appId;
 
     const hpFields = [
         { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
@@ -22,7 +23,9 @@
     $: disableHitDice = Object.keys($actor.classes ?? {}).length ?? false;
 
     $: hitDieClasses =
-        $actor.type === "character" ? "u-flex u-gap-md" : "u-grid u-grid-3 u-gap-lg";
+        $actor.type === "character"
+            ? "u-flex u-gap-md"
+            : "u-grid u-grid-3 u-gap-lg";
 
     $: disableMaxHp =
         Object.keys($actor.classes ?? {}).length ??

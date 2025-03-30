@@ -1,73 +1,80 @@
 <script>
-import { getContext, onDestroy, setContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, onDestroy, setContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
-import NumericalGrantContexts from './NumericalGrantContexts.svelte';
-import GrantConfig from './GrantConfig.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+    import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
 
-export let { document, grantId, grantType } = getContext('#external').application;
+    export let document;
+    export let grantId;
+    export let grantType;
 
-function updateImage() {
-	const current = grant?.img;
+    function updateImage() {
+        const current = grant?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	key = `system.grants.${grantId}.${key}`;
-	updateDocumentDataFromField($item, key, value);
-}
+    function onUpdateValue(key, value) {
+        key = `system.grants.${grantId}.${key}`;
+        updateDocumentDataFromField($item, key, value);
+    }
 
-onDestroy(() => {
-	item.destroy();
-});
+    onDestroy(() => {
+        item.destroy();
+    });
 
-const item = new TJSDocument(document);
-const configObject = {
-	abilities: {},
-	damage: {
-		selectHeading: 'A5E.DamageType',
-		selectTypes: CONFIG.A5E.damageTypes,
-		selectProperty: 'damageType',
-	},
-	healing: {
-		selectHeading: 'A5E.HealingType',
-		selectTypes: CONFIG.A5E.healingTypes,
-		selectProperty: 'healingType',
-	},
-	movement: {
-		selectHeading: 'A5E.Unit',
-		selectTypes: CONFIG.A5E.distanceUnits,
-		selectProperty: 'unit',
-	},
-	senses: {
-		selectHeading: 'A5E.Unit',
-		selectTypes: CONFIG.A5E.visionUnits,
-		selectProperty: 'unit',
-	},
-	skills: {},
-};
-const hasSelectDialog = ['damage', 'healing', 'movement', 'senses'].includes(grantType);
+    const item = new TJSDocument(document);
+    const configObject = {
+        abilities: {},
+        damage: {
+            selectHeading: "A5E.DamageType",
+            selectTypes: CONFIG.A5E.damageTypes,
+            selectProperty: "damageType",
+        },
+        healing: {
+            selectHeading: "A5E.HealingType",
+            selectTypes: CONFIG.A5E.healingTypes,
+            selectProperty: "healingType",
+        },
+        movement: {
+            selectHeading: "A5E.Unit",
+            selectTypes: CONFIG.A5E.distanceUnits,
+            selectProperty: "unit",
+        },
+        senses: {
+            selectHeading: "A5E.Unit",
+            selectTypes: CONFIG.A5E.visionUnits,
+            selectProperty: "unit",
+        },
+        skills: {},
+    };
+    const hasSelectDialog = [
+        "damage",
+        "healing",
+        "movement",
+        "senses",
+    ].includes(grantType);
 
-$: grant = $item.system.grants[grantId];
-$: selectProperty = configObject[grantType]?.selectProperty;
+    $: grant = $item.system.grants[grantId];
+    $: selectProperty = configObject[grantType]?.selectProperty;
 
-setContext('item', item);
-setContext('grantId', grantId);
-setContext('grantType', grantType);
+    setContext("item", item);
+    setContext("grantId", grantId);
+    setContext("grantType", grantType);
 </script>
 
 <form>
@@ -132,7 +139,10 @@ setContext('grantType', grantType);
                     </option>
 
                     {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
-                        <option value={key} selected={grant[selectProperty] === key}>
+                        <option
+                            value={key}
+                            selected={grant[selectProperty] === key}
+                        >
                             {localize(name)}
                         </option>
                     {/each}

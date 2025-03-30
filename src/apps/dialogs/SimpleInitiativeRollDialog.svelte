@@ -10,12 +10,17 @@
     import getRollFormula from "../../utils/getRollFormula";
     import RollModePicker from "../components/RollModePicker.svelte";
 
-    export let { document, dialog, options } = getContext("#external").application;
+    export let document;
+    export let dialog;
+    export let options;
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return options.expertiseDice ?? $actor.system.attributes.initiative.expertiseDice;
+        return (
+            options.expertiseDice ??
+            $actor.system.attributes.initiative.expertiseDice
+        );
     }
 
     const actor = new TJSDocument(document.actor);
@@ -28,7 +33,9 @@
     }
 
     let abilityKey =
-        options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
+        options.abilityKey ??
+        $actor.system.attributes.initiative.ability ??
+        "dex";
 
     let expertiseDie = getInitialExpertiseDieSelection();
     let rollFormula;
@@ -49,16 +56,22 @@
         { ability: abilityKey },
     );
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "check",
+    );
 
     $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
         abilityKey,
     });
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
-        abilityKey,
-        abilityType: "check",
-    });
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+        "abilities",
+        {
+            abilityKey,
+            abilityType: "check",
+        },
+    );
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
@@ -108,7 +121,8 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) =>
+                (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -120,7 +134,8 @@
                 initiativeBonus.label || initiativeBonus.defaultLabel,
             ])}
             selected={selectedInitiativeBonuses}
-            on:updateSelection={({ detail }) => (selectedInitiativeBonuses = detail)}
+            on:updateSelection={({ detail }) =>
+                (selectedInitiativeBonuses = detail)}
         />
     {/if}
 

@@ -1,22 +1,26 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, actionId } = getContext('#external').application;
+    export let document;
+    export let actionId;
 
-function getTargetScalingOptions() {
-	return [[null, 'A5E.None'], ...Object.entries(CONFIG.A5E.targetScalingModes)];
-}
+    function getTargetScalingOptions() {
+        return [
+            [null, "A5E.None"],
+            ...Object.entries(CONFIG.A5E.targetScalingModes),
+        ];
+    }
 
-const item = document;
+    const item = document;
 
-$: action = $item.actions.get(actionId);
-$: target = action.target ?? {};
-$: scalingMode = target?.scaling?.mode ?? null;
+    $: action = $item.actions.get(actionId);
+    $: target = action.target ?? {};
+    $: scalingMode = target?.scaling?.mode ?? null;
 </script>
 
 <form>
@@ -45,7 +49,11 @@ $: scalingMode = target?.scaling?.mode ?? null;
                 name="system.actions.{actionId}.target.scaling.formula"
                 value={action.target.scaling?.formula ?? 0}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($item, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     {:else if scalingMode === "spellLevel"}
@@ -64,11 +72,17 @@ $: scalingMode = target?.scaling?.mode ?? null;
                         name="system.actions.{actionId}.target.scaling.formula"
                         value={target?.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField($item, target.name, target.value)}
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
                     />
                 </div>
 
-                <div class="a5e-field-group u-w-12 a5e-field-group--spell-level">
+                <div
+                    class="a5e-field-group u-w-12 a5e-field-group--spell-level"
+                >
                     <label for="{actionId}targets-scaling-step"> Per </label>
 
                     <input
@@ -104,7 +118,11 @@ $: scalingMode = target?.scaling?.mode ?? null;
                         name="system.actions.{actionId}.target.scaling.formula"
                         value={target?.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField($item, target.name, target.value)}
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                target.value,
+                            )}
                     />
                 </div>
 
@@ -128,7 +146,9 @@ $: scalingMode = target?.scaling?.mode ?? null;
 
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">
-                        Additional {scalingMode === "spellPoints" ? "Points" : "Uses"}
+                        Additional {scalingMode === "spellPoints"
+                            ? "Points"
+                            : "Uses"}
                     </span>
                 </div>
             </section>

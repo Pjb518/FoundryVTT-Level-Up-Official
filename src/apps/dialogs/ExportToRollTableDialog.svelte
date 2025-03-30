@@ -1,17 +1,17 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-let { application } = getContext('#external');
+    export let dialog;
 
-function onSubmit() {
-	application.submit({
-		rollTableName: rollTableName || 'New RollTable',
-	});
-}
+    function onSubmit() {
+        dialog.submit({
+            rollTableName: rollTableName || "New RollTable",
+        });
+    }
 
-let rollTableName = '';
+    let rollTableName = "";
 </script>
 
 <section>

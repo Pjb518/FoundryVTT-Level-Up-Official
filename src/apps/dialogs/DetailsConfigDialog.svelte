@@ -10,8 +10,12 @@
     import Section from "../components/Section.svelte";
     import ComplexDetailEmbed from "../components/ComplexDetailEmbed.svelte";
 
-    export let { document, appId, propertyKey, configObject, heading, type } =
-        getContext("#external").application;
+    export let document;
+    export let appId;
+    export let propertyKey;
+    export let configObject;
+    export let heading;
+    export let type;
 
     function getTooltipData() {
         const grantData = $actor.grants.getGrantedTraits(type);
@@ -46,7 +50,11 @@
                 {selected}
                 allowDeselect={false}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
+                    updateDocumentDataFromField(
+                        $actor,
+                        propertyKey,
+                        event.detail,
+                    )}
             />
         </FieldWrapper>
     {:else if type === "weapons"}
@@ -73,7 +81,11 @@
                 {selected}
                 {tooltipData}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
+                    updateDocumentDataFromField(
+                        $actor,
+                        propertyKey,
+                        event.detail,
+                    )}
             />
         </FieldWrapper>
     {/if}
@@ -98,7 +110,11 @@
                 label="A5E.CreatureSwarm"
                 checked={$actor.system.details.isSwarm}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($actor, "system.details.isSwarm", detail);
+                    updateDocumentDataFromField(
+                        $actor,
+                        "system.details.isSwarm",
+                        detail,
+                    );
                 }}
             />
         </FieldWrapper>

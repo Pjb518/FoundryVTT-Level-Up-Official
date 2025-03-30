@@ -1,26 +1,33 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
+    import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, actionId } = getContext('#external').application;
+    export let document;
+    export let actionId;
 
-function getScalingOptions() {
-	return [[null, 'A5E.None'], ...Object.entries(CONFIG.A5E.targetScalingModes)];
-}
+    function getScalingOptions() {
+        return [
+            [null, "A5E.None"],
+            ...Object.entries(CONFIG.A5E.targetScalingModes),
+        ];
+    }
 
-const item = document;
+    const item = document;
 
-$: action = $item.actions.get(actionId);
-$: area = action.area ?? {};
-$: scalingMode = area?.scaling?.mode ?? null;
+    $: action = $item.actions.get(actionId);
+    $: area = action.area ?? {};
+    $: scalingMode = area?.scaling?.mode ?? null;
 
-$: properties = ['quantity', ...TemplatePreparationManager.getShapeProperties(area?.shape)];
+    $: properties = [
+        "quantity",
+        ...TemplatePreparationManager.getShapeProperties(area?.shape),
+    ];
 </script>
 
 <form>
@@ -55,7 +62,8 @@ $: properties = ['quantity', ...TemplatePreparationManager.getShapeProperties(ar
                             class="a5e-input"
                             type="text"
                             name="system.actions.{actionId}.area.scaling.formula.{property}"
-                            value={action.area.scaling?.formula?.[property] ?? 0}
+                            value={action.area.scaling?.formula?.[property] ??
+                                0}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
                                     $item,
@@ -161,7 +169,9 @@ $: properties = ['quantity', ...TemplatePreparationManager.getShapeProperties(ar
 
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">
-                        Additional {scalingMode === "spellPoints" ? "Points" : "Uses"}
+                        Additional {scalingMode === "spellPoints"
+                            ? "Points"
+                            : "Uses"}
                     </span>
                 </div>
             </section>

@@ -17,7 +17,9 @@
     import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
     export let elementRoot;
-    export let { appId, settings, dialog } = getContext("#external").application;
+    export let appId;
+    export let settings;
+    export let dialog;
 
     function onSubmit() {
         for (const [key, value] of updates) {
@@ -100,7 +102,9 @@
         return acc;
     }, new Set());
 
-    const playersCanAccessPartyViewer = settings.getStore("playersCanAccessPartyViewer");
+    const playersCanAccessPartyViewer = settings.getStore(
+        "playersCanAccessPartyViewer",
+    );
 
     setContext("appId", appId);
     setContext("gmSettings", gmSettings);

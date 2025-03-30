@@ -7,7 +7,8 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, appId } = getContext("#external").application;
+    export let document;
+    export let appId;
 
     const actor = document;
     const { A5E } = CONFIG;
@@ -37,7 +38,9 @@
                     type={senseData.unit === "unlimited" ? "text" : "number"}
                     name="system.attributes.senses.{sense}.distance"
                     min="0"
-                    value={senseData.unit === "unlimited" ? "—" : senseData.distance || 0}
+                    value={senseData.unit === "unlimited"
+                        ? "—"
+                        : senseData.distance || 0}
                     on:change={({ target }) => {
                         updateDocumentDataFromField(
                             $actor,
@@ -51,13 +54,18 @@
             <select
                 name="system.attributes.senses.{sense}.unit"
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($actor, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value,
+                    )}
             >
                 {#each Object.entries(A5E.visionUnits) as [key, name]}
                     <option
                         {key}
                         value={key}
-                        selected={$actor.system.attributes.senses[sense].unit === key}
+                        selected={$actor.system.attributes.senses[sense]
+                            .unit === key}
                     >
                         {localize(name)}
                     </option>
@@ -67,7 +75,8 @@
             {#if sense === "blindsight"}
                 <Checkbox
                     label="Blind Beyond this Range"
-                    checked={$actor.system.attributes.senses.blindsight?.otherwiseBlind}
+                    checked={$actor.system.attributes.senses.blindsight
+                        ?.otherwiseBlind}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField(
                             $actor,

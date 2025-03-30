@@ -1,84 +1,85 @@
 <script>
-import { getContext, createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../components/Checkbox.svelte';
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
-export let { document, bonusID } = getContext('#external').application;
-export let jsonValue = null;
+    export let document;
+    export let bonusID;
+    export let jsonValue = null;
 
-const actor = document;
-const dispatch = createEventDispatcher();
+    const actor = document;
+    const dispatch = createEventDispatcher();
 
-function updateImage() {
-	const current = healingBonus?.img;
+    function updateImage() {
+        const current = healingBonus?.img;
 
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			onUpdateValue('img', path);
-		},
-	});
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                onUpdateValue("img", path);
+            },
+        });
 
-	return filePicker.browse();
-}
+        return filePicker.browse();
+    }
 
-function onUpdateValue(key, value) {
-	if (jsonValue === null) {
-		key = `system.bonuses.healing.${bonusID}.${key}`;
-		updateDocumentDataFromField($actor, key, value);
-		return;
-	}
+    function onUpdateValue(key, value) {
+        if (jsonValue === null) {
+            key = `system.bonuses.healing.${bonusID}.${key}`;
+            updateDocumentDataFromField($actor, key, value);
+            return;
+        }
 
-	const newObj = foundry.utils.expandObject({
-		...healingBonus,
-		[key]: value,
-	});
-	dispatch('change', JSON.stringify(newObj));
-}
+        const newObj = foundry.utils.expandObject({
+            ...healingBonus,
+            [key]: value,
+        });
+        dispatch("change", JSON.stringify(newObj));
+    }
 
-function getHealingBonus() {
-	if (jsonValue === null) return $actor.system.bonuses.healing[bonusID];
+    function getHealingBonus() {
+        if (jsonValue === null) return $actor.system.bonuses.healing[bonusID];
 
-	try {
-		const obj = JSON.parse(jsonValue || '""') ?? {};
-		if (typeof obj !== 'object') throw new Error();
-		obj.label = obj.label ?? '';
-		obj.formula = obj.formula ?? '';
-		obj.healingType = obj.healingType ?? '';
-		obj.context = obj.context ?? {
-			healingTypes: [],
-			spellLevels: [],
-		};
-		obj.default = obj.default ?? true;
-		obj.img = obj.img || 'icons/svg/upgrade.svg';
-		return obj;
-	} catch (error) {
-		return {
-			label: '',
-			formula: '',
-			healingType: '',
-			context: {
-				healingTypes: [],
-				spellLevels: [],
-			},
-			default: true,
-			img: 'icons/svg/upgrade.svg',
-		};
-	}
-}
+        try {
+            const obj = JSON.parse(jsonValue || '""') ?? {};
+            if (typeof obj !== "object") throw new Error();
+            obj.label = obj.label ?? "";
+            obj.formula = obj.formula ?? "";
+            obj.healingType = obj.healingType ?? "";
+            obj.context = obj.context ?? {
+                healingTypes: [],
+                spellLevels: [],
+            };
+            obj.default = obj.default ?? true;
+            obj.img = obj.img || "icons/svg/upgrade.svg";
+            return obj;
+        } catch (error) {
+            return {
+                label: "",
+                formula: "",
+                healingType: "",
+                context: {
+                    healingTypes: [],
+                    spellLevels: [],
+                },
+                default: true,
+                img: "icons/svg/upgrade.svg",
+            };
+        }
+    }
 
-const { healingBonusContexts, healingTypes, spellLevels } = CONFIG.A5E;
+    const { healingBonusContexts, healingTypes, spellLevels } = CONFIG.A5E;
 
-$: healingBonus = getHealingBonus($actor, jsonValue) ?? {};
-$: healingTypesContext = healingBonus.context.healingTypes ?? [];
-$: spellLevelsContext = healingBonus.context.spellLevels ?? [];
+    $: healingBonus = getHealingBonus($actor, jsonValue) ?? {};
+    $: healingTypesContext = healingBonus.context.healingTypes ?? [];
+    $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
 </script>
 
 <form>
@@ -104,19 +105,24 @@ $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
         </div>
     </header>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
         <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={healingBonus.formula ?? ""}
-                on:change={({ target }) => onUpdateValue("formula", target.value)}
+                on:change={({ target }) =>
+                    onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 
         <FieldWrapper heading="A5E.HealingType">
             <select
                 class="u-w-fit healing-type-select"
-                on:change={({ target }) => onUpdateValue("healingType", target.value)}
+                on:change={({ target }) =>
+                    onUpdateValue("healingType", target.value)}
             >
                 <option
                     value={null}
@@ -127,7 +133,10 @@ $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
                 </option>
 
                 {#each Object.entries(healingTypes) as [key, name] (key)}
-                    <option value={key} selected={healingBonus.healingType === key}>
+                    <option
+                        value={key}
+                        selected={healingBonus.healingType === key}
+                    >
                         {localize(name)}
                     </option>
                 {/each}
