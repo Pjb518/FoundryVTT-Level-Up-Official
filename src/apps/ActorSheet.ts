@@ -43,8 +43,8 @@ export default class ActorSheet extends SvelteApplicationMixin(
     ) {
       options.classes = [
         "a5e-sheet",
-        "a5e-actor-sheet",
-        "a5e-actor-sheet--limited",
+        "a5e-sheet--actor",
+        "a5e-sheet--actor--limited",
       ];
       options.position.width = 512;
       root = LimitedSheetComponent;
@@ -74,7 +74,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
   static override DEFAULT_OPTIONS = {
     baseApplication: "ActorSheet",
-    classes: ["a5e-sheet", "a5e-actor-sheet"],
+    classes: ["a5e-sheet", "a5e-sheet--actor"],
     position: { width: 755, height: 706 },
     minimizable: true,
   };
