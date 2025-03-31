@@ -139,7 +139,7 @@
                             on:click|preventDefault={onClickTargetScalingButton}
                         >
                             <i
-                                class="fa-solid fa-arrow-up-right-dots"
+                                class="icon fa-solid fa-arrow-up-right-dots"
                                 data-tooltip="A5E.ConfigureTargetScaling"
                                 data-tooltip-direction="UP"
                             />

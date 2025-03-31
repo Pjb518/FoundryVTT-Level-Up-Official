@@ -1,36 +1,36 @@
 <script lang="ts">
-import type { SkillSpecialtyGrant } from 'types/itemGrants';
+    import type { SkillSpecialtyGrant } from "types/itemGrants";
 
-import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from "svelte";
 
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-export let grant: SkillSpecialtyGrant;
-export let base: string[];
-export let choices: string[];
-export let count: number;
-export let skill: string;
-export let selected: string[];
+    export let grant: SkillSpecialtyGrant;
+    export let base: string[];
+    export let choices: string[];
+    export let count: number;
+    export let skill: string;
+    export let selected: string[];
 
-function getGrantSummary(selected: string[]) {
-	return '';
-}
+    function getGrantSummary(selected: string[]) {
+        return "";
+    }
 
-function onUpdateSelection({ detail }) {
-	selected = detail;
-	dispatch('updateSelection', { selected, summary });
-}
+    function onUpdateSelection({ detail }) {
+        selected = detail;
+        dispatch("updateSelection", { selected, summary });
+    }
 
-const dispatch = createEventDispatcher();
-const { skillSpecialties } = CONFIG.A5E;
-let choicesLocked = true;
+    const dispatch = createEventDispatcher();
+    const { skillSpecialties } = CONFIG.A5E;
+    let choicesLocked = true;
 
-$: selected = [...new Set(base.concat(selected))];
-$: totalCount = count + base.length;
-$: remainingSelections = totalCount - selected.length;
-$: summary = getGrantSummary(selected);
+    $: selected = [...new Set(base.concat(selected))];
+    $: totalCount = count + base.length;
+    $: remainingSelections = totalCount - selected.length;
+    $: summary = getGrantSummary(selected);
 </script>
 
 <Section
@@ -39,10 +39,12 @@ $: summary = getGrantSummary(selected);
         {
             classes: "add-button",
             handler: () => (choicesLocked = !choicesLocked),
-            htmlString: `<i class="fa-solid ${
+            htmlString: `<i class="icon fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
+            tooltip: choicesLocked
+                ? "Locked to Grant Options"
+                : "Free Selection Mode",
         },
     ]}
 >

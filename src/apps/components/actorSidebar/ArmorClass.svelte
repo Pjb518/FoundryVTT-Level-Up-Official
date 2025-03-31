@@ -18,7 +18,7 @@
 
         {#if !sheetIsLocked}
             <button
-                class="fas fa-cog ac__config-button"
+                class="icon fas fa-cog ac__config-button"
                 data-tooltip="A5E.ArmorClassConfigurationTitle"
                 data-tooltip-direction="DOWN"
                 on:click={() => $actor.configureArmorClass()}

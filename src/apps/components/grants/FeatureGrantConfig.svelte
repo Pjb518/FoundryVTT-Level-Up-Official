@@ -187,7 +187,7 @@
                                     )}
                             />
                         {:else}
-                            <i class="fa-solid fa-infinity" />
+                            <i class="icon fa-solid fa-infinity" />
                         {/if}
                     </span>
 
@@ -199,7 +199,7 @@
                                 baseFeatures.filter((_, i) => i !== idx),
                             )}
                     >
-                        <i class="fa-solid fa-trash" />
+                        <i class="icon fa-solid fa-trash" />
                     </button>
                 {/each}
             </div>
@@ -272,7 +272,7 @@
                                     )}
                             />
                         {:else}
-                            <i class="fa-solid fa-infinity" />
+                            <i class="icon fa-solid fa-infinity" />
                         {/if}
                     </span>
 
@@ -284,7 +284,7 @@
                                 optionalFeatures.filter((_, i) => i !== idx),
                             )}
                     >
-                        <i class="fa-solid fa-trash" />
+                        <i class="icon fa-solid fa-trash" />
                     </button>
                 {/each}
             </div>

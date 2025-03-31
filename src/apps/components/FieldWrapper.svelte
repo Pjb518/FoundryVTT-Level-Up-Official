@@ -40,7 +40,7 @@
 
     {#if showWarning}
         <small class="a5e-field-wrapper__warning">
-            <i class="fa-solid fa-circle-exclamation" />
+            <i class="icon fa-solid fa-circle-exclamation" />
             {localize(warning)}
         </small>
     {/if}

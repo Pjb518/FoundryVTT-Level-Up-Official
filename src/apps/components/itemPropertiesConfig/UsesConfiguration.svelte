@@ -1,52 +1,55 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getDeterministicBonus from '../../../dice/getDeterministicBonus';
-import handleDeterministicInput from '../../../utils/handleDeterministicInput';
-import formulaIsClassResource from '../../../utils/formulaIsClassResource';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import handleDeterministicInput from "../../../utils/handleDeterministicInput";
+    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-function prepareUsesSummary(item) {
-	const { uses } = item.system;
+    function prepareUsesSummary(item) {
+        const { uses } = item.system;
 
-	const maxUses = item.actor
-		? getDeterministicBonus(uses?.max ?? 0, item.actor?.getRollData(item) ?? {})
-		: uses?.max;
+        const maxUses = item.actor
+            ? getDeterministicBonus(
+                  uses?.max ?? 0,
+                  item.actor?.getRollData(item) ?? {},
+              )
+            : uses?.max;
 
-	let summary;
+        let summary;
 
-	if (uses.value && maxUses) summary = `${uses.value} / ${maxUses}`;
-	else if (uses.value && !maxUses) summary = uses.value;
-	else if (!uses.value && maxUses) summary = `0 / ${maxUses}`;
-	else return null;
+        if (uses.value && maxUses) summary = `${uses.value} / ${maxUses}`;
+        else if (uses.value && !maxUses) summary = uses.value;
+        else if (!uses.value && maxUses) summary = `0 / ${maxUses}`;
+        else return null;
 
-	if (uses.per === 'recharge') {
-		summary = `${summary} (Recharges on ${uses.recharge.threshold})`;
-	} else if (uses.per) {
-		summary = `${summary} (Per ${resourceRecoveryOptions[uses.per]})`;
-	}
+        if (uses.per === "recharge") {
+            summary = `${summary} (Recharges on ${uses.recharge.threshold})`;
+        } else if (uses.per) {
+            summary = `${summary} (Per ${resourceRecoveryOptions[uses.per]})`;
+        }
 
-	return summary;
-}
+        return summary;
+    }
 
-const item = getContext('item');
-const { resourceRecoveryOptions } = CONFIG.A5E;
+    const item = getContext("item");
+    const { resourceRecoveryOptions } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 
-$: usesSummary = prepareUsesSummary($item);
-$: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
+    $: usesSummary = prepareUsesSummary($item);
+    $: isClassResource = formulaIsClassResource($item.system.uses.max ?? "");
 </script>
 
 <Section
     heading="A5E.ItemUsesConfiguration"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -55,7 +58,10 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
     --a5e-section-heading-template-columns="max-content max-content"
 >
     {#if editMode}
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.5rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.5rem"
+        >
             {#if !isClassResource}
                 <FieldWrapper heading="A5E.UsesCurrent">
                     <input
@@ -82,7 +88,11 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                     value={$item.system.uses.max}
                     on:change={({ target }) => {
                         handleDeterministicInput(target.value);
-                        updateDocumentDataFromField($item, target.name, target.value);
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        );
                     }}
                 />
             </FieldWrapper>
@@ -92,7 +102,11 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                     class="u-h-8 u-w-40"
                     name="system.uses.per"
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
                 >
                     <option value="" />
 

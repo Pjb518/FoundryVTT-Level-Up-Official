@@ -1,10 +1,10 @@
 <script lang="ts">
-import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from "svelte";
 
-export let uuid: string = '';
-const dispatch = createEventDispatcher();
+    export let uuid: string = "";
+    const dispatch = createEventDispatcher();
 
-$: doc = fromUuidSync(uuid);
+    $: doc = fromUuidSync(uuid);
 </script>
 
 <section class="drop-container">
@@ -27,10 +27,11 @@ $: doc = fromUuidSync(uuid);
                 <h3>{doc.name}</h3>
 
                 <button
-                    class="a5e-button a5e-button--delete delete-button fas fa-trash"
+                    class="a5e-button a5e-button--delete delete-button icon fas fa-trash"
                     data-tooltip="A5E.ButtonToolTipDelete"
                     data-tooltip-direction="UP"
-                    on:click={(event) => dispatch("document-deleted", [event, uuid])}
+                    on:click={(event) =>
+                        dispatch("document-deleted", [event, uuid])}
                 />
             </div>
         </div>
@@ -40,7 +41,7 @@ $: doc = fromUuidSync(uuid);
             on:drop|preventDefault|stopPropagation={(event) =>
                 dispatch("document-dropped", [event, doc])}
         >
-            <i class="drop-icon fa-sold fa-plus" />
+            <i class="drop-icon icon fa-sold fa-plus" />
         </div>
     {/if}
 </section>

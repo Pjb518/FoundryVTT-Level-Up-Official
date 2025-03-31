@@ -21,7 +21,8 @@
         const rarity = getRarityLabel(item);
 
         if (rarity) {
-            if (price && attunement) return `${rarity} (${attunement}; Cost ${price})`;
+            if (price && attunement)
+                return `${rarity} (${attunement}; Cost ${price})`;
             if (price) return `${rarity} (Cost ${price})`;
             if (attunement) return `${rarity} (${attunement})`;
 
@@ -72,7 +73,8 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ?? (await collection.getDocument(document._id));
+            collection.get(document._id) ??
+            (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}
@@ -88,7 +90,7 @@
 
         {#if document.system?.requiresAttunement}
             <i
-                class="a5e-item__icon fa-solid fa-link"
+                class="a5e-item__icon icon fa-solid fa-link"
                 data-tooltip="Requires Attunement"
                 data-tooltip-direction="UP"
             />

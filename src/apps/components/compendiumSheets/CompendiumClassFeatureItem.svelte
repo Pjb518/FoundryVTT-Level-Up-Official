@@ -19,7 +19,9 @@
     function getFeatureDetailsLabel(feature) {
         const parentClass = feature.system.classes;
 
-        const featureProperties = [classes[parentClass] ?? classes5e[parentClass]];
+        const featureProperties = [
+            classes[parentClass] ?? classes5e[parentClass],
+        ];
 
         if (feature.system.featureType === "knack") {
             featureProperties.push(knackTypes[parentClass]);
@@ -53,7 +55,8 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ?? (await collection.getDocument(document._id));
+            collection.get(document._id) ??
+            (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}
@@ -69,8 +72,10 @@
 
         {#if document.system.prerequisite}
             <i
-                class="a5e-item__icon fa-solid fa-key"
-                data-tooltip={getPrerequisiteTooltipContent(document.system.prerequisite)}
+                class="a5e-item__icon icon fa-solid fa-key"
+                data-tooltip={getPrerequisiteTooltipContent(
+                    document.system.prerequisite,
+                )}
                 data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--basic"
                 data-tooltip-direction="DOWN"
             />

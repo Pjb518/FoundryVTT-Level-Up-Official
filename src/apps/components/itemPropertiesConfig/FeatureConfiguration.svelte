@@ -1,31 +1,34 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../Checkbox.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-function getClassSummary() {
-	const parentClass = $item.system.classes;
+    function getClassSummary() {
+        const parentClass = $item.system.classes;
 
-	return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
-}
+        return (
+            localize(classes[parentClass] ?? classes5e[parentClass]) ||
+            parentClass
+        );
+    }
 
-const item = getContext('item');
-const { classes, classes5e, featureTypes } = CONFIG.A5E;
+    const item = getContext("item");
+    const { classes, classes5e, featureTypes } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 </script>
 
 <Section
     heading="A5E.TabFeatureProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -40,7 +43,11 @@ let editMode = false;
             selected={$item.system.featureType}
             allowDeselect={true}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.featureType", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.featureType",
+                    event.detail,
+                )}
         />
 
         {#if ["class", "knack"].includes($item.system.featureType)}
@@ -50,7 +57,11 @@ let editMode = false;
                 selected={$item.system.classes}
                 allowDeselect={true}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.classes", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.classes",
+                        detail,
+                    );
                 }}
             />
 
@@ -59,7 +70,11 @@ let editMode = false;
                 options={Object.entries(classes5e)}
                 selected={$item.system.classes}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.classes", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.classes",
+                        detail,
+                    );
                 }}
             />
 
@@ -86,7 +101,11 @@ let editMode = false;
                 label="A5E.SpellConcentration"
                 checked={$item.system.concentration}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.concentration", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.concentration",
+                        detail,
+                    );
                 }}
             />
         </FieldWrapper>
@@ -96,7 +115,11 @@ let editMode = false;
                 label="A5E.RequiresBloodied"
                 checked={$item.system.requiresBloodied}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.requiresBloodied", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.requiresBloodied",
+                        detail,
+                    );
                 }}
             />
         </FieldWrapper>
@@ -108,7 +131,8 @@ let editMode = false;
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {featureTypes[$item.system.featureType] ?? localize("A5E.None")}
+                    {featureTypes[$item.system.featureType] ??
+                        localize("A5E.None")}
                 </dd>
             </div>
 

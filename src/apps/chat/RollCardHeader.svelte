@@ -31,7 +31,7 @@
     {#if isGM || isOwner}
         <span class="a5e-chat-card__header__buttons">
             <button
-                class="a5e-chat-card__header__button--repeat fas fa-undo"
+                class="a5e-chat-card__header__button--repeat icon fas fa-undo"
                 data-tooltip="Repeat Roll"
                 data-tooltip-direction="LEFT"
                 on:click={() => dispatch("repeatCard")}
@@ -43,7 +43,7 @@
                     aria-label="Delete"
                     class="message-delete a5e-chat-card__header__button--delete"
                 >
-                    <i class="fas fa-trash" />
+                    <i class="icon fas fa-trash" />
                 </a>
             {/if}
         </span>

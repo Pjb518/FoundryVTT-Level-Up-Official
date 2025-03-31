@@ -67,7 +67,9 @@
         }
 
         if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
+            const firstSpellBook = Object.keys(
+                $actor.system.spellBooks ?? {},
+            )?.[0];
 
             updateCurrentSpellBook(firstSpellBook);
         }
@@ -142,7 +144,11 @@
         sheetIsLocked,
     );
 
-    $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
+    $: spellPointMax = getMaxSpellResource(
+        "points",
+        spellResources,
+        sheetIsLocked,
+    );
 
     $: exertion = $actor.system.attributes.exertion;
 
@@ -173,15 +179,17 @@
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
-                        class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
-                        on:click|stopPropagation={() => configureSpellbook(spellBookId)}
+                        class="a5e-control-button a5e-control-button--config icon fa-solid fa-gear"
+                        on:click|stopPropagation={() =>
+                            configureSpellbook(spellBookId)}
                     />
 
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
-                        class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
-                        on:click|stopPropagation={() => deleteSpellbook(spellBookId)}
+                        class="a5e-control-button a5e-control-button--delete icon fa-solid fa-trash"
+                        on:click|stopPropagation={() =>
+                            deleteSpellbook(spellBookId)}
                     />
                 {/if}
             </button>
@@ -189,7 +197,7 @@
 
         {#if !sheetIsLocked}
             <button
-                class="a5e-spellbook-list__item a5e-spellbook-list__item--add fa-solid fa-plus"
+                class="a5e-spellbook-list__item a5e-spellbook-list__item--add icon fa-solid fa-plus"
                 data-tooltip="Create new spell book"
                 on:click={() => addSpellBook()}
             />
@@ -215,7 +223,9 @@
             data-tooltip="This number does not include spells which are marked as always prepared."
             data-tooltip-direction="UP"
         >
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">Spells Prepared:</h3>
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                Spells Prepared:
+            </h3>
 
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
@@ -274,7 +284,10 @@
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateMaxSpellResource("artifactCharges", Number(target.value))}
+                    updateMaxSpellResource(
+                        "artifactCharges",
+                        Number(target.value),
+                    )}
             />
         </div>
     {/if}
@@ -357,9 +370,10 @@
                         class="recharge-button"
                         data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
                         data-tooltip-direction="UP"
-                        on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
+                        on:click={() =>
+                            $actor.recoverPsionicPointsUsingHitDice()}
                     >
-                        <i class="fa-solid fa-brain" />
+                        <i class="icon fa-solid fa-brain" />
                     </button>
                 {/if}
             </div>
@@ -409,7 +423,7 @@
                     data-tooltip-direction="UP"
                     on:click={() => $actor.recoverExertionUsingHitDice()}
                 >
-                    <i class="fa-solid fa-bolt" />
+                    <i class="icon fa-solid fa-bolt" />
                 </button>
             {/if}
         </div>

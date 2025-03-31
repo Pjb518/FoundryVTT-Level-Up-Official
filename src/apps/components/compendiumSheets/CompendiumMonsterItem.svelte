@@ -1,83 +1,86 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import prepareXP from '../../dataPreparationHelpers/prepareXP';
+    import prepareXP from "../../dataPreparationHelpers/prepareXP";
 
-import ImportButton from '../ImportButton.svelte';
+    import ImportButton from "../ImportButton.svelte";
 
-import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
-import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
 
-export let document;
+    export let document;
 
-function getCreatureTypes(monster) {
-	return (monster?.system?.details?.creatureTypes ?? [])
-		.map((creatureType) => {
-			return creatureTypes[creatureType] ?? creatureType ?? '';
-		})
-		.sort((a, b) => a.localeCompare(b))
-		.join(', ');
-}
+    function getCreatureTypes(monster) {
+        return (monster?.system?.details?.creatureTypes ?? [])
+            .map((creatureType) => {
+                return creatureTypes[creatureType] ?? creatureType ?? "";
+            })
+            .sort((a, b) => a.localeCompare(b))
+            .join(", ");
+    }
 
-function getCRLabel(monster) {
-	let cr = monster?.system?.details?.cr;
+    function getCRLabel(monster) {
+        let cr = monster?.system?.details?.cr;
 
-	if (cr === undefined) return '?';
-	if (cr === 0.125 || cr === '0.125') return '⅛';
-	if (cr === 0.25 || cr === '0.25') return '¼';
-	if (cr === 0.5 || cr === '0.5') return '½';
+        if (cr === undefined) return "?";
+        if (cr === 0.125 || cr === "0.125") return "⅛";
+        if (cr === 0.25 || cr === "0.25") return "¼";
+        if (cr === 0.5 || cr === "0.5") return "½";
 
-	return cr;
-}
+        return cr;
+    }
 
-function getMonsterDetailsLabel(monster) {
-	const components = [];
+    function getMonsterDetailsLabel(monster) {
+        const components = [];
 
-	const cr = getCRLabel(monster);
-	const creatureTypes = getCreatureTypes(monster);
-	const isElite = monster?.system?.details?.elite;
-	const sizeCategory = actorSizes[monster?.system?.traits?.size] ?? '';
-	const xp = prepareXP(monster);
+        const cr = getCRLabel(monster);
+        const creatureTypes = getCreatureTypes(monster);
+        const isElite = monster?.system?.details?.elite;
+        const sizeCategory = actorSizes[monster?.system?.traits?.size] ?? "";
+        const xp = prepareXP(monster);
 
-	if (cr === '?') {
-		components.push(sizeCategory, creatureTypes);
-	} else {
-		components.push(
-			sizeCategory,
-			creatureTypes,
-			'|',
-			isElite ? 'Elite' : '',
-			`CR ${cr}`,
-			`(${xp} XP)`,
-		);
-	}
+        if (cr === "?") {
+            components.push(sizeCategory, creatureTypes);
+        } else {
+            components.push(
+                sizeCategory,
+                creatureTypes,
+                "|",
+                isElite ? "Elite" : "",
+                `CR ${cr}`,
+                `(${xp} XP)`,
+            );
+        }
 
-	return components
-		.filter((component) => !foundry.utils.isEmpty(component) && component !== '')
-		.join(' ');
-}
+        return components
+            .filter(
+                (component) =>
+                    !foundry.utils.isEmpty(component) && component !== "",
+            )
+            .join(" ");
+    }
 
-function getMonsterSource(monster) {
-	if (typeof monster.system.source !== 'string') return null;
+    function getMonsterSource(monster) {
+        if (typeof monster.system.source !== "string") return null;
 
-	const source = CONFIG.A5E.products[monster.system.source];
+        const source = CONFIG.A5E.products[monster.system.source];
 
-	return source || null;
-}
+        return source || null;
+    }
 
-function onDragStart(event) {
-	const data = {
-		type: collection.documentName,
-		uuid: collection.getUuid(document._id),
-	};
-	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
-}
+    function onDragStart(event) {
+        const data = {
+            type: collection.documentName,
+            uuid: collection.getUuid(document._id),
+        };
+        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
+    }
 
-const collection = getContext('collection');
-const { actorSizes, creatureTypes } = CONFIG.A5E;
+    const collection = getContext("collection");
+    const { actorSizes, creatureTypes } = CONFIG.A5E;
 
-$: monsterDetails = getMonsterDetailsLabel(document);
-$: monsterSource = getMonsterSource(document);
+    $: monsterDetails = getMonsterDetailsLabel(document);
+    $: monsterSource = getMonsterSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -103,7 +106,7 @@ $: monsterSource = getMonsterSource(document);
 
         {#if document?.system?.details?.elite}
             <i
-                class="a5e-item__icon fa-solid fa-skull"
+                class="a5e-item__icon icon fa-solid fa-skull"
                 data-tooltip="Elite Monster"
                 data-tooltip-direction="UP"
             />
@@ -111,7 +114,7 @@ $: monsterSource = getMonsterSource(document);
 
         {#if document?.system?.details?.isSquad}
             <i
-                class="a5e-item__icon fa-solid fa-people-group"
+                class="a5e-item__icon icon fa-solid fa-people-group"
                 data-tooltip="Squad"
                 data-tooltip-direction="UP"
             />
@@ -119,7 +122,7 @@ $: monsterSource = getMonsterSource(document);
 
         {#if document?.system?.details?.isSwarm}
             <i
-                class="a5e-item__icon fa-solid fa-locust"
+                class="a5e-item__icon icon fa-solid fa-locust"
                 data-tooltip="Swarm"
                 data-tooltip-direction="UP"
             />

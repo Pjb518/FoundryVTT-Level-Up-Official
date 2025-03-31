@@ -45,7 +45,7 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
                     $actor.configureAbilityScore({
                         abilityKey: abilityLabel,
                     })}
-                class="a5e-ability-score__config-button fas fa-gear"
+                class="a5e-ability-score__config-button icon fas fa-gear"
             />
         {/if}
     </header>

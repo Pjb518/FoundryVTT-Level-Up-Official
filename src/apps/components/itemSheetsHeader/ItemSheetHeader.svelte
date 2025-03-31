@@ -6,7 +6,9 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     async function fulfilDestiny() {
-        const fulfillmentFeature = await fromUuid($item.system.fulfillmentFeature);
+        const fulfillmentFeature = await fromUuid(
+            $item.system.fulfillmentFeature,
+        );
         if (!fulfillmentFeature || !$item.actor) return;
         if ($item.actor.getFlag("a5e", "destinyFulfilled") ?? false) return;
 
@@ -94,7 +96,11 @@
                     class="prerequisite-input"
                     placeholder={localize("A5E.None")}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </div>
         {/if}
@@ -103,7 +109,7 @@
     {#if $item.type === "object"}
         <div class="button-container">
             <button
-                class="header-button fa-solid fa-circle-question"
+                class="header-button icon fa-solid fa-circle-question"
                 class:active={$item.system.unidentified}
                 class:locked={!isGM}
                 disabled={!isGM}
@@ -116,7 +122,7 @@
 
             {#if $item.actor && $item.system.requiresAttunement}
                 <button
-                    class="header-button fa-solid fa-link"
+                    class="header-button icon fa-solid fa-link"
                     class:active={$item.system.attuned}
                     data-tooltip={$item.system.attuned
                         ? localize("A5E.ButtonToolTipBreakAttunement", {
@@ -131,14 +137,17 @@
             {/if}
 
             <button
-                class="header-button fas"
-                class:fa-heart={$item.system.damagedState === DAMAGED_STATES.INTACT}
+                class="header-button icon fas"
+                class:fa-heart={$item.system.damagedState ===
+                    DAMAGED_STATES.INTACT}
                 class:fa-heart-crack={$item.system.damagedState ===
                     DAMAGED_STATES.DAMAGED}
-                class:fa-heart-pulse={$item.system.damagedState === DAMAGED_STATES.BROKEN}
-                class:active={[DAMAGED_STATES.DAMAGED, DAMAGED_STATES.BROKEN].includes(
-                    $item.system.damagedState,
-                )}
+                class:fa-heart-pulse={$item.system.damagedState ===
+                    DAMAGED_STATES.BROKEN}
+                class:active={[
+                    DAMAGED_STATES.DAMAGED,
+                    DAMAGED_STATES.BROKEN,
+                ].includes($item.system.damagedState)}
                 data-tooltip={damagedStates[$item.system.damagedState ?? 0]}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleDamagedState()}

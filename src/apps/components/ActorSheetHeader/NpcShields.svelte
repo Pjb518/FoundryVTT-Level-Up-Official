@@ -36,12 +36,14 @@
 <div class="level-container">
     {#if isElite || !sheetIsLocked}
         <div class="a5e-details-box">
-            <label class="a5e-details-box__label" for="{$actor.id}-elite">Elite</label>
+            <label class="a5e-details-box__label" for="{$actor.id}-elite"
+                >Elite</label
+            >
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <i
-                class="fas fa-skull shield-elite"
+                class="icon fas fa-skull shield-elite"
                 class:shield-elite--unlocked={!sheetIsLocked}
                 class:shield-elite--active={isElite}
                 on:click={() => (!sheetIsLocked ? $actor.toggleElite() : null)}
@@ -75,7 +77,9 @@
     </div>
 
     <div class="a5e-details-box">
-        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
+        <label class="a5e-details-box__label" for="{$actor.id}-prof">
+            Prof.
+        </label>
 
         <input
             id="{$actor.id}-prof"

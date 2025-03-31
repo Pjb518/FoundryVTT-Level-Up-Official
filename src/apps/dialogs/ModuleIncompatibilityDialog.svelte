@@ -64,7 +64,7 @@
                     <h3 class="module__title">{moduleTitle}</h3>
 
                     <i
-                        class="module__priority-icon fa-solid fa-circle"
+                        class="module__priority-icon icon fa-solid fa-circle"
                         style={getPriorityColor(priority)}
                         data-tooltip={getPriorityTooltipLabel(priority)}
                         data-tooltip-direction="UP"

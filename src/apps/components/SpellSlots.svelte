@@ -46,7 +46,10 @@
 </script>
 
 {#if level && level !== "0"}
-    <div class="spell-slot-wrapper" class:spell-slot-wrapper--locked={sheetIsLocked}>
+    <div
+        class="spell-slot-wrapper"
+        class:spell-slot-wrapper--locked={sheetIsLocked}
+    >
         {#if sheetIsLocked}
             {#each Array.from({ length: maxSpellSlots }, (_, i) => i + 1) as slot}
                 {@const slotExpended =
@@ -58,7 +61,7 @@
                     class:disable-pointer-events={!$actor.isOwner}
                     on:click={() => updateSpellSlots(level, slot)}
                 >
-                    <i class="a5e-spell-slot__icon fa-solid fa-star" />
+                    <i class="a5e-spell-slot__icon icon fa-solid fa-star" />
                 </button>
             {/each}
         {:else}
@@ -84,7 +87,8 @@
                 value={maxSpellSlots}
                 placeholder="0"
                 min="0"
-                on:change={({ target }) => updateSpellSlotMax(Number(target.value))}
+                on:change={({ target }) =>
+                    updateSpellSlotMax(Number(target.value))}
             />
         {/if}
     </div>

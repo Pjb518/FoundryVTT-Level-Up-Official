@@ -20,7 +20,10 @@
             type: "Grant",
         };
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function onAuxClick() {
@@ -68,21 +71,22 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="track" on:click|stopPropagation>
-                <i class="track-icon fa-solid fa-ellipsis-vertical" />
+                <i class="track-icon icon fa-solid fa-ellipsis-vertical" />
 
                 <ul class="track-items">
                     <li>
                         <button
-                            class="action-button fas fa-cog"
+                            class="action-button icon fas fa-cog"
                             data-tooltip="A5E.ButtonToolTipConfigure"
                             data-tooltip-direction="UP"
-                            on:click|stopPropagation={() => grant.configureGrant()}
+                            on:click|stopPropagation={() =>
+                                grant.configureGrant()}
                         />
                     </li>
 
                     <li>
                         <button
-                            class="action-button fa-solid fa-clone"
+                            class="action-button icon fa-solid fa-clone"
                             data-tooltip="A5E.ButtonToolTipDuplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() =>
@@ -92,7 +96,7 @@
 
                     <li>
                         <button
-                            class="action-button delete-button fas fa-trash"
+                            class="action-button icon delete-button fas fa-trash"
                             data-tooltip="A5E.ButtonToolTipDelete"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() => grant.deleteGrant()}

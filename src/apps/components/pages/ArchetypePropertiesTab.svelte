@@ -37,9 +37,10 @@
 
                 <button
                     class="slug-reset-button"
-                    on:click={() => updateDocumentDataFromField($item, "system.slug", "")}
+                    on:click={() =>
+                        updateDocumentDataFromField($item, "system.slug", "")}
                 >
-                    <i class="fas fa-solid fa-rotate-left" />
+                    <i class="icon fas fa-solid fa-rotate-left" />
                 </button>
             </div>
         </FieldWrapper>
@@ -72,7 +73,11 @@
                 type="text"
                 value={$item.system.class || ""}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($item, "system.class", target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.class",
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     </Section>

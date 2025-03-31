@@ -16,7 +16,8 @@
     const A5E = CONFIG.A5E;
     const { resourceConsumerConfig } = A5E;
 
-    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
+    const showFavorPoints =
+        game.settings.get("a5e", "showFavorPoints") ?? false;
     if (!showFavorPoints) {
         delete resourceConsumerConfig?.favorPoints;
     }
@@ -37,7 +38,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-trash",
+            classes: "icon fa-solid fa-trash",
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
@@ -84,7 +85,10 @@
     </FieldWrapper>
 
     {#if selectedResource === "classResource"}
-        <FieldWrapper heading="Resource Identifier" --a5e-field-wrapper-width="16rem">
+        <FieldWrapper
+            heading="Resource Identifier"
+            --a5e-field-wrapper-width="16rem"
+        >
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -100,7 +104,10 @@
     {/if}
 
     {#if A5E.resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper heading="A5E.ConsumeValue" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper
+            heading="A5E.ConsumeValue"
+            --a5e-field-wrapper-width="7.5rem"
+        >
             <input
                 type="number"
                 d-type="Number"

@@ -1,13 +1,13 @@
 <script>
-import { createEventDispatcher } from 'svelte';
-import { TJSIconButton } from '#standard/component/button';
+    import { createEventDispatcher } from "svelte";
+    import { TJSIconButton } from "#standard/component/button";
 
-const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 </script>
 
 <TJSIconButton
     title="Show Description"
-    icon="fa-solid fa-info-circle"
+    icon="icon fa-solid fa-info-circle"
     onPress={() => dispatch("updateSelection")}
     --tjs-icon-button-background-hover="none"
     --tjs-icon-button-background-focus="none"

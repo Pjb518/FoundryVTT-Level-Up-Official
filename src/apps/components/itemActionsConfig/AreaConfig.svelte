@@ -92,7 +92,7 @@
 
         <label class="area-shape-label" for="area-{actionId}-none">
             <span class="u-text-sm">
-                <i class="fas fa-times-circle" />
+                <i class="icon fas fa-times-circle" />
             </span>
 
             {localize("A5E.None")}
@@ -105,7 +105,10 @@
 
     {#if action.area?.shape}
         <div class="u-flex u-gap-md u-w-full">
-            <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
+            <FieldWrapper
+                heading="A5E.ItemQuantity"
+                --a5e-field-wrapper-width="7.5rem"
+            >
                 <input
                     id="{actionId}-area-quantity"
                     type="number"
@@ -120,7 +123,10 @@
             </FieldWrapper>
 
             {#if getShapeProperties(action.area.shape).includes("radius")}
-                <FieldWrapper heading="Radius" --a5e-field-wrapper-width="7.5rem">
+                <FieldWrapper
+                    heading="Radius"
+                    --a5e-field-wrapper-width="7.5rem"
+                >
                     <input
                         id="{actionId}-area-radius"
                         type="number"
@@ -194,7 +200,7 @@
                         on:click|preventDefault={onClickScalingButton}
                     >
                         <i
-                            class="fa-solid fa-arrow-up-right-dots"
+                            class="icon fa-solid fa-arrow-up-right-dots"
                             data-tooltip="A5E.ConfigureAreaScaling"
                             data-tooltip-direction="UP"
                         />
@@ -259,7 +265,8 @@
             &:checked + .area-shape-label {
                 background: var(--a5e-action-area-button-checked);
                 border-color: var(--a5e-action-area-button-checked-border);
-                box-shadow: 0 0 10px var(--a5e-action-area-button-checked-shadow) inset;
+                box-shadow: 0 0 10px
+                    var(--a5e-action-area-button-checked-shadow) inset;
                 color: var(--a5e-action-area-button-checked-color);
 
                 &:hover {

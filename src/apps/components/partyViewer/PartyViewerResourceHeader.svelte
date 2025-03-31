@@ -1,17 +1,20 @@
 <script>
-export let propData = {};
+    export let propData = {};
 
-function getSpellLevels({ highestSpellSlotLevel }) {
-	return Object.entries(CONFIG.A5E.spellLevels).filter(
-		([spellLevel]) => spellLevel && spellLevel !== '0' && spellLevel <= highestSpellSlotLevel,
-	);
-}
+    function getSpellLevels({ highestSpellSlotLevel }) {
+        return Object.entries(CONFIG.A5E.spellLevels).filter(
+            ([spellLevel]) =>
+                spellLevel &&
+                spellLevel !== "0" &&
+                spellLevel <= highestSpellSlotLevel,
+        );
+    }
 </script>
 
 <header class="a5e-section-header a5e-section-header--party-viewer">
     {#if propData.partyHasInspiration}
         <i
-            class="heading heading--inspiration fa-solid fa-dice-d20"
+            class="heading heading--inspiration icon fa-solid fa-dice-d20"
             data-tooltip="Inspiration"
             data-tooltip-direction="UP"
         />
@@ -19,7 +22,7 @@ function getSpellLevels({ highestSpellSlotLevel }) {
 
     {#if propData.partyHasExertionPool}
         <i
-            class="heading heading--exertion fa-solid fa-dumbbell"
+            class="heading heading--exertion icon fa-solid fa-dumbbell"
             data-tooltip="Exertion"
             data-tooltip-direction="UP"
         />
@@ -27,7 +30,7 @@ function getSpellLevels({ highestSpellSlotLevel }) {
 
     {#if propData.partyHasArtifactCharges}
         <i
-            class="heading heading--artifact-charges fa-solid fa-wand-sparkles"
+            class="heading heading--artifact-charges icon fa-solid fa-wand-sparkles"
             data-tooltip="Artifact Charges"
             data-tooltip-direction="UP"
         />
@@ -35,7 +38,7 @@ function getSpellLevels({ highestSpellSlotLevel }) {
 
     {#if propData.partyHasSpellPointPool}
         <i
-            class="heading heading--spell-points fa-solid fa-hand-sparkles"
+            class="heading heading--spell-points icon fa-solid fa-hand-sparkles"
             data-tooltip="Spell Points"
             data-tooltip-direction="UP"
         />
@@ -46,7 +49,8 @@ function getSpellLevels({ highestSpellSlotLevel }) {
             {#each getSpellLevels(propData) as [spellLevel, tooltip]}
                 <li
                     class="spell-level"
-                    class:spell-level--narrow={propData.highestSpellSlotLevel >= 8}
+                    class:spell-level--narrow={propData.highestSpellSlotLevel >=
+                        8}
                     data-tooltip={`${tooltip} Spell Slots`}
                     data-tooltip-direction="UP"
                 >

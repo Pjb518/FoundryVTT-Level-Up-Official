@@ -41,7 +41,7 @@
 
     {#if sheetIsLocked}
         <button
-            class="initiative-roll-button fas fa-dice-d20"
+            class="initiative-roll-button icon fas fa-dice-d20"
             class:initiative-roll-button--shift={$pressedKeysStore.Shift}
             class:initiative-roll-button--ctrl={$pressedKeysStore.Control}
             class:disable-pointer-events={!$actor.isOwner}
@@ -57,7 +57,7 @@
         />
     {:else}
         <button
-            class="initiative-roll-button fas fa-cog"
+            class="initiative-roll-button icon fas fa-cog"
             data-tooltip="A5E.InitiativeConfigurationTitle"
             data-tooltip-direction="DOWN"
             on:click={() => $actor.configureInitiative()}

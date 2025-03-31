@@ -66,7 +66,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
         <i
             on:click|stopPropagation={showDescription}
-            class="track-icon track-icon--description-button fa-regular fa-file-lines"
+            class="track-icon track-icon--description-button icon fa-regular fa-file-lines"
             data-tooltip={`Share ${action ? "Action" : "Item"} Description`}
             data-tooltip-direction="UP"
         />
@@ -76,12 +76,12 @@
 {#if !sheetIsLocked}
     <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
     <div class="track" on:click|stopPropagation>
-        <i class="track-icon fa-solid fa-ellipsis-vertical" />
+        <i class="track-icon icon fa-solid fa-ellipsis-vertical" />
 
         <ul class="track-items">
             <li>
                 <button
-                    class="action-button fas fa-cog"
+                    class="action-button icon fas fa-cog"
                     data-tooltip="A5E.ButtonToolTipConfigure"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={onConfigure}
@@ -90,7 +90,7 @@
 
             <li>
                 <button
-                    class="action-button fa-solid fa-clone"
+                    class="action-button icon fa-solid fa-clone"
                     data-tooltip="A5E.ButtonToolTipDuplicate"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={onDuplicate}
@@ -99,7 +99,7 @@
 
             <li>
                 <button
-                    class="action-button delete-button fas fa-trash"
+                    class="action-button delete-button icon fas fa-trash"
                     data-tooltip="A5E.ButtonToolTipDelete"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={onDelete}

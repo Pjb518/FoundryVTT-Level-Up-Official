@@ -1,45 +1,47 @@
 <script>
-import { getContext, onDestroy } from 'svelte';
+    import { getContext, onDestroy } from "svelte";
 
-import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
-import Filter from '../actorUtilityBar/Filter.svelte';
-import ActorInventoryShields from '../ActorInventoryShields.svelte';
-import ItemCategory from '../ItemCategory.svelte';
-import ItemWeightTrack from '../ItemWeightTrack.svelte';
-import Search from '../actorUtilityBar/Search.svelte';
-import ShowDescription from '../actorUtilityBar/ShowDescription.svelte';
-import Sort from '../actorUtilityBar/Sort.svelte';
-import TabFooter from '../TabFooter.svelte';
-import UtilityBar from '../actorUtilityBar/UtilityBar.svelte';
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
+    import ActorInventoryShields from "../ActorInventoryShields.svelte";
+    import ItemCategory from "../ItemCategory.svelte";
+    import ItemWeightTrack from "../ItemWeightTrack.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
+    import TabFooter from "../TabFooter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-import usesRequired from '../../../utils/usesRequired';
-import quantityRequired from '../../../utils/quantityRequired';
+    import usesRequired from "../../../utils/usesRequired";
+    import quantityRequired from "../../../utils/quantityRequired";
 
-const actor = getContext('actor');
-const { objects } = actor;
-const { A5E } = CONFIG;
+    const actor = getContext("actor");
+    const { objects } = actor;
+    const { A5E } = CONFIG;
 
-const sortMap = A5E.reducerSortMap.objects;
-const subTypes = A5E.objectTypes;
-const reducerType = 'objects';
+    const sortMap = A5E.reducerSortMap.objects;
+    const subTypes = A5E.objectTypes;
+    const reducerType = "objects";
 
-const openCompendium = game.a5e.utils.openCompendium;
+    const openCompendium = game.a5e.utils.openCompendium;
 
-let showDescription = false;
-let showUses = usesRequired(objects);
-let showQuantity = quantityRequired(objects);
+    let showDescription = false;
+    let showUses = usesRequired(objects);
+    let showQuantity = quantityRequired(objects);
 
-$: menuList = Object.entries(subTypes);
-$: sortedObjects = Object.entries($objects._types).sort((a, b) => sortMap[a[0]] - sortMap[b[0]]);
+    $: menuList = Object.entries(subTypes);
+    $: sortedObjects = Object.entries($objects._types).sort(
+        (a, b) => sortMap[a[0]] - sortMap[b[0]],
+    );
 
-const unsubscribe = objects.subscribe((_) => {
-	showUses = usesRequired(objects);
-	showQuantity = quantityRequired(objects);
-});
+    const unsubscribe = objects.subscribe((_) => {
+        showUses = usesRequired(objects);
+        showQuantity = quantityRequired(objects);
+    });
 
-onDestroy(() => {
-	unsubscribe();
-});
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 {#if $actor.isOwner}
@@ -53,7 +55,7 @@ onDestroy(() => {
         <CreateMenu {reducerType} {menuList} />
 
         <button
-            class="a5e-import-from-compendium-button fa-solid fa-download"
+            class="a5e-import-from-compendium-button icon fa-solid fa-download"
             on:click={() => openCompendium($actor, "inventory")}
             data-tooltip="Import Items from Compendium"
             data-tooltip-direction="UP"

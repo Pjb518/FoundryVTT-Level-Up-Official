@@ -42,7 +42,9 @@
         if (!actionId || $doc.documentName !== "Item") return;
 
         const action = $doc.actions.get(actionId);
-        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
+        const updatedEffects = [...action.effects].filter(
+            (id) => id !== effectId,
+        );
 
         $doc.update({
             [`system.actions.${actionId}.effects`]: updatedEffects,
@@ -55,7 +57,10 @@
 
         dragData.parentId = effect?.parent?.id;
 
-        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     const doc = getContext("actor") ?? getContext("item");
@@ -114,7 +119,7 @@
                     data-tooltip="A5E.effects.types.singular.temporary"
                     data-tooltip-direction="UP"
                 >
-                    <i class="fa-solid fa-hourglass-half" />
+                    <i class="icon fa-solid fa-hourglass-half" />
                 </div>
             </div>
         {/if}
@@ -122,7 +127,7 @@
         <div class="button-wrapper">
             {#if allowTransfer}
                 <button
-                    class="effect-button fa-regular fa-circle-down"
+                    class="effect-button icon fa-regular fa-circle-down"
                     data-tooltip="A5E.effects.applyToActor"
                     data-tooltip-direction="UP"
                     on:click={() => effect.transferEffect($doc.parent)}
@@ -131,7 +136,7 @@
 
             {#if $doc.documentName === "Actor"}
                 <button
-                    class="effect-button effect-button--active-toggle fas"
+                    class="effect-button effect-button--active-toggle icon fas"
                     class:fa-toggle-off={effect.isSuppressed}
                     class:fa-toggle-on={!effect.isSuppressed}
                     class:active={!effect.isSuppressed}
@@ -153,12 +158,12 @@
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <div class="track" on:click|stopPropagation>
-                <i class="track-icon fa-solid fa-ellipsis-vertical" />
+                <i class="track-icon icon fa-solid fa-ellipsis-vertical" />
 
                 <ul class="track-items">
                     <li>
                         <button
-                            class="action-button fas fa-cog"
+                            class="action-button icon fas fa-cog"
                             data-tooltip="A5E.ButtonToolTipConfigure"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onConfigure}
@@ -167,7 +172,7 @@
 
                     <li>
                         <button
-                            class="action-button fa-solid fa-clone"
+                            class="action-button icon fa-solid fa-clone"
                             data-tooltip="A5E.ButtonToolTipDuplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onDuplicate}
@@ -176,7 +181,7 @@
 
                     <li>
                         <button
-                            class="action-button delete-button fas fa-trash"
+                            class="action-button delete-button icon fas fa-trash"
                             data-tooltip="A5E.ButtonToolTipDelete"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onDelete}

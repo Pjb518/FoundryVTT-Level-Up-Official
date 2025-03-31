@@ -32,7 +32,7 @@
                 aria-label="Delete"
                 class="message-delete a5e-chat-card__header__button--delete"
             >
-                <i class="fas fa-trash" />
+                <i class="icon fas fa-trash" />
             </a>
         {/if}
     </span>

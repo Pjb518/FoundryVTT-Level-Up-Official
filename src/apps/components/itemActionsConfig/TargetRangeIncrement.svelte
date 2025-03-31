@@ -89,7 +89,7 @@ $: selected = isStandardRange(range) ? range : 'other';
 <RadioGroup
     buttons={[
         {
-            classes: "fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            classes: "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
             handler: deleteRangeIncrement,
             tooltip: "Delete Range Increment",
         },

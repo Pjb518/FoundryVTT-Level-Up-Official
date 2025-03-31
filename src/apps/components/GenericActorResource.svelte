@@ -111,12 +111,16 @@
                 placeholder={localize(`A5E.Resources${source.capitalize()}`)}
                 disabled={sheetIsLocked}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($actor, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        target.value,
+                    )}
             />
 
             {#if !sheetIsLocked && !isClassResource}
                 <button class="resource-setting" on:click={configureResource}>
-                    <i class="fas fa-gear" />
+                    <i class="icon fas fa-gear" />
                 </button>
             {/if}
 
@@ -127,7 +131,7 @@
                     data-tooltip-direction="UP"
                     on:click={() => $actor.rechargeGenericResource(source)}
                 >
-                    <i class="fas fa-dice" />
+                    <i class="icon fas fa-dice" />
                 </button>
             {/if}
         </header>
@@ -135,7 +139,7 @@
         <div class="resource-value-container">
             {#if resource.hideMax}
                 <button
-                    class="a5e-button resource-btn fas fa-minus"
+                    class="a5e-button resource-btn icon fas fa-minus"
                     type="button"
                     disabled={resource.value === 0}
                     on:click={decrementResource}
@@ -154,7 +158,7 @@
 
             {#if resource.hideMax}
                 <button
-                    class="a5e-button resource-btn fas fa-plus"
+                    class="a5e-button resource-btn icon fas fa-plus"
                     type="button"
                     on:click={incrementResource}
                 />
@@ -164,7 +168,10 @@
                 <input
                     type="number"
                     name="system.resources.{source}.max"
-                    value={getDeterministicBonus(resource.max ?? 0, $actor.getRollData())}
+                    value={getDeterministicBonus(
+                        resource.max ?? 0,
+                        $actor.getRollData(),
+                    )}
                     class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
                     placeholder="0"
                     disabled

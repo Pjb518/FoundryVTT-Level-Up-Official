@@ -34,7 +34,8 @@
                 actor.getRollData(),
             ) ?? 0;
 
-        const otherHpBonuses = allHpBonuses - hpBonusPerLevel * actor.levels.character;
+        const otherHpBonuses =
+            allHpBonuses - hpBonusPerLevel * actor.levels.character;
 
         const tempBonuses = actor.system.attributes.hp.bonus;
 
@@ -79,9 +80,10 @@
 
                 <button
                     class="slug-reset-button"
-                    on:click={() => updateDocumentDataFromField($item, "system.slug", "")}
+                    on:click={() =>
+                        updateDocumentDataFromField($item, "system.slug", "")}
                 >
-                    <i class="fas fa-solid fa-rotate-left" />
+                    <i class="icon fas fa-solid fa-rotate-left" />
                 </button>
             </div>
         </FieldWrapper>
@@ -105,7 +107,10 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="Max Class Level" --a5e-field-wrapper-header-gap="0.5rem">
+        <FieldWrapper
+            heading="Max Class Level"
+            --a5e-field-wrapper-header-gap="0.5rem"
+        >
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
@@ -127,7 +132,11 @@
             options={hitDiceSize}
             selected={$item.system.hp.hitDiceSize}
             on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField($item, "system.hp.hitDiceSize", detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.hp.hitDiceSize",
+                    detail,
+                )}
         />
 
         {#if $item.actor}
@@ -320,7 +329,11 @@
                 type="text"
                 value={$item.system.wealth}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($item, "system.wealth", target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.wealth",
+                        target.value,
+                    )}
             />
         </FieldWrapper>
     </Section>

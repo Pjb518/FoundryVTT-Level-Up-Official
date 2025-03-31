@@ -490,7 +490,7 @@
 
             {#if isGM}
                 <button
-                    class="sheet-lock fas {partyIsLocked
+                    class="sheet-lock icon fas {partyIsLocked
                         ? 'sheet-lock--locked fa-lock'
                         : 'fa-unlock'}"
                     on:click={togglePartyLock}

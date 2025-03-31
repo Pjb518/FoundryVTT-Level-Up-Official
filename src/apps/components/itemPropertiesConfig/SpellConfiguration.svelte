@@ -15,7 +15,10 @@
     function prepareSpellComponents(item) {
         return Object.entries(item.system.components)
             .filter(([_, state]) => state)
-            .map(([component]) => spellComponentAbbreviations[component] ?? component)
+            .map(
+                ([component]) =>
+                    spellComponentAbbreviations[component] ?? component,
+            )
             .join(", ");
     }
 
@@ -42,7 +45,10 @@
     } = CONFIG.A5E;
 
     let editMode = false;
-    let showVRCPsionicDisciplines = game.settings.get("a5e", "showVRCPsionicDisciplines");
+    let showVRCPsionicDisciplines = game.settings.get(
+        "a5e",
+        "showVRCPsionicDisciplines",
+    );
 
     $: selectedSpellComponents = prepareSpellComponents($item);
     $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
@@ -52,7 +58,7 @@
     heading="A5E.TabSpellConfiguration"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -67,7 +73,11 @@
             options={Object.entries(classSpellLists)}
             selected={$item.system.classes}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.classes", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.classes",
+                    event.detail,
+                )}
         />
 
         <RadioGroup
@@ -75,7 +85,11 @@
             options={objectEntriesNumberKeyConverter(spellLevels)}
             selected={$item.system.level}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.level", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.level",
+                    event.detail,
+                )}
         />
 
         <RadioGroup
@@ -96,7 +110,11 @@
                 options={Object.entries(psionicDisciplines)}
                 selected={$item.system.discipline}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.discipline", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.discipline",
+                        event.detail,
+                    )}
             />
         {/if}
 
@@ -140,17 +158,28 @@
                     name="system.materials"
                     value={$item.system.materials}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </FieldWrapper>
         {/if}
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <Checkbox
                 label="A5E.SpellConcentration"
                 checked={$item.system.concentration}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.concentration", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.concentration",
+                        detail,
+                    );
                 }}
             />
 
@@ -158,7 +187,11 @@
                 label="A5E.ItemPrepared"
                 checked={$item.system.prepared}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField($item, "system.prepared", detail);
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.prepared",
+                        detail,
+                    );
                 }}
             />
 
@@ -182,7 +215,11 @@
                     label="A5E.SpellRitual"
                     checked={$item.system.ritual}
                     on:updateSelection={({ detail }) => {
-                        updateDocumentDataFromField($item, "system.ritual", detail);
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.ritual",
+                            detail,
+                        );
                     }}
                 />
             {/if}
@@ -196,7 +233,10 @@
             />
         </Section>
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper>
                 <Checkbox
                     label="A5E.RequiresBloodied"
@@ -252,8 +292,9 @@
                         </dt>
 
                         <dd class="summary-list__value">
-                            {localize(psionicDisciplines[$item.system.discipline]) ||
-                                localize("A5E.None")}
+                            {localize(
+                                psionicDisciplines[$item.system.discipline],
+                            ) || localize("A5E.None")}
                         </dd>
                     </div>
                 {/if}

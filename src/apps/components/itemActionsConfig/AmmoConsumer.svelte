@@ -28,9 +28,15 @@
 
     $: ammunitionItems = $item.actor
         ? $item.actor.items
-              .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
+              .filter(
+                  (i) =>
+                      i.type === "object" &&
+                      i.system.objectType === "ammunition",
+              )
               .map((i) => ({ name: i.name, id: i.id }))
-              .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+              .sort((a, b) =>
+                  a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+              )
         : [];
 </script>
 
@@ -38,7 +44,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-trash",
+            classes: "icon fa-solid fa-trash",
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
@@ -94,7 +100,10 @@
     </FieldWrapper>
 
     {#if $item.actor}
-        <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper
+            heading="A5E.ItemQuantity"
+            --a5e-field-wrapper-width="7.5rem"
+        >
             <input
                 type="number"
                 d-type="Number"

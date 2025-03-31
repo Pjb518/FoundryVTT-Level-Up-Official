@@ -18,7 +18,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-trash",
+            classes: "icon fa-solid fa-trash",
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
@@ -48,7 +48,10 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="Default Consumption Amount" --a5e-field-wrapper-width="14rem">
+<FieldWrapper
+    heading="Default Consumption Amount"
+    --a5e-field-wrapper-width="14rem"
+>
     <input
         type="number"
         d-type="Number"

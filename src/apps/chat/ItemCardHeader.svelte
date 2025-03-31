@@ -69,16 +69,17 @@
         <span class="a5e-chat-card__header__buttons">
             {#if showCritDamageToggle}
                 <button
-                    class="a5e-chat-card__header__button--crit-toggle fa-solid fa-bullseye"
+                    class="a5e-chat-card__header__button--crit-toggle icon fa-solid fa-bullseye"
                     class:a5e-chat-card__header__button--crit-toggle--crit={critDamageEnabled}
                     data-tooltip="Toggle Critical Damage"
                     data-tooltip-direction="LEFT"
-                    on:click|stopPropagation={() => dispatch("toggleCriticalDamage")}
+                    on:click|stopPropagation={() =>
+                        dispatch("toggleCriticalDamage")}
                 />
             {/if}
 
             <button
-                class="a5e-chat-card__header__button--repeat fas fa-undo"
+                class="a5e-chat-card__header__button--repeat fas icon fa-undo"
                 data-tooltip="Repeat Roll"
                 data-tooltip-direction="LEFT"
                 on:click={() => dispatch("repeatCard")}
@@ -90,7 +91,7 @@
                     aria-label="Delete"
                     class="message-delete a5e-chat-card__header__button--delete"
                 >
-                    <i class="fas fa-trash" />
+                    <i class="icon fas fa-trash" />
                 </a>
             {/if}
         </span>

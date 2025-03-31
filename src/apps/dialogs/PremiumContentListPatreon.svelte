@@ -21,7 +21,7 @@
         target="_blank"
     >
         <i
-            class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
+            class="tier-indicator tier-indicator--bronze icon fa-solid fa-circle"
             data-tooltip="This tool is available to bronze tier patrons"
         /> 5e → A5e Converter
     </a>
@@ -48,7 +48,7 @@
         target="_blank"
     >
         <i
-            class="tier-indicator tier-indicator--bronze fa-solid fa-circle"
+            class="tier-indicator tier-indicator--bronze icon fa-solid fa-circle"
             data-tooltip="This tool is available to bronze tier patrons"
         /> Encounter Builder
     </a>
@@ -74,7 +74,7 @@
         target="_blank"
     >
         <i
-            class="tier-indicator tier-indicator--silver fa-solid fa-circle"
+            class="tier-indicator tier-indicator--silver icon fa-solid fa-circle"
             data-tooltip="This tool is available to silver tier patrons"
         />
         Flanking Automation

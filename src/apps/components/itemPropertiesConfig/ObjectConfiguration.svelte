@@ -24,7 +24,7 @@
     heading="A5E.TabObjectProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -38,7 +38,11 @@
             options={Object.entries(A5E.objectTypes)}
             selected={$item.system.objectType}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.objectType", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.objectType",
+                    event.detail,
+                )}
         />
 
         <RadioGroup
@@ -46,7 +50,11 @@
             options={Object.entries(A5E.itemRarity)}
             selected={$item.system.rarity}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.rarity", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.rarity",
+                    event.detail,
+                )}
         />
 
         {#if showVRCTechLevel}
@@ -55,11 +63,18 @@
                 options={Object.entries(A5E.itemTechLevels)}
                 selected={$item.system.techLevel}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.techLevel", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.techLevel",
+                        event.detail,
+                    )}
             />
         {/if}
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <Checkbox
                 label="A5E.AttunementRequiredPrompt"
                 checked={$item.system.requiresAttunement}
@@ -76,7 +91,11 @@
                     label="A5E.AttunementPrompt"
                     checked={$item.system.attuned}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField($item, "system.attuned", detail)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.attuned",
+                            detail,
+                        )}
                 />
             {/if}
 
@@ -85,14 +104,22 @@
                     label="A5E.PlotItem"
                     checked={$item.system.plotItem}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField($item, "system.plotItem", detail)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.plotItem",
+                            detail,
+                        )}
                 />
 
                 <Checkbox
                     label="A5E.ItemUnidentified"
                     checked={$item.system.unidentified}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField($item, "system.unidentified", detail)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.unidentified",
+                            detail,
+                        )}
                 />
             {/if}
 
@@ -101,7 +128,11 @@
                     label="A5E.Supply"
                     checked={$item.system.supply}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField($item, "system.supply", detail)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.supply",
+                            detail,
+                        )}
                 />
             {/if}
 
@@ -110,7 +141,11 @@
                     label="A5E.Implant"
                     checked={$item.system.implant}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField($item, "system.implant", detail)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.implant",
+                            detail,
+                        )}
                 />
             {/if}
         </Section>
@@ -124,7 +159,11 @@
                     value={$item.system.attunementHint}
                     id={`${appId}-attunementHint`}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </FieldWrapper>
         {/if}
@@ -202,7 +241,11 @@
                     id={`${appId}-price`}
                     value={$item.system.price}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </div>
         </FieldWrapper>
@@ -215,7 +258,11 @@
                 value={$item.system.craftingComponents}
                 id={`${appId}-craftingComponents`}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField($item, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
             />
         </FieldWrapper>
 
@@ -237,20 +284,26 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ObjectTypePrompt")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {A5E.objectTypes[$item.system.objectType] ?? localize("A5E.None")}
+                    {A5E.objectTypes[$item.system.objectType] ??
+                        localize("A5E.None")}
                 </dd>
             </div>
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemRarity")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(A5E.itemRarity[$item.system.rarity] ?? $item.system.rarity)}
+                    {localize(
+                        A5E.itemRarity[$item.system.rarity] ??
+                            $item.system.rarity,
+                    )}
                 </dd>
             </div>
 
             {#if showVRCTechLevel}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.ItemTechnologyLevel")}:</dt>
+                    <dt class="u-text-bold">
+                        {localize("A5E.ItemTechnologyLevel")}:
+                    </dt>
                     <dd class="u-m-0 u-p-0">
                         {localize(
                             A5E.itemTechLevels[$item.system.techLevel] ??
@@ -267,7 +320,9 @@
                         {localize("A5E.AttunementRequired")}
 
                         ({localize(
-                            $item.system.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
+                            $item.system.attuned
+                                ? "A5E.Attuned"
+                                : "A5E.AttunedNot",
                         )})
                     {:else}
                         {localize("A5E.AttunementNotRequired")}
@@ -277,7 +332,9 @@
 
             {#if $item.system.attunementHint !== ""}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.AttunementHint")}:</dt>
+                    <dt class="u-text-bold">
+                        {localize("A5E.AttunementHint")}:
+                    </dt>
                     <dd class="u-m-0 u-p-0">
                         {$item.system.attunementHint}
                     </dd>
@@ -317,7 +374,8 @@
                         {localize("A5E.CraftingComponents")}:
                     </dt>
                     <dd class="u-m-0 u-p-0">
-                        {$item.system.craftingComponents ?? localize("A5E.None")}
+                        {$item.system.craftingComponents ??
+                            localize("A5E.None")}
                     </dd>
                 </div>
             {/if}

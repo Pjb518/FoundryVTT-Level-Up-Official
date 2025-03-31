@@ -1,16 +1,18 @@
 <script>
-import prepareExpertiseDiceOptions from '../dataPreparationHelpers/prepareExpertiseDiceOptions';
+    import prepareExpertiseDiceOptions from "../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
-import RadioGroup from './RadioGroup.svelte';
+    import RadioGroup from "./RadioGroup.svelte";
 
-export let type = 'character';
-export let selected;
-export let source = '';
+    export let type = "character";
+    export let selected;
+    export let source = "";
 
-const options = prepareExpertiseDiceOptions(type);
-const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
+    const options = prepareExpertiseDiceOptions(type);
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
-$: buttons = source.length ? [{ classes: 'fas fa-question-circle', tooltip: source }] : [];
+    $: buttons = source.length
+        ? [{ classes: "icon fas fa-question-circle", tooltip: source }]
+        : [];
 </script>
 
 {#if !hideExpertiseDice}

@@ -1,51 +1,53 @@
 <script>
-import { createEventDispatcher, onDestroy } from 'svelte';
+    import { createEventDispatcher, onDestroy } from "svelte";
 
-import PartyViewerAttributesSummary from './PartyViewerAttributesSummary.svelte';
-import PartyViewerCoreSummary from './PartyViewerCoreSummary.svelte';
-import PartyViewerLanguagesSummary from './PartyViewerLanguagesSummary.svelte';
-import PartyViewerResourceSummary from './PartyViewerResourceSummary.svelte';
-import PartyViewerWealthSummary from './PartyViewerWealthSummary.svelte';
+    import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
+    import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
+    import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
+    import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
+    import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
-export let actor;
-export let currentViewMode = 'core';
-export let highestPassiveScores = {};
-export let highestSpellSlotLevel = 0;
-export let partyHasArtifactCharges = true;
-export let partyHasExertionPool = true;
-export let partyHasInspiration = false;
-export let partyHasSpellPointPool = true;
-export let partyIsLocked = false;
-export let showActorImagesInPartyViewer = true;
+    export let actor;
+    export let currentViewMode = "core";
+    export let highestPassiveScores = {};
+    export let highestSpellSlotLevel = 0;
+    export let partyHasArtifactCharges = true;
+    export let partyHasExertionPool = true;
+    export let partyHasInspiration = false;
+    export let partyHasSpellPointPool = true;
+    export let partyIsLocked = false;
+    export let showActorImagesInPartyViewer = true;
 
-function getViewModeComponent(viewMode) {
-	switch (viewMode) {
-		case 'attributes':
-			return PartyViewerAttributesSummary;
-		case 'core':
-			return PartyViewerCoreSummary;
-		case 'languages':
-			return PartyViewerLanguagesSummary;
-		case 'resources':
-			return PartyViewerResourceSummary;
-		case 'wealth':
-			return PartyViewerWealthSummary;
-		default:
-			return PartyViewerCoreSummary;
-	}
-}
+    function getViewModeComponent(viewMode) {
+        switch (viewMode) {
+            case "attributes":
+                return PartyViewerAttributesSummary;
+            case "core":
+                return PartyViewerCoreSummary;
+            case "languages":
+                return PartyViewerLanguagesSummary;
+            case "resources":
+                return PartyViewerResourceSummary;
+            case "wealth":
+                return PartyViewerWealthSummary;
+            default:
+                return PartyViewerCoreSummary;
+        }
+    }
 
-const actorId = $actor.uuid;
-const dispatch = createEventDispatcher();
-const { isGM } = game.user;
+    const actorId = $actor.uuid;
+    const dispatch = createEventDispatcher();
+    const { isGM } = game.user;
 
-const unsubscribe = actor.subscribe((_) => dispatch('actor-updated', actorId));
+    const unsubscribe = actor.subscribe((_) =>
+        dispatch("actor-updated", actorId),
+    );
 
-$: viewComponent = getViewModeComponent(currentViewMode);
+    $: viewComponent = getViewModeComponent(currentViewMode);
 
-onDestroy(() => {
-	unsubscribe();
-});
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <li
@@ -74,7 +76,7 @@ onDestroy(() => {
     {#if isGM && !partyIsLocked}
         <span class="delete-wrapper">
             <button
-                class="a5e-button a5e-button--delete delete-button fas fa-trash"
+                class="a5e-button a5e-button--delete delete-button icon fas fa-trash"
                 data-tooltip="Remove Actor from the Party"
                 data-tooltip-direction="UP"
                 on:click={() => dispatch("remove-actor", $actor.uuid)}

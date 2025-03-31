@@ -25,7 +25,7 @@
 
     <div class="u-flex u-justify-center">
         <button class="submit-button" on:click|preventDefault={onSubmit}>
-            <i class="fa-solid fa-table-list" />
+            <i class="icon fa-solid fa-table-list" />
             Create Rolltable
         </button>
     </div>

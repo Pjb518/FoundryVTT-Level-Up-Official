@@ -37,11 +37,13 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
-            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}

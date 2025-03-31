@@ -40,11 +40,13 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
-            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
@@ -75,9 +77,12 @@
                 )}
         />
 
-        <button class="a5e-scaling-button" on:click|preventDefault={onClickScalingButton}>
+        <button
+            class="a5e-scaling-button"
+            on:click|preventDefault={onClickScalingButton}
+        >
             <i
-                class="fa-solid fa-arrow-up-right-dots"
+                class="icon fa-solid fa-arrow-up-right-dots"
                 data-tooltip="A5E.ConfigureDamageScaling"
                 data-tooltip-direction="UP"
             />

@@ -1,27 +1,27 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
-import objectEntriesNumberKeyConverter from '../../../utils/objectEntriesNumberKeyConverter';
-import Section from '../Section.svelte';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
+    import Section from "../Section.svelte";
 
-const item = getContext('item');
-const appId = getContext('appId');
-const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
+    const item = getContext("item");
+    const appId = getContext("appId");
+    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 </script>
 
 <Section
     heading="A5E.TabManeuverProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -35,7 +35,11 @@ let editMode = false;
             options={objectEntriesNumberKeyConverter(maneuverDegrees)}
             selected={parseInt($item.system.degree, 10)}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.degree", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.degree",
+                    event.detail,
+                )}
         />
 
         {#if $item.system.degree > 0}
@@ -44,7 +48,11 @@ let editMode = false;
                 options={Object.entries(maneuverTraditions)}
                 selected={$item.system.tradition}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.tradition", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.tradition",
+                        event.detail,
+                    )}
             />
 
             <FieldWrapper>
@@ -52,7 +60,11 @@ let editMode = false;
                     label="A5E.ManeuverIsStance"
                     checked={$item.system.isStance}
                     on:updateSelection={({ detail }) => {
-                        updateDocumentDataFromField($item, "system.isStance", detail);
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.isStance",
+                            detail,
+                        );
                     }}
                 />
             </FieldWrapper>

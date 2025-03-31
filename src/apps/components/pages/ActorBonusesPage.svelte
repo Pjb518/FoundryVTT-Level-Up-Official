@@ -1,67 +1,80 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-import determineIfPropertyModifiedByEffect from '../../../utils/determineIfPropertyModifiedByEffect ';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import determineIfPropertyModifiedByEffect from "../../../utils/determineIfPropertyModifiedByEffect ";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-// function getDamageBonusSummary(damageBonus) {
-//     const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
-//     const damageType = damageTypes[damageBonus.damageType];
+    // function getDamageBonusSummary(damageBonus) {
+    //     const { damageBonusSummariesByContext, damageTypes } = CONFIG.A5E;
+    //     const damageType = damageTypes[damageBonus.damageType];
 
-//     // TODO: Granular-ize this in the future
-//     return localize(damageBonusSummariesByContext["all"], {
-//         formula: damageBonus.formula,
-//         damageType: damageType
-//             ? `${damageType.toLowerCase()} damage`
-//             : "damage",
-//     });
-// }
+    //     // TODO: Granular-ize this in the future
+    //     return localize(damageBonusSummariesByContext["all"], {
+    //         formula: damageBonus.formula,
+    //         damageType: damageType
+    //             ? `${damageType.toLowerCase()} damage`
+    //             : "damage",
+    //     });
+    // }
 
-// function getHealingBonusSummary(healingBonus) {
-//     const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
-//     const healingType = healingTypes[healingBonus.healingType];
+    // function getHealingBonusSummary(healingBonus) {
+    //     const { healingBonusSummariesByContext, healingTypes } = CONFIG.A5E;
+    //     const healingType = healingTypes[healingBonus.healingType];
 
-//     // TODO: Granular-ize this in the future
-//     return localize(
-//         healingBonusSummariesByContext[healingBonus.healingType],
-//         {
-//             formula: healingBonus.formula,
-//             healingType: healingType
-//                 ? `${healingType.toLowerCase()} healing`
-//                 : "healing",
-//         },
-//     );
-// }
+    //     // TODO: Granular-ize this in the future
+    //     return localize(
+    //         healingBonusSummariesByContext[healingBonus.healingType],
+    //         {
+    //             formula: healingBonus.formula,
+    //             healingType: healingType
+    //                 ? `${healingType.toLowerCase()} healing`
+    //                 : "healing",
+    //         },
+    //     );
+    // }
 
-function getBonusSectionHeader(bonusType) {
-	return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
-}
+    function getBonusSectionHeader(bonusType) {
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
+        );
+    }
 
-function getAddButtonLabelForBonus(bonusType) {
-	return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
-}
+    function getAddButtonLabelForBonus(bonusType) {
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType,
+        );
+    }
 
-function getDefaultBonusName(bonusType) {
-	return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
-}
+    function getDefaultBonusName(bonusType) {
+        return localize(
+            CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
+        );
+    }
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
+    const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
-let rightClickConfigure = game.settings.get('a5e', 'itemRightClickConfigure') ?? true;
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? true;
 
-$: disableManeuverDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.maneuverDC');
+    $: disableManeuverDC = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.maneuverDC",
+    );
 
-$: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.spellDC');
+    $: disableSpellDC = determineIfPropertyModifiedByEffect(
+        $actor,
+        "system.bonuses.spellDC",
+    );
 
-// $: grants = [...$actor.grants.values()].map(
-//     (g) => `${g.type}.${g.bonusId}`,
-// );
+    // $: grants = [...$actor.grants.values()].map(
+    //     (g) => `${g.type}.${g.bonusId}`,
+    // );
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
@@ -83,7 +96,11 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                     value={$actor.system.bonuses.maneuverDC}
                     disabled={disableManeuverDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($actor, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </FieldWrapper>
 
@@ -99,7 +116,11 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                     value={$actor.system.bonuses.spellDC}
                     disabled={disableSpellDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($actor, target.name, target.value)}
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value,
+                        )}
                 />
             </FieldWrapper>
         </div>
@@ -107,7 +128,8 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
 
     {#each bonusCategories as bonusType}
         <Section
-            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {}).length
+            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {})
+                .length
                 ? "a5e-section-header--flat-bottom"
                 : ""}
             heading={getBonusSectionHeader(bonusType)}
@@ -144,28 +166,34 @@ $: disableSpellDC = determineIfPropertyModifiedByEffect($actor, 'system.bonuses.
                             <ul class="bonus-buttons">
                                 <li>
                                     <button
-                                        class="action-button fas fa-cog"
+                                        class="action-button icon fas fa-cog"
                                         data-tooltip="A5E.ButtonToolTipConfigure"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.configureBonus(id, bonusType)}
+                                            $actor.configureBonus(
+                                                id,
+                                                bonusType,
+                                            )}
                                     />
                                 </li>
 
                                 <!-- {#if !grants.includes(`${bonusType}.${id}`)} -->
                                 <li>
                                     <button
-                                        class="action-button fa-solid fa-clone"
+                                        class="action-button icon fa-solid fa-clone"
                                         data-tooltip="A5E.ButtonToolTipDuplicate"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.duplicateBonus(id, bonusType)}
+                                            $actor.duplicateBonus(
+                                                id,
+                                                bonusType,
+                                            )}
                                     />
                                 </li>
 
                                 <li>
                                     <button
-                                        class="action-button delete-button fas fa-trash"
+                                        class="action-button delete-button icon fas fa-trash"
                                         data-tooltip="A5E.ButtonToolTipDelete"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>

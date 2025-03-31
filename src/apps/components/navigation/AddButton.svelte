@@ -1,10 +1,13 @@
 <script>
-import { createEventDispatcher, getContext } from 'svelte';
+    import { createEventDispatcher, getContext } from "svelte";
 
-const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 </script>
 
-<button class="sheet-lock fas fa-plus" on:click={() => dispatch("add-button-clicked")} />
+<button
+    class="sheet-lock icon fas fa-plus"
+    on:click={() => dispatch("add-button-clicked")}
+/>
 
 <style lang="scss">
     .sheet-lock {

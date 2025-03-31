@@ -68,11 +68,13 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
-            classes: "fas fa-trash a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
             handler: () => deletePrompt(actionId, promptId),
         },
     ]}
@@ -104,7 +106,10 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.ItemSavingThrowDC" --a5e-field-wrapper-label-width="9rem">
+    <FieldWrapper
+        heading="A5E.ItemSavingThrowDC"
+        --a5e-field-wrapper-label-width="9rem"
+    >
         <select on:change={selectSaveDCCalculationType}>
             {#each Object.entries(saveDCOptions) as [type, label]}
                 <option value={type} selected={type === prompt?.saveDC?.type}>
@@ -142,7 +147,7 @@
                     {#if saveDCIsValid}
                         {saveDC}
                     {:else}
-                        <i class="fa-solid fa-circle-exclamation" />
+                        <i class="icon fa-solid fa-circle-exclamation" />
                     {/if}
                 </span>
             {/if}

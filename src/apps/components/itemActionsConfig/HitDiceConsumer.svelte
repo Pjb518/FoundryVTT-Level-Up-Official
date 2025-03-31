@@ -27,7 +27,9 @@
         return acc;
     }, []);
 
-    const defaultSelection = availableHitDice.length ? availableHitDice[0][0] : "";
+    const defaultSelection = availableHitDice.length
+        ? availableHitDice[0][0]
+        : "";
 
     $: selected = consumer.defaultDie ?? defaultSelection;
     $: selected, updateSelection();
@@ -39,7 +41,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-trash",
+            classes: "icon fa-solid fa-trash",
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}

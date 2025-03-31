@@ -36,13 +36,13 @@ $: showResources =
         <span class="field field--inspiration">
             {#if actorData?.attributes.inspiration}
                 <i
-                    class="check fa-solid fa-circle-check"
+                    class="check icon fa-solid fa-circle-check"
                     data-tooltip="{$actor.name} has inspiration."
                     data-tooltip-direction="UP"
                 />
             {:else}
                 <i
-                    class="cross fa-solid fa-xmark"
+                    class="cross icon fa-solid fa-xmark"
                     data-tooltip="{$actor.name} does not have inspiration."
                     data-tooltip-direction="UP"
                 />
@@ -57,7 +57,7 @@ $: showResources =
                     .exertion?.max}
             {:else}
                 <i
-                    class="cross fa-solid fa-xmark"
+                    class="cross icon fa-solid fa-xmark"
                     data-tooltip="{$actor.name} does not have an exertion pool."
                     data-tooltip-direction="UP"
                 />
@@ -72,7 +72,7 @@ $: showResources =
                     ?.spellResources.artifactCharges.max}
             {:else}
                 <i
-                    class="cross fa-solid fa-xmark"
+                    class="cross icon fa-solid fa-xmark"
                     data-tooltip="{$actor.name} does not have artifact charges."
                     data-tooltip-direction="UP"
                 />
@@ -87,7 +87,7 @@ $: showResources =
                     .points.max}
             {:else}
                 <i
-                    class="cross fa-solid fa-xmark"
+                    class="cross icon fa-solid fa-xmark"
                     data-tooltip="{$actor.name} does not have a spell point pool."
                     data-tooltip-direction="UP"
                 />
@@ -108,7 +108,7 @@ $: showResources =
                             {current}
                         {:else}
                             <i
-                                class="cross fa-solid fa-xmark"
+                                class="cross icon fa-solid fa-xmark"
                                 data-tooltip="{$actor.name} has no spell slots of {localize(
                                     spellLevels[level],
                                 ).toLowerCase()}."

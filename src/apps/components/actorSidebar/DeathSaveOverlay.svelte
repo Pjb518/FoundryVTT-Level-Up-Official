@@ -22,7 +22,7 @@ $: death = $actor.system.attributes.death;
                 death.success + 1,
             )}
     >
-        <i class="fas fa-check" />
+        <i class="icon fas fa-check" />
     </button>
 
     {#if !isBlind}
@@ -49,7 +49,7 @@ $: death = $actor.system.attributes.death;
                 getKeyPressAsOptions($pressedKeysStore),
             )}
         >
-            <i class="fas fa-skull a5e-js-roll-death-saving-throw" />
+            <i class="icon fas fa-skull a5e-js-roll-death-saving-throw" />
         </button>
     </div>
 
@@ -78,7 +78,7 @@ $: death = $actor.system.attributes.death;
                 death.failure + 1,
             )}
     >
-        <i class="fas fa-times" />
+        <i class="icon fas fa-times" />
     </button>
 </div>
 

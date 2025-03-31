@@ -30,11 +30,14 @@
     let showUses = false;
 
     const unsubscribe = reducer.subscribe((_) => {
-        const spells = Object.keys(spellLevels).reduce((spellBookSpells, level) => {
-            // biome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
-            spellBookSpells.push(...$reducer?._levels[level]);
-            return spellBookSpells;
-        }, []);
+        const spells = Object.keys(spellLevels).reduce(
+            (spellBookSpells, level) => {
+                // biome-ignore lint/correctness/noUnsafeOptionalChaining: <explanation>
+                spellBookSpells.push(...$reducer?._levels[level]);
+                return spellBookSpells;
+            },
+            [],
+        );
         showUses = usesRequired(spells);
     });
 
@@ -81,7 +84,7 @@
             <CreateMenu {reducerType} {menuList} {reducer} />
 
             <button
-                class="a5e-import-from-compendium-button fa-solid fa-download"
+                class="a5e-import-from-compendium-button icon fa-solid fa-download"
                 on:click={() =>
                     openCompendium($actor, "spells", {
                         importFunction: importer,
@@ -100,7 +103,8 @@
                     {level}
                     {label}
                     {showDescription}
-                    showArtifactCharges={spellBook?.showArtifactCharges ?? false}
+                    showArtifactCharges={spellBook?.showArtifactCharges ??
+                        false}
                     showSpellPoints={spellBook?.showSpellPoints ?? false}
                     showSpellSlots={spellBook?.showSpellSlots ?? true}
                     {showUses}

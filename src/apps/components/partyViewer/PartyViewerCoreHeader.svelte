@@ -1,42 +1,42 @@
 <header class="a5e-section-header a5e-section-header--party-viewer">
     <i
-        class="heading heading--hp fa-solid fa-heart"
+        class="heading heading--hp icon fa-solid fa-heart"
         data-tooltip="Hit Points"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--ac fa-solid fa-shield"
+        class="heading heading--ac icon fa-solid fa-shield"
         data-tooltip="Armor Class"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--maneuver-dc fa-solid fa-hand-fist"
+        class="heading heading--maneuver-dc icon fa-solid fa-hand-fist"
         data-tooltip="Maneuver DC"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--spell-dc fa-solid fa-wand-sparkles"
+        class="heading heading--spell-dc icon fa-solid fa-wand-sparkles"
         data-tooltip="Spell DC"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--perception fa-solid fa-eye"
+        class="heading heading--perception icon fa-solid fa-eye"
         data-tooltip="Passive Perception"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--insight fa-solid fa-brain"
+        class="heading heading--insight icon fa-solid fa-brain"
         data-tooltip="Passive Insight"
         data-tooltip-direction="UP"
     />
 
     <i
-        class="heading heading--investigation fa-solid fa-magnifying-glass"
+        class="heading heading--investigation icon fa-solid fa-magnifying-glass"
         data-tooltip="Passive Investigation"
         data-tooltip-direction="UP"
     />

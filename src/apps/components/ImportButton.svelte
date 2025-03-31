@@ -17,13 +17,15 @@
     const collection = getContext("collection");
     const customImporter = getContext("customImporter");
     const isOwner =
-        collection.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) ||
-        game.user.isGM;
+        collection.testUserPermission(
+            game.user,
+            CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER,
+        ) || game.user.isGM;
 </script>
 
 {#if isOwner}
     <button
-        class="a5e-compendium-import-button fa-solid fa-download"
+        class="a5e-compendium-import-button icon fa-solid fa-download"
         data-tooltip={`Import ${document.name}`}
         data-tooltip-direction="UP"
         on:click|stopPropagation={async () => importDocument()}

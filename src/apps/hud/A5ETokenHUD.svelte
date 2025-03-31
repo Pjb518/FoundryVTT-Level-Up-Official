@@ -1,56 +1,61 @@
 <svelte:options accessors={true} />
 
 <script>
-import { localize } from '#runtime/util/i18n';
+    import { localize } from "#runtime/util/i18n";
 
-export let HUD;
+    export let HUD;
 
-function handleStatusEffectAdd({ id, src }, options = {}) {
-	HUD.object._addStatusEffect({ id, src }, options);
-}
+    function handleStatusEffectAdd({ id, src }, options = {}) {
+        HUD.object._addStatusEffect({ id, src }, options);
+    }
 
-function handleStatusEffectRemove({ id, src }, options = {}) {
-	HUD.object._removeStatusEffect({ id, src }, options);
-}
+    function handleStatusEffectRemove({ id, src }, options = {}) {
+        HUD.object._removeStatusEffect({ id, src }, options);
+    }
 
-const data = HUD.getData();
-const statusEffects = Object.values(data.statusEffects);
-const genericEffects = Object.values(data.genericConditions);
-const activeConditions = HUD.object._getActiveConditions();
+    const data = HUD.getData();
+    const statusEffects = Object.values(data.statusEffects);
+    const genericEffects = Object.values(data.genericConditions);
+    const activeConditions = HUD.object._getActiveConditions();
 
-const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
-	if (!c?.statuses?.length) return acc;
+    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
+        if (!c?.statuses?.length) return acc;
 
-	c.statuses.forEach((s) => {
-		acc[s] ??= [];
-		acc[s].push(c.id);
-	});
-	return acc;
-}, {});
+        c.statuses.forEach((s) => {
+            acc[s] ??= [];
+            acc[s].push(c.id);
+        });
+        return acc;
+    }, {});
 
-$: conditionImmunities = HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
+    $: conditionImmunities =
+        HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
 
-const colors = {
-	1: '#919f00',
-	2: '#a09200',
-	3: '#af8300',
-	4: '#bd7100',
-	5: '#cb5c00',
-	6: '#d63f00',
-	7: '#e00006',
-};
+    const colors = {
+        1: "#919f00",
+        2: "#a09200",
+        3: "#af8300",
+        4: "#bd7100",
+        5: "#cb5c00",
+        6: "#d63f00",
+        7: "#e00006",
+    };
 
-$: conditionsFlowDirection = game.settings.get('a5e', 'conditionFlowDirection');
+    $: conditionsFlowDirection = game.settings.get(
+        "a5e",
+        "conditionFlowDirection",
+    );
 
-$: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
-$: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
-$: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
-$: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
+    $: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
+    $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
+    $: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
+    $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
 </script>
 
 <div
     class="status-effects-container"
-    class:status-effects-container--column-flow={conditionsFlowDirection === "column"}
+    class:status-effects-container--column-flow={conditionsFlowDirection ===
+        "column"}
 >
     {#each statusEffects as effect}
         {@const linked = subConditions[effect.id]?.some((c) =>
@@ -61,9 +66,11 @@ $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
             class="condition-container {effect.cssClass}"
             class:linked
             class:locked={conditionImmunities.includes(effect.id)}
-            class:corruption-counter={effect.id === "corruption" && corruption > 0}
+            class:corruption-counter={effect.id === "corruption" &&
+                corruption > 0}
             class:fatigue-counter={effect.id === "fatigue" && fatigue > 0}
-            class:inebriated-counter={effect.id === "inebriated" && inebriated > 0}
+            class:inebriated-counter={effect.id === "inebriated" &&
+                inebriated > 0}
             class:strife-counter={effect.id === "strife" && strife > 0}
             title={effect.title ?? ""}
             data-status-id={effect.id}
@@ -110,7 +117,8 @@ $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
             class="condition-container {effect.cssClass}"
             title={effect.title ?? ""}
             data-status-id={effect.id}
-            on:click|preventDefault|stopPropagation={() => handleStatusEffectAdd(effect)}
+            on:click|preventDefault|stopPropagation={() =>
+                handleStatusEffectAdd(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
                 handleStatusEffectRemove(effect)}
         >
@@ -125,8 +133,11 @@ $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
     {/each}
 </div>
 
-<button class="clear-all-conditions" on:click={HUD?._clearAllConditions.bind(HUD)}>
-    <i class="fa-solid fa-octagon-xmark" />
+<button
+    class="clear-all-conditions"
+    on:click={HUD?._clearAllConditions.bind(HUD)}
+>
+    <i class="icon fa-solid fa-octagon-xmark" />
     {localize("A5E.UIClearAll")}
 </button>
 

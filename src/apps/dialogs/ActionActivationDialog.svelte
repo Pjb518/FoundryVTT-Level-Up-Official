@@ -206,7 +206,7 @@
         <section class="warning__wrapper">
             {#each warnings as warning}
                 <p class="warning" style="color: var(--a5e-color-warning);">
-                    <i class="fa-solid fa-circle-exclamation" />
+                    <i class="icon fa-solid fa-circle-exclamation" />
                     {warning}
                 </p>
             {/each}
@@ -330,11 +330,11 @@
         >
             {#if warnings.length}
                 <i
-                    class="fa-solid fa-circle-exclamation"
+                    class="icon fa-solid fa-circle-exclamation"
                     style="color: var(--a5e-color-warning);"
                 />
             {:else}
-                <i class="fa-solid fa-dice" />
+                <i class="icon fa-solid fa-dice" />
             {/if}
             {localize("A5E.DialogSubmitRoll")}
         </button>

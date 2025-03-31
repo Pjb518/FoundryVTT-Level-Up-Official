@@ -1,54 +1,58 @@
 <script lang="ts">
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import DropArea from '../dropAreas/DropArea.svelte';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import DropArea from "../dropAreas/DropArea.svelte";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const item: any = getContext('item');
+    const item: any = getContext("item");
 
-async function updateEquipment({ uuid }: { uuid: string }) {
-	let child: any;
-	try {
-		const doc = await Item.fromDropData({ uuid });
-		if ($item.isEmbedded) {
-			child = (await $item.actor.createEmbeddedDocuments('Item', [doc]))?.[0];
-		} else {
-			child = doc;
-		}
-	} catch (err) {
-		console.error(err);
-		return;
-	}
+    async function updateEquipment({ uuid }: { uuid: string }) {
+        let child: any;
+        try {
+            const doc = await Item.fromDropData({ uuid });
+            if ($item.isEmbedded) {
+                child = (
+                    await $item.actor.createEmbeddedDocuments("Item", [doc])
+                )?.[0];
+            } else {
+                child = doc;
+            }
+        } catch (err) {
+            console.error(err);
+            return;
+        }
 
-	if (!child || child.type !== 'object') {
-		ui.notifications.error('Document must be an Object.');
-		return;
-	}
+        if (!child || child.type !== "object") {
+            ui.notifications.error("Document must be an Object.");
+            return;
+        }
 
-	await $item.containerItems.add(child.uuid);
-	const actor = $item?.parent?.documentName === 'Actor' ? $item.parent : null;
+        await $item.containerItems.add(child.uuid);
+        const actor =
+            $item?.parent?.documentName === "Actor" ? $item.parent : null;
 
-	if (!actor) return;
-	if (actor.uuid !== $item.parent?.uuid) return;
+        if (!actor) return;
+        if (actor.uuid !== $item.parent?.uuid) return;
 
-	await child.update({ 'system.containerId': $item.uuid });
-}
+        await child.update({ "system.containerId": $item.uuid });
+    }
 
-async function deleteEquipment(uuid: string) {
-	console.log(uuid);
-	const child = await fromUuid(uuid);
-	await $item.containerItems.remove(uuid);
+    async function deleteEquipment(uuid: string) {
+        console.log(uuid);
+        const child = await fromUuid(uuid);
+        await $item.containerItems.remove(uuid);
 
-	const actor = $item?.parent?.documentName === 'Actor' ? $item.parent : null;
+        const actor =
+            $item?.parent?.documentName === "Actor" ? $item.parent : null;
 
-	if (!actor || !child) return;
-	if (actor.uuid !== $item.parent?.uuid) return;
-	await child.update({ 'system.containerId': '' });
-}
+        if (!actor || !child) return;
+        if (actor.uuid !== $item.parent?.uuid) return;
+        await child.update({ "system.containerId": "" });
+    }
 
-$: docs = Object.entries($item.system.items ?? {})
-	.map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantityOverride])
-	.filter(([, d]: any) => !!d);
+    $: docs = Object.entries($item.system.items ?? {})
+        .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantityOverride])
+        .filter(([, d]: any) => !!d);
 </script>
 
 <article>
@@ -72,7 +76,9 @@ $: docs = Object.entries($item.system.items ?? {})
                                 class="number-input"
                                 type="number"
                                 id="{doc.uuid}-quantityOverride"
-                                value={quantityOverride || doc.system.quantity || 1}
+                                value={quantityOverride ||
+                                    doc.system.quantity ||
+                                    1}
                                 min="1"
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
@@ -87,7 +93,7 @@ $: docs = Object.entries($item.system.items ?? {})
                     {/if}
 
                     <button
-                        class="a5e-button a5e-button--delete delete-button fas fa-trash"
+                        class="a5e-button a5e-button--delete delete-button icon fas fa-trash"
                         data-tooltip="A5E.ButtonToolTipDelete"
                         data-tooltip-direction="UP"
                         on:click={() => deleteEquipment(doc.uuid)}

@@ -1,17 +1,19 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import toggleSheetLockedState from '../../handlers/toggleSheetLockedState';
+    import toggleSheetLockedState from "../../handlers/toggleSheetLockedState";
 
-export let sheetIsLocked;
+    export let sheetIsLocked;
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <button
-    class="sheet-lock fas {sheetIsLocked ? 'fa-lock' : 'fa-unlock'}"
+    class="sheet-lock icon fas {sheetIsLocked ? 'fa-lock' : 'fa-unlock'}"
     on:click={({ target }) => {
         toggleSheetLockedState($actor);
         target.blur();

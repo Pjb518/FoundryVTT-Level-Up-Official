@@ -72,7 +72,7 @@ $: spellSource = getSpellSource(document);
 
         {#if document.system.rare}
             <i
-                class="a5e-item__icon fa-solid fa-sun"
+                class="a5e-item__icon icon fa-solid fa-sun"
                 data-tooltip="Rare Spell Variant"
                 data-tooltip-direction="UP"
             />

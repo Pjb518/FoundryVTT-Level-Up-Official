@@ -28,7 +28,9 @@
         if (!determineIfPropertyModifiedByEffect($actor, propertyKey))
             return $actor[dialogMethod]({ propertyKey });
 
-        ui.notifications.warn(localize("A5E.validations.warnings.modifiedByEffect"));
+        ui.notifications.warn(
+            localize("A5E.validations.warnings.modifiedByEffect"),
+        );
     }
 
     $: details = [
@@ -152,7 +154,8 @@
             {heading}
             buttons={[
                 {
-                    classes: "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
+                    classes:
+                        "icon fa-solid fa-gear a5e-field-wrapper__header-button--scale",
                     display: !sheetIsLocked,
                     handler: () => openConfig(dialogMethod, propertyKey),
                     tooltip,

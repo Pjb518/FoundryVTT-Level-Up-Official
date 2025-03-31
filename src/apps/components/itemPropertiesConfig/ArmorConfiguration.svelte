@@ -47,7 +47,12 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
-    const { armor: armorTypes, armorProperties, armorMods, repairTools } = CONFIG.A5E;
+    const {
+        armor: armorTypes,
+        armorProperties,
+        armorMods,
+        repairTools,
+    } = CONFIG.A5E;
 
     let editMode = false;
 
@@ -61,7 +66,7 @@
     heading="Armor Configuration"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -75,7 +80,11 @@
             options={Object.entries(armorTypes)}
             selected={$item.system.armorCategory}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.armorCategory", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.armorCategory",
+                    event.detail,
+                )}
         />
 
         <CheckboxGroup
@@ -95,7 +104,11 @@
             options={Object.entries(armorMods)}
             selected={$item.system.armorMods}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.armorMods", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.armorMods",
+                    event.detail,
+                )}
         />
 
         <Section --a5e-section-body-direction="row">

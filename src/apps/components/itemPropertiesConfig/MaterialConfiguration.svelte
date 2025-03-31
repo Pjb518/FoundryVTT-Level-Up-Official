@@ -23,7 +23,7 @@
     heading="A5E.MaterialProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -50,7 +50,11 @@
                 options={Object.entries(flaws)}
                 selected={$item.system.flaws}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.flaws", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.flaws",
+                        event.detail,
+                    )}
             />
         {/if}
 
@@ -60,7 +64,11 @@
                 options={Object.entries(modPorts)}
                 selected={$item.system.modPorts}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.modPorts", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.modPorts",
+                        event.detail,
+                    )}
             />
         {/if}
     {:else}

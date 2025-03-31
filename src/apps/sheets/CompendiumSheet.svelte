@@ -168,7 +168,9 @@
                         on:click={() =>
                             (includeDescriptions = !includeDescriptions)}
                     >
-                        <i class="a5efc-filter-button__icon fa-solid fa-book" />
+                        <i
+                            class="a5efc-filter-button__icon icon fa-solid fa-book"
+                        />
                     </button>
                 {/if}
 
@@ -183,7 +185,7 @@
                         on:click={() => (enableGrouping = !enableGrouping)}
                     >
                         <i
-                            class="a5efc-filter-button__icon fa-solid fa-bars-staggered"
+                            class="a5efc-filter-button__icon icon fa-solid fa-bars-staggered"
                         />
                     </button>
                 {/if}
@@ -199,7 +201,7 @@
                             on:click={() => exportToRollTable()}
                         >
                             <i
-                                class="a5efc-filter-button__icon fa-solid fa-table-list"
+                                class="a5efc-filter-button__icon icon fa-solid fa-table-list"
                             />
                         </button>
                     {:else if compendiumType === "spell" || compendiumType === "maneuver"}
@@ -211,7 +213,7 @@
                             on:click={() => exportToActor()}
                         >
                             <i
-                                class="a5efc-filter-button__icon fa-solid fa-download"
+                                class="a5efc-filter-button__icon icon fa-solid fa-download"
                             />
                         </button>
                     {/if}
@@ -232,7 +234,9 @@
                         tab = tab === "items" ? "filters" : "items";
                     }}
                 >
-                    <i class="a5efc-filter-button__icon fa-solid fa-filter" />
+                    <i
+                        class="a5efc-filter-button__icon icon fa-solid fa-filter"
+                    />
                 </button>
             {/if}
         </div>

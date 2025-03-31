@@ -58,7 +58,10 @@
         }
 
         const checkBonus = getDeterministicBonus(
-            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
+            $actor.BonusesManager.getAbilityBonusesFormula(
+                skill.ability,
+                "check",
+            ),
             $actor.getRollData(),
         );
         return skillBonus - checkBonus;
@@ -84,12 +87,14 @@
 
 <li class="skill" class:skill--column-flow={columnFlow}>
     <button
-        class="skill__proficiency-icon"
+        class="skill__proficiency-icon icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
-        class:skill__proficiency-icon--expertise={proficiencyLevel === "expertise"}
+        class:skill__proficiency-icon--expertise={proficiencyLevel ===
+            "expertise"}
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
-        class:skill__proficiency-icon--proficient={proficiencyLevel === "proficient"}
+        class:skill__proficiency-icon--proficient={proficiencyLevel ===
+            "proficient"}
         class:skill__proficiency-icon--locked={sheetIsLocked}
         class:fa-award={proficiencyLevel === "expertise"}
         class:fa-star-half-stroke={proficiencyLevel === "jack"}
@@ -101,7 +106,7 @@
 
     <button
         for="{$actor.id}-{key}-proficient"
-        class="fa-solid fa-dice-d20 skill__roll-icon"
+        class="icon fa-solid fa-dice-d20 skill__roll-icon"
         class:skill__roll-icon--shift={$pressedKeysStore.Shift}
         class:skill__roll-icon--ctrl={$pressedKeysStore.Control}
     />
@@ -110,7 +115,10 @@
     <h3
         class="skill__name"
         class:disable-pointer-events={!$actor.isOwner}
-        on:click={$actor.rollSkillCheck(key, getKeyPressAsOptions($pressedKeysStore))}
+        on:click={$actor.rollSkillCheck(
+            key,
+            getKeyPressAsOptions($pressedKeysStore),
+        )}
     >
         {skills[key]}
 
@@ -143,7 +151,7 @@
 
     {#if !sheetIsLocked}
         <button
-            class="fas fa-cog skill__config-button"
+            class="icon fas fa-cog skill__config-button"
             data-tooltip={localize("A5E.SkillConfigurationTooltip", {
                 skill: skills[key],
             })}

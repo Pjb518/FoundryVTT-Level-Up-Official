@@ -3,7 +3,10 @@
 
     const actor = getContext("actor");
 
-    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
+    let replaceFatigueAndStrife = game.settings.get(
+        "a5e",
+        "replaceFatigueAndStrife",
+    );
 </script>
 
 <div
@@ -16,7 +19,7 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <i
-        class="rest__icon fas fa-campfire"
+        class="rest__icon icon fas fa-campfire"
         class:disable-pointer-events={!$actor.isOwner}
         on:click={() => $actor.triggerRest()}
     />

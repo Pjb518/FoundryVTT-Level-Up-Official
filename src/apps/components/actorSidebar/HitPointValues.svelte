@@ -41,7 +41,10 @@
     <div class="hp-container">
         {#each hpFields as { key, label, value }}
             <div class="a5e-details-box">
-                <label class="a5e-details-box__label" for="{$actor.id}-hp-{key}">
+                <label
+                    class="a5e-details-box__label"
+                    for="{$actor.id}-hp-{key}"
+                >
                     {label}
                 </label>
 
@@ -69,7 +72,7 @@
 {:else}
     <div class="hp-config__container">
         <button class="a5e-button" on:click={() => $actor.configureHealth()}>
-            <i class="fas fa-gear" />
+            <i class="icon fas fa-gear" />
             {localize("A5E.HitPointsConfigurationTooltip")}
         </button>
     </div>

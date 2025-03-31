@@ -10,12 +10,15 @@
 </script>
 
 <button class="save-prompt" on:click={() => dispatch("triggerPrompt")}>
-    <div class="icon-wrapper" class:icon-wrapper--effect={prompt.type === "effect"}>
+    <div
+        class="icon-wrapper"
+        class:icon-wrapper--effect={prompt.type === "effect"}
+    >
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />
         {:else}
             <i
-                class="die fa-solid fa-dice-d20"
+                class="die icon fa-solid fa-dice-d20"
                 class:die--generic-prompt={prompt.type === "generic"}
             />
         {/if}

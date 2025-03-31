@@ -72,7 +72,7 @@
 
 {#if rollData.type === "damage"}
     <div class="damage-menu">
-        <i class="damage-menu__button fa-heart-circle-minus fa-solid" />
+        <i class="damage-menu__button icon fa-heart-circle-minus fa-solid" />
 
         <ol class="damage-buttons">
             {#each damageButtons as { label, multiplier, temp, icon }}
@@ -84,7 +84,7 @@
                         applyDamage(rollData.damageType, multiplier, temp)}
                 >
                     <span>{label}</span>
-                    <i class="fa-solid {icon} button__icon" />
+                    <i class="icon fa-solid {icon} button__icon" />
                 </li>
             {/each}
         </ol>
@@ -96,7 +96,7 @@
         data-tooltip-direction="LEFT"
         on:click|stopPropagation={() => applyHealing(rollData.healingType)}
     >
-        <i class="fa-solid fa-heart-circle-bolt button__icon" />
+        <i class="icon fa-solid fa-heart-circle-bolt button__icon" />
     </button>
 {:else if rollData.healingType === "healing"}
     <button
@@ -105,7 +105,7 @@
         data-tooltip-direction="LEFT"
         on:click|stopPropagation={() => applyHealing(rollData.healingType)}
     >
-        <i class="fa-solid fa-heart-circle-plus button__icon" />
+        <i class="icon fa-solid fa-heart-circle-plus button__icon" />
     </button>
 {/if}
 

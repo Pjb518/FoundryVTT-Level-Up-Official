@@ -1,25 +1,25 @@
 <script lang="ts">
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const item: any = getContext('item');
-const { A5E } = CONFIG;
+    const item: any = getContext("item");
+    const { A5E } = CONFIG;
 
-let editMode = false;
+    let editMode = false;
 </script>
 
 <Section
     heading="A5E.TabContainerProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -33,7 +33,11 @@ let editMode = false;
             options={Object.entries(A5E.capacityTypes)}
             selected={$item.system.capacity.type}
             on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField($item, "system.capacity.type", detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.capacity.type",
+                    detail,
+                )}
         />
 
         <FieldWrapper heading="Max Capacity">

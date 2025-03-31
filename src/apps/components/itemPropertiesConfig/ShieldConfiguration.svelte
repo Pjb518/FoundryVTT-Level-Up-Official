@@ -1,26 +1,26 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import localeSort from '../../../utils/localeSort';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import localeSort from "../../../utils/localeSort";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-const item = getContext('item');
+    const item = getContext("item");
 
-let editMode = false;
+    let editMode = false;
 
-const { shieldTypes, shieldProperties } = CONFIG.A5E;
+    const { shieldTypes, shieldProperties } = CONFIG.A5E;
 </script>
 
 <Section
     heading="A5E.ShieldConfiguration"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -34,7 +34,11 @@ const { shieldTypes, shieldProperties } = CONFIG.A5E;
             options={Object.entries(shieldTypes)}
             selected={$item.system.shieldCategory}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.shieldCategory", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.shieldCategory",
+                    event.detail,
+                )}
         />
 
         <CheckboxGroup

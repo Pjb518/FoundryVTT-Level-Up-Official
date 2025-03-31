@@ -49,7 +49,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes: "fa-solid fa-trash",
+            classes: "icon fa-solid fa-trash",
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}

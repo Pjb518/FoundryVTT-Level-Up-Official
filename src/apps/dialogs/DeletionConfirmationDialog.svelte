@@ -39,12 +39,12 @@
 
     <div class="button-container">
         <button on:click|preventDefault={() => onSubmit()}>
-            <i class="fa-solid fa-trash" />
+            <i class="icon fa-solid fa-trash" />
             {`Delete ${itemDocument.type.capitalize()}`}
         </button>
 
         <button on:click|preventDefault={() => onCancelDeletion()}>
-            <i class="fa-solid fa-ban" />
+            <i class="icon fa-solid fa-ban" />
             Cancel Deletion
         </button>
     </div>

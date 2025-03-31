@@ -124,7 +124,7 @@
     {/if}
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
-        <i class="fas fa-campground" />
+        <i class="icon fas fa-campground" />
         {localize("A5E.Rest")}
     </button>
 </form>

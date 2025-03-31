@@ -32,7 +32,7 @@ const dispatch = createEventDispatcher();
 <FieldWrapper>
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <div class="drop-area" on:drop|preventDefault|stopPropagation={onDrop}>
-        <i class="drop-icon fa-sold fa-plus" />
+        <i class="drop-icon icon fa-sold fa-plus" />
     </div>
 </FieldWrapper>
 

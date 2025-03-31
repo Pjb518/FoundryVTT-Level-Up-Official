@@ -123,13 +123,13 @@
         <button class="submit" on:click|preventDefault={() => onSubmit()}>
             {#if reload}
                 <i
-                    class="fa-solid fa-circle-exclamation"
+                    class="icon fa-solid fa-circle-exclamation"
                     style="color: var(--a5e-color-warning)"
                     data-tooltip={localize("A5E.settings.reload")}
                     data-tooltip-direction="UP"
                 />
             {:else}
-                <i class="fas fa-save" />
+                <i class="icon fas fa-save" />
             {/if}
             {localize("A5E.SaveSubmit")}
         </button>

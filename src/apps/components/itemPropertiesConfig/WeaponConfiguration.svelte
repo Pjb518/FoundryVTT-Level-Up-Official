@@ -23,15 +23,19 @@
 
     let editMode = false;
 
-    $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(", ");
-    $: selectedWeaponAugments = getWeaponAugments($item).filter(Boolean).join(", ");
+    $: selectedWeaponProperties = getWeaponProperties($item)
+        .filter(Boolean)
+        .join(", ");
+    $: selectedWeaponAugments = getWeaponAugments($item)
+        .filter(Boolean)
+        .join(", ");
 </script>
 
 <Section
     heading="A5E.TabWeaponProperties"
     headerButtons={[
         {
-            classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
+            classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
             handler: () => (editMode = !editMode),
         },
     ]}
@@ -57,7 +61,11 @@
             options={Object.entries(weaponAugments)}
             selected={$item.system.weaponAugments}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.weaponAugments", event.detail)}
+                updateDocumentDataFromField(
+                    $item,
+                    "system.weaponAugments",
+                    event.detail,
+                )}
         />
 
         {#if $item.system.weaponProperties.includes("breaker")}
@@ -108,7 +116,11 @@
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.mounted}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.mounted", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.mounted",
+                        event.detail,
+                    )}
             />
         {/if}
 
@@ -118,7 +130,11 @@
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.versatile}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.versatile", event.detail)}
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.versatile",
+                        event.detail,
+                    )}
             />
         {/if}
     {:else}
@@ -133,7 +149,9 @@
 
             {#if selectedWeaponAugments}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.WeaponAugments")}:</dt>
+                    <dt class="u-text-bold">
+                        {localize("A5E.WeaponAugments")}:
+                    </dt>
 
                     <dd class="u-m-0 u-p-0">
                         {selectedWeaponAugments || localize("A5E.None")}

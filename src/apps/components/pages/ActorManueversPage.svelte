@@ -1,38 +1,38 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { getContext, onDestroy } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext, onDestroy } from "svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
-import usesRequired from '../../../utils/usesRequired';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import usesRequired from "../../../utils/usesRequired";
 
-import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
-import Filter from '../actorUtilityBar/Filter.svelte';
-import ItemCategory from '../ItemCategory.svelte';
-import Search from '../actorUtilityBar/Search.svelte';
-import ShowDescription from '../actorUtilityBar/ShowDescription.svelte';
-import Sort from '../actorUtilityBar/Sort.svelte';
-import TabFooter from '../TabFooter.svelte';
-import UtilityBar from '../actorUtilityBar/UtilityBar.svelte';
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
+    import ItemCategory from "../ItemCategory.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
+    import TabFooter from "../TabFooter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-const actor = getContext('actor');
-const { maneuvers } = actor;
-const subTypes = CONFIG.A5E.maneuverDegrees;
-const reducerType = 'maneuvers';
-const openCompendium = game.a5e.utils.openCompendium;
+    const actor = getContext("actor");
+    const { maneuvers } = actor;
+    const subTypes = CONFIG.A5E.maneuverDegrees;
+    const reducerType = "maneuvers";
+    const openCompendium = game.a5e.utils.openCompendium;
 
-let showDescription = false;
-let showUses = usesRequired(maneuvers);
+    let showDescription = false;
+    let showUses = usesRequired(maneuvers);
 
-$: exertion = $actor.system.attributes.exertion;
-$: menuList = Object.entries(subTypes);
+    $: exertion = $actor.system.attributes.exertion;
+    $: menuList = Object.entries(subTypes);
 
-const unsubscribe = maneuvers.subscribe((_) => {
-	showUses = usesRequired(maneuvers);
-});
+    const unsubscribe = maneuvers.subscribe((_) => {
+        showUses = usesRequired(maneuvers);
+    });
 
-onDestroy(() => {
-	unsubscribe();
-});
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 {#if $actor.isOwner}
@@ -46,7 +46,7 @@ onDestroy(() => {
         <CreateMenu {reducerType} {menuList} />
 
         <button
-            class="a5e-import-from-compendium-button fa-solid fa-download"
+            class="a5e-import-from-compendium-button icon fa-solid fa-download"
             on:click={() => openCompendium($actor, "maneuvers")}
             data-tooltip="Import Maneuvers from Compendium"
             data-tooltip-direction="UP"
@@ -114,7 +114,7 @@ onDestroy(() => {
                     data-tooltip-direction="UP"
                     on:click={() => $actor.recoverExertionUsingHitDice()}
                 >
-                    <i class="fa-solid fa-bolt" />
+                    <i class="icon fa-solid fa-bolt" />
                 </button>
             {/if}
         </div>

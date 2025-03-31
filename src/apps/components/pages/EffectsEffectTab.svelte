@@ -54,7 +54,7 @@
             <li class="a5e-item a5e-item--effect-config">
                 <div class="button-wrapper">
                     <button
-                        class="a5e-button a5e-button--delete fas fa-trash"
+                        class="a5e-button a5e-button--delete icon fas fa-trash"
                         style="font-size: var(--a5e-text-size-md);"
                         on:click={() => deleteChange(idx)}
                     />
@@ -65,10 +65,12 @@
                         {idx}
                         {key}
                         {optionsList}
-                        on:changeKey={({ detail }) => updateChange(idx, "key", detail)}
+                        on:changeKey={({ detail }) =>
+                            updateChange(idx, "key", detail)}
                         on:changePriority={({ detail }) =>
                             updateChange(idx, "priority", detail)}
-                        on:changeMode={({ detail }) => updateChange(idx, "mode", detail)}
+                        on:changeMode={({ detail }) =>
+                            updateChange(idx, "mode", detail)}
                     />
                 </div>
 
@@ -77,7 +79,8 @@
                     {value}
                     {mode}
                     {optionsList}
-                    on:change={({ detail }) => updateChange(idx, "value", detail)}
+                    on:change={({ detail }) =>
+                        updateChange(idx, "value", detail)}
                 />
             </li>
         {/each}
@@ -87,7 +90,7 @@
 <div class="sticky-add-button">
     <TJSIconButton
         title="Add Change"
-        icon="fas fa-plus"
+        icon="icon fas fa-plus"
         onPress={() => addChange()}
         --tjs-icon-button-background-hover="none"
         --tjs-icon-button-background-focus="none"

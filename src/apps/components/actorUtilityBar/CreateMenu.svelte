@@ -1,46 +1,51 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
-import { TJSIconButton, TJSToggleIconButton } from '#standard/component/button';
-import { TJSMenu } from '#standard/component/menu';
-import { createEventDispatcher } from 'svelte';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
+    import {
+        TJSIconButton,
+        TJSToggleIconButton,
+    } from "#standard/component/button";
+    import { TJSMenu } from "#standard/component/menu";
+    import { createEventDispatcher } from "svelte";
 
-import createItem from '../../../utils/createItem';
-import createEffect from '../../../utils/createActiveEffect';
+    import createItem from "../../../utils/createItem";
+    import createEffect from "../../../utils/createActiveEffect";
 
-export let documentName = 'Item';
-export let menuList = [];
-export let offset = { x: 0, y: 0 };
-export let reducerType = null;
-export let reducer = null;
-export let options = {};
-export let entityTypeOverride = null;
+    export let documentName = "Item";
+    export let menuList = [];
+    export let offset = { x: 0, y: 0 };
+    export let reducerType = null;
+    export let reducer = null;
+    export let options = {};
+    export let entityTypeOverride = null;
 
-// Default createDocument
-function createDocument(entityType) {
-	if (!entityType) entityType = entityTypeOverride;
+    // Default createDocument
+    function createDocument(entityType) {
+        if (!entityType) entityType = entityTypeOverride;
 
-	if (!['Item', 'ActiveEffect'].includes(documentName)) return dispatch('press', entityType);
+        if (!["Item", "ActiveEffect"].includes(documentName))
+            return dispatch("press", entityType);
 
-	if (documentName === 'Item' && $document.documentName === 'Actor')
-		return createItem($document, reducerType.slice(0, -1), entityType);
+        if (documentName === "Item" && $document.documentName === "Actor")
+            return createItem($document, reducerType.slice(0, -1), entityType);
 
-	if (documentName === 'ActiveEffect') return createEffect($document, options);
-}
+        if (documentName === "ActiveEffect")
+            return createEffect($document, options);
+    }
 
-const document = getContext('actor') ?? getContext('item');
+    const document = getContext("actor") ?? getContext("item");
 
-if (!reducer) {
-	reducer = document[reducerType];
-}
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
 
-const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 </script>
 
 {#if menuList.length}
     <TJSToggleIconButton
         title="Add {documentName}"
-        icon="fas fa-plus"
+        icon="icon fas fa-plus"
         --tjs-icon-button-background-hover="none"
         --tjs-icon-button-background-focus="none"
         --tjs-icon-button-background-focus-visible="none"
@@ -54,7 +59,9 @@ const dispatch = createEventDispatcher();
         <TJSMenu {offset}>
             <article>
                 {#each menuList as [type, heading]}
-                    <button on:click|preventDefault={() => createDocument(type)}>
+                    <button
+                        on:click|preventDefault={() => createDocument(type)}
+                    >
                         {localize(heading)}
                     </button>
                 {/each}
@@ -64,7 +71,7 @@ const dispatch = createEventDispatcher();
 {:else}
     <TJSIconButton
         title="Add {documentName}"
-        icon="fas fa-plus"
+        icon="icon fas fa-plus"
         onPress={() => createDocument()}
         --tjs-icon-button-background-hover="none"
         --tjs-icon-button-background-focus="none"
