@@ -6,6 +6,7 @@ import getBonusCritDamage from './getBonusCritDamage';
 import maxDamage from './maxDamage';
 import maxDamagePlusRoll from './maxDamagePlusRoll';
 import simplifyDiceTerms from '../simplifyDiceTerms';
+import maximizeHighestDie from './maxDamageOnHighestDie.js';
 
 const CRIT_CALCULATION_FUNCTION_MAP = {
 	doubleAllDamage,
@@ -14,6 +15,7 @@ const CRIT_CALCULATION_FUNCTION_MAP = {
 	doubleDiceQuantityAndMods,
 	maxDamage,
 	maxDamagePlusRoll,
+	maximizeHighestDie
 };
 
 export default async function constructCritDamageRoll(baseRoll, critBonus) {
