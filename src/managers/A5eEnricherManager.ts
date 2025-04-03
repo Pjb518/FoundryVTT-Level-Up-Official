@@ -2,7 +2,7 @@ import type { BaseActorA5e } from '../documents/actor/base';
 import type { BaseItemA5e } from '../documents/item/base';
 
 declare namespace A5eEnricherManager {
-	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose';
+	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose' | 'chartopia';
 }
 
 class A5eEnricherManager {
@@ -13,7 +13,7 @@ class A5eEnricherManager {
 		CONFIG.TextEditor.enrichers.push(
 			{
 				// [[/check args=d|"d"|'d']]
-				pattern: /\[\[\/(?<enricherType>check|save|condition)(?<argString> [^\]]+)?]]/gi,
+				pattern: /\[\[\/(?<enricherType>check|save|condition|chartopia)(?<argString> [^\]]+)?]]/gi,
 				enricher: this.parseEnricherInput.bind(this),
 			},
 			// {
@@ -26,6 +26,7 @@ class A5eEnricherManager {
 		// FIXME: This is inefficient
 		document.body.addEventListener('click', this.onRoll.bind(this));
 		document.body.addEventListener('click', this.onEffect.bind(this));
+		document.body.addEventListener('click', this.onRollTable.bind(this));
 		// document.body.addEventListener('click', this.onChoose.bind(this));
 	}
 
@@ -52,6 +53,7 @@ class A5eEnricherManager {
 		if (enricherType === 'check') return this.#enrichCheck(args, options);
 		if (enricherType === 'save') return this.#enrichSave(args, options);
 		if (enricherType === 'condition') return this.#enrichCondition(args, options);
+		if (enricherType === 'chartopia') return this.#enrichChartopia(args, options);
 		return null;
 	}
 
@@ -257,6 +259,47 @@ class A5eEnricherManager {
 		return this.#createRollButton(args, options, label);
 	}
 
+	async #enrichChartopia(
+		args: Record<string, any>,
+		options?: TextEditor.EnrichmentOptions,
+	): Promise<HTMLElement | null> {
+		const { id }: { id?: string } = args;
+		const rootURL = 'https://chartopia.d12dev.com/api/';
+		const request = new XMLHttpRequest();
+
+		let label = args.label || '';
+
+		if (!id) return this.createInvalidTag('No id provided.');
+
+		if (!args.label) {
+			request.open('GET', rootURL + `charts/${id}/?restql=%7Bname%7D`, false);
+
+			request.onload = () => {
+				if (request.status >= 200 && request.status < 400) {
+					console.log(request);
+
+					const jsonResponse = JSON.parse(request.responseText);
+					label = jsonResponse.name || 'Chartopia Rollable Table';
+				} else {
+					// We reached our target server, but it returned an error
+					console.log('Server error.');
+					return this.createInvalidTag('Error returned from Chartopia.');
+				}
+			};
+
+			request.onerror = () => {
+				// There was a connection error of some sort
+				console.log('Error getting result.');
+				return this.createInvalidTag('Error returned from Chartopia.');
+			};
+
+			request.send();
+		}
+
+		//return this.#createEffectButton(args, label);
+		return this.#createRollTableButton(args, label);
+	}
+
 	/* -------------------------------------------- */
 	/*  Button Generators                           */
 	/* -------------------------------------------- */
@@ -318,6 +361,21 @@ class A5eEnricherManager {
 			span.innerHTML = `<i class="fa-solid fa-dice-d20"></i>${label}`;
 		}
 
+		return span;
+	}
+
+	async #createRollTableButton(
+		args: Record<string, any>,
+		label: string,
+	): Promise<HTMLElement | null> {
+		const span = document.createElement('span');
+		span.classList.add('a5e-enricher');
+		span.classList.add('a5e-enricher--rollTable');
+
+		this.#addToDataset(span, args);
+
+		span.innerHTML = `<i class="fa-solid fa-th-list"></i>${label}`;
+		span.dataset.tooltip = 'Chartopia Rollable Table';
 		return span;
 	}
 
@@ -491,6 +549,54 @@ class A5eEnricherManager {
 			}
 			actor.toggleStatusEffect(id);
 		}
+	}
+
+	onRollTable(event: MouseEvent): void {
+		// FIXME: Try not doing a closest search.
+		const target = (event.target as HTMLElement | null)?.closest(
+			'.a5e-enricher--rollTable',
+		) as HTMLElement | null;
+
+		if (!target) return;
+		event.stopPropagation();
+
+		const { dataset } = target;
+		if (dataset.enricherType !== 'chartopia') return;
+
+		const id = dataset.id;
+		const rootURL = 'https://chartopia.d12dev.com/api/';
+		const request = new XMLHttpRequest();
+
+		request.open('POST', rootURL + `charts/${id}/roll/`, true);
+
+		request.onload = () => {
+			if (request.status >= 200 && request.status < 400) {
+				console.log(request);
+
+				const jsonResponse = JSON.parse(request.responseText);
+				const resultAsMarkdown = jsonResponse.results[0];
+
+				const chatData = {
+					user: game.userId,
+					speaker: ChatMessage.getSpeaker(),
+					content: resultAsMarkdown,
+				};
+
+				ChatMessage.create(chatData, {});
+			} else {
+				// We reached our target server, but it returned an error
+				console.log('Server error.');
+			}
+		};
+
+		request.onerror = () => {
+			// There was a connection error of some sort
+			console.log('Error getting result.');
+		};
+
+		request.send();
+
+		return;
 	}
 
 	/* -------------------------------------------- */
