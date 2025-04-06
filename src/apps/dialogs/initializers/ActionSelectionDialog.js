@@ -1,53 +1,58 @@
-import { TJSDialog } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import ActionSelectionDialogComponent from '../ActionSelectionDialog.svelte';
+import ActionSelectionDialogComponent from "../ActionSelectionDialog.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class ActionSelectionDialog extends TJSDialog {
-	constructor(item) {
-		super(
-			{
-				title: `${item.name}: Select Action`,
-				content: {
-					class: ActionSelectionDialogComponent,
-					props: { item },
-				},
-			},
-			{
-				classes: ['a5e-sheet'],
-				width: 520,
-			},
-		);
+export default class ActionSelectionDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  data;
 
-		this.data.content.props.dialog = this;
+  root = ActionSelectionDialogComponent;
 
-		this.promise = new Promise((resolve) => {
-			this.resolve = resolve;
-		});
-	}
+  constructor(item) {
+    super({
+      classes: ["a5e-sheet"],
+      position: { width: 520, height: "auto" },
+      window: { title: `${item.name}: Select Action ` },
+    });
 
-	/** @inheritdoc */
-	close(options) {
-		this.#resolvePromise(null);
-		return super.close(options);
-	}
+    this.data = { item };
 
-	/**
-	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
-	 */
-	submit(results) {
-		this.#resolvePromise(results);
-		return super.close();
-	}
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+  }
 
-	#resolvePromise(data) {
-		if (this.resolve) {
-			this.resolve(data);
-		}
-	}
+  async _prepareContext() {
+    return {
+      ...this.data,
+      dialog: this,
+    };
+  }
+
+  /** @inheritdoc */
+  close(options) {
+    this.#resolvePromise(null);
+    return super.close(options);
+  }
+
+  /**
+   * Resolves the dialog's promise and closes it.
+   *
+   * @param {object} results
+   * @returns
+   */
+  submit(results) {
+    this.#resolvePromise(results);
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
+    }
+  }
 }

@@ -1,53 +1,53 @@
-import { TJSDialog } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import SpellbookDeletionConfirmationDialogComponent from '../SpellbookDeletionConfirmationDialog.svelte';
+import SpellbookDeletionConfirmationDialogComponent from "../SpellbookDeletionConfirmationDialog.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class SpellbookDeletionConfirmationDialog extends TJSDialog {
-	constructor() {
-		super(
-			{
-				title: 'Confirm Spellbook Deletion',
-				content: {
-					class: SpellbookDeletionConfirmationDialogComponent,
-					props: {},
-				},
-			},
-			{
-				classes: ['a5e-sheet'],
-				width: 420,
-			},
-		);
+export default class SpellbookDeletionConfirmationDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  root = SpellbookDeletionConfirmationDialogComponent;
 
-		this.data.content.props.dialog = this;
+  constructor() {
+    super({
+      classes: ["a5e-sheet"],
+      position: { width: 420, height: "auto" },
+      window: {
+        title: "Confirm Spellbook Deletion",
+      },
+    });
 
-		this.promise = new Promise((resolve) => {
-			this.resolve = resolve;
-		});
-	}
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+  }
 
-	/** @inheritdoc */
-	close(options) {
-		this.#resolvePromise(null);
-		return super.close(options);
-	}
+  async _prepareContext() {
+    return { dialog: this };
+  }
 
-	/**
-	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
-	 */
-	submit(results) {
-		this.#resolvePromise(results);
-		return super.close();
-	}
+  /** @inheritdoc */
+  close(options) {
+    this.#resolvePromise(null);
+    return super.close(options);
+  }
 
-	#resolvePromise(data) {
-		if (this.resolve) {
-			this.resolve(data);
-		}
-	}
+  /**
+   * Resolves the dialog's promise and closes it.
+   *
+   * @param {object} results
+   * @returns
+   */
+  submit(results) {
+    this.#resolvePromise(results);
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
+    }
+  }
 }

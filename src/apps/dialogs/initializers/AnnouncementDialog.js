@@ -1,53 +1,53 @@
-import { TJSDialog } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import AnnouncementDialogComponent from '../AnnouncementDialog.svelte';
+import AnnouncementDialogComponent from "../AnnouncementDialog.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class AnnouncementDialog extends TJSDialog {
-	constructor(title) {
-		super(
-			{
-				title,
-				content: {
-					class: AnnouncementDialogComponent,
-					props: {},
-				},
-			},
-			{
-				classes: ['a5e-sheet a5e-sheet--announcement'],
-				width: 680,
-			},
-		);
+export default class AnnouncementDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  root = AnnouncementDialogComponent;
 
-		this.data.content.props.dialog = this;
+  constructor(title) {
+    super({
+      classes: ["a5e-sheet a5e-sheet--announcement"],
+      position: { width: 680, height: "auto" },
+      window: { title },
+    });
 
-		this.promise = new Promise((resolve) => {
-			this.resolve = resolve;
-		});
-	}
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+  }
 
-	/** @inheritdoc */
-	close(options) {
-		this.#resolvePromise(null);
-		return super.close(options);
-	}
+  async _prepareContext() {
+    return {
+      dialog: this,
+    };
+  }
 
-	/**
-	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
-	 */
-	submit(results) {
-		this.#resolvePromise(results);
-		return super.close();
-	}
+  /** @inheritdoc */
+  close(options) {
+    this.#resolvePromise(null);
+    return super.close(options);
+  }
 
-	#resolvePromise(data) {
-		if (this.resolve) {
-			this.resolve(data);
-		}
-	}
+  /**
+   * Resolves the dialog's promise and closes it.
+   *
+   * @param {object} results
+   * @returns
+   */
+  submit(results) {
+    this.#resolvePromise(results);
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
+    }
+  }
 }

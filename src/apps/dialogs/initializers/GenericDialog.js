@@ -12,12 +12,12 @@ export default class GenericDialog extends SvelteApplicationMixin(
 
   constructor(title, component, data = {}, options = {}) {
     super({
-      title,
       classes: ["a5e-sheet"],
       position: {
         width: options.width ?? 420,
         height: options.height ?? "auto",
       },
+      window: { title },
     });
 
     this.data = data;

@@ -1,54 +1,60 @@
-import { TJSDialog } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import ModuleIncompatibilityDialogComponent from '../ModuleIncompatibilityDialog.svelte';
+import ModuleIncompatibilityDialogComponent from "../ModuleIncompatibilityDialog.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class ModuleIncompatibilityDialog extends TJSDialog {
-	constructor(activeIncompatibleModules) {
-		super(
-			{
-				title: 'Module Notices',
-				content: {
-					class: ModuleIncompatibilityDialogComponent,
-					props: { activeIncompatibleModules },
-				},
-				zIndex: null,
-			},
-			{
-				classes: ['a5e-sheet a5e-sheet--announcement'],
-				width: 540,
-			},
-		);
+export default class ModuleIncompatibilityDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  data;
 
-		this.data.content.props.dialog = this;
+  root = ModuleIncompatibilityDialogComponent;
 
-		this.promise = new Promise((resolve) => {
-			this.resolve = resolve;
-		});
-	}
+  constructor(activeIncompatibleModules) {
+    super({
+      classes: ["a5e-sheet a5e-sheet--announcement"],
+      position: { width: 540, height: "auto" },
+      window: {
+        title: "Module Notices",
+      },
+    });
 
-	/** @inheritdoc */
-	close(options) {
-		this.#resolvePromise(null);
-		return super.close(options);
-	}
+    this.data = { activeIncompatibleModules };
 
-	/**
-	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
-	 */
-	submit(results) {
-		this.#resolvePromise(results);
-		return super.close();
-	}
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+  }
 
-	#resolvePromise(data) {
-		if (this.resolve) {
-			this.resolve(data);
-		}
-	}
+  async _prepareContext() {
+    return {
+      ...this.data,
+      dialog: this,
+    };
+  }
+
+  /** @inheritdoc */
+  close(options) {
+    this.#resolvePromise(null);
+    return super.close(options);
+  }
+
+  /**
+   * Resolves the dialog's promise and closes it.
+   *
+   * @param {object} results
+   * @returns
+   */
+  submit(results) {
+    this.#resolvePromise(results);
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
+    }
+  }
 }

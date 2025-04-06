@@ -1,26 +1,17 @@
-import { SvelteApplication } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import PremiumContentListDialogComponent from '../PremiumContentListDialog.svelte';
+import PremiumContentListDialogComponent from "../PremiumContentListDialog.svelte";
 
-export default class PremiumContentListDialog extends SvelteApplication {
-	/**
-	 * Default Application options
-	 *
-	 * @returns {object} options - Application options.
-	 * @see https://foundryvtt.com/api/Application.html#options
-	 */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			title: 'Premium Content',
-			height: 'auto',
-			width: 500,
-			classes: ['a5e-premium-content-list-dialog'],
-			resizable: true,
+export default class PremiumContentListDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  root = PremiumContentListDialogComponent;
 
-			svelte: {
-				class: PremiumContentListDialogComponent,
-				target: document.body,
-			},
-		});
-	}
+  static DEFAULT_OPTIONS = {
+    classes: ["a5e-premium-content-list-dialog"],
+    position: { width: 500, height: "auto" },
+    window: {
+      title: "Premium Content",
+    },
+  };
 }

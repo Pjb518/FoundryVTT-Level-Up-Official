@@ -1,26 +1,15 @@
-import { SvelteApplication } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import HelpAndSupportDialogComponent from '../HelpAndSupportDialog.svelte';
+import HelpAndSupportDialogComponent from "../HelpAndSupportDialog.svelte";
 
-export default class HelpAndSupportDialog extends SvelteApplication {
-	/**
-	 * Default Application options
-	 *
-	 * @returns {object} options - Application options.
-	 * @see https://foundryvtt.com/api/Application.html#options
-	 */
-	static get defaultOptions() {
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			title: 'Help and Support',
-			height: 'auto',
-			width: 400,
-			classes: ['a5e-help-and-support-dialog'],
-			resizable: true,
+export default class HelpAndSupportDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  root = HelpAndSupportDialogComponent;
 
-			svelte: {
-				class: HelpAndSupportDialogComponent,
-				target: document.body,
-			},
-		});
-	}
+  static DEFAULT_OPTIONS = {
+    classes: ["a5e-help-and-support-dialog"],
+    position: { width: 400, height: "auto" },
+    window: { title: "Help and Support" },
+  };
 }
