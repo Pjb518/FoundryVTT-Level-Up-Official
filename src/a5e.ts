@@ -1,48 +1,48 @@
-import './scss/main.scss';
+import "./scss/main.scss";
 
 // import '#runtime/tinymce';
 
-import canvasInit from './hooks/canvasInit';
-import canvasReady from './hooks/canvasReady';
-import createActor from './hooks/createActor';
-import createToken from './hooks/createToken';
-import init from './hooks/init';
-import getDocumentDirectoryContext from './hooks/getDocumentDirectoryContext';
-import preDeleteChatMessage from './hooks/preDeleteChatMessage';
-import preCreateChatMessage from './hooks/preCreateChatMessage';
-import ready from './hooks/ready';
-import renderApplication from './hooks/renderApplication';
-import renderChatMessage from './hooks/renderChatMessage';
-import renderSettings from './hooks/renderSettings';
-import renderTokenHUDA5E from './hooks/renderTokenHUDA5E';
-import setup from './hooks/setup';
-import updateActor from './hooks/updateActor';
+import canvasInit from "./hooks/canvasInit";
+import canvasReady from "./hooks/canvasReady";
+import createActor from "./hooks/createActor";
+import createToken from "./hooks/createToken";
+import init from "./hooks/init";
+import getDocumentDirectoryContext from "./hooks/getDocumentDirectoryContext";
+import preDeleteChatMessage from "./hooks/preDeleteChatMessage";
+import preCreateChatMessage from "./hooks/preCreateChatMessage";
+import ready from "./hooks/ready";
+import renderApplication from "./hooks/renderApplication";
+import renderChatMessage from "./hooks/renderChatMessage";
+import renderSettings from "./hooks/renderSettings.ts";
+import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E";
+import setup from "./hooks/setup";
+import updateActor from "./hooks/updateActor";
 
-Hooks.once('init', init);
-Hooks.once('setup', setup);
-Hooks.once('ready', ready);
+Hooks.once("init", init);
+Hooks.once("setup", setup);
+Hooks.once("ready", ready);
 
-Hooks.on('canvasInit', canvasInit);
-Hooks.on('canvasReady', canvasReady);
+Hooks.on("canvasInit", canvasInit);
+Hooks.on("canvasReady", canvasReady);
 
-Hooks.on('getActorDirectoryEntryContext', (dialog, html, data) =>
-	getDocumentDirectoryContext(dialog, html, data, 'Actor'),
+Hooks.on("getActorDirectoryEntryContext", (dialog, html, data) =>
+  getDocumentDirectoryContext(dialog, html, data, "Actor"),
 );
-Hooks.on('getItemDirectoryEntryContext', (dialog, html, data) =>
-	getDocumentDirectoryContext(dialog, html, data, 'Item'),
+Hooks.on("getItemDirectoryEntryContext", (dialog, html, data) =>
+  getDocumentDirectoryContext(dialog, html, data, "Item"),
 );
-Hooks.on('getCompendiumDirectoryEntryContext', (dialog, html, data) =>
-	getDocumentDirectoryContext(dialog, html, data, 'Pack'),
+Hooks.on("getCompendiumDirectoryEntryContext", (dialog, html, data) =>
+  getDocumentDirectoryContext(dialog, html, data, "Pack"),
 );
 
-Hooks.on('createActor', createActor);
-Hooks.on('createToken', createToken);
+Hooks.on("createActor", createActor);
+Hooks.on("createToken", createToken);
 
-Hooks.on('updateActor', updateActor);
+Hooks.on("updateActor", updateActor);
 
-Hooks.on('renderApplication', renderApplication);
-Hooks.on('renderChatMessage', renderChatMessage);
-Hooks.on('preCreateChatMessage', preCreateChatMessage);
-Hooks.on('preDeleteChatMessage', preDeleteChatMessage);
-Hooks.on('renderSettings', renderSettings);
-Hooks.on('renderTokenHUDA5e', renderTokenHUDA5E);
+Hooks.on("renderApplication", renderApplication);
+Hooks.on("renderChatMessage", renderChatMessage);
+Hooks.on("preCreateChatMessage", preCreateChatMessage);
+Hooks.on("preDeleteChatMessage", preDeleteChatMessage);
+Hooks.on("renderSettings", renderSettings);
+Hooks.on("renderTokenHUDA5e", renderTokenHUDA5E);
