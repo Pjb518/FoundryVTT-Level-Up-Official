@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
+    import { setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/application";
     import { localize } from "#runtime/util/i18n";
 
@@ -16,7 +16,6 @@
     import SettingsRollTab from "./SettingsRollTab.svelte";
     import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
-    export let elementRoot;
     export let appId;
     export let settings;
     export let dialog;
@@ -112,29 +111,27 @@
     setContext("updates", updates);
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main>
-        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+<main>
+    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-            <svelte:component this={currentTab.component} bind:reload />
-        </section>
+    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+        <svelte:component this={currentTab.component} bind:reload />
+    </section>
 
-        <button class="submit" on:click|preventDefault={() => onSubmit()}>
-            {#if reload}
-                <i
-                    class="icon fa-solid fa-circle-exclamation"
-                    style="color: var(--a5e-color-warning)"
-                    data-tooltip={localize("A5E.settings.reload")}
-                    data-tooltip-direction="UP"
-                />
-            {:else}
-                <i class="icon fas fa-save" />
-            {/if}
-            {localize("A5E.SaveSubmit")}
-        </button>
-    </main>
-</ApplicationShell>
+    <button class="submit" on:click|preventDefault={() => onSubmit()}>
+        {#if reload}
+            <i
+                class="icon fa-solid fa-circle-exclamation"
+                style="color: var(--a5e-color-warning)"
+                data-tooltip={localize("A5E.settings.reload")}
+                data-tooltip-direction="UP"
+            />
+        {:else}
+            <i class="icon fas fa-save" />
+        {/if}
+        {localize("A5E.SaveSubmit")}
+    </button>
+</main>
 
 <style lang="scss">
     :global(.a5e-settings-sheet) {

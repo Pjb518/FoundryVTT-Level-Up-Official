@@ -1,97 +1,81 @@
-import { localize } from '#runtime/util/i18n';
-import { SvelteApplication } from '#runtime/svelte/application';
+import { localize } from "#runtime/util/i18n";
+import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import { gameSettings } from './SettingsStore';
+import { gameSettings } from "./SettingsStore";
 
-import SystemSettingsComponent from '../apps/settings/SystemSettings.svelte';
+import SystemSettingsComponent from "../apps/settings/SystemSettings.svelte";
 
-export default class SystemSettings extends SvelteApplication {
-	public promise = null;
+export default class SystemSettings extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  data: Record<string, any>;
 
-	public resolve = null;
+  root = SystemSettingsComponent;
 
-	constructor(options = {}, dialogData = {}) {
-		super(
-			{
-				id: 'a5e-system-settings',
-				title: localize('A5E.settings.title'),
-				svelte: {
-					class: SystemSettingsComponent,
-					target: document.body,
-					props: {
-						settings: gameSettings,
-					},
-				},
-				width: 600,
-				height: 'auto',
-				...options,
-				// @ts-expect-error
-			},
-			{ dialogData },
-		);
+  public promise = null;
 
-		// @ts-ignore
-		this.options.svelte.props.dialog = this;
+  public resolve = null;
 
-		// @ts-expect-error
-		this.promise = new Promise((resolve) => {
-			// @ts-expect-error
-			this.resolve = resolve;
-		});
-	}
+  constructor(options = {}, dialogData = {}) {
+    super({
+      id: "a5e-system-settings",
+      classes: ["a5e-sheet", "a5e-settings-sheet"],
+      position: { width: 650, height: "auto" },
+      window: { title: localize("A5E.settings.title") },
+    });
 
-	/**
-	 * Default Application options
-	 *
-	 * @returns {object} options - Application options.
-	 * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
-	 */
-	static get defaultOptions() {
-		// @ts-expect-error
-		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['a5e-sheet', 'a5e-settings-sheet'],
-			minimizable: true,
-			svelte: {
-				target: document.body,
-			},
-			token: null,
-		});
-	}
+    this.data = { settings: gameSettings };
 
-	static getActiveApp(): SystemSettings {
-		// @ts-ignore
-		return Object.values(ui.windows).find((app) => app.id === 'a5e-system-settings');
-	}
+    // @ts-expect-error
+    this.promise = new Promise((resolve) => {
+      // @ts-expect-error
+      this.resolve = resolve;
+    });
+  }
 
-	static async show(options = {}, dialogData = {}) {
-		const app = this.getActiveApp();
-		// @ts-expect-error
-		if (app) return app.render(false, { focus: true });
+  async _prepareContext() {
+    return {
+      ...this.data,
+      dialog: this,
+    };
+  }
 
-		return new Promise((resolve) => {
-			// @ts-expect-error
-			options.resolve = resolve;
+  static getActiveApp(): SystemSettings {
+    // @ts-ignore
+    return Object.values(ui.windows).find(
+      (app) => app.id === "a5e-system-settings",
+    );
+  }
 
-			// @ts-expect-error
-			new this(options, dialogData).render(true, { focus: true });
-		});
-	}
+  static async show(options = {}, dialogData = {}) {
+    const app = this.getActiveApp();
+    // @ts-expect-error
+    if (app) return app.render(false, { focus: true });
 
-	submit(results) {
-		this.#resolvePromise(results);
+    return new Promise((resolve) => {
+      // @ts-expect-error
+      options.resolve = resolve;
 
-		if (results.reload) {
-			foundry.utils.debounce(() => window.location.reload(), 250)();
-		}
+      // @ts-expect-error
+      new this(options, dialogData).render(true, { focus: true });
+    });
+  }
 
-		// @ts-expect-error
-		return super.close();
-	}
+  submit(results) {
+    this.#resolvePromise(results);
 
-	#resolvePromise(data): void {
-		if (this.resolve) {
-			// @ts-expect-error
-			this.resolve(data);
-		}
-	}
+    if (results.reload) {
+      foundry.utils.debounce(() => window.location.reload(), 250)();
+    }
+
+    // @ts-expect-error
+    return super.close();
+  }
+
+  #resolvePromise(data): void {
+    if (this.resolve) {
+      // @ts-expect-error
+      this.resolve(data);
+    }
+  }
 }
