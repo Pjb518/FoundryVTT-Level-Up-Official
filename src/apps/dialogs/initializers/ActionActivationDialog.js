@@ -1,59 +1,61 @@
-import { TJSDialog } from '#runtime/svelte/application';
+import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import ActionActivationDialogComponent from '../ActionActivationDialog.svelte';
+import ActionActivationDialogComponent from "../ActionActivationDialog.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
-export default class ActionActivationDialog extends TJSDialog {
-	constructor({ actionId, actorDocument, itemDocument, options = {} }) {
-		super(
-			{
-				title: `${actorDocument.name}: Activate ${itemDocument.actions.get(actionId).name}`,
-				content: {
-					class: ActionActivationDialogComponent,
-					props: {
-						actionId,
-						actorDocument,
-						itemDocument,
-						options,
-					},
-				},
-				zIndex: null,
-			},
-			{
-				classes: ['a5e-sheet', 'a5e-activation-dialog'],
-				width: 420,
-			},
-		);
+export default class ActionActivationDialog extends SvelteApplicationMixin(
+  foundry.applications.api.ApplicationV2,
+) {
+  data;
 
-		this.data.content.props.dialog = this;
+  root = ActionActivationDialogComponent;
 
-		this.promise = new Promise((resolve) => {
-			this.resolve = resolve;
-		});
-	}
+  constructor({ actionId, actorDocument, itemDocument, options = {} }) {
+    super({
+      classes: ["a5e-sheet"],
+      position: { width: 420, height: "auto" },
+      window: {
+        title: `${actorDocument.name}: Activate ${itemDocument.actions.get(actionId).name}`,
+      },
+    });
 
-	/** @inheritdoc */
-	close(options) {
-		this.#resolvePromise(null);
-		return super.close(options);
-	}
+    this.data = { actionId, actorDocument, itemDocument };
+    console.log(this.data);
 
-	/**
-	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
-	 */
-	submit(results) {
-		this.#resolvePromise(results);
-		return super.close();
-	}
+    this.promise = new Promise((resolve) => {
+      this.resolve = resolve;
+    });
+  }
 
-	#resolvePromise(data) {
-		if (this.resolve) {
-			this.resolve(data);
-		}
-	}
+  async _prepareContext() {
+    return {
+      ...this.data,
+      dialog: this,
+    };
+  }
+
+  /** @inheritdoc */
+  close(options) {
+    this.#resolvePromise(null);
+    return super.close(options);
+  }
+
+  /**
+   * Resolves the dialog's promise and closes it.
+   *
+   * @param {object} results
+   * @returns
+   */
+  submit(results) {
+    this.#resolvePromise(results);
+    return super.close();
+  }
+
+  #resolvePromise(data) {
+    if (this.resolve) {
+      this.resolve(data);
+    }
+  }
 }

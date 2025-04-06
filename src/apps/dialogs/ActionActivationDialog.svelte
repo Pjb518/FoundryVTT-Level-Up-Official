@@ -28,17 +28,11 @@
     import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
     import Checkbox from "../components/Checkbox.svelte";
 
-    export let application;
-    export let {
-        actionId,
-        options,
-        dialog,
-    }: { actionId: string; options: ActionActivationOptions; dialog: any } =
-        application;
-    export let {
-        actorDocument,
-        itemDocument,
-    }: { actorDocument: BaseActorA5e; itemDocument: ItemA5e } = application;
+    export let actionId: string;
+    export let options: ActionActivationOptions;
+    export let dialog: any;
+    export let actorDocument: BaseActorA5e;
+    export let itemDocument: ItemA5e;
 
     function onSubmit() {
         dialog.submit({

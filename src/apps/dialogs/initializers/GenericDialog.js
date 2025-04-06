@@ -1,4 +1,3 @@
-import { TJSDialog } from "#runtime/svelte/application";
 import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
 /**
