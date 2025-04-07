@@ -627,6 +627,8 @@
         color: var(--icon-color, #999);
         border: 0;
         background: none;
+        box-shadow: none;
+        outline: none;
 
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
@@ -641,6 +643,7 @@
         &:hover,
         &:focus {
             box-shadow: none;
+            outline: none;
         }
 
         &--activation-cost {
