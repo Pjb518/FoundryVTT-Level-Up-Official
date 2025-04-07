@@ -90,10 +90,9 @@
 
     .hp-config__container {
         padding-block: 0.275rem;
+
         button {
             padding: 0.125rem 0;
-            background: var(--a5e-button-regular);
-            color: var(--a5e-color-text-dark);
             border: 2px solid var(--a5e-border-color);
             border-radius: 4px;
             box-shadow: 0 0 5px var(--a5e-shadow-color) inset;

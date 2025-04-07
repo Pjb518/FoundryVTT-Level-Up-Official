@@ -1,0 +1,21 @@
+.a5e-button {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25rem;
+    width: 100%;
+    cursor: pointer;
+    background: var(--a5e-button-regular);
+    color: var(--a5e-color-text-dark);
+    transition: var(--a5e-transition-standard);
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &:hover,
+    &:focus {
+        background: var(--a5e-button-regular-hover);
+        box-shadow: none;
+        outline: none;
+    }
+}

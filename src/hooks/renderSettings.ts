@@ -3,8 +3,6 @@ import HelpAndSupportDialog from "../apps/dialogs/initializers/HelpAndSupportDia
 import PremiumContentListDialog from "../apps/dialogs/initializers/PremiumContentListDialog";
 
 export default function renderSettings(_app, html: HTMLElement) {
-  console.log(html);
-
   const systemTitle = html.querySelector(
     ".info .system .label",
   ) as HTMLElement | null;
