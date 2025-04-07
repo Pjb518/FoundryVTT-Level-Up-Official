@@ -1,153 +1,158 @@
 .a5e-ability-score {
-  display: grid;
-  grid-template-areas:
-    'header'
-    'body';
-  overflow: hidden;
-  background: var(--a5e-ability-score-background);
-
-  &__body {
     display: grid;
     grid-template-areas:
-      'value value'
-      'check save';
-    grid-template-columns: repeat(2, 1fr);
-    border: 1px solid var(--a5e-ability-score-border);
-    border-top: 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    padding-bottom: 0.375rem;
-  }
+        "header"
+        "body";
+    overflow: hidden;
+    background: var(--a5e-ability-score-background);
 
-  &__config-button {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    height: fit-content;
-    width: fit-content;
-    padding: 0.25rem;
-    font-size: var(--a5e-text-size-sm);
-    background: transparent;
-    color: var(--a5e-button-gray);
-    transition: var(--a5e-transition-standard);
-
-    &:hover {
-      color: var(--a5e-button-gray-hover);
-      box-shadow: none;
-    }
-  }
-
-  &__header {
-    position: relative;
-    grid-area: header;
-    padding: 0.25rem 0.5rem;
-    font-size: var(--a5e-text-size-sm);
-    color: var(--a5e-ability-score-header-color);
-    background: var(--a5e-color-primary);
-    border: 1px solid var(--a5e-ability-score-header-border);
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    box-shadow: 0 0 10px var(--a5e-ability-score-header-shadow) inset;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  &__label {
-    font-size: inherit;
-    font-family: inherit;
-  }
-
-  &__value[type='number'] {
-    grid-area: value;
-    height: fit-content;
-    width: 100%;
-    padding: 0.25rem 0.25rem 0.125rem;
-    font-size: var(--a5e-text-size-lg);
-    line-height: 1;
-    text-align: center;
-    color: var(--a5e-text-color-dark);
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-
-    &:active,
-    &:focus {
-      box-shadow: none;
-    }
-  }
-
-  &__roll-button {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 1.75rem;
-    margin: 0;
-    padding: 0 0 0.25rem;
-    background: transparent;
-    border-radius: 0;
-    text-align: center;
-    font-family: inherit;
-    font-size: var(--a5e-text-size-sm);
-    color: var(--a5e-color-text-dark);
-    background-color: transparent !important; // TODO: App V2
-
-    &:focus,
-    &:hover {
-      box-shadow: none;
+    &__body {
+        display: grid;
+        grid-template-areas:
+            "value value"
+            "check save";
+        grid-template-columns: repeat(2, 1fr);
+        border: 1px solid var(--a5e-ability-score-border);
+        border-top: 0;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding-bottom: 0.375rem;
     }
 
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font: var(--fa-font-solid);
-      font-size: var(--a5e-text-size-xxl);
-      color: var(--a5e-ability-score-roll-button-background);
+    &__config-button {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        height: fit-content;
+        width: fit-content;
+        padding: 0.25rem;
+        font-size: var(--a5e-text-size-sm);
+        background: transparent;
+        color: var(--a5e-button-gray);
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: var(--a5e-button-gray-hover);
+            outline: none;
+            box-shadow: none;
+        }
     }
 
-    &--check {
-      grid-area: check;
+    &__header {
+        position: relative;
+        grid-area: header;
+        padding: 0.25rem 0.5rem;
+        font-size: var(--a5e-text-size-sm);
+        color: var(--a5e-ability-score-header-color);
+        background: var(--a5e-color-primary);
+        border: 1px solid var(--a5e-ability-score-header-border);
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        box-shadow: 0 0 10px var(--a5e-ability-score-header-shadow) inset;
+        text-align: center;
+        text-transform: uppercase;
 
-      &::after {
-        content: '\f111';
-      }
+        h3 {
+            color: inherit;
+        }
     }
 
-    &--no-click {
-      cursor: default;
+    &__label {
+        font-size: inherit;
+        font-family: inherit;
     }
 
-    &--save {
-      grid-area: save;
+    &__value[type="number"] {
+        grid-area: value;
+        height: fit-content;
+        width: 100%;
+        padding: 0.25rem 0.25rem 0.125rem;
+        font-size: var(--a5e-text-size-lg);
+        line-height: 1;
+        text-align: center;
+        color: var(--a5e-text-color-dark);
+        background: transparent;
+        border: 0;
+        border-radius: 0;
 
-      &::after {
-        content: '\f132';
-      }
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
     }
 
-    &--proficient {
-      color: var(--a5e-color-text-white) !important; // TODO: App v2
+    &__roll-button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 1.75rem;
+        margin: 0;
+        padding: 0 0 0.25rem;
+        background: transparent;
+        border-radius: 0;
+        text-align: center;
+        font-family: inherit;
+        font-size: var(--a5e-text-size-sm);
+        color: var(--a5e-color-text-dark);
+        background-color: transparent !important; // TODO: App V2
 
-      &::after {
-        color: var(--a5e-color-primary);
-      }
+        &:focus,
+        &:hover {
+            box-shadow: none;
+        }
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font: var(--fa-font-solid);
+            font-size: var(--a5e-text-size-xxl);
+            color: var(--a5e-ability-score-roll-button-background);
+        }
+
+        &--check {
+            grid-area: check;
+
+            &::after {
+                content: "\f111";
+            }
+        }
+
+        &--no-click {
+            cursor: default;
+        }
+
+        &--save {
+            grid-area: save;
+
+            &::after {
+                content: "\f132";
+            }
+        }
+
+        &--proficient {
+            color: var(--a5e-color-text-white) !important; // TODO: App v2
+
+            &::after {
+                color: var(--a5e-color-primary);
+            }
+        }
     }
-  }
 
-  &__roll-button-label {
-    width: 100%;
-    line-height: 1;
-  }
+    &__roll-button-label {
+        width: 100%;
+        line-height: 1;
+    }
 
-  &__roll-button-value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    line-height: 1;
-    z-index: 1;
-  }
+    &__roll-button-value {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        line-height: 1;
+        z-index: 1;
+    }
 }
