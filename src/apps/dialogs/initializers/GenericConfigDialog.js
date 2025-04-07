@@ -10,6 +10,8 @@ import ItemDocument from "../../ItemDocument";
 export default class GenericConfigDialog extends SvelteApplicationMixin(
   foundry.applications.api.ApplicationV2,
 ) {
+  data;
+
   constructor(document, title, component, data = {}, options = {}) {
     // TODO: Refactor - Revisit this to see if this is what we wanna do
     const doc = options.isItemDocument
@@ -31,6 +33,8 @@ export default class GenericConfigDialog extends SvelteApplicationMixin(
     this.data = data;
     this.document = doc;
     this.root = component;
+
+    console.log("Running GenericConfigDialog constructor");
 
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;
@@ -63,8 +67,6 @@ export default class GenericConfigDialog extends SvelteApplicationMixin(
   /** @inheritdoc */
   close(options) {
     this.#resolvePromise(null);
-    this.document?.destroy();
-
     return super.close(options);
   }
 

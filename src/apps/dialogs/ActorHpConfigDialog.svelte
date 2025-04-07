@@ -8,6 +8,7 @@
 
     export let document;
     export let appId;
+    export let dialog;
 
     const hpFields = [
         { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
