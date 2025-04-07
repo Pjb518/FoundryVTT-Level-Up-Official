@@ -32,10 +32,11 @@
 
         &-item {
             margin: 0;
+            padding-block-start: 0.25rem;
+            height: 17px;
             font-family: inherit;
             color: inherit;
             font-size: var(--a5e-text-size-sm);
-            line-height: unset;
             background: transparent;
             border: none;
 
@@ -45,6 +46,7 @@
             &:hover {
                 transform: scale(1.1);
                 box-shadow: none;
+                outline: none;
             }
 
             &-active {
