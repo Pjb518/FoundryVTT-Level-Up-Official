@@ -103,6 +103,7 @@
 
     .initiative-label {
         padding-bottom: 0.125rem;
+        margin-bottom: 0.24rem;
         font-family: var(--a5e-font-serif);
         font-size: var(--a5e-text-size-sm);
         font-weight: 700;

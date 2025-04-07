@@ -49,11 +49,13 @@
         height: 2.5rem;
         font-size: var(--a5e-text-size-xl);
         margin: auto;
+        padding-top: 0.175rem;
         z-index: 1;
     }
 
     .hit-die-label {
         padding-bottom: 0.125rem;
+        font-family: var(--a5e-font-serif);
         font-size: var(--a5e-text-size-sm);
         font-weight: 700;
         text-align: center;
