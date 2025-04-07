@@ -147,7 +147,7 @@
             {/if}
 
             <input
-                class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
+                class="resource-number-input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 value={resource.value}
@@ -172,7 +172,7 @@
                         resource.max ?? 0,
                         $actor.getRollData(),
                     )}
-                    class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
+                    class="resource-number-input"
                     placeholder="0"
                     disabled
                 />
@@ -219,8 +219,15 @@
     }
 
     .resource-number-input {
+        padding: 0 0.5rem;
+        font-size: var(--a5e-text-size-sm);
+        font-weight: 300;
+        text-overflow: ellipsis;
+        font-family: var(--a5e-font-sans-serif);
         flex-grow: 1;
         height: 1.125rem;
+        width: 2rem;
+        text-align: center;
     }
 
     .resource-setting {
