@@ -18,7 +18,7 @@
 
         {#if !sheetIsLocked}
             <button
-                class="icon fas fa-cog ac__config-button"
+                class="icon fas fa-cog a5e-button a5e-button--config ac__config-button"
                 data-tooltip="A5E.ArmorClassConfigurationTitle"
                 data-tooltip-direction="DOWN"
                 on:click={() => $actor.configureArmorClass()}
@@ -103,19 +103,8 @@
     }
 
     .ac__config-button {
-        width: fit-content;
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        color: var(--a5e-button-gray);
-
-        transition: var(--a5e-transition-standard);
-
-        &:focus,
-        &:hover {
-            color: var(--a5e-button-gray-hover);
-            box-shadow: none;
-            transform: scale(1.2);
-        }
+        position: absolute;
+        right: -0.25rem;
+        top: -0.6rem;
     }
 </style>
