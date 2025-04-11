@@ -52,6 +52,7 @@
             </div>
 
             <select
+                class="u-w-30"
                 name="system.attributes.senses.{sense}.unit"
                 on:change={({ target }) =>
                     updateDocumentDataFromField(
