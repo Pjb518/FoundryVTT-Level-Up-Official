@@ -1,4 +1,4 @@
-import { localize } from "#runtime/util/i18n";
+import { localize } from "#utils/localization/localize.ts";
 
 export default async function doubleRolledDamage(baseRoll) {
   const Terms = foundry.dice.terms;

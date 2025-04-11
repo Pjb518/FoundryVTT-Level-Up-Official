@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { TJSProseMirror } from "#standard/component/fvtt/editor";
 
     export let document;
@@ -47,7 +47,8 @@
         enrichOptions,
         editable: game.user.isGM || $document.isOwner || false,
         styles: {
-            "--tjs-editor-toolbar-background": "var(--a5e-editor-toolbar-background)",
+            "--tjs-editor-toolbar-background":
+                "var(--a5e-editor-toolbar-background)",
         },
     };
 

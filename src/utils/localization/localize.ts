@@ -1,9 +1,6 @@
-import { isObject } from "../isObject";
+import { isObject } from "../isObject.ts";
 
-export default function localize(
-  stringId: string,
-  data?: Record<string, string>,
-) {
+export function localize(stringId: string, data?: Record<string, string>) {
   const result = !isObject(data)
     ? game.i18n.localize(stringId)
     : game.i18n.format(stringId, data);

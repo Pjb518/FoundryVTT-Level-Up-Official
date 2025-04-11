@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";
 
     import Editor from "../Editor.svelte";
@@ -40,7 +40,10 @@
 <div class="bio-page">
     <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
         {#each Object.entries(charChoicesLabel) as [key, label]}
-            <div class="u-flex u-flex-col a5e-input-container u-gap-xs" data-type={key}>
+            <div
+                class="u-flex u-flex-col a5e-input-container u-gap-xs"
+                data-type={key}
+            >
                 <label
                     class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                     class:disable-pointer-events={!$actor.isOwner}
@@ -60,7 +63,9 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            key === "prestige" ? Number(target.value) : target.value,
+                            key === "prestige"
+                                ? Number(target.value)
+                                : target.value,
                         );
                     }}
                 />
@@ -70,7 +75,10 @@
 
     <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
         {#each Object.entries(traitsLabel) as [key, label]}
-            <div class="u-flex u-flex-col a5e-input-container u-gap-xs" data-type={key}>
+            <div
+                class="u-flex u-flex-col a5e-input-container u-gap-xs"
+                data-type={key}
+            >
                 <label
                     class="u-text-bold u-text-sm u-flex-shrink-0 u-mb-0"
                     class:disable-pointer-events={!$actor.isOwner}
@@ -87,7 +95,11 @@
                     name="system.details.{key}"
                     value={details[key]}
                     on:change={({ target }) => {
-                        updateDocumentDataFromField($actor, target.name, target.value);
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            target.value,
+                        );
                     }}
                 />
             </div>

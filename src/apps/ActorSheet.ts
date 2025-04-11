@@ -6,7 +6,7 @@ import type FeatureItemA5e from "../documents/item/feature";
 import type SpellItemA5e from "../documents/item/spell";
 
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
-import { localize } from "#runtime/util/i18n";
+import { localize } from "#utils/localization/localize.ts";
 
 import ActorDocument from "./ActorDocument";
 

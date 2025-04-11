@@ -1,4 +1,4 @@
-import { localize } from "#runtime/util/i18n";
+import { localize } from "#utils/localization/localize.ts";
 import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
 import ActiveEffectConfigSheet from "./sheets/ActiveEffectConfig.svelte";

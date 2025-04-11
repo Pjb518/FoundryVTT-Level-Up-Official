@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";

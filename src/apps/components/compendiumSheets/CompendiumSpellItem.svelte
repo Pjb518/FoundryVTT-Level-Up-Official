@@ -1,53 +1,56 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#utils/localization/localize.ts";
 
-import ImportButton from '../ImportButton.svelte';
+    import ImportButton from "../ImportButton.svelte";
 
-import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
-import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
+    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
 
-export let document;
+    export let document;
 
-function getSpellDetailsLabel(spell) {
-	const { level, schools } = spell.system;
-	const spellLevel = spellLevels[level] ?? '';
+    function getSpellDetailsLabel(spell) {
+        const { level, schools } = spell.system;
+        const spellLevel = spellLevels[level] ?? "";
 
-	const primarySchool = spellSchools.primary[schools.primary] ?? schools.primary;
+        const primarySchool =
+            spellSchools.primary[schools.primary] ?? schools.primary;
 
-	const secondarySchools = schools.secondary.map(
-		(school) => spellSchools.secondary[school] ?? school,
-	);
+        const secondarySchools = schools.secondary.map(
+            (school) => spellSchools.secondary[school] ?? school,
+        );
 
-	secondarySchools.sort((a, b) => a.localeCompare(b));
+        secondarySchools.sort((a, b) => a.localeCompare(b));
 
-	const spellSchoolsLabel = [primarySchool, ...secondarySchools].join(', ');
+        const spellSchoolsLabel = [primarySchool, ...secondarySchools].join(
+            ", ",
+        );
 
-	if (spellSchoolsLabel) return `${spellLevel} (${spellSchoolsLabel})`;
-	return spellLevel;
-}
+        if (spellSchoolsLabel) return `${spellLevel} (${spellSchoolsLabel})`;
+        return spellLevel;
+    }
 
-function getSpellSource(spell) {
-	if (typeof spell.system.source !== 'string') return null;
+    function getSpellSource(spell) {
+        if (typeof spell.system.source !== "string") return null;
 
-	const source = CONFIG.A5E.products[spell.system.source];
+        const source = CONFIG.A5E.products[spell.system.source];
 
-	return source || null;
-}
+        return source || null;
+    }
 
-function onDragStart(event) {
-	const data = {
-		type: collection.documentName,
-		uuid: collection.getUuid(document._id),
-	};
-	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
-}
+    function onDragStart(event) {
+        const data = {
+            type: collection.documentName,
+            uuid: collection.getUuid(document._id),
+        };
+        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
+    }
 
-const collection = getContext('collection');
-const { spellSchools, spellLevels } = CONFIG.A5E;
+    const collection = getContext("collection");
+    const { spellSchools, spellLevels } = CONFIG.A5E;
 
-$: spellDetails = getSpellDetailsLabel(document);
-$: spellSource = getSpellSource(document);
+    $: spellDetails = getSpellDetailsLabel(document);
+    $: spellSource = getSpellSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -56,7 +59,8 @@ $: spellSource = getSpellSource(document);
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ?? (await collection.getDocument(document._id));
+            collection.get(document._id) ??
+            (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}

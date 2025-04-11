@@ -1,13 +1,13 @@
 <script>
-import { createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { createEventDispatcher } from "svelte";
+    import { localize } from "#utils/localization/localize.ts";
 
-export let checked;
-export let label;
-export let disabled = false;
+    export let checked;
+    export let label;
+    export let disabled = false;
 
-const id = foundry.utils.randomID();
-const dispatch = createEventDispatcher();
+    const id = foundry.utils.randomID();
+    const dispatch = createEventDispatcher();
 </script>
 
 <div class="checkbox-wrapper">

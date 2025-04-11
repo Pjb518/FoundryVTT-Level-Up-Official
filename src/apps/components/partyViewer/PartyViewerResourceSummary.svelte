@@ -1,34 +1,34 @@
 <script>
-import { localize } from '#runtime/util/i18n';
+    import { localize } from "#utils/localization/localize.ts";
 
-export let actor;
-export let propData = {};
+    export let actor;
+    export let propData = {};
 
-function hasArtifactCharges(actor) {
-	return actor?.system?.spellResources?.artifactCharges?.max;
-}
+    function hasArtifactCharges(actor) {
+        return actor?.system?.spellResources?.artifactCharges?.max;
+    }
 
-function hasExertionPool(actor) {
-	return actor?.system?.attributes.exertion?.max;
-}
+    function hasExertionPool(actor) {
+        return actor?.system?.attributes.exertion?.max;
+    }
 
-function hasSpellPoints(actor) {
-	return actor?.system?.spellResources?.points?.max;
-}
+    function hasSpellPoints(actor) {
+        return actor?.system?.spellResources?.points?.max;
+    }
 
-const { spellLevels } = CONFIG.A5E;
+    const { spellLevels } = CONFIG.A5E;
 
-$: actorData = $actor?.system;
-$: showArtifactCharges = hasArtifactCharges($actor);
-$: showExertion = hasExertionPool($actor);
-$: showSpellPoints = hasSpellPoints($actor);
+    $: actorData = $actor?.system;
+    $: showArtifactCharges = hasArtifactCharges($actor);
+    $: showExertion = hasExertionPool($actor);
+    $: showSpellPoints = hasSpellPoints($actor);
 
-$: showResources =
-	propData.partyHasArtifactCharges ||
-	propData.partyHasExertionPool ||
-	propData.partyHasInspiration ||
-	propData.partyHasSpellPointPool ||
-	propData.highestSpellSlotLevel;
+    $: showResources =
+        propData.partyHasArtifactCharges ||
+        propData.partyHasExertionPool ||
+        propData.partyHasInspiration ||
+        propData.partyHasSpellPointPool ||
+        propData.highestSpellSlotLevel;
 </script>
 
 {#if showResources}
@@ -53,8 +53,8 @@ $: showResources =
     {#if propData.partyHasExertionPool}
         <span class="field field--exertion">
             {#if showExertion}
-                {actorData?.attributes.exertion?.current} / {actorData?.attributes
-                    .exertion?.max}
+                {actorData?.attributes.exertion?.current} / {actorData
+                    ?.attributes.exertion?.max}
             {:else}
                 <i
                     class="cross icon fa-solid fa-xmark"
@@ -83,8 +83,8 @@ $: showResources =
     {#if propData.partyHasSpellPointPool}
         <span class="field field--spell-points">
             {#if showSpellPoints}
-                {actorData?.spellResources.points.current} / {actorData?.spellResources
-                    .points.max}
+                {actorData?.spellResources.points.current} / {actorData
+                    ?.spellResources.points.max}
             {:else}
                 <i
                     class="cross icon fa-solid fa-xmark"

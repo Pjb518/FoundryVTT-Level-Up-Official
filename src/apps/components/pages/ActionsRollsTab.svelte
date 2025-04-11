@@ -3,7 +3,7 @@
     import type { ItemA5e } from "../../../documents/item/item";
 
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import { ActionsManager } from "../../../managers/ActionsManager";
 
@@ -95,11 +95,14 @@
         ([_, roll]) => roll.type === "attack",
     );
 
-    $: menuList = Object.entries(rollTypes).reduce((acc, [rollType, { singleLabel }]) => {
-        if (!(rollType === "attack" && attackRolls.length > 0))
-            acc.push([rollType, singleLabel]);
-        return acc;
-    }, [] as string[][]);
+    $: menuList = Object.entries(rollTypes).reduce(
+        (acc, [rollType, { singleLabel }]) => {
+            if (!(rollType === "attack" && attackRolls.length > 0))
+                acc.push([rollType, singleLabel]);
+            return acc;
+        },
+        [] as string[][],
+    );
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

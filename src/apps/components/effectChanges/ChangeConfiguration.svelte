@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 
@@ -68,7 +68,8 @@
         type="number"
         name=""
         value={$effect.changes[idx]?.priority ?? 0}
-        on:change={({ target }) => dispatch("changePriority", Number(target.value))}
+        on:change={({ target }) =>
+            dispatch("changePriority", Number(target.value))}
     />
 </div>
 

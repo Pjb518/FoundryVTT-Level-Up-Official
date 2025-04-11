@@ -1,6 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import ItemGrantManager from "../../../managers/ItemGrantsManager";
@@ -60,7 +60,9 @@
                                 classes: "add-button",
                                 handler: () => addGrant(grantType),
                                 label: localize("A5E.ButtonAddGrant", {
-                                    type: localize(`A5E.grants.headings.${grantType}`),
+                                    type: localize(
+                                        `A5E.grants.headings.${grantType}`,
+                                    ),
                                 }),
                             },
                         ]}

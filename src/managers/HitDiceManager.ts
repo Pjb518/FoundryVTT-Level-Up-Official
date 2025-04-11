@@ -1,295 +1,328 @@
-import type { BaseActorA5e } from '../documents/actor/base';
-import { localize } from '#runtime/util/i18n';
+import type { BaseActorA5e } from "../documents/actor/base";
+import { localize } from "#utils/localization/localize.ts";
 
 export default class HitDiceManager {
-	#actor: BaseActorA5e;
+  #actor: BaseActorA5e;
 
-	#automate: boolean;
+  #automate: boolean;
 
-	#max = 0;
+  #max = 0;
 
-	#value = 0;
+  #value = 0;
 
-	dieSizes = new Set<number>();
+  dieSizes = new Set<number>();
 
-	constructor(actor: BaseActorA5e, automate = true) {
-		this.#actor = actor;
-		this.#automate = automate;
+  constructor(actor: BaseActorA5e, automate = true) {
+    this.#actor = actor;
+    this.#automate = automate;
 
-		if (this.#actor.type === 'character' && automate) {
-			// @ts-expect-error
-			Object.values(this.#actor.classes).forEach((cls: any) => {
-				this.#max += cls.hitDice.total;
-				this.#value += cls.hitDice.total - cls.hitDice.current;
-				this.dieSizes.add(cls.hitDice.size);
-			});
+    if (this.#actor.type === "character" && automate) {
+      // @ts-expect-error
+      Object.values(this.#actor.classes).forEach((cls: any) => {
+        this.#max += cls.hitDice.total;
+        this.#value += cls.hitDice.total - cls.hitDice.current;
+        this.dieSizes.add(cls.hitDice.size);
+      });
 
-			return;
-		}
+      return;
+    }
 
-		Object.entries((this.#actor.system.attributes.hitDice as Record<string, any>) ?? {}).forEach(
-			([die, { current, total }]: [string, { current: number; total: number }]) => {
-				const size = Number.parseInt(die.slice(1), 10);
-				this.#value += total - current;
-				this.#max += total;
-				this.dieSizes.add(size);
-			},
-		);
-	}
+    Object.entries(
+      (this.#actor.system.attributes.hitDice as Record<string, any>) ?? {},
+    ).forEach(
+      ([die, { current, total }]: [
+        string,
+        { current: number; total: number },
+      ]) => {
+        const size = Number.parseInt(die.slice(1), 10);
+        this.#value += total - current;
+        this.#max += total;
+        this.dieSizes.add(size);
+      },
+    );
+  }
 
-	get max(): number {
-		return this.#max;
-	}
+  get max(): number {
+    return this.#max;
+  }
 
-	get value(): number {
-		return this.#value;
-	}
+  get value(): number {
+    return this.#value;
+  }
 
-	get smallest(): number {
-		return this.dieSizes.size ? Math.min(...this.dieSizes) : 0;
-	}
+  get smallest(): number {
+    return this.dieSizes.size ? Math.min(...this.dieSizes) : 0;
+  }
 
-	get largest(): number {
-		return this.dieSizes.size ? Math.max(...this.dieSizes) : 0;
-	}
+  get largest(): number {
+    return this.dieSizes.size ? Math.max(...this.dieSizes) : 0;
+  }
 
-	get bySize(): Record<string, { current: number; total: number }> {
-		if (this.#actor.type === 'character' && this.#automate) {
-			// @ts-expect-error
-			return Object.values(this.#actor.classes ?? {}).reduce(
-				(acc: Record<string, { current: number; total: number }>, cls: any) => {
-					// eslint-disable-next-line max-len
-					const { current, total, size }: { current: number; total: number; size: number } =
-						cls.hitDice;
-					acc[`d${size}`] ??= { current: 0, total: 0 };
-					acc[`d${size}`].current += current;
-					acc[`d${size}`].total += total;
-					return acc;
-				},
-				{},
-			);
-		}
+  get bySize(): Record<string, { current: number; total: number }> {
+    if (this.#actor.type === "character" && this.#automate) {
+      // @ts-expect-error
+      return Object.values(this.#actor.classes ?? {}).reduce(
+        (acc: Record<string, { current: number; total: number }>, cls: any) => {
+          // eslint-disable-next-line max-len
+          const {
+            current,
+            total,
+            size,
+          }: { current: number; total: number; size: number } = cls.hitDice;
+          acc[`d${size}`] ??= { current: 0, total: 0 };
+          acc[`d${size}`].current += current;
+          acc[`d${size}`].total += total;
+          return acc;
+        },
+        {},
+      );
+    }
 
-		const hitDiceData =
-			(this.#actor.system.attributes.hitDice as Record<
-				string,
-				{ current: number; total: number }
-			>) ?? {};
+    const hitDiceData =
+      (this.#actor.system.attributes.hitDice as Record<
+        string,
+        { current: number; total: number }
+      >) ?? {};
 
-		return hitDiceData;
-	}
+    return hitDiceData;
+  }
 
-	async consumeHitDice(consumeData: Record<string, any>) {
-		if (this.#actor.type === 'npc' || !this.#automate) {
-			const { hitDice } = this.#actor.system.attributes;
+  async consumeHitDice(consumeData: Record<string, any>) {
+    if (this.#actor.type === "npc" || !this.#automate) {
+      const { hitDice } = this.#actor.system.attributes;
 
-			// @ts-expect-error
-			Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
-				const consumeValue = consumeData[die] ?? 0;
-				hitDice[die].current = Math.max(current - consumeValue, 0);
-			});
+      // @ts-expect-error
+      Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
+        const consumeValue = consumeData[die] ?? 0;
+        hitDice[die].current = Math.max(current - consumeValue, 0);
+      });
 
-			await this.#actor.update({
-				'system.attributes.hitDice': hitDice,
-			});
-		}
+      await this.#actor.update({
+        "system.attributes.hitDice": hitDice,
+      });
+    }
 
-		// @ts-expect-error
-		const classes = this.#actor.classes ?? ({} as any);
-		const updates: any[] = [];
+    // @ts-expect-error
+    const classes = this.#actor.classes ?? ({} as any);
+    const updates: any[] = [];
 
-		Object.entries(consumeData ?? {}).forEach(([die, quantity]) => {
-			const cls = Object.values(classes).find(
-				(c: any) =>
-					c.hitDice.size === Number.parseInt(die.slice(1), 10) && c.hitDice.current - quantity >= 0,
-			);
+    Object.entries(consumeData ?? {}).forEach(([die, quantity]) => {
+      const cls = Object.values(classes).find(
+        (c: any) =>
+          c.hitDice.size === Number.parseInt(die.slice(1), 10) &&
+          c.hitDice.current - quantity >= 0,
+      );
 
-			if (!cls) return;
+      if (!cls) return;
 
-			updates.push({
-				// @ts-expect-error
-				_id: cls.id,
-				// @ts-expect-error
-				'system.hp.hitDiceUsed': Math.min(cls.system.hp.hitDiceUsed + quantity, cls.classLevels),
-			});
-		});
+      updates.push({
+        // @ts-expect-error
+        _id: cls.id,
+        // @ts-expect-error
+        "system.hp.hitDiceUsed": Math.min(
+          cls.system.hp.hitDiceUsed + quantity,
+          cls.classLevels,
+        ),
+      });
+    });
 
-		await this.#actor.updateEmbeddedDocuments('Item', updates);
-	}
+    await this.#actor.updateEmbeddedDocuments("Item", updates);
+  }
 
-	async rollHitDice(dieSize: string | null = null, quantity = 1): Promise<any> {
-		const actorData = this.#actor.system;
-		//  @ts-expect-error
-		const conMod = Number.parseInt(actorData.abilities.con.check.mod, 10) || 0;
+  async rollHitDice(dieSize: string | null = null, quantity = 1): Promise<any> {
+    const actorData = this.#actor.system;
+    //  @ts-expect-error
+    const conMod = Number.parseInt(actorData.abilities.con.check.mod, 10) || 0;
 
-		if (this.#actor.type === 'npc' || !this.#automate) {
-			const { attributes } = actorData;
+    if (this.#actor.type === "npc" || !this.#automate) {
+      const { attributes } = actorData;
 
-			if (!dieSize) return null;
-			if (attributes.hitDice[dieSize].current - quantity < 0) return null;
+      if (!dieSize) return null;
+      if (attributes.hitDice[dieSize].current - quantity < 0) return null;
 
-			const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
+      const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
 
-			const { hookData, chatData } = await this.#rollHitDice(
-				dieSize,
-				attributes.hitDice[dieSize].current,
-				quantity,
-				formula,
-			);
+      const { hookData, chatData } = await this.#rollHitDice(
+        dieSize,
+        attributes.hitDice[dieSize].current,
+        quantity,
+        formula,
+      );
 
-			this.#actor.update({
-				'system.attributes': {
-					[`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity,
-				},
-			});
+      this.#actor.update({
+        "system.attributes": {
+          [`hitDice.${dieSize}.current`]:
+            attributes.hitDice[dieSize].current - quantity,
+        },
+      });
 
-			const chatCard = await ChatMessage.create(chatData);
+      const chatCard = await ChatMessage.create(chatData);
 
-			Hooks.callAll('a5e.rollHitDice', this.#actor, hookData);
-			return chatCard;
-		}
+      Hooks.callAll("a5e.rollHitDice", this.#actor, hookData);
+      return chatCard;
+    }
 
-		// @ts-expect-error
-		const classes = this.#actor.classes ?? ({} as any);
-		let cls: any;
+    // @ts-expect-error
+    const classes = this.#actor.classes ?? ({} as any);
+    let cls: any;
 
-		if (!dieSize) {
-			const die = this.largest;
-			if (!die) return null;
+    if (!dieSize) {
+      const die = this.largest;
+      if (!die) return null;
 
-			cls = Object.values(classes).find(
-				(c: any) => c.hitDice.size === die && c.hitDice.current - quantity >= 0,
-			);
+      cls = Object.values(classes).find(
+        (c: any) => c.hitDice.size === die && c.hitDice.current - quantity >= 0,
+      );
 
-			if (!cls) return null;
-		} else {
-			cls = Object.values(classes).find(
-				(c: any) =>
-					c.hitDice.size === Number.parseInt(dieSize.slice(1), 10) &&
-					c.hitDice.current - quantity >= 0,
-			);
+      if (!cls) return null;
+    } else {
+      cls = Object.values(classes).find(
+        (c: any) =>
+          c.hitDice.size === Number.parseInt(dieSize.slice(1), 10) &&
+          c.hitDice.current - quantity >= 0,
+      );
 
-			if (!cls) return null;
-		}
+      if (!cls) return null;
+    }
 
-		const { size }: { size: number } = cls.hitDice;
-		const formula = `${quantity}d${size} + ${quantity * conMod}`;
-		const { hookData, chatData } = await this.#rollHitDice(
-			`d${size}`,
-			cls.hitDice.current,
-			quantity,
-			formula,
-		);
+    const { size }: { size: number } = cls.hitDice;
+    const formula = `${quantity}d${size} + ${quantity * conMod}`;
+    const { hookData, chatData } = await this.#rollHitDice(
+      `d${size}`,
+      cls.hitDice.current,
+      quantity,
+      formula,
+    );
 
-		cls.update({
-			'system.hp.hitDiceUsed': Math.min(cls.system.hp.hitDiceUsed + quantity, cls.classLevels),
-		});
+    cls.update({
+      "system.hp.hitDiceUsed": Math.min(
+        cls.system.hp.hitDiceUsed + quantity,
+        cls.classLevels,
+      ),
+    });
 
-		const chatCard = await ChatMessage.create(chatData);
-		Hooks.callAll('a5e.rollHitDice', this.#actor, hookData);
+    const chatCard = await ChatMessage.create(chatData);
+    Hooks.callAll("a5e.rollHitDice", this.#actor, hookData);
 
-		return chatCard;
-	}
+    return chatCard;
+  }
 
-	async #rollHitDice(
-		dieSize: string,
-		currentCount: number,
-		quantity: number,
-		formula: string,
-	): Promise<{ hookData: any; chatData: any }> {
-		const { attributes } = this.#actor.system;
+  async #rollHitDice(
+    dieSize: string,
+    currentCount: number,
+    quantity: number,
+    formula: string,
+  ): Promise<{ hookData: any; chatData: any }> {
+    const { attributes } = this.#actor.system;
 
-		const roll = await new Roll(formula).roll();
+    const roll = await new Roll(formula).roll();
 
-		const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
-		const chatData = {
-			author: game.user?.id,
-			//  @ts-expect-error
-			speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
-			sound: CONFIG.sounds.dice,
-			rolls: [roll],
-			flags: {
-				a5e: {
-					actorId: this.#actor.uuid,
-					img: this.#actor.token?.texture.src ?? this.#actor.img,
-					name: this.#actor.name,
-					title,
-				},
-			},
-		};
+    const title = localize("A5E.HitDiceChatHeader", {
+      dieSize: dieSize.toUpperCase(),
+    });
+    const chatData = {
+      author: game.user?.id,
+      //  @ts-expect-error
+      speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
+      sound: CONFIG.sounds.dice,
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.#actor.uuid,
+          img: this.#actor.token?.texture.src ?? this.#actor.img,
+          name: this.#actor.name,
+          title,
+        },
+      },
+    };
 
-		const hpDelta = Math.max(roll.total, 0);
-		// @ts-expect-error
-		const maxHP = attributes.hp.max;
+    const hpDelta = Math.max(roll.total, 0);
+    // @ts-expect-error
+    const maxHP = attributes.hp.max;
 
-		this.#actor.applyHealing(hpDelta);
+    this.#actor.applyHealing(hpDelta);
 
-		const hookData = {
-			dieSize,
-			dieCount: currentCount - quantity,
-			formula,
-			newHp: Math.min(attributes.hp.value + hpDelta, maxHP),
-			roll,
-			quantity,
-		};
+    const hookData = {
+      dieSize,
+      dieCount: currentCount - quantity,
+      formula,
+      newHp: Math.min(attributes.hp.value + hpDelta, maxHP),
+      roll,
+      quantity,
+    };
 
-		return { hookData, chatData };
-	}
+    return { hookData, chatData };
+  }
 
-	getUpdateData(
-		{ upperLimit, restoreLargest }: { upperLimit: number; restoreLargest: boolean } = {
-			upperLimit: 0,
-			restoreLargest: true,
-		},
-	): { updates: any[] | Record<string, any>; recovered: number; type: string } {
-		// eslint-disable-next-line no-param-reassign
-		if (!upperLimit) upperLimit = Math.max(Math.floor(this.max / 2), 1) || 1;
+  getUpdateData(
+    {
+      upperLimit,
+      restoreLargest,
+    }: { upperLimit: number; restoreLargest: boolean } = {
+      upperLimit: 0,
+      restoreLargest: true,
+    },
+  ): { updates: any[] | Record<string, any>; recovered: number; type: string } {
+    // eslint-disable-next-line no-param-reassign
+    if (!upperLimit) upperLimit = Math.max(Math.floor(this.max / 2), 1) || 1;
 
-		if (this.#actor.type === 'character' && this.#automate) {
-			const updates: any[] = [];
-			let recovered = 0;
+    if (this.#actor.type === "character" && this.#automate) {
+      const updates: any[] = [];
+      let recovered = 0;
 
-			// @ts-expect-error
-			const classes = Object.values(this.#actor.classes ?? {}).sort((a: any, b: any) => {
-				if (restoreLargest) return b.hitDice.size - a.hitDice.size;
-				return a.hitDice.size - b.hitDice.size;
-			});
+      // @ts-expect-error
+      const classes = Object.values(this.#actor.classes ?? {}).sort(
+        (a: any, b: any) => {
+          if (restoreLargest) return b.hitDice.size - a.hitDice.size;
+          return a.hitDice.size - b.hitDice.size;
+        },
+      );
 
-			classes.forEach((cls: any) => {
-				const consumed = cls.system.hp.hitDiceUsed;
-				if (consumed === 0) return;
-				if (recovered >= upperLimit) return;
+      classes.forEach((cls: any) => {
+        const consumed = cls.system.hp.hitDiceUsed;
+        if (consumed === 0) return;
+        if (recovered >= upperLimit) return;
 
-				const recoverable = Math.min(consumed, upperLimit - recovered);
-				recovered += recoverable;
-				updates.push({ _id: cls.id, 'system.hp.hitDiceUsed': consumed - recoverable });
-			});
+        const recoverable = Math.min(consumed, upperLimit - recovered);
+        recovered += recoverable;
+        updates.push({
+          _id: cls.id,
+          "system.hp.hitDiceUsed": consumed - recoverable,
+        });
+      });
 
-			return { updates, recovered, type: 'embedded' };
-		}
+      return { updates, recovered, type: "embedded" };
+    }
 
-		const updates: Record<string, any> = {};
-		let recovered = 0;
+    const updates: Record<string, any> = {};
+    let recovered = 0;
 
-		const hitDiceData = Object.entries(
-			(this.#actor.system.attributes.hitDice as Record<string, any>) ?? {},
-		).sort(([a], [b]) => {
-			if (restoreLargest) return Number.parseInt(b.slice(1), 10) - Number.parseInt(a.slice(1), 10);
-			return Number.parseInt(a.slice(1), 10) - Number.parseInt(b.slice(1), 10);
-		});
+    const hitDiceData = Object.entries(
+      (this.#actor.system.attributes.hitDice as Record<string, any>) ?? {},
+    ).sort(([a], [b]) => {
+      if (restoreLargest)
+        return (
+          Number.parseInt(b.slice(1), 10) - Number.parseInt(a.slice(1), 10)
+        );
+      return Number.parseInt(a.slice(1), 10) - Number.parseInt(b.slice(1), 10);
+    });
 
-		hitDiceData.forEach(
-			([die, { current, total }]: [string, { current: number; total: number }]) => {
-				const consumed = total - current;
-				if (consumed === 0) return;
-				if (recovered >= upperLimit) return;
+    hitDiceData.forEach(
+      ([die, { current, total }]: [
+        string,
+        { current: number; total: number },
+      ]) => {
+        const consumed = total - current;
+        if (consumed === 0) return;
+        if (recovered >= upperLimit) return;
 
-				const recoverable = Math.min(consumed, upperLimit - recovered);
-				recovered += recoverable;
-				updates[`system.attributes.hitDice.${die}.current`] = current + recoverable;
-			},
-		);
+        const recoverable = Math.min(consumed, upperLimit - recovered);
+        recovered += recoverable;
+        updates[`system.attributes.hitDice.${die}.current`] =
+          current + recoverable;
+      },
+    );
 
-		return { updates, recovered, type: 'actor' };
-	}
+    return { updates, recovered, type: "actor" };
+  }
 }

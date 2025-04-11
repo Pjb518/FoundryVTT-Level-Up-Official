@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -23,7 +23,8 @@
     const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
-    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
+    const showFavorPoints =
+        game.settings.get("a5e", "showFavorPoints") ?? false;
 
     let showDescription = false;
     let showUses = usesRequired(features);

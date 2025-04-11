@@ -4,7 +4,7 @@
 
     import { createEventDispatcher, getContext } from "svelte";
     import { slide } from "svelte/transition";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -45,7 +45,8 @@
 
         if (item.getFlag("a5e", "showActionList") === false) return false;
 
-        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) return false;
+        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked)
+            return false;
 
         return true;
     }
@@ -77,13 +78,18 @@
         // @ts-expect-error
         if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function getDescription(item: BaseItemA5e) {
         const data =
             (await TextEditor.enrichHTML(
-                actionId && action ? action.description : item.system.description,
+                actionId && action
+                    ? action.description
+                    : item.system.description,
                 {
                     async: true,
                     secrets: item.isOwner,
@@ -111,7 +117,11 @@
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : ($actor.flags?.a5e?.sheetIsLocked ?? true);
-    $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
+    $: showActionList = determineActionListVisibility(
+        action,
+        item,
+        sheetIsLocked,
+    );
     $: showContainerItems =
         item.getFlag("a5e", "showContainer") ?? containerItems.length > 0;
     $: summaryData = getSummaryData(item, action);

@@ -1,88 +1,94 @@
 <script lang="ts">
-import type { Writable } from 'svelte/store';
-import type { ItemA5e } from '../../../documents/item/item';
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
 
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#utils/localization/localize.ts";
 
-import { ActionsManager } from '../../../managers/ActionsManager';
+    import { ActionsManager } from "../../../managers/ActionsManager";
 
-import AmmoConsumer from '../itemActionsConfig/AmmoConsumer.svelte';
-import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
-import HitDiceConsumer from '../itemActionsConfig/HitDiceConsumer.svelte';
-import QuantityConsumer from '../itemActionsConfig/QuantityConsumer.svelte';
-import ResourceConsumer from '../itemActionsConfig/ResourceConsumer.svelte';
-import SpellConsumer from '../itemActionsConfig/SpellConsumer.svelte';
-import UsesConsumer from '../itemActionsConfig/UsesConsumer.svelte';
+    import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
+    import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
+    import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
+    import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
+    import UsesConsumer from "../itemActionsConfig/UsesConsumer.svelte";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-import formulaIsClassResource from '../../../utils/formulaIsClassResource';
-import handleDeterministicInput from '../../../utils/handleDeterministicInput';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
+    import handleDeterministicInput from "../../../utils/handleDeterministicInput";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-function deleteConsumer(actionId: string, consumerId: string) {
-	$item.update({
-		[`system.actions.${actionId}.consumers`]: {
-			[`-=${consumerId}`]: null,
-		},
-	});
-}
+    function deleteConsumer(actionId: string, consumerId: string) {
+        $item.update({
+            [`system.actions.${actionId}.consumers`]: {
+                [`-=${consumerId}`]: null,
+            },
+        });
+    }
 
-const item: Writable<ItemA5e> = getContext('item');
-const actionId: string = getContext('actionId');
-const { A5E } = CONFIG;
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
+    const { A5E } = CONFIG;
 
-const consumerTypes = {
-	ammunition: {
-		heading: 'A5E.ConsumerAmmunition',
-		singleLabel: 'A5E.ObjectTypeAmmunition',
-		component: AmmoConsumer,
-	},
-	hitDice: {
-		heading: 'A5E.ConsumerHitDice',
-		singleLabel: 'A5E.HitDiceLabel',
-		component: HitDiceConsumer,
-	},
-	quantity: {
-		heading: 'A5E.ConsumerQuantity',
-		singleLabel: 'A5E.ItemQuantity',
-		component: QuantityConsumer,
-	},
-	resource: {
-		heading: 'A5E.ConsumerResource',
-		singleLabel: 'A5E.Resource',
-		component: ResourceConsumer,
-	},
-	spell: {
-		heading: 'A5E.ConsumerSpell',
-		singleLabel: 'A5E.Spell',
-		component: SpellConsumer,
-	},
-	actionUses: {
-		heading: 'A5E.ConsumerUsesAction',
-		singleLabel: 'A5E.ConsumerActionUses',
-		component: UsesConsumer,
-	},
-	itemUses: {
-		heading: 'A5E.ConsumerUsesItem',
-		singleLabel: 'A5E.ConsumerItemUses',
-		component: UsesConsumer,
-	},
-};
+    const consumerTypes = {
+        ammunition: {
+            heading: "A5E.ConsumerAmmunition",
+            singleLabel: "A5E.ObjectTypeAmmunition",
+            component: AmmoConsumer,
+        },
+        hitDice: {
+            heading: "A5E.ConsumerHitDice",
+            singleLabel: "A5E.HitDiceLabel",
+            component: HitDiceConsumer,
+        },
+        quantity: {
+            heading: "A5E.ConsumerQuantity",
+            singleLabel: "A5E.ItemQuantity",
+            component: QuantityConsumer,
+        },
+        resource: {
+            heading: "A5E.ConsumerResource",
+            singleLabel: "A5E.Resource",
+            component: ResourceConsumer,
+        },
+        spell: {
+            heading: "A5E.ConsumerSpell",
+            singleLabel: "A5E.Spell",
+            component: SpellConsumer,
+        },
+        actionUses: {
+            heading: "A5E.ConsumerUsesAction",
+            singleLabel: "A5E.ConsumerActionUses",
+            component: UsesConsumer,
+        },
+        itemUses: {
+            heading: "A5E.ConsumerUsesItem",
+            singleLabel: "A5E.ConsumerItemUses",
+            component: UsesConsumer,
+        },
+    };
 
-$: action = $item.actions.get(actionId)!;
-$: consumers = action.consumers ?? {};
-$: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
-$: isClassResource = formulaIsClassResource(action.uses?.max ?? '');
+    $: action = $item.actions.get(actionId)!;
+    $: consumers = action.consumers ?? {};
+    $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
+    $: isClassResource = formulaIsClassResource(action.uses?.max ?? "");
 
-$: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { singleLabel }]) => {
-	if (consumerType === 'resource' || !existingConsumers.has(consumerType))
-		acc.push([consumerType, singleLabel]);
+    $: menuList = Object.entries(consumerTypes).reduce(
+        (acc, [consumerType, { singleLabel }]) => {
+            if (
+                consumerType === "resource" ||
+                !existingConsumers.has(consumerType)
+            )
+                acc.push([consumerType, singleLabel]);
 
-	return acc;
-}, [] as string[][]);
+            return acc;
+        },
+        [] as string[][],
+    );
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -93,7 +99,10 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
         --a5e-section-body-gap="0.5rem"
     >
         {#if !isClassResource}
-            <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
+            <FieldWrapper
+                heading="A5E.UsesCurrent"
+                --a5e-field-wrapper-width="7.5rem"
+            >
                 <input
                     type="number"
                     name="system.actions.{actionId}.uses.value"
@@ -119,7 +128,11 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
                     // @ts-expect-error
                     handleDeterministicInput(target.value);
                     // @ts-expect-error
-                    updateDocumentDataFromField($item, target.name, target.value);
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    );
                 }}
             />
         </FieldWrapper>
@@ -130,7 +143,11 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
                     // @ts-expect-error
-                    updateDocumentDataFromField($item, target.name, target.value)}
+                    updateDocumentDataFromField(
+                        $item,
+                        target.name,
+                        target.value,
+                    )}
             >
                 <option value="" />
 
@@ -149,7 +166,10 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
+            <FieldWrapper
+                heading="A5E.ItemRechargeFormula"
+                --a5e-field-wrapper-grow="1"
+            >
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"

@@ -3,7 +3,7 @@
     import type { ItemA5e } from "../../../documents/item/item";
 
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import { ActionsManager } from "../../../managers/ActionsManager";
 
@@ -61,10 +61,9 @@
     $: action = $item.actions.get(actionId)!;
     $: prompts = action.prompts ?? {};
 
-    $: menuList = Object.entries(promptTypes).map(([promptType, { heading }]) => [
-        promptType,
-        heading,
-    ]);
+    $: menuList = Object.entries(promptTypes).map(
+        ([promptType, { heading }]) => [promptType, heading],
+    );
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

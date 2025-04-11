@@ -1,17 +1,17 @@
 <script>
-import { localize } from '#runtime/util/i18n';
+    import { localize } from "#utils/localization/localize.ts";
 
-export let actor;
-export const propData = {};
+    export let actor;
+    export const propData = {};
 
-const { languages } = CONFIG.A5E;
+    const { languages } = CONFIG.A5E;
 
-$: actorData = $actor?.system ?? {};
+    $: actorData = $actor?.system ?? {};
 
-$: knownLanguages = (actorData?.proficiencies?.languages ?? [])
-	.map((language) => languages[language] ?? language)
-	.sort((a, b) => a.localeCompare(b))
-	.join(', ');
+    $: knownLanguages = (actorData?.proficiencies?.languages ?? [])
+        .map((language) => languages[language] ?? language)
+        .sort((a, b) => a.localeCompare(b))
+        .join(", ");
 </script>
 
 <span class="field field--languages">

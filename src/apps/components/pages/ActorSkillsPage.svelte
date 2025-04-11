@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import FieldWrapper from "../FieldWrapper.svelte";
     import Skill from "../Skill.svelte";
@@ -55,7 +55,10 @@
     $: skills = getSkills($actor.system.skills);
     $: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
 
-    $: skillListFlowDirection = game.settings.get("a5e", "skillListFlowDirection");
+    $: skillListFlowDirection = game.settings.get(
+        "a5e",
+        "skillListFlowDirection",
+    );
 </script>
 
 <div class="skill-page-wrapper">
@@ -83,7 +86,8 @@
                                     class="a5e-skill-specialties__list-item"
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"
-                                    on:click={() => rollSkillCheckWithSpecialty(skillKey)}
+                                    on:click={() =>
+                                        rollSkillCheckWithSpecialty(skillKey)}
                                 >
                                     {specialty}
                                 </button>
@@ -97,10 +101,15 @@
 
     <ul
         class="skills-container"
-        class:skills-container--column-flow={skillListFlowDirection === "column"}
+        class:skills-container--column-flow={skillListFlowDirection ===
+            "column"}
     >
         {#each Object.entries(skills) as [key, skill], i}
-            <Skill {key} {skill} columnFlow={skillListFlowDirection === "column"} />
+            <Skill
+                {key}
+                {skill}
+                columnFlow={skillListFlowDirection === "column"}
+            />
         {/each}
     </ul>
 </div>

@@ -1,18 +1,18 @@
-import getEnergyProperties from './getEnergyProperties';
+import getEnergyProperties from "./getEnergyProperties";
 
-import { localize } from '#runtime/util/i18n';
+import { localize } from "#utils/localization/localize.ts";
 
 export default function getWeaponAugments(item) {
-	const { weaponAugments } = CONFIG.A5E;
+  const { weaponAugments } = CONFIG.A5E;
 
-	return item.system.weaponAugments
-		.map((property) => {
-			switch (property) {
-				case 'energy':
-					return getEnergyProperties(item);
-				default:
-					return localize(weaponAugments[property]) ?? null;
-			}
-		})
-		.filter(Boolean);
+  return item.system.weaponAugments
+    .map((property) => {
+      switch (property) {
+        case "energy":
+          return getEnergyProperties(item);
+        default:
+          return localize(weaponAugments[property]) ?? null;
+      }
+    })
+    .filter(Boolean);
 }

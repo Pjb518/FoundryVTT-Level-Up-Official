@@ -1,31 +1,32 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
-import Effect from './Effect.svelte';
+    import { getContext } from "svelte";
+    import { localize } from "#utils/localization/localize.ts";
+    import Effect from "./Effect.svelte";
 
-export let label;
-export let effects;
+    export let label;
+    export let effects;
 
-function getEffectTemplateConfiguration(sheetIsLocked) {
-	let areas = 'icon name indicators';
-	let columns = 'min-content 1fr min-content';
+    function getEffectTemplateConfiguration(sheetIsLocked) {
+        let areas = "icon name indicators";
+        let columns = "min-content 1fr min-content";
 
-	if ($doc.documentName === 'Item' || !sheetIsLocked) {
-		areas += ' menu';
-		columns += ' 2rem';
-	}
+        if ($doc.documentName === "Item" || !sheetIsLocked) {
+            areas += " menu";
+            columns += " 2rem";
+        }
 
-	return { areas: `"${areas}"`, columns };
-}
+        return { areas: `"${areas}"`, columns };
+    }
 
-const doc = getContext('actor') ?? getContext('item');
+    const doc = getContext("actor") ?? getContext("item");
 
-$: sheetIsLocked = !$doc.isOwner
-	? true
-	: $doc.documentName === 'Item'
-		? false
-		: ($doc.flags?.a5e?.sheetIsLocked ?? true);
-$: effectTemplateConfiguration = getEffectTemplateConfiguration(sheetIsLocked);
+    $: sheetIsLocked = !$doc.isOwner
+        ? true
+        : $doc.documentName === "Item"
+          ? false
+          : ($doc.flags?.a5e?.sheetIsLocked ?? true);
+    $: effectTemplateConfiguration =
+        getEffectTemplateConfiguration(sheetIsLocked);
 </script>
 
 <section>

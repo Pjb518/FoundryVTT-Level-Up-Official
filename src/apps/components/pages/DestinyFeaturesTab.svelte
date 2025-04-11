@@ -1,33 +1,40 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#utils/localization/localize.ts";
 
-import DropAreaSingular from '../dropAreas/DropAreaSingular.svelte';
+    import DropAreaSingular from "../dropAreas/DropAreaSingular.svelte";
 
-const item = getContext('item');
+    const item = getContext("item");
 
-async function addFeature(event, path) {
-	const [dragEvent] = event.detail;
-	try {
-		const { uuid } = JSON.parse(dragEvent.dataTransfer.getData('text/plain'));
+    async function addFeature(event, path) {
+        const [dragEvent] = event.detail;
+        try {
+            const { uuid } = JSON.parse(
+                dragEvent.dataTransfer.getData("text/plain"),
+            );
 
-		const doc = await Item.fromDropData({ uuid });
-		if (doc?.type !== 'feature' || doc?.system?.featureType !== 'destiny')
-			return ui.notifications.warn(localize('A5E.validations.warnings.InvalidForeignDocument'));
+            const doc = await Item.fromDropData({ uuid });
+            if (
+                doc?.type !== "feature" ||
+                doc?.system?.featureType !== "destiny"
+            )
+                return ui.notifications.warn(
+                    localize("A5E.validations.warnings.InvalidForeignDocument"),
+                );
 
-		$item.update({ [`system.${path}`]: uuid });
-	} catch (err) {
-		console.error(err);
-	}
-}
+            $item.update({ [`system.${path}`]: uuid });
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
-function deleteFeature(event, path) {
-	$item.update({ [`system.${path}`]: '' });
-}
+    function deleteFeature(event, path) {
+        $item.update({ [`system.${path}`]: "" });
+    }
 
-$: source = $item.system.sourceOfInspiration || null;
-$: inspiration = $item.system.inspirationFeature || null;
-$: fulfillment = $item.system.fulfillmentFeature || null;
+    $: source = $item.system.sourceOfInspiration || null;
+    $: inspiration = $item.system.inspirationFeature || null;
+    $: fulfillment = $item.system.fulfillmentFeature || null;
 </script>
 
 <article>
@@ -39,8 +46,10 @@ $: fulfillment = $item.system.fulfillmentFeature || null;
         <DropAreaSingular
             uuid={source}
             singleDocument={true}
-            on:document-dropped={(event) => addFeature(event, "sourceOfInspiration")}
-            on:document-deleted={(event) => deleteFeature(event, "sourceOfInspiration")}
+            on:document-dropped={(event) =>
+                addFeature(event, "sourceOfInspiration")}
+            on:document-deleted={(event) =>
+                deleteFeature(event, "sourceOfInspiration")}
         />
     </section>
 
@@ -52,8 +61,10 @@ $: fulfillment = $item.system.fulfillmentFeature || null;
         <DropAreaSingular
             uuid={inspiration}
             singleDocument={true}
-            on:document-dropped={(event) => addFeature(event, "inspirationFeature")}
-            on:document-deleted={(event) => deleteFeature(event, "inspirationFeature")}
+            on:document-dropped={(event) =>
+                addFeature(event, "inspirationFeature")}
+            on:document-deleted={(event) =>
+                deleteFeature(event, "inspirationFeature")}
         />
     </section>
 
@@ -65,8 +76,10 @@ $: fulfillment = $item.system.fulfillmentFeature || null;
         <DropAreaSingular
             uuid={fulfillment}
             singleDocument={true}
-            on:document-dropped={(event) => addFeature(event, "fulfillmentFeature")}
-            on:document-deleted={(event) => deleteFeature(event, "fulfillmentFeature")}
+            on:document-dropped={(event) =>
+                addFeature(event, "fulfillmentFeature")}
+            on:document-deleted={(event) =>
+                deleteFeature(event, "fulfillmentFeature")}
         />
     </section>
 </article>

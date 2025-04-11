@@ -1,4 +1,4 @@
-import { localize } from "#runtime/util/i18n";
+import { localize } from "#utils/localization/localize.ts";
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
 import { gameSettings } from "./SettingsStore";

@@ -1,4 +1,4 @@
-import { localize } from "#runtime/util/i18n";
+import { localize } from "#utils/localization/localize.ts";
 
 import { handleDocumentMigration } from "../migration/handlers/handleDocumentMigration";
 import { handlePackMigration } from "../migration/handlers/handlePackMigration";

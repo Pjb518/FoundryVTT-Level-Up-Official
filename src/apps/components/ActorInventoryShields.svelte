@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -7,7 +7,8 @@
     const { A5E } = CONFIG;
     const actor = getContext("actor");
 
-    const showVRCImplants = game.settings.get("a5e", "showVRCImplants") ?? false;
+    const showVRCImplants =
+        game.settings.get("a5e", "showVRCImplants") ?? false;
     const useCredits = game.settings.get("a5e", "useCredits") ?? false;
 
     function getBulkyTooltip(actor) {
@@ -38,7 +39,10 @@
 
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
         if (item.system.bulky && item.system.equippedState) {
-            if (item.system.objectType === "armor" && item.system.equippedState === 2) {
+            if (
+                item.system.objectType === "armor" &&
+                item.system.equippedState === 2
+            ) {
             } else bulkyCount += 1;
         }
         return bulkyCount;
@@ -77,7 +81,9 @@
                 {localize("A5E.Attunement")}
             </h3>
 
-            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
+            <span
+                class="a5e-footer-group__value a5e-footer-group__value--attunement"
+            >
                 {attunement.current}
             </span>
             /
@@ -169,7 +175,9 @@
                 {localize("A5E.Implant")}
             </h3>
 
-            <span class="a5e-footer-group__value a5e-footer-group__value--implants">
+            <span
+                class="a5e-footer-group__value a5e-footer-group__value--implants"
+            >
                 {implantItems}
             </span>
             /

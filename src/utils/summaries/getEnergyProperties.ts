@@ -1,13 +1,13 @@
-import { localize } from '#runtime/util/i18n';
+import { localize } from "#utils/localization/localize.ts";
 
 export default function getEnergyProperties(item) {
-	const { energyProperties, weaponAugments } = CONFIG.A5E;
+  const { energyProperties, weaponAugments } = CONFIG.A5E;
 
-	if (item.system.energyProperties) {
-		const properties = energyProperties[item.system.energyProperties];
+  if (item.system.energyProperties) {
+    const properties = energyProperties[item.system.energyProperties];
 
-		return localize('A5E.weaponAugments.energySpecific', { type: properties });
-	}
+    return localize("A5E.weaponAugments.energySpecific", { type: properties });
+  }
 
-	return weaponAugments.energy;
+  return weaponAugments.energy;
 }

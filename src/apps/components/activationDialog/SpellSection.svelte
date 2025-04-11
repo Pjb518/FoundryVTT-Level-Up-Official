@@ -5,7 +5,7 @@
     import type SpellItemA5e from "../../../documents/item/spell";
     import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";
 
     import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
@@ -37,7 +37,9 @@
 
     function disableArtifactChargeOptions() {
         const baseLevel =
-            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+            consumer.spellLevel ??
+            ($item.isType("spell") ? $item.system?.level : 1) ??
+            1;
         disabled = spellLevels.reduce((acc: string[], [level]) => {
             const l = Number(level);
             if (baseLevel > l) acc.push(level);
@@ -48,14 +50,18 @@
 
     function disableBaseSlotOptions() {
         const baseLevel =
-            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+            consumer.spellLevel ??
+            ($item.isType("spell") ? $item.system?.level : 1) ??
+            1;
         disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
     }
 
     function disableSpellSlotOptions() {
         const temp = new Set(spellLevels.map((i) => i[0]));
         const baseLevel =
-            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+            consumer.spellLevel ??
+            ($item.isType("spell") ? $item.system?.level : 1) ??
+            1;
         disabled = [
             ...temp.difference(new Set(availableSpellSlots)),
             ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
@@ -64,11 +70,16 @@
 
     function disableSpellPointOptions() {
         const baseLevel =
-            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
-        const cap = Object.entries(A5E.spellLevelCost).reduce((acc, [level, cost]) => {
-            if (Number(cost) <= availablePoints) acc = Number(level);
-            return acc;
-        }, 0);
+            consumer.spellLevel ??
+            ($item.isType("spell") ? $item.system?.level : 1) ??
+            1;
+        const cap = Object.entries(A5E.spellLevelCost).reduce(
+            (acc, [level, cost]) => {
+                if (Number(cost) <= availablePoints) acc = Number(level);
+                return acc;
+            },
+            0,
+        );
 
         disabled = [
             ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
@@ -90,7 +101,9 @@
 
     function getBaseSpellLevel(): number {
         const defaultLevel =
-            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+            consumer.spellLevel ??
+            ($item.isType("spell") ? $item.system?.level : 1) ??
+            1;
         const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 
         const selection =
@@ -151,7 +164,8 @@
         options={spellLevels}
         allowDeselect={false}
         {disabled}
-        on:updateSelection={({ detail }) => updateSpellResourceData(Number(detail))}
+        on:updateSelection={({ detail }) =>
+            updateSpellResourceData(Number(detail))}
     />
 
     {#if !isEmpty(consumer)}
@@ -209,7 +223,11 @@
     <FieldWrapper heading="A5E.SpellPoints">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
-                <input class="number-input" type="number" bind:value={spellData.points} />
+                <input
+                    class="number-input"
+                    type="number"
+                    bind:value={spellData.points}
+                />
             </div>
 
             /
@@ -218,7 +236,8 @@
                 <input
                     class="number-input"
                     type="number"
-                    value={spellResources.points.current ?? spellResources.points.max}
+                    value={spellResources.points.current ??
+                        spellResources.points.max}
                     disabled
                 />
             </div>

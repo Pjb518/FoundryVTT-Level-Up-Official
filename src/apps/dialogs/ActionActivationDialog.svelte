@@ -8,7 +8,7 @@
     import { RollPreparationManager } from "../../managers/RollPreparationManager";
 
     import { getContext, setContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import showActivationDialogSection from "../../utils/showActivationDialogSection";

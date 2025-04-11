@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
@@ -24,7 +24,9 @@
     const { A5E } = CONFIG;
 
     async function onDropObject(event, items) {
-        const draggedItemUUID = JSON.parse(event.dataTransfer.getData("text/plain")).uuid;
+        const draggedItemUUID = JSON.parse(
+            event.dataTransfer.getData("text/plain"),
+        ).uuid;
 
         const draggedItem = await fromUuid(draggedItemUUID);
 
@@ -103,7 +105,10 @@
         showQuantity,
     );
 
-    $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
+    $: itemTemplateConfiguration = getItemTemplateConfiguration(
+        showUses,
+        showQuantity,
+    );
 </script>
 
 <section class="category-container">
@@ -116,7 +121,9 @@
                 --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
             "
         >
-            <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
+            <h3
+                class="a5e-section-header__heading a5e-section-header__heading--name"
+            >
                 <div>
                     {#if icon}
                         <i class={icon} />
@@ -188,7 +195,9 @@
         &--name {
             display: grid;
             align-items: center;
-            grid-template-columns: minmax(3.5rem, max-content) max-content max-content;
+            grid-template-columns:
+                minmax(3.5rem, max-content)
+                max-content max-content;
             gap: 0.75rem;
             grid-area: name;
             text-align: left;

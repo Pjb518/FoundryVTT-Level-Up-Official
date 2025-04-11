@@ -1,22 +1,22 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '#runtime/util/i18n';
+import { localize } from "#utils/localization/localize.ts";
 
-import getAbilityCheckPromptTitle from './getAbilityCheckPromptTitle';
-import getEffectPromptTitle from './getEffectPromptTitle';
-import getSavingThrowPromptTitle from './getSavingThrowPromptTitle';
-import getSkillCheckPromptTitle from './getSkillCheckPromptTitle';
+import getAbilityCheckPromptTitle from "./getAbilityCheckPromptTitle";
+import getEffectPromptTitle from "./getEffectPromptTitle";
+import getSavingThrowPromptTitle from "./getSavingThrowPromptTitle";
+import getSkillCheckPromptTitle from "./getSkillCheckPromptTitle";
 
 export default function getPromptTitle(prompt, actorId) {
-	switch (prompt.type) {
-		case 'abilityCheck':
-			return getAbilityCheckPromptTitle(prompt);
-		case 'effect':
-			return getEffectPromptTitle(prompt);
-		case 'savingThrow':
-			return getSavingThrowPromptTitle(prompt, actorId);
-		case 'skillCheck':
-			return getSkillCheckPromptTitle(prompt);
-		default:
-			return prompt?.label || localize('A5E.Other');
-	}
+  switch (prompt.type) {
+    case "abilityCheck":
+      return getAbilityCheckPromptTitle(prompt);
+    case "effect":
+      return getEffectPromptTitle(prompt);
+    case "savingThrow":
+      return getSavingThrowPromptTitle(prompt, actorId);
+    case "skillCheck":
+      return getSkillCheckPromptTitle(prompt);
+    default:
+      return prompt?.label || localize("A5E.Other");
+  }
 }

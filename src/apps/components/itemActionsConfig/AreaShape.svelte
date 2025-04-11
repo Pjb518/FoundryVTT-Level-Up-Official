@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 
@@ -58,7 +58,8 @@
             &:checked + .area-shape__label {
                 background: var(--a5e-action-area-button-checked);
                 border-color: var(--a5e-action-area-button-checked-border);
-                box-shadow: 0 0 10px var(--a5e-action-area-button-checked-shadow) inset;
+                box-shadow: 0 0 10px
+                    var(--a5e-action-area-button-checked-shadow) inset;
                 color: var(--a5e-action-area-button-checked-color);
 
                 &:hover {

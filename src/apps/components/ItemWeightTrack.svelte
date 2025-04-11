@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+    import { localize } from "#utils/localization/localize.ts";
 
     import calculateCarryCapacity from "../handlers/calculateCarryCapacity";
     import calculateInventoryWeight from "../handlers/calculateInventoryWeight";
@@ -9,7 +9,10 @@
 
     $: inventoryWeight = calculateInventoryWeight($actor);
     $: carryCapacity = calculateCarryCapacity($actor);
-    $: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
+    $: encumbrancePercentage = Math.min(
+        (inventoryWeight / carryCapacity) * 100,
+        100,
+    );
 </script>
 
 <div
