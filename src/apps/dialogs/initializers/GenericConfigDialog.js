@@ -34,8 +34,6 @@ export default class GenericConfigDialog extends SvelteApplicationMixin(
     this.document = doc;
     this.root = component;
 
-    console.log("Running GenericConfigDialog constructor");
-
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;
     });
