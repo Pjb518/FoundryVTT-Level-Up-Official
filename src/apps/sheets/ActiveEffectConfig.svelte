@@ -1,8 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+    import { setContext } from "svelte";
 
     import EffectsDescriptionTab from "../components/pages/EffectsDescriptionTab.svelte";
     import EffectsEffectTab from "../components/pages/EffectsEffectTab.svelte";
@@ -13,7 +12,6 @@
     export let appId;
     export let document;
     export let sheet;
-    export let elementRoot;
 
     const effect = document;
 
@@ -49,15 +47,13 @@
     setContext("sheet", sheet);
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <main>
-        <EffectSheetHeader />
+<main>
+    <EffectSheetHeader />
 
-        <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
+    <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />
 
-        <svelte:component this={currentTab.component} />
-    </main>
-</ApplicationShell>
+    <svelte:component this={currentTab.component} />
+</main>
 
 <style lang="scss">
     main {
