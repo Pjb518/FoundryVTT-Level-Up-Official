@@ -36,9 +36,9 @@
 <div class="level-container">
     {#if isElite || !sheetIsLocked}
         <div class="a5e-details-box">
-            <label class="a5e-details-box__label" for="{$actor.id}-elite"
-                >Elite</label
-            >
+            <label class="a5e-details-box__label" for="{$actor.id}-elite">
+                Elite
+            </label>
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -71,9 +71,13 @@
     <div class="a5e-details-box">
         <label class="a5e-details-box__label" for="{$actor.id}-xp"> XP </label>
 
-        <span class="a5e-details-box__input" value={xp}>
-            {xp}
-        </span>
+        <input
+            id="{$actor.id}-xp"
+            class="a5e-details-box__input"
+            type="text"
+            value={xp}
+            disabled={true}
+        />
     </div>
 
     <div class="a5e-details-box">

@@ -76,7 +76,10 @@ export default class ActorSheet extends SvelteApplicationMixin(
     baseApplication: "ActorSheet",
     classes: ["a5e-sheet", "a5e-sheet--actor"],
     position: { width: 755, height: 706 },
-    minimizable: true,
+    window: {
+      resizable: true,
+      minimizable: true,
+    },
   };
 
   protected override async _prepareContext() {
