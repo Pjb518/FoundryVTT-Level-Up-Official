@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { setContext } from "svelte";
 
     import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";

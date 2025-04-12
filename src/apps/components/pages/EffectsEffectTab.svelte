@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSIconButton } from "#standard/component/button";
+    // import { TJSIconButton } from "#standard/component/button";
 
     import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
     import ChangeValue from "../effectChanges/ChangeValue.svelte";

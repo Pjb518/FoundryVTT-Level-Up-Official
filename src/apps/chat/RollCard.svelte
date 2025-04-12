@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { setContext } from "svelte";
 
     import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
@@ -57,7 +57,12 @@
     setContext("message", message);
 </script>
 
-<RollCardHeader {actorName} {img} messageDocument={$message} on:repeatCard={repeatRoll} />
+<RollCardHeader
+    {actorName}
+    {img}
+    messageDocument={$message}
+    on:repeatCard={repeatRoll}
+/>
 
 <article class="a5e-chat-card__body">
     <section class="rolls">
@@ -66,7 +71,8 @@
                 {roll}
                 {rollData}
                 on:toggleRollMode={({ detail }) => _toggleRollMode(i, detail)}
-                on:toggleExpertiseDice={({ detail }) => _toggleExpertiseDice(i, detail)}
+                on:toggleExpertiseDice={({ detail }) =>
+                    _toggleExpertiseDice(i, detail)}
             />
         {/each}
     </section>

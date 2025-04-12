@@ -1,8 +1,8 @@
 import type { BaseItemA5e } from "../documents/item/base";
 
-import { SvelteApplication } from "#runtime/svelte/application";
+// import { SvelteApplication } from "#runtime/svelte/application";
 
-import ItemDocument from "./ItemDocument";
+// import ItemDocument from "./ItemDocument";
 
 import ArchetypeSheetComponent from "./sheets/ArchetypeSheet.svelte";
 import BackgroundSheetComponent from "./sheets/BackgroundSheet.svelte";

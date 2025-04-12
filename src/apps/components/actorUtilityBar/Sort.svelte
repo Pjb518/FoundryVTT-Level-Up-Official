@@ -1,46 +1,51 @@
 <script>
-import { getContext, onDestroy } from 'svelte';
-import { TJSIconButton } from '#standard/component/button';
+    import { getContext, onDestroy } from "svelte";
+    // import { TJSIconButton } from '#standard/component/button';
 
-import { sortAscending, sortDescending } from '../../handlers/sortingHandlers';
+    import {
+        sortAscending,
+        sortDescending,
+    } from "../../handlers/sortingHandlers";
 
-export let reducerType;
-export let reducerId = null;
-export let reducer = null;
-export let documentName = 'Item';
+    export let reducerType;
+    export let reducerId = null;
+    export let reducer = null;
+    export let documentName = "Item";
 
-const document = getContext('actor') ?? getContext('item');
+    const document = getContext("actor") ?? getContext("item");
 
-if (!reducer) {
-	reducer = document[reducerType];
-}
+    if (!reducer) {
+        reducer = document[reducerType];
+    }
 
-const sortIcons = {
-	0: 'fa-sort',
-	1: 'fa-arrow-down-a-z',
-	2: 'fa-arrow-down-z-a',
-};
+    const sortIcons = {
+        0: "fa-sort",
+        1: "fa-arrow-down-a-z",
+        2: "fa-arrow-down-z-a",
+    };
 
-// TODO: Cleanup - Change when custom sort is implemented
-const sortMappings = {
-	0: sortAscending,
-	1: sortDescending,
-	2: sortAscending,
-};
+    // TODO: Cleanup - Change when custom sort is implemented
+    const sortMappings = {
+        0: sortAscending,
+        1: sortDescending,
+        2: sortAscending,
+    };
 
-async function onSortReducer() {
-	await sortMappings[sortMode]($document, $reducer, documentName);
+    async function onSortReducer() {
+        await sortMappings[sortMode]($document, $reducer, documentName);
 
-	// TODO: Cleanup - Change when custom sort is implemented
-	let newMode = (sortMode + 1) % 3;
-	newMode = newMode === 0 ? 1 : newMode;
+        // TODO: Cleanup - Change when custom sort is implemented
+        let newMode = (sortMode + 1) % 3;
+        newMode = newMode === 0 ? 1 : newMode;
 
-	await $document.setFlag('a5e', flagId, newMode);
-}
+        await $document.setFlag("a5e", flagId, newMode);
+    }
 
-let flagId = reducerId ? `sortMode.${reducerType}.${reducerId}` : `sortMode.${reducerType}`;
+    let flagId = reducerId
+        ? `sortMode.${reducerType}.${reducerId}`
+        : `sortMode.${reducerType}`;
 
-$: sortMode = $document.getFlag('a5e', flagId) || 0;
+    $: sortMode = $document.getFlag("a5e", flagId) || 0;
 </script>
 
 <TJSIconButton

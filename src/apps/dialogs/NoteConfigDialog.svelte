@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Editor from "../components/Editor.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";

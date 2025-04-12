@@ -1,8 +1,8 @@
-import { TJSDialog } from "#runtime/svelte/application";
-import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+// import { TJSDialog } from "#runtime/svelte/application";
+// import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 import { SvelteApplicationMixin } from "../../../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import ItemDocument from "../../ItemDocument";
+// import ItemDocument from "../../ItemDocument";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not resizable.

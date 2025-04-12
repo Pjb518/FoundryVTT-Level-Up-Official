@@ -1,8 +1,5 @@
-<svelte:options accessors={true} />
-
 <script>
-    import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+    import { setContext } from "svelte";
 
     import ItemActionsTab from "../components/pages/ItemActionsTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";

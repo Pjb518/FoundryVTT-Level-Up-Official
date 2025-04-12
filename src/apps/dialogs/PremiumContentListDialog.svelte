@@ -1,52 +1,43 @@
-<!-- This is necessary for Svelte to generate accessors TRL can access for `elementRoot` -->
-<svelte:options accessors={true} />
-
 <script>
-import { ApplicationShell } from '#runtime/svelte/component/application';
+    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import PremiumContentListIntroduction from "./PremiumContentListIntroduction.svelte";
+    import PremiumContentListPatreon from "./PremiumContentListPatreon.svelte";
+    import PremiumContentListPremium from "./PremiumContentListPremium.svelte";
 
-import NavigationBar from '../components/navigation/NavigationBar.svelte';
-import PremiumContentListIntroduction from './PremiumContentListIntroduction.svelte';
-import PremiumContentListPatreon from './PremiumContentListPatreon.svelte';
-import PremiumContentListPremium from './PremiumContentListPremium.svelte';
+    function getCurrentTabComponent({ name }) {
+        switch (name) {
+            case "intro":
+                return PremiumContentListIntroduction;
+            case "premiumContent":
+                return PremiumContentListPremium;
+            case "patreon":
+                return PremiumContentListPatreon;
+            default:
+                return PremiumContentListIntroduction;
+        }
+    }
 
-export let elementRoot;
+    const tabs = [
+        { name: "intro", label: "Introduction" },
+        { name: "premiumContent", label: "Premium Content" },
+        { name: "patreon", label: "Patreon Exclusive" },
+    ];
 
-function getCurrentTabComponent({ name }) {
-	switch (name) {
-		case 'intro':
-			return PremiumContentListIntroduction;
-		case 'premiumContent':
-			return PremiumContentListPremium;
-		case 'patreon':
-			return PremiumContentListPatreon;
-		default:
-			return PremiumContentListIntroduction;
-	}
-}
-
-const tabs = [
-	{ name: 'intro', label: 'Introduction' },
-	{ name: 'premiumContent', label: 'Premium Content' },
-	{ name: 'patreon', label: 'Patreon Exclusive' },
-];
-
-let currentTab = tabs[0];
+    let currentTab = tabs[0];
 </script>
 
-<ApplicationShell bind:elementRoot>
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        on:tab-change={({ detail }) => (currentTab = tabs[detail])}
-    />
+<NavigationBar
+    {currentTab}
+    {tabs}
+    on:tab-change={({ detail }) => (currentTab = tabs[detail])}
+/>
 
-    <article>
-        <svelte:component
-            this={getCurrentTabComponent(currentTab)}
-            on:change-tab={({ detail }) => (currentTab = tabs[detail])}
-        />
-    </article>
-</ApplicationShell>
+<article>
+    <svelte:component
+        this={getCurrentTabComponent(currentTab)}
+        on:change-tab={({ detail }) => (currentTab = tabs[detail])}
+    />
+</article>
 
 <style lang="scss">
     :global(.a5e-premium-content-list-dialog) {

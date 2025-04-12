@@ -1,7 +1,7 @@
 <script>
     import { getContext, onDestroy } from "svelte";
     import { derived, get } from "svelte/store";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";

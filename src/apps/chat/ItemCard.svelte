@@ -4,8 +4,8 @@
     import { setContext } from "svelte";
     import { slide } from "svelte/transition";
 
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { localize } from "@typhonjs-fvtt/runtime/util/i18n";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { localize } from "#utils/localization/localize.ts";
 
     import constructRollFormula from "../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -78,8 +78,10 @@
 
         const { damageColors, healingColors } = CONFIG.A5E;
 
-        if (rollData.type === "damage") return damageColors[rollData.damageType];
-        if (rollData.type === "healing") return healingColors[rollData.healingType];
+        if (rollData.type === "damage")
+            return damageColors[rollData.damageType];
+        if (rollData.type === "healing")
+            return healingColors[rollData.healingType];
 
         return null;
     }
@@ -223,7 +225,8 @@
     ];
 
     const { actionName, actorName, img } = system;
-    const { actionDescription, itemDescription, unidentifiedDescription } = system;
+    const { actionDescription, itemDescription, unidentifiedDescription } =
+        system;
 
     const { isGM } = game.user;
     const { A5E } = CONFIG;
@@ -264,13 +267,19 @@
         tabindex="0"
         on:click={() => (hideDescription = !hideDescription)}
     >
-        <img class="a5e-chat-card__body__header__img" src={img} alt={itemName} />
+        <img
+            class="a5e-chat-card__body__header__img"
+            src={img}
+            alt={itemName}
+        />
 
         <span class="a5e-chat-card__body__header__title-container">
             <h2 class="a5e-chat-card__body__header__title">{itemName}</h2>
 
             {#if subtitle}
-                <h3 class="a5e-chat-card__body__header__subtitle">{subtitle}</h3>
+                <h3 class="a5e-chat-card__body__header__subtitle">
+                    {subtitle}
+                </h3>
             {/if}
         </span>
     </header>
@@ -319,7 +328,8 @@
                         {roll}
                         {rollData}
                         --a5e-roll-color={prepareRollColor(rollData)}
-                        on:toggleRollMode={({ detail }) => _toggleRollMode(i, detail)}
+                        on:toggleRollMode={({ detail }) =>
+                            _toggleRollMode(i, detail)}
                         on:toggleExpertiseDice={({ detail }) =>
                             _toggleExpertiseDice(i, detail)}
                     />
@@ -342,7 +352,10 @@
                         {#each prompts[promptType] as prompt}
                             <PromptButton
                                 {prompt}
-                                title={getPromptTitle(prompt, $message?.system?.actorId)}
+                                title={getPromptTitle(
+                                    prompt,
+                                    $message?.system?.actorId,
+                                )}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}
                                 on:triggerPrompt={() => triggerPrompt(prompt)}
@@ -373,7 +386,8 @@
 
     {@const spellComponents = getSpellComponents(item)}
     {@const spellLevel = A5E.spellLevels[item?.system?.level]}
-    {@const castingLevel = A5E.spellLevels[$message?.system?.castingLevel ?? ""]}
+    {@const castingLevel =
+        A5E.spellLevels[$message?.system?.castingLevel ?? ""]}
 
     <footer class="a5e-chat-card__footer">
         <span class="spell-level">

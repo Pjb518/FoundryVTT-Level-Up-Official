@@ -9,7 +9,7 @@
 
     import { getContext, setContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import showActivationDialogSection from "../../utils/showActivationDialogSection";
     import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";

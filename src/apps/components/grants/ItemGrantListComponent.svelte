@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+    // import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import type { Grant } from "../../../../types/itemGrants";
 
     import { getContext } from "svelte";

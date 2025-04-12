@@ -8,7 +8,7 @@ import type SpellItemA5e from "../documents/item/spell";
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 import { localize } from "#utils/localization/localize.ts";
 
-import ActorDocument from "./ActorDocument";
+// import ActorDocument from "./ActorDocument";
 
 import ActorSheetTempSettingsStore from "../stores/ActorSheetTempSettingsStore";
 

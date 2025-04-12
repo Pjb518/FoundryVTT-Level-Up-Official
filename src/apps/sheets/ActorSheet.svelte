@@ -8,7 +8,7 @@
         onDestroy,
     } from "svelte";
 
-    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+    // import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import ActorBonusesPage from "../components/pages/ActorBonusesPage.svelte";
     import ActorCorePage from "../components/pages/ActorCorePage.svelte";

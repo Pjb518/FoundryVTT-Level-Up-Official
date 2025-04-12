@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte";
-    import { TJSIconButton } from "#standard/component/button";
+    // import { TJSIconButton } from "#standard/component/button";
 
     const dispatch = createEventDispatcher();
 </script>

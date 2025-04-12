@@ -1,4 +1,4 @@
-import type { TJSDialog } from "@typhonjs-fvtt/runtime/svelte/application";
+// import type { TJSDialog } from "@typhonjs-fvtt/runtime/svelte/application";
 import type {
   AbilityCheckRollOptions,
   ActorDialogs,

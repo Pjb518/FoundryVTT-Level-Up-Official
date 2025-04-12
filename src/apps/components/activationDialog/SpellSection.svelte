@@ -3,7 +3,7 @@
     import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
     import type { ItemA5e } from "../../../documents/item/item";
     import type SpellItemA5e from "../../../documents/item/spell";
-    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";

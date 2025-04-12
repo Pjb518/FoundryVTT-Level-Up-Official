@@ -1,6 +1,6 @@
 <script>
     import { getContext, onDestroy, setContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#utils/localization/localize.ts";
 
     import prepareProficiencyConfigObject from "../../../utils/prepareProficiencyConfigObject";

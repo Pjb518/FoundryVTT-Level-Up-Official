@@ -1,5 +1,5 @@
 import { localize } from "#utils/localization/localize.ts";
-import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+// import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
 import ActiveEffectConfigSheet from "./sheets/ActiveEffectConfig.svelte";
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";

@@ -1,8 +1,5 @@
-<svelte:options accessors={true} />
-
 <script>
     import { setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
     import { localize } from "#utils/localization/localize.ts";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";

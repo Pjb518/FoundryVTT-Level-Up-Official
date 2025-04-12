@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#utils/localization/localize.ts";
-    import { TJSProseMirror } from "#standard/component/fvtt/editor";
+    // import { TJSProseMirror } from "#standard/component/fvtt/editor";
 
     export let document;
     export let content;

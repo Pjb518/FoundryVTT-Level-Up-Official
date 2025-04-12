@@ -1,9 +1,9 @@
 import { localize } from "#utils/localization/localize.ts";
-import { TJSDialog } from "#runtime/svelte/application";
+// import { TJSDialog } from "#runtime/svelte/application";
 
-import { gameSettings } from "../settings/SettingsStore";
+// import { gameSettings } from "../settings/SettingsStore";
 
-import PartyViewerComponent from "./sheets/PartyViewer.svelte";
+// import PartyViewerComponent from "./sheets/PartyViewer.svelte";
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
@@ -14,7 +14,7 @@ export default class PartyViewer extends TJSDialog {
       {
         title: localize("Party Viewer"),
         content: {
-          class: PartyViewerComponent,
+          class: null, // PartyViewerComponent,
           props: {
             // @ts-expect-error
             settings: gameSettings,

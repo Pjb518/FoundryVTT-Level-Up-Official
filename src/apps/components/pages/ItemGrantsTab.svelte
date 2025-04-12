@@ -1,7 +1,7 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
-    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+    // import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import ItemGrantManager from "../../../managers/ItemGrantsManager";
 
