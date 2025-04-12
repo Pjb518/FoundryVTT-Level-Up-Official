@@ -70,11 +70,11 @@ import { handlePackMigration } from "../migration/handlers/handlePackMigration.t
 
 // Utility functions
 import getDeterministicBonus from "../dice/getDeterministicBonus.ts";
-import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
-import openCompendium from "../utils/openCompendium.ts";
+// import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
+// import openCompendium from "../utils/openCompendium.ts";
 
 // Stores
-import { gameSettings } from "../settings/SettingsStore.ts";
+// import { gameSettings } from "../settings/SettingsStore.ts";
 
 export default function init() {
   CONFIG.A5E = A5E;
@@ -162,12 +162,12 @@ export default function init() {
       handlePackMigration,
     },
     settings: {
-      store: gameSettings,
+      // store: gameSettings,
     },
     utils: {
       getDeterministicBonus,
-      compendiaIndexFunctions,
-      openCompendium,
+      // compendiaIndexFunctions,
+      // openCompendium,
     },
   };
 

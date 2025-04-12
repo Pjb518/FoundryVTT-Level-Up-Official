@@ -15,7 +15,7 @@ function SvelteApplicationMixin(Base) {
 
     protected abstract root: svelte.Component<any>;
 
-    protected $state: object = {}; // TODO: Svelte 5 Update $state({});
+    protected $state = $state({});
 
     #mount: object = {};
 
@@ -30,18 +30,13 @@ function SvelteApplicationMixin(Base) {
     ) {
       Object.assign(this.$state, result.state);
       if (options.isFirstRender) {
-        // this.#mount = svelte.mount(this.root, { target: content, props: { ...result, state: this.$state });
-        this.#mount = new this.root({
-          target: content,
-          props: { ...result, state: this.$state },
-        });
+        this.#mount = svelte.mount(this.root, { target: content, props: { ...result, state: this.$state });
       }
     }
 
     protected override _onClose(options: any) {
       super._onClose(options);
-      // svelte.unmount(this.#mount);
-      this.#mount.$destroy();
+      svelte.unmount(this.#mount, {outro: true});
     }
   }
 

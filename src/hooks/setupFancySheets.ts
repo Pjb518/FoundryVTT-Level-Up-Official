@@ -1,47 +1,47 @@
-import * as indexFunctions from "../utils/createIndexes";
+// import * as indexFunctions from "../utils/createIndexes";
 
-const fancyPackData = {
-  archetypes: {
-    packs: ["a5e.a5e-archetypes"],
-    func: indexFunctions.createArchetypeLikeIndex,
-  },
-  classFeatures: {
-    packs: ["a5e.a5e-class-features"],
-    func: indexFunctions.createClassFeatureLikeIndex,
-  },
-  manuevers: {
-    packs: ["a5e.a5e-maneuvers"],
-    func: indexFunctions.createManeuverLikeIndex,
-  },
-  monsters: {
-    packs: ["a5e.a5e-monsters"],
-    func: indexFunctions.createMonsterLikeIndex,
-  },
-  spells: {
-    packs: ["a5e.a5e-spells"],
-    func: indexFunctions.createSpellLikeIndex,
-  },
-  dnd5eMonsters: {
-    packs: ["a5e.dnd5e-monsters"],
-    func: indexFunctions.create5eMonsterLikeIndex,
-  },
-  dnd5eSpells: {
-    packs: ["a5e.dnd5e-spells"],
-    func: indexFunctions.create5eSpellLikeIndex,
-  },
-  objects: {
-    packs: ["a5e.a5e-adventuring-gear", "a5e.dnd5e-items"],
-    func: indexFunctions.createObjectLikeIndex,
-  },
-};
+// const fancyPackData = {
+//   archetypes: {
+//     packs: ["a5e.a5e-archetypes"],
+//     func: indexFunctions.createArchetypeLikeIndex,
+//   },
+//   classFeatures: {
+//     packs: ["a5e.a5e-class-features"],
+//     func: indexFunctions.createClassFeatureLikeIndex,
+//   },
+//   manuevers: {
+//     packs: ["a5e.a5e-maneuvers"],
+//     func: indexFunctions.createManeuverLikeIndex,
+//   },
+//   monsters: {
+//     packs: ["a5e.a5e-monsters"],
+//     func: indexFunctions.createMonsterLikeIndex,
+//   },
+//   spells: {
+//     packs: ["a5e.a5e-spells"],
+//     func: indexFunctions.createSpellLikeIndex,
+//   },
+//   dnd5eMonsters: {
+//     packs: ["a5e.dnd5e-monsters"],
+//     func: indexFunctions.create5eMonsterLikeIndex,
+//   },
+//   dnd5eSpells: {
+//     packs: ["a5e.dnd5e-spells"],
+//     func: indexFunctions.create5eSpellLikeIndex,
+//   },
+//   objects: {
+//     packs: ["a5e.a5e-adventuring-gear", "a5e.dnd5e-items"],
+//     func: indexFunctions.createObjectLikeIndex,
+//   },
+// };
 
-const autoMappingConfig = {
-  npc: indexFunctions.createMonsterLikeIndex,
-  spell: indexFunctions.createSpellLikeIndex,
-  object: indexFunctions.createObjectLikeIndex,
-  feature: indexFunctions.createClassFeatureLikeIndex,
-  archetype: indexFunctions.createArchetypeLikeIndex,
-};
+// const autoMappingConfig = {
+//   npc: indexFunctions.createMonsterLikeIndex,
+//   spell: indexFunctions.createSpellLikeIndex,
+//   object: indexFunctions.createObjectLikeIndex,
+//   feature: indexFunctions.createClassFeatureLikeIndex,
+//   archetype: indexFunctions.createArchetypeLikeIndex,
+// };
 
 export default function setupFancySheets() {
   const definedPacks = new Set();

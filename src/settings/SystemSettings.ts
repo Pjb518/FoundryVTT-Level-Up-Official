@@ -1,7 +1,7 @@
 import { localize } from "#utils/localization/localize.ts";
 import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-import { gameSettings } from "./SettingsStore";
+// import { gameSettings } from "./SettingsStore";
 
 import SystemSettingsComponent from "../apps/settings/SystemSettings.svelte";
 
@@ -24,7 +24,7 @@ export default class SystemSettings extends SvelteApplicationMixin(
       window: { title: localize("A5E.settings.title") },
     });
 
-    this.data = { settings: gameSettings };
+    // this.data = { settings: gameSettings };
 
     // @ts-expect-error
     this.promise = new Promise((resolve) => {
