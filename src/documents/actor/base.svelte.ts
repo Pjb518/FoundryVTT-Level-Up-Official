@@ -1,28 +1,27 @@
-// import type { TJSDialog } from "@typhonjs-fvtt/runtime/svelte/application";
 import type {
   AbilityCheckRollOptions,
   ActorDialogs,
   ActorRestOptions,
   SavingThrowRollOptions,
   SkillCheckRollOptions,
-} from "./data";
-import type { BaseItemA5e } from "../item/base";
+} from "./data.ts";
+import type { BaseItemA5e } from "../item/base.ts";
 
-import type HitDiceManager from "../../managers/HitDiceManager";
+import type HitDiceManager from "../../managers/HitDiceManager.ts";
 
 // *****************************************************************************************
-
+import { createSubscriber } from "svelte/reactivity";
 import { localize } from "#utils/localization/localize.ts";
 
-import ActiveEffectA5e from "../activeEffect/activeEffect";
+import ActiveEffectA5e from "../activeEffect/activeEffect.js";
 
-import ActorGrantsManager from "../../managers/ActorGrantsManager";
-import BonusesManager from "../../managers/BonusesManager";
-import { MigrationRunnerBase } from "../../migration/runner/base";
-import SpellBookManager from "../../managers/SpellBookManager";
-import RestManager from "../../managers/RestManager";
-import RollOverrideManager from "../../managers/RollOverrideManager";
-import { RollPreparationManager } from "../../managers/RollPreparationManager";
+import ActorGrantsManager from "../../managers/ActorGrantsManager.ts";
+import BonusesManager from "../../managers/BonusesManager.ts";
+import { MigrationRunnerBase } from "../../migration/runner/base.ts";
+import SpellBookManager from "../../managers/SpellBookManager.ts";
+import RestManager from "../../managers/RestManager.js";
+import RollOverrideManager from "../../managers/RollOverrideManager.ts";
+import { RollPreparationManager } from "../../managers/RollPreparationManager.ts";
 
 import AbilityBonusConfigDialog from "../../apps/dialogs/AbilityBonusConfigDialog.svelte";
 import AbilityCheckConfigDialog from "../../apps/dialogs/ActorAbilityConfigDialog.svelte";
@@ -47,15 +46,15 @@ import SkillBonusConfigDialog from "../../apps/dialogs/SkillBonusConfigDialog.sv
 import SkillCheckRollDialog from "../../apps/dialogs/SkillCheckRollDialog.svelte";
 import SkillConfigDialog from "../../apps/dialogs/SkillConfigDialog.svelte";
 
-import GenericConfigDialog from "../../apps/dialogs/initializers/GenericConfigDialog";
-import GenericRollDialog from "../../apps/dialogs/initializers/GenericRollDialog";
+import GenericConfigDialog from "../../apps/dialogs/initializers/GenericConfigDialog.js";
+import GenericRollDialog from "../../apps/dialogs/initializers/GenericRollDialog.js";
 
-import automateHpConditions from "../activeEffect/utils/automateHpConditions";
-import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions";
-import getDeterministicBonus from "../../dice/getDeterministicBonus";
-import getRollFormula from "../../utils/getRollFormula";
-import displayCascadingNumbers from "../../utils/displayCascadingNumbers";
-import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration";
+import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
+import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions.js";
+import getDeterministicBonus from "../../dice/getDeterministicBonus.ts";
+import getRollFormula from "../../utils/getRollFormula.js";
+import displayCascadingNumbers from "../../utils/displayCascadingNumbers.js";
+import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";
 
 // *****************************************************************************************
 
@@ -126,6 +125,8 @@ class BaseActorA5e extends Actor {
   // Custom
   effectPhases: { beforeDerived: any[]; afterDerived: any[] };
 
+  #subscribe: () => void;
+
   // *****************************************************************************************
 
   constructor(data, context) {
@@ -139,6 +140,39 @@ class BaseActorA5e extends Actor {
       notes: {},
     };
 
+    this.#subscribe = createSubscriber((update: any) => {
+      const updateActorHook = Hooks.on(
+        "updateActor",
+        (triggeringDocument: any, _, { diff }) => {
+          if (diff === false) return;
+          if (triggeringDocument._id === this.id) update();
+        },
+      );
+
+      const embeddedItemHooks = ["create", "delete", "update"].reduce(
+        (hooks, hookType) => {
+          hooks[hookType] = Hooks.on(
+            `${hookType}Item`,
+            (triggeringDocument: any, _, { diff }) => {
+              if (diff === false) return;
+
+              if (triggeringDocument?.actor?._id === this.id) update();
+            },
+          );
+
+          return hooks;
+        },
+        {} as Record<string, number>,
+      );
+
+      return () => {
+        Hooks.off("updateActor", updateActorHook);
+        Hooks.off("createItem", embeddedItemHooks.create);
+        Hooks.off("deleteItem", embeddedItemHooks.delete);
+        Hooks.off("updateItem", embeddedItemHooks.update);
+      };
+    });
+
     this.effectPhases = { beforeDerived: [], afterDerived: [] };
   }
 
@@ -150,6 +184,14 @@ class BaseActorA5e extends Actor {
     return type === (this.type as SystemActorTypes);
   }
 
+  get reactive() {
+    this.#subscribe();
+
+    return this;
+  }
+
+  // *****************************************************************************************
+  //
   // *****************************************************************************************
 
   get actorEffects() {
@@ -2120,7 +2162,7 @@ class BaseActorA5e extends Actor {
     // Update prototype token sizes to reflect the actor's token size
     const automateTokenSize =
       this.flags?.a5e?.automatePrototypeTokenSize ??
-      game.settings.get("a5e", "automatePrototypeTokenSize") ??
+      // game.settings.get("a5e", "automatePrototypeTokenSize") ??
       true;
 
     if (automateTokenSize) {
@@ -2148,14 +2190,14 @@ class BaseActorA5e extends Actor {
   override _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
-    const applyBloodied =
-      game.settings.get("a5e", "automateBloodiedApplication") ?? true;
-    const applyUnconscious =
-      game.settings.get("a5e", "automateUnconsciousApplication") ?? true;
+    // const applyBloodied =
+    //   game.settings.get("a5e", "automateBloodiedApplication") ?? true;
+    // const applyUnconscious =
+    //   game.settings.get("a5e", "automateUnconsciousApplication") ?? true;
 
-    if (applyBloodied) automateHpConditions(this, changed, userId, "bloodied");
-    if (applyUnconscious)
-      automateHpConditions(this, changed, userId, "unconscious");
+    // if (applyBloodied) automateHpConditions(this, changed, userId, "bloodied");
+    // if (applyUnconscious)
+    //   automateHpConditions(this, changed, userId, "unconscious");
   }
 
   // -------------------------------------------------------------

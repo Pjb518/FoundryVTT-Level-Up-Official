@@ -30,13 +30,16 @@ function SvelteApplicationMixin(Base) {
     ) {
       Object.assign(this.$state, result.state);
       if (options.isFirstRender) {
-        this.#mount = svelte.mount(this.root, { target: content, props: { ...result, state: this.$state });
+        this.#mount = svelte.mount(this.root, {
+          target: content,
+          props: { ...result, state: this.$state },
+        });
       }
     }
 
     protected override _onClose(options: any) {
       super._onClose(options);
-      svelte.unmount(this.#mount, {outro: true});
+      svelte.unmount(this.#mount, { outro: true });
     }
   }
 

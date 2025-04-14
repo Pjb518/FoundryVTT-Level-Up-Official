@@ -1,46 +1,25 @@
 .a5e-sheet {
-    background: var(--a5e-sheet-background-color);
+    border: 0;
+    background: var(--a5e-sheet-background);
+    font-size: var(--a5e-base-font-size) !important;
 
-    main {
-        height: 100%;
-    }
-
-    .dialog-content {
-        height: 100%;
+    *:not(
+            .fa-classic,
+            .fa-light,
+            .fa-regular,
+            .fa-solid,
+            .fa-thin,
+            .fal,
+            .far,
+            .fas,
+            .fat
+        ) {
+        font-family: var(--nimble-primary-font);
     }
 
     &--actor {
-        min-width: 50rem;
-        min-height: 43.25rem;
-    }
-
-    &--compendium {
-        min-height: 80vh;
-        max-height: 80vh;
-        min-width: 35rem;
-    }
-
-    &--item {
-        min-width: 32.5rem;
-        min-height: 25rem;
-    }
-
-    &--action {
-        min-width: 34.688rem;
-        min-height: 37rem;
-    }
-
-    &--active-effect {
-        min-width: 31.563rem;
-        min-height: 31.25rem;
-    }
-
-    &--party-viewer {
-        min-width: 40rem;
-    }
-
-    .window-content {
-        padding: 0;
-        overflow-y: hidden;
+        .window-content {
+            padding: 0;
+        }
     }
 }

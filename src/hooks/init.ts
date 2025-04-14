@@ -1,4 +1,4 @@
-// import ActorSheetA5e from "../apps/ActorSheet.ts";
+import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
 // import ActiveEffectConfigA5e from "../apps/ActiveEffectConfig.js";
 // import ItemSheetA5e from "../apps/ItemSheet.ts";
 
@@ -104,7 +104,7 @@ export default function init() {
   // Initialize the game's A5E namespace
   game.a5e = {
     applications: {
-      // ActorSheetA5e,
+      ActorSheetA5e,
       // ItemSheetA5e,
     },
     activeEffects: {
@@ -172,20 +172,20 @@ export default function init() {
   };
 
   // Register sheet application classes
-  // Actors.unregisterSheet("core", ActorSheet);
+  Actors.unregisterSheet("core", ActorSheet);
   // @ts-expect-error
-  // Actors.registerSheet("a5e", ActorSheetA5e, {
-  //   types: ["character"],
-  //   makeDefault: true,
-  //   label: "A5E.SheetClassCharacter",
-  // });
+  Actors.registerSheet("a5e", ActorSheetA5e, {
+    types: ["character"],
+    makeDefault: true,
+    label: "A5E.SheetClassCharacter",
+  });
 
   // @ts-expect-error
-  // Actors.registerSheet("a5e", ActorSheetA5e, {
-  //   types: ["npc"],
-  //   makeDefault: true,
-  //   label: "A5E.SheetClassNPC",
-  // });
+  Actors.registerSheet("a5e", ActorSheetA5e, {
+    types: ["npc"],
+    makeDefault: true,
+    label: "A5E.SheetClassNPC",
+  });
 
   // Items.unregisterSheet("core", ItemSheet);
   // // @ts-expect-error

@@ -1,0 +1,356 @@
+:root {
+    /** Fonts **/
+    --a5e-font-serif: "Averia Serif Libre", serif;
+    --a5e-font-sans-serif: "Signika", sans-serif;
+    --a5e-font-mono: "Source Code Pro", mono;
+
+    /** Text Sizes **/
+    --a5e-text-size-xxs: 0.579rem;
+    --a5e-text-size-xs: 0.694rem;
+    --a5e-text-size-sm: 0.833rem;
+    --a5e-text-size-md: 1rem;
+    --a5e-text-size-lg: 1.2rem;
+    --a5e-text-size-xl: 1.44rem;
+    --a5e-text-size-xxl: 1.728rem;
+    --a5e-text-size-xxxl: 2.074rem;
+    --a5e-text-size-4xl: 2.4888rem;
+
+    /** Props **/
+    --a5e-border-radius-standard: 3px;
+
+    /** Transitions **/
+    --a5e-transition-standard: all 0.15s ease-in-out;
+
+    /** Base Colors **/
+    --a5e-sheet-background-color: hsl(38, 38%, 94%);
+
+    --a5e-color-primary: hsl(190, 21%, 33%);
+    --a5e-color-error: hsl(0, 58%, 35%);
+    --a5e-color-warning: hsl(36, 58%, 35%);
+    --a5e-color-disabled: hsl(0, 0%, 67%);
+    --a5e-color-advantage: #488f9a;
+    --a5e-color-disadvantage: #ffb63b;
+
+    --a5e-color-text-dark: hsl(50, 14%, 9%);
+    --a5e-color-text-light: hsl(38, 38%, 94%);
+    --a5e-color-text-medium: hsl(50, 14%, 44%);
+    --a5e-color-text-white: hsl(38, 38%, 94%);
+    --a5e-color-text-black: hsl(50, 14%, 9%);
+
+    --a5e-color-background-light: hsl(38, 38%, 94%);
+    --a5e-color-background-medium: rgba(0 0 0 / 0.15);
+
+    --a5e-input-background: rgba(0 0 0 / 0.05);
+    --a5e-input-border: rgb(122, 121, 113);
+    --a5e-input-placeholder-color: inherit;
+
+    --a5e-border-color: hsl(0, 0%, 80%);
+    --a5e-shadow-color: #ccc;
+    --a5e-rule-color: hsl(0, 0%, 80%);
+
+    /** TODO: Deprecated styles **/
+    --a5e-color-primary-light: #16b65e;
+    --a5e-color-tertiary: rgba(0, 0, 0, 0.05);
+    --a5e-color-background-sheet: rgba(246, 242, 235, 0.5);
+    --a5e-font-primary: "Modesto Condensed", serif;
+
+    /** Box **/
+    --a5e-box-background: rgba(0 0 0 / 0.05);
+
+    /** Buttons **/
+    --a5e-button-primary: var(--a5e-color-primary);
+    --a5e-button-primary-hover: var(--a5e-color-primary);
+    --a5e-button-error: var(--a5e-color-error);
+    --a5e-button-error-hover: var(--a5e-color-error);
+    --a5e-button-gray: hsl(0, 0%, 60%);
+    --a5e-button-gray-border: #7a7971;
+    --a5e-button-gray-hover: hsl(0, 0%, 33%);
+    --a5e-button-regular: rgba(0 0 0 / 0.1);
+    --a5e-button-regular-hover: rgba(0 0 0 / 0.2);
+
+    /** Chat Cards **/
+    --a5e-chat-card-background: var(--a5e-color-background-light);
+    --a5e-chat-card-background-blind: hsl(300, 35%, 94%);
+    --a5e-chat-card-background-whisper: hsl(240, 18%, 92%);
+    --a5e-chat-card-color: var(--a5e-color-text-dark);
+    --a5e-chat-card-color-medium: var(--a5e-color-text-medium);
+    --a5e-chat-card-color-dark: var(--a5e-color-text-dark);
+    --a5e-chat-card-border-color: hsl(0, 0%, 80%);
+    --a5e-chat-card-button-background: hsla(0, 0%, 0%, 0.05);
+    --a5e-chat-card-damage-apply-background: hsl(40, 17%, 86%);
+    --a5e-chat-card-indicator-background: hsl(54, 8%, 76%);
+
+    /** Code Editor **/
+    --a5e-code-editor-background-color: hsl(0, 0%, 24%);
+    --a5e-code-editor-text-color: hsl(38, 38%, 94%);
+    --a5e-code-text-color: hsl(217, 34%, 88%);
+    --a5e-code-operator-color: hsl(169, 56%, 68%);
+    --a5e-code-wrapping-brace-color: hsl(51, 100%, 50%);
+    --a5e-code-type-color: hsl(77, 67%, 68%);
+
+    /** Tooltip **/
+    --a5e-tooltip-dark-background: hsla(0, 0%, 8%, 0.6);
+    --a5e-tooltip-drop-shadow: hsla(0, 0%, 0%, 0.4);
+    --a5e-tooltip-box-shadow-1: hsl(45, 62%, 77%);
+    --a5e-tooltip-box-shadow-2: hsl(21, 26%, 46%);
+    --a5e-tooltip-roll-background: hsl(42, 27%, 90%);
+    --a5e-tooltip-roll-box-shadow: hsl(40, 4%, 42%);
+
+    /** Dice Tooltip **/
+    --a5e-dice-tooltip-border-color: var(--a5e-border-color);
+    --a5e-dice-tooltip-total-background: hsla(0, 0%, 0%, 0.05);
+
+    /** Primary Navigation **/
+    --a5e-primary-nav-background: var(--a5e-color-primary);
+    --a5e-primary-nav-color: var(--a5e-color-text-light);
+    --a5e-primary-nav-border: var(--a5e-border-color);
+    --a5e-primary-nav-box-shadow-start: darken-color(
+        var(--a5e-color-primary),
+        10
+    );
+    --a5e-primary-nav-box-shadow-end: rgba(0 0 0 / 0.4);
+
+    --a5e-primary-nav-item-color: hsl(39, 98%, 81%);
+    --a5e-primary-nav-item-active-color: #842c2b;
+
+    /** -----------------------------------
+    Components
+  ----------------------------------- **/
+    /** Field Wrapper **/
+    --a5e-field-wrapper-background: transparent;
+    --a5e-field-wrapper-border-color: transparent;
+    --a5e-field-wrapper-header-button-color: var(--a5e-button-gray);
+    --a5e-field-wrapper-header-button-color-hover: var(--a5e-button-gray-hover);
+    --a5e-field-wrapper-color-warning: var(--a5e-color-warning);
+
+    /** Editor**/
+    --a5e-editor-toolbar-background: rgba(0 0 0 / 0.1);
+
+    /** Item List **/
+    --a5e-item-list-item-border-end: #d5cac1;
+    --a5e-track-color: var(--a5e-button-gray);
+    --a5e-track-color-hover: var(--a5e-button-gray-hover);
+    --a5e-track-icon-background: #ebe9e0;
+    --a5e-track-icon-border: #ccc;
+
+    /** Section **/
+    --a5e-section-color: var(--a5e-color-text-light);
+    --a5e-section-hover: hsl(0, 0%, 100%);
+    --a5e-section-shadow: hsl(150, 3%, 25%);
+    --a5e-section-border: hsl(190, 21%, 23%);
+
+    /** Svelte Select **/
+    --a5e-svelte-select-list-background: inherit;
+    --a5e-svelte-select-list-group-title-color: var(--a5e-color-text-medium);
+    --a5e-svelte-select-list-item-color: var(--a5e-color-text-dark);
+    --a5e-svelte-select-list-item-active-background: var(--a5e-color-text-dark);
+    --a5e-svelte-select-list-item-active-color: var(--a5e-color-text-dark);
+
+    /** Tag **/
+    --a5e-tag-background-color: transparent;
+    --a5e-tag-background-color-hover: var(--a5e-color-background-medium);
+    --a5e-tag-border-color: var(--a5e-border-color);
+    --a5e-tag-border-color-hover: #d8d4c6;
+    --a5e-tag-color: var(--a5e-color-text-dark);
+    --a5e-tag-color-hover: var(--a5e-color-text-dark);
+
+    /** -----------------------------------
+    Action Sheet
+  ----------------------------------- **/
+    /** Area **/
+    --a5e-action-area-button-checked: var(--a5e-button-primary);
+    --a5e-action-area-button-checked-border: darken-color(
+        var(--a5e-button-primary),
+        5
+    );
+    --a5e-action-area-button-checked-color: var(--a5e-color-text-light);
+    --a5e-action-area-button-checked-hover: var(--a5e-button-primary);
+    --a5e-action-area-button-checked-shadow: darken-color(
+        var(--a5e-button-primary),
+        10
+    );
+
+    --a5e-action-area-label-border: #bbb;
+    --a5e-action-area-label-background: transparent;
+    --a5e-action-area-label-background-hover: rgba(0 0 0 / 0.1);
+
+    /** -----------------------------------
+    Actor Sheet
+  ----------------------------------- **/
+    /** Ability Scores **/
+    --a5e-ability-score-background: var(--a5e-sheet-background-color);
+    --a5e-ability-score-border: var(--a5e-border-color);
+    --a5e-ability-score-header-border: #3e4240;
+    --a5e-ability-score-header-color: var(--a5e-color-text-light);
+    --a5e-ability-score-header-shadow: #2e4246;
+    --a5e-ability-score-roll-button-background: rgba(0 0 0 / 0.15);
+    --a5e-ability-score-proficient: var(--a5e-color-text-light);
+
+    /** Inventory **/
+    --a5e-inventory-track-container-background: #a9a594;
+    --a5e-inventory-track-color: var(--a5e-color-text-light);
+    --a5e-inventory-track-shadow: #000;
+
+    /** Skills **/
+    --a5e-skill-specialty-background: rgba(0 0 0 / 0.05);
+    --a5e-skill-background-alternate: rgba(0 0 0 / 0.05);
+    --a5e-skill-proficient-icon-color: var(--a5e-color-primary);
+
+    /** Status Track **/
+    --a5e-status-track-icon-background: hsl(38, 38%, 94%);
+    --a5e-status-track-icon-shadow: var(--a5e-border-color);
+    --a5e-status-track-icon-color: var(--a5e-color-text-medium);
+
+    --a5e-status-track-item-background-hover: #dddace;
+    --a5e-status-track-item-background-selected: #dddace;
+    --a5e-status-track-item-color: var(--a5e-color-text-dark);
+    --a5e-status-track-item-color-hover: var(--a5e-color-text-dark);
+    --a5e-status-track-item-color-selected: var(--a5e-color-text-dark);
+    --a5e-status-track-items-background: hsl(38, 38%, 94%);
+    --a5e-status-track-items-border: var(--a5e-border-color);
+
+    /** -----------------------------------
+    Chat Cards
+  ----------------------------------- **/
+    --a5e-chat-card-roll-color-max: #18520b;
+    --a5e-chat-card-roll-color-min: #aa0200;
+
+    /** -----------------------------------
+    Item List
+  ----------------------------------- **/
+    --a5e-item-list-item-background-start: transparent;
+    --a5e-item-list-item-background-end: transparent;
+    --a5e-item-list-item-border-color-start: hsla(145, 100%, 42%, 0);
+    --a5e-item-list-item-border-color-end: hsla(145, 100%, 25%, 0.302);
+    --a5e-item-list-item-icon-color: var(--a5e-button-gray);
+    --a5e-item-list-item-icon-color-active: var(--a5e-button-gray-hover);
+    --a5e-item-list-item-indicator-background: #c6c5bc;
+    --a5e-item-list-item-indicator-color: var(--a5e-color-text-dark);
+    --a5e-item-list-item-input-border-color: var(--a5e-border-color);
+    --a5e-item-list-item-track-background: #ebe9e0;
+    --a5e-item-list-item-track-border-color: var(--a5e-border-color);
+    --a5e-item-list-item-track-color: var(--a5e-button-gray);
+
+    /** Highlight **/
+    --a5e-item-list-item-background-start-highlight: transparent;
+    --a5e-item-list-item-background-end-highlight: hsla(145, 100%, 42%, 0.302);
+    --a5e-item-list-item-border-color-start-highlight: hsla(145, 100%, 42%, 0);
+    --a5e-item-list-item-border-color-end-highlight: hsla(
+        145,
+        100%,
+        25%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-highlight: hsla(145, 100%, 15%, 0.302);
+    --a5e-item-list-item-icon-color-active-highlight: hsla(
+        145,
+        100%,
+        15%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight: hsla(
+        145,
+        100%,
+        32%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight: var(--a5e-color-text-dark);
+    --a5e-item-list-item-input-border-color-highlight: hsla(
+        145,
+        100%,
+        15%,
+        0.302
+    );
+    --a5e-item-list-item-track-background-highlight: hsl(120, 43%, 87%);
+    --a5e-item-list-item-track-border-color-highlight: hsla(
+        145,
+        100%,
+        25%,
+        0.302
+    );
+
+    /** Purple Highlight **/
+    --a5e-item-list-item-background-start-highlight-purple: transparent;
+    --a5e-item-list-item-background-end-highlight-purple: hsla(
+        280,
+        30%,
+        40%,
+        0.302
+    );
+    --a5e-item-list-item-border-color-start-highlight: hsla(280, 75%, 60%, 0);
+    --a5e-item-list-item-border-color-end-highlight: hsla(280, 30%, 40%, 0.302);
+    --a5e-item-list-item-icon-color-highlight-purple: hsla(
+        260,
+        50%,
+        40%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-active-highlight-purple: hsla(
+        280,
+        35%,
+        30%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight-purple: hsla(
+        280,
+        55%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight-purple: var(
+        --a5e-color-text-dark
+    );
+    --a5e-item-list-item-input-border-color-highlight-purple: hsla(
+        280,
+        75%,
+        60%,
+        0.302
+    );
+    --a5e-item-list-item-track-background-highlight-purple: hsl(280, 30%, 90%);
+    --a5e-item-list-item-track-border-color-highlight-purple: hsla(
+        280,
+        30%,
+        40%,
+        0.302
+    );
+
+    /** Red Highlight **/
+    --a5e-item-list-item-background-start-highlight-red: transparent;
+    --a5e-item-list-item-background-end-highlight-red: hsla(0, 55%, 55%, 0.3);
+    --a5e-item-list-item-border-color-start-highlight-red: hsla(0, 55%, 55%, 0);
+    --a5e-item-list-item-border-color-end-highlight-red: hsla(
+        0,
+        40%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-highlight-red: hsla(0, 65%, 35%, 0.5);
+    --a5e-item-list-item-icon-color-active-highlight-red: hsla(
+        0,
+        35%,
+        30%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight-red: hsla(
+        0,
+        55%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight-red: var(
+        --a5e-color-text-dark
+    );
+    --a5e-item-list-item-input-border-color-highlight-red: hsla(
+        0,
+        50%,
+        35%,
+        0.17
+    );
+    --a5e-item-list-item-track-background-highlight-red: hsl(0, 30%, 90%);
+    --a5e-item-list-item-track-border-color-highlight-red: hsla(
+        0,
+        40%,
+        50%,
+        0.302
+    );
+}

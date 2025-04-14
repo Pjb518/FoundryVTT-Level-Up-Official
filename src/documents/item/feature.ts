@@ -13,7 +13,7 @@ export default class FeatureItemA5e extends ItemA5e {
     super.prepareBaseData();
 
     // Setup Grants system
-    this.grants = new ItemGrantsManager(this);
+    // this.grants = new ItemGrantsManager(this);
   }
 
   override async _preCreate(data, options, user) {
