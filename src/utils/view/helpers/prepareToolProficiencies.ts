@@ -1,9 +1,8 @@
-export function getToolProficiencies(data) {
+export function prepareToolProficiencies(data: any): string[] {
   const toolProficiencies = data.system.proficiencies.tools.reduce(
     (acc, curr) => {
-      let tool;
+      let tool: string;
 
-      /* eslint-disable no-restricted-syntax */
       for (const toolType of [
         "artisansTools",
         "gamingSets",

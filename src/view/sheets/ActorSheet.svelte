@@ -19,6 +19,10 @@
 
 <style lang="scss">
     .a5e-actor-sheet {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
         display: grid;
         grid-template-areas:
             "aside header"
@@ -27,5 +31,6 @@
             "aside body"
             "aside footer";
         grid-template-columns: 12rem 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     }
 </style>
