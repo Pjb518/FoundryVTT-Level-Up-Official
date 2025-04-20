@@ -30,6 +30,10 @@
         display?: boolean;
     };
 
+    function openConfig(dialogMethod: string, propertyKey: string) {
+        return actor[dialogMethod]?.(actor, propertyKey);
+    }
+
     let details: Detail[] = $derived([
         {
             heading: localize("A5E.Movement"),
@@ -148,7 +152,23 @@
 {#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}
     {#if (values.length || !sheetIsLocked) && (display ?? true)}
         <div class="a5e-actor-details__section">
-            <span class="a5e-actor-details-heading"> {heading}: </span>
+            <div class="a5e-actor-details__section-header">
+                <span class="a5e-actor-details__section-heading">
+                    {heading}:
+                </span>
+
+                {#if !sheetIsLocked}
+                    <button
+                        class="a5e-button a5e-button--config"
+                        aria-labelledby="Configure"
+                        data-tooltip={tooltip}
+                        onclick={() => openConfig(dialogMethod, propertyKey)}
+                    >
+                        <i class="fa-solid fa-cog"></i>
+                    </button>
+                {/if}
+            </div>
+
             <ul class="a5e-actor-details-values">
                 {#each values as value}
                     <li class="a5e-actor-details-value">
@@ -163,11 +183,17 @@
 <style lang="scss">
     .a5e-actor-details {
         &__section {
-        }
-
-        &-heading {
             font-size: var(--a5e-sm-text);
-            font-weight: 600;
+
+            &-header {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+            &-heading {
+                font-weight: 600;
+            }
         }
 
         &-values {
