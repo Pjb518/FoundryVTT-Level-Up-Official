@@ -140,7 +140,7 @@
             display: flex;
             flex-direction: column;
             width: 30%;
-            font-family: var(--a5e-mono-font);
+            font-family: var(--a5e-default-font);
             font-size: var(--a5e-sm-text);
             text-align: center;
             font-weight: 400;

@@ -2,7 +2,8 @@
     import { getContext } from "svelte";
 
     import ActorHitPoints from "./ActorHitPoints.svelte";
-    import ActorSideBarDetails from "./ActorSideBarDetails.svelte";
+    import ActorSidebarDetails from "./ActorSidebarDetails.svelte";
+    import ActorSidebarFooter from "./ActorSidebarFooter.svelte";
 
     let actor = getContext("actor");
 </script>
@@ -13,12 +14,13 @@
     </section>
 
     <section class="a5e-actor-details-wrapper">
-        <ActorSideBarDetails />
+        <ActorSidebarDetails />
     </section>
 
-    <section>Testing Something else here</section>
-
     <!-- AC &   -->
+    <footer class="a5e-actor-sidebar-footer">
+        <ActorSidebarFooter />
+    </footer>
 </aside>
 
 <style lang="scss">
@@ -52,5 +54,15 @@
         flex-grow: 1;
         overflow-y: auto;
         overflow-x: clip;
+    }
+
+    .a5e-actor-sidebar-footer {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.25rem;
+        padding-right: 0.125rem;
+        justify-content: space-between;
     }
 </style>
