@@ -2,6 +2,7 @@
     import { setContext } from "svelte";
 
     import ActorSidebar from "./components/ActorSidebar.svelte";
+    import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
 
     let { actor, sheet } = $props();
 
@@ -19,7 +20,7 @@
 <main class="a5e-actor-sheet">
     <ActorSidebar />
 
-    <header></header>
+    <ActorSheetHeader />
 
     <section></section>
 </main>
