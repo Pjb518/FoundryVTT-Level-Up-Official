@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
 
     import ActorHitPoints from "./ActorHitPoints.svelte";
+    import ActorSidebarAC from "./ActorSidebarAC.svelte";
     import ActorSidebarDetails from "./ActorSidebarDetails.svelte";
     import ActorSidebarFooter from "./ActorSidebarFooter.svelte";
 
@@ -9,15 +10,22 @@
 </script>
 
 <aside class="a5e-actor-sidebar">
+    <!-- Portrait & Hp -->
     <section class="a5e-actor-portrait-wrapper">
         <ActorHitPoints />
     </section>
 
+    <!-- AC and Trackers -->
+    <section class="a5e-actor-sidebar-ac">
+        <ActorSidebarAC />
+    </section>
+
+    <!-- Details -->
     <section class="a5e-actor-details-wrapper">
         <ActorSidebarDetails />
     </section>
 
-    <!-- AC &   -->
+    <!-- AC -->
     <footer class="a5e-actor-sidebar-footer">
         <ActorSidebarFooter />
     </footer>
@@ -32,6 +40,7 @@
         flex-direction: column;
         flex-grow: 0;
         flex-shrink: 0;
+        gap: 0.75rem;
 
         height: 100%;
         padding: 0.5rem;
@@ -44,7 +53,6 @@
     .a5e-actor-portrait-wrapper {
         position: relative;
         padding-right: 0.125rem;
-        margin-block-end: 0.5rem;
     }
 
     .a5e-actor-details-wrapper {

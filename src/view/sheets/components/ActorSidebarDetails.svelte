@@ -19,6 +19,7 @@
     import { prepareWeaponProficiencies } from "#utils/view/helpers/prepareWeaponProficiencies.ts";
 
     let actor: any = getContext("actor");
+    let sheetIsLocked: boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive);
 
     type Detail = {
@@ -143,10 +144,6 @@
             tooltip: "Configure Alignment",
         },
     ]);
-
-    let sheetIsLocked = $derived(
-        !actor.isOwner ? true : (actorStore.flags?.a5e?.sheetIsLocked ?? true),
-    );
 </script>
 
 {#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}

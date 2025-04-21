@@ -5,8 +5,15 @@
 
     let { actor, sheet } = $props();
 
+    let sheetIsLocked = $derived(
+        !actor.isOwner
+            ? true
+            : (actor.reactive.flags?.a5e?.sheetIsLocked ?? true),
+    );
+
     setContext("actor", actor);
     setContext("sheet", sheet);
+    setContext("sheetIsLocked", () => sheetIsLocked);
 </script>
 
 <main class="a5e-actor-sheet">
