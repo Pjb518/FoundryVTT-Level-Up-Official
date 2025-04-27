@@ -52,18 +52,18 @@
             {abilityKey}
         </h3>
 
-        {#if !(!actor.isOwner ? true : (sheetIsLocked ?? true))}
-            <button
-                class="a5e-ability-score__config-button"
-                aria-labelledby="Configure Ability Score"
-                onclick={() => actor.configureAbilityScore({ abilityKey })}
-            >
-                <i class="fas fa-cog"></i>
-            </button>
-        {/if}
+        <!-- {#if !(!actor.isOwner ? true : (sheetIsLocked ?? true))} -->
+        <button
+            class="a5e-button a5e-button--config a5e-ability-score__config-button"
+            aria-labelledby="Configure Ability Score"
+            onclick={() => actor.configureAbilityScore({ abilityKey })}
+        >
+            <i class="fas fa-cog"></i>
+        </button>
+        <!-- {/if} -->
     </header>
 
-    <div class="a5e-ability-score__value">
+    <div class="a5e-ability-score__body">
         <input
             class="a5e-ability-score__value"
             name="system.abilities.${abilityKey}.value"
@@ -90,6 +90,21 @@
         >
             <div class="a5e-ability-score__roll-button-value">
                 {replaceHyphenWithMinusSign(ability.check.deterministicBonus)}
+            </div>
+        </button>
+
+        <button
+            class="a5e-ability-score__roll-button a5e-ability-score__roll-button--save"
+            class:a5e-ability-score__roll-button--proficient={ability.save
+                .proficient}
+            data-tooltip={sheetIsLocked
+                ? "A5E.RollSavingThrow"
+                : "Toggle Saving Throw Proficiency"}
+            data-tooltip-direction="DOWN"
+            onclick={() => handleSaveClick(abilityKey)}
+        >
+            <div class="a5e-ability-score__roll-button-value">
+                {replaceHyphenWithMinusSign(ability.save.deterministicBonus)}
             </div>
         </button>
     </div>

@@ -4,15 +4,15 @@
         "header"
         "body";
     overflow: hidden;
-    background: var(--a5e-ability-score-background);
+    /* background: var(--a5e-ability-score-background); */
 
     &__body {
         display: grid;
         grid-template-areas:
             "value value"
             "check save";
-        grid-template-columns: repeat(2, 1fr);
-        border: 1px solid var(--a5e-ability-score-border);
+        grid-template-columns: repeat(2, 1fr) i;
+        border: 1px solid var(--a5e-border-color);
         border-top: 0;
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
@@ -21,29 +21,23 @@
 
     &__config-button {
         position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        height: fit-content;
-        width: fit-content;
+        top: -0.125rem;
+        right: 0.5rem;
         padding: 0.25rem;
-        font-size: var(--a5e-text-size-sm);
-        background: transparent;
-        color: var(--a5e-button-gray);
-        transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: var(--a5e-button-gray-hover);
-            outline: none;
-            box-shadow: none;
+            color: var(
+                --a5e-ability-score-config-button-hover-color
+            ) !important;
         }
     }
 
     &__header {
         position: relative;
         grid-area: header;
-        padding: 0.25rem 0.5rem;
-        font-size: var(--a5e-text-size-sm);
+
+        padding: 0.25rem;
+        font-size: var(--a5e-sm-text);
         color: var(--a5e-ability-score-header-color);
         background: var(--a5e-color-primary);
         border: 1px solid var(--a5e-ability-score-header-border);
@@ -55,6 +49,8 @@
 
         h3 {
             color: inherit;
+            font-weight: normal;
+            margin: 0;
         }
     }
 
@@ -63,12 +59,12 @@
         font-family: inherit;
     }
 
-    &__value[type="number"] {
+    &__value {
         grid-area: value;
         height: fit-content;
         width: 100%;
         padding: 0.25rem 0.25rem 0.125rem;
-        font-size: var(--a5e-text-size-lg);
+        font-size: var(--a5e-lg-text);
         line-height: 1;
         text-align: center;
         color: var(--a5e-text-color-dark);
@@ -91,12 +87,14 @@
         margin: 0;
         padding: 0 0 0.25rem;
         background: transparent;
+        border: none;
+
         border-radius: 0;
         text-align: center;
         font-family: inherit;
-        font-size: var(--a5e-text-size-sm);
-        color: var(--a5e-color-text-dark);
-        background-color: transparent !important; // TODO: App V2
+        font-size: var(--a5e-sm-text);
+        color: var(--a5e-text-color-dark);
+        background-color: transparent;
 
         &:focus,
         &:hover {
@@ -109,7 +107,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font: var(--fa-font-solid);
-            font-size: var(--a5e-text-size-xxl);
+            font-size: var(--a5e-xxl-text);
             color: var(--a5e-ability-score-roll-button-background);
         }
 
@@ -134,7 +132,7 @@
         }
 
         &--proficient {
-            color: var(--a5e-color-text-white) !important; // TODO: App v2
+            color: var(--a5e-text-color-white);
 
             &::after {
                 color: var(--a5e-color-primary);

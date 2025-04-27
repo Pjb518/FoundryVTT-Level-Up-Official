@@ -12,6 +12,8 @@
             : (actor.reactive.flags?.a5e?.sheetIsLocked ?? true),
     );
 
+    $inspect(sheetIsLocked);
+
     setContext("actor", actor);
     setContext("sheet", sheet);
     setContext("sheetIsLocked", () => sheetIsLocked);
