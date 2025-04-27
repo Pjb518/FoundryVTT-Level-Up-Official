@@ -6,7 +6,9 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     let actor: any = getContext("actor");
-    let actorStore = $derived(actor.reactive);
+    let actorStore = $derived(actor.reactive.system);
+
+    let name = $derived(actor.reactive.name);
 </script>
 
 <header class="actor-sheet-header">
@@ -14,13 +16,14 @@
         <section class="actor-sheet-header-top-left">
             <input
                 type="text"
-                value={actorStore.name}
+                value={name}
                 class="a5e-input a5e-input--character-name"
                 class:disable-pointer-events={!actor.isOwner}
                 placeholder="Name"
                 spellcheck="false"
                 autocomplete="off"
                 onchange={({ target }) =>
+                    // @ts-ignore
                     updateDocumentDataFromField(actor, "name", target?.value)}
             />
         </section>
@@ -39,11 +42,21 @@
         flex-direction: column;
         height: fit-content;
         gap: 0.5rem;
+        margin-block: 0.5rem;
+        margin-inline: 0.25rem;
 
         &-top {
             display: flex;
+            justify-content: space-between;
             width: 100%;
             gap: 0.5rem;
+        }
+
+        &-top-left {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-left: 0.25rem;
         }
     }
 </style>
