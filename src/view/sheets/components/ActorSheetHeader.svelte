@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
 
     import ActorHeaderShields from "./ActorHeaderShields.svelte";
+    import AbilityScores from "./AbilityScores.svelte";
 
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
@@ -30,6 +31,8 @@
 
         <ActorHeaderShields />
     </section>
+
+    <AbilityScores />
 </header>
 
 <style lang="scss">
