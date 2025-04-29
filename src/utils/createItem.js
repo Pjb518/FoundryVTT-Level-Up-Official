@@ -1,7 +1,7 @@
 import { get } from "svelte/store";
 import { localize } from "#utils/localization/localize.ts";
 
-import ActorSheetTempSettingsStore from "../stores/ActorSheetTempSettingsStore";
+import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
 function getItemName(itemType, subType) {
   if (itemType === "feature") {
@@ -13,7 +13,7 @@ function getItemName(itemType, subType) {
   }
 
   if (itemType === "spell") {
-    const spellLevel = parseInt(subType, 10);
+    const spellLevel = Number.parseInt(subType, 10);
     return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : "A5E.Spell");
   }
 
@@ -59,7 +59,7 @@ function createSpell(type, options = {}) {
   const { actor } = options;
 
   const spellBookId =
-    get(ActorSheetTempSettingsStore)?.[actor.uuid]?.currentSpellBook ||
+    get(actorSheetTempSettings)?.[actor.uuid]?.currentSpellBook ||
     actor.spellBooks?.first()?._id;
 
   const system = {
