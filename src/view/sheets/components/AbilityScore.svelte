@@ -14,18 +14,18 @@
     };
 
     let actor: any = getContext("actor");
-    let sheetIsLocked: boolean = getContext("sheetIsLocked");
+    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     let { ability, abilityKey, idx }: Props = $props();
 
     function handleCheckClick(abilityKey: string) {
-        if (!sheetIsLocked) return;
+        if (!sheetIsLocked()) return;
 
         actor.rollAbilityCheck(abilityKey, getKeyPressAsOptions(pressedKeys));
     }
 
     function handleSaveClick(abilityKey: string) {
-        if (!sheetIsLocked) {
+        if (!sheetIsLocked()) {
             const currentProficiencyState =
                 actor.system.abilities[abilityKey]?.save?.proficient;
 
@@ -52,15 +52,15 @@
             {abilityKey}
         </h3>
 
-        <!-- {#if !(!actor.isOwner ? true : (sheetIsLocked ?? true))} -->
-        <button
-            class="a5e-button a5e-button--config a5e-ability-score__config-button"
-            aria-labelledby="Configure Ability Score"
-            onclick={() => actor.configureAbilityScore({ abilityKey })}
-        >
-            <i class="fas fa-cog"></i>
-        </button>
-        <!-- {/if} -->
+        {#if !(!actor.isOwner ? true : (sheetIsLocked() ?? true))}
+            <button
+                class="a5e-button a5e-button--config a5e-ability-score__config-button"
+                aria-labelledby="Configure Ability Score"
+                onclick={() => actor.configureAbilityScore({ abilityKey })}
+            >
+                <i class="fas fa-cog"></i>
+            </button>
+        {/if}
     </header>
 
     <div class="a5e-ability-score__body">
@@ -68,9 +68,9 @@
             class="a5e-ability-score__value"
             name="system.abilities.${abilityKey}.value"
             type="number"
-            value={sheetIsLocked ? ability.value : sourceValue}
+            value={sheetIsLocked() ? ability.value : sourceValue}
             placeholder="10"
-            disabled={sheetIsLocked}
+            disabled={sheetIsLocked()}
             onchange={({ target }) =>
                 updateDocumentDataFromField(
                     actor,
@@ -83,8 +83,8 @@
 
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--check"
-            class:a5e-ability-score__roll-button--no-click={!sheetIsLocked}
-            data-tooltip={sheetIsLocked ? "A5E.RollAbilityCheck" : null}
+            class:a5e-ability-score__roll-button--no-click={!sheetIsLocked()}
+            data-tooltip={sheetIsLocked() ? "A5E.RollAbilityCheck" : null}
             data-tooltip-direction="DOWN"
             onclick={() => handleCheckClick(abilityKey)}
         >
@@ -97,7 +97,7 @@
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--save"
             class:a5e-ability-score__roll-button--proficient={ability.save
                 .proficient}
-            data-tooltip={sheetIsLocked
+            data-tooltip={sheetIsLocked()
                 ? "A5E.RollSavingThrow"
                 : "Toggle Saving Throw Proficiency"}
             data-tooltip-direction="DOWN"

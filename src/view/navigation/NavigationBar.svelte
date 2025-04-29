@@ -21,7 +21,6 @@
     const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
 </script>
 
-{sheetIsLocked()}
 <nav class="a5e-nav" class:a5e-nav--flat-bottom={currentTab.hasSubNavigation}>
     <!-- This allows us to reserve enough space for the largest tab name -->
     {#each tabs as { name, label }}
