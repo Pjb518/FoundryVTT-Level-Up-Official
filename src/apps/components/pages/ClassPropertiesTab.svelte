@@ -7,7 +7,7 @@
     import Section from "../Section.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
-    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import { getDeterministicBonus } from "../../../dice/getDeterministicBonus";
     import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");

@@ -3,7 +3,7 @@
 
     import { pressedKeys } from "#stores/pressedKeysStore.svelte.ts";
 
-    import replaceHyphenWithMinusSign from "#utils/replaceHyphenWithMinusSign.ts";
+    import { replaceHyphenWithMinusSign } from "#utils/replaceHyphenWithMinusSign.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
     import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
 

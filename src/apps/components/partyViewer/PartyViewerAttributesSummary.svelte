@@ -1,5 +1,5 @@
 <script>
-    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
+    import { replaceHyphenWithMinusSign } from "../../../utils/replaceHyphenWithMinusSign";
 
     export let actor;
     export const propData = {};
@@ -19,7 +19,9 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(attribute?.check?.deterministicBonus)}
+                {replaceHyphenWithMinusSign(
+                    attribute?.check?.deterministicBonus,
+                )}
             </span>
         </div>
 
@@ -32,7 +34,9 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(attribute?.save?.deterministicBonus)}
+                {replaceHyphenWithMinusSign(
+                    attribute?.save?.deterministicBonus,
+                )}
             </span>
         </div>
     </div>

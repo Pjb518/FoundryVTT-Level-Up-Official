@@ -1,6 +1,6 @@
 import { localize } from "#utils/localization/localize.ts";
 
-import getExpertiseDieSize from "../utils/getExpertiseDieSize";
+import { getExpertiseDieSize } from "../utils/getExpertiseDieSize";
 
 export default class ModifierManager {
   constructor(actor, rollData) {

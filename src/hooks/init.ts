@@ -69,7 +69,7 @@ import { handleMigration } from "../migration/handlers/handleMigration.ts";
 import { handlePackMigration } from "../migration/handlers/handlePackMigration.ts";
 
 // Utility functions
-import getDeterministicBonus from "../dice/getDeterministicBonus.ts";
+import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 // import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
 // import openCompendium from "../utils/openCompendium.ts";
 

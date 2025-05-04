@@ -1,27 +1,33 @@
-<script>
+<script lang="ts">
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    import pressedKeysStore from "../../stores/pressedKeysStore";
+    import { pressedKeys } from "#stores/pressedKeysStore.svelte.ts";
 
-    import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
-    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
-    import { replaceHyphenWithMinusSign } from "../../utils/replaceHyphenWithMinusSign";
+    import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
+    import { getExpertiseDieSize } from "#utils/getExpertiseDieSize.ts";
+    import { getDeterministicBonus } from "../../../dice/getDeterministicBonus.ts";
+    import { replaceHyphenWithMinusSign } from "#utils/replaceHyphenWithMinusSign.ts";
 
-    export let columnFlow;
-    export let key;
-    export let skill;
+    type Props = {
+        columnFlow: boolean;
+        skillKey: string;
+        skill: any;
+    };
 
-    function getProficiencyLevel(actor, skill) {
-        const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
+    function getProficiencyLevel() {
+        const jackOfAllTrades = flags?.jackOfAllTrades;
 
         if (skill.proficient === 2) return "expertise";
         if (skill.proficient) return "proficient";
         if (jackOfAllTrades) return "jack";
+
+        return "";
     }
 
-    function getProficiencyTooltip(proficiencyLevel) {
+    function getProficiencyTooltip(
+        proficiencyLevel: "expertise" | "jack" | "proficient" | string,
+    ) {
         switch (proficiencyLevel) {
             case "expertise":
                 return "A5E.ProficiencyExpertise";
@@ -36,7 +42,7 @@
 
     function updateSkillProficiency() {
         const currentState = skill.proficient;
-        let newState;
+        let newState: number;
 
         if (!game.settings.get("a5e", "5eStyleExpertise")) {
             if (currentState) newState = 0;
@@ -47,7 +53,7 @@
             else newState = 1;
         }
 
-        $actor.update({ [`system.skills.${key}.proficient`]: newState });
+        actor.update({ [`system.skills.${skillKey}.proficient`]: newState });
     }
 
     function getSkillBonus() {
@@ -62,32 +68,37 @@
                 skill.ability,
                 "check",
             ),
-            $actor.getRollData(),
+            actor.getRollData(),
         );
         return skillBonus - checkBonus;
     }
 
-    const actor = getContext("actor");
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    let { columnFlow, skillKey, skill }: Props = $props();
     const { skills } = CONFIG.A5E;
 
-    let showDeterministicBonus =
-        $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
+    let actor: any = getContext("actor");
+    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-    $: abilityBonus = $actor.system.abilities[skill.ability].check.mod;
+    let actorStore = $derived(actor.reactive.system);
+    let flags = $derived(actor.reactive.flags?.a5e ?? {});
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
 
-    $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
-    $: proficiencyLevel = getProficiencyLevel($actor, skill);
-    $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
+    let showDeterministicBonus = $derived(
+        flags.includeAbilityModifiersForSkills ?? true,
+    );
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    let abilityBonus = $derived(actorStore.abilities[skill.ability].check.mod);
+    let skillBonus = $derived(getSkillBonus());
+    let proficiencyLevel = $derived(getProficiencyLevel());
+    let proficiencyTooltip = $derived(getProficiencyTooltip(proficiencyLevel));
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>
     <button
-        class="skill__proficiency-icon icon"
+        class="a5e-button a5e-button--config skill__proficiency-icon icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
         class:skill__proficiency-icon--expertise={proficiencyLevel ===
@@ -95,32 +106,35 @@
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
         class:skill__proficiency-icon--proficient={proficiencyLevel ===
             "proficient"}
-        class:skill__proficiency-icon--locked={sheetIsLocked}
+        class:skill__proficiency-icon--locked={sheetIsLocked()}
         class:fa-award={proficiencyLevel === "expertise"}
         class:fa-star-half-stroke={proficiencyLevel === "jack"}
         class:fa-star={!proficiencyLevel || proficiencyLevel === "proficient"}
+        aria-labelledby="Proficiency Icon"
         data-tooltip={proficiencyTooltip}
         data-tooltip-direction="UP"
-        on:click={updateSkillProficiency}
-    />
+        onclick={updateSkillProficiency}
+    ></button>
 
     <button
-        for="{$actor.id}-{key}-proficient"
-        class="icon fa-solid fa-dice-d20 skill__roll-icon"
-        class:skill__roll-icon--shift={$pressedKeysStore.Shift}
-        class:skill__roll-icon--ctrl={$pressedKeysStore.Control}
-    />
+        id="{actor.id}-{skillKey}-proficient"
+        class="a5e-button a5e-button--config icon fa-solid fa-dice-d20 skill__roll-icon"
+        class:skill__roll-icon--shift={pressedKeys.Shift}
+        class:skill__roll-icon--ctrl={pressedKeys.Control}
+        aria-labelledby="Roll Skill Check"
+    ></button>
 
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
     <h3
         class="skill__name"
-        class:disable-pointer-events={!$actor.isOwner}
-        on:click={$actor.rollSkillCheck(
-            key,
-            getKeyPressAsOptions($pressedKeysStore),
+        class:disable-pointer-events={!actor.isOwner}
+        onclick={actor.rollSkillCheck(
+            skillKey,
+            getKeyPressAsOptions(pressedKeys),
         )}
     >
-        {skills[key]}
+        {skills[skillKey]}
 
         {#if skill.expertiseDice && !hideExpertiseDice}
             <span class="u-text-xs">
@@ -136,11 +150,11 @@
             )}
         </span>
 
-        {#if $actor.flags.a5e?.showPassiveScores ?? true}
+        {#if flags?.showPassiveScores ?? true}
             <span
                 class="skill__passive"
                 data-tooltip={localize("A5E.SkillPassiveScore", {
-                    skill: skills[key],
+                    skill: skills[skillKey],
                 })}
                 data-tooltip-direction="UP"
             >
@@ -149,15 +163,19 @@
         {/if}
     </div>
 
-    {#if !sheetIsLocked}
+    {#if !sheetIsLocked()}
         <button
-            class="icon fas fa-cog skill__config-button"
+            class="a5e-button a5e-button--config icon fas fa-cog"
+            aria-label={localize("A5E.SkillConfigurationTooltip", {
+                skill: skills[skillKey],
+            })}
             data-tooltip={localize("A5E.SkillConfigurationTooltip", {
-                skill: skills[key],
+                skill: skills[skillKey],
             })}
             data-tooltip-direction="UP"
-            on:click={() => $actor.configureSkill({ skillKey: key })}
-        />
+            onclick={() => actor.configureSkill({ skillKey })}
+        >
+        </button>
     {/if}
 </li>
 
@@ -171,10 +189,11 @@
         align-items: center;
         gap: 0.5rem;
         padding-inline: 0.5rem;
+        margin: 0;
         border: 1px solid var(--a5e-border-color);
         border-top: 0;
-        font-family: var(--a5e-font-serif);
-        font-size: var(--a5e-text-size-sm);
+        font-family: var(--a5e-font-primary);
+        font-size: var(--a5e-sm-text);
 
         &:nth-child(even) {
             border-left: 0;
@@ -224,23 +243,6 @@
             }
         }
 
-        &__config-button {
-            width: fit-content;
-            margin: 0;
-            padding: 0;
-            background: transparent;
-            color: var(--a5e-button-gray);
-
-            transition: var(--a5e-transition-standard);
-
-            &:focus,
-            &:hover {
-                color: var(--a5e-button-gray-hover);
-                box-shadow: none;
-                transform: scale(1.2);
-            }
-        }
-
         &__mod {
             min-width: 2ch;
         }
@@ -261,10 +263,12 @@
             font-size: inherit;
             cursor: pointer;
             flex-grow: 1;
+            margin: 0;
+            font-weight: normal;
         }
 
         &__passive {
-            color: var(--a5e-color-text-medium);
+            color: var(--a5e-text-color-medium);
             min-width: 3ch;
         }
 
@@ -293,18 +297,11 @@
             align-items: center;
             justify-content: center;
             width: 1rem;
-            background: transparent;
-
-            &:focus,
-            &:hover {
-                box-shadow: none;
-            }
         }
 
         &__roll-icon {
             display: none;
             color: var(--a5e-button-gray);
-            transition: var(--a5e-transition-standard);
 
             &--ctrl {
                 color: #ffb63b;

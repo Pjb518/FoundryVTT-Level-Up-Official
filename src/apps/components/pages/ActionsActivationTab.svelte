@@ -5,7 +5,7 @@
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import { getDeterministicBonus } from "../../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
 

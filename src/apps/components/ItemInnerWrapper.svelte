@@ -6,7 +6,7 @@
     import { localize } from "#utils/localization/localize.ts";
 
     import formulaIsClassResource from "../../utils/formulaIsClassResource";
-    import getDeterministicBonus from "../../dice/getDeterministicBonus";
+    import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import type ObjectItemA5e from "../../documents/item/object";
 

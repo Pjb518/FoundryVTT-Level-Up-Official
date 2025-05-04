@@ -6,7 +6,7 @@
  * @param number A string or numeric representation of a number.
  * @returns A new string with all instance of '-' replaced with a true minus sign.
  */
-export default function replaceHyphenWithMinusSign(number: String | Number) {
-	const stringForm = number?.toString() ?? '';
-	return stringForm.replaceAll('-', '\u2212');
+export function replaceHyphenWithMinusSign(number: string | number) {
+  const stringForm = number?.toString() ?? "";
+  return stringForm.replaceAll("-", "\u2212");
 }

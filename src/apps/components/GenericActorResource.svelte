@@ -4,7 +4,7 @@
 
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
 
-    import getDeterministicBonus from "../../dice/getDeterministicBonus";
+    import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import GenericActorResourceConfigDialog from "../dialogs/GenericActorResourceConfigDialog.svelte";

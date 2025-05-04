@@ -6,7 +6,7 @@ import { BaseActorA5e } from "./base.svelte.ts";
 import HitDiceManager from "../../managers/HitDiceManager";
 import ActionActivationDialog from "../../apps/dialogs/initializers/ActionActivationDialog";
 
-import getDeterministicBonus from "../../dice/getDeterministicBonus";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
 
 export default class CharacterActorA5E extends BaseActorA5e {
   declare system: A5ECharacterData;

@@ -9,11 +9,17 @@
     import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
     import NavigationBar from "../navigation/NavigationBar.svelte";
 
+    import ActorCorePage from "./pages/ActorCorePage.svelte";
+    import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
+    import { compile } from "sass";
+
     let { actor, sheet } = $props();
 
     function updateCurrentTab(name: string) {
         const { uuid } = actor;
         const newTabName = name ?? "core";
+
+        console.log(newTabName);
 
         currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
     }
@@ -24,13 +30,13 @@
                 name: "core",
                 label: "A5E.TabCore",
                 icon: "fa-solid fa-home",
-                component: null, // ActorCorePage,
+                component: ActorCorePage,
             },
             {
                 name: "skills",
                 label: "A5E.TabSkills",
                 icon: "fa-solid fa-graduation-cap",
-                component: null, //ActorSkillsPage,
+                component: ActorSkillsPage,
                 display: flags?.a5e?.showFavoritesSection ?? true,
             },
             {
@@ -102,9 +108,10 @@
     let tempSettings = {};
 
     let tabs = $derived(getTabs(actor.reactive.flags));
-    let currentTab =
+    let currentTab = $derived(
         tabs.find((tab) => tab.name === tempSettings[actor.uuid]?.currentTab) ??
-        tabs[0];
+            tabs[1],
+    );
 
     let sheetIsLocked = $derived(
         !actor.isOwner ? true : (flags?.sheetIsLocked ?? true),
@@ -127,7 +134,11 @@
         onTabChange={updateCurrentTab}
     />
 
-    <section></section>
+    <!-- <section>Test</section> -->
+
+    <section class="a5e-actor-sheet__page">
+        <currentTab.component />
+    </section>
 </main>
 
 <style lang="scss">
@@ -141,9 +152,16 @@
             "aside header"
             "aside primaryNavigation"
             "aside secondaryNavigation"
-            "aside body"
+            "aside page"
             "aside footer";
         grid-template-columns: 12rem 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: min-content min-content min-content 1fr 2rem;
+
+        &__page {
+            grid-area: page;
+            padding-inline: 0.5rem;
+            padding-block: 0.75rem;
+            overflow-x: hidden;
+        }
     }
 </style>

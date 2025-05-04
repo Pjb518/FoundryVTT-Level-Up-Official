@@ -51,7 +51,7 @@ import GenericRollDialog from "../../apps/dialogs/initializers/GenericRollDialog
 
 import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
 import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions.js";
-import getDeterministicBonus from "../../dice/getDeterministicBonus.ts";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
 import getRollFormula from "../../utils/getRollFormula.js";
 import displayCascadingNumbers from "../../utils/displayCascadingNumbers.js";
 import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";

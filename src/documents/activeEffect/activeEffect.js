@@ -4,7 +4,7 @@ import { localize } from "#utils/localization/localize.ts";
 import castType from "../../utils/castType";
 import evaluateConditional from "./utils/evaluateConditional";
 import getCorrectedTypeValueFromKey from "./utils/getCorrectedTypeValueFromKey";
-import getDeterministicBonus from "../../dice/getDeterministicBonus";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
 
 /**
  * Add system-specific logic to the base ActiveEffect Class

@@ -2,7 +2,7 @@ import type { Action } from "types/action";
 import type { ItemA5e } from "../../documents/item/item";
 
 import { localize } from "#utils/localization/localize.ts";
-import getDeterministicBonus from "../../dice/getDeterministicBonus";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
 
 export default function getDurationLabel(item: ItemA5e, action: Action) {
   const { duration } = action;
