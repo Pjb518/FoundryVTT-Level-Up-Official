@@ -3,6 +3,7 @@
     import { localize } from "#utils/localization/localize.ts";
 
     import Skill from "../components/Skill.svelte";
+    import FieldWrapper from "../snippets/FieldWrapper.svelte";
 
     function determineWhetherToShowSkillSpecialties(skills: any) {
         if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
@@ -67,7 +68,42 @@
 </script>
 
 <div class="skill-page-wrapper">
-    {#if showSpecialties}{/if}
+    {#if showSpecialties}
+        <FieldWrapper
+            --a5e-field-wrapper-background="var(--a5e-skill-specialty-background)"
+            --a5e-field-wrapper-border="1px solid var(--a5e-border-color)"
+            --a5e-field-wrapper-padding="0.5rem"
+        >
+            <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
+
+            <dl class="a5e-skill-specialties">
+                {#each Object.entries(skills) as [skillKey, skill]}
+                    {@const specialties = getSkillSpecialties(skillKey, skill)}
+                    {@const skillName = localize(A5E.skills[skillKey])}
+
+                    {#if specialties.length}
+                        <dt class="a5e-skill-specialties__skill">
+                            {skillName}
+                        </dt>
+
+                        <dd class="a5e-skill-specialties__list">
+                            {#each specialties as specialty}
+                                <button
+                                    class="a5e-skill-specialties__list-item"
+                                    data-tooltip="Roll {skillName} check with {specialty} specialty"
+                                    data-tooltip-direction="UP"
+                                    onclick={() =>
+                                        rollSkillCheckWithSpecialty(skillKey)}
+                                >
+                                    {specialty}
+                                </button>
+                            {/each}
+                        </dd>
+                    {/if}
+                {/each}
+            </dl>
+        </FieldWrapper>
+    {/if}
 
     <ul
         class="skills-container"
@@ -86,9 +122,10 @@
 
 <style lang="scss">
     .a5e-skill-specialties-heading {
-        font-family: var(--a5e-font-primary);
+        font-family: var(--a5e-font-secondary);
         font-size: var(--a5e-md-text);
         font-weight: 700;
+        margin: 0;
     }
 
     .skills-container {
