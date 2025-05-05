@@ -61,6 +61,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
   protected override async _prepareContext() {
     return {
       actor: this.actor,
+      reducers: this.reducers,
       sheet: this,
     };
   }

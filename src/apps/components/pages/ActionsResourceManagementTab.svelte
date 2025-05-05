@@ -18,7 +18,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
-    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
+    import { formulaIsClassResource } from "../../../utils/formulaIsClassResource";
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 

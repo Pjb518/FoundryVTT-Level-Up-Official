@@ -4,7 +4,7 @@ import type { Action } from "types/action";
 import type { ActionActivationOptions } from "./data";
 import type { RollHandlerReturnType } from "../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
-import { BaseItemA5e } from "./base";
+import { BaseItemA5e } from "./base.svelte.ts";
 
 import computeSaveDC from "../../utils/computeSaveDC";
 import { getDeterministicBonus } from "../../dice/getDeterministicBonus";

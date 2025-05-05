@@ -11,15 +11,13 @@
 
     import ActorCorePage from "./pages/ActorCorePage.svelte";
     import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
-    import { compile } from "sass";
+    import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
 
     let { actor, sheet } = $props();
 
     function updateCurrentTab(name: string) {
         const { uuid } = actor;
         const newTabName = name ?? "core";
-
-        console.log(newTabName);
 
         currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
     }
@@ -43,7 +41,7 @@
                 name: "inventory",
                 label: "A5E.TabInventory",
                 icon: "fa-solid fa-box-open",
-                component: null, // ActorInventoryPage,
+                component: ActorInventoryPage,
             },
             {
                 name: "features",
@@ -110,7 +108,7 @@
     let tabs = $derived(getTabs(actor.reactive.flags));
     let currentTab = $derived(
         tabs.find((tab) => tab.name === tempSettings[actor.uuid]?.currentTab) ??
-            tabs[1],
+            tabs[2],
     );
 
     let sheetIsLocked = $derived(

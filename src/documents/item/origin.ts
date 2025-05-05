@@ -1,4 +1,4 @@
-import { BaseItemA5e } from "./base";
+import { BaseItemA5e } from "./base.svelte.ts";
 
 // import ItemGrantsManager from '../../managers/ItemGrantsManager';
 

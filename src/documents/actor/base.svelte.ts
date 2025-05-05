@@ -5,7 +5,7 @@ import type {
   SavingThrowRollOptions,
   SkillCheckRollOptions,
 } from "./data.ts";
-import type { BaseItemA5e } from "../item/base.ts";
+import type { BaseItemA5e } from "../item/base.svelte.ts";
 
 import type HitDiceManager from "../../managers/HitDiceManager.ts";
 
