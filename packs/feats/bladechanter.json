@@ -1,10 +1,161 @@
 {
+	"folder": null,
 	"name": "Bladechanter",
 	"type": "feature",
 	"img": "icons/skills/melee/weapons-crossed-swords-teal.webp",
-	"effects": [],
-	"flags": {},
 	"system": {
+		"description": "<p>Bladechanting is the art of unifying and maintaining intense physical and intellectual strains, allowing movement and thought to become one as a beautiful and deadly dance of blades.</p><p>If you wield a melee weapon in each hand, you may use them to perform seen spell components and as a spellcasting focus for wizard spells. In addition, whenever you are concentrating on a spell while using melee weapons as a spellcasting focus in this way, you enter a special trance-like state called bladechanting. If you lose concentration on your spell while bladechanting, you also stop bladechanting. While bladechanting you gain the following benefits:</p><ul><li><p>While you are wearing no armor, light armor, or medium armor,  you gain a bonus to your Armor Class equal to your Intelligence modifier.</p></li><li><p>Whenever you would need to make a concentration check to maintain a spell due to taking damage, you may spend 2 exertion to automatically succeed.</p></li><li><p>When you hit a target with a melee weapon attack, you can use your reaction and choose a spell of 1st-level or higher, casting it through your weapon. The spell must have a casting time of 1 action, and target a single creature or have a range of Touch. If a spell cast in this way requires an attack roll and targets the same target as the triggering melee weapon attack, it also hits as part of that attack. You may choose not to deal damage with a melee weapon attack used to cast a spell.</p></li></ul>",
+		"favorite": true,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"LVMowf3TCUGyqXOv": {
+				"name": "Maintain Concentration",
+				"id": "LVMowf3TCUGyqXOv",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/skills/melee/weapons-crossed-swords-teal.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"3cocc3eq4DocjdIU": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"HBtawvm88t9XJwOs": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "self"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"JEOl3gaQxu5qAuXC": {
+				"name": "Reactionary Spell",
+				"id": "JEOl3gaQxu5qAuXC",
+				"default": false,
+				"description": "<p>Manually cast a spell of 1st-level or higher as a reaction.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/skills/melee/weapons-crossed-swords-teal.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "You hit a target with a melee attack."
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"xr7oF4UP2Ohym0ia": {
+						"range": "touch"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"fy8fmZEw2wlotk6K": {
+				"name": "Increase Armor Class",
+				"id": "",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"o6ZxgjXNRkVieldQ"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
@@ -15,11 +166,6 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Bladechanting is the art of unifying and maintaining intense physical and intellectual strains, allowing movement and thought to become one as a beautiful and deadly dance of blades.</p><p>If you wield a melee weapon in each hand, you may use them to perform seen spell components and as a spellcasting focus for wizard spells. In addition, whenever you are concentrating on a spell while using melee weapons as a spellcasting focus in this way, you enter a special trance-like state called bladechanting. If you lose concentration on your spell while bladechanting, you also stop bladechanting. While bladechanting you gain the following benefits:</p><ul><li><p>While you are wearing no armor, light armor, or medium armor,&nbsp; you gain a bonus to your Armor Class equal to your Intelligence modifier.</p></li><li><p>Whenever you would need to make a concentration check to maintain a spell due to taking damage, you may spend 2 exertion to automatically succeed.</p></li><li><p>When you hit a target with a melee weapon attack, you can use your reaction and choose a spell of 1st-level or higher, casting it through your weapon. The spell must have a casting time of 1 action, and target a single creature or have a range of Touch. If a spell cast in this way requires an attack roll and targets the same target as the triggering melee weapon attack, it also hits as part of that attack. You may choose not to deal damage with a melee weapon attack used to cast a spell.</p></li></ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -29,18 +175,82 @@
 				"threshold": 6
 			}
 		},
+		"class": "",
+		"classes": "",
 		"concentration": false,
 		"featureType": "feat",
 		"grants": {},
 		"prerequisite": "3 levels in fighter, 3 levels in wizard, Fighting Style (Two-Weapon Fighting)",
-		"requiresBloodied": false,
-		"classes": ""
+		"requiresBloodied": false
 	},
-	"folder": null,
-	"_id": "8nnj189ttw6h0sjo",
+	"effects": [
+		{
+			"origin": "Item.3iUQjAUSjEkeeC39",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Bladechanting",
+			"img": "icons/skills/melee/weapons-crossed-swords-teal.webp",
+			"_id": "o6ZxgjXNRkVieldQ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "@int.mod",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are wearing no armor, light armor, or medium armor,  you gain a bonus to your Armor Class equal to your Intelligence modifier.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1746543425062,
+				"modifiedTime": 1746543459604,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"a5e": {
+			"showActionList": true
+		}
+	},
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746543224091,
+		"modifiedTime": 1746543447044,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8nnj189ttw6h0sjo"
 }

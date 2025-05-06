@@ -24,7 +24,8 @@
 					"kc7zHDP4SNn9key0": {
 						"type": "itemUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -33,10 +34,12 @@
 						"ability": "wis",
 						"onSave": "Negates effect",
 						"saveDC": {
-							"type": "spellcasting",
+							"type": "cha",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"uses": {
@@ -45,8 +48,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -65,8 +66,9 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": null,
-					"type": ""
+					"quantity": 1,
+					"type": "",
+					"scaling": {}
 				},
 				"img": "icons/magic/death/projectile-skull-fire-purple.webp",
 				"description": "<p>You project a phantasmal image into the minds of each creature in the area showing them what they fear most. On a failed save, a creature becomes frightened until the spell ends and must drop whatever it is holding.</p><p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",
@@ -75,10 +77,13 @@
 				],
 				"effects": [
 					"91XW2pNOHPU4ym4P"
-				]
+				],
+				"id": "",
+				"default": false,
+				"macro": ""
 			}
 		},
-		"description": "<p>Also at 7th level, you become the master of causing terror in your enemies. You can use this feature to cast @UUID[Compendium.a5e.a5e-spells.Item.crjcunjc1r21w2mv]{Fear} without using a spell slot. Once you have used this feature a number of times equal to half your proficiency bonus, you may not do so again until you finish a long rest.</p>",
+		"description": "<p>Also at 7th level, you become the master of causing terror in your enemies. You can use this feature to cast @UUID[Compendium.a5e.a5e-spells.Item.crjcunjc1r21w2mv]{Fear} without using a spell slot. Once you have used this feature a number of times equal to half your proficiency bonus, you may not do so again until you finish a long rest. Charisma is your spellcasting ability for this feature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -97,18 +102,26 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "marshal",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"img": "icons/magic/control/fear-fright-monster-grin-green.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.330",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.22",
-		"createdTime": 1723400364468,
-		"modifiedTime": 1723401147484,
+		"systemVersion": "1.0.10",
+		"createdTime": 1746553524264,
+		"modifiedTime": 1746553728424,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "kqwqdj34qogbwhy8"

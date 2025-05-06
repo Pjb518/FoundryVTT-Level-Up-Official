@@ -19,13 +19,15 @@
 				"name": "Constrict",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"bVU2vWxuEvMYcPFT": {
 						"type": "itemUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -34,7 +36,10 @@
 						"default": true,
 						"canCrit": false,
 						"formula": "2d4 + @str.mod",
-						"damageType": "bludgeoning"
+						"damageType": "bludgeoning",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -44,14 +49,32 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			}
 		},
-		"description": "<p>&nbsp;You gain an expertise die on checks to initiate or maintain a grapple on creatures of Medium size or smaller, which can be coiled around as part of the grapple. Once per turn as a bonus action, you can squeeze a grappled creature in your coils, dealing bludgeoning damage equal to 2d4 + your Strength modifier. In addition, your hands remain free when you are grappling another creature. You cannot use your climb speed from Sinuous Physiology while using this trait. You cannot coil around creatures of Large or larger size.</p>",
+		"description": "<p>When you grapple a creature of Medium size or smaller, you can coil around it, causing it to suffer a -1d4 penalty on rolls to avoid or escape your grapple. Once per turn as a bonus action, you can squeeze a grappled creature in your coils, dealing bludgeoning damage equal to 2d4 + your Strength modifier. In addition, your hands remain free when you are grappling another creature. You cannot use your climb speed from Sinuous Physiology while using this trait. You cannot coil around creatures of Large or larger size.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "sinuousSentinels",
@@ -70,16 +93,27 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"class": "",
-		"classes": ""
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"effects": [],
 	"flags": {
 		"core": {}
 	},
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
+		"systemVersion": "1.0.10",
+		"createdTime": 1746551315852,
+		"modifiedTime": 1746551355350,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "o3Awx2pjMlmvZg6Z"
 }
