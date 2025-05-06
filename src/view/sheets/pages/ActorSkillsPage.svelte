@@ -3,7 +3,7 @@
     import { localize } from "#utils/localization/localize.ts";
 
     import Skill from "../components/Skill.svelte";
-    import FieldWrapper from "../snippets/FieldWrapper.svelte";
+    import FieldWrapper from "../../snippets/FieldWrapper.svelte";
 
     function determineWhetherToShowSkillSpecialties(skills: any) {
         if (game.settings.get("a5e", "hideSkillSpecialties")) return false;

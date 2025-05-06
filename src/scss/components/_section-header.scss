@@ -7,8 +7,9 @@
     );
     gap: var(--a5e-section-heading-gap, 0);
     padding: 0.125rem 0.5rem;
-    font-family: var(--a5e-font-serif);
-    font-size: var(--a5e-text-size-sm);
+    font-family: var(--a5e-secondary-font);
+    font-size: var(--a5e-sm-text);
+    font-weight: normal;
     color: var(--a5e-section-color);
     background: var(--a5e-color-primary);
     border: 1px solid var(--a5e-section-border);
@@ -41,12 +42,12 @@
 
     &__button {
         width: fit-content;
-        height: calc(var(--a5e-text-size-sm) + 0.25rem);
+        height: calc(var(--a5e-sm-text) + 0.25rem);
         padding: 0;
         margin: 0;
         background: transparent;
         line-height: 1;
-        font-size: var(--a5e-text-size-sm);
+        font-size: var(--a5e-sm-text);
         color: var(--a5e-section-color);
 
         transition: var(--a5e-transition-standard);
@@ -61,6 +62,7 @@
     &__heading {
         color: inherit;
         font-size: inherit;
+        font-weight: normal;
         border: 0;
         margin: 0;
 
@@ -70,7 +72,7 @@
     }
 
     &__icon {
-        font-size: var(--a5e-text-size-xs);
+        font-size: var(--a5e-xs-text);
         margin-right: 0.125rem;
     }
 }

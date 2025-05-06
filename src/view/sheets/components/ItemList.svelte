@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { Action } from "#types/action.d.ts";
+
     import { getContext } from "svelte";
     import { slide } from "svelte/transition";
     import { localize } from "#utils/localization/localize.ts";
@@ -29,9 +31,7 @@
             );
         }
 
-        const actionListFlag = $derived(
-            item.reactive.flags.a5e?.showActionList ?? false,
-        );
+        const actionListFlag = item.reactive.flags.a5e?.showActionList ?? false;
         if (actionListFlag === false) return false;
 
         if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked())

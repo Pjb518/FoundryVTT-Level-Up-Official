@@ -1,11 +1,12 @@
 <script lang="ts">
+    import type { Action } from "types/action.d.ts";
+
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
     import { formulaIsClassResource } from "#utils/formulaIsClassResource.ts";
     import { getDeterministicBonus } from "../../../dice/getDeterministicBonus.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-    import { stopPropagation } from "svelte/legacy";
 
     type Props = {
         item: Item;
@@ -44,7 +45,7 @@
     }
 
     // TODO: Cleanup - Fix up this gross mess
-    function getActivationCostLabel() {
+    function getActivationCostLabel(cost: string) {
         let _action = action;
 
         if (item.reactive.actions?.count === 1) {
@@ -67,7 +68,7 @@
         }
     }
 
-    function getSelectedAmmo(item: ItemA5e, action: Action) {
+    function getSelectedAmmo(item: Item, action: Action) {
         let _action = action;
 
         if (!item.actions) return "";
@@ -173,7 +174,7 @@
         item.actions?.configure(id);
     }
 
-    function getCapacity(item: ObjectItemA5e): number {
+    function getCapacity(item: Item): number {
         if (!item.isType("object")) return 0;
         if (item.system?.objectType !== "container") return 0;
 
@@ -289,7 +290,7 @@
     );
 
     let activationCost = $derived(getActivationCost());
-    let activationCostLabel = $derived(getActivationCostLabel());
+    let activationCostLabel = $derived(getActivationCostLabel(activationCost));
     let containerCapacity = $derived(getCapacity(item));
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
 </script>
@@ -317,7 +318,7 @@
                 class="action-button action-button--stance icon fa-solid fa-street-view"
                 data-tooltip={"A5E.ManeuverIsStance"}
                 data-tooltip-direction="UP"
-            />
+            ></i>
         {/if}
 
         {#if !action && itemStore.requiresBloodied}
@@ -325,17 +326,20 @@
                 class="action-button action-button--bloodied icon fa-solid fa-droplet"
                 data-tooltip={"A5E.RequiresBloodied"}
                 data-tooltip-direction="UP"
-            />
+            ></i>
         {/if}
 
+        {console.log(item.reactive.actions?.count)}
         {#if !action && item.reactive.actions?.count > 1}
             <button
                 class="action-button icon fas fa-chevron-down"
+                aria-label="Expand Action List"
                 onclick={(e) => {
                     e.stopPropagation();
                     // dispatch("toggleActionList"); TODO: Implement toggleActionList
                 }}
-            />
+            >
+            </button>
         {/if}
 
         {#if itemStore?.objectType === "container"}
@@ -347,11 +351,12 @@
 
             <button
                 class="action-button icon fas fa-chevron-down"
+                aria-label="Expand Container"
                 onclick={(e) => {
                     e.stopPropagation();
                     // dispatch("toggleContainer"); TODO: Implement toggleContainer
                 }}
-            />
+            ></button>
         {/if}
     </div>
 
@@ -366,7 +371,7 @@
                 value=""
                 onclick={(e) => e.stopPropagation()}
                 selected={selectedAmmo === ""}
-            />
+            ></option>
             {#each ammunitionItems as { name, id } (id)}
                 <option
                     value={id}
@@ -457,11 +462,13 @@
                     class:active={itemStore?.favorite ?? false}
                     data-tooltip="A5E.ButtonToolTipFavorite"
                     data-tooltip-direction="UP"
+                    aria-label="Toggle Favorite"
                     onclick={(e) => {
                         e.stopPropagation();
                         item.toggleFavorite();
                     }}
-                />
+                >
+                </button>
             {/if}
 
             {#if item.type === "object"}
@@ -477,11 +484,12 @@
                                   item: item.name,
                               })}
                         data-tooltip-direction="UP"
+                        aria-label="Toggle Attuned State"
                         onclick={(e) => {
                             e.stopPropagation();
                             item.toggleAttunement();
                         }}
-                    />
+                    ></button>
                 {/if}
 
                 {#if !itemStore?.containerId}
@@ -501,11 +509,13 @@
                             itemStore.equippedState ?? 0
                         ]}
                         data-tooltip-direction="UP"
+                        aria-label="Toggle Equipped State"
                         onclick={(e) => {
                             e.stopPropagation();
                             item.toggleEquippedState();
                         }}
-                    />
+                    >
+                    </button>
                 {/if}
 
                 {#if !hideBrokenAndDamaged}
@@ -525,11 +535,13 @@
                             itemStore.damagedState ?? 0
                         ]}
                         data-tooltip-direction="UP"
+                        aria-label="Toggle Damaged Dtate"
                         onclick={(e) => {
                             e.stopPropagation();
                             item.toggleDamagedState();
                         }}
-                    />
+                    >
+                    </button>
                 {/if}
             {/if}
 
@@ -550,11 +562,12 @@
                         Number(itemStore.prepared ?? 0)
                     ]}
                     data-tooltip-direction="UP"
+                    aria-label="Toggle Prepared State"
                     onclick={(e) => {
                         e.stopPropagation();
                         item.togglePrepared();
                     }}
-                />
+                ></button>
             {/if}
 
             {#if hasRecharge(item)}
@@ -565,11 +578,12 @@
                         ? "A5E.ButtonToolTipCharged"
                         : "A5E.ButtonToolTipRecharge"}
                     data-tooltip-direction="UP"
+                    aria-label="Toggle Recharge State"
                     onclick={(e) => {
                         e.stopPropagation();
                         item.recharge(actionId, rechargeState);
                     }}
-                />
+                ></button>
             {/if}
         </div>
     </div>
@@ -584,11 +598,12 @@
                         ? "A5E.ButtonToolTipCharged"
                         : "A5E.ButtonToolTipRecharge"}
                     data-tooltip-direction="UP"
+                    aria-label="Toggle Recharge State"
                     onclick={(e) => {
                         e.stopPropagation();
                         item.recharge(actionId, rechargeState);
                     }}
-                />
+                ></button>
             {/if}
         </div>
     </div>
@@ -672,7 +687,7 @@
             justify-content: center;
             height: 1rem;
             width: fit-content;
-            font-size: var(--a5e-text-size-xxs);
+            font-size: var(--a5e-xxs-text);
             color: var(--indicator-text-color, inherit);
             border-radius: var(--a5e-border-radius-standard);
             background: var(--indicator-background, #c6c5bc);
@@ -710,7 +725,7 @@
     .ammunition-selector {
         height: 1.25rem;
         flex-grow: 0;
-        font-size: var(--a5e-text-size-xs);
+        font-size: var(--a5e-xs-text);
 
         &:focus {
             box-shadow: none;
@@ -726,7 +741,7 @@
 
     .component-wrapper {
         gap: 0.25rem;
-        font-family: var(--a5e-font-sans-serif);
+        font-family: var(--a5e-primary-font);
     }
 
     .button-wrapper {
@@ -741,7 +756,7 @@
         height: 1rem;
         width: 1rem;
         border-radius: var(--a5e-border-radius-standard);
-        font-size: var(--a5e-text-size-xxs);
+        font-size: var(--a5e-xxs-text);
         background: var(--indicator-background, #c6c5bc);
     }
 
@@ -789,7 +804,7 @@
     }
 
     .number-input {
-        font-size: var(--a5e-text-size-xs);
+        font-size: var(--a5e-xs-text);
         text-align: center;
 
         &:disabled {

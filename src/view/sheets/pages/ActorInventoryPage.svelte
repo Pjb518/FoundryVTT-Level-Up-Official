@@ -6,7 +6,7 @@
     import { usesRequired } from "#utils/view/usesRequired.ts";
     import { quantityRequired } from "#utils/view/quantityRequired.ts";
 
-    import UtilityBar from "../snippets/UtilityBar.svelte";
+    import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
 
     let actor: any = getContext("actor");
@@ -16,12 +16,19 @@
     let items = $derived(filterItems(actor.reactive, "object"));
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
-    let showDescription = $state(true);
+    const openCompendium = game.a5e.utils.openCompendium;
+
+    let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
 </script>
 
-<section>
+{#if actor.isOwner}
+    <!--  -->
+    <!-- UtilityBar Goes HEre -->
+{/if}
+
+<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
     {#each Object.entries(categorizedItems) as [label, itemList]}
         {#if itemList.length > 0}
             <ItemCategory

@@ -6,7 +6,7 @@
     import ItemListSpellSlots from "./ItemListSpellSlots.svelte";
 
     type Props = {
-        icon?: string;
+        icon?: string | null;
         label: string;
         level?: number;
         items: Item[];
@@ -31,7 +31,7 @@
         showSpellSlots = false,
         showUses = false,
         type,
-    } = $props();
+    }: Props = $props();
 
     function getHeadingTemplateConfiguration() {
         let areas = "name";
@@ -80,7 +80,6 @@
     }
 
     let actor: any = getContext("actor");
-    let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     const { A5E } = CONFIG;
