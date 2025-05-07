@@ -187,7 +187,7 @@
     }
 
     function generateUsesConfig() {
-        const uses = {
+        const usesData = {
             action: {
                 value: action ? action.uses?.value : 0,
                 max: action
@@ -213,7 +213,7 @@
                 ? (action.uses?.max ?? "")
                 : (item.system.uses?.max ?? "");
 
-        if (!maxFormula) return uses;
+        if (!maxFormula) return usesData;
 
         isClassResource = formulaIsClassResource(maxFormula);
 
@@ -221,7 +221,7 @@
             const reg = new RegExp(/@classResources.(\S+)/gm);
             const slug = reg.exec(maxFormula)?.[1];
 
-            if (!slug) return uses;
+            if (!slug) return usesData;
 
             const resource =
                 foundry.utils.getProperty(
@@ -230,12 +230,12 @@
                 ) ??
                 getDeterministicBonus(maxFormula, $actor.getRollData(item));
 
-            uses[usesType].value = resource;
-            uses[usesType].updatePath =
+            usesData[usesType].value = resource;
+            usesData[usesType].updatePath =
                 `system.resources.classResources.${slug}`;
         }
 
-        return uses;
+        return usesData;
     }
 
     let actor: any = getContext("actor");
@@ -266,7 +266,7 @@
 
     let flags = $derived(actor.reactive.flags);
     let isClassResource = $state(false);
-    let uses = $derived(generateUsesConfig());
+    let uses = generateUsesConfig(); // TODO: V13 This should be reactive
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items

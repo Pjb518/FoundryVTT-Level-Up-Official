@@ -12,6 +12,13 @@
     import ActorCorePage from "./pages/ActorCorePage.svelte";
     import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
     import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
+    import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
+    import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
+    import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
+    import ActorNotesPage from "./pages/ActorNotesPage.svelte";
+    import ActorEffectsPage from "./pages/ActorEffectsPage.svelte";
+    import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
+    import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
 
     let { actor, sheet } = $props();
 
@@ -47,20 +54,20 @@
                 name: "features",
                 label: "A5E.TabFeatures",
                 icon: "fa-solid fa-table-list",
-                component: null, // ActorFeaturesPage,
+                component: ActorFeaturesPage,
             },
             {
                 name: "maneuvers",
                 label: "A5E.TabManeuvers",
                 icon: "fa-solid fa-hand-fist",
-                component: null, //ActorManeuversPage,
+                component: ActorManeuversPage,
                 display: flags?.a5e?.showManeuverTab,
             },
             {
                 name: "spells",
                 label: "A5E.TabSpells",
                 icon: "fa-solid fa-wand-sparkles",
-                component: null, //ActorSpellsPage,
+                component: ActorSpellsPage,
                 display: flags?.a5e?.showSpellTab,
             },
             // {
@@ -73,26 +80,26 @@
                 name: "notes",
                 label: "A5E.TabNotes",
                 icon: "fa-solid fa-file-lines",
-                component: null, //ActorNotesPage,
+                component: ActorNotesPage,
                 hasSubNavigation: true,
             },
             {
                 name: "bonuses",
                 label: "Bonuses",
                 icon: "fa-solid fa-angles-up",
-                component: null, //ActorBonusesPage,
+                component: ActorBonusesPage,
             },
             {
                 name: "effects",
                 label: "A5E.TabEffects",
                 icon: "fa-solid fa-person-rays",
-                component: null, //ActorEffectsPage,
+                component: ActorEffectsPage,
             },
             {
                 name: "settings",
                 label: "A5E.TabSettings",
                 icon: "fas fa-cog",
-                component: null, //ActorSettingsPage,
+                component: ActorSettingsPage,
                 hasSubNavigation: true,
                 display:
                     !actor.pack &&
