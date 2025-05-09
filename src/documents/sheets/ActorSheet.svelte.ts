@@ -1,4 +1,8 @@
 import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
+import {
+  actorSheetTempSettings,
+  type ActorSheetTempSetting,
+} from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
 import ActorSheetComponent from "#view/sheets/ActorSheet.svelte";
 
@@ -46,6 +50,10 @@ export default class ActorSheet extends SvelteApplicationMixin(
     this.actor = actor.document.isToken
       ? actor.document.parent?.actor
       : actor.document;
+
+    actorSheetTempSettings[this.actor.uuid] ??= {} as ActorSheetTempSetting;
+
+    this.tempSettings = actorSheetTempSettings[this.actor.uuid];
   }
 
   static override DEFAULT_OPTIONS = {

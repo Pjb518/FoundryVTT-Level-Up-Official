@@ -27,6 +27,8 @@
         const newTabName = name ?? "core";
 
         currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
+
+        actorSheetTempSettings[uuid].currentTab = newTabName;
     }
 
     function getTabs(flags: any): Tab[] {
@@ -110,12 +112,13 @@
     }
 
     let flags = $derived(actor.reactive.flags?.a5e ?? {});
-    let tempSettings = {};
 
     let tabs = $derived(getTabs(actor.reactive.flags));
     let currentTab = $derived(
-        tabs.find((tab) => tab.name === tempSettings[actor.uuid]?.currentTab) ??
-            tabs[2],
+        tabs.find(
+            (tab) =>
+                tab.name === actorSheetTempSettings[actor.uuid]?.currentTab,
+        ) ?? tabs[0],
     );
 
     let sheetIsLocked = $derived(

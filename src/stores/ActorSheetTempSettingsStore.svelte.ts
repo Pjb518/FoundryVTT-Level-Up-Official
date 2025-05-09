@@ -1,4 +1,4 @@
-type ActorSheetTempSetting = {
+export type ActorSheetTempSetting = {
   currentSpellBook: string;
   currentTab: string;
 };
