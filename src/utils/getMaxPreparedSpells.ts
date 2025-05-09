@@ -1,10 +1,6 @@
-import type { BaseActorA5e } from "../documents/actor/base";
+import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 
-import { getDeterministicBonus } from "../dice/getDeterministicBonus";
-
-export default function getMaxPrepared(
-  actor: BaseActorA5e | undefined,
-): number {
+export function getMaxPreparedSpells(actor: Actor | undefined): number {
   if (!actor) return 0;
 
   const override = actor.system.spellResources.maxPrepared ?? 0;
