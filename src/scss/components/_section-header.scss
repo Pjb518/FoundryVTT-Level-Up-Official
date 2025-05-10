@@ -5,6 +5,7 @@
         --a5e-section-heading-template-columns,
         1fr max-content
     );
+    align-items: center;
     gap: var(--a5e-section-heading-gap, 0);
     padding: 0.125rem 0.5rem;
     font-family: var(--a5e-secondary-font);
@@ -43,17 +44,19 @@
     &__button {
         width: fit-content;
         height: calc(var(--a5e-sm-text) + 0.25rem);
+        border: 0;
         padding: 0;
         margin: 0;
         background: transparent;
-        line-height: 1;
         font-size: var(--a5e-sm-text);
         color: var(--a5e-section-color);
+        min-height: unset;
 
         transition: var(--a5e-transition-standard);
 
         &:focus,
         &:hover {
+            border: none;
             box-shadow: none;
             color: #fff;
         }
