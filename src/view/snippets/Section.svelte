@@ -67,6 +67,6 @@
             </small>
         {/if}
 
-        {@render children()}
+        {@render children?.()}
     </div>
 </section>

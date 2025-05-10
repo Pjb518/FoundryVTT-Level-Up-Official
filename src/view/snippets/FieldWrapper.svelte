@@ -48,7 +48,7 @@
         </header>
     {/if}
 
-    {@render children()}
+    {@render children?.()}
 
     {#if hint}
         <small class="a5e-field-wrapper__hint">{localize(hint)}</small>

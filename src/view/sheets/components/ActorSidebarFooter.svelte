@@ -2,8 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    let actor = getContext("actor");
-    let actorStore = $derived(actor.reactive);
+    let actor: any = getContext("actor");
+    let actorStore = $derived(actor.reactive.system);
 
     type FooterField = {
         label: string;
@@ -12,19 +12,19 @@
         config?: boolean;
     };
 
-    let footerFields = $derived([
+    let footerFields: FooterField[] = $derived([
         {
             label: "A5E.ManeuverDC",
-            value: actorStore.system.attributes.maneuverDC,
+            value: actorStore.attributes.maneuverDC,
         },
         {
             label: "A5E.SpellDC",
-            value: actorStore.system.attributes.spellDC,
-            tooltip: actorStore.spellBooks.getSpellDCString(true),
+            value: actorStore.attributes.spellDC,
+            tooltip: actor.reactive.spellBooks.getSpellDCString(true),
         },
         {
             label: "Passive Percep.",
-            value: actorStore.system.skills.prc.passive,
+            value: actorStore.skills.prc.passive,
         },
     ]);
 </script>

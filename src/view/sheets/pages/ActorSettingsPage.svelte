@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { Tab } from "#view/navigation/data.ts";
+
     import { getContext } from "svelte";
 
     import SecondaryNavigationBar from "../../navigation/SecondaryNavigationBar.svelte";
@@ -11,7 +13,6 @@
     import ActorSpellSettingsTab from "./subPages/ActorSpellSettingsTab.svelte";
 
     import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
-    import type { Tab } from "#view/navigation/data.ts";
 
     function updateCurrentTab(name: string) {
         const { uuid } = actor;

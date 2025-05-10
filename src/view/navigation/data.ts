@@ -4,7 +4,7 @@ export type Tab = {
   name: string;
   label?: string;
   icon?: string;
-  component: Component;
+  component?: Component;
   display?: boolean;
   hasSubNavigation?: boolean;
 };
