@@ -12,6 +12,7 @@
     import ItemListActionButtons from "./ItemListActionButtons.svelte";
     import ItemListData from "./ItemListData.svelte";
     import ItemListSummary from "./ItemListSummary.svelte";
+    import Self from "./ItemList.svelte";
 
     type Props = {
         item: Item;
@@ -25,13 +26,16 @@
     function determineActionListVisibility() {
         if (action) return false;
 
+        // @ts-expect-error
         if (item.reactive.actions?.count < 2) {
+            // @ts-expect-error
             return [...(item.actions?.values() ?? [])]?.some(
                 (action) => action.uses?.value || action.uses?.max,
             );
         }
 
-        const actionListFlag = item.reactive.flags.a5e?.showActionList ?? false;
+        // @ts-expect-error
+        const actionListFlag = item.reactive.flags.a5e?.showActionList ?? true;
         if (actionListFlag === false) return false;
 
         if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked())
@@ -42,15 +46,18 @@
 
     function onItemActivate() {
         const options = getKeyPressAsOptions(pressedKeys);
+        // @ts-expect-error
         item.activate(actionId, options);
     }
 
     async function onConfigure() {
         if (actionId) {
+            // @ts-expect-error
             item.actions?.configure(actionId);
             return;
         }
 
+        // @ts-expect-error
         item.configureItem();
     }
 
@@ -80,7 +87,8 @@
             (await TextEditor.enrichHTML(
                 actionId && action
                     ? action.description
-                    : item.reactive.system.description,
+                    : // @ts-expect-error
+                      item.reactive.system.description,
                 {
                     secrets: item.isOwner,
                     relativeTo: item,
@@ -94,6 +102,7 @@
     let actor: any = getContext("actor");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive.system);
+    // @ts-expect-error
     let itemStore = $derived(item.reactive.system);
 
     const { A5E } = CONFIG;
@@ -104,6 +113,7 @@
     let isGM = game.user?.isGM;
 
     let description = $derived.by(() =>
+        // @ts-expect-error
         getDescription(item.reactive)
             .then((data) => (description = data))
             .catch((err) => (description = err)),
@@ -113,8 +123,10 @@
 
     let showActionList = $derived(determineActionListVisibility());
     let showContainerItems = $derived(
+        // @ts-expect-error
         item.reactive.flags.a5e?.showContainer ?? containerItems.length > 0,
     );
+    // @ts-expect-error
     let summaryData = $derived(getSummaryData(item.reactive, action));
 </script>
 
@@ -163,11 +175,11 @@
         {actionId}
         {action}
         {item}
-        on:toggleActionList={() => {
+        toggleActionList={() => {
             showActionList = !showActionList;
             item.setFlag("a5e", "showActionList", showActionList);
         }}
-        on:toggleContainer={() => {
+        toggleContainer={() => {
             showContainerItems = !showContainerItems;
             item.setFlag("a5e", "showContainer", showContainerItems);
         }}
@@ -200,7 +212,7 @@
 {#if showActionList}
     <ul class="a5e-item-list a5e-item-list--sub-items">
         {#each [...(item?.reactive.actions?.entries() ?? [])] as [id, action] (id)}
-            <svelte:self {item} {action} actionId={id} />
+            <Self {item} {action} actionId={id} />
         {/each}
     </ul>
 {/if}

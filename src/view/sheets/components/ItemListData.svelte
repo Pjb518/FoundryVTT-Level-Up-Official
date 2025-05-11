@@ -12,9 +12,12 @@
         item: Item;
         action?: Action;
         actionId?: string;
+        toggleActionList?: () => void;
+        toggleContainer?: () => void;
     };
 
-    let { item, action, actionId }: Props = $props();
+    let { item, action, actionId, toggleActionList, toggleContainer }: Props =
+        $props();
 
     function getActivationCost() {
         let _action = action;
@@ -144,7 +147,7 @@
         const { target } = event;
         if (isClassResource) {
             updateDocumentDataFromField(
-                $actor,
+                actor,
                 target.name,
                 Number(target.value),
             );
@@ -193,7 +196,7 @@
                 max: action
                     ? getDeterministicBonus(
                           action.uses?.max ?? 0,
-                          $actor.getRollData(item),
+                          actor.getRollData(item),
                       )
                     : 0,
                 updatePath: `system.actions.${actionId}.uses`,
@@ -225,10 +228,9 @@
 
             const resource =
                 foundry.utils.getProperty(
-                    $actor._source,
+                    actor._source,
                     `system.resources.classResources.${slug}`,
-                ) ??
-                getDeterministicBonus(maxFormula, $actor.getRollData(item));
+                ) ?? getDeterministicBonus(maxFormula, actor.getRollData(item));
 
             usesData[usesType].value = resource;
             usesData[usesType].updatePath =
@@ -329,14 +331,13 @@
             ></i>
         {/if}
 
-        {console.log(item.reactive.actions?.count)}
         {#if !action && item.reactive.actions?.count > 1}
             <button
                 class="action-button icon fas fa-chevron-down"
                 aria-label="Expand Action List"
                 onclick={(e) => {
                     e.stopPropagation();
-                    // dispatch("toggleActionList"); TODO: Implement toggleActionList
+                    toggleActionList?.();
                 }}
             >
             </button>
@@ -354,7 +355,7 @@
                 aria-label="Expand Container"
                 onclick={(e) => {
                     e.stopPropagation();
-                    // dispatch("toggleContainer"); TODO: Implement toggleContainer
+                    toggleContainer?.();
                 }}
             ></button>
         {/if}
@@ -362,7 +363,7 @@
 
     {#if hasAmmunition(item, action)}
         <select
-            id="{$actor.id}-{item.id}-ammunition"
+            id="{actor.id}-{item.id}-ammunition"
             class="ammunition-selector"
             onclick={(e) => e.stopPropagation()}
             onchange={updateAmmunition}

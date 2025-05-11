@@ -165,7 +165,6 @@
                 {showDescription}
                 --itemTemplateAreas={itemTemplateConfiguration.areas}
                 --itemTemplateColumns={itemTemplateConfiguration.columns}
-                on:dropObject={({ detail }) => onDropObject(detail, [...items])}
             />
         {/each}
     </ul>
