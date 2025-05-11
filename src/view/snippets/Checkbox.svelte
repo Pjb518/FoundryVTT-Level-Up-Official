@@ -5,10 +5,15 @@
         checked: boolean;
         label: string;
         disabled?: boolean;
-        updateSelection: (checked: boolean) => void;
+        onUpdateSelection: (checked: boolean) => void;
     };
 
-    let { checked, label, updateSelection, disabled = false }: Props = $props();
+    let {
+        checked,
+        label,
+        onUpdateSelection,
+        disabled = false,
+    }: Props = $props();
 
     const id = foundry.utils.randomID();
 </script>
@@ -20,7 +25,8 @@
         {disabled}
         {id}
         {checked}
-        onchange={({ currentTarget }) => updateSelection(currentTarget.checked)}
+        onchange={({ currentTarget }) =>
+            onUpdateSelection(currentTarget.checked)}
     />
 
     <label class="label" for={id}>
@@ -42,6 +48,7 @@
     .checkbox-wrapper {
         display: flex;
         align-items: center;
+        font-size: var(--a5e-checkbox-text-size, var(--a5e-sm-text));
         gap: 0.5rem;
         padding: 0;
     }

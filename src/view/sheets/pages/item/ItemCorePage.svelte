@@ -60,7 +60,7 @@
     onTabChange={updateCurrentTab}
 />
 
-<section class="a5e-page-wrapper">
+<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#if currentTab.name === "description" && Object.values(summaryData ?? {}).some(Boolean)}
         <ItemSummary {summaryData} --inline-padding="0.25rem" />
 

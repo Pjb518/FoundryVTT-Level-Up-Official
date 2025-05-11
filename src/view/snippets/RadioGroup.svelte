@@ -11,7 +11,7 @@
         listClasses?: string;
         optionStyles?: string;
         options?: string[][];
-        selected?: string;
+        selected?: string | number;
         showWarning?: boolean;
         tooltipData?: Record<string, string>;
         warning?: string;
