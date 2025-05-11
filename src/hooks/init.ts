@@ -1,4 +1,5 @@
 import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
+import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
 // import ActiveEffectConfigA5e from "../apps/ActiveEffectConfig.js";
 // import ItemSheetA5e from "../apps/ItemSheet.ts";
 
@@ -105,7 +106,7 @@ export default function init() {
   game.a5e = {
     applications: {
       ActorSheetA5e,
-      // ItemSheetA5e,
+      ItemSheetA5e,
     },
     activeEffects: {
       EffectOption,
@@ -187,12 +188,12 @@ export default function init() {
     label: "A5E.SheetClassNPC",
   });
 
-  // Items.unregisterSheet("core", ItemSheet);
-  // // @ts-expect-error
-  // Items.registerSheet("a5e", ItemSheetA5e, {
-  //   makeDefault: true,
-  //   label: "A5E.SheetClassItem",
-  // });
+  Items.unregisterSheet("core", ItemSheet);
+  // @ts-expect-error
+  Items.registerSheet("a5e", ItemSheetA5e, {
+    makeDefault: true,
+    label: "A5E.SheetClassItem",
+  });
 
   // DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
   // DocumentSheetConfig.registerSheet(

@@ -24,8 +24,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
       [
         CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
         CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED,
-        // @ts-expect-error
-      ].includes(actor.permission)
+      ].includes(actor.document.permission)
     ) {
       options.classes = [
         "a5e-sheet",
@@ -69,7 +68,6 @@ export default class ActorSheet extends SvelteApplicationMixin(
   protected override async _prepareContext() {
     return {
       actor: this.actor,
-      reducers: this.reducers,
       sheet: this,
     };
   }
