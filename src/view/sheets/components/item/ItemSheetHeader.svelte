@@ -10,6 +10,7 @@
 
     const isGM = game.user?.isGM;
     const prerequisiteTypes = ["maneuver", "feature", "spell"];
+    const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
 </script>
 
 <header class="a5e-item-sheet-header">
@@ -58,17 +59,122 @@
             </div>
         {/if}
     </div>
+
+    {#if item.type === "object"}
+        <div class="a5e-item-sheet-header__button-container">
+            <button
+                class="a5e-button a5e-item-sheet-header__button"
+                class:a5e-item-sheet-header__button-active={itemStore.unidentified}
+                class:a5e-item-sheet-header__button-locked={!isGM}
+                disabled={!isGM}
+                data-tooltip={itemStore.unidentified
+                    ? "A5E.ButtonToolTipUnidentified"
+                    : "A5E.ButtonToolTipIdentified"}
+                data-tooltip-direction="UP"
+                aria-label="Toggle Mystification"
+                onclick={(e) => {
+                    e.stopPropagation();
+                    item.toggleUnidentified();
+                }}
+            >
+                <i class="fa-solid fa-circle-question"></i>
+            </button>
+
+            {#if item.actor && itemStore.requiresAttunement}
+                <button
+                    class="a5e-button a5e-item-sheet-header__button"
+                    class:a5e-item-sheet-header__button-active={itemStore.attuned}
+                    data-tooltip={itemStore.attuned
+                        ? localize("A5E.ButtonToolTipBreakAttunement", {
+                              item: item.name,
+                          })
+                        : localize("A5E.ButtonToolTipAttune")}
+                    data-tooltip-direction="UP"
+                    aria-label="Toggle Attunement"
+                    onclick={(e) => {
+                        e.stopPropagation();
+                        item.toggleAttunement();
+                    }}
+                >
+                    <i class="fa-solid fa-link"></i>
+                </button>
+            {/if}
+
+            <button
+                class="a5e-button a5e-item-sheet-header__button"
+                data-tooltip={damagedStates[itemStore.damagedState ?? 0]}
+                data-tooltip-direction="UP"
+                aria-label="Toggle Damaged State"
+                onclick={(e) => {
+                    e.stopPropagation();
+                    item.toggleDamagedState();
+                }}
+            >
+                <i
+                    class="fa-solid"
+                    class:fa-heart={itemStore.damagedState ===
+                        DAMAGED_STATES.INTACT}
+                    class:fa-heart-crack={itemStore.damagedState ===
+                        DAMAGED_STATES.DAMAGED}
+                    class:fa-heart-pulse={itemStore.damagedState ===
+                        DAMAGED_STATES.BROKEN}
+                    class:a5e-item-sheet-header__button-active={[
+                        DAMAGED_STATES.DAMAGED,
+                        DAMAGED_STATES.BROKEN,
+                    ].includes(itemStore.damagedState)}
+                ></i>
+            </button>
+        </div>
+    {/if}
 </header>
 
 <style lang="scss">
     .a5e-item-sheet-header {
         display: flex;
         gap: 0.5rem;
-        /* margin-block: 0.5rem;
-        margin-inline: 0.25rem; */
         grid-area: header;
-
         align-items: center;
+
+        &__button-container {
+            display: flex;
+            margin-left: auto;
+            gap: 0.75rem;
+        }
+
+        &__button {
+            display: flex;
+            font-size: 2.25rem;
+            padding: 0;
+            margin: 0;
+            background: none;
+            border: 0;
+            width: min-content;
+            color: var(--a5e-button-gray);
+
+            &:hover,
+            &:focus {
+                color: var(--a5e-button-gray-hover);
+                transform: scale(1.2);
+            }
+
+            &-active {
+                color: var(--a5e-color-primary);
+
+                &:hover,
+                &:focus {
+                    color: var(--a5e-color-primary);
+                }
+            }
+
+            &-locked {
+                cursor: default;
+
+                &:hover {
+                    transform: none;
+                    color: var(--a5e-button-gray);
+                }
+            }
+        }
     }
 
     .a5e-item-sheet {
@@ -77,7 +183,6 @@
             flex-direction: column;
             padding: 0;
             margin: 0;
-            gap: 0.5rem;
             width: 100%;
         }
 
@@ -108,6 +213,7 @@
                 font-family: var(--a5e-secondary-font);
                 font-size: var(--a5e-sm-text);
                 color: var(--a5e-text-color-dark);
+                height: var(--a5e-sm-text);
             }
         }
     }

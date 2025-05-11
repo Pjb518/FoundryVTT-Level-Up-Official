@@ -3,7 +3,6 @@
 
     import type { Tab } from "#view/navigation/data.ts";
 
-    import ItemSidebar from "./components/item/ItemSidebar.svelte";
     import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
     import NavigationBar from "../navigation/NavigationBar.svelte";
 
@@ -121,6 +120,7 @@
             "secondaryNavigation"
             "page";
         grid-template-rows: min-content min-content min-content 1fr;
+        gap: 0.5rem;
 
         padding-inline: 0.5rem;
         padding-block: 0.5rem;
