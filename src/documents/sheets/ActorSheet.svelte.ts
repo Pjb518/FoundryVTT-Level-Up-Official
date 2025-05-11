@@ -73,4 +73,24 @@ export default class ActorSheet extends SvelteApplicationMixin(
       sheet: this,
     };
   }
+
+  _sortEmbeddedAlphabetically(
+    docs: any[],
+    documentName: "Item" | "ActiveEffect",
+    reverse = false,
+  ) {
+    const entities = [...docs];
+    entities.sort((a, b) =>
+      a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+    );
+
+    if (reverse) entities.reverse();
+
+    const updateData = entities.map((entity, idx) => ({
+      _id: entity.id,
+      sort: idx,
+    }));
+
+    this.document.updateEmbeddedDocuments(documentName, updateData);
+  }
 }

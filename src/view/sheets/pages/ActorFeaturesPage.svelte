@@ -8,26 +8,42 @@
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
 
+    function sortHandler(reverse: boolean) {
+        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
+    }
+
     let actor: any = getContext("actor");
+    let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
+    let filterOptions = $state({
+        searchTerm: "",
+        showDescription: false,
+    });
+
     let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "feature"));
+    let items = $derived(filterItems(actor.reactive, "feature", filterOptions));
     let categorizedItems = $derived(groupItemsByType(items, "featureType"));
 
     const openCompendium = game.a5e.utils.openCompendium;
 
-    let showDescription = $state(false);
+    let showDescription = $derived(filterOptions.showDescription);
     let showFavorPoints =
         (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
     let showUses = $derived(usesRequired(items));
 
-    $inspect(items);
+    $inspect(filterOptions);
 </script>
 
 {#if actor.isOwner}
     <!--  -->
-    <!-- UtilityBar Goes HEre -->
+    <UtilityBar
+        bind:filterOptions
+        showAddMenu={true}
+        showDescriptionButton={true}
+        showSortButton={true}
+        {sortHandler}
+    />
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
