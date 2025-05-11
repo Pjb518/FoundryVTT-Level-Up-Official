@@ -1,9 +1,9 @@
-import type { Action } from "types/action";
+import type { Action } from "#types/action.d.ts";
 import type { BaseActorA5e } from "../actor/base.svelte.ts";
 import type { RevitalizeOptions } from "./data.ts";
 
 import { MigrationRunnerBase } from "../../migration/runner/base.ts";
-import getSummaryData from "../../utils/summaries/getSummaryData.ts";
+import { getSummaryData } from "../../utils/summaries/getSummaryData.ts";
 import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";
 import { createSubscriber } from "svelte/reactivity";
 

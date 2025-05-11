@@ -17,7 +17,7 @@ import { ResourceConsumptionManager } from "../../managers/ResourceConsumptionMa
 import { RollPreparationManager } from "../../managers/RollPreparationManager";
 import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
 
-import getSummaryData from "../../utils/summaries/getSummaryData";
+import { getSummaryData } from "../../utils/summaries/getSummaryData.ts";
 
 // *****************************************************************************************
 

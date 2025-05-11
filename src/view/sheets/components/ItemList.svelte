@@ -7,7 +7,7 @@
 
     import { pressedKeys } from "#stores/pressedKeysStore.svelte.ts";
     import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
-    import getSummaryData from "#utils/summaries/getSummaryData.ts";
+    import { getSummaryData } from "#utils/summaries/getSummaryData.ts";
 
     import ItemListActionButtons from "./ItemListActionButtons.svelte";
     import ItemListData from "./ItemListData.svelte";

@@ -105,6 +105,10 @@
         showLock={false}
         onTabChange={updateCurrentTab}
     />
+
+    <section class="a5e-item-sheet__page">
+        <currentTab.component />
+    </section>
 </main>
 
 <style lang="scss">
