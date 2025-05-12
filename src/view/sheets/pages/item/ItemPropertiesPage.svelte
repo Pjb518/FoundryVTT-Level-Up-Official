@@ -38,5 +38,10 @@
         {:else if itemStore.objectType === "weapon"}
             <WeaponConfiguration />
         {/if}
+        <ArmorClassConfiguration />
+    {:else if item.type === "spell"}
+        <SpellConfiguration />
     {/if}
+
+    <UsesConfiguration />
 </section>

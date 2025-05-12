@@ -89,7 +89,7 @@
     let itemStore: any = $derived(item.reactive.system);
     let flags: any = $derived(item.reactive.flags?.a5e ?? {});
 
-    let tabs = $derived(getTabs());
+    let tabs = $state(getTabs());
     let currentTab = $derived(tabs[0]);
 
     setContext("item", item);
