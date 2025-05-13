@@ -1,6 +1,6 @@
 import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField.ts";
 
-export default function updateAssociatedValues(
+export function updateAssociatedValues(
   document,
   key: string,
   value: any,
