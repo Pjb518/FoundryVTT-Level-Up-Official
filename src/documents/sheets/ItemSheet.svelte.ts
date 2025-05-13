@@ -22,7 +22,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
         "a5e-sheet--item",
         "a5e-sheet--item-limited",
       ];
-      root = null;
+      root = LimitedSheetComponent;
       options.position = { width: 512, height: "auto" };
       options.window = { resizable: false };
     } else {
