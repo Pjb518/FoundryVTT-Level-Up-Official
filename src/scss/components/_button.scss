@@ -35,6 +35,36 @@
         }
     }
 
+    &--action-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--a5e-button-gray);
+        margin-left: auto;
+    }
+
+    &--action {
+        padding: 0.25rem;
+        color: var(--icon-color, var(--a5e-button-gray));
+        border: none;
+        background: transparent;
+
+        // 17.5 pixels: the width of the largest icon we have
+        min-width: 1.09375rem;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: var(--icon-color-active, #555);
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
     &--config {
         background: transparent;
         width: fit-content;
