@@ -9,7 +9,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import { getOrdinalNumber } from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     function getScalingSummary(roll) {

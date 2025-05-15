@@ -3,12 +3,17 @@
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
+    import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+
     import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
     import { updateAssociatedValues } from "#utils/view/updateAssociatedValues.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
+    import AreaConfig from "../../components/action/AreaConfig.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import TargetRangeIncrement from "../../components/action/TargetRangeIncrement.svelte";
+    import TargetScalingDialog from "#view/dialogs/TargetScalingDialog.svelte";
 
     function addRangeIncrement() {
         const newRange = {
@@ -47,5 +52,30 @@
     const { isEmpty } = foundry.utils;
 </script>
 
-<Section heading="A5E.ActivationConfiguration" --a5e-section-body-gap="0.75rem"
-></Section>
+<section class="a5e-page-wrapper">
+    <Section
+        heading="A5E.TabRanges"
+        headerButtons={[
+            {
+                classes: "add-button",
+                label: "A5E.ButtonAddRangeIncrement",
+                handler: addRangeIncrement,
+            },
+        ]}
+        --a5e-section-gap="0"
+    >
+        <ul class="a5e-item-list">
+            {#each Object.keys(action.ranges ?? {}) as id, index (id)}
+                <li class="a5e-item a5e-item--action-config" data-range-id={id}>
+                    <TargetRangeIncrement {index} {id} />
+                </li>
+            {/each}
+        </ul>
+    </Section>
+
+    <AreaConfig />
+
+    <Section heading="Target" --a5e-section-gap="0.5rem">
+        <FieldWrapper></FieldWrapper>
+    </Section>
+</section>

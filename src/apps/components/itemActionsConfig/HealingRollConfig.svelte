@@ -7,7 +7,8 @@
     import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
     import Section from "../Section.svelte";
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import { getOrdinalNumber } from "../../../utils/getOrdinalNumber";
+
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 

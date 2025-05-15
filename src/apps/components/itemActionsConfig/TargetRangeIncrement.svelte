@@ -2,8 +2,8 @@
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import isStandardRange from "../../../utils/isStandardRange";
+    import { getOrdinalNumber } from "../../../utils/getOrdinalNumber";
+    import { isStandardRange } from "../../../utils/isStandardRange";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Checkbox from "../Checkbox.svelte";

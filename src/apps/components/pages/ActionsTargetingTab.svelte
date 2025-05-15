@@ -7,7 +7,7 @@
 
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import { getOrdinalNumber } from "../../../utils/getOrdinalNumber";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 

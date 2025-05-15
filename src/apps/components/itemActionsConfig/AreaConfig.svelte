@@ -3,7 +3,7 @@
 
     import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import { getOrdinalNumber } from "../../../utils/getOrdinalNumber";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
