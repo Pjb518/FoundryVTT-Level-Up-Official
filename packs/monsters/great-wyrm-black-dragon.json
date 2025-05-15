@@ -27,7 +27,7 @@
 					"5U8EhKWPfjG3v6Op": {
 						"name": "Ambusher",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "none",
 							"reactionTrigger": ""
 						},
@@ -41,11 +41,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>When submerged in water, the dragon has advantage on Stealth checks. If the dragon hits a creature that can’t see it with its bite, it can deal piercing damage and grapple the target simultaneously.</p>",
@@ -65,12 +87,27 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -111,12 +148,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -142,12 +194,17 @@
 				"actions": {
 					"WAp1ruvWCPs2DgDU": {
 						"name": "Ruthless",
-						"activation": {},
+						"activation": {
+							"cost": 1,
+							"type": "",
+							"reactionTrigger": ""
+						},
 						"consumers": {
 							"IMmAnlL6W2bSBFJ1": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"rolls": {},
@@ -158,10 +215,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -182,12 +257,27 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -232,12 +322,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.ykE7paV0sg2mTjxp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -288,29 +393,39 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"lAr8R5jxt8JQ83GF": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"pEOkeVQXO3AkGg11": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "4d10 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"R7oUNvVUZzhdfzlL": {
 								"canCrit": true,
 								"damageType": "acid",
 								"formula": "2d8",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -321,10 +436,31 @@
 									"type": "custom",
 									"bonus": "23"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Instead of dealing piercing damage, the dragon can grapple the target (escape DC 20), and a Huge or smaller creature grappled in this way is restrained. While grappling a creature, the dragon can’t bite or use Acid Spit against another target.</p>",
@@ -344,12 +480,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.InKYp8aGuFNL9gdG",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -396,26 +547,52 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"X6UUPs3LdJbNdjAf": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"A5kPQIjGU733R8QV": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "3d8 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The Dragon makes a claw attack.</p>",
@@ -435,12 +612,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -487,26 +679,52 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"uyHZiA1QRlgtYB93": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"TBpKQT312vfiJWy0": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d8 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
@@ -526,12 +744,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -578,22 +811,29 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"KZd0hIGqANUo2QhJ": {
 								"canCrit": false,
 								"damageType": "acid",
 								"formula": "4d10",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"dII12q5o08ydekg1": {
 								"canCrit": false,
 								"damageType": "acid",
 								"formula": "2d10",
-								"name": "Ongoing Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -604,10 +844,31 @@
 									"type": "custom",
 									"bonus": "22"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon targets a creature within 60 feet, forcing it to make a DC 22 Dexterity saving throw. The creature takes 22 (4d10) acid damage on a failure or half damage on a success. A creature that fails the save also takes 11 [[2d10]] ongoing acid damage. A creature can use an action to end the ongoing damage.</p>",
@@ -627,12 +888,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -677,15 +953,19 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"m0Tn3cgxayJbRaCs": {
 								"canCrit": false,
 								"damageType": "acid",
 								"formula": "19d8",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -696,14 +976,36 @@
 									"type": "custom",
 									"bonus": "22"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"jgHhapq3A75vu8uC": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -725,12 +1027,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -781,26 +1098,52 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"KD0mCVRhA9ghM642": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"9j8u3vKWxB3V7hkX": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d8 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
@@ -820,12 +1163,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.M84U0XSfmXtWa9e1",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -858,7 +1216,7 @@
 						},
 						"duration": {
 							"unit": "minute",
-							"value": 1
+							"value": "1"
 						},
 						"area": {
 							"shape": "sphere",
@@ -866,11 +1224,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon creates a 20-foot-radius sphere of magical darkness originating from a point it can see within 120 feet. Darkvision can’t penetrate this darkness. The darkness lasts for 1 minute or until the dragon uses this action again.</p>",
@@ -890,12 +1270,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -932,7 +1327,7 @@
 						},
 						"duration": {
 							"unit": "minute",
-							"value": 1
+							"value": "1"
 						},
 						"area": {
 							"shape": "emanation",
@@ -943,7 +1338,8 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"scaling": {}
 						},
 						"prompts": {
 							"E33WVaTMmqguAfCW": {
@@ -953,10 +1349,33 @@
 									"type": "custom",
 									"bonus": "19"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Each creature of the dragon&rsquo;s choice within 120 feet that can hear it makes a DC 19 Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
@@ -976,12 +1395,27 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.91ojLlYW012QzL2y",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1022,12 +1456,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1075,7 +1524,8 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"scaling": {}
 						},
 						"prompts": {
 							"u93gelqqhdwbYLps": {
@@ -1085,10 +1535,33 @@
 									"type": "custom",
 									"bonus": "22"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon beats its wings. Each creature within 15 feet makes a DC 22 Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The dragon can then fly up to half its fly speed.</p>",
@@ -1108,12 +1581,27 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.kscfGEevngAze5kQ",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1154,12 +1642,27 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1185,12 +1688,17 @@
 				"actions": {
 					"LB5NtHzFqCLkAH6g": {
 						"name": "Concentrated Acid",
-						"activation": {},
+						"activation": {
+							"cost": 1,
+							"type": "",
+							"reactionTrigger": ""
+						},
 						"consumers": {
 							"FzatJ7bJmlv0FevA": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"rolls": {},
@@ -1201,10 +1709,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -1225,12 +1751,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1275,12 +1816,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.UfHuObyP0kJm0hJ7",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1321,11 +1877,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
@@ -1345,12 +1923,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1391,8 +1984,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
-							"type": "creature"
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {}
 						},
 						"prompts": {
 							"d5RbesP5N9WLJE4P": {
@@ -1402,10 +1996,33 @@
 									"type": "custom",
 									"bonus": "19"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>A creature within 120 feet makes a saving throw against Roar, even if it has already successfully saved within the past 24 hours.</p>",
@@ -1425,12 +2042,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1458,7 +2090,8 @@
 						"name": "Caustic Surge",
 						"activation": {
 							"type": "legendaryAction",
-							"cost": 2
+							"cost": 2,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1469,10 +2102,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -1493,12 +2144,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1526,7 +2192,8 @@
 						"name": "Concentrated Decay",
 						"activation": {
 							"type": "legendaryAction",
-							"cost": 3
+							"cost": 3,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1537,10 +2204,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -1561,12 +2246,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1590,7 +2290,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"9wznGlOx8Bt2Rj8P": {
@@ -1603,18 +2303,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"xpx2TPOYXoetchry": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1625,10 +2327,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1649,15 +2372,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "1GlImgLOmTdxzLVb",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1681,7 +2417,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"SFA7dbfZRxIREwre": {
@@ -1694,18 +2430,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"NmknDhxjOT5N4Xt6": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1716,10 +2454,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -1740,15 +2499,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "RXfTQLYLwC8AKb2n",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1772,7 +2544,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"HPIpmr52K3PL1oND": {
@@ -1785,10 +2557,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"RuWkwQRGGFQm1og2": {
@@ -1798,10 +2569,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -1822,15 +2615,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "M97L8Oi0AyvzXdUm",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1854,7 +2660,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"ICa0yaaPX2tAQd9u": {
@@ -1867,10 +2673,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"xfCBJMIYm6fNPWDS": {
@@ -1880,10 +2685,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -1904,15 +2731,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "O3D0ilrugpDC3kn9",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1936,7 +2776,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"XgGjP6L64UGUl44p": {
@@ -1949,10 +2789,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"xz8oRH0UD4PHXLVm": {
@@ -1962,10 +2801,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -1986,15 +2847,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "XmR60Ls2LkiNKlgn",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2018,7 +2892,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"MpSurrg8f4eBWIRz": {
@@ -2031,10 +2905,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"xJDk58UzUI1eVbz3": {
@@ -2044,10 +2917,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -2068,703 +2963,35 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "BZP1xDXakPGMhl6L",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Fog Cloud",
-			"type": "spell",
-			"img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.i4ejucvglhqpfm57"
-				}
-			},
-			"system": {
-				"actions": {
-					"tOtnbGOQSzv63BG9": {
-						"name": "Fog Cloud",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"iLg07tZsiFF9l4GS": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"radius": "20",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"9oTeOQRqA2WSt4nQ": {
-								"mode": "variable",
-								"spellLevel": 1,
-								"points": 2,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane",
-						"obscurement",
-						"weather"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "QFs9jrDQ2Y5Wzxw1",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Pass Without Trace",
-			"type": "spell",
-			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.zlsdqrnf2t9thns7"
-				}
-			},
-			"system": {
-				"actions": {
-					"sJyURZe2UX8d5z5E": {
-						"name": "Pass Without Trace",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "hour",
-							"value": "1"
-						},
-						"ranges": {
-							"z8bfEhVThx0okE3H": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"radius": "30",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"consumers": {
-							"X43Dx2A58d1IWDD2": {
-								"mode": "variable",
-								"spellLevel": 2,
-								"points": 3,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>You and allies within the area gain advantage and an expertise die on Dexterity (Stealth) checks as an aura of secrecy enshrouds you. Creatures in the area leave behind no evidence of their passage.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "ashes of mistletoe and spruce",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "abjuration",
-					"secondary": [
-						"nature",
-						"obscurement",
-						"utility"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "3L19msGkIGQoQUPl",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Legend Lore",
-			"type": "spell",
-			"img": "icons/sundries/books/book-open-purple.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.24rmiwo0w5pd746x"
-				}
-			},
-			"system": {
-				"actions": {
-					"pHW4kJaXiBunXgHH": {
-						"name": "Legend Lore",
-						"activation": {
-							"cost": 10,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"MkK8h8GgIqgDLsGJ": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "creatureObject"
-						},
-						"consumers": {
-							"mLCEkJSsqQObZc9C": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>You learn significant information about the target. This could range from the most up-todate research, lore forgotten in old tales, or even previously unknown information. The spell gives you additional, more detailed information if you already have some knowledge of the target. The spell will not return any information for items not of legendary renown.</p><p>The knowledge you gain is always true, but may be obscured by metaphor, poetic language, or verse.</p><p>If you use the spell for a cursed tome, for instance, you may gain knowledge of the dire words spoken by its creator as they brought it into the world.</p><p><strong><em>Cast at Higher Levels.</em></strong> Your intuition surrounding the target is enhanced and you gain advantage on one Investigation check regarding it for each slot level above 6th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 5,
-				"materials": "250 gold of incense consumed by the spell and 4 blank, exquisitely bound books worth at least 50 gold each",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "divination",
-					"secondary": [
-						"arcane",
-						"communication",
-						"knowledge"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "aZnnvrfise4za2SC",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Speak with Dead",
-			"type": "spell",
-			"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.6ia3gup3j0m6oigb"
-				}
-			},
-			"system": {
-				"actions": {
-					"Sq8Ee8bjxXMIBK4E": {
-						"name": "Speak with Dead",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"w2klvdAs7Ol3nfJN": {
-								"range": "touch"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"consumers": {
-							"THgoTegZGFmGIBiH": {
-								"mode": "variable",
-								"spellLevel": 3,
-								"points": 5,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>You call forth the target's memories, animating it enough to answer 5 questions. The corpse's knowledge is limited: it knows only what it knew in life and cannot learn new information or speak about anything that has occurred since its death. It speaks only in the languages it knew, and is under no compulsion to offer a truthful answer if it has reason not to. Answers might be brief, cryptic, or repetitive.</p><p>This spell does not return a departed soul, nor does it have any effect on an undead corpse, or one without a mouth.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "burning incense",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"communication",
-						"divine",
-						"knowledge",
-						"utility"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "P0LoV9C7wE3iF0AK",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Create Undead",
-			"type": "spell",
-			"img": "icons/magic/death/skull-trio-badge-purple.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.evhh5s6v0ctzop82"
-				}
-			},
-			"system": {
-				"actions": {
-					"pcIy44dp16Eed9Vt": {
-						"name": "Create Undead",
-						"activation": {
-							"cost": 1,
-							"type": "minute",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"ponBqFDob1vUIrV8": {
-								"range": "short"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "other"
-						},
-						"consumers": {
-							"STeJ0CNGBLzoGBS9": {
-								"mode": "variable",
-								"spellLevel": 6,
-								"points": 9,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>This spell cannot be cast in sunlight. You reanimate the targets as undead and transform them into ghouls under your control.</p><p>While it is within 120 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours. Casting the spell in this way reasserts control over up to 3 undead you have animated with this spell, rather than animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over one additional ghoul for each slot level above 6th. Alternatively, when using an 8th-level spell slot you create or reassert control over 2 ghasts or wights, or when using a 9th-level spell slot you create or reassert control over 3 ghasts or wights, or 2 mummies. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 6,
-				"materials": "each corpse requires a clay pot filled with grave dirt, a clay pot filled with brackish water, and a black onyx stone worth 150 gold",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "necromancy",
-					"secondary": [
-						"arcane",
-						"divine",
-						"undead"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "gBNyU4FBWIiXfZNP",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Insect Plague",
-			"type": "spell",
-			"img": "icons/creatures/invertebrates/bee-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.spngrj7xkq5ih8yo"
-				}
-			},
-			"system": {
-				"actions": {
-					"AdeLlTpBDpD8RAHb": {
-						"name": "Insect Plague",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "minute",
-							"value": "10"
-						},
-						"ranges": {
-							"sPYumD1fAGfL5EO3": {
-								"range": "300 feet"
-							}
-						},
-						"area": {
-							"shape": "sphere",
-							"radius": "20",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"b15kpoYLRpVThV31": {
-								"canCrit": false,
-								"damageType": "piercing",
-								"formula": "4d10",
-								"name": "",
-								"type": "damage",
-								"scaling": {
-									"mode": "spellLevel",
-									"formula": "1d10"
-								}
-							}
-						},
-						"prompts": {
-							"0tA1xbET9kaBGHbs": {
-								"ability": "con",
-								"onSave": "Constitution negates",
-								"saveDC": {
-									"type": "spellcasting",
-									"bonus": ""
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {
-							"iijRDUEuu3Aj4lEP": {
-								"mode": "variable",
-								"spellLevel": 5,
-								"points": 7,
-								"type": "spell"
-							}
-						}
-					}
-				},
-				"description": "<p>A roiling cloud of insects appears, biting and stinging any creatures it touches. The cloud lightly obscures its area, spreads around corners, and is considered difficult terrain. When the cloud appears and a creature is in it, when a creature enters the cloud for the first time on a turn, or when a creature ends its turn within the cloud it makes a Constitution saving throw, taking 4d10 piercing damage on a failed save, or half as much on a successful one.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 5th.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": true,
-				"level": 5,
-				"materials": "dead insect",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"beasts",
-						"nature",
-						"summoning"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "nfQ6LtOkCXs21hlm",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"name": "Time Stop",
-			"type": "spell",
-			"img": "icons/magic/time/hourglass-brown-orange.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.nxv11pqgcze4aybi"
-				}
-			},
-			"system": {
-				"actions": {
-					"wAWHjKwgFbVCQ4bH": {
-						"name": "Time Stop",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"9dJvgcwLljzTC4i6": {
-								"range": "self"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": "self"
-						},
-						"consumers": {
-							"JJymMqe9USro1kDv": {
-								"mode": "variable",
-								"spellLevel": 9,
-								"points": 13,
-								"type": "spell"
-							}
-						},
-						"prompts": {}
-					}
-				},
-				"description": "<p>You stop time, granting yourself extra time to take actions. When you cast the spell, the world is frozen in place while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.</p><p>The spell ends if you move more than 1, 000 feet from where you cast the spell, or if you affect either a creature other than yourself or an object worn or carried by someone else.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 9,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"arcane",
-						"time"
-					]
-				},
-				"spellBook": "Vg2TteHTSKKmmSR4"
-			},
-			"_id": "yZCzHP8t9By9Tlhs",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -3065,6 +3292,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -3117,7 +3355,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -3156,8 +3395,8 @@
 					"total": 0
 				},
 				"d20": {
-					"current": 0,
-					"total": 0
+					"current": 42,
+					"total": 42
 				}
 			},
 			"initiative": {
@@ -3201,11 +3440,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				}
 			},
@@ -3213,7 +3452,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"maneuverDC": "",
@@ -3238,7 +3479,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2>Combat</h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2>Black Dragon Lair Features</h2><p>The save DC for the following effects is 13 + the dragon’s proficiency bonus. Choose or roll one or more of the following lair features:</p><p>1 A successful Perception check reveals a hidden tunnel. If possible, the dragon snaps someone up in its jaws and squeezes through the tunnel.</p><p>2 The lair contains craters filled with bubbling acid. Once per turn, the dragon can use a legendary action to dunk a grappled creature into the acid. The creature takes acid damage equal to one-half the dragon’s breath weapon damage.</p><p>3 Murky pools connect to the surrounding bog via underwater tunnels.&nbsp;</p><p>4 Creatures other than the black dragon gain no benefit from darkvision within the lair. The dragon can make a creature immune to this effect by ritualistically scarring it with acid.</p><hr class=\"a5e-rule u-my-md\"><h2>Names</h2><p>Algarath, Azoth, Ebonflame, Exatharis, Bitterbite, Sear</p><hr class=\"a5e-rule u-my-md\"><h2>Legends and Lore</h2><p>With an Arcana or History check, characters can learn the following:</p><p><strong>DC 10</strong> Black dragons make their lairs in swamps and among the ruins of ancient empires.</p><p><strong>DC 15</strong> Black dragons spit acid, and the oldest among them can surround themselves with magical darkness.</p><p><strong>DC 20</strong> Obsessed with death, black dragons sometimes extend their existences through an arcane ritual that turns them into liches.</p><hr class=\"a5e-rule u-my-md\"><h2>Description</h2><p>With a death's-head face and black wings like a tattered cloak, a black dragon somewhat resembles the humanoid personification of death. Dwelling in rotting swamps among fallen and forgotten monuments, a black dragon revels in terror and decay.</p><p><strong><em>Cruel Ambushers</em>.</strong> Black dragons are equally at home high in the night sky or hiding beneath the murky waters of their swamp lairs. They can surround themselves with magical pools of inky shadow. With many ways to hide from prey, black dragons are deadly ambush hunters. Most black dragons relish the fear of their quarry and draw out their hunts as long as possible. Sometimes they grant wounded prey temporary respite, allowing the illusion of escape before plunging their quarry into darkness and terror.</p><p><strong><em>Ancient Monuments</em>.</strong> Black dragons are both attracted to—and the cause of—decay and ruin. They often lair within the palaces of fallen kingdoms, especially those they helped topple. But even long-buried peoples still seem alive to the black dragon. It holds ancient rivals in a mixture of contempt and reverence, and often gloats over the dead it has drowned. Collectors and students of ancient relics and treasure, black dragons are eager to share their knowledge about ancient mysteries—though the questioner may not long survive the answer.</p><p><strong><em>Life Beyond Death.</em></strong> With their fixation on time and mortality, black dragons are the most common dragon liches. If personal undeath is beyond a black dragon’s arcane power, it may seek to bolster its physical defenses by creating armies of undead servants.</p><hr class=\"a5e-rule u-my-md\"><h2>Behavior</h2><ol><li><p>Sleeping underwater</p></li><li><p>Ranting about the weaklings it has destroyed</p></li><li><p>Hiding in ambush</p></li><li><p>Vandalizing ancient architecture</p></li><li><p>Hiding a portion of its treasure in a secondary lair, just in case; it tries to destroy witnesses</p></li><li><p>Flying overhead, hunting</p></li></ol><hr class=\"a5e-rule u-my-md\"><h2>Signs</h2><p> 1. Sucking mire; after each hour of travel, succeed on a DC 12 Constitution saving throw or gain a level of fatigue<br> 2. Fouled, poisoned water.<br> 3. Low mist obscuring dangerous bogs and other hazards<br> 4. A draconic footprint filled with steaming liquid<br> 5. Fallen towers half-buried in mud: scalding black smoke suddenly jets from a window<br> 6. A toppled royal statue; a crude dragon statue sits in its place atop an empty pedestal</p><hr class=\"a5e-rule u-my-md\"><h2>Encounters</h2><p>Black dragons live in rotting swamps, lairing among ruins and toppled monuments.</p><p><strong>CR 3–4</strong> black dragon wyrmling with 1d4 dragonbound warriors (see warrior), kobolds, or lizardfolk</p><p><strong>Treasure</strong> 300 gp, 500 sp, 4 sardonyx gemstones (50 gp each), exquisite marble throne (worth 200 gp but bulky), <em>potion of greater healing</em>, leaden helm (acts as <em>ring of mind shielding</em>)</p><p><strong>CR 5–10</strong> young black dragon; young black dragon with 1d4 kobolds, shriekers, or stirges; black dragon wyrmling with 1 or 2 dire centipedes, giant scorpions, or will-o’-wisps</p><p><strong>Treasure</strong> 1,200 gp, 3,000 sp, 2 adamantine-bladed battleaxes (500 gp each), 3 <em>potions of healing</em>, <em>+1 greataxe</em> (named <em>Immortal</em>; the haft is topped with a gold crown)</p><p><strong>CR 11–16</strong> young black dragon with banshee, ghost, night hag, or shambling mound</p><p><strong>Treasure</strong> 2,000 gp, 5,000 sp, ceremonial gold full plate armor with crowned helm (2,500 gp), <em>potion of superior healing</em>, <em>oil of sharpness</em>, <em>+2 scale armor </em>(the wearer can breathe water)</p><p><strong>CR 17–22</strong> adult black dragon; adult black dragon lich; adult black dragon with 2 bugbears, dire centipedes, specters, or will-o’-wisps&nbsp;</p><p><strong>Treasure</strong> 8,000 gp, 4,000 ep, iron crown set with 25 jet gemstones (100 gp each gemstone), 50 scrolls of lost history and literature (100 gp each), 3 <em>potions of supreme healing</em>, <em>spell scrolls</em> of <em>greater restoration</em> and <em>move earth</em>, <em>carpet of flying</em></p><p><strong>CR 23–30</strong> ancient black dragon; ancient black dragon with mage, otyugh, shambling mound, or wight; ancient black dragon with 2d4 bugbears, lizardfolk, or specters; adult black dragon lich with 1d6 + 4 skeletons and necromancer or ogre mage&nbsp;</p><p><strong>Treasure</strong> 15,000 gp, miniature replica of city featuring a 3-foot-tall electrum obelisk (5,000 gp), black dragon egg (25,000 gp), <em>potion of speed</em>, 2 <em>arrows of undead slaying</em>, <em>cloak of the bat</em>, <em>crystal ball</em></p><p><strong>CR 31+</strong> black great wyrm; ancient black dragon with 3 banshees or ghosts and 10 or 20 skeletons or zombies; 2 adult black dragons</p><p><strong>Treasure</strong> 100,000 gp, 2 gem-studded gold crowns (25,000 gp each), 10 pieces of miscellaneous jewelry (2,500 gp each), huge stone calendar that predicts a future catastrophe, 3 <em>potions of supreme healing</em>, <em>mantle of spell resistance</em>, <em>ring of invisibility</em></p><hr class=\"a5e-rule u-my-md\"><h2>Monster Type Description</h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
@@ -3263,7 +3505,8 @@
 				"one more"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -3333,6 +3576,13 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
@@ -3365,7 +3615,9 @@
 				"max": 1
 			},
 			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 30,
@@ -3384,7 +3636,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
@@ -3399,13 +3655,32 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "o2wkm2n35jur2qnv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746568114137,
+		"modifiedTime": 1746568324400,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "o2wkm2n35jur2qnv"
 }

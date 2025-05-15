@@ -41,12 +41,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -91,11 +106,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The lizardfolk attacks once with its shield and twice with its trident.</p>",
@@ -115,244 +152,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.Hcp8zUrtUBaXFT4i",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"_id": "bYf759LBtUt9YjqY",
-			"name": "Shield",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"UC57e9QavURs2ayN": {
-						"name": "Shield",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"uFEtAikEaXjUHcld": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"IDMs61RApQq7RQxT": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d4+@str.mod",
-								"name": "Shield",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"TgQ02zAdj9q1cnK2": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "13"
-								},
-								"type": "savingThrow"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p>On a hit, the target makes a DC 13 Strength check. On a failure, it is knocked prone.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"_id": "j3nN5THmnqLDQbg5",
-			"name": "Trident",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"E1DjPFCQAxInGBxQ": {
-						"name": "Trident",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": "",
-							"type": ""
-						},
-						"rolls": {
-							"YP5FVJaXVxt13657": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"UCN2l4lTeEyiucAa": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "2d6+@str.mod",
-								"name": "Javelin",
-								"type": "damage"
-							}
-						},
-						"consumers": {},
-						"prompts": {}
-					}
-				},
-				"description": "<p>Reach 5 ft. or range 20/60 ft., one target. On a hit, the lizardfolk gains temporary hit points equal to half the damage dealt.&nbsp;</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -393,12 +213,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -443,23 +278,30 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"vVPz4odOupGb5ZQI": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "2d10",
-								"name": "Fire",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"gu4mqD7AKE2NKP2B": {
 								"canCrit": false,
 								"damageType": "radiant",
 								"formula": "2d10",
-								"name": "Radiant",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": false,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -470,12 +312,37 @@
 									"type": "custom",
 									"bonus": "13"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"dTJjDMOoxgkyN0lD": {
-								"type": "itemUses"
+								"type": "itemUses",
+								"quantity": 1,
+								"default": true,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -497,12 +364,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.p3kcGJ0xWBkkHahl",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -526,7 +408,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"rLpycLoi0RIr2jJ7": {
@@ -539,18 +421,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"IO5JqN55th0c2miJ": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -561,10 +445,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -585,15 +490,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "8xm87mNy0GWexXZq",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -617,7 +535,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"15724quaJ7x7Cwsb": {
@@ -630,18 +548,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"8tJ6i3Xp0CIXohXB": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -652,10 +572,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -676,15 +617,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "VXQBu0gdQQaFdJbg",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -708,7 +662,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"Zkd1IYMswdx5xFK3": {
@@ -721,10 +675,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"B1G7YzvEst0yaweu": {
@@ -734,10 +687,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -758,15 +733,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "hutLvFvaEvI7ZDTe",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -790,7 +778,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"Oa0shlmZdU2CODyg": {
@@ -803,10 +791,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"LYQhVwQ4rOfLnIwQ": {
@@ -816,10 +803,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -840,15 +849,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "jjbiAToB3FzwZBP1",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -872,7 +894,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"y63eUu4iUJZwsxIJ": {
@@ -885,10 +907,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"gDWSodTk3CIRsoG0": {
@@ -898,10 +919,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -922,15 +965,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "Eh4qFI1WHZ1yQUQP",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -954,7 +1010,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"zmJI5UZuhiaWHzZf": {
@@ -967,10 +1023,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"FXPIMIcrWlMaOM9T": {
@@ -980,10 +1035,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -1004,22 +1081,762 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "cYU7rMyLG6DtvMK2",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
+		},
+		{
+			"name": "Shield, Medium",
+			"type": "object",
+			"img": "icons/equipment/shield/heater-steel-worn.webp",
+			"effects": [
+				{
+					"origin": "Actor.eDVp5JlzVmQUpwd0.Item.9D7BL0dQLDGfw8Vr",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Defensive AC",
+					"_id": "R4H9hwQqrcReSUg6",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.10",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"system": {
+						"applyToSelf": true,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"img": "icons/equipment/shield/heater-steel-worn.webp",
+					"type": "base",
+					"sort": 0,
+					"folder": null
+				}
+			],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "2",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"cUpj4DbP1HGzD1wN": {
+						"name": "Attack",
+						"activation": {
+							"type": "action",
+							"cost": 1,
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {
+							"tFenoUYFUlCECoM8": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": false,
+								"ability": "str",
+								"label": "Improvised Weapon",
+								"bonus": "",
+								"critThreshold": 20
+							},
+							"wxWij6knaFs6y2gk": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d4 + @str.mod",
+								"damageType": "bludgeoning",
+								"canCrit": true,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
+							}
+						},
+						"prompts": {
+							"uPVQ53HDAgcp5Bge": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1,
+							"scaling": {}
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp",
+						"id": "",
+						"default": false,
+						"description": "<p><span style=\"font-family: inherit\">the target makes a DC 13 Strength ch</span><span style=\"font-family: Roboto, Helvetica, Tahoma, Arial\">eck. On a failure, it is knocked prone.</span></p>",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {}
+					},
+					"JEahSlMI4KFp4o3L": {
+						"name": "Attack (Defensive)",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1,
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {
+							"tFenoUYFUlCECoM8": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": false,
+								"ability": "str",
+								"label": "Improvised Weapon",
+								"bonus": "",
+								"critThreshold": 20
+							},
+							"wxWij6knaFs6y2gk": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d4 + @str.mod",
+								"damageType": "bludgeoning",
+								"canCrit": true,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1,
+							"scaling": {}
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp",
+						"ranges": {
+							"EfMMyZTD32hz3WC7": {
+								"range": "fiveFeet"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": ""
+					},
+					"PwrEe2BhzH8Ia3ZA": {
+						"name": "Increase Armor Class (Defensive)",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1,
+							"reactionTrigger": ""
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"1RmCVO4QKQ9DZpDM": {
+								"type": "effect",
+								"default": true,
+								"effectId": ""
+							},
+							"hhUcyCDWAO7SCqQg": {
+								"type": "effect",
+								"default": true,
+								"effectId": ""
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"bZ9qqcaxSNoGUVmk": {
+								"range": "self"
+							}
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp",
+						"effects": [
+							"ee5CTKqflPMaNhE9",
+							"R4H9hwQqrcReSUg6"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"macro": "",
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
+					}
+				},
+				"description": "<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "shield",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "medium",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 8,
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": [],
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
+			},
+			"folder": null,
+			"_id": "9D7BL0dQLDGfw8Vr",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"sort": 0
+		},
+		{
+			"name": "Trident",
+			"type": "object",
+			"img": "icons/weapons/polearms/trident-ornate-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"jmhv8DatShUbKS2b": {
+						"name": "Trident",
+						"activation": {
+							"cost": 0,
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"kqB84gFUFuX4c5VX": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"kwnjxkDQXbGIe6M9": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject",
+							"scaling": {}
+						},
+						"rolls": {
+							"DIWavj0St2cyMBAy": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
+							},
+							"5ZU8ZjzJ6cAdaCWi": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"type": "damage",
+								"label": "One-Handed",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							},
+							"QaYeFljDmoLPxuEC": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @str.mod",
+								"type": "damage",
+								"label": "Two-Handed",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					},
+					"MeeBvXQWljl0flxq": {
+						"name": "Trident (Mounted)",
+						"activation": {
+							"cost": 0,
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"kqB84gFUFuX4c5VX": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"kwnjxkDQXbGIe6M9": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject",
+							"scaling": {}
+						},
+						"rolls": {
+							"DIWavj0St2cyMBAy": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
+							},
+							"5ZU8ZjzJ6cAdaCWi": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @str.mod",
+								"type": "damage",
+								"label": "One-Handed",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							},
+							"QaYeFljDmoLPxuEC": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d10 + @str.mod",
+								"type": "damage",
+								"label": "Two-Handed",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					},
+					"77jqe1SdsKOkHt0L": {
+						"name": "Trident (Throw)",
+						"activation": {
+							"cost": 0,
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"kqB84gFUFuX4c5VX": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"kwnjxkDQXbGIe6M9": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject",
+							"scaling": {}
+						},
+						"rolls": {
+							"DIWavj0St2cyMBAy": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
+							},
+							"5ZU8ZjzJ6cAdaCWi": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @finesse.mod",
+								"type": "damage",
+								"label": "Unmounted",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							},
+							"t9g5bCInZSbI0jFI": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @finesse.mod",
+								"type": "damage",
+								"label": "Mounted",
+								"default": false,
+								"critBonus": "",
+								"scaling": {}
+							}
+						},
+						"consumers": {
+							"mWt7duYvBxZIUG8F": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"versatile",
+					"thrown",
+					"mounted"
+				],
+				"weight": 3,
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "d8",
+				"mounted": [
+					"d8",
+					"d10"
+				],
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
+			},
+			"folder": null,
+			"_id": "z8hWxHpDLk0UUXqp",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"sort": 0
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -1320,6 +2137,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -1372,11 +2200,12 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "15",
+				"baseFormula": "13",
 				"value": 0
 			},
 			"death": {
@@ -1468,7 +2297,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -1493,7 +2324,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2><strong>COMBAT</strong></h2><p>Lizardfolk hide underwater, making bite attacks with advantage when possible. Otherwise, they attack with club and shield. Outside their territory, they retreat once half their number are defeated. When protecting their territory, they fight to the death.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Gleamwater, Isla, Ka, Kesk, Redroot, Zartha</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Lizardfolk live in isolated communities in jungles and swamps. While not inherently evil, they are distrustful of outsiders.</p><p><strong>DC 15</strong> Lizardfolk can hold their breath for long periods of time. They often ambush trespassers from beneath the water.</p><p><strong>DC 20</strong> In ages past, lizardfolk made pacts with beings from the outer planes. Occasionally, a lizardfolk will be born possessing a vestige of the power granted by these ancient pacts.</p><p><strong>DESCRIPTION</strong></p><p>The ancient connections between the lizardfolk and the denizens of the lower planes sometimes result in a lizardfolk child born with a demonic soul. These “chosen ones” grow to become charismatic and ruthless monarchs, inspiring uncharacteristic aggression in their followers. Theoretically, lizardfolk born with celestial souls also exist.</p><p><strong>BEHAVIOR</strong></p><p>1 Camouflaged, scouting</p><p>2 Making weapons or jewelry</p><p>3 On a trade expedition, offering amber and food for metal</p><p>4 Ignore strangers unless approached</p><p>5 Attack on sight</p><p>6 Recently raided by rivals or monsters</p><p><strong>SIGNS</strong></p><p>1 Abandoned huts</p><p>2 A stone altar with a piece of dragon eggshell resting on it</p><p>3 A wall of sharpened stakes</p><p>4 A leather rucksack filled with stone tools</p><p>5-6 DC 15 Perception or Survival check: clawed footprints</p><p><strong>ENCOUNTERS</strong></p><p>Lizardfolk inhabit jungles and swamps.</p><p><strong>CR 0–2</strong> 1 or 2 lizardfolk; lizardfolk druid</p><p><strong>Treasure</strong> polished stone necklace (25 gp), 2 packets of healing herbs (act as <em>potions of healing</em>)</p><p><strong>CR 3–4</strong> 3 or 4 lizardfolk; 2 lizardfolk with 1d4 giant lizards or crocodiles; lizardfolk druid with 1 or 2 lizardfolk</p><p><strong>Treasure</strong> 4 amber gemstones (100 gp each), <em>potion of heroism</em></p><p><strong>CR 5–10</strong> lizardfolk chosen one with 1d4 + 2 lizardfolk; lizardfolk chosen one with lizardfolk druid and 1d4 lizardfolk; lizardfolk druid with giant crocodile and 3 lizardfolk</p><p><strong>Treasure</strong> fragment of ancient stone covered in glowing sigils (750 gp to certain buyers), <em>helm of telepathy</em></p>",
@@ -1517,7 +2349,8 @@
 				"draconic"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -1585,6 +2418,13 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
@@ -1617,7 +2457,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -1636,11 +2478,15 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1651,13 +2497,32 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "d1fjziv1bpa6x59p",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746567947390,
+		"modifiedTime": 1746568324400,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "d1fjziv1bpa6x59p"
 }

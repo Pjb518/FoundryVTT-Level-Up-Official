@@ -52,26 +52,52 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"VMNNo7tpCbah0Faz": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
+								"ability": "dex",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"9QKd8JO5PsAGtKLZ": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "4d10 + @dex.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -91,12 +117,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.ag4fvqlYaTYUmMJq",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -141,22 +182,29 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"BUcyvpQ1m6AmIWeg": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "19d6",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"zvfgggbWRpKuVzJh": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "6d6",
-								"name": "Creature mpacts a solid object",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -167,14 +215,36 @@
 									"type": "custom",
 									"bonus": "20"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"7WomsNvZvTtr2pzs": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -196,12 +266,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -242,12 +327,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -288,12 +388,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -334,12 +449,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -384,12 +514,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.xD6jXCrejNh7pOld",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -440,26 +585,52 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"scaling": {}
 						},
 						"rolls": {
 							"sDtc7ZTtjYOdOZg1": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "dex"
+								"ability": "dex",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"pSrqWCF5ovVrV7MR": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "3d8 + @dex.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -479,12 +650,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.FnfGLPPI0HknNig2",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -515,7 +701,7 @@
 					"xfuiyxTL8AL23WWT": {
 						"name": "Legendary Resistance (3/Day)",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "special",
 							"reactionTrigger": ""
 						},
@@ -529,15 +715,40 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {
 							"FInPZ9ZhiXg5ylJI": {
-								"type": "itemUses"
+								"type": "itemUses",
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it loses coordination as white-crested waves run up and down its body. It loses its Flowing Grace and Shimmering Scales traits until the beginning of its next turn.</p>",
@@ -557,12 +768,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.6Y1N4HAnCmpDkl3K",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -610,16 +836,20 @@
 							"height": 15
 						},
 						"target": {
-							"quantity": "",
-							"type": "other"
+							"quantity": 0,
+							"type": "other",
+							"scaling": {}
 						},
 						"rolls": {
 							"fYGWVt8IirXiS7bw": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "10d6",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -630,10 +860,31 @@
 									"type": "custom",
 									"bonus": "20"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>A cylindrical, 15-foot-tall, 10-foot-radius whirlpool or waterspout magically appears in the water or air, centered on a point within 60 feet. Creatures in the area make a DC 20 Strength saving throw. On a failure, a creature takes 35 (10d6) bludgeoning damage and is knocked prone and pushed up to 15 feet. On a failure, a creature takes half damage.</p>",
@@ -653,12 +904,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -699,11 +965,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Can be used while bloodied. When a creature the dragon can see hits it with a melee weapon attack, the dragon makes a bite attack against the attacker.</p>",
@@ -723,12 +1011,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": true
+				"requiresBloodied": true,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -773,12 +1076,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.gaIR6sn0ay3vMJfh",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -819,11 +1137,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon swims up to half its speed.</p>",
@@ -843,12 +1183,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -889,11 +1244,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon takes the Hide action.</p>",
@@ -913,12 +1290,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -964,16 +1356,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": "other"
+							"quantity": 0,
+							"type": "other",
+							"scaling": {}
 						},
 						"rolls": {
 							"vfTRdMWJUjAZEzFv": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "10d6",
-								"name": "Creatures that impact a solid object",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
@@ -981,10 +1377,32 @@
 								"type": "resource",
 								"default": true,
 								"resource": "",
-								"quantity": 1
+								"quantity": 1,
+								"classIdentifier": "",
+								"restore": false,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon generates a 20-foot-tall, 100-foot-wide wave on the surface of water within 120 feet. The wave travels up to 60 feet in any direction the dragon chooses and crashes down, carrying Huge or smaller creatures and vehicles with it. Vehicles moved in this way have a 25 percent chance of capsizing. Creatures that impact a solid object take 35 (10d6) bludgeoning damage.</p>",
@@ -1004,12 +1422,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1054,15 +1487,19 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"vASu9oWpAMLak7U7": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "8d6",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1073,12 +1510,36 @@
 									"type": "custom",
 									"bonus": "20"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"K4vhGLkJqRb63j6k": {
-								"type": "itemUses"
+								"type": "itemUses",
+								"quantity": 1,
+								"default": true,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1100,12 +1561,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1129,7 +1605,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"rneLGlce93UfQ9Qr": {
@@ -1142,18 +1618,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"lAKfQT2OXjwPaEwz": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1164,10 +1642,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1188,15 +1687,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "kyCUszDRGykpkwHh",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1220,7 +1732,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"o7LLaH4jnaIQkYEi": {
@@ -1233,18 +1745,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"fxGai3ro3eZN15Bh": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1255,10 +1769,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -1279,15 +1814,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "AGB8yuRnec9zVH1M",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1311,7 +1859,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"spQrQ1XBae56JfNC": {
@@ -1324,10 +1872,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"tRk2rDMCN2b87xYV": {
@@ -1337,10 +1884,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -1361,15 +1930,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "n6OROwtiNdz0X4JI",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1393,7 +1975,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"wpbWE5Poa10IKtD6": {
@@ -1406,10 +1988,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"nU2pb5LayDHPhbEV": {
@@ -1419,10 +2000,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -1443,15 +2046,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "U1pwVSnwGr1NNnlJ",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1475,7 +2091,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"yu0Y0svBE5B16nxa": {
@@ -1488,10 +2104,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"MyMk2KuYQCK9yR8g": {
@@ -1501,10 +2116,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -1525,15 +2162,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "Qp0WbmPlHaW5YM7H",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1557,7 +2207,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"fxPrII7dwK0KyP5U": {
@@ -1570,10 +2220,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"GYt9y54YmM8gGNcS": {
@@ -1583,10 +2232,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -1607,15 +2278,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "KxHquLl35pWIeAnc",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1650,7 +2334,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "qfcGTkQrxU8esbMc",
 			"img": "icons/svg/item-bag.svg",
@@ -1659,9 +2353,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1705,11 +2404,32 @@
 							}
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Choose one of the following.</p><ul><li><p><strong>Create Water:</strong> You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p></li><li><p><strong>Destroy Water:</strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet.</p>",
@@ -1751,15 +2471,29 @@
 						"water"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "epbiBKpfl4CSMDCp",
 			"sort": 100000,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.6na38wnae58eief3",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1803,17 +2537,39 @@
 							}
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {
 							"Xpg1CEUHSQRXEJ0i": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p>",
@@ -1858,15 +2614,29 @@
 						"weather"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "kn5tXdIi1NZfCB6j",
 			"sort": 200000,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.i4ejucvglhqpfm57",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1900,8 +2670,9 @@
 							"quantity": 1
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"a5qRWlso77nIsNTS": {
@@ -1910,14 +2681,17 @@
 								"label": "In Whirlpool",
 								"canCrit": false,
 								"formula": "2d8",
-								"damageType": "bludgeoning"
+								"damageType": "bludgeoning",
+								"critBonus": "",
+								"scaling": {}
 							}
 						},
 						"consumers": {
 							"yUG8jfGMU5okWsA3": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1933,10 +2707,30 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "spellcasting"
+									"type": "spellcasting",
+									"bonus": ""
 								},
 								"label": "In Whirlpool",
 								"onSave": "Half damage and isn't pulled"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					},
@@ -1963,8 +2757,9 @@
 							"quantity": 1
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"a5qRWlso77nIsNTS": {
@@ -1973,7 +2768,9 @@
 								"label": "In Whirlpool",
 								"canCrit": false,
 								"formula": "2d8",
-								"damageType": "bludgeoning"
+								"damageType": "bludgeoning",
+								"critBonus": "",
+								"scaling": {}
 							}
 						},
 						"consumers": {},
@@ -1990,10 +2787,30 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "spellcasting"
+									"type": "spellcasting",
+									"bonus": ""
 								},
 								"label": "In Whirlpool",
 								"onSave": "Half damage and isn't pulled"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2040,15 +2857,29 @@
 						"water"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "3FxJIVVa36s0dxgm",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2057,7 +2888,6 @@
 			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
 			"effects": [
 				{
-					"icon": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
 					"origin": "Actor.PS1NvED6edIgIIl6.Item.I7doYeJ181uMogsf",
 					"flags": {
 						"a5e": {
@@ -2085,12 +2915,33 @@
 					},
 					"description": "<p>The target ignores difficult terrain. Spells and magical effects can't reduce its speed or cause it to be paralyzed or restrained. It can spend 5 feet of movement to escape from nonmagical restraints or grapples. The target's movement and attacks aren't penalized from being underwater.</p>",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.10",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"flags": {},
@@ -2118,20 +2969,41 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": "creature"
+							"quantity": 0,
+							"type": "creature",
+							"scaling": {}
 						},
 						"consumers": {
 							"sry6V3D6ISnDOJy2": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"prompts": {},
 						"effects": [
 							"eqeIwv3P1v9JwhZY"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The target ignores difficult terrain. Spells and magical effects can't reduce its speed or cause it to be paralyzed or restrained. It can spend 5 feet of movement to escape from nonmagical restraints or grapples. The target's movement and attacks aren't penalized from being underwater.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 6th-level spell slot the duration is 8 hours. When using an 8th-level spell slot the duration is 24 hours.</p>",
@@ -2177,15 +3049,29 @@
 						"water"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "I7doYeJ181uMogsf",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2220,7 +3106,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "etdT5kY55cGoYRnO",
 			"img": "icons/svg/item-bag.svg",
@@ -2229,9 +3125,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2259,17 +3160,39 @@
 							}
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {
 							"NyOFQj7qOoekEb16": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p><em><strong>Area:&nbsp;</strong>5-mile radius</em></p><p>You must be outdoors to cast this spell, and it ends early if you don't have a clear path to the sky.</p><p>Until the spell ends, you change the weather conditions in the area from what is normal for the current climate and season. Choose to increase or decrease each weather condition (precipitation, temperature, and wind) up or down by one stage on the following tables. Whenever you change the wind, you can also change its direction. The new conditions take effect after 1d4 &times; 10 minutes, at which point you can change the conditions again. The weather gradually returns to normal when the spell ends.</p>",
@@ -2313,15 +3236,29 @@
 						"weather"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "7gZrBcbqzW5RVBJg",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2358,20 +3295,23 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"pv2qK4SfPHUHrUH1": {
 								"canCrit": false,
 								"damageType": "cold",
 								"formula": "10d6",
-								"name": "",
 								"type": "damage",
 								"scaling": {
 									"mode": "spellLevel",
 									"formula": "2d6"
-								}
+								},
+								"critBonus": "",
+								"default": true,
+								"label": ""
 							},
 							"39lnnyf5cJDzoqBR": {
 								"type": "damage",
@@ -2383,14 +3323,16 @@
 								"scaling": {
 									"mode": "spellLevel",
 									"formula": "1d6"
-								}
+								},
+								"critBonus": ""
 							}
 						},
 						"consumers": {
 							"TtxViGGNgIrEhwkK": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -2399,19 +3341,41 @@
 								"default": true,
 								"ability": "dex",
 								"saveDC": {
-									"type": "spellcasting"
+									"type": "spellcasting",
+									"bonus": ""
 								},
-								"onSave": "Half damage"
+								"onSave": "Half damage",
+								"label": ""
 							},
 							"zsp7qzM7iYPcuejU": {
 								"type": "savingThrow",
 								"default": true,
 								"ability": "con",
 								"saveDC": {
-									"type": "spellcasting"
+									"type": "spellcasting",
+									"bonus": ""
 								},
 								"onSave": "Half damage",
 								"label": "Frigid Air"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2455,15 +3419,29 @@
 						"protection"
 					]
 				},
-				"spellBook": "R7zmYb3ptEBVFpby"
+				"spellBook": "R7zmYb3ptEBVFpby",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"folder": null,
 			"_id": "inMhFJVRRspZz5Y6",
 			"sort": 150000,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.ayutqhkyombboux8",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
@@ -2471,7 +3449,7 @@
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"showSpellTab": true,
 			"sortMode": {},
 			"filters": {}
@@ -2773,6 +3751,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -2825,7 +3814,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -2864,8 +3854,8 @@
 					"total": 0
 				},
 				"d20": {
-					"current": 0,
-					"total": 0
+					"current": 24,
+					"total": 24
 				}
 			},
 			"initiative": {
@@ -2900,7 +3890,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -2913,7 +3903,7 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				}
 			},
@@ -2921,7 +3911,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "cha",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"maneuverDC": "",
@@ -2946,7 +3938,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2><strong>COMBAT</strong></h2><p>While individual dragons have their own personalities and tactics, most rely heavily on their breath weapons. They use them whenever they can, preferably from maximum distance and while flying above their enemies.&nbsp;</p><p>When fighting in the open, dragons often circle above their enemies as they wait for their breath weapons to recharge. They only close to melee if their enemies deal significant damage with ranged attacks, or if they can savage an enemy cut off from its allies. Once bloodied, dragons become more aggressive, attacking with bite and claws when their breath weapons aren’t available.</p><p>If a dragon is protecting its lair, it utilizes lair features, traps, allies, and architecture such as escape tunnels to keep up a hit-and-run fight, reappearing only when it has a fully-recharged breath weapon. If the dragon is forced into melee combat, it uses its bite and claws against a single foe. If it has legendary actions like Roar and Wing Attack, it uses them to disperse its other enemies.</p><p>If reduced to less than one-fourth its hit points while fighting in the open, a dragon flies away. However, it fights to the death to defend its lair, unless it can regain the upper hand through tricks or bargains.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>RIVER DRAGON LAIR FEATURES</strong></h2><p>Choose or roll one or more of the following lair features:</p><p>1 The dragon’s domain is populated with dangerous aquatic creatures. As a bonus action, it may summon its choice of 1d6 crocodiles or 1d4 swarms of quippers as allies. The creatures fight until killed or dismissed by the dragon as a bonus action or until the dragon uses this ability again.&nbsp;</p><p>2 The dragon’s domain supports one or more riverside villages whose livelihoods depend on the dragon’s survival. At the beginning of each round of combat, roll a d6. On a 5–6, 1d4 locals with the statistics of thugs arrive to defend the dragon, acting on the dragon’s initiative. The locals fight until killed or until the dragon instructs them to stop.&nbsp;</p><p>3 The rocks that line the riverbanks are particularly sharp. Whenever one of the dragon’s attacks or abilities causes a creature to impact a solid object, increase the damage that creature takes by 9 (2d8).&nbsp;</p><p>4 The dragon’s river is murky. Visibility beneath the water is reduced to 20 feet.&nbsp;&nbsp;</p><hr class=\"a5e-rule u-my-md\"><h2><strong>NAMES</strong></h2><p>Bol'shaya, Bystraya, Glitterstream, Penzhina, Springtide, Zathernak</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Like the waterways they inhabit, river dragons can be slow and lumbering, or fierce and nimble.</p><p><strong>DC 15</strong> River dragons exhale jets of water and create magical whirlpools to bash and scatter their foes.</p><p><strong>DC 20</strong> When angered, the oldest river dragons surround themselves with magical maelstroms that few mortals can withstand.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Linked to great, coursing rivers, these essence dragons embody the reckless, ever-changing power of water itself. Like a streak of quicksilver or a pennant fluttering in the wind, a river dragon is always moving, running an endless circuit from the river’s source to the ocean and back again. Like the rivers they exemplify, these dragons are fickle things. A ship or passerby that catches the attention of a river dragon might find fortune or ruin, depending on the fleeting whims of the river.</p><p><strong><em>The Serpent Eats Its Tail.</em> </strong>While the oldest river dragons have grown complacent in their wide, meandering rivers, most river dragons are on constant watch for competition. River dragon wyrmlings rule over tributaries and must pay proper respect to their source rivers, at least until they grow strong enough to challenge them.</p><p><strong><em>Gods of the Waterway.</em> </strong>Those who fish along the river’s edge sometimes spot disporting river dragons, giving rise to legends of river gods. River dragons treated as gods are usually flattered by such honors, and may take efforts to ensure bountiful catches. Those regarded as monsters are often equally amused, and work to keep their fearsome legend alive by devouring the occasional lone angler.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>BEHAVIOR</strong></h2><p>1 Floating serenely on the river, content to ignore peaceful travelers</p><p>2 Flying overhead, alert for trespassers</p><p>3 Eagerly approaching a boat, looking for fun</p><p>4 Attacks on sight</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1 Sparkling mist floating over the river</p><p>2 A loud, distant splash</p><p>3 A whirlpool appears in the river</p><p>4 The banks of the river are lush with plants, and schools of bright fish leap from the water</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p>River dragons leave their chosen river only in extreme circumstances.</p><p><strong>CR 3–4</strong> river dragon wyrmling with 2 boggards, crocodiles, or steam mephits</p><p><strong>Treasure</strong> 300 gp, 1,000 sp, mithral mirror (75 gp), <em>potion of healing</em>, <em>bag of tricks </em>(tan)</p><p><strong>CR 5–10</strong> young river dragon</p><p><strong>Treasure</strong> 750 gp, 300 ep, 6 pearls (100 gp each), gold ceremonial dagger with mermaid handle (250 gp), 3 <em>potions of healing</em>, <em>staff of swarming insects</em></p><p><strong>CR 11–16</strong> young river dragon with 2 constrictor snakes, hunter sharks, or plesiosauruses; young river dragon with sea hag or water elemental&nbsp;</p><p><strong>Treasure</strong> 100 pp, 2,000 gp, 3 aquamarine gemstones (500 gp each), bottle containing a message, <em>ring of water walking</em>, <em>+2 scimitar</em> (with a blade resembling shimmering water; named <em>Salmon of Wisdom</em>)</p><p><strong>CR 17–22</strong> adult river dragon</p><p><strong>Treasure</strong> 8,000 gp, 10,000 sp, 3 pearl necklaces (2,500 gp each), 4 sapphires (1,000 gp each), metal diving suit (1,000 gp), 2 <em>potions of clairvoyance</em>, <em>spell scroll </em>of <em>control weather</em>, <em>+1 half plate</em>, <em>sun blade</em></p><p><strong>CR 23–30</strong> adult river dragon with giant shark, marid, or merclops (see cyclops); ancient river dragon; ancient river dragon with giant lanternfish (see lamia) or sea chimera (see chimera)</p><p><strong>Treasure</strong> 10,000 gp, black pearl necklace (7,500 gp), 20 1-pound mithral bars (750 gp each), 2 doses of purple worm poison (2,000 gp each), 3 <em>arrows of elemental slaying</em>, <em>ring of free action</em>, <em>periapt of wound closure</em></p><p><strong>CR 31+</strong> ancient river dragon with 2 giant crocodiles, merrow mages (see merrow), or water elementals</p><p><strong>Treasure</strong> 5,000 pp, 40,000 gp, 6 diamonds (5,000 gp each), emerald idol (25,000 gp), fish that grants wishes (as <em>ring of 3 wishes</em>), 3 <em>potions of supreme healing</em>, <em>Ioun stone of absorption</em>, <em>luck blade</em></p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Dragons include red and gold dragons, which are huge reptilian fire-breathers that number among the world’s most dangerous monsters. This type includes white dragons, which breathe killing frost, as well as smaller reptilian creatures related to true dragons, such as pseudodragons.&nbsp;</p>",
@@ -2972,7 +3965,8 @@
 				"common"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -3044,6 +4038,13 @@
 				"showSpellPoints": false,
 				"showSpellSlots": false
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
@@ -3076,7 +4077,9 @@
 				"max": 1
 			},
 			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 30,
@@ -3095,7 +4098,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
@@ -3110,13 +4117,32 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "enzy01g7l4y7bn5c",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746568258043,
+		"modifiedTime": 1746568324400,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "enzy01g7l4y7bn5c"
 }
