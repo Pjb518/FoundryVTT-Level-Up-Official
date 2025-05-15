@@ -34,14 +34,14 @@
         if (!rollMode) return null;
 
         return localize(
-            rollMode === 1 ? "A5E.RollModeAdvantage" : "A5E.RollModeDisadvantage",
+            rollMode === 1 ? "A5E.rollLabels.modes.advantage" : "A5E.rollLabels.modes.disadvantage",
         );
     }
 
     function getExpertiseLabel({ expertiseDice }) {
         if (!expertiseDice) return null;
 
-        return localize("A5E.ExpertiseDieSpecific", {
+        return localize("A5E.expertiseDie.dieSpecific", {
             dieSize: getExpertiseDieSize(expertiseDice),
         });
     }

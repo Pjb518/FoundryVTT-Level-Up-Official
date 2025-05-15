@@ -28,42 +28,42 @@ export default function registerActionsConfig() {
 
 	const resourceConsumerConfig = {
 		classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
-		exertion: { path: 'attributes.exertion.current', label: 'A5E.Exertion', type: 'value' },
+		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
-			label: 'A5E.FavorPoints',
+			label: 'A5E.consumers.favorPoints',
 			type: 'value',
 		},
-		hp: { path: 'attributes.hp.value', label: 'A5E.HitPoints', type: 'value' },
-		inspiration: { path: 'attributes.inspiration', label: 'A5E.Inspiration', type: 'boolean' },
+		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
+		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'boolean' },
 		primaryResource: {
 			path: 'resources.primary.value',
-			label: 'A5E.ResourcesPrimary',
+			label: 'A5E.consumers.resources.primary',
 			type: 'value',
 		},
 		secondaryResource: {
 			path: 'resources.secondary.value',
-			label: 'A5E.ResourcesSecondary',
+			label: 'A5E.consumers.resources.secondary',
 			type: 'value',
 		},
 		tertiaryResource: {
 			path: 'resources.tertiary.value',
-			label: 'A5E.ResourcesTertiary',
+			label: 'A5E.consumers.resources.tertiary',
 			type: 'value',
 		},
 		quaternaryResource: {
 			path: 'resources.quaternary.value',
-			label: 'A5E.ResourcesQuaternary',
+			label: 'A5E.consumers.resources.quaternary',
 			type: 'value',
 		},
 	};
 
 	const spellConsumerModes = {
-		variable: 'A5E.ConsumerSpellModeVariable',
-		chargesOnly: 'A5E.ConsumerSpellModeChargesOnly',
-		inventionsOnly: 'A5E.ConsumerSpellModeInventionsOnly',
-		pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
-		slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly',
+		variable: 'A5E.consumers.modes.variable',
+		chargesOnly: 'A5E.consumers.modes.chargesOnly',
+		inventionsOnly: 'A5E.consumers.modes.inventionsOnly',
+		pointsOnly: 'A5E.consumers.modes.pointsOnly',
+		slotsOnly: 'A5E.consumers.modes.slotsOnly',
 	};
 
 	return {

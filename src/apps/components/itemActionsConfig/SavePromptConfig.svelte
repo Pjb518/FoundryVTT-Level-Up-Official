@@ -91,7 +91,7 @@
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.ItemSavingThrowType"
+    heading="A5E.actions.headings.savingThrows.type"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions()}
     selected={selectedAbility}
@@ -104,7 +104,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.ItemSavingThrowDC" --a5e-field-wrapper-label-width="9rem">
+    <FieldWrapper heading="A5E.actions.headings.savingThrows.dc.title" --a5e-field-wrapper-label-width="9rem">
         <select on:change={selectSaveDCCalculationType}>
             {#each Object.entries(saveDCOptions) as [type, label]}
                 <option value={type} selected={type === prompt?.saveDC?.type}>
@@ -116,8 +116,8 @@
 
     <FieldWrapper
         heading={prompt?.saveDC?.type === "custom"
-            ? "A5E.ItemSavingThrowDCCustom"
-            : "A5E.ItemSavingThrowDCBonus"}
+            ? "A5E.actions.headings.savingThrows.dc.custom"
+            : "A5E.actions.headings.savingThrows.dc.bonus"}
         --a5e-field-wrapper-grow="1"
     >
         <div class="u-flex u-gap-sm">
@@ -150,7 +150,7 @@
     </FieldWrapper>
 </Section>
 
-<FieldWrapper heading="A5E.ItemEffectOnSave">
+<FieldWrapper heading="A5E.actions.headings.effectOnSave">
     <input
         type="text"
         value={prompt.onSave ?? ""}

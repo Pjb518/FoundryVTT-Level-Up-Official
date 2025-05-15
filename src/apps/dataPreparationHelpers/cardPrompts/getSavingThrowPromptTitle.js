@@ -9,13 +9,13 @@ export default function getSavingThrowPromptTitle(prompt, actorId) {
 		const actor = fromUuidSync(actorId);
 
 		if (actor && actor.type !== 'character' && actor.permission < 2) {
-			return localize('A5E.RollPromptSavingThrow', {
+			return localize('A5E.rollLabels.prompts.savingThrow', {
 				ability: abilities[prompt.ability],
 			});
 		}
 	}
 
-	return localize('A5E.RollPromptSavingThrowWithDC', {
+	return localize('A5E.rollLabels.prompts.savingThrowWithDC', {
 		ability: abilities[prompt.ability],
 		dc: prompt.dc,
 	});

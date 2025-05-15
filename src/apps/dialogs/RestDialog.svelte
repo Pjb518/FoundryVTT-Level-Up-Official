@@ -13,8 +13,8 @@ export let { document, appId } = getContext('#external').application;
 const actor = document;
 
 const restTypeOptions = {
-	short: 'A5E.RestShort',
-	long: 'A5E.RestLong',
+	short: 'A5E.rest.short',
+	long: 'A5E.rest.long',
 };
 
 let restType = 'short';
@@ -49,7 +49,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
 <form class="form">
     <RadioGroup
-        heading="A5E.RestType"
+        heading="A5E.rest.type"
         options={Object.entries(restTypeOptions)}
         selected={restType}
         on:updateSelection={({ detail }) => (restType = detail)}
@@ -59,7 +59,7 @@ $: hitDice = $actor.system.attributes.hitDice;
         <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.HavenPrompt"
+                    label="A5E.rest.havenPrompt"
                     checked={haven}
                     on:updateSelection={({ detail }) => {
                         haven = detail;
@@ -69,7 +69,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.SupplyFatigueStrifePrompt"
+                    label="A5E.supply.fatigueStrifePrompt"
                     checked={recoverStrifeAndFatigue}
                     on:updateSelection={({ detail }) => {
                         recoverStrifeAndFatigue = detail;
@@ -80,7 +80,7 @@ $: hitDice = $actor.system.attributes.hitDice;
             {#if $actor.type === "character"}
                 <FieldWrapper>
                     <Checkbox
-                        label="A5E.SupplyConsume"
+                        label="A5E.supply.consume"
                         checked={consumeSupply}
                         on:updateSelection={({ detail }) => {
                             consumeSupply = detail;
@@ -93,7 +93,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
     {#if restType === "short"}
         <Section --a5e-section-body-padding="0">
-            <FieldWrapper heading="A5E.HitDiceLabel">
+            <FieldWrapper heading="A5E.hitDice.title">
                 <div class="u-flex u-gap-md u-text-md">
                     {#each ["d6", "d8", "d10", "d12"] as die}
                         <div class="a5e-hit-die-wrapper">
@@ -119,7 +119,7 @@ $: hitDice = $actor.system.attributes.hitDice;
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
         <i class="fas fa-campground" />
-        {localize("A5E.Rest")}
+        {localize("A5E.rest.title")}
     </button>
 </form>
 

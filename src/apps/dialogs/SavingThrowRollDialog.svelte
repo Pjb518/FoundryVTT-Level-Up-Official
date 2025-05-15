@@ -32,23 +32,23 @@ function getInitialExpertiseDieSelection() {
 function getSubmitButtonText(saveType, abilityKey) {
 	if (saveType === 'death') return 'Roll Death Saving Throw';
 	else if (abilityKey === 'con' && saveType === 'concentration') {
-		return localize('A5E.RollConcentrationCheck');
+		return localize('A5E.rollLabels.rollConcentrationCheck');
 	} else {
 		if (options.dc)
-			return localize('A5E.RollPromptSavingThrowWithDC', {
+			return localize('A5E.rollLabels.prompts.savingThrowWithDC', {
 				ability: localizeSave,
 				dc: options.dc,
 			});
 		else
-			return localize('A5E.RollPromptSavingThrow', {
+			return localize('A5E.rollLabels.prompts.savingThrow', {
 				ability: localizeSave,
 			});
 	}
 }
 
 const saveTypes = [
-	['standard', 'A5E.SavingThrowNormal'],
-	['concentration', 'A5E.ConcentrationCheck'],
+	['standard', 'A5E.rollLabels.savingThrows.normal'],
+	['concentration', 'A5E.rollLabels.concentrationCheck'],
 ];
 
 const actor = new TJSDocument(document);
@@ -127,7 +127,7 @@ $: rollFormula = getRollFormula($actor, {
 
     {#if abilityKey === "con" && saveType !== "death"}
         <RadioGroup
-            heading="A5E.ItemSavingThrowType"
+            heading="A5E.actions.headings.savingThrows.type"
             options={saveTypes}
             selected={saveType}
             on:updateSelection={(event) => (saveType = event.detail)}

@@ -105,7 +105,7 @@ $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
     </header>
 
     <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
+        <FieldWrapper heading="A5E.healing.formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={healingBonus.formula ?? ""}
@@ -113,7 +113,7 @@ $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.HealingType">
+        <FieldWrapper heading="A5E.healing.type">
             <select
                 class="u-w-fit healing-type-select"
                 on:change={({ target }) => onUpdateValue("healingType", target.value)}

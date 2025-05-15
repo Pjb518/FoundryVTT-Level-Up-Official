@@ -9,7 +9,7 @@ export default async function doubleDiceDamage(baseRoll) {
 		await new Terms.OperatorTerm({ operator: '+' }).evaluate(),
 		await new Terms.NumericTerm({
 			number: diceDamage,
-			options: { flavor: localize('A5E.CritDamage') },
+			options: { flavor: localize('A5E.damage.headings.crit') },
 		}).evaluate(),
 	];
 

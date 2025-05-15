@@ -136,7 +136,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
+    <FieldWrapper heading="A5E.damage.headings.formula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 id="{actionId}-{rollId}-damage-formula"
@@ -156,14 +156,14 @@
             >
                 <i
                     class="fa-solid fa-arrow-up-right-dots"
-                    data-tooltip="A5E.ConfigureDamageScaling"
+                    data-tooltip="A5E.scaling.headings.configureDamage"
                     data-tooltip-direction="UP"
                 />
             </button>
         </div>
     </FieldWrapper>
 
-    <FieldWrapper heading="A5E.DamageType">
+    <FieldWrapper heading="A5E.damage.headings.type">
         <select
             id="{actionId}-{rollId}-damage-type"
             class="u-w-fit damage-type-select"
@@ -188,7 +188,7 @@
 </Section>
 
 <Checkbox
-    label="A5E.DamageDoubleOnCrit"
+    label="A5E.damage.labels.doubleOnCrit"
     checked={roll.canCrit ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(
@@ -201,7 +201,7 @@
 
 {#if roll.canCrit ?? true}
     <FieldWrapper
-        heading="A5E.DamageBonusOnCrit"
+        heading="A5E.damage.headings.bonusOnCrit"
         hint="When you score a critical hit, this damage is added after doubling
     the attack's damage."
     >
@@ -220,7 +220,7 @@
 {/if}
 
 <Checkbox
-    label="A5E.DamageDefaultSelection"
+    label="A5E.damage.labels.defaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

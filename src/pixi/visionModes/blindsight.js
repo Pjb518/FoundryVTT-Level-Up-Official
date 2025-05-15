@@ -3,7 +3,7 @@ export default class DetectionModeBlindSight extends DetectionMode {
 		super({
 			angle: false,
 			id: 'blindsight',
-			label: 'A5E.SenseBlindsight',
+			label: 'A5E.senses.types.blindsight',
 			type: DetectionMode.DETECTION_TYPES.OTHER,
 			walls: true,
 		});

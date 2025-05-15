@@ -101,7 +101,7 @@ updateFilters(reducer, reducerType, activeFilters);
                                 class=" filter-button u-text-xs"
                                 on:click|stopPropagation={() => toggleAll(filters)}
                             >
-                                {localize("A5E.ButtonToggleAll")}
+                                {localize("A5E.buttons.toggleAll")}
                             </button>
                         </header>
 

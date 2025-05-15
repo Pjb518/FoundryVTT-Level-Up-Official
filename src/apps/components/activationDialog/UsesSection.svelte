@@ -43,7 +43,7 @@
 
 <div class="side-by-side">
     {#if showActivationDialogSection(action, selectedConsumers, ["actionUses"], ["actionUses"]) && actionUses?.max}
-        <FieldWrapper heading="A5E.ActionUses">
+        <FieldWrapper heading="A5E.actions.headings.uses">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">
                     <input
@@ -57,14 +57,14 @@
 
                 <p class="u-text-xs">
                     ( {actionUses.value} / {actionMaxUses}
-                    {localize("A5E.UsesRemaining")})
+                    {localize("A5E.consumers.uses.remaining")})
                 </p>
             </div>
         </FieldWrapper>
     {/if}
 
     {#if showActivationDialogSection(action, selectedConsumers, ["itemUses"], ["itemUses"]) && itemUses?.max}
-        <FieldWrapper heading="A5E.ItemUses">
+        <FieldWrapper heading="A5E.consumers.usesItem">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">
                     <input
@@ -78,7 +78,7 @@
 
                 <p class="u-text-xs">
                     ( {itemUses.value} / {itemMaxUses}
-                    {localize("A5E.UsesRemaining")})
+                    {localize("A5E.consumers.uses.remaining")})
                 </p>
             </div>
         </FieldWrapper>

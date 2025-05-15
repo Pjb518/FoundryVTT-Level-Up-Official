@@ -11,7 +11,7 @@ export default function prepareSavingThrows(
 		roll.ability ??= 'str';
 
 		if (!roll.label) {
-			const label = game.i18n.format('A5E.SavingThrowSpecific', {
+			const label = game.i18n.format('A5E.rollLabels.prompts.savingThrow', {
 				ability: game.i18n.localize(CONFIG.A5E.abilities[roll.ability]),
 			});
 

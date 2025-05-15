@@ -56,7 +56,7 @@
 
 <RadioGroup
     allowDeselect={false}
-    heading="A5E.ItemAbilityCheckType"
+    heading="A5E.items.headings.abilityCheckType"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions()}
     selected={selectedAbility}

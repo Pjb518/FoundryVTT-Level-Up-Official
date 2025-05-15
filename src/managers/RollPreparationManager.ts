@@ -289,8 +289,8 @@ class RollPreparationManager {
 		if (isCrit) roll = critRoll;
 
 		const label = damageType
-			? localize('A5E.DamageSpecific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
-			: localize('A5E.Damage');
+			? localize('A5E.damage.labels.specific', { damageType: localize(CONFIG.A5E.damageTypes[damageType]) })
+			: localize('A5E.damage.title');
 
 		return {
 			baseRoll: baseRoll as EvaluatedRoll,
@@ -327,7 +327,7 @@ class RollPreparationManager {
 
 		const r = await new Roll(rollFormula).evaluate();
 		const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		const label = _roll.label || localize('A5E.GenericRoll');
+		const label = _roll.label || localize('A5E.rollLabels.generic');
 
 		return {
 			label,
@@ -375,9 +375,9 @@ class RollPreparationManager {
 		const roll = await new Roll(rollFormula).evaluate();
 		let label: string;
 
-		if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
-		else if (_roll.saveType === 'death') label = localize('A5E.DeathSavingThrow');
-		else label = localize('A5E.SavingThrowSpecific', { ability });
+		if (_roll.saveType === 'concentration') label = localize('A5E.rollLabels.concentrationCheck');
+		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
+		else label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 
 		return {
 			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
@@ -409,11 +409,11 @@ class RollPreparationManager {
 
 		const label =
 			ability && ability !== 'none'
-				? localize('A5E.SkillCheckAbility', {
+				? localize('A5E.skillLabels.checks.ability', {
 						skill,
 						ability: CONFIG.A5E.abilityAbbreviations[ability],
 					})
-				: localize('A5E.SkillCheck', { skill });
+				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 
 		return {
 			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
@@ -434,7 +434,7 @@ class RollPreparationManager {
 		// Flatten the tools array
 		const tools = Object.values(CONFIG.A5E.tools).reduce((acc, curr) => ({ ...acc, ...curr }), {});
 
-		const label = localize('A5E.ToolCheckSpecific', { tool: localize(tools[_roll?.tool] ?? '') });
+		const label = localize('A5E.actions.labels.toolCheckSpecific', { tool: localize(tools[_roll?.tool] ?? '') });
 
 		// Check if ability configured
 		if (abilityKey) {
@@ -449,7 +449,7 @@ class RollPreparationManager {
 		// Check tool prof
 		if (isProficient) {
 			modifiers.push({
-				label: localize('A5E.Proficiency'),
+				label: localize('A5E.proficiency.title'),
 				// @ts-expect-error
 				value: this.#actor.system.attributes.prof,
 			});

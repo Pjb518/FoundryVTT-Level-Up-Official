@@ -74,7 +74,7 @@
         <!-- Attunement -->
         <div class="shield shield--attunement">
             <h3 class="footer-shield-header">
-                {localize("A5E.Attunement")}
+                {localize("A5E.attument.headings.attunement")}
             </h3>
 
             <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
@@ -107,7 +107,7 @@
                 data-tooltip={supplyTooltip}
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.Supply")}
+                {localize("A5E.supply.title")}
             </h3>
 
             {#if !sheetIsLocked}
@@ -166,7 +166,7 @@
     {#if showVRCImplants}
         <div class="shield shield--implants">
             <h3 class="footer-shield-header">
-                {localize("A5E.Implant")}
+                {localize("A5E.objects.implant")}
             </h3>
 
             <span class="a5e-footer-group__value a5e-footer-group__value--implants">

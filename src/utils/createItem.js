@@ -14,7 +14,7 @@ function getItemName(itemType, subType) {
 
 	if (itemType === 'spell') {
 		const spellLevel = parseInt(subType, 10);
-		return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : 'A5E.Spell');
+		return localize(spellLevel === 0 ? CONFIG.A5E.spellLevels[0] : 'A5E.spells.title');
 	}
 
 	return localize(CONFIG.A5E.itemTypes[itemType]);
@@ -97,7 +97,7 @@ const itemMappings = {
 
 export default async function createItem(actor, itemType, subType) {
 	const updateData = {
-		name: localize('A5E.NewItem', { type: localize(getItemName(itemType, subType)) }),
+		name: localize('A5E.items.new', { type: localize(getItemName(itemType, subType)) }),
 		type: itemType,
 		system: itemMappings[itemType](subType, { actor }),
 	};

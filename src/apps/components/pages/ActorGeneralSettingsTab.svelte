@@ -31,7 +31,7 @@
 
     <FieldWrapper>
         <Checkbox
-            label="A5E.HideGenericResources"
+            label="A5E.genericResources.hideGenericResources"
             checked={flags?.hideGenericResources ?? $actor.type === "npc"}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(

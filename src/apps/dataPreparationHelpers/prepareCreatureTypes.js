@@ -12,7 +12,7 @@ export default function prepareCreatureTypes(data) {
 	}
 
 	if (data.system.details.isSwarm) {
-		typeLabels.push(localize('A5E.CreatureSwarm'));
+		typeLabels.push(localize('A5E.details.creature.labels.swarm'));
 	}
 
 	return typeLabels;

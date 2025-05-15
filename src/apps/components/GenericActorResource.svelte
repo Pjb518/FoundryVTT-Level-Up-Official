@@ -108,7 +108,7 @@
                 name="system.resources.{source}.label"
                 value={resource.label}
                 class="a5e-input a5e-input--slim resource-label"
-                placeholder={localize(`A5E.Resources${source.capitalize()}`)}
+                placeholder={localize(`A5E.consumers.resources.titlePlural${source.capitalize()}`)}
                 disabled={sheetIsLocked}
                 on:change={({ target }) =>
                     updateDocumentDataFromField($actor, target.name, target.value)}

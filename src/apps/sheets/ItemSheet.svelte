@@ -39,13 +39,13 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
+            label: "A5E.tabs.description",
             component: ItemDescriptionTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "unidentifiedDescription",
-            label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+            label: "A5E.objects.unidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
             display:
                 $item.type === "object" && ($item.system.unidentified || game.user.isGM),
@@ -58,13 +58,13 @@
         },
         {
             name: "properties",
-            label: "A5E.ItemSheetLabelPropertiesTab",
+            label: "A5E.tabs.properties",
             component: ItemPropertiesTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "equipment",
-            label: "A5E.Equipment",
+            label: "A5E.objects.equipment",
             component: ItemEquipmentTab,
             display:
                 $item.type === "object" &&
@@ -73,25 +73,25 @@
         },
         {
             name: "actions",
-            label: "A5E.ItemSheetLabelActionsTab",
+            label: "A5E.tabs.actions",
             component: ItemActionsTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "effects",
-            label: "A5E.TabEffects",
+            label: "A5E.tabs.effects",
             component: ItemEffectsTab,
             display: !$item.system.unidentified || game.user.isGM,
         },
         {
             name: "grants",
-            label: "A5E.TabGrants",
+            label: "A5E.tabs.grants",
             component: ItemGrantsTab,
             display: $item.type === "feature",
         },
         {
             name: "macro",
-            label: "A5E.TabMacro",
+            label: "A5E.tabs.macro",
             component: ItemMacroTab,
             display: ["feature", "maneuver", "object", "spell"].includes($item.type),
         },

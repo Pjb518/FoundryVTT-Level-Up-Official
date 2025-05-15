@@ -75,11 +75,11 @@
 
 <section class="a5e-page-wrapper">
     <Section
-        heading="A5E.TabRanges"
+        heading="A5E.tabs.ranges"
         headerButtons={[
             {
                 classes: "add-button",
-                label: "A5E.ButtonAddRangeIncrement",
+                label: "A5E.buttons.addRangeIncrement",
                 handler: addRangeIncrement,
             },
         ]}
@@ -140,7 +140,7 @@
                         >
                             <i
                                 class="fa-solid fa-arrow-up-right-dots"
-                                data-tooltip="A5E.ConfigureTargetScaling"
+                                data-tooltip="A5E.scaling.headings.configureTarget"
                                 data-tooltip-direction="UP"
                             />
                         </button>

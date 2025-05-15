@@ -46,19 +46,19 @@
 
     const rollTypes = {
         attack: {
-            heading: "A5E.ItemAttackRoll",
-            singleLabel: "A5E.ItemAttackRoll",
+            heading: "A5E.items.headings.attackRoll",
+            singleLabel: "A5E.items.headings.attackRoll",
             component: AttackRollConfig,
         },
         damage: {
-            heading: "A5E.ItemDamageRollPlural",
-            buttonLabel: "A5E.Damage",
-            singleLabel: "A5E.ItemDamageRoll",
+            heading: "A5E.actions.labels.damageRollPlural",
+            buttonLabel: "A5E.damage.title",
+            singleLabel: "A5E.actions.labels.damageRoll",
             component: DamageRollConfig,
         },
         healing: {
-            heading: "A5E.ItemHealingRollPlural",
-            singleLabel: "A5E.Healing",
+            heading: "A5E.actions.labels.healingRollPlural",
+            singleLabel: "A5E.healing.title",
             component: HealingRollConfig,
         },
         abilityCheck: {
@@ -67,23 +67,23 @@
             component: AbilityCheckRollConfig,
         },
         skillCheck: {
-            heading: "A5E.SkillCheckPlural",
-            singleLabel: "A5E.SkillCheckSingular",
+            heading: "A5E.skillLabels.checks.titlePlural",
+            singleLabel: "A5E.skillLabels.checks.title",
             component: SkillCheckRollConfig,
         },
         toolCheck: {
-            heading: "A5E.ToolCheckPlural",
-            singleLabel: "A5E.ToolCheck",
+            heading: "A5E.actions.labels.toolCheckPlural",
+            singleLabel: "A5E.actions.labels.toolCheck",
             component: ToolCheckRollConfig,
         },
         savingThrow: {
-            heading: "A5E.SavingThrowPlural",
-            singleLabel: "A5E.SavingThrow",
+            heading: "A5E.rollLabels.savingThrows.titlePlural",
+            singleLabel: "A5E.rollLabels.savingThrows.title",
             component: SavingThrowRollConfig,
         },
         generic: {
-            heading: "A5E.OtherPlural",
-            singleLabel: "A5E.Other",
+            heading: "A5E.actions.labels.otherPlural",
+            singleLabel: "A5E.actions.labels.other",
             component: GenericRollConfig,
         },
     };
@@ -120,7 +120,7 @@
                                               [actionId, action],
                                               rollType,
                                           ),
-                                      label: localize("A5E.ButtonAddRoll", {
+                                      label: localize("A5E.buttons.addRoll", {
                                           type: localize(
                                               rollType === "damage"
                                                   ? buttonLabel

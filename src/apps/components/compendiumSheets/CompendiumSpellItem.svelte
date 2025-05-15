@@ -100,30 +100,30 @@ $: spellSource = getSpellSource(document);
         {#if document.system.components.vocalized}
             <span
                 class="component"
-                data-tooltip="A5E.SpellComponentVocalized"
+                data-tooltip="A5E.spells.components.vocalized"
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.SpellComponentVocalizedAbbr")}
+                {localize("A5E.spells.components.vocalizedAbbr")}
             </span>
         {/if}
 
         {#if document.system.components.seen}
             <span
                 class="component"
-                data-tooltip="A5E.SpellComponentSeen"
+                data-tooltip="A5E.spells.components.seen"
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.SpellComponentSeenAbbr")}
+                {localize("A5E.spells.components.seenAbbr")}
             </span>
         {/if}
 
         {#if document.system.components.material}
             <span
                 class="component"
-                data-tooltip="A5E.SpellComponentMaterial"
+                data-tooltip="A5E.spells.components.material"
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.SpellComponentMaterialAbbr")}
+                {localize("A5E.spells.components.materialAbbr")}
             </span>
         {/if}
 
@@ -133,17 +133,17 @@ $: spellSource = getSpellSource(document);
                 data-tooltip="A5E.SpellConcentration"
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.SpellConcentrationAbbr")}
+                {localize("A5E.spells.concentrationAbbr")}
             </span>
         {/if}
 
         {#if document.system.ritual}
             <span
                 class="component"
-                data-tooltip="A5E.SpellRitual"
+                data-tooltip="A5E.spells.ritual"
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.SpellRitualAbbr")}
+                {localize("A5E.spells.ritualAbbr")}
             </span>
         {/if}
     </ul>

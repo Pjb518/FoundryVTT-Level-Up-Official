@@ -31,12 +31,12 @@ function onDrop(event) {
 const tabs = [
 	{
 		name: 'description',
-		label: 'A5E.Description',
+		label: 'A5E.tabs.description',
 		component: ItemDescriptionTab,
 	},
 	{
 		name: 'grants',
-		label: 'A5E.TabGrants',
+		label: 'A5E.tabs.grants',
 		component: ItemGrantsTab,
 	},
 ];

@@ -14,7 +14,7 @@ export default function getManeuverSummaryData(item: ItemA5e, options: Record<st
 
 	const exertionCost = item.system.exertionCost
 		? `(${item.system.exertionCost}
-    ${localize(item.system.exertionCost > 1 ? 'A5E.ExertionPointPlural' : 'A5E.ExertionPoint')})`
+    ${localize(item.system.exertionCost > 1 ? 'A5E.exertion.pointPlural' : 'A5E.exertion.point')})`
 		: '';
 
 	const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]

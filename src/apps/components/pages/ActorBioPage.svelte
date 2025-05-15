@@ -11,23 +11,23 @@
     const actor = getContext("actor");
 
     const charChoicesLabel = {
-        classes: "A5E.ClassPlural",
-        archetype: "A5E.Archetype",
-        background: "A5E.Background",
-        culture: "A5E.Culture",
-        destiny: "A5E.Destiny",
-        heritage: "A5E.Heritage",
-        prestige: "A5E.Prestige",
+        classes: "A5E.details.classPlural",
+        archetype: "A5E.details.archetype",
+        background: "A5E.details.background",
+        culture: "A5E.details.culture",
+        destiny: "A5E.details.destiny.title",
+        heritage: "A5E.details.heritage",
+        prestige: "A5E.details.prestige",
     };
 
     const traitsLabel = {
-        age: "A5E.DetailsAge",
-        eyeColor: "A5E.DetailsEyeColor",
-        hairColor: "A5E.DetailsHairColor",
-        skinColor: "A5E.DetailsSkinColor",
-        height: "A5E.DetailsHeight",
-        weight: "A5E.DetailsWeight",
-        gender: "A5E.DetailsGender",
+        age: "A5E.details.age",
+        eyeColor: "A5E.details.eyeColor",
+        hairColor: "A5E.details.hairColor",
+        skinColor: "A5E.details.skinColor",
+        height: "A5E.details.height",
+        weight: "A5E.details.weight",
+        gender: "A5E.details.gender",
     };
 
     function onSelectEditor(editor) {
@@ -130,7 +130,7 @@
                     class:u-text-light={currentEditor === "bio"}
                     on:click={() => onSelectEditor("bio")}
                 >
-                    {localize("A5E.DetailsBackstory")}
+                    {localize("A5E.details.backstory")}
                 </a>
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -154,7 +154,7 @@
                     class:u-text-light={currentEditor === "appearance"}
                     on:click={() => onSelectEditor("appearance")}
                 >
-                    {localize("A5E.DetailsAppearance")}
+                    {localize("A5E.details.appearance")}
                 </a>
             </div>
 

@@ -17,6 +17,6 @@ export default function getPromptTitle(prompt, actorId) {
 		case 'skillCheck':
 			return getSkillCheckPromptTitle(prompt);
 		default:
-			return prompt?.label || localize('A5E.Other');
+			return prompt?.label || localize('A5E.actions.labels.other');
 	}
 }

@@ -23,13 +23,13 @@ export default function registerContextsConfig() {
 	};
 
 	const healingBonusContexts = {
-		healing: 'A5E.healingBonuses.contexts.healing',
-		temporaryHealing: 'A5E.healingBonuses.contexts.temporaryHealing',
+		healing: 'A5E.healing.bonuses.contexts.healing',
+		temporaryHealing: 'A5E.healing.bonuses.contexts.temporaryHealing',
 	};
 
 	const healingBonusSummariesByContext = {
-		healing: 'A5E.healingBonuses.summaries.contexts.healing',
-		temporaryHealing: 'A5E.healingBonuses.summaries.contexts.temporaryHealing',
+		healing: 'A5E.healing.bonuses.summaries.contexts.healing',
+		temporaryHealing: 'A5E.healing.bonuses.summaries.contexts.temporaryHealing',
 	};
 
 	const skillBonusContexts = {

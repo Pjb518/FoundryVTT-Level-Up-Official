@@ -28,7 +28,7 @@ $: doc = fromUuidSync(uuid);
 
                 <button
                     class="a5e-button a5e-button--delete delete-button fas fa-trash"
-                    data-tooltip="A5E.ButtonToolTipDelete"
+                    data-tooltip="A5E.buttons.tooltips.delete"
                     data-tooltip-direction="UP"
                     on:click={(event) => dispatch("document-deleted", [event, uuid])}
                 />

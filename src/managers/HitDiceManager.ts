@@ -201,7 +201,7 @@ export default class HitDiceManager {
 
 		const roll = await new Roll(formula).roll();
 
-		const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
+		const title = localize('A5E.hitDice.chatHeader', { dieSize: dieSize.toUpperCase() });
 		const chatData = {
 			author: game.user?.id,
 			//  @ts-expect-error

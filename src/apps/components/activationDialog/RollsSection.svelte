@@ -23,7 +23,7 @@ const { invalidSelections: disabledRolls, otherRolls } =
 	RollPreparationManager.prepareOtherRollData(rolls);
 </script>
 
-<FieldWrapper hint="A5E.RollsHint">
+<FieldWrapper hint="A5E.rollLabels.hint">
     <div class="roll-wrapper">
         {#each Object.entries(otherRolls) as [rollType, _rolls]}
             {#if _rolls.length}

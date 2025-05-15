@@ -74,7 +74,7 @@
                     <li>
                         <button
                             class="action-button fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() => grant.configureGrant()}
                         />
@@ -83,7 +83,7 @@
                     <li>
                         <button
                             class="action-button fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() =>
                                 $item.grants.duplicate(grant._id)}
@@ -93,7 +93,7 @@
                     <li>
                         <button
                             class="action-button delete-button fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() => grant.deleteGrant()}
                         />

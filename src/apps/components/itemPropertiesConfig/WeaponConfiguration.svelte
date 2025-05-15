@@ -28,7 +28,7 @@
 </script>
 
 <Section
-    heading="A5E.TabWeaponProperties"
+    heading="A5E.tabs.weaponProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -41,7 +41,7 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.WeaponProperties"
+            heading="A5E.weapons.headings.properties"
             options={Object.entries(weaponProperties)}
             selected={$item.system.weaponProperties}
             on:updateSelection={(event) =>
@@ -53,7 +53,7 @@
         />
 
         <CheckboxGroup
-            heading="A5E.WeaponAugments"
+            heading="A5E.weapons.headings.augments"
             options={Object.entries(weaponAugments)}
             selected={$item.system.weaponAugments}
             on:updateSelection={(event) =>
@@ -124,7 +124,7 @@
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.WeaponProperties")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.weapons.headings.properties")}:</dt>
 
                 <dd class="u-m-0 u-p-0">
                     {selectedWeaponProperties || localize("A5E.None")}
@@ -133,7 +133,7 @@
 
             {#if selectedWeaponAugments}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.WeaponAugments")}:</dt>
+                    <dt class="u-text-bold">{localize("A5E.weapons.headings.augments")}:</dt>
 
                     <dd class="u-m-0 u-p-0">
                         {selectedWeaponAugments || localize("A5E.None")}

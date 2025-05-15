@@ -37,8 +37,8 @@
 
     const promptTypes = {
         savingThrow: {
-            heading: "A5E.SavingThrowPlural",
-            singleLabel: "A5E.SavingThrow",
+            heading: "A5E.rollLabels.savingThrows.titlePlural",
+            singleLabel: "A5E.rollLabels.savingThrows.title",
             component: SavePromptConfig,
         },
         abilityCheck: {
@@ -47,13 +47,13 @@
             component: AbilityCheckPromptConfig,
         },
         skillCheck: {
-            heading: "A5E.SkillCheckPlural",
-            singleLabel: "A5E.SkillCheckSingular",
+            heading: "A5E.skillLabels.checks.titlePlural",
+            singleLabel: "A5E.skillLabels.checks.title",
             component: SkillCheckPromptConfig,
         },
         generic: {
-            heading: "A5E.OtherPlural",
-            singleLabel: "A5E.Other",
+            heading: "A5E.actions.labels.otherPlural",
+            singleLabel: "A5E.actions.labels.other",
             component: GenericPromptConfig,
         },
     };
@@ -83,7 +83,7 @@
                                         [actionId, action],
                                         promptType,
                                     ),
-                                label: localize("A5E.ButtonAddPrompt", {
+                                label: localize("A5E.buttons.addPrompt", {
                                     type: localize(singleLabel),
                                 }),
                             },

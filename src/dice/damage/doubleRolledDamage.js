@@ -8,7 +8,7 @@ export default async function doubleRolledDamage(baseRoll) {
 		await new Terms.OperatorTerm({ operator: '+' }).evaluate(),
 		await new Terms.NumericTerm({
 			number: baseRoll.total,
-			options: { flavor: localize('A5E.CritDamage') },
+			options: { flavor: localize('A5E.damage.headings.crit') },
 		}).evaluate(),
 	];
 

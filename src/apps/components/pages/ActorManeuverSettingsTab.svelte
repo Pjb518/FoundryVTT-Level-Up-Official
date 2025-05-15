@@ -13,7 +13,7 @@ const actor = getContext('actor');
 <Section heading="Maneuver Resource Settings" --a5e-section-body-gap="0.75rem">
     <FieldWrapper>
         <Checkbox
-            label="A5E.ExertionRecoveryConfigPrompt"
+            label="A5E.exertion.recoveryConfigPrompt"
             checked={$actor.system.attributes.exertion.recoverOnRest}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(

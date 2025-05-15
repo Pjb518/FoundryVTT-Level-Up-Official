@@ -14,21 +14,21 @@ export default function getMaterialPropertiesSummary(item: ObjectItemA5e) {
 
 			if (!flawTypes.length) return materialProperties.flaw;
 
-			return localize('A5E.MaterialPropertyFlawSpecific', { type: flawTypes.join(', ') });
+			return localize('A5E.objects.properties.flawSpecific', { type: flawTypes.join(', ') });
 		}
 
 		if (property === 'spacefaring') {
 			if (item.system.modPorts) {
 				if (item.system.modPorts !== '1') {
 					const modPort = modPorts[item.system.modPorts];
-					return localize('A5E.MaterialPropertySpacefaringSpecificPlural', { type: modPort });
+					return localize('A5E.objects.properties.spacefaringSpecificPlural', { type: modPort });
 				}
 
 				const modPort = modPorts[item.system.modPorts];
-				return localize('A5E.MaterialPropertySpacefaringSpecific', { type: modPort });
+				return localize('A5E.objects.properties.spacefaringSpecific', { type: modPort });
 			}
 
-			return localize('A5E.MaterialPropertySpacefaring');
+			return localize('A5E.objects.properties.spacefaring');
 		}
 
 		return materialProperties[property] ?? property;

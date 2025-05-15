@@ -276,7 +276,7 @@
     {#if isValidTemplate}
         <Section heading="Template Config" --a5e-section-body-gap="0.5rem">
             <Checkbox
-                label="A5E.ItemPlaceTemplate"
+                label="A5E.actions.labels.placeTemplate"
                 checked={placeTemplate}
                 on:updateSelection={({ detail }) => (placeTemplate = detail)}
             />
@@ -308,7 +308,7 @@
             {:else}
                 <i class="fa-solid fa-dice" />
             {/if}
-            {localize("A5E.DialogSubmitRoll")}
+            {localize("A5E.actions.labels.dialogSubmitRoll")}
         </button>
     </Section>
 </form>
