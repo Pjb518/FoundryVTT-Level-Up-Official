@@ -142,7 +142,7 @@
     />
 
     <RadioGroup
-        heading="A5E.Skill"
+        heading="A5E.skillLabels.title"
         options={Object.entries(skills)}
         selected={skillKey}
         on:updateSelection={({ detail }) => (skillKey = detail)}

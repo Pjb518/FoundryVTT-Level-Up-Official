@@ -105,7 +105,7 @@
     </header>
 
     <Section --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.Formula">
+        <FieldWrapper heading="A5E.rollLabels.formula">
             <input
                 type="text"
                 value={initiativeBonus.formula ?? ""}

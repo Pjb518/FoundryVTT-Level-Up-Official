@@ -14,7 +14,7 @@ export default function prepareToolChecks(
 		roll.tool ??= 'airVehicles';
 
 		if (!roll.label) {
-			const label = game.i18n.format('A5E.ToolCheckSpecific', {
+			const label = game.i18n.format('A5E.actions.labels.toolCheckSpecific', {
 				tool: game.i18n.localize(tools[roll.tool]),
 			});
 

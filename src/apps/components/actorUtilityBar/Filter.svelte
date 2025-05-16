@@ -114,7 +114,7 @@
                                 on:click|stopPropagation={() =>
                                     toggleAll(filters)}
                             >
-                                {localize("A5E.ButtonToggleAll")}
+                                {localize("A5E.buttons.toggleAll")}
                             </button>
                         </header>
 

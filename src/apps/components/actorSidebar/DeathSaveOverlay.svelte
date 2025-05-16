@@ -32,7 +32,7 @@ $: death = $actor.system.attributes.death;
             name="system.attributes.death.success"
             placeholder="?"
             min="0"
-            data-tooltip="A5E.DeathSuccess"
+            data-tooltip="A5E.deathSavingThrow.success"
             data-tooltip-direction="UP"
             value={death.success}
             on:change={({ target }) =>
@@ -43,7 +43,7 @@ $: death = $actor.system.attributes.death;
     <div class="death-saves__icon u-align-center u-flex u-flex-col u-pos-relative">
         <button
             class="death-saves__button"
-            data-tooltip="A5E.DeathSavingThrowRoll"
+            data-tooltip="A5E.deathSavingThrow.roll"
             data-tooltip-direction="UP"
             on:click={$actor.rollDeathSavingThrow(
                 getKeyPressAsOptions($pressedKeysStore),
@@ -61,7 +61,7 @@ $: death = $actor.system.attributes.death;
             data-dtype="Number"
             placeholder="0"
             min="0"
-            data-tooltip="A5E.DeathFailure"
+            data-tooltip="A5E.deathSavingThrow.failure"
             data-tooltip-direction="UP"
             value={isBlind ? "?" : death.failure}
             on:change={({ target }) =>

@@ -19,12 +19,12 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.Description",
+            label: "A5E.tabs.description",
             component: ItemDescriptionTab,
         },
         {
             name: "features",
-            label: "A5E.TabFeatures",
+            label: "A5E.tabs.features",
             component: DestinyFeaturesTab,
         },
     ];

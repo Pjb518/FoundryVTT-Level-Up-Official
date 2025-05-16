@@ -80,7 +80,7 @@
     --a5e-section-body-padding="0"
     --a5e-section-body-wrap="nowrap"
 >
-    <FieldWrapper heading="A5E.AttackType">
+    <FieldWrapper heading="A5E.attacks.headings.type">
         <select
             class="u-w-full"
             on:change={({ target }) =>
@@ -98,7 +98,7 @@
         </select>
     </FieldWrapper>
 
-    <FieldWrapper heading="A5E.AttackBonus" --a5e-field-wrapper-grow="1">
+    <FieldWrapper heading="A5E.attacks.headings.bonus" --a5e-field-wrapper-grow="1">
         <input
             type="text"
             value={roll.bonus || "0"}
@@ -126,7 +126,7 @@
 </Section>
 
 <Checkbox
-    label="A5E.AddProficiency"
+    label="A5E.bonuses.labels.proficiency.addButton"
     checked={roll.proficient ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

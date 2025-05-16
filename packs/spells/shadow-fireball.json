@@ -1,10 +1,21 @@
 {
+	"folder": null,
 	"name": "Shadow Fireball",
 	"type": "spell",
 	"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
-	"effects": [],
-	"flags": {},
 	"system": {
+		"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadow Fireball.</strong> This spell’s silent black flames deal necrotic damage and don’t damage objects or leave marks on bodies. Any nonmagical flames in the area are extinguished. The spell has no vocalized component. </p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
 		"actions": {
 			"1MeJpzxJg79zD5aK": {
 				"name": "Shadow Fireball",
@@ -30,20 +41,23 @@
 					"radius": 20
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 0,
+					"type": "",
+					"scaling": {}
 				},
 				"rolls": {
 					"6nX2HGpiralDfg06": {
 						"canCrit": false,
 						"damageType": "necrotic",
 						"formula": "6d6",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "spellLevel",
 							"formula": "1d6"
-						}
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -54,7 +68,9 @@
 							"type": "spellcasting",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
@@ -62,15 +78,33 @@
 						"mode": "variable",
 						"spellLevel": 3,
 						"points": 5,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
 					}
 				}
 			}
 		},
-		"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Shadow Fireball.</strong> This spell’s silent black flames deal necrotic damage and don’t damage objects or leave marks on bodies. Any nonmagical flames in the area are extinguished. The spell has no vocalized component. </p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -87,11 +121,12 @@
 			"wizard"
 		],
 		"components": {
-			"vocalized": true,
+			"vocalized": false,
 			"seen": true,
 			"material": true
 		},
 		"concentration": false,
+		"discipline": "",
 		"level": 3,
 		"materials": "bat guano and sulfur",
 		"materialsConsumed": false,
@@ -108,14 +143,15 @@
 		},
 		"spellBook": ""
 	},
-	"folder": null,
+	"effects": [],
+	"flags": {},
 	"_stats": {
 		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.27",
-		"createdTime": 1727904727571,
-		"modifiedTime": 1727904839131,
-		"lastModifiedBy": "KETQhyurhfOziSPr"
+		"systemVersion": "1.0.10",
+		"createdTime": 1746551076047,
+		"modifiedTime": 1746551093896,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "ga9dq99vdcayy7jl"
 }

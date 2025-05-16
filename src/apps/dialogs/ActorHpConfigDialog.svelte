@@ -11,10 +11,10 @@
     export let dialog;
 
     const hpFields = [
-        { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
-        { label: "A5E.HitPointsBaseMaximum", updateAttribute: "baseMax" },
-        { label: "A5E.HitPointsTemporary", updateAttribute: "temp" },
-        { label: "A5E.HitPointsMaxModifier", updateAttribute: "bonus" },
+        { label: "A5E.hitPoints.current", updateAttribute: "value" },
+        { label: "A5E.hitPoints.baseMaximum", updateAttribute: "baseMax" },
+        { label: "A5E.hitPoints.temporary", updateAttribute: "temp" },
+        { label: "A5E.hitPoints.maxModifier", updateAttribute: "bonus" },
     ];
 
     const actor = document;

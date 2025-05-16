@@ -107,7 +107,7 @@
             {/if}
 
             <Checkbox
-                label="A5E.CreatureSwarm"
+                label="A5E.details.creature.labels.swarm"
                 checked={$actor.system.details.isSwarm}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(

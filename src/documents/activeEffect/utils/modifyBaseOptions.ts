@@ -109,7 +109,7 @@ export default function modifyBaseOptions(options: Object) {
 	options['system.traits.alignment'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
-		Object.entries(CONFIG.A5E.alignments),
+		Object.entries(CONFIG.A5E.traits.headings.alignments),
 		'TAG_GROUP',
 	];
 	options['system.traits.conditionImmunities'] = [

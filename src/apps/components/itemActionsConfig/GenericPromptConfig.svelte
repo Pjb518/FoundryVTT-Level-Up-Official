@@ -43,7 +43,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.RollFormula">
+<FieldWrapper heading="A5E.rollLabels.rollFormula">
     <input
         id="{actionId}-{promptId}-roll-formula"
         type="text"

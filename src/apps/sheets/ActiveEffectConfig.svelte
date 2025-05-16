@@ -24,18 +24,18 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
+            label: "A5E.tabs.description",
             component: EffectsDescriptionTab,
         },
         {
             name: "properties",
-            label: "A5E.ItemSheetLabelPropertiesTab",
+            label: "A5E.tabs.properties",
             component: EffectsPropertiesTab,
             display: effectType === "onUse",
         },
         {
             name: "effects",
-            label: "A5E.TabEffects",
+            label: "A5E.tabs.effects",
             component: EffectsEffectTab,
         },
     ];

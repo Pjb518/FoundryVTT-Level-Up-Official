@@ -21,7 +21,7 @@
 </script>
 
 <RadioGroup
-    heading="A5E.RollModeHeading"
+    heading="A5E.rollLabels.modeHeading"
     {buttons}
     {options}
     {selected}

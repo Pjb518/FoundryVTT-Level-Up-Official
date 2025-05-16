@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"rWuu5LjP8QtmojgG": {
@@ -17,11 +18,25 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 2,
-						"points": 3
+						"points": 3,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"caT81qMquGhSq5bh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -33,7 +48,7 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
+					"value": "1"
 				},
 				"ranges": {
 					"bGbPacUKzUWYt2BR": {
@@ -42,8 +57,19 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
-				}
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>Raising the mirror to your adversary you crush it in your hand. In the next moment you are looking at yourself from across the battlefield. When you cast Juxtapose you and your target teleport into each other&rsquo;s squares to swap position. In addition, if the target fails its save, an illusion falls over each of you, recreating the sight, scent, and sound of the other. This spell grants advantage on charisma checks to convince creatures you are your target, and your target gains disadvantage on charisma checks to convince creatures that it is not you.</p>",
@@ -82,14 +108,26 @@
 				"teleportation"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "t3xu8fmcm6tao7q1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746551122330,
+		"modifiedTime": 1746551190670,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "t3xu8fmcm6tao7q1"
 }

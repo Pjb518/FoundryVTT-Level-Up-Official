@@ -46,7 +46,7 @@
 
 <Section heading="Miscellaneous Spell Settings" --a5e-section-body-gap="0.75rem">
     <RadioGroup
-        heading="A5E.DefaultSpellcastingAbilityScore"
+        heading="A5E.spells.spellcasting.defaultAbilityScore"
         optionStyles="min-width:2rem; text-align: center;"
         options={Object.entries(abilityAbbreviations)}
         selected={$actor.system.attributes.spellcasting}

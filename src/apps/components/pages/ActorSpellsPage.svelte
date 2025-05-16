@@ -256,7 +256,7 @@
     {#if $actor.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.ArtifactCharges")}
+                {localize("A5E.spells.spellcasting.artifactCharges")}
             </h3>
 
             <input
@@ -296,7 +296,7 @@
     {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellInventions")}
+                {localize("A5E.spells.spellcasting.inventions")}
             </h3>
 
             <!-- <input
@@ -334,7 +334,7 @@
         {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                    {localize("A5E.SpellPoints")}
+                    {localize("A5E.spells.spellcasting.points")}
                 </h3>
 
                 <input
@@ -368,7 +368,7 @@
                 {#if spellResources.points.current < spellPointMax && spellPointMax && startingClass === "psion"}
                     <button
                         class="recharge-button"
-                        data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                        data-tooltip="A5E.psionicDisciplines.rechargeFromHitDice"
                         data-tooltip-direction="UP"
                         on:click={() =>
                             $actor.recoverPsionicPointsUsingHitDice()}
@@ -381,7 +381,7 @@
     {:else}
         <div class="u-flex u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
-                {localize("A5E.ExertionPool")}
+                {localize("A5E.exertion.pool")}
             </h3>
 
             <input
@@ -419,7 +419,7 @@
             {#if exertion.current < exertion.max && exertion.max}
                 <button
                     class="recharge-button"
-                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip="A5E.exertion.rechargeFromHitDice"
                     data-tooltip-direction="UP"
                     on:click={() => $actor.recoverExertionUsingHitDice()}
                 >

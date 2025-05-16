@@ -40,7 +40,7 @@
 <article>
     <section class="section-wrapper drop-area">
         <h3 class="section-title">
-            {localize("A5E.DestinyFeatureSource")}
+            {localize("A5E.details.destiny.featureSource")}
         </h3>
 
         <DropAreaSingular
@@ -55,7 +55,7 @@
 
     <section class="section-wrapper drop-area">
         <h3 class="section-title">
-            {localize("A5E.DestinyFeatureInspiration")}
+            {localize("A5E.details.destiny.featureInspiration")}
         </h3>
 
         <DropAreaSingular
@@ -70,7 +70,7 @@
 
     <section class="section-wrapper drop-area">
         <h3 class="section-title">
-            {localize("A5E.DestinyFeatureFulfillment")}
+            {localize("A5E.details.destiny.featureFulfillment")}
         </h3>
 
         <DropAreaSingular

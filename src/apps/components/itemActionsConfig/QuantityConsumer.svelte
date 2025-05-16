@@ -84,7 +84,7 @@
     --a5e-section-body-gap="0.5rem"
 >
     <FieldWrapper
-        heading="A5E.Item"
+        heading="A5E.items.title"
         warning="Item selection will be available when item is on an actor."
         showWarning={!$item.actor}
     >

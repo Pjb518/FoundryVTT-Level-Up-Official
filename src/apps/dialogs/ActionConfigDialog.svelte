@@ -29,42 +29,42 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
+            label: "A5E.tabs.description",
             component: ActionsDescriptionTab,
         },
         {
             name: "activation",
-            label: "A5E.TabActivation",
+            label: "A5E.tabs.activation",
             component: ActionsActivationTab,
         },
         {
             name: "targeting",
-            label: "A5E.TabTargeting",
+            label: "A5E.tabs.targeting",
             component: ActionsTargetingTab,
         },
         {
             name: "rolls",
-            label: "A5E.TabRolls",
+            label: "A5E.tabs.rolls",
             component: ActionsRollsTab,
         },
         {
             name: "prompts",
-            label: "A5E.TabPrompts",
+            label: "A5E.tabs.prompts",
             component: ActionsPromptsTab,
         },
         {
             name: "consumers",
-            label: "A5E.TabResourceManagement",
+            label: "A5E.tabs.resourceManagement",
             component: ActionsResourceManagementTab,
         },
         {
             name: "effects",
-            label: "A5E.TabEffects",
+            label: "A5E.tabs.effects",
             component: ActionsEffectsTab,
         },
         {
             name: "macro",
-            label: "A5E.TabMacro",
+            label: "A5E.tabs.macro",
             component: ItemMacroTab,
         },
     ];

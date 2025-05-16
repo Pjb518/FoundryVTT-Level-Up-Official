@@ -12,7 +12,7 @@
             value: $actor.system.attributes.maneuverDC,
         },
         {
-            label: "A5E.SpellDC",
+            label: "A5E.spells.dc",
             value: $actor.system.attributes.spellDC,
             tooltip: $actor.spellBooks.getSpellDCString(true),
         },

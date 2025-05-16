@@ -14,11 +14,11 @@
     const { A5E } = CONFIG;
 
     const headings = {
-        burrow: "A5E.MovementBurrowingSpeed",
-        climb: "A5E.MovementClimbingSpeed",
-        fly: "A5E.MovementFlyingSpeed",
-        swim: "A5E.MovementSwimmingSpeed",
-        walk: "A5E.MovementWalkingSpeed",
+        burrow: "A5E.details.movement.types.burrow",
+        climb: "A5E.details.movement.types.climb",
+        fly: "A5E.details.movement.types.fly",
+        swim: "A5E.details.movement.types.swim",
+        walk: "A5E.details.movement.types.walk",
     };
 </script>
 
@@ -73,7 +73,7 @@
 
                 {#if mode === "fly"}
                     <Checkbox
-                        label="A5E.MovementHover"
+                        label="A5E.details.movement.hover"
                         checked={movementData?.hover}
                         on:updateSelection={({ detail }) => {
                             updateDocumentDataFromField(

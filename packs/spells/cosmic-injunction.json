@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"2DjMXPxNCSAPcBKG": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 6,
-						"points": 9
+						"points": 9,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -38,16 +41,31 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
-				}
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			},
 			"4wKd6jIif1VRXdOv": {
 				"name": "Defiance",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {
 					"88jRRMxAL16ku3ku": {
@@ -55,7 +73,10 @@
 						"default": true,
 						"damageType": "psychic",
 						"formula": "4d8",
-						"canCrit": false
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -64,8 +85,11 @@
 						"default": true,
 						"ability": "cha",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -76,10 +100,30 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			}
 		},
-		"description": "<p>You forbid a creature to take a specific action until the end of its next turn. Valid choices are melee attacks, ranged attacks, casting spells, or a specific, known action particular to the creature such as a dragon&rsquo;s breath weapon. If the creature can perform the prohibited action with a bonus action, reaction, or legendary action, the spell&rsquo;s effects apply to those as well. The creature is aware of your prohibition and the potential consequences for disobeying it regardless of any language barriers between you and it.</p><p>On its next turn, if the creature decides to defy your forbiddance and perform the action anyway, it must make a Charisma saving throw against your spell save DC. On a success, it suffers no ill effects and can perform the action as normal. On a failure, it can perform the action as normal, but if it does, it suffers 4d8 points of psychic damage and is slowed until the end of its next turn.</p>",
+		"description": "<p>You forbid a creature to take a specific action. When you cast the spell and at the beginning of each of your turns while the spell lasts, choose an action to forbid until the beginning of your next turn. Valid choices are melee attacks, ranged attacks, casting spells, or a specific, known action particular to the creature such as a dragon’s breath weapon. If the creature can perform the prohibited action with a bonus action, reaction, or legendary action, the spell’s effects apply to those as well. The creature is aware of your prohibition and the potential consequences for disobeying it regardless of any language barriers between you and it.</p><p>Until the beginning of your next turn, if the creature decides to defy your forbiddance and perform the action anyway, it must make a Charisma saving throw against your spell save DC. On a success, it suffers no ill effects and can perform the action as normal. On a failure, it can perform the action as normal, but if it does, it suffers 4d8 points of psychic damage and is slowed until the end of its next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "spellsFromTheForgottenVault",
@@ -120,14 +164,26 @@
 				"psychic"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "rlmh3mlvz6eu4l3u",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746549685163,
+		"modifiedTime": 1746549709500,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rlmh3mlvz6eu4l3u"
 }

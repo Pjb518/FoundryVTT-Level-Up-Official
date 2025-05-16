@@ -32,7 +32,7 @@ export default function getWeaponProficiencies(data) {
 
 		if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {
 			weaponProficienciesByGroup[weaponType] = [
-				game.i18n.localize(`A5E.Weapons${weaponType[0].toUpperCase() + weaponType.slice(1)}`),
+				game.i18n.localize(`A5E.weapons.titlePlural${weaponType[0].toUpperCase() + weaponType.slice(1)}`),
 			];
 		} else {
 			weaponProficienciesByGroup[weaponType] = weaponProficienciesByGroup[weaponType].map(

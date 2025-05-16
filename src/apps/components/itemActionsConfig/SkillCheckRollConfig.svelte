@@ -63,7 +63,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.Skill">
+<FieldWrapper heading="A5E.skillLabels.title">
     <select
         class="u-w-fit"
         on:change={({ target }) =>
@@ -83,14 +83,14 @@
 
 <RadioGroup
     allowDeselect={false}
-    heading="A5E.DefaultAbilityScore"
+    heading="A5E.abilities.headings.default"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions(false, true)}
     selected={selectedAbility}
     on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
-<FieldWrapper heading="A5E.CheckBonus">
+<FieldWrapper heading="A5E.bonuses.labels.checkBonus">
     <input
         type="text"
         value={roll.bonus ?? ""}
@@ -104,7 +104,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.SkillCheckDefaultSelection"
+    label="A5E.skillLabels.checks.defaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

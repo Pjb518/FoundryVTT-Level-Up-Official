@@ -89,14 +89,14 @@
 
     function getConsumeHeading(type: string) {
         if (spellData.consume === "artifactCharge") {
-            return `${localize("A5E.SpellLevel")} (${spellData.charges} charges)`;
+            return `${localize("A5E.spells.level")} (${spellData.charges} charges)`;
         }
 
         if (spellData.consume === "spellPoint") {
-            return `${localize("A5E.SpellLevel")} (${spellData.points} points)`;
+            return `${localize("A5E.spells.level")} (${spellData.points} points)`;
         }
 
-        return localize("A5E.SpellLevel");
+        return localize("A5E.spells.level");
     }
 
     function getBaseSpellLevel(): number {
@@ -122,11 +122,11 @@
     const { isEmpty } = foundry.utils;
 
     const consumeOptions: Record<string, any> = {
-        artifactCharge: "A5E.ArtifactCharges",
-        spellSlot: "A5E.ConsumeSpellSlot",
-        spellPoint: "A5E.SpellPoints",
-        // inventions: "A5E.SpellInventions",
-        noConsume: "A5E.ConsumeNothing",
+        artifactCharge: "A5E.spells.spellcasting.artifactCharges",
+        spellSlot: "A5E.consumers.spellSlot",
+        spellPoint: "A5E.spells.spellcasting.points",
+        // inventions: "A5E.spells.spellcasting.inventions",
+        noConsume: "A5E.consumers.nothing",
     };
 
     let disabled: string[] = [];
@@ -170,7 +170,7 @@
 
     {#if !isEmpty(consumer)}
         <RadioGroup
-            heading="A5E.ConsumeOptions"
+            heading="A5E.consumers.options"
             options={Object.entries(consumeOptions)}
             selected={spellData.consume}
             on:updateSelection={({ detail }) => updateConsumeOption(detail)}
@@ -180,7 +180,7 @@
 
 <!-- Artifact Charges -->
 {#if mode === "chargesOnly"}
-    <FieldWrapper heading="A5E.ArtifactCharges">
+    <FieldWrapper heading="A5E.spells.spellcasting.artifactCharges">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
                 <input
@@ -208,7 +208,7 @@
     <FieldWrapper>
         {#if !isEmpty(consumer)}
             <Checkbox
-                label="A5E.ConsumeSpellPoints"
+                label="A5E.consumers.spellPoints"
                 checked={spellData.consume === "artifactCharge" ? true : false}
                 on:updateSelection={({ detail }) => {
                     spellData.consume = detail ? "artifactCharge" : "noConsume";
@@ -220,7 +220,7 @@
 
 <!-- Spell Points -->
 {#if mode === "pointsOnly"}
-    <FieldWrapper heading="A5E.SpellPoints">
+    <FieldWrapper heading="A5E.spells.spellcasting.points">
         <div class="u-flex u-gap-md u-align-center">
             <div class="u-flex u-w-10">
                 <input
@@ -247,7 +247,7 @@
     <FieldWrapper>
         {#if !isEmpty(consumer)}
             <Checkbox
-                label="A5E.ConsumeSpellPoints"
+                label="A5E.consumers.spellPoints"
                 checked={spellData.consume === "spellPoint" ? true : false}
                 on:updateSelection={({ detail }) => {
                     spellData.consume = detail ? "spellPoint" : "noConsume";

@@ -9,7 +9,7 @@ export default function prepareGenericRollPrompts(
 
 	return prompts.map(([key, prompt]) => {
 		if (!prompt.label) {
-			const label = game.i18n.localize('A5E.Other');
+			const label = game.i18n.localize('A5E.actions.labels.other');
 			count += 1;
 
 			// @ts-expect-error

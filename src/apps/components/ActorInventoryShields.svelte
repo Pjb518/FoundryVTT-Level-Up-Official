@@ -3,6 +3,7 @@
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import evaluateMathExpression from "../../utils/evaluateMathExpression";
 
     const { A5E } = CONFIG;
     const actor = getContext("actor");
@@ -78,7 +79,7 @@
         <!-- Attunement -->
         <div class="shield shield--attunement">
             <h3 class="footer-shield-header">
-                {localize("A5E.Attunement")}
+                {localize("A5E.attument.headings.attunement")}
             </h3>
 
             <span
@@ -113,7 +114,7 @@
                 data-tooltip={supplyTooltip}
                 data-tooltip-direction="UP"
             >
-                {localize("A5E.Supply")}
+                {localize("A5E.supply.title")}
             </h3>
 
             {#if !sheetIsLocked}
@@ -172,7 +173,7 @@
     {#if showVRCImplants}
         <div class="shield shield--implants">
             <h3 class="footer-shield-header">
-                {localize("A5E.Implant")}
+                {localize("A5E.objects.implant")}
             </h3>
 
             <span
@@ -227,7 +228,7 @@
                             class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
                             class:disable-pointer-events={!$actor.isOwner}
                             id="currency-{label}"
-                            type="number"
+                            type="text"
                             name="system.currency.{label}"
                             {value}
                             min="0"
@@ -235,7 +236,7 @@
                                 updateDocumentDataFromField(
                                     $actor,
                                     target.name,
-                                    Number(target.value),
+                                    Number(evaluateMathExpression({expression: target.value, previousValue : value})),
                                 )}
                         />
                     </li>
@@ -253,7 +254,7 @@
                             class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
                             class:disable-pointer-events={!$actor.isOwner}
                             id="currency-{label}"
-                            type="number"
+                            type="text"
                             name="system.currency.{label}"
                             {value}
                             min="0"
@@ -261,7 +262,7 @@
                                 updateDocumentDataFromField(
                                     $actor,
                                     target.name,
-                                    Number(target.value),
+                                    Number(evaluateMathExpression({expression: target.value, min: 0, previousValue: value})),
                                 )}
                         />
                     </li>

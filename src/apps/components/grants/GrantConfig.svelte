@@ -25,7 +25,7 @@ $: grant = $item.system.grants[grantId];
 <Section heading="Grant Config" --a5e-section-body-gap="0.75rem">
     <slot />
 
-    <FieldWrapper heading="A5E.Level">
+    <FieldWrapper heading="A5E.grants.headings.level">
         <input
             type="number"
             value={grant.level ?? 1}

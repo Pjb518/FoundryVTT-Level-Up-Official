@@ -17,7 +17,7 @@
 
 {#if !hideExpertiseDice}
     <RadioGroup
-        heading="A5E.ExpertiseDie"
+        heading="A5E.expertiseDie.title"
         {buttons}
         {options}
         {selected}

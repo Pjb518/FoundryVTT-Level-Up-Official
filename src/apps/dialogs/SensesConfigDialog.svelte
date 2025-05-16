@@ -14,10 +14,10 @@
     const { A5E } = CONFIG;
 
     const headings = {
-        blindsight: "A5E.SenseBlindsightRange",
-        darkvision: "A5E.SenseDarkvisionRange",
-        tremorsense: "A5E.SenseTremorsenseRange",
-        truesight: "A5E.SenseTruesightRange",
+        blindsight: "A5E.senses.ranges.blindsight",
+        darkvision: "A5E.senses.ranges.darkvision",
+        tremorsense: "A5E.senses.ranges.tremorsense",
+        truesight: "A5E.senses.ranges.truesight",
     };
 </script>
 

@@ -16,7 +16,7 @@
 </script>
 
 <Section
-    heading="A5E.TabContainerProperties"
+    heading="A5E.tabs.containerProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,

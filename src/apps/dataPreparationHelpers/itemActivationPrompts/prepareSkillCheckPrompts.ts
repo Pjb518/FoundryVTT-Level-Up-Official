@@ -11,7 +11,7 @@ export default function prepareSkillCheckPrompts(
 		prompt.skill ??= 'acr';
 
 		if (!prompt.label) {
-			const label = game.i18n.format('A5E.SkillCheck', {
+			const label = game.i18n.format('A5E.skillLabels.checks.skillSpecific', {
 				skill: game.i18n.localize(CONFIG.A5E.skills[prompt.skill]),
 			});
 

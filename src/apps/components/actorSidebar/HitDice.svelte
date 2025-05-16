@@ -13,7 +13,7 @@
 
     <div
         class="hit-dice"
-        data-tooltip="A5E.HitDiceRemaining"
+        data-tooltip="A5E.hitDice.remaining"
         data-tooltip-direction="DOWN"
     >
         {availableHitDice}

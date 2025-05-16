@@ -17,7 +17,7 @@
 </script>
 
 <Section
-    heading="A5E.ShieldConfiguration"
+    heading="A5E.objects.shields.configuration"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -30,7 +30,7 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ShieldCategory"
+            heading="A5E.objects.shields.category"
             options={Object.entries(shieldTypes)}
             selected={$item.system.shieldCategory}
             on:updateSelection={(event) =>
@@ -42,7 +42,7 @@
         />
 
         <CheckboxGroup
-            heading="A5E.ShieldProperties"
+            heading="A5E.objects.shields.properties"
             options={Object.entries(shieldProperties)}
             selected={$item.system.shieldProperties}
             on:updateSelection={(event) =>
@@ -55,7 +55,7 @@
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.ShieldCategory")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.objects.shields.category")}:</dt>
                 <dd class="u-m-0 u-p-0">
                     {#if $item.system.shieldCategory}
                         {shieldTypes[$item.system.shieldCategory] ??
@@ -67,7 +67,7 @@
             </div>
 
             <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.ShieldProperties")}:</dt>
+                <dt class="u-text-bold">{localize("A5E.objects.shields.properties")}:</dt>
                 <dd class="u-m-0 u-p-0">
                     {#if $item.system.shieldProperties?.length}
                         <ul
