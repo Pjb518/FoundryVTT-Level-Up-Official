@@ -29,7 +29,10 @@
     );
 </script>
 
-<Section heading="A5E.ActivationConfiguration" --a5e-section-body-gap="0.75rem">
+<Section
+    heading="A5E.actions.headings.activation.configuration"
+    --a5e-section-body-gap="0.75rem"
+>
     <FieldWrapper
         heading="A5E.ItemActivationCost"
         --a5e-field-wrapper-direction="row"

@@ -6,6 +6,7 @@
     import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 
     import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
+    import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
     import { updateAssociatedValues } from "#utils/view/updateAssociatedValues.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
@@ -30,17 +31,35 @@
 
     function configureScaling() {
         let dialog = item.dialogs.targetScaling[actionId];
-        if (!dialog) {
+        if (dialog) {
             dialog.render(true);
             return;
         }
 
         item.dialogs.targetScaling[actionId] = new GenericConfigDialog(
             item,
-            `${$item.name} Target Scaling Configuration`,
+            `${item.name} Target Scaling Configuration`,
             TargetScalingDialog,
             { actionId },
         );
+    }
+
+    function selectTarget(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+        if (selectedOption === "null") {
+            item.update({
+                [`system.actions.${actionId}`]: {
+                    "-=target": null,
+                },
+            });
+        } else {
+            updateAssociatedValues(
+                item,
+                `system.actions.${actionId}.target.type`,
+                selectedOption,
+                `system.actions.${actionId}.target.quantity`,
+            );
+        }
     }
 
     let actor: any = getContext("actor");
@@ -50,6 +69,13 @@
 
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
+
+    let scalingSummary = $derived(
+        prepareScalingSummary("target", action.target?.scaling, {
+            targetType: A5E.targetTypes[action.target?.type ?? ""],
+            level: item.reactive.system.level ?? 1,
+        }),
+    );
 </script>
 
 <section class="a5e-page-wrapper">
@@ -76,6 +102,52 @@
     <AreaConfig />
 
     <Section heading="Target" --a5e-section-gap="0.5rem">
-        <FieldWrapper></FieldWrapper>
+        <FieldWrapper
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-gap="0.5rem"
+        >
+            {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
+                <input
+                    class="a5e-input a5e-input--slim a5e-input--small"
+                    type="number"
+                    value={action.target?.quantity ?? 1}
+                    onchange={({ currentTarget }) =>
+                        updateDocumentDataFromField(
+                            item,
+                            `system.actions.${actionId}.target.quantity`,
+                            Number(currentTarget.value || 0),
+                        )}
+                />
+            {/if}
+
+            <select
+                class="a5e-input a5e-input--slim a5e-input--select-fit"
+                onchange={selectTarget}
+            >
+                <option value={null} selected={isEmpty(action?.target)}>
+                    {localize("A5E.None")}
+                </option>
+
+                {#each Object.entries(A5E.targetTypes) as [key, name] (key)}
+                    <option value={key} selected={action?.target?.type === key}>
+                        {localize(name as string)}
+                    </option>
+                {/each}
+            </select>
+
+            <button
+                class="a5e-button a5e-button--scaling"
+                data-tooltip="A5E.scaling.headings.configureTarget"
+                data-tooltip-direction="UP"
+                aria-label="A5E.scaling.headings.configureTarget"
+                onclick={configureScaling}
+            >
+                <i class="fa-solid fa-arrow-up-right-dots"></i>
+            </button>
+        </FieldWrapper>
+
+        <small>
+            {scalingSummary}
+        </small>
     </Section>
 </section>
