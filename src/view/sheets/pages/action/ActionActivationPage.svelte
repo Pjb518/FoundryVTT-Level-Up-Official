@@ -54,7 +54,7 @@
         {/if}
 
         <select
-            class="a5e-input a5e-input--slim a5e-input--select-fit"
+            class="a5e-input a5e-input--slim a5e-input--fit"
             onchange={({ currentTarget }) =>
                 updateAssociatedValues(
                     item,
@@ -122,7 +122,7 @@
         {/if}
 
         <select
-            class="a5e-input a5e-input--slim a5e-input--select-fit"
+            class="a5e-input a5e-input--slim a5e-input--fit"
             onchange={({ currentTarget }) =>
                 updateAssociatedValues(
                     item,

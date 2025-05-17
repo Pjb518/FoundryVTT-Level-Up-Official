@@ -121,7 +121,7 @@
             {/if}
 
             <select
-                class="a5e-input a5e-input--slim a5e-input--select-fit"
+                class="a5e-input a5e-input--slim a5e-input--fit"
                 onchange={selectTarget}
             >
                 <option value={null} selected={isEmpty(action?.target)}>

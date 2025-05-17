@@ -4,6 +4,7 @@ import { localize } from "#utils/localization/localize.ts";
 type ScalingData = {
   formula: Record<string, any> | string;
   mode: string;
+  step: string;
 };
 
 export function prepareScalingSummary(
@@ -23,6 +24,7 @@ export function prepareScalingSummary(
   const localized = localize(baseSummary, {
     ...formula,
     ...extra,
+    step: data.step,
   });
 
   return localized;

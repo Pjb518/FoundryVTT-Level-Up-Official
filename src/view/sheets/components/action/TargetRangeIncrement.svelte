@@ -103,8 +103,6 @@
         isStandardRange(range) ? (includeUnit ? "" : 0) : range,
     );
     let selected = $derived(isStandardRange(range) ? range : "other");
-
-    $inspect(rangeObject);
 </script>
 
 <RadioGroup
@@ -157,7 +155,7 @@
 
         {#if includeUnit}
             <select
-                class="a5e-input a5e-input--slim a5e-input--select-fit"
+                class="a5e-input a5e-input--slim a5e-input--fit"
                 name="system.actions.${actionId}.ranges.{id}.unit"
                 onchange={({ currentTarget }) => {
                     selectRangeUnit(currentTarget.value);
