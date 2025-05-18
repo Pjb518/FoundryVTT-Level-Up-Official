@@ -28,11 +28,11 @@
     }
 
     function duplicatePrompt(actionId: string, prompt: Record<string, any>) {
-        const newRoll = foundry.utils.duplicate(prompt);
+        const newPrompt = foundry.utils.duplicate(prompt);
 
         item.update({
             [`system.actions.${actionId}.prompts`]: {
-                [foundry.utils.randomID()]: newRoll,
+                [foundry.utils.randomID()]: newPrompt,
             },
         });
     }

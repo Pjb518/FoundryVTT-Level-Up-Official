@@ -5,6 +5,13 @@ export type ActionComponentType = {
   component: any;
 };
 
+export type ConsumerProps = {
+  deleteConsumer: (actionId: string, consumerId: string) => void;
+  duplicateConsumer: (actionId: string, consumer: Record<string, any>) => void;
+  consumer: Record<string, any>;
+  consumerId: string;
+};
+
 export type PromptProps = {
   deletePrompt: (actionId: string, promptId: string) => void;
   duplicatePrompt: (actionId: string, prompt: Record<string, any>) => void;
