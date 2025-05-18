@@ -1,67 +1,61 @@
-<script>
+<script lang="ts">
+    import type { PromptProps } from "./data.ts";
+
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { computeSaveDC } from "#utils/computeSaveDC.ts";
+    import { prepareAbilityOptions } from "#utils/view/helpers/prepareAbilityOptions.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import { computeSaveDC } from "../../../utils/computeSaveDC";
-    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+    function getSaveDC() {
+        try {
+            const dc = computeSaveDC(actor.reactive, item.reactive, {
+                type: prompt.saveDC?.type,
+                bonus: saveDCBonus,
+            });
 
-    function updateAbility(ability) {
-        selectedAbility = ability;
-
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.prompts.${promptId}.ability`,
-            selectedAbility,
-        );
+            return { saveDCIsValid: true, saveDC: dc };
+        } catch {
+            saveDCIsValid = false;
+            return { saveDCIsValid: false, saveDC: undefined };
+        }
     }
 
-    function selectSaveDCCalculationType(event) {
+    function selectSaveDCCalculationType(event: any) {
         const selectedOption = event.target?.selectedOptions[0]?.value;
 
-        $item.update({
+        item.update({
             [`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]:
                 selectedOption,
         });
     }
 
-    function onSaveDCUpdate(actor) {
-        try {
-            const saveDC = computeSaveDC(actor, $item, {
-                type: prompt?.saveDC?.type,
-                bonus: saveDCBonus,
-            });
-
-            saveDCIsValid = true;
-            return saveDC;
-        } catch {
-            saveDCIsValid = false;
-        }
+    function updateAbility(ability: string) {
+        selectedAbility = ability;
+        updateDocumentDataFromField(
+            item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility,
+        );
     }
 
-    export let deletePrompt;
-    export let duplicatePrompt;
-    export let prompt;
-    export let promptId;
+    let { deletePrompt, duplicatePrompt, prompt, promptId }: PromptProps =
+        $props();
 
-    const item = getContext("item");
-    const actor = $item.actor && new TJSDocument($item.actor);
-    const actionId = getContext("actionId");
+    let item: any = getContext("item");
+    let actor: any = item.actor;
+    let actionId: string = getContext("actionId");
 
     const { saveDCOptions } = CONFIG.A5E;
 
-    let saveDCIsValid = true;
-    let saveDCBonus = prompt?.saveDC?.bonus;
-
-    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
-
-    $: selectedAbility = prompt.ability ?? "none";
+    let saveDCBonus = $derived(prompt.saveDC?.bonus ?? 0);
+    let { saveDCIsValid, saveDC } = $derived(getSaveDC());
+    let selectedAbility = $derived(prompt.ability ?? "none");
 </script>
 
 <FieldWrapper
@@ -81,24 +75,25 @@
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input
+        class="a5e-input a5e-input--slim"
         type="text"
         value={prompt.label ?? ""}
-        on:change={({ target }) =>
+        onchange={({ currentTarget }) =>
             updateDocumentDataFromField(
-                $item,
+                item,
                 `system.actions.${actionId}.prompts.${promptId}.label`,
-                target.value,
+                currentTarget.value,
             )}
     />
 </FieldWrapper>
 
 <RadioGroup
-    heading="A5E.ItemSavingThrowType"
+    heading="A5E.actions.headings.savingThrows.type"
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions()}
     selected={selectedAbility}
     allowDeselect={false}
-    on:updateSelection={({ detail }) => updateAbility(detail)}
+    onUpdateSelection={(value) => updateAbility(value)}
 />
 
 <Section
@@ -107,13 +102,16 @@
     --a5e-section-body-padding="0"
 >
     <FieldWrapper
-        heading="A5E.ItemSavingThrowDC"
+        heading="A5E.actions.headings.savingThrows.dc.title"
         --a5e-field-wrapper-label-width="9rem"
     >
-        <select on:change={selectSaveDCCalculationType}>
+        <select
+            class="a5e-input a5e-input--slim a5e-input--fit"
+            onchange={selectSaveDCCalculationType}
+        >
             {#each Object.entries(saveDCOptions) as [type, label]}
                 <option value={type} selected={type === prompt?.saveDC?.type}>
-                    {localize(label)}
+                    {localize(label as string)}
                 </option>
             {/each}
         </select>
@@ -121,33 +119,33 @@
 
     <FieldWrapper
         heading={prompt?.saveDC?.type === "custom"
-            ? "A5E.ItemSavingThrowDCCustom"
-            : "A5E.ItemSavingThrowDCBonus"}
+            ? "A5E.actions.headings.savingThrows.dc.custom"
+            : "A5E.actions.headings.savingThrows.dc.bonus"}
         --a5e-field-wrapper-grow="1"
     >
-        <div class="u-flex u-gap-sm">
+        <div class="a5e-action-config__flex-container">
             <input
+                class="a5e-input a5e-input--slim"
                 type="text"
                 autocomplete="off"
                 bind:value={saveDCBonus}
-                on:change={({ target }) =>
+                onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
-                        $item,
+                        item,
                         `system.actions.${actionId}.prompts.${promptId}.saveDC.bonus`,
-                        target.value,
+                        currentTarget.value,
                     )}
             />
 
             {#if saveDC || !saveDCIsValid}
                 <span
-                    class="save-dc-preview"
-                    class:save-dc-preview--invalid={!saveDCIsValid}
-                    type="number"
+                    class="a5e-save-dc-preview"
+                    class:a5e-save-dc-preview--invalid={!saveDCIsValid}
                 >
                     {#if saveDCIsValid}
                         {saveDC}
                     {:else}
-                        <i class="icon fa-solid fa-circle-exclamation" />
+                        <i class="icon fa-solid fa-circle-exclamation"></i>
                     {/if}
                 </span>
             {/if}
@@ -155,15 +153,16 @@
     </FieldWrapper>
 </Section>
 
-<FieldWrapper heading="A5E.ItemEffectOnSave">
+<FieldWrapper heading="A5E.actions.headings.savingThrows.onSave">
     <input
+        class="a5e-input a5e-input--slim"
         type="text"
         value={prompt.onSave ?? ""}
-        on:change={({ target }) =>
+        onchange={({ currentTarget }) =>
             updateDocumentDataFromField(
-                $item,
+                item,
                 `system.actions.${actionId}.prompts.${promptId}.onSave`,
-                target.value,
+                currentTarget.value,
             )}
     />
 </FieldWrapper>
@@ -171,21 +170,21 @@
 <Checkbox
     label="A5E.PromptDefaultSelection"
     checked={prompt.default ?? true}
-    on:updateSelection={({ detail }) => {
+    onUpdateSelection={(value) => {
         updateDocumentDataFromField(
-            $item,
+            item,
             `system.actions.${actionId}.prompts.${promptId}.default`,
-            detail,
+            value,
         );
     }}
 />
 
 <style lang="scss">
-    .save-dc-preview {
+    .a5e-save-dc-preview {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 1.625rem;
+        height: 27px;
         width: 3rem;
         border-radius: var(--a5e-border-radius-standard);
         background: rgba(0, 0, 0, 0.05);

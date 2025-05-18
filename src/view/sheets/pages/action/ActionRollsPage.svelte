@@ -139,11 +139,11 @@
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="a5e-action-config__list">
         {#each Object.entries(rollTypes) as [rollType, rollConfig] (rollType)}
-            <!-- {#if rolls.filter(([, roll]) => roll.type === rollType).length} -->
-            <li class="a5e-action-config__list-item">
-                {@render RollListItem(rollType, rollConfig)}
-            </li>
-            <!-- {/if} -->
+            {#if rolls.filter(([, roll]) => roll.type === rollType).length}
+                <li class="a5e-action-config__list-item">
+                    {@render RollListItem(rollType, rollConfig)}
+                </li>
+            {/if}
         {/each}
     </ul>
 </div>

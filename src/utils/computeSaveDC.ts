@@ -4,7 +4,7 @@ import type { ItemA5e } from "../documents/item/item";
 import { getDeterministicBonus } from "../dice/getDeterministicBonus";
 import getSpellBookDC from "./getSpellBookDC";
 
-export default function computeSaveDC(
+export function computeSaveDC(
   actor: BaseActorA5e | undefined,
   item: ItemA5e,
   saveDC: any,

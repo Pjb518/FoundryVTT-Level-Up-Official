@@ -6,8 +6,8 @@ import type { RollHandlerReturnType } from "../../apps/dataPreparationHelpers/it
 
 import { BaseItemA5e } from "./base.svelte.ts";
 
-import computeSaveDC from "../../utils/computeSaveDC";
-import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
+import { computeSaveDC } from "../../utils/computeSaveDC.ts";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
 
 // import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 // import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';

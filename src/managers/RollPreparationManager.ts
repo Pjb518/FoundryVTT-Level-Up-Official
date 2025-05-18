@@ -15,7 +15,7 @@ import constructD20RollFormula from "../dice/constructD20RollFormula";
 import constructRollFormula from "../dice/constructRollFormula";
 import simplifyDiceTerms from "../dice/simplifyDiceTerms";
 
-import computeSaveDC from "../utils/computeSaveDC";
+import { computeSaveDC } from "../utils/computeSaveDC.ts";
 import getAttackAbility from "../utils/getAttackAbility";
 import getRollFormula from "../utils/getRollFormula";
 
