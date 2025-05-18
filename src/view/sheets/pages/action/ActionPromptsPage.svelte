@@ -110,11 +110,11 @@
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <ul class="a5e-action-config__list">
         {#each Object.entries(promptTypes) as [promptType, promptConfig] (promptType)}
-            {#if prompts.filter(([, prompt]) => prompt.type === promptType).length}
-                <li class="a5e-action-config__list-item">
-                    {@render PromptListItem(promptType, promptConfig)}
-                </li>
-            {/if}
+            <!-- {#if prompts.filter(([, prompt]) => prompt.type === promptType).length} -->
+            <li class="a5e-action-config__list-item">
+                {@render PromptListItem(promptType, promptConfig)}
+            </li>
+            <!-- {/if} -->
         {/each}
     </ul>
 </div>

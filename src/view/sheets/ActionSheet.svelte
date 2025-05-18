@@ -15,7 +15,7 @@
     import ActionsEffectsPage from "./pages/action/ActionEffectsPage.svelte";
     import ActionsPromptsPage from "./pages/action/ActionPromptsPage.svelte";
     import ActionsRollsPage from "./pages/action/ActionRollsPage.svelte";
-    import ActionsTargetingPage from "./pages/action/ActionsTargetingPage.svelte";
+    import ActionsTargetingPage from "./pages/action/ActionTargetingPage.svelte";
     import ItemMacroPage from "./pages/item/ItemMacroPage.svelte";
 
     type Props = {

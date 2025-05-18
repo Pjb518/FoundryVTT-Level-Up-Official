@@ -309,7 +309,11 @@
                 class="action-button action-button--activation-cost"
                 data-tooltip={activationCostLabel}
                 data-tooltip-direction="UP"
-                onauxclick={onConfigure}
+                onauxclick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onConfigure();
+                }}
             >
                 {activationCost}
             </button>
@@ -364,7 +368,7 @@
     {#if hasAmmunition(item, action)}
         <select
             id="{actor.id}-{item.id}-ammunition"
-            class="ammunition-selector"
+            class="ammunition-selector a5e-input a5e-input--fit"
             onclick={(e) => e.stopPropagation()}
             onchange={updateAmmunition}
         >

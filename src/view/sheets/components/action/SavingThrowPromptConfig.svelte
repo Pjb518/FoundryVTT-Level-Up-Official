@@ -21,7 +21,6 @@
 
             return { saveDCIsValid: true, saveDC: dc };
         } catch {
-            saveDCIsValid = false;
             return { saveDCIsValid: false, saveDC: undefined };
         }
     }
