@@ -28,7 +28,7 @@ export function filterEffects(
   return document.effects
     .filter((effect) => {
       // Filter by type first
-      if (effect.system.effectType !== type) return false;
+      if (type.length && effect.system.effectType !== type) return false;
 
       // Filter by search term
       if (searchTerm) {

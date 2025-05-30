@@ -18,9 +18,6 @@
     );
 
     const subTypes = CONFIG.A5E.actionActiveEffectTypesPlural;
-
-    $inspect(item.reactive.effects);
-    $inspect(effects);
 </script>
 
 {#if item.isOwner}

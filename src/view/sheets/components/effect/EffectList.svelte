@@ -135,28 +135,34 @@
         <div class="button-wrapper">
             {#if allowTransfer}
                 <button
-                    class="effect-button icon fa-regular fa-circle-down"
+                    class="a5e-button a5e-button--transparent effect-button"
                     data-tooltip="A5E.effects.applyToActor"
                     data-tooltip-direction="UP"
                     aria-label="A5E.effects.applyToActor"
                     onclick={() => effect.transferEffect(doc.parent)}
-                ></button>
+                >
+                    <i class="fa-solid fa-circle-down"></i>
+                </button>
             {/if}
 
             {#if doc.documentName === "Actor"}
                 <button
-                    class="effect-button effect-button--active-toggle icon fas"
-                    class:fa-toggle-off={effect.isSuppressed}
-                    class:fa-toggle-on={!effect.isSuppressed}
-                    class:active={!effect.isSuppressed}
-                    class:locked={effect.isLocked}
+                    class="a5e-button a5e-button--transparent effect-button effect-button--active-toggle"
                     data-tooltip={effect.isLocked
                         ? "Originating item is not equipped."
                         : "A5E.effects.toggleActiveState"}
                     data-tooltip-direction="UP"
                     aria-label="Toggle Active State"
                     onclick={() => effect.toggleActiveState()}
-                ></button>
+                >
+                    <i
+                        class="fa-solid fa-circle-down"
+                        class:fa-toggle-off={effect.isSuppressed}
+                        class:fa-toggle-on={!effect.isSuppressed}
+                        class:active={!effect.isSuppressed}
+                        class:locked={effect.isLocked}
+                    ></i>
+                </button>
             {/if}
         </div>
     </div>
@@ -166,7 +172,7 @@
     {#if doc.isOwner}
         {#if !sheetIsLocked()}
             <div class="track">
-                <i class="track-icon icon fa-solid fa-ellipsis-vertical" />
+                <i class="track-icon icon fa-solid fa-ellipsis-vertical"></i>
 
                 <ul class="track-items">
                     <li>
@@ -283,18 +289,15 @@
     }
 
     .effect-button {
-        flex-grow: 0;
         width: fit-content;
         padding: 0;
         margin: 0;
-        background: none;
         color: var(--a5e-button-gray);
         border: 0;
         font-size: var(--a5e-lg-text);
         transition: var(--a5e-transition-standard);
 
         &--active-toggle {
-            font-size: var(--a5e-xl-text);
         }
 
         &:hover {
@@ -303,6 +306,7 @@
 
         &:hover,
         &:focus {
+            transform: scale(1);
             box-shadow: none;
         }
     }
