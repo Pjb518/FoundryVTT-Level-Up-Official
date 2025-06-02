@@ -1,0 +1,41 @@
+.a5e-grant {
+    display: flex;
+    flex-direction: column;
+    height: 100;
+    padding: var(--a5e-grant-container-padding, 0.75rem);
+    margin: 0;
+    gap: 0.75rem;
+    background: var(
+        --a5e-grant-container-background,
+        var(--a5e-sheet-background)
+    );
+
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &-name-wrapper {
+        width: 100%;
+    }
+
+    &-name {
+        font-family: var(--a5e-primary-font);
+        font-size: var(--a5e-xxl-text);
+        border: 0;
+        background: transparent;
+        text-overflow: ellipsis;
+
+        &:active,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &-image {
+        width: 2rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}

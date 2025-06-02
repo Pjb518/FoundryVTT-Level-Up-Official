@@ -1,8 +1,8 @@
-import type { A5EFeatureData } from "../../dataModels/item/FeatureDataModel";
+import type { A5EFeatureData } from "../../dataModels/item/FeatureDataModel.ts";
 
-import { ItemA5e } from "./item";
+import { ItemA5e } from "./item.ts";
 
-// import ItemGrantsManager from '../../managers/ItemGrantsManager';
+import { ItemGrantsManager } from "../../managers/ItemGrantsManager.ts";
 
 export default class FeatureItemA5e extends ItemA5e {
   declare grants: ItemGrantsManager;
@@ -13,7 +13,7 @@ export default class FeatureItemA5e extends ItemA5e {
     super.prepareBaseData();
 
     // Setup Grants system
-    // this.grants = new ItemGrantsManager(this);
+    this.grants = new ItemGrantsManager(this);
   }
 
   override async _preCreate(data, options, user) {

@@ -80,7 +80,7 @@
     {hint}
     {showWarning}
     {warning}
-    --a5e-field-wrapper-header0item-justification="flex-start"
+    --a5e-field-wrapper-header-item-justification="flex-start"
     --a5e-field-wrapper--gap="0.5rem"
 >
     <ul class="a5e-check-box-group__list {listClasses}">

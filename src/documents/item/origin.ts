@@ -1,6 +1,6 @@
 import { BaseItemA5e } from "./base.svelte.ts";
 
-// import ItemGrantsManager from '../../managers/ItemGrantsManager';
+import { ItemGrantsManager } from "../../managers/ItemGrantsManager.ts";
 
 export default class OriginItemA5e extends BaseItemA5e {
   declare grants: ItemGrantsManager;
@@ -40,7 +40,6 @@ export default class OriginItemA5e extends BaseItemA5e {
     if (!this.parent || this.parent?.documentName !== "Actor") return;
 
     const actor = this.parent;
-    // @ts-expect-error
     await actor.grants.removeGrantsByItem(this.uuid);
   }
 }

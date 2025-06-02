@@ -56,7 +56,7 @@ import { ActionsManager } from "../managers/ActionsManager.ts";
 import ContainerManager from "../managers/ContainerManager.ts";
 import ForeignDocumentManager from "../managers/ForeignDocumentManager.ts";
 import HitDiceManager from "../managers/HitDiceManager.ts";
-import ItemGrantsManager from "../managers/ItemGrantsManager.ts";
+import { ItemGrantsManager } from "../managers/ItemGrantsManager.ts";
 import ModifierManager from "../managers/ModifierManager.js";
 import { ResourceConsumptionManager } from "../managers/ResourceConsumptionManager.ts";
 import RestManager from "../managers/RestManager.js";

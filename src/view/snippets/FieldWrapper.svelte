@@ -30,7 +30,7 @@
                     {#each buttons as { classes, display, handler, label, tooltip }}
                         {#if display ?? true}
                             <button
-                                class={`a5e-field-wrapper__header-button ${classes}`}
+                                class={`a5e-button a5e-field-wrapper__header-button ${classes}`}
                                 onclick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();

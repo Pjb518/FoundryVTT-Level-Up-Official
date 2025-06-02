@@ -3,7 +3,7 @@
     import { localize } from "#utils/localization/localize.ts";
     // import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
-    import ItemGrantManager from "../../../managers/ItemGrantsManager";
+    import { ItemGrantsManager } from "../../../managers/ItemGrantsManager";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import ItemGrantListComponent from "../grants/ItemGrantListComponent.svelte";
@@ -31,10 +31,10 @@
             optional: false,
         };
 
-        ItemGrantManager.addGrant($item, data);
+        ItemGrantsManager.addGrant($item, data);
     }
 
-    $: grants = $item.grants as ItemGrantManager;
+    $: grants = $item.grants as ItemGrantsManager;
 
     $: menuList = Object.entries(itemGrantTypes).reduce(
         (acc: any[], [grantType, label]) => {
