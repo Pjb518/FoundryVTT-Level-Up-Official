@@ -1,20 +1,22 @@
-<script>
-    import { getContext, onDestroy, setContext } from "svelte";
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+<script lang="ts">
+    import { setContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import { prepareExpertiseDiceOptions } from "#utils/view/helpers/prepareExpertiseDiceOptions.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
     import GrantConfig from "./GrantConfig.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import prepareExpertiseDiceOptions from "../../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
-    export let document;
-    export let grantId;
-    export let grantType;
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+
+    type Props = {
+        document: any;
+        grantId: string;
+        grantType: string;
+    };
 
     function updateImage() {
         const current = grant?.img;
@@ -30,28 +32,22 @@
         return filePicker.browse();
     }
 
-    function onUpdateValue(key, value) {
+    function onUpdateValue(key: string, value: any) {
         if (key === "expertiseType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                {
-                    base: [],
-                    options: [],
-                    total: 0,
-                },
-            );
+            updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
+        updateDocumentDataFromField(item, key, value);
     }
 
-    onDestroy(() => {
-        item.destroy();
-    });
+    let { document, grantId, grantType }: Props = $props();
 
-    const item = new TJSDocument(document);
+    let item = document;
     const configObject = {
         abilityCheck: {
             label: "A5E.abilities.headings.check",
@@ -86,37 +82,38 @@
     const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
         ([key, value]) => [
             CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
+            localize(value as string),
         ],
     );
 
-    $: grant = $item.system.grants[grantId];
-    $: rollOverrideType = grant?.rollOverrideType || "ability";
+    let grant = $derived(item.reactive.system.grants[grantId]);
+    let rollOverrideType = $derived(grant?.rollOverrideType || "ability");
 
     setContext("item", item);
     setContext("grantId", grantId);
     setContext("grantType", grantType);
 </script>
 
-<form>
-    <header class="sheet-header">
-        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
+<form class="a5e-grant">
+    <header class="a5e-grant__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
-            class="grant-image"
-            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
+            class="a5e-grant-image"
+            src={grant.img || item.img || "icons/svg/upgrade.svg"}
             alt={grant.label}
-            on:click={updateImage}
+            onclick={updateImage}
         />
 
-        <div class="name-wrapper">
+        <div class="a5e-grant-name-wrapper">
             <input
+                class="a5e-input a5e-grant-name"
                 type="text"
                 name="name"
                 value={grant.label ?? ""}
-                class="grant-name"
                 placeholder="Bonus Name"
-                on:change={({ target }) => onUpdateValue("label", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("label", currentTarget.value)}
             />
         </div>
     </header>
@@ -132,8 +129,8 @@
                 label,
             ])}
             selected={rollOverrideType}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("rollOverrideType", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("rollOverrideType", value);
             }}
         />
 
@@ -144,8 +141,8 @@
                 selected={grant?.keys?.base}
                 showToggleAllButton={true}
                 disabledOptions={grant?.keys?.options}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("keys.base", detail);
+                onUpdateSelection={(value) => {
+                    onUpdateValue("keys.base", value);
                 }}
             />
 
@@ -155,8 +152,8 @@
                 selected={grant?.keys?.options}
                 disabledOptions={grant?.keys?.base}
                 showToggleAllButton={true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("keys.options", detail);
+                onUpdateSelection={(value) => {
+                    onUpdateValue("keys.options", value);
                 }}
             />
 
@@ -164,8 +161,11 @@
                 <input
                     type="number"
                     value={grant?.keys?.total ?? 0}
-                    on:change={({ target }) =>
-                        onUpdateValue("keys.total", Number(target.value))}
+                    onchange={({ currentTarget }) =>
+                        onUpdateValue(
+                            "keys.total",
+                            Number(currentTarget.value),
+                        )}
                 />
             </FieldWrapper>
         {/if}
@@ -174,52 +174,11 @@
             heading="Roll Mode"
             options={rollModes}
             selected={grant?.rollMode ?? 0}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("rollMode", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("rollMode", value);
             }}
         />
     </Section>
 
     <GrantConfig></GrantConfig>
 </form>
-
-<style lang="scss">
-    form {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: var(--padding, 0.75rem);
-        gap: 0.75rem;
-        background: var(--background, var(--a5e-color-background-sheet));
-    }
-
-    .grant-name,
-    .grant-name[type="text"] {
-        font-family: var(--a5e-font-primary);
-        font-size: var(--a5e-text-size-xxl);
-        border: 0;
-        background: transparent;
-        text-overflow: ellipsis;
-
-        &:active,
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    .grant-image {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .name-wrapper {
-        width: 100%;
-    }
-
-    .sheet-header {
-        display: flex;
-        align-items: center;
-    }
-</style>

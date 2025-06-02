@@ -1,27 +1,26 @@
 <script lang="ts">
-    import type { ActorFeatureGrant } from "../../../dataModels/actor/grants/ActorDocumentGrant";
-    import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant";
+    import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant.ts";
 
-    import { getContext, createEventDispatcher } from "svelte";
+    import { getContext } from "svelte";
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
+
+    type Props = {
+        grant: FeatureGrant;
+        base: FeatureOption[];
+        choices: FeatureOption[];
+        count: number;
+        selected: string[];
+        updateSelectionFunc?: (value: any) => void;
+    };
 
     type FeatureOption = {
         uuid: string;
         limitedReselection: boolean;
         selectionLimit: number;
     };
-
-    export let grant: FeatureGrant;
-    export let base: FeatureOption[];
-    export let choices: FeatureOption[];
-    export let count: number;
-    export let selected: string[];
-
-    const dispatch = createEventDispatcher();
-    const actor: typeof Actor = getContext("actor");
 
     function getGrantSummary(selected: string[]) {
         // return ` This grant provides a bonus of ${bonus} to ${selected
@@ -30,15 +29,15 @@
         return "";
     }
 
-    function onUpdateSelection({ detail }: { detail: string[] }) {
-        selectedOptions = detail;
-        dispatch("updateSelection", { uuids: selectedOptions, summary });
+    function onUpdateSelection(value: string[]) {
+        selectedOptions = value;
+        updateSelectionFunc?.({ uuids: selectedOptions, summary });
     }
 
     function getExistingSelections(): Set<string> {
         const selections: string[] = [];
 
-        [...actor.grants.grantedFeatureDocuments.entries()].forEach(
+        [...actor.reactive.grants.grantedFeatureDocuments.entries()].forEach(
             ([docId, grantIds]: [string, string[]]) => {
                 const data = featureDataMap.get(docId);
                 if (!data) return selections.push(docId);
@@ -88,12 +87,21 @@
         return options;
     }
 
-    const allOptions: string[][] = [...base, ...choices].map((o) => {
+    let {
+        grant,
+        base,
+        choices,
+        count,
+        selected: preSelected,
+        updateSelectionFunc = undefined,
+    }: Props = $props();
+
+    let allOptions: string[][] = [...base, ...choices].map((o) => {
         const doc = fromUuidSync(o.uuid);
         return [o.uuid, doc.name];
     });
 
-    const featureDataMap = base.concat(choices).reduce((acc, f) => {
+    let featureDataMap = base.concat(choices).reduce((acc, f) => {
         const docId = f.uuid.split(".").pop();
         if (!docId) return acc;
 
@@ -101,15 +109,19 @@
         return acc;
     }, new Map<string, FeatureOption>());
 
-    const choicesUuids = choices.map((o) => o.uuid);
-    let choicesLocked = true;
+    let actor: Actor = getContext("actor");
+
+    let choicesUuids = choices.map((o) => o.uuid);
+    let choicesLocked = $state(true);
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
 
-    $: selectedOptions = [...new Set(base.map((o) => o.uuid).concat(selected))];
-    $: totalCount = base.length + count;
-    $: remainingSelections = totalCount - selectedOptions.length;
-    $: summary = getGrantSummary(selectedOptions);
+    let selectedOptions = $derived([
+        ...new Set(base.map((o) => o.uuid).concat(preSelected)),
+    ]);
+    let totalCount = $derived(base.length + count);
+    let remainingSelections = $derived(totalCount - selectedOptions.length);
+    let summary = $derived(getGrantSummary(selectedOptions));
 </script>
 
 <Section
@@ -141,7 +153,7 @@
             orange={choices.map((o) => o.uuid)}
             disabled={selectedOptions.length >= totalCount}
             {disabledOptions}
-            on:updateSelection={onUpdateSelection}
+            {onUpdateSelection}
         />
     </FieldWrapper>
 

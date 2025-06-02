@@ -1,19 +1,19 @@
-<script>
-    import { getContext, onDestroy, setContext } from "svelte";
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { localize } from "#utils/localization/localize.ts";
+<script lang="ts">
+    import { setContext } from "svelte";
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
     import GrantConfig from "./GrantConfig.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
 
-    export let document;
-    export let grantId;
-    export let grantType;
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+
+    type Props = {
+        document: any;
+        grantId: string;
+        grantType: string;
+    };
 
     function updateImage() {
         const current = grant?.img;
@@ -29,45 +29,44 @@
         return filePicker.browse();
     }
 
-    function onUpdateValue(key, value) {
+    function onUpdateValue(key: string, value: any) {
         key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
+        updateDocumentDataFromField(item, key, value);
     }
 
-    onDestroy(() => {
-        item.destroy();
-    });
+    let { document, grantId, grantType }: Props = $props();
 
-    const item = new TJSDocument(document);
+    let item = document;
     const { exertionPoolTypes } = CONFIG.A5E;
 
-    $: grant = $item.system.grants[grantId];
-    $: exertionType = grant?.exertionType;
+    let grant = $derived(item.reactive.system.grants[grantId]);
+    let exertionType = $derived(grant?.exertionType);
 
     setContext("item", item);
     setContext("grantId", grantId);
     setContext("grantType", grantType);
 </script>
 
-<form>
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <header class="sheet-header">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
+<form class="a5e-grant">
+    <header class="a5e-grant__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
-            class="grant-image"
-            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
+            class="a5e-grant-image"
+            src={grant.img || item.img || "icons/svg/upgrade.svg"}
             alt={grant.label}
-            on:click={updateImage}
+            onclick={updateImage}
         />
 
-        <div class="name-wrapper">
+        <div class="a5e-name-wrapper">
             <input
+                class="a5e-input a5e-grant-name"
                 type="text"
                 name="name"
                 value={grant.label ?? ""}
-                class="grant-name"
                 placeholder="Bonus Name"
-                on:change={({ target }) => onUpdateValue("label", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("label", currentTarget.value)}
             />
         </div>
     </header>
@@ -84,8 +83,7 @@
             ]}
             selected={exertionType}
             allowDeselect={false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("exertionType", detail)}
+            onUpdateSelection={(value) => onUpdateValue("exertionType", value)}
         />
 
         {#if exertionType === "pool"}
@@ -94,16 +92,15 @@
                 options={Object.entries(exertionPoolTypes)}
                 selected={grant.poolType}
                 allowDeselect={false}
-                on:updateSelection={({ detail }) =>
-                    onUpdateValue("poolType", detail)}
+                onUpdateSelection={(value) => onUpdateValue("poolType", value)}
             />
         {:else}
             <FieldWrapper heading="A5E.rollLabels.formula">
                 <input
                     type="text"
                     value={grant.bonus ?? ""}
-                    on:change={({ target }) =>
-                        onUpdateValue("bonus", target.value)}
+                    onchange={({ currentTarget }) =>
+                        onUpdateValue("bonus", currentTarget.value)}
                 />
             </FieldWrapper>
         {/if}

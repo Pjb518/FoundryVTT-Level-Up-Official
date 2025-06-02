@@ -1,20 +1,21 @@
 <script lang="ts">
-    import type { TraitGrant } from "types/itemGrants";
+    import type { TraitGrant } from "types/itemGrants.d.ts";
 
-    import { createEventDispatcher } from "svelte";
+    import prepareTraitGrantConfigObject from "#utils/prepareTraitGrantConfigObject.ts";
 
-    import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-
-    export let grant: TraitGrant;
-    export let base: string[];
-    export let choices: string[];
-    export let count: number;
-    export let selected: string[];
-    export let traitType: string;
+    type Props = {
+        grant: TraitGrant;
+        base: string[];
+        choices: string[];
+        count: number;
+        selected: string[];
+        traitType: string;
+        updateSelectionFunc?: (value: any) => void;
+    };
 
     function getGrantSummary(selected: string[]) {
         // return ` This grant provides a bonus of ${bonus} to ${selected
@@ -23,9 +24,9 @@
         return "";
     }
 
-    function onUpdateSelection({ detail }) {
-        selected = detail;
-        dispatch("updateSelection", { selected, summary });
+    function onUpdateSelection(value: any) {
+        selected = value;
+        updateSelectionFunc?.({ selected, summary });
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
@@ -51,14 +52,23 @@
         return options;
     }
 
-    const dispatch = createEventDispatcher();
-    const configObject = prepareTraitGrantConfigObject();
-    let choicesLocked = true;
+    let {
+        grant,
+        base,
+        choices,
+        count,
+        selected: preSelected,
+        traitType,
+        updateSelectionFunc = undefined,
+    }: Props = $props();
 
-    $: selected = [...new Set(base.concat(selected))];
-    $: totalCount = base.length + count;
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(selected);
+    const configObject = prepareTraitGrantConfigObject();
+    let choicesLocked = $state(true);
+
+    let selected = $derived([...new Set(base.concat(preSelected))]);
+    let totalCount = $derived(base.length + count);
+    let remainingSelections = $derived(totalCount - selected.length);
+    let summary = $derived(getGrantSummary(selected));
 </script>
 
 <Section
@@ -89,7 +99,7 @@
             {selected}
             orange={choices}
             disabled={selected.length >= totalCount}
-            on:updateSelection={onUpdateSelection}
+            {onUpdateSelection}
         />
     </FieldWrapper>
 

@@ -13,7 +13,7 @@
         updateDocumentDataFromField(item, key, value);
     }
 
-    let { children } = $props();
+    let { children = undefined } = $props();
     let item: any = getContext("item");
     let grantId: string = getContext("grantId");
 

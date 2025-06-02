@@ -1,36 +1,46 @@
 <script lang="ts">
-    import type { SkillSpecialtyGrant } from "types/itemGrants";
+    import type { SkillSpecialtyGrant } from "#types/itemGrants.d.ts";
 
-    import { createEventDispatcher } from "svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-
-    export let grant: SkillSpecialtyGrant;
-    export let base: string[];
-    export let choices: string[];
-    export let count: number;
-    export let skill: string;
-    export let selected: string[];
+    type Props = {
+        grant: SkillSpecialtyGrant;
+        base: string[];
+        choices: string[];
+        count: number;
+        skill: string;
+        selected: string[];
+        updateSelectionFunc?: (value: any) => void;
+    };
 
     function getGrantSummary(selected: string[]) {
         return "";
     }
 
-    function onUpdateSelection({ detail }) {
-        selected = detail;
-        dispatch("updateSelection", { selected, summary });
+    function onUpdateSelection(value: any) {
+        selected = value;
+        updateSelectionFunc?.({ selected, summary });
     }
 
-    const dispatch = createEventDispatcher();
-    const { skillSpecialties } = CONFIG.A5E;
-    let choicesLocked = true;
+    let {
+        grant,
+        base,
+        choices,
+        count,
+        skill,
+        selected: preSelected,
+        updateSelectionFunc = undefined,
+    }: Props = $props();
 
-    $: selected = [...new Set(base.concat(selected))];
-    $: totalCount = count + base.length;
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(selected);
+    const { skillSpecialties } = CONFIG.A5E;
+    let choicesLocked = $state(true);
+
+    let selected = $derived([...new Set(base.concat(preSelected))]);
+    let totalCount = $derived(count + base.length);
+    let remainingSelections = $derived(totalCount - selected.length);
+    let summary = $derived(getGrantSummary(selected));
 </script>
 
 <Section
@@ -59,7 +69,7 @@
             {selected}
             orange={choices}
             disabled={selected.length >= totalCount}
-            on:updateSelection={onUpdateSelection}
+            {onUpdateSelection}
         />
     </FieldWrapper>
 </Section>
