@@ -6,6 +6,7 @@
 
     import ItemGrantList from "../../components/item/ItemGrantList.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import Menu from "#view/snippets/Menu.svelte";
 
     function addGrant(detail: string) {
         const data = {
@@ -35,6 +36,20 @@
 
     let sheetIsLocked = !item.isOwner;
     let grantTemplateConfiguration = $derived(getGrantTemplateConfiguration());
+
+    let menuItems = $derived(
+        Object.entries(itemGrantTypes).reduce(
+            (acc: any[], [grantType, label]) => {
+                acc.push({
+                    name: grantType,
+                    label,
+                    onClick: () => console.log(label),
+                });
+                return acc;
+            },
+            [] as any[],
+        ),
+    );
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -72,6 +87,10 @@
     </ul>
 </div>
 
+<div class="sticky-add-button">
+    <Menu {menuItems} />
+</div>
+
 <style lang="scss">
     .grant-config-list {
         display: flex;
@@ -90,5 +109,13 @@
             flex-direction: column;
             // gap: 0.5rem;
         }
+    }
+
+    .sticky-add-button {
+        /* position: relative; */
+        /* display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: var(--a5e-button-gray); */
     }
 </style>
