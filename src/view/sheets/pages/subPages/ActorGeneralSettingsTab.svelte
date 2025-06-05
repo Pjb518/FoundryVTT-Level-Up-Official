@@ -24,7 +24,7 @@
             checked={flags?.automatePrototypeTokenSize ??
                 automateTokenSize ??
                 true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.automatePrototypeTokenSize",
@@ -38,7 +38,7 @@
         <Checkbox
             label="A5E.HideGenericResources"
             checked={flags?.hideGenericResources ?? actor.type === "npc"}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.hideGenericResources",
@@ -52,7 +52,7 @@
         <Checkbox
             label="A5E.settings.includeAbilityModifiersForSkills"
             checked={flags?.includeAbilityModifiersForSkills ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     $actor,
                     "flags.a5e.includeAbilityModifiersForSkills",
@@ -66,7 +66,7 @@
         <Checkbox
             label="A5E.settings.showFavoritesSection"
             checked={flags?.showFavoritesSection ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.showFavoritesSection",
@@ -80,7 +80,7 @@
         <Checkbox
             label="A5E.settings.showManeuverTab"
             checked={flags?.showManeuverTab ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.showManeuverTab",
@@ -94,7 +94,7 @@
         <Checkbox
             label="A5E.settings.showPassiveScores"
             checked={flags?.showPassiveScores ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.showPassiveScores",
@@ -108,7 +108,7 @@
         <Checkbox
             label="A5E.settings.showSpellTab"
             checked={flags?.showSpellTab ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.showSpellTab",
@@ -123,7 +123,7 @@
             <Checkbox
                 label="A5E.settings.showXP"
                 checked={flags?.showXP ?? true}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.showXP",
@@ -144,7 +144,7 @@
             <Checkbox
                 label="A5E.settings.automateHitDice"
                 checked={flags?.automateHitDice ?? true}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.automateHitDice",
@@ -158,7 +158,7 @@
             <Checkbox
                 label="A5E.settings.automateSpellResources"
                 checked={flags?.automateSpellResources ?? true}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.automateSpellResources",
@@ -172,7 +172,7 @@
             <Checkbox
                 label="A5E.settings.automaticallyExecuteAvailableMacros"
                 checked={flags?.automaticallyExecuteAvailableMacros ?? true}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.automaticallyExecuteAvailableMacros",

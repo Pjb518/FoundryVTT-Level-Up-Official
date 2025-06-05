@@ -17,7 +17,7 @@
         <Checkbox
             label="A5E.settings.halflingLuck"
             checked={flags.halflingLuck ?? false}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.halflingLuck",
@@ -31,7 +31,7 @@
         <Checkbox
             label="A5E.settings.jackOfAllTrades"
             checked={flags.jackOfAllTrades ?? false}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.jackOfAllTrades",

@@ -21,7 +21,7 @@
         <Checkbox
             label="A5E.settings.trackInventoryWeight"
             checked={flags?.trackInventoryWeight ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.trackInventoryWeight",
@@ -36,7 +36,7 @@
             <Checkbox
                 label="A5E.settings.doubleCarryingCapacity"
                 checked={flags?.doubleCarryCapacity ?? false}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.doubleCarryCapacity",
@@ -51,7 +51,7 @@
                 label="A5E.settings.trackCurrencyWeight"
                 checked={flags?.trackCurrencyWeight ??
                     globalCurrencyWeightTrackingSelection}
-                updateSelection={(checked) => {
+                onUpdateSelection={(checked) => {
                     updateDocumentDataFromField(
                         actor,
                         "flags.a5e.trackCurrencyWeight",

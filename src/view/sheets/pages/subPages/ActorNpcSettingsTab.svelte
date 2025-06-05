@@ -16,7 +16,7 @@
         <Checkbox
             label="Disable Randomized HP Rolls"
             checked={flags.disableRandomizedHP ?? false}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.disableRandomizedHP",

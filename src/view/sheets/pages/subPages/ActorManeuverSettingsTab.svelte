@@ -16,7 +16,7 @@
         <Checkbox
             label="A5E.ExertionRecoveryConfigPrompt"
             checked={actorStore.attributes.exertion.recoverOnRest}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "system.attributes.exertion.recoverOnRest",

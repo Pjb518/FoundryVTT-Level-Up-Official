@@ -20,7 +20,7 @@
         <Checkbox
             label="A5E.settings.restoreSpellSlotsOnShortRest"
             checked={flags?.restoreSpellSlotsOnShortRest ?? false}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.restoreSpellSlotsOnShortRest",
@@ -34,7 +34,7 @@
         <Checkbox
             label="A5E.settings.restoreSpellPointsOnShortRest"
             checked={flags?.restoreSpellPointsOnShortRest ?? true}
-            updateSelection={(checked) => {
+            onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.restoreSpellPointsOnShortRest",
