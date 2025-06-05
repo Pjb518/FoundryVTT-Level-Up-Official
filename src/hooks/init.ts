@@ -4,7 +4,7 @@ import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
 // import ItemSheetA5e from "../apps/ItemSheet.ts";
 
 import { A5E } from "../config.ts";
-import ActiveEffectA5e from "../documents/activeEffect/activeEffect.js";
+import ActiveEffectA5e from "../documents/activeEffect/activeEffect.svelte.js";
 import D20Roll from "../dice/d20Roll.js";
 import TokenA5e from "../documents/token/token.js";
 import TokenDocumentA5e from "../documents/tokenDocument.js";

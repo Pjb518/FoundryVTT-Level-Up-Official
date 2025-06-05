@@ -51,8 +51,27 @@ class BaseItemA5e extends Item {
         },
       );
 
+      const embeddedEffectHooks = ["create", "delete", "update"].reduce(
+        (hooks, hookType) => {
+          hooks[hookType] = Hooks.on(
+            `${hookType}ActiveEffect`,
+            (triggeringDocument: any, _, { diff }) => {
+              if (diff === false) return;
+
+              if (triggeringDocument?.actor?._id === this.id) update();
+            },
+          );
+
+          return hooks;
+        },
+        {} as Record<string, number>,
+      );
+
       return () => {
         Hooks.off("updateItem", updateItemHook);
+        Hooks.off("createActiveEffect", embeddedEffectHooks.create);
+        Hooks.off("deleteActiveEffect", embeddedEffectHooks.delete);
+        Hooks.off("updateActiveEffect", embeddedEffectHooks.update);
       };
     });
   }

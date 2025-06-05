@@ -13,7 +13,7 @@ import type HitDiceManager from "../../managers/HitDiceManager.ts";
 import { createSubscriber } from "svelte/reactivity";
 import { localize } from "#utils/localization/localize.ts";
 
-import ActiveEffectA5e from "../activeEffect/activeEffect.js";
+import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
 
 import ActorGrantsManager from "../../managers/ActorGrantsManager.ts";
 import BonusesManager from "../../managers/BonusesManager.ts";
@@ -166,11 +166,30 @@ class BaseActorA5e extends Actor {
         {} as Record<string, number>,
       );
 
+      const embeddedEffectHooks = ["create", "delete", "update"].reduce(
+        (hooks, hookType) => {
+          hooks[hookType] = Hooks.on(
+            `${hookType}ActiveEffect`,
+            (triggeringDocument: any, _, { diff }) => {
+              if (diff === false) return;
+
+              if (triggeringDocument?.actor?._id === this.id) update();
+            },
+          );
+
+          return hooks;
+        },
+        {} as Record<string, number>,
+      );
+
       return () => {
         Hooks.off("updateActor", updateActorHook);
         Hooks.off("createItem", embeddedItemHooks.create);
         Hooks.off("deleteItem", embeddedItemHooks.delete);
         Hooks.off("updateItem", embeddedItemHooks.update);
+        Hooks.off("createActiveEffect", embeddedEffectHooks.create);
+        Hooks.off("deleteActiveEffect", embeddedEffectHooks.delete);
+        Hooks.off("updateActiveEffect", embeddedEffectHooks.update);
       };
     });
 

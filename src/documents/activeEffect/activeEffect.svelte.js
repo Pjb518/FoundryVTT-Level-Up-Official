@@ -1,4 +1,5 @@
-/* eslint-disable no-param-reassign */
+import { createSubscriber } from "svelte/reactivity";
+
 import { localize } from "#utils/localization/localize.ts";
 
 import castType from "../../utils/castType";
@@ -10,6 +11,33 @@ import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
  * Add system-specific logic to the base ActiveEffect Class
  */
 export default class ActiveEffectA5e extends ActiveEffect {
+  #subscribe;
+
+  constructor(data, context = {}) {
+    super(data, context);
+
+    this.#subscribe = createSubscriber((update) => {
+      const updateEffectHook = Hooks.on(
+        "updateActiveEffect",
+        (triggeringDocument, _, { diff }) => {
+          if (diff === false) return;
+
+          if (triggeringDocument._id === this.id) update();
+        },
+      );
+
+      return () => {
+        Hooks.off("updateActiveEffect", updateEffectHook);
+      };
+    });
+  }
+
+  get reactive() {
+    this.#subscribe();
+
+    return this;
+  }
+
   // -------------------------------------------------------
   //  Static Properties
   // -------------------------------------------------------
