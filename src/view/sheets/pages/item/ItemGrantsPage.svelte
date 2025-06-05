@@ -43,7 +43,7 @@
                 acc.push({
                     name: grantType,
                     label,
-                    onClick: () => console.log(label),
+                    onClick: () => addGrant(grantType),
                 });
                 return acc;
             },
@@ -52,43 +52,45 @@
     );
 </script>
 
-<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    <ul class="grant-config-list">
-        {#each Object.keys(itemGrantTypes) as grantType (grantType)}
-            {#if grants.byType(grantType).length}
-                <li class="grant-config-list__item">
-                    <Section
-                        heading={`A5E.grants.headingsPlural.${grantType}`}
-                        headerButtons={[
-                            {
-                                classes: "add-button",
-                                handler: () => addGrant(grantType),
-                                label: localize("A5E.ButtonAddGrant", {
-                                    type: localize(
-                                        `A5E.grants.headings.${grantType}`,
-                                    ),
-                                }),
-                            },
-                        ]}
-                    />
+<div class="a5e-sticky-page">
+    <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+        <ul class="grant-config-list">
+            {#each Object.keys(itemGrantTypes) as grantType (grantType)}
+                {#if grants.byType(grantType).length}
+                    <li class="grant-config-list__item">
+                        <Section
+                            heading={`A5E.grants.headingsPlural.${grantType}`}
+                            headerButtons={[
+                                {
+                                    classes: "add-button",
+                                    handler: () => addGrant(grantType),
+                                    label: localize("A5E.ButtonAddGrant", {
+                                        type: localize(
+                                            `A5E.grants.headings.${grantType}`,
+                                        ),
+                                    }),
+                                },
+                            ]}
+                        />
 
-                    <ul class="a5e-item-list">
-                        {#each grants.byType(grantType) as grant (grant._id)}
-                            <ItemGrantList
-                                {grant}
-                                --grantTemplateAreas={grantTemplateConfiguration.areas}
-                                --grantTemplateColumns={grantTemplateConfiguration.columns}
-                            />
-                        {/each}
-                    </ul>
-                </li>
-            {/if}
-        {/each}
-    </ul>
-</div>
+                        <ul class="a5e-item-list">
+                            {#each grants.byType(grantType) as grant (grant._id)}
+                                <ItemGrantList
+                                    {grant}
+                                    --grantTemplateAreas={grantTemplateConfiguration.areas}
+                                    --grantTemplateColumns={grantTemplateConfiguration.columns}
+                                />
+                            {/each}
+                        </ul>
+                    </li>
+                {/if}
+            {/each}
+        </ul>
+    </div>
 
-<div class="sticky-add-button">
-    <Menu {menuItems} />
+    <div class="sticky-add-button">
+        <Menu {menuItems} menuPosition={{ x: -215, y: -750 }} />
+    </div>
 </div>
 
 <style lang="scss">
@@ -111,11 +113,17 @@
         }
     }
 
+    .a5e-sticky-page {
+        display: flex;
+        flex-direction: column;
+        height: 99%;
+    }
+
     .sticky-add-button {
-        /* position: relative; */
-        /* display: flex;
+        position: relative;
+        display: flex;
         justify-content: space-around;
         align-items: center;
-        color: var(--a5e-button-gray); */
+        color: var(--a5e-button-gray);
     }
 </style>

@@ -38,17 +38,6 @@
         showMenu = false;
     }
 
-    function getContextMenuDimension(node) {
-        // This function will get context menu dimension
-        // when navigation is shown => showMenu = true
-        let height = node.offsetHeight;
-        let width = node.offsetWidth;
-        menu = {
-            h: height,
-            w: width,
-        };
-    }
-
     let {
         menuPosition: menuPositionProp = { x: 0, y: 0 },
         showMenu: showMenuProp = false,
@@ -59,12 +48,8 @@
     }: Props = $props();
 
     let pos = $state({ x: 0, y: 0 });
-    let menu = $state({ h: 0, w: 0 });
     let showMenu = $state(showMenuProp);
     let button: HTMLButtonElement;
-
-    $inspect("pos", pos);
-    $inspect("menu", menu);
 </script>
 
 <button
@@ -80,11 +65,7 @@
 </button>
 
 {#if showMenu}
-    <div
-        use:getContextMenuDimension
-        class="a5e-context-menu"
-        style="top: {pos.y}px; left: {pos.x}px;"
-    >
+    <div class="a5e-context-menu" style="top: {pos.y}px; left: {pos.x}px;">
         {#if children}
             {@render children?.()}
         {:else}
@@ -116,12 +97,12 @@
 
 <style lang="scss">
     .a5e-context-menu {
-        background: rgba(0, 0, 0, 0.9);
-        outline: 1px khaki inset;
-        position: absolute;
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px khaki solid;
         width: var(--a5e-context=menu-width, min-content);
         height: var(--a5e-context-menu-height, min-content);
         z-index: 100;
+        position: absolute;
 
         &__list {
             list-style: none;
