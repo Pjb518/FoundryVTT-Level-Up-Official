@@ -23,30 +23,31 @@ import RestManager from "../../managers/RestManager.js";
 import RollOverrideManager from "../../managers/RollOverrideManager.ts";
 import { RollPreparationManager } from "../../managers/RollPreparationManager.ts";
 
-import AbilityBonusConfigDialog from "../../apps/dialogs/AbilityBonusConfigDialog.svelte";
 import AbilityCheckConfigDialog from "../../apps/dialogs/ActorAbilityConfigDialog.svelte";
 import AbilityCheckRollDialog from "../../apps/dialogs/AbilityCheckRollDialog.svelte";
 import ActorHpConfigDialog from "../../apps/dialogs/ActorHpConfigDialog.svelte";
 import ActorInitConfigDialog from "../../apps/dialogs/ActorInitConfigDialog.svelte";
 import ArmorClassConfigDialog from "../../apps/dialogs/ArmorClassConfigDialog.svelte";
-import AttackBonusConfigDialog from "../../apps/dialogs/AttackBonusConfigDialog.svelte";
-import DamageBonusConfigDialog from "../../apps/dialogs/DamageBonusConfigDialog.svelte";
 import DetailsConfigDialog from "../../apps/dialogs/DetailsConfigDialog.svelte";
-import ExertionBonusConfigDialog from "../../apps/dialogs/ExertionBonusConfigDialog.svelte";
-import InitiativeBonusConfigDialog from "../../apps/dialogs/InitiativeBonusConfigDialog.svelte";
-import HealingBonusConfigDialog from "../../apps/dialogs/HealingBonusConfigDialog.svelte";
-import HitPointsBonusConfigDialog from "../../apps/dialogs/HitPointsBonusConfigDialog.svelte";
-import MovementBonusConfigDialog from "../../apps/dialogs/bonuses/MovementBonusConfigDialog.svelte";
 import MovementConfigDialog from "../../apps/dialogs/MovementConfigDialog.svelte";
 import RestDialog from "../../apps/dialogs/RestDialog.svelte";
 import SavingThrowRollDialog from "../../apps/dialogs/SavingThrowRollDialog.svelte";
-import SensesBonusConfigDialog from "../../apps/dialogs/bonuses/SensesBonusConfigDialog.svelte";
 import SensesConfigDialog from "../../apps/dialogs/SensesConfigDialog.svelte";
-import SkillBonusConfigDialog from "../../apps/dialogs/SkillBonusConfigDialog.svelte";
 import SkillCheckRollDialog from "../../apps/dialogs/SkillCheckRollDialog.svelte";
 import SkillConfigDialog from "../../apps/dialogs/SkillConfigDialog.svelte";
 
-import GenericConfigDialog from "../../apps/dialogs/initializers/GenericConfigDialog.js";
+import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
+import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
+import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
+import ExertionBonusConfigDialog from "#view/components/bonuses/ExertionBonusConfigDialog.svelte";
+import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
+import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
+import HitPointsBonusConfigDialog from "#view/components/bonuses/HitPointsBonusConfigDialog.svelte";
+import MovementBonusConfigDialog from "#view/components/bonuses/MovementBonusConfigDialog.svelte";
+import SensesBonusConfigDialog from "#view/components/bonuses/SensesBonusConfigDialog.svelte";
+import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
+
+import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 import GenericRollDialog from "../../apps/dialogs/initializers/GenericRollDialog.js";
 
 import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
@@ -1777,7 +1778,7 @@ class BaseActorA5e extends Actor {
     if (!this.isOwner) return;
 
     const component = this.#configDialogMap[key];
-    let dialog: TJSDialog;
+    let dialog: GenericConfigDialog;
 
     if (key === "ability") dialog = this.dialogs.abilities[data.abilityKey];
     else if (key === "skill") dialog = this.dialogs.skills[data.skillKey];
@@ -1795,7 +1796,6 @@ class BaseActorA5e extends Actor {
       } else this.dialogs[key] = dialog;
     }
 
-    // @ts-expect-error
     dialog?.render(true);
   }
 

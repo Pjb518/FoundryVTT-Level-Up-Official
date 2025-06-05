@@ -64,7 +64,7 @@
                                 {
                                     classes: "add-button",
                                     handler: () => addGrant(grantType),
-                                    label: localize("A5E.ButtonAddGrant", {
+                                    label: localize("A5E.buttons.addGrant", {
                                         type: localize(
                                             `A5E.grants.headings.${grantType}`,
                                         ),

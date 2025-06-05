@@ -166,7 +166,7 @@
                                         aria-label="Delete"
                                         onclick={(e) => {
                                             e.stopPropagation();
-                                            $actor.deleteBonus(id, bonusType);
+                                            actor.deleteBonus(id, bonusType);
                                         }}
                                     ></button>
                                 </li>

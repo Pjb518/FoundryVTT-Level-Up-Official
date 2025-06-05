@@ -28,7 +28,7 @@
     }
 
     function onUpdateValue(key, value) {
-        if (jsonValue === null) {
+        if (jsonValue === undefined) {
             key = `system.bonuses.exertion.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
@@ -42,7 +42,8 @@
     }
 
     function getExertionBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.exertion[bonusID];
+        if (jsonValue === undefined)
+            return $actor.reactive.system.bonuses.exertion[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};

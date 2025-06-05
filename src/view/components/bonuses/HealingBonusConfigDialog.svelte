@@ -1,20 +1,19 @@
-<script>
-    import { getContext, createEventDispatcher } from "svelte";
+<script lang="ts">
     import { localize } from "#utils/localization/localize.ts";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    export let document;
-    export let bonusID;
-    export let jsonValue = null;
-
-    const actor = document;
-    const dispatch = createEventDispatcher();
+    type Props = {
+        document: any;
+        bonusID: string;
+        jsonValue?: JSON;
+        onchange?: (value: string) => void;
+    };
 
     function updateImage() {
         const current = healingBonus?.img;
@@ -33,7 +32,7 @@
     function onUpdateValue(key, value) {
         if (jsonValue === undefined) {
             key = `system.bonuses.healing.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
+            updateDocumentDataFromField(actor, key, value);
             return;
         }
 
@@ -41,12 +40,13 @@
             ...healingBonus,
             [key]: value,
         });
-        dispatch("change", JSON.stringify(newObj));
+
+        onchange?.(JSON.stringify(newObj));
     }
 
     function getHealingBonus() {
         if (jsonValue === undefined)
-            return $actor.reactive.system.bonuses.healing[bonusID];
+            return actor.reactive.system.bonuses.healing[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -76,32 +76,42 @@
         }
     }
 
+    let {
+        document,
+        bonusID,
+        jsonValue = undefined,
+        onchange = undefined,
+    }: Props = $props();
+
+    let actor = document;
+
     const { healingBonusContexts, healingTypes, spellLevels } = CONFIG.A5E;
 
-    $: healingBonus = getHealingBonus($actor, jsonValue) ?? {};
-    $: healingTypesContext = healingBonus.context.healingTypes ?? [];
-    $: spellLevelsContext = healingBonus.context.spellLevels ?? [];
+    let healingBonus = $derived(getHealingBonus() ?? {});
+    let healingTypesContext = $derived(healingBonus.context.healingTypes ?? []);
+    let spellLevelsContext = $derived(healingBonus.context.spellLevels ?? []);
 </script>
 
-<form>
-    <header class="sheet-header">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<form class="a5e-bonus">
+    <header class="a5e-bonus__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
-            class="bonus-image"
+            class="a5e-bonus-image"
             src={healingBonus.img}
             alt={healingBonus.label}
-            on:click={() => updateImage()}
+            onclick={() => updateImage()}
         />
 
-        <div class="name-wrapper">
+        <div class="a5e-bonus-name-wrapper">
             <input
+                class="a5e-input a5e-bonus-name"
                 type="text"
                 name="name"
                 value={healingBonus.label ?? ""}
-                class="bonus-name"
                 placeholder="Bonus Name"
-                on:change={({ target }) => onUpdateValue("label", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("label", currentTarget.value)}
             />
         </div>
     </header>
@@ -112,18 +122,19 @@
     >
         <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
             <input
+                class="a5e-input a5e-input--slim"
                 type="text"
                 value={healingBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("formula", currentTarget.value)}
             />
         </FieldWrapper>
 
         <FieldWrapper heading="A5E.HealingType">
             <select
-                class="u-w-fit healing-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("healingType", target.value)}
+                class="a5e-input a5e-input--slim a5e-input--fit"
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("healingType", currentTarget.value)}
             >
                 <option
                     value={null}
@@ -138,7 +149,7 @@
                         value={key}
                         selected={healingBonus.healingType === key}
                     >
-                        {localize(name)}
+                        {localize(name as string)}
                     </option>
                 {/each}
             </select>
@@ -155,8 +166,8 @@
             options={Object.entries(healingBonusContexts)}
             selected={healingTypesContext}
             showToggleAllButton={true}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("context.healingTypes", detail)}
+            onUpdateSelection={(value) =>
+                onUpdateValue("context.healingTypes", value)}
         />
 
         <CheckboxGroup
@@ -164,59 +175,18 @@
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
             showToggleAllButton={true}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("context.spellLevels", detail)}
+            onUpdateSelection={(value) =>
+                onUpdateValue("context.spellLevels", value)}
         />
 
         <FieldWrapper>
             <Checkbox
                 label="Select Healing Bonus Automatically in Roll Prompt"
                 checked={healingBonus.default ?? true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("default", detail);
+                onUpdateSelection={(value) => {
+                    onUpdateValue("default", value);
                 }}
             />
         </FieldWrapper>
     </Section>
 </form>
-
-<style lang="scss">
-    form {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: var(--padding, 0.75rem);
-        gap: 0.5rem;
-        background: var(--background, var(--a5e-color-background-sheet));
-    }
-
-    .bonus-name,
-    .bonus-name[type="text"] {
-        font-family: var(--a5e-font-primary);
-        font-size: var(--a5e-text-size-xxl);
-        border: 0;
-        background: transparent;
-        text-overflow: ellipsis;
-
-        &:active,
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    .bonus-image {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .name-wrapper {
-        width: 100%;
-    }
-
-    .sheet-header {
-        display: flex;
-        align-items: center;
-    }
-</style>

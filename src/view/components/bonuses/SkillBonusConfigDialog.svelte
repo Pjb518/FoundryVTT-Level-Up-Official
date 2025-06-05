@@ -1,19 +1,17 @@
-<script>
-    import { getContext, createEventDispatcher } from "svelte";
+<script lang="ts">
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
-
-    export let document;
-    export let bonusID;
-    export let jsonValue = null;
-
-    const actor = document;
-    const dispatch = createEventDispatcher();
+    type Props = {
+        document: any;
+        bonusID: string;
+        jsonValue?: JSON;
+        onchange?: (value: string) => void;
+    };
 
     function updateImage() {
         const current = skillBonus?.img;
@@ -32,7 +30,7 @@
     function onUpdateValue(key, value) {
         if (jsonValue === undefined) {
             key = `system.bonuses.skills.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
+            updateDocumentDataFromField(actor, key, value);
             return;
         }
 
@@ -40,12 +38,13 @@
             ...skillBonus,
             [key]: value,
         });
-        dispatch("change", JSON.stringify(newObj));
+
+        onchange?.(JSON.stringify(newObj));
     }
 
     function getSKillBonus() {
         if (jsonValue === undefined)
-            return $actor.reactive.system.bonuses.skills[bonusID];
+            return actor.reactive.system.bonuses.skills[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -76,33 +75,45 @@
         }
     }
 
+    let {
+        document,
+        bonusID,
+        jsonValue = undefined,
+        onchange = undefined,
+    }: Props = $props();
+
+    let actor = document;
+
     const { skills } = CONFIG.A5E;
 
-    $: skillBonus = getSKillBonus($actor, jsonValue) ?? {};
-    $: passiveOnly = skillBonus.context.passiveOnly ?? false;
-    $: skillsContext = skillBonus.context.skills ?? [];
-    $: requiresProficiency = skillBonus.context.requiresProficiency ?? false;
+    let skillBonus = $derived(getSKillBonus() ?? {});
+    let passiveOnly = $derived(skillBonus.context.passiveOnly ?? false);
+    let skillsContext = $derived(skillBonus.context.skills ?? []);
+    let requiresProficiency = $derived(
+        skillBonus.context.requiresProficiency ?? false,
+    );
 </script>
 
-<form>
-    <header class="sheet-header">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<form class="a5e-bonus">
+    <header class="a5e-bonus__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
-            class="bonus-image"
+            class="a5e-bonus-image"
             src={skillBonus.img}
             alt={skillBonus.label}
-            on:click={() => updateImage()}
+            onclick={() => updateImage()}
         />
 
-        <div class="name-wrapper">
+        <div class="a5e-bonus-name-wrapper">
             <input
+                class="a5e-input a5e-bonus-name"
                 type="text"
                 name="name"
                 value={skillBonus.label ?? ""}
-                class="bonus-name"
                 placeholder="Bonus Name"
-                on:change={({ target }) => onUpdateValue("label", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("label", currentTarget.value)}
             />
         </div>
     </header>
@@ -110,10 +121,11 @@
     <Section --a5e-section-margin="0.25rem 0">
         <FieldWrapper heading="A5E.rollLabels.formula">
             <input
+                class="a5e-input a5e-input--slim"
                 type="text"
                 value={skillBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("formula", currentTarget.value)}
             />
         </FieldWrapper>
     </Section>
@@ -128,24 +140,24 @@
             options={Object.entries(skills)}
             selected={skillsContext}
             showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.skills", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.skills", value);
             }}
         />
 
         <Checkbox
             label="A5E.contexts.requiresProficiency"
             checked={requiresProficiency}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.requiresProficiency", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.requiresProficiency", value);
             }}
         />
 
         <Checkbox
             label="A5E.contexts.passiveOnly"
             checked={passiveOnly}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.passiveOnly", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.passiveOnly", value);
             }}
         />
 
@@ -153,51 +165,10 @@
             <Checkbox
                 label="Select Skill Bonus Automatically in Roll Prompt"
                 checked={skillBonus.default ?? true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("default", detail);
+                onUpdateSelection={(value) => {
+                    onUpdateValue("default", value);
                 }}
             />
         </FieldWrapper>
     </Section>
 </form>
-
-<style lang="scss">
-    form {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: var(--padding, 0.75rem);
-        gap: 0.5rem;
-        background: var(--background, var(--a5e-color-background-sheet));
-    }
-
-    .bonus-name,
-    .bonus-name[type="text"] {
-        font-family: var(--a5e-font-primary);
-        font-size: var(--a5e-text-size-xxl);
-        border: 0;
-        background: transparent;
-        text-overflow: ellipsis;
-
-        &:active,
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    .bonus-image {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .name-wrapper {
-        width: 100%;
-    }
-
-    .sheet-header {
-        display: flex;
-        align-items: center;
-    }
-</style>

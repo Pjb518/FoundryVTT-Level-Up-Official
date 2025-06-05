@@ -1,20 +1,17 @@
-<script>
-    import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
+<script lang="ts">
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
-
-    export let document;
-    export let bonusID;
-    export let jsonValue = null;
-
-    const actor = document;
-    const dispatch = createEventDispatcher();
+    type Props = {
+        document: any;
+        bonusID: string;
+        jsonValue?: JSON;
+        onchange?: (value: string) => void;
+    };
 
     function updateImage() {
         const current = attackBonus?.img;
@@ -33,7 +30,7 @@
     function onUpdateValue(key, value) {
         if (jsonValue === undefined) {
             key = `system.bonuses.attacks.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
+            updateDocumentDataFromField(actor, key, value);
             return;
         }
 
@@ -41,12 +38,13 @@
             ...attackBonus,
             [key]: value,
         });
-        dispatch("change", JSON.stringify(newObj));
+
+        onchange?.(JSON.stringify(newObj));
     }
 
     function getAttackBonus() {
         if (jsonValue === undefined)
-            return $actor.reactive.system.bonuses.attacks[bonusID];
+            return actor.reactive.system.bonuses.attacks[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -76,33 +74,45 @@
         }
     }
 
+    let {
+        document,
+        bonusID,
+        jsonValue = undefined,
+        onchange = undefined,
+    }: Props = $props();
+
+    let actor = document;
+
     const { attackTypes, spellLevels } = CONFIG.A5E;
 
-    $: attackBonus = getAttackBonus($actor, jsonValue) ?? {};
-    $: attackTypesContext = attackBonus.context.attackTypes ?? [];
-    $: spellLevelsContext = attackBonus.context.spellLevels ?? [];
-    $: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
+    let attackBonus = $derived(getAttackBonus() ?? {});
+    let attackTypesContext = $derived(attackBonus.context.attackTypes ?? []);
+    let spellLevelsContext = $derived(attackBonus.context.spellLevels ?? []);
+    let requiresProficiency = $derived(
+        attackBonus.context.requiresProficiency ?? false,
+    );
 </script>
 
-<form>
-    <header class="sheet-header">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<form class="a5e-bonus">
+    <header class="a5e-bonus__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
-            class="bonus-image"
+            class="a5e-bonus-image"
             src={attackBonus.img}
             alt={attackBonus.label}
-            on:click={() => updateImage()}
+            onclick={() => updateImage()}
         />
 
-        <div class="name-wrapper">
+        <div class="a5e-bonus-name-wrapper">
             <input
+                class="a5e-input a5e-bonus-name"
                 type="text"
                 name="name"
                 value={attackBonus.label ?? ""}
-                class="bonus-name"
                 placeholder="Bonus Name"
-                on:change={({ target }) => onUpdateValue("label", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("label", currentTarget.value)}
             />
         </div>
     </header>
@@ -113,10 +123,11 @@
     >
         <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
             <input
+                class="a5e-input a5e-input--slim"
                 type="text"
                 value={attackBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                onchange={({ currentTarget }) =>
+                    onUpdateValue("formula", currentTarget.value)}
             />
         </FieldWrapper>
     </Section>
@@ -131,8 +142,8 @@
             options={Object.entries(attackTypes)}
             selected={attackTypesContext}
             showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.attackTypes", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.attackTypes", value);
             }}
         />
 
@@ -141,16 +152,16 @@
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
             showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.spellLevels", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.spellLevels", value);
             }}
         />
 
         <Checkbox
             label="A5E.contexts.requiresProficiency"
             checked={requiresProficiency}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("context.requiresProficiency", detail);
+            onUpdateSelection={(value) => {
+                onUpdateValue("context.requiresProficiency", value);
             }}
         />
 
@@ -158,51 +169,10 @@
             <Checkbox
                 label="Select Attack Bonus Automatically in Roll Prompt"
                 checked={attackBonus.default ?? true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("default", detail);
+                onUpdateSelection={(value) => {
+                    onUpdateValue("default", value);
                 }}
             />
         </FieldWrapper>
     </Section>
 </form>
-
-<style lang="scss">
-    form {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        padding: var(--padding, 0.75rem);
-        gap: 0.5rem;
-        background: var(--background, var(--a5e-color-background-sheet));
-    }
-
-    .bonus-name,
-    .bonus-name[type="text"] {
-        font-family: var(--a5e-font-primary);
-        font-size: var(--a5e-text-size-xxl);
-        border: 0;
-        background: transparent;
-        text-overflow: ellipsis;
-
-        &:active,
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    .bonus-image {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .name-wrapper {
-        width: 100%;
-    }
-
-    .sheet-header {
-        display: flex;
-        align-items: center;
-    }
-</style>
