@@ -14,11 +14,11 @@
 
     let footerFields: FooterField[] = $derived([
         {
-            label: "A5E.ManeuverDC",
+            label: "A5E.maneuvers.dc",
             value: actorStore.attributes.maneuverDC,
         },
         {
-            label: "A5E.SpellDC",
+            label: "A5E.spells.dc",
             value: actorStore.attributes.spellDC,
             tooltip: actor.reactive.spellBooks.getSpellDCString(true),
         },
@@ -30,37 +30,31 @@
 </script>
 
 {#each footerFields as { label, value, tooltip }}
-    <div class="a5e-actor-sidebar__footer-field">
-        <h3 class="a5e-actor-sidebar__footer-field__label">
+    <div class="a5e-details-box a5e-actor-footer__shield">
+        <label for="" class="a5e-details-box__label">
             {localize(label)}
-        </h3>
+        </label>
 
-        <div class="a5e-actor-sidebar__footer-field__value">
+        <input
+            class="a5e-input a5e-input--slim a5e-details-box__input"
+            data-tooltip={tooltip ?? ""}
+            data-tooltip-direction="UP"
+            type="number"
             {value}
-        </div>
+            disabled={true}
+        />
     </div>
 {/each}
 
 <style lang="scss">
-    .a5e-actor-sidebar__footer-field {
-        display: grid;
-        flex-direction: column;
-        gap: 0.25rem;
-        border: 1px solid red;
-        justify-content: center;
+    .a5e-actor-footer__shield {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .a5e-details-box__label {
+        display: flex;
+        height: 100%;
         align-items: center;
-
-        &__label {
-            font-size: var(--a5e-md-text);
-            font-family: var(--a5e-condensed-font);
-            font-weight: normal;
-            margin: 0;
-            text-align: center;
-        }
-
-        &__value {
-            font-size: var(--a5e-sm-text);
-            text-align: center;
-        }
     }
 </style>

@@ -80,13 +80,8 @@
         }
 
         &__footer {
-            position: relative;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
             gap: 0.25rem;
-            padding-right: 0.125rem;
-            justify-content: space-between;
         }
     }
 </style>
