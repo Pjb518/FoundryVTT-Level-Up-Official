@@ -1,13 +1,10 @@
-/* eslint-disable no-param-reassign */
-import { getDeterministicBonus } from "../dice/getDeterministicBonus";
-import simplifyOperatorTerms from "../dice/simplifyOperatorTerms";
+import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
+import simplifyOperatorTerms from "../dice/simplifyOperatorTerms.js";
 
 /**
  * Returns the AC components of an actor
- * @param {*} actor
- * @returns {String}
  */
-export default function getACComponents(actor) {
+export function getACComponents(actor: Actor) {
   const baseChanges = actor.system.attributes.ac.changes ?? {};
   if (!baseChanges?.override && !baseChanges?.bonuses?.length) return "";
 

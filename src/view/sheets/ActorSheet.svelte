@@ -5,7 +5,7 @@
 
     import type { Tab } from "../navigation/data.ts";
 
-    import ActorSidebar from "./components/ActorSidebar.svelte";
+    import ActorSidebar from "./components/actor/ActorSidebar.svelte";
     import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
     import NavigationBar from "../navigation/NavigationBar.svelte";
 

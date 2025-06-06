@@ -4,7 +4,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import Section from "../components/Section.svelte";
 
-    import getACComponents from "../../utils/getACComponents";
+    import { getACComponents } from "../../utils/getACComponents";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let document;

@@ -1,5 +1,6 @@
 type DocumentImageOptions = {
   actionId?: string;
+  shiftKey?: boolean;
   type?: string;
 };
 
