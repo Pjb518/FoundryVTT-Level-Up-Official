@@ -72,6 +72,7 @@
             font-family: var(--a5e-condensed-font);
             padding: 0;
             list-style: none;
+            margin: 0;
         }
     }
 
