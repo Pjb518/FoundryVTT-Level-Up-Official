@@ -9,8 +9,19 @@
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
 
+    function sortHandler(reverse: boolean) {
+        sheet._sortEmbeddedAlphabetically("Item", reverse);
+    }
+
     let actor: any = getContext("actor");
+    let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
+
+    let filterOptions = $state({
+        searchTerm: "",
+        showDescription: false,
+        page: "objects",
+    });
 
     let actorStore = $derived(actor.reactive.system);
     let items = $derived(filterItems(actor.reactive, "object"));
@@ -24,8 +35,14 @@
 </script>
 
 {#if actor.isOwner}
-    <!--  -->
-    <!-- UtilityBar Goes HEre -->
+    <UtilityBar
+        bind:filterOptions
+        showAddIcon={true}
+        showDescriptionButton={true}
+        showFilters={true}
+        showSortButton={true}
+        {sortHandler}
+    />
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

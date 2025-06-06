@@ -6,7 +6,7 @@
         buttonIcon?: string;
         menuPosition?: { x: number; y: number };
         showMenu?: boolean;
-        menuItems: Array<{
+        menuItems?: Array<{
             name: string;
             onClick: () => void;
             icon?: string;
@@ -54,7 +54,7 @@
 
 <button
     bind:this={button}
-    class="a5e-button a5e-button--transparent"
+    class="a5e-button a5e-button--transparent a5e-context-menu__button"
     onclick={onActivate}
     onauxclick={onActivate}
     onblur={onBlur}
@@ -103,6 +103,10 @@
         height: var(--a5e-context-menu-height, min-content);
         z-index: 100;
         position: absolute;
+
+        &__button {
+            color: var(--a5e-context-menu-icon-color, inherit);
+        }
 
         &__list {
             list-style: none;

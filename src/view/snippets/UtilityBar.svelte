@@ -1,13 +1,18 @@
 <script lang="ts">
+    import ActorFilter from "#view/components/ActorFilter.svelte";
+
     type Props = {
         filterOptions: {
             searchTerm: string;
             showDescription: boolean;
+            page?: string;
         };
         filters?: Record<string, (item: any) => boolean>;
         searchBar?: boolean;
-        showAddMenu?: boolean;
+        showAddIcon?: boolean;
+        onAddIconClick?: () => void;
         showDescriptionButton?: boolean;
+        showFilters?: boolean;
         showSortButton?: boolean;
         sortHandler?: (reverse: boolean) => void;
         children?: () => any;
@@ -16,8 +21,10 @@
     let {
         filterOptions = $bindable(),
         searchBar = true,
-        showAddMenu = false,
+        showAddIcon: showAddMenu = false,
+        onAddIconClick = () => {},
         showDescriptionButton = false,
+        showFilters = false,
         showSortButton = false,
         sortHandler = () => {},
         children,
@@ -78,15 +85,18 @@
     {/if}
 
     <!-- Filters -->
+    {#if showFilters}
+        <ActorFilter page={filterOptions.page!} />
+    {/if}
 
     <!-- Add Menu -->
-    <!-- TODO: V13 Make this work -->
     {#if showAddMenu}
         <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Add Document"
             data-tooltip-direction="UP"
             aria-label="Add Document"
+            onclick={onAddIconClick}
         >
             <i class="fa-solid fa-plus"></i>
         </button>

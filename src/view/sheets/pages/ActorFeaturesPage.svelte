@@ -39,7 +39,7 @@
     <!--  -->
     <UtilityBar
         bind:filterOptions
-        showAddMenu={true}
+        showAddIcon={true}
         showDescriptionButton={true}
         showSortButton={true}
         {sortHandler}

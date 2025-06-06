@@ -103,7 +103,7 @@
         {value}
         data-tooltip={tooltipText}
         data-tooltip-direction={tooltipDirection}
-        onclick={(e) => {
+        onpointerdown={(e) => {
             e.preventDefault();
             onTagToggle(value);
         }}
