@@ -116,7 +116,7 @@
 
         &__icon {
             cursor: pointer;
-            font-size: var(--a5e-text-size-lg);
+            font-size: var(--a5e-lg-text);
             transition: var(--a5e-transition-standard);
 
             &:hover {
@@ -129,6 +129,7 @@
             margin: 0;
             background: transparent;
             color: inherit;
+            border: 0;
 
             &:hover,
             &:focus {
@@ -136,11 +137,11 @@
             }
         }
 
-        &__input[type="number"] {
+        &__input {
             border: 0;
             background: transparent;
             color: inherit;
-            font-size: var(--a5e-text-size-md);
+            font-size: var(--a5e-md-text);
             text-align: center;
             padding: 0;
 
