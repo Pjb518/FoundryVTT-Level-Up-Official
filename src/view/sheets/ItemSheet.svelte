@@ -22,7 +22,6 @@
     let { item, sheet }: Props = $props();
 
     function updateCurrentTab(name: string) {
-        const { uuid } = item;
         const newTabName = name ?? "core";
 
         currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];

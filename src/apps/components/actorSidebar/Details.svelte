@@ -173,7 +173,7 @@
                         tight={true}
                         optionStyles="
                             color: var(--a5e-color-dark);
-                            background-color: var(--a5e-color-background-medium);
+                            background-color: var(--a5e-background-medium);
                             max-width: 98%;
                             border: 1px solid var(--a5e-border-color);
                         "

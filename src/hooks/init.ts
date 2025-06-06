@@ -1,6 +1,6 @@
 import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
 import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
-// import ActiveEffectConfigA5e from "../apps/ActiveEffectConfig.js";
+import ActiveEffectSheetA5e from "../documents/sheets/ActiveEffectSheet.svelte.ts";
 // import ItemSheetA5e from "../apps/ItemSheet.ts";
 
 import { A5E } from "../config.ts";
@@ -195,16 +195,11 @@ export default function init() {
     label: "A5E.SheetClassItem",
   });
 
-  // DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
-  // DocumentSheetConfig.registerSheet(
-  //   ActiveEffect,
-  //   "a5e",
-  //   ActiveEffectConfigA5e,
-  //   {
-  //     makeDefault: true,
-  //     label: "A5E.SheetClassActiveEffectConfig",
-  //   },
-  // );
+  DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
+  DocumentSheetConfig.registerSheet(ActiveEffect, "a5e", ActiveEffectSheetA5e, {
+    makeDefault: true,
+    label: "A5E.SheetClassActiveEffectConfig",
+  });
 
   // @ts-expect-error
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula;

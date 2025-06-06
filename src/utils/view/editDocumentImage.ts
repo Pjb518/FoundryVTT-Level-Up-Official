@@ -1,5 +1,6 @@
 type DocumentImageOptions = {
   actionId?: string;
+  type?: string;
 };
 
 export async function editDocumentImage(

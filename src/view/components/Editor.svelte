@@ -112,8 +112,8 @@
             {
                 secrets: document.isOwner || game.user?.isGM,
                 rollData: document.isEmbedded
-                    ? document.actor.getRollData()
-                    : document.getRollData(),
+                    ? document.actor?.getRollData()
+                    : document?.getRollData(),
                 relativeTo: document,
             },
             enrichOptions,

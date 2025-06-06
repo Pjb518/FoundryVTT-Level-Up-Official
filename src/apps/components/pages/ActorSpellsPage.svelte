@@ -481,7 +481,7 @@
             font-size: inherit;
             font-family: inherit;
             line-height: 1;
-            background: var(--a5e-color-background-medium);
+            background: var(--a5e-background-medium);
             color: var(--a5e-color-text-dark);
             border: 1px solid var(--a5e-border-color);
             border-radius: var(--a5e-border-radius-standard);

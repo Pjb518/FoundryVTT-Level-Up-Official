@@ -99,7 +99,7 @@
         top: 0.0675rem;
         left: 50%;
         transform: translate(-50%, 50%);
-        fill: var(--a5e-color-background-medium);
+        fill: var(--a5e-background-medium);
         z-index: 0;
     }
 

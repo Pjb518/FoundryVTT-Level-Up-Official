@@ -41,6 +41,10 @@
     --a5e-text-color-white: hsl(38, 38%, 94%);
     --a5e-text-color-black: hsl(50, 14%, 9%);
 
+    --a5e-background-box: rgba(0 0 0 / 0.05);
+    --a5e-background-light: hsl(38, 38%, 94%);
+    --a5e-background-medium: rgba(0 0 0 / 0.15);
+
     /* Borders */
     --a5e-border-radius-standard: 4px;
 
@@ -93,9 +97,16 @@
     --a5e-section-shadow: hsl(150, 3%, 25%);
     --a5e-section-border: hsl(190, 21%, 23%);
 
+    /** Svelte Select **/
+    --a5e-svelte-select-list-background: inherit;
+    --a5e-svelte-select-list-group-title-color: var(--a5e-text-color-medium);
+    --a5e-svelte-select-list-item-color: var(--a5e-text-color-dark);
+    --a5e-svelte-select-list-item-active-background: var(--a5e-text-color-dark);
+    --a5e-svelte-select-list-item-active-color: var(--a5e-text-color-dark);
+
     /** Tag **/
     --a5e-tag-background-color: transparent;
-    --a5e-tag-background-color-hover: var(--a5e-color-background-medium);
+    --a5e-tag-background-color-hover: var(--a5e-background-medium);
     --a5e-tag-border-color: var(--a5e-border-color);
     --a5e-tag-border-color-hover: #d8d4c6;
     --a5e-tag-color: var(--a5e-text-color-dark);
@@ -125,7 +136,7 @@
         Actor Sheet
       ----------------------------------- **/
     /** Ability Scores **/
-    --a5e-ability-score-background: var(--a5e-sheet-background-color);
+    --a5e-ability-score-background: var(--a5e-sheet-background);
     --a5e-ability-score-header-border: #3e4240;
     --a5e-ability-score-header-color: var(--a5e-text-color-white);
     --a5e-ability-score-header-shadow: #2e4246;
@@ -136,4 +147,143 @@
     --a5e-skill-specialty-background: rgba(0 0 0 / 0.05);
     --a5e-skill-background-alternate: rgba(0 0 0 / 0.05);
     --a5e-skill-proficient-icon-color: var(--a5e-color-primary);
+
+    /** -----------------------------------
+      Item List
+    ----------------------------------- **/
+    --a5e-item-list-item-background-start: transparent;
+    --a5e-item-list-item-background-end: transparent;
+    --a5e-item-list-item-border-color-start: hsla(145, 100%, 42%, 0);
+    --a5e-item-list-item-border-color-end: hsla(145, 100%, 25%, 0.302);
+    --a5e-item-list-item-icon-color: var(--a5e-button-gray);
+    --a5e-item-list-item-icon-color-active: var(--a5e-button-gray-hover);
+    --a5e-item-list-item-indicator-background: #c6c5bc;
+    --a5e-item-list-item-indicator-color: var(--a5e-text-color-dark);
+    --a5e-item-list-item-input-border-color: var(--a5e-border-color);
+    --a5e-item-list-item-track-background: #ebe9e0;
+    --a5e-item-list-item-track-border-color: var(--a5e-border-color);
+    --a5e-item-list-item-track-color: var(--a5e-button-gray);
+
+    /** Highlight **/
+    --a5e-item-list-item-background-start-highlight: transparent;
+    --a5e-item-list-item-background-end-highlight: hsla(145, 100%, 42%, 0.302);
+    --a5e-item-list-item-border-color-start-highlight: hsla(145, 100%, 42%, 0);
+    --a5e-item-list-item-border-color-end-highlight: hsla(
+        145,
+        100%,
+        25%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-highlight: hsla(145, 100%, 15%, 0.302);
+    --a5e-item-list-item-icon-color-active-highlight: hsla(
+        145,
+        100%,
+        15%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight: hsla(
+        145,
+        100%,
+        32%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight: var(--a5e-text-color-dark);
+    --a5e-item-list-item-input-border-color-highlight: hsla(
+        145,
+        100%,
+        15%,
+        0.302
+    );
+    --a5e-item-list-item-track-background-highlight: hsl(120, 43%, 87%);
+    --a5e-item-list-item-track-border-color-highlight: hsla(
+        145,
+        100%,
+        25%,
+        0.302
+    );
+
+    /** Purple Highlight **/
+    --a5e-item-list-item-background-start-highlight-purple: transparent;
+    --a5e-item-list-item-background-end-highlight-purple: hsla(
+        280,
+        30%,
+        40%,
+        0.302
+    );
+    --a5e-item-list-item-border-color-start-highlight: hsla(280, 75%, 60%, 0);
+    --a5e-item-list-item-border-color-end-highlight: hsla(280, 30%, 40%, 0.302);
+    --a5e-item-list-item-icon-color-highlight-purple: hsla(
+        260,
+        50%,
+        40%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-active-highlight-purple: hsla(
+        280,
+        35%,
+        30%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight-purple: hsla(
+        280,
+        55%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight-purple: var(
+        --a5e-text-color-dark
+    );
+    --a5e-item-list-item-input-border-color-highlight-purple: hsla(
+        280,
+        75%,
+        60%,
+        0.302
+    );
+    --a5e-item-list-item-track-background-highlight-purple: hsl(280, 30%, 90%);
+    --a5e-item-list-item-track-border-color-highlight-purple: hsla(
+        280,
+        30%,
+        40%,
+        0.302
+    );
+
+    /** Red Highlight **/
+    --a5e-item-list-item-background-start-highlight-red: transparent;
+    --a5e-item-list-item-background-end-highlight-red: hsla(0, 55%, 55%, 0.3);
+    --a5e-item-list-item-border-color-start-highlight-red: hsla(0, 55%, 55%, 0);
+    --a5e-item-list-item-border-color-end-highlight-red: hsla(
+        0,
+        40%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-icon-color-highlight-red: hsla(0, 65%, 35%, 0.5);
+    --a5e-item-list-item-icon-color-active-highlight-red: hsla(
+        0,
+        35%,
+        30%,
+        0.75
+    );
+    --a5e-item-list-item-indicator-background-highlight-red: hsla(
+        0,
+        55%,
+        50%,
+        0.302
+    );
+    --a5e-item-list-item-indicator-color-highlight-red: var(
+        --a5e-text-color-dark
+    );
+    --a5e-item-list-item-input-border-color-highlight-red: hsla(
+        0,
+        50%,
+        35%,
+        0.17
+    );
+    --a5e-item-list-item-track-background-highlight-red: hsl(0, 30%, 90%);
+    --a5e-item-list-item-track-border-color-highlight-red: hsla(
+        0,
+        40%,
+        50%,
+        0.302
+    );
 }
