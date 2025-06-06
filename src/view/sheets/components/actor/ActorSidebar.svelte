@@ -1,15 +1,11 @@
 <script>
-    import { getContext } from "svelte";
-
     import ActorHitDice from "./ActorHitDice.svelte";
     import ActorHitPoints from "./ActorHitPoints.svelte";
     import ActorInitiative from "../../../../apps/components/actorSidebar/ActorInitiative.svelte";
     import ActorSidebarPortrait from "./ActorSidebarPortrait.svelte";
     import ActorSidebarAC from "./ActorSidebarAC.svelte";
-    // import ActorSidebarDetails from "./ActorSidebarDetails.svelte";
-    // import ActorSidebarFooter from "./ActorSidebarFooter.svelte";
-
-    let actor = getContext("actor");
+    import ActorSidebarDetails from "./ActorSidebarDetails.svelte";
+    import ActorSidebarFooter from "./ActorSidebarFooter.svelte";
 </script>
 
 <aside class="a5e-actor-sidebar">
@@ -28,13 +24,13 @@
     </section>
 
     <!-- Details -->
-    <section class="a5e-actor-details-wrapper">
-        <!-- <ActorSidebarDetails /> -->
+    <section class="a5e-actor-sidebar__details-wrapper">
+        <ActorSidebarDetails />
     </section>
 
     <!-- AC -->
-    <footer class="a5e-actor-sidebar-footer">
-        <!-- <ActorSidebarFooter /> -->
+    <footer class="a5e-actor-sidebar__footer">
+        <ActorSidebarFooter />
     </footer>
 </aside>
 
@@ -58,10 +54,8 @@
         &__hp-container {
             display: flex;
             flex-direction: column;
-            flex: 1;
             gap: 0.5rem;
-            height: 100%;
-            overflow: hidden;
+            margin-bottom: 0.5rem;
         }
 
         &__glance-trackers {
@@ -74,24 +68,25 @@
             list-style: none;
             margin: 0;
         }
-    }
 
-    .a5e-actor-details-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        flex-grow: 1;
-        overflow-y: auto;
-        overflow-x: clip;
-    }
+        &__details-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+            overflow-y: auto;
+            overflow-x: clip;
+            margin-bottom: 0.5rem;
+        }
 
-    .a5e-actor-sidebar-footer {
-        position: relative;
+        &__footer {
+            position: relative;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 0.25rem;
-        padding-right: 0.125rem;
-        justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.25rem;
+            padding-right: 0.125rem;
+            justify-content: space-between;
+        }
     }
 </style>

@@ -19,8 +19,7 @@
     import { prepareWeaponProficiencies } from "#utils/view/helpers/prepareWeaponProficiencies.ts";
 
     let actor: any = getContext("actor");
-    let sheetIsLocked: boolean = getContext("sheetIsLocked");
-    let actorStore = $derived(actor.reactive);
+    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     type Detail = {
         heading: string;
@@ -37,108 +36,108 @@
 
     let details: Detail[] = $derived([
         {
-            heading: localize("A5E.Movement"),
-            values: prepareMovementData(actorStore),
+            heading: localize("A5E.details.movement.title"),
+            values: prepareMovementData(actor.reactive),
             dialogMethod: "configureMovement",
             propertyKey: "system.attributes.movement",
             tooltip: "Configure Movement",
         },
         {
-            heading: localize("A5E.SensesSpecial"),
-            values: prepareSenses(actorStore),
+            heading: localize("A5E.senses.special"),
+            values: prepareSenses(actor.reactive),
             dialogMethod: "configureSenses",
             propertyKey: "system.attributes.senses",
             tooltip: "Configure Senses",
         },
         {
-            heading: localize("A5E.Languages"),
-            values: prepareLanguageProficiencies(actorStore),
+            heading: localize("A5E.details.languages"),
+            values: prepareLanguageProficiencies(actor.reactive),
             dialogMethod: "configureLanguages",
             propertyKey: "system.proficiencies.languages",
             tooltip: "Configure Languages",
         },
         {
-            heading: localize("A5E.ConditionImmunities"),
-            values: prepareConditionImmunities(actorStore),
+            heading: localize("A5E.conditions.immunities"),
+            values: prepareConditionImmunities(actor.reactive),
             dialogMethod: "configureConditionImmunities",
             propertyKey: "system.traits.conditionImmunities",
             tooltip: "Configure Condition Immunities",
         },
         {
-            heading: localize("A5E.DamageImmunities"),
-            values: prepareDamageImmunities(actorStore),
+            heading: localize("A5E.traits.headings.damage.immunities"),
+            values: prepareDamageImmunities(actor.reactive),
             dialogMethod: "configureDamageImmunities",
             propertyKey: "system.traits.damageImmunities",
             tooltip: "Configure Damage Immunities",
         },
         {
-            heading: localize("A5E.DamageResistances"),
-            values: prepareDamageResistances(actorStore),
+            heading: localize("A5E.traits.headings.damage.resistances"),
+            values: prepareDamageResistances(actor.reactive),
             dialogMethod: "configureDamageResistances",
             propertyKey: "system.traits.damageResistances",
             tooltip: "Configure Damage Resistances",
         },
         {
-            heading: localize("A5E.DamageVulnerabilities"),
-            values: prepareDamageVulnerabilities(actorStore),
+            heading: localize("A5E.traits.headings.damage.vulnerabilities"),
+            values: prepareDamageVulnerabilities(actor.reactive),
             dialogMethod: "configureDamageVulnerabilities",
             propertyKey: "system.traits.damageVulnerabilities",
             tooltip: "Configure Damage Vulnerabilities",
         },
         {
-            heading: localize("A5E.ManeuverTraditionPlural"),
-            values: prepareManeuverTraditions(actorStore),
+            heading: localize("A5E.maneuvers.headings.traditionPlural"),
+            values: prepareManeuverTraditions(actor.reactive),
             dialogMethod: "configureManeuverTraditions",
             propertyKey: "system.proficiencies.traditions",
             tooltip: "Configure Maneuver Traditions",
-            display: actorStore.type === "character",
+            display: actor.reactive.type === "character",
         },
         {
-            heading: localize("A5E.WeaponProficiencies"),
-            values: prepareWeaponProficiencies(actorStore),
+            heading: localize("A5E.weapons.proficiencies"),
+            values: prepareWeaponProficiencies(actor.reactive),
             dialogMethod: "configureWeaponProficiencies",
             propertyKey: "system.proficiencies.weapons",
             tooltip: "Configure Weapon Proficiencies",
         },
         {
-            heading: localize("A5E.ArmorProficiencies"),
-            values: prepareArmorProficiencies(actorStore),
+            heading: localize("A5E.armorClass.headings.proficiencies"),
+            values: prepareArmorProficiencies(actor.reactive),
             dialogMethod: "configureArmorProficiencies",
             propertyKey: "system.proficiencies.armor",
             tooltip: "Configure Armor Proficiencies",
         },
         {
-            heading: localize("A5E.ToolProficiencies"),
-            values: prepareToolProficiencies(actorStore),
+            heading: localize("A5E.tools.proficiencies"),
+            values: prepareToolProficiencies(actor.reactive),
             dialogMethod: "configureToolProficiencies",
             propertyKey: "system.proficiencies.tools",
             tooltip: "Configure Tool Proficiencies",
         },
         {
-            heading: localize("A5E.Size"),
-            values: prepareCreatureSize(actorStore),
+            heading: localize("A5E.traits.size.title"),
+            values: prepareCreatureSize(actor.reactive),
             dialogMethod: "configureSizeCategory",
             propertyKey: "system.traits.size",
             tooltip: "Configure Size Category",
         },
         {
-            heading: localize("A5E.CreatureTypesLabel"),
-            values: prepareCreatureTypes(actorStore),
+            heading: localize("A5E.details.creature.labels.types"),
+            values: prepareCreatureTypes(actor.reactive),
             dialogMethod: "configureCreatureTypes",
             propertyKey: "system.details.creatureTypes",
             tooltip: "Configure Creature Types",
         },
         {
-            heading: localize("A5E.CreatureTerrainsLabel"),
-            values: prepareCreatureTerrains(actorStore),
+            heading: localize("A5E.details.creature.labels.terrain"),
+            values: prepareCreatureTerrains(actor.reactive),
             dialogMethod: "configureCreatureTerrains",
             propertyKey: "system.details.terrain",
             tooltip: "Configure Creature Terrains",
-            display: actorStore.type === "npc",
+            display: actor.reactive.type === "npc",
         },
         {
-            heading: localize("A5E.Alignments"),
-            values: prepareAlignment(actorStore),
+            heading: localize("A5E.traits.headings.alignments"),
+            values: prepareAlignment(actor.reactive),
             dialogMethod: "configureAlignment",
             propertyKey: "system.traits.alignment",
             tooltip: "Configure Alignment",
@@ -147,14 +146,14 @@
 </script>
 
 {#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}
-    {#if (values.length || !sheetIsLocked) && (display ?? true)}
+    {#if (values.length || !sheetIsLocked()) && (display ?? true)}
         <div class="a5e-actor-details__section">
             <div class="a5e-actor-details__section-header">
                 <span class="a5e-actor-details__section-heading">
                     {heading}:
                 </span>
 
-                {#if !sheetIsLocked}
+                {#if !sheetIsLocked()}
                     <button
                         class="a5e-button a5e-button--config"
                         aria-labelledby="Configure"
