@@ -67,8 +67,8 @@
     <div
         class="a5e-actor-hp-bar"
         style="
-            --primary-hp-percentage: {hpPrimaryPercentage}%;
-            --temp-hp-percentage: {hpTempPercentage}%;
+            --primary-hp-percentage: {hpPrimaryPercentage};
+            --temp-hp-percentage: {hpTempPercentage};
             --secondary-bar-color: #2FA6B1;
         "
     >
