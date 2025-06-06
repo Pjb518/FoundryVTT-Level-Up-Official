@@ -10,7 +10,7 @@
     import ItemCategory from "../components/ItemCategory.svelte";
 
     function sortHandler(reverse: boolean) {
-        sheet._sortEmbeddedAlphabetically("Item", reverse);
+        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
     }
 
     let actor: any = getContext("actor");
@@ -24,7 +24,7 @@
     });
 
     let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "object"));
+    let items = $derived(filterItems(actor.reactive, "object", filterOptions));
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
     const openCompendium = game.a5e.utils.openCompendium;

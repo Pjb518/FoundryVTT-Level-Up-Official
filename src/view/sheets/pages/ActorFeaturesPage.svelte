@@ -31,8 +31,6 @@
     let showFavorPoints =
         (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
     let showUses = $derived(usesRequired(items));
-
-    $inspect(filterOptions);
 </script>
 
 {#if actor.isOwner}
