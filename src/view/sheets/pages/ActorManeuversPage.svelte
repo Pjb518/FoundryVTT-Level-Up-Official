@@ -9,13 +9,23 @@
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
 
+    function sortHandler(reverse: boolean) {
+        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
+    }
+
     let actor: any = getContext("actor");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-    let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "maneuver"));
+    let filterOptions = $state({
+        searchTerm: "",
+        showDescription: false,
+        page: "maneuvers",
+    });
+
+    let items = $derived(
+        filterItems(actor.reactive, "maneuver", filterOptions),
+    );
     let categorizedItems = $derived(groupItemsByType(items, "degree"));
-    $inspect(items);
 
     const openCompendium = game.a5e.utils.openCompendium;
 
@@ -25,8 +35,24 @@
 </script>
 
 {#if actor.isOwner}
-    <!--  -->
-    <!-- UtilityBar Goes HEre -->
+    <UtilityBar
+        bind:filterOptions
+        showAddIcon={true}
+        showDescriptionButton={true}
+        showFilters={true}
+        showSortButton={true}
+        {sortHandler}
+    >
+        <button
+            class="a5e-button a5e-button--transparent"
+            data-tooltip="Import Manuevers from Compendium"
+            data-tooltip-direction="UP"
+            aria-label="Import Manuevers from Compendium"
+            onclick={() => openCompendium(actor, "manuevers")}
+        >
+            <i class="fa-solid fa-download"></i>
+        </button>
+    </UtilityBar>
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

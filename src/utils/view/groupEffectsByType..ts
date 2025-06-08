@@ -5,8 +5,6 @@ export function groupEffectsByType(effects: ActiveEffect[]) {
     inactive: [] as ActiveEffect[],
   };
 
-  console.log(effects);
-
   effects.forEach((effect) => {
     if (effect.isSuppressed) categories.inactive.push(effect);
     else categories.ongoing.push(effect);

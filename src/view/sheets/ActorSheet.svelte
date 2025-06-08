@@ -20,6 +20,11 @@
     import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
     import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
 
+    import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
+    import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
+    import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
+    import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
+
     let { actor, sheet } = $props();
 
     function updateCurrentTab(name: string) {
@@ -51,18 +56,21 @@
                 label: "A5E.TabInventory",
                 icon: "fa-solid fa-box-open",
                 component: ActorInventoryPage,
+                footerComponent: ActorInventoryFooter,
             },
             {
                 name: "features",
                 label: "A5E.TabFeatures",
                 icon: "fa-solid fa-table-list",
                 component: ActorFeaturesPage,
+                footerComponent: ActorFeaturesFooter,
             },
             {
                 name: "maneuvers",
                 label: "A5E.TabManeuvers",
                 icon: "fa-solid fa-hand-fist",
                 component: ActorManeuversPage,
+                footerComponent: ActorManeuverFooter,
                 display: flags?.a5e?.showManeuverTab,
             },
             {
@@ -70,6 +78,7 @@
                 label: "A5E.TabSpells",
                 icon: "fa-solid fa-wand-sparkles",
                 component: ActorSpellsPage,
+                footerComponent: ActorSpellsFooter,
                 display: flags?.a5e?.showSpellTab,
             },
             // {
@@ -142,11 +151,15 @@
         onTabChange={updateCurrentTab}
     />
 
-    <!-- <section>Test</section> -->
-
     <section class="a5e-actor-sheet__page">
         <currentTab.component />
     </section>
+
+    {#if currentTab.footerComponent}
+        <footer class="a5e-actor-sheet__footer">
+            <currentTab.footerComponent />
+        </footer>
+    {/if}
 </main>
 
 <style lang="scss">
@@ -170,6 +183,17 @@
             padding-inline: 0.5rem;
             padding-block: 0.75rem;
             overflow-x: hidden;
+        }
+
+        &__footer {
+            grid-area: footer;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            align-items: center;
+            justify-content: space-between;
+            font-size: var(--a5e-sm-text);
+            padding-right: var(--a5e-actor-footer-padding-right, 0);
         }
     }
 </style>

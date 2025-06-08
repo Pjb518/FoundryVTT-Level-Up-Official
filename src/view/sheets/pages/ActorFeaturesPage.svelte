@@ -19,6 +19,7 @@
     let filterOptions = $state({
         searchTerm: "",
         showDescription: false,
+        page: "features",
     });
 
     let actorStore = $derived(actor.reactive.system);
@@ -39,6 +40,7 @@
         bind:filterOptions
         showAddIcon={true}
         showDescriptionButton={true}
+        showFilters={true}
         showSortButton={true}
         {sortHandler}
     />

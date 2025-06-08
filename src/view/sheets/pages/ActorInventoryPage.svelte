@@ -15,7 +15,6 @@
 
     let actor: any = getContext("actor");
     let sheet: any = getContext("sheet");
-    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     let filterOptions = $state({
         searchTerm: "",
@@ -23,7 +22,6 @@
         page: "objects",
     });
 
-    let actorStore = $derived(actor.reactive.system);
     let items = $derived(filterItems(actor.reactive, "object", filterOptions));
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
@@ -42,7 +40,17 @@
         showFilters={true}
         showSortButton={true}
         {sortHandler}
-    />
+    >
+        <button
+            class="a5e-button a5e-button--transparent"
+            data-tooltip="Import Objects from Compendium"
+            data-tooltip-direction="UP"
+            aria-label="Import Objects from Compendium"
+            onclick={() => openCompendium(actor, "objects")}
+        >
+            <i class="fa-solid fa-download"></i>
+        </button>
+    </UtilityBar>
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

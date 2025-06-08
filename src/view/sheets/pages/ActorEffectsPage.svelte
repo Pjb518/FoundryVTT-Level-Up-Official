@@ -4,9 +4,20 @@
     import { filterEffects } from "#utils/view/filterEffects.ts";
     import { groupEffectsByType } from "#utils/view/groupEffectsByType..ts";
 
+    import UtilityBar from "../../snippets/UtilityBar.svelte";
     import EffectCategory from "#view/sheets/components/effect/EffectCategory.svelte";
 
+    function sortHandler(reverse: boolean) {
+        sheet._sortEmbeddedAlphabetically(effects, "ActiveEffect", reverse);
+    }
+
+    let filterOptions = $state({
+        searchTerm: "",
+        showDescription: false,
+    });
+
     let actor: any = getContext("actor");
+    let sheet: any = getContext("sheet");
 
     let effects = $derived(filterEffects(actor.reactive, ""));
     let categorizedEffects = $derived(groupEffectsByType(effects));
@@ -17,7 +28,12 @@
 </script>
 
 {#if actor.isOwner}
-    <!--  -->
+    <UtilityBar
+        bind:filterOptions
+        showAddIcon={true}
+        showSortButton={true}
+        {sortHandler}
+    />
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

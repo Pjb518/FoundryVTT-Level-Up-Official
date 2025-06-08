@@ -5,6 +5,7 @@ export type Tab = {
   label?: string;
   icon?: string;
   component?: Component;
+  footerComponent?: Component;
   display?: boolean;
   hasSubNavigation?: boolean;
 };
