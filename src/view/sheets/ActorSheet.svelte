@@ -176,7 +176,7 @@
             "aside page"
             "aside footer";
         grid-template-columns: 12rem 1fr;
-        grid-template-rows: min-content min-content min-content 1fr 2rem;
+        grid-template-rows: min-content min-content min-content 1fr min-content;
 
         &__page {
             grid-area: page;
@@ -194,6 +194,8 @@
             justify-content: space-between;
             font-size: var(--a5e-sm-text);
             padding-right: var(--a5e-actor-footer-padding-right, 0);
+            padding-block: 0.5rem;
+            padding-inline: 0.5rem;
         }
     }
 </style>
