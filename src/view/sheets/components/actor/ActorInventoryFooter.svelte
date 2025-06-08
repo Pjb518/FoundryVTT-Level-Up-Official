@@ -5,6 +5,9 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
     import evaluateMathExpression from "#utils/evaluateMathExpression.ts";
 
+    import ActorItemWeightTrack from "./ActorItemWeightTrack.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+
     function getBulkyTooltip() {
         let bulkyLimit: number;
 
@@ -14,6 +17,23 @@
         else bulkyLimit = Math.max(2 + actorStore.abilities.str.mod, 2);
 
         return `Bulky Limit: ${bulkyLimit}`;
+    }
+
+    function getCurrency() {
+        let allCurrency: Record<string, number> = actorStore.currency;
+        if (useCredits) {
+            return { cr: allCurrency.cr ?? 0 };
+        }
+
+        return Object.entries(allCurrency ?? {}).reduce(
+            (acc: Record<string, number>, [key, value]) => {
+                if (key !== "cr") {
+                    acc[key] = value ?? 0;
+                }
+                return acc;
+            },
+            {},
+        );
     }
 
     function getSupplyTooltip() {
@@ -74,33 +94,37 @@
 
     let attunement = $derived(actorStore.attributes.attunement);
     let bulkyTooltip = $derived(getBulkyTooltip());
-    let currency = $derived(actorStore.currency);
     let supply = $derived(actorStore.supply);
     let supplyTooltip = $derived(getSupplyTooltip());
     let totalSupply = $derived(actorStore.supply + supplyItems);
     let implantMax = $derived(actorStore.system.attributes.prof);
+    let currency: Record<string, number> = $derived(getCurrency());
 </script>
 
 {#if flags?.trackInventoryWeight}
-    <!--  -->
+    <ActorItemWeightTrack />
 {/if}
 
-<section class="a5e-shield__container">
+<section class="a5e-footer-group--inventory">
     {#if actor.type === "character"}
         <!-- Attunement -->
-        <div class="a5e-shield a5e-shield--attunement">
-            <h3 class="a5e-shield__header">
-                {localize("A5E.attunement.headings.attunement")}
-            </h3>
-
+        <FieldWrapper
+            heading="A5E.attunement.headings.attunement"
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-item-alignment="center"
+            --a5e-field-wrapper-gap="0.5rem"
+            --a5e-field-wrapper-header-width="100%"
+        >
             <span
                 class="a5e-footer-group__value a5e-footer-group__value--attunement"
             >
                 {attunement.current}
             </span>
+
             /
+
             <input
-                class="a5e-input a5e-input--slim a5e-shield__input"
+                class="a5e-input a5e-input--actor-footer"
                 class:disable-pointer-events={!actor.isOwner}
                 type="number"
                 name="system.attributes.attunement.max"
@@ -116,21 +140,20 @@
                         Number(currentTarget.value),
                     )}
             />
-        </div>
+        </FieldWrapper>
 
         <!-- Supply -->
-        <div class="a5e-shield">
-            <h3
-                class="a5e-shield__header"
-                data-tooltip={supplyTooltip}
-                data-tooltip-direction="UP"
-            >
-                {localize("A5E.supply.title")}
-            </h3>
-
+        <FieldWrapper
+            heading="A5E.supply.title"
+            headingTooltip={supplyTooltip}
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-item-alignment="center"
+            --a5e-field-wrapper-gap="0.5rem"
+            --a5e-field-wrapper-header-width="100%"
+        >
             {#if !sheetIsLocked()}
                 <input
-                    class="a5e-input a5e-input--slim a5e-shield-input a5e-footer-group__input"
+                    class="a5e-input a5e-input--actor-footer"
                     class:disable-pointer-events={!actor.isOwner}
                     type="number"
                     name="system.supply"
@@ -146,7 +169,7 @@
                 />
             {:else}
                 <input
-                    class="a5e-input a5e-input--slim shield-input a5e-footer-group__input"
+                    class="a5e-input a5e-input--actor-footer"
                     class:disable-pointer-events={!actor.isOwner}
                     type="number"
                     name="system.supply"
@@ -162,39 +185,42 @@
                         )}
                 />
             {/if}
-        </div>
+        </FieldWrapper>
     {/if}
 
     <!-- Bulky Items -->
-    <div class="shield">
-        <h3
-            class="footer-shield-header"
-            data-tooltip={bulkyTooltip}
-            data-tooltip-direction="UP"
-        >
-            {localize("Bulky Items")}
-        </h3>
-
+    <FieldWrapper
+        heading="Bulky Items"
+        headingTooltip={bulkyTooltip}
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-item-alignment="center"
+        --a5e-field-wrapper-gap="0.5rem"
+        --a5e-field-wrapper-header-width="100%"
+    >
         <span class="a5e-footer-group__value">
             {bulkyItems}
         </span>
-    </div>
+    </FieldWrapper>
 
     <!-- Implants -->
     {#if showVRCImplants}
-        <div class="shield shield--implants">
-            <h3 class="footer-shield-header">
-                {localize("A5E.objects.implant")}
-            </h3>
-
+        <FieldWrapper
+            heading={localize("A5E.objects.implant")}
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-item-alignment="center"
+            --a5e-field-wrapper-gap="0.5rem"
+            --a5e-field-wrapper-header-width="100%"
+        >
             <span
-                class="a5e-footer-group__value a5e-footer-group__value--implants"
+                class="a5e-footer-group__value a5e-footer-group__value--attunement"
             >
                 {implantItems}
             </span>
+
             /
+
             <input
-                class="shield-input a5e-footer-group__input"
+                class="a5e-input a5e-input--actor-footer"
                 class:disable-pointer-events={!actor.isOwner}
                 type="number"
                 name="system.attributes.prof"
@@ -210,89 +236,61 @@
                         Number(currentTarget.value),
                     )}
             />
-        </div>
+        </FieldWrapper>
     {/if}
 
     <!-- Currencies -->
-    <div
-        class="
-		u-flex u-gap-sm u-text-sm
-		shield
-		shield--currency
-	"
-        class:u-ml-auto={actor.type === "npc"}
-        class:u-mr-auto={actor.type === "npc"}
+    <FieldWrapper
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-item-alignment="center"
+        --a5e-field-wrapper-gap="0.5rem"
+        --a5e-field-wrapper-wrap="nowrap"
     >
-        <ol class="currency__list">
-            {#each Object.entries(currency) as [label, value]}
-                {#if useCredits && label == "cr"}
-                    <li class="currency__item" data-type={label}>
-                        <label
-                            class="currency__label"
-                            class:disable-pointer-events={!actor.isOwner}
-                            for="currency-{label}"
-                        >
-                            {localize(label)}
-                        </label>
+        {#each Object.entries(currency) as [label, value]}
+            <div class="a5e-actor-sheet-footer__flex-container">
+                <label
+                    class="a5e-actor-sheet-footer__flex-container__label"
+                    for="{actor.id}-currency-{label}"
+                >
+                    {localize(label)}
+                </label>
 
-                        <input
-                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
-                            class:disable-pointer-events={!actor.isOwner}
-                            id="currency-{label}"
-                            type="text"
-                            name="system.currency.{label}"
-                            {value}
-                            min="0"
-                            onchange={({ currentTarget }) =>
-                                updateDocumentDataFromField(
-                                    actor,
-                                    currentTarget.name,
-                                    Number(
-                                        evaluateMathExpression({
-                                            expression: currentTarget.value,
-                                            previousValue: value,
-                                        }),
-                                    ),
-                                )}
-                        />
-                    </li>
-                {:else if !useCredits && label != "cr"}
-                    <li class="currency__item" data-type={label}>
-                        <label
-                            class="currency__label"
-                            class:disable-pointer-events={!actor.isOwner}
-                            for="currency-{label}"
-                        >
-                            {localize(label)}
-                        </label>
-
-                        <input
-                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
-                            class:disable-pointer-events={!actor.isOwner}
-                            id="currency-{label}"
-                            type="text"
-                            name="system.currency.{label}"
-                            {value}
-                            min="0"
-                            onchange={({ currentTarget }) =>
-                                updateDocumentDataFromField(
-                                    actor,
-                                    currentTarget.name,
-                                    Number(
-                                        evaluateMathExpression({
-                                            expression: currentTarget.value,
-                                            min: 0,
-                                            previousValue: value,
-                                        }),
-                                    ),
-                                )}
-                        />
-                    </li>
-                {/if}
-            {/each}
-        </ol>
-    </div>
+                <input
+                    class="a5e-input a5e-input--actor-footer"
+                    class:disable-pointer-events={!actor.isOwner}
+                    id="{actor.id}-currency-{label}"
+                    name="system.currency.{label}"
+                    type="text"
+                    {value}
+                    min="0"
+                    onchange={({ currentTarget }) =>
+                        updateDocumentDataFromField(
+                            actor,
+                            currentTarget.name,
+                            Number(
+                                evaluateMathExpression({
+                                    expression: currentTarget.value,
+                                    previousValue: value,
+                                }),
+                            ),
+                        )}
+                />
+            </div>
+        {/each}
+    </FieldWrapper>
 </section>
 
 <style lang="scss">
+    .a5e-actor-sheet-footer__flex-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+
+        &__label {
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 0.125rem;
+        }
+    }
 </style>

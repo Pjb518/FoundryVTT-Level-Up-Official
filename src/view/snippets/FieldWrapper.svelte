@@ -4,6 +4,8 @@
     type Props = {
         buttons?: Record<string, any>[];
         heading?: string;
+        headingTooltip?: string;
+        headingTooltipDirection?: string;
         hint?: string;
         showWarning?: boolean;
         warning?: string;
@@ -13,6 +15,8 @@
     let {
         buttons = [],
         heading = "",
+        headingTooltip = "",
+        headingTooltipDirection = "UP",
         hint = "",
         showWarning = false,
         warning = "",
@@ -23,7 +27,13 @@
 <section class="a5e-field-wrapper">
     {#if heading}
         <header class="a5e-field-wrapper__header">
-            <h3 class="a5e-field-wrapper__heading">{localize(heading)}</h3>
+            <h3
+                class="a5e-field-wrapper__heading"
+                data-tooltip={headingTooltip}
+                data-tooltip-direction={headingTooltipDirection}
+            >
+                {localize(heading)}
+            </h3>
 
             {#if buttons.length}
                 <div class="a5e-field-wrapper__header-button-wrapper">
