@@ -4,20 +4,12 @@
     import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
     import { usesRequired } from "#utils/view/usesRequired.ts";
 
-    import ItemCategory from "./ItemCategory.svelte";
+    import ItemCategory from "../ItemCategory.svelte";
 
     type Props = {
         spellBookId: string;
         items: Item[];
     };
-
-    function importer(docs) {
-        docs.forEach((doc) => {
-            doc.system.spellBook = spellBookId;
-        });
-
-        actor.createEmbeddedDocuments("Item", docs);
-    }
 
     let { spellBookId, items }: Props = $props();
 
@@ -28,6 +20,7 @@
 
     let showUses = $derived(usesRequired(items));
     let spellBook = $derived(actor.reactive.spellBooks?.get(spellBookId));
+
     let categorizedItems = $derived(groupItemsByType(items, "level"));
 
     let isSpellLevelVisible = $derived((level: string) => {
@@ -46,11 +39,6 @@
 
     let showDescription = $state(false);
 </script>
-
-{#if actor.isOwner}
-    <!--  -->
-    <!-- UtilityBar Goes HEre -->
-{/if}
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <section class="a5e-page-wrapper a5e-page-wrapper--item-list">

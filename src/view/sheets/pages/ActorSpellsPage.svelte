@@ -2,23 +2,22 @@
     import { getContext } from "svelte";
 
     import { filterItems } from "#utils/view/filterItems.ts";
-    import { getMaxPreparedSpells } from "#utils/getMaxPreparedSpells.ts";
-    import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
     import { prepareSpellBooks } from "#utils/view/helpers/prepareSpellBooks.ts";
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+
+    import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 
     import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
-    import ItemCategory from "../components/ItemCategory.svelte";
-    import SpellBook from "../components/SpellBook.svelte";
-    import UtilityBar from "../../snippets/UtilityBar.svelte";
+    import SpellBook from "../components/actor/SpellBook.svelte";
+    import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
+    import UtilityBar from "#view/snippets/UtilityBar.svelte";
 
     async function addSpellBook() {
         const initialSpellBookQuantity = Object.keys(
             actorStore.spellBooks ?? {},
         ).length;
 
-        const newSpellBookId = await $actor.spellBooks.add({});
+        const newSpellBookId = await actor.spellBooks.add({});
 
         if (initialSpellBookQuantity === 0) {
             updateCurrentSpellBook(newSpellBookId);
@@ -26,13 +25,15 @@
             // biome-ignore lint/correctness/noSelfAssign: <explanation>
             currentSpellBook = currentSpellBook;
         }
+
+        configureSpellBook(newSpellBookId);
     }
 
     async function configureSpellBook(spellBookId: string) {
         const dialog = new GenericConfigDialog(
             actor,
             "Configure Spell Book",
-            SpellBookConfigDialog,
+            SpellBookConfig,
             { spellBookId },
         );
 
@@ -44,12 +45,12 @@
             actor.system.spellBooks ?? {},
         ).length;
 
-        const dialog = new SpellBookDeletionConfirmationDialog();
-        await dialog.render(true);
+        // const dialog = new SpellBookDeletionConfirmationDialog();
+        // await dialog.render(true);
 
-        const { confirmDeletion } = await dialog.promise;
+        // const { confirmDeletion } = await dialog.promise;
 
-        if (!confirmDeletion) return;
+        // if (!confirmDeletion) return;
 
         actor.spellBooks.remove(spellBookId);
 
@@ -66,13 +67,8 @@
         }
     }
 
-    function getMaxSpellResource(type: string) {
-        if (actor.type !== "character") {
-            return spellResources[type].max;
-        }
-
-        if (sheetIsLocked()) return spellResources[type].max;
-        return spellResources[type].override;
+    function sortHandler(reverse: boolean) {
+        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
     }
 
     function updateCurrentSpellBook(spellBookId: string) {
@@ -82,49 +78,23 @@
         actorSheetTempSettings[uuid].currentSpellBook = spellBookId;
     }
 
-    function updateMaxSpellResource(type: string, value: number) {
-        const key =
-            actor.type === "character"
-                ? `system.spellResources.${type}.override`
-                : `system.spellResources.${type}.max`;
-
-        updateDocumentDataFromField(actor, key, value);
-    }
-
     let actor: any = getContext("actor");
+    let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
+    let filterOptions = $state({
+        searchTerm: "",
+        showDescription: false,
+        page: "spells",
+    });
+
     let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "spell"));
+    let items = $derived(filterItems(actor.reactive, "spell", filterOptions));
     let itemsBySpellBook = $derived(prepareSpellBooks(actor.reactive, items));
 
     const openCompendium = game.a5e.utils.openCompendium;
 
-    let spellResources = $derived(actor.reactive.system.spellResources);
-    let preparedSpellCount = $derived(
-        () =>
-            actor.reactive.items.filter((item) => {
-                if (
-                    !item.system.prepared ||
-                    item.system.prepare ===
-                        CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
-                ) {
-                    return false;
-                }
-
-                return true;
-            }).length,
-    );
-
-    let maxPrepared = $derived(getMaxPreparedSpells(actor.reactive));
     let spellBooks = $derived(actor.reactive.spellBooks);
-
-    let maxArtifactCharges = $derived(getMaxSpellResource("artifactCharges"));
-    let maxSpellInventions = $derived(getMaxSpellResource("inventions"));
-    let maxSpellPoints = $derived(getMaxSpellResource("points"));
-
-    let exertion = $derived(actorStore.attributes.exertion);
-    let startingClass = $derived(actorStore.classes?.startingClass);
 
     let currentSpellBook = $derived(
         actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
@@ -132,11 +102,34 @@
     );
 </script>
 
+{#if actor.isOwner}
+    <UtilityBar
+        bind:filterOptions
+        showAddIcon={true}
+        showDescriptionButton={true}
+        showFilters={true}
+        showSortButton={true}
+        {sortHandler}
+    >
+        <button
+            class="a5e-button a5e-button--transparent"
+            data-tooltip="Import Spells from Compendium"
+            data-tooltip-direction="UP"
+            aria-label="Import Spells from Compendium"
+            onclick={() => openCompendium(actor, "spells")}
+        >
+            <i class="fa-solid fa-download"></i>
+        </button>
+    </UtilityBar>
+{/if}
+
 {#if !sheetIsLocked() || [...spellBooks].length > 1}
     <nav class="a5e-spellbook-list">
         {#each [...spellBooks] as [spellBookId, spellBook], idx}
-            <button
-                class="a5e-button a5e-spellbook-list__item"
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div
+                class="a5e-spellbook-list__item"
                 class:a5e-spellbook-list__item--active={currentSpellBook
                     ? currentSpellBook === spellBookId
                     : idx === 0}
@@ -145,29 +138,33 @@
                 {spellBook.name}
 
                 {#if !sheetIsLocked()}
-                    <!-- svelte-ignore a11y_click_events_have_key_events -->
-                    <!-- svelte-ignore a11y_no_static_element_interactions -->
-                    <i
-                        class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
+                    <button
+                        class="a5e-button a5e-button--transparent a5e-control-button"
+                        data-tooltip="Configure Spell Book"
+                        aria-label="Configure Spell Book"
                         onclick={(e) => {
                             e.stopPropagation();
+                            e.preventDefault();
                             configureSpellBook(spellBookId);
                         }}
                     >
-                    </i>
+                        <i class="fa-solid fa-gear"> </i>
+                    </button>
 
-                    <!-- svelte-ignore a11y_click_events_have_key_events -->
-                    <!-- svelte-ignore a11y_no_static_element_interactions -->
-                    <i
-                        class="a5e-control-button a5e-control-button--config fa-solid fa-trash"
+                    <button
+                        class="a5e-button a5e-button--transparent a5e-control-button"
+                        data-tooltip="Delete Spell Book"
+                        aria-label="Delete Spell Book"
                         onclick={(e) => {
                             e.stopPropagation();
+                            e.preventDefault();
                             deleteSpellBook(spellBookId);
                         }}
                     >
-                    </i>
+                        <i class="fa-solid fa-trash"> </i>
+                    </button>
                 {/if}
-            </button>
+            </div>
         {/each}
 
         {#if !sheetIsLocked()}
@@ -189,3 +186,90 @@
         items={itemsBySpellBook[currentSpellBook]}
     />
 {/if}
+
+<style lang="scss">
+    .disable-pointer-events {
+        pointer-events: none;
+    }
+
+    .a5e-spellbook-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.375rem;
+        font-size: var(--a5e-sm-text);
+        font-family: var(--a5e-secondary-font);
+        margin: 0;
+        padding: 0;
+        margin-bottom: 0.25rem;
+        list-style: none;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: fit-content;
+            margin: 0;
+            padding: 0.25rem 0.5rem;
+            font-size: inherit;
+            font-family: inherit;
+            line-height: 1;
+            background: var(--a5e-background-medium);
+            color: var(--a5e-text-color-dark);
+            border: 1px solid var(--a5e-border-color);
+            border-radius: var(--a5e-border-radius-standard);
+
+            &:focus,
+            &:hover {
+                box-shadow: none;
+            }
+
+            &--active {
+                background-color: var(--a5e-color-primary);
+                border-color: hsl(190, 21%, 28%);
+                color: hsl(190, 21%, 100%);
+            }
+
+            &--add {
+                min-width: 2rem;
+                font-size: var(--a5e-sm-text);
+                font-family: "Font Awesome Pro 6";
+            }
+        }
+    }
+
+    .a5e-control-button {
+        margin: 0;
+        padding: 0;
+        transition: var(--a5e-transition-standard);
+        color: inherit;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+    }
+</style>
