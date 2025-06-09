@@ -8,9 +8,10 @@
         dialog: DeletionConfirmationDialog;
         itemDocument: Item;
         hideDeleteSection: boolean;
+        type?: string;
     };
 
-    let { dialog, itemDocument, hideDeleteSection }: Props = $props();
+    let { dialog, itemDocument, hideDeleteSection, type }: Props = $props();
 
     function onSubmit() {
         dialog.submit({ confirmDeletion: true, hideDeleteConfirmation });
@@ -48,7 +49,11 @@
             }}
         >
             <i class="icon fa-solid fa-trash"></i>
-            {`Delete ${itemDocument.type.capitalize()}`}
+            {#if type}
+                Delete {type.capitalize()}
+            {:else}
+                {`Delete ${itemDocument.type.capitalize()}`}
+            {/if}
         </button>
 
         <button

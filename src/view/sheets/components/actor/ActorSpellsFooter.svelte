@@ -44,7 +44,7 @@
         }).length || 5,
     );
 
-    let spellResources = $derived(actorStore.system.spellResources);
+    let spellResources = $derived(actorStore.spellResources);
 
     let maxPrepared = $derived(getMaxPreparedSpells(actor.reactive));
 
@@ -98,9 +98,9 @@
 {/if}
 
 <!-- Artifact Charges -->
-{#if actor.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
+{#if actor.reactive.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
     <FieldWrapper
-        heading="A5e.spells.spellcasting.artifactCharges"
+        heading="A5E.spells.spellcasting.artifactCharges"
         headingTooltip="Number Of Available Charges."
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-item-alignment="center"
@@ -140,9 +140,9 @@
 {/if}
 
 <!-- Spell Inventions -->
-{#if actor.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
+{#if actor.reactive.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
     <FieldWrapper
-        heading="A5e.spells.spellcasting.inventions"
+        heading="A5E.spells.spellcasting.inventions"
         headingTooltip="Number Of Available Inventions."
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-item-alignment="center"
@@ -184,9 +184,9 @@
 
 <!-- Spell Points -->
 {#if startingClass !== "psyknight"}
-    {#if actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
+    {#if actor.reactive.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
         <FieldWrapper
-            heading="A5e.spells.spellcasting.points"
+            heading="A5E.spells.spellcasting.points"
             --a5e-field-wrapper-direction="row"
             --a5e-field-wrapper-item-alignment="center"
             --a5e-field-wrapper-gap="0.5rem"

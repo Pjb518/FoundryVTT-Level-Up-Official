@@ -12,16 +12,21 @@ export class DeletionConfirmationDialog extends SvelteApplicationMixin(
 
   root = Component;
 
-  constructor(itemDocument: any, hideDeleteSection = false) {
+  constructor(
+    itemDocument: any = undefined,
+    hideDeleteSection = false,
+    type = "",
+  ) {
+    //@ts-expect-error
     super({
       classes: ["a5e-sheet", "a5e-sheet--dialog"],
       position: { width: 420, height: "auto" },
       window: {
-        title: `${itemDocument?.name}: Confirm Deletion`,
+        title: `${itemDocument?.name ?? type}: Confirm Deletion`,
       },
     });
 
-    this.data = { itemDocument, hideDeleteSection };
+    this.data = { itemDocument, hideDeleteSection, type };
 
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;

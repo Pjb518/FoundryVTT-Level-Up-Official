@@ -5,6 +5,7 @@
     import { prepareSpellBooks } from "#utils/view/helpers/prepareSpellBooks.ts";
 
     import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+    import { DeletionConfirmationDialog } from "#view/dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
 
     import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
@@ -45,12 +46,17 @@
             actor.system.spellBooks ?? {},
         ).length;
 
-        // const dialog = new SpellBookDeletionConfirmationDialog();
-        // await dialog.render(true);
+        const dialog = new DeletionConfirmationDialog(
+            undefined,
+            false,
+            "SpellBook",
+        );
+        await dialog.render(true);
 
-        // const { confirmDeletion } = await dialog.promise;
+        const { confirmDeletion } = await dialog.promise;
 
-        // if (!confirmDeletion) return;
+        if (!confirmDeletion) return;
+        console.log("Here");
 
         actor.spellBooks.remove(spellBookId);
 
@@ -156,6 +162,7 @@
                         data-tooltip="Delete Spell Book"
                         aria-label="Delete Spell Book"
                         onclick={(e) => {
+                            console.log(e);
                             e.stopPropagation();
                             e.preventDefault();
                             deleteSpellBook(spellBookId);
