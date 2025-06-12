@@ -23,8 +23,8 @@ import RestManager from "../../managers/RestManager.js";
 import RollOverrideManager from "../../managers/RollOverrideManager.ts";
 import { RollPreparationManager } from "../../managers/RollPreparationManager.ts";
 
-import AbilityCheckConfigDialog from "../../apps/dialogs/ActorAbilityConfigDialog.svelte";
-import AbilityCheckRollDialog from "../../apps/dialogs/AbilityCheckRollDialog.svelte";
+import AbilityConfigDialog from "#view/dialogs/actor/AbilityConfigDialog.svelte";
+import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.svelte";
 import ActorHpConfigDialog from "../../apps/dialogs/ActorHpConfigDialog.svelte";
 import ActorInitConfigDialog from "../../apps/dialogs/ActorInitConfigDialog.svelte";
 import ArmorClassConfigDialog from "../../apps/dialogs/ArmorClassConfigDialog.svelte";
@@ -48,7 +48,6 @@ import SensesBonusConfigDialog from "#view/components/bonuses/SensesBonusConfigD
 import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
 
 import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-import GenericRollDialog from "../../apps/dialogs/initializers/GenericRollDialog.js";
 
 import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
 import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions.js";
@@ -76,7 +75,7 @@ interface BaseActorA5e<ActorType extends SystemActorTypes = SystemActorTypes> {
 class BaseActorA5e extends Actor {
   // Defaults
   #configDialogMap = {
-    ability: AbilityCheckConfigDialog,
+    ability: AbilityConfigDialog,
     abilityBonus: AbilityBonusConfigDialog,
     alignment: DetailsConfigDialog,
     armor: DetailsConfigDialog,
@@ -1434,12 +1433,11 @@ class BaseActorA5e extends Actor {
       ability: localize(CONFIG.A5E.abilities[abilityKey]),
     });
 
-    const dialog = new GenericRollDialog(
+    const dialog = new GenericConfigDialog(
       this,
       title,
       AbilityCheckRollDialog,
-      { abilityKey },
-      rollOptions,
+      { abilityKey, options: rollOptions },
       dialogOptions,
     );
 
@@ -1593,22 +1591,17 @@ class BaseActorA5e extends Actor {
     if (rollOptions.saveType === "death") {
       title = localize("A5E.DeathSavingThrowPromptTitle", { name: this.name });
     } else {
-      title = localize(
-        "A5E.SavingThrowPromptTitle",
-        // @ts-expect-error
-        {
-          name: this.name,
-          ability: localize(CONFIG.A5E.abilities[abilityKey]),
-        },
-      );
+      title = localize("A5E.SavingThrowPromptTitle", {
+        name: this.name,
+        ability: localize(CONFIG.A5E.abilities[abilityKey]),
+      });
     }
 
-    const dialog = new GenericRollDialog(
+    const dialog = new GenericConfigDialog(
       this,
       title,
       SavingThrowRollDialog,
-      { abilityKey },
-      rollOptions,
+      { abilityKey, options: rollOptions },
       dialogOptions,
     );
 
@@ -1760,12 +1753,11 @@ class BaseActorA5e extends Actor {
       skill: localize(CONFIG.A5E.skills[skillKey]),
     });
 
-    const dialog = new GenericRollDialog(
+    const dialog = new GenericConfigDialog(
       this,
       title,
       SkillCheckRollDialog,
-      { skillKey },
-      rollOptions,
+      { skillKey, options: rollOptions },
       dialogOptions,
     );
 

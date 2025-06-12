@@ -97,6 +97,7 @@
 <li>
     <button
         class="tag"
+        type="button"
         {style}
         class:tag--tight={tight}
         {disabled}
