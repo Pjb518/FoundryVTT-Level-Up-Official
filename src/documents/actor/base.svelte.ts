@@ -31,7 +31,7 @@ import ArmorClassConfigDialog from "../../apps/dialogs/ArmorClassConfigDialog.sv
 import DetailsConfigDialog from "../../apps/dialogs/DetailsConfigDialog.svelte";
 import MovementConfigDialog from "../../apps/dialogs/MovementConfigDialog.svelte";
 import RestDialog from "../../apps/dialogs/RestDialog.svelte";
-import SavingThrowRollDialog from "../../apps/dialogs/SavingThrowRollDialog.svelte";
+import SavingThrowRollDialog from "#view/dialogs/actor/SavingThrowRollDialog.svelte";
 import SensesConfigDialog from "../../apps/dialogs/SensesConfigDialog.svelte";
 import SkillCheckRollDialog from "../../apps/dialogs/SkillCheckRollDialog.svelte";
 import SkillConfigDialog from "../../apps/dialogs/SkillConfigDialog.svelte";
