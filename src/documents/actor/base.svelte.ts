@@ -27,7 +27,7 @@ import AbilityConfigDialog from "#view/dialogs/actor/AbilityConfigDialog.svelte"
 import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.svelte";
 import HitPointsConfigDialog from "#view/dialogs/actor/HitPointsConfigDialog.svelte";
 import ActorInitConfigDialog from "../../apps/dialogs/ActorInitConfigDialog.svelte";
-import ArmorClassConfigDialog from "../../apps/dialogs/ArmorClassConfigDialog.svelte";
+import ArmorClassConfigDialog from "#view/dialogs/actor/ArmorClassConfigDialog.svelte";
 import DetailsConfigDialog from "../../apps/dialogs/DetailsConfigDialog.svelte";
 import MovementConfigDialog from "../../apps/dialogs/MovementConfigDialog.svelte";
 import RestDialog from "../../apps/dialogs/RestDialog.svelte";
@@ -218,7 +218,6 @@ class BaseActorA5e extends Actor {
   }
 
   get isBloodied(): boolean {
-    // @ts-expect-error
     const { max, value } = this.system.attributes.hp;
     return (value / max) * 100 <= 50;
   }

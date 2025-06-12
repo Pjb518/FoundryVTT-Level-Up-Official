@@ -1,18 +1,20 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+    import { getACComponents } from "#utils/getACComponents.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import { getACComponents } from "../../utils/getACComponents";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    type Props = {
+        document: any;
+    };
 
-    export let document;
-    export let appId;
+    let { document }: Props = $props();
 
-    const actor = document;
+    let actor = document;
+    let actorStore = $derived(actor.reactive.system);
 
-    $: acFormula = getACComponents($actor);
+    let acFormula = $derived(getACComponents(actor.reactive));
 </script>
 
 <Section --a5e-section-body-gap="0.75rem" --a5e-section-padding="0.75rem">
@@ -21,17 +23,21 @@
         hint="For NPCs this value states their Natural Armor."
     >
         <input
-            class="a5e-input"
+            class="a5e-input a5e-input--slim"
             type="text"
             name="system.attributes.ac.baseFormula"
-            value={$actor.system.attributes.ac.baseFormula}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
+            value={actorStore.attributes.ac.baseFormula}
+            onchange={({ currentTarget }) =>
+                updateDocumentDataFromField(
+                    actor,
+                    currentTarget.name,
+                    currentTarget.value,
+                )}
         />
     </FieldWrapper>
 
     <FieldWrapper heading="A5E.armorClass.formula">
-        <div class="u-w-full ac-formula-preview">
+        <div class="ac-formula-preview">
             {acFormula}
         </div>
     </FieldWrapper>
@@ -40,8 +46,8 @@
 <style lang="scss">
     .ac-formula-preview {
         padding: 0.5rem;
-        font-size: var(--a5e-text-size-sm);
-        border: 1px solid #7a7971;
+        font-size: var(--a5e-sm-text);
+        border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
     }
 </style>
