@@ -1,19 +1,20 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+    import { prepareAbilityOptions } from "#utils/view/helpers/prepareAbilityOptions.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
+    import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    type Props = {
+        document: any;
+        skillKey: string;
+    };
 
-    export let document;
-    export let appId;
-    export let skillKey;
+    let { document, skillKey }: Props = $props();
 
     const actor = document;
     const abilityOptions = prepareAbilityOptions();
@@ -22,12 +23,15 @@
         CONFIG.A5E.skillSpecialties[skillKey],
     );
 
-    let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
+    let dnd5eStyleExpertise = game.settings.get(
+        "a5e",
+        "5eStyleExpertise",
+    ) as boolean;
 
     let hideSkillSpecialties =
-        game.settings.get("a5e", "hideSkillSpecialties") ?? false;
+        (game.settings.get("a5e", "hideSkillSpecialties") as boolean) ?? false;
 
-    $: skill = $actor.system.skills[skillKey];
+    let skill = $derived(actor.reactive.system.skills[skillKey]);
 </script>
 
 <article>
@@ -43,11 +47,11 @@
                     ]}
                     selected={skill.proficient}
                     allowDeselect={false}
-                    on:updateSelection={({ detail }) => {
+                    onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
-                            $actor,
+                            actor,
                             `system.skills.${skillKey}.proficient`,
-                            detail,
+                            value,
                         );
                     }}
                 ></RadioGroup>
@@ -55,11 +59,11 @@
                 <Checkbox
                     label="A5E.proficiency.proficient"
                     checked={skill.proficient}
-                    on:updateSelection={({ detail }) => {
+                    onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
-                            $actor,
+                            actor,
                             `system.skills.${skillKey}.proficient`,
-                            detail,
+                            value,
                         );
                     }}
                 />
@@ -71,11 +75,11 @@
                 heading="A5E.skillLabels.specialties"
                 options={specialtyOptions}
                 selected={skill.specialties}
-                on:updateSelection={(event) =>
+                onUpdateSelection={(value) =>
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.skills.${skillKey}.specialties`,
-                        event.detail,
+                        value,
                     )}
             />
         {/if}
@@ -87,42 +91,41 @@
                 ...abilityOptions,
                 ["@attributes.spellcasting", "Spellcasting"],
             ]}
-            selected={$actor._source.system.skills[skillKey].ability}
+            selected={actor.reactive._source.system.skills[skillKey].ability}
             allowDeselect={false}
-            on:updateSelection={(event) =>
+            onUpdateSelection={(value) =>
                 updateDocumentDataFromField(
-                    $actor,
+                    actor,
                     `system.skills.${skillKey}.ability`,
-                    event.detail,
+                    value,
                 )}
         />
 
         <ExpertiseDiePicker
-            selected={$actor._source.system.skills[skillKey]?.expertiseDice}
-            type={$actor.type}
-            on:updateSelection={({ detail }) =>
+            selected={actor.reactive._source.system.skills[skillKey]
+                ?.expertiseDice}
+            type={actor.type}
+            onUpdateSelection={(value) =>
                 updateDocumentDataFromField(
-                    $actor,
+                    actor,
                     `system.skills.${skillKey}.expertiseDice`,
-                    detail,
+                    value,
                 )}
         />
 
         <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
-            <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    type="number"
-                    value={skill.minRoll}
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            `system.skills.${skillKey}.minRoll`,
-                            Number(target.value),
-                        )}
-                />
-            </div>
+            <input
+                class="a5e-input a5e-input--small a5e-input--slim"
+                type="number"
+                value={skill.minRoll}
+                min="0"
+                onchange={({ currentTarget }) =>
+                    updateDocumentDataFromField(
+                        actor,
+                        `system.skills.${skillKey}.minRoll`,
+                        Number(currentTarget.value),
+                    )}
+            />
         </FieldWrapper>
     </Section>
 </article>
