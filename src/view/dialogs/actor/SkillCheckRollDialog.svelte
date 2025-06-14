@@ -1,28 +1,29 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+    import type { SkillCheckRollOptions } from "../../../documents/actor/data.ts";
     import { localize } from "#utils/localization/localize.ts";
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
+    import getRollFormula from "#utils/getRollFormula.js";
 
-    import getRollFormula from "../../utils/getRollFormula";
-    import RollModePicker from "../components/RollModePicker.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
 
-    export let document;
-    export let dialog;
-    export let skillKey;
-    export let options;
+    type Props = {
+        document: any;
+        dialog: any;
+        skillKey: string;
+        options: SkillCheckRollOptions;
+    };
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return $actor.RollOverrideManager.getExpertiseDice(
-            `system.skills.${skillKey}` ?? "",
-            $actor.system.skills[skillKey].expertiseDice ||
+        return actor.RollOverrideManager.getExpertiseDice(
+            `system.skills.${skillKey}` || "",
+            actor.system.skills[skillKey].expertiseDice ||
                 options.expertiseDice ||
                 0,
             { ability: abilityKey },
@@ -39,85 +40,95 @@
         });
     }
 
-    const actor = new TJSDocument(document);
+    let { document, dialog, skillKey, options }: Props = $props();
+
+    const actor = document;
     const appId = dialog.id;
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
     const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
 
     const buttonText = localize("A5E.RollPromptAbilityCheck", {
         ability: localizedSkill,
     });
 
-    let abilityKey =
-        options.abilityKey ?? $actor.system.skills[skillKey].ability;
+    let abilityKey = $state(
+        options.abilityKey ?? actor.system.skills[skillKey].ability,
+    );
 
-    let visibilityMode =
-        options.visibilityMode ?? game.settings.get("core", "rollMode");
+    let visibilityMode = $state(
+        options.visibilityMode ?? game.settings.get("core", "rollMode"),
+    );
 
-    let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
-    let rollFormula;
+    let { minRoll } = options.minRoll ?? actor.system.skills[skillKey];
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    let situationalMods = options.situationalMods ?? "";
+    let situationalMods = $state(options.situationalMods ?? "");
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
-        abilityKey,
-        "check",
+    let abilityBonuses = $state(
+        actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check"),
     );
 
-    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
-        skillKey,
-        abilityKey,
+    let skillBonuses = $derived(
+        actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey),
     );
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
-        "abilities",
-        {
+    let selectedAbilityBonuses = $derived(
+        actor.BonusesManager.getDefaultSelections("abilities", {
             abilityKey,
             abilityType: "check",
-        },
+        }),
     );
 
-    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
-        "skills",
-        {
+    let selectedSkillBonuses = $derived(
+        actor.BonusesManager.getDefaultSelections("skills", {
             skillKey,
             abilityKey,
-        },
+        }),
     );
 
-    $: expertiseDie = getInitialExpertiseDieSelection();
+    let expertiseDie = $derived(getInitialExpertiseDieSelection());
 
-    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
-        `system.skills.${skillKey}`,
-        options.expertiseDice ?? 0,
-        { ability: abilityKey },
+    let expertiseDieSource = $derived(
+        actor.RollOverrideManager.getExpertiseDiceSource(
+            `system.skills.${skillKey}`,
+            options.expertiseDice ?? 0,
+            { ability: abilityKey },
+        ),
     );
 
-    $: rollMode = $actor.RollOverrideManager.getRollOverride(
-        `system.skills.${skillKey}`,
-        selectedRollMode,
-        { ability: abilityKey },
+    let rollMode = $derived(
+        actor.RollOverrideManager.getRollOverride(
+            `system.skills.${skillKey}`,
+            selectedRollMode,
+            { ability: abilityKey },
+        ),
     );
 
-    $: rollModeString = $actor.RollOverrideManager?.getRollOverridesSource(
-        `system.skills.${skillKey}`,
-        selectedRollMode,
-        { ability: abilityKey },
+    let rollModeString = $derived(
+        actor.RollOverrideManager?.getRollOverridesSource(
+            `system.skills.${skillKey}`,
+            selectedRollMode,
+            { ability: abilityKey },
+        ),
     );
 
-    $: rollFormula = getRollFormula($actor, {
-        ability: abilityKey,
-        expertiseDie,
-        minRoll,
-        rollMode,
-        situationalMods,
-        skill: skillKey,
-        selectedAbilityBonuses,
-        selectedSkillBonuses,
-        type: "skillCheck",
-    });
+    let rollFormula = $derived(
+        getRollFormula(actor, {
+            ability: abilityKey,
+            expertiseDie,
+            minRoll,
+            rollMode,
+            situationalMods,
+            skill: skillKey,
+            selectedAbilityBonuses,
+            selectedSkillBonuses,
+            type: "skillCheck",
+        }),
+    );
 </script>
 
 <form>
@@ -126,7 +137,7 @@
     <RollModePicker
         selected={rollMode}
         source={rollModeString}
-        on:updateSelection={({ detail }) => (rollMode = detail)}
+        onUpdateSelection={(detail) => (rollMode = detail)}
     />
 
     <RadioGroup
@@ -134,14 +145,14 @@
         options={Object.entries(abilities)}
         selected={abilityKey}
         allowDeselect={false}
-        on:updateSelection={({ detail }) => (abilityKey = detail)}
+        onUpdateSelection={(detail) => (abilityKey = detail)}
     />
 
     <ExpertiseDiePicker
         source={expertiseDieSource}
         selected={expertiseDie}
-        type={$actor.type}
-        on:updateSelection={({ detail }) => (expertiseDie = detail)}
+        type={actor.type}
+        onUpdateSelection={(detail) => (expertiseDie = detail)}
     />
 
     {#if Object.values(abilityBonuses).flat().length}
@@ -152,8 +163,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            onUpdateSelection={(detail) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -165,15 +175,15 @@
                 skillBonus.label || skillBonus.defaultLabel,
             ])}
             selected={selectedSkillBonuses}
-            on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
+            onUpdateSelection={(detail) => (selectedSkillBonuses = detail)}
         />
     {/if}
 
     <FieldWrapper heading="A5E.SituationalMods">
         <input
-            class="a5e-input"
+            class="a5e-input a5e-input--slim"
             type="text"
-            id="{$actor.id}-{appId}-situational-mods"
+            id="{actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
     </FieldWrapper>
@@ -183,7 +193,15 @@
     </section>
 
     <section>
-        <button on:click|preventDefault={onSubmit}>{buttonText}</button>
+        <button
+            class="a5e-button"
+            onclick={(e) => {
+                e.preventDefault();
+                onSubmit();
+            }}
+        >
+            {buttonText}
+        </button>
     </section>
 </form>
 
@@ -197,8 +215,8 @@
 
     .roll-formula-preview {
         padding: 0.5rem;
-        font-size: var(--a5e-text-size-sm);
-        border: 1px solid #7a7971;
+        font-size: var(--a5e-sm-text);
+        border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
     }
 </style>

@@ -129,10 +129,8 @@
     <h3
         class="skill__name"
         class:disable-pointer-events={!actor.isOwner}
-        onclick={actor.rollSkillCheck(
-            skillKey,
-            getKeyPressAsOptions(pressedKeys),
-        )}
+        onclick={() =>
+            actor.rollSkillCheck(skillKey, getKeyPressAsOptions(pressedKeys))}
     >
         {skills[skillKey]}
 
