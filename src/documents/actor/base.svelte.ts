@@ -26,7 +26,7 @@ import { RollPreparationManager } from "../../managers/RollPreparationManager.ts
 import AbilityConfigDialog from "#view/dialogs/actor/AbilityConfigDialog.svelte";
 import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.svelte";
 import HitPointsConfigDialog from "#view/dialogs/actor/HitPointsConfigDialog.svelte";
-import ActorInitConfigDialog from "../../apps/dialogs/ActorInitConfigDialog.svelte";
+import InitiativeConfigDialog from "#view/dialogs/actor/InitiativeConfigDialog.svelte";
 import ArmorClassConfigDialog from "#view/dialogs/actor/ArmorClassConfigDialog.svelte";
 import DetailsConfigDialog from "#view/dialogs/actor/DetailsConfigDialog.svelte";
 import MovementConfigDialog from "#view/dialogs/actor/MovementConfigDialog.svelte";
@@ -90,7 +90,7 @@ class BaseActorA5e extends Actor {
     healingBonus: HealingBonusConfigDialog,
     hitPointsBonus: HitPointsBonusConfigDialog,
     health: HitPointsConfigDialog,
-    initiative: ActorInitConfigDialog,
+    initiative: InitiativeConfigDialog,
     initiativeBonus: InitiativeBonusConfigDialog,
     languages: DetailsConfigDialog,
     maneuverTraditions: DetailsConfigDialog,
