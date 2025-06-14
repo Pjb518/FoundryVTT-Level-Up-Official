@@ -5,6 +5,7 @@
     import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
 
     function getRollOptions() {
+        console.log("Here");
         const options = getKeyPressAsOptions(pressedKeys, {
             reverseAlt: game.settings.get(
                 "a5e",

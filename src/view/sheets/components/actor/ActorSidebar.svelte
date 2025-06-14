@@ -1,7 +1,7 @@
 <script>
     import ActorHitDice from "./ActorHitDice.svelte";
     import ActorHitPoints from "./ActorHitPoints.svelte";
-    import ActorInitiative from "../../../../apps/components/actorSidebar/ActorInitiative.svelte";
+    import ActorInitiative from "./ActorInitiative.svelte";
     import ActorSidebarPortrait from "./ActorSidebarPortrait.svelte";
     import ActorSidebarAC from "./ActorSidebarAC.svelte";
     import ActorSidebarDetails from "./ActorSidebarDetails.svelte";

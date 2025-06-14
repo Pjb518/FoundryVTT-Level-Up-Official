@@ -101,7 +101,7 @@
     let currency: Record<string, number> = $derived(getCurrency());
 </script>
 
-{#if flags?.trackInventoryWeight}
+{#if flags?.trackInventoryWeight ?? true}
     <ActorItemWeightTrack />
 {/if}
 

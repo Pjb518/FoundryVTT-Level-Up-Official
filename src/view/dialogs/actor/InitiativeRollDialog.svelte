@@ -1,23 +1,24 @@
-<script>
-    import { getContext } from "svelte";
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+<script lang="ts">
+    import type { InitiativeRollOptions } from "../../../documents/actor/data.ts";
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
+    import getRollFormula from "#utils/getRollFormula.js";
 
-    import getRollFormula from "../../utils/getRollFormula";
-    import RollModePicker from "../components/RollModePicker.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
 
-    export let document;
-    export let dialog;
-    export let options;
+    type Props = {
+        document: any;
+        dialog: any;
+        options: InitiativeRollOptions;
+    };
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return $actor.RollOverrideManager.getExpertiseDice(
+        return actor.RollOverrideManager.getExpertiseDice(
             "initiative",
             options.expertiseDice ?? 0,
             {
@@ -27,7 +28,9 @@
         );
     }
 
-    const actor = new TJSDocument(document.actor);
+    let { document, dialog, options }: Props = $props();
+
+    const actor = document;
     const appId = dialog.id;
     const abilities = CONFIG.A5E.abilities;
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
@@ -44,23 +47,22 @@
 
     let abilityKey =
         options.abilityKey ??
-        $actor.system.attributes.initiative.ability ??
+        actor.system.attributes.initiative.ability ??
         "dex";
 
     let skillKey = options.skillKey ?? "none";
-    let rollFormula;
     let situationalMods = options.situationalMods ?? "";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    $: expertiseDie = getInitialExpertiseDieSelection();
+    let expertiseDie = getInitialExpertiseDieSelection();
 
-    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+    let expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
         "initiative",
         options.expertiseDie ?? 0,
         { ability: abilityKey, skill: skillKey },
     );
 
-    $: rollMode = $actor.RollOverrideManager.getRollOverride(
+    let rollMode = actor.RollOverrideManager.getRollOverride(
         "initiative",
         selectedRollMode,
         {
@@ -69,28 +71,28 @@
         },
     );
 
-    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+    let rollModeString = actor.RollOverrideManager.getRollOverridesSource(
         "initiative",
         selectedRollMode,
         { ability: abilityKey, skill: skillKey },
     );
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
+    let abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
         "check",
     );
 
-    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
+    let skillBonuses = actor.BonusesManager.prepareSkillBonuses(
         skillKey,
         abilityKey,
     );
 
-    $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
+    let initiativeBonuses = actor.BonusesManager.prepareInitiativeBonuses({
         abilityKey,
         skillKey,
     });
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
+    let selectedAbilityBonuses = actor.BonusesManager.getDefaultSelections(
         "abilities",
         {
             abilityKey,
@@ -98,7 +100,7 @@
         },
     );
 
-    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
+    let selectedSkillBonuses = actor.BonusesManager.getDefaultSelections(
         "skills",
         {
             skillKey,
@@ -106,7 +108,7 @@
         },
     );
 
-    $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
+    let selectedInitiativeBonuses = actor.BonusesManager.getDefaultSelections(
         "initiative",
         {
             abilityKey,
@@ -114,46 +116,48 @@
         },
     );
 
-    $: rollFormula = getRollFormula($actor, {
-        ability: abilityKey,
-        expertiseDie,
-        rollMode,
-        situationalMods,
-        skill: skillKey,
-        selectedAbilityBonuses,
-        selectedSkillBonuses,
-        selectedInitiativeBonuses,
-        type: "initiative",
-    });
+    let rollFormula = $derived(
+        getRollFormula(actor, {
+            ability: abilityKey,
+            expertiseDie,
+            rollMode,
+            situationalMods,
+            skill: skillKey,
+            selectedAbilityBonuses,
+            selectedSkillBonuses,
+            selectedInitiativeBonuses,
+            type: "initiative",
+        }),
+    );
 </script>
 
 <form>
     <RollModePicker
         selected={rollMode}
         source={rollModeString}
-        on:updateSelection={({ detail }) => (rollMode = detail)}
+        onUpdateSelection={(detail) => (rollMode = detail)}
     />
 
     <RadioGroup
         heading="A5E.abilities.headings.score"
         options={Object.entries(abilities)}
         selected={abilityKey}
-        on:updateSelection={({ detail }) => (abilityKey = detail)}
+        onUpdateSelection={(detail) => (abilityKey = detail)}
     />
 
     <RadioGroup
         heading="A5E.skillLabels.title"
         options={Object.entries(skills)}
         selected={skillKey}
-        on:updateSelection={({ detail }) => (skillKey = detail)}
+        onUpdateSelection={(detail) => (skillKey = detail)}
     />
 
     <ExpertiseDiePicker
         source={expertiseDieSource}
         selected={expertiseDie}
-        type={$actor.type}
-        on:updateSelection={(event) => {
-            expertiseDie = event.detail;
+        type={actor.type}
+        onUpdateSelection={(value) => {
+            expertiseDie = value;
         }}
     />
 
@@ -165,8 +169,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            onUpdateSelection={(detail) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -178,7 +181,7 @@
                 skillBonus.label || skillBonus.defaultLabel,
             ])}
             selected={selectedSkillBonuses}
-            on:updateSelection={({ detail }) => (selectedSkillBonuses = detail)}
+            onUpdateSelection={(detail) => (selectedSkillBonuses = detail)}
         />
     {/if}
 
@@ -190,16 +193,15 @@
                 initiativeBonus.label || initiativeBonus.defaultLabel,
             ])}
             selected={selectedInitiativeBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedInitiativeBonuses = detail)}
+            onUpdateSelection={(detail) => (selectedInitiativeBonuses = detail)}
         />
     {/if}
 
     <FieldWrapper heading="A5E.SituationalMods">
         <input
-            class="a5e-input"
+            class="a5e-input a5e-input--slim"
             type="text"
-            id="{$actor.id}-{appId}-situational-mods"
+            id="{actor.id}-{appId}-situational-mods"
             bind:value={situationalMods}
         />
     </FieldWrapper>
@@ -209,7 +211,14 @@
     </section>
 
     <section>
-        <button on:click|preventDefault={onSubmit}>Roll Initiative</button>
+        <button
+            onclick={(e) => {
+                e.preventDefault();
+                onSubmit();
+            }}
+        >
+            Roll Initiative
+        </button>
     </section>
 </form>
 
@@ -223,7 +232,7 @@
 
     .roll-formula-preview {
         padding: 0.5rem;
-        font-size: var(--a5e-text-size-sm);
+        font-size: var(--a5e-sm-text);
         border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
     }
