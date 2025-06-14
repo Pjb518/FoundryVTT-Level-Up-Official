@@ -28,7 +28,7 @@ import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.s
 import HitPointsConfigDialog from "#view/dialogs/actor/HitPointsConfigDialog.svelte";
 import ActorInitConfigDialog from "../../apps/dialogs/ActorInitConfigDialog.svelte";
 import ArmorClassConfigDialog from "#view/dialogs/actor/ArmorClassConfigDialog.svelte";
-import DetailsConfigDialog from "../../apps/dialogs/DetailsConfigDialog.svelte";
+import DetailsConfigDialog from "#view/dialogs/actor/DetailsConfigDialog.svelte";
 import MovementConfigDialog from "../../apps/dialogs/MovementConfigDialog.svelte";
 import RestDialog from "../../apps/dialogs/RestDialog.svelte";
 import SavingThrowRollDialog from "#view/dialogs/actor/SavingThrowRollDialog.svelte";

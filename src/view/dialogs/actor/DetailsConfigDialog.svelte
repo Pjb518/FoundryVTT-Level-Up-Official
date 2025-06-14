@@ -1,24 +1,23 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
+    import ComplexDetailEmbed from "#view/snippets/ComplexDetailEmbed.svelte";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
-    import ComplexDetailEmbed from "../components/ComplexDetailEmbed.svelte";
+    type Props = {
+        document: any;
+        propertyKey: string;
+        configObject: any;
+        heading: string;
+        type: string;
+    };
 
-    export let document;
-    export let appId;
-    export let propertyKey;
-    export let configObject;
-    export let heading;
-    export let type;
-
-    function getTooltipData() {
-        const grantData = $actor.grants.getGrantedTraits(type);
+    function getTooltipData(actor: Actor) {
+        const grantData = actor.grants.getGrantedTraits(type);
 
         const data = {};
         for (const value of Object.values(grantData)) {
@@ -31,14 +30,20 @@
         return data;
     }
 
-    const actor = document;
-    let options = Object.entries(configObject);
+    let { document, propertyKey, configObject, heading, type }: Props =
+        $props();
+
+    let actor = document;
+    let actorStore = $derived(actor.reactive.system);
     const isRadioGroup = ["size"].includes(type);
     const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-    $: selected = foundry.utils.getProperty($actor, propertyKey);
-    $: tooltipData = getTooltipData($actor);
-    $: options = Object.entries(configObject);
+    let selected = $derived(
+        foundry.utils.getProperty(actor.reactive, propertyKey),
+    );
+    let tooltipData = $derived(getTooltipData(actor.reactive));
+
+    let options = $derived(Object.entries(configObject)) as string[][];
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-body-gap="0.75rem">
@@ -49,29 +54,25 @@
                 {options}
                 {selected}
                 allowDeselect={false}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                onUpdateSelection={(value) =>
+                    updateDocumentDataFromField(actor, propertyKey, value)}
             />
         </FieldWrapper>
     {:else if type === "weapons"}
         <ComplexDetailEmbed
-            existingProperties={$actor.system.proficiencies.weapons}
+            existingProperties={actorStore.proficiencies.weapons}
             headings={weaponCategories}
             {configObject}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField($actor, propertyKey, event.detail)}
+            onUpdateSelection={(value) =>
+                updateDocumentDataFromField(actor, propertyKey, value)}
         />
     {:else if type === "tools"}
         <ComplexDetailEmbed
-            existingProperties={$actor.system.proficiencies.tools}
+            existingProperties={actorStore.proficiencies.tools}
             headings={toolCategories}
             {configObject}
-            on:updateSelection={(event) =>
-                updateDocumentDataFromField($actor, propertyKey, event.detail)}
+            onUpdateSelection={(value) =>
+                updateDocumentDataFromField(actor, propertyKey, value)}
         />
     {:else}
         <FieldWrapper>
@@ -80,40 +81,36 @@
                 {options}
                 {selected}
                 {tooltipData}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                onUpdateSelection={(value) =>
+                    updateDocumentDataFromField(actor, propertyKey, value)}
             />
         </FieldWrapper>
     {/if}
 
     {#if type === "creatureTypes"}
         <FieldWrapper>
-            {#if $actor.type === "npc"}
+            {#if actor.type === "npc"}
                 <Checkbox
                     label="Squad"
-                    checked={$actor.system.details.isSquad}
-                    on:updateSelection={({ detail }) => {
+                    checked={actorStore.values.isSquad}
+                    onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
-                            $actor,
-                            "system.details.isSquad",
-                            detail,
+                            actor,
+                            "system.values.isSquad",
+                            value,
                         );
                     }}
                 />
             {/if}
 
             <Checkbox
-                label="A5E.details.creature.labels.swarm"
-                checked={$actor.system.details.isSwarm}
-                on:updateSelection={({ detail }) => {
+                label="A5E.values.creature.labels.swarm"
+                checked={actorStore.values.isSwarm}
+                onUpdateSelection={(value) => {
                     updateDocumentDataFromField(
-                        $actor,
-                        "system.details.isSwarm",
-                        detail,
+                        actor,
+                        "system.values.isSwarm",
+                        value,
                     );
                 }}
             />
