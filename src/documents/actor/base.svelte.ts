@@ -32,7 +32,7 @@ import DetailsConfigDialog from "#view/dialogs/actor/DetailsConfigDialog.svelte"
 import MovementConfigDialog from "#view/dialogs/actor/MovementConfigDialog.svelte";
 import RestDialog from "../../apps/dialogs/RestDialog.svelte";
 import SavingThrowRollDialog from "#view/dialogs/actor/SavingThrowRollDialog.svelte";
-import SensesConfigDialog from "../../apps/dialogs/SensesConfigDialog.svelte";
+import SensesConfigDialog from "#view/dialogs/actor/SensesConfigDialog.svelte";
 import SkillCheckRollDialog from "../../apps/dialogs/SkillCheckRollDialog.svelte";
 import SkillConfigDialog from "../../apps/dialogs/SkillConfigDialog.svelte";
 

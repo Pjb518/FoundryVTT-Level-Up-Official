@@ -1,14 +1,15 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
     import { localize } from "#utils/localization/localize.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    type Props = {
+        document: any;
+    };
 
-    export let document;
-    export let appId;
+    let { document }: Props = $props();
 
     const actor = document;
     const { A5E } = CONFIG;
@@ -19,10 +20,14 @@
         tremorsense: "A5E.senses.ranges.tremorsense",
         truesight: "A5E.senses.ranges.truesight",
     };
+
+    let senses = $derived(
+        Object.entries(actor.reactive._source.system.attributes.senses),
+    ) as [string, any][];
 </script>
 
 <article>
-    {#each Object.entries($actor._source.system.attributes.senses) as [sense, senseData]}
+    {#each senses as [sense, senseData]}
         <FieldWrapper
             heading={headings[sense]}
             --a5e-field-wrapper-direction="row"
@@ -31,44 +36,42 @@
             --a5e-field-wrapper-item-alignment="center"
             --a5e-field-wrapper-label-width="7.5rem"
         >
-            <div class="u-w-20">
-                <input
-                    class="a5e-input"
-                    disabled={senseData.unit === "unlimited"}
-                    type={senseData.unit === "unlimited" ? "text" : "number"}
-                    name="system.attributes.senses.{sense}.distance"
-                    min="0"
-                    value={senseData.unit === "unlimited"
-                        ? "—"
-                        : senseData.distance || 0}
-                    on:change={({ target }) => {
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Math.max(Number(target.value), 0),
-                        );
-                    }}
-                />
-            </div>
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                disabled={senseData.unit === "unlimited"}
+                type={senseData.unit === "unlimited" ? "text" : "number"}
+                name="system.attributes.senses.{sense}.distance"
+                min="0"
+                value={senseData.unit === "unlimited"
+                    ? "—"
+                    : senseData.distance || 0}
+                onchange={({ currentTarget }) => {
+                    updateDocumentDataFromField(
+                        actor,
+                        currentTarget.name,
+                        Math.max(Number(currentTarget.value), 0),
+                    );
+                }}
+            />
 
             <select
-                class="u-w-30"
+                class="a5e-input a5e-input--slim a5e-input--fit"
                 name="system.attributes.senses.{sense}.unit"
-                on:change={({ target }) =>
+                onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        target.value,
+                        actor,
+                        currentTarget.name,
+                        currentTarget.value,
                     )}
             >
                 {#each Object.entries(A5E.visionUnits) as [key, name]}
                     <option
                         {key}
                         value={key}
-                        selected={$actor.system.attributes.senses[sense]
-                            .unit === key}
+                        selected={actor.system.attributes.senses[sense].unit ===
+                            key}
                     >
-                        {localize(name)}
+                        {localize(name as string)}
                     </option>
                 {/each}
             </select>
@@ -76,13 +79,13 @@
             {#if sense === "blindsight"}
                 <Checkbox
                     label="Blind Beyond this Range"
-                    checked={$actor.system.attributes.senses.blindsight
+                    checked={actor.system.attributes.senses.blindsight
                         ?.otherwiseBlind}
-                    on:updateSelection={({ detail }) =>
+                    onUpdateSelection={(value) =>
                         updateDocumentDataFromField(
-                            $actor,
+                            actor,
                             "system.attributes.senses.blindsight.otherwiseBlind",
-                            detail,
+                            value,
                         )}
                 />
             {/if}
