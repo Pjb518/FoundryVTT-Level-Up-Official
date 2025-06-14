@@ -1,17 +1,17 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
     import { localize } from "#utils/localization/localize.ts";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    type Props = {
+        document: Actor;
+    };
 
-    export let document;
-    export let appId;
-
-    const actor = document;
+    let { document }: Props = $props();
     const { A5E } = CONFIG;
+    const actor = document;
 
     const headings = {
         burrow: "A5E.details.movement.types.burrow",
@@ -20,10 +20,14 @@
         swim: "A5E.details.movement.types.swim",
         walk: "A5E.details.movement.types.walk",
     };
+
+    let movement = $derived(
+        Object.entries(actor.reactive._source.system.attributes.movement ?? {}),
+    ) as [string, any][];
 </script>
 
 <article>
-    {#each Object.entries($actor._source.system.attributes.movement) as [mode, movementData]}
+    {#each movement as [mode, movementData]}
         {#if mode != "traits"}
             <FieldWrapper
                 heading={headings[mode]}
@@ -33,31 +37,29 @@
                 --a5e-field-wrapper-item-alignment="center"
                 --a5e-field-wrapper-label-width="7.5rem"
             >
-                <div class="u-w-20">
-                    <input
-                        class="a5e-input"
-                        type="number"
-                        name="system.attributes.movement.{mode}.distance"
-                        value={movementData.distance || 0}
-                        min="0"
-                        on:change={({ target }) => {
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Math.max(Number(target.value), 0),
-                            );
-                        }}
-                    />
-                </div>
+                <input
+                    class="a5e-input a5e-input--slim a5e-input--small"
+                    type="number"
+                    name="system.attributes.movement.{mode}.distance"
+                    value={movementData.distance || 0}
+                    min="0"
+                    onchange={({ currentTarget }) => {
+                        updateDocumentDataFromField(
+                            actor,
+                            currentTarget.name,
+                            Math.max(Number(currentTarget.value), 0),
+                        );
+                    }}
+                />
 
                 <select
-                    class="u-w-30"
+                    class="a5e-input a5e-input--slim a5e-input--fit"
                     name={`system.attributes.movement.${mode}.unit`}
-                    on:change={({ target }) =>
+                    onchange={({ currentTarget }) =>
                         updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
+                            actor,
+                            currentTarget.name,
+                            currentTarget.value,
                         )}
                 >
                     {#each Object.entries(A5E.distanceUnits) as [key, name]}
@@ -75,11 +77,11 @@
                     <Checkbox
                         label="A5E.details.movement.hover"
                         checked={movementData?.hover}
-                        on:updateSelection={({ detail }) => {
+                        onUpdateSelection={(value) => {
                             updateDocumentDataFromField(
-                                $actor,
+                                actor,
                                 "system.attributes.movement.traits.hover",
-                                detail,
+                                value,
                             );
                         }}
                     />

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
+    import { determineIfPropertyModifiedByEffect } from "#utils/determineIfPropertyModifiedByEffect .ts";
 
     import { prepareAlignment } from "#utils/view/helpers/prepareAlignment.ts";
     import { prepareArmorProficiencies } from "#utils/view/helpers/prepareArmorProficiencies.ts";
@@ -31,7 +32,13 @@
     };
 
     function openConfig(dialogMethod: string, propertyKey: string) {
-        return actor[dialogMethod]?.(actor, propertyKey);
+        if (!determineIfPropertyModifiedByEffect(actor, propertyKey)) {
+            return actor[dialogMethod]?.({ propertyKey });
+        }
+
+        ui.notifications.warn(
+            localize("A5E.validations.warnings.modifiedByEffect"),
+        );
     }
 
     let details: Detail[] = $derived([
