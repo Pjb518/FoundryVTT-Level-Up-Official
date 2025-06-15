@@ -1,7 +1,5 @@
-/* eslint-disable no-continue */
-/* eslint-disable no-unused-vars */
-import type { Action } from "types/action";
-import type { ActionActivationOptions } from "./data";
+import type { Action } from "#types/action.d.ts";
+import type { ActionActivationOptions } from "./data.ts";
 import type { RollHandlerReturnType } from "../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls";
 
 import { BaseItemA5e } from "./base.svelte.ts";
@@ -9,15 +7,16 @@ import { BaseItemA5e } from "./base.svelte.ts";
 import { computeSaveDC } from "../../utils/computeSaveDC.ts";
 import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
 
-// import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
-// import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
+import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+import { ActionActivationDialog } from "#view/dialogs/initializers/ActionActivationDialog.svelte.ts";
+import ActionSelectionDialog from "#view/dialogs/action/ActionSelectionDialog.svelte";
 
-import { ActionsManager } from "../../managers/ActionsManager";
-import { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
-import { RollPreparationManager } from "../../managers/RollPreparationManager";
-import TemplatePreparationManager from "../../managers/TemplatePreparationManager";
+import { ActionsManager } from "#managers/ActionsManager.ts";
+import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
+import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
+import TemplatePreparationManager from "#managers/TemplatePreparationManager.js";
 
-import { getSummaryData } from "../../utils/summaries/getSummaryData.ts";
+import { getSummaryData } from "#utils/summaries/getSummaryData.ts";
 
 // *****************************************************************************************
 
@@ -136,7 +135,11 @@ class ItemA5e extends BaseItemA5e {
     } else {
       // If no action id was provided, and there is more then one action defined for the item,
       // show a dialog window so that the user can select an appropriate action.
-      const dialog = new ActionSelectionDialog(this);
+      const dialog = new GenericConfigDialog(
+        this,
+        `${this.name}: Select Action`,
+        ActionSelectionDialog,
+      );
       await dialog.render(true);
 
       const promise = await dialog.promise;
