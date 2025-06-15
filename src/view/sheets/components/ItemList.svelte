@@ -159,6 +159,7 @@
         class:disable-pointer-events={!actor.isOwner}
         onclick={(e) => {
             e.preventDefault();
+            e.stopPropagation();
             e.currentTarget?.blur();
             onItemActivate();
         }}

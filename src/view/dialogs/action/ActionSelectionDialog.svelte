@@ -3,14 +3,16 @@
 
     type Props = {
         dialog: any;
-        item: Item;
+        document: Item;
     };
 
     function onSubmit() {
         dialog.submit({ actionId: selectedAction });
+        dialog.close();
     }
 
-    let { dialog, item }: Props = $props();
+    let { dialog, document }: Props = $props();
+    let item = document;
 
     let selectedAction = $state(item.actions.default.id);
     let options = [...item.actions.entries()]
