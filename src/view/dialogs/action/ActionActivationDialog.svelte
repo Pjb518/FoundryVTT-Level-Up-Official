@@ -25,6 +25,7 @@
     import RollsSection from "#view/components/activationDialog/RollsSection.svelte";
     import SpellSection from "#view/components/activationDialog/SpellSection.svelte";
     import UsesSection from "#view/components/activationDialog/UsesSection.svelte";
+    import { preventDefault } from "svelte/legacy";
 
     type Props = {
         actionId: string;
@@ -330,7 +331,7 @@
             <Checkbox
                 label="A5E.actions.labels.placeTemplate"
                 checked={placeTemplate}
-                on:updateSelection={({ detail }) => (placeTemplate = detail)}
+                onUpdateSelection={(detail) => (placeTemplate = detail)}
             />
         </Section>
     {/if}
@@ -341,7 +342,7 @@
                 options={effects.map((e) => [e.id, e.name])}
                 selected={selectedEffects}
                 hint="Select which effects to activate/display on chat card"
-                on:updateSelection={({ detail }) => (selectedEffects = detail)}
+                onUpdateSelection={(detail) => (selectedEffects = detail)}
             />
         </Section>
     {/if}
@@ -350,15 +351,18 @@
         <button
             type="submit"
             disabled={preventActionRollOnWarning && !!warnings.length}
-            on:click|preventDefault={onSubmit}
+            onclick={(e) => {
+                e.preventDefault();
+                onSubmit();
+            }}
         >
             {#if warnings.length}
                 <i
                     class="icon fa-solid fa-circle-exclamation"
                     style="color: var(--a5e-color-warning);"
-                />
+                ></i>
             {:else}
-                <i class="icon fa-solid fa-dice" />
+                <i class="icon fa-solid fa-dice"></i>
             {/if}
             {localize("A5E.actions.labels.dialogSubmitRoll")}
         </button>
@@ -375,10 +379,6 @@
         overflow-y: auto;
     }
 
-    :global(small) {
-        margin-top: 0.25rem;
-    }
-
     .warning__wrapper {
         display: flex;
         flex-direction: column;
@@ -387,8 +387,8 @@
         padding-inline: 0.25rem;
 
         .warning {
-            font-family: --a5e-font-sans-serif;
-            font-size: var(--a5e-text-size-xs);
+            font-family: var(--a5e-primary-font);
+            font-size: var(--a5e-xs-text);
         }
     }
 </style>

@@ -5,7 +5,6 @@
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import { preventDefault } from "svelte/legacy";
 
     type Props = {
         consumers: ConsumerHandlerReturnType;
