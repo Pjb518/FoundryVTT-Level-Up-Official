@@ -13,6 +13,8 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
 
+    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
+
     function configureScaling() {
         let dialog = item.dialogs.rollScaling[rollId];
 
