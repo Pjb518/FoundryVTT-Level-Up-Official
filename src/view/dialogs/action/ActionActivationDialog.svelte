@@ -301,8 +301,7 @@
                     heading="Selected Consumers to apply on roll"
                     options={consumerOptions}
                     selected={selectedConsumers}
-                    on:updateSelection={({ detail }) =>
-                        (selectedConsumers = detail)}
+                    onUpdateSelection={(detail) => (selectedConsumers = detail)}
                 />
             </FieldWrapper>
 
