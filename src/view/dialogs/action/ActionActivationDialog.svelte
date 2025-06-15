@@ -35,6 +35,8 @@
     };
 
     function onSubmit() {
+        console.log(attackRollData);
+
         dialog.submit({
             attack: attackRollData,
             consumers: {
@@ -193,7 +195,7 @@
         RollPreparationManager.getDefaultSelectedEffects(effects),
     );
 
-    let visibilityMode = game.settings?.get("core", "rollMode")!;
+    let visibilityMode = $state(game.settings?.get("core", "rollMode")!);
 
     let placeTemplate = $state(
         (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
