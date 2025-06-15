@@ -14,7 +14,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
     import TargetRangeIncrement from "../../components/action/TargetRangeIncrement.svelte";
-    import TargetScalingDialog from "#view/dialogs/TargetScalingDialog.svelte";
+    import TargetScalingDialog from "#view/dialogs/action/TargetScalingDialog.svelte";
 
     function addRangeIncrement() {
         const newRange = {

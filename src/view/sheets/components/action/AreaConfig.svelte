@@ -14,7 +14,7 @@
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
-    import TemplateScalingDialog from "#view/dialogs/TemplateScalingDialog.svelte";
+    import TemplateScalingDialog from "#view/dialogs/action/TemplateScalingDialog.svelte";
 
     function configureScaling() {
         let dialog = item.dialogs?.areaScaling?.[actionId];
