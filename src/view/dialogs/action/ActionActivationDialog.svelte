@@ -266,7 +266,7 @@
                         damageBonus.label || damageBonus.defaultLabel || "",
                     ])}
                     selected={selectedDamageBonuses}
-                    on:updateSelection={({ detail }) =>
+                    onUpdateSelection={(detail) =>
                         (selectedDamageBonuses = detail)}
                 />
             {/if}
@@ -279,7 +279,7 @@
                         healingBonus.label || healingBonus.defaultLabel || "",
                     ])}
                     selected={selectedHealingBonuses}
-                    on:updateSelection={({ detail }) =>
+                    onUpdateSelection={(detail) =>
                         (selectedHealingBonuses = detail)}
                 />
             {/if}
