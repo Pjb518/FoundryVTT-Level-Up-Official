@@ -1,8 +1,8 @@
-// import ItemCard from '../apps/chat/ItemCard.svelte';
-// import RollCard from '../apps/chat/RollCard.svelte';
-// import RollTableCard from '../apps/chat/RollTableCard.svelte';
+import { mount } from "svelte";
 
-// import A5eChatCard from '../apps/chat/ChatCard.svelte';
+import ItemCard from "#view/chat/ItemCard.svelte";
+// import RollCard from "#view/chat/RollCard.svelte";
+// import RollTableCard from "#view/chat/RollTableCard.svelte";
 
 export default function renderChatMessage(message, html) {
   // Add svelte component
@@ -46,7 +46,7 @@ export default function renderChatMessage(message, html) {
   $(html).find(".message-header")[0]?.remove();
   $(html).find(".message-content")[0]?.remove();
 
-  message._svelteComponent = new Component({
+  message._svelteComponent = mount(Component, {
     target,
     props: { messageDocument: message },
   });
