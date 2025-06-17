@@ -63,8 +63,6 @@ export class GenericConfigDialog extends SvelteApplicationMixin(
    */
   submit(results) {
     this.#resolvePromise(results);
-    this.document?.destroy();
-
     return super.close();
   }
 

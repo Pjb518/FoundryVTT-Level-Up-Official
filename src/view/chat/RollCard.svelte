@@ -1,68 +1,64 @@
-<svelte:options accessors={true} />
-
-<script>
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+<script lang="ts">
     import { setContext } from "svelte";
 
-    import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
-    import toggleExpertiseDice from "../dataPreparationHelpers/cardRolls/toggleExpertiseDice";
-    import toggleRollMode from "../dataPreparationHelpers/cardRolls/toggleRollMode";
+    import { prepareRolls } from "#utils/view/cards/cardRolls/prepareRolls.ts";
+    import { toggleExpertiseDice } from "#utils/view/cards/cardRolls/toggleExpertiseDice.ts";
+    import { toggleRollMode } from "#utils/view/cards/cardRolls/toggleRollMode.ts";
 
     import RollCardHeader from "./RollCardHeader.svelte";
-    import RollSummary from "./body/RollSummary.svelte";
+    import RollSummary from "./components/RollSummary.svelte";
 
-    export let messageDocument;
+    type Props = {
+        messageDocument: any;
+    };
 
     async function repeatRoll() {
         const newRolls = await Promise.all(
-            $message.rolls.map((r) => new Roll(r.formula).roll()),
+            message.rolls.map((r) => new Roll(r.formula).roll()),
         );
 
         const chatData = {
-            author: $message?.author,
-            speaker: $message.speaker,
-            sound: $message.sound,
+            author: message?.author,
+            speaker: message.speaker,
+            sound: message.sound,
             rolls: newRolls,
-            rollMode: $message.rollMode,
+            rollMode: message.rollMode,
             system: {
-                actorId: $message.system.actorId,
-                actorName: $message.system.actorName,
-                img: $message.system.img,
-                rollData: foundry.utils.duplicate($message.system.rollData),
-                rollType: $message.system.rollType,
+                actorId: message.system.actorId,
+                actorName: message.system.actorName,
+                img: message.system.img,
+                rollData: foundry.utils.duplicate(message.system.rollData),
+                rollType: message.system.rollType,
             },
             type: "roll",
         };
 
         // @ts-expect-error
-        ChatMessage.applyRollMode(chatData, $message.rollMode);
+        ChatMessage.applyRollMode(chatData, message.rollMode);
         // @ts-expect-error
         await ChatMessage.create(chatData);
     }
 
     function _toggleExpertiseDice(rollIndex, expertiseDice) {
-        toggleExpertiseDice($message, rolls, rollIndex, expertiseDice);
+        toggleExpertiseDice(message, rolls, rollIndex, expertiseDice);
     }
 
     async function _toggleRollMode(rollIndex, rollMode) {
-        toggleRollMode($message, rolls, rollIndex, rollMode);
+        toggleRollMode(message, rolls, rollIndex, rollMode);
     }
 
-    const message = new TJSDocument(messageDocument);
-    const { system } = $message;
+    let { messageDocument }: Props = $props();
+
+    const message = messageDocument;
+    const { system } = message;
 
     const { actorName, img } = system;
-    const rolls = prepareRolls($message);
+    const rolls = prepareRolls(message);
 
     setContext("message", message);
 </script>
 
-<RollCardHeader
-    {actorName}
-    {img}
-    messageDocument={$message}
-    on:repeatCard={repeatRoll}
-/>
+<RollCardHeader {actorName} {img} onRepeatCard={repeatRoll} />
 
 <article class="a5e-chat-card__body">
     <section class="rolls">
@@ -70,8 +66,8 @@
             <RollSummary
                 {roll}
                 {rollData}
-                on:toggleRollMode={({ detail }) => _toggleRollMode(i, detail)}
-                on:toggleExpertiseDice={({ detail }) =>
+                onToggleRollMode={(detail) => _toggleRollMode(i, detail)}
+                onToggleExpertiseDice={(detail) =>
                     _toggleExpertiseDice(i, detail)}
             />
         {/each}

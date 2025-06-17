@@ -1,18 +1,22 @@
-<script>
-    import { createEventDispatcher } from "svelte";
+<script lang="ts">
+    import { getContext } from "svelte";
+    import calculateHeaderTextColor from "#utils/calculateHeaderTextColor.ts";
 
-    import calculateHeaderTextColor from "../../utils/calculateHeaderTextColor";
+    type Props = {
+        actorName: string;
+        img: string;
 
-    export let actorName;
-    export let img;
-    export let messageDocument;
+        onRepeatCard: () => void;
+    };
+
+    let { actorName, img, onRepeatCard }: Props = $props();
+    let messageDocument: any = getContext("message");
 
     const headerBackgroundColor = messageDocument.author.color;
     const headerTextColor = calculateHeaderTextColor(headerBackgroundColor);
 
     const { timeSince } = foundry.utils;
-    const dispatch = createEventDispatcher();
-    const isGM = game.user.isGM;
+    const isGM = game.user?.isGM!;
     const isOwner = messageDocument.author.id === game.userId;
 </script>
 
@@ -31,19 +35,22 @@
     {#if isGM || isOwner}
         <span class="a5e-chat-card__header__buttons">
             <button
-                class="a5e-chat-card__header__button--repeat icon fas fa-undo"
+                class="a5e-chat-card__header__button--repeat"
                 data-tooltip="Repeat Roll"
                 data-tooltip-direction="LEFT"
-                on:click={() => dispatch("repeatCard")}
-            />
+                aria-label="Repeat Roll"
+                onclick={() => onRepeatCard()}
+            >
+                <i class="fa-solid fa-undo"></i>
+            </button>
 
             {#if isGM}
-                <!-- svelte-ignore a11y-missing-attribute -->
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <a
                     aria-label="Delete"
                     class="message-delete a5e-chat-card__header__button--delete"
                 >
-                    <i class="icon fas fa-trash" />
+                    <i class="icon fas fa-trash"></i>
                 </a>
             {/if}
         </span>
