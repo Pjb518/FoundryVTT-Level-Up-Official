@@ -1,26 +1,27 @@
-<svelte:options accessors={true} />
-
 <script lang="ts">
-    // import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { setContext } from "svelte";
 
-    import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
+    import { prepareRolls } from "#utils/view/cards/cardRolls/prepareRolls.ts";
 
     import RollTableCardHeader from "./RollTableCardHeader.svelte";
-    import RollSummary from "./body/RollSummary.svelte";
+    import RollSummary from "./components/RollSummary.svelte";
 
-    export let messageDocument;
+    type Props = {
+        messageDocument: any;
+    };
 
-    const message = new TJSDocument(messageDocument);
-    const { system } = $message;
+    let { messageDocument }: Props = $props();
+
+    const message = messageDocument;
+    const { system } = message;
 
     const { tableName, tableId, resultTitle, img, description } = system;
-    const rolls = prepareRolls($message);
+    const rolls = prepareRolls(message);
 
     setContext("message", message);
 </script>
 
-<RollTableCardHeader {tableName} {img} messageDocument={$message} />
+<RollTableCardHeader {tableName} {img} messageDocument={message} />
 
 <article class="a5e-chat-card__body">
     <h3 class="">{resultTitle}</h3>
@@ -43,7 +44,7 @@
 <style lang="scss">
     h3 {
         font-weight: bold;
-        font-size: var(--a5e-text-size-sm);
+        font-size: var(--a5e-sm-text);
         border-bottom: 0;
         margin-bottom: 0;
     }

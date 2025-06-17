@@ -2,7 +2,7 @@ import { mount } from "svelte";
 
 import ItemCard from "#view/chat/ItemCard.svelte";
 import RollCard from "#view/chat/RollCard.svelte";
-// import RollTableCard from "#view/chat/RollTableCard.svelte";
+import RollTableCard from "#view/chat/RollTableCard.svelte";
 
 export default function renderChatMessage(message, html) {
   // Add svelte component
