@@ -23,3 +23,4 @@ The following icons are sourced from [game-icons.net](https://game-icons.net/) a
 The following subdirectories are sourced from [Rexard](https://assetstore.unity.com/publishers/13229) and are licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms). These icons are packaged with and provided for use in Foundry Virtual Tabletop and may not be redistributed or used outside of Foundry Virtual Tabletop except as permitted by a separate license agreement between the original copyright holder of these icons.
 
 - /characters
+- /creatures
