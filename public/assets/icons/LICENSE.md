@@ -24,3 +24,4 @@ The following subdirectories are sourced from [Rexard](https://assetstore.unity.
 
 - /characters
 - /creatures
+- /equipment
