@@ -20,7 +20,7 @@ The following icons are sourced from [game-icons.net](https://game-icons.net/) a
 - [slowed.svg](https://game-icons.net/1x1/lorc/snail.html) (Created by Lorc)
 - [strife.svg](https://game-icons.net/1x1/lorc/tear-tracks.html) (Created by Lorc)
 
-The following subdirectories are sourced from [Rexard](https://assetstore.unity.com/publishers/13229) and are licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms). These icons are packaged with and provided for use in Foundry Virtual Tabletop and may not be redistributed or used outside of Foundry Virtual Tabletop except as permitted by a separate license agreement between the original copyright holder of these icons.
+The following subdirectories are sourced from [PONETI](https://assetstore.unity.com/publishers/38930) and [Rexard](https://assetstore.unity.com/publishers/13229) and are licensed under the [Unity Asset Store EULA](https://unity.com/legal/as-terms). These icons are packaged with and provided for use in Foundry Virtual Tabletop and may not be redistributed or used outside of Foundry Virtual Tabletop except as permitted by a separate license agreement between the original copyright holder of these icons.
 
 - /characters
 - /commodities
