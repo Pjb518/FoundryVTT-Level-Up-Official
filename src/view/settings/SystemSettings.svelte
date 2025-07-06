@@ -8,6 +8,7 @@
     import NavigationBar from "#view/navigation/NavigationBar.svelte";
 
     import SettingsActorPage from "./SettingsActorPage.svelte";
+    import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
 
     type Props = {
         appId: string;
@@ -40,7 +41,7 @@
             {
                 name: "canvas",
                 label: "A5E.settings.navigation.canvas",
-                component: null, //SettingsCanvasTab,
+                component: SettingsCanvasPage,
                 icon: "fa-solid fa-chess-board",
                 display: game.user!.isGM,
             },

@@ -1,42 +1,49 @@
-<script>
-import { getContext } from 'svelte';
+<script lang="ts">
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-export let reload;
+    type Props = {
+        reload?: boolean;
+    };
 
-const settings = getContext('settings');
-const updates = getContext('updates');
+    let { reload = $bindable() }: Props = $props();
 
-let visionRules = settings.getStore('automateVisionRules');
-let charOnlyVisionRules = settings.getStore('visionRulesApplyToCharactersOnly');
-let placeTemplate = settings.getStore('placeItemTemplateDefault');
+    let settings: Record<string, { data: any; value: any }> =
+        getContext("settings");
+    let updates: Map<string, any> = getContext("updates");
+
+    let visionRules = $derived(settings["automateVisionRules"].value);
+    let charOnlyVisionRules = $derived(
+        settings["visionRulesApplyToCharactersOnly"].value,
+    );
+    let placeTemplate = $derived(settings["placeItemTemplateDefault"].value);
 </script>
 
 <Section heading="VIsion Settings" --a5e-section-body-gap="0.5rem">
     <FieldWrapper hint="A5E.settings.hints.automateVisionRules">
         <Checkbox
             label="A5E.settings.automateVisionRules"
-            checked={updates.get("automateVisionRules") ?? $visionRules ?? false}
-            on:updateSelection={({ detail }) => {
+            checked={updates.get("automateVisionRules") ?? visionRules ?? false}
+            onUpdateSelection={(detail) => {
                 updates.set("automateVisionRules", detail);
-                visionRules.set(detail);
                 reload = true;
             }}
         />
     </FieldWrapper>
 
-    {#if $visionRules}
-        <FieldWrapper hint="A5E.settings.hints.visionRulesApplyToCharactersOnly">
+    {#if visionRules}
+        <FieldWrapper
+            hint="A5E.settings.hints.visionRulesApplyToCharactersOnly"
+        >
             <Checkbox
                 label="A5E.settings.visionRulesApplyToCharactersOnly"
                 checked={updates.get("visionRulesApplyToCharactersOnly") ??
-                    $charOnlyVisionRules ??
+                    charOnlyVisionRules ??
                     true}
-                on:updateSelection={({ detail }) => {
+                onUpdateSelection={(detail) => {
                     updates.set("visionRulesApplyToCharactersOnly", detail);
                     reload = true;
                 }}
@@ -49,8 +56,10 @@ let placeTemplate = settings.getStore('placeItemTemplateDefault');
     <FieldWrapper hint="A5E.settings.hints.placeItemTemplateDefault">
         <Checkbox
             label="A5E.settings.placeItemTemplateDefault"
-            checked={updates.get("placeItemTemplateDefault") ?? $placeTemplate ?? false}
-            on:updateSelection={({ detail }) => {
+            checked={updates.get("placeItemTemplateDefault") ??
+                placeTemplate ??
+                false}
+            onUpdateSelection={(detail) => {
                 updates.set("placeItemTemplateDefault", detail);
             }}
         />
