@@ -12,6 +12,8 @@
     import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
     import SettingsEffectsPage from "./SettingsEffectsPage.svelte";
     import SettingsRollPage from "./SettingsRollPage.svelte";
+    import Settings5ePage from "./Settings5ePage.svelte";
+    import SettingsExtraPage from "./SettingsExtraPage.svelte";
 
     type Props = {
         appId: string;
@@ -79,14 +81,14 @@
                 name: "5eSettings",
                 label: "A5E.settings.navigation.5eSettings",
                 icon: "fa-solid fa-dragon",
-                component: null, //Settings5eTab,
+                component: Settings5ePage,
                 display: game.user!.isGM,
             },
             {
                 name: "extraSettings",
                 label: "A5E.settings.navigation.extraSettings",
                 icon: "fa-solid fa-gear",
-                component: null, //SettingsExtraTab,
+                component: SettingsExtraPage,
                 display: game.user!.isGM,
             },
             {
