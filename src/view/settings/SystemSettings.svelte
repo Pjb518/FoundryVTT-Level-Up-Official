@@ -106,15 +106,15 @@
 
     let { appId, settings, dialog }: Props = $props();
 
+    let playersCanAccessPartyViewer = $derived(
+        settings["playersCanAccessPartyViewer"].value,
+    );
+
     let tabs = getTabs();
     let currentTab = $derived(tabs[0]);
 
     let updates = new SvelteMap<string, any>();
     let reload = $state(false);
-
-    let playersCanAccessPartyViewer = $derived(
-        settings["playersCanAccessPartyViewer"].value,
-    );
 
     setContext("appId", appId);
     setContext("settings", settings);
