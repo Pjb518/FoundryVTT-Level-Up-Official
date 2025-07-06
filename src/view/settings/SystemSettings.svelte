@@ -11,6 +11,7 @@
     import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
     import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
     import SettingsEffectsPage from "./SettingsEffectsPage.svelte";
+    import SettingsRollPage from "./SettingsRollPage.svelte";
 
     type Props = {
         appId: string;
@@ -71,7 +72,7 @@
                 name: "rolls",
                 label: "A5E.settings.navigation.rolls",
                 icon: "fa-solid fa-dice",
-                component: null, //SettingsRollTab,
+                component: SettingsRollPage,
                 display: game.user!.isGM,
             },
             {
