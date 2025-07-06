@@ -9,6 +9,7 @@
 
     import SettingsActorPage from "./SettingsActorPage.svelte";
     import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
+    import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
 
     type Props = {
         appId: string;
@@ -49,7 +50,7 @@
                 name: "chat",
                 label: "A5E.settings.navigation.chat",
                 icon: "fa-solid fa-comments",
-                component: null, //SettingsChatCardTab,
+                component: SettingsChatCardPage,
             },
             {
                 name: "effects",
