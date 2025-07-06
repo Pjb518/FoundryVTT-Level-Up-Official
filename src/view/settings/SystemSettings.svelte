@@ -11,7 +11,7 @@
     import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
     import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
     import SettingsEffectsPage from "./SettingsEffectsPage.svelte";
-    import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
+    import SettingsPartyViewerPage from "./SettingsPartyViewerPage.svelte";
     import SettingsRollPage from "./SettingsRollPage.svelte";
     import Settings5ePage from "./Settings5ePage.svelte";
     import SettingsExtraPage from "./SettingsExtraPage.svelte";
@@ -70,8 +70,8 @@
                 name: "partyViewer",
                 label: "Party Viewer",
                 icon: "fa-solid fa-users",
-                component: SettingsPartyViewerTab,
-                // display: $playersCanAccessPartyViewer,
+                component: SettingsPartyViewerPage,
+                display: playersCanAccessPartyViewer,
             },
             {
                 name: "rolls",
@@ -111,6 +111,10 @@
 
     let updates = new SvelteMap<string, any>();
     let reload = $state(false);
+
+    let playersCanAccessPartyViewer = $derived(
+        settings["playersCanAccessPartyViewer"].value,
+    );
 
     setContext("appId", appId);
     setContext("settings", settings);
