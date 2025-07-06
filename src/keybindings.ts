@@ -21,7 +21,7 @@ export function registerKeybindings() {
     name: "Open/Close System Settings",
     editable: [{ key: "KeyS", modifiers: ["Alt"] }],
     onDown: () => {
-      new SystemSettings().render(true);
+      SystemSettings.show();
     },
   });
 }

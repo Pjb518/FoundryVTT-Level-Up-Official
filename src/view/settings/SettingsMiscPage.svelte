@@ -1,40 +1,55 @@
-<script>
-import { getContext } from 'svelte';
+<script lang="ts">
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-export let reload;
+    type Props = {
+        reload?: boolean;
+    };
 
-const settings = getContext('settings');
-const updates = getContext('updates');
+    let { reload = $bindable() }: Props = $props();
 
-const isGM = game.user.isGM;
+    let settings: Record<string, { data: any; value: any }> =
+        getContext("settings");
+    let updates: Map<string, any> = getContext("updates");
 
-const actionTypeOptions = [
-	['system', 'System Defined'],
-	['action', 'New Action'],
-	['item', 'Item Name'],
-];
+    const isGM = game.user!.isGM;
 
-// Stores
-let actionNameType = settings.getStore('newActionNameType');
-let fancySheetsAutoApply = settings.getStore('autoApplyFancySheets');
-let gamemasterTitle = settings.getStore('gamemasterTitle');
-let showLimitedDesc = settings.getStore('showDescriptionOnLimitedPerms');
+    const actionTypeOptions = [
+        ["system", "System Defined"],
+        ["action", "New Action"],
+        ["item", "Item Name"],
+    ];
 
-let cascadingDamageAndHealingDelay = settings.getStore('cascadingDamageAndHealingDelay');
+    // Stores
+    let actionNameType = $derived(settings["newActionNameType"].value);
+    let fancySheetsAutoApply = $derived(settings["autoApplyFancySheets"].value);
+    let gamemasterTitle = $derived(settings["gamemasterTitle"].value);
+    let showLimitedDesc = $derived(
+        settings["showDescriptionOnLimitedPerms"].value,
+    );
+    let cascadingDamageAndHealingDelay = $derived(
+        settings["cascadingDamageAndHealingDelay"].value,
+    );
+    let enableCascadingDamageAndHealing = $derived(
+        settings["enableCascadingDamageAndHealing"].value,
+    );
 
-let enableCascadingDamageAndHealing = settings.getStore('enableCascadingDamageAndHealing');
+    let newCascadingDamageAndHealingDelay = $derived(
+        updates.get("cascadingDamageAndHealingDelay") ??
+            cascadingDamageAndHealingDelay,
+    );
 
-let newCascadingDamageAndHealingDelay =
-	updates.get('cascadingDamageAndHealingDelay') ?? $cascadingDamageAndHealingDelay;
+    let selectedNamingMode = $derived(
+        updates.get("newActionNameType") ?? actionNameType ?? "system",
+    );
 
-let selectedNamingMode = updates.get('newActionNameType') ?? $actionNameType ?? 'system';
-
-let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle;
+    let selectedGamemasterTitle = $derived(
+        updates.get("gamemasterTitle") ?? gamemasterTitle,
+    );
 </script>
 
 {#if isGM}
@@ -43,9 +58,9 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
             <Checkbox
                 label="A5E.settings.showDescriptionOnLimitedPerms"
                 checked={updates.get("showDescriptionOnLimitedPerms") ??
-                    $showLimitedDesc ??
+                    showLimitedDesc ??
                     false}
-                on:updateSelection={({ detail }) => {
+                onUpdateSelection={(detail) => {
                     updates.set("showDescriptionOnLimitedPerms", detail);
                     reload = true;
                 }}
@@ -56,7 +71,7 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
             hint="A5E.settings.hints.newActionNameType"
             options={actionTypeOptions}
             selected={selectedNamingMode}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("newActionNameType", detail);
                 selectedNamingMode = detail;
             }}
@@ -66,9 +81,9 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
             <Checkbox
                 label="A5E.settings.autoApplyFancySheets"
                 checked={updates.get("autoApplyFancySheets") ??
-                    $fancySheetsAutoApply ??
+                    fancySheetsAutoApply ??
                     false}
-                on:updateSelection={({ detail }) => {
+                onUpdateSelection={(detail) => {
                     updates.set("autoApplyFancySheets", detail);
                     reload = true;
                 }}
@@ -81,9 +96,9 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
             <Checkbox
                 label="A5E.settings.enableCascadingDamageAndHealing"
                 checked={updates.get("enableCascadingDamageAndHealing") ??
-                    $enableCascadingDamageAndHealing ??
+                    enableCascadingDamageAndHealing ??
                     false}
-                on:updateSelection={({ detail }) => {
+                onUpdateSelection={(detail) => {
                     updates.set("enableCascadingDamageAndHealing", detail);
                     reload = true;
                 }}
@@ -95,10 +110,11 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
             hint="A5E.settings.hints.cascadingDamageAndHealingDelay"
         >
             <input
+                class="a5e-input a5e-input--small 5ae-input--slim"
                 type="number"
                 value={newCascadingDamageAndHealingDelay}
-                on:change={({ target }) => {
-                    const { value } = target;
+                onchange={({ currentTarget }) => {
+                    const { value } = currentTarget;
 
                     newCascadingDamageAndHealingDelay = Number(value);
 
@@ -114,12 +130,13 @@ let selectedGamemasterTitle = updates.get('gamemasterTitle') ?? $gamemasterTitle
     <Section heading="Other Settings">
         <FieldWrapper heading="Gamemaster Title">
             <input
+                class="a5e-input 5ae-input--slim"
                 type="text"
                 value={selectedGamemasterTitle}
-                on:change={({ target }) => {
+                onchange={({ currentTarget }) => {
                     updates.set(
                         "gamemasterTitle",
-                        target.value?.trim?.() ?? "",
+                        currentTarget.value?.trim?.() ?? "",
                     );
                     reload = true;
                 }}

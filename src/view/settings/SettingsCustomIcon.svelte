@@ -6,7 +6,7 @@
         conditionKey: string;
         icon: string;
 
-        onUpdateConditionIcon: (..args: any[]) => void;
+        onUpdateConditionIcon: (args: any[]) => void;
     };
 
     let { conditionKey, icon, onUpdateConditionIcon }: Props = $props();

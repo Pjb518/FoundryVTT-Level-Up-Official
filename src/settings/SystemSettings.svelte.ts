@@ -58,6 +58,25 @@ export class SystemSettings extends SvelteApplicationMixin(
     );
   }
 
+  static getActiveApp(): SystemSettings {
+    // @ts-ignore
+    return Object.values(ui.windows).find(
+      (app) => app.id === "a5e-system-settings",
+    );
+  }
+
+  static async show(options = {}, dialogData = {}) {
+    const app = this.getActiveApp();
+    if (app) return app.render(false, { focus: true });
+
+    return new Promise((resolve) => {
+      // @ts-expect-error
+      options.resolve = resolve;
+
+      new this(options, dialogData).render(true, { focus: true });
+    });
+  }
+
   submit(results) {
     this.#resolvePromise(results);
 

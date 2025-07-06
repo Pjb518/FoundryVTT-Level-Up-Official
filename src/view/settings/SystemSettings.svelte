@@ -14,20 +14,22 @@
     import SettingsRollPage from "./SettingsRollPage.svelte";
     import Settings5ePage from "./Settings5ePage.svelte";
     import SettingsExtraPage from "./SettingsExtraPage.svelte";
+    import SettingsMiscPage from "./SettingsMiscPage.svelte";
 
     type Props = {
         appId: string;
         settings: any;
-        sheet: any;
+        dialog: any;
     };
 
     function onSubmit() {
         for (const [key, value] of updates) {
-            // const setting = settings.getStore(key);
-            // setting.set(value);
+            game.settings.set("a5e", key, value);
         }
 
-        reload = true;
+        dialog.submit({
+            reload: reload,
+        });
     }
 
     function updateCurrentTab(name: string) {
@@ -95,18 +97,18 @@
                 name: "misc",
                 label: "A5E.settings.navigation.misc",
                 icon: "fa-solid fa-ellipsis",
-                component: null, //SettingsMiscTab,
+                component: SettingsMiscPage,
                 display: game.user!.isGM,
             },
         ];
     }
 
-    let { appId, settings, sheet }: Props = $props();
+    let { appId, settings, dialog }: Props = $props();
 
     let tabs = getTabs();
     let currentTab = $derived(tabs[0]);
 
-    let updates = new SvelteMap();
+    let updates = new SvelteMap<string, any>();
     let reload = $state(false);
 
     setContext("appId", appId);
