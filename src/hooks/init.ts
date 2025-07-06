@@ -33,7 +33,7 @@ import itemDataModels from "../dataModels/item/itemDataModels.ts";
 import constructEffectOptions from "../documents/activeEffect/utils/constructEffectOptions.js";
 import EffectOption from "../documents/activeEffect/EffectOption.ts";
 
-import registerKeybindings from "../keybindings.js";
+import { registerKeybindings } from "../keybindings.ts";
 
 import _onCombatControl from "../combat/_onCombatControl.js";
 import _onCombatantControl from "../combat/_onCombatantControl.js";

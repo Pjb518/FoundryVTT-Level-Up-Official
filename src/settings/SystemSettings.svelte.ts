@@ -1,30 +1,34 @@
+import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
 import { localize } from "#utils/localization/localize.ts";
-import { SvelteApplicationMixin } from "../../lib/ApplicationMixin/SvelteApplicationMixin.svelte";
 
-// import { gameSettings } from "./SettingsStore";
+import { settings } from "./settings.ts";
 
-import SystemSettingsComponent from "../apps/settings/SystemSettings.svelte";
+import SystemSettingsComponent from "#view/settings/SystemSettings.svelte";
 
-export default class SystemSettings extends SvelteApplicationMixin(
+export class SystemSettings extends SvelteApplicationMixin(
   foundry.applications.api.ApplicationV2,
 ) {
   data: Record<string, any>;
 
   root = SystemSettingsComponent;
 
+  store = $state();
+
   public promise = null;
 
   public resolve = null;
 
   constructor(options = {}, dialogData = {}) {
+    //@ts-expect-error
     super({
       id: "a5e-system-settings",
-      classes: ["a5e-sheet", "a5e-settings-sheet"],
+      classes: ["a5e-sheet", "a5e-sheet--settings"],
       position: { width: 650, height: "auto" },
       window: { title: localize("A5E.settings.title") },
     });
 
-    // this.data = { settings: gameSettings };
+    this.populateSettings();
+    this.data = { settings: this.store };
 
     // @ts-expect-error
     this.promise = new Promise((resolve) => {
@@ -40,25 +44,18 @@ export default class SystemSettings extends SvelteApplicationMixin(
     };
   }
 
-  static getActiveApp(): SystemSettings {
-    // @ts-ignore
-    return Object.values(ui.windows).find(
-      (app) => app.id === "a5e-system-settings",
+  populateSettings() {
+    this.store = settings.reduce(
+      (acc, setting) => {
+        acc[setting.key] = {
+          data: setting.options,
+          value: game.settings.get(setting.namespace, setting.key),
+        };
+
+        return acc;
+      },
+      {} as Record<string, { data: any; value: any }>,
     );
-  }
-
-  static async show(options = {}, dialogData = {}) {
-    const app = this.getActiveApp();
-    // @ts-expect-error
-    if (app) return app.render(false, { focus: true });
-
-    return new Promise((resolve) => {
-      // @ts-expect-error
-      options.resolve = resolve;
-
-      // @ts-expect-error
-      new this(options, dialogData).render(true, { focus: true });
-    });
   }
 
   submit(results) {
@@ -68,7 +65,6 @@ export default class SystemSettings extends SvelteApplicationMixin(
       foundry.utils.debounce(() => window.location.reload(), 250)();
     }
 
-    // @ts-expect-error
     return super.close();
   }
 

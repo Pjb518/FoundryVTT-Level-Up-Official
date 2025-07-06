@@ -1,7 +1,7 @@
 // import renderPartyViewer from './hooks/renderPartyViewer';
-import SystemSettings from "./settings/SystemSettings";
+import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
-export default function registerKeybindings() {
+export function registerKeybindings() {
   game.keybindings.register("a5e", "party-sheet-open-close", {
     name: "Open/Close Party Sheet",
     editable: [{ key: "KeyP" }],
@@ -21,7 +21,7 @@ export default function registerKeybindings() {
     name: "Open/Close System Settings",
     editable: [{ key: "KeyS", modifiers: ["Alt"] }],
     onDown: () => {
-      SystemSettings.show();
+      new SystemSettings().render(true);
     },
   });
 }

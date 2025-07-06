@@ -1,4 +1,5 @@
 // import SettingsShim from './settings/SettingsShim';
+import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
 // import { gameSettings } from './settings/SettingsStore';
 import { settings } from "./settings/settings.ts";
@@ -15,11 +16,11 @@ export default function registerSystemSettings() {
   parseAndRegisterSettings();
 
   // gameSettings.init();
-  // game.settings.registerMenu('a5e', 'SystemSettings', {
-  // 	name: 'System Settings',
-  // 	label: 'Configure System Settings',
-  // 	icon: 'fas fa bars',
-  // 	type: SettingsShim,
-  // 	restricted: false,
-  // });
+  game.settings.registerMenu("a5e", "SystemSettings", {
+    name: "System Settings",
+    label: "Configure System Settings",
+    icon: "fas fa bars",
+    type: SystemSettings,
+    restricted: false,
+  });
 }

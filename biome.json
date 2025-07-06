@@ -57,14 +57,15 @@
   },
   "overrides": [
     {
-      "includes": ["*.svelte"],
+      "includes": ["**/*.svelte"],
       "linter": {
         "rules": {
           "complexity": {
             "noCommaOperator": "off"
           },
           "style": {
-            "useConst": "off"
+            "useConst": "off",
+            "useImportType": "off"
           }
         }
       }
