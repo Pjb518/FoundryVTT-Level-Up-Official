@@ -10,6 +10,7 @@
     import SettingsActorPage from "./SettingsActorPage.svelte";
     import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
     import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
+    import SettingsEffectsPage from "./SettingsEffectsPage.svelte";
 
     type Props = {
         appId: string;
@@ -56,7 +57,7 @@
                 name: "effects",
                 label: "A5E.settings.navigation.activeEffects",
                 icon: "fa-solid fa-bolt",
-                component: null, //SettingsEffectsTab,
+                component: SettingsEffectsPage,
                 display: game.user!.isGM,
             },
             {
@@ -162,6 +163,7 @@
             "footer";
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content min-content 1fr min-content;
+        overflow-y: auto;
 
         &__page {
             grid-area: page;
@@ -173,7 +175,6 @@
             padding-inline: 0.5rem;
             padding-block: 0.75rem;
             overflow-x: hidden;
-            overflow-y: scroll;
         }
 
         &__footer {

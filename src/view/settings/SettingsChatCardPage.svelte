@@ -17,11 +17,15 @@
 
     const isGM = game.user!.isGM;
 
-    let enableDamageRollColors = $derived(settings["enableDamageRollColors"]);
-    let hideDescription = $derived(settings["hideChatDescriptionsByDefault"]);
-    let hideHpRolls = $derived(settings["hideRandomizedHPRolls"]);
-    let protectRolls = $derived(settings["protectRolls"]);
-    let terseRolls = $derived(settings["terseRollFormulae"]);
+    let enableDamageRollColors = $derived(
+        settings["enableDamageRollColors"].value,
+    );
+    let hideDescription = $derived(
+        settings["hideChatDescriptionsByDefault"].value,
+    );
+    let hideHpRolls = $derived(settings["hideRandomizedHPRolls"].value);
+    let protectRolls = $derived(settings["protectRolls"].value);
+    let terseRolls = $derived(settings["terseRollFormulae"].value);
 </script>
 
 <Section heading="Chat Card Display Settings" --a5e-section-body-gap="0.5rem">

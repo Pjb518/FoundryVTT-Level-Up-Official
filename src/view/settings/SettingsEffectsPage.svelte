@@ -1,97 +1,121 @@
-<script>
-import { getContext } from 'svelte';
+<script lang="ts">
+    import { getContext } from "svelte";
 
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import Checkbox from '../components/Checkbox.svelte';
-import SettingsCustomIcon from './SettingsCustomIcon.svelte';
-import ConditionIconResetConfirmationDialog from '../dialogs/initializers/ConditionIconResetConfirmationDialog';
-import RadioGroup from '../components/RadioGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
 
-export let reload;
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-function getCustomIcons() {
-	return Object.entries(conditionIconsDefault).reduce((acc, [key, path]) => {
-		acc[key] =
-			updates.get('customConditionIcons')?.[key] ?? $storedCustomIcons?.[key] ?? path ?? '';
-		return acc;
-	}, {});
-}
+    type Props = {
+        reload?: boolean;
+    };
 
-async function resetIcons() {
-	const dialog = new ConditionIconResetConfirmationDialog();
-	await dialog.render(true);
-	let dialogData = await dialog.promise;
+    function getCustomIcons() {
+        return Object.entries(conditionIconsDefault).reduce(
+            (acc, [key, path]) => {
+                acc[key] =
+                    updates.get("customConditionIcons")?.[key] ??
+                    storedCustomIcons?.[key] ??
+                    path ??
+                    "";
+                return acc;
+            },
+            {},
+        );
+    }
 
-	if (!dialogData || !dialogData.confirmReset) return;
+    async function resetIcons() {
+        // const dialog = new ConditionIconResetConfirmationDialog();
+        // await dialog.render(true);
+        // let dialogData = await dialog.promise;
 
-	Object.keys(conditionIconsDefault).forEach((conditionKey) => {
-		const defaultIcon = conditionIconsDefault[conditionKey];
-		customIcons[conditionKey] = defaultIcon;
-	});
+        // if (!dialogData || !dialogData.confirmReset) return;
 
-	updates.set('customConditionIcons', customIcons);
-	reload = true;
-	customIcons = getCustomIcons();
-}
+        Object.keys(conditionIconsDefault).forEach((conditionKey) => {
+            const defaultIcon = conditionIconsDefault[conditionKey];
+            customIcons[conditionKey] = defaultIcon;
+        });
 
-function updateConditionIcon(key, current) {
-	const filePicker = new FilePicker({
-		type: 'image',
-		current,
-		callback: (path) => {
-			customIcons[key] = path;
-			updates.set('customConditionIcons', customIcons);
-			customIcons = getCustomIcons();
-			reload = true;
-		},
-	});
+        updates.set("customConditionIcons", customIcons);
+        reload = true;
+        customIcons = getCustomIcons();
+    }
 
-	filePicker.browse();
-}
+    function updateConditionIcon(key, current) {
+        const filePicker = new FilePicker({
+            type: "image",
+            current,
+            callback: (path) => {
+                customIcons[key] = path;
+                updates.set("customConditionIcons", customIcons);
+                customIcons = getCustomIcons();
+                reload = true;
+            },
+        });
 
-const settings = getContext('settings');
-const updates = getContext('updates');
+        filePicker.browse();
+    }
 
-let { conditions, conditionIconsDefault } = CONFIG.A5E;
+    let { reload = $bindable() }: Props = $props();
 
-// Conditions Automation
-const automatableConditions = Object.entries(conditions).reduce((acc, curr) => {
-	if (!['frightened'].includes(curr)) acc.push(curr);
-	return acc;
-}, []);
+    let settings: Record<string, { data: any; value: any }> =
+        getContext("settings");
+    let updates: Map<string, any> = getContext("updates");
 
-const automateUnconscious = settings.getStore('automateUnconsciousApplication');
+    let { conditions, conditionIconsDefault } = CONFIG.A5E;
 
-const automatedConditions = settings.getStore('automatedConditions');
+    // Conditions Automation
+    const automatableConditions = Object.entries(conditions).reduce(
+        (acc, curr) => {
+            if (!["frightened"].includes(curr)) acc.push(curr);
+            return acc;
+        },
+        [],
+    );
 
-const conditionFlowDirectionChoices = game.settings.settings.get(
-	'a5e.conditionFlowDirection',
-).choices;
+    const iconSizeChoices = settings.effectsPanelIconSize.data.choices;
+    const conditionFlowDirectionChoices =
+        settings.conditionFlowDirection.data.choices;
 
-const iconSizeChoices = game.settings.settings.get('a5e.effectsPanelIconSize').choices;
+    let automateUnconscious = $derived(
+        settings["automateUnconsciousApplication"].value,
+    );
+    let automatedConditions = $derived(settings["automatedConditions"].value);
+    let automateBloodied = $derived(
+        settings["automateBloodiedApplication"].value,
+    );
+    let conditionFlowDirection = $derived(
+        settings["conditionFlowDirection"].value,
+    );
+    let showEffectsPanel = $derived(settings["showEffectsPanel"].value);
+    let panelIconSize = $derived(settings["effectsPanelIconSize"].value);
+    let panelOffset = $derived(settings["effectsPanelOffset"].value);
+    let radialEffects = $derived(settings["enableRadialEffects"].value);
+    let removeEffects = $derived(
+        settings["removeActiveEffectsOnLongRest"].value,
+    );
+    let storedCustomIcons = $derived(settings["customConditionIcons"].value);
 
-let automateBloodied = settings.getStore('automateBloodiedApplication');
-let conditionFlowDirection = settings.getStore('conditionFlowDirection');
-let showEffectsPanel = settings.getStore('showEffectsPanel');
-let panelIconSize = settings.getStore('effectsPanelIconSize');
-let panelOffset = settings.getStore('effectsPanelOffset');
+    let selectedConditionFlowDirection = $derived(
+        updates.get("conditionFlowDirection") ?? conditionFlowDirection,
+    );
 
-let radialEffects = settings.getStore('enableRadialEffects');
-let removeEffects = settings.getStore('removeActiveEffectsOnLongRest');
-let storedCustomIcons = settings.getStore('customConditionIcons');
+    let selectedConditions = $derived(
+        updates.get("automatedConditions") ?? automatedConditions,
+    );
 
-let selectedConditionFlowDirection =
-	updates.get('conditionFlowDirection') ?? $conditionFlowDirection;
+    let customIcons = $state(getCustomIcons());
 
-let selectedConditions = updates.get('automatedConditions') ?? $automatedConditions;
+    let selectedIconSize = $derived(
+        updates.get("effectsPanelIconSize") ?? panelIconSize ?? "medium",
+    );
 
-let customIcons = getCustomIcons();
-
-let selectedIconSize = updates.get('effectsPanelIconSize') ?? $panelIconSize ?? 'medium';
-
-let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
+    let selectedOffset = $derived(
+        updates.get("effectsPanelOffset") ?? panelOffset,
+    );
 </script>
 
 <Section
@@ -103,7 +127,7 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         hint="A5E.settings.hints.automateConditions"
         options={automatableConditions}
         selected={selectedConditions}
-        on:updateSelection={({ detail }) => {
+        onUpdateSelection={(detail) => {
             updates.set("automatedConditions", detail);
             selectedConditions = detail;
             reload = true;
@@ -114,9 +138,9 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         <Checkbox
             label="A5E.settings.automateBloodiedApplication"
             checked={updates.get("automateBloodiedApplication") ??
-                $automateBloodied ??
+                automateBloodied ??
                 false}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("automateBloodiedApplication", detail);
                 reload = true;
             }}
@@ -127,9 +151,9 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         <Checkbox
             label="A5E.settings.automateUnconsciousApplication"
             checked={updates.get("automateUnconsciousApplication") ??
-                $automateUnconscious ??
+                automateUnconscious ??
                 false}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("automateUnconsciousApplication", detail);
                 reload = true;
             }}
@@ -139,8 +163,8 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
     <FieldWrapper hint="A5E.settings.hints.enableRadialEffects">
         <Checkbox
             label="A5E.settings.enableRadialEffects"
-            checked={updates.get("enableRadialEffects") ?? $radialEffects}
-            on:updateSelection={({ detail }) => {
+            checked={updates.get("enableRadialEffects") ?? radialEffects}
+            onUpdateSelection={(detail) => {
                 updates.set("enableRadialEffects", detail);
                 reload = true;
             }}
@@ -151,9 +175,9 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         <Checkbox
             label="A5E.settings.removeActiveEffectsOnLongRest"
             checked={updates.get("removeActiveEffectsOnLongRest") ??
-                $removeEffects ??
+                removeEffects ??
                 false}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("removeActiveEffectsOnLongRest", detail);
             }}
         />
@@ -166,7 +190,7 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         hint="A5E.settings.hints.conditionFlowDirection"
         options={Object.entries(conditionFlowDirectionChoices)}
         selected={selectedConditionFlowDirection}
-        on:updateSelection={({ detail }) => {
+        onUpdateSelection={(detail) => {
             updates.set("conditionFlowDirection", detail);
             selectedConditionFlowDirection = detail;
             reload = true;
@@ -190,9 +214,7 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
             <SettingsCustomIcon
                 {conditionKey}
                 {icon}
-                bind:reload
-                on:updateConditionIcon={({ detail }) =>
-                    updateConditionIcon(...detail)}
+                onUpdateConditionIcon={updateConditionIcon}
             />
         {/each}
     </ul>
@@ -203,9 +225,9 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         <Checkbox
             label="A5E.settings.showEffectsPanel"
             checked={updates.get("showEffectsPanel") ??
-                $showEffectsPanel ??
+                showEffectsPanel ??
                 true}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("showEffectsPanel", detail);
                 reload = true;
             }}
@@ -217,7 +239,7 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
         hint="A5E.settings.hints.effectsPanelIconSize"
         options={Object.entries(iconSizeChoices)}
         selected={selectedIconSize}
-        on:updateSelection={({ detail }) => {
+        onUpdateSelection={(detail) => {
             updates.set("effectsPanelIconSize", detail);
             selectedIconSize = detail;
         }}
@@ -226,54 +248,49 @@ let selectedOffset = updates.get('effectsPanelOffset') ?? $panelOffset;
     <FieldWrapper
         heading="A5E.settings.effectsPanelPosition"
         hint="A5E.settings.hints.effectsPanelPosition"
+        --a5e-field-wrapper-gap="0.5rem"
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-header-width="100%"
     >
-        <div class="u-flex u-gap-md">
-            <FieldWrapper>
-                <label for="top-offset">Top Offset</label>
+        <FieldWrapper heading="Top Offset">
+            <input
+                id="top-offset"
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.top}
+                onchange={({ currentTarget }) => {
+                    const { value } = currentTarget;
+                    selectedOffset.top = Number(value);
+                    updates.set("effectsPanelOffset", selectedOffset);
+                }}
+            />
+        </FieldWrapper>
 
-                <input
-                    id="top-offset"
-                    class="a5e-input a5e-input--slim"
-                    type="number"
-                    value={selectedOffset.top}
-                    on:change={({ target }) => {
-                        const { value } = target;
-                        selectedOffset.top = Number(value);
-                        updates.set("effectsPanelOffset", selectedOffset);
-                    }}
-                />
-            </FieldWrapper>
+        <FieldWrapper heading="Bottom Offset">
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.bottom}
+                onchange={({ currentTarget }) => {
+                    const { value } = currentTarget;
+                    selectedOffset.bottom = Number(value);
+                    updates.set("effectsPanelOffset", selectedOffset);
+                }}
+            />
+        </FieldWrapper>
 
-            <FieldWrapper>
-                <label for="bottom-offset"> Bottom Offset </label>
-
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="number"
-                    value={selectedOffset.bottom}
-                    on:change={({ target }) => {
-                        const { value } = target;
-                        selectedOffset.bottom = Number(value);
-                        updates.set("effectsPanelOffset", selectedOffset);
-                    }}
-                />
-            </FieldWrapper>
-
-            <FieldWrapper>
-                <label for="right-offset"> Right Offset </label>
-
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="number"
-                    value={selectedOffset.right}
-                    on:change={({ target }) => {
-                        const { value } = target;
-                        selectedOffset.right = Number(value);
-                        updates.set("effectsPanelOffset", selectedOffset);
-                    }}
-                />
-            </FieldWrapper>
-        </div>
+        <FieldWrapper heading="Right Offset">
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={selectedOffset.right}
+                onchange={({ currentTarget }) => {
+                    const { value } = currentTarget;
+                    selectedOffset.right = Number(value);
+                    updates.set("effectsPanelOffset", selectedOffset);
+                }}
+            />
+        </FieldWrapper>
     </FieldWrapper>
 </Section>
 

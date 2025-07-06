@@ -1,9 +1,15 @@
-<script>
-    import { createEventDispatcher, getContext } from "svelte";
+<script lang="ts">
+    import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
-    export let conditionKey;
-    export let icon;
+    type Props = {
+        conditionKey: string;
+        icon: string;
+
+        onUpdateConditionIcon: (..args: any[]) => void;
+    };
+
+    let { conditionKey, icon, onUpdateConditionIcon }: Props = $props();
 
     function getConditionName() {
         if (conditionKey === "dead") return localize("A5E.ConditionDead");
@@ -15,28 +21,29 @@
 
     const { conditions, conditionIconsDefault } = CONFIG.A5E;
 
-    const dispatch = createEventDispatcher();
-    const settings = getContext("settings");
+    let settings: Record<string, { data: any; value: any }> =
+        getContext("settings");
 
     const conditionName = getConditionName();
-    const iconStore = settings.getStore("customConditionIcons");
+    const iconStore = settings["customConditionIcons"].value;
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <li
     class="condition-grid__item"
-    on:click={() =>
-        dispatch("updateConditionIcon", [
+    onclick={() =>
+        onUpdateConditionIcon([
             conditionKey,
             icon ||
-                $iconStore[conditionKey] ||
+                iconStore[conditionKey] ||
                 conditionIconsDefault[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
         src={icon ||
-            $iconStore[conditionKey] ||
+            iconStore[conditionKey] ||
             conditionIconsDefault[conditionKey]}
         alt={getConditionName()}
     />
