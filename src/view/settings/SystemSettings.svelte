@@ -11,6 +11,7 @@
     import SettingsCanvasPage from "./SettingsCanvasPage.svelte";
     import SettingsChatCardPage from "./SettingsChatCardPage.svelte";
     import SettingsEffectsPage from "./SettingsEffectsPage.svelte";
+    import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
     import SettingsRollPage from "./SettingsRollPage.svelte";
     import Settings5ePage from "./Settings5ePage.svelte";
     import SettingsExtraPage from "./SettingsExtraPage.svelte";
@@ -69,7 +70,7 @@
                 name: "partyViewer",
                 label: "Party Viewer",
                 icon: "fa-solid fa-users",
-                component: null, //SettingsPartyViewerTab,
+                component: SettingsPartyViewerTab,
                 // display: $playersCanAccessPartyViewer,
             },
             {

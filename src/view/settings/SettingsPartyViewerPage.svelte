@@ -1,19 +1,28 @@
-<script>
-import { getContext } from 'svelte';
+<script lang="ts">
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import Section from '../components/Section.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import Section from "#view/snippets/Section.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
-export let reload;
+    type Props = {
+        reload?: boolean;
+    };
 
-const settings = getContext('settings');
-const updates = getContext('updates');
+    let { reload = $bindable() }: Props = $props();
 
-const isGM = game.user.isGM;
+    let settings: Record<string, { data: any; value: any }> =
+        getContext("settings");
+    let updates: Map<string, any> = getContext("updates");
 
-let playersCanAccess = settings.getStore('playersCanAccessPartyViewer');
-let showActorImages = settings.getStore('showActorImagesInPartyViewer');
+    const isGM = game.user!.isGM;
+
+    let playersCanAccess = $derived(
+        settings["playersCanAccessPartyViewer"].value,
+    );
+    let showActorImages = $derived(
+        settings["showActorImagesInPartyViewer"].value,
+    );
 </script>
 
 <Section heading="Appearance" --a5e-section-body-gap="0.5rem">
@@ -21,9 +30,9 @@ let showActorImages = settings.getStore('showActorImagesInPartyViewer');
         <Checkbox
             label="Show character images in the party viewer"
             checked={updates.get("showActorImagesInPartyViewer") ??
-                $showActorImages ??
+                showActorImages ??
                 true}
-            on:updateSelection={({ detail }) => {
+            onUpdateSelection={(detail) => {
                 updates.set("showActorImagesInPartyViewer", detail);
                 reload = true;
             }}
@@ -39,9 +48,9 @@ let showActorImages = settings.getStore('showActorImagesInPartyViewer');
             <Checkbox
                 label="Players can access the Party Viewer"
                 checked={updates.get("playersCanAccessPartyViewer") ??
-                    $playersCanAccess ??
+                    playersCanAccess ??
                     false}
-                on:updateSelection={({ detail }) => {
+                onUpdateSelection={(detail) => {
                     updates.set("playersCanAccessPartyViewer", detail);
                     reload = true;
                 }}
