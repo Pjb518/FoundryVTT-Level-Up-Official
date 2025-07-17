@@ -144,7 +144,8 @@
         --a5e-section-body-hint-width="100%"
     >
         <input
-            class="a5e-input a5e-input--slim a5e-input--small"
+            class="a5e-input a5e-input--slim"
+            class:a5e-input--small={includeUnit}
             type={includeUnit ? "number" : "text"}
             value={customValue}
             onchange={({ currentTarget }) => {
