@@ -23,7 +23,7 @@
 
     let hideDeleteConfirmation = $state(
         game.settings.get("a5e", "hideDeleteConfirmation") as boolean,
-    );
+    ) as boolean;
 </script>
 
 <form>
@@ -34,7 +34,7 @@
             <Checkbox
                 label="Don't show this dialog again"
                 checked={hideDeleteConfirmation}
-                updateSelection={(checked) =>
+                onUpdateSelection={(checked) =>
                     (hideDeleteConfirmation = checked)}
             />
         </FieldWrapper>
