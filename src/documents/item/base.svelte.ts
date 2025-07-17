@@ -58,7 +58,7 @@ class BaseItemA5e extends Item {
             (triggeringDocument: any, _, { diff }) => {
               if (diff === false) return;
 
-              if (triggeringDocument?.actor?._id === this.id) update();
+              if (triggeringDocument?.parent?._id === this.id) update();
             },
           );
 

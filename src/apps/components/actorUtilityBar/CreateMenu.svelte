@@ -9,7 +9,7 @@
     import { createEventDispatcher } from "svelte";
 
     import createItem from "../../../utils/createItem";
-    import createEffect from "../../../utils/createActiveEffect";
+    import { createEffect } from "#utils/createActiveEffect.ts";
 
     export let documentName = "Item";
     export let menuList = [];

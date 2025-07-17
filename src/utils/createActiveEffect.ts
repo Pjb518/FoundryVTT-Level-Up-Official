@@ -1,8 +1,16 @@
 import { localize } from "#utils/localization/localize.ts";
 
-import { ActionsManager } from "../managers/ActionsManager";
+import { ActionsManager } from "#managers/ActionsManager.ts";
 
-export default async function createEffect(document, { effectType, actionId }) {
+type Options = {
+  effectType?: "onUse" | "passive" | "inactive";
+  actionId?: string;
+};
+
+export async function createEffect(
+  document: Actor | Item,
+  { effectType, actionId }: Options = {},
+) {
   const action = document?.actions?.get(actionId) ?? {};
 
   const updateData = {

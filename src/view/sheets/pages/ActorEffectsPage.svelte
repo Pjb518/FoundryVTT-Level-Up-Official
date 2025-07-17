@@ -1,11 +1,16 @@
 <script lang="ts">
     import { getContext } from "svelte";
 
+    import { createEffect } from "#utils/createActiveEffect.ts";
     import { filterEffects } from "#utils/view/filterEffects.ts";
     import { groupEffectsByType } from "#utils/view/groupEffectsByType..ts";
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import EffectCategory from "#view/sheets/components/effect/EffectCategory.svelte";
+
+    function onAddIconClick() {
+        createEffect(actor, { effectType: "passive" });
+    }
 
     function sortHandler(reverse: boolean) {
         sheet._sortEmbeddedAlphabetically(effects, "ActiveEffect", reverse);
@@ -19,7 +24,7 @@
     let actor: any = getContext("actor");
     let sheet: any = getContext("sheet");
 
-    let effects = $derived(filterEffects(actor.reactive, ""));
+    let effects = $derived(filterEffects(actor.reactive, "", filterOptions));
     let categorizedEffects = $derived(groupEffectsByType(effects));
 
     const openCompendium = game.a5e.utils.openCompendium;
@@ -32,6 +37,7 @@
         bind:filterOptions
         showAddIcon={true}
         showSortButton={true}
+        {onAddIconClick}
         {sortHandler}
     />
 {/if}
