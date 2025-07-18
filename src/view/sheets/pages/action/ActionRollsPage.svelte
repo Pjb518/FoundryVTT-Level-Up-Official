@@ -90,12 +90,15 @@
 
     let action = $derived(item.reactive.actions.get(actionId));
     let rolls: [string, any][] = $derived(Object.entries(action.rolls ?? {}));
+    let hasAttackRoll: boolean = $derived(
+        rolls.some(([, roll]) => roll.type === "attack"),
+    );
 </script>
 
 {#snippet RollListItem(rollType: string, rollConfig: ActionComponentType)}
     <Section
         heading={rollConfig.heading}
-        headerButtons={rollType === "attack"
+        headerButtons={rollType === "attack" && hasAttackRoll
             ? []
             : [
                   {
