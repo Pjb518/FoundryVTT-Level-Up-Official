@@ -1,0 +1,1114 @@
+{
+	"folder": null,
+	"name": "Energy Manipulation",
+	"type": "spell",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+	"system": {
+		"description": "<p><em><strong>Target: </strong>1 Creature, Object, or Energy Source</em></p><p>By tapping into your own emotional understanding, and reaching out with your telekinetic skill, you are able to generate or manipulate certain elemental or energetic effects that are sympathetic with your emotions. You may use your power to create one of the following effects:</p><ul><li><p><strong>Empower:</strong> By targeting an energy source, such as a fire or electrical discharge, you may increase the damage of that energy source by 1d8+Psion Level for up to 1 minute so long as you maintain concentration. The affected area of increased damage is a single five foot cube, even if the energy source is larger.</p></li><li><p><strong>Ignite:</strong> By targeting an unattended flammable object no larger than a 5ft cube, you may ignite it, causing it to burn as any normal object would.</p></li><li><p><strong>Freeze:</strong> By targeting a liquid you can create up to 25 cubic feet of ice per round, enough to create a 5ft square of ice 1ft thick.</p></li><li><p><strong>Reduce:</strong> By targeting an energy source, such as a fire or electrical discharge, you may reduce the damage of that energy source by 1d8+Psion Level for up to 1 minute, so long as you maintain concentration. The affected area of reduced damage is a single five foot cube.</p></li></ul><h2>Augments:</h2><p><strong>Expand:</strong> When using the Empower, Reduce, or Ignite effect you may double the affected area per augment. Each further augment creates a multiplier. A 5ft cube becomes a 10ft cube, a 10ft cube becomes a 20 foot cube, and so on.</p><h2>Augments requiring Two Psi Dice:</h2><p><strong>Overcharge:</strong> By targeting a weapon which deals cold, electric, or fire damage you may overcharge it, increasing the damage it deals by an amount equal to your Psion level for up to 1 minute, so long as you maintain concentration.</p><p><strong>Recharge:</strong> By generating power using your energetic ability you are able to restore a charge to a target object which contains energy. Small objects, such as the power cells of a plasma rifle, are restored to a full charge. Larger objects, such as the power cells of a personal land vehicle, gain ½ of a full charge. You are unable to meaningfully affect the power sources of objects of huge size or larger.</p><h2>Augments requiring Three Psi Dice:</h2><p><strong>Destroy Source:</strong> By targeting an energy source, such as a fire or an electrical discharge, you may immediately snuff it out, completely. If you target a battery or other form of power cell, it immediately discharges its charge harmlessly, and is ruined. You may not meaningfully affect the power sources of objects of huge size or larger.</p><p><strong>Explosive Release:</strong> Letting out an enormous emotional blast you create a powerful energy burst at a targeted creature or object within range. Choose whether this burst is a line 90ft long, a cone 30ft long, or a sphere 20ft in diameter. All creatures within the area must make a Dexterity saving throw or take 3d8+Psion level damage. You may choose bludgeoning, cold, fire, lightning, piercing, or slashing damage as the damage type.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"HCnsfDDVV66PQ0HT": {
+				"name": "Energy Manipulation",
+				"consumers": {},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"PC4eL00bs7rB76t1": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "HCnsfDDVV66PQ0HT",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"s5bmrLDfL8I9BXKX": {
+				"name": "Range",
+				"consumers": {},
+				"id": "s5bmrLDfL8I9BXKX",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"bUiTjBOsE4ebKAfv": {
+				"name": "Harm",
+				"consumers": {},
+				"rolls": {
+					"aZNBmsLUMZR6Xpvn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": null
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"id": "bUiTjBOsE4ebKAfv",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"n9s3HOOqIvqLrHfH": {
+				"name": "Split",
+				"consumers": {},
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"id": "n9s3HOOqIvqLrHfH",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"UZCFzVIPzjniTaX0": {
+				"name": "Empower",
+				"consumers": {},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"rolls": {
+					"lXAYQ2zHOAxXYgNU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d8 + @classes.esper.level",
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "UZCFzVIPzjniTaX0",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"MMg59YpCrRGiThTi": {
+				"name": "Ignite",
+				"consumers": {},
+				"id": "MMg59YpCrRGiThTi",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"6L5w4gq4HG5pGnWi": {
+				"name": "Freeze",
+				"consumers": {},
+				"id": "6L5w4gq4HG5pGnWi",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"9Tf4Ua6nL4HxdhCJ": {
+				"name": "Reduce",
+				"consumers": {},
+				"rolls": {
+					"TtiAI4M5hzgMU987": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d8 + @classes.esper.level",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "9Tf4Ua6nL4HxdhCJ",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Ha0oKVBE50BGFc7g": {
+				"name": "Expand",
+				"consumers": {},
+				"id": "Ha0oKVBE50BGFc7g",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"2K0AR68Zt8ePhtJr": {
+				"name": "Overcharge",
+				"consumers": {},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"rolls": {
+					"GxMqXPKT2mzclFTd": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classes.esper.level",
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "2K0AR68Zt8ePhtJr",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"a8nOWEhMCAllR5U7": {
+				"name": "Recharge",
+				"consumers": {},
+				"id": "a8nOWEhMCAllR5U7",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"KD2F1OcZg6CVYdrp": {
+				"name": "Destroy Source",
+				"consumers": {},
+				"id": "KD2F1OcZg6CVYdrp",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"tSk8W7J2ueBhopCI": {
+				"name": "Explosive Release (Line)",
+				"consumers": {},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 90,
+					"width": 5,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"D4lSncX3MSIeAUe2": {
+						"range": "self"
+					}
+				},
+				"rolls": {
+					"bRgC27PNG86qj0Jr": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"formula": "3d8 + @classes.esper.level",
+						"label": "Bludgeoning",
+						"damageType": "bludgeoning",
+						"critBonus": "",
+						"scaling": {}
+					},
+					"oJwkOmqu4M42UUou": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Cold"
+					},
+					"eNy0zm73yWQWSDFq": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Fire"
+					},
+					"0KSMO4yW45TQFap0": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "lightning",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Lightning"
+					},
+					"67NTIFSIlowa4RW7": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Piercing"
+					},
+					"H6AEHgDoJNAOLdrN": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "slashing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Slashing"
+					}
+				},
+				"prompts": {
+					"UwqyC4ANWyi90IwH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "tSk8W7J2ueBhopCI",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"xDXXDXYJZVNuZLqk": {
+				"name": "Explosive Release (Cone)",
+				"consumers": {},
+				"id": "xDXXDXYJZVNuZLqk",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 30
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"UwqyC4ANWyi90IwH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"D4lSncX3MSIeAUe2": {
+						"range": "self"
+					}
+				},
+				"rolls": {
+					"bRgC27PNG86qj0Jr": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Bludgeoning"
+					},
+					"oJwkOmqu4M42UUou": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Cold"
+					},
+					"eNy0zm73yWQWSDFq": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Fire"
+					},
+					"0KSMO4yW45TQFap0": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "lightning",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Lightning"
+					},
+					"67NTIFSIlowa4RW7": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Piercing"
+					},
+					"H6AEHgDoJNAOLdrN": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "slashing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Slashing"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"pxDas4bSZwTTAt85": {
+				"name": "Explosive Release (Sphere)",
+				"consumers": {},
+				"id": "pxDas4bSZwTTAt85",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 20
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"UwqyC4ANWyi90IwH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"D4lSncX3MSIeAUe2": {
+						"range": "self"
+					}
+				},
+				"rolls": {
+					"bRgC27PNG86qj0Jr": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Bludgeoning"
+					},
+					"oJwkOmqu4M42UUou": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Cold"
+					},
+					"eNy0zm73yWQWSDFq": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Fire"
+					},
+					"0KSMO4yW45TQFap0": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "lightning",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Lightning"
+					},
+					"67NTIFSIlowa4RW7": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Piercing"
+					},
+					"H6AEHgDoJNAOLdrN": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "slashing",
+						"formula": "3d8 + @classes.esper.level",
+						"scaling": {},
+						"label": "Slashing"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"JoMxdGmcEcijGpMp": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "JoMxdGmcEcijGpMp",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"WW2rYKpDkDTLOrZd": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "WW2rYKpDkDTLOrZd",
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"LGJRtL1kLs4bVOJM": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "Zjohucujs98zgvIY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"discipline": [
+			"empathic",
+			"telekinetic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1740012749911,
+		"modifiedTime": 1751205180018,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wnimofAdpYx0u9Wh"
+}

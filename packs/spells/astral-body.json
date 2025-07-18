@@ -1,0 +1,368 @@
+{
+	"folder": null,
+	"name": "Astral Body",
+	"type": "spell",
+	"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+	"system": {
+		"description": "<p>By focusing your sense of self outward into the wider cosmos you are able to generate an astral construct of your mortal form. This construct looks like an idealized and translucent version of yourself. Your body remains where you are when you manifest this power, but you choose where your astral self exists. Consult the Table: Teleport Familiarity and roll percentile dice to find out whether your astral self arrives at the intended destination, treat the presence of people you know well as a permanent circle.</p><h4><strong>Table: Teleport Familiarity</strong></h4><table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup><thead><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Familiarity</td><td style=\"text-align: center; height: 16.7969px;\">Mishap</td><td style=\"text-align: center; height: 16.7969px;\">Similar Location</td><td style=\"text-align: center; height: 16.7969px;\">Off Target</td><td style=\"text-align: center; height: 16.7969px;\">On Target</td></tr></thead><tbody><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Permanent circle</td><td style=\"text-align: center; height: 16.7969px;\">-</td><td style=\"text-align: center; height: 16.7969px;\">-</td><td style=\"text-align: center; height: 16.7969px;\">-</td><td style=\"text-align: center; height: 16.7969px;\">1-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Associated Object</td><td style=\"text-align: center; height: 16.7969px;\">-</td><td style=\"text-align: center; height: 16.7969px;\">1-5</td><td style=\"text-align: center; height: 16.7969px;\">6-15</td><td style=\"text-align: center; height: 16.7969px;\">16-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Very Familiar</td><td style=\"text-align: center; height: 16.7969px;\">1-5</td><td style=\"text-align: center; height: 16.7969px;\">6-13</td><td style=\"text-align: center; height: 16.7969px;\">14-24</td><td style=\"text-align: center; height: 16.7969px;\">25-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Seen Casually</td><td style=\"text-align: center; height: 16.7969px;\">1-33</td><td style=\"text-align: center; height: 16.7969px;\">34-43</td><td style=\"text-align: center; height: 16.7969px;\">44-53</td><td style=\"text-align: center; height: 16.7969px;\">54-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Viewed Once</td><td style=\"text-align: center; height: 16.7969px;\">1-43</td><td style=\"text-align: center; height: 16.7969px;\">44-53</td><td style=\"text-align: center; height: 16.7969px;\">54-73</td><td style=\"text-align: center; height: 16.7969px;\">74-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">Description</td><td style=\"text-align: center; height: 16.7969px;\">1-43</td><td style=\"text-align: center; height: 16.7969px;\">44-53</td><td style=\"text-align: center; height: 16.7969px;\">54-73</td><td style=\"text-align: center; height: 16.7969px;\">74-100</td></tr><tr style=\"height: 16.7969px;\"><td style=\"height: 16.7969px;\">False Destination</td><td style=\"text-align: center; height: 16.7969px;\">1-50</td><td style=\"text-align: center; height: 16.7969px;\">51-100</td><td style=\"text-align: center; height: 16.7969px;\">-</td><td style=\"text-align: center; height: 16.7969px;\">-</td></tr></tbody></table><p>Your astral self does not breathe, and can exist in hard vacuum without issue. It can move 20ft each round as if it had a fly speed. While your astral self is active, you cannot see, hear, feel, or take any actions based on your living body. If your astral self is damaged by any attack, it immediately disperses and you are forced back to your body, taking any damage your astral self took from the attack. If your body is killed, or dies of hunger or thirst or asphyxiation, while you are away, your astral self dies with it.</p><p>Your astral self can manifest psionic powers that you know, but it cannot directly interact with objects or creatures in its environment.</p><p>Manifesting this power takes 1 minute, and it lasts up to 24 hours. You may end this manifestation at any time. This power does not require Concentration.</p><h2>Augments:</h2><p><strong>Resist Dispersion:</strong> When your astral self would be destroyed by damage, you attempt a death saving throw as a reaction. On a success, your astral self is not dispersed. On a failure, your astral self is not dispersed, but you gain 1 level of strife. You must roll your Psi Die each time you use this augment during the duration.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"KnjSl00r1ltNSHdK": {
+				"name": "Astral Body",
+				"consumers": {},
+				"activation": {
+					"type": "minute",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"rolls": {
+					"1QV0X6iym1pYBuZ2": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d100",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"id": "KnjSl00r1ltNSHdK",
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"ZxFFpZto7j1AR5Qc": {
+				"name": "Resist Dispersion",
+				"consumers": {},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Astral self would be destroyed by damage",
+					"cost": 1
+				},
+				"rolls": {
+					"MF6jhWtZ5MlXA4t6": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d20",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"effects": [
+					"DRUfzKQzxI8zYUzJ"
+				],
+				"id": "ZxFFpZto7j1AR5Qc",
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"XjI08g8WU827YJHE": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "XjI08g8WU827YJHE",
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"UctDOj8XlpHtw1aN": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "UctDOj8XlpHtw1aN",
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"LE0ylVLVuKwR7H8g": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"discipline": [
+			"telekinetic",
+			"telepathic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.fGqcuWRpd7jmAQ5b",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Strife",
+			"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+			"_id": "DRUfzKQzxI8zYUzJ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1739999054583,
+				"modifiedTime": 1739999070093,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1739992498086,
+		"modifiedTime": 1751205180018,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4ovKkNI21MGKvPCt"
+}

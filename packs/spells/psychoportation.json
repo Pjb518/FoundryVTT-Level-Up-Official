@@ -1,0 +1,628 @@
+{
+	"folder": null,
+	"name": "Psychoportation",
+	"type": "spell",
+	"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+	"system": {
+		"description": "<p><em><strong>Target: </strong>Self or 1 Creature</em></p><p>By using your knowledge of the self and your innate ability to manipulate objects across space you have developed a way to transfer matter directly from one point to another without crossing the intervening space.</p><p>As an action you can teleport yourself or one willing creature within range to another point within range. If you target an unwilling creature with this power they must make an immediate constitution saving throw. On a success they remain where they are, and are unharmed. On a failure they take 1d8 + your esper level points of force damage as you teleport tiny fragments of the target’s body without bringing the entire thing.</p><h2>Augments:</h2><p><strong>Targeting:</strong> You may attempt to teleport an object within range. The object must be medium sized or smaller. Using this augment twice increases the size to large.</p><h2>Augments requiring Two Psi Dice</h2><p><strong>Juxtapose:</strong> You may target two creatures and if they are willing, swap their positions. If one or both are unwilling, the constitution save remains, but on a failure the target takes the damage and is moved.</p><p><strong>Slide:</strong> You are able to delay a teleporting creature’s return, causing them to cease to exist for up to 5 rounds. If you use this ability on an unwilling target, the constitution save instead becomes a wisdom save with damage on a successful save and sliding on a failed save.</p><h2>Augments requiring Three Psi Dice:</h2><p><strong>Gateway:</strong> Rather than simply moving a creature from one location to another, you are able to open a doorway, briefly, that any number of creatures may pass through. This gateway lasts so long as you concentrate on it, but each round after the first you gain 1 level of strife holding it open.</p><p><strong>Memory Path:</strong> You may teleport to a location you know ignoring range completely. If it is very familiar there is no chance of failure, otherwise refer to the @UUID[Compendium.a5e.a5e-spells.Item.5ijl5b1goq9774l3]{Teleport Familiarity chart}.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"epG5hkykIR6yMYul": {
+				"name": "Psychoportation",
+				"consumers": {},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"h7SMXKUL0Spdlrdr": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"prompts": {
+					"MXrrZlKQemWJBPq0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"rolls": {
+					"9OsWTv4fqIoZTeRL": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d8 + @classes.esper.level",
+						"damageType": "force",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "epG5hkykIR6yMYul",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"PHqhnU210jo7s2Gn": {
+				"name": "Range",
+				"consumers": {},
+				"id": "PHqhnU210jo7s2Gn",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"gsgF7QaQpEYesLuf": {
+				"name": "Harm",
+				"consumers": {},
+				"rolls": {
+					"aZNBmsLUMZR6Xpvn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": null
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"id": "gsgF7QaQpEYesLuf",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"yYc2kTV0uH70CKol": {
+				"name": "Split",
+				"consumers": {},
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"id": "yYc2kTV0uH70CKol",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"KoS4WInhuguZyHTr": {
+				"name": "Targeting",
+				"consumers": {},
+				"id": "KoS4WInhuguZyHTr",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"uA6apcyqoNk0W0D2": {
+				"name": "Juxtapose",
+				"consumers": {},
+				"id": "uA6apcyqoNk0W0D2",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"DQsDT0Z7mfKMSa1x": {
+				"name": "Slide",
+				"consumers": {},
+				"prompts": {
+					"m6hgcTuDiWEVWdYs": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "DQsDT0Z7mfKMSa1x",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"obGuAPm602hIhdwp": {
+				"name": "Gateway",
+				"consumers": {},
+				"id": "obGuAPm602hIhdwp",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"qimQlgDSDKC30spY": {
+				"name": "Memory Path",
+				"consumers": {},
+				"id": "qimQlgDSDKC30spY",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"mnnIVnC71fCwmXFU": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "mnnIVnC71fCwmXFU",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"4ieuvJFTYINBaWAv": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "4ieuvJFTYINBaWAv",
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"LyQkb7sAoUHHPJo3": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "Zjohucujs98zgvIY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"discipline": [
+			"kinesthetic",
+			"telekinetic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1747866508745,
+		"modifiedTime": 1752870827867,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hX4zmQvWZ4LbchJD"
+}
