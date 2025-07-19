@@ -1,0 +1,411 @@
+{
+	"name": "Psionic Barrier",
+	"type": "spell",
+	"img": "icons/magic/air/air-wave-gust-blue.webp",
+	"system": {
+		"actions": {
+			"tsLcw8T62DsTlLaD": {
+				"name": "Psionic Barrier",
+				"consumers": {
+					"qTmMB1R9wwQJof0L": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 2,
+						"spellLevel": 2,
+						"points": 3,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Seeing a creature in a dangerous situation, being attacked or forced to make a dexterity saving throw"
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"effects": [
+					"pZzXj4TSPNJ2ZOOj",
+					"3ejJSwkv2gRDixar",
+					"nSpx7ReFHNjCzwTQ"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"Gbnzw065mhd4zqTJ": {
+						"range": "short"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>As a reaction to seeing a creature in a dangerous situation, being attacked or forced to make a dexterity saving throw, you throw up a temporary barrier between them and the source of the danger. Your target gains the benefit of half cover, with a +2 bonus to AC and saving throws. The cover is between your target and the source of the danger, and lasts until the start of your next turn. Nothing prevents a creature from moving around the barrier to make subsequent attacks.</p><p><strong>Cast at higher levels:</strong> In a 3rd level spell slot you instead provide ¾ cover. In a 5th level spell slot, you provide total cover.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 1,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"psionic"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": []
+	},
+	"effects": [
+		{
+			"origin": "Item.txscuxjJhHiJhH5f",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wZ2cszl4sze6qNeI"
+				}
+			},
+			"transfer": false,
+			"name": "Half Cover",
+			"_id": "o2urMxuXWeRjMtlS",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/air/air-wave-gust-blue.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1752874258807,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.txscuxjJhHiJhH5f",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7xfpAIaMhTfEZ8jL"
+				}
+			},
+			"transfer": false,
+			"name": "3/4s Cover",
+			"_id": "QmO5Dq4lNS7WfvJ2",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/air/air-wave-gust-blue.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1752874258807,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.txscuxjJhHiJhH5f",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Half Cover",
+			"img": "icons/magic/air/air-wave-gust-blue.webp",
+			"_id": "pZzXj4TSPNJ2ZOOj",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+2 bonus to AC, Dexterity saving throws, and ability checks made to hide.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1752945855168,
+				"modifiedTime": 1752945896808,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.txscuxjJhHiJhH5f",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Three-Quarters Cover",
+			"img": "icons/magic/air/air-wave-gust-blue.webp",
+			"_id": "3ejJSwkv2gRDixar",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+5 bonus to AC, Dexterity saving throws, and ability checks made to hide.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1752945917950,
+				"modifiedTime": 1752945961247,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.txscuxjJhHiJhH5f",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Total Cover",
+			"img": "icons/magic/air/air-wave-gust-blue.webp",
+			"_id": "nSpx7ReFHNjCzwTQ",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cannot be targeted directly by attacks, spells, or ability checks, although spells that target an area of effect and checks to search the area might still reach you.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1752945937217,
+				"modifiedTime": 1752945964136,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1752874258775,
+		"modifiedTime": 1752945994947,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "7muKEL2eeNTJKe6O"
+}

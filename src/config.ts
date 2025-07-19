@@ -614,7 +614,7 @@ const knackTypes = {
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
-  	trooper: 'Drill',
+	trooper: 'Drill',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',
@@ -734,7 +734,7 @@ const modPorts = {
 	5: '5',
 	6: '6',
 	7: '7',
-	8: '8'
+	8: '8',
 };
 
 /**
@@ -1110,6 +1110,7 @@ const spellSchools = {
 		nature: 'A5E.SpellSchoolNature',
 		necrotic: 'A5E.SpellSchoolNecrotic',
 		negation: 'A5E.SpellSchoolNegation',
+		object: 'A5E.SpellSchoolObject',
 		obscurement: 'A5E.SpellSchoolObscurement',
 		planar: 'A5E.SpellSchoolPlanar',
 		plants: 'A5E.SpellSchoolPlants',
