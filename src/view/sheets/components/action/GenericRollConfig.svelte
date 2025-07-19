@@ -8,6 +8,7 @@
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
 
     function configureScaling() {
         let dialog = item.dialogs.rollScaling[rollId];
