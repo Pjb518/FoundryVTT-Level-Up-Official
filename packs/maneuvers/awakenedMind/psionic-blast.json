@@ -1,0 +1,200 @@
+{
+	"name": "Psionic Blast",
+	"type": "maneuver",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"actions": {
+			"5LxxALiuL56NOh0s": {
+				"name": "Psionic Blast",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"cMxlzdvwtlihuQrI": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 3,
+						"classIdentifier": "",
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"7pM6heFofUxPlCYz": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8",
+						"damageType": "psychic",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"sc2H1pYZC4XI0ujz": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not stunned",
+						"label": ""
+					},
+					"CKn6jVs3n21l7QbY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ieElqJl9GoHYeEI5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 60,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": ["item", "action"],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": ["bGB2KuM0D7xkGENx"],
+				"macro": "",
+				"ranges": {
+					"KXdL9yNVsnGPXiOK": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Lashing out with the full force of your mind you attempt to overwhelm your enemies with a powerful burst of psionic power. All targets within a 60ft cone must make an Intelligence saving throw or take 3d8 psychic damage and become [[/condition id=stunned]] until the end of your next turn. On a successful roll they instead take half damage and are not stunned.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "awakenedMind",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.OQNiVJeft3obTS91",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Stunned",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "bGB2KuM0D7xkGENx",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</p></li><li><p>The creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against the creature have advantage.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": ["stunned"],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753219338709,
+				"modifiedTime": 1753219361800,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {},
+		"a5e": {
+			"placeTemplate": true
+		}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753219196538,
+		"modifiedTime": 1753219388375,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "FiFDA58yR2GY2nHD"
+}
