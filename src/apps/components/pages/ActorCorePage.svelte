@@ -40,7 +40,7 @@ onDestroy(() => {
 {#if flags.a5e?.showFavoritesSection ?? true}
     <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
         <ItemCategory
-            label="A5E.FavoriteItems"
+            label="A5E.tabs.favoriteItems"
             icon="fas fa-star a5e-section-header__icon"
             items={[...$favorites].sort((a, b) => a.sort - b.sort)}
             type="favorites"

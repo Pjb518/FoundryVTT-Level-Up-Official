@@ -52,7 +52,7 @@ const configObject = {
 		options: Object.entries(CONFIG.A5E.abilities),
 	},
 	abilitySave: {
-		label: 'A5E.SavingThrow',
+		label: 'A5E.rollLabels.savingThrows.title',
 		options: Object.entries(CONFIG.A5E.abilities),
 	},
 	attack: {
@@ -60,11 +60,11 @@ const configObject = {
 		options: Object.entries(CONFIG.A5E.attackTypes),
 	},
 	initiative: {
-		label: 'A5E.Initiative',
+		label: 'A5E.initiative.title',
 		options: [],
 	},
 	skill: {
-		label: 'A5E.Skill',
+		label: 'A5E.skillLabels.title',
 		options: Object.entries(CONFIG.A5E.skills),
 	},
 };

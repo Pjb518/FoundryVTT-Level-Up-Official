@@ -11,7 +11,7 @@
 
     function getAttunementLabel(object) {
         return object.system.requiresAttunement
-            ? localize("A5E.AttunementRequiredPrompt")
+            ? localize("A5E.attument.headings.requiredPrompt")
             : null;
     }
 

@@ -143,7 +143,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
+    <FieldWrapper heading="A5E.healing.formula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 type="text"
@@ -162,14 +162,14 @@
             >
                 <i
                     class="fa-solid fa-arrow-up-right-dots"
-                    data-tooltip="A5E.ConfigureDamageScaling"
+                    data-tooltip="A5E.scaling.headings.configureDamage"
                     data-tooltip-direction="UP"
                 />
             </button>
         </div>
     </FieldWrapper>
 
-    <FieldWrapper heading="A5E.HealingType">
+    <FieldWrapper heading="A5E.healing.type">
         <select
             id="{actionId}-{rollId}-healing-type"
             class="u-w-fit"
@@ -190,7 +190,7 @@
 </Section>
 
 <Checkbox
-    label="A5E.HealingDefaultSelection"
+    label="A5E.healing.defaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

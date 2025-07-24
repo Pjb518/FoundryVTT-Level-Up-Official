@@ -4,7 +4,7 @@
     const fields = [
         {
             field: "craftingComponents",
-            label: "A5E.CraftingComponents",
+            label: "A5E.objects.craftingComponents",
         },
         {
             field: "spellClasses",
@@ -16,27 +16,27 @@
         },
         {
             field: "ranges",
-            label: "A5E.ItemRange",
+            label: "A5E.actions.labels.range",
         },
         {
             field: "targets",
-            label: "A5E.ItemTargetPlural",
+            label: "A5E.actions.labels.targetPlural",
         },
         {
             field: "area",
-            label: "A5E.TargetArea",
+            label: "A5E.targets.area",
         },
         {
             field: "spellComponents",
-            label: "A5E.SpellComponents",
+            label: "A5E.spells.components.title",
         },
         {
             field: "duration",
-            label: "A5E.ItemDuration",
+            label: "A5E.actions.headings.duration",
         },
         {
             field: "savingThrow",
-            label: "A5E.ItemSavingThrow",
+            label: "A5E.actions.headings.savingThrows.title",
         },
     ];
 

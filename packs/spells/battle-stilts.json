@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"f99Gcid6sdmcKHPm": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 1,
-						"points": 0
+						"points": 0,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -33,7 +36,7 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 10
+					"value": "10"
 				},
 				"ranges": {
 					"cGbgzuDAZZX03DaP": {
@@ -42,13 +45,28 @@
 				},
 				"effects": [
 					"DaQ5n02PelQ7SytI"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			},
 			"vshPwFWxYPsp9qgn": {
 				"name": "Stilt Kick",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -57,13 +75,20 @@
 						"default": true,
 						"attackType": "meleeSpellAttack",
 						"proficient": true,
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
 					},
 					"lmuV5NT0CoXl8t93": {
 						"type": "damage",
 						"default": true,
-						"formula": "1d10 + @spell.moc",
-						"damageType": "bludgeoning"
+						"formula": "1d10 + @spell.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -77,9 +102,22 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
-				"descriptionOutputs": []
+				"descriptionOutputs": [],
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			}
 		},
 		"description": "<p dir=\"ltr\">You create a pair of stilts under your feet and grants you supernatural balance to use them.</p><p dir=\"ltr\">While the stilts are in place, you can walk through hazardous liquid up to 10 feet deep without suffering ill effects, your height is 10 feet taller (and so you can reach or see over things further off the ground), you have disadvantage on Stealth checks, and you gain a vicious kick that functions as melee spell attack which deals 1d10 bludgeoning damage + your spellcasting modifier and has a reach of 10 feet.</p><p dir=\"ltr\">Your stilts have hit points equal to your proficiency bonus + your caster level and an AC equal to your spell save DC. If your stilts are destroyed or dispelled, you fall. If you attempt to cast this spell in a location which would not accommodate your new height, it fails.</p><p dir=\"ltr\"><strong id=\"docs-internal-guid-c249d3a2-7fff-9f83-1846-eaf106ebf190\">Cast at Higher Levels.</strong> The height of the stilts increases by 5 feet for every spell slot level above 1st, as does the reach of the kick attack. If you cast this spell with at least a 3rd-level spell slot, your movement speed increases by 10 feet. This increase occurs again at spell slot levels 5, 7, and 9. If you use at least a 4th-level spell slot to cast the spell, your stilts become spectral and can no longer be damaged, though the can still be dispelled. They also deal force damage instead of bludgeoning, and creatures on the ground must be at least Large size or use a reach weapon in order to target you with melee attacks. If you cast this spell with at least a 6th level spell slot, the attack damage increases to 2d10 and creatures on the ground must be at least Huge size or use a reach weapon in order to target you with melee attacks.</p>",
@@ -119,12 +157,20 @@
 				"utility"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/commodities/wood/wood-pole.webp",
-			"origin": "Item.68h87n3z12azsd0x",
+			"origin": "Item.DfRLeMjIVoXffSGS",
 			"flags": {
 				"a5e": {}
 			},
@@ -151,23 +197,43 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1746543086370,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
-			}
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/commodities/wood/wood-pole.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "68h87n3z12azsd0x",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746543086324,
+		"modifiedTime": 1746543249274,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "68h87n3z12azsd0x"
 }

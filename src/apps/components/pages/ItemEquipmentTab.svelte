@@ -88,7 +88,7 @@ $: docs = Object.entries($item.system.items ?? {})
 
                     <button
                         class="a5e-button a5e-button--delete delete-button fas fa-trash"
-                        data-tooltip="A5E.ButtonToolTipDelete"
+                        data-tooltip="A5E.buttons.tooltips.delete"
                         data-tooltip-direction="UP"
                         on:click={() => deleteEquipment(doc.uuid)}
                     />

@@ -39,12 +39,12 @@ const item = new TJSDocument(document);
 const configObject = {
 	abilities: {},
 	damage: {
-		selectHeading: 'A5E.DamageType',
+		selectHeading: 'A5E.damage.headings.type',
 		selectTypes: CONFIG.A5E.damageTypes,
 		selectProperty: 'damageType',
 	},
 	healing: {
-		selectHeading: 'A5E.HealingType',
+		selectHeading: 'A5E.healing.type',
 		selectTypes: CONFIG.A5E.healingTypes,
 		selectProperty: 'healingType',
 	},
@@ -98,7 +98,7 @@ setContext('grantType', grantType);
         --a5e-section-body-direction={hasSelectDialog ? "row" : "column"}
     >
         <FieldWrapper
-            heading="A5E.Formula"
+            heading="A5E.rollLabels.formula"
             --a5e-field-wrapper-grow={hasSelectDialog ? "1" : "0"}
         >
             <input

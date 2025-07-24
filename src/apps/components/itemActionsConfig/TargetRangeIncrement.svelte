@@ -67,7 +67,7 @@ function deleteRangeIncrement() {
 	});
 }
 
-const heading = localize('A5E.ItemRangeIncrement', {
+const heading = localize('A5E.actions.labels.rangeIncrement', {
 	increment: getOrdinalNumber(index + 1),
 });
 
@@ -106,7 +106,7 @@ $: selected = isStandardRange(range) ? range : 'other';
 
 {#if selected === "other"}
     <Checkbox
-        label="A5E.IncludeUnit"
+        label="A5E.actions.labels.includeUnit"
         checked={includeUnit}
         on:updateSelection={(event) => {
             includeUnit = event.detail;

@@ -124,7 +124,7 @@ export default class ModifierManager {
 		if (!jackOfAllTrades) return null;
 
 		return {
-			label: localize('A5E.ProficiencyBonusJack'),
+			label: localize('A5E.proficiency.jack'),
 			value: Math.floor(this.actor.system.attributes.prof / 2),
 		};
 	}
@@ -160,14 +160,14 @@ export default class ModifierManager {
 		const proficiencyBonus = this.actor.system.attributes.prof;
 
 		return {
-			label: localize('A5E.ProficiencyBonus'),
+			label: localize('A5E.proficiency.bonus'),
 			value: proficient ? proficiencyBonus : 0,
 		};
 	}
 
 	#getAttackBonus() {
 		return {
-			label: localize('A5E.AttackBonus'),
+			label: localize('A5E.attacks.headings.bonus'),
 			value: this.rollData.attackBonus ?? 0,
 		};
 	}
@@ -176,14 +176,14 @@ export default class ModifierManager {
 		if (this.rollData.saveType !== 'concentration') return null;
 
 		return {
-			label: localize('A5E.ConcentrationBonus'),
+			label: localize('A5E.bonuses.labels.concentration.defaultName'),
 			value: this.actor.system.abilities.con.save.concentrationBonus,
 		};
 	}
 
 	#getExpertiseDice() {
 		return {
-			label: localize('A5E.ExpertiseDie'),
+			label: localize('A5E.expertiseDie.title'),
 			value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0),
 		};
 	}
@@ -202,13 +202,13 @@ export default class ModifierManager {
 
 		switch (attackType) {
 			case 'meleeSpellAttack':
-				return { label: localize('A5E.BonusMeleeSpellAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.meleeSpellAttack'), value };
 			case 'meleeWeaponAttack':
-				return { label: localize('A5E.BonusMeleeWeaponAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.meleeWeaponAttack'), value };
 			case 'rangedSpellAttack':
-				return { label: localize('A5E.BonusRangedSpellAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.rangedSpellAttack'), value };
 			case 'rangedWeaponAttack':
-				return { label: localize('A5E.BonusRangedWeaponAttack'), value };
+				return { label: localize('A5E.bonuses.labels.attack.rangedWeaponAttack'), value };
 			default:
 				return null;
 		}
@@ -231,7 +231,7 @@ export default class ModifierManager {
 		}
 
 		return {
-			label: localize('A5E.InitiativeBonus'),
+			label: localize('A5E.initiative.bonus'),
 			value: value || null,
 		};
 	}
@@ -240,7 +240,7 @@ export default class ModifierManager {
 		if (!this.rollData.proficient) return null;
 
 		return {
-			label: localize('A5E.ProficiencyBonus'),
+			label: localize('A5E.proficiency.bonus'),
 			value: this.actor.system.attributes.prof,
 		};
 	}
@@ -250,13 +250,13 @@ export default class ModifierManager {
 
 		if (!skillKey) return null;
 
-		let labelKey = 'A5E.SkillCheckMod';
+		let labelKey = 'A5E.skillLabels.checks.mod';
 		const jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades;
 		const skill = this.actor.system.skills[skillKey];
 
-		if (skill?.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
-		else if (skill?.proficient) labelKey = 'A5E.ProficiencyBonus';
-		else if (jackOfAllTrades) labelKey = 'A5E.ProficiencyBonusJack';
+		if (skill?.proficient === 2) labelKey = 'A5E.proficiency.bonusExpertise';
+		else if (skill?.proficient) labelKey = 'A5E.proficiency.bonus';
+		else if (jackOfAllTrades) labelKey = 'A5E.proficiency.jack';
 
 		return {
 			label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',
@@ -276,7 +276,7 @@ export default class ModifierManager {
 		}
 
 		return {
-			label: localize('A5E.SkillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
+			label: localize('A5E.bonuses.labels.skillCheckBonus', { skill: CONFIG.A5E.skills[skill] }),
 			value: value || null,
 		};
 	}

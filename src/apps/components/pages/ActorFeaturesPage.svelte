@@ -83,7 +83,7 @@
     {#if $actor.type === "character" && showFavorPoints}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
-                {localize("A5E.FavorPoints")}
+                {localize("A5E.consumers.favorPoints")}
             </h3>
 
             <input

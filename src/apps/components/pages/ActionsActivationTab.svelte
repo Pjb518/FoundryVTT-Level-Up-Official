@@ -28,9 +28,9 @@
         : 0;
 </script>
 
-<Section heading="A5E.ActivationConfiguration" --a5e-section-body-gap="0.75rem">
+<Section heading="A5E.actions.headings.activation.configuration" --a5e-section-body-gap="0.75rem">
     <FieldWrapper
-        heading="A5E.ItemActivationCost"
+        heading="A5E.actions.headings.activation.cost"
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-header-width="100%"
     >
@@ -91,7 +91,7 @@
         </FieldWrapper>
     {/if}
 
-    <FieldWrapper heading="A5E.ItemDuration">
+    <FieldWrapper heading="A5E.actions.headings.duration">
         <div class="action-config__component">
             {#if action?.duration?.unit && !specialTimeTypes.includes(action?.duration?.unit)}
                 <input

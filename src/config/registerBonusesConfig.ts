@@ -2,14 +2,14 @@ export default function registerBonusesConfig() {
 	const bonusTypes = {
 		abilities: 'A5E.abilities.headings.ability',
 		attacks: 'A5E.Attack',
-		damage: 'A5E.Damage',
-		exertion: 'A5E.Exertion',
-		healing: 'A5E.Healing',
-		hitPoint: 'A5E.HitPoints',
-		initiative: 'A5E.Initiative',
-		movement: 'A5E.Movement',
-		senses: 'A5E.Senses',
-		skills: 'A5E.Skill',
+		damage: 'A5E.damage.title',
+		exertion: 'A5E.exertion.title',
+		healing: 'A5E.healing.title',
+		hitPoint: 'A5E.hitPoints.title',
+		initiative: 'A5E.initiative.title',
+		movement: 'A5E.details.movement.title',
+		senses: 'A5E.senses.title',
+		skills: 'A5E.skillLabels.title',
 	};
 
 	const bonusDialogKeys = {

@@ -18,7 +18,7 @@ const actionId: string = getContext('actionId');
 
 const descriptionOutputOptions = [
 	['action', 'A5E.actions.headings.activation.action'],
-	['item', 'A5E.Item'],
+	['item', 'A5E.items.title'],
 ];
 
 $: content = $item.system.actions[actionId]?.description;

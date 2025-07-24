@@ -34,22 +34,22 @@
     const tabs = [
         {
             name: "description",
-            label: "A5E.Description",
+            label: "A5E.tabs.description",
             component: ItemDescriptionTab,
         },
         {
             name: "properties",
-            label: "A5E.ItemSheetLabelPropertiesTab",
+            label: "A5E.tabs.properties",
             component: ArchetypePropertiesTab,
         },
         {
             name: "resources",
-            label: "A5E.TabResources",
+            label: "A5E.tabs.resources",
             component: ClassResourcesTab,
         },
         {
             name: "grants",
-            label: "A5E.TabGrants",
+            label: "A5E.tabs.grants",
             component: ItemGrantsTab,
         },
     ];

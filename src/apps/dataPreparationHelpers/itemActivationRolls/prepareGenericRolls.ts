@@ -9,7 +9,7 @@ export default function prepareGenericRolls(
 
 	return rolls.map(([key, roll]) => {
 		if (!roll.label) {
-			const label = game.i18n.localize('A5E.Other');
+			const label = game.i18n.localize('A5E.actions.labels.other');
 			count += 1;
 
 			// @ts-expect-error

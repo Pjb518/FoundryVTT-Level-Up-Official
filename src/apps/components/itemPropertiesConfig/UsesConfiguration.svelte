@@ -57,7 +57,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
     {#if editMode}
         <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.5rem">
             {#if !isClassResource}
-                <FieldWrapper heading="A5E.UsesCurrent">
+                <FieldWrapper heading="A5E.consumers.uses.current">
                     <input
                         class="a5e-input"
                         type="number"
@@ -74,7 +74,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                 </FieldWrapper>
             {/if}
 
-            <FieldWrapper heading="A5E.UsesMax">
+            <FieldWrapper heading="A5E.consumers.uses.max">
                 <input
                     class="a5e-input"
                     type="text"
@@ -87,7 +87,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.UsesPer">
+            <FieldWrapper heading="A5E.consumers.uses.per">
                 <select
                     class="u-h-8 u-w-40"
                     name="system.uses.per"
@@ -111,11 +111,11 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
 
         {#if $item.system.uses.per === "recharge"}
             <Section
-                heading="A5E.ItemRechargeConfiguration"
+                heading="A5E.actions.headings.recharge.configuration"
                 --a5e-section-body-direction="row"
                 --a5e-section-body-gap="0.5rem"
             >
-                <FieldWrapper heading="A5E.ItemRechargeFormula">
+                <FieldWrapper heading="A5E.actions.headings.recharge.formula">
                     <input
                         id="{$item.id}-recharge-formula"
                         type="text"
@@ -132,7 +132,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
                     />
                 </FieldWrapper>
 
-                <FieldWrapper heading="A5E.ItemRechargeThreshold">
+                <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
                     <input
                         id="{$item.id}-recharge-threshold"
                         class="u-text-center"
@@ -150,7 +150,7 @@ $: isClassResource = formulaIsClassResource($item.system.uses.max ?? '');
         {/if}
     {:else}
         <dl class="a5e-box u-flex u-gap-sm u-m-0 u-p-md u-text-sm">
-            <dt class="u-text-bold">{localize("A5E.Uses")}:</dt>
+            <dt class="u-text-bold">{localize("A5E.consumers.uses.title")}:</dt>
 
             <dd
                 class="align-center u-flex u-gap-sm u-m-0 u-p-0"

@@ -106,7 +106,7 @@ $: requiresProficiency = attackBonus.context.requiresProficiency ?? false;
     </header>
 
     <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
+        <FieldWrapper heading="A5E.rollLabels.formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={attackBonus.formula ?? ""}

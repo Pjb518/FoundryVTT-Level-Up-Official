@@ -17,7 +17,7 @@ $: buttons = source.length ? [{ classes: 'fas fa-question-circle', tooltip: sour
 </script>
 
 <RadioGroup
-    heading="A5E.RollModeHeading"
+    heading="A5E.rollLabels.modeHeading"
     {buttons}
     {options}
     {selected}

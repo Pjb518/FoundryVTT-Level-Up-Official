@@ -37,7 +37,7 @@ $: resource = $actor.system.resources[source];
     </FieldWrapper>
 
     {#if !resource.hideMax}
-        <FieldWrapper heading="A5E.GenericResourceMaxFormula">
+        <FieldWrapper heading="A5E.genericResources.maxFormula">
             <input
                 class="a5e-input"
                 type="text"
@@ -56,7 +56,7 @@ $: resource = $actor.system.resources[source];
 
     <FieldWrapper>
         <Checkbox
-            label="A5E.GenericResourceHideMax"
+            label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(
@@ -75,7 +75,7 @@ $: resource = $actor.system.resources[source];
     --a5e-section-padding="0 0.75rem 0.75rem 0.75rem"
 >
     <RadioGroup
-        heading="A5E.RecoverResourceAt"
+        heading="A5E.consumers.recoverResourceAt"
         options={recoveryOptions}
         selected={resource.per}
         on:updateSelection={(event) =>
@@ -87,7 +87,7 @@ $: resource = $actor.system.resources[source];
     />
 
     {#if resource.per === "recharge"}
-        <FieldWrapper heading="A5E.ItemRechargeFormula">
+        <FieldWrapper heading="A5E.actions.headings.recharge.formula">
             <input
                 class="a5e-input"
                 type="text"
@@ -104,7 +104,7 @@ $: resource = $actor.system.resources[source];
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.ItemRechargeThreshold">
+        <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
             <input
                 class="a5e-input u-text-center"
                 type="number"

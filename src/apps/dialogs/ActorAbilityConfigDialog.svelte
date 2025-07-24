@@ -39,7 +39,7 @@
             hint="Determines whether to add this actor's proficiency bonus to its saving throws"
         >
             <Checkbox
-                label="A5E.ProficiencyProficient"
+                label="A5E.proficiency.proficient"
                 checked={ability.save.proficient}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
@@ -67,7 +67,7 @@
 
         {#if abilityKey === "con"}
             <FieldWrapper
-                heading="A5E.ConcentrationCheckBonus"
+                heading="A5E.bonuses.labels.concentration.sectionHeader"
                 hint="This field accepts any values valid in roll formulae."
             >
                 <input

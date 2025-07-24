@@ -41,7 +41,7 @@
 <div class="character-shields__container">
     <div class="a5e-details-box character-shields__box">
         <label class="a5e-details-box__label" for="{$actor.id}-inspiration">
-            {localize("A5E.Inspiration")}
+            {localize("A5E.consumers.inspiration")}
         </label>
 
         <!-- svelte-ignore a11y-click-events-have-key-events -->

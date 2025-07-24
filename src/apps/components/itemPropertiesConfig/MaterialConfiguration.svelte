@@ -20,7 +20,7 @@
 </script>
 
 <Section
-    heading="A5E.MaterialProperties"
+    heading="A5E.objects.materialProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -33,7 +33,7 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.MaterialProperties"
+            heading="A5E.objects.materialProperties"
             options={Object.entries(materialProperties)}
             selected={$item.system.materialProperties}
             on:updateSelection={(event) =>
@@ -67,7 +67,7 @@
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.MaterialProperties")}:
+                    {localize("A5E.objects.materialProperties")}:
                 </dt>
 
                 <dd class="u-m-0 u-p-0">

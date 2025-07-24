@@ -36,38 +36,38 @@ const { A5E } = CONFIG;
 
 const consumerTypes = {
 	ammunition: {
-		heading: 'A5E.ConsumerAmmunition',
-		singleLabel: 'A5E.ObjectTypeAmmunition',
+		heading: 'A5E.consumers.ammunition',
+		singleLabel: 'A5E.objects.types.singular.ammunition',
 		component: AmmoConsumer,
 	},
 	hitDice: {
-		heading: 'A5E.ConsumerHitDice',
-		singleLabel: 'A5E.HitDiceLabel',
+		heading: 'A5E.consumers.hitDice',
+		singleLabel: 'A5E.hitDice.title',
 		component: HitDiceConsumer,
 	},
 	quantity: {
-		heading: 'A5E.ConsumerQuantity',
+		heading: 'A5E.consumers.quantity',
 		singleLabel: 'A5E.ItemQuantity',
 		component: QuantityConsumer,
 	},
 	resource: {
-		heading: 'A5E.ConsumerResource',
-		singleLabel: 'A5E.Resource',
+		heading: 'A5E.consumers.resources.consumer',
+		singleLabel: 'A5E.consumers.resources.title',
 		component: ResourceConsumer,
 	},
 	spell: {
-		heading: 'A5E.ConsumerSpell',
-		singleLabel: 'A5E.Spell',
+		heading: 'A5E.consumers.spell',
+		singleLabel: 'A5E.spells.title',
 		component: SpellConsumer,
 	},
 	actionUses: {
-		heading: 'A5E.ConsumerUsesAction',
-		singleLabel: 'A5E.ConsumerActionUses',
+		heading: 'A5E.consumers.uses.action',
+		singleLabel: 'A5E.consumers.actionUses',
 		component: UsesConsumer,
 	},
 	itemUses: {
-		heading: 'A5E.ConsumerUsesItem',
-		singleLabel: 'A5E.ConsumerItemUses',
+		heading: 'A5E.consumers.uses.item',
+		singleLabel: 'A5E.consumers.itemUses',
 		component: UsesConsumer,
 	},
 };
@@ -88,12 +88,12 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <!-- Action Resources Section -->
     <Section
-        heading="A5E.Uses"
+        heading="A5E.consumers.uses.title"
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"
     >
         {#if !isClassResource}
-            <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
+            <FieldWrapper heading="A5E.consumers.uses.current" --a5e-field-wrapper-width="7.5rem">
                 <input
                     type="number"
                     name="system.actions.{actionId}.uses.value"
@@ -110,7 +110,7 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper heading="A5E.UsesMax" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.consumers.uses.max" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="text"
                 name="system.actions.{actionId}.uses.max"
@@ -124,7 +124,7 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.UsesPer">
+        <FieldWrapper heading="A5E.consumers.uses.per">
             <select
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
@@ -145,11 +145,11 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
 
     {#if action.uses?.per === "recharge"}
         <Section
-            heading="A5E.ItemRechargeConfiguration"
+            heading="A5E.actions.headings.recharge.configuration"
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
+            <FieldWrapper heading="A5E.actions.headings.recharge.formula" --a5e-field-wrapper-grow="1">
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"
@@ -168,7 +168,7 @@ $: menuList = Object.entries(consumerTypes).reduce((acc, [consumerType, { single
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.ItemRechargeThreshold">
+            <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
                 <input
                     id="{actionId}-recharge-threshold"
                     class="u-text-center"

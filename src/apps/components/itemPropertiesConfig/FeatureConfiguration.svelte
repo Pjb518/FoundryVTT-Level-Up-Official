@@ -22,7 +22,7 @@ let editMode = false;
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.tabs.featureProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -35,7 +35,7 @@ let editMode = false;
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.FeatureTypePrompt"
+            heading="A5E.features.typePrompt"
             options={Object.entries(featureTypes)}
             selected={$item.system.featureType}
             allowDeselect={true}
@@ -93,7 +93,7 @@ let editMode = false;
 
         <FieldWrapper>
             <Checkbox
-                label="A5E.RequiresBloodied"
+                label="A5E.items.requiresBloodied"
                 checked={$item.system.requiresBloodied}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField($item, "system.requiresBloodied", detail);
@@ -104,7 +104,7 @@ let editMode = false;
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.FeatureTypePrompt")}:
+                    {localize("A5E.features.typePrompt")}:
                 </dt>
 
                 <dd class="u-m-0 u-p-0">

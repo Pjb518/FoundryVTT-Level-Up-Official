@@ -62,7 +62,7 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.RollFormula" --a5e-field-wrapper-grow="1">
+<FieldWrapper heading="A5E.rollLabels.rollFormula" --a5e-field-wrapper-grow="1">
     <div class="u-flex u-gap-sm u-w-full">
         <input
             type="text"
@@ -78,7 +78,7 @@
         <button class="a5e-scaling-button" on:click|preventDefault={onClickScalingButton}>
             <i
                 class="fa-solid fa-arrow-up-right-dots"
-                data-tooltip="A5E.ConfigureDamageScaling"
+                data-tooltip="A5E.scaling.headings.configureDamage"
                 data-tooltip-direction="UP"
             />
         </button>
@@ -86,7 +86,7 @@
 </FieldWrapper>
 
 <Checkbox
-    label="A5E.GenericDefaultSelection"
+    label="A5E.consumers.genericDefaultSelection"
     checked={roll.default ?? true}
     on:updateSelection={({ detail }) => {
         updateDocumentDataFromField(

@@ -298,6 +298,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -350,12 +361,13 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "10 + @dex.mod + @cha.mod"
 			},
 			"death": {
 				"success": 0,
@@ -365,7 +377,7 @@
 				"value": 117,
 				"baseMax": 117,
 				"temp": 0,
-				"bonus": null
+				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
@@ -416,7 +428,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 35,
 					"unit": "feet"
 				},
 				"traits": {
@@ -430,7 +442,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -446,7 +458,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "cha",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -471,7 +485,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -481,7 +496,7 @@
 			"isSwarm": false,
 			"cr": 9,
 			"elite": false,
-			"privateNotes": "",
+			"privateNotes": "<p><em>any pronouns</em></p><p>Amiphite fancies himself a particularly fineexample of nymph-hood, and she's likely to be rather annoying about it. They interrupt the party during a rest and propose an evening of dancing and merriment. Any adventurers that take her up on it do have a great time, but wake up with a shattering hangover the next day.</p>",
 			"notes": "",
 			"terrain": [],
 			"isSquad": false
@@ -493,7 +508,8 @@
 				"Two other languages"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -555,8 +571,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"OR1SbUum9QeOSOTm": {
-				"_id": "OR1SbUum9QeOSOTm",
+			"M404ROffqDMkPHOL": {
+				"_id": "M404ROffqDMkPHOL",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -564,10 +580,17 @@
 				"showSpellPoints": false,
 				"showSpellSlots": false
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
-		"name": "Nymph",
+		"name": "Amiphite the Nymph",
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
@@ -577,7 +600,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": null
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -613,10 +640,12 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
@@ -630,7 +659,23 @@
 		"flags": {},
 		"randomImg": false,
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -667,16 +712,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -713,16 +773,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -759,16 +834,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -805,16 +895,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -851,16 +956,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -884,11 +1004,146 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"CYURkv9sK45wkGZn": {
+						"name": "Dagger",
+						"activation": {
+							"cost": 0,
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "object",
+							"scaling": {}
+						},
+						"rolls": {
+							"gdR2mGnYfGBsk2ZY": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
+							},
+							"ut4E7BIwVCXdj5oE": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d4 + @finesse.mod",
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					},
+					"911iDf2vrTJjuO4V": {
+						"name": "Dagger (Off-Hand)",
+						"activation": {
+							"cost": 0,
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "object",
+							"scaling": {}
+						},
+						"rolls": {
+							"gdR2mGnYfGBsk2ZY": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
+							},
+							"ut4E7BIwVCXdj5oE": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d4 + min(@finesse.mod,0)",
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -906,7 +1161,7 @@
 				"craftingComponents": "",
 				"containerId": "",
 				"damagedState": 0,
-				"equippedState": 0,
+				"equippedState": 2,
 				"items": {},
 				"materialProperties": [],
 				"objectType": "weapon",
@@ -914,7 +1169,7 @@
 				"price": "2 gp",
 				"proficient": true,
 				"quantity": 1,
-				"rarity": "common",
+				"rarity": "mundane",
 				"requiresAttunement": false,
 				"shieldCategory": "",
 				"shieldProperties": [],
@@ -926,20 +1181,48 @@
 					"finesse",
 					"simple"
 				],
-				"weight": 0,
+				"weight": 1,
 				"breakerProperties": [],
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"_id": "elXPGtHRMOux08w7",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.vzmgutyegssa2akj",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -958,7 +1241,64 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"6oIQRlOjBX3zdReK": {
+						"name": "Use Feature",
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"prompts": {
+							"wJ96ci53sbFFLpNN": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
+							}
+						},
+						"ranges": {
+							"sKGl1fgAJsfnUkqr": {
+								"range": "short"
+							}
+						},
+						"rolls": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>The nymph targets one humanoid on the same plane of existence within 30 feet, forcing it to make a DC 17 Wisdom saving throw. On a failure, the target is magically charmed for 1 day or until the nymph charms another creature. The charmed creature obeys the nymph’s commands. The creature repeats the saving throw whenever it takes damage or if it receives a suicidal command. If a creature’s saving throw is successful or the effect ends for it, it is immune to any nymph’s Charm for 24 hours.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -976,44 +1316,192 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
-			"name": "Animal Friendship (At Will)",
+			"name": "Animal Friendship",
 			"type": "spell",
 			"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Item.1laktjzxk5nh1x1r",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "V3v15wAVtuObQUMj",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 86400,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.10",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"system": {
+						"applyToSelf": false,
+						"effectType": "onUse",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"img": "icons/creatures/mammals/elk-moose-marked-green.webp",
+					"type": "base",
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
+				}
+			],
 			"flags": {
 				"core": {
 					"sourceId": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r"
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"IV3HIuyqtazSa3SL": {
+						"name": "Animal Friendship",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"Sq7GpokSS170wv8L": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"prompts": {
+							"PwcoRftiVfDdbbMn": {
+								"ability": "wis",
+								"onSave": "",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {},
+						"effects": [
+							"V3v15wAVtuObQUMj"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"bard",
+					"druid"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1035,19 +1523,33 @@
 						"nature"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "dVS3bBMUgHh9qu3z",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.1laktjzxk5nh1x1r",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
-			"name": "Animal Messenger (At Will)",
+			"name": "Animal Messenger",
 			"type": "spell",
 			"img": "icons/creatures/birds/raptor-owl-flying-moon.webp",
 			"effects": [],
@@ -1057,21 +1559,75 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"JbOGZNgzGY6n8Ee6": {
+						"name": "Animal Messenger",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "24"
+						},
+						"ranges": {
+							"0IfrIHxv6qvdqo0c": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creature",
+							"scaling": {}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You call a Tiny beast to you, whisper a message to it, and then give it directions to the message's recipient. It is now your messenger.</p><p>Specify a location you have previously visited and a recipient who matches a general description, such as &quot;a person wearing a pointed red hat in Barter Town&quot; or &quot;a half-orc in a wheelchair at the Striped Lion Inn.&quot; Speak a message of up to 25 words. For the duration of the spell, the messenger travels towards the location at a rate of 50 miles per day for a messenger with a flying speed, or else 25 miles without.</p><p>When the messenger arrives, it delivers your message to the first creature matching your description, replicating the sound of your voice exactly. If the messenger can't find the recipient or reach its destination before the spell ends, the message is lost, and the beast makes its way back to where you cast this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The duration of the spell increases by 48 hours for each slot level above 2nd.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"bard",
+					"druid",
+					"witch"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1093,19 +1649,33 @@
 						"nature"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "FQekOBHo4HbGpSqK",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.mjrci30v32fs6hwc",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
-			"name": "Speak with Animals (At Will)",
+			"name": "Speak with Animals",
 			"type": "spell",
 			"img": "icons/magic/nature/wolf-paw-glow-green.webp",
 			"effects": [],
@@ -1115,21 +1685,75 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"U1QgzHOqgMYt6rH4": {
+						"name": "Speak with Animals",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"LK11L8NZprriy0vZ": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "self",
+							"scaling": {}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You call upon the secret lore of beasts and gain the ability to speak with them. Beasts have a different perspective of the world, and their knowledge and awareness is filtered through that perspective. At a minimum, beasts can tell you about nearby locations and monsters, including things they have recently perceived. At the Narrator's discretion, you might be able to persuade a beast to perform a small favor for you.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"bard",
+					"druid",
+					"witch"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1152,19 +1776,33 @@
 						"utility"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "6nrvxNGaqCFDIQmu",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.z5a26lxyh3esw2rl",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
-			"name": "Speak with Plants (At Will)",
+			"name": "Speak with Plants",
 			"type": "spell",
 			"img": "icons/magic/nature/leaf-glow-maple-orange-purple.webp",
 			"effects": [],
@@ -1174,21 +1812,75 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"zXvSIk0Jta539iTs": {
+						"name": "Speak with Plants",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"Xf7GixuD33R4Nkvu": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "30",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>Your voice takes on a magical timbre, awakening the targets to limited sentience. Until the spell ends, the targets can communicate with you and follow simple commands, telling you about recent events including creatures that have passed, weather, and nearby locations.</p><p>The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature restrained by an entangle spell.</p><p>At the Narrator's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistEarth"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1211,19 +1903,33 @@
 						"utility"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "8ZVpVoQRRbKuHQTe",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.rek0fg987gg30wp9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
-			"name": "Misty Step (At Will)",
+			"name": "Misty Step",
 			"type": "spell",
 			"img": "icons/skills/movement/ball-spinning-blue.webp",
 			"effects": [],
@@ -1233,21 +1939,79 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"vXZn3iWPurUWz9QK": {
+						"name": "Misty Step",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"IRVdWzXtFPJ5Ijps": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "self",
+							"scaling": {}
+						},
+						"consumers": {},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p>",
 				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"artificer",
+					"elementalistAir",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": false,
@@ -1270,15 +2034,29 @@
 						"teleportation"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "z6FCYfJGXasEAVwD",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.ijh0tu0wgpsp7v6n",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1292,21 +2070,89 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"acPBvUOz0hjuorSJ": {
+						"name": "Dispel Magic",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"TBb5HLRP8RqIxjlD": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creatureObject",
+							"scaling": {}
+						},
+						"consumers": {
+							"V1YdyH04h4kmAqIW": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You scour the magic from your target. Any spell cast on the target ends if it was cast with a spell slot of 3rd-level or lower. For spells using a spell slot of 4th-level or higher, make an ability check with a DC equal to 10 + the spell's level for each one, ending the effect on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You automatically end the effects of a spell on the target if the level of the spell slot used to cast it is equal to or less than the level of the spell slot used to cast dispel magic.</p>",
 				"favorite": true,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 3,
 					"max": "3",
 					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"artificer",
+					"bard",
+					"cleric",
+					"druid",
+					"herald",
+					"sorcerer",
+					"warlock",
+					"wielder",
+					"witch",
+					"wizard"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1329,43 +2175,186 @@
 						"utility"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "766zYJmLQtp33RHL",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.hms9kdl2qoqjjrs4",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
 			"name": "Enthrall",
 			"type": "spell",
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Item.36x8lw8mhfigm7ti",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Enthralled",
+					"_id": "XlCX0Vv1mKB12oEg",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Until the spell ends or a target can no longer hear you, it has disadvantage on Perception checks made to perceive any creature other than you. The spell ends if you are incapacitated or can no longer speak.</p>",
+					"statuses": [],
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.10",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"system": {
+						"applyToSelf": false,
+						"effectType": "onUse",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+					"type": "base",
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
+				}
+			],
 			"flags": {
 				"core": {
 					"sourceId": "Compendium.a5e.a5e-spells.36x8lw8mhfigm7ti"
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"Gxhj5RDuFppzj6yo": {
+						"name": "Enthrall",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"WcJ4ezv7noKgUhqJ": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creature",
+							"scaling": {}
+						},
+						"prompts": {
+							"v7uYCyqcW2XnTZzM": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {
+							"qA0oEFBxNmlqTjFv": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"effects": [
+							"XlCX0Vv1mKB12oEg"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You weave a compelling stream of words that captivates your targets. Any target that can't be charmed automatically succeeds on its saving throw, and targets fighting you or creatures friendly to you have advantage on the saving throw.</p><p>Until the spell ends or a target can no longer hear you, it has disadvantage on Perception checks made to perceive any creature other than you. The spell ends if you are incapacitated or can no longer speak.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 3,
 					"max": "3",
 					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"bard",
+					"warlock",
+					"witch"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1385,43 +2374,184 @@
 						"compulsion"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "51e6kau55sLHWCa3",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.36x8lw8mhfigm7ti",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
 			"name": "Sanctuary",
 			"type": "spell",
 			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-orange.webp",
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Item.uell7a5o6fcerke2",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Sanctuary",
+					"_id": "0QzHvftdKYJyvozw",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Any creature that makes an attack against or casts a harmful spell against the target must first make a Wisdom saving throw. On a failed save, the attacking creature must choose a different creature to attack or it loses the attack or spell. This spell doesn't protect the target from area effects, such as an explosion.</p><p>This spell ends early when the target attacks or casts a spell that affects an enemy creature.</p>",
+					"statuses": [],
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.10",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"system": {
+						"applyToSelf": false,
+						"effectType": "onUse",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"img": "icons/magic/defensive/shield-barrier-flaming-diamond-orange.webp",
+					"type": "base",
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
+				}
+			],
 			"flags": {
 				"core": {
 					"sourceId": "Compendium.a5e.a5e-spells.uell7a5o6fcerke2"
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"2UYcB2uFDhtV8tv2": {
+						"name": "Sanctuary",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"WR4YcJSIBFULRhWh": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creature",
+							"scaling": {}
+						},
+						"prompts": {
+							"iM9uoNQYN7GKa64c": {
+								"ability": "wis",
+								"onSave": "",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {
+							"dyw7uI9oRUdyStk0": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"effects": [
+							"0QzHvftdKYJyvozw"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You ward a creature against intentional harm.</p><p>Any creature that makes an attack against or casts a harmful spell against the target must first make a Wisdom saving throw. On a failed save, the attacking creature must choose a different creature to attack or it loses the attack or spell. This spell doesn't protect the target from area effects, such as an explosion.</p><p>This spell ends early when the target attacks or casts a spell that affects an enemy creature.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 3,
 					"max": "3",
 					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"cleric"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1442,15 +2572,29 @@
 						"protection"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "h0t2qohAiNRkfZ7p",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.uell7a5o6fcerke2",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1498,15 +2642,29 @@
 						"nature"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "1q9Q24pZcPJU2WZ6",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.f70ggbrjfojmf2hk",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1556,15 +2714,29 @@
 						"compulsion"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "8TXascattTQ5Pdt8",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.pdvg7c9emjgnib07",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1578,21 +2750,80 @@
 				}
 			},
 			"system": {
-				"actions": {},
+				"actions": {
+					"GQdzHWgKtx7wM0Kf": {
+						"name": "Conjure Animals",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"Lf3gRzuFK6vaBDMu": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "none",
+							"scaling": {}
+						},
+						"consumers": {
+							"D5nQbvjFEOBXuLrD": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>You summon forth the spirit of a beast that takes the physical form of your choosing in unoccupied spaces you can see.</p><p>Choose one of the following:</p><ul><li>One beast of CR 2 or less</li><li>Two beasts of CR 1 or less</li><li>Three beasts of CR 1/2 or less</li></ul><p> Beasts summoned this way are allied to you and your companions. While it is within 60 feet you can use a bonus action to mentally command a summoned beast. When you command multiple beasts using this spell, you must give them all the same command. You may decide the action the beast takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, a conjured beast only defends itself.</p><p><strong><em>Cast at Higher Levels.</em></strong> The challenge rating of beasts you can summon increases by one step for each slot level above 3rd. For example, when using a 4th-level spell slot you can summon one beast of CR 3 or less, two beasts of CR 2 or less, or three beasts of CR 1 or less.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 1,
 					"max": "1",
 					"per": "day",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
-				"classes": [],
+				"classes": [
+					"druid"
+				],
 				"components": {
 					"vocalized": true,
 					"seen": true,
@@ -1614,15 +2845,29 @@
 						"summoning"
 					]
 				},
-				"spellBook": "OR1SbUum9QeOSOTm"
+				"spellBook": "M404ROffqDMkPHOL",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": ""
 			},
 			"_id": "ahMnxFwoNOt1fbtP",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.xe7t43c42bkhxihe",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1641,7 +2886,69 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ypeUo02aN97gdX8w": {
+						"name": "Use Feature",
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"area": {
+							"-=width": null,
+							"-=radius": null,
+							"-=height": null,
+							"-=length": null,
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 30
+						},
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"prompts": {
+							"hPcuZ9Siahw9JPmq": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
+							}
+						},
+						"ranges": {},
+						"rolls": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>The nymph unleashes the full entrancing power of its beauty, overwhelming those looking at it. Humanoid creatures within 30ft that can see the nymph must make a DC 17 Constitution saving throw or be permanently blinded. Spells such as <em>lesser restoration</em> can remove the effect.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1649,7 +2956,7 @@
 				"uses": {
 					"value": 0,
 					"max": "",
-					"per": "",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -1659,16 +2966,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1687,7 +3009,64 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"GyZVurbWSDpgZARx": {
+						"name": "Use Feature",
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"activation": {
+							"cost": 1,
+							"type": "reaction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"prompts": {
+							"8DK3xhlMiYOYUSxu": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
+							}
+						},
+						"ranges": {
+							"N5jFd08meD9ULK6K": {
+								"range": "medium"
+							}
+						},
+						"rolls": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": "creature"
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
+					}
+				},
 				"description": "<p>If a creature within 60ft deals damage to the nymph, it rebukes whoever dares to do violence to such a beautiful creature. The target must make a DC 17 Charisma saving throw or be stunned until the end of its next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1705,16 +3084,31 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1738,7 +3132,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -1751,10 +3145,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -1764,10 +3157,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -1788,15 +3203,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "fEi2Mw3XOHNhiVKv",
+			"_id": "iaPzGls7oWtdhhRD",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1820,7 +3248,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -1833,10 +3261,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -1846,10 +3273,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -1870,15 +3319,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "W4vc4xh7t15E00QC",
+			"_id": "bA1GWwSjEsZZNHEH",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1902,7 +3364,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -1915,18 +3377,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1937,10 +3401,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -1961,15 +3446,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "0sup1fPI9CIt4H5g",
+			"_id": "4sYSBadTS5DoalDJ",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1993,7 +3491,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -2006,10 +3504,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -2019,10 +3516,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -2043,15 +3562,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "eQ1HqQURwSPwImtu",
+			"_id": "BiFLmyejoZaaYBaF",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2075,7 +3607,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -2088,10 +3620,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -2101,10 +3632,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -2125,15 +3678,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "e6l7X0ULOfIf31N1",
+			"_id": "BepjyeQfnYy0knJM",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2157,7 +3723,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -2170,18 +3736,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -2192,10 +3760,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -2216,15 +3805,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
-			"_id": "BoR9i5d9aKIXaCRa",
+			"_id": "eUiya53kf7iJ9iem",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
@@ -2238,14 +3840,18 @@
 				"4"
 			],
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": false
 		}
 	},
 	"folder": null,
-	"_id": "gstmfpjn2idccykn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1746567804236,
+		"modifiedTime": 1746568324400,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "gstmfpjn2idccykn"
 }

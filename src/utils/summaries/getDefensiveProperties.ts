@@ -8,7 +8,7 @@ export default function getDefensiveProperties(item: ObjectItemA5e) {
 	if (item.system.defensiveProperties) {
 		const properties = defensiveProperties[item.system.defensiveProperties];
 
-		return localize('A5E.weaponProperties.defensiveSpecific', { type: properties });
+		return localize('A5E.weapons.properties.defensiveSpecific', { type: properties });
 	}
 
 	return weaponProperties.defensive;

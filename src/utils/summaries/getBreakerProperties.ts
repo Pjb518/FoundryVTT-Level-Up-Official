@@ -11,7 +11,7 @@ export default function getBreakerProperties(item: ObjectItemA5e) {
 		?.sort((a, b) => a.localeCompare(b));
 
 	if (properties.length) {
-		return localize('A5E.weaponProperties.breakerSpecific', { type: properties.join(', ') });
+		return localize('A5E.weapons.properties.breakerSpecific', { type: properties.join(', ') });
 	}
 
 	return weaponProperties.breaker;

@@ -91,7 +91,7 @@ setContext('grantType', grantType);
                 on:updateSelection={({ detail }) => onUpdateValue("poolType", detail)}
             />
         {:else}
-            <FieldWrapper heading="A5E.Formula">
+            <FieldWrapper heading="A5E.rollLabels.formula">
                 <input
                     type="text"
                     value={grant.bonus ?? ""}

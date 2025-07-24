@@ -177,21 +177,21 @@ export default function init() {
 	Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['character'],
 		makeDefault: true,
-		label: 'A5E.SheetClassCharacter',
+		label: 'A5E.sheetClasses.character',
 	});
 
 	// @ts-expect-error
 	Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['npc'],
 		makeDefault: true,
-		label: 'A5E.SheetClassNPC',
+		label: 'A5E.sheetClasses.npc',
 	});
 
 	Items.unregisterSheet('core', ItemSheet);
 	// @ts-expect-error
 	Items.registerSheet('a5e', ItemSheetA5e, {
 		makeDefault: true,
-		label: 'A5E.SheetClassItem',
+		label: 'A5E.sheetClasses.item',
 	});
 
 	DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', ActiveEffectConfig);

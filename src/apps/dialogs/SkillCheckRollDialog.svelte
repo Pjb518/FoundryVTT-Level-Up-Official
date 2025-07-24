@@ -41,7 +41,7 @@ const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
 const abilities = { none: 'A5E.None', ...CONFIG.A5E.abilities };
 const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
 
-const buttonText = localize('A5E.RollPromptAbilityCheck', {
+const buttonText = localize('A5E.rollLabels.prompts.abilityCheck', {
 	ability: localizedSkill,
 });
 

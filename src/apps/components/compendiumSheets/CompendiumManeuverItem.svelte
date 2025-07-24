@@ -25,7 +25,7 @@ function getManeuverDetailsLabel(maneuver) {
 
 	const exertionCost = maneuver.system.exertionCost
 		? `(${maneuver.system.exertionCost} ${localize(
-				maneuver.system.exertionCost > 1 ? 'A5E.ExertionPointPlural' : 'A5E.ExertionPoint',
+				maneuver.system.exertionCost > 1 ? 'A5E.exertion.pointPlural' : 'A5E.exertion.point',
 			)})`
 		: '';
 

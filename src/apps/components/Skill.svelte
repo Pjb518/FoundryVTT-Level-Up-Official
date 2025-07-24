@@ -24,11 +24,11 @@
     function getProficiencyTooltip(proficiencyLevel) {
         switch (proficiencyLevel) {
             case "expertise":
-                return "A5E.ProficiencyExpertise";
+                return "A5E.proficiency.expertise";
             case "jack":
-                return "A5E.ProficiencyJack";
+                return "A5E.proficiency.jack";
             case "proficient":
-                return "A5E.ProficiencyProficient";
+                return "A5E.proficiency.proficient";
             default:
                 return null;
         }
@@ -131,7 +131,7 @@
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
             <span
                 class="skill__passive"
-                data-tooltip={localize("A5E.SkillPassiveScore", {
+                data-tooltip={localize("A5E.skillLabels.passiveScore", {
                     skill: skills[key],
                 })}
                 data-tooltip-direction="UP"
@@ -144,7 +144,7 @@
     {#if !sheetIsLocked}
         <button
             class="fas fa-cog skill__config-button"
-            data-tooltip={localize("A5E.SkillConfigurationTooltip", {
+            data-tooltip={localize("A5E.skillLabels.configurationTooltip", {
                 skill: skills[key],
             })}
             data-tooltip-direction="UP"

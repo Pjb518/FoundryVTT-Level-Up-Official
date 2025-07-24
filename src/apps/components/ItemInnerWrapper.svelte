@@ -287,7 +287,7 @@
         {#if !action && item.system.isStance}
             <i
                 class="action-button action-button--stance fa-solid fa-street-view"
-                data-tooltip={"A5E.ManeuverIsStance"}
+                data-tooltip={"A5E.maneuvers.labels.isStance"}
                 data-tooltip-direction="UP"
             />
         {/if}
@@ -295,7 +295,7 @@
         {#if !action && item.system.requiresBloodied}
             <i
                 class="action-button action-button--bloodied fa-solid fa-droplet"
-                data-tooltip={"A5E.RequiresBloodied"}
+                data-tooltip={"A5E.items.requiresBloodied"}
                 data-tooltip-direction="UP"
             />
         {/if}
@@ -353,30 +353,30 @@
                 {#if item.system.components.vocalized}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentVocalized"
+                        data-tooltip="A5E.spells.components.vocalized"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentVocalizedAbbr")}
+                        {localize("A5E.spells.components.vocalizedAbbr")}
                     </span>
                 {/if}
 
                 {#if item.system.components.seen}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentSeen"
+                        data-tooltip="A5E.spells.components.seen"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentSeenAbbr")}
+                        {localize("A5E.spells.components.seenAbbr")}
                     </span>
                 {/if}
 
                 {#if item.system.components.material}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentMaterial"
+                        data-tooltip="A5E.spells.components.material"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentMaterialAbbr")}
+                        {localize("A5E.spells.components.materialAbbr")}
                     </span>
                 {/if}
 
@@ -386,17 +386,17 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
 
                 {#if item.system.ritual}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellRitual"
+                        data-tooltip="A5E.spells.ritual"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellRitualAbbr")}
+                        {localize("A5E.spells.ritualAbbr")}
                     </span>
                 {/if}
             </div>
@@ -410,7 +410,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
             </div>
@@ -421,7 +421,7 @@
                 <button
                     class="action-button fas fa-star"
                     class:active={item.system?.favorite ?? false}
-                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip="A5E.buttons.tooltips.favorite"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleFavorite()}
                 />
@@ -433,10 +433,10 @@
                         class="action-button fa-solid fa-link"
                         class:active={item.system.attuned}
                         data-tooltip={item.system.attuned
-                            ? localize("A5E.ButtonToolTipBreakAttunement", {
+                            ? localize("A5E.buttons.tooltips.breakAttunement", {
                                   item: item.name,
                               })
-                            : localize("A5E.ButtonToolTipAttune", {
+                            : localize("A5E.buttons.tooltips.attune", {
                                   item: item.name,
                               })}
                         data-tooltip-direction="UP"
@@ -507,8 +507,8 @@
                     class="action-button fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
+                        ? "A5E.buttons.tooltips.charged"
+                        : "A5E.buttons.tooltips.recharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
                         item.recharge(actionId, rechargeState)}
@@ -524,8 +524,8 @@
                     class="action-button fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
-                        : "A5E.ButtonToolTipRecharge"}
+                        ? "A5E.buttons.tooltips.charged"
+                        : "A5E.buttons.tooltips.recharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
                         item.recharge(actionId, rechargeState)}

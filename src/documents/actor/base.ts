@@ -858,7 +858,7 @@ class BaseActorA5e extends Actor {
 		);
 
 		if (tempTotal && tempTotal <= temp) {
-			ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
+			ui.notifications.warn('A5E.actions.warnings.tempHpNotOverwritten', { localize: true });
 			showCascadingTemp = false;
 		} else {
 			updates['system.attributes.hp.temp'] = tempTotal;
@@ -909,7 +909,7 @@ class BaseActorA5e extends Actor {
 
 		if (healingType === 'temporaryHealing') {
 			if (healing <= temp) {
-				ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
+				ui.notifications.warn('A5E.actions.warnings.tempHpNotOverwritten', { localize: true });
 				return this;
 			}
 
@@ -1018,7 +1018,7 @@ class BaseActorA5e extends Actor {
 		let restData;
 
 		if (foundry.utils.isEmpty(restOptions)) {
-			const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
+			const title = localize('A5E.rest.configurationPrompt', { name: this.name });
 			const dialog = new GenericConfigDialog(this, title, RestDialog);
 			await dialog.render(true);
 			restData = await dialog?.promise;
@@ -1349,10 +1349,10 @@ class BaseActorA5e extends Actor {
 		let title: string;
 
 		if (rollOptions.saveType === 'death') {
-			title = localize('A5E.DeathSavingThrowPromptTitle', { name: this.name });
+			title = localize('A5E.deathSavingThrow.promptTitle', { name: this.name });
 		} else {
 			title = localize(
-				'A5E.SavingThrowPromptTitle',
+				'A5E.rollLabels.prompts.savingThrowPromptTitle',
 				// @ts-expect-error
 				{ name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) },
 			);
@@ -1495,7 +1495,7 @@ class BaseActorA5e extends Actor {
 		rollOptions: SkillCheckRollOptions = {},
 		dialogOptions = {},
 	) {
-		const title = localize('A5E.SkillPromptTitle', {
+		const title = localize('A5E.skillLabels.checks.promptTitle', {
 			name: this.name,
 			skill: localize(CONFIG.A5E.skills[skillKey]),
 		});
@@ -1567,11 +1567,11 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureAlignment(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.AlignmentConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.configurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.Alignments';
+		data.heading ??= 'A5E.traits.headings.alignments';
 		data.propertyKey ??= 'system.traits.alignment';
-		data.configObject ??= CONFIG.A5E.alignments;
+		data.configObject ??= CONFIG.A5E.traits.headings.alignments;
 		data.type ??= 'alignment';
 
 		this.#configure('alignment', title, data, options);
@@ -1583,9 +1583,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureArmorProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ArmorProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.armorClass.headings.proficienciesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ArmorProficiencies';
+		data.heading ??= 'A5E.armorClass.headings.proficiencies';
 		data.propertyKey ??= 'system.proficiencies.armor';
 		data.configObject ??= CONFIG.A5E.armor;
 		data.type ??= 'armorTypes';
@@ -1594,9 +1594,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureConditionImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ConditionImmunitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.conditions.immunitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ConditionImmunities';
+		data.heading ??= 'A5E.conditions.immunities';
 		data.configObject ??= CONFIG.A5E.conditions;
 		data.propertyKey ??= 'system.traits.conditionImmunities';
 		data.type ??= 'conditionImmunities';
@@ -1605,9 +1605,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureCreatureTypes(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.CreatureTypesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.creature.headings.typesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.CreatureTypePlural';
+		data.heading ??= 'A5E.details.creature.labels.types';
 		data.configObject ??= CONFIG.A5E.creatureTypes;
 		data.propertyKey ??= 'system.details.creatureTypes';
 		data.type ??= 'creatureTypes';
@@ -1624,7 +1624,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureCreatureTerrains(data: Record<string, any> = {}, options = {}) {
-		data.heading ??= 'A5E.CreatureTerrainsLabel';
+		data.heading ??= 'A5E.details.creature.labels.terrain';
 		data.configObject ??= CONFIG.A5E.terrainTypes;
 		data.propertyKey ??= 'system.details.terrain';
 		data.type ??= 'creatureTerrains';
@@ -1633,9 +1633,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageImmunitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.immunitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageImmunities';
 		data.type ??= 'damageImmunities';
@@ -1644,9 +1644,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageResistances(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageResistancesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.resistancesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageResistances';
 		data.type ??= 'damageResistances';
@@ -1655,9 +1655,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageVulnerabilities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.DamageVulnerabilitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.DamageTypePlural';
+		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
 		data.propertyKey ??= 'system.traits.damageVulnerabilities';
 		data.type ??= 'damageVulnerabilities';
@@ -1666,20 +1666,20 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureHealth(data: Record<string, any> = {}, options: Record<string, any> = {}) {
-		const title = localize('A5E.HitPointsConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.hitPoints.configurationPrompt', { name: this.name });
 		options.width ??= 380;
 		this.#configure('health', title, data, options);
 	}
 
 	configureInitiative(data: Record<string, any> = {}, options: Record<string, any> = {}) {
-		const title = localize('A5E.InitiativeConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.initiative.configurationPrompt', { name: this.name });
 		this.#configure('initiative', title, data, { ...options, width: options.width ?? 432 });
 	}
 
 	configureLanguages(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.LanguagesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.languagesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.Languages';
+		data.heading ??= 'A5E.details.languages';
 		data.configObject ??= CONFIG.A5E.languages;
 		data.propertyKey ??= 'system.proficiencies.languages';
 		data.type ??= 'languages';
@@ -1688,14 +1688,14 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureMovement(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.MovementConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.movement.configurationPrompt', { name: this.name });
 		this.#configure('movement', title, data, options);
 	}
 
 	configureManeuverTraditions(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ManeuverTraditionsConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.maneuvers.headings.configurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ManeuverTraditionPlural';
+		data.heading ??= 'A5E.maneuvers.headings.traditionPlural';
 		data.configObject ??= CONFIG.A5E.maneuverTraditions;
 		data.propertyKey ??= 'system.proficiencies.traditions';
 		data.type ??= 'maneuverTraditions';
@@ -1704,14 +1704,14 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureSenses(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.SensesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.senses.configurationPrompt', { name: this.name });
 		this.#configure('senses', title, data, options);
 	}
 
 	configureSizeCategory(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.SizeCategoryConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.size.categoryConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.SizeCategory';
+		data.heading ??= 'A5E.traits.size.category';
 		data.configObject ??= CONFIG.A5E.actorSizes;
 		data.propertyKey ??= 'system.traits.size';
 		data.type ??= 'size';
@@ -1720,7 +1720,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureSkill(data: Record<string, any> = {}, options = { width: 440 }) {
-		const title = localize('A5E.SkillConfigurationPrompt', {
+		const title = localize('A5E.bonuses.labels.skillConfigurationPrompt', {
 			name: this.name,
 			skill: localize(CONFIG.A5E.skills[data.skillKey]),
 		});
@@ -1729,9 +1729,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureToolProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.ToolProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.tools.proficienciesConfigurationPrompt', { name: this.name });
 
-		data.heading ??= 'A5E.ToolProficiencies';
+		data.heading ??= 'A5E.tools.proficiencies';
 		data.configObject ??= CONFIG.A5E.tools;
 		data.propertyKey ??= 'system.proficiencies.tools';
 		data.type ??= 'tools';
@@ -1740,7 +1740,7 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureWeaponProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.WeaponProficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.weapons.proficienciesConfigurationPrompt', { name: this.name });
 
 		data.heading ??= 'A5E.WeaponPlural';
 		data.configObject ??= CONFIG.A5E.weapons;
@@ -1771,8 +1771,8 @@ class BaseActorA5e extends Actor {
 
 		const newBonus = foundry.utils.duplicate(this.system.bonuses[type][id]);
 
-		if (type === 'damage') defaultLabel = localize('A5E.NewDamageBonus');
-		else if (type === 'healing') defaultLabel = localize('A5E.NewHealingBonus');
+		if (type === 'damage') defaultLabel = localize('A5E.bonuses.labels.damage.new');
+		else if (type === 'healing') defaultLabel = localize('A5E.bonuses.labels.healing.new');
 		else defaultLabel = 'New Bonus';
 
 		newBonus.label = `${newBonus.label || defaultLabel} (Copy)`;

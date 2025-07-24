@@ -70,7 +70,7 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--check"
             class:a5e-ability-score__roll-button--no-click={!sheetIsLocked}
-            data-tooltip={sheetIsLocked ? "A5E.RollAbilityCheck" : null}
+            data-tooltip={sheetIsLocked ? "A5E.rollLabels.abilityCheck" : null}
             data-tooltip-direction="DOWN"
             on:click={() => handleCheckClick(abilityLabel)}
         >
@@ -84,7 +84,7 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
             class:a5e-ability-score__roll-button--proficient={ability.save
                 .proficient}
             data-tooltip={sheetIsLocked
-                ? "A5E.RollSavingThrow"
+                ? "A5E.rollLabels.savingThrow"
                 : "Toggle Saving Throw Proficiency"}
             data-tooltip-direction="DOWN"
             on:click={() => handleSaveClick(abilityLabel)}
