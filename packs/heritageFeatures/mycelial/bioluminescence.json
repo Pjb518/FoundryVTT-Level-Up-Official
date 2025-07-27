@@ -1,0 +1,445 @@
+{
+	"folder": null,
+	"name": "Bioluminescence",
+	"type": "feature",
+	"img": "icons/consumables/mushrooms/ovate-thin-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NpddN0N9nFdRpdIR": {
+				"name": "Use Dim Light",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"N0dX3EI1vhfIIdTP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "K0lfA7odhJ6IuGCw",
+						"label": "Bluish Light"
+					},
+					"wZxoA0OH4V43Y2A3": {
+						"type": "effect",
+						"default": true,
+						"label": "Pinkish Light",
+						"effectId": "ESNjvUshf3dOZ3NT"
+					},
+					"ripEinf0Q4KbB4p9": {
+						"type": "effect",
+						"default": true,
+						"label": "Greenish Light",
+						"effectId": "fFcWJdcJikntxrmm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>You emit a faint bluish, pinkish, or greenish glow that creates an area of dim light in a 5-foot radius centered on you. This light lasts until you choose to extinguish it. Activating or extinguishing the light requires no action.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"S4uXDtgnIbAeQFP5": {
+				"name": "Use Bright Flash",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Sdx0MxBfFT6XvIBj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "creature is not dazzled",
+						"label": ""
+					},
+					"VvEtEQ0amd92hpaU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "e4eg3WaQRI7fHodX"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>Additionally, as an action, you may emit a bright flash of light in a 10-foot radius centered on you. Creatures within the area of effect must succeed on a DC 12 Constitution saving throw or be dazzled (pg. 65) until the start of your next turn. Once you have produced light in this way,&nbsp; you may not do so again until your complete a short or a long rest.</p>",
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"ranges": {
+					"7NEeqZPmQTf7l0K2": {
+						"range": "self"
+					}
+				},
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p dir=\"ltr\">You have a natural form of bioluminescence that you may turn off or on at-will. You emit a faint bluish, pinkish, or greenish glow that creates an area of dim light in a 5-foot radius centered on you. This light lasts until you choose to extinguish it. Activating or extinguishing the light requires no action.</p>\n<p dir=\"ltr\">Additionally, as an action, you may emit a bright flash of light in a 10-foot radius centered on you. Creatures within the area of effect must succeed on a DC 12 Constitution saving throw or be dazzled (pg. 65) until the start of your next turn. Once you have produced light in this way,&nbsp; you may not do so again until your complete a short or a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.M3RE8aXFXTfOdZcW",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NpddN0N9nFdRpdIR",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Bluish Light (Bioluminescence)",
+			"img": "icons/environment/creatures/monster-barbed-carapace-purple.webp",
+			"_id": "K0lfA7odhJ6IuGCw",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.color",
+					"value": "#39cdfe",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You emit a faint bluish glow that creates an area of dim light in a 5-foot radius centered on you. This light lasts until you choose to extinguish it. Activating or extinguishing the light requires no action.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124486,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.M3RE8aXFXTfOdZcW",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NpddN0N9nFdRpdIR",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Pinkish Light (Bioluminescence)",
+			"img": "icons/environment/creatures/monster-barbed-carapace-purple.webp",
+			"_id": "ESNjvUshf3dOZ3NT",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.color",
+					"value": "#ffb6c1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You emit a faint pinkish glow that creates an area of dim light in a 5-foot radius centered on you. This light lasts until you choose to extinguish it. Activating or extinguishing the light requires no action.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124486,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.M3RE8aXFXTfOdZcW",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NpddN0N9nFdRpdIR",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Greenish Light (Bioluminescence)",
+			"img": "icons/environment/creatures/monster-barbed-carapace-purple.webp",
+			"_id": "fFcWJdcJikntxrmm",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.color",
+					"value": "#B6FFCF",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You emit a faint greenish glow that creates an area of dim light in a 5-foot radius centered on you. This light lasts until you choose to extinguish it. Activating or extinguishing the light requires no action.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124486,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.M3RE8aXFXTfOdZcW",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "S4uXDtgnIbAeQFP5",
+					"applyToSelf": false,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled (Bioluminescence)",
+			"img": "icons/environment/creatures/monster-barbed-carapace-purple.webp",
+			"_id": "e4eg3WaQRI7fHodX",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li dir=\"ltr\">A dazzled creature has disadvantage on ability checks that require sight.</li>\n<li dir=\"ltr\">A dazzled creature cannot take reactions.</li>\n<li dir=\"ltr\">Creatures that are immune to being blinded are immune to being dazzled.</li>\n<li dir=\"ltr\">If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124486,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753391124188,
+		"modifiedTime": 1753391124188,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "iEDmYMCvV6rM9V0t"
+}

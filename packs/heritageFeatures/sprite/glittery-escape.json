@@ -1,0 +1,177 @@
+{
+	"folder": null,
+	"name": "Glittery Escape",
+	"type": "feature",
+	"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BkYeFQZllf8NarYH": {
+				"name": "Glittery Escape",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"RSrGGqrVdJHUXTVs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"rXTiD0qkS7sbsIFO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"uT9zNn1VCD3qhleR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bg8WSQ6SwaNHNIV6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You tap into your innate fey lineage to help get you out of a tight spot. As a bonus action, you disappear in a cloud of glitter and immediately teleport to an unoccupied square you can see within 15 feet. Creatures within 5 feet of you when you activate this ability must succeed on a DC 12 Constitution saving throw or become dazzled until the start of your next turn. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.y44sZxTX65z8sY6D",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BkYeFQZllf8NarYH"
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled",
+			"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+			"_id": "bg8WSQ6SwaNHNIV6",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A flash of brilliant light, sparkling spell effects, or sudden exposure to sunlight—all of these could result in a creature being dazzled.<br />•    A dazzled creature has disadvantage on ability checks that require sight.<br />•    A dazzled creature cannot take reactions.<br />•    Creatures that are immune to being blinded are immune to being dazzled.<br />•    If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124464,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753391124188,
+		"modifiedTime": 1753391124188,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bPC4rAMskLYG463L"
+}

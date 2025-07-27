@@ -1,0 +1,177 @@
+{
+	"folder": null,
+	"name": "Warden of Stone",
+	"type": "feature",
+	"img": "icons/magic/earth/construct-stone.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"o29J6YlJPuB6GFQg": {
+				"name": "Warden of Stone",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"J8VC3KCif3iOskcl": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"KaHe7UHYNgbWri9m": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Nyo1KhHyXhepdVog"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You are a creature of the earth, and you harness your connection to it for your protection. As a bonus action, you may turn your flesh into stone, gaining resistance to nonmagical bludgeoning, piercing, and slashing damage for the next minute. You may use this ability a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.GDKTQ2NKvEnwpU1R",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "o29J6YlJPuB6GFQg",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warden of Stone",
+			"img": "icons/magic/earth/construct-stone.webp",
+			"_id": "Nyo1KhHyXhepdVog",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"Non-magical bludgeoning, piercing, and slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Resistance to nonmagical bludgeoning, piercing, and slashing damage for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391217090,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753391217052,
+		"modifiedTime": 1753391217052,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jlrpAnRkMsrK1KI3"
+}
