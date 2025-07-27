@@ -1,0 +1,408 @@
+{
+	"folder": null,
+	"name": "Glass Barrage",
+	"type": "spell",
+	"img": "icons/magic/water/projectiles-ice-faceted-salvo-gray.webp",
+	"system": {
+		"actions": {
+			"odpkOWq23RtN81wH": {
+				"name": "Glass Barrage (Attack)",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"2hZ9xTaRbzJuGUpo": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 3,
+						"spellLevel": 3,
+						"points": 5,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"zu6wud6LFQauO3eC": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting",
+						"label": "",
+						"bonus": "",
+						"critThreshold": 20
+					},
+					"OH79kkn6TOQTgp2g": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d4",
+						"damageType": "slashing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"FLYSXSFh5pf12r6J": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			},
+			"qLAoyZODj9nc27Ye": {
+				"name": "Additional Attacks",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"i7fYU1iwrR8BhOZK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"yc5veMsQfqOBXcrN": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d4",
+						"damageType": "slashing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"0y6PCdnGPfgCuqkZ": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			},
+			"fNsPa9VIoL4YvZce": {
+				"name": "Glass Barrage (Shield)",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"TxczchnhoBNuUM9B": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 3,
+						"spellLevel": 3,
+						"points": 5,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"POBF7l8Q8oHov4xr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MJsf3hAtqh37XtOS"
+					},
+					"DH72P4a0lKkqzyNY": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"6BfSH0ed90sxGdxh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "O6tvPyVpQPff0V25"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special",
+					"value": "1"
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			}
+		},
+		"description": "<p>You magically conjure forth three large shards of glass that you hurl at your enemies. Make a ranged spell attack for each shard of glass. On a hit, each glass shard does 4d4 slashing damage.</p>\n<p>Alternatively, you may forgo making a ranged spell attack to instead command the glass shards to flash and swirl around you. While the glass remains around you in this fashion, you gain a +2 bonus to your AC. Creatures attempting to hit you with a melee weapon attack must succeed on a Wisdom saving throw versus your spell save DC or become dazzled until the end of your next turn. The glass shards persist for 1 minute or until you lose concentration.</p>\n<p><strong>Cast at Higher Levels:</strong> When using the attack casting of this spell, add an additional 1d4 for each spell level above 3rd. When using the defensive casting, increase the duration to 10 minutes with no concentration for spell levels 4th and higher. For spell levels 6th and higher, increase the duration to 8 hours with no concentration.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "a shard of glass",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"attack",
+				"prismatic"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.bECYmJ1mEKSMmGq7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fNsPa9VIoL4YvZce",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Glass Barrage",
+			"img": "icons/magic/water/projectiles-ice-faceted-salvo-gray.webp",
+			"_id": "MJsf3hAtqh37XtOS",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While the glass remains around you in this fashion, you gain a +2 bonus to your AC. Creatures attempting to hit you with a melee weapon attack must succeed on a Wisdom saving throw versus your spell save DC or become dazzled until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192106,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.bECYmJ1mEKSMmGq7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fNsPa9VIoL4YvZce",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled",
+			"img": "icons/magic/water/projectiles-ice-faceted-salvo-gray.webp",
+			"_id": "O6tvPyVpQPff0V25",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A flash of brilliant light, sparkling spell effects, or sudden exposure to sunlight—all of these could result in a creature being dazzled.<br />•    A dazzled creature has disadvantage on ability checks that require sight.<br />•    A dazzled creature cannot take reactions.<br />•    Creatures that are immune to being blinded are immune to being dazzled.<br />•    If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192106,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zcRx2XDq7ff9puZ0"
+}

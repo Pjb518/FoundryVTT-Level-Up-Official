@@ -1,0 +1,262 @@
+{
+	"folder": null,
+	"name": "Fearsome Flytrap",
+	"type": "spell",
+	"img": "icons/magic/nature/plant-venus-flytrap-blood.webp",
+	"system": {
+		"actions": {
+			"AJ2OiknY09EYri9J": {
+				"name": "Fearsome Flytrap",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"s5XYUZdQv2hFdmaO": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 2,
+						"spellLevel": 2,
+						"points": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vMCUlMcqVcFmgm9X": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 1,
+					"width": 10
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"ehfsYakY3UNOHLdf": {
+				"name": "Reaction",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"dwgxTRHQAcIivh45": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "piercing",
+						"canCrit": false,
+						"scaling": {
+							"mode": null
+						},
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"prompts": {
+					"q6FpQLW7b54B4T0R": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "14"
+						},
+						"onSave": "Half damage and not grappled",
+						"label": ""
+					},
+					"aq9ZX3vK3Iw7cCgd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "KVo2RFx8TOgY6SzG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You conjure forth a Large venus flytrap that springs out from the ground. The flytrap has an AC of 12, 20 hit points, and is immune to the grappled and prone conditions.</p>\n<p>When a hostile creature size Large or smaller that you can see enters a space adjacent to the flytrap, you may use your reaction to command it to grapple the target. The triggering creature must succeed on a DC 14 Dexterity saving throw, taking 3d6 piercing damage on a failure, or half as much damage on a success. A creature who fails their saving throw is also grappled by the flytrap. The target may repeat its saving throw at the end of each of its turns, ending the effect on it on a success. The flytrap may only grapple one creature in this manner at a time. The flytrap remains until it is reduced to 0 hit points, you lose concentration, or you choose to voluntarily end the spell.</p>\n<p><strong>Cast at Higher Levels:</strong> Increase the damage dealt by the flytrap by 1d6 for every spell slot above 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"nature",
+				"plants",
+				"summoning",
+				"terrain"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.RDCOEA83JJiJIWQn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ehfsYakY3UNOHLdf"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"img": "icons/magic/nature/plant-venus-flytrap-blood.webp",
+			"_id": "KVo2RFx8TOgY6SzG",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192080,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DhWKjOGC8Ap7sP0H"
+}

@@ -1,0 +1,283 @@
+{
+	"folder": null,
+	"name": "Keg Hammer",
+	"type": "object",
+	"img": "icons/containers/barrels/barrel-hogshead-cask-oak-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"HWMgIhqzMpjbaE2J": {
+				"name": "Warhammer",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"sz34o0lZChAfzq92": {
+						"bonus": "3",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"avEzM2ldJEDhQEPF": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8 + @str.mod + 3",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"I2YLTXoFuKJbZoVE": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod + 3",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/hammers/hammer-drilling-spiked.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"rbEeJNbXCoFG45SE": {
+				"name": "Increase Velocity",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"XmwUTGJtajcd251W": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"nkTAP0A2Ac40hUdU": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8",
+						"damageType": "force",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"mNYPpu909tyHMGdA": {
+				"name": "Regain Charges",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"9oFZMq7Djnr1Zxat": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>The head of this warhammer appears as a wooden keg used for storing beer, and when swung, sloshing liquid can be heard inside. However, it is abnormally strong and does not break on impact. This weapon grants a +3 to attack and damage rolls made with it.</p>\n<p>The keg hammer has 8 charges. When you make an attack roll with this hammer, you may expend 2 charges to release some of its pent-up carbonation to increase the velocity of your swing, dealing an extra 3d8 force damage on a hit. The keg hammer regains 1d6 charges each dawn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 8,
+			"max": "8",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A barrel of ale blessed by a god of revelry",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "30,000 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"breaker",
+			"versatile"
+		],
+		"weight": 3,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "d10",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190556,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tnPwCRi4T6WVp7C1"
+}
