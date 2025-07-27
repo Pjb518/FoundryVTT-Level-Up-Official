@@ -613,7 +613,7 @@ const knackTypes = {
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
-  trooper: 'Drill',
+	trooper: 'Drill',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',
@@ -733,7 +733,7 @@ const modPorts = {
 	5: '5',
 	6: '6',
 	7: '7',
-	8: '8'
+	8: '8',
 };
 
 /**
@@ -1546,6 +1546,7 @@ const tools = {
 		masonsTools: 'A5E.tools.plural.masonsTools',
 		paintersSupplies: 'A5E.tools.plural.paintersSupplies',
 		pottersTools: 'A5E.tools.plural.pottersTools',
+		teaMastersSet: 'A5E.tools.singular.teaMastersSet',
 		tinkersTools: 'A5E.tools.plural.tinkersTools',
 		weaversTools: 'A5E.tools.plural.weaversTools',
 		woodcarversTools: 'A5E.tools.plural.woodcarversTools',
@@ -1624,6 +1625,7 @@ const toolsPlural = {
 		masonsTools: 'A5E.tools.plural.masonsTools',
 		paintersSupplies: 'A5E.tools.plural.paintersSupplies',
 		pottersTools: 'A5E.tools.plural.pottersTools',
+		teaMastersSet: 'A5E.tools.plural.teaMastersSet',
 		tinkersTools: 'A5E.tools.plural.tinkersTools',
 		weaversTools: 'A5E.tools.plural.weaversTools',
 		woodcarversTools: 'A5E.tools.plural.woodcarversTools',
