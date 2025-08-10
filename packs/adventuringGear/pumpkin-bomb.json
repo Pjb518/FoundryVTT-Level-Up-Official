@@ -17,13 +17,19 @@
 		"actions": {
 			"5EQah7RhqivOI0WO": {
 				"name": "Light Candle",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {
 					"iRnMaJ1YT12ZX7WY": {
 						"type": "quantity",
 						"default": true,
-						"itemId": "1h2a56qjmn4achg2",
-						"quantity": 1
+						"itemId": "UxTYGnVMGGiG7i2V",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -32,7 +38,10 @@
 						"default": true,
 						"canCrit": false,
 						"formula": "3d6",
-						"damageType": "radiant"
+						"damageType": "radiant",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -44,7 +53,8 @@
 							"type": "custom",
 							"bonus": "12"
 						},
-						"onSave": "half damage"
+						"onSave": "half damage",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -58,10 +68,29 @@
 				},
 				"effects": [
 					"Q4kBL3tAnfHeG0nF"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			}
 		},
-		"description": "<p>This pale white pumpkin is small enough to fit in the palm of a human hand. A macabre, grinning face is carved into one side, and a candle within burns an eerie purple flame. While its candle is lit, this pumpkin lantern shines dim light in a 10-foot radius. The lantern&rsquo;s candle burns for 1 minute, after which the pumpkin instantly rots and loses its magic.</p><p>Undead must make a DC 12 Wisdom saving throw when entering the radius or when beginning their turn within the pumpkin&rsquo;s light, taking 3d6 radiant damage on a failed save or half as much on a success. Incorporeal undead have disadvantage on this saving throw.</p>",
+		"description": "<p>This pale white pumpkin is small enough to fit in the palm of a human hand. A macabre, grinning face is carved into one side, and a candle within burns an eerie purple flame. While its candle is lit, this pumpkin lantern shines dim light in a 10-foot radius. The lantern’s candle burns for 1 minute, after which the pumpkin instantly rots and loses its magic.</p><p>Undead must make a DC 12 Wisdom saving throw when entering the radius or when beginning their turn within the pumpkin’s light, taking 3d6 radiant damage on a failed save or half as much on a success. Incorporeal undead have disadvantage on this saving throw.</p><p>The pumpkin has AC 8 and 2 hit points. If the pumpkin is destroyed, all undead within 10 feet of it must make a DC 12 Wisdom saving throw, taking 6d6 radiant damage on a failed save or half as much on a success.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "trialsAndTreasures",
@@ -87,7 +116,7 @@
 		"materialProperties": [],
 		"objectType": "consumable",
 		"plotItem": false,
-		"price": "570 gp",
+		"price": "750 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "uncommon",
@@ -103,12 +132,34 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"effects": [
 		{
-			"icon": "icons/consumables/vegetable/squash-pumpkin-glow-orange.webp",
-			"origin": "Item.1h2a56qjmn4achg2",
+			"origin": "Item.UxTYGnVMGGiG7i2V",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -146,23 +197,42 @@
 			"description": "",
 			"statuses": [],
 			"tint": "#ffffff",
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1754779057055,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
-			}
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/consumables/vegetable/squash-pumpkin-glow-orange.webp",
+			"type": "base",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "1h2a56qjmn4achg2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754779057029,
+		"modifiedTime": 1754779208549,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1h2a56qjmn4achg2"
 }

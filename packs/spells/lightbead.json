@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"iQ8D8Uixw4iencMz": {
@@ -17,14 +18,19 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 2,
-						"points": 3
+						"points": 3,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {
 					"sy7hf4AHW5Q0vpG2": {
 						"type": "healing",
 						"default": true,
-						"formula": "1d4 + @spell.mod"
+						"formula": "1d4 + @spell.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -38,7 +44,8 @@
 					}
 				},
 				"duration": {
-					"unit": "special"
+					"unit": "round",
+					"value": "@prof"
 				},
 				"ranges": {
 					"woMnoHCAr1fHWQTc": {
@@ -52,19 +59,34 @@
 						"mode": "spellLevel",
 						"formula": "1"
 					}
-				}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			},
 			"3ycTKUAZLdfuAGEF": {
 				"name": "Heal",
 				"activation": {
-					"type": "none"
+					"type": "none",
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
 					"8ALBe47EImzNPz2T": {
 						"type": "healing",
 						"default": true,
-						"formula": "1d4 + @spell.mod"
+						"formula": "1d4 + @spell.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -78,12 +100,25 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
-				}
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {}
 			}
 		},
 		"description": "<p dir=\"ltr\">Rubbing the glowing ooze between your fingertips you send up a tiny spark that flits over to your target. This mote of light sheds light like a candle, giving your target disadvantage on stealth checks, but also provides 1d4+spellcasting modifier healing and the same amount on each following turn.</p><p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For every level above 2nd, you may target an additional creature.</p>",
@@ -123,14 +158,26 @@
 				"healing"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "ir93j9vdoc5lwggw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754777502079,
+		"modifiedTime": 1754777569940,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ir93j9vdoc5lwggw"
 }
