@@ -1,7 +1,6 @@
 import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
 import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
 import ActiveEffectSheetA5e from "../documents/sheets/ActiveEffectSheet.svelte.ts";
-// import ItemSheetA5e from "../apps/ItemSheet.ts";
 
 import { A5E } from "../config.ts";
 import ActiveEffectA5e from "../documents/activeEffect/activeEffect.svelte.js";
@@ -219,7 +218,7 @@ export default function init() {
   // Set tooltips to animate faster
   TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
 
-  // Prelocalize any static strings once localization files become available.
+  // Pre-localize any static strings once localization files become available.
   Hooks.once("i18nInit", () => {
     performPreLocalization(CONFIG.A5E);
     game.a5e.activeEffects.options = constructEffectOptions();
