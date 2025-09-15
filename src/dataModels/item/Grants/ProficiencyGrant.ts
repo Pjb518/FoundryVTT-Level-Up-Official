@@ -126,6 +126,7 @@ export default class ProficiencyGrant extends BaseGrant {
   }
 
   override getSelectionComponentProps(data: any) {
+    console.log(data);
     return {
       base: this.keys.base ?? [],
       choices: this.keys.options,

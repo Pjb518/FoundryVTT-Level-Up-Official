@@ -9,6 +9,7 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
     import ClassHitPointsSelection from "./ClassHitPointSelection.svelte";
+    import { SvelteMap, SvelteSet } from "svelte/reactivity";
 
     type Props = {
         allGrants: Grant[];
@@ -60,7 +61,7 @@
         });
 
         // // Update active grants
-        activeGrants = new Set<string>([
+        activeGrants = new SvelteSet<string>([
             ...updatedList,
             ...selectedOptionalGrants,
         ]);
@@ -217,28 +218,26 @@
         clsLevel,
     }: Props = $props();
 
-    let activeGrants: Set<string> = $state(getStartingSelectedGrants());
+    let activeGrants: Set<string> = $state(
+        new SvelteSet(getStartingSelectedGrants()),
+    );
     let selectedOptionalGrants: string[] = $state([]);
     let clsReturnData: Record<string, any> = $state({});
     let spellcastingAbility: string = $state(getSpellCastingAbility());
 
     let archetypeChoices = getArchetypeChoices();
 
-    let applyData = $state(new Map<string, any>());
-    let grants = $derived(
+    // let applyData = $state(new Map<string, any>());
+    let applyData = $state(new SvelteMap<string, any>());
+    let optionalGrants = $state(getStartingOptionalGrants());
+    let grants = $state(
         getApplicableGrants(activeGrants, selectedOptionalGrants),
     );
-    let optionalGrants = $derived(getStartingOptionalGrants());
     let configurableGrants = $derived(
         grants.filter((grant) => grant.requiresConfig),
     );
 
     let spellCastingOptions = $derived(getSpellCastingOptions());
-
-    // $effect(() => updateActiveGrants());
-    // let _ = $derived(() => updateActiveGrants());
-
-    $inspect(activeGrants);
 
     // Set contexts
     setContext("actor", actor);
@@ -289,27 +288,30 @@
                         grant.label,
                     ])}
                     selected={selectedOptionalGrants}
-                    onUpdateSelection={(detail) =>
-                        (selectedOptionalGrants = detail)}
+                    onUpdateSelection={(detail) => {
+                        selectedOptionalGrants = detail;
+                        updateActiveGrants();
+                    }}
                 />
             </Section>
         {/if}
 
-        {#key applyData}
-            {#each configurableGrants as { grant, id }}
-                <svelte:component
-                    this={grant.getSelectionComponent?.()}
-                    {...grant.getSelectionComponentProps?.(
-                        applyData.get(id) ?? {},
-                    )}
-                    {grant}
-                    onUpdateSelection={(detail) => {
-                        applyData.set(id, detail);
-                        applyData = applyData;
-                    }}
-                />
-            {/each}
-        {/key}
+        {#each configurableGrants as { grant, id }}
+            {@const Comp = grant.getSelectionComponent?.()}
+            {@const compProps = grant.getSelectionComponentProps?.(
+                applyData.get(id) ?? {},
+            )}
+
+            <Comp
+                {...compProps}
+                {grant}
+                updateSelectionFunc={(detail) => {
+                    applyData.set(id, detail);
+                    console.log(id, detail);
+                    updateActiveGrants();
+                }}
+            />
+        {/each}
 
         <!-- TODO: Character Builder - Add a proper summary for the various grants -->
         <!-- <Section heading="Summary">
