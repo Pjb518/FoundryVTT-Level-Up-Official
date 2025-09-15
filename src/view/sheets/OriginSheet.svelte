@@ -6,29 +6,30 @@
     import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
     import NavigationBar from "#view/navigation/NavigationBar.svelte";
 
-    import ArchetypePropertiesTab from "./pages/item/ArchetypePropertiesTab.svelte";
-    import ItemCorePage from "./pages/item/ItemCorePage.svelte";
+    import ArchetypePropertiesPage from "./pages/item/ArchetypePropertiesPage.svelte";
+    import ClassPropertiesPage from "./pages/item/ClassPropertiesPage.svelte";
     import ItemGrantsPage from "./pages/item/ItemGrantsPage.svelte";
+    import OriginCorePage from "./pages/item/OriginCorePage.svelte";
 
     type Props = {
         item: any;
         sheet: any;
     };
 
-    function getTabs() {
+    function getTabs(): Tab[] {
         return [
             {
                 name: "core",
                 label: "A5E.TabCore",
                 icon: "fa-solid fa-home",
-                component: ItemCorePage,
+                component: OriginCorePage,
             },
             // Archetype Properties
             {
                 name: "archetypeProperties",
                 label: "A5E.TabProperties",
                 icon: "fa-solid fa-table-list",
-                component: ArchetypePropertiesTab,
+                component: ArchetypePropertiesPage,
                 display: item.type === "archetype",
             },
             // Class Properties
@@ -36,7 +37,7 @@
                 name: "classProperties",
                 label: "A5E.TabProperties",
                 icon: "fa-solid fa-table-list",
-                component: null,
+                component: ClassPropertiesPage,
                 display: item.type === "class",
             },
             // Resources
@@ -67,8 +68,48 @@
     let itemStore = $state(item.reactive.system);
 
     let tabs = $state(getTabs());
-    let currentTab: Tab = $derived(tabs[0]);
+    let currentTab = $derived(tabs[0]);
 
     setContext("item", item);
     setContext("sheet", sheet);
 </script>
+
+<main class="a5e-origin-sheet">
+    <ItemSheetHeader />
+
+    <NavigationBar
+        {currentTab}
+        {tabs}
+        showLock={false}
+        onTabChange={updateCurrentTab}
+    />
+
+    <section class="a5e-origin-sheet__page">
+        <currentTab.component />
+    </section>
+</main>
+
+<style lang="scss">
+    .a5e-origin-sheet {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-areas:
+            "header"
+            "primaryNavigation"
+            "secondaryNavigation"
+            "page";
+        grid-template-rows: min-content min-content min-content 1fr;
+        gap: 0.5rem;
+
+        padding-inline: 0.5rem;
+        padding-block: 0.5rem;
+
+        &__page {
+            grid-area: page;
+            overflow-y: auto;
+        }
+    }
+</style>

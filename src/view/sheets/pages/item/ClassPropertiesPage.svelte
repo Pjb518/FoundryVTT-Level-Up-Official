@@ -10,14 +10,7 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
 
-    const item: any = getContext("item");
-
-    const abilities = { none: "None", ...CONFIG.A5E.abilities };
-    const abilitiesWithoutNone = CONFIG.A5E.abilities;
-    const casterTypes = CONFIG.A5E.casterTypes;
-
-    function getHpData() {
-        const actor = item.actor;
+    function getHpData(actor: Actor) {
         if (!actor) {
             return { totalHp: 0, hpBonusPerLevel: 0, otherHpBonuses: 0 };
         }
@@ -54,8 +47,15 @@
         [12, "d12"],
     ];
 
-    : classLevel = item.system.classLevels;
-    : hpData = getHpData(item.actor);
+    const item: any = getContext("item");
+    let itemStore = $derived(item.reactive.system);
+
+    const abilities = { none: "None", ...CONFIG.A5E.abilities };
+    const abilitiesWithoutNone = CONFIG.A5E.abilities;
+    const casterTypes = CONFIG.A5E.casterTypes;
+
+    let classLevel = $derived(itemStore.classLevels);
+    let hpData = getHpData(item.reactive.actor);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -68,23 +68,26 @@
             <div style="display: flex; gap: 0.5rem">
                 <input
                     class="a5e-input a5e-input--slim slug-input"
-                    value={item.system.slug || item.slug || ""}
+                    value={itemStore.slug || item.reactive.slug || ""}
                     type="text"
-                    on:change={({ target }) => {
+                    onchange={({ currentTarget }) => {
                         updateDocumentDataFromField(
                             item,
                             "system.slug",
-                            target.value.slugify({ strict: true }),
+                            currentTarget.value.slugify({ strict: true }),
                         );
                     }}
                 />
 
                 <button
                     class="slug-reset-button"
-                    on:click={() =>
+                    aria-label="Reset Class Identifier"
+                    data-tooltip="Reset Class Identifier"
+                    data-tooltip-direction="UP"
+                    onclick={() =>
                         updateDocumentDataFromField(item, "system.slug", "")}
                 >
-                    <i class="icon fas fa-solid fa-rotate-left" />
+                    <i class="icon fas fa-solid fa-rotate-left"></i>
                 </button>
             </div>
         </FieldWrapper>
@@ -98,12 +101,12 @@
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
                 min="0"
-                value={item.system.archetypeLevel}
-                on:change={({ target }) =>
+                value={itemStore.archetypeLevel}
+                onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
                         item,
                         "system.archetypeLevel",
-                        Number(target.value),
+                        Number(currentTarget.value),
                     )}
             />
         </FieldWrapper>
@@ -116,12 +119,12 @@
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
                 min="0"
-                value={item.system.maxLevel}
-                on:change={({ target }) =>
+                value={itemStore.maxLevel}
+                onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
                         item,
                         "system.maxLevel",
-                        Number(target.value),
+                        Number(currentTarget.value),
                     )}
             />
         </FieldWrapper>
@@ -131,8 +134,8 @@
         <RadioGroup
             heading="Hit Dice Size"
             options={hitDiceSize}
-            selected={item.system.hp.hitDiceSize}
-            on:updateSelection={({ detail }) =>
+            selected={itemStore.hp.hitDiceSize}
+            onUpdateSelection={(detail) =>
                 updateDocumentDataFromField(
                     item,
                     "system.hp.hitDiceSize",
@@ -147,12 +150,12 @@
                     type="number"
                     max={classLevel}
                     min="0"
-                    value={item.system.hp.hitDiceUsed}
-                    on:change={({ target }) =>
+                    value={itemStore.hp.hitDiceUsed}
+                    onchange={({ currentTarget }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.hp.hitDiceUsed",
-                            Number(target.value),
+                            Number(currentTarget.value),
                         )}
                 />
             </FieldWrapper>
@@ -172,22 +175,22 @@
 
                 <hr class="a5e-class-hp-table__rule" />
 
-                {#each Object.entries(item.system.hp.levels) as [level, hp]}
+                {#each Object.entries(itemStore.hp.levels) as [level, hp]}
                     {#if hp}
                         <span class="a5e-class-hp-table__field">
                             {level}
                         </span>
 
                         <input
-                            class="a5e-class-hp-table__field--input"
+                            class="a5e-input a5e-input--slim a5e-class-hp-table__field--input"
                             type="number"
                             value={hp ?? 0}
                             min="0"
-                            on:change={({ target }) =>
+                            onchange={({ currentTarget }) =>
                                 updateDocumentDataFromField(
                                     item,
                                     `system.hp.levels.{level}`,
-                                    Number(target.value),
+                                    Number(currentTarget.value),
                                 )}
                         />
 
@@ -242,8 +245,8 @@
             <RadioGroup
                 heading="Default Spellcasting Ability"
                 options={Object.entries(abilities)}
-                selected={item.system.spellcasting.ability.base}
-                on:updateSelection={({ detail }) => {
+                selected={itemStore.spellcasting.ability.base}
+                onUpdateSelection={(detail) => {
                     updateDocumentDataFromField(
                         item,
                         "system.spellcasting.ability.options",
@@ -261,8 +264,8 @@
             <CheckboxGroup
                 heading="Optional Spellcasting Abilities"
                 options={Object.entries(abilitiesWithoutNone)}
-                selected={item.system.spellcasting.ability.options}
-                on:updateSelection={({ detail }) => {
+                selected={itemStore.spellcasting.ability.options}
+                onUpdateSelection={(detail) => {
                     updateDocumentDataFromField(
                         item,
                         "system.spellcasting.ability.base",
@@ -282,8 +285,8 @@
             <RadioGroup
                 heading="Spellcasting Ability"
                 options={Object.entries(abilities)}
-                selected={item.system.spellcasting.ability.value}
-                on:updateSelection={({ detail }) =>
+                selected={itemStore.spellcasting.ability.value}
+                onUpdateSelection={(detail) =>
                     updateDocumentDataFromField(
                         item,
                         "system.spellcasting.ability.value",
@@ -295,8 +298,8 @@
         <RadioGroup
             heading="Caster Type"
             options={Object.entries(casterTypes)}
-            selected={item.system.spellcasting.casterType}
-            on:updateSelection={({ detail }) =>
+            selected={itemStore.spellcasting.casterType}
+            onUpdateSelection={(detail) =>
                 updateDocumentDataFromField(
                     item,
                     "system.spellcasting.casterType",
@@ -311,13 +314,14 @@
                 --a5e-field-wrapper-header-gap="0.5rem"
             >
                 <input
+                    class="a5e-input a5e-input--slim"
                     type="text"
-                    value={item.system.spellcasting.maxPreparedFormula}
-                    on:change={({ target }) =>
+                    value={itemStore.spellcasting.maxPreparedFormula}
+                    onchange={({ currentTarget }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.spellcasting.maxPreparedFormula",
-                            target.value,
+                            currentTarget.value,
                         )}
                 />
             </FieldWrapper>
@@ -327,13 +331,14 @@
     <Section heading="Wealth" --a5e-section-body-gap="0.75rem">
         <FieldWrapper hint="Enter a number value or a roll formula">
             <input
+                class="a5e-input a5e-input--slim"
                 type="text"
-                value={item.system.wealth}
-                on:change={({ target }) =>
+                value={itemStore.wealth}
+                onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
                         item,
                         "system.wealth",
-                        target.value,
+                        currentTarget.value,
                     )}
             />
         </FieldWrapper>
@@ -347,7 +352,7 @@
         align-items: center;
         gap: 0rem;
         margin-bottom: -0.375rem;
-        font-family: var(--a5e-font-serif);
+        font-family: var(--a5e-secondary-font);
 
         &__field,
         &__field[type] {
@@ -362,7 +367,7 @@
         }
 
         &__field--input {
-            border: 1px solid #7a7971;
+            border: 1px solid var(--a5e-border-color);
             border-radius: var(--a5e-border-radius-standard);
             margin-bottom: 0.25rem;
             padding-inline: 1rem;
@@ -376,7 +381,7 @@
         &__footer,
         &__header {
             display: contents;
-            font-size: var(--a5e-font-size-sm);
+            font-size: var(--a5e-sm-text);
         }
 
         &__header {
@@ -385,6 +390,7 @@
 
         &__heading {
             font-size: inherit;
+            margin: 0;
 
             &--footer {
                 padding-block: 0.25rem;
@@ -397,7 +403,7 @@
             width: 100%;
             grid-column: span 5;
             margin-block: 0.25rem;
-            border: 0.5px solid #ccc;
+            border: 0.5px solid var(--a5e-border-color);
         }
     }
 

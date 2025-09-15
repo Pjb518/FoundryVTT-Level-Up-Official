@@ -2,6 +2,7 @@ import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationM
 
 import ItemSheetComponent from "#view/sheets/ItemSheet.svelte";
 import LimitedSheetComponent from "#view/sheets/LimitedSheet.svelte";
+import OriginSheet from "#view/sheets/OriginSheet.svelte";
 
 export default class ItemSheet extends SvelteApplicationMixin(
   foundry.applications.sheets.ItemSheetV2,
@@ -59,12 +60,12 @@ export default class ItemSheet extends SvelteApplicationMixin(
   }
 
   static getSheetComponent(type: string) {
-    // if (type === "archetype") return ArchetypeSheetComponent;
-    // if (type === "background") return BackgroundSheetComponent;
-    // if (type === "class") return ClassSheetComponent;
-    // if (type === "culture") return CultureSheetComponent;
-    // if (type === "destiny") return DestinySheetComponent;
-    // if (type === "heritage") return HeritageSheetComponent;
+    if (type === "archetype") return OriginSheet;
+    if (type === "background") return OriginSheet;
+    if (type === "class") return OriginSheet;
+    if (type === "culture") return OriginSheet;
+    if (type === "destiny") return OriginSheet;
+    if (type === "heritage") return OriginSheet;
     return ItemSheetComponent;
   }
 }
