@@ -10,6 +10,7 @@
     import ClassPropertiesPage from "./pages/item/ClassPropertiesPage.svelte";
     import ItemGrantsPage from "./pages/item/ItemGrantsPage.svelte";
     import OriginCorePage from "./pages/item/OriginCorePage.svelte";
+    import OriginResourcesPage from "./pages/item/OriginResourcesPage.svelte";
 
     type Props = {
         item: any;
@@ -45,7 +46,7 @@
                 name: "resources",
                 label: "A5E.TabResources",
                 icon: "fa-solid fa-dice-d20",
-                component: null,
+                component: OriginResourcesPage,
                 display: ["archetype", "class"].includes(item.type),
             },
             // Grants
