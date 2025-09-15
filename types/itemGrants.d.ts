@@ -5,9 +5,9 @@ export interface BaseGrant {
   grantType: string;
   label: string;
   level: number;
-  levelType: 'character' | 'class';
+  levelType: "character" | "class";
   optional: boolean;
-  grantedBy?: { id: string, selectionId: string };
+  grantedBy?: { id: string; selectionId: string };
 
   getApplyData(actor: Actor, data?: any): Record<string, any>;
   getSelectionComponent(): any;
@@ -21,187 +21,196 @@ export interface BaseGrant {
 }
 
 export interface AbilityGrant extends BaseGrant {
-  grantType: 'ability';
+  grantType: "ability";
   abilities: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   bonus: string;
   context: {
-    types: string[],
-    requiresProficiency: boolean
-  }
+    types: string[];
+    requiresProficiency: boolean;
+  };
 }
 
 export interface AttackGrant extends BaseGrant {
-  grantType: 'attack';
+  grantType: "attack";
   attackTypes: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   bonus: string;
   context: {
-    spellLevels: string[],
-    requiresProficiency: boolean
-  }
+    spellLevels: string[];
+    requiresProficiency: boolean;
+  };
 }
 
 export interface DamageGrant extends BaseGrant {
-  grantType: 'damage';
+  grantType: "damage";
   bonus: string;
   damageType: string;
   context: {
-    attackTypes: string[],
-    damageTypes: string[],
-    spellLevels: string[],
-    isCritBonus: boolean
-  }
+    attackTypes: string[];
+    damageTypes: string[];
+    spellLevels: string[];
+    isCritBonus: boolean;
+  };
 }
 
 export interface ExertionGrant extends BaseGrant {
-  grantType: 'exertion';
-  exertionType: 'bonus' | 'pool';
+  grantType: "exertion";
+  exertionType: "bonus" | "pool";
   bonus: string;
-  poolType: 'none' | 'prof' | 'doubleProf';
+  poolType: "none" | "prof" | "doubleProf";
 }
 
 export interface ExpertiseDiceGrant extends BaseGrant {
-  grantType: 'expertiseDice';
+  grantType: "expertiseDice";
   keys: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   expertiseCount: number;
   expertiseType: string;
 }
 
 export interface FeatureGrant extends BaseGrant {
-  grantType: 'feature';
+  grantType: "feature";
   features: {
-    base: { uuid: string, limitedReselection: boolean, selectionLimit: number }[],
-    options: { uuid: string, limitedReselection: boolean, selectionLimit: number }[],
-    total: number,
+    base: {
+      uuid: string;
+      limitedReselection: boolean;
+      selectionLimit: number;
+    }[];
+    options: {
+      uuid: string;
+      limitedReselection: boolean;
+      selectionLimit: number;
+    }[];
+    total: number;
   };
 }
 
 export interface HealingGrant extends BaseGrant {
-  grantType: 'healing';
+  grantType: "healing";
   bonus: string;
   healingType: string;
   context: {
-    healingTypes: string[],
-    spellLevels: string[]
-  }
+    healingTypes: string[];
+    spellLevels: string[];
+  };
 }
 
 export interface InitiativeGrant extends BaseGrant {
-  grantType: 'initiative';
+  grantType: "initiative";
   bonus: string;
   context: {
-    abilities: string[],
-    skills: string[]
-  }
+    abilities: string[];
+    skills: string[];
+  };
 }
 
 export interface ItemGrant extends BaseGrant {
-  grantType: 'item';
+  grantType: "item";
   items: {
     base: {
-      uuid: string,
-      quantityOverride: number,
-    }[],
+      uuid: string;
+      quantityOverride: number;
+    }[];
     options: {
-      uuid: string,
-      quantityOverride: number,
-    }[],
-  }
-  total: number,
+      uuid: string;
+      quantityOverride: number;
+    }[];
+  };
+  total: number;
 }
 
 export interface MovementGrant extends BaseGrant {
-  grantType: 'movement';
+  grantType: "movement";
   movementTypes: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   bonus: string;
   unit: string;
   context: {
-    isHover: boolean
-  }
+    isHover: boolean;
+  };
 }
 
 export interface ProficiencyGrant extends BaseGrant {
-  grantType: 'proficiency';
+  grantType: "proficiency";
   keys: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   proficiencyType: string;
 }
 
 export interface RollOverrideGrant extends BaseGrant {
-  grantType: 'rollOverride';
+  grantType: "rollOverride";
   keys: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   rollMode: number;
   rollOverrideType: string;
 }
 
 export interface SensesGrant extends BaseGrant {
-  grantType: 'senses';
+  grantType: "senses";
   senses: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   bonus: string;
   unit: string;
   context: {
-    otherwiseBlind: boolean
-  }
+    otherwiseBlind: boolean;
+  };
 }
 
 export interface SkillGrant extends BaseGrant {
-  grantType: 'skill';
+  grantType: "skill";
   choices: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
   skillKey: string;
   bonus: string;
 }
 
 export interface SkillSpecialtyGrant extends BaseGrant {
-  grantType: 'skillSpecialty';
+  grantType: "skillSpecialty";
   skill: string;
   specialties: {
-    base: string[],
-    options: string[],
-    total: number,
+    base: string[];
+    options: string[];
+    total: number;
   };
 }
 
 export interface TraitGrant extends BaseGrant {
-  grantType: 'trait';
+  grantType: "trait";
   traits: {
-    base: string[],
-    options: string[],
-    total: number,
-    traitType: string
+    base: string[];
+    options: string[];
+    total: number;
+    traitType: string;
   };
 }
 
-export type Grant = AbilityGrant
+export type Grant =
+  | AbilityGrant
   | AttackGrant
   | DamageGrant
   | HealingGrant

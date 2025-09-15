@@ -80,8 +80,6 @@
         );
     }
 
-    function onDropObject(e) {}
-
     async function getDescription(item: Item) {
         const data =
             (await TextEditor.enrichHTML(
@@ -144,7 +142,6 @@
     draggable="true"
     data-document-uuid={item.uuid}
     ondragstart={onDragStart}
-    ondrop={(e) => onDropObject(e)}
     onclick={() => {
         showDescription = !showDescription;
     }}
