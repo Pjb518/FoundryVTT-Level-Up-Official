@@ -21,6 +21,21 @@
 
     let { item, sheet }: Props = $props();
 
+    async function _onDrop(
+        event: DragEvent & {
+            currentTarget: EventTarget & HTMLElement;
+        },
+    ) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const transferData = event.dataTransfer?.getData("text/plain");
+        if (!transferData) return;
+
+        const dragData = JSON.parse(transferData);
+        sheet._onDropDocument(dragData);
+    }
+
     function updateCurrentTab(name: string) {
         const newTabName = name ?? "core";
 
@@ -94,7 +109,7 @@
     setContext("sheet", sheet);
 </script>
 
-<main class="a5e-item-sheet">
+<main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
     <NavigationBar

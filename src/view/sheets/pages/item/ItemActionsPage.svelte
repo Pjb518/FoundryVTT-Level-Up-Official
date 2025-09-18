@@ -3,7 +3,15 @@
 
     import Section from "#view/snippets/Section.svelte";
 
-    function _onDragStart(e: DragEvent, actionId: string) {}
+    function _onDragStart(e: DragEvent, actionId: string) {
+        const dragData = {
+            actionId,
+            itemUuid: item.uuid,
+            type: "Action",
+        };
+
+        return e.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+    }
 
     let item: any = getContext("item");
     let itemStore = $derived(item.reactive.system);
