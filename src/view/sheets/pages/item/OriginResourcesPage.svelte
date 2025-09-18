@@ -7,7 +7,6 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
-    // import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
@@ -53,122 +52,132 @@
     ]);
 </script>
 
-<div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    {#each resources as [slug, resource], idx}
-        <div class="a5e-class-resource">
-            <input
-                class="a5e-input a5e-class-resource-name"
-                type="text"
-                placeholder="New Resource"
-                value={resource.name}
-                onchange={({ currentTarget }) => {
-                    // @ts-ignore
-                    updateResource(idx, "name", currentTarget?.value);
-                }}
-            />
+<div class="a5e-sticky-page">
+    <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+        {#each resources as [slug, resource], idx}
+            <div class="a5e-class-resource">
+                <input
+                    class="a5e-input a5e-class-resource-name"
+                    type="text"
+                    placeholder="New Resource"
+                    value={resource.name}
+                    onchange={({ currentTarget }) => {
+                        updateResource(idx, "name", currentTarget?.value);
+                    }}
+                />
 
-            <button
-                class="a5e-class-resource-delete-button"
-                aria-label="Delete Resource"
-                onclick={() => item.resources.remove(slug)}
-            >
-                <i class="icon fas fa-trash"></i>
-            </button>
-
-            <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
-                <FieldWrapper
-                    heading="Resource Identifier"
-                    --a5e-field-wrapper-header-item-justification="flex-start"
-                    --a5e-field-wrapper-header-gap="0.5rem"
+                <button
+                    class="a5e-class-resource-delete-button"
+                    aria-label="Delete Resource"
+                    onclick={() => item.resources.remove(slug)}
                 >
-                    <div style="display: flex; gap:0.5rem">
-                        <input
-                            class="a5e-input a5e-input--slim slug-input"
-                            value={slug || ""}
-                            type="text"
-                            onchange={({ currentTarget }) => {
-                                // @ts-ignore
-                                updateResource(
-                                    idx,
-                                    "slug",
-                                    currentTarget?.value,
-                                );
-                            }}
-                        />
+                    <i class="icon fas fa-trash"></i>
+                </button>
 
-                        <button
-                            class="slug-reset-button"
-                            aria-label="Reset Identifier"
-                            onclick={() => null}
-                        >
-                            <i class="icon fas fa-solid fa-rotate-left"></i>
-                        </button>
-                    </div>
-                </FieldWrapper>
-            </Section>
-
-            <Section
-                heading="Level Information"
-                --a5e-section-body-gap="0.75rem"
-            >
-                <div class="a5e-class-resource-reference-container">
-                    {#each Object.entries(resource.reference) as [level, value]}
-                        <FieldWrapper
-                            heading="Level {level}"
-                            --a5e-field-wrapper-margin="auto"
-                            --a5e-field-wrapper-header-item-justification="center"
-                        >
+                <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
+                    <FieldWrapper
+                        heading="Resource Identifier"
+                        --a5e-field-wrapper-header-item-justification="flex-start"
+                        --a5e-field-wrapper-header-gap="0.5rem"
+                    >
+                        <div style="display: flex; gap:0.5rem">
                             <input
-                                class="a5e-input a5e-input--slim"
-                                {value}
+                                class="a5e-input a5e-input--slim slug-input"
+                                value={slug || ""}
                                 type="text"
                                 onchange={({ currentTarget }) => {
                                     updateResource(
                                         idx,
-                                        `reference.${level}`,
-                                        currentTarget.value,
+                                        "slug",
+                                        currentTarget?.value,
                                     );
                                 }}
                             />
-                        </FieldWrapper>
-                    {/each}
-                </div>
-            </Section>
 
-            <Section heading="Consumable Data" --a5e-section-body-gap="0.75rem">
-                <FieldWrapper>
-                    <Checkbox
-                        checked={resource.consumable}
-                        label="Resource is consumable"
-                        onUpdateSelection={(detail) =>
-                            updateResource(idx, "consumable", detail)}
+                            <button
+                                class="slug-reset-button"
+                                aria-label="Reset Identifier"
+                                onclick={() => null}
+                            >
+                                <i class="icon fas fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+                    </FieldWrapper>
+                </Section>
+
+                <Section
+                    heading="Level Information"
+                    --a5e-section-body-gap="0.75rem"
+                >
+                    <div class="a5e-class-resource-reference-container">
+                        {#each Object.entries(resource.reference) as [level, value]}
+                            <FieldWrapper
+                                heading="Level {level}"
+                                --a5e-field-wrapper-margin="auto"
+                                --a5e-field-wrapper-header-item-justification="center"
+                            >
+                                <input
+                                    class="a5e-input a5e-input--slim"
+                                    {value}
+                                    type="text"
+                                    onchange={({ currentTarget }) => {
+                                        updateResource(
+                                            idx,
+                                            `reference.${level}`,
+                                            currentTarget.value,
+                                        );
+                                    }}
+                                />
+                            </FieldWrapper>
+                        {/each}
+                    </div>
+                </Section>
+
+                <Section
+                    heading="Consumable Data"
+                    --a5e-section-body-gap="0.75rem"
+                >
+                    <FieldWrapper>
+                        <Checkbox
+                            checked={resource.consumable}
+                            label="Resource is consumable"
+                            onUpdateSelection={(detail) =>
+                                updateResource(idx, "consumable", detail)}
+                        />
+                    </FieldWrapper>
+
+                    <FieldWrapper>
+                        <Checkbox
+                            checked={resource.displayOnCore}
+                            label="Show on Core Page"
+                            onUpdateSelection={(detail) =>
+                                updateResource(idx, "displayOnCore", detail)}
+                        />
+                    </FieldWrapper>
+
+                    <RadioGroup
+                        heading="Recovery"
+                        options={Object.entries(recoveryOptions)}
+                        selected={resource.recovery || ""}
+                        onUpdateSelection={(detail) => {
+                            updateResource(idx, "recovery", detail);
+                        }}
                     />
-                </FieldWrapper>
+                </Section>
+            </div>
+        {/each}
+    </div>
 
-                <FieldWrapper>
-                    <Checkbox
-                        checked={resource.displayOnCore}
-                        label="Show on Core Page"
-                        onUpdateSelection={(detail) =>
-                            updateResource(idx, "displayOnCore", detail)}
-                    />
-                </FieldWrapper>
-
-                <RadioGroup
-                    heading="Recovery"
-                    options={Object.entries(recoveryOptions)}
-                    selected={resource.recovery || ""}
-                    onUpdateSelection={(detail) => {
-                        updateResource(idx, "recovery", detail);
-                    }}
-                />
-            </Section>
-        </div>
-    {/each}
-</div>
-
-<div class="sticky-add-button">
-    <!-- <CreateMenu documentName="Resource" on:press={addResource} /> -->
+    <div class="sticky-add-button">
+        <button
+            class="a5e-button a5e-button--transparent"
+            aria-label="Add Resource"
+            data-tooltip="Add Resource"
+            onclick={addResource}
+        >
+            <i class="icon fas fa-plus"></i>
+        </button>
+    </div>
 </div>
 
 <style lang="scss">
@@ -180,6 +189,10 @@
         position: relative;
         margin-bottom: 1rem;
         background-color: var(--a5e-background-light);
+
+        &:not(:last-child) {
+            border-bottom: 1px solid var(--a5e-border-color);
+        }
     }
 
     .a5e-class-resource-delete-button {
@@ -246,6 +259,6 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        color: #999;
+        color: var(--a5e-button-gray);
     }
 </style>

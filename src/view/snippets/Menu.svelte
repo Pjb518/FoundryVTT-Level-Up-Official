@@ -12,6 +12,7 @@
             icon?: string;
             label?: string;
         }>;
+        onclick?: () => void;
         children?: any;
     };
 
@@ -44,6 +45,7 @@
         menuItems = [],
         buttonLabel = "",
         buttonIcon = "fa-solid fa-plus",
+        onclick = () => {},
         children = undefined,
     }: Props = $props();
 
