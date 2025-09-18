@@ -39,10 +39,12 @@
 
                 <button
                     class="slug-reset-button"
+                    data-tooltoip="Reset Identifier"
+                    aria-label="Reset Identifier"
                     onclick={() =>
                         updateDocumentDataFromField(item, "system.slug", "")}
                 >
-                    <i class="icon fas fa-solid fa-rotate-left" />
+                    <i class="icon fas fa-solid fa-rotate-left"></i>
                 </button>
             </div>
         </FieldWrapper>
