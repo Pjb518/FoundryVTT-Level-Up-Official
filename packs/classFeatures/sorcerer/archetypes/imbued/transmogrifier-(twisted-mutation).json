@@ -18,13 +18,15 @@
 				"name": "Transmogrifier",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"NJI2rlxM02NCS6vq": {
 						"type": "actionUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -39,25 +41,43 @@
 					}
 				},
 				"duration": {
-					"unit": "special"
+					"unit": "special",
+					"value": "0"
 				},
 				"ranges": {
 					"sbShhELEp5bp5qLe": {
 						"range": "self"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			},
 			"15wULsT58pwYa9jh": {
 				"name": "Shapeshifter",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"AvUUVWFG17VLdbdN": {
 						"type": "actionUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -68,27 +88,40 @@
 					"per": "shortRest",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
 				"duration": {
 					"unit": "hour",
-					"value": 1
+					"value": "1"
 				},
 				"ranges": {
 					"hnSxbAcROdVqi2S6": {
 						"range": "self"
 					}
 				},
-				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+				"img": "icons/magic/symbols/triangle-glow-purple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			},
 			"Q3G8YUyyx0z4txhA": {
 				"name": "Recover Use",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"Syy7L4w4dtyQrvXT": {
@@ -96,7 +129,9 @@
 						"default": true,
 						"classIdentifier": "@classResources.sorcery-points",
 						"resource": "classResource",
-						"quantity": 1
+						"quantity": 1,
+						"restore": false,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -107,15 +142,32 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
-				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+				"img": "icons/magic/symbols/triangle-glow-purple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			}
 		},
-		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Transmogrifier</strong>: Once per short rest you may use your action to transform yourself into a tiny or smaller creature, or an animated object up to medium size as per the spell&rsquo;s functions though you retain your mental attributes and can still perform S components for spellcasting purposes you cannot vocalize. You gain a number of temporary HP equal to the animated object&rsquo;s HP. Once your temporary HP run out you revert to your normal form, though you can choose to end this effect at any time, otherwise it has no duration. Any objects you carry become a part of your new form and do not function.</p>\n<p>In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.uz6shdo0snfhzfzq]{Shapeshifter}bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</p>",
+		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you’ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p><p><strong>Transmogrifier</strong>: Once per short rest you can use your action to transform yourself into a medium or smaller creature, with an appearance of your choosing. Regardless of the chosen appearance, you use the stat block of an animated object of the same size as the creature whose form you are emulating (and you can choose an animated object as your emulated creature) with the following exceptions:</p><ul><li><p>You retain your mental ability scores and can still cast sorcerer spells normally as long as they do not use material components. You are unable to speak while transformed, but can still satisfy the vocalized spell components of sorcerer spells (only) via creature noises or eerie creaking object sounds. Other spellcasters attempting to identify the spells you are casting do so with disadvantage.</p></li><li><p>You retain your normal hit points, and gain a number of temporary HP equal to the hit points of an animated object of the chosen size. If you have none of these temporary hit points remaining, you revert to your normal form. You can also choose to end this effect at any time (no action required), reverting instantly to your normal form and losing any remaining temporary hit points.</p></li><li><p>You can otherwise remain in the form indefinitely. Any objects you carry become a part of your new form and do not function.</p></li></ul><p>In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.uz6shdo0snfhzfzq]{Shapeshifter}bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -134,11 +186,19 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "sorcerer",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"effects": [
 		{
-			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"origin": "Item.sIZYt7H94RhSSr4p",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -154,7 +214,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"changes": [
 				{
@@ -183,17 +251,17 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.331",
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.26",
-				"createdTime": 1726854854800,
-				"modifiedTime": 1726854854800,
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1754777022891,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
 		},
 		{
-			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"origin": "Item.sIZYt7H94RhSSr4p",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -209,7 +277,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"changes": [
 				{
@@ -238,11 +314,11 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.331",
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.26",
-				"createdTime": 1726854855845,
-				"modifiedTime": 1726854855845,
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1754777022891,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -251,11 +327,11 @@
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.331",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.26",
-		"createdTime": 1726854332412,
-		"modifiedTime": 1726854906773,
+		"systemVersion": "1.0.10",
+		"createdTime": 1754777022837,
+		"modifiedTime": 1754777211621,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "bq6z1c55sta64cu5"

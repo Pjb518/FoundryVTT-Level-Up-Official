@@ -4,17 +4,24 @@
 	"img": "icons/sundries/lights/torch-brown-lit.webp",
 	"effects": [
 		{
-			"origin": "Item.ZXkkcOKKjIC2hDRI",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"unit": "hours"
+			"origin": "Item.KLXslTqRYZreHvBq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
 					}
 				}
 			},
-			"transfer": false,
-			"name": "Light",
-			"_id": "iswsGw5aTV3nSNGd",
+			"name": "Torch",
+			"img": "icons/sundries/lights/torch-brown-lit.webp",
+			"_id": "SMdx02deI6SXI546",
+			"type": "base",
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -30,7 +37,7 @@
 				},
 				{
 					"key": "@token.light.animation.type",
-					"value": "Torch",
+					"value": "torch",
 					"mode": 6,
 					"priority": null
 				}
@@ -45,22 +52,28 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
-			"statuses": [],
+			"description": "<p>Burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet.</p>",
 			"tint": "#ffffff",
-			"img": "icons/sundries/lights/torch-brown-lit.webp",
-			"type": "base",
-			"system": {
-				"applyToSelf": true,
-				"effectType": "passive"
-			},
+			"statuses": [],
 			"sort": 0,
-			"folder": null,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "1.0.10",
+				"createdTime": 1754776080351,
+				"modifiedTime": 1754776150838,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
@@ -80,14 +93,17 @@
 				"name": "Light Torch",
 				"activation": {
 					"type": "",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"DJvbbIhwN6sJzpar": {
 						"type": "quantity",
 						"default": true,
-						"itemId": "ZXkkcOKKjIC2hDRI",
-						"quantity": 1
+						"itemId": "KLXslTqRYZreHvBq",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -102,8 +118,28 @@
 					}
 				},
 				"effects": [
-					"iswsGw5aTV3nSNGd"
-				]
+					"iswsGw5aTV3nSNGd",
+					"SMdx02deI6SXI546"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			},
 			"EzcV7dhxP2t5HUCh": {
 				"name": "Attack",
@@ -116,24 +152,33 @@
 				"rolls": {
 					"4loQUAEZaCc8RC8h": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default",
-						"label": "Club"
+						"label": "Club",
+						"proficient": true,
+						"default": true
 					},
 					"3DTZ2lWFlQONwpTn": {
 						"canCrit": true,
 						"damageType": "bludgeoning",
 						"formula": "1d4 + @str.mod",
-						"name": "Club",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"X2ifvBL1zBwVqirL": {
 						"type": "damage",
 						"default": true,
 						"formula": "1",
-						"damageType": "fire"
+						"damageType": "fire",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -158,14 +203,24 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"scaling": {}
 				},
 				"img": "icons/sundries/lights/torch-brown-lit.webp",
 				"ranges": {
 					"KrdoHY56z9Tl1dHJ": {
 						"range": "fiveFeet"
 					}
-				}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. When you use a burning torch as a club to make a melee attack, it deals an extra 1 fire damage on a hit.</p>",
@@ -215,13 +270,34 @@
 			"type": "weight",
 			"value": 0,
 			"weightlessContents": false
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "7tw73cwd1j8zf3g5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754776072617,
+		"modifiedTime": 1754776080387,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7tw73cwd1j8zf3g5"
 }

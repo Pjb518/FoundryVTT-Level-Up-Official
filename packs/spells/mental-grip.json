@@ -4,19 +4,32 @@
 	"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
 	"effects": [
 		{
-			"icon": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
-			"origin": "Item.zse6t0dtr3hwfy9m",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"unit": "minutes"
+			"origin": "Item.gV3EiAnPR88aKBWl",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
 					}
 				}
 			},
-			"transfer": false,
-			"name": "Mental Grip",
-			"_id": "0r7ccDYzFKObB1ev",
-			"changes": [],
+			"name": "Grappled",
+			"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+			"_id": "k4o2gkn4meqTCrMd",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -27,18 +40,30 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>A bolt of light erupts from your hand. Make a ranged spell attack against the target. On a hit, you deal 4d6 radiant damage and the next attack roll made against the target before the end of your next turn has advantage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\" /><p><strong>Rare: Marked Guiding Bolt.</strong> On a hit, until the end of your next turn the target glows with bright light in a 20-foot radius and dim light an additional 10 feet.</p>",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+			"description": "<ul><li><p>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</p></li><li><p>If the grappler becomes incapacitated the condition ends.</p></li><li><p>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the @UUID[Compendium.a5e.a5e-maneuvers.Item.i5m1k81burf6n2t9]{Doubleteam} combat maneuver) the condition ends.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
 			},
-			"system": {
-				"applyToSelf": false,
-				"effectType": "onUse"
-			}
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1754815828852,
+				"modifiedTime": 1754815860876,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
@@ -66,15 +91,19 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": "Creature"
+					"quantity": 0,
+					"type": "Creature",
+					"scaling": {}
 				},
 				"consumers": {
 					"R9uunQ63kqPIhUjV": {
 						"mode": "variable",
 						"spellLevel": 2,
 						"points": 3,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -82,7 +111,8 @@
 						"type": "abilityCheck",
 						"default": true,
 						"ability": "con",
-						"label": "Concentration"
+						"label": "Concentration",
+						"bonus": ""
 					}
 				},
 				"prompts": {
@@ -102,8 +132,26 @@
 					}
 				},
 				"effects": [
-					"0r7ccDYzFKObB1ev"
-				]
+					"k4o2gkn4meqTCrMd"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>You conjure extensions of your own mental fortitude to keep your foes at bay. For the spell's duration, you can use an action to attempt to grapple a creature within range by making a concentration check against its maneuver DC.</p><p>On its turn, a target grappled in this way can use an action to attempt to escape the grapple, using your spell save DC instead of your maneuver DC.</p><p>Successful escape attempts do not break your concentration on the spell.</p>",
@@ -147,13 +195,25 @@
 				"affliction"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"folder": null,
-	"_id": "zse6t0dtr3hwfy9m",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754815815601,
+		"modifiedTime": 1754815865367,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zse6t0dtr3hwfy9m"
 }
