@@ -571,6 +571,14 @@ export default function registerPremiumContentConfig() {
 			title: 'Paradigms of Skill',
 			url: 'https://bit.ly/3TvtZRl',
 		},
+		paranormalPower: {
+			abbreviation: 'PP',
+			affiliate: true,
+			publisher: 'steampunkette',
+			systems: ['a5e'],
+			title: 'Paranormal Power',
+			url: 'https://bit.ly/49bS1XH',
+		},
 		planestridersJournal: {
 			abbreviation: 'PJ',
 			affiliate: true,

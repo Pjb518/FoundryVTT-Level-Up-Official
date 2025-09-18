@@ -601,6 +601,7 @@ const knackTypes = {
 	cleric: 'Sign of Faith',
 	druid: 'Secret of Nature',
 	elementalist: 'Elemental Adaptation',
+	esper: 'Noetic',
 	fighter: 'Soldiering Knack',
 	herald: 'Divine Lesson',
 	marshal: 'Lesson of War',
@@ -613,7 +614,7 @@ const knackTypes = {
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
-  trooper: 'Drill',
+	trooper: 'Drill',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',
@@ -733,7 +734,7 @@ const modPorts = {
 	5: '5',
 	6: '6',
 	7: '7',
-	8: '8'
+	8: '8',
 };
 
 /**
@@ -826,10 +827,12 @@ const preparedStates = {
 
 const psionicDisciplines = {
 	dynakinetic: 'A5E.psionicDisciplines.disciplines.dynakinetic',
+  empathic: 'A5E.psionicDisciplines.disciplines.empathic',
 	kinesthetic: 'A5E.psionicDisciplines.disciplines.kinesthetic',
 	telekinetic: 'A5E.psionicDisciplines.disciplines.telekinetic',
 	telepathic: 'A5E.psionicDisciplines.disciplines.telepathic',
 };
+
 
 /**
  * The set of core range types in the system.
@@ -1108,6 +1111,7 @@ const spellSchools = {
 		nature: 'A5E.spells.secondarySchools.nature',
 		necrotic: 'A5E.spells.secondarySchools.necrotic',
 		negation: 'A5E.spells.secondarySchools.negation',
+    object: 'A5E.spells.secondarySchools.object',
 		obscurement: 'A5E.spells.secondarySchools.obscurement',
 		planar: 'A5E.spells.secondarySchools.planar',
 		plants: 'A5E.spells.secondarySchools.plants',

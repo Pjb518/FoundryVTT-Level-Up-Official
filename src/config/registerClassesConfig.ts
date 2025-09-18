@@ -10,6 +10,7 @@ export default function registerClassesConfig() {
 		dirgesinger: 'A5E.characterClasses.dirgesinger',
 		druid: 'A5E.characterClasses.druid',
 		elementalist: 'A5E.characterClasses.elementalist',
+		esper: 'A5E.characterClasses.esper',
 		fighter: 'A5E.characterClasses.fighter',
 		gambler: 'A5E.characterClasses.gambler',
 		herald: 'A5E.characterClasses.herald',

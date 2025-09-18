@@ -1,0 +1,180 @@
+{
+	"name": "Mind Lock",
+	"type": "maneuver",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"actions": {
+			"XJ33wj5IDK8f3ReW": {
+				"name": "Mind Lock",
+				"consumers": {
+					"mvoGwIbh7pE2xuMq": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"3M5vW9Cp7ZJNq0cl"
+				],
+				"macro": "",
+				"prompts": {
+					"UwtUMlv6gHhTMCvk": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"kX71k0zQU7SNa1I9": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>By infiltrating your opponent’s mind you are able to freeze them in place. Make an Insight check against your target’s AC. If you succeed the target becomes [[/condition id=paralyzed]]. At the beginning of each of its turns it can make a Wisdom saving throw, ending the effect on a success. Opponents who have access to 3rd level or higher spells make this saving throw with disadvantage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "awakenedMind",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.KqYjgJ3Xg1K4n4hn",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Paralyzed",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "3M5vW9Cp7ZJNq0cl",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A paralyzed creature is incapacitated and can't move or speak.</p></li><li><p>A paralyzed creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against a paralyzed creature have advantage.</p></li><li><p>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"paralyzed"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753219237081,
+				"modifiedTime": 1753219263581,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753219196517,
+		"modifiedTime": 1753219296165,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "s2b0Clt3R3RLiRyg"
+}

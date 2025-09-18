@@ -12,6 +12,16 @@
     import Tag from "../Tag.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
 
+    function preparePsionicDisciplines(item) {
+        const disciplines = item.system.discipline.map(
+            (discipline) => localize(psionicDisciplines[discipline]) ?? discipline,
+        );
+
+        disciplines.sort((a, b) => a.localeCompare(b));
+
+        return disciplines.join(", ");
+    }
+
     function prepareSpellComponents(item) {
         return Object.entries(item.system.components)
             .filter(([_, state]) => state)
@@ -42,8 +52,8 @@
     } = CONFIG.A5E;
 
     let editMode = false;
-    let showVRCPsionicDisciplines = game.settings.get("a5e", "showVRCPsionicDisciplines");
 
+    $: selectedPsionicDisciplines = preparePsionicDisciplines($item);
     $: selectedSpellComponents = prepareSpellComponents($item);
     $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
 </script>
@@ -90,15 +100,13 @@
                 )}
         />
 
-        {#if showVRCPsionicDisciplines}
-            <RadioGroup
-                heading="A5E.psionicDisciplines.title"
-                options={Object.entries(psionicDisciplines)}
-                selected={$item.system.discipline}
-                on:updateSelection={(event) =>
-                    updateDocumentDataFromField($item, "system.discipline", event.detail)}
-            />
-        {/if}
+        <CheckboxGroup
+            heading="A5E.psionicDisciplines.title"
+            options={Object.entries(psionicDisciplines)}
+            selected={$item.system.discipline}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField($item, "system.discipline", event.detail)}
+        />
 
         <CheckboxGroup
             heading="A5E.spells.schoolSecondaryPlural"
@@ -245,18 +253,15 @@
                     </dd>
                 </div>
 
-                {#if showVRCPsionicDisciplines}
-                    <div class="summary-list__item">
-                        <dt class="summary-list__label">
-                            {localize("A5E.psionicDisciplines.title")}:
-                        </dt>
+                <div class="summary-list__item">
+                    <dt class="summary-list__label">
+                        {localize("A5E.psionicDisciplines.title")}:
+                    </dt>
 
-                        <dd class="summary-list__value">
-                            {localize(psionicDisciplines[$item.system.discipline]) ||
-                                localize("A5E.None")}
-                        </dd>
-                    </div>
-                {/if}
+                    <dd class="summary-list__value">
+                        {selectedPsionicDisciplines || localize("A5E.None")}
+                    </dd>
+                </div>
 
                 <hr class="a5e-rule u-my-sm" />
 

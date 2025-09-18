@@ -1,0 +1,170 @@
+{
+	"name": "Whirling Throw",
+	"type": "maneuver",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"actions": {
+			"BjvW781qpQATnttp": {
+				"name": "Whirling Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"8qfzBAr0PBVMj2gt": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1,
+						"classIdentifier": "",
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"xhYcgyFWZ3hNoW0o": {
+						"type": "effect",
+						"default": true,
+						"effectId": "082hDt57rFn0jH7L"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"CYHLpDONSqBIs2eL"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Telekinetic control of your weapon allows you to hurl it across the battlefield and recover it without issue. Until the end of your current turn you may treat a one- handed or versatile weapon as if it had the throwing property with a range of 30/40. After each attack, the weapon returns to your hand, allowing you to make multiple attacks. You may add your Intelligence modifier to the damage of each of these attacks as psychic damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "awakenedMind",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.XqEqnkKxMXOxzwJt",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Whirling Throw",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "CYHLpDONSqBIs2eL",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Whirling Throw\",\"formula\":\"@int.mod\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/perception/third-eye-blue-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the end of your current turn you may treat a one- handed or versatile weapon as if it had the throwing property with a range of 30/40. After each attack, the weapon returns to your hand, allowing you to make multiple attacks. You may add your Intelligence modifier to the damage of each of these attacks as psychic damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753213122320,
+				"modifiedTime": 1753213165185,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753212887884,
+		"modifiedTime": 1753213180192,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "CmUSXGSvLjVbJ4yn"
+}

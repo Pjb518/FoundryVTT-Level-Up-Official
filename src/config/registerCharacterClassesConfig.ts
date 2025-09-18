@@ -8,6 +8,7 @@ export default function registerCharacterClassesConfig() {
 		elementalistEarth: 'A5E.characterClasses.elementalistEarth',
 		elementalistFire: 'A5E.characterClasses.elementalistFire',
 		elementalistWater: 'A5E.characterClasses.elementalistWater',
+		esper: 'A5E.characterClasses.esper',
 		herald: 'A5E.characterClasses.herald',
 		sorcerer: 'A5E.characterClasses.sorcerer',
 		warlock: 'A5E.characterClasses.warlock',
