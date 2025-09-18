@@ -1,0 +1,184 @@
+{
+	"folder": null,
+	"name": "Sudden Hangover",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"tBvtNllO0fl4qEIL": {
+				"name": "Sudden Hangover",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"zUKSBlA4MyVt5GTi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ooTJ52mXDSGUbC4w"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Beginning at 8th level, when you hit with a cleric cantrip or a melee weapon attack, you may add psychic damage equal to your Wisdom modifier. If your attack scores a critical hit, the creature gains the Hungover condition (pg. 69) until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ukiauzgA2yYsuS7X": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ukiauzgA2yYsuS7X",
+				"label": "Sudden Hangover",
+				"bonus": "@wis.mod",
+				"damageType": "psychic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"spellLevels": [
+						"0"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "cleric",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.0G96gKnXWGccjiNi",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tBvtNllO0fl4qEIL",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hungover",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "ooTJ52mXDSGUbC4w",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>After a night of hard-partying, your body has some things to say to you. When you are hungover, you experience the following effects:</p>\n<ul>\n<li>Hungover creatures have a –2 penalty to Constitution saving throws until they complete a short or long rest.</li>\n<li>A hungover creature cannot take reactions.</li>\n<li>A hungover creature has disadvantage on Perception checks.</li>\n<li>Creatures that are immune to poison or the poisoned condition cannot be hungover.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753648807049,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753648806895,
+		"modifiedTime": 1753648806895,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1JxTeOhoSjSun9S5"
+}

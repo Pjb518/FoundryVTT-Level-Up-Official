@@ -1,0 +1,330 @@
+{
+	"folder": null,
+	"name": "Halberd of the Dawn",
+	"type": "object",
+	"img": "icons/weapons/polearms/halberd-curved-steel.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"92jqki6M6H1gx1iX": {
+				"name": "Halberd",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"UbfOMKqsAgxfQsz2": {
+						"bonus": "2",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"L7fynaSTVl5lka6L": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d10 + @str.mod + 2",
+						"type": "damage",
+						"label": "Piercing",
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"2QOqNnGMpWYcRlfM": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d10 + @str.mod + 2",
+						"type": "damage",
+						"label": "Slashing",
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"x9t794D6Bu6EWerQ": {
+						"type": "damage",
+						"default": true,
+						"label": "Against Fiends or Undead",
+						"formula": "2d8",
+						"damageType": "radiant",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/polearms/halberd-crescent-small-spiked.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"70SCU4VBMNG6RNYU": {
+				"name": "Flash of Sunlight",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"VOSIeGza8XmVe5xT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"QNLJmncjM933R4xu": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "16"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"KLmsidAxxq7bo5QD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XZMBtXKhjp5nPYFP"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"jv7cWYiN7OXWVceZ": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This halberd grants a +2 bonus to attack and damage rolls made with it. Its blades are silvered, and it deals an extra 2d8 radiant damage to fiends and undead.</p>\n<p>Additionally, once per dawn, when you hit with a melee weapon attack you may choose to have your strike produce a brilliant flash of sunlight. Hostile creatures within 15 feet of you must make a DC 16 Constitution saving throw or be blinded until the start of your next turn. Creatures who are weak to the effects of sunlight (such as a vampire) are affected by this as if they were exposed to the sun.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "day",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A halberd blessed by a deva",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "20,000 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"heavy",
+			"reach",
+			"trip",
+			"twoHanded"
+		],
+		"weight": 7,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.T53pDnUUdBIsTZI9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "70SCU4VBMNG6RNYU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/weapons/polearms/halberd-curved-steel.webp",
+			"_id": "XZMBtXKhjp5nPYFP",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650190679,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190556,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ArVgvUPfQhTFNbDF"
+}
