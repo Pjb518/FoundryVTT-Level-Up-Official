@@ -25,7 +25,7 @@
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
-            handler: () => (editruetMode = !editMode),
+            handler: () => (editMode = !editMode),
         },
     ]}
     --a5e-section-body-gap="0.75rem"
