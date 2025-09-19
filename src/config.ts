@@ -827,12 +827,11 @@ const preparedStates = {
 
 const psionicDisciplines = {
 	dynakinetic: 'A5E.psionicDisciplines.disciplines.dynakinetic',
-  empathic: 'A5E.psionicDisciplines.disciplines.empathic',
+	empathic: 'A5E.psionicDisciplines.disciplines.empathic',
 	kinesthetic: 'A5E.psionicDisciplines.disciplines.kinesthetic',
 	telekinetic: 'A5E.psionicDisciplines.disciplines.telekinetic',
 	telepathic: 'A5E.psionicDisciplines.disciplines.telepathic',
 };
-
 
 /**
  * The set of core range types in the system.
@@ -904,7 +903,7 @@ const rollTypes = {
 
 const saveDCOptions = {
 	spellcasting: 'A5E.spells.dc',
-	maneuver: 'A5E.ManeuverDC',
+	maneuver: 'A5E.maneuvers.dc',
 	...abilities,
 	custom: 'A5E.Custom',
 };
@@ -1111,7 +1110,7 @@ const spellSchools = {
 		nature: 'A5E.spells.secondarySchools.nature',
 		necrotic: 'A5E.spells.secondarySchools.necrotic',
 		negation: 'A5E.spells.secondarySchools.negation',
-    object: 'A5E.spells.secondarySchools.object',
+		object: 'A5E.spells.secondarySchools.object',
 		obscurement: 'A5E.spells.secondarySchools.obscurement',
 		planar: 'A5E.spells.secondarySchools.planar',
 		plants: 'A5E.spells.secondarySchools.plants',

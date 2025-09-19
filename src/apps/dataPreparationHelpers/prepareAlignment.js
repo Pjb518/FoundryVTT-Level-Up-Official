@@ -5,5 +5,5 @@ export default function prepareAlignment(data) {
 		a.toLowerCase().localeCompare(b.toLowerCase()),
 	);
 
-	return alignments.map((type) => localize(CONFIG.A5E.traits.headings.alignments[type] ?? type));
+	return alignments.map((type) => localize(CONFIG.A5E.alignments[type] ?? type));
 }

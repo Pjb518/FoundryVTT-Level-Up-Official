@@ -109,7 +109,7 @@ export default function modifyBaseOptions(options: Object) {
 	options['system.traits.alignment'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
-		Object.entries(CONFIG.A5E.traits.headings.alignments),
+		Object.entries(CONFIG.A5E.alignments),
 		'TAG_GROUP',
 	];
 	options['system.traits.conditionImmunities'] = [
@@ -252,7 +252,7 @@ export default function modifyBaseOptions(options: Object) {
 	delete options['system.details.appearance'];
 	delete options['system.details.archetype'];
 	delete options['system.details.background'];
-	delete options['system.details.bio']
+	delete options['system.details.bio'];
 	delete options['system.details.bonds'];
 	delete options['system.details.classes'];
 	delete options['system.details.culture'];
@@ -315,14 +315,14 @@ export default function modifyBaseOptions(options: Object) {
 	delete options['system.migrationData.version'];
 
 	// Delete spell books
-	Object.keys(options).forEach(key => {
+	Object.keys(options).forEach((key) => {
 		if (key.startsWith('system.spellBooks.')) {
 			delete options[key];
 		}
 	});
 
 	// Delete spell resource overrides
-	Object.keys(options).forEach(key => {
+	Object.keys(options).forEach((key) => {
 		if (key.startsWith('system.spellResources.') && key.endsWith('.override')) {
 			delete options[key];
 		}

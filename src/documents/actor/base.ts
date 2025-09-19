@@ -1571,7 +1571,7 @@ class BaseActorA5e extends Actor {
 
 		data.heading ??= 'A5E.traits.headings.alignments';
 		data.propertyKey ??= 'system.traits.alignment';
-		data.configObject ??= CONFIG.A5E.traits.headings.alignments;
+		data.configObject ??= CONFIG.A5E.alignments;
 		data.type ??= 'alignment';
 
 		this.#configure('alignment', title, data, options);
@@ -1583,7 +1583,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureArmorProficiencies(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.armorClass.headings.proficienciesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.armorClass.headings.proficienciesConfigurationPrompt', {
+			name: this.name,
+		});
 
 		data.heading ??= 'A5E.armorClass.headings.proficiencies';
 		data.propertyKey ??= 'system.proficiencies.armor';
@@ -1605,7 +1607,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureCreatureTypes(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.details.creature.headings.typesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.details.creature.headings.typesConfigurationPrompt', {
+			name: this.name,
+		});
 
 		data.heading ??= 'A5E.details.creature.labels.types';
 		data.configObject ??= CONFIG.A5E.creatureTypes;
@@ -1633,7 +1637,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.traits.headings.damage.immunitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.immunitiesConfigurationPrompt', {
+			name: this.name,
+		});
 
 		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
@@ -1644,7 +1650,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageResistances(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.traits.headings.damage.resistancesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.resistancesConfigurationPrompt', {
+			name: this.name,
+		});
 
 		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
@@ -1655,7 +1663,9 @@ class BaseActorA5e extends Actor {
 	}
 
 	configureDamageVulnerabilities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt', { name: this.name });
+		const title = localize('A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt', {
+			name: this.name,
+		});
 
 		data.heading ??= 'A5E.damage.headings.typePlural';
 		data.configObject ??= CONFIG.A5E.damageTypes;
