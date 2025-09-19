@@ -37,15 +37,11 @@
 
     function onUpdateValue(key: string, value: any) {
         if (key === "proficiencyType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                {
-                    base: [],
-                    options: [],
-                    total: 0,
-                },
-            );
+            updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -69,9 +65,11 @@
 
 <form class="a5e-grant">
     <header class="a5e-grant__header">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
             class="a5e-grant-image"
-            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
+            src={grant.img || item.img || "icons/svg/upgrade.svg"}
             alt={grant.label}
             onclick={updateImage}
         />
