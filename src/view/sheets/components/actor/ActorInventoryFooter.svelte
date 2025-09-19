@@ -97,7 +97,7 @@
     let supply = $derived(actorStore.supply);
     let supplyTooltip = $derived(getSupplyTooltip());
     let totalSupply = $derived(actorStore.supply + supplyItems);
-    let implantMax = $derived(actorStore.system.attributes.prof);
+    let implantMax = $derived(actorStore.attributes.prof);
     let currency: Record<string, number> = $derived(getCurrency());
 </script>
 
