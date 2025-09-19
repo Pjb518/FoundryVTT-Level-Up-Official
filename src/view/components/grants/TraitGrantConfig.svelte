@@ -35,7 +35,7 @@
     function onUpdateValue(key, value) {
         if (key === "traits.traitType") {
             updateDocumentDataFromField(
-                $item,
+                item,
                 `system.grants.${grantId}.traits`,
                 {
                     base: [],
@@ -46,7 +46,7 @@
         }
 
         key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
+        updateDocumentDataFromField(item, key, value);
     }
 
     let { document, grantId, grantType }: Props = $props();
@@ -69,7 +69,7 @@
         <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
             class="a5e-grant-image"
-            src={grant.img || $item.img || "icons/svg/upgrade.svg"}
+            src={grant.img || item.img || "icons/svg/upgrade.svg"}
             alt={grant.label}
             onclick={updateImage}
         />
