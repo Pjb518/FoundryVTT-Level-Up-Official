@@ -1,76 +1,87 @@
-import BaseGrant from './BaseGrant';
+import BaseGrant from "./BaseGrant.ts";
 
-import NumericalGrantConfig from '../../../apps/components/grants/NumericalGrantConfig.svelte';
+import NumericalGrantConfig from "#view/components/grants/NumericalGrantConfig.svelte";
 
-import { getHitPointsBonusContext } from '../../actor/Contexts';
+import { getHitPointsBonusContext } from "../../actor/Contexts.ts";
 
 export default class HitPointGrant extends BaseGrant {
-	#configComponent = NumericalGrantConfig;
+  #configComponent = NumericalGrantConfig;
 
-	#type = 'hitPoint';
+  #type = "hitPoint";
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+  static override defineSchema() {
+    const { fields } = foundry.data;
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'hitPoint' }),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(getHitPointsBonusContext()),
-			label: new fields.StringField({ required: true, initial: 'New Hit Point Grant' }),
-		});
-	}
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({
+        required: true,
+        initial: "hitPoint",
+      }),
+      bonus: new fields.StringField({ required: true, initial: "" }),
+      context: new fields.SchemaField(getHitPointsBonusContext()),
+      label: new fields.StringField({
+        required: true,
+        initial: "New Hit Point Grant",
+      }),
+    });
+  }
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	override getApplyData(actor: any, _data: any = {}) {
-		if (!actor) return {};
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  override getApplyData(actor: any, _data: any = {}) {
+    if (!actor) return {};
 
-		const bonusId = foundry.utils.randomID();
-		const bonus = {
-			context: { ...this.context },
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'HitPoint Grant',
-			img: this.img || this?.parent?.img,
-		};
+    const bonusId = foundry.utils.randomID();
+    const bonus = {
+      context: { ...this.context },
+      formula: this.bonus,
+      label: this.label || this.parent?.name || "HitPoint Grant",
+      img: this.img || this?.parent?.img,
+    };
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
-			bonusId,
-			type: this.#type,
-			grantType: 'bonus',
-			level: this.level,
-		};
+    const grantData = {
+      itemUuid: this.parent.uuid,
+      grantId: this._id,
+      bonusId,
+      type: this.#type,
+      grantType: "bonus",
+      level: this.level,
+    };
 
-		return {
-			[`system.bonuses.hitPoint.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
-	}
+    return {
+      [`system.bonuses.hitPoint.${bonusId}`]: bonus,
+      "system.grants": {
+        ...actor.system.grants,
+        [this._id]: grantData,
+      },
+    };
+  }
 
-	override getSelectionComponent() {
-		return null;
-	}
+  override getSelectionComponent() {
+    return null;
+  }
 
-	override getSelectionComponentProps() {
-		return {};
-	}
+  override getSelectionComponentProps() {
+    return {};
+  }
 
-	override requiresConfig(): boolean {
-		return false;
-	}
+  override requiresConfig(): boolean {
+    return false;
+  }
 
-	override async configureGrant(): Promise<any> {
-		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
-			grantType: this.#type,
-		};
+  override async configureGrant(): Promise<any> {
+    const dialogData = {
+      document: this?.parent,
+      grantId: this._id,
+      grantType: this.#type,
+    };
 
-		super.configureGrant('Configure Hit Points Grant', dialogData, this.#configComponent, {
-			width: 400,
-		});
-	}
+    super.configureGrant(
+      "Configure Hit Points Grant",
+      dialogData,
+      this.#configComponent,
+      {
+        width: 400,
+      },
+    );
+  }
 }
