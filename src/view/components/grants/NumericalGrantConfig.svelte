@@ -138,13 +138,15 @@
                             currentTarget.value,
                         )}
                 >
-                    <option
-                        value={null}
-                        selected={grant[selectProperty] === "null" ||
-                            grant[selectProperty] === null}
-                    >
-                        {localize("A5E.None")}
-                    </option>
+                    {#if selectProperty === "damage"}
+                        <option
+                            value={null}
+                            selected={grant[selectProperty] === "null" ||
+                                grant[selectProperty] === null}
+                        >
+                            {localize("A5E.None")}
+                        </option>
+                    {/if}
 
                     {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
                         <option
