@@ -1,32 +1,19 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
     import { localize } from "#utils/localization/localize.ts";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    export let appId;
-    export let document;
-    export let dialog;
-
-    const actor = document;
-
-    const restTypeOptions = {
-        short: "A5E.RestShort",
-        long: "A5E.RestLong",
+    type Props = {
+        document: Actor;
+        dialog: any;
     };
 
-    let restType = "short";
-    let haven = true;
-    let recoverStrifeAndFatigue = true;
-    let simpleRests = game.settings.get("a5e", "simpleRests");
-    let consumeSupply = false;
-
-    async function rollHitDie(dieSize) {
+    async function rollHitDie(dieSize: string) {
         try {
-            await $actor.rollHitDice(dieSize);
+            await actor.rollHitDice(dieSize);
         } catch (e) {
             // TODO: Error System - Display a useful error to the user when hit die updates fail
             console.log(e);
@@ -34,7 +21,10 @@
         }
     }
 
-    function onSubmit() {
+    function onSubmit(e: Event) {
+        e.preventDefault();
+        e.stopPropagation();
+
         const simpleRests = game.settings.get("a5e", "simpleRests");
 
         dialog.submit({
@@ -47,7 +37,22 @@
         });
     }
 
-    $: hitDice = $actor.system.attributes.hitDice;
+    let { document, dialog }: Props = $props();
+    const actor: any = document;
+    let actorStore = $derived(actor.reactive.system);
+
+    const restTypeOptions = {
+        short: "A5E.RestShort",
+        long: "A5E.RestLong",
+    };
+
+    let restType = $state("short");
+    let haven = $state(true);
+    let recoverStrifeAndFatigue = $state(true);
+    let simpleRests = game.settings.get("a5e", "simpleRests");
+    let consumeSupply = $state(false);
+
+    let hitDice = $derived(actorStore.attributes.hitDice);
 </script>
 
 <form class="form">
@@ -55,7 +60,7 @@
         heading="A5E.RestType"
         options={Object.entries(restTypeOptions)}
         selected={restType}
-        on:updateSelection={({ detail }) => (restType = detail)}
+        onUpdateSelection={(detail) => (restType = detail)}
     />
 
     {#if restType === "long" && !simpleRests}
@@ -67,7 +72,7 @@
                 <Checkbox
                     label="A5E.HavenPrompt"
                     checked={haven}
-                    on:updateSelection={({ detail }) => {
+                    onUpdateSelection={(detail) => {
                         haven = detail;
                     }}
                 />
@@ -77,18 +82,18 @@
                 <Checkbox
                     label="A5E.SupplyFatigueStrifePrompt"
                     checked={recoverStrifeAndFatigue}
-                    on:updateSelection={({ detail }) => {
+                    onUpdateSelection={(detail) => {
                         recoverStrifeAndFatigue = detail;
                     }}
                 />
             </FieldWrapper>
 
-            {#if $actor.type === "character"}
+            {#if actor.type === "character"}
                 <FieldWrapper>
                     <Checkbox
                         label="A5E.SupplyConsume"
                         checked={consumeSupply}
-                        on:updateSelection={({ detail }) => {
+                        onUpdateSelection={(detail) => {
                             consumeSupply = detail;
                         }}
                     />
@@ -103,12 +108,12 @@
                 <div class="u-flex u-gap-md u-text-md">
                     {#each ["d6", "d8", "d10", "d12"] as die}
                         <div class="a5e-hit-die-wrapper">
-                            <!-- svelte-ignore a11y-click-events-have-key-events -->
-                            <!-- svelte-ignore a11y-no-static-element-interactions -->
+                            <!-- svelte-ignore a11y_click_events_have_key_events -->
+                            <!-- svelte-ignore a11y_no_static_element_interactions -->
                             <div
                                 class="a5e-hit-die a5e-hit-die--rollable a5e-hit-die--{die}"
                                 class:disabled={hitDice[die].current === 0}
-                                on:click={() => rollHitDie(die)}
+                                onclick={() => rollHitDie(die)}
                             >
                                 <span class="a5e-hit-die__label">{die}</span>
                             </div>
@@ -123,8 +128,8 @@
         </Section>
     {/if}
 
-    <button class="a5e-button" on:click|preventDefault={onSubmit}>
-        <i class="icon fas fa-campground" />
+    <button class="a5e-button" onclick={(e) => onSubmit(e)}>
+        <i class="icon fas fa-campground"></i>
         {localize("A5E.Rest")}
     </button>
 </form>
