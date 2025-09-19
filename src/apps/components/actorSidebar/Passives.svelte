@@ -8,7 +8,7 @@
 
     $: passiveFields = [
         {
-            label: "A5E.ManeuverDC",
+            label: "A5E.maneuvers.dc",
             value: $actor.system.attributes.maneuverDC,
         },
         {
