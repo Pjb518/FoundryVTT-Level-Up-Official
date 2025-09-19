@@ -136,7 +136,7 @@
                     )}
             />
 
-            {#if saveDC || !saveDCIsValid}
+            {#if item.actor && (saveDC || !saveDCIsValid)}
                 <span
                     class="a5e-save-dc-preview"
                     class:a5e-save-dc-preview--invalid={!saveDCIsValid}

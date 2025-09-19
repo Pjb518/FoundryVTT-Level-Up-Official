@@ -36,7 +36,6 @@
     }
 
     function selectRangeUnit(selectedOption: string) {
-        console.log(selectedOption);
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}.ranges.${id}`]: {
@@ -53,7 +52,6 @@
     }
 
     function updateRangeValue(option: string) {
-        console.log(option);
         const isStandard = isStandardRange(option);
 
         if (isStandard) {
