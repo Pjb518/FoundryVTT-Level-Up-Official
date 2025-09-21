@@ -92,11 +92,11 @@
             {#if actor.type === "npc"}
                 <Checkbox
                     label="Squad"
-                    checked={actorStore.values.isSquad}
+                    checked={actorStore.details.isSquad}
                     onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
                             actor,
-                            "system.values.isSquad",
+                            "system.details.isSquad",
                             value,
                         );
                     }}
@@ -105,11 +105,11 @@
 
             <Checkbox
                 label="A5E.values.creature.labels.swarm"
-                checked={actorStore.values.isSwarm}
+                checked={actorStore.details.isSwarm}
                 onUpdateSelection={(value) => {
                     updateDocumentDataFromField(
                         actor,
-                        "system.values.isSwarm",
+                        "system.details.isSwarm",
                         value,
                     );
                 }}
