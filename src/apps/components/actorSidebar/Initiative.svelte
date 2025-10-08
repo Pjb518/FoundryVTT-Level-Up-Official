@@ -58,7 +58,7 @@
     {:else}
         <button
             class="initiative-roll-button icon fas fa-cog"
-            data-tooltip="A5E.InitiativeConfigurationTitle"
+            data-tooltip="A5E.initiative.configurationTitle"
             data-tooltip-direction="DOWN"
             on:click={() => $actor.configureInitiative()}
         />

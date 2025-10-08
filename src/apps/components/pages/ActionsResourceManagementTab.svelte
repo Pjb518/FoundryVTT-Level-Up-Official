@@ -42,7 +42,7 @@
         },
         hitDice: {
             heading: "A5E.ConsumerHitDice",
-            singleLabel: "A5E.HitDiceLabel",
+            singleLabel: "A5E.hitDice.title",
             component: HitDiceConsumer,
         },
         quantity: {
@@ -79,10 +79,7 @@
 
     $: menuList = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (
-                consumerType === "resource" ||
-                !existingConsumers.has(consumerType)
-            )
+            if (consumerType === "resource" || !existingConsumers.has(consumerType))
                 acc.push([consumerType, singleLabel]);
 
             return acc;
@@ -99,10 +96,7 @@
         --a5e-section-body-gap="0.5rem"
     >
         {#if !isClassResource}
-            <FieldWrapper
-                heading="A5E.UsesCurrent"
-                --a5e-field-wrapper-width="7.5rem"
-            >
+            <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
                 <input
                     type="number"
                     name="system.actions.{actionId}.uses.value"
@@ -128,11 +122,7 @@
                     // @ts-expect-error
                     handleDeterministicInput(target.value);
                     // @ts-expect-error
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    );
+                    updateDocumentDataFromField($item, target.name, target.value);
                 }}
             />
         </FieldWrapper>
@@ -143,11 +133,7 @@
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
                     // @ts-expect-error
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             >
                 <option value="" />
 
@@ -166,10 +152,7 @@
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper
-                heading="A5E.ItemRechargeFormula"
-                --a5e-field-wrapper-grow="1"
-            >
+            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"

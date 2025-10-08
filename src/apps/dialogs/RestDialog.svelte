@@ -14,8 +14,8 @@
     const actor = document;
 
     const restTypeOptions = {
-        short: "A5E.RestShort",
-        long: "A5E.RestLong",
+        short: "A5E.rest.short",
+        long: "A5E.rest.long",
     };
 
     let restType = "short";
@@ -41,9 +41,7 @@
             consumeSupply: simpleRests ? false : consumeSupply,
             haven: simpleRests ? true : haven,
             restType,
-            recoverStrifeAndFatigue: simpleRests
-                ? true
-                : recoverStrifeAndFatigue,
+            recoverStrifeAndFatigue: simpleRests ? true : recoverStrifeAndFatigue,
         });
     }
 
@@ -52,17 +50,14 @@
 
 <form class="form">
     <RadioGroup
-        heading="A5E.RestType"
+        heading="A5E.rest.type"
         options={Object.entries(restTypeOptions)}
         selected={restType}
         on:updateSelection={({ detail }) => (restType = detail)}
     />
 
     {#if restType === "long" && !simpleRests}
-        <Section
-            --a5e-section-body-padding="0"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
                     label="A5E.HavenPrompt"
@@ -99,7 +94,7 @@
 
     {#if restType === "short"}
         <Section --a5e-section-body-padding="0">
-            <FieldWrapper heading="A5E.HitDiceLabel">
+            <FieldWrapper heading="A5E.hitDice.title">
                 <div class="u-flex u-gap-md u-text-md">
                     {#each ["d6", "d8", "d10", "d12"] as die}
                         <div class="a5e-hit-die-wrapper">
@@ -125,7 +120,7 @@
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
         <i class="icon fas fa-campground" />
-        {localize("A5E.Rest")}
+        {localize("A5E.rest.title")}
     </button>
 </form>
 
