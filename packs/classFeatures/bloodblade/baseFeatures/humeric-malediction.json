@@ -1,0 +1,601 @@
+{
+	"folder": null,
+	"name": "Humeric Malediction",
+	"type": "feature",
+	"img": "icons/skills/wounds/blood-cells-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TgbLwhiBNXyte8JZ": {
+				"name": "Humeric Malediction",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"sLUGkWnPlzDJBCfI": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.dyscrasia",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"dkg1dPGOyikiJIws": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"Tui9nFRatpjHPpbs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "SnnmmzST0jtMfkhE"
+					},
+					"qqGw8bA3fwlVyt5n": {
+						"type": "effect",
+						"default": true,
+						"effectId": "frK6y3zgMkOUmUFq",
+						"label": "Strength"
+					},
+					"5KZsrbV9IqNDVCA2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "HI5VQ2C1IEbPq3GW",
+						"label": "Dexterity"
+					},
+					"eXNLYgJJbk1GOwyO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8bU4h7bi0lmXSChU",
+						"label": "Constitution"
+					},
+					"cJ0T4yEdyWKj5pGx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "aMcqpVcg2qjhikRA",
+						"label": "Intelligence"
+					},
+					"zPTms5WqPGw56ZOR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ayhEjbOkECYSCo1f",
+						"label": "Wisdom"
+					},
+					"L2YsrKxgIqgn66d8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vQUMtYSSFvMnqQO6",
+						"label": "Charisma"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"xFk0SugwTSFkfjKV": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>You reach out and attempt to disrupt the humors of an enemy creature within reach. As a bonus action, choose one creature you can see within 30 feet of you. That creature must succeed on a Constitution saving throw against your maneuver DC. On a success, nothing happens, and that creature becomes immune to your Dyscrasia ability for the next 24 hours. On a failure, choose one ability score. That creature has disadvantage on ability checks that use the chosen ability score for the next minute.</p>\n<p>You may use your Humeric Malediction feature as a free action if you are frenzied.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dyscrasia Immunity",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "SnnmmzST0jtMfkhE",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a success, nothing happens, and that creature becomes immune to your Dyscrasia ability for the next 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Strength)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "frK6y3zgMkOUmUFq",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Dexterity)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "HI5VQ2C1IEbPq3GW",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Constitution)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "8bU4h7bi0lmXSChU",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Intelligence)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "aMcqpVcg2qjhikRA",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Wisdom)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "ayhEjbOkECYSCo1f",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UAJ48haaV7esJG2n",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TgbLwhiBNXyte8JZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Humeric Malediction (Charisma)",
+			"img": "icons/skills/wounds/blood-cells-red.webp",
+			"_id": "vQUMtYSSFvMnqQO6",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on ability checks that use the chosen ability score for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512351614,
+		"modifiedTime": 1761512351614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dRigeWG7CfavnTHE"
+}

@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Alchemical Balm",
+	"type": "feature",
+	"img": "icons/tools/laboratory/bowl-mixing.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"wI5J5GiHiJ5a4uSx": {
+				"name": "Create Alchemical Balm",
+				"activation": {
+					"type": "minute",
+					"cost": 10,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"3UnduOG1JVelhLrk": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"mbYygBWk6EeXZUYH": {
+				"name": "Use Alchemical Balm",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Forced to make saving throw to resist Blood Frenzy"
+				},
+				"consumers": {
+					"VSqGWYdNcmelBz6C": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"6z2oD6AgjI69j7DN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DROGDkZH8nuHEp0B"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Also at 3rd level, so long as you have 10 minutes and access to @UUID[Compendium.a5e.a5e-adventuring-gear.Item.d8aj2xoatccd71ce]{Alchemist's Supplies} you may craft an alchemical balm that may help abate your frenzied state. This balm has no effect on other creatures and may be crafted as part of a short or long rest. You may craft a number of these balms equal to half of your proficiency bonus (rounded down), though if they go unused they spoil within 24 hours.</p>\n<p>When you would be forced to make your saving throw to resist your @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.eSbauOXs2C1ajtDf]{Blood Frenzy}, you may use your reaction to immediately apply the balm, granting you an expertise die to the roll for a number of rounds equal to your Intelligence modifier.</p>\n<p>Your expertise die to this save increases to a d6 at 10th level and a d8 at 17th level. This expertise die cannot be increased by any other feature or spell.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "floor(@prof/2)",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.48Ylu9lwmwAuhcF7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "mbYygBWk6EeXZUYH",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Alchemical Balm",
+			"img": "icons/tools/laboratory/bowl-mixing.webp",
+			"_id": "DROGDkZH8nuHEp0B",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you would be forced to make your saving throw to resist your Blood Frenzy, you may use your reaction to immediately apply the balm, granting you an expertise die to the roll for a number of rounds equal to your Intelligence modifier.</p>\n<p>Your expertise die to this save increases to a d6 at 10th level and a d8 at 17th level. This expertise die cannot be increased by any other feature or spell.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351784,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512351614,
+		"modifiedTime": 1761512351614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "j4Ee1KxwsMPb8uv7"
+}
