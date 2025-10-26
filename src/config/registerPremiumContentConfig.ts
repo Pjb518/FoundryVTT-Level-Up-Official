@@ -77,6 +77,10 @@ export default function registerPremiumContentConfig() {
 					title: 'Hearth & Home',
 					url: 'https://www.drivethrurpg.com/en/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381',
 				},
+				{
+					title: 'Bloody Heretics',
+					url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
+				},
 			],
 		},
 		purpleMartinGames: {
@@ -227,6 +231,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Arcane Sniper',
 			url: 'https://bit.ly/3I3t0SW',
+		},
+		bloodyHeretics: {
+			abbreviation: 'BH',
+			affiliate: true,
+			publisher: 'plantWitchPress',
+			systems: ['a5e'],
+			title: 'Bloody Heretics',
+			url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
 		},
 		confidenceMage: {
 			abbreviation: 'ConfMage',

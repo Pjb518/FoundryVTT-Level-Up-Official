@@ -11,6 +11,11 @@ export default function registerModuleIncompatibilities() {
 					'The content from this module is included in the core system packs, and the module is no longer necessary.',
 				priority: 'low',
 			},
+			'a5e-bloody-heretics': {
+				reason:
+					'The content from this module is included in the core system packs, and the module is no longer necessary.',
+				priority: 'low',
+			},
 			'a5e-concentrator': {
 				reason:
 					'The A5e concentrator module is no longer working correctly, and its functionality will soon be part of the core system.',
