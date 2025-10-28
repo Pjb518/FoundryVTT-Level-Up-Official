@@ -1592,6 +1592,7 @@ const tools = {
 		poisonersKit: 'A5E.tools.singular.poisonersKit',
 		sewingKit: 'A5E.tools.singular.sewingKit',
 		smithsTools: 'A5E.tools.plural.smithsTools',
+    surgicalTools: 'A5E.tools.plural.surgicalTools',
 		thievesTools: 'A5E.tools.plural.thievesTools',
 		computers: 'A5E.tools.plural.computers',
 	},
@@ -1671,6 +1672,7 @@ const toolsPlural = {
 		poisonersKit: 'A5E.tools.plural.poisonersKit',
 		sewingKit: 'A5E.tools.plural.sewingKit',
 		smithsTools: 'A5E.tools.plural.smithsTools',
+    surgicalTools: 'A5E.tools.plural.surgicalTools',
 		thievesTools: 'A5E.tools.plural.thievesTools',
 	},
 	specialist: {
