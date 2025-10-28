@@ -1,0 +1,242 @@
+{
+	"folder": null,
+	"name": "Gibbering Essence",
+	"type": "object",
+	"img": "icons/consumables/potions/potion-vial-corked-labeled-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PORvLtcx1kbtY24z": {
+				"name": "Gibbering Essence",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ZDd3mZKl3SOKeRqB": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "kdLy454aCJpBl6Rd",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Xyfy9J6uDOY9IQw0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "14"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"MPESjAVqbkCtm3ut": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9cnyhq85OQ4XnnqL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ATKjfdYD2Co0o72u": {
+						"range": "short"
+					},
+					"9E9V1P9qealgIiNG": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Distilled from the bodily fluids of a gibbering mouther, this flask of blackish-purple liquid shifts unnaturally in its container.</p>\n<p>As an action, you may throw the vial of Gibbering Essence at a square you can see within range, where it shatters on impact. Creatures within 15 feet of the affected square must succeed a DC 14 Wisdom saving throw or become confused for the next minute. Affected creatures may repeat their saving throw at the end of each of their turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Gibbering Mouther bile",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "100 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.kdLy454aCJpBl6Rd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PORvLtcx1kbtY24z",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"img": "icons/consumables/potions/potion-vial-corked-labeled-purple.webp",
+			"_id": "9cnyhq85OQ4XnnqL",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature can't take reactions.</li>\n<li>On its turn a confused creature rolls a d8 to determine what it does. \n<ul>\n<li>On a 1 to 4, a confused creature does nothing. </li>\n<li>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction. </li>\n<li>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761556000806,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761556000786,
+		"modifiedTime": 1761556000810,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "x9Xwri8NGQbKWd7K"
+}
