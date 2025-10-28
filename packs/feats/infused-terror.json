@@ -1,0 +1,251 @@
+{
+	"name": "Infused Terror",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"xVZpsuDURtK6Yi3T": {
+				"name": "Raging and Frenzied",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"ROgK70WKiUZOjI9P": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"AM52MfDD13KL1R4E": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"id4C5Yi5DvuJPu4Q": {
+				"name": "Heal",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"Zu0fQW5Ba0WOToBV": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d12",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<ul>\n<li>Your Strength, Constitution, or Intelligence score increases by 1, to a maximum of 20.</li>\n<li>Half your berserker levels count as bloodblade levels for the purpose of the @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.BN530ktKxe54Qs8x]{Frenzied Fury} and @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.DhH2HdUvPQYNIbWE]{Accelerated Recovery} features.</li>\n<li>Whenever you reduce a creature with a CR equal to at least half your character level to 0 hit points, treat it as an instance of the @UUID[Compendium.a5e.a5e-class-features.Item.3e8xfjdw4e5p8eq4]{Terrifying Force} furious critical option.</li>\n<li>While you are raging and frenzied, you gain the following additional benefits:\n<ul>\n<li>When you reduce a creature of a CR of at least half your character level to 0 hit points, you regain 2d12 hit points.</li>\n<li>You can use your bonus action to make a single melee weapon attack.</li>\n<li>If you are reduced to 0 hp, you remain conscious while making death saves, but your speed is halved and you no longer apply your ability score bonus to weapon damage. In addition, if you fail a 3rd death save and die, you cannot be returned to life by spells of less than 5th level.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"dh08tVDP4u7rIZ0S": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "dh08tVDP4u7rIZ0S",
+				"label": "Infused Terror",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"str",
+						"con",
+						"int"
+					],
+					"total": 1
+				},
+				"context": {
+					"default": false,
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Sanctified Fury feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.hooREpyAwtOHjaOX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xVZpsuDURtK6Yi3T",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Raging and Frenzied",
+			"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+			"_id": "dWc0dPfdv4Omj4CJ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "20",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>You do not automatically exit frenzy or rage when you reduce a creature to 0 hit points or when you are no longer bloodied. Instead, you must make a Charisma saving throw against your maneuver DC with a bonus equal to the number of times you have failed this save to exit your rage.</li>\n<li>Your movement speed increases by 20 feet and your jumping distance doubles.</li>\n<li>When a creature hits you with a melee attack, you can use your reaction to make a weapon attack against it.</li>\n<li>When either your frenzy or your rage would end, you can choose to end both. You cannot choose to end your rage on your turn as a bonus action if you are also frenzied.</li>\n<li>When you reduce a creature of a CR of at least half your character level to 0 hit points, you regain 2d12 hit points.</li>\n<li>You can use your bonus action to make a single melee weapon attack.</li>\n<li>If you are reduced to 0 hp, you remain conscious while making death saves, but your speed is halved and you no longer apply your ability score bonus to weapon damage. In addition, if you fail a 3rd death save and die, you cannot be returned to life by spells of less than 5th level.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798450,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555798329,
+		"modifiedTime": 1761555798329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wQT67pEo4Hl5jWxO"
+}

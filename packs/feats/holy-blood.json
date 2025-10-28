@@ -1,0 +1,435 @@
+{
+	"name": "Holy Blood",
+	"type": "feature",
+	"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FISbiQFyIaRnI5EG": {
+				"name": "Hostile to Faith",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"HNxaoQEDnMbSCZrc": {
+						"type": "damage",
+						"default": false,
+						"formula": "2d6",
+						"damageType": "radiant",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					},
+					"cGVxFhalH8nEmJwC": {
+						"type": "damage",
+						"default": false,
+						"formula": "2d6",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"RFbRV4nJMLsEx9PE": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"w70ytBt7aL4nyDY6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kCYDU7P1z2i9eP27"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"iMyZTG1FGnYxdqpW": {
+				"name": "Stop Frenzy",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Reduce a friendly creature to 0 hit points during a blood frenzy"
+				},
+				"consumers": {
+					"weJeyv5N2YrJVP0I": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"RvQVRjIu5RnnL08N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "K5vZW0FPqV39yV5U"
+					},
+					"1D4hSJAbhGKhksnY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xCmvOQfSwA8MKyIW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Your blood itself has become sanctified, making it dangerous to certain beings. You gain the following benefits:</p>\n<ul>\n<li>When using your favored weapon, you deal an additional 1d6 points of radiant or necrotic damage (choose when you take this feat) during @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.eSbauOXs2C1ajtDf]{Blood Frenzy}.</li>\n<li>When you would gain a new @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.o8OLFET0ceh9GSWy]{Esoteric Art} or @UUID[Compendium.a5e.a5e-class-features.Item.319mwkz0dd6sznnv]{Sign of Faith}, you can select freely from either list.</li>\n<li>Your blood is anathema to creatures hostile to your faith. Choose three creature types from the following list: aberration, celestial, construct, dragon, fey, elemental, fiend, monstrosity, ooze, or undead. When a creature of one of the selected types deals damage to you with a melee piercing or slashing attack, it must make a Dexterity save against your cleric spellcasting DC or suffer 2d6 points of radiant or necrotic damage (choose when you take this feat) and be slowed until the end of your next turn.</li>\n<li>You retain some dim awareness of friend and foe during your blood frenzy, but require the aid of your divine patron to act upon it, and that help comes with a cost. If you would reduce a friendly creature to 0 hit points during a blood frenzy, you can use your reaction to spend a use of @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} to stop your frenzy. The triggering attack, spell, or other effect is canceled, your frenzy ends, you are stunned until the beginning of your next turn, and you suffer two levels of fatigue.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"Ktvx2KDzLhit5fD5": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "Ktvx2KDzLhit5fD5",
+				"label": "Holy Blood (Radiant)",
+				"bonus": "1d6",
+				"damageType": "radiant",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"9DmQoS9Oy836cCVc": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "Ktvx2KDzLhit5fD5",
+				"label": "Holy Blood (Necrotic)",
+				"bonus": "1d6",
+				"damageType": "necrotic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
+		"prerequisite": "Sacred Essence feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ml0kUKOAOq5jwZQA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FISbiQFyIaRnI5EG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"_id": "kCYDU7P1z2i9eP27",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws .</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798466,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ml0kUKOAOq5jwZQA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iMyZTG1FGnYxdqpW",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"_id": "K5vZW0FPqV39yV5U",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798466,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ml0kUKOAOq5jwZQA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iMyZTG1FGnYxdqpW",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+			"_id": "xCmvOQfSwA8MKyIW",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Suffer two levels of fatigue.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798466,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555798329,
+		"modifiedTime": 1761555798329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "eVkMirkuzPn6FAQA"
+}
