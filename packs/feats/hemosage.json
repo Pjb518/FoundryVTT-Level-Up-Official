@@ -1,0 +1,238 @@
+{
+	"name": "Hemosage",
+	"type": "feature",
+	"img": "icons/skills/wounds/blood-cells-vessel-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"5ie8DgvkRGb55Zef": {
+				"name": "Mark Enemy",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"14BU8Jx4jl8KWHue": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "arc",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					},
+					"9AMojJTdt0NC4k4Q": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "nat",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					},
+					"T01UxhXqGklf05Ru": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "his",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					},
+					"ePayn3tDpQwEEwxy": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "rel",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"prompts": {
+					"4g2CDbI7FhxKvpLW": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/wounds/blood-cells-vessel-red.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<ul>\n<li>Your Intelligence score increases by 1.</li>\n<li>Whenever a scholar ability would require you to spend inspiration, you may instead expend a hit die.</li>\n<li>You gain the @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.DhH2HdUvPQYNIbWE]{Accelerated Recovery} ability, and add your scholar and bloodblade levels together to determine the CR of creatures you can affect. &nbsp;If you would already have the Accelerated Recovery ability, you may instead regain hit dice equal to either your constitution or intelligence modifier, whichever is higher.</li>\n<li>The duration of your mark from the @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.as2ADovft2mxBCWa]{Scholar of the Blood} feat is also increased to 1 hour.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"8JscxlkQ4JMMBy6q": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8JscxlkQ4JMMBy6q",
+				"label": "Hemosage",
+				"bonus": "1",
+				"abilities": {
+					"base": [
+						"int"
+					],
+					"options": [],
+					"total": 0
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"img": ""
+			},
+			"SOt0f594N39piwSS": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "SOt0f594N39piwSS",
+				"label": "Hemosage",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e-bloody-heretics.bloody-heretics.Item.DhH2HdUvPQYNIbWE",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "Sanguine Slayer feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.88S2d82MrL1QvNJg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "5ie8DgvkRGb55Zef",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Scholar of the Blood",
+			"img": "icons/skills/wounds/blood-cells-vessel-red.webp",
+			"_id": "z9ok2b8L6puWtRtL",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on attack rolls against the marked creature for 1 minute, as well as any attempts to track them or locate them if hidden. You may shed some blood to gain the benefits of this feat on the check as part of the same bonus action.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798446,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555798329,
+		"modifiedTime": 1761555798329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ZwlyzUD69tQqoYxR"
+}

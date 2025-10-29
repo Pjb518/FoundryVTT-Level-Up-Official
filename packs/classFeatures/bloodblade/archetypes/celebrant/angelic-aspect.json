@@ -1,0 +1,191 @@
+{
+	"folder": null,
+	"name": "Angelic Aspect",
+	"type": "feature",
+	"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ny1ybJGecyhDnLEQ": {
+				"name": "Angelic Aspect",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"A1QljsFWDLSpPecF": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"hd3GZZXPfvm69PaK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yQkBsIbgvskHK1Wi"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 6th level, you gain resistance to radiant damage.</p>\n<p>Additionally, you may call upon your celestial blood to briefly take on some of their traits. As a bonus action, you cause a pair of spectral, angelic wings to appear on your back, granting you a fly speed equal to your Speed. These wings last a number of rounds equal to your Constitution modifier. If you are still airborne when this effect ends, you are incapacitated, or you drop to 0 hit points, you fall at a rate of 30 feet per round. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"tFoeDlSga3JRcEBY": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "tFoeDlSga3JRcEBY",
+				"label": "Angelic Aspect",
+				"traits": {
+					"base": [
+						"radiant"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.gWUTY3pRWMWEt6rR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ny1ybJGecyhDnLEQ",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Angelic Aspect",
+			"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
+			"_id": "yQkBsIbgvskHK1Wi",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A pair of spectral, angelic wings to appear on your back, granting you a fly speed equal to your Speed. These wings last a number of rounds equal to your Constitution modifier. If you are still airborne when this effect ends, you are incapacitated, or you drop to 0 hit points, you fall at a rate of 30 feet per round.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553707410,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553707209,
+		"modifiedTime": 1761553707209,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dlOp96pOVZ8Qoacs"
+}

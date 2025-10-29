@@ -1,0 +1,244 @@
+{
+	"folder": null,
+	"name": "Aberrant Exemplar",
+	"type": "feature",
+	"img": "icons/commodities/biological/mouth-toothed-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"K7E89NkiRfZkToIS": {
+				"name": "Maddening Strikes",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"pC9heLTBxk7AjoYt": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"rAoge32YHXup097d": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"gZ0V2sTD9qJjoOVi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "814fuuPkm0ALhIAK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@int.mod",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"zKjXNxJEw0wfmb72": {
+				"name": "Alien Aspect",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit with a melee weapon attack"
+				},
+				"consumers": {
+					"FdGUZr9lqb4wK8lX": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@con.mod",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"O8oWK1a6WQRsYFgp": {
+						"range": "short",
+						"unit": "feet"
+					}
+				},
+				"img": "icons/commodities/treasure/egg-ornate-green-gold.webp",
+				"target": {
+					"type": "creature",
+					"quantity": 2,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>At 18th level, you gain the following benefits:</p><h2>Disenchanted</h2><p>You are immune to the charmed condition.</p><h2>Maddening Strikes</h2><p>When you fall out of your @UUID[Compendium.a5e.a5e-class-features.Item.RxXgBwcryu2kcT4l]{Frenzied Fury} ability, you may choose instead to take a level of Strife instead of Fatigue.</p><p>While you have any levels of Strife, your strikes become suffused with your madness. When you hit a creature with a weapon attack, that creature must succeed on a Wisdom saving throw versus your maneuver DC. On a success, the target creature is immune to your Maddening Strikes feature for 24 hours. On a failure, they become inflicted by a minor form of your @UUID[Compendium.a5e.a5e-class-features.Item.Zy5SjEocWsJaxdiy]{Blood Frenzy}. While frenzied in this manner, the target creature must attack the nearest creature to it, even if it is an ally, or otherwise move to the creature nearest to it. The target remains frenzied until it is reduced to 0 hit points or it reduces another creature to 0 hit points.</p><p>You may infect a number of creatures with this frenzy equal to your Intelligence modifier per long rest.</p><h2>Unnatural Movement</h2><p>When you use your @UUID[Compendium.a5e.a5e-class-features.Item.fMSUXH3X8HENoQsw]{Alien Aspect} ability, you may teleport 30 feet, and you may take one willing creature with you when you teleport.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"CnevHIfD83sSKstH": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "CnevHIfD83sSKstH",
+				"label": "Disenchanted",
+				"traits": {
+					"base": [
+						"charmed",
+						"fixated"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.tfam8CcO5cUm8NCM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "K7E89NkiRfZkToIS"
+				}
+			},
+			"transfer": false,
+			"name": "Minor Frenzy",
+			"img": "icons/commodities/biological/mouth-toothed-purple.webp",
+			"_id": "814fuuPkm0ALhIAK",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Must attack the nearest creature to it, even if it is an ally, or otherwise move to the creature nearest to it. The target remains frenzied until it is reduced to 0 hit points or it reduces another creature to 0 hit points.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553888719,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553888666,
+		"modifiedTime": 1761554398147,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "SYbkiga2aE91QR6G"
+}

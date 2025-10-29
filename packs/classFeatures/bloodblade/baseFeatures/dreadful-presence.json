@@ -1,0 +1,190 @@
+{
+	"folder": null,
+	"name": "Dreadful Presence",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-monster-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"tVzQs51nOD9oymxL": {
+				"name": "Dreadful Presence",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit a creature with a melee weapon attack"
+				},
+				"consumers": {
+					"uC9QP6ChTUrDXz4B": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"kezkeQXWlI9poF5G": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"yx3juj6MGupYDPZK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nRcUA5G3U4R5E5xf"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>The horrific nature of your mutations lends you a terrifying aura. When you hit a creature with a melee weapon attack, you may use your reaction to briefly intensify the horror of your physical form. The target creature must make a Wisdom saving throw versus your maneuver DC or become frightened of you until the end of your next turn. Once you have used this ability, you may not do so again until you complete a long rest.</p>\n<p>You may use your Dreadful Presence feature as a free action if you are frenzied.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.oJ8KaMZ8Bc1sE9Wx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tVzQs51nOD9oymxL",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/control/fear-fright-monster-red.webp",
+			"_id": "nRcUA5G3U4R5E5xf",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351821,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512351614,
+		"modifiedTime": 1761512351614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jUov3xwXEXvtSI3K"
+}

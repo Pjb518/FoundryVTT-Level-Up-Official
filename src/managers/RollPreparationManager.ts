@@ -141,7 +141,7 @@ class RollPreparationManager {
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
 		const roll = await new Roll(rollFormula).evaluate();
-		const label = localize('A5E.AbilityCheckSpecific', { ability });
+		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
 			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,

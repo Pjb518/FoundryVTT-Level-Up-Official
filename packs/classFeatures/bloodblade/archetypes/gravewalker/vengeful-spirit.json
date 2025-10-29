@@ -1,0 +1,117 @@
+{
+	"folder": null,
+	"name": "Vengeful Spirit",
+	"type": "feature",
+	"img": "icons/magic/death/skull-energy-light-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jl90BLtNiunYErMF": {
+				"name": "Vengeful Spirit",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "An enemy creature hits you with an attack"
+				},
+				"consumers": {
+					"fhoTwJVBK0KGCSqF": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"CgAte798rWQ7L5Gx": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d8 + floor(@classes.bloodblade.level/2)",
+						"damageType": "necrotic",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>The fury of a wronged soul floods into you. When an enemy creature hits you with an attack, you may immediately use your reaction to inflict 1d8 + half your bloodblade level (rounded down) points of necrotic damage. You may use this ability a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553707209,
+		"modifiedTime": 1761553707209,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fAEayPmWktu3fMbb"
+}

@@ -1,0 +1,369 @@
+{
+	"folder": null,
+	"name": "Wrath of the Heavens",
+	"type": "feature",
+	"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PtzWzVjk2eiB30cU": {
+				"name": "Frenzied",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Ff6fznJkyBoMMLRx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uKSs8wHYo64wTNx6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"rYHQ1hdAnunrPcrz": {
+				"name": "Wrath of the Heavens",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ZKEtQMKrl8Fd0cuA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"abXQRaIhYZO2isi8": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d10",
+						"damageType": "radiant",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"ro98Lhcutayi7Tr7": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"86wXUx1phMM0rBgH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1WM31ZllgA4KhJuo"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"NyLKKBFsYksL5FiA": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"bG4QIXryNB3L2hui": {
+				"name": "Additional Damage",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"xTkUGmVVDlCT7CR3": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d10",
+						"damageType": "radiant",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 14th level, you gain immunity to radiant damage while you are frenzied.</p>\n<p>Additionally, as a bonus action, you may create an aura of sunlight around yourself. The aura emanates in a 10-foot radius centered on you, and the aura moves with you. Whenever a creature enters your aura for the first time or starts their turn there, they must succeed on a Constitution saving throw versus your maneuver DC. If the creature is adversely affected by sunlight (such as a vampire), they make their save at disadvantage. On a success, the creature is immune to your aura for 24 hours. On a failure, the creature takes 3d10 radiant damage and is blinded until the start of your next turn. Every subsequent round the creature stays in your aura, they take an additional 1d10 radiant damage. Each round spent in the aura&rsquo;s area of effect also counts as being exposed to sunlight. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.xjrwCalKqZAkATxz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PtzWzVjk2eiB30cU",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Wrath of the Heavens",
+			"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+			"_id": "uKSs8wHYo64wTNx6",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"radiant\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain immunity to radiant damage while you are frenzied.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553707438,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.xjrwCalKqZAkATxz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rYHQ1hdAnunrPcrz",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+			"_id": "1WM31ZllgA4KhJuo",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553707438,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553707209,
+		"modifiedTime": 1761553707209,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "F2nGVOhKCpCHRSg8"
+}

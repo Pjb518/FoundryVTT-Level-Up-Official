@@ -9,7 +9,7 @@ export default function getCheckLabel(messageData) {
 
 	switch (messageData.cardType) {
 		case 'abilityCheck':
-			return localize('A5E.AbilityCheckSpecific', { ability });
+			return localize('A5E.abilities.headings.checkSpecific', { ability });
 		case 'hitDice':
 			return messageData.title;
 		case 'savingThrow':

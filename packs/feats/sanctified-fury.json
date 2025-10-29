@@ -1,0 +1,226 @@
+{
+	"name": "Sanctified Fury",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"dHAq4WzB9hPYJEgd": {
+				"name": "Gain Scar",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"PEe1FuzFfvdsR01v": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"s0x1KVpgBVXQafQn": {
+				"name": "Scars Over Double Proficiency",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"dzc8vAv5PQURAPhM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bZdTMg3yu9oos2ZW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Your mix of supernatural blood and naturally violent disposition make you incredibly durable, if also incredibly reckless, and your frequent brushes with death make you a menacing and resilient figure. You gain the following benefits:</p>\n<ul>\n<li>Every time you are reduced to 0 hp by a hostile creature with a CR of at least half your character level, you receive a scar.</li>\n<li>If your scars are less than your proficiency bonus, half your bloodblade levels count as berserker levels for the purpose of determining the number of rage hit points you receive while raging.</li>\n<li>If your scars are equal to or greater than your proficiency bonus, you instead count all of your bloodblade levels as berserker levels when determining rage hit points.</li>\n<li>If your scars are more than double your proficiency bonus, in addition to the effects above, you have disadvantage on all Charisma checks and saves except for Intimidation checks, which you have advantage on.</li>\n<li>Half your bloodblade levels count as berserker levels for the purpose of gaining access to furious critical options.</li>\n<li>Half your berserker levels count as bloodblade levels for the purpose of the @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.eHhl43N811rev5SC]{Dyscrasia} feature.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Bloody Wrath feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.7Mp32op1MpyaQbvX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s0x1KVpgBVXQafQn",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Sanctified Fury",
+			"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+			"_id": "bZdTMg3yu9oos2ZW",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.itm",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your scars are more than double your proficiency bonus, in addition to the effects above, you have disadvantage on all Charisma checks and saves except for Intimidation checks, which you have advantage on.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798440,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555798329,
+		"modifiedTime": 1761555798329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "j8Onn6OzxIbUdkAH"
+}

@@ -1,0 +1,265 @@
+{
+	"folder": null,
+	"name": "Septic Strike",
+	"type": "maneuver",
+	"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+	"system": {
+		"actions": {
+			"q84gjDZKWcnGSuUk": {
+				"name": "Septic Strike",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"2guYXHKhJTA3HIj5": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"emNwaKadHGmcZyXD": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12",
+						"damageType": "poison",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"CJ1v3mDNtWK8SBbB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, rattled",
+						"label": ""
+					},
+					"Uc9h2coRlK1TOyTc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pApJyKz8WO1TILnz"
+					},
+					"DmMfSaY7qks3rAF8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "OHUlgoHvSj22syBH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>To use this maneuver, the target must be Bloodied or suffering ongoing damage. You introduce a painful, disorienting, and fast-acting infection into the target&rsquo;s blood. Make a melee weapon attack. On a hit, the target takes normal weapon damage from the attack and must also make a Constitution saving throw. On a failed save, it takes 1d12 points of poison damage and is poisoned and dazzled until the end of its next turn. On a successful save, it suffers only half damage from the poison and is rattled instead. Creatures without blood are immune to this maneuver.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "viciousVein",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.V83H32hBlt3TVl1Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "q84gjDZKWcnGSuUk",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned and Dazzled",
+			"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+			"_id": "pApJyKz8WO1TILnz",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"dazzled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Poisoned</p>\n<ul>\n<li>A poisoned creature has disadvantage on attack rolls and ability checks.</li>\n</ul>\n<p>Dazzled</p>\n<ul>\n<li>A dazzled creature has disadvantage on ability checks that require sight.</li>\n<li>A dazzled creature cannot take reactions.</li>\n<li>Creatures that are immune to being blinded are immune to being dazzled.</li>\n<li>If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned",
+				"dazzled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555536134,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.V83H32hBlt3TVl1Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "q84gjDZKWcnGSuUk",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+			"_id": "OHUlgoHvSj22syBH",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555536134,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555536043,
+		"modifiedTime": 1761555536043,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "g8IUk0yasM4yHAyY"
+}

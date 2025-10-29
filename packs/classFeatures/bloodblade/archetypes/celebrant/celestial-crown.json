@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Celestial Crown",
+	"type": "feature",
+	"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"RNqrx46mqCi4tKYv": {
+				"name": "Celestial Crown",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"C8dvvaNzCzoDg9Au": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"03nA1g5V4zVMp4gg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IHo1EFLjJWPqGyIN"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"tOsQyyuvcLPnSzrm": {
+				"name": "Roll With Advantage",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"hzji86hu1swAmoUw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 10th level, you may use your action to conjure a ring of spectral eyes that appear as a halo around your brow. The number of eyes you conjure is equal to your Intelligence modifier (minimum 1).</p>\n<p>While at least one of these eyes is active, you cannot be surprised by nonmagical means. Additionally, you have advantage on ability checks to recognize or see through visual illusory effects within 30 feet, such as @UUID[Compendium.a5e.a5e-spells.Item.eceeym81z9dq6r58]{Major Image} or @UUID[Compendium.a5e.a5e-spells.Item.4oruofw2q7gso9hq]{Minor Illusion}, as well as on saving throws against spells or effects that utilize visual illusions, such as the @UUID[Compendium.a5e.a5e-spells.Item.crjcunjc1r21w2mv]{Fear}spell. Each time you roll a die with advantage to see through an illusion or resist a visual illusion, one of these eyes closes and disappears. When all of your spectral eyes have closed, this effect ends, and you may not use it again until you complete a short or a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "max(@int.mod,1)",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ZJv7sjLkmFDjHveY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RNqrx46mqCi4tKYv",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Celestial Crown",
+			"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"_id": "IHo1EFLjJWPqGyIN",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While at least one of these eyes is active, you cannot be surprised by nonmagical means. Additionally, you have advantage on ability checks to recognize or see through visual illusory effects within 30 feet, such as Major Image or Minor Illusion, as well as on saving throws against spells or effects that utilize visual illusions, such as the Fearspell. Each time you roll a die with advantage to see through an illusion or resist a visual illusion, one of these eyes closes and disappears.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553707405,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553707209,
+		"modifiedTime": 1761553707209,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "GdkdIU9rELDKYJTJ"
+}

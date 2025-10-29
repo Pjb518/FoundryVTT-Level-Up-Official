@@ -1,0 +1,170 @@
+{
+	"folder": null,
+	"name": "Blade of Blood",
+	"type": "maneuver",
+	"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+	"system": {
+		"actions": {
+			"HZMdfbBFNnDIkRmT": {
+				"name": "Blade of Blood",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"4G2AV7PzmuSgDltI": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oFJ1dNKm2URJSa9G": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ND2oHejmj9YKLi2m"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p><em><strong>Requirement:</strong> You must be bloodied</em></p>\n<p>You draw your weapon through your own blood, infusing it with your resolve and your hate of your enemies. Until the end of your turn, your melee weapon attacks deal an additional 1d8 points of necrotic damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "viciousVein",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.tPA1XsL18uNlA6Ty",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HZMdfbBFNnDIkRmT",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blade of Blood",
+			"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+			"_id": "ND2oHejmj9YKLi2m",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Blade of Blood\",\"formula\":\"1d8\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/wounds/injury-triple-slash-bleed.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the end of your turn, your melee weapon attacks deal an additional 1d8 points of necrotic damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555536123,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555536043,
+		"modifiedTime": 1761555536043,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mt6bjs0Zn3X7xjzD"
+}
