@@ -419,7 +419,7 @@
     {#if $actor.type === "npc"}
         <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.CasterLevel")}
+                {localize("A5E.spells.spellcasting.casterLevel")}
             </h3>
 
             <input

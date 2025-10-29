@@ -11,7 +11,7 @@ export default function prepareAbilityCheckPrompts(
 		prompt.ability ??= 'str';
 
 		if (!prompt.label) {
-			const label = game.i18n.format('A5E.AbilityCheckSpecific', {
+			const label = game.i18n.format('A5E.abilities.headings.checkSpecific', {
 				ability: game.i18n.localize(CONFIG.A5E.abilities[prompt.ability]),
 			});
 
