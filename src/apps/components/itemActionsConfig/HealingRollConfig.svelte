@@ -117,13 +117,11 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
-            classes:
-                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
+            classes: "icon fas fa-trash a5e-field-wrapper__header-button--scale",
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
@@ -146,7 +144,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
+    <FieldWrapper heading="A5E.healing.formula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 type="text"
@@ -172,7 +170,7 @@
         </div>
     </FieldWrapper>
 
-    <FieldWrapper heading="A5E.HealingType">
+    <FieldWrapper heading="A5E.healing.type">
         <select
             id="{actionId}-{rollId}-healing-type"
             class="u-w-fit"

@@ -21,9 +21,7 @@
     <FieldWrapper>
         <Checkbox
             label="A5E.settings.automatePrototypeTokenSize"
-            checked={flags?.automatePrototypeTokenSize ??
-                automateTokenSize ??
-                true}
+            checked={flags?.automatePrototypeTokenSize ?? automateTokenSize ?? true}
             onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
                     actor,
@@ -36,7 +34,7 @@
 
     <FieldWrapper>
         <Checkbox
-            label="A5E.HideGenericResources"
+            label="A5E.genericResources.hideGenericResources"
             checked={flags?.hideGenericResources ?? actor.type === "npc"}
             onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(
@@ -81,11 +79,7 @@
             label="A5E.settings.showManeuverTab"
             checked={flags?.showManeuverTab ?? true}
             onUpdateSelection={(checked) => {
-                updateDocumentDataFromField(
-                    actor,
-                    "flags.a5e.showManeuverTab",
-                    checked,
-                );
+                updateDocumentDataFromField(actor, "flags.a5e.showManeuverTab", checked);
             }}
         />
     </FieldWrapper>
@@ -109,11 +103,7 @@
             label="A5E.settings.showSpellTab"
             checked={flags?.showSpellTab ?? true}
             onUpdateSelection={(checked) => {
-                updateDocumentDataFromField(
-                    actor,
-                    "flags.a5e.showSpellTab",
-                    checked,
-                );
+                updateDocumentDataFromField(actor, "flags.a5e.showSpellTab", checked);
             }}
         />
     </FieldWrapper>
@@ -124,11 +114,7 @@
                 label="A5E.settings.showXP"
                 checked={flags?.showXP ?? true}
                 onUpdateSelection={(checked) => {
-                    updateDocumentDataFromField(
-                        actor,
-                        "flags.a5e.showXP",
-                        checked,
-                    );
+                    updateDocumentDataFromField(actor, "flags.a5e.showXP", checked);
                 }}
             />
         </FieldWrapper>
@@ -136,10 +122,7 @@
 </Section>
 
 {#if actor.type === "character"}
-    <Section
-        heading="Automation Customization"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Automation Customization" --a5e-section-body-gap="0.75rem">
         <FieldWrapper>
             <Checkbox
                 label="A5E.settings.automateHitDice"

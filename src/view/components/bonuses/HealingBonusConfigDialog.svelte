@@ -116,11 +116,8 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.healing.formula" --a5e-field-wrapper-grow="1">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -130,7 +127,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.HealingType">
+        <FieldWrapper heading="A5E.healing.type">
             <select
                 class="a5e-input a5e-input--slim a5e-input--fit"
                 onchange={({ currentTarget }) =>
@@ -145,10 +142,7 @@
                 </option>
 
                 {#each Object.entries(healingTypes) as [key, name] (key)}
-                    <option
-                        value={key}
-                        selected={healingBonus.healingType === key}
-                    >
+                    <option value={key} selected={healingBonus.healingType === key}>
                         {localize(name as string)}
                     </option>
                 {/each}
@@ -166,8 +160,7 @@
             options={Object.entries(healingBonusContexts)}
             selected={healingTypesContext}
             showToggleAllButton={true}
-            onUpdateSelection={(value) =>
-                onUpdateValue("context.healingTypes", value)}
+            onUpdateSelection={(value) => onUpdateValue("context.healingTypes", value)}
         />
 
         <CheckboxGroup
@@ -175,8 +168,7 @@
             options={Object.entries(spellLevels)}
             selected={spellLevelsContext}
             showToggleAllButton={true}
-            onUpdateSelection={(value) =>
-                onUpdateValue("context.spellLevels", value)}
+            onUpdateSelection={(value) => onUpdateValue("context.spellLevels", value)}
         />
 
         <FieldWrapper>

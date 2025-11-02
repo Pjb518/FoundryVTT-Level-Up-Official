@@ -33,7 +33,7 @@
         },
         {
             name: "bio",
-            label: actor.type === "npc" ? "A5E.TabBiography" : "Backstory",
+            label: actor.type === "npc" ? "A5E.tabs.biography" : "Backstory",
             display: actor.type === "character" || (isGM && actor.type === "npc"),
         },
         {
@@ -42,19 +42,19 @@
         },
         {
             name: "privateNotes",
-            label: "A5E.DetailsNotesPrivate",
+            label: "A5E.details.notesPrivate",
             display: isGM && actor.type === "npc",
         },
     ];
 
     const traitsLabel = {
-        age: "A5E.DetailsAge",
-        eyeColor: "A5E.DetailsEyeColor",
-        hairColor: "A5E.DetailsHairColor",
-        skinColor: "A5E.DetailsSkinColor",
-        height: "A5E.DetailsHeight",
-        weight: "A5E.DetailsWeight",
-        gender: "A5E.DetailsGender",
+        age: "A5E.details.age",
+        eyeColor: "A5E.details.eyeColor",
+        hairColor: "A5E.details.hairColor",
+        skinColor: "A5E.details.skinColor",
+        height: "A5E.details.height",
+        weight: "A5E.details.weight",
+        gender: "A5E.details.gender",
     };
 
     const defaultTab = actor.type === "character" ? "appearance" : "notes";

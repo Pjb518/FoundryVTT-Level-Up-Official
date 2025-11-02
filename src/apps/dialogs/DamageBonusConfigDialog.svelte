@@ -112,29 +112,24 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.damage.headings.formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={damageBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                on:change={({ target }) => onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 
         <FieldWrapper
-            heading="A5E.DamageType"
+            heading="A5E.damage.headings.type"
             --background="none"
             --direction="column"
             --padding="0"
         >
             <select
                 class="u-w-fit damage-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("damageType", target.value)}
+                on:change={({ target }) => onUpdateValue("damageType", target.value)}
             >
                 <option
                     value={null}
@@ -145,10 +140,7 @@
                 </option>
 
                 {#each Object.entries(damageTypes) as [key, name] (key)}
-                    <option
-                        value={key}
-                        selected={damageBonus.damageType === key}
-                    >
+                    <option value={key} selected={damageBonus.damageType === key}>
                         {localize(name)}
                     </option>
                 {/each}

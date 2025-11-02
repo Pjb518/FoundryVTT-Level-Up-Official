@@ -2016,7 +2016,7 @@ class BaseActorA5e extends Actor {
   }
 
   configureSkill(data: Record<string, any> = {}, options = { width: 440 }) {
-    const title = localize("A5E.SkillConfigurationPrompt", {
+    const title = localize("A5E.bonuses.labels.skillConfigurationPrompt", {
       name: this.name,
       skill: localize(CONFIG.A5E.skills[data.skillKey]),
     });

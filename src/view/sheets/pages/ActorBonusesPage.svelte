@@ -9,21 +9,15 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     function getBonusSectionHeader(bonusType: string) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
     }
 
     function getAddButtonLabelForBonus(bonusType: string) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
     }
 
     function getDefaultBonusName(bonusType: string) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
     }
 
     let actor: any = getContext("actor");
@@ -52,7 +46,7 @@
     >
         <div class="global-bonus-container">
             <FieldWrapper
-                heading="A5E.ManeuverDCBonus"
+                heading="A5E.maneuvers.dc"
                 showWarning={disableManeuverDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
             >
@@ -72,7 +66,7 @@
             </FieldWrapper>
 
             <FieldWrapper
-                heading="A5E.SpellDCBonus"
+                heading="A5E.bonuses.labels.spellDCBonus"
                 showWarning={disableSpellDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
             >
@@ -95,8 +89,7 @@
 
     {#each bonusCategories as bonusType}
         <Section
-            headerClasses={Object.values(actorStore.bonuses[bonusType] ?? {})
-                .length
+            headerClasses={Object.values(actorStore.bonuses[bonusType] ?? {}).length
                 ? "a5e-section-header--flat-bottom"
                 : ""}
             heading={getBonusSectionHeader(bonusType)}
@@ -134,7 +127,7 @@
                                 <li>
                                     <button
                                         class="action-button icon fas fa-cog"
-                                        data-tooltip="A5E.ButtonToolTipConfigure"
+                                        data-tooltip="A5E.buttons.tooltips.configure"
                                         data-tooltip-direction="UP"
                                         aria-label="Configure"
                                         onclick={(e) => {
@@ -148,7 +141,7 @@
                                 <li>
                                     <button
                                         class="action-button icon fa-solid fa-clone"
-                                        data-tooltip="A5E.ButtonToolTipDuplicate"
+                                        data-tooltip="A5E.buttons.tooltips.duplicate"
                                         data-tooltip-direction="UP"
                                         aria-label="Clone"
                                         onclick={(e) => {
@@ -161,7 +154,7 @@
                                 <li>
                                     <button
                                         class="action-button delete-button icon fas fa-trash"
-                                        data-tooltip="A5E.ButtonToolTipDelete"
+                                        data-tooltip="A5E.buttons.tooltips.delete"
                                         data-tooltip-direction="UP"
                                         aria-label="Delete"
                                         onclick={(e) => {

@@ -10,9 +10,7 @@
         try {
             const doc = await Item.fromDropData({ uuid });
             if (item.isEmbedded) {
-                child = (
-                    await item.actor.createEmbeddedDocuments("Item", [doc])
-                )?.[0];
+                child = (await item.actor.createEmbeddedDocuments("Item", [doc]))?.[0];
             } else {
                 child = doc;
             }
@@ -27,8 +25,7 @@
         }
 
         await item.containerItems.add(child.uuid);
-        const actor =
-            item?.parent?.documentName === "Actor" ? item.parent : null;
+        const actor = item?.parent?.documentName === "Actor" ? item.parent : null;
 
         if (!actor) return;
         if (actor.uuid !== item.parent?.uuid) return;
@@ -41,8 +38,7 @@
         const child = await fromUuid(uuid);
         await item.containerItems.remove(uuid);
 
-        const actor =
-            item?.parent?.documentName === "Actor" ? item.parent : null;
+        const actor = item?.parent?.documentName === "Actor" ? item.parent : null;
 
         if (!actor || !child) return;
         if (actor.uuid !== item.parent?.uuid) return;
@@ -54,11 +50,7 @@
 
     let docs = $derived(
         Object.entries(itemStore.items ?? {})
-            .map(([id, e]: any) => [
-                id,
-                fromUuidSync(e.uuid),
-                e.quantityOverride,
-            ])
+            .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantityOverride])
             .filter(([, d]: any) => !!d),
     );
 </script>
@@ -74,11 +66,7 @@
         <ul class="a5e-document-list">
             {#each docs as [docId, doc, quantityOverride]}
                 <li class="a5e-document-wrapper">
-                    <img
-                        class="a5e-document-img"
-                        src={doc.img}
-                        alt={doc.name}
-                    />
+                    <img class="a5e-document-img" src={doc.img} alt={doc.name} />
 
                     <h3>{doc?.name}</h3>
 
@@ -88,9 +76,7 @@
                                 class="a5e-input a5e-input--slim a5e-input--small"
                                 type="number"
                                 id="{doc.uuid}-quantityOverride"
-                                value={quantityOverride ||
-                                    doc.system.quantity ||
-                                    1}
+                                value={quantityOverride || doc.system.quantity || 1}
                                 min="1"
                                 onchange={({ currentTarget }) => {
                                     updateDocumentDataFromField(
@@ -105,7 +91,7 @@
 
                     <button
                         class="a5e-button a5e-button--transparent delete-button"
-                        data-tooltip="A5E.ButtonToolTipDelete"
+                        data-tooltip="A5E.buttons.tooltips.delete"
                         data-tooltip-direction="UP"
                         aria-label="Delete Equipment"
                         onclick={() => deleteEquipment(doc.uuid)}

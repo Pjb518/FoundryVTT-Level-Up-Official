@@ -46,9 +46,7 @@
         if (!actionId || doc.documentName !== "Item") return;
 
         const action = doc.actions.get(actionId);
-        const updatedEffects = [...action.effects].filter(
-            (id) => id !== effectId,
-        );
+        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
 
         doc.update({
             [`system.actions.${actionId}.effects`]: updatedEffects,
@@ -61,15 +59,11 @@
 
         dragData.parentId = effect?.parent?.id;
 
-        return event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     }
 
     const doc: any = getContext("item") ?? getContext("actor");
-    const actionId =
-        (getContext("actionId") as string | undefined) ?? undefined;
+    const actionId = (getContext("actionId") as string | undefined) ?? undefined;
     let sheetIsLocked: () => boolean =
         getContext("sheetIsLocked") ??
         (() => {
@@ -77,8 +71,7 @@
         });
 
     let rightClickConfigure =
-        (game.settings.get("a5e", "itemRightClickConfigure") as boolean) ??
-        false;
+        (game.settings.get("a5e", "itemRightClickConfigure") as boolean) ?? false;
 
     let allowTransfer = $derived(
         effect.system.effectType === "passive" &&
@@ -178,9 +171,9 @@
                     <li>
                         <button
                             class="action-button icon fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipConfigure"
+                            aria-label="A5E.buttons.tooltips.configure"
                             onclick={onConfigure}
                         ></button>
                     </li>
@@ -188,9 +181,9 @@
                     <li>
                         <button
                             class="action-button icon fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipDuplicate"
+                            aria-label="A5E.buttons.tooltips.duplicate"
                             onclick={onDuplicate}
                         ></button>
                     </li>
@@ -198,9 +191,9 @@
                     <li>
                         <button
                             class="action-button delete-button icon fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipDelete"
+                            aria-label="A5E.buttons.tooltips.delete"
                             onclick={onDelete}
                         ></button>
                     </li>

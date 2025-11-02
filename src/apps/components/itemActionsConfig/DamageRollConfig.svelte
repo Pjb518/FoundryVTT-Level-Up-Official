@@ -109,13 +109,11 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
-            classes:
-                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
+            classes: "icon fas fa-trash a5e-field-wrapper__header-button--scale",
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
@@ -138,7 +136,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
+    <FieldWrapper heading="A5E.damage.headings.formula" --a5e-field-wrapper-grow="1">
         <div class="u-flex u-gap-sm u-w-full">
             <input
                 id="{actionId}-{rollId}-damage-formula"
@@ -165,7 +163,7 @@
         </div>
     </FieldWrapper>
 
-    <FieldWrapper heading="A5E.DamageType">
+    <FieldWrapper heading="A5E.damage.headings.type">
         <select
             id="{actionId}-{rollId}-damage-type"
             class="u-w-fit damage-type-select"

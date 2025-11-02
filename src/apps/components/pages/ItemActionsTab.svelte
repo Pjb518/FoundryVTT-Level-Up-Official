@@ -37,10 +37,7 @@
             type: "Action",
         };
 
-        return event.dataTransfer?.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
     $: defaultAction = $item.actions.default?.id;
@@ -69,9 +66,7 @@
                 >
                     <img
                         class="a5e-item__image a5e-item__image--action"
-                        src={action?.img ??
-                            $item.img ??
-                            "icons/svg/item-bag.svg"}
+                        src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
                         alt=""
                     />
 
@@ -88,21 +83,21 @@
 
                         <button
                             class="action-button icon fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
                             on:click={() => configureAction(id)}
                         />
 
                         <button
                             class="action-button icon fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             on:click={() => duplicateAction(id)}
                         />
 
                         <button
                             class="action-button icon delete-button fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             on:click={() => deleteAction(id)}
                         />

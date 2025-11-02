@@ -83,7 +83,7 @@
             },
             // {
             //     name: "biography",
-            //     label: "A5E.TabBiography",
+            //     label: "A5E.tabs.biography",
             //     component: ActorBioPage,
             //     display: actor.type === "character",
             // },

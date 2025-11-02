@@ -44,8 +44,7 @@
     }
 
     function getDamageBonus() {
-        if (jsonValue === undefined)
-            return actor.reactive.system.bonuses.damage[bonusID];
+        if (jsonValue === undefined) return actor.reactive.system.bonuses.damage[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -121,11 +120,8 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.DamageFormula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.damage.headings.formula" --a5e-field-wrapper-grow="1">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -136,7 +132,7 @@
         </FieldWrapper>
 
         <FieldWrapper
-            heading="A5E.DamageType"
+            heading="A5E.damage.headings.type"
             --background="none"
             --direction="column"
             --padding="0"
@@ -155,10 +151,7 @@
                 </option>
 
                 {#each Object.entries(damageTypes) as [key, name] (key)}
-                    <option
-                        value={key}
-                        selected={damageBonus.damageType === key}
-                    >
+                    <option value={key} selected={damageBonus.damageType === key}>
                         {localize(name)}
                     </option>
                 {/each}

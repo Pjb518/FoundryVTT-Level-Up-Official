@@ -45,8 +45,7 @@
     }
 
     function getSensesBonus() {
-        if (jsonValue === undefined)
-            return actor.reactive.system.bonuses.senses[bonusID];
+        if (jsonValue === undefined) return actor.reactive.system.bonuses.senses[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -118,11 +117,8 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.rollLabels.formula" --a5e-field-wrapper-grow="1">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -145,8 +141,7 @@
             >
                 <option
                     value={null}
-                    selected={sensesBonus.unit === "null" ||
-                        sensesBonus.unit === null}
+                    selected={sensesBonus.unit === "null" || sensesBonus.unit === null}
                 >
                     {localize("A5E.None")}
                 </option>

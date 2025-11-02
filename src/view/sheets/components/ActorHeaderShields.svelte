@@ -107,7 +107,7 @@
     {#if actor.type === "npc"}
         <div class="a5e-actor-details-box">
             <label for="{actor.id}-elite" class="a5e-actor-details-box__label">
-                {localize("A5E.Elite")}
+                {localize("A5E.details.creature.labels.elite")}
             </label>
 
             <button

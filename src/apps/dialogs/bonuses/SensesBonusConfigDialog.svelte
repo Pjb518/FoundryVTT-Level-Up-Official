@@ -109,16 +109,12 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
-        <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
+        <FieldWrapper heading="A5E.rollLabels.formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={sensesBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                on:change={({ target }) => onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 
@@ -134,8 +130,7 @@
             >
                 <option
                     value={null}
-                    selected={sensesBonus.unit === "null" ||
-                        sensesBonus.unit === null}
+                    selected={sensesBonus.unit === "null" || sensesBonus.unit === null}
                 >
                     {localize("A5E.None")}
                 </option>

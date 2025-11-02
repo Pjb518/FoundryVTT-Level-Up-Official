@@ -58,10 +58,7 @@
         }
 
         const checkBonus = getDeterministicBonus(
-            $actor.BonusesManager.getAbilityBonusesFormula(
-                skill.ability,
-                "check",
-            ),
+            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
             $actor.getRollData(),
         );
         return skillBonus - checkBonus;
@@ -90,11 +87,9 @@
         class="skill__proficiency-icon icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
-        class:skill__proficiency-icon--expertise={proficiencyLevel ===
-            "expertise"}
+        class:skill__proficiency-icon--expertise={proficiencyLevel === "expertise"}
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
-        class:skill__proficiency-icon--proficient={proficiencyLevel ===
-            "proficient"}
+        class:skill__proficiency-icon--proficient={proficiencyLevel === "proficient"}
         class:skill__proficiency-icon--locked={sheetIsLocked}
         class:fa-award={proficiencyLevel === "expertise"}
         class:fa-star-half-stroke={proficiencyLevel === "jack"}
@@ -115,10 +110,7 @@
     <h3
         class="skill__name"
         class:disable-pointer-events={!$actor.isOwner}
-        on:click={$actor.rollSkillCheck(
-            key,
-            getKeyPressAsOptions($pressedKeysStore),
-        )}
+        on:click={$actor.rollSkillCheck(key, getKeyPressAsOptions($pressedKeysStore))}
     >
         {skills[key]}
 
@@ -139,7 +131,7 @@
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
             <span
                 class="skill__passive"
-                data-tooltip={localize("A5E.SkillPassiveScore", {
+                data-tooltip={localize("A5E.skillLabels.passiveScore", {
                     skill: skills[key],
                 })}
                 data-tooltip-direction="UP"
@@ -152,7 +144,7 @@
     {#if !sheetIsLocked}
         <button
             class="icon fas fa-cog skill__config-button"
-            data-tooltip={localize("A5E.SkillConfigurationTooltip", {
+            data-tooltip={localize("A5E.skillLabels.configurationTooltip", {
                 skill: skills[key],
             })}
             data-tooltip-direction="UP"
