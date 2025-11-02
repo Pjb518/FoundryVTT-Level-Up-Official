@@ -32,15 +32,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "expertiseType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                {
-                    base: [],
-                    options: [],
-                    total: 0,
-                },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -58,7 +54,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         abilitySave: {
-            label: "A5E.SavingThrow",
+            label: "A5E.rollLabels.savingThrows.title",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
@@ -66,11 +62,11 @@
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {
-            label: "A5E.Initiative",
+            label: "A5E.initiative.title",
             options: [],
         },
         concentration: {
-            label: "A5E.ConditionConcentration",
+            label: "A5E.SpellConcentration",
             options: [],
         },
         deathSave: {
@@ -78,17 +74,15 @@
             options: [],
         },
         skill: {
-            label: "A5E.Skill",
+            label: "A5E.skillLabels.title",
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
 
-    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
+    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
+        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+        localize(value),
+    ]);
 
     $: grant = $item.system.grants[grantId];
     $: rollOverrideType = grant?.rollOverrideType || "ability";
@@ -121,16 +115,10 @@
         </div>
     </header>
 
-    <Section
-        heading="Roll Override Configuration"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Roll Override Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Override Type"
-            options={Object.entries(configObject).map(([key, { label }]) => [
-                key,
-                label,
-            ])}
+            options={Object.entries(configObject).map(([key, { label }]) => [key, label])}
             selected={rollOverrideType}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("rollOverrideType", detail);

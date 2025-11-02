@@ -52,7 +52,7 @@
             },
             {
                 name: "properties",
-                label: "A5E.TabProperties",
+                label: "A5E.tabs.properties",
                 icon: "fa-solid fa-table-list",
                 component: ItemPropertiesPage,
                 display: itemStore.unidentified || game.user?.isGM,
@@ -83,7 +83,7 @@
             },
             {
                 name: "grants",
-                label: "A5E.TabGrants",
+                label: "A5E.tabs.grants",
                 icon: "fa-solid fa-gift",
                 component: ItemGrantsPage,
                 display: item.type === "feature",

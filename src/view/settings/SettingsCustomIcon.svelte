@@ -13,16 +13,14 @@
 
     function getConditionName() {
         if (conditionKey === "dead") return localize("A5E.ConditionDead");
-        if (conditionKey === "concentration")
-            return localize("A5E.ConditionConcentration");
+        if (conditionKey === "concentration") return localize("A5E.SpellConcentration");
 
         return conditions[conditionKey] ?? conditionKey;
     }
 
     const { conditions, conditionIconsDefault } = CONFIG.A5E;
 
-    let settings: Record<string, { data: any; value: any }> =
-        getContext("settings");
+    let settings: Record<string, { data: any; value: any }> = getContext("settings");
 
     const conditionName = getConditionName();
     const iconStore = settings["customConditionIcons"].value;
@@ -35,16 +33,12 @@
     onclick={() =>
         onUpdateConditionIcon([
             conditionKey,
-            icon ||
-                iconStore[conditionKey] ||
-                conditionIconsDefault[conditionKey],
+            icon || iconStore[conditionKey] || conditionIconsDefault[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
-        src={icon ||
-            iconStore[conditionKey] ||
-            conditionIconsDefault[conditionKey]}
+        src={icon || iconStore[conditionKey] || conditionIconsDefault[conditionKey]}
         alt={getConditionName()}
     />
 

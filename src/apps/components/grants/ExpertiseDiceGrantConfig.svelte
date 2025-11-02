@@ -32,15 +32,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "expertiseType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                {
-                    base: [],
-                    options: [],
-                    total: 0,
-                },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -58,7 +54,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         abilitySave: {
-            label: "A5E.SavingThrow",
+            label: "A5E.rollLabels.savingThrows.title",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
@@ -66,11 +62,11 @@
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {
-            label: "A5E.Initiative",
+            label: "A5E.initiative.title",
             options: [],
         },
         skill: {
-            label: "A5E.Skill",
+            label: "A5E.skillLabels.title",
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
@@ -111,10 +107,7 @@
     <Section heading="Expertise Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Expertise Type"
-            options={Object.entries(configObject).map(([key, { label }]) => [
-                key,
-                label,
-            ])}
+            options={Object.entries(configObject).map(([key, { label }]) => [key, label])}
             selected={expertiseType}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("expertiseType", detail);
