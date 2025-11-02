@@ -34,12 +34,11 @@
         {
             name: "bio",
             label: actor.type === "npc" ? "A5E.TabBiography" : "Backstory",
-            display:
-                actor.type === "character" || (isGM && actor.type === "npc"),
+            display: actor.type === "character" || (isGM && actor.type === "npc"),
         },
         {
             name: "notes",
-            label: "A5E.TabNotes",
+            label: "A5E.tabs.notes",
         },
         {
             name: "privateNotes",
@@ -61,9 +60,7 @@
     const defaultTab = actor.type === "character" ? "appearance" : "notes";
     let currentTab = $derived(
         tabs.find(
-            (tab) =>
-                tab.name ===
-                actorSheetTempSettings[actor.uuid]?.currentNotesTab,
+            (tab) => tab.name === actorSheetTempSettings[actor.uuid]?.currentNotesTab,
         ) ??
             tabs.find((tab) => tab.name === defaultTab) ??
             tabs[0],

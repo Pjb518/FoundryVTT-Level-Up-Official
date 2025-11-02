@@ -21,8 +21,7 @@
 
     function getCharacterLevel() {
         if (actor.type !== "character") return 1;
-        if (!Object.keys(actor.classes ?? {}).length)
-            return actorStore.details.level;
+        if (!Object.keys(actor.classes ?? {}).length) return actorStore.details.level;
 
         return actor.levels.character;
     }
@@ -80,10 +79,7 @@
         levelSource: getLevelSource(),
         levelIsLocked: isLevelLocked(),
         requiredXP: getRequiredExperiencePoints(actor),
-        xp:
-            actor.type === "character"
-                ? actorStore.details.xp
-                : prepareXP(actor),
+        xp: actor.type === "character" ? actorStore.details.xp : prepareXP(actor),
     });
 </script>
 
@@ -91,17 +87,14 @@
     {#if actor.type === "character"}
         <!-- Inspiration -->
         <div class="a5e-actor-details-box">
-            <label
-                for="{actor.id}-inspiration"
-                class="a5e-actor-details-box__label"
-            >
-                {localize("A5E.Inspiration")}
+            <label for="{actor.id}-inspiration" class="a5e-actor-details-box__label">
+                {localize("A5E.consumers.inspiration")}
             </label>
 
             <button
                 class="a5e-actor-details-box__button"
-                class:a5e-actor-details-box__button--selected={actorStore
-                    .attributes.inspiration}
+                class:a5e-actor-details-box__button--selected={actorStore.attributes
+                    .inspiration}
                 aria-labelledby="Inspiration"
                 onclick={() => toggleInspiration()}
             >
@@ -119,8 +112,7 @@
 
             <button
                 class="a5e-actor-details-box__button"
-                class:a5e-actor-details-box__button--selected={actorStore
-                    .details.elite}
+                class:a5e-actor-details-box__button--selected={actorStore.details.elite}
                 aria-labelledby="Elite"
                 onclick={() => toggleElite()}
             >
@@ -179,9 +171,7 @@
     {#if actor.type === "npc"}
         <!-- CR -->
         <div class="a5e-actor-details-box">
-            <label for="{actor.id}-cr" class="a5e-actor-details-box__label">
-                CR
-            </label>
+            <label for="{actor.id}-cr" class="a5e-actor-details-box__label"> CR </label>
 
             <input
                 id="{actor.id}-cr"
@@ -222,10 +212,7 @@
     <!-- Required XP -->
     {#if actor.type === "character"}
         <div class="a5e-actor-details-box">
-            <label
-                for="{actor.id}-required-xp"
-                class="a5e-actor-details-box__label"
-            >
+            <label for="{actor.id}-required-xp" class="a5e-actor-details-box__label">
                 Required XP
             </label>
 

@@ -65,7 +65,7 @@
         <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.HavenPrompt"
+                    label="A5E.rest.havenPrompt"
                     checked={haven}
                     onUpdateSelection={(detail) => {
                         haven = detail;
@@ -75,7 +75,7 @@
 
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.SupplyFatigueStrifePrompt"
+                    label="A5E.supply.fatigueStrifePrompt"
                     checked={recoverStrifeAndFatigue}
                     onUpdateSelection={(detail) => {
                         recoverStrifeAndFatigue = detail;
@@ -86,7 +86,7 @@
             {#if actor.type === "character"}
                 <FieldWrapper>
                     <Checkbox
-                        label="A5E.SupplyConsume"
+                        label="A5E.supply.consume"
                         checked={consumeSupply}
                         onUpdateSelection={(detail) => {
                             consumeSupply = detail;

@@ -21,7 +21,7 @@
         return [
             {
                 name: "core",
-                label: "A5E.TabCore",
+                label: "A5E.tabs.core",
                 icon: "fa-solid fa-home",
                 component: OriginCorePage,
             },
@@ -78,12 +78,7 @@
 <main class="a5e-origin-sheet">
     <ItemSheetHeader />
 
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-origin-sheet__page">
         <currentTab.component />

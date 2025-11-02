@@ -46,7 +46,7 @@
         return [
             {
                 name: "core",
-                label: "A5E.TabCore",
+                label: "A5E.tabs.core",
                 icon: "fa-solid fa-home",
                 component: ItemCorePage,
             },
@@ -76,7 +76,7 @@
             },
             {
                 name: "effects",
-                label: "A5E.TabEffects",
+                label: "A5E.tabs.effects",
                 icon: "fa-solid fa-bolt",
                 component: ItemEffectsPage,
                 display: itemStore.unidentified || game.user?.isGM,
@@ -93,9 +93,7 @@
                 label: "A5E.TabMacro",
                 icon: "fa-solid fa-terminal",
                 component: ItemMacroPage,
-                display: ["feature", "maneuver", "object", "spell"].includes(
-                    item.type,
-                ),
+                display: ["feature", "maneuver", "object", "spell"].includes(item.type),
             },
         ];
     }
@@ -112,12 +110,7 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-item-sheet__page">
         <currentTab.component />
