@@ -12,10 +12,7 @@
     function getClassSummary() {
         const parentClass = itemStore.classes;
 
-        return (
-            localize(classes[parentClass] ?? classes5e[parentClass]) ||
-            parentClass
-        );
+        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
     }
 
     let item: any = getContext("item");
@@ -26,7 +23,7 @@
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.objects.materialProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -90,11 +87,7 @@
                 label="A5E.SpellConcentration"
                 checked={itemStore.concentration}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(
-                        item,
-                        "system.concentration",
-                        value,
-                    );
+                    updateDocumentDataFromField(item, "system.concentration", value);
                 }}
             />
         </FieldWrapper>
@@ -104,11 +97,7 @@
                 label="A5E.RequiresBloodied"
                 checked={itemStore.requiresBloodied}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(
-                        item,
-                        "system.requiresBloodied",
-                        value,
-                    );
+                    updateDocumentDataFromField(item, "system.requiresBloodied", value);
                 }}
             />
         </FieldWrapper>

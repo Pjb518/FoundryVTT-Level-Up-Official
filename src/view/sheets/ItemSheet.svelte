@@ -59,7 +59,7 @@
             },
             {
                 name: "equipment",
-                label: "A5E.Equipment",
+                label: "A5E.objects.equipment",
                 icon: "fa-solid fa-box-open",
                 component: ItemEquipmentPage,
                 display:

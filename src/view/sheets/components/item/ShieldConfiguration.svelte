@@ -26,7 +26,7 @@
 </script>
 
 <Section
-    heading="A5E.ShieldConfiguration"
+    heading="A5E.objects.shields.configuration"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -39,33 +39,25 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ShieldCategory"
+            heading="A5E.objects.shields.category"
             options={Object.entries(shieldTypes)}
             selected={itemStore.shieldCategory}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.shieldCategory",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.shieldCategory", value)}
         />
 
         <CheckboxGroup
-            heading="A5E.ShieldProperties"
+            heading="A5E.objects.shields.properties"
             options={Object.entries(shieldProperties)}
             selected={itemStore.shieldProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.shieldProperties",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.shieldProperties", value)}
         />
     {:else}
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ShieldCategory")}:
+                    {localize("A5E.objects.shields.category")}:
                 </dt>
                 <dd class="a5e-dl-box__content">
                     {#if itemStore.shieldCategory}
@@ -79,7 +71,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ShieldProperties")}:
+                    {localize("A5E.objects.shields.properties")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

@@ -9,13 +9,8 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
 
-    function prepareProperties(
-        properties: string[],
-        config: Record<string, string>,
-    ) {
-        let props = properties.map(
-            (property) => localize(config[property]) ?? property,
-        );
+    function prepareProperties(properties: string[], config: Record<string, string>) {
+        let props = properties.map((property) => localize(config[property]) ?? property);
         props.sort((a, b) => a.localeCompare(b));
 
         return props.join(", ");
@@ -23,17 +18,10 @@
 
     let item: any = getContext("item");
     let itemStore = $derived(item.reactive.system);
-    const {
-        armor: armorTypes,
-        armorProperties,
-        armorMods,
-        repairTools,
-    } = CONFIG.A5E;
+    const { armor: armorTypes, armorProperties, armorMods, repairTools } = CONFIG.A5E;
 
     let editMode = $state(false);
-    let selectedArmorMods = $derived(
-        prepareProperties(itemStore.armorMods, armorMods),
-    );
+    let selectedArmorMods = $derived(prepareProperties(itemStore.armorMods, armorMods));
     let selectedArmorProperties = $derived(
         prepareProperties(itemStore.armorProperties, armorProperties),
     );
@@ -57,31 +45,23 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ArmorCategory"
+            heading="A5E.armorClass.headings.category"
             options={Object.entries(armorTypes)}
             selected={itemStore.armorCategory}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.armorCategory",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.armorCategory", value)}
         />
 
         <CheckboxGroup
-            heading="A5E.ArmorProperties"
+            heading="A5E.armorClass.headings.properties"
             options={Object.entries(armorProperties)}
             selected={itemStore.armorProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.armorProperties",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.armorProperties", value)}
         />
 
         <CheckboxGroup
-            heading="A5E.ArmorMods"
+            heading="A5E.armorClass.headings.mods"
             options={Object.entries(armorMods)}
             selected={itemStore.armorMods}
             onUpdateSelection={(value) =>
@@ -89,7 +69,7 @@
         />
 
         <Section --a5e-section-body-direction="row">
-            <FieldWrapper heading="A5E.RepairabilityDC">
+            <FieldWrapper heading="A5E.armorClass.repairability.dc">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="number"
@@ -105,28 +85,23 @@
             </FieldWrapper>
 
             <CheckboxGroup
-                heading="A5E.RepairabilityTools"
+                heading="A5E.armorClass.repairability.tools"
                 options={Object.entries(repairTools)}
                 selected={itemStore.repairTools}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.repairTools",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.repairTools", value)}
             />
         </Section>
     {:else}
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ArmorCategory")}:
+                    {localize("A5E.armorClass.headings.category")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
                     {#if itemStore.armorCategory}
-                        {armorTypes[itemStore.armorCategory] ??
-                            itemStore.armorCategory}
+                        {armorTypes[itemStore.armorCategory] ?? itemStore.armorCategory}
                     {:else}
                         {localize("A5E.None")}
                     {/if}
@@ -146,7 +121,7 @@
             {#if selectedArmorMods}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.ArmorMods")}:
+                        {localize("A5E.armorClass.headings.mods")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">
@@ -157,7 +132,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.RepairabilityDC")}:
+                    {localize("A5E.armorClass.repairability.dc")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

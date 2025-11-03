@@ -21,7 +21,7 @@
 </script>
 
 <Section
-    heading="A5E.TabArmorClassProperties"
+    heading="A5E.tabs.armorClassProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -48,10 +48,7 @@
             />
         </FieldWrapper>
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-padding="0"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-padding="0">
             <FieldWrapper heading="A5E.armorClass.maxDex">
                 <input
                     class="a5e-input a5e-input--slim"

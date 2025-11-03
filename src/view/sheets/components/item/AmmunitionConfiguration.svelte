@@ -39,21 +39,17 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.AmmunitionProperties"
+            heading="A5E.ammunition.headings.properties"
             options={Object.entries(ammunitionProperties)}
             selected={itemStore.ammunitionProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.ammunitionProperties",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.ammunitionProperties", value)}
         />
     {:else}
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.AmmunitionProperties")}:
+                    {localize("A5E.ammunition.headings.properties")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

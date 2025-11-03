@@ -38,7 +38,7 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.AmmunitionProperties"
+            heading="A5E.ammunition.headings.properties"
             options={Object.entries(ammunitionProperties)}
             selected={$item.system.ammunitionProperties}
             on:updateSelection={(event) =>
@@ -52,7 +52,7 @@
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.AmmunitionProperties")}:
+                    {localize("A5E.ammunition.headings.properties")}:
                 </dt>
 
                 <dd class="u-m-0 u-p-0">

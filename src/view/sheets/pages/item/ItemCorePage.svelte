@@ -23,7 +23,7 @@
             },
             {
                 name: "unIdentifiedDescription",
-                label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+                label: "A5E.objects.unidentifiedDescriptionTab",
                 display:
                     item.type === "object" && (itemStore.unidentified || game.user?.isGM),
             },

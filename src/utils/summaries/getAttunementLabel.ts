@@ -8,9 +8,9 @@ export default function getAttunementLabel(item: ObjectItemA5e) {
   if (!requiresAttunement) return "";
   if (attuned) return localize("A5E.Attuned");
   if (!item.actor) {
-    if (!attunementHint) return localize("A5E.AttunementRequiredPrompt");
-    return `${localize("A5E.AttunementRequiredPrompt")} ${attunementHint}`;
+    if (!attunementHint) return localize("A5E.attunement.headings.requiredPrompt");
+    return `${localize("A5E.attunement.headings.requiredPrompt")} ${attunementHint}`;
   }
 
-  return `${localize("A5E.AttunementRequiredPrompt")} - ${localize("A5E.AttunedNot")}`;
+  return `${localize("A5E.attunement.headings.requiredPrompt")} - ${localize("A5E.AttunedNot")}`;
 }

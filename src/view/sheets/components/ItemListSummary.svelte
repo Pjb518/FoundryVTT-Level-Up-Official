@@ -4,7 +4,7 @@
     const fields = [
         {
             field: "craftingComponents",
-            label: "A5E.CraftingComponents",
+            label: "A5E.objects.craftingComponents",
         },
         {
             field: "spellClasses",

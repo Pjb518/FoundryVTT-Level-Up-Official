@@ -12,10 +12,7 @@
     function getClassSummary() {
         const parentClass = $item.system.classes;
 
-        return (
-            localize(classes[parentClass] ?? classes5e[parentClass]) ||
-            parentClass
-        );
+        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
     }
 
     const item = getContext("item");
@@ -25,7 +22,7 @@
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.objects.materialProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -43,11 +40,7 @@
             selected={$item.system.featureType}
             allowDeselect={true}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.featureType",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.featureType", event.detail)}
         />
 
         {#if ["class", "knack"].includes($item.system.featureType)}
@@ -57,11 +50,7 @@
                 selected={$item.system.classes}
                 allowDeselect={true}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.classes",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.classes", detail);
                 }}
             />
 
@@ -70,11 +59,7 @@
                 options={Object.entries(classes5e)}
                 selected={$item.system.classes}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.classes",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.classes", detail);
                 }}
             />
 
@@ -101,11 +86,7 @@
                 label="A5E.SpellConcentration"
                 checked={$item.system.concentration}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.concentration",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.concentration", detail);
                 }}
             />
         </FieldWrapper>
@@ -115,11 +96,7 @@
                 label="A5E.RequiresBloodied"
                 checked={$item.system.requiresBloodied}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.requiresBloodied",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.requiresBloodied", detail);
                 }}
             />
         </FieldWrapper>
@@ -131,8 +108,7 @@
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {featureTypes[$item.system.featureType] ??
-                        localize("A5E.None")}
+                    {featureTypes[$item.system.featureType] ?? localize("A5E.None")}
                 </dd>
             </div>
 
