@@ -32,7 +32,7 @@
         },
         {
             field: "duration",
-            label: "A5E.ItemDuration",
+            label: "A5E.actions.headings.duration",
         },
         {
             field: "savingThrow",

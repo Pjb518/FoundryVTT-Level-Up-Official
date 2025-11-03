@@ -71,20 +71,18 @@
         });
     }
 
-    const heading = localize("A5E.ItemRangeIncrement", {
+    const heading = localize("A5E.actions.labels.rangeIncrement", {
         increment: getOrdinalNumber(index + 1),
     });
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
-        ([value, label]) => {
-            if (["short", "medium", "long"].includes(value)) {
-                const range = CONFIG.A5E.rangeValues[value];
-                return [value, `${localize(label)} (${range} ft.)`];
-            }
+    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
+        if (["short", "medium", "long"].includes(value)) {
+            const range = CONFIG.A5E.rangeValues[value];
+            return [value, `${localize(label)} (${range} ft.)`];
+        }
 
-            return [value, label];
-        },
-    );
+        return [value, label];
+    });
 
     let customValue = isStandardRange(range) ? "" : range;
     let includeUnit = rangeObject.unit ? true : false;
@@ -95,8 +93,7 @@
 <RadioGroup
     buttons={[
         {
-            classes:
-                "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            classes: "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
             handler: deleteRangeIncrement,
             tooltip: "Delete Range Increment",
         },
@@ -113,7 +110,7 @@
 
 {#if selected === "other"}
     <Checkbox
-        label="A5E.IncludeUnit"
+        label="A5E.actions.labels.includeUnit"
         checked={includeUnit}
         on:updateSelection={(event) => {
             includeUnit = event.detail;
@@ -122,9 +119,7 @@
     />
 
     <Section
-        hint={includeUnit
-            ? "When units are selected range must be a number."
-            : null}
+        hint={includeUnit ? "When units are selected range must be a number." : null}
         --a5e-section-body-padding="0"
     >
         <div style="display: flex; gap: 0.5rem; flex-wrap: nowrap">
@@ -143,10 +138,7 @@
                 >
                     <option value={null}>{localize("A5E.None")}</option>
                     {#each Object.entries(A5E.distanceUnits) as [unit, label]}
-                        <option
-                            value={unit}
-                            selected={rangeObject.unit === unit}
-                        >
+                        <option value={unit} selected={rangeObject.unit === unit}>
                             {localize(label)}
                         </option>
                     {/each}

@@ -34,7 +34,7 @@
     --a5e-section-body-gap="0.75rem"
 >
     <FieldWrapper
-        heading="A5E.ItemActivationCost"
+        heading="A5E.actions.headings.activation.cost"
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-header-width="100%"
     >
@@ -91,7 +91,7 @@
     {/if}
 
     <FieldWrapper
-        heading="A5E.ItemDuration"
+        heading="A5E.actions.headings.duration"
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-header-width="100%"
     >

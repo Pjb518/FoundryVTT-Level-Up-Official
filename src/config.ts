@@ -902,7 +902,7 @@ const rollTypes = {
 
 const saveDCOptions = {
   spellcasting: "A5E.spells.dc",
-  maneuver: "A5E.ManeuverDC",
+  maneuver: "A5E.maneuvers.dc",
   ...abilities,
   custom: "A5E.Custom",
 };

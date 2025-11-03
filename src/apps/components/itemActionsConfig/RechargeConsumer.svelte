@@ -12,7 +12,7 @@
     const actionId = getContext("actionId");
 
     const rechargeTypes = {
-        item: "A5E.Item",
+        item: "A5E.items.title",
         action: "A5E.actions.headings.action",
     };
 
