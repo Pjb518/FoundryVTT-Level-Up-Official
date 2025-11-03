@@ -94,7 +94,7 @@
 
         <FieldWrapper>
             <Checkbox
-                label="A5E.RequiresBloodied"
+                label="A5E.items.requiresBloodied"
                 checked={itemStore.requiresBloodied}
                 onUpdateSelection={(value) => {
                     updateDocumentDataFromField(item, "system.requiresBloodied", value);
