@@ -18,7 +18,7 @@
 </script>
 
 <Section
-    heading="A5E.TabManeuverProperties"
+    heading="A5E.tabs.maneuverProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -31,7 +31,7 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ManeuverDegreePrompt"
+            heading="A5E.maneuvers.headings.degreePrompt"
             options={objectEntriesNumberKeyConverter(maneuverDegrees)}
             selected={parseInt(itemStore.degree, 10)}
             onUpdateSelection={(value) =>
@@ -44,11 +44,7 @@
                 options={Object.entries(maneuverTraditions)}
                 selected={itemStore.tradition}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.tradition",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.tradition", value)}
             />
 
             <FieldWrapper>
@@ -56,11 +52,7 @@
                     label="A5E.ManeuverIsStance"
                     checked={itemStore.isStance}
                     onUpdateSelection={(value) => {
-                        updateDocumentDataFromField(
-                            item,
-                            "system.isStance",
-                            value,
-                        );
+                        updateDocumentDataFromField(item, "system.isStance", value);
                     }}
                 />
             </FieldWrapper>
@@ -70,11 +62,7 @@
                     label="A5E.SpellConcentration"
                     checked={itemStore.concentration}
                     onUpdateSelection={(value) => {
-                        updateDocumentDataFromField(
-                            item,
-                            "system.concentration",
-                            value,
-                        );
+                        updateDocumentDataFromField(item, "system.concentration", value);
                     }}
                 />
             </FieldWrapper>
@@ -99,7 +87,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ManeuverDegreePrompt")}:
+                    {localize("A5E.maneuvers.headings.degreePrompt")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -118,8 +106,7 @@
                     </dt>
 
                     <dd class="a5e-dl-box__content">
-                        {maneuverTraditions[itemStore.tradition] ??
-                            localize("A5E.None")}
+                        {maneuverTraditions[itemStore.tradition] ?? localize("A5E.None")}
                     </dd>
                 </div>
 

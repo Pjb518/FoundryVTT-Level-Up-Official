@@ -69,7 +69,7 @@
             },
             {
                 name: "actions",
-                label: "A5E.TabActions",
+                label: "A5E.tabs.actions",
                 icon: "fa-solid fa-crosshairs",
                 component: ItemActionsPage,
                 display: itemStore.unidentified || game.user?.isGM,
@@ -90,7 +90,7 @@
             },
             {
                 name: "macro",
-                label: "A5E.TabMacro",
+                label: "A5E.tabs.macro",
                 icon: "fa-solid fa-terminal",
                 component: ItemMacroPage,
                 display: ["feature", "maneuver", "object", "spell"].includes(item.type),

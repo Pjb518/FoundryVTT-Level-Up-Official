@@ -91,12 +91,15 @@
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <!-- Action Resources Section -->
     <Section
-        heading="A5E.Uses"
+        heading="A5E.consumers.uses.title"
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"
     >
         {#if !isClassResource}
-            <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
+            <FieldWrapper
+                heading="A5E.consumers.uses.current"
+                --a5e-field-wrapper-width="7.5rem"
+            >
                 <input
                     type="number"
                     name="system.actions.{actionId}.uses.value"
@@ -113,7 +116,7 @@
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper heading="A5E.UsesMax" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.consumers.uses.max" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="text"
                 name="system.actions.{actionId}.uses.max"
@@ -127,7 +130,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.UsesPer">
+        <FieldWrapper heading="A5E.consumers.uses.per">
             <select
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
