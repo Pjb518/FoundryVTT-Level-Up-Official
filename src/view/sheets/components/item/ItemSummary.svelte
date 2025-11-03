@@ -22,11 +22,11 @@
         },
         {
             field: "ranges",
-            label: "A5E.ItemRange",
+            label: "A5E.actions.labels.range",
         },
         {
             field: "targets",
-            label: "A5E.ItemTargetPlural",
+            label: "A5E.actions.labels.targetPlural",
         },
         {
             field: "area",
@@ -42,7 +42,7 @@
         },
         {
             field: "savingThrow",
-            label: "A5E.ItemSavingThrow",
+            label: "A5E.rollLabels.savingThrows.title",
         },
     ];
 

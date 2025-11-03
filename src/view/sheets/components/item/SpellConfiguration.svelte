@@ -128,7 +128,7 @@
         />
 
         {#if itemStore.components.material}
-            <FieldWrapper heading="A5E.SpellMaterials">
+            <FieldWrapper heading="A5E.spells.materials">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="text"
@@ -270,7 +270,7 @@
             {#if itemStore.components.material && itemStore.materials}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.SpellMaterials")}:
+                        {localize("A5E.spells.materials")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">

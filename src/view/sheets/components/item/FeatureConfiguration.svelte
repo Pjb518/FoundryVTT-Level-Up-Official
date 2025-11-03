@@ -36,7 +36,7 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.FeatureTypePrompt"
+            heading="A5E.features.typePrompt"
             options={Object.entries(featureTypes)}
             selected={itemStore.featureType}
             allowDeselect={true}
@@ -105,7 +105,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.FeatureTypePrompt")}:
+                    {localize("A5E.features.typePrompt")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

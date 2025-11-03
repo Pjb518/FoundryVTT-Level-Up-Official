@@ -380,30 +380,30 @@
                 {#if itemStore.components.vocalized}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentVocalized"
+                        data-tooltip="A5E.spells.components.vocalized"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentVocalizedAbbr")}
+                        {localize("A5E.spells.components.vocalizedAbbr")}
                     </span>
                 {/if}
 
                 {#if itemStore.components.seen}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentSeen"
+                        data-tooltip="A5E.spells.components.seen"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentSeenAbbr")}
+                        {localize("A5E.spells.components.seenAbbr")}
                     </span>
                 {/if}
 
                 {#if itemStore.components.material}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentMaterial"
+                        data-tooltip="A5E.spells.components.material"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentMaterialAbbr")}
+                        {localize("A5E.spells.components.materialAbbr")}
                     </span>
                 {/if}
 
@@ -413,7 +413,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
 
@@ -437,7 +437,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
             </div>
@@ -448,7 +448,7 @@
                 <button
                     class="action-button icon fas fa-star"
                     class:active={itemStore?.favorite ?? false}
-                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip="A5E.buttons.tooltips.favorite"
                     data-tooltip-direction="UP"
                     aria-label="Toggle Favorite"
                     onclick={(e) => {

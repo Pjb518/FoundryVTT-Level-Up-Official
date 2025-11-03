@@ -35,7 +35,7 @@
 </Section>
 
 <Section heading="A5E.settings.sectionHeader.gpg" --a5e-section-body-gap="0.5rem">
-    <FieldWrapper hint="A5E.settings.hints.showFavourPoints">
+    <FieldWrapper hint="A5E.settings.hints.showFavorPoints">
         <Checkbox
             label="A5E.settings.showFavorPoints"
             checked={updates.get("showFavorPoints") ?? $showFavorPoints ?? false}
