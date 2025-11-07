@@ -76,8 +76,7 @@
             class="a5e-input a5e-input--slim a5e-input--fit"
             name="{actionId}-{consumerId}-item-id"
             value={selectedResource}
-            onchange={({ currentTarget }) =>
-                updateResourceSelection(currentTarget.value)}
+            onchange={({ currentTarget }) => updateResourceSelection(currentTarget.value)}
         >
             <option value=""></option>
 
@@ -90,10 +89,7 @@
     </FieldWrapper>
 
     {#if selectedResource === "classResource"}
-        <FieldWrapper
-            heading="Resource Identifier"
-            --a5e-field-wrapper-width="16rem"
-        >
+        <FieldWrapper heading="Resource Identifier" --a5e-field-wrapper-width="16rem">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -109,10 +105,7 @@
     {/if}
 
     {#if resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper
-            heading="A5E.consumers.value"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.consumers.value" --a5e-field-wrapper-width="7.5rem">
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
@@ -130,7 +123,7 @@
 
 {#if resourceConsumerConfig?.[selectedResource]?.type === "boolean"}
     <Checkbox
-        label="A5E.consumersrestoreUsesOnUse"
+        label="A5E.consumers.restoreResourceOnUse"
         checked={consumer.restore ?? false}
         onUpdateSelection={(value) =>
             updateDocumentDataFromField(

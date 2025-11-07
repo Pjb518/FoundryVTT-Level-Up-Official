@@ -20,10 +20,7 @@
             type: "Grant",
         };
 
-        return event.dataTransfer?.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
     async function onAuxClick() {
@@ -77,17 +74,16 @@
                     <li>
                         <button
                             class="action-button icon fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
-                            on:click|stopPropagation={() =>
-                                grant.configureGrant()}
+                            on:click|stopPropagation={() => grant.configureGrant()}
                         />
                     </li>
 
                     <li>
                         <button
                             class="action-button icon fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() =>
                                 $item.grants.duplicate(grant._id)}
@@ -97,7 +93,7 @@
                     <li>
                         <button
                             class="action-button icon delete-button fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={() => grant.deleteGrant()}
                         />

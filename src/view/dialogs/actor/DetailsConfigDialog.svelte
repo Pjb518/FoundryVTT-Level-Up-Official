@@ -30,17 +30,14 @@
         return data;
     }
 
-    let { document, propertyKey, configObject, heading, type }: Props =
-        $props();
+    let { document, propertyKey, configObject, heading, type }: Props = $props();
 
     let actor = document;
     let actorStore = $derived(actor.reactive.system);
     const isRadioGroup = ["size"].includes(type);
     const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-    let selected = $derived(
-        foundry.utils.getProperty(actor.reactive, propertyKey),
-    );
+    let selected = $derived(foundry.utils.getProperty(actor.reactive, propertyKey));
     let tooltipData = $derived(getTooltipData(actor.reactive));
 
     let options = $derived(Object.entries(configObject)) as string[][];
@@ -104,14 +101,10 @@
             {/if}
 
             <Checkbox
-                label="A5E.values.creature.labels.swarm"
+                label="A5E.details.creature.labels.swarm"
                 checked={actorStore.details.isSwarm}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(
-                        actor,
-                        "system.details.isSwarm",
-                        value,
-                    );
+                    updateDocumentDataFromField(actor, "system.details.isSwarm", value);
                 }}
             />
         </FieldWrapper>

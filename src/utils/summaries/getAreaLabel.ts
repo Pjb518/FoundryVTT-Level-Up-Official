@@ -15,7 +15,7 @@ export default function getAreaLabel(action: Action) {
   } else if (area.shape === "cone") {
     areaLabel = localize("A5E.AreaConeSpecific", { length: area.length });
   } else if (area.shape === "cube") {
-    areaLabel = localize("A5E.AreaCubeSpecific", { width: area.width });
+    areaLabel = localize("A5E.area.cubeSpecific", { width: area.width });
   } else if (area.shape === "cylinder" && area.height) {
     areaLabel = localize("A5E.AreaCylinderSpecific", {
       height: area.height,

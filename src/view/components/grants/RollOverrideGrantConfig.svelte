@@ -54,7 +54,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         abilitySave: {
-            label: "A5E.SavingThrow",
+            label: "A5E.rollLabels.savingThrows.title",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
@@ -62,11 +62,11 @@
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {
-            label: "A5E.Initiative",
+            label: "A5E.initiative.title",
             options: [],
         },
         concentration: {
-            label: "A5E.ConditionConcentration",
+            label: "A5E.SpellConcentration",
             options: [],
         },
         deathSave: {
@@ -74,17 +74,15 @@
             options: [],
         },
         skill: {
-            label: "A5E.Skill",
+            label: "A5E.skillLabels.title",
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
 
-    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value as string),
-        ],
-    );
+    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
+        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+        localize(value as string),
+    ]);
 
     let grant = $derived(item.reactive.system.grants[grantId]);
     let rollOverrideType = $derived(grant?.rollOverrideType || "ability");
@@ -118,16 +116,10 @@
         </div>
     </header>
 
-    <Section
-        heading="Roll Override Configuration"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Roll Override Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Override Type"
-            options={Object.entries(configObject).map(([key, { label }]) => [
-                key,
-                label,
-            ])}
+            options={Object.entries(configObject).map(([key, { label }]) => [key, label])}
             selected={rollOverrideType}
             onUpdateSelection={(value) => {
                 onUpdateValue("rollOverrideType", value);
@@ -162,10 +154,7 @@
                     type="number"
                     value={grant?.keys?.total ?? 0}
                     onchange={({ currentTarget }) =>
-                        onUpdateValue(
-                            "keys.total",
-                            Number(currentTarget.value),
-                        )}
+                        onUpdateValue("keys.total", Number(currentTarget.value))}
                 />
             </FieldWrapper>
         {/if}

@@ -46,20 +46,20 @@
         return [
             {
                 name: "core",
-                label: "A5E.TabCore",
+                label: "A5E.tabs.core",
                 icon: "fa-solid fa-home",
                 component: ItemCorePage,
             },
             {
                 name: "properties",
-                label: "A5E.TabProperties",
+                label: "A5E.tabs.properties",
                 icon: "fa-solid fa-table-list",
                 component: ItemPropertiesPage,
                 display: itemStore.unidentified || game.user?.isGM,
             },
             {
                 name: "equipment",
-                label: "A5E.Equipment",
+                label: "A5E.objects.equipment",
                 icon: "fa-solid fa-box-open",
                 component: ItemEquipmentPage,
                 display:
@@ -69,33 +69,31 @@
             },
             {
                 name: "actions",
-                label: "A5E.TabActions",
+                label: "A5E.tabs.actions",
                 icon: "fa-solid fa-crosshairs",
                 component: ItemActionsPage,
                 display: itemStore.unidentified || game.user?.isGM,
             },
             {
                 name: "effects",
-                label: "A5E.TabEffects",
+                label: "A5E.tabs.effects",
                 icon: "fa-solid fa-bolt",
                 component: ItemEffectsPage,
                 display: itemStore.unidentified || game.user?.isGM,
             },
             {
                 name: "grants",
-                label: "A5E.TabGrants",
+                label: "A5E.tabs.grants",
                 icon: "fa-solid fa-gift",
                 component: ItemGrantsPage,
                 display: item.type === "feature",
             },
             {
                 name: "macro",
-                label: "A5E.TabMacro",
+                label: "A5E.tabs.macro",
                 icon: "fa-solid fa-terminal",
                 component: ItemMacroPage,
-                display: ["feature", "maneuver", "object", "spell"].includes(
-                    item.type,
-                ),
+                display: ["feature", "maneuver", "object", "spell"].includes(item.type),
             },
         ];
     }
@@ -112,12 +110,7 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-item-sheet__page">
         <currentTab.component />

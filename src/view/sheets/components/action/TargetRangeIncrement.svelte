@@ -80,34 +80,29 @@
     const { A5E } = CONFIG;
 
     let heading = $derived(
-        localize("A5E.ItemRangeIncrement", {
+        localize("A5E.actions.labels.rangeIncrement", {
             increment: getOrdinalNumber(index + 1),
         }),
     );
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
-        ([value, label]) => {
-            if (["short", "medium", "long"].includes(value)) {
-                const range = CONFIG.A5E.rangeValues[value];
-                return [value, `${localize(label as string)} (${range} ft.)`];
-            }
+    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
+        if (["short", "medium", "long"].includes(value)) {
+            const range = CONFIG.A5E.rangeValues[value];
+            return [value, `${localize(label as string)} (${range} ft.)`];
+        }
 
-            return [value, label];
-        },
-    ) as string[][];
+        return [value, label];
+    }) as string[][];
 
     let includeUnit = $derived(!!rangeObject.unit);
-    let customValue = $derived(
-        isStandardRange(range) ? (includeUnit ? "" : 0) : range,
-    );
+    let customValue = $derived(isStandardRange(range) ? (includeUnit ? "" : 0) : range);
     let selected = $derived(isStandardRange(range) ? range : "other");
 </script>
 
 <RadioGroup
     buttons={[
         {
-            classes:
-                "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            classes: "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
             handler: deleteRangeIncrement,
             tooltip: "Delete Range Increment",
         },
@@ -124,7 +119,7 @@
 
 {#if selected === "other"}
     <Checkbox
-        label="A5E.IncludeUnit"
+        label="A5E.actions.labels.includeUnit"
         checked={includeUnit}
         onUpdateSelection={(checked) => {
             includeUnit = checked;
@@ -133,9 +128,7 @@
     />
 
     <Section
-        hint={includeUnit
-            ? "When units are selected range must be a number."
-            : ""}
+        hint={includeUnit ? "When units are selected range must be a number." : ""}
         --a5e-section-body-padding="0"
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"

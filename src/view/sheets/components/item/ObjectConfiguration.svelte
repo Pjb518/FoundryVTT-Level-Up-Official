@@ -21,7 +21,7 @@
 </script>
 
 <Section
-    heading="A5E.TabObjectProperties"
+    heading="A5E.tabs.objectProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -34,7 +34,7 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ObjectTypePrompt"
+            heading="A5E.objects.typePrompt"
             options={Object.entries(A5E.objectTypes)}
             selected={itemStore.objectType}
             onUpdateSelection={(value) =>
@@ -42,7 +42,7 @@
         />
 
         <RadioGroup
-            heading="A5E.ItemRarity"
+            heading="A5E.objects.rarity"
             options={Object.entries(A5E.itemRarity)}
             selected={itemStore.rarity}
             onUpdateSelection={(value) =>
@@ -51,31 +51,20 @@
 
         {#if showVRCTechLevel}
             <RadioGroup
-                heading="A5E.ItemTechnologyLevel"
+                heading="A5E.objects.technologyLevel"
                 options={Object.entries(A5E.itemTechLevels)}
                 selected={itemStore.techLevel}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.techLevel",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.techLevel", value)}
             />
         {/if}
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
-                label="A5E.AttunementRequiredPrompt"
+                label="A5E.attunement.headings.requiredPrompt"
                 checked={itemStore.requiresAttunement}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.requiresAttunement",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.requiresAttunement", value)}
             />
 
             {#if item.actor && itemStore.requiresAttunement}
@@ -83,61 +72,41 @@
                     label="A5E.AttunementPrompt"
                     checked={itemStore.attuned}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.attuned",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.attuned", value)}
                 />
             {/if}
 
             {#if isGM}
                 <Checkbox
-                    label="A5E.PlotItem"
+                    label="A5E.objects.plotItem"
                     checked={itemStore.plotItem}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.plotItem",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.plotItem", value)}
                 />
 
                 <Checkbox
-                    label="A5E.ItemUnidentified"
+                    label="A5E.objects.unidentified"
                     checked={itemStore.unidentified}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.unidentified",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.unidentified", value)}
                 />
             {/if}
 
             {#if itemStore.objectType == "consumable"}
                 <Checkbox
-                    label="A5E.Supply"
+                    label="A5E.supply.title"
                     checked={itemStore.supply}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.supply",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.supply", value)}
                 />
             {/if}
 
             {#if showVRCImplants}
                 <Checkbox
-                    label="A5E.Implant"
+                    label="A5E.objects.implant"
                     checked={itemStore.implant}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.implant",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.implant", value)}
                 />
             {/if}
         </Section>
@@ -160,7 +129,7 @@
         {/if}
 
         <FieldWrapper
-            heading="A5E.ItemWeight"
+            heading="A5E.objects.weight"
             --a5e-field-wrapper-gap="0.375rem 1rem"
             --a5e-field-wrapper-direction="row"
             --a5e-field-wrapper-header-width="100%"
@@ -178,10 +147,10 @@
                     )}
             />
 
-            <span>{localize("A5E.DetailsWeightLbs")}</span>
+            <span>{localize("A5E.objects.weightLbs")}</span>
 
             <Checkbox
-                label="A5E.ItemBulky"
+                label="A5E.objects.bulky"
                 checked={itemStore.bulky}
                 onUpdateSelection={(value) =>
                     updateDocumentDataFromField(item, "system.bulky", value)}
@@ -189,7 +158,7 @@
         </FieldWrapper>
 
         <RadioGroup
-            heading="A5E.ItemEquippedState"
+            heading="A5E.objects.equippedState"
             options={Object.entries(A5E.equippedStates)}
             selected={itemStore.equippedState}
             onUpdateSelection={(value) =>
@@ -217,7 +186,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.ItemPrice">
+        <FieldWrapper heading="A5E.objects.price">
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="text"
@@ -232,7 +201,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.CraftingComponents">
+        <FieldWrapper heading="A5E.objects.craftingComponents">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -249,7 +218,7 @@
 
         {#if !hideBrokenAndDamaged}
             <RadioGroup
-                heading="A5E.ItemCondition"
+                heading="A5E.objects.condition"
                 options={Object.entries(A5E.damagedStates)}
                 selected={itemStore.damagedState}
                 onUpdateSelection={(value) =>
@@ -264,18 +233,17 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ObjectTypePrompt")}:
+                    {localize("A5E.objects.typePrompt")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
-                    {A5E.objectTypes[itemStore.objectType] ??
-                        localize("A5E.None")}
+                    {A5E.objectTypes[itemStore.objectType] ?? localize("A5E.None")}
                 </dd>
             </div>
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ItemRarity")}:
+                    {localize("A5E.objects.rarity")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -286,30 +254,27 @@
             {#if showVRCTechLevel}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.ItemTechnologyLevel")}:
+                        {localize("A5E.objects.technologyLevel")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">
-                        {A5E.itemTechLevels[itemStore.techLevel] ??
-                            itemStore.techLevel}
+                        {A5E.itemTechLevels[itemStore.techLevel] ?? itemStore.techLevel}
                     </dd>
                 </div>
             {/if}
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.Attunement")}
+                    {localize("A5E.attunement.headings.attunement")}
                 </dt>
 
                 <dd class="a5e-dl-box__content">
                     {#if itemStore.requiresAttunement}
                         {localize("A5E.AttunementRequired")}: ({localize(
-                            itemStore.attuned
-                                ? "A5E.Attuned"
-                                : "A5E.AttunedNot",
+                            itemStore.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
                         )})
                     {:else}
-                        {localize("A5E.AttunementNotRequired")}
+                        {localize("A5E.attunement.headings.notRequired")}
                     {/if}
                 </dd>
             </div>
@@ -330,16 +295,16 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ItemWeight")}:
+                    {localize("A5E.objects.weight")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
                     {itemStore.weight}
-                    {localize("A5E.DetailsWeightLbs")}
+                    {localize("A5E.objects.weightLbs")}
 
                     {#if itemStore.bulky}
                         <span class="a5e-dl-box__content--bulky">
-                            {localize("A5E.ItemBulky")}
+                            {localize("A5E.objects.bulky")}
                         </span>
                     {/if}
                 </dd>
@@ -357,7 +322,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.ItemPrice")}:
+                    {localize("A5E.objects.price")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -368,7 +333,7 @@
             {#if itemStore.craftingComponents !== ""}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.CraftingComponents")}:
+                        {localize("A5E.objects.craftingComponents")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">

@@ -21,14 +21,14 @@
         return [
             {
                 name: "core",
-                label: "A5E.TabCore",
+                label: "A5E.tabs.core",
                 icon: "fa-solid fa-home",
                 component: OriginCorePage,
             },
             // Archetype Properties
             {
                 name: "archetypeProperties",
-                label: "A5E.TabProperties",
+                label: "A5E.tabs.properties",
                 icon: "fa-solid fa-table-list",
                 component: ArchetypePropertiesPage,
                 display: item.type === "archetype",
@@ -36,7 +36,7 @@
             // Class Properties
             {
                 name: "classProperties",
-                label: "A5E.TabProperties",
+                label: "A5E.tabs.properties",
                 icon: "fa-solid fa-table-list",
                 component: ClassPropertiesPage,
                 display: item.type === "class",
@@ -44,7 +44,7 @@
             // Resources
             {
                 name: "resources",
-                label: "A5E.TabResources",
+                label: "A5E.tabs.resources",
                 icon: "fa-solid fa-dice-d20",
                 component: OriginResourcesPage,
                 display: ["archetype", "class"].includes(item.type),
@@ -52,7 +52,7 @@
             // Grants
             {
                 name: "grants",
-                label: "A5E.TabGrants",
+                label: "A5E.tabs.grants",
                 icon: "fa-solid fa-gift",
                 component: ItemGrantsPage,
             },
@@ -78,12 +78,7 @@
 <main class="a5e-origin-sheet">
     <ItemSheetHeader />
 
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-origin-sheet__page">
         <currentTab.component />

@@ -12,10 +12,7 @@
     function getClassSummary() {
         const parentClass = $item.system.classes;
 
-        return (
-            localize(classes[parentClass] ?? classes5e[parentClass]) ||
-            parentClass
-        );
+        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
     }
 
     const item = getContext("item");
@@ -25,7 +22,7 @@
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.objects.materialProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -38,16 +35,12 @@
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.FeatureTypePrompt"
+            heading="A5E.features.typePrompt"
             options={Object.entries(featureTypes)}
             selected={$item.system.featureType}
             allowDeselect={true}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.featureType",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.featureType", event.detail)}
         />
 
         {#if ["class", "knack"].includes($item.system.featureType)}
@@ -57,11 +50,7 @@
                 selected={$item.system.classes}
                 allowDeselect={true}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.classes",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.classes", detail);
                 }}
             />
 
@@ -70,11 +59,7 @@
                 options={Object.entries(classes5e)}
                 selected={$item.system.classes}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.classes",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.classes", detail);
                 }}
             />
 
@@ -101,25 +86,17 @@
                 label="A5E.SpellConcentration"
                 checked={$item.system.concentration}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.concentration",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.concentration", detail);
                 }}
             />
         </FieldWrapper>
 
         <FieldWrapper>
             <Checkbox
-                label="A5E.RequiresBloodied"
+                label="A5E.items.requiresBloodied"
                 checked={$item.system.requiresBloodied}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.requiresBloodied",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.requiresBloodied", detail);
                 }}
             />
         </FieldWrapper>
@@ -127,12 +104,11 @@
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.FeatureTypePrompt")} :
+                    {localize("A5E.features.typePrompt")} :
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {featureTypes[$item.system.featureType] ??
-                        localize("A5E.None")}
+                    {featureTypes[$item.system.featureType] ?? localize("A5E.None")}
                 </dd>
             </div>
 

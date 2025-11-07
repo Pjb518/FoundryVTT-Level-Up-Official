@@ -35,7 +35,7 @@
         },
         {
             name: "grants",
-            label: "A5E.TabGrants",
+            label: "A5E.tabs.grants",
             component: ItemGrantsTab,
         },
     ];

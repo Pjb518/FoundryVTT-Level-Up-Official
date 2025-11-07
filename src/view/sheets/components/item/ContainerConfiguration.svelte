@@ -17,7 +17,7 @@
 </script>
 
 <Section
-    heading="A5E.TabContainerProperties"
+    heading="A5E.tabs.containerProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -34,11 +34,7 @@
             options={Object.entries(A5E.capacityTypes)}
             selected={itemStore.capacity.type}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.capacity.type",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.capacity.type", value)}
         />
 
         <FieldWrapper heading="Max Capacity">

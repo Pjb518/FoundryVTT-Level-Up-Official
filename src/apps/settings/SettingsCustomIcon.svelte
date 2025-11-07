@@ -7,8 +7,7 @@
 
     function getConditionName() {
         if (conditionKey === "dead") return localize("A5E.ConditionDead");
-        if (conditionKey === "concentration")
-            return localize("A5E.ConditionConcentration");
+        if (conditionKey === "concentration") return localize("A5E.SpellConcentration");
 
         return conditions[conditionKey] ?? conditionKey;
     }
@@ -28,16 +27,12 @@
     on:click={() =>
         dispatch("updateConditionIcon", [
             conditionKey,
-            icon ||
-                $iconStore[conditionKey] ||
-                conditionIconsDefault[conditionKey],
+            icon || $iconStore[conditionKey] || conditionIconsDefault[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
-        src={icon ||
-            $iconStore[conditionKey] ||
-            conditionIconsDefault[conditionKey]}
+        src={icon || $iconStore[conditionKey] || conditionIconsDefault[conditionKey]}
         alt={getConditionName()}
     />
 

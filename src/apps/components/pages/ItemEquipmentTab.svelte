@@ -11,9 +11,7 @@
         try {
             const doc = await Item.fromDropData({ uuid });
             if ($item.isEmbedded) {
-                child = (
-                    await $item.actor.createEmbeddedDocuments("Item", [doc])
-                )?.[0];
+                child = (await $item.actor.createEmbeddedDocuments("Item", [doc]))?.[0];
             } else {
                 child = doc;
             }
@@ -28,8 +26,7 @@
         }
 
         await $item.containerItems.add(child.uuid);
-        const actor =
-            $item?.parent?.documentName === "Actor" ? $item.parent : null;
+        const actor = $item?.parent?.documentName === "Actor" ? $item.parent : null;
 
         if (!actor) return;
         if (actor.uuid !== $item.parent?.uuid) return;
@@ -42,8 +39,7 @@
         const child = await fromUuid(uuid);
         await $item.containerItems.remove(uuid);
 
-        const actor =
-            $item?.parent?.documentName === "Actor" ? $item.parent : null;
+        const actor = $item?.parent?.documentName === "Actor" ? $item.parent : null;
 
         if (!actor || !child) return;
         if (actor.uuid !== $item.parent?.uuid) return;
@@ -76,9 +72,7 @@
                                 class="number-input"
                                 type="number"
                                 id="{doc.uuid}-quantityOverride"
-                                value={quantityOverride ||
-                                    doc.system.quantity ||
-                                    1}
+                                value={quantityOverride || doc.system.quantity || 1}
                                 min="1"
                                 on:change={({ target }) => {
                                     updateDocumentDataFromField(
@@ -94,7 +88,7 @@
 
                     <button
                         class="a5e-button a5e-button--delete delete-button icon fas fa-trash"
-                        data-tooltip="A5E.ButtonToolTipDelete"
+                        data-tooltip="A5E.buttons.tooltips.delete"
                         data-tooltip-direction="UP"
                         on:click={() => deleteEquipment(doc.uuid)}
                     />

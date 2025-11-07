@@ -33,37 +33,34 @@
         },
         {
             name: "bio",
-            label: actor.type === "npc" ? "A5E.TabBiography" : "Backstory",
-            display:
-                actor.type === "character" || (isGM && actor.type === "npc"),
+            label: actor.type === "npc" ? "A5E.tabs.biography" : "Backstory",
+            display: actor.type === "character" || (isGM && actor.type === "npc"),
         },
         {
             name: "notes",
-            label: "A5E.TabNotes",
+            label: "A5E.tabs.notes",
         },
         {
             name: "privateNotes",
-            label: "A5E.DetailsNotesPrivate",
+            label: "A5E.details.notesPrivate",
             display: isGM && actor.type === "npc",
         },
     ];
 
     const traitsLabel = {
-        age: "A5E.DetailsAge",
-        eyeColor: "A5E.DetailsEyeColor",
-        hairColor: "A5E.DetailsHairColor",
-        skinColor: "A5E.DetailsSkinColor",
-        height: "A5E.DetailsHeight",
-        weight: "A5E.DetailsWeight",
-        gender: "A5E.DetailsGender",
+        age: "A5E.details.age",
+        eyeColor: "A5E.details.eyeColor",
+        hairColor: "A5E.details.hairColor",
+        skinColor: "A5E.details.skinColor",
+        height: "A5E.details.height",
+        weight: "A5E.details.weight",
+        gender: "A5E.details.gender",
     };
 
     const defaultTab = actor.type === "character" ? "appearance" : "notes";
     let currentTab = $derived(
         tabs.find(
-            (tab) =>
-                tab.name ===
-                actorSheetTempSettings[actor.uuid]?.currentNotesTab,
+            (tab) => tab.name === actorSheetTempSettings[actor.uuid]?.currentNotesTab,
         ) ??
             tabs.find((tab) => tab.name === defaultTab) ??
             tabs[0],

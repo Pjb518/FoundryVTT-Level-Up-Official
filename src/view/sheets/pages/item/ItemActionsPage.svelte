@@ -22,12 +22,12 @@
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section
-        heading="A5E.TabActions"
+        heading="A5E.tabs.actions"
         headerButtons={[
             {
                 classes: "add-button",
                 handler: () => item.actions.add(),
-                label: "A5E.ButtonAddAction",
+                label: "A5E.buttons.addAction",
             },
         ]}
         --a5e-section-gap="0.125rem"
@@ -43,9 +43,7 @@
                 >
                     <img
                         class="a5e-item__image a5e-item__image--action"
-                        src={action?.img ??
-                            $item.img ??
-                            "icons/svg/item-bag.svg"}
+                        src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
                         alt=""
                     />
 
@@ -63,7 +61,7 @@
 
                         <button
                             class="a5e-button--action icon fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
                             aria-label="Configure"
                             onclick={() => item.actions.configure(id)}
@@ -71,7 +69,7 @@
 
                         <button
                             class="a5e-button--action icon fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             aria-label="Duplicate"
                             onclick={() => item.actions.duplicate(id)}
@@ -79,7 +77,7 @@
 
                         <button
                             class="a5e-button--action icon delete-button fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             aria-label="Delete"
                             onclick={() => item.actions.remove(id)}

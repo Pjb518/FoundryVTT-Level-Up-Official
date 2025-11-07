@@ -36,7 +36,7 @@ export default function registerBonusesConfig() {
 			addButton: 'A5E.bonuses.labels.attack.addButton',
 			sectionHeader: 'A5E.bonuses.labels.attack.sectionHeader',
 			defaultName: 'A5E.bonuses.labels.attack.defaultName',
-			dialogName: 'A5E.bonuses.labels.attacks.dialogName',
+			dialogName: 'A5E.bonuses.labels.attack.dialogName',
 		},
 		damage: {
 			addButton: 'A5E.bonuses.labels.damage.addButton',

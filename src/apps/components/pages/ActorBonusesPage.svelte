@@ -38,29 +38,22 @@
     // }
 
     function getBonusSectionHeader(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
     }
 
     function getAddButtonLabelForBonus(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
     }
 
     function getDefaultBonusName(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
     }
 
     const actor = getContext("actor");
 
     const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
-    let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? true;
+    let rightClickConfigure = game.settings.get("a5e", "itemRightClickConfigure") ?? true;
 
     $: disableManeuverDC = determineIfPropertyModifiedByEffect(
         $actor,
@@ -85,7 +78,7 @@
     >
         <div class="global-bonus-container">
             <FieldWrapper
-                heading="A5E.ManeuverDCBonus"
+                heading="A5E.maneuvers.dc"
                 showWarning={disableManeuverDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
             >
@@ -96,16 +89,12 @@
                     value={$actor.system.bonuses.maneuverDC}
                     disabled={disableManeuverDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($actor, target.name, target.value)}
                 />
             </FieldWrapper>
 
             <FieldWrapper
-                heading="A5E.SpellDCBonus"
+                heading="A5E.bonuses.labels.spellDCBonus"
                 showWarning={disableSpellDC}
                 warning="A5E.validations.warnings.modifiedByEffect"
             >
@@ -116,11 +105,7 @@
                     value={$actor.system.bonuses.spellDC}
                     disabled={disableSpellDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($actor, target.name, target.value)}
                 />
             </FieldWrapper>
         </div>
@@ -128,8 +113,7 @@
 
     {#each bonusCategories as bonusType}
         <Section
-            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {})
-                .length
+            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {}).length
                 ? "a5e-section-header--flat-bottom"
                 : ""}
             heading={getBonusSectionHeader(bonusType)}
@@ -167,13 +151,10 @@
                                 <li>
                                     <button
                                         class="action-button icon fas fa-cog"
-                                        data-tooltip="A5E.ButtonToolTipConfigure"
+                                        data-tooltip="A5E.buttons.tooltips.configure"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.configureBonus(
-                                                id,
-                                                bonusType,
-                                            )}
+                                            $actor.configureBonus(id, bonusType)}
                                     />
                                 </li>
 
@@ -181,20 +162,17 @@
                                 <li>
                                     <button
                                         class="action-button icon fa-solid fa-clone"
-                                        data-tooltip="A5E.ButtonToolTipDuplicate"
+                                        data-tooltip="A5E.buttons.tooltips.duplicate"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.duplicateBonus(
-                                                id,
-                                                bonusType,
-                                            )}
+                                            $actor.duplicateBonus(id, bonusType)}
                                     />
                                 </li>
 
                                 <li>
                                     <button
                                         class="action-button delete-button icon fas fa-trash"
-                                        data-tooltip="A5E.ButtonToolTipDelete"
+                                        data-tooltip="A5E.buttons.tooltips.delete"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
                                             $actor.deleteBonus(id, bonusType)}

@@ -34,9 +34,7 @@
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     let actorStore = $derived(actor.reactive.system);
-    let abilityKey = $derived(
-        actorStore.attributes.initiative.ability ?? "dex",
-    );
+    let abilityKey = $derived(actorStore.attributes.initiative.ability ?? "dex");
 </script>
 
 <li class="a5e-actor-initiative__wrapper">
@@ -64,7 +62,7 @@
     {:else}
         <button
             class="a5e-button a5e-actor-initiative__roll-button"
-            data-tooltip="A5E.InitiativeConfigurationTitle"
+            data-tooltip="A5E.initiative.configurationTitle"
             data-tooltip-direction="DOWN"
             aria-label="Configure Initiative"
             onclick={() => actor.configureInitiative()}

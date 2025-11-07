@@ -43,11 +43,7 @@
     }
 
     // TODO: Cleanup - Fix up this gross mess
-    function getActivationCostLabel(
-        item: ItemA5e,
-        action: Action,
-        cost: string,
-    ) {
+    function getActivationCostLabel(item: ItemA5e, action: Action, cost: string) {
         let _action = action;
 
         if (item.actions?.count === 1) {
@@ -145,17 +141,9 @@
 
         const { target } = event;
         if (isClassResource) {
-            updateDocumentDataFromField(
-                $actor,
-                target.name,
-                Number(target.value),
-            );
+            updateDocumentDataFromField($actor, target.name, Number(target.value));
         } else {
-            updateDocumentDataFromField(
-                item,
-                target.name,
-                Number(target.value),
-            );
+            updateDocumentDataFromField(item, target.name, Number(target.value));
         }
     }
 
@@ -229,12 +217,10 @@
                 foundry.utils.getProperty(
                     $actor._source,
                     `system.resources.classResources.${slug}`,
-                ) ??
-                getDeterministicBonus(maxFormula, $actor.getRollData(item));
+                ) ?? getDeterministicBonus(maxFormula, $actor.getRollData(item));
 
             uses[usesType].value = resource;
-            uses[usesType].updatePath =
-                `system.resources.classResources.${slug}`;
+            uses[usesType].updatePath = `system.resources.classResources.${slug}`;
         }
 
         return uses;
@@ -258,10 +244,8 @@
     ) as boolean;
     let usesType: "action" | "item" = actionId ? "action" : "item";
 
-    let rightClickConfigure = (game.settings.get(
-        "a5e",
-        "itemRightClickConfigure",
-    ) ?? false) as boolean;
+    let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
+        false) as boolean;
 
     $: flags = $actor.flags;
 
@@ -270,32 +254,22 @@
 
     $: ammunitionItems = $actor.items
         .filter(
-            (i: ItemA5e) =>
-                i.isType("object") && i.system.objectType === "ammunition",
+            (i: ItemA5e) => i.isType("object") && i.system.objectType === "ammunition",
         )
         .map((i) => ({ name: i.name, id: i.id }))
-        .sort((a, b) =>
-            a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-        );
+        .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
     $: rechargeState = actionId
         ? action.uses?.max == action.uses?.value
         : item.system?.uses?.max == item.system?.uses?.value;
 
     $: activationCost = getActivationCost(item, action);
-    $: activationCostLabel = getActivationCostLabel(
-        item,
-        action,
-        activationCost,
-    );
+    $: activationCostLabel = getActivationCostLabel(item, action, activationCost);
     $: containerCapacity = getCapacity(item as ObjectItemA5e);
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
-<div
-    class="name-wrapper"
-    class:name-wrapper--ammunition={hasAmmunition(item, action)}
->
+<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
     <div class="name">
         {action?.name ?? item.name}
 
@@ -321,7 +295,7 @@
         {#if !action && item.system.requiresBloodied}
             <i
                 class="action-button action-button--bloodied icon fa-solid fa-droplet"
-                data-tooltip={"A5E.RequiresBloodied"}
+                data-tooltip={"A5E.items.requiresBloodied"}
                 data-tooltip-direction="UP"
             />
         {/if}
@@ -358,11 +332,7 @@
             on:click|stopPropagation
             on:change={updateAmmunition}
         >
-            <option
-                value=""
-                on:click|stopPropagation
-                selected={selectedAmmo === ""}
-            />
+            <option value="" on:click|stopPropagation selected={selectedAmmo === ""} />
             {#each ammunitionItems as { name, id } (id)}
                 <option
                     value={id}
@@ -383,30 +353,30 @@
                 {#if item.system.components.vocalized}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentVocalized"
+                        data-tooltip="A5E.spells.components.vocalized"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentVocalizedAbbr")}
+                        {localize("A5E.spells.components.vocalizedAbbr")}
                     </span>
                 {/if}
 
                 {#if item.system.components.seen}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentSeen"
+                        data-tooltip="A5E.spells.components.seen"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentSeenAbbr")}
+                        {localize("A5E.spells.components.seenAbbr")}
                     </span>
                 {/if}
 
                 {#if item.system.components.material}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentMaterial"
+                        data-tooltip="A5E.spells.components.material"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentMaterialAbbr")}
+                        {localize("A5E.spells.components.materialAbbr")}
                     </span>
                 {/if}
 
@@ -416,7 +386,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
 
@@ -440,7 +410,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
             </div>
@@ -451,7 +421,7 @@
                 <button
                     class="action-button icon fas fa-star"
                     class:active={item.system?.favorite ?? false}
-                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip="A5E.buttons.tooltips.favorite"
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.toggleFavorite()}
                 />
@@ -487,12 +457,9 @@
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(item.system.equippedState)}
-                        data-tooltip={equippedStates[
-                            item.system.equippedState ?? 0
-                        ]}
+                        data-tooltip={equippedStates[item.system.equippedState ?? 0]}
                         data-tooltip-direction="UP"
-                        on:click|stopPropagation={() =>
-                            item.toggleEquippedState()}
+                        on:click|stopPropagation={() => item.toggleEquippedState()}
                     />
                 {/if}
 
@@ -509,12 +476,9 @@
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(item.system.damagedState)}
-                        data-tooltip={damagedStates[
-                            item.system.damagedState ?? 0
-                        ]}
+                        data-tooltip={damagedStates[item.system.damagedState ?? 0]}
                         data-tooltip-direction="UP"
-                        on:click|stopPropagation={() =>
-                            item.toggleDamagedState()}
+                        on:click|stopPropagation={() => item.toggleDamagedState()}
                     />
                 {/if}
             {/if}
@@ -526,16 +490,13 @@
                         PREPARED_STATES.UNPREPARED,
                         PREPARED_STATES.PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
-                    class:fa-book-sparkles={Number(
-                        item.system.prepared ?? 0,
-                    ) === PREPARED_STATES.ALWAYS_PREPARED}
+                    class:fa-book-sparkles={Number(item.system.prepared ?? 0) ===
+                        PREPARED_STATES.ALWAYS_PREPARED}
                     class:active={[
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
-                    data-tooltip={preparedStates[
-                        Number(item.system.prepared ?? 0)
-                    ]}
+                    data-tooltip={preparedStates[Number(item.system.prepared ?? 0)]}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.togglePrepared()}
                 />
@@ -763,8 +724,7 @@
         width: 7ch;
 
         &:hover {
-            border: 1px solid
-                var(--item-input-border-color, var(--a5e-border-color));
+            border: 1px solid var(--item-input-border-color, var(--a5e-border-color));
         }
     }
 

@@ -11,13 +11,7 @@
     type Props = {
         document: any;
         grantId: string;
-        grantType:
-            | "abilities"
-            | "damage"
-            | "healing"
-            | "movement"
-            | "senses"
-            | "skills";
+        grantType: "abilities" | "damage" | "healing" | "movement" | "senses" | "skills";
     };
 
     function updateImage() {
@@ -46,12 +40,12 @@
     const configObject = {
         abilities: {},
         damage: {
-            selectHeading: "A5E.DamageType",
+            selectHeading: "A5E.damage.headings.type",
             selectTypes: CONFIG.A5E.damageTypes,
             selectProperty: "damageType",
         },
         healing: {
-            selectHeading: "A5E.HealingType",
+            selectHeading: "A5E.healing.type",
             selectTypes: CONFIG.A5E.healingTypes,
             selectProperty: "healingType",
         },
@@ -67,12 +61,9 @@
         },
         skills: {},
     };
-    const hasSelectDialog = [
-        "damage",
-        "healing",
-        "movement",
-        "senses",
-    ].includes(grantType);
+    const hasSelectDialog = ["damage", "healing", "movement", "senses"].includes(
+        grantType,
+    );
 
     let grant = $derived(item.reactive.system.grants[grantId]);
     let selectProperty = $derived(configObject[grantType]?.selectProperty);
@@ -111,7 +102,7 @@
         --a5e-section-body-direction={hasSelectDialog ? "row" : "column"}
     >
         <FieldWrapper
-            heading="A5E.Formula"
+            heading="A5E.rollLabels.formula"
             --a5e-field-wrapper-grow={hasSelectDialog ? "1" : "0"}
         >
             <input
@@ -149,10 +140,7 @@
                     {/if}
 
                     {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
-                        <option
-                            value={key}
-                            selected={grant[selectProperty] === key}
-                        >
+                        <option value={key} selected={grant[selectProperty] === key}>
                             {localize(name as string)}
                         </option>
                     {/each}

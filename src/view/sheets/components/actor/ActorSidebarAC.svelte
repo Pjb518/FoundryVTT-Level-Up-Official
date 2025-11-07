@@ -17,7 +17,7 @@
         {#if !sheetIsLocked()}
             <button
                 class="a5e-button a5e-button--transparent a5e-actor-ac__config-button"
-                data-tooltip="A5E.ArmorClassConfigurationTitle"
+                data-tooltip="A5E.armorClass.headings.configurationTitle"
                 data-tooltip-direction="DOWN"
                 aria-label="Configure Armor Class"
                 onclick={() => actor.configureArmorClass()}

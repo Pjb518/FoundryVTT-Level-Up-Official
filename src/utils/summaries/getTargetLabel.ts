@@ -8,7 +8,7 @@ export default function getTargetLabel(action: Action) {
   if (foundry.utils.isEmpty(target) || !target.type || target.type === "none")
     return "";
 
-  if (target.type === "self") return localize("A5E.TargetSelf");
+  if (target.type === "self") return localize("A5E.targets.self");
   if (target.type === "other") return localize("A5E.TargetOther");
 
   if (target.quantity === 0 || target.quantity > 1) {

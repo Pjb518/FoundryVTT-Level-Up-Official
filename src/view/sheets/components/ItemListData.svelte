@@ -16,8 +16,7 @@
         toggleContainer?: () => void;
     };
 
-    let { item, action, actionId, toggleActionList, toggleContainer }: Props =
-        $props();
+    let { item, action, actionId, toggleActionList, toggleContainer }: Props = $props();
 
     function getActivationCost() {
         let _action = action;
@@ -146,17 +145,9 @@
 
         const { target } = event;
         if (isClassResource) {
-            updateDocumentDataFromField(
-                actor,
-                target.name,
-                Number(target.value),
-            );
+            updateDocumentDataFromField(actor, target.name, Number(target.value));
         } else {
-            updateDocumentDataFromField(
-                item,
-                target.name,
-                Number(target.value),
-            );
+            updateDocumentDataFromField(item, target.name, Number(target.value));
         }
     }
 
@@ -233,8 +224,7 @@
                 ) ?? getDeterministicBonus(maxFormula, actor.getRollData(item));
 
             usesData[usesType].value = resource;
-            usesData[usesType].updatePath =
-                `system.resources.classResources.${slug}`;
+            usesData[usesType].updatePath = `system.resources.classResources.${slug}`;
         }
 
         return usesData;
@@ -261,10 +251,8 @@
 
     let usesType: "action" | "item" = actionId ? "action" : "item";
 
-    let rightClickConfigure = (game.settings.get(
-        "a5e",
-        "itemRightClickConfigure",
-    ) ?? false) as boolean;
+    let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
+        false) as boolean;
 
     let flags = $derived(actor.reactive.flags);
     let isClassResource = $state(false);
@@ -278,9 +266,7 @@
                     i.reactive.system.objectType === "ammunition",
             )
             .map((i) => ({ name: i.name, id: i.id }))
-            .sort((a, b) =>
-                a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-            ),
+            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())),
     );
 
     let rechargeState = $derived(
@@ -297,10 +283,7 @@
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
 </script>
 
-<div
-    class="name-wrapper"
-    class:name-wrapper--ammunition={hasAmmunition(item, action)}
->
+<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
     <div class="name">
         {action?.name ?? item.name}
 
@@ -330,7 +313,7 @@
         {#if !action && itemStore.requiresBloodied}
             <i
                 class="action-button action-button--bloodied icon fa-solid fa-droplet"
-                data-tooltip={"A5E.RequiresBloodied"}
+                data-tooltip={"A5E.items.requiresBloodied"}
                 data-tooltip-direction="UP"
             ></i>
         {/if}
@@ -397,30 +380,30 @@
                 {#if itemStore.components.vocalized}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentVocalized"
+                        data-tooltip="A5E.spells.components.vocalized"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentVocalizedAbbr")}
+                        {localize("A5E.spells.components.vocalizedAbbr")}
                     </span>
                 {/if}
 
                 {#if itemStore.components.seen}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentSeen"
+                        data-tooltip="A5E.spells.components.seen"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentSeenAbbr")}
+                        {localize("A5E.spells.components.seenAbbr")}
                     </span>
                 {/if}
 
                 {#if itemStore.components.material}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellComponentMaterial"
+                        data-tooltip="A5E.spells.components.material"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellComponentMaterialAbbr")}
+                        {localize("A5E.spells.components.materialAbbr")}
                     </span>
                 {/if}
 
@@ -430,7 +413,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
 
@@ -454,7 +437,7 @@
                         data-tooltip="A5E.SpellConcentration"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellConcentrationAbbr")}
+                        {localize("A5E.spells.concentrationAbbr")}
                     </span>
                 {/if}
             </div>
@@ -465,7 +448,7 @@
                 <button
                     class="action-button icon fas fa-star"
                     class:active={itemStore?.favorite ?? false}
-                    data-tooltip="A5E.ButtonToolTipFavorite"
+                    data-tooltip="A5E.buttons.tooltips.favorite"
                     data-tooltip-direction="UP"
                     aria-label="Toggle Favorite"
                     onclick={(e) => {
@@ -510,9 +493,7 @@
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(itemStore.equippedState)}
-                        data-tooltip={equippedStates[
-                            itemStore.equippedState ?? 0
-                        ]}
+                        data-tooltip={equippedStates[itemStore.equippedState ?? 0]}
                         data-tooltip-direction="UP"
                         aria-label="Toggle Equipped State"
                         onclick={(e) => {
@@ -526,8 +507,7 @@
                 {#if !hideBrokenAndDamaged}
                     <button
                         class="action-button icon fas"
-                        class:fa-heart={itemStore.damagedState ===
-                            DAMAGED_STATES.INTACT}
+                        class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
                         class:fa-heart-crack={itemStore.damagedState ===
                             DAMAGED_STATES.DAMAGED}
                         class:fa-heart-pulse={itemStore.damagedState ===
@@ -536,9 +516,7 @@
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(itemStore.damagedState)}
-                        data-tooltip={damagedStates[
-                            itemStore.damagedState ?? 0
-                        ]}
+                        data-tooltip={damagedStates[itemStore.damagedState ?? 0]}
                         data-tooltip-direction="UP"
                         aria-label="Toggle Damaged Dtate"
                         onclick={(e) => {
@@ -563,9 +541,7 @@
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(itemStore.prepared ?? 0))}
-                    data-tooltip={preparedStates[
-                        Number(itemStore.prepared ?? 0)
-                    ]}
+                    data-tooltip={preparedStates[Number(itemStore.prepared ?? 0)]}
                     data-tooltip-direction="UP"
                     aria-label="Toggle Prepared State"
                     onclick={(e) => {
@@ -803,8 +779,7 @@
         width: 7ch;
 
         &:hover {
-            border: 1px solid
-                var(--item-input-border-color, var(--a5e-border-color));
+            border: 1px solid var(--item-input-border-color, var(--a5e-border-color));
         }
     }
 

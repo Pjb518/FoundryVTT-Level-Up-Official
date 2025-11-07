@@ -42,9 +42,7 @@
         if (!actionId || $doc.documentName !== "Item") return;
 
         const action = $doc.actions.get(actionId);
-        const updatedEffects = [...action.effects].filter(
-            (id) => id !== effectId,
-        );
+        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
 
         $doc.update({
             [`system.actions.${actionId}.effects`]: updatedEffects,
@@ -57,10 +55,7 @@
 
         dragData.parentId = effect?.parent?.id;
 
-        return event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     }
 
     const doc = getContext("actor") ?? getContext("item");
@@ -164,7 +159,7 @@
                     <li>
                         <button
                             class="action-button icon fas fa-cog"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onConfigure}
                         />
@@ -173,7 +168,7 @@
                     <li>
                         <button
                             class="action-button icon fa-solid fa-clone"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onDuplicate}
                         />
@@ -182,7 +177,7 @@
                     <li>
                         <button
                             class="action-button delete-button icon fas fa-trash"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
                             on:click|stopPropagation={onDelete}
                         />

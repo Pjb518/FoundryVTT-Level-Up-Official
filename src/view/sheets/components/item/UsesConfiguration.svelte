@@ -14,10 +14,7 @@
         const { uses } = itemStore;
 
         const maxUses = item.actor
-            ? getDeterministicBonus(
-                  uses?.max ?? 0,
-                  item.actor?.getRollData(item) ?? {},
-              )
+            ? getDeterministicBonus(uses?.max ?? 0, item.actor?.getRollData(item) ?? {})
             : uses?.max;
 
         let summary: string;
@@ -42,9 +39,7 @@
 
     let editMode = $state(false);
     let usesSummary = $derived(prepareUsesSummary());
-    let isClassResource = $derived(
-        formulaIsClassResource(itemStore.uses.max ?? ""),
-    );
+    let isClassResource = $derived(formulaIsClassResource(itemStore.uses.max ?? ""));
 </script>
 
 <Section
@@ -60,12 +55,9 @@
     --a5e-section-heading-template-columns="max-content max-content"
 >
     {#if editMode}
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.5rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.5rem">
             {#if !isClassResource}
-                <FieldWrapper heading="A5E.UsesCurrent">
+                <FieldWrapper heading="A5E.consumers.uses.current">
                     <input
                         class="a5e-input a5e-input--slim"
                         type="number"
@@ -80,7 +72,7 @@
                 </FieldWrapper>
             {/if}
 
-            <FieldWrapper heading="A5E.UsesMax">
+            <FieldWrapper heading="A5E.consumers.uses.max">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="text"
@@ -96,7 +88,7 @@
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.UsesPer">
+            <FieldWrapper heading="A5E.consumers.uses.per">
                 <select
                     class="a5e-input a5e-input--slim"
                     onchange={({ currentTarget }) =>
@@ -109,10 +101,7 @@
                     <option value=""></option>
 
                     {#each Object.entries(resourceRecoveryOptions) as [key, name]}
-                        <option
-                            value={key}
-                            selected={itemStore.uses.per === key}
-                        >
+                        <option value={key} selected={itemStore.uses.per === key}>
                             {localize(name as string)}
                         </option>
                     {/each}
@@ -164,7 +153,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.Uses")}:
+                    {localize("A5E.consumers.uses.title")}:
                 </dt>
 
                 <dd

@@ -42,7 +42,7 @@
         },
         hitDice: {
             heading: "A5E.ConsumerHitDice",
-            singleLabel: "A5E.HitDiceLabel",
+            singleLabel: "A5E.hitDice.title",
             component: HitDiceConsumer,
         },
         quantity: {
@@ -79,10 +79,7 @@
 
     $: menuList = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (
-                consumerType === "resource" ||
-                !existingConsumers.has(consumerType)
-            )
+            if (consumerType === "resource" || !existingConsumers.has(consumerType))
                 acc.push([consumerType, singleLabel]);
 
             return acc;
@@ -94,13 +91,13 @@
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <!-- Action Resources Section -->
     <Section
-        heading="A5E.Uses"
+        heading="A5E.consumers.uses.title"
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"
     >
         {#if !isClassResource}
             <FieldWrapper
-                heading="A5E.UsesCurrent"
+                heading="A5E.consumers.uses.current"
                 --a5e-field-wrapper-width="7.5rem"
             >
                 <input
@@ -119,7 +116,7 @@
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper heading="A5E.UsesMax" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper heading="A5E.consumers.uses.max" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="text"
                 name="system.actions.{actionId}.uses.max"
@@ -128,26 +125,18 @@
                     // @ts-expect-error
                     handleDeterministicInput(target.value);
                     // @ts-expect-error
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    );
+                    updateDocumentDataFromField($item, target.name, target.value);
                 }}
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.UsesPer">
+        <FieldWrapper heading="A5E.consumers.uses.per">
             <select
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
                     // @ts-expect-error
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             >
                 <option value="" />
 
@@ -166,10 +155,7 @@
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper
-                heading="A5E.ItemRechargeFormula"
-                --a5e-field-wrapper-grow="1"
-            >
+            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"

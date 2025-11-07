@@ -31,7 +31,7 @@
 </script>
 
 <Section
-    heading="A5E.TabWeaponProperties"
+    heading="A5E.tabs.weaponProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -44,27 +44,19 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.WeaponProperties"
+            heading="A5E.weapons.headings.properties"
             options={Object.entries(weaponProperties)}
             selected={itemStore.weaponProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.weaponProperties",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.weaponProperties", value)}
         />
 
         <CheckboxGroup
-            heading="A5E.WeaponAugments"
+            heading="A5E.weapons.headings.augments"
             options={Object.entries(weaponAugments)}
             selected={itemStore.weaponAugments}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.weaponAugments",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.weaponAugments", value)}
         />
 
         {#if itemStore.weaponProperties.includes("breaker")}
@@ -73,11 +65,7 @@
                 options={Object.entries(breakerProperties)}
                 selected={itemStore.breakerProperties}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.breakerProperties",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.breakerProperties", value)}
             />
         {/if}
 
@@ -101,11 +89,7 @@
                 options={Object.entries(energyProperties)}
                 selected={itemStore.energyProperties}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.energyProperties",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.energyProperties", value)}
             />
         {/if}
 
@@ -125,18 +109,14 @@
                 options={Object.entries(versatileOptions)}
                 selected={itemStore.versatile}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.versatile",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.versatile", value)}
             />
         {/if}
     {:else}
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.WeaponProperties")}:
+                    {localize("A5E.weapons.headings.properties")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -146,7 +126,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.WeaponAugments")}:
+                    {localize("A5E.weapons.headings.augments")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

@@ -88,7 +88,7 @@
             <li>
                 <button
                     class="action-button icon fas fa-cog"
-                    data-tooltip="A5E.ButtonToolTipConfigure"
+                    data-tooltip="A5E.buttons.tooltips.configure"
                     data-tooltip-direction="UP"
                     aria-label="Configure"
                     onclick={onConfigure}
@@ -98,7 +98,7 @@
             <li>
                 <button
                     class="action-button icon fa-solid fa-clone"
-                    data-tooltip="A5E.ButtonToolTipDuplicate"
+                    data-tooltip="A5E.buttons.tooltips.duplicate"
                     data-tooltip-direction="UP"
                     aria-label="Duplicate"
                     onclick={onDuplicate}
@@ -108,7 +108,7 @@
             <li>
                 <button
                     class="action-button delete-button icon fas fa-trash"
-                    data-tooltip="A5E.ButtonToolTipDelete"
+                    data-tooltip="A5E.buttons.tooltips.delete"
                     data-tooltip-direction="UP"
                     aria-label="Delete"
                     onclick={onDelete}

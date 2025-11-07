@@ -64,10 +64,7 @@
         }
 
         const checkBonus = getDeterministicBonus(
-            $actor.BonusesManager.getAbilityBonusesFormula(
-                skill.ability,
-                "check",
-            ),
+            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
             actor.getRollData(),
         );
         return skillBonus - checkBonus;
@@ -81,14 +78,9 @@
 
     let actorStore = $derived(actor.reactive.system);
     let flags = $derived(actor.reactive.flags?.a5e ?? {});
-    const hideExpertiseDice = game.settings.get(
-        "a5e",
-        "hideExpertiseDice",
-    ) as boolean;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
 
-    let showDeterministicBonus = $derived(
-        flags.includeAbilityModifiersForSkills ?? true,
-    );
+    let showDeterministicBonus = $derived(flags.includeAbilityModifiersForSkills ?? true);
 
     let abilityBonus = $derived(actorStore.abilities[skill.ability].check.mod);
     let skillBonus = $derived(getSkillBonus());
@@ -101,11 +93,9 @@
         class="a5e-button a5e-button--config skill__proficiency-icon icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
-        class:skill__proficiency-icon--expertise={proficiencyLevel ===
-            "expertise"}
+        class:skill__proficiency-icon--expertise={proficiencyLevel === "expertise"}
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
-        class:skill__proficiency-icon--proficient={proficiencyLevel ===
-            "proficient"}
+        class:skill__proficiency-icon--proficient={proficiencyLevel === "proficient"}
         class:skill__proficiency-icon--locked={sheetIsLocked()}
         class:fa-award={proficiencyLevel === "expertise"}
         class:fa-star-half-stroke={proficiencyLevel === "jack"}
@@ -129,8 +119,7 @@
     <h3
         class="skill__name"
         class:disable-pointer-events={!actor.isOwner}
-        onclick={() =>
-            actor.rollSkillCheck(skillKey, getKeyPressAsOptions(pressedKeys))}
+        onclick={() => actor.rollSkillCheck(skillKey, getKeyPressAsOptions(pressedKeys))}
     >
         {skills[skillKey]}
 
@@ -151,7 +140,7 @@
         {#if flags?.showPassiveScores ?? true}
             <span
                 class="skill__passive"
-                data-tooltip={localize("A5E.SkillPassiveScore", {
+                data-tooltip={localize("A5E.skillLabels.passiveScore", {
                     skill: skills[skillKey],
                 })}
                 data-tooltip-direction="UP"
@@ -164,10 +153,10 @@
     {#if !sheetIsLocked()}
         <button
             class="a5e-button a5e-button--config icon fas fa-cog"
-            aria-label={localize("A5E.SkillConfigurationTooltip", {
+            aria-label={localize("A5E.skillLabels.configurationTooltip", {
                 skill: skills[skillKey],
             })}
-            data-tooltip={localize("A5E.SkillConfigurationTooltip", {
+            data-tooltip={localize("A5E.skillLabels.configurationTooltip", {
                 skill: skills[skillKey],
             })}
             data-tooltip-direction="UP"

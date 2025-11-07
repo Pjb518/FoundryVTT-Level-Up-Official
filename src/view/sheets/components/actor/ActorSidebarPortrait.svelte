@@ -18,9 +18,7 @@
         Math.floor(Math.min((hp.value / hp.max) * 100, 100)),
     );
 
-    let hpTempPercentage = $derived(
-        Math.min(((hp.temp || 0) / hp.max) * 100, 100),
-    );
+    let hpTempPercentage = $derived(Math.min(((hp.temp || 0) / hp.max) * 100, 100));
 
     let fatigueOptions = $state([
         { value: 0, hint: "" },
@@ -44,10 +42,7 @@
         { value: 7, hint: "A5E.tracks.strife.hints.7" },
     ]);
 
-    const replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    const replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 
     if (replaceFatigueAndStrife) {
         fatigueOptions = [
@@ -89,7 +84,9 @@
     <!-- Status Track Fatigue & Exhaustion  -->
     <ActorStatusTrack
         icon="fa-solid fa-running"
-        tooltipText={replaceFatigueAndStrife ? "A5E.Exhaustion" : "A5E.Fatigue"}
+        tooltipText={replaceFatigueAndStrife
+            ? "A5E.Exhaustion"
+            : "A5E.conditions.fatigue"}
         trackProperty="fatigue"
         options={fatigueOptions}
         selectedOption={actorStore.attributes.fatigue}
@@ -99,7 +96,7 @@
     {#if !replaceFatigueAndStrife}
         <ActorStatusTrack
             icon="fa-solid fa-brain"
-            tooltipText="A5E.Strife"
+            tooltipText="A5E.conditions.strife"
             trackProperty="strife"
             options={strifeOptions}
             selectedOption={actorStore.attributes.strife}
@@ -168,8 +165,7 @@
 
             background: conic-gradient(
                 from 41.5deg,
-                var(--secondary-bar-color)
-                    calc(var(--temp-hp-percentage) * 0.775%),
+                var(--secondary-bar-color) calc(var(--temp-hp-percentage) * 0.775%),
                 transparent 0
             );
 

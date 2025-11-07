@@ -27,12 +27,10 @@
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked)
-            return configObject[rollOverrideType]?.options ?? [];
+        if (!choicesLocked) return configObject[rollOverrideType]?.options ?? [];
 
         const options: string[][] = [];
-        for (const [value, label] of configObject[rollOverrideType]?.options ??
-            []) {
+        for (const [value, label] of configObject[rollOverrideType]?.options ?? []) {
             if (choices.includes(value)) {
                 options.push([value, label]);
             }
@@ -48,7 +46,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         abilitySave: {
-            label: "A5E.SavingThrow",
+            label: "A5E.rollLabels.savingThrows.title",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
@@ -56,11 +54,11 @@
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {
-            label: "A5E.Initiative",
+            label: "A5E.initiative.title",
             options: [],
         },
         concentration: {
-            label: "A5E.ConditionConcentration",
+            label: "A5E.SpellConcentration",
             options: [],
         },
         deathSave: {
@@ -68,7 +66,7 @@
             options: [],
         },
         skill: {
-            label: "A5E.Skill",
+            label: "A5E.skillLabels.title",
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
@@ -90,9 +88,7 @@
             htmlString: `<i class="icon fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"

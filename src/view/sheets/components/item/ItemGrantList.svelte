@@ -20,10 +20,7 @@
             type: "Grant",
         };
 
-        return event.dataTransfer?.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
     async function onAuxClick() {
@@ -81,9 +78,9 @@
                     <li>
                         <button
                             class="a5e-button a5e-button--transparent action-button"
-                            data-tooltip="A5E.ButtonToolTipConfigure"
+                            data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipConfigure"
+                            aria-label="A5E.buttons.tooltips.configure"
                             onclick={(e) => {
                                 e.preventDefault();
                                 grant.configureGrant();
@@ -96,9 +93,9 @@
                     <li>
                         <button
                             class="a5e-button a5e-button--transparent action-button"
-                            data-tooltip="A5E.ButtonToolTipDuplicate"
+                            data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipDuplicate"
+                            aria-label="A5E.buttons.tooltips.duplicate"
                             onclick={(e) => {
                                 e.stopPropagation();
                                 item.grants.duplicate(grant._id);
@@ -111,9 +108,9 @@
                     <li>
                         <button
                             class="a5e-button a5e-button--transparent action-button"
-                            data-tooltip="A5E.ButtonToolTipDelete"
+                            data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"
-                            aria-label="A5E.ButtonToolTipDelete"
+                            aria-label="A5E.buttons.tooltips.delete"
                             onclick={(e) => {
                                 e.stopPropagation();
                                 grant.deleteGrant();

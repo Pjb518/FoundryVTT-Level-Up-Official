@@ -20,10 +20,7 @@
     function prepareSpellComponents() {
         return Object.entries(itemStore.components)
             .filter(([, state]) => state)
-            .map(
-                ([component]) =>
-                    spellComponentAbbreviations[component] ?? component,
-            )
+            .map(([component]) => spellComponentAbbreviations[component] ?? component)
             .join(", ");
     }
 
@@ -60,7 +57,7 @@
 </script>
 
 <Section
-    heading="A5E.TabSpellConfiguration"
+    heading="A5E.tabs.spellConfiguration"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -82,7 +79,7 @@
         />
 
         <RadioGroup
-            heading="A5E.SpellLevel"
+            heading="A5E.spells.level"
             options={objectEntriesNumberKeyConverter(spellLevels)}
             selected={itemStore.level}
             onUpdateSelection={(value) =>
@@ -90,45 +87,33 @@
         />
 
         <RadioGroup
-            heading="A5E.SpellSchoolPrimary"
+            heading="A5E.spells.schoolPrimary"
             options={Object.entries(spellSchools.primary)}
             selected={itemStore.schools.primary}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.schools.primary",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.schools.primary", value)}
         />
 
         {#if showVRCPsionicDisciplines}
             <RadioGroup
-                heading="A5E.PsionicDiscipline"
+                heading="A5E.psionicDisciplines.title"
                 options={Object.entries(psionicDisciplines)}
                 selected={itemStore.discipline}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.discipline",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.discipline", value)}
             />
         {/if}
 
         <CheckboxGroup
-            heading="A5E.SpellSchoolSecondaryPlural"
+            heading="A5E.spells.schoolSecondaryPlural"
             options={Object.entries(spellSchools.secondary)}
             selected={itemStore.schools.secondary}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.schools.secondary",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.schools.secondary", value)}
         />
 
         <CheckboxGroup
-            heading="A5E.SpellComponents"
+            heading="A5E.spells.components.title"
             options={Object.entries(spellComponents)}
             selected={selectedSpellComponentsList}
             onUpdateSelection={(value) => {
@@ -143,7 +128,7 @@
         />
 
         {#if itemStore.components.material}
-            <FieldWrapper heading="A5E.SpellMaterials">
+            <FieldWrapper heading="A5E.spells.materials">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="text"
@@ -158,19 +143,12 @@
             </FieldWrapper>
         {/if}
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
                 label="A5E.SpellConcentration"
                 checked={itemStore.concentration}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(
-                        item,
-                        "system.concentration",
-                        value,
-                    );
+                    updateDocumentDataFromField(item, "system.concentration", value);
                 }}
             />
 
@@ -202,17 +180,13 @@
                     label="A5E.SpellRitual"
                     checked={itemStore.ritual}
                     onUpdateSelection={(value) => {
-                        updateDocumentDataFromField(
-                            item,
-                            "system.ritual",
-                            value,
-                        );
+                        updateDocumentDataFromField(item, "system.ritual", value);
                     }}
                 />
             {/if}
 
             <Checkbox
-                label="A5E.SpellRare"
+                label="A5E.spells.rare"
                 checked={itemStore.rare}
                 onUpdateSelection={(value) => {
                     updateDocumentDataFromField(item, "system.rare", value);
@@ -220,13 +194,10 @@
             />
         </Section>
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.RequiresBloodied"
+                    label="A5E.items.requiresBloodied"
                     checked={itemStore.requiresBloodied}
                     onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
@@ -242,7 +213,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.SpellLevel")}:
+                    {localize("A5E.spells.level")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -252,7 +223,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.SpellSchoolPrimary")}:
+                    {localize("A5E.spells.schoolPrimary")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -263,7 +234,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.SpellSchoolSecondaryPlural")}:
+                    {localize("A5E.spells.schoolSecondaryPlural")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -274,7 +245,7 @@
             {#if showVRCPsionicDisciplines}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.PsionicDiscipline")}:
+                        {localize("A5E.psionicDisciplines.title")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">
@@ -288,7 +259,7 @@
 
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.SpellComponents")}:
+                    {localize("A5E.spells.components.title")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">
@@ -299,7 +270,7 @@
             {#if itemStore.components.material && itemStore.materials}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.SpellMaterials")}:
+                        {localize("A5E.spells.materials")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">

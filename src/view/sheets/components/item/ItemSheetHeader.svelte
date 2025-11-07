@@ -39,7 +39,7 @@
                     class="a5e-item-sheet__prerequisites-label"
                     for="{item.uuid}-prerequisites"
                 >
-                    {localize("A5E.Prerequisite")}:
+                    {localize("A5E.items.headings.prerequisite")}:
                 </label>
 
                 <input
@@ -112,8 +112,7 @@
             >
                 <i
                     class="fa-solid"
-                    class:fa-heart={itemStore.damagedState ===
-                        DAMAGED_STATES.INTACT}
+                    class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
                     class:fa-heart-crack={itemStore.damagedState ===
                         DAMAGED_STATES.DAMAGED}
                     class:fa-heart-pulse={itemStore.damagedState ===

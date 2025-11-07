@@ -75,11 +75,11 @@
 
 <section class="a5e-page-wrapper">
     <Section
-        heading="A5E.TabRanges"
+        heading="A5E.tabs.ranges"
         headerButtons={[
             {
                 classes: "add-button",
-                label: "A5E.ButtonAddRangeIncrement",
+                label: "A5E.buttons.addRangeIncrement",
                 handler: addRangeIncrement,
             },
         ]}
@@ -126,10 +126,7 @@
                     </option>
 
                     {#each Object.entries(A5E.targetTypes) as [key, name] (key)}
-                        <option
-                            value={key}
-                            selected={action?.target?.type === key}
-                        >
+                        <option value={key} selected={action?.target?.type === key}>
                             {localize(name)}
                         </option>
                     {/each}
@@ -154,68 +151,39 @@
                     <small>
                         {localize("A5E.scaling.summaries.cantrip.target", {
                             formula: action.target?.scaling.formula ?? 0,
-                            targetType:
-                                A5E.targetTypesPlural[action?.target?.type],
+                            targetType: A5E.targetTypesPlural[action?.target?.type],
                         })}
                     </small>
                 {:else if action.target?.scaling?.mode === "spellLevel"}
                     <small>
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
-                            {localize(
-                                "A5E.scaling.summaries.spellLevel.target",
-                                {
-                                    formula:
-                                        action.target?.scaling.formula ?? 0,
-                                    level: getOrdinalNumber($item.system.level),
-                                    targetType:
-                                        A5E.targetTypesPlural[
-                                            action?.target?.type
-                                        ],
-                                },
-                            )}
+                            {localize("A5E.scaling.summaries.spellLevel.target", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                level: getOrdinalNumber($item.system.level),
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
+                            })}
                         {:else}
-                            {localize(
-                                "A5E.scaling.summaries.steppedSpellLevel.target",
-                                {
-                                    formula:
-                                        action.target?.scaling?.formula ?? 0,
-                                    step: action.target?.scaling?.step,
-                                    level: getOrdinalNumber($item.system.level),
-                                    targetType:
-                                        A5E.targetTypesPlural[
-                                            action?.target?.type
-                                        ],
-                                },
-                            )}
+                            {localize("A5E.scaling.summaries.steppedSpellLevel.target", {
+                                formula: action.target?.scaling?.formula ?? 0,
+                                step: action.target?.scaling?.step,
+                                level: getOrdinalNumber($item.system.level),
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
+                            })}
                         {/if}
                     </small>
                 {:else if action.target?.scaling?.mode === "spellPoints"}
                     <small>
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
-                            {localize(
-                                "A5E.scaling.summaries.spellPoint.target",
-                                {
-                                    formula:
-                                        action.target?.scaling.formula ?? 0,
-                                    targetType:
-                                        A5E.targetTypesPlural[
-                                            action?.target?.type
-                                        ],
-                                },
-                            )}
+                            {localize("A5E.scaling.summaries.spellPoint.target", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
+                            })}
                         {:else}
-                            {localize(
-                                "A5E.scaling.summaries.steppedSpellPoint.target",
-                                {
-                                    formula:
-                                        action.target?.scaling?.formula ?? 0,
-                                    step: action.target?.scaling?.step,
-                                    targetType:
-                                        A5E.targetTypesPlural[
-                                            action?.target?.type
-                                        ],
-                                },
-                            )}
+                            {localize("A5E.scaling.summaries.steppedSpellPoint.target", {
+                                formula: action.target?.scaling?.formula ?? 0,
+                                step: action.target?.scaling?.step,
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
+                            })}
                         {/if}
                     </small>
                 {:else if ["actionUses", "itemUses"].includes(action.target?.scaling?.mode)}
@@ -223,22 +191,14 @@
                         {#if !action.target?.scaling?.step || action.target?.scaling?.step === 1}
                             {localize("A5E.scaling.summaries.uses.target", {
                                 formula: action.target?.scaling.formula ?? 0,
-                                targetType:
-                                    A5E.targetTypesPlural[action?.target?.type],
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
                             })}
                         {:else}
-                            {localize(
-                                "A5E.scaling.summaries.steppedUses.target",
-                                {
-                                    formula:
-                                        action.target?.scaling.formula ?? 0,
-                                    step: action.target?.scaling.step,
-                                    targetType:
-                                        A5E.targetTypesPlural[
-                                            action?.target?.type
-                                        ],
-                                },
-                            )}
+                            {localize("A5E.scaling.summaries.steppedUses.target", {
+                                formula: action.target?.scaling.formula ?? 0,
+                                step: action.target?.scaling.step,
+                                targetType: A5E.targetTypesPlural[action?.target?.type],
+                            })}
                         {/if}
                     </small>
                 {/if}

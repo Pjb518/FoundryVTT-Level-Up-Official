@@ -18,15 +18,14 @@
         return [
             {
                 name: "description",
-                label: "A5E.ItemSheetLabelDescriptionTab",
+                label: "A5E.tabs.description",
                 display: !itemStore.unidentified || game.user?.isGM,
             },
             {
                 name: "unIdentifiedDescription",
-                label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
+                label: "A5E.objects.unidentifiedDescriptionTab",
                 display:
-                    item.type === "object" &&
-                    (itemStore.unidentified || game.user?.isGM),
+                    item.type === "object" && (itemStore.unidentified || game.user?.isGM),
             },
             {
                 name: "gmNotes",

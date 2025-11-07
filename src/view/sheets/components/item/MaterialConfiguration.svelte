@@ -21,7 +21,7 @@
 </script>
 
 <Section
-    heading="A5E.TabFeatureProperties"
+    heading="A5E.objects.materialProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -34,15 +34,11 @@
 >
     {#if editMode}
         <CheckboxGroup
-            heading="A5E.MaterialProperties"
+            heading="A5E.objects.materialProperties"
             options={Object.entries(materialProperties)}
             selected={itemStore.materialProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.materialProperties",
-                    value,
-                )}
+                updateDocumentDataFromField(item, "system.materialProperties", value)}
         />
 
         {#if itemStore.materialProperties.includes("flaw")}
@@ -68,7 +64,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.MaterialProperties")}:
+                    {localize("A5E.objects.materialProperties")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

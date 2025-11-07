@@ -38,10 +38,7 @@
         { value: 7, hint: "A5E.tracks.strife.hints.7" },
     ];
 
-    const replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    const replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 
     if (replaceFatigueAndStrife) {
         fatigueOptions = [
@@ -83,7 +80,7 @@
             icon="icon fa-running"
             tooltipText={replaceFatigueAndStrife
                 ? "A5E.Exhaustion"
-                : "A5E.Fatigue"}
+                : "A5E.conditions.fatigue"}
             trackProperty="fatigue"
             options={fatigueOptions}
             selectedOption={$actor.system.attributes.fatigue}
@@ -92,7 +89,7 @@
         {#if !replaceFatigueAndStrife}
             <StatusTrack
                 icon="icon fa-brain"
-                tooltipText="A5E.Strife"
+                tooltipText="A5E.conditions.strife"
                 trackProperty="strife"
                 options={strifeOptions}
                 selectedOption={$actor.system.attributes.strife}
