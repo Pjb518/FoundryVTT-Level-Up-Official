@@ -1,9 +1,12 @@
-<svelte:options accessors={true} />
+<script lang="ts">
+    import type TokenHUDA5e from "../../pixi/tokenHUD.ts";
 
-<script>
     import { localize } from "#utils/localization/localize.ts";
 
-    export let HUD;
+    type Props = {
+        HUD: TokenHUDA5e;
+        token: Token;
+    };
 
     function handleStatusEffectAdd({ id, src }, options = {}) {
         HUD.object._addStatusEffect({ id, src }, options);
@@ -13,9 +16,13 @@
         HUD.object._removeStatusEffect({ id, src }, options);
     }
 
-    const data = HUD.getData();
-    const statusEffects = Object.values(data.statusEffects);
-    const genericEffects = Object.values(data.genericConditions);
+    let { HUD, token }: Props = $props();
+
+    let actorData = $derived(HUD?.object?.actor?.reactive?.system);
+
+    const { statusEffects, genericEffects } =
+        HUD._getOverrideStatusEffectChoices();
+
     const activeConditions = HUD.object._getActiveConditions();
 
     const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
@@ -28,9 +35,6 @@
         return acc;
     }, {});
 
-    $: conditionImmunities =
-        HUD?.object?.actor?.system?.traits?.conditionImmunities ?? [];
-
     const colors = {
         1: "#919f00",
         2: "#a09200",
@@ -41,15 +45,19 @@
         7: "#e00006",
     };
 
-    $: conditionsFlowDirection = game.settings.get(
+    let conditionImmunities = $derived(
+        actorData?.traits?.conditionImmunities ?? [],
+    );
+
+    let conditionsFlowDirection = game.settings.get(
         "a5e",
         "conditionFlowDirection",
     );
 
-    $: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
-    $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
-    $: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
-    $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
+    let corruption = $derived(actorData?.attributes?.corruption ?? 0);
+    let fatigue = $derived(actorData?.attributes?.fatigue ?? 0);
+    let inebriated = $derived(actorData?.attributes?.inebriated ?? 0);
+    let strife = $derived(actorData?.attributes?.strife ?? 0);
 </script>
 
 <div
@@ -75,11 +83,15 @@
             title={effect.title ?? ""}
             data-status-id={effect.id}
             disabled={conditionImmunities.includes(effect.id) || linked}
-            on:click|preventDefault|stopPropagation={() => {
+            onclick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
                 if (linked) return;
                 handleStatusEffectAdd(effect, { overlay: effect.isOverlay });
             }}
-            on:auxclick|preventDefault|stopPropagation={() => {
+            onauxclick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 if (linked) return;
                 handleStatusEffectRemove(effect, { overlay: effect.isOverlay });
             }}
@@ -117,10 +129,16 @@
             class="condition-container {effect.cssClass}"
             title={effect.title ?? ""}
             data-status-id={effect.id}
-            on:click|preventDefault|stopPropagation={() =>
-                handleStatusEffectAdd(effect)}
-            on:auxclick|preventDefault|stopPropagation={() =>
-                handleStatusEffectRemove(effect)}
+            onclick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                handleStatusEffectAdd(effect);
+            }}
+            onauxclick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleStatusEffectRemove(effect);
+            }}
         >
             <img
                 class={effect.cssClass}
@@ -135,9 +153,13 @@
 
 <button
     class="clear-all-conditions"
-    on:click={HUD?._clearAllConditions.bind(HUD)}
+    onclick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        HUD?._clearAllConditions.bind(HUD);
+    }}
 >
-    <i class="icon fa-solid fa-octagon-xmark" />
+    <i class="icon fa-solid fa-octagon-xmark"></i>
     {localize("A5E.UIClearAll")}
 </button>
 
@@ -148,7 +170,7 @@
         gap: 0.75rem;
         padding: 0.75rem;
         padding-bottom: 0.5rem;
-        font-size: var(--a5e-text-size-lg);
+        font-size: var(--a5e-lg-text);
         line-height: 1.2rem;
         text-align: left;
         width: max-content;
@@ -157,9 +179,7 @@
             img,
             h3 {
                 font-weight: bold;
-                color: var(--a5e-color-primary-light);
-                // filter: invert(62%) sepia(32%) saturate(6599%)
-                //     hue-rotate(110deg) brightness(96%) contrast(83%);
+                color: var(--a5e-status-effect-active-color);
             }
         }
 
@@ -174,8 +194,9 @@
         position: relative;
         background-color: transparent;
         gap: 0.5rem;
-        font-size: var(--a5e-text-size-md);
+        font-size: var(--a5e-md-text);
         align-items: center;
+        justify-content: flex-start;
         margin-block: 0.125rem;
         border: none;
         color: rgb(204 204 204);
@@ -186,7 +207,12 @@
         &:focus {
             outline: none;
             box-shadow: none;
-            color: var(--a5e-color-primary-light);
+            color: var(--a5e-status-effect-active-color);
+        }
+
+        &.active {
+            outline: none;
+            box-shadow: none;
         }
 
         &:disabled {
@@ -195,8 +221,6 @@
                 cursor: not-allowed;
                 font-weight: bold;
                 color: lighten-color(var(--a5e-color-warning), 15);
-                // filter: invert(11%) sepia(42%) saturate(7092%)
-                //     hue-rotate(352deg) brightness(94%) contrast(81%);
             }
 
             &:hover {
@@ -224,7 +248,7 @@
                 width: 1.25rem;
                 aspect-ratio: 1/1;
                 color: white;
-                font-size: var(--a5e-text-size-sm);
+                font-size: var(--a5e-sm-text);
 
                 position: absolute;
                 top: -0.75rem;
@@ -242,7 +266,7 @@
             h3::before {
                 content: var(--corruption);
                 font-family: --a5e-font-sans-serif;
-                font-size: var(--a5e-text-size-md);
+                font-size: var(--a5e-md-text);
                 background-color: var(--corruption-col);
             }
         }
@@ -251,7 +275,7 @@
             h3::before {
                 content: var(--fatigue);
                 font-family: --a5e-font-sans-serif;
-                font-size: var(--a5e-text-size-md);
+                font-size: var(--a5e-md-text);
                 background-color: var(--fatigue-col);
             }
         }
@@ -260,7 +284,7 @@
             h3::before {
                 content: var(--inebriated);
                 font-family: --a5e-font-sans-serif;
-                font-size: var(--a5e-text-size-md);
+                font-size: var(--a5e-md-text);
                 background-color: var(--inebriated-col);
             }
         }
@@ -269,7 +293,7 @@
             h3::before {
                 content: var(--strife);
                 font-family: --a5e-font-sans-serif;
-                font-size: var(--a5e-text-size-md);
+                font-size: var(--a5e-md-text);
                 background-color: var(--strife-col);
             }
         }
@@ -277,6 +301,7 @@
         h3 {
             height: 1rem;
             border: none;
+            margin-block: 0;
         }
 
         img {

@@ -12,7 +12,7 @@ import ready from "./hooks/ready";
 import renderApplication from "./hooks/renderApplication";
 import renderChatMessage from "./hooks/renderChatMessage";
 import renderSettings from "./hooks/renderSettings.ts";
-import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E";
+import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E.ts";
 import setup from "./hooks/setup";
 import updateActor from "./hooks/updateActor";
 
