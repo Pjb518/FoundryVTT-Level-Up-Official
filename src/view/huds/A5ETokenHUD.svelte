@@ -153,11 +153,7 @@
 
 <button
     class="clear-all-conditions"
-    onclick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        HUD?._clearAllConditions.bind(HUD);
-    }}
+    onclick={HUD?._clearAllConditions.bind(HUD)}
 >
     <i class="icon fa-solid fa-octagon-xmark"></i>
     {localize("A5E.UIClearAll")}

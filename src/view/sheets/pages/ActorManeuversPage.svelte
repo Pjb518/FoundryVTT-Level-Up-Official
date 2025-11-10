@@ -18,7 +18,7 @@
 
     let filterOptions = $state({
         searchTerm: "",
-        showDescription: false,
+        searchDescription: false,
         page: "maneuvers",
     });
 
@@ -39,6 +39,8 @@
         bind:filterOptions
         showAddIcon={true}
         showDescriptionButton={true}
+        showSearchDescriptionButton={true}
+        bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}

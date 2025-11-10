@@ -4,14 +4,16 @@
     type Props = {
         filterOptions: {
             searchTerm: string;
-            showDescription: boolean;
+            searchDescription: boolean;
             page?: string;
         };
         filters?: Record<string, (item: any) => boolean>;
         searchBar?: boolean;
         showAddIcon?: boolean;
         onAddIconClick?: () => void;
+        showDescription: boolean;
         showDescriptionButton?: boolean;
+        showSearchDescriptionButton?: boolean;
         showFilters?: boolean;
         showSortButton?: boolean;
         sortHandler?: (reverse: boolean) => void;
@@ -23,7 +25,9 @@
         searchBar = true,
         showAddIcon: showAddMenu = false,
         onAddIconClick = () => {},
+        showDescription = $bindable(),
         showDescriptionButton = false,
+        showSearchDescriptionButton = false,
         showFilters = false,
         showSortButton = false,
         sortHandler = () => {},
@@ -48,10 +52,8 @@
     {#if showDescriptionButton}
         <button
             class="a5e-button a5e-button--transparent"
-            onclick={() =>
-                (filterOptions.showDescription =
-                    !filterOptions.showDescription)}
-            data-tooltip={filterOptions.showDescription
+            onclick={() => (showDescription = !showDescription)}
+            data-tooltip={showDescription
                 ? game.i18n.localize("Hide All Descriptions")
                 : game.i18n.localize("Show All Descriptions")}
             data-tooltip-direction="UP"

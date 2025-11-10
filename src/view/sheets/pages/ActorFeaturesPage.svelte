@@ -18,7 +18,7 @@
 
     let filterOptions = $state({
         searchTerm: "",
-        showDescription: false,
+        searchDescription: false,
         page: "features",
     });
 
@@ -39,7 +39,9 @@
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
+        showSearchDescriptionButton={true}
         showDescriptionButton={true}
+        bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}

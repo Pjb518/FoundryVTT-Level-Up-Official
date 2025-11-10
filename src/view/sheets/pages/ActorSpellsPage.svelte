@@ -12,6 +12,7 @@
     import SpellBook from "../components/actor/SpellBook.svelte";
     import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
     import UtilityBar from "#view/snippets/UtilityBar.svelte";
+    import ShowDescription from "../../../apps/components/actorUtilityBar/ShowDescription.svelte";
 
     async function addSpellBook() {
         const initialSpellBookQuantity = Object.keys(
@@ -90,7 +91,7 @@
 
     let filterOptions = $state({
         searchTerm: "",
-        showDescription: false,
+        searchDescription: false,
         page: "spells",
     });
 
@@ -101,6 +102,7 @@
     const openCompendium = game.a5e.utils.openCompendium;
 
     let spellBooks = $derived(actor.reactive.spellBooks);
+    let showDescription = $state(false);
 
     let currentSpellBook = $derived(
         actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
@@ -113,6 +115,8 @@
         bind:filterOptions
         showAddIcon={true}
         showDescriptionButton={true}
+        showSearchDescriptionButton={true}
+        bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}
@@ -191,6 +195,7 @@
     <SpellBook
         spellBookId={currentSpellBook}
         items={itemsBySpellBook[currentSpellBook]}
+        bind:showDescription
     />
 {/if}
 

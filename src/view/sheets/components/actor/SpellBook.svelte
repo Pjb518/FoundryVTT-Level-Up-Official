@@ -9,9 +9,10 @@
     type Props = {
         spellBookId: string;
         items: Item[];
+        showDescription?: boolean;
     };
 
-    let { spellBookId, items }: Props = $props();
+    let { spellBookId, items, showDescription = $bindable() }: Props = $props();
 
     let actor: any = getContext("actor");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
@@ -36,8 +37,6 @@
 
         return false;
     });
-
-    let showDescription = $state(false);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
