@@ -1,102 +1,102 @@
 .a5e-button {
-  cursor: pointer;
+    cursor: pointer;
 
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  &--add {
-    background: none;
-    font-size: var(--a5e-text-size-sm);
-    border: 0;
-    padding: 0;
-    width: fit-content;
-
-    &:hover,
-    &:focus {
-      box-shadow: none;
-      text-shadow: 0 0 8px var(--color-shadow-primary);
+    &:disabled {
+        cursor: not-allowed;
     }
-  }
 
-  &--delete {
-    background: none;
-    font-size: var(--a5e-text-size-sm);
-    width: fit-content;
-    border: 0;
-    padding: 0;
-    color: #999;
-    transition: var(--a5e-transition-standard);
+    &--add {
+        background: none;
+        font-size: var(--a5e-text-size-sm);
+        border: 0;
+        padding: 0;
+        width: fit-content;
 
-    &:hover,
-    &:focus {
-      color: var(--a5e-color-error);
-      transform: scale(1.2);
-      box-shadow: none;
+        &:hover,
+        &:focus {
+            box-shadow: none;
+            text-shadow: 0 0 8px var(--color-shadow-primary);
+        }
     }
-  }
 
-  &--edit-config {
-    position: absolute;
-    width: fit-content;
-    background: none;
-    font-size: var(--a5e-text-size-sm);
-    border: 0;
-    padding: 0;
-    transition: var(--a5e-transition-standard);
-    color: rgba(0, 0, 0, 0.2);
+    &--delete {
+        background: none;
+        font-size: var(--a5e-text-size-sm);
+        width: fit-content;
+        border: 0;
+        padding: 0;
+        color: #999;
+        transition: var(--a5e-transition-standard);
 
-    &:hover,
-    &:focus {
-      color: #555;
-      transform: scale(1.2);
-      box-shadow: none;
+        &:hover,
+        &:focus {
+            color: var(--a5e-color-error);
+            transform: scale(1.2);
+            box-shadow: none;
+        }
     }
-  }
 
-  &--add-item,
-  &--chat,
-  &--filter-reset {
-    display: block;
-    width: fit-content;
-    flex-shrink: 0;
-    padding: 0.125rem 0.5rem;
-    background: var(--a5e-color-primary);
-    border-radius: var(--a5e-border-radius-standard);
-    color: lighten-color(var(--a5e-color-primary), 80);
+    &--edit-config {
+        position: absolute;
+        width: fit-content;
+        background: none;
+        font-size: var(--a5e-text-size-sm);
+        border: 0;
+        padding: 0;
+        transition: var(--a5e-transition-standard);
+        color: rgba(0, 0, 0, 0.2);
 
-    &:hover {
-      text-shadow: none;
+        &:hover,
+        &:focus {
+            color: #555;
+            transform: scale(1.2);
+            box-shadow: none;
+        }
     }
-  }
 
-  &--add-item {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    font-size: var(--a5e-text-size-xs);
-  }
+    &--add-item,
+    &--chat,
+    &--filter-reset {
+        display: block;
+        width: fit-content;
+        flex-shrink: 0;
+        padding: 0.125rem 0.5rem;
+        background: var(--a5e-color-primary);
+        border-radius: var(--a5e-border-radius-standard);
+        color: functions.lighten-color(var(--a5e-color-primary), 80);
 
-  &--chat,
-  &--filter-reset {
-    width: 100%;
-    padding: 0.375rem;
-    font-size: var(--a5e-text-size-sm);
-    text-align: center;
-  }
+        &:hover {
+            text-shadow: none;
+        }
+    }
 
-  &--filter-reset {
-    margin-top: auto;
-  }
+    &--add-item {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        font-size: var(--a5e-text-size-xs);
+    }
 
-  &--right {
-    margin-left: auto;
-  }
+    &--chat,
+    &--filter-reset {
+        width: 100%;
+        padding: 0.375rem;
+        font-size: var(--a5e-text-size-sm);
+        text-align: center;
+    }
 
-  &--no-shadow,
-  &--no-shadow:active,
-  &--no-shadow:focus,
-  &--no-shadow:hover {
-    box-shadow: none;
-  }
+    &--filter-reset {
+        margin-top: auto;
+    }
+
+    &--right {
+        margin-left: auto;
+    }
+
+    &--no-shadow,
+    &--no-shadow:active,
+    &--no-shadow:focus,
+    &--no-shadow:hover {
+        box-shadow: none;
+    }
 }

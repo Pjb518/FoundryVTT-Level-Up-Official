@@ -1,29 +1,34 @@
 <script>
-export let actor;
-export let propData = {};
+    export let actor;
+    export let propData = {};
 
-function convertToPercentage(value) {
-	return `${value}%`;
-}
+    function convertToPercentage(value) {
+        return `${value}%`;
+    }
 
-function calculatePrimaryHPColor(hp) {
-	const hpPercentage = Math.min((hp.value / hp.max) * 100, 100);
-	return `hsl(${Math.round(hpPercentage)}, 50%, 35%)`;
-}
+    function calculatePrimaryHPColor(hp) {
+        const hpPercentage = Math.min((hp.value / hp.max) * 100, 100);
+        return `hsl(${Math.round(hpPercentage)}, 50%, 35%)`;
+    }
 
-function calculateTotalHPPercentage(hp) {
-	const tempHP = hp.temp || 0;
+    function calculateTotalHPPercentage(hp) {
+        const tempHP = hp.temp || 0;
 
-	return Math.min(((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100, 100);
-}
+        return Math.min(
+            ((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100,
+            100,
+        );
+    }
 
-$: actorData = $actor?.system;
-$: isBloodied = $actor?.system?.attributes.hp.max / 2 >= $actor?.system?.attributes.hp.value;
+    $: actorData = $actor?.system;
+    $: isBloodied =
+        $actor?.system?.attributes.hp.max / 2 >=
+        $actor?.system?.attributes.hp.value;
 
-$: hp = $actor?.system?.attributes.hp;
-$: totalHPPercentage = convertToPercentage(calculateTotalHPPercentage(hp));
+    $: hp = $actor?.system?.attributes.hp;
+    $: totalHPPercentage = convertToPercentage(calculateTotalHPPercentage(hp));
 
-$: primaryHPColor = calculatePrimaryHPColor(hp);
+    $: primaryHPColor = calculatePrimaryHPColor(hp);
 </script>
 
 <span
@@ -113,7 +118,8 @@ $: primaryHPColor = calculatePrimaryHPColor(hp);
         &--highlight {
             background: var(--a5e-color-primary);
             color: white;
-            border: 1px solid darken-color(var(--a5e-color-primary), 5);
+            border: 1px solid
+                functions.darken-color(var(--a5e-color-primary), 5);
             border-radius: var(--a5e-border-radius-standard);
         }
 

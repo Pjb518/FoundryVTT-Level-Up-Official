@@ -220,7 +220,7 @@
             h3 {
                 cursor: not-allowed;
                 font-weight: bold;
-                color: lighten-color(var(--a5e-color-warning), 15);
+                color: functions.lighten-color(var(--a5e-color-warning), 15);
             }
 
             &:hover {
@@ -357,7 +357,7 @@
         transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: lighten-color(var(--a5e-color-error), 15);
+            color: functions.lighten-color(var(--a5e-color-error), 15);
             box-shadow: none;
         }
     }

@@ -1,6 +1,6 @@
 import { mount } from "svelte";
 
-import A5eTokenHUD from "../apps/hud/A5ETokenHUD.svelte";
+import A5eTokenHUD from "#view/huds/A5ETokenHUD.svelte";
 
 export default function renderNimbleTokenHUD(HUD, html, token) {
   const target = html.querySelector(".palette, .status-effects");

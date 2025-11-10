@@ -1,3 +1,5 @@
+@use "../base/functions";
+
 .a5e-chat-card {
     padding: 0;
     background: var(--a5e-chat-card-background) !important;
@@ -56,7 +58,7 @@
 
             &__subtitle {
                 font-size: var(--a5e-sm-text);
-                color: darken-color(var(--a5e-chat-card-color), 5);
+                color: functions.darken-color(var(--a5e-chat-card-color), 5);
                 margin-block: 0;
                 margin-left: 0.5rem;
                 font-style: italic;
@@ -125,7 +127,7 @@
 
         &__subtitle {
             font-size: var(--a5e-xs-text);
-            color: darken-color(var(--a5e-user-text-color), 5);
+            color: functions.darken-color(var(--a5e-user-text-color), 5);
             grid-area: subtitle;
             margin-bottom: 0;
             margin-left: 0.125rem;
@@ -168,7 +170,7 @@
 
             &--crit {
                 /** TODO: Update this style **/
-                color: lighten-color(var(--a5e-color-error), 45);
+                color: functions.lighten-color(var(--a5e-color-error), 45);
 
                 &:hover {
                     color: #fedd9e;

@@ -189,7 +189,7 @@
             }
 
             .a5e-actor-track__icon {
-                color: lighten-color(var(--a5e-text-color-dark), 35);
+                color: functions.lighten-color(var(--a5e-text-color-dark), 35);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {
