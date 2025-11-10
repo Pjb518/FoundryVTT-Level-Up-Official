@@ -757,6 +757,19 @@ export const settings = [
       type: Boolean,
     },
   },
+  // Compendia Settings
+  {
+    namespace,
+    key: "enabledCompendiaSources",
+    options: {
+      name: "A5E.settings.enabledCompendiaSources",
+      hint: "A5E.settings.hints.enabledCompendiaSources",
+      scope: scope.world,
+      config: false,
+      type: Array,
+      default: Object.keys(CONFIG.products),
+    },
+  },
   // Hidden system settings
   {
     namespace,
