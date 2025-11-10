@@ -8,7 +8,7 @@
     // import { TJSMenu } from "#standard/component/menu";
     import { createEventDispatcher } from "svelte";
 
-    import createItem from "../../../utils/createItem";
+    import createItem from "../../../utils/createItem.ts";
     import { createEffect } from "#utils/createActiveEffect.ts";
 
     export let documentName = "Item";

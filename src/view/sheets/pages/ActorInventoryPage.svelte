@@ -8,6 +8,7 @@
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
+    import createItem from "#utils/createItem.ts";
 
     function sortHandler(reverse: boolean) {
         sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
@@ -30,17 +31,21 @@
     let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
+
+    let objectTypes = Object.entries(CONFIG.A5E.objectTypes) as string[][];
 </script>
 
 {#if actor.isOwner}
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
+        addIconOptions={objectTypes}
         showDescriptionButton={true}
         bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}
+        onAddIconClick={(subType) => createItem(actor, "object", subType)}
     >
         <button
             class="a5e-button a5e-button--transparent"

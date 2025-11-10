@@ -1,5 +1,6 @@
 <script lang="ts">
     import ActorFilter from "#view/components/ActorFilter.svelte";
+    import Menu from "./Menu.svelte";
 
     type Props = {
         filterOptions: {
@@ -10,8 +11,9 @@
         filters?: Record<string, (item: any) => boolean>;
         searchBar?: boolean;
         showAddIcon?: boolean;
-        onAddIconClick?: () => void;
-        showDescription: boolean;
+        addIconOptions?: string[][];
+        onAddIconClick?: (value: string) => void;
+        showDescription?: boolean;
         showDescriptionButton?: boolean;
         showSearchDescriptionButton?: boolean;
         showFilters?: boolean;
@@ -23,8 +25,9 @@
     let {
         filterOptions = $bindable(),
         searchBar = true,
-        showAddIcon: showAddMenu = false,
+        showAddIcon = false,
         onAddIconClick = () => {},
+        addIconOptions = [],
         showDescription = $bindable(),
         showDescriptionButton = false,
         showSearchDescriptionButton = false,
@@ -33,6 +36,9 @@
         sortHandler = () => {},
         children,
     }: Props = $props();
+
+    let showMenu = $state(false);
+    $inspect("Util", showMenu);
 </script>
 
 <section class="a5e-utility-bar">
@@ -92,16 +98,44 @@
     {/if}
 
     <!-- Add Menu -->
-    {#if showAddMenu}
+    <!-- {#if showAddIcon}
         <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Add Document"
             data-tooltip-direction="UP"
             aria-label="Add Document"
-            onclick={onAddIconClick}
+            onclick={() => (showMenu = !showMenu)}
         >
-            <i class="fa-solid fa-plus"></i>
+            {#if addIconOptions.length}
+                <Menu
+                    menuItems={addIconOptions.map(([value, label]) => ({
+                        name: value,
+                        label: game.i18n.localize(label),
+                        onClick: () => {
+                            onAddIconClick(value);
+                        },
+                    }))}
+                    menuPosition={{ x: -120, y: 100 }}
+                    {showMenu}
+                />
+            {:else}
+                <i class="fa-solid fa-plus"></i>
+            {/if}
         </button>
+    {/if} -->
+
+    {#if showAddIcon}
+        <Menu
+            menuItems={addIconOptions.map(([value, label]) => ({
+                name: value,
+                label: game.i18n.localize(label),
+                onClick: () => {
+                    onAddIconClick(value);
+                },
+            }))}
+            menuPosition={{ x: -480, y: -180 }}
+            --a5e-context-menu-font-size="var(--a5e-xs-text)"
+        />
     {/if}
 
     <!-- Other -->
