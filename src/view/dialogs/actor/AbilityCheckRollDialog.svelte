@@ -43,20 +43,15 @@
         "check",
     );
 
-    const hideExpertiseDice = game.settings.get(
-        "a5e",
-        "hideExpertiseDice",
-    ) as boolean;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
 
     const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
-    const buttonText = localize("A5E.RollPromptAbilityCheck", {
+    const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
         ability: localizedAbility,
     });
 
     let expertiseDie = $state(getInitialExpertiseDieSelection());
-    let selectedRollMode = $state(
-        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-    );
+    let selectedRollMode = $state(options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
 
     let expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
         `system.abilities.${abilityKey}.check`,

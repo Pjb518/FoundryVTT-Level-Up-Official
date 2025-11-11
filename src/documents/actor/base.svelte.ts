@@ -1747,7 +1747,7 @@ class BaseActorA5e extends Actor {
     rollOptions: SkillCheckRollOptions = {},
     dialogOptions = {},
   ) {
-    const title = localize("A5E.SkillPromptTitle", {
+    const title = localize("A5E.skillLabels.checks.promptTitle", {
       name: this.name,
       skill: localize(CONFIG.A5E.skills[skillKey]),
     });

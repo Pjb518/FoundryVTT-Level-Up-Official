@@ -40,7 +40,7 @@
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
     const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
-    const buttonText = localize("A5E.RollPromptAbilityCheck", {
+    const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
         ability: localizedAbility,
     });
 
@@ -62,19 +62,15 @@
         selectedRollMode,
     );
 
-    let visibilityMode =
-        options.visibilityMode ?? game.settings.get("core", "rollMode");
+    let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
 
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
-        "abilities",
-        {
-            abilityKey,
-            abilityType: "check",
-        },
-    );
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
@@ -110,8 +106,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 

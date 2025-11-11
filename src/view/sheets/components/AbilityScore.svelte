@@ -34,16 +34,11 @@
                     !currentProficiencyState,
             });
         } else {
-            actor.rollSavingThrow(
-                abilityKey,
-                getKeyPressAsOptions(pressedKeys),
-            );
+            actor.rollSavingThrow(abilityKey, getKeyPressAsOptions(pressedKeys));
         }
     }
 
-    let sourceValue = $derived(
-        actor.reactive._source.system.abilities[abilityKey].value,
-    );
+    let sourceValue = $derived(actor.reactive._source.system.abilities[abilityKey].value);
 </script>
 
 <li class="a5e-ability-score">
@@ -84,7 +79,7 @@
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--check"
             class:a5e-ability-score__roll-button--no-click={!sheetIsLocked()}
-            data-tooltip={sheetIsLocked() ? "A5E.RollAbilityCheck" : null}
+            data-tooltip={sheetIsLocked() ? "A5E.rollLabels.abilityCheck" : null}
             data-tooltip-direction="DOWN"
             onclick={() => handleCheckClick(abilityKey)}
         >
@@ -95,10 +90,9 @@
 
         <button
             class="a5e-ability-score__roll-button a5e-ability-score__roll-button--save"
-            class:a5e-ability-score__roll-button--proficient={ability.save
-                .proficient}
+            class:a5e-ability-score__roll-button--proficient={ability.save.proficient}
             data-tooltip={sheetIsLocked()
-                ? "A5E.RollSavingThrow"
+                ? "A5E.rollLabels.savingThrow"
                 : "Toggle Saving Throw Proficiency"}
             data-tooltip-direction="DOWN"
             onclick={() => handleSaveClick(abilityKey)}

@@ -435,7 +435,7 @@ class RollPreparationManager {
 
     const label =
       ability && ability !== "none"
-        ? localize("A5E.SkillCheckAbility", {
+        ? localize("A5E.skillLabels.checks.ability", {
             skill,
             ability: CONFIG.A5E.abilityAbbreviations[ability],
           })
