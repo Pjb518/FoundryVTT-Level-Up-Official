@@ -70,7 +70,7 @@
         else newValue = Number.parseInt(value, 10);
 
         if (Number.isNaN(newValue)) newValue = actor.system.details.cr;
-        updateDocumentDataFromField(actor, target.name, newValue);
+        updateDocumentDataFromField(actor, "system.details.cr", newValue);
     }
 
     let data = $derived({
@@ -180,7 +180,7 @@
                 value={data.cr}
                 placeholder="0"
                 min="0"
-                onchange={({ target }) => updateCR(targe)}
+                onchange={({ target }) => updateCr(target)}
             />
         </div>
     {/if}
@@ -195,7 +195,7 @@
             id="{actor.id}-xp"
             class="a5e-actor-details-box__input"
             type="number"
-            value={actorStore.details.xp}
+            value={data.xp}
             placeholder="0"
             min="0"
             disabled={actor.type === "npc"}
