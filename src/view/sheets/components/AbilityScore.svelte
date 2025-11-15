@@ -61,7 +61,7 @@
     <div class="a5e-ability-score__body">
         <input
             class="a5e-ability-score__value"
-            name="system.abilities.${abilityKey}.value"
+            name="system.abilities.{abilityKey}.value"
             type="number"
             value={sheetIsLocked() ? ability.value : sourceValue}
             placeholder="10"
