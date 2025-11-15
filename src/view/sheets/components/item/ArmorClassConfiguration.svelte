@@ -185,7 +185,7 @@
                 </dd>
             </div>
 
-            {#if !["armor", "shield"].includes(itemStore.objectType)}
+            {#if itemStore.objectType === "armor"}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
                         {localize("A5E.armorClass.grantsDisadvantage")}:
@@ -195,7 +195,9 @@
                         {itemStore.ac?.grantsDisadvantage ? "Yes" : "No"}
                     </dd>
                 </div>
+            {/if}
 
+            {#if !["armor", "shield"].includes(itemStore.objectType)}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
                         {localize("A5E.armorClass.requiresNoShield")}:
