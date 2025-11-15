@@ -149,24 +149,20 @@
         </div>
     {/if}
 
-    {#if actor.type === "character"}
-        <!-- Proficiency -->
-        <div class="a5e-actor-details-box">
-            <label for="{actor.id}-prof" class="a5e-actor-details-box__label">
-                Prof.
-            </label>
+    <!-- Proficiency -->
+    <div class="a5e-actor-details-box">
+        <label for="{actor.id}-prof" class="a5e-actor-details-box__label"> Prof. </label>
 
-            <input
-                id="{actor.id}-prof"
-                class="a5e-actor-details-box__input"
-                type="number"
-                value={actorStore.attributes.prof}
-                placeholder="0"
-                min="0"
-                disabled
-            />
-        </div>
-    {/if}
+        <input
+            id="{actor.id}-prof"
+            class="a5e-actor-details-box__input"
+            type="number"
+            value={actorStore.attributes.prof}
+            placeholder="0"
+            min="0"
+            disabled
+        />
+    </div>
 
     {#if actor.type === "npc"}
         <!-- CR -->
