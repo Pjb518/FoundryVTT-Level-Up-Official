@@ -7,7 +7,7 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     let actor: any = getContext("actor");
-    let sheetIsLocked = getContext("sheetIsLocked");
+    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive.system);
 
     function displayCr(cr: number) {
@@ -28,7 +28,7 @@
 
     function isLevelLocked() {
         if (actor.type !== "character") return true;
-        if (sheetIsLocked) return true;
+        if (sheetIsLocked()) return true;
         if (Object.keys(actor.classes ?? {}).length > 0) return true;
         return false;
     }
