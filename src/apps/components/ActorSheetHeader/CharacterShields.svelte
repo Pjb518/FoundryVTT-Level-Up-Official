@@ -15,8 +15,7 @@
     }
 
     function getCharacterLevel() {
-        if (!Object.keys($actor.classes ?? {}).length)
-            return $actor.system.details.level;
+        if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
 
         return $actor.levels.character;
     }
@@ -56,9 +55,7 @@
     </div>
 
     <div class="a5e-details-box character-shields__box">
-        <label class="a5e-details-box__label" for="{$actor.id}-level"
-            >Level</label
-        >
+        <label class="a5e-details-box__label" for="{$actor.id}-level">Level</label>
 
         <input
             id="{$actor.id}-level"
@@ -73,19 +70,13 @@
             min="0"
             disabled={levelIsLocked}
             on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value),
-                )}
+                updateDocumentDataFromField($actor, target.name, Number(target.value))}
             on:click={({ target }) => target.select()}
         />
     </div>
 
     <div class="a5e-details-box character-shields__box">
-        <label class="a5e-details-box__label" for="{$actor.id}-prof">
-            Prof.
-        </label>
+        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
 
         <input
             id="{$actor.id}-prof"
