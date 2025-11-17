@@ -43,13 +43,13 @@
                 label: "A5E.tabs.core",
                 icon: "fa-solid fa-home",
                 component: ActorCorePage,
+                display: flags?.a5e?.showFavoritesSection ?? true,
             },
             {
                 name: "skills",
                 label: "A5E.tabs.skills",
                 icon: "fa-solid fa-graduation-cap",
                 component: ActorSkillsPage,
-                display: flags?.a5e?.showFavoritesSection ?? true,
             },
             {
                 name: "inventory",
