@@ -7,7 +7,7 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     let actor: any = getContext("actor");
-    let sheetIsLocked = getContext("sheetIsLocked");
+    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive.system);
 
     function displayCr(cr: number) {
@@ -28,7 +28,7 @@
 
     function isLevelLocked() {
         if (actor.type !== "character") return true;
-        if (sheetIsLocked) return true;
+        if (sheetIsLocked()) return true;
         if (Object.keys(actor.classes ?? {}).length > 0) return true;
         return false;
     }
@@ -70,7 +70,7 @@
         else newValue = Number.parseInt(value, 10);
 
         if (Number.isNaN(newValue)) newValue = actor.system.details.cr;
-        updateDocumentDataFromField(actor, target.name, newValue);
+        updateDocumentDataFromField(actor, "system.details.cr", newValue);
     }
 
     let data = $derived({
@@ -149,24 +149,20 @@
         </div>
     {/if}
 
-    {#if actor.type === "character"}
-        <!-- Proficiency -->
-        <div class="a5e-actor-details-box">
-            <label for="{actor.id}-prof" class="a5e-actor-details-box__label">
-                Prof.
-            </label>
+    <!-- Proficiency -->
+    <div class="a5e-actor-details-box">
+        <label for="{actor.id}-prof" class="a5e-actor-details-box__label"> Prof. </label>
 
-            <input
-                id="{actor.id}-prof"
-                class="a5e-actor-details-box__input"
-                type="number"
-                value={actorStore.attributes.prof}
-                placeholder="0"
-                min="0"
-                disabled
-            />
-        </div>
-    {/if}
+        <input
+            id="{actor.id}-prof"
+            class="a5e-actor-details-box__input"
+            type="number"
+            value={actorStore.attributes.prof}
+            placeholder="0"
+            min="0"
+            disabled
+        />
+    </div>
 
     {#if actor.type === "npc"}
         <!-- CR -->
@@ -180,7 +176,7 @@
                 value={data.cr}
                 placeholder="0"
                 min="0"
-                onchange={({ target }) => updateCR(targe)}
+                onchange={({ target }) => updateCr(target)}
             />
         </div>
     {/if}
@@ -195,7 +191,7 @@
             id="{actor.id}-xp"
             class="a5e-actor-details-box__input"
             type="number"
-            value={actorStore.details.xp}
+            value={data.xp}
             placeholder="0"
             min="0"
             disabled={actor.type === "npc"}

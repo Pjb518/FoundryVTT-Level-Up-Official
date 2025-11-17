@@ -68,8 +68,8 @@
                 class:a5e-item-sheet-header__button-locked={!isGM}
                 disabled={!isGM}
                 data-tooltip={itemStore.unidentified
-                    ? "A5E.ButtonToolTipUnidentified"
-                    : "A5E.ButtonToolTipIdentified"}
+                    ? localize("A5E.buttons.tooltips.unidentified")
+                    : localize("A5E.buttons.tooltips.identified")}
                 data-tooltip-direction="UP"
                 aria-label="Toggle Mystification"
                 onclick={(e) => {

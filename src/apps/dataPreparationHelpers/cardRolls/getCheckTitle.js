@@ -23,7 +23,7 @@ export default function getCheckLabel(messageData) {
       }
     case "skillCheck":
       return ability
-        ? localize("A5E.SkillCheckAbility", { skill, ability })
+        ? localize("A5E.skillLabels.checks.ability", { skill, ability })
         : localize("A5E.SkillCheck", { skill });
     default:
       return null;
