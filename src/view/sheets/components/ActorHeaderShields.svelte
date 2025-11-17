@@ -44,6 +44,11 @@
         return data.join(" / ");
     }
 
+    function showXP() {
+        if (actor.type == "npc") return true;
+        return actor.flags?.a5e?.showXP ?? true;
+    }
+
     function toggleElite() {
         updateDocumentDataFromField(
             actor,
@@ -79,6 +84,7 @@
         levelSource: getLevelSource(),
         levelIsLocked: isLevelLocked(),
         requiredXP: getRequiredExperiencePoints(actor),
+        showXP: showXP(),
         xp: actor.type === "character" ? actorStore.details.xp : prepareXP(actor),
     });
 </script>
@@ -182,46 +188,48 @@
     {/if}
 
     <!-- XP -->
-    <div class="a5e-actor-details-box">
-        <label for="{actor.id}-current-xp" class="a5e-actor-details-box__label">
-            {actor.type === "character" ? "Current XP" : "XP"}
-        </label>
-
-        <input
-            id="{actor.id}-xp"
-            class="a5e-actor-details-box__input"
-            type="number"
-            value={data.xp}
-            placeholder="0"
-            min="0"
-            disabled={actor.type === "npc"}
-            onchange={({ target }) =>
-                updateDocumentDataFromField(
-                    actor,
-                    "system.details.xp",
-                    // @ts-ignore
-                    Number(target.value),
-                )}
-        />
-    </div>
-
-    <!-- Required XP -->
-    {#if actor.type === "character"}
+    {#if data.showXP}
         <div class="a5e-actor-details-box">
-            <label for="{actor.id}-required-xp" class="a5e-actor-details-box__label">
-                Required XP
+            <label for="{actor.id}-current-xp" class="a5e-actor-details-box__label">
+                {actor.type === "character" ? "Current XP" : "XP"}
             </label>
 
             <input
-                id="{actor.id}-required-xp"
+                id="{actor.id}-xp"
                 class="a5e-actor-details-box__input"
                 type="number"
-                value={data.requiredXP}
+                value={data.xp}
                 placeholder="0"
                 min="0"
-                disabled
+                disabled={actor.type === "npc"}
+                onchange={({ target }) =>
+                    updateDocumentDataFromField(
+                        actor,
+                        "system.details.xp",
+                        // @ts-ignore
+                        Number(target.value),
+                    )}
             />
         </div>
+
+        <!-- Required XP -->
+        {#if actor.type === "character"}
+            <div class="a5e-actor-details-box">
+                <label for="{actor.id}-required-xp" class="a5e-actor-details-box__label">
+                    Required XP
+                </label>
+
+                <input
+                    id="{actor.id}-required-xp"
+                    class="a5e-actor-details-box__input"
+                    type="number"
+                    value={data.requiredXP}
+                    placeholder="0"
+                    min="0"
+                    disabled
+                />
+            </div>
+        {/if}
     {/if}
 </div>
 
