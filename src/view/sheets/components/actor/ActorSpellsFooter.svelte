@@ -34,14 +34,13 @@
         actor.reactive.items.filter((item) => {
             if (
                 !item.system.prepared ||
-                item.system.prepare ===
-                    CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
+                item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
             ) {
                 return false;
             }
 
             return true;
-        }).length || 5,
+        }).length || 0,
     );
 
     let spellResources = $derived(actorStore.spellResources);
@@ -70,9 +69,7 @@
         --a5e-field-wrapper-item-alignment="center"
         --a5e-field-wrapper-gap="0.5rem"
     >
-        <span
-            class="a5e-footer-group__value a5e-footer-group__value--attunement"
-        >
+        <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
             {preparedSpellCount}
         </span>
 
@@ -131,10 +128,7 @@
             placeholder="0"
             min="0"
             onchange={({ currentTarget }) =>
-                updateMaxSpellResource(
-                    "artifactCharges",
-                    Number(currentTarget.value),
-                )}
+                updateMaxSpellResource("artifactCharges", Number(currentTarget.value))}
         />
     </FieldWrapper>
 {/if}
@@ -174,10 +168,7 @@
             placeholder="0"
             min="0"
             onchange={({ currentTarget }) =>
-                updateMaxSpellResource(
-                    "inventions",
-                    Number(currentTarget.value),
-                )}
+                updateMaxSpellResource("inventions", Number(currentTarget.value))}
         />
     </FieldWrapper>
 {/if}
@@ -216,10 +207,7 @@
                 placeholder="0"
                 min="0"
                 onchange={({ currentTarget }) =>
-                    updateMaxSpellResource(
-                        "points",
-                        Number(currentTarget.value),
-                    )}
+                    updateMaxSpellResource("points", Number(currentTarget.value))}
             />
 
             {#if spellResources.points.current < maxSpellPoints && maxSpellPoints && startingClass === "psion"}
