@@ -16,7 +16,10 @@ const schema = {
 		material: new fields.BooleanField({ required: true, initial: false }),
 	}),
 	concentration: new fields.BooleanField({ required: true, initial: false }),
-	discipline: new fields.StringField({ required: true, initial: '' }),
+	disciplines: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+			required: true,
+			initial: [],
+		}),
 	level: new fields.NumberField({
 		required: true,
 		nullable: false,

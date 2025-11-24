@@ -826,10 +826,13 @@ const preparedStates = {
 };
 
 const psionicDisciplines = {
+  general: "A5E.psionicDisciplines.disciplines.general",
+  clairsentient: "A5E.psionicDisciplines.disciplines.clairsentient",
   dynakinetic: "A5E.psionicDisciplines.disciplines.dynakinetic",
   kinesthetic: "A5E.psionicDisciplines.disciplines.kinesthetic",
   telekinetic: "A5E.psionicDisciplines.disciplines.telekinetic",
   telepathic: "A5E.psionicDisciplines.disciplines.telepathic",
+  translocation: "A5E.psionicDisciplines.disciplines.translocation",
 };
 
 /**

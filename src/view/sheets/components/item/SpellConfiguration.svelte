@@ -11,6 +11,15 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
 
+    function preparePsionicDisciplines() {
+        const disciplines = itemStore.disciplines.map((discipline: string) =>
+            localize(psionicDisciplines[discipline] ?? discipline),
+        );
+
+        disciplines.sort((a: string, b: string) => a.localeCompare(b));
+        return disciplines.join(", ");
+    }
+
     function getRawSpellComponents() {
         return Object.entries(itemStore.components)
             .filter(([, state]) => state)
@@ -46,11 +55,7 @@
     } = CONFIG.A5E;
 
     let editMode = $state(false);
-    let showVRCPsionicDisciplines = game.settings.get(
-        "a5e",
-        "showVRCPsionicDisciplines",
-    ) as boolean;
-
+    let selectedPsionicDisciplines = $derived(preparePsionicDisciplines());
     let selectedSpellComponentsList = $derived(getRawSpellComponents());
     let selectedSpellComponents = $derived(prepareSpellComponents());
     let selectedSpellSchools = $derived(prepareSecondarySpellSchools());
@@ -94,15 +99,13 @@
                 updateDocumentDataFromField(item, "system.schools.primary", value)}
         />
 
-        {#if showVRCPsionicDisciplines}
-            <RadioGroup
-                heading="A5E.psionicDisciplines.title"
-                options={Object.entries(psionicDisciplines)}
-                selected={itemStore.discipline}
-                onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(item, "system.discipline", value)}
-            />
-        {/if}
+        <CheckboxGroup
+            heading="A5E.psionicDisciplines.title"
+            options={Object.entries(psionicDisciplines)}
+            selected={itemStore.disciplines}
+            onUpdateSelection={(value) =>
+                updateDocumentDataFromField(item, "system.disciplines", value)}
+        />
 
         <CheckboxGroup
             heading="A5E.spells.schoolSecondaryPlural"
@@ -242,18 +245,15 @@
                 </dd>
             </div>
 
-            {#if showVRCPsionicDisciplines}
-                <div class="a5e-dl-box__section">
-                    <dt class="a5e-dl-box__header">
-                        {localize("A5E.psionicDisciplines.title")}:
-                    </dt>
+            <div class="a5e-dl-box__section">
+                <dt class="a5e-dl-box__header">
+                    {localize("A5E.psionicDisciplines.title")}:
+                </dt>
 
-                    <dd class="a5e-dl-box__content">
-                        {localize(psionicDisciplines[itemStore.diiscipline]) ||
-                            localize("A5E.None")}
-                    </dd>
-                </div>
-            {/if}
+                <dd class="a5e-dl-box__content">
+                    {selectedPsionicDisciplines || localize("A5E.None")}
+                </dd>
+            </div>
 
             <hr class="a5e-rule" />
 

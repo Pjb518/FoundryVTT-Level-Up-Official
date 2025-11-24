@@ -723,18 +723,6 @@ export const settings = [
   },
   {
     namespace,
-    key: "showVRCPsionicDisciplines",
-    options: {
-      name: "A5E.settings.showVRCPsionicDisciplines",
-      hint: "A5E.settings.hints.showVRCPsionicDisciplines",
-      scope: scope.world,
-      config: false,
-      default: false,
-      type: Boolean,
-    },
-  },
-  {
-    namespace,
     key: "useCredits",
     options: {
       name: "A5E.settings.useCredits",
