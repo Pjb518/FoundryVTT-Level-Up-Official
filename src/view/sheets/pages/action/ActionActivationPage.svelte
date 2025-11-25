@@ -10,6 +10,17 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
 
+    function getDurationHeadingLabel(action: Action): string {
+        if (!action.duration?.unit) return "A5E.actions.headings.duration";
+        if (
+            action.duration?.unit === "instantaneous" ||
+            action.duration?.unit === "permanent" ||
+            action.duration?.unit === "special"
+        ) {
+            return "A5E.actions.headings.duration";
+        } else return "A5E.actions.headings.durationFormula";
+    }
+
     let actor: any = getContext("actor");
     let item: any = getContext("item");
     let actionId: string = getContext("actionId");
@@ -91,7 +102,7 @@
     {/if}
 
     <FieldWrapper
-        heading="A5E.actions.headings.duration"
+        heading={getDurationHeadingLabel(action)}
         --a5e-field-wrapper-direction="row"
         --a5e-field-wrapper-header-width="100%"
     >
