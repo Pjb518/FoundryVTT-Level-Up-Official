@@ -32,15 +32,11 @@
 
     function onUpdateValue(key: string, value: any) {
         if (key === "skill") {
-            updateDocumentDataFromField(
-                item,
-                `system.grants.${grantId}.specialties`,
-                {
-                    base: [],
-                    options: [],
-                    total: 0,
-                },
-            );
+            updateDocumentDataFromField(item, `system.grants.${grantId}.specialties`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -72,7 +68,7 @@
             onclick={updateImage}
         />
 
-        <div class="a5e-name-wrapper">
+        <div class="a5e-grant-name-wrapper">
             <input
                 class="a5e-input a5e-grant-name"
                 type="text"
@@ -129,10 +125,7 @@
                 type="number"
                 value={grant?.specialties?.total ?? 0}
                 onchange={({ currentTarget }) =>
-                    onUpdateValue(
-                        "specialties.total",
-                        Number(currentTarget.value),
-                    )}
+                    onUpdateValue("specialties.total", Number(currentTarget.value))}
             />
         </FieldWrapper>
     {/key}

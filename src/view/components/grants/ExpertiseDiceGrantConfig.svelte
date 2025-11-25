@@ -91,7 +91,7 @@
             onclick={updateImage}
         />
 
-        <div class="a5e-name-wrapper">
+        <div class="a5e-grant-name-wrapper">
             <input
                 class="a5e-input a5e-grant-name"
                 type="text"
