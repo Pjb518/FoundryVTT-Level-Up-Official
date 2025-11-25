@@ -95,15 +95,17 @@
                 ></button>
             </li>
 
-            <li>
-                <button
-                    class="action-button icon fa-solid fa-clone"
-                    data-tooltip="A5E.buttons.tooltips.duplicate"
-                    data-tooltip-direction="UP"
-                    aria-label="Duplicate"
-                    onclick={onDuplicate}
-                ></button>
-            </li>
+            {#if item.type !== "feature"}
+                <li>
+                    <button
+                        class="action-button icon fa-solid fa-clone"
+                        data-tooltip="A5E.buttons.tooltips.duplicate"
+                        data-tooltip-direction="UP"
+                        aria-label="Duplicate"
+                        onclick={onDuplicate}
+                    ></button>
+                </li>
+            {/if}
 
             <li>
                 <button
