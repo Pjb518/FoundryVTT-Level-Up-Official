@@ -46,7 +46,7 @@
             class:a5e-actor-initiative__roll-button--shift={pressedKeys.Shift}
             class:a5e-actor-initiative__roll-button--ctrl={pressedKeys.Control}
             class:disable-pointer-events={!actor.isOwner}
-            data-tooltip="A5E.RollInitiative"
+            data-tooltip="A5E.rollLabels.initiative"
             data-tooltip-direction="DOWN"
             aria-label="Roll Initiative"
             onclick={() =>

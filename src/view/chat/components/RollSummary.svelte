@@ -21,9 +21,7 @@
 
         if (!d20Roll) return false;
 
-        return d20Roll.results.some(
-            ({ result, active }) => active && result === 1,
-        );
+        return d20Roll.results.some(({ result, active }) => active && result === 1);
     }
 
     function determineIfCriticalSuccess(roll) {
@@ -32,8 +30,7 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) =>
-                active && result >= (rollData.critThreshold ?? 20),
+            ({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
         );
     }
 
@@ -42,7 +39,7 @@
 
         return localize(
             rollMode === 1
-                ? "A5E.RollModeAdvantage"
+                ? "A5E.rollLabels.modes.advantage"
                 : "A5E.RollModeDisadvantage",
         );
     }
@@ -50,16 +47,14 @@
     function getExpertiseLabel({ expertiseDice }) {
         if (!expertiseDice) return null;
 
-        return localize("A5E.ExpertiseDieSpecific", {
+        return localize("A5E.expertiseDie.dieSpecific", {
             dieSize: getExpertiseDieSize(expertiseDice),
         });
     }
 
     async function rollOnSkillTable(skillKey, resultType) {
         const tableKey =
-            resultType === "critical"
-                ? "skillCriticalTables"
-                : "skillFumbleTables";
+            resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
         const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
         const critTable = await fromUuid(critTableUUID);
@@ -85,10 +80,7 @@
             type: "rollTableOutput",
         };
 
-        ChatMessage.applyRollMode(
-            chatData,
-            game.settings.get("core", "rollMode"),
-        );
+        ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
 
         return ChatMessage.create(chatData);
     }
@@ -187,11 +179,7 @@
 </div>
 
 {#if showRollConfig}
-    <RollConfigurationOptions
-        {rollData}
-        {onToggleRollMode}
-        {onToggleExpertiseDice}
-    />
+    <RollConfigurationOptions {rollData} {onToggleRollMode} {onToggleExpertiseDice} />
 {/if}
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
@@ -221,8 +209,7 @@
         width: 2.5rem;
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
-        border: 0.5px solid
-            var(--a5e-roll-color, var(--a5e-chat-card-border-color));
+        border: 0.5px solid var(--a5e-roll-color, var(--a5e-chat-card-border-color));
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 

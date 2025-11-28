@@ -174,7 +174,7 @@ export default class ModifierManager {
     const proficiencyBonus = this.actor.system.attributes.prof;
 
     return {
-      label: localize("A5E.ProficiencyBonus"),
+      label: localize("A5E.proficiency.bonus"),
       value: proficient ? proficiencyBonus : 0,
     };
   }
@@ -197,7 +197,7 @@ export default class ModifierManager {
 
   #getExpertiseDice() {
     return {
-      label: localize("A5E.ExpertiseDie"),
+      label: localize("A5E.expertiseDie.title"),
       value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0),
     };
   }
@@ -257,7 +257,7 @@ export default class ModifierManager {
     if (!this.rollData.proficient) return null;
 
     return {
-      label: localize("A5E.ProficiencyBonus"),
+      label: localize("A5E.proficiency.bonus"),
       value: this.actor.system.attributes.prof,
     };
   }
@@ -272,7 +272,7 @@ export default class ModifierManager {
     const skill = this.actor.system.skills[skillKey];
 
     if (skill?.proficient === 2) labelKey = "A5E.ProficiencyBonusExpertise";
-    else if (skill?.proficient) labelKey = "A5E.ProficiencyBonus";
+    else if (skill?.proficient) labelKey = "A5E.proficiency.bonus";
     else if (jackOfAllTrades) labelKey = "A5E.ProficiencyBonusJack";
 
     return {
