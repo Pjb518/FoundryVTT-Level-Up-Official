@@ -93,6 +93,11 @@
                         }}
                     />
                 </FieldWrapper>
+                {#if consumeSupply && !actor.system.supply}
+                    <div class="a5e-section__hint">
+                        {localize("A5E.rest.noSupplyWarning", { name: actor.name })}
+                    </div>
+                {/if}
             {/if}
         </Section>
     {/if}

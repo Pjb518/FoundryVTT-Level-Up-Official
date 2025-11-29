@@ -71,7 +71,7 @@ export default class RestManager {
   }
 
   #adjustStrifeAndFatigue() {
-    const { haven, recoverStrifeAndFatigue } = this.#restData;
+    const { consumeSupply, haven, recoverStrifeAndFatigue } = this.#restData;
     const { strife, fatigue } = this.#actor.system.attributes;
 
     this.#updates.actor["system.attributes.inebriated"] = 0;
@@ -79,10 +79,11 @@ export default class RestManager {
     if (!recoverStrifeAndFatigue) {
       this.#updates.actor["system.attributes.fatigue"] = fatigue + 1;
     } else if (!haven) {
-      this.#updates.actor["system.attributes.fatigue"] =
-        fatigue === 1 ? 0 : fatigue;
-      this.#updates.actor["system.attributes.strife"] =
-        strife === 1 ? 0 : strife;
+      if (consumeSupply && !this.#actor.system.supply) this.#updates.actor['system.attributes.fatigue'] = fatigue + 1;
+      else {
+        this.#updates.actor['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+        this.#updates.actor['system.attributes.strife'] = strife === 1 ? 0 : strife;
+      }
     } else {
       this.#updates.actor["system.attributes.fatigue"] = Math.max(
         fatigue - 1,
