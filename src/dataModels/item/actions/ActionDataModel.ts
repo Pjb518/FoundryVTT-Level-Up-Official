@@ -66,8 +66,11 @@ const actionSchema = () => ({
 	),
 
 	target: new fields.SchemaField({
+    heard: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+		otherText: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		scaling: new fields.ObjectField({ required: true, nullable: false }),
+    seen: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	}),
 
