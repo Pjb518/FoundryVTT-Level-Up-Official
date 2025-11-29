@@ -395,6 +395,7 @@ class A5eGameSettings extends TJSGameSettings {
 						doubleDiceQuantityAndMods: 'A5E.settings.critDoubleDiceQuantityAndMods',
 						maxDamage: 'A5E.settings.critMaxDamage',
 						maxDamagePlusRoll: 'A5E.settings.critMaxDamagePlusRoll',
+						maximizeHighestDie: 'A5E.settings.critMaxHighestDie',
 					},
 				},
 			},
