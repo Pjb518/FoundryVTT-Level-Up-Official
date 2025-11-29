@@ -111,11 +111,11 @@
 
         {#if itemStore.uses.per === "recharge"}
             <Section
-                heading="A5E.ItemRechargeConfiguration"
+                heading="A5E.actions.headings.recharge.configuration"
                 --a5e-section-body-direction="row"
                 --a5e-section-body-gap="0.5rem"
             >
-                <FieldWrapper heading="A5E.ItemRechargeFormula">
+                <FieldWrapper heading="A5E.actions.headings.recharge.formula">
                     <input
                         class="a5e-input a5e-input--slim"
                         id="{item.uuid}-recharge-formula"
@@ -133,7 +133,7 @@
                     />
                 </FieldWrapper>
 
-                <FieldWrapper heading="A5E.ItemRechargeThreshold">
+                <FieldWrapper heading="A5E.actions.headings.recharge.threshold">
                     <input
                         id="{item.id}-recharge-threshold"
                         class="a5e-input a5e-input--slim"

@@ -305,7 +305,7 @@
         {#if !action && itemStore.isStance}
             <i
                 class="action-button action-button--stance icon fa-solid fa-street-view"
-                data-tooltip={"A5E.ManeuverIsStance"}
+                data-tooltip={"A5E.maneuvers.labels.isStance"}
                 data-tooltip-direction="UP"
             ></i>
         {/if}

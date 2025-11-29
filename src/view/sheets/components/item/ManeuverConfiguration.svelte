@@ -40,7 +40,7 @@
 
         {#if itemStore.degree > 0}
             <RadioGroup
-                heading="A5E.ManeuverTraditionPrompt"
+                heading="A5E.maneuvers.headings.traditionPlural"
                 options={Object.entries(maneuverTraditions)}
                 selected={itemStore.tradition}
                 onUpdateSelection={(value) =>
@@ -49,7 +49,7 @@
 
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.ManeuverIsStance"
+                    label="A5E.maneuvers.labels.isStance"
                     checked={itemStore.isStance}
                     onUpdateSelection={(value) => {
                         updateDocumentDataFromField(item, "system.isStance", value);
@@ -67,7 +67,7 @@
                 />
             </FieldWrapper>
 
-            <FieldWrapper heading="A5E.ItemExertionCost">
+            <FieldWrapper heading="A5E.consumers.exertionCost">
                 <input
                     class="a5e-input a5e-input--slim a5e-input--small"
                     type="number"
@@ -102,7 +102,7 @@
             {#if itemStore.degree > 0}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.ManeuverTraditionPrompt")}:
+                        {localize("A5E.maneuvers.headings.traditionPlural")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">
@@ -112,7 +112,7 @@
 
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.ItemExertionCost")}:
+                        {localize("A5E.consumers.exertionCost")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">
