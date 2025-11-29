@@ -11,10 +11,12 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     import AreaConfig from "../../components/action/AreaConfig.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
     import TargetRangeIncrement from "../../components/action/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "#view/dialogs/action/TargetScalingDialog.svelte";
+    import { get } from "http";
 
     function addRangeIncrement() {
         const newRange = {
@@ -66,6 +68,7 @@
     let item: any = getContext("item");
     let actionId: string = getContext("actionId");
     let action: Action = $derived(item.reactive.actions.get(actionId));
+    let appId: any = getContext("appId");
 
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
@@ -135,6 +138,23 @@
                 {/each}
             </select>
 
+            {#if ["other"].includes(action?.target?.type)}
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="text"
+                    name="otherText"
+                    value={action.target?.otherText}
+                    id={`${appId}-otherText`}
+                    onchange={({ target }) =>
+                        updateDocumentDataFromField(
+                            item,
+                            `system.actions.${actionId}.target.otherText`,
+                            // @ts-expect-error
+                            target.value,
+                        )}
+                />
+            {/if}
+
             <button
                 class="a5e-button a5e-button--scaling"
                 data-tooltip="A5E.scaling.headings.configureTarget"
@@ -149,5 +169,31 @@
         <small>
             {scalingSummary}
         </small>
+    </Section>
+
+    <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        {#if ["creature", "object", "creatureObject", "other"].includes(action?.target?.type)}
+            <Checkbox
+                label="A5E.targets.heard"
+                checked={action.target?.heard}
+                onUpdateSelection={(detail) =>
+                    updateDocumentDataFromField(
+                        item,
+                        `system.actions.${actionId}.target.heard`,
+                        detail,
+                    )}
+            />
+
+            <Checkbox
+                label="A5E.targets.seen"
+                checked={action.target?.seen}
+                onUpdateSelection={(detail) =>
+                    updateDocumentDataFromField(
+                        item,
+                        `system.actions.${actionId}.target.seen`,
+                        detail,
+                    )}
+            />
+        {/if}
     </Section>
 </section>
