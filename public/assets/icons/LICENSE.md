@@ -15,6 +15,7 @@ The following icons are sourced from [game-icons.net](https://game-icons.net/) a
 - [hungover.svg](https://game-icons.net/1x1/lorc/vomiting.html) (Created by Lorc)
 - [incapacitated.svg](https://game-icons.net/1x1/delapouite/sleeping-bag.html) (Created by Delapouite)
 - [inebriated.svg](https://game-icons.net/1x1/lorc/two-shadows.html) (Created by Lorc)
+- [magic-item.svg](https://game-icons.net/1x1/lorc/fairy-wand.html) (Created by Lorc)
 - [petrified.svg](https://game-icons.net/1x1/cathelineau/medusa-head.html) (Created by Cathelineau)
 - [rattled.svg](https://game-icons.net/1x1/lorc/helmet-head-shot.html) (Created by Lorc)
 - [slowed.svg](https://game-icons.net/1x1/lorc/snail.html) (Created by Lorc)

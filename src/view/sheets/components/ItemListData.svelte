@@ -70,6 +70,13 @@
         }
     }
 
+    function isMagical(item: Item) {
+        if (!item.isType("object")) return false;
+        if (item.system.rarity !== "mundane") return true;
+
+        return false;
+    }
+
     function getSelectedAmmo(item: Item, action: Action) {
         let _action = action;
 
@@ -280,12 +287,21 @@
     let activationCost = $derived(getActivationCost());
     let activationCostLabel = $derived(getActivationCostLabel(activationCost));
     let containerCapacity = $derived(getCapacity(item));
+    let isMagicalItem = $derived(isMagical(item));
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
 </script>
 
 <div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
     <div class="name">
         {action?.name ?? item.name}
+
+        {#if isMagicalItem}
+            <i
+                class="icon fa-solid fa-wand-magic-sparkles"
+                data-tooltip="A5E.objects.magical"
+                data-tooltip-direction="UP"
+            ></i>
+        {/if}
 
         {#if activationCost && (item.reactive.actions?.count === 1 || action)}
             <button
