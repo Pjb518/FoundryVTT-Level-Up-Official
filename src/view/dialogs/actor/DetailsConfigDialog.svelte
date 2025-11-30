@@ -88,7 +88,19 @@
         <FieldWrapper>
             {#if actor.type === "npc"}
                 <Checkbox
-                    label="Squad"
+                    label="A5E.details.creature.labels.shapechanger"
+                    checked={actorStore.details.isShapechanger}
+                    onUpdateSelection={(value) => {
+                        updateDocumentDataFromField(
+                            actor,
+                            "system.details.isShapechanger",
+                            value,
+                        );
+                    }}
+                />
+
+                <Checkbox
+                    label="A5E.details.creature.labels.squad"
                     checked={actorStore.details.isSquad}
                     onUpdateSelection={(value) => {
                         updateDocumentDataFromField(
@@ -98,15 +110,19 @@
                         );
                     }}
                 />
-            {/if}
 
-            <Checkbox
-                label="A5E.details.creature.labels.swarm"
-                checked={actorStore.details.isSwarm}
-                onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(actor, "system.details.isSwarm", value);
-                }}
-            />
+                <Checkbox
+                    label="A5E.details.creature.labels.swarm"
+                    checked={actorStore.details.isSwarm}
+                    onUpdateSelection={(value) => {
+                        updateDocumentDataFromField(
+                            actor,
+                            "system.details.isSwarm",
+                            value,
+                        );
+                    }}
+                />
+            {/if}
         </FieldWrapper>
     {/if}
 </Section>

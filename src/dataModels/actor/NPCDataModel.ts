@@ -47,6 +47,7 @@ const npcSchema = () => ({
   details: new fields.SchemaField({
     cr: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
     elite: new fields.BooleanField({ required: true, initial: false }),
+    isShapechanger: new fields.BooleanField({ required: true, initial: false }),
     isSquad: new fields.BooleanField({ required: true, initial: false }),
     isSwarm: new fields.BooleanField({ required: true, initial: false }),
     notes: new fields.HTMLField({ required: true, initial: "" }),

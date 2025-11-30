@@ -9,12 +9,16 @@ export default function prepareCreatureTypes(data) {
     localize(CONFIG.A5E.creatureTypes[type] ?? type),
   );
 
+   if (data.system.details.isShapechanger) {
+    typeLabels.push(localize("A5E.details.creature.labels.shapechanger"));
+  }
+
   if (data.system.details.isSquad) {
-    typeLabels.push(localize("Squad"));
+    typeLabels.push(localize("A5E.details.creature.labels.squad"));
   }
 
   if (data.system.details.isSwarm) {
-    typeLabels.push(localize("A5E.CreatureSwarm"));
+    typeLabels.push(localize("A5E.A5E.details.creature.labels.swarm"));
   }
 
   return typeLabels;
