@@ -15,6 +15,7 @@
 
     import AmmoConsumer from "#view/sheets/components/action/AmmoConsumer.svelte";
     import HitDiceConsumer from "#view/sheets/components/action/HitDiceConsumer.svelte";
+    import QualityConsumer from "#view/sheets/components/action/QualityConsumer.svelte";
     import QuantityConsumer from "#view/sheets/components/action/QuantityConsumer.svelte";
     import ResourceConsumer from "#view/sheets/components/action/ResourceConsumer.svelte";
     import SpellConsumer from "#view/sheets/components/action/SpellConsumer.svelte";
@@ -28,10 +29,7 @@
         });
     }
 
-    function duplicateConsumer(
-        actionId: string,
-        consumer: Record<string, any>,
-    ) {
+    function duplicateConsumer(actionId: string, consumer: Record<string, any>) {
         const newConsumer = foundry.utils.duplicate(consumer);
 
         item.update({
@@ -54,6 +52,11 @@
             heading: "A5E.consumers.hitDice",
             singleLabel: "A5E.hitDice.title",
             component: HitDiceConsumer,
+        },
+        quality: {
+            heading: "A5E.consumers.quality",
+            singleLabel: "A5E.ItemQuality",
+            component: QualityConsumer,
         },
         quantity: {
             heading: "A5E.consumers.quantity",
@@ -85,34 +88,24 @@
     const { A5E } = CONFIG;
 
     let action = $derived(item.reactive.actions.get(actionId));
-    let consumers: [string, any][] = $derived(
-        Object.entries(action.consumers ?? {}),
-    );
+    let consumers: [string, any][] = $derived(Object.entries(action.consumers ?? {}));
 
     let isClassResource = formulaIsClassResource(action.uses?.max ?? "");
 
     $inspect(action.consumers);
 </script>
 
-{#snippet ConsumerListItem(
-    consumerType: string,
-    consumerConfig: ActionComponentType,
-)}
+{#snippet ConsumerListItem(consumerType: string, consumerConfig: ActionComponentType)}
     <Section
         heading={consumerConfig.heading}
         headerButtons={[
             {
                 classes: "add-button",
                 handler: () =>
-                    ActionsManager.addConsumer(
-                        item,
-                        [actionId, action],
-                        consumerType,
-                    ),
+                    ActionsManager.addConsumer(item, [actionId, action], consumerType),
                 label: localize("A5E.buttons.addConsumer", {
                     type: localize(
-                        consumerConfig.buttonLabel ??
-                            consumerConfig.singleLabel,
+                        consumerConfig.buttonLabel ?? consumerConfig.singleLabel,
                     ),
                 }),
             },
@@ -161,10 +154,7 @@
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper
-            heading="A5E.consumers.uses.max"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.consumers.uses.max" --a5e-field-wrapper-width="7.5rem">
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
