@@ -63,6 +63,7 @@ class ResourceConsumptionManager {
       else if (consumerType === "resource") this.#consumeResource(consumer);
       else if (["ammunition", "quantity"].includes(consumerType))
         this.#consumeQuantity(consumerId, consumer);
+      else if (consumerType === 'quality') this.#consumeQuality(consumer);
     });
 
     // Updates documents
@@ -115,6 +116,30 @@ class ResourceConsumptionManager {
       max,
     );
   }
+
+  // @ts-ignore
+  async #consumeQuality( consumer = {}) {
+    //@ts-expect-error
+    const { itemId, quality } = consumer;
+
+		if (!this.#actor || itemId === '') return;
+
+		const item = this.#actor.items.get(itemId);
+		if (!item) return;
+
+		let newQuality = 0;
+
+		if (quality === "1") {
+		  newQuality = Math.min((item.system.damagedState ?? 0) + quality, 2);
+		} else {
+		  newQuality = quality;
+		}
+
+		await this.#actor.updateEmbeddedDocuments(
+		  'Item',
+		  [{ _id: item.id, 'system.damagedState': newQuality }]
+		);
+	}
 
   // @ts-ignore
   async #consumeQuantity(consumerId: string, consumer = {}) {
@@ -171,9 +196,16 @@ class ResourceConsumptionManager {
       return;
     }
 
+
     const { path, type } = config;
     const value =
       (foundry.utils.getProperty(this.#actor.system, path) as number) ?? 0;
+
+    if (resource === "fatigue" || resource === "strife") {
+      this.#updates.actor[`system.${path}`] = Math.min(value + quantity, 7);
+
+      return;
+    }
 
     if (type === "boolean") {
       this.#updates.actor[`system.${path}`] = restore ?? false;

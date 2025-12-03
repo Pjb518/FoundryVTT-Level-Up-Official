@@ -29,6 +29,7 @@ export default function registerActionsConfig() {
 	const resourceConsumerConfig = {
 		classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
 		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
+    fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue', type: 'value' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
 			label: 'A5E.consumers.favorPoints',
@@ -36,6 +37,8 @@ export default function registerActionsConfig() {
 		},
 		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
 		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'boolean' },
+    strife: { path: 'attributes.strife', label: 'A5E.conditions.strife', type: 'value' },
+    supply: { path: 'supply', label: 'A5E.supply.title', type: 'value' },
 		primaryResource: {
 			path: 'resources.primary.value',
 			label: 'A5E.consumers.resources.primary',

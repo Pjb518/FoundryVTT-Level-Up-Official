@@ -36,6 +36,7 @@ export default class ConsumptionValidator {
       ammunition: this.#validateItemQuantity,
       hitDice: this.#validateHitDice,
       itemUses: this.#validateItemUses,
+      quality: this.#validateItemQuality,
       quantity: this.#validateItemQuantity,
       resource: this.#validateResource,
     };
@@ -77,6 +78,17 @@ export default class ConsumptionValidator {
       this.warnings.push(localize("A5E.validations.warnings.hitDice"));
   }
 
+  #validateItemQuality(_, consumer) {
+    const item = this.#actor.items.get(consumer.itemId);
+    if (item) {
+      if (consumer.quality === "0") return;
+      if (item.system.damagedState === 2) {
+        this.warnings.push(localize("A5E.validations.warnings.quality", { name: item?.name }),);
+      }
+    }
+  }
+
+
   #validateItemQuantity(_, consumer) {
     const item = this.#actor.items.get(consumer.itemId);
     if (item) {
@@ -113,6 +125,14 @@ export default class ConsumptionValidator {
     const availableUses = foundry.utils.getProperty(this.#actor.system, path);
 
     if (typeof availableUses !== "number") return;
+    if (consumer.resource === "fatigue" || consumer.resource === "strife") {
+      if (availableUses + consumer.quantity <= 7) return;
+      this.warnings.push(
+      localize("A5E.validations.warnings.resource", {
+        type: consumer.resource,
+      }),
+    );
+    }
     if (availableUses >= consumer.quantity) return;
 
     this.warnings.push(
