@@ -196,9 +196,16 @@ class ResourceConsumptionManager {
       return;
     }
 
+
     const { path, type } = config;
     const value =
       (foundry.utils.getProperty(this.#actor.system, path) as number) ?? 0;
+
+    if (resource === "fatigue" || resource === "strife") {
+      this.#updates.actor[`system.${path}`] = Math.min(value + quantity, 7);
+
+      return;
+    }
 
     if (type === "boolean") {
       this.#updates.actor[`system.${path}`] = restore ?? false;
