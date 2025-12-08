@@ -1112,6 +1112,7 @@ const spellSchools = {
     nature: "A5E.spells.secondarySchools.nature",
     necrotic: "A5E.spells.secondarySchools.necrotic",
     negation: "A5E.spells.secondarySchools.negation",
+    object: "A5E.spells.secondarySchools.object",
     obscurement: "A5E.spells.secondarySchools.obscurement",
     planar: "A5E.spells.secondarySchools.planar",
     plants: "A5E.spells.secondarySchools.plants",
