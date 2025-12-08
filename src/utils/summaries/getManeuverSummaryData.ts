@@ -12,7 +12,7 @@ export default function getManeuverSummaryData(
   }
 
   const maneuverDegree = CONFIG.A5E.maneuverDegrees[item.system.degree];
-  const tradition = CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? "";
+  const tradition = CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? item.system.tradition ?? "";
   const stance = item.system.isStance ? "Stance" : "";
 
   const exertionCost = item.system.exertionCost

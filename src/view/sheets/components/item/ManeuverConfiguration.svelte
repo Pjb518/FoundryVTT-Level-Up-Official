@@ -47,6 +47,20 @@
                     updateDocumentDataFromField(item, "system.tradition", value)}
             />
 
+            <FieldWrapper heading="Custom Tradition">
+                <input
+                    class="a5e-input a5e-input--slim"
+                    type="text"
+                    value={itemStore.tradition || ""}
+                    onchange={({ currentTarget }) =>
+                        updateDocumentDataFromField(
+                            item,
+                            "system.tradition",
+                            currentTarget.value,
+                        )}
+                />
+            </FieldWrapper>
+
             <FieldWrapper>
                 <Checkbox
                     label="A5E.maneuvers.labels.isStance"
@@ -106,7 +120,12 @@
                     </dt>
 
                     <dd class="a5e-dl-box__content">
-                        {maneuverTraditions[itemStore.tradition] ?? localize("A5E.None")}
+                        {#if itemStore.tradition}
+                            {maneuverTraditions[itemStore.tradition] ??
+                                itemStore.tradition}
+                        {:else}
+                            {localize("A5E.None")}
+                        {/if}
                     </dd>
                 </div>
 
