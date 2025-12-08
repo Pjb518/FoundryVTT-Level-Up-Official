@@ -6,13 +6,20 @@ import { actions, armor, uses } from './common';
 const { fields } = foundry.data;
 
 const schema = {
-	class: new fields.StringField({ required: true, initial: '' }),
+	asi: new fields.StringField({ required: true, initial: '' }),
+  class: new fields.StringField({ required: true, initial: '' }),
 	classes: new fields.StringField({ required: true, initial: '' }),
 	concentration: new fields.BooleanField({ required: true, initial: false }),
+  featClasses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		required: true,
+		initial: [],
+	}),
+  featType: new fields.StringField({ required: true, initial: '' }),
 	featureType: new fields.StringField({ required: true, initial: '' }),
 	grants: new fields.ObjectField({ required: true, initial: {} }),
 	prerequisite: new fields.StringField({ required: true, initial: '' }),
 	requiresBloodied: new fields.BooleanField({ required: true, initial: false }),
+  synergy: new fields.StringField({ required: true, initial: '' }),
 };
 
 declare namespace A5EFeatureData {
