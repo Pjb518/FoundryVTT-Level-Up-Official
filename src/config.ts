@@ -522,6 +522,13 @@ const expertiseDiceSidesMap = {
   6: 20,
 };
 
+const featTypes = {
+  basic: "A5E.features.featTypes.basic",
+  first: "A5E.features.featTypes.first",
+  second: "A5E.features.featTypes.second",
+  third: "A5E.features.featTypes.third",
+};
+
 const featureTypes = {
   background: "A5E.features.types.background",
   boon: "A5E.features.types.boon",
@@ -2063,6 +2070,7 @@ const A5E = {
   defaultActorImportCompendia,
   equippedStates,
   expertiseDiceSidesMap,
+  featTypes,
   featureTypes,
   healingTypes,
   healingColors,

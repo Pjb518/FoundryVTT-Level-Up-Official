@@ -5,6 +5,7 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
@@ -17,7 +18,21 @@
 
     let item: any = getContext("item");
     let itemStore = $derived(item.reactive.system);
-    const { classes, classes5e, featureTypes } = CONFIG.A5E;
+    const {
+        abilities,
+        classes,
+        classes5e,
+        featClasses,
+        featTypes,
+        featureTypes,
+        synergies,
+    } = CONFIG.A5E;
+
+    const newAbilityList = {
+        none: "A5E.None",
+        ...abilities,
+        spellcasting: "A5E.abilities.spellcasting",
+    };
 
     let editMode = $state(false);
 </script>
@@ -82,6 +97,51 @@
             </FieldWrapper>
         {/if}
 
+        {#if ["feat"].includes(itemStore.featureType)}
+            <RadioGroup
+                heading="A5E.asi"
+                options={Object.entries(newAbilityList)}
+                selected={itemStore.asi}
+                onUpdateSelection={(value) => {
+                    updateDocumentDataFromField(item, "system.asi", value);
+                }}
+            />
+
+            <CheckboxGroup
+                heading="A5E Class Prerequisites"
+                options={Object.entries(classes)}
+                selected={itemStore.featClasses}
+                onUpdateSelection={(value) => {
+                    updateDocumentDataFromField(item, "system.featClasses", value);
+                }}
+            />
+
+            <RadioGroup
+                heading="Feat Type"
+                options={Object.entries(featTypes)}
+                selected={itemStore.featType}
+                onUpdateSelection={(value) => {
+                    updateDocumentDataFromField(item, "system.featType", value);
+                }}
+            />
+
+            {#if !["basic"].includes(itemStore.featType)}
+                <FieldWrapper heading="1st Synergy Name">
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        type="text"
+                        value={itemStore.synergy || ""}
+                        onchange={({ currentTarget }) =>
+                            updateDocumentDataFromField(
+                                item,
+                                "system.synergy",
+                                currentTarget.value,
+                            )}
+                    />
+                </FieldWrapper>
+            {/if}
+        {/if}
+
         <FieldWrapper>
             <Checkbox
                 label="A5E.SpellConcentration"
@@ -132,7 +192,7 @@
 
             {#if ["class", "knack"].includes(itemStore.featureType) && itemStore.classes}
                 <div class="a5e-dl-box__section">
-                    <dt class="a5e-dl-box__header">"Class: "</dt>
+                    <dt class="a5e-dl-box__header">Class:</dt>
 
                     <dd class="a5e-dl-box__content">
                         {getClassSummary()}
