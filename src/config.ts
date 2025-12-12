@@ -1436,11 +1436,6 @@ const skillSpecialties = {
   },
 };
 
-const synergies = {
-  bladechanter: "A5E.features.synergies.bladechanter",
-  eldritchArcher: "A5E.features.synergies.eldritchArcher",
-}
-
 const targetTypes = {
   self: "A5E.targets.self",
   creature: "A5E.targets.creature",
@@ -2122,7 +2117,6 @@ const A5E = {
   skillFumbleTables,
   skillDefaultAbilities,
   skillSpecialties,
-  synergies,
   targetTypes,
   targetTypesPlural,
   terrainTypes,

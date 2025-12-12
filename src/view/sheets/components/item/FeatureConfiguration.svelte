@@ -99,7 +99,7 @@
 
         {#if ["feat"].includes(itemStore.featureType)}
             <RadioGroup
-                heading="ASI +1 Type"
+                heading="A5E.asi"
                 options={Object.entries(newAbilityList)}
                 selected={itemStore.asi}
                 onUpdateSelection={(value) => {
@@ -126,14 +126,19 @@
             />
 
             {#if !["basic"].includes(itemStore.featType)}
-                <RadioGroup
-                    heading="1st Synergy Name"
-                    options={Object.entries(synergies)}
-                    selected={itemStore.synergy}
-                    onUpdateSelection={(value) => {
-                        updateDocumentDataFromField(item, "system.synergy", value);
-                    }}
-                />
+                <FieldWrapper heading="1st Synergy Name">
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        type="text"
+                        value={itemStore.synergy || ""}
+                        onchange={({ currentTarget }) =>
+                            updateDocumentDataFromField(
+                                item,
+                                "system.synergy",
+                                currentTarget.value,
+                            )}
+                    />
+                </FieldWrapper>
             {/if}
         {/if}
 
