@@ -19,14 +19,17 @@
 				"name": "Recharge",
 				"activation": {
 					"type": "day",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
 					"k0lCKdU8llGt8JXk": {
 						"type": "generic",
 						"default": true,
-						"formula": "1d4"
+						"formula": "1d4",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -36,20 +39,43 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			},
 			"62VrnuGbFQuKxhUb": {
 				"name": "Detect Undead",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {
 					"FN7OTcUhrRGVr9R3": {
 						"type": "itemUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -60,27 +86,43 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			},
 			"EGIhLniS0teWOFLA": {
 				"name": "Enhance Senses",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"tfFnAmX18moFBWDT": {
 						"type": "itemUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -90,8 +132,11 @@
 						"default": true,
 						"ability": "wis",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -100,8 +145,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -115,10 +158,29 @@
 					"quantity": 1,
 					"placeTemplate": true,
 					"radius": 30
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			}
 		},
-		"description": "<p>This osseous stick is engraved with small runes. The wand has 5 charges and regains 1d4 charges each dawn.&nbsp;</p><p>hile holding the wand, you can use an action to expend a charge and gain the ability to detect undead for 1 minute. You can sense when undead are within 30 feet of you, but cannot determine their number, type, or location.</p><p>As a bonus action, you can briefly enhance your senses to learn the location, number, and type of any creatures of your chosen types within 30 feet of you. When you do so, creatures of those types that are within range make a Wisdom saving throw (DC 8 + your proficiency bonus + your highest mental ability score), with advantage if a creature&rsquo;s CR is higher than your level. On a failed save, you also learn a creature&rsquo;s identity.</p>",
+		"description": "<p>This osseous stick is engraved with small runes. The wand has 5 charges and regains 1d4 charges each dawn. </p><p>While holding the wand, you can use an action to expend a charge and gain the ability to detect undead for 1 minute. You can sense when undead are within 30 feet of you, but cannot determine their number, type, or location.</p><p>As a bonus action, you can briefly enhance your senses to learn the location, number, and type of any creatures of your chosen types within 30 feet of you. When you do so, creatures of those types that are within range make a Wisdom saving throw (DC 8 + your proficiency bonus + your highest mental ability score), with advantage if a creature’s CR is higher than your level. On a failed save, you also learn a creature’s identity.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "toSaveAKingdom",
@@ -160,14 +222,40 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "p41a52e79ognvmc7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.14",
+		"createdTime": 1765838549606,
+		"modifiedTime": 1765838556535,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p41a52e79ognvmc7"
 }
