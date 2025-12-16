@@ -78,11 +78,25 @@
         updateDocumentDataFromField(actor, "system.details.cr", newValue);
     }
 
+    function updateInspiration(value: number) {
+        let newInspiration = Math.clamp(value, 0, data.maxInspiration);
+
+        updateDocumentDataFromField(
+            actor,
+            "system.attributes.inspiration",
+            newInspiration,
+        );
+    }
+
+    //let maxInspiration = 2;
+
     let data = $derived({
         characterLevel: getCharacterLevel(),
         cr: displayCr(actorStore.details.cr),
+        inspiration: actorStore.attributes.inspiration,
         levelSource: getLevelSource(),
         levelIsLocked: isLevelLocked(),
+        maxInspiration: game.settings.get("a5e", "maxInspiration"),
         requiredXP: getRequiredExperiencePoints(actor),
         showXP: showXP(),
         xp: actor.type === "character" ? actorStore.details.xp : prepareXP(actor),
@@ -97,15 +111,32 @@
                 {localize("A5E.consumers.inspiration")}
             </label>
 
-            <button
-                class="a5e-actor-details-box__button"
-                class:a5e-actor-details-box__button--selected={actorStore.attributes
-                    .inspiration}
-                aria-labelledby="Inspiration"
-                onclick={() => toggleInspiration()}
-            >
-                <i class="fa-solid fa-dice-d20"></i>
-            </button>
+            {#if data.maxInspiration === 1}
+                <button
+                    class="a5e-actor-details-box__button"
+                    class:a5e-actor-details-box__button--selected={actorStore.attributes
+                        .inspiration}
+                    aria-labelledby="Inspiration"
+                    onclick={() => toggleInspiration()}
+                >
+                    <i class="fa-solid fa-dice-d20"></i>
+                </button>
+            {:else}
+                <input
+                    id="{actor.id}-inspiration"
+                    class="a5e-actor-details-box__input"
+                    type="number"
+                    value={data.inspiration}
+                    placeholder="0"
+                    min="0"
+                    max={data.maxInspiration}
+                    onchange={({ target }) =>
+                        updateInspiration(
+                            // @ts-ignore
+                            Number(target.value),
+                        )}
+                />
+            {/if}
         </div>
     {/if}
 

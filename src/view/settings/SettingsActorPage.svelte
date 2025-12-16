@@ -12,35 +12,28 @@
 
     let { reload = $bindable() }: Props = $props();
 
-    let settings: Record<string, { data: any; value: any }> =
-        getContext("settings");
+    let settings: Record<string, { data: any; value: any }> = getContext("settings");
     let updates: Map<string, any> = getContext("updates");
 
     const isGM = game.user!.isGM;
 
-    let skillListFlowDirectionChoices =
-        settings.skillListFlowDirection.data.choices;
+    let skillListFlowDirectionChoices = settings.skillListFlowDirection.data.choices;
 
     // Stores
     let trackCurrency = $derived(settings["currencyWeight"].value);
     let randomHP = $derived(settings["randomizeNPCHitPoints"].value);
-    let automateTokenSize = $derived(
-        settings["automatePrototypeTokenSize"].value,
-    );
+    let automateTokenSize = $derived(settings["automatePrototypeTokenSize"].value);
     let blindDeathSaves = $derived(settings["blindDeathSaves"].value);
     let hideActionList = $derived(settings["collapseActionList"].value);
     let hideDeleteDialog = $derived(settings["hideDeleteConfirmation"].value);
     let hideCompendiumSelection = $derived(
         settings["hideActorCompendiumSelectionDialog"].value,
     );
+    let maxInspiration = $derived(settings["maxInspiration"].value);
     let rightClickConfig = $derived(settings["itemRightClickConfigure"].value);
     let reverseAlt = $derived(settings["reverseAltBehavior"].value);
-    let reverseInitAlt = $derived(
-        settings["reverseInitiativeAltBehavior"].value,
-    );
-    let skillListFlowDirection = $derived(
-        settings["skillListFlowDirection"].value,
-    );
+    let reverseInitAlt = $derived(settings["reverseInitiativeAltBehavior"].value);
+    let skillListFlowDirection = $derived(settings["skillListFlowDirection"].value);
     let useNPCPassive = $derived(
         settings["useNPCExpertisePassiveRulesForCharacters"].value,
     );
@@ -57,9 +50,7 @@
             --a5e-section-body-gap="0.5rem"
         >
             {#if isGM}
-                <FieldWrapper
-                    hint="A5E.settings.hints.automatePrototypeTokenSize"
-                >
+                <FieldWrapper hint="A5E.settings.hints.automatePrototypeTokenSize">
                     <Checkbox
                         label="A5E.settings.automatePrototypeTokenSize"
                         checked={updates.get("automatePrototypeTokenSize") ??
@@ -75,8 +66,7 @@
                 <FieldWrapper hint="A5E.settings.hints.blindDeathSaves">
                     <Checkbox
                         label="A5E.settings.blindDeathSaves"
-                        checked={updates.get("blindDeathSaves") ??
-                            blindDeathSaves}
+                        checked={updates.get("blindDeathSaves") ?? blindDeathSaves}
                         onUpdateSelection={(detail) => {
                             updates.set("blindDeathSaves", detail);
                             reload = true;
@@ -89,9 +79,7 @@
                 <FieldWrapper hint="A5E.settings.hints.trackCurrencyWeight">
                     <Checkbox
                         label="A5E.settings.trackCurrencyWeight"
-                        checked={updates.get("currencyWeight") ??
-                            trackCurrency ??
-                            false}
+                        checked={updates.get("currencyWeight") ?? trackCurrency ?? false}
                         onUpdateSelection={(detail) => {
                             updates.set("currencyWeight", detail);
                         }}
@@ -144,11 +132,8 @@
         <FieldWrapper hint="A5E.settings.hints.collapseActionList">
             <Checkbox
                 label="A5E.settings.collapseActionList"
-                checked={updates.get("collapseActionList") ??
-                    hideActionList ??
-                    false}
-                onUpdateSelection={(detail) =>
-                    updates.set("collapseActionList", detail)}
+                checked={updates.get("collapseActionList") ?? hideActionList ?? false}
+                onUpdateSelection={(detail) => updates.set("collapseActionList", detail)}
             />
         </FieldWrapper>
 
@@ -163,9 +148,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper
-            hint="A5E.settings.hints.hideActorCompendiumSelectionDialog"
-        >
+        <FieldWrapper hint="A5E.settings.hints.hideActorCompendiumSelectionDialog">
             <Checkbox
                 label="A5E.settings.hideActorCompendiumSelectionDialog"
                 checked={updates.get("hideActorCompendiumSelectionDialog") ??
@@ -190,11 +173,8 @@
         <FieldWrapper hint="A5E.settings.hints.reverseAltBehavior">
             <Checkbox
                 label="A5E.settings.reverseAltBehavior"
-                checked={updates.get("reverseAltBehavior") ??
-                    reverseAlt ??
-                    false}
-                onUpdateSelection={(detail) =>
-                    updates.set("reverseAltBehavior", detail)}
+                checked={updates.get("reverseAltBehavior") ?? reverseAlt ?? false}
+                onUpdateSelection={(detail) => updates.set("reverseAltBehavior", detail)}
             />
         </FieldWrapper>
 
@@ -220,5 +200,24 @@
                 reload = true;
             }}
         />
+
+        <FieldWrapper
+            heading="A5E.settings.maxInspiration"
+            --a5e-field-wrapper-gap="0.375rem 1rem"
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-header-width="100%"
+            hint="A5E.settings.hints.maxInspiration"
+        >
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                value={maxInspiration}
+                onchange={({ currentTarget }) => {
+                    const { value } = currentTarget;
+                    maxInspiration = Math.max(Number(value), 1);
+                    updates.set("maxInspiration", maxInspiration);
+                }}
+            />
+        </FieldWrapper>
     </Section>
 </section>

@@ -110,6 +110,18 @@ export const settings = [
       type: Boolean,
     },
   },
+    {
+    namespace,
+    key: "maxInspiration",
+    options: {
+      name: "A5E.settings.maxInspiration",
+      hint: "A5E.settings.hints.maxInspiration",
+      scope: scope.client,
+      config: false,
+      default: 1,
+      type: Number,
+    },
+  },
   {
     namespace,
     key: "randomizeNPCHitPoints",

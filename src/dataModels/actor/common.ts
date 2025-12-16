@@ -197,7 +197,13 @@ export const attributes = () => ({
 			unit: new fields.StringField({ required: true, initial: 'feet' }),
 		}),
 	}),
-	inspiration: new fields.BooleanField({ required: true, initial: false }),
+	//inspiration: new fields.BooleanField({ required: true, initial: false }),
+  inspiration: new fields.NumberField({
+		required: true,
+		nullable: false,
+		initial: 0,
+		integer: true,
+	}),
 	corruption: new fields.NumberField({
 		required: true,
 		nullable: false,

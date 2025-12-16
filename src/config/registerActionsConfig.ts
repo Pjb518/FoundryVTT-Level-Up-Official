@@ -36,7 +36,7 @@ export default function registerActionsConfig() {
 			type: 'value',
 		},
 		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
-		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'boolean' },
+		inspiration: { path: 'attributes.inspiration', label: 'A5E.consumers.inspiration', type: 'value' },
     strife: { path: 'attributes.strife', label: 'A5E.conditions.strife', type: 'value' },
     supply: { path: 'supply', label: 'A5E.supply.title', type: 'value' },
 		primaryResource: {

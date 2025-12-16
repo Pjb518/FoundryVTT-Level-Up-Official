@@ -2,7 +2,10 @@ import MODES from "./effectModes";
 
 // const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
 export default function modifyBaseOptions(options: Object) {
+  options["system.attributes.inspiration"] = [0, MODES.DEFAULT_MODES];
+
   // Setup options for boolean values
+  /*
   options["system.attributes.inspiration"] = [
     false,
     MODES.OVERRIDE_ONLY,
@@ -12,6 +15,7 @@ export default function modifyBaseOptions(options: Object) {
     ],
     "RADIO",
   ];
+  */
   options["system.attributes.exertion.recoverOnRest"] = [
     false,
     MODES.OVERRIDE_ONLY,
