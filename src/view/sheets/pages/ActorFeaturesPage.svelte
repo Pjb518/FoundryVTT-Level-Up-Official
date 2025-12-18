@@ -60,11 +60,6 @@
             />
         {/each}
     {:else}
-        <ItemCategory
-            {showDescription}
-            {showUses}
-            {items}
-            type="featureTypes"
-        />
+        <ItemCategory {showDescription} {showUses} {items} type="featureTypes" />
     {/if}
 </section>

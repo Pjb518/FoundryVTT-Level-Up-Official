@@ -4,6 +4,17 @@ type FilterOptions = {
   filters?: (item: Item) => boolean;
 };
 
+function addToFeatures(item: Item) {
+  if (item.type === "archetype") return true;
+  if (item.type === "background") return true;
+  if (item.type === "class") return true;
+  if (item.type === "culture") return true;
+  if (item.type === "destiny") return true;
+  if (item.type === "heritage") return true;
+
+  return false;
+}
+
 function filterByName(item: Item, searchTerm: string) {
   if (item.name.toLocaleLowerCase().includes(searchTerm?.toLocaleLowerCase()))
     return true;
@@ -28,6 +39,7 @@ export function filterItems(
   return actor.items
     .filter((item) => {
       // Filter by type first
+      if (type === "feature" && addToFeatures(item)) return true;
       if (item.type !== type) return false;
 
       // Filter by search term
