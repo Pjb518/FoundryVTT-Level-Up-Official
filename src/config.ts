@@ -103,6 +103,14 @@ const EQUIPPED_STATES = {
   EQUIPPED: 2,
 };
 
+const FEATURES_LIST = [
+  "background",
+  "class",
+  "culture",
+  "destiny",
+  "heritage",
+] as const;
+
 /**
  * Enum for object prepared state
  */
@@ -2034,6 +2042,7 @@ const A5E = {
   DAMAGED_STATES,
   DICE_ROLL_MODES,
   EQUIPPED_STATES,
+  FEATURES_LIST,
   PREPARED_STATES,
   ROLL_MODE,
 
