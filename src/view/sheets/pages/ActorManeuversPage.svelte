@@ -8,6 +8,7 @@
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
+    import createItem from "#utils/createItem.ts";
 
     function sortHandler(reverse: boolean) {
         sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
@@ -22,9 +23,7 @@
         page: "maneuvers",
     });
 
-    let items = $derived(
-        filterItems(actor.reactive, "maneuver", filterOptions),
-    );
+    let items = $derived(filterItems(actor.reactive, "maneuver", filterOptions));
     let categorizedItems = $derived(groupItemsByType(items, "degree"));
 
     const openCompendium = game.a5e.utils.openCompendium;
@@ -32,18 +31,22 @@
     let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
+
+    let maneuverDegrees = Object.entries(CONFIG.A5E.maneuverDegrees) as string[][];
 </script>
 
 {#if actor.isOwner}
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
+        addIconOptions={maneuverDegrees}
         showDescriptionButton={true}
         showSearchDescriptionButton={true}
         bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}
+        onAddIconClick={(subType) => createItem(actor, "maneuver", subType)}
     >
         <button
             class="a5e-button a5e-button--transparent"

@@ -125,17 +125,29 @@
     {/if} -->
 
     {#if showAddIcon}
-        <Menu
-            menuItems={addIconOptions.map(([value, label]) => ({
-                name: value,
-                label: game.i18n.localize(label),
-                onClick: () => {
-                    onAddIconClick(value);
-                },
-            }))}
-            menuPosition={{ x: -480, y: -180 }}
-            --a5e-context-menu-font-size="var(--a5e-xs-text)"
-        />
+        {#if addIconOptions.length}
+            <Menu
+                menuItems={addIconOptions.map(([value, label]) => ({
+                    name: value,
+                    label: game.i18n.localize(label),
+                    onClick: () => {
+                        onAddIconClick(value);
+                    },
+                }))}
+                menuPosition={{ x: -480, y: -180 }}
+                --a5e-context-menu-font-size="var(--a5e-xs-text)"
+            />
+        {:else}
+            <button
+                class="a5e-button a5e-button--transparent"
+                data-tooltip="Add Document"
+                data-tooltip-direction="UP"
+                aria-label="Add Document"
+                onclick={() => onAddIconClick?.()}
+            >
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        {/if}
     {/if}
 
     <!-- Other -->
