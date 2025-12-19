@@ -1,27 +1,13 @@
 function getItemType(item: Item) {
   let itemType = foundry.utils.getProperty(item, "type");
 
-  if (itemType === "background") {
-    return "background";
-  }
-
-  if (itemType === "class" || itemType === "archetype") {
+  if (CONFIG.A5E.FEATURES_LIST.includes(itemType)) {
+    return itemType;
+  } else if (itemType === "archetype") {
     return "class";
   }
 
-  if (itemType === "culture") {
-    return "culture";
-  }
-
-  if (itemType === "destiny") {
-    return "destiny";
-  }
-
-  if (itemType === "heritage") {
-    return "heritage";
-  }
-
-  return false;
+  return;
 };
 
 export function groupItemsByType(

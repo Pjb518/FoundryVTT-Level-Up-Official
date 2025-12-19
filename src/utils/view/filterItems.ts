@@ -5,12 +5,11 @@ type FilterOptions = {
 };
 
 function addToFeatures(item: Item) {
-  if (item.type === "archetype") return true;
-  if (item.type === "background") return true;
-  if (item.type === "class") return true;
-  if (item.type === "culture") return true;
-  if (item.type === "destiny") return true;
-  if (item.type === "heritage") return true;
+  if (CONFIG.A5E.FEATURES_LIST.includes(item.type)) {
+    return true;
+  } else if (item.type === "archetype") {
+    return true;
+  }
 
   return false;
 }
