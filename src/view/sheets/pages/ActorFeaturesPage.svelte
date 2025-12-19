@@ -7,6 +7,7 @@
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
+    import createItem from "#utils/createItem.ts";
 
     function sortHandler(reverse: boolean) {
         sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
@@ -32,6 +33,8 @@
     let showFavorPoints =
         (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
     let showUses = $derived(usesRequired(items));
+
+    let featureTypes = Object.entries(CONFIG.A5E.featureTypes) as string[][];
 </script>
 
 {#if actor.isOwner}
@@ -39,12 +42,14 @@
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
+        addIconOptions={featureTypes}
         showSearchDescriptionButton={true}
         showDescriptionButton={true}
         bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}
+        onAddIconClick={(subType) => createItem(actor, "feature", subType)}
     />
 {/if}
 
@@ -60,11 +65,6 @@
             />
         {/each}
     {:else}
-        <ItemCategory
-            {showDescription}
-            {showUses}
-            {items}
-            type="featureTypes"
-        />
+        <ItemCategory {showDescription} {showUses} {items} type="featureTypes" />
     {/if}
 </section>

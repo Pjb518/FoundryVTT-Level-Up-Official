@@ -7,7 +7,7 @@
     import EffectCategory from "#view/sheets/components/effect/EffectCategory.svelte";
     import UtilityBar from "#view/snippets/UtilityBar.svelte";
 
-    function onAddIconClick() {
+    function addClick() {
         createEffect(item, { effectType: "onUse", actionId });
     }
 
@@ -37,7 +37,7 @@
         bind:filterOptions
         showAddIcon={true}
         showSortButton={true}
-        {onAddIconClick}
+        onAddIconClick={addClick}
     />
 {/if}
 

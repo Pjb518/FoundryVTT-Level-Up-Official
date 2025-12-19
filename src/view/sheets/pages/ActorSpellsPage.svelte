@@ -12,12 +12,11 @@
     import SpellBook from "../components/actor/SpellBook.svelte";
     import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
     import UtilityBar from "#view/snippets/UtilityBar.svelte";
+    import createItem from "#utils/createItem.ts";
     import ShowDescription from "../../../apps/components/actorUtilityBar/ShowDescription.svelte";
 
     async function addSpellBook() {
-        const initialSpellBookQuantity = Object.keys(
-            actorStore.spellBooks ?? {},
-        ).length;
+        const initialSpellBookQuantity = Object.keys(actorStore.spellBooks ?? {}).length;
 
         const newSpellBookId = await actor.spellBooks.add({});
 
@@ -47,11 +46,7 @@
             actor.system.spellBooks ?? {},
         ).length;
 
-        const dialog = new DeletionConfirmationDialog(
-            undefined,
-            false,
-            "SpellBook",
-        );
+        const dialog = new DeletionConfirmationDialog(undefined, false, "SpellBook");
         await dialog.render(true);
 
         const { confirmDeletion } = await dialog.promise;
@@ -66,9 +61,7 @@
         }
 
         if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys(
-                actor.system.spellBooks ?? {},
-            )?.[0];
+            const firstSpellBook = Object.keys(actor.system.spellBooks ?? {})?.[0];
 
             updateCurrentSpellBook(firstSpellBook);
         }
@@ -108,18 +101,22 @@
         actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
             Object.keys(actorStore.spellBooks ?? {})?.[0],
     );
+
+    let spellLevels = Object.entries(CONFIG.A5E.spellLevels) as string[][];
 </script>
 
 {#if actor.isOwner}
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
+        addIconOptions={spellLevels}
         showDescriptionButton={true}
         showSearchDescriptionButton={true}
         bind:showDescription
         showFilters={true}
         showSortButton={true}
         {sortHandler}
+        onAddIconClick={(subType) => createItem(actor, "spell", subType)}
     >
         <button
             class="a5e-button a5e-button--transparent"
