@@ -46,19 +46,18 @@
 
             {#if isGM}
                 <!-- svelte-ignore a11y_missing_attribute -->
-                <a
+                <button
+                    type="button"
                     aria-label="Delete"
                     class="message-delete a5e-chat-card__header__button--delete"
+                    onclick={(e) => {
+                        e.stopPropagation();
+                        messageDocument?.delete();
+                    }}
                 >
-                    <i class="icon fas fa-trash"></i>
-                </a>
+                    <i class="fas fa-trash"></i>
+                </button>
             {/if}
         </span>
     {/if}
 </header>
-
-<style lang="scss">
-    a {
-        padding: 0;
-    }
-</style>
