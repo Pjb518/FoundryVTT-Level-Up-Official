@@ -1,4 +1,3 @@
-import { get } from "svelte/store";
 import { localize } from "#utils/localization/localize.ts";
 
 import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
@@ -59,8 +58,8 @@ function createSpell(type, options = {}) {
   const { actor } = options;
 
   const spellBookId =
-    get(actorSheetTempSettings)?.[actor.uuid]?.currentSpellBook ||
-    actor.spellBooks?.first()?._id;
+    actorSheetTempSettings[actor?.uuid]?.currentSpellBook ||
+    actor?.spellBooks?.first()?._id;
 
   const system = {
     level: Number(type),
