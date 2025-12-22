@@ -1,0 +1,191 @@
+{
+	"name": "Blood Will Tell",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-blade-blood-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"OvDubXkdWBJA7R4j": {
+				"name": "Fatigue or Strife",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1TC4LBl90ZPxz7uL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rkj8G1dwu8WbEwp2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You have noticed that your supernatural blood and your divinely-empowered senses enhance one another, and have started working on how to achieve similar synergy with your other capabilities. You gain the following benefits:</p>\n<ul>\n<li>Your Strength, Constitution, Intelligence, or Charisma score increases by 1, to a maximum of 20.</li>\n<li>Half your herald levels count as bloodblade levels for the purpose of the Hemocratic Call feature. If your @UUID[Compendium.a5e.a5e-class-features.Item.01szspr1nunp0lql]{Divine Sense} can detect the creature type that you Hemocratic Call feature can detect, if you use either your divine sense or hemocratic call uses to do more precise locating, you learn the exact location of any applicable creatures within 30 feet and they appear as if outlined in a faerie fire effect for you.</li>\n<li>Half your bloodblade levels count as herald levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.b6bbf481xmj9mi6u]{Extra Attack} feature.</li>\n<li>Half your bloodblade levels count as herald levels for the purpose of determining the damage done by your @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite}.&nbsp;</li>\n<li>If you are suffering from at least one level of fatigue or strife, your AC increases by 1.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"pCd26smBBDBGoXvQ": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "pCd26smBBDBGoXvQ",
+				"label": "Blood Will Tell",
+				"bonus": "1",
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"con",
+						"int",
+						"cha"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "3 levels in bloodblade, 3 levels in herald",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.tlYvvjJEMQcrJbNr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OvDubXkdWBJA7R4j",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Blood Will Tell",
+			"img": "icons/skills/melee/strike-blade-blood-red.webp",
+			"_id": "rkj8G1dwu8WbEwp2",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If you are suffering from at least one level of fatigue or strife, your AC increases by 1.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214455,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wqVyBRaEombmDffg"
+}

@@ -1,0 +1,263 @@
+{
+	"folder": null,
+	"name": "Groveshadow",
+	"type": "feature",
+	"img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1A2PHw7ATjSHAz40": {
+				"name": "Turn Invisible",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"fVXYLolxcG9rcImu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"G6ZVVfQnoSiU9ooK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "G4w2Fu37wNKfzwYL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@dex.mod",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>Whenever you cast a druid spell of the obscurement school, you can turn invisible until the beginning of your next turn and teleport up to 30 feet. Once you have used this benefit a number of times equal to your Dexterity modifier, you can&rsquo;t do so again until you finish a long rest.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"GFwaJ52GLdFaztzf": {
+				"name": "Apply Poison",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You have strong connections to the natural world and prodigious covert skills. Trying to pin you down or even find you if you don&rsquo;t wish to be found is a daunting challenge indeed. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Your Dexterity or Wisdom score increases by 1, to a maximum of 20.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Whenever you cast a druid spell of the <em>obscurement </em>school, you can turn invisible until the beginning of your next turn and teleport up to 30 feet. Once you have used this benefit a number of times equal to your Dexterity modifier, you can&rsquo;t do so again until you finish a long rest.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain proficiency with your choice of the Tooth and Claw or Viper&rsquo;s Fangs combat tradition and learn a maneuver from the chosen tradition that you could learn.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">If you have a dose of injury poison on your person when you wild shape it absorbs into your new form, but you retain access to it. While wildshaped, you can spend a bonus action to apply it to a claw attack of the chosen form. This does not subject you to the poison.</p>\n</li>\n</ul>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"2MRnzh6DMjIKS5c3": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "2MRnzh6DMjIKS5c3",
+				"label": "Groveshadow",
+				"abilities": {
+					"options": [
+						"dex",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"img": "",
+				"bonus": "1"
+			},
+			"14AuAU5EnHt6lDtF": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "14AuAU5EnHt6lDtF",
+				"label": "Groveshadow",
+				"keys": {
+					"base": [],
+					"options": [
+						"vipersFangs",
+						"toothAndClaw"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tradition"
+			}
+		},
+		"prerequisite": "Wild Skulker feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.4GT6CvU1K7g38hOI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1A2PHw7ATjSHAz40",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+			"_id": "G4w2Fu37wNKfzwYL",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li aria-level=\"1\">An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li aria-level=\"1\">An invisible creature is <span class=\"freelinking-link\">heavily obscured</span> for the purpose of hiding. </li>\n<li aria-level=\"1\">An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li aria-level=\"1\">Attack rolls against an invisible creature are made with <span class=\"freelinking-link\">disadvantage</span>.</li>\n<li aria-level=\"1\">An invisible creature makes attack rolls with <span class=\"freelinking-link\">advantage</span>.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214404,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jHxxOGpK31pHpCwD"
+}

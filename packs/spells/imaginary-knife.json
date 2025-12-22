@@ -1,0 +1,266 @@
+{
+	"folder": null,
+	"name": "Imaginary Knife",
+	"type": "spell",
+	"img": "icons/weapons/daggers/dagger-crooked-ice-blue.webp",
+	"system": {
+		"actions": {
+			"fwEocLmWmZB0GE6E": {
+				"name": "Imaginary Knife",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"EDUj3r5x3gXxNb0D": {
+						"range": "self"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"bHEj63DTLnx2iilZ": {
+				"name": "Dagger, Throwing",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "psychic",
+						"formula": "1d4 + @spellcasting.mod",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			},
+			"cwvWAYuPGe6Wdt4S": {
+				"name": "Dagger, Throwing (Off-Hand)",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "psychic",
+						"formula": "1d4 + min(@spellcasting.mod,0)",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>You create a wicked, invisible dagger out of pure will and wield it against your foes. The blade may be imaginary but the pain is real. The weapon created by this spell is invisible, immaterial, and cannot be used to interact with physical objects. If you desire, you can substitute your spellcasting ability modifier for Strength or Dexterity when wielding it and you are considered proficient with it. In all other respects it is a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.waqd98z0mqohxxz2]{Throwing Dagger}, except it deals psychic damage instead of piercing damage. When you throw the dagger, it immediately reforms in your hand after hitting or missing its target.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"bard",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"attack",
+				"obscurement",
+				"psychic",
+				"weaponry"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440216738,
+		"modifiedTime": 1766440216738,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "RcasKZYpahqWdaAf"
+}

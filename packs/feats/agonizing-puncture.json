@@ -1,0 +1,192 @@
+{
+	"folder": null,
+	"name": "Agonizing Puncture",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"fmxKcG4xMXI4j2xj": {
+				"name": "Agonizing Puncture",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"PvFepWx1dcT6nYXk": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "sorcery-points",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"EeYJVjPPBuFtfyGc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"08lMl4RdxCMIabJH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8uOtlpQkDIMxcYRM"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>When you cast a spell or make a weapon attack that deals piercing damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes piercing damage from the spell or attack, it must make a Constitution save against your spell save DC or be poisoned for the next minute. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "sorcerer",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.IAzEL8b5BN6x4Yp1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fmxKcG4xMXI4j2xj",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
+			"_id": "8uOtlpQkDIMxcYRM",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214423,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "HAQAMnAaoSX5Hmtc"
+}

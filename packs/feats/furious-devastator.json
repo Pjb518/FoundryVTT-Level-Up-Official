@@ -1,0 +1,365 @@
+{
+	"folder": null,
+	"name": "Furious Devastator",
+	"type": "feature",
+	"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vXgMKG8gEHHzVRcp": {
+				"name": "Critical Hit",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"uNMVyYDqpa7WXakM": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "piercing",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"08Xeh7VpKqWEGJe4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When you score a critical hit, another target of your choice within 15 feet of the original target must make a Dexterity save against your maneuver DC or it takes 2d6 points of piercing damage as splinters of armor, bone, terrain, or other solid material fly from the original target to damage it.</p>",
+				"ranges": {
+					"YEvHFwF4UUkF5467": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			},
+			"715HlRBpFtD07foW": {
+				"name": "Recover Rage",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"xyT5tQVfrWAxuPsO": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"7XuaS1bhLQzpg8bC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "rage",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When you reduce a creature with a CR equal to at least half your character level to 0 hit points with a melee attack, you seethe with furious power. You recover a use of your Rage feature. Once you have used this benefit a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a long rest.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"PQGWLZRKksJMQB1q": {
+				"name": "Activate Rage Bonuses",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"gdlPQhWOoueVaFYL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D2cCcOlLehe1X9WZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>While you are raging, you are immune to the frightened condition and your AC increases by 1.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"lqZEbKs8L0FKhS0x": {
+				"name": "Throw Grappled Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"xX4l51ELRWpBeuQm": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"label": "",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {
+					"0iPiU57PMtcOHcSj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>If you have a creature of your size or smaller grappled, you can use a bonus action to throw the creature in a straight line up to 15 feet from your position. Creatures in spaces it passes through must make a Dexterity save against your maneuver DC or the thrown creature collides with them. If the thrown creature collides with a solid object or another creature along its arc, both the thrown creature and the object or creature it was thrown into take 2d6 points of bludgeoning damage. &nbsp;</p>",
+				"ranges": {
+					"51rYRebcf71GDiKI": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p dir=\"ltr\">Your training and ferocity have combined in a versatile&mdash;though unsubtle&mdash;whole. This mix of trained and instinctive combat practices gives you more options in combat. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">When you score a critical hit, another target of your choice within 15 feet of the original target must make a Dexterity save against your maneuver DC or it takes 2d6 points of piercing damage as splinters of armor, bone, terrain, or other solid material fly from the original target to damage it.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">When you reduce a creature with a CR equal to at least half your character level to 0 hit points with a melee attack, you seethe with furious power. You recover a use of your @UUID[Compendium.a5e.a5e-class-features.Item.htgvror5v9twusgs]{Rage} feature. Once you have used this benefit a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a long rest.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">While you are raging, you are immune to the frightened condition and your AC increases by 1.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">If you have a creature of your size or smaller grappled, you can use a bonus action to throw the creature in a straight line up to 15 feet from your position. Creatures in spaces it passes through must make a Dexterity save against your maneuver DC or the thrown creature collides with them. If the thrown creature collides with a solid object or another creature along its arc, both the thrown creature and the object or creature it was thrown into take 2d6 points of bludgeoning damage.</p>\n</li>\n</ul>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Rage Blade feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.KcusyjPBniM3THTH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PQGWLZRKksJMQB1q",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Furious Devastator",
+			"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+			"_id": "D2cCcOlLehe1X9WZ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are raging, you are immune to the frightened condition and your AC increases by 1.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214429,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "y0uRHFFuWUrP0ZsS"
+}

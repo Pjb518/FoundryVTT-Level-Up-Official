@@ -1,0 +1,137 @@
+{
+	"folder": null,
+	"name": "Outfitted Trapper",
+	"type": "feature",
+	"img": "icons/environment/traps/trap-jaw-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"3Ot4tcJRhaGvXcPU": {
+				"name": "Glyph of Warding",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"e6oSKmJkdtSGuQ0n": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"JNnE7nYBrhH24R6o": {
+						"canCrit": false,
+						"damageType": "",
+						"formula": "5d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					},
+					"APUhmDz6LqsFNdci": {
+						"ability": "str",
+						"type": "abilityCheck",
+						"bonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "permanent",
+					"value": ""
+				},
+				"ranges": {
+					"ZjT7zBgq2SgWQFb9": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "object",
+					"scaling": {}
+				},
+				"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"description": "<p>You trace a glyph on the target. If the glyph is moved more than 10 feet from its original position, or if it comes within 20 feet of another glyph that you have cast, the spell ends. Finding the Tiny glyph requires an Investigation check against your spell save DC.</p>\n<p>Describe the actions a creature must perform to trigger the spell, such as approaching within a certain distance, opening or touching the object the glyph is inscribed on, or seeing or reading the glyph. The creature must have a clear path to the glyph to trigger it. You can specify certain creatures which don't trigger the spell, such as those with a certain appearance or those who speak a certain phrase. Once the glyph is triggered, the spell ends.</p>\n<p>When you cast the spell, choose Explosive Runes or Spell Glyph.</p>\n<ul class=\"indentedSelection\">\n<li><strong>Explosive Runes:</strong> When triggered, the glyph explodes. Creatures in a 20-foot radius sphere make a Dexterity saving throw or take 5d8 acid, cold, fire, lightning, or thunder damage (your choice when you cast the spell), or half damage on a successful save. The explosion spreads around corners.</li>\n<li><strong>Spell Glyph:</strong> You store a spell of 3rd-level or lower as part of creating the glyph, expending its spell slot. The stored spell must target a single creature or area with a non-beneficial effect and it is cast when the glyph is triggered. A spell that targets a creature targets the triggering creature. A spell with an area is centered on the targeting creature. A creation or conjuration spell affects an area next to that creature, and targets it with any harmful effects. Spells requiring concentration last for their full duration.</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The cost of the material component increases by 200 gold for each slot level above 3rd. For Explosive Runes, the damage increases by 1d8 for each slot level above 3rd, and for Spell Glyph you can store a spell of up to the same level as the spell slot used to cast glyph of warding.</p>",
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>You have learned to make magical traps by inscribing the right glyph here, and have also designed a few other useful items for wilderness survival and operations. You gain the following benefits:</p>\n<ul>\n<li>Half your ranger levels count as artificer levels for the purpose of the Advanced Tactical Chemistry feature.</li>\n<li>Half your artificer levels count as ranger levels for the purpose of the Game Hunting feature.</li>\n<li>You can cast @UUID[Compendium.a5e.a5e-spells.Item.9fjvzhj8c1nd7xbl]{Glyph of Warding} once per long rest without materials, but the glyph must be scribed into the surface of a tree, unworked stone, or other natural hard surface to function. When cast this way, the glyph dissipates after 8 hours rather than persisting until triggered.</li>\n<li>You can use natural materials like semi-precious stones or sea glass to create a small magical stone that acts as a magical sensor. Doing so costs you 5gp of materials, and takes the form of a small translucent stone about the size of an apricot. For the next 8 hours, you can focus for a minute to see and hear through the stone as long as you are within 10 miles of it. The stone does not provide you with any special senses such as darkvision. While looking through the stone, you must concentrate as if on a spell and are blind to your own senses. You can end this connection at any time (no action required). The stone cannot move on its own, but you can look in every direction through it. If you recover the stone, you can restore its magic over the course of a short rest at no cost. You can only have one such stone active at a time. If you make a new one while one is active, it loses its enchantment and becomes an ordinary rock.</li>\n<li>Your device that produces magical ranged weapon ammunition (if created), now can add [[/r 1d6]] points of the chosen damage type to the damage of normal ammunition fired through it. In addition, you can now change the device&rsquo;s damage type to one of the other available options over the course of a short rest.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Master of Path and Gear feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3hssWxXkIlCIb1PQ"
+}
