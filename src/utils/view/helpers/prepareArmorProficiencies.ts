@@ -2,7 +2,7 @@ export function prepareArmorProficiencies(data: any) {
   const armorProficiencies = data.system.proficiencies.armor.map((armor) =>
     game.i18n.localize(
       armor === "shield"
-        ? "A5E.ArmorShieldPlural"
+        ? "A5E.armorClass.types.shieldPlural"
         : (CONFIG.A5E.armor[armor] ?? armor),
     ),
   );

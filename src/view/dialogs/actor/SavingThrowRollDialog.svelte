@@ -45,12 +45,12 @@
         }
 
         if (options.dc)
-            return localize("A5E.RollPromptSavingThrowWithDC", {
+            return localize("A5E.rollLabels.prompts.savingThrowWithDC", {
                 ability: localizeSave,
                 dc: options.dc,
             });
 
-        return localize("A5E.RollPromptSavingThrow", {
+        return localize("A5E.rollLabels.prompts.savingThrow", {
             ability: localizeSave,
         });
     }
@@ -74,16 +74,10 @@
 
     let actor = document;
 
-    const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
-        abilityKey,
-        "save",
-    );
+    const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(abilityKey, "save");
 
     const appId = dialog.id;
-    const hideExpertiseDice = game.settings.get(
-        "a5e",
-        "hideExpertiseDice",
-    ) as boolean;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     let visibilityMode = $state(
@@ -112,17 +106,11 @@
     );
 
     let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(
-            rollModeKey,
-            selectedRollMode,
-        ),
+        actor.RollOverrideManager.getRollOverride(rollModeKey, selectedRollMode),
     );
 
     let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource(
-            rollModeKey,
-            selectedRollMode,
-        ),
+        actor.RollOverrideManager.getRollOverridesSource(rollModeKey, selectedRollMode),
     );
 
     let buttonText = $derived(getSubmitButtonText(saveType, abilityKey));
