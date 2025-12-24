@@ -56,6 +56,11 @@ export default function registerModuleIncompatibilities() {
 					'The content from this module is included in the core system packs, and the module is no longer necessary.',
 				priority: 'low',
 			},
+			'a5e-mmmv2': {
+				reason:
+					'The content from this module is included in the core system packs, and the module is no longer necessary.',
+				priority: 'low',
+			},
 			'a5e-moar-complete': {
 				reason:
 					'The content from this module is included in the core system packs, and the module is no longer necessary.',
