@@ -558,7 +558,7 @@ export default function registerPremiumContentConfig() {
 			title: 'System Architecture: Motif Classes',
 			url: 'https://bit.ly/4bgzU4N',
 		},
-		multiclassersManual: {
+		multiclassersManualVol1: {
 			abbreviation: 'MulMan Vol. 1',
 			affiliate: true,
 			publisher: 'purpleMartinGames',
@@ -566,6 +566,15 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: "Multiclasser's Manual, Volume 1",
 			url: 'https://bit.ly/3JZTA08',
+		},
+		multiclassersManualVol2: {
+			abbreviation: 'MulMan Vol. 2',
+			affiliate: true,
+			publisher: 'purpleMartinGames',
+			series: 'multiclassersManual',
+			systems: ['a5e'],
+			title: "Multiclasser's Manual, Volume 2",
+			url: 'https://www.drivethrurpg.com/en/product/500104/multiclasser-s-manual-volume-2-a5e?affiliate_id=1388381',
 		},
 		mysteriousAndMarvelousMiscellanea: {
 			abbreviation: 'MMM',

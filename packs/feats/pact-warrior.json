@@ -1,0 +1,297 @@
+{
+	"name": "Pact Warrior",
+	"type": "feature",
+	"img": "icons/environment/wilderness/wall-ruins.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"8fKU7NqrFdnjM0op": {
+				"name": "Eldritch Charge",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"o0fg9aghYsRGz3fL": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"fZha4FxHvd7autJ4": {
+				"name": "Discharge Energy",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"FDO7pdeDTbdut6TU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d10",
+						"damageType": "force",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"YJN45khBvYZfL9mH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"ekmt8oUs2SNDoHsJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZytNCfjY9FLfX8Zq"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You have combined the power of a supernatural pact with considerable training and skill at arms and have learned to charge your body with eldritch energy. You gain the following Benefits:</p>\n<ul>\n<li>Either your Strength ability score or your warlock casting ability score increases by 1, to a maximum of 20.</li>\n<li>Choose one of the following:\n<ul>\n<li><strong>Warring Blaster.</strong> Half your fighter levels count as warlock levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.0q5qeigzy5bv2zrq]{Extra Blast} feature. Additionally, when you use @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast}, you can make a melee weapon attack as a bonus action.</li>\n<li><strong>Blasting Warrior.</strong> Half your warlock levels count as fighter levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.g4s2uymxnkn0y0yf]{Extra Attack} feature. Additionally, when you take the Attack action, you can make a single @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} attack as a bonus action.</li>\n</ul>\n</li>\n<li>You gain the following feature:</li>\n</ul>\n<h3>Eldritch Charge</h3>\n<p>When you use Eldritch Blast, you can spend a point of exertion to charge yourself with eldritch energy. If you do, the next creature to hit you with a melee attack before your next turn causes the energy to discharge. It takes 1d10 points of force damage and must make a Constitution saving throw against your maneuver DC or be rattled until the end of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"CqXNCHncAZJJ2Rjv": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "CqXNCHncAZJJ2Rjv",
+				"label": "Pact Warrior",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"str",
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1,
+					"base": []
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"img": ""
+			},
+			"r1hgoHM2fRrDr9Sn": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "r1hgoHM2fRrDr9Sn",
+				"label": "Pact Warrior",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-feats.Item.CXUoDkRqRaEK5sXx",
+							"name": "Warring Blaster",
+							"img": "icons/environment/wilderness/wall-ruins.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-feats.Item.8u5XJ0W2dTOGfBR2",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "3 levels in fighter, 3 levels in warlock",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.mO2ZzXjXsHohOIgV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fZha4FxHvd7autJ4",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/environment/wilderness/wall-ruins.webp",
+			"_id": "ZytNCfjY9FLfX8Zq",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766513342104,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766513342063,
+		"modifiedTime": 1766513359413,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rxozMUREwfgFSvA0"
+}

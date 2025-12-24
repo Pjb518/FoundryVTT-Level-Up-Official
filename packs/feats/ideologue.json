@@ -1,0 +1,238 @@
+{
+	"folder": null,
+	"name": "Ideologue",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"B2bpUJQZXHfxOX7J": {
+				"name": "Ideologue Sneak Attack",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"QAxFiDXDEklx1N5g": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"y66JevV9hnWWrBKz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QesIER1nInO8eElQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You are not content to leave the world as it is. You will reshape it, and you have the wherewithal to do so. You gain the following benefits:</p>\n<ul>\n<li>Your Strength, Dexterity, or Charisma score increases by 1, to a maximum of 20.</li>\n<li>When you deal radiant damage with @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack}, the sneak attack dice increase in size by one step and the target must make a Constitution saving throw against your maneuver DC or be Dazzled until the end of its next turn.</li>\n<li>You can use @UUID[Compendium.a5e.a5e-class-features.Item.my42mip0qc35rcp2]{Lay on Hands} as a bonus action</li>\n<li>You have an expertise die on saving throws against spells of the <em>illusion </em>school and on Insight checks.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"UQ4pssiOHqrpltNQ": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "UQ4pssiOHqrpltNQ",
+				"label": "Ideologue",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"dex",
+						"cha"
+					],
+					"base": []
+				},
+				"img": ""
+			},
+			"GUzvfwxFDs8NsJfI": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "GUzvfwxFDs8NsJfI",
+				"label": "Ideologue Sneak Attack",
+				"damageType": "radiant",
+				"bonus": "((@classResources.sneak-attack)d8)",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"2zCa3WbqVUPX9CgK": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "2zCa3WbqVUPX9CgK",
+				"label": "Ideologue",
+				"keys": {
+					"base": [
+						"ins"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "Radical feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ScM2jpl1bwpRwn8W",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "B2bpUJQZXHfxOX7J",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled",
+			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"_id": "QesIER1nInO8eElQ",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A dazzled creature has disadvantage on ability checks that require sight.</li>\n<li>A dazzled creature cannot take reactions.</li>\n<li>Creatures that are immune to being blinded are immune to being dazzled.</li>\n<li>If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214440,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "iExiNRbRDKZDcX6T"
+}

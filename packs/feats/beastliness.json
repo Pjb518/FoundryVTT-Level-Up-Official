@@ -1,0 +1,146 @@
+{
+	"folder": null,
+	"name": "Beastliness",
+	"type": "feature",
+	"img": "icons/creatures/abilities/bear-roar-bite-brown-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"cnsZGNBEDSPJ0ftJ": {
+				"name": "Rend",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "If you hit with two unarmed attacks in the same turn"
+				},
+				"consumers": {},
+				"rolls": {
+					"Kss3K2ABs0KHUwzj": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "slashing",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Your combination of strict training and brutal wrath makes you difficult to escape from and worse to fight. You gain the following benefits:</p>\n<ul>\n<li>Your movement speed increases by 10 feet.</li>\n<li>You have a climb speed equal to your movement speed.</li>\n<li>If you hit with two unarmed attacks in the same turn, you can use your reaction to rend the target, dealing an additional 2d6 points of slashing damage.</li>\n<li>While you are raging, your senses sharpen. You have advantage on Perception checks while raging.</li>\n<li>Half your adept levels count as berserker levels for the purpose of the Crushing Blows feature.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"5LDSdnXKLk1gXzRh": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "5LDSdnXKLk1gXzRh",
+				"bonus": "10",
+				"movementTypes": {
+					"base": [
+						"walk"
+					],
+					"options": [],
+					"total": 0
+				},
+				"label": "Beastliness (Walking)",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false
+				}
+			},
+			"IhMFCoS7MzIHwdWX": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "IhMFCoS7MzIHwdWX",
+				"label": "Beastliness (Climbing)",
+				"bonus": "@attributes.movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"climb"
+					]
+				}
+			}
+		},
+		"prerequisite": "Ferocious feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "HCv48WM5E6S6WxTx"
+}

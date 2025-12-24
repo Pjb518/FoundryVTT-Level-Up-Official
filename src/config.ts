@@ -651,6 +651,7 @@ const languages = {
 	mycelial: 'A5E.languages.mycelial',
 	orc: 'A5E.languages.orc',
 	primordial: 'A5E.languages.primordial',
+  squash: 'A5E.languages.squash',
 	sylvan: 'A5E.languages.sylvan',
 	terran: 'A5E.languages.terran',
 	cant: 'A5E.languages.thievesCant',
