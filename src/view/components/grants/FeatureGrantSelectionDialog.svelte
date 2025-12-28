@@ -96,6 +96,11 @@
         return prereqs;
     }
 
+    async function openDocument(uuid: string) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
+    }
+
     let {
         grant,
         base,
@@ -165,6 +170,7 @@
             icon="fa-solid fa-key"
             iconList={Object.keys(prereqs)}
             tooltipData={prereqs}
+            onTagToggleAux={openDocument}
         />
     </FieldWrapper>
 

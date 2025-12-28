@@ -110,7 +110,9 @@
         data-tooltip-direction={tooltipDirection}
         onpointerdown={(e) => {
             e.preventDefault();
-            onTagToggle(value);
+            if (e.button === 0) {
+                onTagToggle(value);
+            }
         }}
         onauxclick={(e) => {
             e.preventDefault();

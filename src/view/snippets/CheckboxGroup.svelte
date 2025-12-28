@@ -22,6 +22,7 @@
         tooltipData?: Record<string, string>;
         warning?: string;
         onUpdateSelection?: (value: string[]) => void;
+        onTagToggleAux?: (value: string) => void;
     };
 
     let {
@@ -42,6 +43,7 @@
         tooltipData = {},
         warning = "",
         onUpdateSelection = () => {},
+        onTagToggleAux = () => {},
     }: Props = $props();
 
     function getButtons() {
@@ -104,6 +106,7 @@
                 onTagToggle={(value) => {
                     updateSelection(value);
                 }}
+                {onTagToggleAux}
             />
         {/each}
     </ul>
