@@ -176,6 +176,11 @@ export default function registerModuleIncompatibilities() {
 					"The system already provides settings to configure a GM's title, so this module is unnecessary in the A5e system. It may also conflict with the system's built-in configuration options.",
 				priority: 'medium',
 			},
+      'logic-rolls': {
+				reason:
+					"The system already includes the same logic roll functions as this module.",
+				priority: 'low',
+			},
 			'party-overview': {
 				reason:
 					'The system already includes an interface to display summary statistics for an adventuring party that provides far more functionality than the Party Overview module.',
