@@ -83,13 +83,13 @@
         return options;
     }
 
-    function getPrerequisites(): string[] {
-        const prereqs: string[] = [];
+    function getPrerequisites(): Record<string, string> {
+        const prereqs: Record<string, string> = {};
 
         for (const [value] of allOptions) {
             const doc = fromUuidSync(value);
             if (doc?.system.prerequisite) {
-                prereqs.push(value);
+                prereqs[value] = "<b>Prerequisite:</b> " + doc.system.prerequisite;
             }
         }
 
@@ -124,6 +124,7 @@
     let choicesLocked = $state(true);
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
+    let prereqs = getPrerequisites();
 
     let selectedOptions = $derived([
         ...new Set(base.map((o) => o.uuid).concat(preSelected)),
@@ -162,7 +163,8 @@
             {disabledOptions}
             {onUpdateSelection}
             icon="fa-solid fa-key"
-            iconList={getPrerequisites()}
+            iconList={Object.keys(prereqs)}
+            tooltipData={prereqs}
         />
     </FieldWrapper>
 
