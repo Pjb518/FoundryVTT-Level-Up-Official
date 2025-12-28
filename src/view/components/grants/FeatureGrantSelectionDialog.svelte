@@ -43,11 +43,7 @@
                 if (!data) return selections.push(docId);
 
                 const takenCount = grantIds.length;
-                if (
-                    !data.limitedReselection ||
-                    data.selectionLimit > takenCount
-                )
-                    return;
+                if (!data.limitedReselection || data.selectionLimit > takenCount) return;
 
                 selections.push(docId);
             },
@@ -87,6 +83,24 @@
         return options;
     }
 
+    function getPrerequisites(): Record<string, string> {
+        const prereqs: Record<string, string> = {};
+
+        for (const [value] of allOptions) {
+            const doc = fromUuidSync(value);
+            if (doc?.system.prerequisite) {
+                prereqs[value] = "<b>Prerequisite:</b> " + doc.system.prerequisite;
+            }
+        }
+
+        return prereqs;
+    }
+
+    async function openDocument(uuid: string) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
+    }
+
     let {
         grant,
         base,
@@ -115,6 +129,7 @@
     let choicesLocked = $state(true);
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
+    let prereqs = getPrerequisites();
 
     let selectedOptions = $derived([
         ...new Set(base.map((o) => o.uuid).concat(preSelected)),
@@ -133,9 +148,7 @@
             htmlString: `<i class="icon fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"
@@ -154,6 +167,10 @@
             disabled={selectedOptions.length >= totalCount}
             {disabledOptions}
             {onUpdateSelection}
+            icon="fa-solid fa-key"
+            iconList={Object.keys(prereqs)}
+            tooltipData={prereqs}
+            onTagToggleAux={openDocument}
         />
     </FieldWrapper>
 

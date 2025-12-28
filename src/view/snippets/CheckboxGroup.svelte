@@ -9,6 +9,8 @@
         disabledOptions?: string[];
         heading?: string;
         hint?: string;
+        icon?: string;
+        iconList?: string[];
         listClasses?: string;
         options: string[][];
         optionStyles?: string;
@@ -20,6 +22,7 @@
         tooltipData?: Record<string, string>;
         warning?: string;
         onUpdateSelection?: (value: string[]) => void;
+        onTagToggleAux?: (value: string) => void;
     };
 
     let {
@@ -27,6 +30,8 @@
         disabledOptions = [],
         heading = "",
         hint = "",
+        icon = "",
+        iconList = [],
         listClasses = "",
         options = [],
         optionStyles = "",
@@ -38,6 +43,7 @@
         tooltipData = {},
         warning = "",
         onUpdateSelection = () => {},
+        onTagToggleAux = () => {},
     }: Props = $props();
 
     function getButtons() {
@@ -94,10 +100,13 @@
                 orange={orange?.includes(value)}
                 disabled={disabledOptions.includes(value) ||
                     (disabled && !selected.includes(value))}
+                {icon}
+                showIcon={iconList?.includes(value)}
                 tooltipText={tooltipData?.[value] ?? ""}
                 onTagToggle={(value) => {
                     updateSelection(value);
                 }}
+                {onTagToggleAux}
             />
         {/each}
     </ul>
