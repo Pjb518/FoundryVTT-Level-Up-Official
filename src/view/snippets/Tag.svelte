@@ -9,6 +9,8 @@
         orange?: boolean;
         red?: boolean;
         label?: string;
+        icon?: string;
+        showIcon?: boolean;
         tight?: boolean;
         tooltipDirection?: string;
         tooltipText?: string;
@@ -24,6 +26,8 @@
         orange = false,
         red = false,
         label = "",
+        icon = "",
+        showIcon = false,
         tight = false,
         tooltipDirection = "UP",
         tooltipText = "",
@@ -114,6 +118,10 @@
         }}
     >
         {localize(label)}
+
+        {#if showIcon}
+            <i class="{icon} tag__icon" aria-hidden="true"></i>
+        {/if}
     </button>
 </li>
 
@@ -143,6 +151,11 @@
 
         &--tight {
             padding: 0.1rem 0.375rem;
+        }
+
+        &__icon {
+            margin-right: 0.15rem;
+            font-size: 0.85em;
         }
     }
 </style>

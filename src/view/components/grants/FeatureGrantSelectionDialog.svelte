@@ -43,11 +43,7 @@
                 if (!data) return selections.push(docId);
 
                 const takenCount = grantIds.length;
-                if (
-                    !data.limitedReselection ||
-                    data.selectionLimit > takenCount
-                )
-                    return;
+                if (!data.limitedReselection || data.selectionLimit > takenCount) return;
 
                 selections.push(docId);
             },
@@ -85,6 +81,19 @@
         }
 
         return options;
+    }
+
+    function getPrerequisites(): string[] {
+        const prereqs: string[] = [];
+
+        for (const [value] of allOptions) {
+            const doc = fromUuidSync(value);
+            if (doc?.system.prerequisite) {
+                prereqs.push(value);
+            }
+        }
+
+        return prereqs;
     }
 
     let {
@@ -133,9 +142,7 @@
             htmlString: `<i class="icon fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"
@@ -154,6 +161,8 @@
             disabled={selectedOptions.length >= totalCount}
             {disabledOptions}
             {onUpdateSelection}
+            icon="fa-solid fa-key"
+            iconList={getPrerequisites()}
         />
     </FieldWrapper>
 

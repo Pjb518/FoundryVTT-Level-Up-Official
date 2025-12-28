@@ -9,6 +9,8 @@
         disabledOptions?: string[];
         heading?: string;
         hint?: string;
+        icon?: string;
+        iconList?: string[];
         listClasses?: string;
         options: string[][];
         optionStyles?: string;
@@ -27,6 +29,8 @@
         disabledOptions = [],
         heading = "",
         hint = "",
+        icon = "",
+        iconList = [],
         listClasses = "",
         options = [],
         optionStyles = "",
@@ -94,6 +98,8 @@
                 orange={orange?.includes(value)}
                 disabled={disabledOptions.includes(value) ||
                     (disabled && !selected.includes(value))}
+                {icon}
+                showIcon={iconList?.includes(value)}
                 tooltipText={tooltipData?.[value] ?? ""}
                 onTagToggle={(value) => {
                     updateSelection(value);
