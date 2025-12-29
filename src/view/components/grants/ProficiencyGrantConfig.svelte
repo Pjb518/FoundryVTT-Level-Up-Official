@@ -54,7 +54,7 @@
     const configObject = prepareProficiencyConfigObject();
     const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-    let grant = $derived(item.system.grants[grantId]);
+    let grant = $derived(item.reactive.system.grants[grantId]);
     let proficiencyType = $derived(grant?.proficiencyType || "armor");
     let options = $derived(configObject[proficiencyType]?.config ?? []);
 
@@ -99,8 +99,7 @@
             ])}
             selected={proficiencyType}
             allowDeselect={false}
-            onUpdateSelection={(value) =>
-                onUpdateValue("proficiencyType", value)}
+            onUpdateSelection={(value) => onUpdateValue("proficiencyType", value)}
         />
 
         <!-- Keep this else it breaks when switching from tools to weapons -->
@@ -195,8 +194,7 @@
             <Checkbox
                 label="Grant 5e expertise in these instead of proficiency"
                 checked={grant.isExpertise ?? false}
-                onUpdateSelection={(value) =>
-                    onUpdateValue("isExpertise", value)}
+                onUpdateSelection={(value) => onUpdateValue("isExpertise", value)}
             />
         {/if}
     </Section>
