@@ -40,7 +40,7 @@
         return localize(
             rollMode === 1
                 ? "A5E.rollLabels.modes.advantage"
-                : "A5E.RollModeDisadvantage",
+                : "A5E.rollLabels.modes.disadvantage",
         );
     }
 

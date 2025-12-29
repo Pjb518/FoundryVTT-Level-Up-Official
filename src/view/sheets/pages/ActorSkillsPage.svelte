@@ -8,9 +8,7 @@
     function determineWhetherToShowSkillSpecialties(skills: any) {
         if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
 
-        return Object.values(skills).some(
-            (skill: any) => skill.specialties.length,
-        );
+        return Object.values(skills).some((skill: any) => skill.specialties.length);
     }
 
     function getSkills(baseSkills: any) {
@@ -58,13 +56,13 @@
     const { skillSpecialties } = A5E;
 
     let skills = $derived(actorStore.skills);
-    let showSpecialties = $derived(
-        determineWhetherToShowSkillSpecialties(skills),
-    );
+    let showSpecialties = $derived(determineWhetherToShowSkillSpecialties(skills));
 
     let skillListFlowDirection = $derived(
         game.settings.get("a5e", "skillListFlowDirection"),
     ) as string;
+
+    let numberOfRows = $derived(Math.ceil(Object.keys(skills).length / 2));
 </script>
 
 <div class="skill-page-wrapper">
@@ -92,8 +90,7 @@
                                     class="a5e-skill-specialties__list-item"
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"
-                                    onclick={() =>
-                                        rollSkillCheckWithSpecialty(skillKey)}
+                                    onclick={() => rollSkillCheckWithSpecialty(skillKey)}
                                 >
                                     {specialty}
                                 </button>
@@ -107,15 +104,13 @@
 
     <ul
         class="skills-container"
-        class:skills-container--column-flow={skillListFlowDirection ===
-            "column"}
+        class:skills-container--column-flow={skillListFlowDirection === "column"}
+        style:grid-template-rows={skillListFlowDirection === "column"
+            ? `repeat(${numberOfRows}, 1.5rem)`
+            : null}
     >
         {#each Object.entries(skills) as [skillKey, skill], idx}
-            <Skill
-                {skillKey}
-                {skill}
-                columnFlow={skillListFlowDirection === "column"}
-            />
+            <Skill {skillKey} {skill} columnFlow={skillListFlowDirection === "column"} />
         {/each}
     </ul>
 </div>
@@ -139,7 +134,6 @@
         border-radius: var(--a5e-border-radius-standard);
 
         &--column-flow {
-            grid-template-rows: repeat(10, 1.5rem);
             grid-auto-flow: column;
         }
     }
