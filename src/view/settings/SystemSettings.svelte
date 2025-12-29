@@ -122,12 +122,7 @@
 </script>
 
 <main class="a5e-settings-sheet">
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-settings-sheet__page">
         <currentTab.component bind:reload />
@@ -174,6 +169,10 @@
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content min-content 1fr min-content;
         overflow-y: auto;
+
+        :global(.a5e-nav) {
+            margin-block-start: 0.6rem;
+        }
 
         &__page {
             grid-area: page;
