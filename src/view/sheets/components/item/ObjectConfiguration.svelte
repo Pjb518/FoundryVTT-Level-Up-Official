@@ -147,7 +147,7 @@
                     )}
             />
 
-            <span>{localize("A5E.objects.weightLbs")}</span>
+            <span class="weight-unit">{localize("A5E.objects.weightLbs")}</span>
 
             <Checkbox
                 label="A5E.objects.bulky"
@@ -344,3 +344,11 @@
         </dl>
     {/if}
 </Section>
+
+<style lang="scss">
+    .weight-unit {
+        font-size: var(--a5e-sm-text);
+        display: flex;
+        align-items: center;
+    }
+</style>
