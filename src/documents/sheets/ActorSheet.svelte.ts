@@ -170,7 +170,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
   }
 
   async #onDropSpell(item: Item, options: DragDropOptions) {
-    const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
+    const currentTab = this.tempSettings?.currentTab;
 
     // Create Spell Scroll
     if (currentTab === "inventory") {
@@ -265,6 +265,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
       );
 
       createdItem.update(updateData);
+      return;
     }
 
     // Update SpellBook Id
@@ -299,7 +300,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
     const options = {} as DragDropOptions;
 
     const currentSpellBook: string =
-      this.tempSettings[this.actor.uuid]?.currentSpellBook ??
+      this.tempSettings?.currentSpellBook ??
       Object.keys(this.actor?.system?.spellBooks)?.[0];
 
     const target = event.target?.closest(".a5e-item");
