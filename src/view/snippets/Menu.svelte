@@ -122,10 +122,8 @@
 
             &-button {
                 color: white;
-                font-size: var(
-                    --a5e-context-menu-font-size,
-                    var(--a5e-sm-text)
-                );
+                font-size: var(--a5e-context-menu-font-size, var(--a5e-sm-text));
+                padding: 1rem;
             }
         }
     }
