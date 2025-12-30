@@ -115,7 +115,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
   }
 
   override async _onDropItem(event: DragEvent, item: Item) {
-    const options = await this.#getDragOptions(event);
+    const options = await this.#getDragOptions(event, item);
 
     if (!this.actor.isOwner) return;
     if (this.actor.uuid === item.parent?.uuid)
@@ -280,13 +280,22 @@ export default class ActorSheet extends SvelteApplicationMixin(
     return;
   }
 
-  async #getDragOptions(event: DragEvent) {
+  async #getDragOptions(event: DragEvent, item?: Item) {
     const transferData = event.dataTransfer?.getData("text/plain");
-    if (!transferData) {
-      throw new Error("No transfer data found");
+    let dragData;
+
+    if (transferData) {
+      try {
+        dragData = JSON.parse(transferData);
+      } catch (e) {
+        console.warn("Failed to parse drag data:", e);
+      }
     }
 
-    const dragData = JSON.parse(transferData);
+    if (!dragData && item) {
+      dragData = item.toDragData?.() || { uuid: item.uuid };
+    }
+
     const options = {} as DragDropOptions;
 
     const currentSpellBook: string =
