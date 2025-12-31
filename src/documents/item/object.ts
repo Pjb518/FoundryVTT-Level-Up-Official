@@ -257,8 +257,13 @@ export default class ObjectItemA5e extends ItemA5e {
 		if (this.system.objectType === 'container') {
 			// eslint-disable-next-line no-undef
 			const items = Object.values(this.system.items).map(({ uuid }) => fromUuidSync(uuid));
-			const updates = items.map((i) => ({ _id: i?.id, 'system.containerId': '' }));
-			await this.parent?.updateEmbeddedDocuments('Item', updates);
+			const updates = items
+        .filter((i) => i != null)
+        .map((i) => ({ _id: i?.id, 'system.containerId': '' }));
+
+      if (updates.length > 0) {
+          await this.parent?.updateEmbeddedDocuments('Item', updates);
+      }
 		}
 
 		const container = (await fromUuid(this.system.containerId)) as InstanceType<

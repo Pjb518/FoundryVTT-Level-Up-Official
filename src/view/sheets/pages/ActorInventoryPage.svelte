@@ -23,7 +23,11 @@
         page: "objects",
     });
 
-    let items = $derived(filterItems(actor.reactive, "object", filterOptions));
+    let items = $derived(
+        filterItems(actor.reactive, "object", filterOptions).filter(
+            (item) => !item.system.containerId,
+        ),
+    );
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
     const openCompendium = game.a5e.utils.openCompendium;

@@ -74,10 +74,7 @@
         // @ts-expect-error
         if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer?.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
     async function getDescription(item: Item) {
@@ -117,7 +114,13 @@
             .catch((err) => (description = err)),
     );
 
-    let containerItems = []; // TODO: V13 Update
+    let containerItems = $derived(
+        item.reactive.isType("object") && item.reactive.system.objectType === "container"
+            ? [...(actor.reactive.items?.values() ?? [])]
+                  .filter((child) => child.system.containerId === item.uuid)
+                  .map((child) => [child.id, child])
+            : [],
+    );
 
     let showActionList = $derived(determineActionListVisibility());
     let showContainerItems = $derived(
