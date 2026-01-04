@@ -272,25 +272,38 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     await item.containerItems.removeAll();
 
     const items: (typeof Item)[] = [];
+    const existingItemUuids: string[] = [];
+
     await Promise.all(
       containerData.map(async ({ quantityOverride, uuid }) => {
         let doc = await fromUuid(uuid);
         if (!doc) return;
 
-        doc = doc.toObject();
-        doc.system.containerId = item.uuid;
-        if (quantityOverride) {
-          doc.system.quantity = quantityOverride ?? doc.system.quantityOverride;
+        if (doc.parent && doc.parent._id === actor._id) {
+          await doc.update({
+            'system.containerId': item.uuid,
+            ...(quantityOverride && { 'system.quantity': quantityOverride })
+          });
+          existingItemUuids.push(doc.uuid);
+        } else {
+          doc = doc.toObject();
+          doc.system.containerId = item.uuid;
+
+          if (quantityOverride) {
+            doc.system.quantity = quantityOverride ?? doc.system.quantity;
+          }
+          if (uuid.startsWith("Compendium")) doc._stats.compendiumSource = uuid;
+          items.push(doc);
         }
-
-        if (uuid.startsWith("Compendium")) doc._stats.compendiumSource = uuid;
-        items.push(doc);
-      }),
+     }),
     );
 
-    const ids = (await actor.createEmbeddedDocuments("Item", items)).map(
-      (i: any) => i.uuid,
-    );
+    const newItemUuids = items.length > 0
+      ? (await actor.createEmbeddedDocuments("Item", items)).map((i: any) => i.uuid)
+      : [];
+
+    const ids = [...existingItemUuids, ...newItemUuids];
+
     await item.containerItems.addMulti(ids);
     return item;
   }
