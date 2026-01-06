@@ -25,6 +25,7 @@
         }
 
         await item.containerItems.add(child.uuid);
+        await item.containerItems.sort();
         const actor = item?.parent?.documentName === "Actor" ? item.parent : null;
 
         if (!actor) return;

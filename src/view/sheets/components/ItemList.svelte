@@ -94,6 +94,40 @@
         return data;
     }
 
+    function sortContainer(a: any, b: any) {
+        switch (sortMethod) {
+            case "alphabetical":
+                if (sortDirection === "ascending")
+                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+
+            case "quantity":
+                if (sortDirection === "ascending") {
+                    if (a.system.quantity < b.system.quantity) return -1;
+                    if (a.system.quantity > b.system.quantity) return 1;
+                    return 0;
+                }
+
+                if (a.system.quantity > b.system.quantity) return -1;
+                if (a.system.quantity < b.system.quantity) return 1;
+                return 0;
+
+            case "weight":
+                if (sortDirection === "ascending") {
+                    if (a.system.weight < b.system.weight) return -1;
+                    if (a.system.weight > b.system.weight) return 1;
+                    return 0;
+                }
+
+                if (a.system.weight > b.system.weight) return -1;
+                if (a.system.weight < b.system.weight) return 1;
+                return 0;
+
+            default:
+                return 0;
+        }
+    }
+
     let actor: any = getContext("actor");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive.system);
@@ -114,10 +148,17 @@
             .catch((err) => (description = err)),
     );
 
+    // @ts-expect-error
+    let sortMethod = $derived(item.reactive.system.containerSortMethod);
+    // @ts-expect-error
+    let sortDirection = $derived(item.reactive.system.containerSortDirection);
+
     let containerItems = $derived(
+        // @ts-expect-error
         item.reactive.isType("object") && item.reactive.system.objectType === "container"
             ? [...(actor.reactive.items?.values() ?? [])]
                   .filter((child) => child.system.containerId === item.uuid)
+                  .sort((a, b) => sortContainer(a, b))
                   .map((child) => [child.id, child])
             : [],
     );

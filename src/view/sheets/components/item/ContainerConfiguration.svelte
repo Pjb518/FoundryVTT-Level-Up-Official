@@ -64,6 +64,28 @@
                     )}
             />
         </FieldWrapper>
+
+        <RadioGroup
+            heading="Sort Method"
+            options={Object.entries(A5E.containerSortMethods)}
+            selected={itemStore.containerSortMethod}
+            onUpdateSelection={(value) =>
+                updateDocumentDataFromField(item, "system.containerSortMethod", value)}
+        />
+
+        {#if itemStore.containerSortMethod !== "none"}
+            <RadioGroup
+                heading="Sort Direction"
+                options={Object.entries(A5E.containerSortDirections)}
+                selected={itemStore.containerSortDirection}
+                onUpdateSelection={(value) =>
+                    updateDocumentDataFromField(
+                        item,
+                        "system.containerSortDirection",
+                        value,
+                    )}
+            />
+        {/if}
     {:else}
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
@@ -89,6 +111,25 @@
                     {itemStore.capacity.weightlessContents ? "Yes" : "No"}
                 </dd>
             </div>
+
+            <div class="a5e-dl-box__section">
+                <dt class="a5e-dl-box__header">Sort Method:</dt>
+                <dd class="a5e-dl-box__content">
+                    {localize(A5E.containerSortMethods[itemStore.containerSortMethod]) ??
+                        localize("A5E.None")}
+                </dd>
+            </div>
+
+            {#if itemStore.containerSortMethod !== "none"}
+                <div class="a5e-dl-box__section">
+                    <dt class="a5e-dl-box__header">Sort Direction:</dt>
+                    <dd class="a5e-dl-box__content">
+                        {localize(
+                            A5E.containerSortDirections[itemStore.containerSortDirection],
+                        )}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </Section>

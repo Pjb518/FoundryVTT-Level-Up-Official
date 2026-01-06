@@ -5,6 +5,7 @@
     import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
     import { usesRequired } from "#utils/view/usesRequired.ts";
     import { quantityRequired } from "#utils/view/quantityRequired.ts";
+    import { weightRequired } from "#utils/view/weightRequired.ts";
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
@@ -23,6 +24,10 @@
         page: "objects",
     });
 
+    let showWeightColumnFlag = $derived(
+        actor.reactive.flags?.a5e?.showWeightColumn ?? true,
+    );
+
     let items = $derived(
         filterItems(actor.reactive, "object", filterOptions).filter(
             (item) => !item.system.containerId,
@@ -35,6 +40,7 @@
     let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
+    let showWeight = $derived(weightRequired(items) && showWeightColumnFlag);
 
     let objectTypes = Object.entries(CONFIG.A5E.objectTypes) as string[][];
 </script>
@@ -71,6 +77,7 @@
                 {showDescription}
                 {showQuantity}
                 {showUses}
+                {showWeight}
                 items={itemList}
                 type="objectTypesPlural"
             />

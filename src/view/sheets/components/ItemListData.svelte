@@ -181,10 +181,10 @@
 
         const capacity = item.containerItems
             ?.capacity()
-            .then((c) => (containerCapacity = c.percentage))
+            .then((c) => (containerCapacity = c.value))
             .catch((e) => console.error(e));
 
-        return capacity?.percentage ?? 0;
+        return capacity?.value ?? 0;
     }
 
     function generateUsesConfig() {
@@ -264,6 +264,7 @@
     let flags = $derived(actor.reactive.flags);
     let isClassResource = $state(false);
     let uses = generateUsesConfig(); // TODO: V13 This should be reactive
+    let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? true);
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items
@@ -349,7 +350,19 @@
         {#if itemStore?.objectType === "container"}
             {#if containerCapacity}
                 <span data-tooltip="Capacity" data-tooltip-direction="UP">
-                    ({containerCapacity}%)
+                    {#if item.system.capacity.value}
+                        (
+                        {containerCapacity}
+
+                        /
+
+                        {item.system.capacity.value}
+
+                        {#if item.system.capacity.type === "weight"}
+                            lbs.
+                        {/if}
+                        )
+                    {/if}
                 </span>
             {/if}
 
@@ -650,6 +663,20 @@
     </div>
 {/if}
 
+{#if !actionId && item?.type === "object" && itemStore?.weight > 0 && showWeightColumnFlag}
+    <div class="weight-wrapper">
+        <input
+            class="number-input"
+            id="{actor.id}-{item.id}-weight"
+            type="number"
+            name="system.weight"
+            value={itemStore.weight}
+            disabled={true}
+            onclick={(e) => e.stopPropagation()}
+        />
+    </div>
+{/if}
+
 <style lang="scss">
     .action-button {
         flex-grow: 0;
@@ -809,6 +836,7 @@
     }
 
     .quantity-wrapper,
+    .weight-wrapper,
     .uses-wrapper {
         display: flex;
         align-items: center;
@@ -822,5 +850,9 @@
 
     .quantity-wrapper {
         grid-area: quantity;
+    }
+
+    .weight-wrapper {
+        grid-area: weight;
     }
 </style>

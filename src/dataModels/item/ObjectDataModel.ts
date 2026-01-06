@@ -32,6 +32,8 @@ const schema = {
 		weightlessContents: new fields.BooleanField({ required: true, initial: false }),
 	}),
 	containerId: new fields.StringField({ required: true, initial: '' }),
+  containerSortDirection: new fields.StringField({ required: true, initial: 'ascending' }),
+  containerSortMethod: new fields.StringField({ required: true, initial: 'none' }),
 	craftingComponents: new fields.StringField({ required: true, initial: '' }),
 	damagedState: new fields.NumberField({
 		required: true,
