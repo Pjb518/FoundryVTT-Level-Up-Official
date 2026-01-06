@@ -173,7 +173,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "wis",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -198,7 +200,8 @@
 			"sp": 0,
 			"ep": 0,
 			"gp": 0,
-			"pp": 0
+			"pp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -226,7 +229,8 @@
 				"undercommon"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -494,6 +498,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"source": "toSaveAKingdom",
@@ -555,7 +570,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"spellBooks": {
 			"aTuhjPop8aTy5Dsh": {
@@ -566,6 +582,13 @@
 				"disableSpellConsumers": false,
 				"showSpellPoints": false,
 				"showSpellSlots": false
+			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
 			}
 		}
 	},
@@ -581,7 +604,12 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -616,21 +644,41 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0,
+			"color": null
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0
+			"contrast": 0,
+			"color": null
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -650,7 +698,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -663,10 +711,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -676,7 +723,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -686,7 +735,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -709,15 +780,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "MfTjDPST4uUIyC4u",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -737,7 +821,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -750,10 +834,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -763,7 +846,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -773,7 +858,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -796,15 +903,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "s1hwzsMi8AmZasYd",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -824,7 +944,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -837,10 +957,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -848,7 +967,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -859,10 +981,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -883,15 +1026,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "pHfsjU88tSFllhiK",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -911,7 +1067,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -924,10 +1080,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -937,7 +1092,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -947,7 +1104,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -970,15 +1149,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "CcKoy41Z3PDCoIW6",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -998,7 +1190,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -1011,10 +1203,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -1024,7 +1215,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1034,7 +1227,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1057,15 +1272,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "MwSB19NATUGX48Zn",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1085,7 +1313,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -1098,10 +1326,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -1109,7 +1336,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1120,10 +1350,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1144,15 +1395,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "evQ1cedxjpJckGTe",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1187,7 +1451,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "yY3WyTYDU9UeRN4l",
 			"img": "icons/svg/item-bag.svg",
@@ -1196,9 +1470,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1233,7 +1512,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "ypqvxx3tnpetSIie",
 			"img": "icons/svg/item-bag.svg",
@@ -1242,9 +1531,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1281,11 +1575,32 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": "none"
+							"quantity": 0,
+							"type": "none",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
@@ -1329,15 +1644,29 @@
 						"utility"
 					]
 				},
-				"spellBook": "aTuhjPop8aTy5Dsh"
+				"spellBook": "aTuhjPop8aTy5Dsh",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": []
 			},
 			"folder": null,
 			"_id": "8eR5bgwVUr8wFAjJ",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.kh26gom04osoo005",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1374,17 +1703,39 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {
 							"KZEoovU6KGVQIbJ1": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
@@ -1426,15 +1777,29 @@
 						"shadow"
 					]
 				},
-				"spellBook": "aTuhjPop8aTy5Dsh"
+				"spellBook": "aTuhjPop8aTy5Dsh",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": []
 			},
 			"folder": null,
 			"_id": "J3XXZsQDC2vV4ioF",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1471,8 +1836,9 @@
 							"placeTemplate": true
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"prompts": {
 							"C95Yph6KdzvdTomm": {
@@ -1482,14 +1848,37 @@
 									"type": "spellcasting",
 									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"jSbKn4IbkimidTWI": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1533,15 +1922,29 @@
 						"utility"
 					]
 				},
-				"spellBook": "aTuhjPop8aTy5Dsh"
+				"spellBook": "aTuhjPop8aTy5Dsh",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"discipline": []
 			},
 			"folder": null,
 			"_id": "RgJFC9HQPvOEQPe2",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1563,7 +1966,8 @@
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1574,10 +1978,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -1598,7 +2020,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "3H56kHQ7jYHiQZ3B",
 			"img": "icons/svg/item-bag.svg",
@@ -1607,9 +2039,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1631,7 +2068,8 @@
 						"name": "Tactical Movement",
 						"activation": {
 							"type": "bonusAction",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1642,14 +2080,31 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
 						},
 						"effects": [
 							"AL0HabkepzfvfTjM"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "<p>Until the end of the veteran&rsquo;s turn, their Speed is halved and their movement doesn&rsquo;t provoke opportunity attacks.</p>",
@@ -1669,13 +2124,22 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "JkwbbU2bxHuuiLOe",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
 					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.JkwbbU2bxHuuiLOe",
 					"flags": {
 						"a5e": {
@@ -1712,21 +2176,47 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/item-bag.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1755,17 +2245,23 @@
 						"rolls": {
 							"P7UeMDVPmv9D9fqE": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"HUbaIlANmQsN4fYO": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d6 + @finesse.mod",
-								"name": "Shortsword",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {},
@@ -1775,8 +2271,6 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
 						},
@@ -1792,9 +2286,20 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
-						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"effects": [],
+						"macro": "",
+						"ranges": {}
 					}
 				},
 				"description": "<p>When the veteran is hit by a melee attack by an attacker they can see within 5 feet, the veteran makes a shortsword attack against the attacker.</p>",
@@ -1814,13 +2319,22 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "7FAzXKrX0Wi7XYW9",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
 					"origin": "Actor.w6xgjRyWYYuk3trZ.Item.mLjODekVwOd2U57H",
 					"flags": {
 						"a5e": {
@@ -1857,15 +2371,34 @@
 					"description": "",
 					"statuses": [],
 					"tint": "#ffffff",
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"sort": 0,
+					"folder": null
 				},
 				{
-					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
 					"origin": "Actor.HF1TKWXUCFYdIotp.Item.gyU7seYIcV9McLdt",
 					"flags": {
 						"a5e": {
@@ -1902,21 +2435,46 @@
 					"description": "",
 					"statuses": [],
 					"tint": "#ffffff",
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1981,15 +2539,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "IGQy2eESiQHtHywd",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1998,7 +2584,6 @@
 			"img": "icons/weapons/swords/greatsword-blue.webp",
 			"effects": [
 				{
-					"icon": "icons/weapons/swords/greatsword-blue.webp",
 					"origin": "Actor.HF1TKWXUCFYdIotp.Item.citcwEdF2oVsnsF7",
 					"flags": {
 						"a5e": {
@@ -2035,12 +2620,32 @@
 					"description": "",
 					"statuses": [],
 					"tint": "#ffffff",
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/swords/greatsword-blue.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"flags": {},
@@ -2059,7 +2664,7 @@
 					"rPaMSExLpHCaYkH9": {
 						"name": "Longsword",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -2075,26 +2680,53 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
 						"rolls": {
 							"UEwQqL1vKVE291PA": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"x4uy5CMwLzIKdqmH": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d8 + @str.mod",
-								"name": "Longsword",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -2141,15 +2773,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "citcwEdF2oVsnsF7",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2158,7 +2818,6 @@
 			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
 			"effects": [
 				{
-					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
 					"origin": "Actor.HF1TKWXUCFYdIotp.Item.gyU7seYIcV9McLdt",
 					"flags": {
 						"a5e": {
@@ -2195,12 +2854,32 @@
 					"description": "",
 					"statuses": [],
 					"tint": "#ffffff",
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"flags": {
@@ -2223,7 +2902,7 @@
 					"s8ufuOSoG0jsuNjg": {
 						"name": "Shortsword",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -2239,37 +2918,69 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
 						"rolls": {
 							"P7UeMDVPmv9D9fqE": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"HUbaIlANmQsN4fYO": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "1d6 + @finesse.mod",
-								"name": "Shortsword",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					},
 					"vQTQD7tzjEVIJLR0": {
 						"name": "Parry",
-						"activation": {},
+						"activation": {
+							"cost": 1,
+							"type": "",
+							"reactionTrigger": ""
+						},
 						"consumers": {},
 						"rolls": {
 							"tmuyLFz7KQutuiOG": {
 								"type": "generic",
 								"default": true,
 								"label": "Armor Class",
-								"formula": "1d4"
+								"formula": "1d4",
+								"scaling": {}
 							}
 						},
 						"prompts": {},
@@ -2282,7 +2993,26 @@
 								"threshold": 6
 							}
 						},
-						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "",
@@ -2331,15 +3061,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "gyU7seYIcV9McLdt",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2348,7 +3106,6 @@
 			"img": "icons/weapons/crossbows/crossbow-purple.webp",
 			"effects": [
 				{
-					"icon": "icons/weapons/crossbows/crossbow-purple.webp",
 					"origin": "Actor.HF1TKWXUCFYdIotp.Item.PfMKYiR2gSv9NJy8",
 					"flags": {
 						"a5e": {
@@ -2385,15 +3142,35 @@
 					"statuses": [
 						"poisoned"
 					],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/crossbows/crossbow-purple.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				},
 				{
-					"icon": "icons/weapons/crossbows/crossbow-purple.webp",
 					"origin": "Actor.HF1TKWXUCFYdIotp.Item.PfMKYiR2gSv9NJy8",
 					"flags": {
 						"a5e": {
@@ -2431,12 +3208,33 @@
 						"poisoned",
 						"unconscious"
 					],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/weapons/crossbows/crossbow-purple.webp",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"flags": {},
@@ -2455,7 +3253,7 @@
 					"GfTlpAtnUyY1S9L0": {
 						"name": "Crossbow, Heavy",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -2480,29 +3278,39 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
 						"rolls": {
 							"GyU7GAwsQEJD8IVT": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "rangedWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"FWyIAPUgYs55WOFX": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d10 + @dex.mod",
-								"name": "Heavy Crossbow",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"glHpftrkCMz5Csdd": {
-								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "",
+								"deleteOnZero": false,
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -2511,14 +3319,35 @@
 								"default": true,
 								"ability": "con",
 								"saveDC": {
-									"type": "maneuver"
-								}
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
 							}
 						},
 						"effects": [
 							"qLamNqHUIH8vxh99",
 							"cYdxa7ejEPZjppjq"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a creature, it makes a DC 13 Constitution saving throw . On a failure, the target is poisoned for 1 hour. If it fails the saving throw by 5 or more, it falls unconscious until it is no longer poisoned, it takes damage, or a creature takes an action to shake it awake.</p>",
@@ -2569,16 +3398,143 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "PfMKYiR2gSv9NJy8",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0.075,
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": [],
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
+			},
+			"folder": null,
+			"_id": "xn6UTHxNbfah0E3a",
+			"_stats": {
+				"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.Item.p4oflhbn4o9i2x2k",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": 1767720493110,
+				"modifiedTime": 1767720493110,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2589,10 +3545,13 @@
 			"filters": {}
 		}
 	},
-	"_id": "0vu6aj4tg1ibcahl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.15",
+		"createdTime": 1767720493031,
+		"modifiedTime": 1767720493031,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0vu6aj4tg1ibcahl"
 }
