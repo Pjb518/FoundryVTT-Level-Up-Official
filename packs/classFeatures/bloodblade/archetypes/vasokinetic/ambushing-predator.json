@@ -1,0 +1,306 @@
+{
+	"folder": null,
+	"name": "Ambushing Predator",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-face-skull-green.webp",
+	"system": {
+		"description": "<p>At 10th level, you have learned to use your now-sticky, squirmy body to do the thing oozes were born to do: get into really weird places! With a Bonus Action, you can spend 1 hit die to gain the effect of the @UUID[Compendium.a5e.a5e-spells.Item.kz3xe6ems34f2ubo]{Spider Climb} spell on yourself. This effect does not count as magical and lasts for 1 hour. As long as you have hit die to spend, you can activate this feature.</p><p>Additionally, you have become attuned to the vibrations that you can feel through your oozy form. You gain tremorsense out to 30ft.</p><p>With a Bonus Action, you can focus your senses and those of the oozes that course through your blood to gain blindsight to 30ft that lasts until the start of your next turn. You can do this a number of times equal to your Intelligence modifier (minimum of 1) per long rest.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"rco2EMQ31qajNAb8": {
+				"name": "Spider Climb",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"6SPhi6tPm46eeoCR": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"consumers": {
+					"jKSq6X80S4FUz24z": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"effects": [
+					"1drZoXC0F1JPocUA"
+				],
+				"id": "rco2EMQ31qajNAb8",
+				"default": false,
+				"description": "<p>The target gains the ability to walk on walls and upside down on ceilings, as well as a climbing speed equal to its base Speed.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"jBSm3u01MjgHnShm": {
+				"name": "Blindsight",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"uses": {
+					"max": "max(1, @int.mod)",
+					"per": "longRest",
+					"value": 0,
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"effects": [
+					"CotT9xKPstZPog75"
+				],
+				"consumers": {
+					"uWvk0VVmbp58iXL9": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"bf9nSUdmOkvsPxNj": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bf9nSUdmOkvsPxNj",
+				"label": "Ambushing Predator",
+				"bonus": "30",
+				"senses": {
+					"base": [
+						"tremorsense"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.bRK0vZ522CdznpcF",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spider Climb",
+			"_id": "1drZoXC0F1JPocUA",
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767721795107,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.bRK0vZ522CdznpcF",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Blindsight",
+			"img": "icons/creatures/slimes/slime-face-skull-green.webp",
+			"_id": "CotT9xKPstZPog75",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767721795107,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721794913,
+		"modifiedTime": 1767721794913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "FJI3XTMXlzrU8y0E"
+}

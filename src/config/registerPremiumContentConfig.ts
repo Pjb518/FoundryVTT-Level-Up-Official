@@ -22,6 +22,15 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
+    brokenSynapsePress: {
+			name: 'Broken Synapse Press',
+			releases: [
+				{
+					title: 'Corrosive Souls',
+					url: '(https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
+				},
+			],
+		},
 		dmSarah: {
 			name: 'DM Sarah',
 			releases: [
@@ -247,6 +256,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Confidence Mage',
 			url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381',
+		},
+    corrosiveSouls: {
+			abbreviation: 'CS',
+			affiliate: true,
+			publisher: 'brokenSynapsePress',
+			systems: ['a5e'],
+			title: 'Corrosive Souls',
+			url: 'https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
 		},
 		deepMagic1: {
 			abbreviation: 'DM Vol.1',

@@ -1,0 +1,422 @@
+{
+	"folder": null,
+	"name": "Anomalous Physique",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+	"system": {
+		"description": "<p>At 6th level, your body is barely solid at the best of times. You gain resistance to the damage type associated with your @UUID[Compendium.a5e.a5e-class-features.Item.t4fBlBaiSejL8KVX]{Sanguine Transference}. As with your Sanguine Transference, this is based on the d6 roll at the end of either a short or long rest.</p><p>Your body has lost so much of its structural integrity that your movements become fluidly unpredictable. You can move through the spaces of other creatures of your size or smaller by flowing around them as a gelatinous semi-fluid. When you do so, any attacks of opportunity against you are made at disadvantage. You can use this feature a number of times equal to your Constitution modifier (minimum of 1) per long rest.</p><p>The viscous quality of your anatomy allows you (and your equipment) to move through spaces 2 sizes smaller than your size without squeezing. If you have the Contortionist Esoteric Art or have the ooze creature type, you can move through a space as if you were 3 sizes smaller than your size without squeezing (limited to a 1 inch space, if that takes you below Tiny).</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"rv6x7xb2hRzET3sK": {
+				"name": "Ever-Shifting Blood",
+				"consumers": {},
+				"id": "rv6x7xb2hRzET3sK",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"MhBNdTmPU5aALOuX,Ox7fQhdODQLle0EG",
+					"PNfs6RRJrLrhDZCI",
+					"vQ6vCPpPIHwpdOXP",
+					"kQfwnD5ePuexBBzP"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"jOeMILPVgsp5MNFy": {
+				"name": "Anomalous Physique",
+				"consumers": {
+					"Cmj3doeX2Syy7KZz": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "max(1, @con.mod)",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.qwHPUCgyrvheyq9j",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anomalous Physique (Bludgeoning)",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "MhBNdTmPU5aALOuX",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to the damage type associated with your Sanguine Transference.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725079053,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qwHPUCgyrvheyq9j",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anomalous Physique (Piercing)",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "Ox7fQhdODQLle0EG",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"piercing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to the damage type associated with your Sanguine Transference.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725079053,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qwHPUCgyrvheyq9j",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anomalous Physique (Bludgeoning)",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "PNfs6RRJrLrhDZCI",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to the damage type associated with your Sanguine Transference.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725079053,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qwHPUCgyrvheyq9j",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anomalous Physique (Piercing)",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "vQ6vCPpPIHwpdOXP",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"piercing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to the damage type associated with your Sanguine Transference.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725079053,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qwHPUCgyrvheyq9j",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anomalous Physique (Slashing)",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "kQfwnD5ePuexBBzP",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to the damage type associated with your Sanguine Transference.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725079053,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767725079020,
+		"modifiedTime": 1767725093284,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5ZeFAIqUj80sz3EE"
+}

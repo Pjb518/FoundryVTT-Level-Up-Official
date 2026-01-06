@@ -1,0 +1,247 @@
+{
+	"folder": null,
+	"name": "Redox Warrior",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+	"system": {
+		"description": "<p>At 18th level you have become a walking, talking chemical disaster. Even brushing up against you can cause severe burns and being in close proximity can cause others' lungs to sting. You gain the following benefits:</p><ul><li><p><strong>Acidic Rush.</strong> Your @UUID[Compendium.a5e.a5e-class-features.Item.ctQ7Ktp1vN6h0wB6]{Dissolving Rush} feature improves. When you dissolve into a pool of acidic slime, acid splashes on any creature adjacent to the point of your escape and the point where you reform. Any creature in the area makes a Dexterity saving throw against your maneuver DC, taking 3d10 acid damage on a failure, or half as much damage on a success. Additionally, you no longer need a line of sight to your target square and your movement is no longer restricted to a straight line.</p></li><li><p><strong>Sanguine Aqua Regia.</strong> You may now dissolve up to 5x your body weight of mundane materials in an hour instead of 1x, as per @UUID[Compendium.a5e.a5e-class-features.Item.Z1iiNn3AaDACIO0U]{Corrodent Body} feature. You still only need to dissolve and consume 1x of your body weight to gain the bonus.</p><ul><li><p>The Corrodent Body feature now works on rare or noble metals (gold, copper, mercury, platinum, or silver), but you need substantially less of those materials to gain the following benefit(s):</p><ul><li><p>If you consume 250 gold worth of noble metals, you gain <strong>Catalytic Empowerment</strong>: all acid damage dice you use are increased by 1 size. This includes your Sanguine Transference, features, and weapons that deal the acid damage type.</p></li><li><p>If you consume 1000 gold worth of noble metals, you gain all benefits from the Corrodent Body feature (as if you had consumed each type of material), including Catalytic Empowerment.</p></li></ul></li></ul></li><li><p><strong>Chemically Attuned.</strong> You automatically know the chemical or alchemical composition of anything you touch for purposes of determining value, construction, magical components, and other purposes as determined by your Narrator.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"PKMEiANoKQePduBx": {
+				"name": "Acidic Rush",
+				"consumers": {
+					"5bGKNEyTu49wSIWi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Hit with a melee weapon attack",
+					"cost": 1
+				},
+				"id": "PKMEiANoKQePduBx",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"P84rtxRVIOsplKxy": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"STj4KG9u5Slc6XjZ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d10",
+						"damageType": "acid",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 0,
+					"placeTemplate": false
+				}
+			},
+			"QNVgjxc4szwQaAuz": {
+				"name": "1000 gp of Noble Metals",
+				"effects": [
+					"5gLQMuNyzEyWXGkE"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"consumers": {
+					"z510T1OFdqf38bpl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": -2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.ptNUIo4ASy2MhcY9",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Sanguine Aqua Regia",
+			"img": "icons/creatures/slimes/slime-face-hollow-green.webp",
+			"_id": "5gLQMuNyzEyWXGkE",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724428625,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767724428592,
+		"modifiedTime": 1767724461271,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "VKNmcb0r9pekOJ0x"
+}
