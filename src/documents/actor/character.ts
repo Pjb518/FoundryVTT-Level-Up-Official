@@ -484,6 +484,47 @@ export default class CharacterActorA5E extends BaseActorA5e {
 		}
 	}
 
+  // -------------------------------------------------------------
+  // Fix Nested UUIDs in Grants
+  // -------------------------------------------------------------
+    async _fixNestedUuids() {
+      const actorData = this.toObject();
+      let modified = false;
+
+      function fixNestedUuids(obj) {
+        if (typeof obj !== 'object' || obj === null) return;
+          for (const key in obj) {
+            const value = obj[key];
+
+            // Check if this is the problematic structure: {uuid: {uuid: "...", ...}, ...}
+            if (key === 'uuid' && typeof value === 'object' && value !== null) {
+              if (value.uuid && typeof value.uuid === 'string') {
+                const innerUuid = value.uuid;
+                const limitedReselection = value.limitedReselection;
+                const selectionLimit = value.selectionLimit;
+
+                obj.uuid = innerUuid;
+
+                if (obj.limitedReselection === undefined && limitedReselection !== undefined) { obj.limitedReselection = limitedReselection; }
+                if (obj.selectionLimit === undefined && selectionLimit !== undefined) { obj.selectionLimit = selectionLimit; }
+
+                modified = true;
+              }
+            } else if (typeof value === 'object') {
+              // Recursively check nested objects
+              fixNestedUuids(value);
+            }
+          }
+        }
+
+        fixNestedUuids(actorData);
+
+        if (modified) {
+          await this.update(actorData);
+          console.log(`A5E | Fixed nested UUIDs for actor: ${this.name}`);
+        }
+    }
+
 	// -------------------------------------------------------------
 	// Document Update Hooks
 	// -------------------------------------------------------------
@@ -500,6 +541,9 @@ export default class CharacterActorA5E extends BaseActorA5e {
 	/** @inheritdoc */
 	override _onCreate(data, options, userId) {
 		super._onCreate(data, options, userId);
+
+    if (game.user.id !== userId) return;
+    this._fixNestedUuids();
 	}
 
 	/** @inheritdoc */

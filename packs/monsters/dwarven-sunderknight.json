@@ -173,7 +173,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -198,7 +200,8 @@
 			"sp": 0,
 			"ep": 0,
 			"gp": 0,
-			"pp": 0
+			"pp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -225,7 +228,8 @@
 				"dwarvish"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -493,6 +497,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"source": "toSaveAKingdom",
@@ -554,7 +569,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"spellBooks": {
 			"GK4gO4fng9gFygCb": {
@@ -565,6 +581,13 @@
 				"disableSpellConsumers": false,
 				"showSpellPoints": false,
 				"showSpellSlots": true
+			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
 			}
 		}
 	},
@@ -580,7 +603,12 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"tint": "#ffffff",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -615,21 +643,41 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0,
+			"color": null
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0
+			"contrast": 0,
+			"color": null
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -649,7 +697,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -662,10 +710,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -675,7 +722,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -685,7 +734,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -708,15 +779,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "Pa7swvIbg00AZH33",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -736,7 +820,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -749,10 +833,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -762,7 +845,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -772,7 +857,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -795,15 +902,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "PvSBQkaGC5e3XpH1",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -823,7 +943,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -836,10 +956,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -847,7 +966,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -858,10 +980,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -882,15 +1025,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "bZRn4JOIBcHFQRCV",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -910,7 +1066,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -923,10 +1079,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -936,7 +1091,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -946,7 +1103,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -969,15 +1148,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "jEvrK1VfX56tgwPn",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -997,7 +1189,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -1010,10 +1202,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -1023,7 +1214,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1033,7 +1226,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1056,15 +1271,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "XtaDb5g8HNUPJ1yj",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1084,7 +1312,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -1097,10 +1325,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -1108,7 +1335,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1119,10 +1349,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1143,15 +1394,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"_id": "dDsUTfIMVUb8r8IU",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1216,15 +1480,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "u4MkbFn2G8Jxv0ym",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1259,7 +1551,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "ZSxYh9C5FkOh7C2G",
 			"img": "icons/svg/item-bag.svg",
@@ -1268,9 +1570,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1305,7 +1612,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "Nt1Gwa2yR03bJ9rv",
 			"img": "icons/svg/item-bag.svg",
@@ -1314,9 +1631,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1338,7 +1660,8 @@
 						"name": "Multiattack",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {},
@@ -1349,10 +1672,28 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
 						}
 					}
 				},
@@ -1373,7 +1714,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "a8xBfSkACvJk9HJi",
 			"img": "icons/svg/item-bag.svg",
@@ -1382,9 +1733,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1423,26 +1779,53 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
 						"rolls": {
 							"j7IQFdPLo8uVl0Gy": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"tlHdp4Dy9TvnOfJx": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "max(2d6,4) + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -1491,15 +1874,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "CQt7I9cROVzO8vOs",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1521,7 +1932,8 @@
 						"name": "Sunder",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {},
 						"rolls": {
@@ -1530,7 +1942,10 @@
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "none"
+								"ability": "none",
+								"bonus": "",
+								"critThreshold": 20,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1539,8 +1954,11 @@
 								"default": true,
 								"ability": "str",
 								"saveDC": {
-									"type": "maneuver"
-								}
+									"type": "maneuver",
+									"bonus": ""
+								},
+								"onSave": "",
+								"label": ""
 							}
 						},
 						"uses": {
@@ -1549,8 +1967,6 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
 						},
@@ -1561,8 +1977,23 @@
 						},
 						"target": {
 							"type": "object",
-							"quantity": 1
-						}
+							"quantity": 1,
+							"scaling": {}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": ""
 					}
 				},
 				"description": "<p>f the target is a nonmagical weapon or the Hammer of Vengeance it is destroyed. If the target is a magical weapon the wielder makes a DC 13 Strength saving throw or they are disarmed.</p>",
@@ -1582,7 +2013,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "wdsRA2HtqhXnUn9J",
 			"img": "icons/svg/item-bag.svg",
@@ -1591,9 +2032,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1617,7 +2063,7 @@
 					"GfTlpAtnUyY1S9L0": {
 						"name": "Crossbow, Heavy",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -1642,32 +2088,61 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creatureObject"
+							"type": "creatureObject",
+							"scaling": {}
 						},
 						"rolls": {
 							"GyU7GAwsQEJD8IVT": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "rangedWeaponAttack",
-								"ability": "default"
+								"ability": "default",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"FWyIAPUgYs55WOFX": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "1d10 + @dex.mod",
-								"name": "Heavy Crossbow",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"glHpftrkCMz5Csdd": {
-								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "",
+								"deleteOnZero": false,
+								"default": true,
+								"label": ""
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -1718,15 +2193,43 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"folder": null,
 			"_id": "C8cc3L71whxj8xHv",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1748,13 +2251,15 @@
 						"name": "Knightly Inspiration",
 						"activation": {
 							"type": "action",
-							"cost": 1
+							"cost": 1,
+							"reactionTrigger": ""
 						},
 						"consumers": {
 							"wktsaDKjLzd1YBeG": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
 							}
 						},
 						"rolls": {},
@@ -1765,14 +2270,12 @@
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
-								"rechargeType": "custom",
-								"rechargeAmount": "1",
 								"threshold": 6
 							}
 						},
 						"duration": {
 							"unit": "",
-							"value": 1
+							"value": "1"
 						},
 						"ranges": {
 							"dZ4VAlqmZoWCDvrf": {
@@ -1787,7 +2290,21 @@
 						},
 						"effects": [
 							"GcJ7NSV5iKkLGSfY"
-						]
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"target": {
+							"quantity": 1,
+							"scaling": {},
+							"type": ""
+						}
 					}
 				},
 				"description": "<p>he knight inspires creatures of their choice within 30 feet that can hear and understand them. For the next minute, inspired creatures gain an expertise die (1d4) on attack rolls and saving throws . A creature can benefit from only one Knightly Inspiration at a time, and the knight cannot target themselves.</p>",
@@ -1807,13 +2324,22 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "HulFu1uc5ah8w2nu",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [
 				{
-					"icon": "icons/svg/item-bag.svg",
 					"origin": "Actor.RG2MMDrnSmXRbCvH.Item.HulFu1uc5ah8w2nu",
 					"flags": {
 						"a5e": {
@@ -1848,22 +2374,147 @@
 					},
 					"description": "",
 					"statuses": [],
-					"folder": null,
 					"_stats": {
-						"coreVersion": "12",
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.343",
 						"systemId": "a5e",
-						"systemVersion": "0.19.17"
-					}
+						"systemVersion": "1.0.15",
+						"createdTime": null,
+						"modifiedTime": null,
+						"lastModifiedBy": null
+					},
+					"img": "icons/svg/item-bag.svg",
+					"type": "base",
+					"system": {
+						"applyToSelf": false,
+						"effectType": "passive",
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"tint": "#ffffff",
+					"sort": 0,
+					"folder": null
 				}
 			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0.075,
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": [],
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
+			},
+			"folder": null,
+			"_id": "zyM5G5bPY8Jn4GF6",
+			"_stats": {
+				"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.Item.p4oflhbn4o9i2x2k",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": 1767720493728,
+				"modifiedTime": 1767720493728,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -1874,10 +2525,13 @@
 			"filters": {}
 		}
 	},
-	"_id": "dyvqn4k16xi0ntlq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.15",
+		"createdTime": 1767720493667,
+		"modifiedTime": 1767720493667,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dyvqn4k16xi0ntlq"
 }

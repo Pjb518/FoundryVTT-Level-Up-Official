@@ -31,7 +31,7 @@
 					"b4qSixITu85arm4i": {
 						"name": "Metal Detection",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -50,11 +50,32 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The rust monster can smell metal within 60 feet.</p>",
@@ -74,12 +95,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.YZo940kKD522D77o",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -124,12 +160,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.aQURDYZ1qKihT1mx",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -179,8 +230,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"prompts": {
 							"Q8uV97tAVlkkkdSh": {
@@ -190,10 +242,32 @@
 									"type": "maneuver",
 									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The rust monster uses its antennae to corrode a metal object within 20 feet. It can destroy up to a 1-footsquare portion of an unattended object. If the object is worn or carried, the object&rsquo;s owner makes a DC 16 Dexterity&nbsp;saving throw, avoiding the rust monster&rsquo;s antennae on a success.</p><p>Metal shields or armor the rust monster touches with its antennae corrode, taking a permanent &ndash;1 penalty to its AC protection per hit. If the penalty reduces the armor&rsquo;s AC protection to 10, the armor is destroyed. A creature can spend 1 minute polishing or repairing magic armor, removing this penalty. If the rust monster touches a metal weapon, the weapon is subject to Rust Metal.</p>",
@@ -213,12 +287,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.xCRRkWaWso2Bq1aQ",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -268,27 +357,53 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"j5N5jaTRR89ogrH1": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"o8CNAaXQsgCejcs2": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "3d8+@str.mod",
-								"name": "Bite damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p><em>Melee Weapon Attack:&nbsp;</em>+8 to hit, reach 5 ft., one target.&nbsp;<em>Hit:</em>&nbsp;18 (3d8 + 5) piercing damage. If the target is a Large or smaller creature, it is&nbsp;grappled</span>&nbsp;(escape DC 16). Until this grapple ends, the target is&nbsp;<span>restrained&nbsp;and the rust monster can&rsquo;t bite another target.</p>",
@@ -308,12 +423,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.7YWPDIRPtChNaOVM",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -337,7 +467,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"lIR9tJq7cwiEOiH5": {
@@ -350,18 +480,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"zVS0ZrAf57OeGlpc": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -372,10 +504,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -396,15 +549,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "okFsd6SlVPvTLKR3",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -428,7 +594,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"m2V3lLm7gIfU5Dmf": {
@@ -441,18 +607,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"mBEQ5DbzmgBx2uu3": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -463,10 +631,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -487,15 +676,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "otWuQv7zIH2bWPz8",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -519,7 +721,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"HsTpEN31pT6mxs1f": {
@@ -532,10 +734,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"lxVuMPTG3hXxFpNm": {
@@ -545,10 +746,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -569,15 +792,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "FsZbzWUIsj2RVE5Z",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -601,7 +837,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"LoPoyZDYXTED9OFR": {
@@ -614,10 +850,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"iwXivQuFnnlr4T92": {
@@ -627,10 +862,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -651,15 +908,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "e8gW0aphGYkTMg2c",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -683,7 +953,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"niUaDkFrPymP1GCL": {
@@ -696,10 +966,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"9inZUD7gXCSs3LcQ": {
@@ -709,10 +978,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -733,15 +1024,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "eQ2F0HmFGM1JHnHP",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -765,7 +1069,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"TGSn0EnzkV32Eq27": {
@@ -778,10 +1082,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"tKZdU7nYCtMXYQU6": {
@@ -791,10 +1094,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -815,15 +1140,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "viaCD1hkRUbnWegI",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -843,7 +1181,11 @@
 				"actions": {
 					"lQsJpgyqqYhcaxJ2": {
 						"name": "Draining Aura",
-						"activation": {},
+						"activation": {
+							"cost": 1,
+							"type": "",
+							"reactionTrigger": ""
+						},
 						"consumers": {},
 						"rolls": {
 							"SlKifojC54MtGgCl": {
@@ -851,7 +1193,10 @@
 								"default": true,
 								"damageType": "force",
 								"formula": "4d6",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"scaling": {},
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -860,9 +1205,11 @@
 								"default": true,
 								"ability": "con",
 								"saveDC": {
-									"type": "maneuver"
+									"type": "maneuver",
+									"bonus": ""
 								},
-								"onSave": "not taking damage and no hit point reduction"
+								"onSave": "not taking damage and no hit point reduction",
+								"label": ""
 							}
 						},
 						"uses": {
@@ -882,8 +1229,24 @@
 						},
 						"target": {
 							"type": "creature",
-							"quantity": 1
-						}
+							"quantity": 1,
+							"scaling": {}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"duration": {
+							"unit": "",
+							"value": "0"
+						},
+						"effects": [],
+						"macro": "",
+						"ranges": {}
 					}
 				},
 				"description": "<p>When a living creature starts its turn within 20 feet of the rust monster or enters the area for the first time on a turn, it must succeed on a DC 16 Constitution&nbsp;saving throw</span> or take 14 (4d6) force damage as its blood is sucked from its pores by the rust monster&rsquo;s feathery antennae. The creature&rsquo;s hit point maximum is reduced by an amount equal to the force damage taken, and it has disadvantage</span>&nbsp;on&nbsp;attack rolls</span>&nbsp;and&nbsp;<span>ability checks&nbsp;until the start of its next turn. The reduction lasts until the creature finishes a&nbsp;<span>long rest&nbsp;or is targeted by a<em>&nbsp;<span>greater restoration&nbsp;</em>spell. The target dies if its hit point maximum is reduced to 0.</p>",
@@ -903,7 +1266,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "461yvrHC3uJB1FXu",
 			"img": "icons/svg/item-bag.svg",
@@ -912,9 +1285,14 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -955,12 +1333,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
@@ -1269,6 +1662,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -1321,7 +1725,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -1396,7 +1801,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -1405,11 +1810,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				}
 			},
@@ -1417,7 +1822,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -1442,7 +1849,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2><strong>COMBAT</strong></h2><p>The rust monster attacks the creature carrying the most metal; once all metal is gone, it targets the closest creature. It flees if it is bloodied and it detects no iron or steel items within 60 feet.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Rust monsters are insect-like creatures that live underground and eat metal.</p><p><strong>DC 15</strong> A rust monster&rsquo;s feathery antennae corrode any metal they touch.</p><p><strong>DC 20</strong> Rust monsters can corrode any type of metal, including mithral and adamantine, but not gold.</p><p><strong>DESCRIPTION</strong></p><p>Veteran dungeon delvers often regard rust monsters as pests but rarely as threats in their own right. Some rust monsters, though, have been transformed into fearsome predators by magic run amok. With coiled antennae that extend to astonishing distances, these rust monsters seek not only to consume an adventurer&rsquo;s weapons, but also the iron in their blood.</p><p><strong>BEHAVIOR</strong></p><p>1&ndash;3 Hungry and aggressive; charges the nearest source of metal</p><p>4 Peckish; approaches cautiously but flees if it is met with hostility</p><p>5 Happily devouring a bulky metal object such as a metal door, giant cauldron, or suit of full plate mail; ignores other metal sources for the next minute</p><p>6 Eating treasure, such as silver coins</p><p><strong>SIGNS</strong></p><p>1 Mounds of rust flakes</p><p>2 A wooden pickaxe handle</p><p>3 A wooden door lying on the ground, its handle and hinges gone</p><p>4 Scattered arrows missing their arrowheads</p><p><strong>ENCOUNTERS</strong></p><p>Rust monsters gravitate to strongholds and other places where worked iron is plentiful, but they can also be found in mines.</p><p><strong>CR&nbsp;</strong>5&ndash;10&nbsp;mutant rust monster</span></p><p><strong>CR&nbsp;</strong>11&ndash;16 2&nbsp;mutant rust monsters&nbsp;;&nbsp;<span>supermutant rust monster</p><p><strong>Treasure&nbsp;</strong>golden sword pommel decorated with gems but missing its blade (2,500 gp)</p><p><strong>MONSTER TYPE DESCRIPTION</strong></p><p>Monstrosities are magical beings usually native to the Material Plane. Some monstrosities combine the features of beasts and humanoids, like centaurs. Others have bizarre or unnatural appearances, like many-tentacled ropers. Monstrosities could only arise in a world suffused with magic.</p>",
@@ -1450,7 +1858,7 @@
 				"monstrosity"
 			],
 			"isSwarm": false,
-			"cr": 8,
+			"cr": 12,
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
@@ -1464,7 +1872,8 @@
 			"armor": [],
 			"languages": [],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -1542,6 +1951,13 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
@@ -1574,7 +1990,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -1593,11 +2011,15 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1608,13 +2030,32 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "xxdv5o8c1bp32z7k",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721237162,
+		"modifiedTime": 1767721240826,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xxdv5o8c1bp32z7k"
 }

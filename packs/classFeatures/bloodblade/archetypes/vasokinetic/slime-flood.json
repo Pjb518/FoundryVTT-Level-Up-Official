@@ -1,0 +1,401 @@
+{
+	"folder": null,
+	"name": "Slime Flood",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-movement-splashing-yellow.webp",
+	"system": {
+		"description": "<p>At 14th level, your body is so amorphous that you gain absolute protection against mundane attacks that would do you harm. You are immune to the damage type associated with your current Sanguine Transference during your @UUID[Compendium.a5e.a5e-class-features.Item.Zy5SjEocWsJaxdiy]{Blood Frenzy}.</p><p>Additionally, the humours that course through you can barely be contained, but you have learned to use this to hinder your foes, and even help your allies (as long as they aren’t over-squeamish). You can cast the spell @UUID[Compendium.a5e.a5e-spells.Item.ue5kubb8gpr9emtk]{Sticky Situation} without needing any components. This version of the spell does not require concentration, lasts for 1 minute, and you can end the effect with a Free Action. Intelligence is your casting modifier for this spell. You can do this once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"nPMpmG8FKL2lKUkc": {
+				"name": "Sticky Situation",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"3wkX8RQIwrSSpcxI": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ftVlUhXArQqKd1Zx": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"onSave": "Not knocked prone",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"MebAO16fcYZhRR7A": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 50
+				},
+				"effects": [
+					"IWU71Y9TtJJLWlcN"
+				],
+				"id": "nPMpmG8FKL2lKUkc",
+				"default": false,
+				"description": "<p id=\"docs-internal-guid-c5eede6d-7fff-4fb5-58d7-c756c32af8d8\" dir=\"ltr\">You magically flood the area with honey, jam, or some other sticky substance. For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p><p dir=\"ltr\">Creatures that succeed on their Strength saving throw still have whatever limbs that came into contact with the sticky surface covered in the substance. On their turn they may make an Athletics check to adhere themselves to vertical surfaces and climb them, as per the spider climb spell. This effect lasts so long as you are able to maintain concentration. If a creature is adhered to a surface when the spell ends, they immediately fall.</p>",
+				"descriptionOutputs": [
+					"item"
+				],
+				"img": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"bZsKaGLnEgCtpTUC": {
+				"name": "Slime Flood",
+				"consumers": {
+					"sHSeNlzSpRtVIjkU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "bZsKaGLnEgCtpTUC",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/slimes/slime-movement-splashing-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"Eo8QPy7nDBp3Nq8m",
+					"HaRBV7O1pTY6pphu",
+					"A1Ollb4zg9ppVoRH"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.uMtb3WkmGpoivzn8",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Prone and Restrained",
+			"_id": "IWU71Y9TtJJLWlcN",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\",\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p id=\"docs-internal-guid-78bec502-7fff-0f7a-4ff2-528ad6d0086c\" dir=\"ltr\">For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p>",
+			"statuses": [
+				"prone",
+				"restrained"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725377358,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uMtb3WkmGpoivzn8",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slime Flood (Bludgeoning)",
+			"img": "icons/creatures/slimes/slime-movement-splashing-yellow.webp",
+			"_id": "Eo8QPy7nDBp3Nq8m",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"bludgeoning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725377358,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.uMtb3WkmGpoivzn8",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slime Flood (Piercing)",
+			"img": "icons/creatures/slimes/slime-movement-splashing-yellow.webp",
+			"_id": "HaRBV7O1pTY6pphu",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"piercing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725377358,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.uMtb3WkmGpoivzn8",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slime Flood (Slashing)",
+			"img": "icons/creatures/slimes/slime-movement-splashing-yellow.webp",
+			"_id": "A1Ollb4zg9ppVoRH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725377358,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767725377288,
+		"modifiedTime": 1767725394228,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "b5mWUq57RxzFzC1h"
+}

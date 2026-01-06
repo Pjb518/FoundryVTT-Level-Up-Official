@@ -1,0 +1,799 @@
+{
+	"folder": null,
+	"name": "The Cytokine Storm",
+	"type": "feature",
+	"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+	"system": {
+		"description": "<p>At 18th level, your immune system and the various oozes you use for treatment have transformed you into a fearsome creature. Are you healthy? No, not really. But now, neither are your enemies. You gain the following benefits:</p><ul><li><p><strong>Share a Taste of the Suffering.</strong> You may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.vms65nmhqqgu9b2w]{Contagion}. Intelligence is your spellcasting modifier for this spell. You can cast the spell this way a number of times equal to your Constitution modifier (minimum of 1) per long rest.</p></li><li><p><strong>Illness Incarnate.</strong> You automatically know if someone has an illness, how contagious it is, and their prognosis without treatment.</p></li><li><p><strong>Infusion Blitz.</strong> If a creature currently without immunity to poison damage successfully hits you with an Attack of Opportunity, that creature becomes vulnerable to any poison damage until the end of your next turn.</p></li><li><p><strong>Treatment Mastery.</strong> When targeted by a healing effect, consuming a health potion, or any similar effect, you may choose to spend a hit die to gain all of the effects of @UUID[Compendium.a5e.a5e-class-features.Item.zLsrSxTWcJE4DGM8]{Glutton for the Healing Arts} and to receive the full amount of healing (as per the healing roll).</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"yYV58fCJhV2OxnWi": {
+				"name": "Contagion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "day",
+					"value": "7"
+				},
+				"ranges": {
+					"XTu9igy2yQlsplRX": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {}
+				},
+				"rolls": {
+					"ZpJiUgX46PBTtSIv": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeSpellAttack",
+						"ability": "int",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"bIcNMfQ0wqmqkpy7": {
+						"ability": "con",
+						"onSave": "",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"gTvym5ea5pWZyK45": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"effects": [
+					"YLnb8do1xw7FkkAs",
+					"9UwAWAhub1023jU1",
+					"UpclK1DPPaUwPYdE",
+					"IQw8tDw13pBFyfEG",
+					"j6yQ0zvBXVb5Qmdp",
+					"rx17WCBD1exAj7B1"
+				],
+				"id": "yYV58fCJhV2OxnWi",
+				"default": false,
+				"description": "<p>Your touch inflicts a hideous disease. Make a melee spell attack. On a hit, you afflict the target with a disease chosen from the list below.</p><p>The target must make a Constitution saving throw at the end of each of its turns. After three failed saves, the disease lasts for the duration and the creature stops making saves, or after three successful saves, the creature recovers and the spell ends. A greater restoration spell or similar effect also ends the disease.</p><ul><li><p><strong>Blinding Sickness:</strong> The target's eyes turn milky white. It is blinded and has disadvantage on Wisdom checks and saving throws.</p></li><li><p><strong>Filth Fever:</strong> The target is wracked by fever. It has disadvantage when using Strength for an ability check, attack roll, or saving throw.</p></li><li><p><strong>Flesh Rot:</strong> The target's flesh rots. It has disadvantage on Charisma ability checks and becomes vulnerable to all damage.</p></li><li><p><strong>Mindfire:</strong> The target hallucinates. During combat it is confused, and it has disadvantage when using Intelligence for an ability check or saving throw.</p></li><li><p><strong>Rattling Cough:</strong> The target becomes discombobulated as it hacks with body-wracking coughs. It is rattled and has disadvantage when using Dexterity for an ability check, attack roll, or saving throw.</p></li><li><p><strong>Slimy Doom:</strong> The target bleeds uncontrollably. It has disadvantage when using Constitution for an ability check or saving throw. Whenever it takes damage, the target is stunned until the end of its next turn.</p></li></ul>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "max(1, @con.mod)",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"6qeKvYLMIPzYxtPo": {
+				"name": "Infusion Blitz",
+				"consumers": {},
+				"id": "6qeKvYLMIPzYxtPo",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"UqfL2itJ6nNj6JT3"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"XRwjdj52yDucjOlV": {
+				"name": "Treatment Mastery",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"Y75YZ3fNo58IsG0H"
+				],
+				"macro": "",
+				"consumers": {
+					"zkFQvrkUJ2sbfVxK": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"prhGUS92f5nSHyR7": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": -2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinding Sickness",
+			"_id": "YLnb8do1xw7FkkAs",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target's eyes turn milky white. It is blinded and has disadvantage on Wisdom checks and saving throws.</p>",
+			"statuses": [
+				"blinded"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Filth Fever",
+			"_id": "9UwAWAhub1023jU1",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is wracked by fever. It has disadvantage when using Strength for an ability check, attack roll, or saving throw.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flesh Rot",
+			"_id": "UpclK1DPPaUwPYdE",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.damageVulnerabilities.all",
+					"value": "",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target's flesh rots. It has disadvantage on Charisma ability checks and becomes vulnerable to all damage.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mindfire",
+			"_id": "IQw8tDw13pBFyfEG",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target hallucinates. During combat it is confused, and it has disadvantage when using Intelligence for an ability check or saving throw.</p>",
+			"statuses": [
+				"confused"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattling Cough",
+			"_id": "j6yQ0zvBXVb5Qmdp",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target becomes discombobulated as it hacks with body-wracking coughs. It is rattled and has disadvantage when using Dexterity for an ability check, attack roll, or saving throw.</p>",
+			"statuses": [
+				"rattled"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slimy Doom",
+			"_id": "rx17WCBD1exAj7B1",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target bleeds uncontrollably. It has disadvantage when using Constitution for an ability check or saving throw. Whenever it takes damage, the target is stunned until the end of its next turn.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Infusion Blitz",
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"_id": "UqfL2itJ6nNj6JT3",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"value": "[\"poison\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Vulnerable to any poison damage until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.uniBIZYKwESmgYby",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Treatment Mastery",
+			"img": "icons/magic/unholy/projectile-smoke-tendril-green.webp",
+			"_id": "Y75YZ3fNo58IsG0H",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>you gain a +1 bonus to your AC</p></li><li><p>you gain an expertise die on on Strength and Intelligence saving throws</p></li><li><p>gain 2 temporary points of exertion (which can be used just like any exertion points)</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767724875862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767724875811,
+		"modifiedTime": 1767724895027,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ITmQZs5kRR0RO2zl"
+}

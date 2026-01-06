@@ -1,0 +1,138 @@
+{
+	"folder": null,
+	"name": "Dissolving Rush",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-face-melting-green.webp",
+	"system": {
+		"description": "<p>At 6th level, the corrosive humours that course through your veins have made you acidic; you’ve even become accustomed to the acrid fumes and chemically burned clothes. You gain resistance to acid damage.</p><p>When you are hit with a melee weapon attack, you can use your Reaction to dissolve into a pool of slime and move in a straight line into an unoccupied square up to 30 ft away that you can see. You are fully formed and fully equipped when you complete your movement. Moving in this slime form does not trigger attacks of opportunity. The corrosive ichor that you leave behind causes the ground to become difficult terrain for 1 minute, as other combatants find it difficult to maintain footing on the dissolving surface. You can use this ability a number of times equal to your Intelligence modifier (minimum of 1) per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"qhZEpBlcforWZdHn": {
+				"name": "Dissolving Rush",
+				"consumers": {
+					"5bGKNEyTu49wSIWi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Hit with a melee weapon attack",
+					"cost": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"1rINRsH2xjf1lN7e": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "line",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 30,
+					"width": 5
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "max(1, @int.mod)",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ZL723JFOU4aOQOvZ": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ZL723JFOU4aOQOvZ",
+				"label": "Dissolving Rush",
+				"traits": {
+					"base": [
+						"acid"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721794913,
+		"modifiedTime": 1767721794913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ctQ7Ktp1vN6h0wB6"
+}
