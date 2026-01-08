@@ -73,6 +73,11 @@ export default function registerPremiumContentConfig() {
 					title: 'Advanced Artificers',
 					url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381',
 				},
+        {
+					title: 'Wielder',
+					url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
+
+				},
 			],
 		},
 		plantWitchPress: {
@@ -869,6 +874,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: "Voidrunner's Codex",
 			url: '',
+		},
+    wielder: {
+			abbreviation: 'W',
+			affiliate: true,
+			publisher: 'loottheboss',
+			systems: ['a5e'],
+			title: "Wielder",
+			url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
 		},
 	};
 
