@@ -280,6 +280,7 @@
                         selected={clsReturnData.archetype || ""}
                         onUpdateSelection={(detail) =>
                             (clsReturnData.archetype = detail)}
+                        onTagToggleAux={openDocument}
                     />
                 </Section>
             {/if}
@@ -297,7 +298,6 @@
                         selectedOptionalGrants = detail;
                         updateActiveGrants();
                     }}
-                    onTagToggleAux={openDocument}
                 />
             </Section>
         {/if}
