@@ -157,6 +157,11 @@
         return options;
     }
 
+    async function openDocument(uuid: string) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
+    }
+
     function showSpellAbilitySelection() {
         if (
             clsLevel === 1 &&
@@ -292,6 +297,7 @@
                         selectedOptionalGrants = detail;
                         updateActiveGrants();
                     }}
+                    onTagToggleAux={openDocument}
                 />
             </Section>
         {/if}

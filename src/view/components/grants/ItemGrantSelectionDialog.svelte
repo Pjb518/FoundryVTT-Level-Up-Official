@@ -26,6 +26,11 @@
         updateSelectionFunc?.({ uuids: selected, summary });
     }
 
+    async function openDocument(uuid: string) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
+    }
+
     let {
         grant,
         base,
@@ -68,6 +73,7 @@
             orange={choices}
             disabled={selected.length >= totalCount}
             {onUpdateSelection}
+            onTagToggleAux={openDocument}
         />
     </FieldWrapper>
 
