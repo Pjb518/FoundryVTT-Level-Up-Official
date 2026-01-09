@@ -1,0 +1,220 @@
+{
+	"name": "Dream Powder",
+	"type": "object",
+	"img": "icons/consumables/food/salt-seasoning-spice-pink.webp",
+	"system": {
+		"description": "<p>As an action, a creature can throw the powder at a creature within 10 feet. Unless the target doesn’t need to breathe, it must succeed on a DC 12 Constitution saving throw or be poisoned for 1 hour. While poisoned in this way, the creature is unconscious.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dungeonDelversGuide",
+		"actions": {
+			"d6MgmwiDNBr8jTEE": {
+				"name": "Dream Powder",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"nRRKm9H40Y5vMAT4"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"ysS8wbHN4lZneT6j": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"CTqHjx44dEWWnMko": {
+						"range": 10,
+						"unit": "feet"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "Remains of a dreamer’s morel",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"origin": "Item.vq9yAxIAQtCf9mjF",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Poisoned",
+			"img": "icons/consumables/food/salt-seasoning-spice-pink.webp",
+			"_id": "nRRKm9H40Y5vMAT4",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A poisoned creature has disadvantage on attack rolls and ability checks.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned",
+				"unconscious"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.16",
+				"createdTime": 1767975136641,
+				"modifiedTime": 1767975174713,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.16",
+		"createdTime": 1767974960659,
+		"modifiedTime": 1767975178449,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1rKQS0ne43hgrlRD"
+}
