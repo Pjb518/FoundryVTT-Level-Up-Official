@@ -50,15 +50,16 @@
     let { messageDocument }: Props = $props();
 
     const message = messageDocument;
-    const { system } = message;
+    const { system, speaker } = message;
 
-    const { actorName, img } = system;
+    const { img } = system;
+    const tokenName = speaker?.alias || system.actorName;
     const rolls = prepareRolls(message);
 
     setContext("message", message);
 </script>
 
-<RollCardHeader {actorName} {img} onRepeatCard={repeatRoll} />
+<RollCardHeader actorName={tokenName} {img} onRepeatCard={repeatRoll} />
 
 <article class="a5e-chat-card__body">
     <section class="rolls">
@@ -67,8 +68,7 @@
                 {roll}
                 {rollData}
                 onToggleRollMode={(detail) => _toggleRollMode(i, detail)}
-                onToggleExpertiseDice={(detail) =>
-                    _toggleExpertiseDice(i, detail)}
+                onToggleExpertiseDice={(detail) => _toggleExpertiseDice(i, detail)}
             />
         {/each}
     </section>

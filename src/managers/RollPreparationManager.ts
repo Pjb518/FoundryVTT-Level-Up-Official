@@ -155,7 +155,7 @@ class RollPreparationManager {
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? ""]);
     const roll = await new Roll(rollFormula).evaluate();
-    const label = localize("A5E.AbilityCheckSpecific", { ability });
+    const label = localize("A5E.abilities.headings.checkSpecific", { ability });
 
     return {
       expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
@@ -403,7 +403,7 @@ class RollPreparationManager {
       label = localize("A5E.ConcentrationCheck");
     else if (_roll.saveType === "death")
       label = localize("A5E.DeathSavingThrow");
-    else label = localize("A5E.SavingThrowSpecific", { ability });
+    else label = localize("A5E.rollLabels.prompts.savingThrow", { ability });
 
     return {
       expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,

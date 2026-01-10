@@ -9,7 +9,7 @@ export default function getCheckLabel(messageData) {
 
   switch (messageData.cardType) {
     case "abilityCheck":
-      return localize("A5E.AbilityCheckSpecific", { ability });
+      return localize("A5E.abilities.headings.checkSpecific", { ability });
     case "hitDice":
       return messageData.title;
     case "savingThrow":
@@ -19,7 +19,7 @@ export default function getCheckLabel(messageData) {
         case "death":
           return localize("A5E.DeathSavingThrow");
         default:
-          return localize("A5E.SavingThrowSpecific", { ability });
+          return localize("A5E.rollLabels.prompts.savingThrow", { ability });
       }
     case "skillCheck":
       return ability
