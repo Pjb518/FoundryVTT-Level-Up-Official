@@ -181,6 +181,11 @@ export default function registerModuleIncompatibilities() {
 					'The content from this module is included in the core system packs, and the module is no longer necessary.',
 				priority: 'low',
 			},
+      'a5e-wielder': {
+				reason:
+					'The content from this module is included in the core system packs, and the module is no longer necessary.',
+				priority: 'low',
+			},
 			dae: {
 				reason:
 					"All of DAE's features are already part of the A5e system's Active Effects implementation. Using DAE will give you a worse experience than having it turned off.",

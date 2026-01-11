@@ -49,15 +49,16 @@
     }
 
     const message = new TJSDocument(messageDocument);
-    const { system } = $message;
+    const { system, speaker } = $message;
 
-    const { actorName, img } = system;
+    const { img } = system;
+    const tokenName = speaker?.alias || system.actorName;
     const rolls = prepareRolls($message);
 
     setContext("message", message);
 </script>
 
-<RollCardHeader {actorName} {img} messageDocument={$message} on:repeatCard={repeatRoll} />
+<RollCardHeader actorName={tokenName} {img} messageDocument={$message} on:repeatCard={repeatRoll} />
 
 <article class="a5e-chat-card__body">
     <section class="rolls">
