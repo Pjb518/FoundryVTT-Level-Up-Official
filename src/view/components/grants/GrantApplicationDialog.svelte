@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { localize } from "#utils/localization/localize.ts";
     import type { Grant } from "#types/itemGrants.d.ts";
 
     import { getContext, setContext } from "svelte";
@@ -61,10 +62,7 @@
         });
 
         // // Update active grants
-        activeGrants = new SvelteSet<string>([
-            ...updatedList,
-            ...selectedOptionalGrants,
-        ]);
+        activeGrants = new SvelteSet<string>([...updatedList, ...selectedOptionalGrants]);
 
         // // Update grants
         grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
@@ -88,8 +86,7 @@
             const { grantedBy } = grant;
             if (grantedBy?.id && !activeGrants.has(grantedBy.id)) return;
 
-            const uuids: string[] =
-                applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
             const hasSelectionId = grantedBy?.selectionId
                 ? uuids.includes(grantedBy.selectionId)
                 : true;
@@ -111,8 +108,7 @@
                 return;
             }
 
-            const uuids: string[] =
-                applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
             const hasSelectionId = grantedBy?.selectionId
                 ? uuids.includes(grantedBy.selectionId)
                 : true;
@@ -163,10 +159,7 @@
     }
 
     function showSpellAbilitySelection() {
-        if (
-            clsLevel === 1 &&
-            cls?.system?.spellcasting?.ability?.options.length
-        ) {
+        if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
             return true;
         }
 
@@ -187,15 +180,17 @@
 
     function getSpellCastingOptions(): string[][] {
         if (clsLevel === 1) {
-            return cls?.system?.spellcasting?.ability?.options?.map(
-                (option: string) => [option, CONFIG.A5E.abilities[option]],
-            );
+            return cls?.system?.spellcasting?.ability?.options?.map((option: string) => [
+                option,
+                CONFIG.A5E.abilities[option],
+            ]);
         }
 
         if (item?.type !== "archetype") return [];
-        return item?.system?.spellcasting?.ability?.options?.map(
-            (option: string) => [option, CONFIG.A5E.abilities[option]],
-        );
+        return item?.system?.spellcasting?.ability?.options?.map((option: string) => [
+            option,
+            CONFIG.A5E.abilities[option],
+        ]);
     }
 
     function onSubmit() {
@@ -223,9 +218,7 @@
         clsLevel,
     }: Props = $props();
 
-    let activeGrants: Set<string> = $state(
-        new SvelteSet(getStartingSelectedGrants()),
-    );
+    let activeGrants: Set<string> = $state(new SvelteSet(getStartingSelectedGrants()));
     let selectedOptionalGrants: string[] = $state([]);
     let clsReturnData: Record<string, any> = $state({});
     let spellcastingAbility: string = $state(getSpellCastingAbility());
@@ -235,12 +228,8 @@
     // let applyData = $state(new Map<string, any>());
     let applyData = $state(new SvelteMap<string, any>());
     let optionalGrants = $state(getStartingOptionalGrants());
-    let grants = $state(
-        getApplicableGrants(activeGrants, selectedOptionalGrants),
-    );
-    let configurableGrants = $derived(
-        grants.filter((grant) => grant.requiresConfig),
-    );
+    let grants = $state(getApplicableGrants(activeGrants, selectedOptionalGrants));
+    let configurableGrants = $derived(grants.filter((grant) => grant.requiresConfig));
 
     let spellCastingOptions = $derived(getSpellCastingOptions());
 
@@ -253,11 +242,7 @@
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
             {#if clsLevel > 1 && item?.type === "class"}
-                <ClassHitPointsSelection
-                    {cls}
-                    classLevel={clsLevel}
-                    bind:clsReturnData
-                />
+                <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
             {#if showSpellAbilitySelection()}
@@ -266,8 +251,7 @@
                         options={spellCastingOptions}
                         allowDeselect={false}
                         selected={spellcastingAbility || ""}
-                        onUpdateSelection={(detail) =>
-                            (spellcastingAbility = detail)}
+                        onUpdateSelection={(detail) => (spellcastingAbility = detail)}
                     />
                 </Section>
             {/if}
@@ -278,8 +262,7 @@
                         options={archetypeChoices}
                         allowDeselect={false}
                         selected={clsReturnData.archetype || ""}
-                        onUpdateSelection={(detail) =>
-                            (clsReturnData.archetype = detail)}
+                        onUpdateSelection={(detail) => (clsReturnData.archetype = detail)}
                         onTagToggleAux={openDocument}
                     />
                 </Section>
@@ -289,10 +272,7 @@
         {#if optionalGrants.length}
             <Section heading="Optional Grants Selection">
                 <CheckboxGroup
-                    options={optionalGrants.map((grant) => [
-                        grant._id,
-                        grant.label,
-                    ])}
+                    options={optionalGrants.map((grant) => [grant._id, grant.label])}
                     selected={selectedOptionalGrants}
                     onUpdateSelection={(detail) => {
                         selectedOptionalGrants = detail;
@@ -332,6 +312,11 @@
                 {/each}
             </ul>
         </Section> -->
+
+        <small class="a5e-field-wrapper__hint">
+            <i class="icon fa-solid fa-circle-info"> </i>
+            {localize("A5E.HintGrants")}
+        </small>
 
         <button
             onclick={(e) => {
