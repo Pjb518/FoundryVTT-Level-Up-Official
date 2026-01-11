@@ -17,6 +17,7 @@
         warning?: string;
 
         onUpdateSelection?: (value: string) => void;
+        onTagToggleAux?: (value: string) => void;
     };
 
     let {
@@ -33,6 +34,7 @@
         tooltipData = {},
         warning = "",
         onUpdateSelection = () => {},
+        onTagToggleAux = () => {},
     }: Props = $props();
 
     function updateSelection(value: string) {
@@ -57,14 +59,14 @@
     <ul class="radio-group {listClasses}">
         {#each options as [value, label]}
             <Tag
-                active={selected === value ||
-                    selected?.toString() === value?.toString()}
+                active={selected === value || selected?.toString() === value?.toString()}
                 {label}
                 {optionStyles}
                 {value}
                 disabled={disabled.includes(value)}
                 tooltipText={tooltipData?.[value] ?? ""}
                 onTagToggle={(value) => updateSelection(value)}
+                {onTagToggleAux}
             />
         {/each}
     </ul>
