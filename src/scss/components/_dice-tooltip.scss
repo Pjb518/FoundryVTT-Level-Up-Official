@@ -1,5 +1,11 @@
 .a5e-dice-tooltip {
-  display: none;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid var(--a5e-dice-tooltip-border-color);
+  }
 
   &__formula {
     display: flex;
@@ -7,7 +13,6 @@
     flex-grow: 1;
     gap: 0.5ch;
     height: 1.5rem;
-    border-bottom: 1px solid var(--a5e-dice-tooltip-border-color);
   }
 
   &__flavor {
@@ -16,8 +21,23 @@
     color: var(--a5e-color-text-medium);
   }
 
+  &__results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.25rem;
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+
+    li {
+      flex-shrink: 0;
+    }
+  }
+
   &__total {
     display: flex;
+    flex-shrink: 0;
     min-width: 1.5rem;
     height: 1.5rem;
     align-items: center;

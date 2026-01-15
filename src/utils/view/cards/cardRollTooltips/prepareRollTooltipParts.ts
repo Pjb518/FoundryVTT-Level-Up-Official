@@ -3,7 +3,7 @@ import { prepareRollTooltipDiceResults } from "./prepareRollTooltipDiceResults.t
 export function prepareRollTooltipRollParts(roll, rollData) {
   return roll.dice.reduce((acc, part) => {
     let newPart = `<section class="u-mb-md">
-          <header class="a5e-dice-tooltip__header u-flex u-justify-space-between u-text-bold">
+          <header class="a5e-dice-tooltip__header">
               <div class="a5e-dice-tooltip__formula">
                   ${part.expression}
                   <span class="a5e-dice-tooltip__flavor">`;
@@ -14,7 +14,7 @@ export function prepareRollTooltipRollParts(roll, rollData) {
               <span class="a5e-dice-tooltip__total">${part.total}</span>
           </header>
 
-      <ol class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0">`;
+      <ol class="a5e-dice-tooltip__results">`;
 
     newPart += prepareRollTooltipDiceResults(part, rollData);
     newPart += "</ol></section>";
