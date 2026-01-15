@@ -1,0 +1,51 @@
+.a5e-dice-tooltip {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid var(--a5e-dice-tooltip-border-color);
+  }
+
+  &__formula {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    gap: 0.5ch;
+    height: 1.5rem;
+  }
+
+  &__flavor {
+    font-size: var(--a5e-text-size-sm);
+    font-weight: normal;
+    color: var(--a5e-color-text-medium);
+  }
+
+  &__results {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.25rem;
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+
+    li {
+      flex-shrink: 0;
+    }
+  }
+
+  &__total {
+    display: flex;
+    flex-shrink: 0;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.25rem;
+    border: 1px solid var(--a5e-dice-tooltip-border-color);
+    background: var(--a5e-dice-tooltip-total-background);
+    border-top-left-radius: var(--a5e-border-radius-standard);
+    border-top-right-radius: var(--a5e-border-radius-standard);
+  }
+}
