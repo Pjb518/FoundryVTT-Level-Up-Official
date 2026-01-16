@@ -1,13 +1,13 @@
 <script>
     import { getContext } from "svelte";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import handleDeterministicInput from "../../utils/handleDeterministicInput";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+    import handleDeterministicInput from "#utils/handleDeterministicInput.ts";
 
     export let document;
     export let source;
