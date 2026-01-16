@@ -15,9 +15,9 @@
     const { favorites } = actor;
 
     // Use $derived to reactively update based on actor state
-    const actorResources = $derived(actor.system.resources);
-    const flags = $derived(actor.flags);
-    const favoritesList = $derived($favorites ?? []);
+    let actorResources = $derived(actor.reactive.system.resources);
+    let flags = $derived(actor.reactive.flags);
+    let favoritesList = $derived($favorites ?? []);
 
     let showQuantity = $derived(quantityRequired(favoritesList));
     let showUses = $derived(usesRequired(favoritesList));

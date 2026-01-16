@@ -90,7 +90,7 @@
     let isClassResource = $derived(!genericResources.includes(source));
     let max = $derived(getDeterministicBonus(resource.max, actor.getRollData()));
     let sheetIsLocked = $derived(
-        !actor.isOwner ? true : (actor.flags?.a5e?.sheetIsLocked ?? true),
+        !actor.isOwner ? true : (actor.reactive.flags?.a5e?.sheetIsLocked ?? true),
     );
     let showRechargeButton = $derived(canRecharge(sheetIsLocked));
     let showResource = $derived(determineResourceVisibility(sheetIsLocked));

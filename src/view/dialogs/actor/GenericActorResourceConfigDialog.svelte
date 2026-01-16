@@ -9,13 +9,12 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
     import handleDeterministicInput from "#utils/handleDeterministicInput.ts";
 
-    export let document;
-    export let source;
+    let { document, source } = $props();
 
     const actor = document;
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
 
-    $: resource = $actor.system.resources[source];
+    const resource = $derived(actor.system.resources[source]);
 </script>
 
 <Section
@@ -28,9 +27,9 @@
             class="a5e-input"
             type="text"
             value={resource.label}
-            on:change={({ target }) =>
+            onchange={({ target }) =>
                 updateDocumentDataFromField(
-                    $actor,
+                    actor,
                     `system.resources.${source}.label`,
                     target.value,
                 )}
@@ -43,10 +42,10 @@
                 class="a5e-input"
                 type="text"
                 value={resource.max}
-                on:change={({ target }) => {
+                onchange={({ target }) => {
                     handleDeterministicInput(target.value);
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.max`,
                         target.value,
                     );
@@ -56,12 +55,12 @@
     {/if}
 
     <FieldWrapper>
-        <Checkbox
+        <CheckboxGroup
             label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
-            on:updateSelection={({ detail }) => {
+            onupdateSelection={({ detail }) => {
                 updateDocumentDataFromField(
-                    $actor,
+                    actor,
                     `system.resources.${source}.hideMax`,
                     detail,
                 );
@@ -79,9 +78,9 @@
         heading="A5E.consumers.recoverResourceAt"
         options={recoveryOptions}
         selected={resource.per}
-        on:updateSelection={(event) =>
+        onupdateSelection={(event) =>
             updateDocumentDataFromField(
-                $actor,
+                actor,
                 `system.resources.${source}.per`,
                 event.detail,
             )}
@@ -94,10 +93,10 @@
                 type="text"
                 value={resource.recharge.formula}
                 placeholder="1d6"
-                on:change={({ target }) => {
+                onchange={({ target }) => {
                     handleDeterministicInput(target.value);
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.recharge.formula`,
                         target.value,
                     );
@@ -110,9 +109,9 @@
                 class="a5e-input u-text-center"
                 type="number"
                 value={resource.recharge.threshold}
-                on:change={({ target }) =>
+                onchange={({ target }) =>
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.recharge.threshold`,
                         Number(target.value),
                     )}
