@@ -14,7 +14,15 @@
     const actor = document;
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
 
-    const resource = $derived(actor.system.resources[source]);
+    const resource = $derived(actor.reactive.system.resources[source]);
+
+    function handleRecoverySelection(value) {
+        updateDocumentDataFromField(actor, `system.resources.${source}.per`, value);
+    }
+
+    function handleHideMaxSelection(value) {
+        updateDocumentDataFromField(actor, `system.resources.${source}.hideMax`, value);
+    }
 </script>
 
 <Section
@@ -58,13 +66,7 @@
         <CheckboxGroup
             label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
-            onupdateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    actor,
-                    `system.resources.${source}.hideMax`,
-                    detail,
-                );
-            }}
+            onUpdateSelection={handleHideMaxSelection}
         />
     </FieldWrapper>
 </Section>
@@ -78,12 +80,7 @@
         heading="A5E.consumers.recoverResourceAt"
         options={recoveryOptions}
         selected={resource.per}
-        onupdateSelection={(event) =>
-            updateDocumentDataFromField(
-                actor,
-                `system.resources.${source}.per`,
-                event.detail,
-            )}
+        onUpdateSelection={handleRecoverySelection}
     />
 
     {#if resource.per === "recharge"}

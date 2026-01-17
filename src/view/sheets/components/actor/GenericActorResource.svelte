@@ -113,8 +113,11 @@
             />
 
             {#if !sheetIsLocked && !isClassResource}
-                <button class="a5e-resource__setting" onclick={configureResource}>
-                    aria-label="???"
+                <button
+                    class="a5e-button a5e-button--config"
+                    onclick={configureResource}
+                    aria-labelledby="Configure Resource"
+                >
                     <i class="icon fas fa-gear"></i>
                 </button>
             {/if}
