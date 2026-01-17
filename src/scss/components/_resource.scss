@@ -1,3 +1,7 @@
+.a5e-resources-wrapper {
+    margin-bottom: 0.5rem;
+}
+
 .a5e-resources-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -39,6 +43,7 @@
         display: flex;
         align-items: center;
         gap: 0.25rem;
+        height: 1.125rem;
     }
 
     &__number-input {
@@ -54,6 +59,7 @@
 
         &--disabled {
             pointer-events: none;
+            background: transparent;
         }
     }
 
@@ -88,8 +94,16 @@
         width: 1.125rem;
         height: 1.125rem;
         padding: 0;
+        border: 0;
+        line-height: 1;
         font-size: var(--a5e-text-size-sm);
         color: var(--a5e-button-gray-hover);
         background-color: transparent;
+
+        &:focus,
+        &:active {
+            box-shadow: none;
+            background-color: transparent;
+        }
     }
 }

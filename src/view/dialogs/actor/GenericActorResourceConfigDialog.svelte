@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
@@ -63,7 +63,7 @@
     {/if}
 
     <FieldWrapper>
-        <CheckboxGroup
+        <Checkbox
             label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
             onUpdateSelection={handleHideMaxSelection}

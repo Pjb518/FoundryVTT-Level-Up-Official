@@ -124,13 +124,12 @@
 
             {#if showRechargeButton}
                 <button
-                    class="a5e-resource__setting"
+                    class="a5e-button a5e-resource__btn icon fas fa-dice"
                     data-tooltip="Recharge Resource"
                     data-tooltip-direction="UP"
-                    aria-label="???"
+                    aria-labelledby="Recharge Resource"
                     onclick={() => actor.rechargeGenericResource(source)}
                 >
-                    <i class="icon fas fa-dice"></i>
                 </button>
             {/if}
         </header>
@@ -140,7 +139,7 @@
                 <button
                     class="a5e-button a5e-resource__btn icon fas fa-minus"
                     type="button"
-                    aria-label="???"
+                    aria-labelledby="Decrement Resource"
                     disabled={resource.value === 0}
                     onclick={decrementResource}
                 >
@@ -161,7 +160,7 @@
                 <button
                     class="a5e-button a5e-resource__btn icon fas fa-plus"
                     type="button"
-                    aria-label="???"
+                    aria-labelledby="Increment Resource"
                     onclick={incrementResource}
                 >
                 </button>
@@ -172,7 +171,7 @@
                     type="number"
                     name="system.resources.{source}.max"
                     value={getDeterministicBonus(resource.max ?? 0, actor.getRollData())}
-                    class="a5e-resource__number-input"
+                    class="a5e-resource__number-input a5e-resource__number-input--disabled"
                     placeholder="0"
                     disabled
                 />

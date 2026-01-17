@@ -29,11 +29,13 @@
 </script>
 
 {#if !(flags.a5e?.hideGenericResources ?? actor.type === "npc")}
-    <ol class="a5e-resources-container">
-        {#each Object.entries(actorResources) as [source, resource]}
-            <GenericActorResource {resource} {source} />
-        {/each}
-    </ol>
+    <div class="a5e-resources-wrapper">
+        <ol class="a5e-resources-container">
+            {#each Object.entries(actorResources) as [source, resource]}
+                <GenericActorResource {resource} {source} />
+            {/each}
+        </ol>
+    </div>
 {/if}
 
 {#if flags.a5e?.showFavoritesSection ?? true}
