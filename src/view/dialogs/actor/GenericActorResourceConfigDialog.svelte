@@ -1,21 +1,28 @@
 <script>
     import { getContext } from "svelte";
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
+    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+    import Section from "#view/snippets/Section.svelte";
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
-    import handleDeterministicInput from "../../utils/handleDeterministicInput";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+    import handleDeterministicInput from "#utils/handleDeterministicInput.ts";
 
-    export let document;
-    export let source;
+    let { document, source } = $props();
 
     const actor = document;
     const recoveryOptions = Object.entries(CONFIG.A5E.resourceRecoveryOptions);
 
-    $: resource = $actor.system.resources[source];
+    const resource = $derived(actor.reactive.system.resources[source]);
+
+    function handleRecoverySelection(value) {
+        updateDocumentDataFromField(actor, `system.resources.${source}.per`, value);
+    }
+
+    function handleHideMaxSelection(value) {
+        updateDocumentDataFromField(actor, `system.resources.${source}.hideMax`, value);
+    }
 </script>
 
 <Section
@@ -28,9 +35,9 @@
             class="a5e-input"
             type="text"
             value={resource.label}
-            on:change={({ target }) =>
+            onchange={({ target }) =>
                 updateDocumentDataFromField(
-                    $actor,
+                    actor,
                     `system.resources.${source}.label`,
                     target.value,
                 )}
@@ -43,10 +50,10 @@
                 class="a5e-input"
                 type="text"
                 value={resource.max}
-                on:change={({ target }) => {
+                onchange={({ target }) => {
                     handleDeterministicInput(target.value);
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.max`,
                         target.value,
                     );
@@ -59,13 +66,7 @@
         <Checkbox
             label="A5E.genericResources.hideMax"
             checked={resource.hideMax ?? false}
-            on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    `system.resources.${source}.hideMax`,
-                    detail,
-                );
-            }}
+            onUpdateSelection={handleHideMaxSelection}
         />
     </FieldWrapper>
 </Section>
@@ -79,12 +80,7 @@
         heading="A5E.consumers.recoverResourceAt"
         options={recoveryOptions}
         selected={resource.per}
-        on:updateSelection={(event) =>
-            updateDocumentDataFromField(
-                $actor,
-                `system.resources.${source}.per`,
-                event.detail,
-            )}
+        onUpdateSelection={handleRecoverySelection}
     />
 
     {#if resource.per === "recharge"}
@@ -94,10 +90,10 @@
                 type="text"
                 value={resource.recharge.formula}
                 placeholder="1d6"
-                on:change={({ target }) => {
+                onchange={({ target }) => {
                     handleDeterministicInput(target.value);
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.recharge.formula`,
                         target.value,
                     );
@@ -110,9 +106,9 @@
                 class="a5e-input u-text-center"
                 type="number"
                 value={resource.recharge.threshold}
-                on:change={({ target }) =>
+                onchange={({ target }) =>
                     updateDocumentDataFromField(
-                        $actor,
+                        actor,
                         `system.resources.${source}.recharge.threshold`,
                         Number(target.value),
                     )}
