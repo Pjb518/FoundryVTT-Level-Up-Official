@@ -12,12 +12,12 @@
     let { resources = $bindable() } = $props();
 
     const actor = getContext("actor");
-    const { favorites } = actor;
 
-    // Use $derived to reactively update based on actor state
     let actorResources = $derived(actor.reactive.system.resources);
     let flags = $derived(actor.reactive.flags);
-    let favoritesList = $derived($favorites ?? []);
+    let favoritesList = $derived(
+        actor.reactive.items.filter((item) => item.system.favorite === true),
+    );
 
     let showQuantity = $derived(quantityRequired(favoritesList));
     let showUses = $derived(usesRequired(favoritesList));

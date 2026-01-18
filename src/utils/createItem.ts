@@ -96,7 +96,7 @@ const itemMappings = {
 
 export default async function createItem(actor, itemType, subType) {
   const updateData = {
-    name: localize("A5E.NewItem", {
+    name: localize("A5E.items.new", {
       type: localize(getItemName(itemType, subType)),
     }),
     type: itemType,
