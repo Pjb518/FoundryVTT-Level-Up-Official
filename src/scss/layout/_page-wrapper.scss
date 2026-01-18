@@ -12,5 +12,16 @@
     &--item-list,
     &--scrollable {
         overflow: clip auto;
+
+        prose-mirror {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+
+            .editor-content {
+                flex: 1;
+            }
+        }
     }
 }

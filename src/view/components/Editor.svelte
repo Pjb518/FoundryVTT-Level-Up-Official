@@ -62,8 +62,7 @@
             if (
                 game.keyboard.isModifierActive(
                     // @ts-ignore
-                    foundry.helpers.interaction.KeyboardManager.MODIFIER_KEYS
-                        .CONTROL,
+                    foundry.helpers.interaction.KeyboardManager.MODIFIER_KEYS.CONTROL,
                 ) &&
                 e.key === "s"
             ) {
@@ -98,7 +97,6 @@
                 compact: false,
                 documentUUID: documentUuid,
                 editable: true,
-                height: 200,
                 toggled: true,
                 value: content,
                 enriched: enriched ?? content,
@@ -131,16 +129,13 @@
 
         proseMirrorContainerEl.innerHTML = element.outerHTML;
 
-        proseMirrorContainerEl.firstChild?.addEventListener(
-            "plugins",
-            (e: any) => {
-                e.detail.highlightDocumentMatches =
-                    // @ts-ignore
-                    ProseMirror.ProseMirrorHighlightMatchesPlugin.build(
-                        ProseMirror.defaultSchema,
-                    );
-            },
-        );
+        proseMirrorContainerEl.firstChild?.addEventListener("plugins", (e: any) => {
+            e.detail.highlightDocumentMatches =
+                // @ts-ignore
+                ProseMirror.ProseMirrorHighlightMatchesPlugin.build(
+                    ProseMirror.defaultSchema,
+                );
+        });
 
         bindSecretUI();
     });
