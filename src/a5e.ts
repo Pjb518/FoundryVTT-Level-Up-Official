@@ -38,7 +38,7 @@ Hooks.on("createToken", createToken);
 
 Hooks.on("updateActor", updateActor);
 
-Hooks.on("renderApplication", renderApplication);
+Hooks.on("renderApplicationV2", renderApplication);
 Hooks.on("renderChatMessage", renderChatMessage);
 Hooks.on("preCreateChatMessage", preCreateChatMessage);
 Hooks.on("preDeleteChatMessage", preDeleteChatMessage);
