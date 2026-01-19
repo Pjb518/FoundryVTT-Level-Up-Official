@@ -2,9 +2,9 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
-    //import PartyViewerActorSummary from "../components/partyViewer/PartyViewerActorSummary.svelte";
+    import PartyViewerActorSummary from "#view/sheets/pages/partyViewer/PartyViewerActorSummary.svelte";
     //import PartyViewerAttributesHeader from "../components/partyViewer/PartyViewerAttributesHeader.svelte";
-    //import PartyViewerCoreHeader from "../components/partyViewer/PartyViewerCoreHeader.svelte";
+    import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
     //import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
     //import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
     //import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
@@ -370,7 +370,7 @@
             --a5e-field-wrapper-direction="row"
             --a5e-field-wrapper-item-alignment="center"
             --a5e-field-wrapper-gap="0.75rem"
-            --a5e-field-wrapper-margin="0.375rem 0 0.375rem"
+            --a5e-field-wrapper-margin="0"
             --a5e-field-wrapper-padding="0"
             --a5e-field-wrapper-wrap="no-wrap"
         >
@@ -425,10 +425,10 @@
                     {partyHasSpellPointPool}
                     {partyIsLocked}
                     {showActorImagesInPartyViewer}
+                    onActorUpdated={(actorId) => updatePartyData(actorId)}
+                    onRemoveActor={(uuid) => removeActorFromParty(uuid)}
                     --grid-areas={gridAreaDefinition}
                     --grid-template={gridSizeDefinition}
-                    onactor-updated={({ detail }) => updatePartyData(detail)}
-                    onremove-actor={({ detail }) => removeActorFromParty(detail)}
                 />
             {/each}
         </ul>
@@ -455,7 +455,7 @@
     article {
         min-height: 14rem;
         min-width: 40rem;
-        padding: 0.25rem 0.5rem;
+        padding: 0;
     }
 
     .instructions {
@@ -483,10 +483,8 @@
         color: #999;
         opacity: 0.85;
         background: transparent;
+        border: none;
         cursor: pointer;
-
-        // Nudge the button down 1px so that it _looks_ centred
-        top: 1px;
 
         transition: var(--a5e-transition-standard);
 
@@ -498,6 +496,7 @@
         &:hover {
             transform: scale(1.1);
             box-shadow: none;
+            outline: none;
         }
     }
 </style>
