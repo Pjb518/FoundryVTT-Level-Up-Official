@@ -3,7 +3,7 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
     import PartyViewerActorSummary from "#view/sheets/pages/partyViewer/PartyViewerActorSummary.svelte";
-    //import PartyViewerAttributesHeader from "../components/partyViewer/PartyViewerAttributesHeader.svelte";
+    import PartyViewerAttributesHeader from "#view/sheets/pages/partyViewer/PartyViewerAttributesHeader.svelte";
     import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
     //import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
     //import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
@@ -152,23 +152,6 @@
         return tableElements.join(" ");
     }
 
-    function getViewModeComponent(viewMode) {
-        switch (viewMode) {
-            case "attributes":
-                return PartyViewerAttributesHeader;
-            case "core":
-                return PartyViewerCoreHeader;
-            case "languages":
-                return PartyViewerLanguagesHeader;
-            case "resources":
-                return PartyViewerResourceHeader;
-            case "wealth":
-                return PartyViewerWealthHeader;
-            default:
-                return PartyViewerCoreHeader;
-        }
-    }
-
     function getHighestPassiveScoresForParty() {
         return (partyMembers ?? []).reduce((passiveScores, actor) => {
             Object.entries(actor?.system?.skills ?? {}).forEach(
@@ -298,7 +281,6 @@
         totalPartyWealth = getTotalPartyWealth();
 
         gridAreaDefinition = getGridAreaDefinition(currentViewMode);
-
         gridSizeDefinition = getGridSizeDefinition(currentViewMode);
     }
 
@@ -379,7 +361,9 @@
                 options={viewModes}
                 selected={currentViewMode}
                 --radio-group-width="fit-content"
-                onupdateSelection={(event) => (currentViewMode = event.detail)}
+                onUpdateSelection={(selection) => {
+                    currentViewMode = selection;
+                }}
             />
 
             {#if isGM}
@@ -397,20 +381,39 @@
             {/if}
         </FieldWrapper>
 
-        {@const HeaderComponent = getViewModeComponent(currentViewMode)}
-        <HeaderComponent
-            propData={{
-                highestSpellSlotLevel,
-                partyHasArtifactCharges,
-                partyHasExertionPool,
-                partyHasInspiration,
-                partyHasSpellPointPool,
-                partyIsLocked,
-                showActorImagesInPartyViewer,
-            }}
-            --a5e-section-heading-template-areas={gridAreaDefinition}
-            --a5e-section-heading-template-columns={gridSizeDefinition}
-        />
+        {#if currentViewMode === "attributes"}
+            <PartyViewerAttributesHeader
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {:else if currentViewMode === "core"}
+            <PartyViewerCoreHeader
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {:else if currentViewMode === "languages"}
+            <PartyViewerLanguagesHeader
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {:else if currentViewMode === "resources"}
+            <PartyViewerResourceHeader
+                {highestSpellSlotLevel}
+                {partyHasArtifactCharges}
+                {partyHasExertionPool}
+                {partyHasInspiration}
+                {partyHasSpellPointPool}
+                {partyIsLocked}
+                {showActorImagesInPartyViewer}
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {:else if currentViewMode === "wealth"}
+            <PartyViewerWealthHeader
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {/if}
 
         <ul class="a5e-item-list a5e-item-list--party">
             {#each partyMembers ?? [] as actor}

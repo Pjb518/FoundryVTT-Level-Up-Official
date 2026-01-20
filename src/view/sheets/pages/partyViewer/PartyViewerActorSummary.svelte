@@ -1,5 +1,5 @@
 <script>
-    // import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
+    import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     // import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
     // import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
@@ -31,33 +31,37 @@
 
     <span class="actor-name">{actor?.name}</span>
 
-    {#snippet viewModeComponent()}
-        {@const sharedProps = {
-            actor,
-            propData: {
+    {#if currentViewMode === "attributes"}
+        <PartyViewerAttributesSummary {actor} />
+    {:else if currentViewMode === "core"}
+        <PartyViewerCoreSummary
+            {actor}
+            propData={{
                 highestPassiveScores,
                 highestSpellSlotLevel,
                 partyHasArtifactCharges,
                 partyHasExertionPool,
                 partyHasInspiration,
                 partyHasSpellPointPool,
-            },
-        }}
-
-        {#if currentViewMode === "attributes"}
-            <PartyViewerAttributesSummary {...sharedProps} />
-        {:else if currentViewMode === "core"}
-            <PartyViewerCoreSummary {...sharedProps} />
-        {:else if currentViewMode === "languages"}
-            <PartyViewerLanguagesSummary {...sharedProps} />
-        {:else if currentViewMode === "resources"}
-            <PartyViewerResourceSummary {...sharedProps} />
-        {:else if currentViewMode === "wealth"}
-            <PartyViewerWealthSummary {...sharedProps} />
-        {/if}
-    {/snippet}
-
-    {@render viewModeComponent()}
+            }}
+        />
+    {:else if currentViewMode === "languages"}
+        <PartyViewerLanguagesSummary {actor} />
+    {:else if currentViewMode === "resources"}
+        <PartyViewerResourceSummary
+            {actor}
+            propData={{
+                highestPassiveScores,
+                highestSpellSlotLevel,
+                partyHasArtifactCharges,
+                partyHasExertionPool,
+                partyHasInspiration,
+                partyHasSpellPointPool,
+            }}
+        />
+    {:else if currentViewMode === "wealth"}
+        <PartyViewerWealthSummary {actor} />
+    {/if}
 
     {#if isGM && !partyIsLocked}
         <span class="delete-wrapper">
