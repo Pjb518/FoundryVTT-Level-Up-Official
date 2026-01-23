@@ -2,7 +2,7 @@
     import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     // import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
-    // import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
+    import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
     // import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
     let {
@@ -14,6 +14,7 @@
         partyHasExertionPool = true,
         partyHasInspiration = false,
         partyHasSpellPointPool = true,
+        partyHasSupply = false,
         partyIsLocked = false,
         showActorImagesInPartyViewer = true,
         onActorUpdated,
@@ -43,6 +44,7 @@
                 partyHasExertionPool,
                 partyHasInspiration,
                 partyHasSpellPointPool,
+                partyHasSupply,
             }}
         />
     {:else if currentViewMode === "languages"}
@@ -57,6 +59,7 @@
                 partyHasExertionPool,
                 partyHasInspiration,
                 partyHasSpellPointPool,
+                partyHasSupply,
             }}
         />
     {:else if currentViewMode === "wealth"}

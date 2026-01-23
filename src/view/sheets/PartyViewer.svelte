@@ -6,7 +6,7 @@
     import PartyViewerAttributesHeader from "#view/sheets/pages/partyViewer/PartyViewerAttributesHeader.svelte";
     import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
     //import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
-    //import PartyViewerResourceHeader from "../components/partyViewer/PartyViewerResourceHeader.svelte";
+    import PartyViewerResourceHeader from "#view/sheets/pages/partyViewer/PartyViewerResourceHeader.svelte";
     //import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
     //import PartyViewerWealthFooter from "../components/partyViewer/PartyViewerWealthFooter.svelte";
 
@@ -33,6 +33,12 @@
     function getAnyMemberHasSpellPointPool() {
         return (partyMembers ?? []).some((actor) => {
             return actor?.system?.spellResources?.points?.max;
+        });
+    }
+
+    function getAnyMemberHasSupply() {
+        return (partyMembers ?? []).some((actor) => {
+            return actor?.system?.supply;
         });
     }
 
@@ -70,12 +76,15 @@
         if (partyHasExertionPool) tableElements.push("exertion");
         if (partyHasArtifactCharges) tableElements.push("artifactCharges");
         if (partyHasSpellPointPool) tableElements.push("spellPoints");
+        if (partyHasSupply) tableElements.push("supply");
         if (highestSpellSlotLevel) tableElements.push("spellSlots");
 
         if (
+            !partyHasInspiration &&
             !partyHasArtifactCharges &&
             !partyHasExertionPool &&
             !partyHasSpellPointPool &&
+            !partyHasSupply &&
             !highestSpellSlotLevel
         ) {
             tableElements.push("noResources");
@@ -136,12 +145,14 @@
         if (partyHasExertionPool) tableElements.push(poolWidth);
         if (partyHasArtifactCharges) tableElements.push(poolWidth);
         if (partyHasSpellPointPool) tableElements.push(poolWidth);
+        if (partyHasSupply) tableElements.push(poolWidth);
         if (highestSpellSlotLevel) tableElements.push("min-content");
 
         if (
             !partyHasArtifactCharges &&
             !partyHasExertionPool &&
             !partyHasSpellPointPool &&
+            !partyHasSupply &&
             !highestSpellSlotLevel
         ) {
             tableElements.push("1fr");
@@ -278,6 +289,7 @@
         partyHasExertionPool = getAnyMemberHasExertionPool();
         partyHasInspiration = getAnyMemberHasInspiration();
         partyHasSpellPointPool = getAnyMemberHasSpellPointPool();
+        partyHasSupply = getAnyMemberHasSupply();
         totalPartyWealth = getTotalPartyWealth();
 
         gridAreaDefinition = getGridAreaDefinition(currentViewMode);
@@ -333,14 +345,13 @@
     let partyHasExertionPool = $state(getAnyMemberHasExertionPool());
     let partyHasInspiration = $state(getAnyMemberHasInspiration());
     let partyHasSpellPointPool = $state(getAnyMemberHasSpellPointPool());
+    let partyHasSupply = $state(getAnyMemberHasSupply());
     let totalPartyWealth = $state(getTotalPartyWealth());
 
     let gridAreaDefinition = $derived(getGridAreaDefinition(currentViewMode));
     let gridSizeDefinition = $derived(getGridSizeDefinition(currentViewMode));
 
-    // Watch for party member changes and update derived data
     $effect(() => {
-        // Trigger effect when partyMembers changes
         partyMembers;
         updateDerivedData();
     });
@@ -403,6 +414,7 @@
                 {partyHasExertionPool}
                 {partyHasInspiration}
                 {partyHasSpellPointPool}
+                {partyHasSupply}
                 {partyIsLocked}
                 {showActorImagesInPartyViewer}
                 --a5e-section-heading-template-areas={gridAreaDefinition}
@@ -426,6 +438,7 @@
                     {partyHasExertionPool}
                     {partyHasInspiration}
                     {partyHasSpellPointPool}
+                    {partyHasSupply}
                     {partyIsLocked}
                     {showActorImagesInPartyViewer}
                     onActorUpdated={(actorId) => updatePartyData(actorId)}
