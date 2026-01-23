@@ -5,7 +5,7 @@
     import PartyViewerActorSummary from "#view/sheets/pages/partyViewer/PartyViewerActorSummary.svelte";
     import PartyViewerAttributesHeader from "#view/sheets/pages/partyViewer/PartyViewerAttributesHeader.svelte";
     import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
-    //import PartyViewerLanguagesHeader from "../components/partyViewer/PartyViewerLanguagesHeader.svelte";
+    import PartyViewerLanguagesHeader from "#view/sheets/pages/partyViewer/PartyViewerLanguagesHeader.svelte";
     import PartyViewerResourceHeader from "#view/sheets/pages/partyViewer/PartyViewerResourceHeader.svelte";
     //import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
     //import PartyViewerWealthFooter from "../components/partyViewer/PartyViewerWealthFooter.svelte";

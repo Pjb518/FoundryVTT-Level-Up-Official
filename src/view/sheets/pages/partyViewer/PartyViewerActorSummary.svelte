@@ -1,7 +1,7 @@
 <script>
     import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
-    // import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
+    import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
     // import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
