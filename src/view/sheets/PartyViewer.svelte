@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
@@ -7,8 +7,8 @@
     import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
     import PartyViewerLanguagesHeader from "#view/sheets/pages/partyViewer/PartyViewerLanguagesHeader.svelte";
     import PartyViewerResourceHeader from "#view/sheets/pages/partyViewer/PartyViewerResourceHeader.svelte";
-    //import PartyViewerWealthHeader from "../components/partyViewer/PartyViewerWealthHeader.svelte";
-    //import PartyViewerWealthFooter from "../components/partyViewer/PartyViewerWealthFooter.svelte";
+    import PartyViewerWealthHeader from "#view/sheets/pages/partyViewer/PartyViewerWealthHeader.svelte";
+    import PartyViewerWealthFooter from "#view/sheets/pages/partyViewer/PartyViewerWealthFooter.svelte";
 
     let { sheet } = $props();
 
@@ -60,7 +60,7 @@
             case "resources":
                 return getResourcePanelGridAreaDefinition();
             case "wealth":
-                return `"${base} pp gp ep sp cp ${end}"`;
+                return getWealthPanelGridAreaDefinition(base, end);
             default:
                 return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
         }
@@ -95,6 +95,14 @@
         return `"${tableElements.join(" ")}"`;
     }
 
+    function getWealthPanelGridAreaDefinition(base, end) {
+        if (useCredits) {
+            return `"${base} cr ${end}"`;
+        } else {
+            return `"${base} pp gp ep sp cp ${end}"`;
+        }
+    }
+
     function getGridSizeDefinition(viewMode) {
         let base;
 
@@ -113,7 +121,7 @@
             case "resources":
                 return getResourcePanelGridSizeDefinition();
             case "wealth":
-                return `${base} repeat(5, 3.5rem) ${end}`;
+                return getWealthPanelGridSizeDefinition(base, end);
             default:
                 return `${base} 4rem repeat(6, 3rem) ${end}`;
         }
@@ -163,6 +171,14 @@
         return tableElements.join(" ");
     }
 
+    function getWealthPanelGridSizeDefinition(base, end) {
+        if (useCredits) {
+            return `${base} 3.5rem ${end}`;
+        } else {
+            return `${base} repeat(5, 3.5rem) ${end}`;
+        }
+    }
+
     function getHighestPassiveScoresForParty() {
         return (partyMembers ?? []).reduce((passiveScores, actor) => {
             Object.entries(actor?.system?.skills ?? {}).forEach(
@@ -204,9 +220,11 @@
                 wealthData.gp += currency?.gp ?? 0;
                 wealthData.pp += currency?.pp ?? 0;
 
+                wealthData.cr += currency?.cr ?? 0;
+
                 return wealthData;
             },
-            { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 },
+            { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0, cr: 0 },
         );
     }
 
@@ -305,6 +323,8 @@
     ];
 
     const { isGM } = game.user;
+
+    const useCredits = (game.settings.get("a5e", "useCredits") as boolean) ?? false;
 
     // Reactive state
     let partiesStore = $state(game.settings.get("a5e", "parties"));

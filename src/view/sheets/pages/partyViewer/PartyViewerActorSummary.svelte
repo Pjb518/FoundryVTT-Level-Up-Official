@@ -3,7 +3,7 @@
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
     import PartyViewerResourceSummary from "./PartyViewerResourceSummary.svelte";
-    // import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
+    import PartyViewerWealthSummary from "./PartyViewerWealthSummary.svelte";
 
     let {
         actor,
