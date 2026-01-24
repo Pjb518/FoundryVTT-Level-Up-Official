@@ -1,4 +1,6 @@
 <script>
+    import getRequiredExperiencePoints from "#utils/getRequiredExperiencePoints.ts";
+
     let { actor, propData = {} } = $props();
 
     function convertToPercentage(value) {
@@ -16,6 +18,12 @@
         return Math.min(((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100, 100);
     }
 
+    function calculateXPToLevel() {
+        const requiredXP = getRequiredExperiencePoints(actor);
+
+        return Math.max(requiredXP - actor?.system?.details.xp, 0);
+    }
+
     const actorData = $derived(actor?.system);
     const isBloodied = $derived(
         actor?.system?.attributes.hp.max / 2 >= actor?.system?.attributes.hp.value,
@@ -26,6 +34,7 @@
         convertToPercentage(calculateTotalHPPercentage(hp)),
     );
     const primaryHPColor = $derived(calculatePrimaryHPColor(hp));
+    const xpNeeded = $derived(calculateXPToLevel());
 </script>
 
 <span
@@ -78,6 +87,10 @@
     {actorData?.skills?.inv.passive}
 </span>
 
+<span class="field field--xp">
+    {xpNeeded}
+</span>
+
 <style lang="scss">
     .field {
         text-align: center;
@@ -110,6 +123,10 @@
 
         &--spell-dc {
             grid-area: spellDC;
+        }
+
+        &--xp {
+            grid-area: xp;
         }
 
         &--highlight {

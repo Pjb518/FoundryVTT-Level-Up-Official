@@ -54,7 +54,7 @@
             case "attributes":
                 return `"${base} str dex con int wis cha ${end}"`;
             case "core":
-                return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation xp ${end}"`;
             case "languages":
                 return `"${base} languages ${end}"`;
             case "resources":
@@ -62,7 +62,7 @@
             case "wealth":
                 return getWealthPanelGridAreaDefinition(base, end);
             default:
-                return `"${base} hp ac maneuverDC spellDC perception insight investigation ${end}"`;
+                return `"${base} hp ac maneuverDC spellDC perception insight investigation xp ${end}"`;
         }
     }
 
@@ -115,7 +115,7 @@
             case "attributes":
                 return `${base} repeat(6, 0.5fr) ${end}`;
             case "core":
-                return `${base} 4rem repeat(6, 3rem) ${end}`;
+                return `${base} 4rem repeat(6, 3rem) 4rem ${end}`;
             case "languages":
                 return `${base} 2.5fr ${end}`;
             case "resources":
@@ -123,7 +123,7 @@
             case "wealth":
                 return getWealthPanelGridSizeDefinition(base, end);
             default:
-                return `${base} 4rem repeat(6, 3rem) ${end}`;
+                return `${base} 4rem repeat(6, 3rem) 4rem ${end}`;
         }
     }
 

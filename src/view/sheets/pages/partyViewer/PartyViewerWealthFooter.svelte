@@ -50,6 +50,7 @@
         font-weight: bold;
         text-align: right;
         line-height: 1;
+        margin: 0;
         font-family: var(--a5e-font-serif);
 
         &--no-actor-image {

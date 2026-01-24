@@ -40,6 +40,12 @@
         data-tooltip="Passive Investigation"
         data-tooltip-direction="UP"
     ></i>
+
+    <i
+        class="heading heading--xp icon fa-solid fa-person-arrow-up-from-line"
+        data-tooltip="XP To Level"
+        data-tooltip-direction="UP"
+    ></i>
 </header>
 
 <style lang="scss">
@@ -73,6 +79,10 @@
 
         &--spell-dc {
             grid-area: spellDC;
+        }
+
+        &--xp {
+            grid-area: xp;
         }
     }
 </style>

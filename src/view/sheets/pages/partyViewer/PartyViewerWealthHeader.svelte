@@ -31,6 +31,7 @@
         text-align: center;
         text-transform: uppercase;
         color: inherit;
+        margin: 0;
 
         &--cp {
             grid-area: cp;
