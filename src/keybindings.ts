@@ -1,4 +1,4 @@
-// import renderPartyViewer from './hooks/renderPartyViewer';
+import renderPartyViewer from './hooks/renderPartyViewer.js';
 import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
 export function registerKeybindings() {
@@ -7,13 +7,14 @@ export function registerKeybindings() {
     editable: [{ key: "KeyP" }],
     onDown: () => {
       if (
+        //@ts-ignore
         !game.user.isGM &&
         !game.settings.get("a5e", "playersCanAccessPartyViewer")
       ) {
         return;
       }
 
-      // renderPartyViewer(true);
+      renderPartyViewer(true);
     },
   });
 
