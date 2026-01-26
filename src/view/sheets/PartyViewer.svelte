@@ -7,6 +7,7 @@
     import PartyViewerCoreHeader from "#view/sheets/pages/partyViewer/PartyViewerCoreHeader.svelte";
     import PartyViewerLanguagesHeader from "#view/sheets/pages/partyViewer/PartyViewerLanguagesHeader.svelte";
     import PartyViewerResourceHeader from "#view/sheets/pages/partyViewer/PartyViewerResourceHeader.svelte";
+    import PartyViewerSkillsHeader from "#view/sheets/pages/partyViewer/PartyViewerSkillsHeader.svelte";
     import PartyViewerWealthHeader from "#view/sheets/pages/partyViewer/PartyViewerWealthHeader.svelte";
     import PartyViewerWealthFooter from "#view/sheets/pages/partyViewer/PartyViewerWealthFooter.svelte";
 
@@ -59,6 +60,8 @@
                 return `"${base} languages ${end}"`;
             case "resources":
                 return getResourcePanelGridAreaDefinition();
+            case "skills":
+                return getSkillsPanelGridAreaDefinition(base, end);
             case "wealth":
                 return getWealthPanelGridAreaDefinition(base, end);
             default:
@@ -95,6 +98,13 @@
         return `"${tableElements.join(" ")}"`;
     }
 
+    function getSkillsPanelGridAreaDefinition(base, end) {
+        const skillKeys = Object.keys(CONFIG.A5E.skills);
+        const skillAreas = skillKeys.join(" ");
+
+        return `"${base} ${skillAreas} ${end}"`;
+    }
+
     function getWealthPanelGridAreaDefinition(base, end) {
         if (useCredits) {
             return `"${base} cr ${end}"`;
@@ -120,6 +130,8 @@
                 return `${base} 2.5fr ${end}`;
             case "resources":
                 return getResourcePanelGridSizeDefinition();
+            case "skills":
+                return getSkillsPanelGridSizeDefinition(base, end);
             case "wealth":
                 return getWealthPanelGridSizeDefinition(base, end);
             default:
@@ -169,6 +181,12 @@
         if (game.user.isGM && !partyIsLocked) tableElements.push("2rem");
 
         return tableElements.join(" ");
+    }
+
+    function getSkillsPanelGridSizeDefinition(base, end) {
+        let skillCount = Object.keys(CONFIG.A5E.skills).length;
+
+        return `${base} repeat(${skillCount}, 1.5rem) ${end}`;
     }
 
     function getWealthPanelGridSizeDefinition(base, end) {
@@ -314,11 +332,19 @@
         gridSizeDefinition = getGridSizeDefinition(currentViewMode);
     }
 
+    function updateWindowWidth(viewMode) {
+        if (viewMode === "skills") sheet.setPosition({ width: 900 });
+        else sheet.setPosition({ width: 672 });
+
+        return;
+    }
+
     const viewModes = [
         ["core", "Core"],
         ["attributes", "Attributes"],
-        ["resources", "Resources"],
+        ["skills", "Skills"],
         ["languages", "Languages"],
+        ["resources", "Resources"],
         ["wealth", "Wealth"],
     ];
 
@@ -374,6 +400,7 @@
     $effect(() => {
         partyMembers;
         updateDerivedData();
+        updateWindowWidth(currentViewMode);
     });
 </script>
 
@@ -437,6 +464,11 @@
                 {partyHasSupply}
                 {partyIsLocked}
                 {showActorImagesInPartyViewer}
+                --a5e-section-heading-template-areas={gridAreaDefinition}
+                --a5e-section-heading-template-columns={gridSizeDefinition}
+            />
+        {:else if currentViewMode === "skills"}
+            <PartyViewerSkillsHeader
                 --a5e-section-heading-template-areas={gridAreaDefinition}
                 --a5e-section-heading-template-columns={gridSizeDefinition}
             />
