@@ -38,7 +38,7 @@
 </script>
 
 <span
-    class="field field--hp field--highlight-hp"
+    class="a5e-party-viewer__core__summary a5e-party-viewer__core__summary--hp a5e-party-viewer__core__value--hp a5e-party-viewer__core--highlight-hp"
     style="
         --color-primary-hp-bar: {primaryHPColor};
         --total-hp-percentage: {totalHPPercentage};
@@ -51,105 +51,42 @@
     </span>
 </span>
 
-<span class="field field--ac">
+<span class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--ac">
     {actorData?.attributes.ac.value}
 </span>
 
-<span class="field field--maneuver-dc">
+<span class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--maneuverDC">
     {actorData?.attributes.maneuverDC}
 </span>
 
-<span class="field field--spell-dc">
+<span class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--spellDC">
     {actorData?.attributes.spellDC}
 </span>
 
 <span
-    class="field field--perception"
-    class:field--highlight={actorData?.skills?.prc.passive ===
+    class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--perception"
+    class:a5e-party-viewer__core--highlight={actorData?.skills?.prc.passive ===
         propData.highestPassiveScores.prc}
 >
     {actorData?.skills?.prc.passive}
 </span>
 
 <span
-    class="field field--insight"
-    class:field--highlight={actorData?.skills?.ins.passive ===
+    class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--insight"
+    class:fa5e-party-viewer__core--highlight={actorData?.skills?.ins.passive ===
         propData.highestPassiveScores.ins}
 >
     {actorData?.skills?.ins.passive}
 </span>
 
 <span
-    class="field field--investigation"
-    class:field--highlight={actorData?.skills?.inv.passive ===
+    class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--investigation"
+    class:a5e-party-viewer__core--highlight={actorData?.skills?.inv.passive ===
         propData.highestPassiveScores.inv}
 >
     {actorData?.skills?.inv.passive}
 </span>
 
-<span class="field field--xp">
+<span class="a5e-party-viewer__core__summary a5e-party-viewer__core__value--xp">
     {xpNeeded}
 </span>
-
-<style lang="scss">
-    .field {
-        text-align: center;
-        margin-inline: 0.25rem;
-
-        &--ac {
-            grid-area: ac;
-        }
-
-        &--hp {
-            grid-area: hp;
-            margin-inline: 0;
-        }
-
-        &--insight {
-            grid-area: insight;
-        }
-
-        &--investigation {
-            grid-area: investigation;
-        }
-
-        &--maneuver-dc {
-            grid-area: maneuverDC;
-        }
-
-        &--perception {
-            grid-area: perception;
-        }
-
-        &--spell-dc {
-            grid-area: spellDC;
-        }
-
-        &--xp {
-            grid-area: xp;
-        }
-
-        &--highlight {
-            background: var(--a5e-color-primary);
-            color: white;
-            border: 1px solid functions.darken-color(var(--a5e-color-primary), 5);
-            border-radius: var(--a5e-border-radius-standard);
-        }
-
-        &--highlight-hp {
-            border-radius: var(--a5e-border-radius-standard);
-            padding-block: 1px;
-            color: white;
-            text-shadow:
-                -1px -1px 0 rgba(34, 34, 34, 0.5),
-                1px -1px 0 rgba(34, 34, 34, 0.5),
-                -1px 1px 0 rgba(34, 34, 34, 0.5),
-                1px 1px 0 rgba(34, 34, 34, 0.5);
-            background: linear-gradient(
-                90deg,
-                var(--color-primary-hp-bar) var(--total-hp-percentage),
-                transparent var(--total-hp-percentage)
-            );
-        }
-    }
-</style>

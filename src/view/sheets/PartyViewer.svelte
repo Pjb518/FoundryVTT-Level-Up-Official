@@ -404,7 +404,7 @@
     });
 </script>
 
-<article ondrop={(event) => onDropDocument(event)}>
+<article class="a5e-party-viewer__article" ondrop={(event) => onDropDocument(event)}>
     {#if partyMembers.length}
         <FieldWrapper
             --a5e-field-wrapper-direction="row"
@@ -426,8 +426,8 @@
 
             {#if isGM}
                 <button
-                    class="sheet-lock icon fas {partyIsLocked
-                        ? 'sheet-lock--locked fa-lock'
+                    class="a5e-party-viewer__sheet-lock icon fas {partyIsLocked
+                        ? 'a5e-party-viewer__sheet-lock--locked fa-lock'
                         : 'fa-unlock'}"
                     onclick={togglePartyLock}
                     data-tooltip={partyIsLocked ? "Unlock this party" : "Lock this party"}
@@ -513,58 +513,8 @@
             </footer>
         {/if}
     {:else}
-        <div class="instructions">
+        <div class="a5e-party-viewer__instructions">
             Drop actors into this window to populate the party.
         </div>
     {/if}
 </article>
-
-<style lang="scss">
-    article {
-        min-height: 14rem;
-        min-width: 40rem;
-        padding: 0;
-    }
-
-    .instructions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 5rem;
-        padding: 1rem;
-        margin: 1rem;
-        font-size: var(--a5e-text-size-md);
-        border: 2px solid #ccc;
-        border-radius: var(--a5e-border-radius-standard);
-    }
-
-    .sheet-lock {
-        position: relative;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        width: fit-content;
-        padding: 0 0.125rem;
-        margin-bottom: 0.25rem;
-        margin-right: auto;
-        font-size: var(--a5e-text-size-md);
-        color: #999;
-        opacity: 0.85;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-
-        transition: var(--a5e-transition-standard);
-
-        &--locked {
-            color: var(--a5e-color-primary);
-        }
-
-        &:focus,
-        &:hover {
-            transform: scale(1.1);
-            box-shadow: none;
-            outline: none;
-        }
-    }
-</style>

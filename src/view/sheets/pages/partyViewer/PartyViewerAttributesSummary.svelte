@@ -11,9 +11,9 @@
     {@const proficient = attribute.save.proficient}
     {@const abilityLabel = abilities[key]}
 
-    <div class="attribute-wrapper attribute-wrapper--{key}">
+    <div class="a5e-party-viewer__attribute-wrapper a5e-party-viewer__attribute--{key}">
         <div
-            class="attribute-wrapper__check"
+            class="a5e-party-viewer__attribute-wrapper__check"
             data-tooltip="{abilityLabel} Check Modifier"
             data-tooltip-direction="UP"
         >
@@ -23,8 +23,8 @@
         </div>
 
         <div
-            class="attribute-wrapper__save"
-            class:attribute-wrapper__save--proficient={proficient}
+            class="a5e-party-viewer__attribute-wrapper__save"
+            class:a5e-party-viewer__attribute-wrapper__save--proficient={proficient}
             data-tooltip={proficient
                 ? `${abilityLabel} Saving Throw Modifier (Proficient)`
                 : `${abilityLabel} Saving Throw Modifier`}
@@ -36,75 +36,3 @@
         </div>
     </div>
 {/each}
-
-<style lang="scss">
-    .attribute-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        &--str {
-            grid-area: str;
-        }
-
-        &--dex {
-            grid-area: dex;
-        }
-
-        &--con {
-            grid-area: con;
-        }
-
-        &--int {
-            grid-area: int;
-        }
-
-        &--wis {
-            grid-area: wis;
-        }
-
-        &--cha {
-            grid-area: cha;
-        }
-
-        &__check,
-        &__save {
-            position: relative;
-
-            span {
-                position: inherit;
-                z-index: 1;
-            }
-
-            &::before {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                font: var(--fa-font-solid);
-                font-size: var(--a5e-xl-text);
-                transform: translate(-50%, -50%);
-                color: var(--a5e-ability-score-background);
-                z-index: 0;
-                text-shadow: #000 0 0 2px;
-            }
-        }
-
-        &__check::before {
-            content: "\f111";
-        }
-
-        &__save {
-            &::before {
-                content: "\f132";
-            }
-
-            &--proficient {
-                color: var(--a5e-text-color-white);
-
-                &::before {
-                    color: var(--a5e-color-primary);
-                }
-            }
-        }
-    }
-</style>
