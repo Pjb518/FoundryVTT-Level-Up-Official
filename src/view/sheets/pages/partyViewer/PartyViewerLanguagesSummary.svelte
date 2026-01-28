@@ -15,21 +15,10 @@
     );
 </script>
 
-<span class="field field--languages">
+<span class="a5e-party-viewer__languages__field a5e-party-viewer__languages--grid-area">
     {#if knownLanguages}
         {knownLanguages}
     {:else}
         {localize("A5E.None")}
     {/if}
 </span>
-
-<style lang="scss">
-    .field {
-        text-align: left;
-        margin-right: 0.25rem;
-
-        &--languages {
-            grid-area: languages;
-        }
-    }
-</style>
