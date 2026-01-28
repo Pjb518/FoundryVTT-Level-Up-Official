@@ -11,9 +11,20 @@
     };
 
     function handleSave() {
-        console.log(field, content);
-        document.update({ [`system.${field}`]: content });
-        onSave?.();
+        const codeMirrorElement = codeMirrorContainerEl?.querySelector("code-mirror");
+        const currentContent = codeMirrorElement?.value ?? content;
+
+        try {
+            new Function(`return (async function() { ${currentContent} })`)();
+            document.update({ [`system.${field}`]: currentContent });
+            onSave?.();
+
+            ui.notifications?.info("Macro saved successfully");
+        } catch (error) {
+            ui.notifications?.error(`Invalid JavaScript: ${error.message}`);
+
+            return;
+        }
     }
 
     let {
@@ -38,8 +49,7 @@
 
     // Create Editor element and put it in the contents element.
     onMount(async () => {
-        elem =
-            foundry.applications.elements.HTMLCodeMirrorElement.create(config);
+        elem = foundry.applications.elements.HTMLCodeMirrorElement.create(config);
 
         codeMirrorContainerEl.innerHTML = elem.outerHTML;
     });
