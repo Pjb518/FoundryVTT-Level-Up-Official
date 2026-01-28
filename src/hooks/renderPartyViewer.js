@@ -1,4 +1,4 @@
-import PartyViewer from '../apps/PartyViewer';
+import { PartyViewer } from '#view/partyViewer/PartyViewer.svelte.ts';
 
 export default function renderPartyViewer(hotkey = false) {
 	if (hotkey && game.a5e.dialogs.partyViewer?.rendered) {

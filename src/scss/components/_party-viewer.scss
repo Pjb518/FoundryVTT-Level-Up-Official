@@ -1,0 +1,365 @@
+@use "../base/functions";
+
+.a5e-party-viewer {
+  &__actor-image {
+      height: 1.75rem;
+      width: 1.75rem;
+      margin: 0;
+      padding: 0;
+      object-fit: cover;
+      object-position: 50% 0;
+      grid-area: img;
+  }
+
+  &__actor-name {
+      grid-area: name;
+      padding-left: 0.25rem;
+      text-overflow: ellipsis;
+  }
+
+  &__article {
+      min-height: 14rem;
+      min-width: 40rem;
+      padding: 0;
+  }
+
+  &__attribute {
+    @each $attr in str, dex, con, int, wis, cha {
+      &--#{$attr} {
+          grid-area: $attr;
+      }
+    }
+  }
+
+  &__attribute-header {
+    text-align: center;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__attribute-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__check,
+    &__save {
+      position: relative;
+
+      span {
+        position: inherit;
+        z-index: 1;
+      }
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font: var(--fa-font-solid);
+        font-size: var(--a5e-xl-text);
+        transform: translate(-50%, -50%);
+        color: var(--a5e-ability-score-background);
+        z-index: 0;
+        text-shadow: #000 0 0 2px;
+      }
+    }
+
+    &__check::before {
+        content: "\f111";
+    }
+
+    &__save {
+      &::before {
+          content: "\f132";
+      }
+
+      &--proficient {
+        color: var(--a5e-text-color-white);
+
+        &::before {
+            color: var(--a5e-color-primary);
+        }
+      }
+    }
+  }
+
+  &__core {
+    &__header {
+      font-size: var(--a5e-text-size-sm);
+      text-align: center;
+    }
+
+    &--highlight {
+      background: var(--a5e-color-primary);
+      color: white;
+      border: 1px solid functions.darken-color(var(--a5e-color-primary), 5);
+      border-radius: var(--a5e-border-radius-standard);
+    }
+
+    &--highlight-hp {
+      border-radius: var(--a5e-border-radius-standard);
+      padding-block: 1px;
+      color: white;
+      text-shadow:
+          -1px -1px 0 rgba(34, 34, 34, 0.5),
+          1px -1px 0 rgba(34, 34, 34, 0.5),
+          -1px 1px 0 rgba(34, 34, 34, 0.5),
+          1px 1px 0 rgba(34, 34, 34, 0.5);
+      background: linear-gradient(
+          90deg,
+          var(--color-primary-hp-bar) var(--total-hp-percentage),
+          transparent var(--total-hp-percentage)
+      );
+    }
+
+    &__summary {
+      text-align: center;
+      margin-inline: 0.25rem;
+
+      &--hp {
+        margin-inline: 0;
+      }
+    }
+
+    &__value {
+      @each $attr in ac, hp, insight, investigation, maneuverDC, perception, spellDC, xp {
+        &--#{$attr} {
+          grid-area: $attr;
+        }
+      }
+    }
+  }
+
+  &__delete-button {
+      padding: 0.25rem;
+      grid-area: delete;
+  }
+
+  &__delete-wrapper {
+      text-align: center;
+  }
+
+  &__instructions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5rem;
+      padding: 1rem;
+      margin: 1rem;
+      font-size: var(--a5e-text-size-md);
+      border: 2px solid #ccc;
+      border-radius: var(--a5e-border-radius-standard);
+  }
+
+  &__languages {
+    &__field {
+      text-align: left;
+      margin-right: 0.25rem;
+    }
+
+    &__header {
+      font-size: var(--a5e-text-size-sm);
+      line-height: 1;
+      text-align: left;
+      color: inherit;
+    }
+
+    &--grid-area {
+      grid-area: languages;
+    }
+  }
+
+  &__resources {
+    &__check {
+      color: var(--a5e-color-primary);
+    }
+
+    &__cross {
+      color: var(--a5e-color-disabled);
+    }
+
+    &__field {
+      text-align: center;
+      margin-inline: 0.25rem;
+    }
+
+    &__header {
+      font-size: var(--a5e-text-size-sm);
+      text-align: center;
+    }
+
+    &__spell-levels {
+      grid-area: spellSlots;
+      display: flex;
+      gap: 0.5rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    &__spell-level {
+      position: relative;
+      width: 1.75rem;
+      text-align: center;
+      line-height: 1;
+
+      &:before {
+        content: "\e2ca";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Font Awesome 6 Pro";
+        font-size: var(--a5e-text-size-md);
+        color: rgba(255, 255, 255, 0.22);
+      }
+
+      &--narrow {
+          width: 1.5rem;
+      }
+    }
+
+    &__spell-slots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    &__value {
+      @each $attr in artifactCharges, exertion, inspiration, spellPoints, supply {
+        &--#{$attr} {
+          grid-area: $attr;
+        }
+      }
+
+      &--no-resources {
+        white-space: nowrap;
+        text-align: left;
+        grid-area: noResources;
+      }
+
+      &--spell-slot {
+        width: 1.75rem;
+        margin: 0;
+      }
+
+      &--narrow-spell-slot {
+        width: 1.5rem;
+      }
+    }
+}
+
+  &__sheet-lock {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: fit-content;
+      padding: 0 0.125rem;
+      margin-bottom: 0.25rem;
+      margin-right: auto;
+      font-size: var(--a5e-text-size-md);
+      color: #999;
+      opacity: 0.85;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+
+      transition: var(--a5e-transition-standard);
+
+      &--locked {
+          color: var(--a5e-color-primary);
+      }
+
+      &:focus,
+      &:hover {
+          transform: scale(1.1);
+          box-shadow: none;
+          outline: none;
+      }
+  }
+
+  &__skills {
+    &__header {
+      text-align: center;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &__value {
+      @each $skill in acr, ani, arc, ath, cul, dec, eng, his, ins, inv, itm, med, nat, per, prc, prf, rel, sci, slt, ste, sur {
+        &--#{$skill} {
+          grid-area: $skill;
+        }
+      }
+    }
+  }
+
+  &__wealth {
+    &__field {
+      text-align: center;
+      margin-inline: 0.25rem;
+    }
+
+    &__footer {
+      display: grid;
+      grid-template-areas: var(--grid-areas);
+      grid-template-columns: var(--grid-template);
+      align-items: center;
+      gap: 0.5rem;
+      height: 2rem;
+      padding: 0 0.125rem;
+      border: solid transparent;
+      border-width: 0 0 1px;
+      border-image: linear-gradient(
+          90deg,
+          var(--item-border-color-start, transparent) 0%,
+          var(--item-border-color-end, #d5cac1) 55%
+      )
+      1 repeat;
+      border-radius: 0;
+
+      &__header {
+        grid-column-start: img;
+        grid-column-end: name;
+        padding-right: 0.75rem;
+        font-size: var(--a5e-text-size-sm);
+        font-weight: bold;
+        text-align: right;
+        line-height: 1;
+        margin: 0;
+        font-family: var(--a5e-font-serif);
+
+        &--no-actor-image {
+          grid-area: name;
+        }
+      }
+
+      &__total {
+        font-size: var(--a5e-text-size-sm);
+        line-height: 1;
+        text-align: center;
+      }
+    }
+
+    &__header {
+      font-size: var(--a5e-text-size-sm);
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      color: inherit;
+      margin: 0;
+    }
+
+    &__value {
+      @each $coin in cp, sp, ep, gp, pp, cr {
+        &--#{$coin} {
+          grid-area: $coin;
+        }
+      }
+    }
+  }
+}
