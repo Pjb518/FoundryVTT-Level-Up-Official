@@ -7,44 +7,15 @@
 </script>
 
 {#if useCredits}
-    <span class="field field--cr">
+    <span class="a5e-party-viewer__wealth__field a5e-party-viewer__wealth__value--cr">
         {actorData?.currency ? actorData?.currency.cr : 0}
     </span>
 {:else}
     {#each ["pp", "gp", "ep", "sp", "cp"] as denomination}
-        <span class="field field--{denomination}">
+        <span
+            class="a5e-party-viewer__wealth__field a5e-party-viewer__wealth__value--{denomination}"
+        >
             {actorData?.currency ? actorData?.currency[denomination] : 0}
         </span>
     {/each}
 {/if}
-
-<style lang="scss">
-    .field {
-        text-align: center;
-        margin-inline: 0.25rem;
-
-        &--cp {
-            grid-area: cp;
-        }
-
-        &--sp {
-            grid-area: sp;
-        }
-
-        &--ep {
-            grid-area: ep;
-        }
-
-        &--gp {
-            grid-area: gp;
-        }
-
-        &--pp {
-            grid-area: pp;
-        }
-
-        &--cr {
-            grid-area: cr;
-        }
-    }
-</style>
