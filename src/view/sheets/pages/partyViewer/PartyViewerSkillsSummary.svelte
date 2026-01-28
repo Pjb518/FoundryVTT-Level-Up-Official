@@ -33,7 +33,9 @@
     {@const abilityBonus = actorData.abilities[attribute.ability].check.mod}
     {@const skillBonus = getSkillBonus(attribute)}
 
-    <div class="attribute-wrapper attribute-wrapper--{key}">
+    <div
+        class="a5e-party-viewer__attribute-wrapper a5e-party-viewer__skills__value--{key}"
+    >
         {#if proficient}
             <span>
                 <i
@@ -50,75 +52,3 @@
         {/if}
     </div>
 {/each}
-
-<style lang="scss">
-    .attribute-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        &--acr {
-            grid-area: acr;
-        }
-        &--ani {
-            grid-area: ani;
-        }
-        &--arc {
-            grid-area: arc;
-        }
-        &--ath {
-            grid-area: ath;
-        }
-        &--cul {
-            grid-area: cul;
-        }
-        &--dec {
-            grid-area: dec;
-        }
-        &--eng {
-            grid-area: eng;
-        }
-        &--his {
-            grid-area: his;
-        }
-        &--ins {
-            grid-area: ins;
-        }
-        &--inv {
-            grid-area: inv;
-        }
-        &--itm {
-            grid-area: itm;
-        }
-        &--med {
-            grid-area: med;
-        }
-        &--nat {
-            grid-area: nat;
-        }
-        &--per {
-            grid-area: per;
-        }
-        &--prc {
-            grid-area: prc;
-        }
-        &--prf {
-            grid-area: prf;
-        }
-        &--rel {
-            grid-area: rel;
-        }
-        &--sci {
-            grid-area: sci;
-        }
-        &--slt {
-            grid-area: slt;
-        }
-        &--ste {
-            grid-area: ste;
-        }
-        &--sur {
-            grid-area: sur;
-        }
-    }
-</style>

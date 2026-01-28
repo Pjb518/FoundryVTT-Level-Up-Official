@@ -281,4 +281,20 @@
           outline: none;
       }
   }
+
+  &__skills {
+    &__header {
+      text-align: center;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &__value {
+      @each $skill in acr, ani, arc, ath, cul, dec, eng, his, ins, inv, itm, med, nat, per, prc, prf, rel, sci, slt, ste, sur {
+        &--#{$skill} {
+          grid-area: $skill;
+        }
+      }
+    }
+  }
 }
