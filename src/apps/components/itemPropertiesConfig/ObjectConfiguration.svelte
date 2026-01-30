@@ -73,7 +73,7 @@
 
             {#if $item.actor && $item.system.requiresAttunement}
                 <Checkbox
-                    label="A5E.AttunementPrompt"
+                    label="A5E.attunement.headings.prompt"
                     checked={$item.system.attuned}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField($item, "system.attuned", detail)}
@@ -116,7 +116,7 @@
         </Section>
 
         {#if $item.system.requiresAttunement}
-            <FieldWrapper heading="A5E.AttunementHint">
+            <FieldWrapper heading="A5E.attunement.headings.hint">
                 <input
                     class="u-pl-lg"
                     type="text"
@@ -282,7 +282,7 @@
             {#if $item.system.attunementHint !== ""}
                 <div class="u-flex u-gap-md">
                     <dt class="u-text-bold">
-                        {localize("A5E.AttunementHint")}:
+                        {localize("A5E.attunement.headings.hint")}:
                     </dt>
                     <dd class="u-m-0 u-p-0">
                         {$item.system.attunementHint}

@@ -8,7 +8,7 @@ export default function getVersatileProperties(item: ObjectItemA5e) {
   if (item.system.versatile) {
     const versatile = versatileOptions[item.system.versatile];
 
-    return localize("A5E.weaponProperties.versatileSpecific", {
+    return localize("A5E.weapons.properties.versatileSpecific", {
       die: versatile,
     });
   }

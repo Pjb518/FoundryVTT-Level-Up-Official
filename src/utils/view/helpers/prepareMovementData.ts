@@ -16,7 +16,7 @@ export function prepareMovementData(actor: any) {
     },
   ) as [string, Record<string, any>][];
 
-  const hoverText = game.i18n.localize("A5E.MovementHover");
+  const hoverText = game.i18n.localize("A5E.details.movement.hover");
 
   return distances.map(([mode, movementData]) => {
     const modeLabel = game.i18n.localize(CONFIG.A5E.movement[mode]);

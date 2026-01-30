@@ -15,7 +15,7 @@ export default function getSavingThrowPromptTitle(prompt, actorId) {
     }
   }
 
-  return localize("A5E.RollPromptSavingThrowWithDC", {
+  return localize("A5E.rollLabels.prompts.savingThrowWithDC", {
     ability: abilities[prompt.ability],
     dc: prompt.dc,
   });

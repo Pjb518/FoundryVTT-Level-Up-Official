@@ -69,7 +69,7 @@
 
             {#if item.actor && itemStore.requiresAttunement}
                 <Checkbox
-                    label="A5E.AttunementPrompt"
+                    label="A5E.attunement.headings.prompt"
                     checked={itemStore.attuned}
                     onUpdateSelection={(value) =>
                         updateDocumentDataFromField(item, "system.attuned", value)}
@@ -112,7 +112,7 @@
         </Section>
 
         {#if itemStore.requiresAttunement}
-            <FieldWrapper heading="A5E.AttunementHint">
+            <FieldWrapper heading="A5E.attunement.headings.hint">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="text"
@@ -282,7 +282,7 @@
             {#if itemStore.attunementHint !== ""}
                 <div class="a5e-dl-box__section">
                     <dt class="a5e-dl-box__header">
-                        {localize("A5E.AttunementHint")}:
+                        {localize("A5E.attunement.headings.hint")}:
                     </dt>
 
                     <dd class="a5e-dl-box__content">

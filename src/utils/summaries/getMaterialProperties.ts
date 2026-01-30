@@ -29,7 +29,7 @@ export default function getMaterialPropertiesSummary(item: ObjectItemA5e) {
         }
 
         const modPort = modPorts[item.system.modPorts];
-        return localize("A5E.MaterialPropertySpacefaringSpecific", {
+        return localize("A5E.objects.properties.spacefaringSpecific", {
           type: modPort,
         });
       }

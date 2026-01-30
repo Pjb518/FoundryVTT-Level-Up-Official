@@ -1783,7 +1783,7 @@ const weapons = {
     punchingDagger: "A5E.weapons.singular.punchingDagger",
     rapier: "A5E.weapons.singular.rapier",
     saber: "A5E.weapons.singular.saber",
-    scimitar: "A5E.WeaponScimitar",
+    scimitar: "A5E.weapons.singular.scimitar",
     scythe: "A5E.weapons.singular.scythe",
     shortbow: "A5E.weapons.singular.shortbow",
     shortsword: "A5E.weapons.singular.shortsword",

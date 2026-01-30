@@ -305,7 +305,7 @@ class RollPreparationManager {
     if (isCrit) roll = critRoll;
 
     const label = damageType
-      ? localize("A5E.contexts.damage.labels.specific", {
+      ? localize("A5E.damage.labels.specific", {
           damageType: localize(CONFIG.A5E.damageTypes[damageType]),
         })
       : localize("A5E.Damage");

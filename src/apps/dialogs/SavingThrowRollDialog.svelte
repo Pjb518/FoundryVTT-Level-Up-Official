@@ -40,7 +40,7 @@
             return localize("A5E.RollConcentrationCheck");
         } else {
             if (options.dc)
-                return localize("A5E.RollPromptSavingThrowWithDC", {
+                return localize("A5E.rollLabels.prompts.savingThrowWithDC", {
                     ability: localizeSave,
                     dc: options.dc,
                 });
