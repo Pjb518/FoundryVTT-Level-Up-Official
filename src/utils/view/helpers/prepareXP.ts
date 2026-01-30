@@ -1,4 +1,4 @@
-export function prepareXP(actor: any): string {
+export function prepareXP(actor: any) {
   const cr = Number.parseFloat(actor?.system?.details?.cr || 0);
   let baseXp = 0;
 
@@ -10,5 +10,5 @@ export function prepareXP(actor: any): string {
 
   const xp = actor?.system?.details?.elite ? baseXp * 2 : baseXp;
 
-  return xp.toLocaleString();
+  return xp;
 }
