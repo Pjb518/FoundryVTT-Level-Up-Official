@@ -1369,11 +1369,16 @@ class BaseActorA5e extends Actor {
 
     Hooks.callAll("a5e.rollAbilityCheck", this, hookData, rolls);
 
+    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    if (finalRollMode === "gmroll") {
+      // @ts-expect-error
+      const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
+      // @ts-expect-error
+      chatData.whisper = [...gmUsers, game.user.id];
+    }
+
     // @ts-expect-error
-    ChatMessage.applyRollMode(
-      chatData,
-      visibilityMode ?? game.settings.get("core", "rollMode"),
-    );
+    ChatMessage.applyRollMode(chatData, finalRollMode);
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
     return chatCard;
@@ -1522,6 +1527,14 @@ class BaseActorA5e extends Actor {
       this.updateDeathSavingThrowFigures(rolls.map(({ roll }) => roll)[0]);
     } else {
       Hooks.callAll("a5e.rollSavingThrow", this, hookData, rolls);
+    }
+
+    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    if (finalRollMode === "gmroll") {
+      // @ts-expect-error
+      const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
+      // @ts-expect-error
+      chatData.whisper = [...gmUsers, game.user.id];
     }
 
     // @ts-expect-error
@@ -1676,6 +1689,14 @@ class BaseActorA5e extends Actor {
     };
 
     Hooks.callAll("a5e.rollSkillCheck", this, hookData, rolls);
+
+    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    if (finalRollMode === "gmroll") {
+      // @ts-expect-error
+      const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
+      // @ts-expect-error
+      chatData.whisper = [...gmUsers, game.user.id];
+    }
 
     // @ts-expect-error
     ChatMessage.applyRollMode(
