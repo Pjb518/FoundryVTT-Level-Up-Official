@@ -507,7 +507,7 @@
                     class="action-button icon fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
+                        ? "A5E.buttons.tooltips.charged"
                         : "A5E.ButtonToolTipRecharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
@@ -524,7 +524,7 @@
                     class="action-button icon fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
-                        ? "A5E.ButtonToolTipCharged"
+                        ? "A5E.buttons.tooltips.charged"
                         : "A5E.ButtonToolTipRecharge"}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() =>
