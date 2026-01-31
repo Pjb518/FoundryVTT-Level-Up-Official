@@ -51,6 +51,10 @@ export function filterItems(
         if (!hasName) return false;
       }
 
+      if (filters && !filters(item)) {
+        return false;
+      }
+
       return true;
     })
     .sort((a, b) => a.sort - b.sort);

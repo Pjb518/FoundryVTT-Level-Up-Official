@@ -23,8 +23,48 @@
         page: "features",
     });
 
+    let activeFilters = $derived(
+        actor.reactive.flags.a5e?.filters?.features ?? {
+            inclusive: [],
+            exclusive: [],
+        },
+    );
+
     let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "feature", filterOptions));
+
+    let filterFunction = $derived.by(() => {
+        const { inclusive, exclusive } = activeFilters;
+
+        if (!inclusive.length && !exclusive.length) return undefined;
+
+        return (item: any) => {
+            const actions = Object.values(item.system.actions || {});
+
+            if (actions.length === 0) return inclusive.length === 0;
+
+            for (const action of actions) {
+                const activationType = action.activation?.type;
+
+                if (exclusive.includes(activationType)) return false;
+                if (inclusive.length > 0 && inclusive.includes(activationType)) {
+                    return true;
+                }
+            }
+
+            if (inclusive.length > 0) return false;
+
+            return true;
+        };
+    });
+
+    let items = $derived(
+        filterItems(actor.reactive, "feature", {
+            searchTerm: filterOptions.searchTerm,
+            searchDescription: filterOptions.searchDescription,
+            filters: filterFunction,
+        }),
+    );
+
     let categorizedItems = $derived(groupItemsByType(items, "featureType"));
 
     const openCompendium = game.a5e.utils.openCompendium;
