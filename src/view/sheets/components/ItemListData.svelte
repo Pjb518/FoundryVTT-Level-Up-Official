@@ -216,8 +216,6 @@
 
         if (!maxFormula) return usesData;
 
-        isClassResource = formulaIsClassResource(maxFormula);
-
         if (isClassResource) {
             const reg = new RegExp(/@classResources.(\S+)/gm);
             const slug = reg.exec(maxFormula)?.[1];
@@ -262,8 +260,18 @@
         false) as boolean;
 
     let flags = $derived(actor.reactive.flags);
-    let isClassResource = $state(false);
-    let uses = generateUsesConfig(); // TODO: V13 This should be reactive
+    let isClassResource = $derived.by(() => {
+        const maxFormula =
+            usesType === "action" && action
+                ? (action.uses?.max ?? "")
+                : (item.system.uses?.max ?? "");
+
+        if (!maxFormula) return false;
+
+        return formulaIsClassResource(maxFormula);
+    });
+
+    let uses = $derived(generateUsesConfig());
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items
