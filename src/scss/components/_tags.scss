@@ -1,0 +1,40 @@
+@use "sass:color";
+@use "../base/functions";
+
+.a5e-tag {
+    padding: 0.15rem 0.4rem;
+    border: 1px solid functions.darken-color(var(--a5e-color-text-medium), 5);
+    background: transparent;
+    border-radius: var(--a5e-border-radius-standard);
+    color: inherit;
+    transition: var(--a5e-transition-standard);
+    white-space: nowrap;
+
+    &:hover {
+        background: color.adjust(#dddace, $lightness: -2.5%);
+    }
+
+    &--active {
+        background: var(--a5e-color-primary);
+        border-color: var(--a5e-color-primary);
+        color: functions.lighten-color(var(--a5e-color-primary), 80);
+
+        &:hover {
+            background: var(--a5e-color-primary);
+        }
+    }
+
+    &--red {
+        border-color: functions.darken-color(var(--a5e-color-error), 5);
+        background: var(--a5e-color-error);
+        color: functions.lighten-color(var(--a5e-color-error), 95);
+
+        &:hover {
+            background: var(--a5e-color-error);
+        }
+    }
+
+    &--tight {
+        padding: 0.1rem 0.375rem;
+    }
+}

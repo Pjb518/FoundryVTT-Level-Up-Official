@@ -1,10 +1,18 @@
-// import A5EEffectsPanel from '../apps/hud/A5EEffectsPanel.svelte';
+import { mount } from 'svelte';
+import A5EEffectsPanel from '#view/huds/A5EEffectsPanel.svelte';
+
+let effectsPanelInstance = null;
 
 function renderEffectsPanel() {
   const target = document.body.querySelector("#ui-right");
   if (!target) return;
 
-  // new A5EEffectsPanel({ target });
+  // Unmount existing instance if it exists
+  if (effectsPanelInstance) {
+    effectsPanelInstance.unmount();
+  }
+
+  effectsPanelInstance = mount(A5EEffectsPanel, { target });
 }
 
 export default function canvasReady() {

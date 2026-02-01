@@ -6,7 +6,7 @@
     export let icon;
 
     function getConditionName() {
-        if (conditionKey === "dead") return localize("A5E.ConditionDead");
+        if (conditionKey === "dead") return localize("A5E.conditions.dead");
         if (conditionKey === "concentration") return localize("A5E.SpellConcentration");
 
         return conditions[conditionKey] ?? conditionKey;
