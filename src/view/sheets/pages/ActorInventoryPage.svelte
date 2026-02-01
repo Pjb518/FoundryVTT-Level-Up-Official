@@ -23,11 +23,64 @@
         page: "objects",
     });
 
-    let items = $derived(
-        filterItems(actor.reactive, "object", filterOptions).filter(
-            (item) => !item.system.containerId,
-        ),
+    let activeFilters = $derived(
+        actor.reactive.flags.a5e?.filters?.objects ?? {
+            inclusive: [],
+            exclusive: [],
+        },
     );
+
+    let filterFunction = $derived.by(() => {
+        const { inclusive, exclusive } = activeFilters;
+
+        if (!inclusive.length && !exclusive.length) return undefined;
+
+        return (item: any) => {
+            const filterableValues = new Set();
+
+            //Activation Cost
+            const actions = Object.values(item.system.actions || {});
+            for (const action of actions) {
+                const activationType = action.activation?.type;
+                if (activationType) filterableValues.add(activationType);
+            }
+
+            //Rarity
+            const rarity = item.system.rarity;
+            if (rarity) filterableValues.add(rarity);
+
+            //Miscellaneous
+            if (item.system.attuned) filterableValues.add("attuned");
+            if (item.system.bulky) filterableValues.add("bulky");
+            if (item.system.equipped) filterableValues.add("equipped");
+            if (item.system.plotItem) filterableValues.add("plotItem");
+            if (item.system.requiresAttunement)
+                filterableValues.add("requiresAttunement");
+
+            for (const value of filterableValues) {
+                if (exclusive.includes(value)) return false;
+            }
+
+            if (inclusive.length > 0) {
+                for (const value of filterableValues) {
+                    if (inclusive.includes(value)) return true;
+                }
+
+                return false;
+            }
+
+            return true;
+        };
+    });
+
+    let items = $derived(
+        filterItems(actor.reactive, "object", {
+            searchTerm: filterOptions.searchTerm,
+            searchDescription: filterOptions.searchDescription,
+            filters: filterFunction,
+        }).filter((item) => !item.system.containerId),
+    );
+
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
     const openCompendium = game.a5e.utils.openCompendium;
@@ -37,6 +90,8 @@
     let showQuantity = $derived(quantityRequired(items));
 
     let objectTypes = Object.entries(CONFIG.A5E.objectTypes) as string[][];
+
+    $effect(() => {});
 </script>
 
 {#if actor.isOwner}
