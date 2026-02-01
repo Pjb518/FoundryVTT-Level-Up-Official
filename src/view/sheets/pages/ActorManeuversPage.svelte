@@ -15,6 +15,7 @@
     }
 
     let actor: any = getContext("actor");
+    let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     let filterOptions = $state({
@@ -23,7 +24,60 @@
         page: "maneuvers",
     });
 
-    let items = $derived(filterItems(actor.reactive, "maneuver", filterOptions));
+    let activeFilters = $derived(
+        actor.reactive.flags.a5e?.filters?.maneuvers ?? {
+            inclusive: [],
+            exclusive: [],
+        },
+    );
+
+    let filterFunction = $derived.by(() => {
+        const { inclusive, exclusive } = activeFilters;
+
+        if (!inclusive.length && !exclusive.length) return undefined;
+
+        return (item: any) => {
+            const filterableValues = new Set();
+
+            //Activation Cost
+            const actions = Object.values(item.system.actions || {});
+            for (const action of actions) {
+                const activationType = action.activation?.type;
+                if (activationType) filterableValues.add(activationType);
+            }
+
+            //Tradition
+            const tradition = item.system.tradition;
+            if (tradition) filterableValues.add(tradition);
+
+            //Miscellaneous
+            if (item.system.concentration) filterableValues.add("concentration");
+            if (item.system.isStance) filterableValues.add("stance");
+
+            for (const value of filterableValues) {
+                if (exclusive.includes(value)) return false;
+            }
+
+            if (inclusive.length > 0) {
+                for (const value of filterableValues) {
+                    if (inclusive.includes(value)) return true;
+                }
+
+                return false;
+            }
+
+            return true;
+        };
+    });
+
+    let items = $derived(
+        filterItems(actor.reactive, "maneuver", {
+            searchTerm: filterOptions.searchTerm,
+            searchDescription: filterOptions.searchDescription,
+            filters: filterFunction,
+        }),
+    );
+
     let categorizedItems = $derived(groupItemsByType(items, "degree"));
 
     const openCompendium = game.a5e.utils.openCompendium;
