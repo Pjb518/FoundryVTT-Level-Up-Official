@@ -88,8 +88,68 @@
         page: "spells",
     });
 
+    let activeFilters = $derived(
+        actor.reactive.flags.a5e?.filters?.spells ?? {
+            inclusive: [],
+            exclusive: [],
+        },
+    );
+
+    let filterFunction = $derived.by(() => {
+        const { inclusive, exclusive } = activeFilters;
+
+        if (!inclusive.length && !exclusive.length) return undefined;
+
+        return (item: any) => {
+            const filterableValues = new Set();
+
+            //Activation Cost
+            const actions = Object.values(item.system.actions || {});
+            for (const action of actions) {
+                const activationType = action.activation?.type;
+                if (activationType) filterableValues.add(activationType);
+            }
+
+            //Components
+            if (item.system.components.material) filterableValues.add("material");
+            if (item.system.components.seen) filterableValues.add("seen");
+            if (item.system.components.vocalized) filterableValues.add("vocalized");
+
+            //Miscellaneous
+            if (item.system.concentration) filterableValues.add("concentration");
+            if (item.system.ritual) filterableValues.add("ritual");
+            if (item.system.prepared) filterableValues.add("prepared");
+
+            //Primary Spell School
+            const primarySpellSchool = item.system.schools.primary;
+            if (primarySpellSchool) filterableValues.add(primarySpellSchool);
+
+            for (const value of filterableValues) {
+                if (exclusive.includes(value)) return false;
+            }
+
+            if (inclusive.length > 0) {
+                for (const value of filterableValues) {
+                    if (inclusive.includes(value)) return true;
+                }
+
+                return false;
+            }
+
+            return true;
+        };
+    });
+
     let actorStore = $derived(actor.reactive.system);
-    let items = $derived(filterItems(actor.reactive, "spell", filterOptions));
+
+    let items = $derived(
+        filterItems(actor.reactive, "spell", {
+            searchTerm: filterOptions.searchTerm,
+            searchDescription: filterOptions.searchDescription,
+            filters: filterFunction,
+        }),
+    );
+
     let itemsBySpellBook = $derived(prepareSpellBooks(actor.reactive, items));
 
     const openCompendium = game.a5e.utils.openCompendium;
