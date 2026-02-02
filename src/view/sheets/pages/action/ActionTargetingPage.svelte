@@ -16,7 +16,6 @@
     import Section from "#view/snippets/Section.svelte";
     import TargetRangeIncrement from "../../components/action/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "#view/dialogs/action/TargetScalingDialog.svelte";
-    import { get } from "http";
 
     function addRangeIncrement() {
         const newRange = {
@@ -171,7 +170,10 @@
         </small>
     </Section>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-body-gap="0.75rem"
+    >
         {#if ["creature", "object", "creatureObject", "other"].includes(action?.target?.type)}
             <Checkbox
                 label="A5E.targets.heard"
