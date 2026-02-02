@@ -8,6 +8,7 @@ export function prepareToolProficiencies(data: any): string[] {
         "gamingSets",
         "musicalInstruments",
         "miscellaneous",
+        "specialist",
         "vehicles",
       ]) {
         if (CONFIG.A5E.toolsPlural[toolType][curr]) {

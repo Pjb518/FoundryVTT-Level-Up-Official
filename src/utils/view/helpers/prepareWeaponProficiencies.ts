@@ -35,7 +35,7 @@ export function prepareWeaponProficiencies(data: any): string[] {
     if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {
       weaponProficienciesByGroup[weaponType] = [
         game.i18n.localize(
-          `A5E.Weapons${weaponType[0].toUpperCase() + weaponType.slice(1)}`,
+          `A5E.weapons.categories.${weaponType[0] + weaponType.slice(1)}`,
         ),
       ];
     } else {

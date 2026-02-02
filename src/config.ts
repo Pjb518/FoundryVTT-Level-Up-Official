@@ -1687,6 +1687,7 @@ const toolsPlural = {
     sewingKit: "A5E.tools.plural.sewingKit",
     smithsTools: "A5E.tools.plural.smithsTools",
     thievesTools: "A5E.tools.plural.thievesTools",
+    computers: "A5E.tools.plural.computers",
   },
   specialist: {
     computerTechnicianKit: "A5E.tools.plural.computerTechnicianKit",
