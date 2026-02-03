@@ -1,8 +1,8 @@
 import getDefaultInitiativeFormula from "./getDefaultInitiativeFormula";
 
-import GenericRollDialog from "../apps/dialogs/initializers/GenericRollDialog";
+import GenericRollDialog from "#view/dialogs/initializers/GenericRollDialog.svelte.ts";
 import InitiativeRollDialog from "#view/dialogs/actor/InitiativeRollDialog.svelte";
-import SimpleInitiativeRollDialog from "../apps/dialogs/SimpleInitiativeRollDialog.svelte";
+import SimpleInitiativeRollDialog from "#view/dialogs/actor/SimpleInitiativeRollDialog.svelte";
 
 /**
  * Override the default Initiative formula to customize special behaviors of the system.
@@ -10,8 +10,6 @@ import SimpleInitiativeRollDialog from "../apps/dialogs/SimpleInitiativeRollDial
  * @returns {string}  Final initiative formula for the actor.
  */
 export default async function getInitiativeFormula(options) {
-  console.log("Here");
-
   if (options?.skipRollDialog) {
     return getDefaultInitiativeFormula(this.actor, options);
   }
@@ -23,7 +21,7 @@ export default async function getInitiativeFormula(options) {
     ? SimpleInitiativeRollDialog
     : InitiativeRollDialog;
 
-  const dialog = new GenericRollDialog(this, title, component, {}, options, {
+  const dialog = new GenericRollDialog(this.actor, title, component, {}, options, {
     width: 530,
   });
 
