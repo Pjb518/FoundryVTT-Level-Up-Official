@@ -1,4 +1,6 @@
 <script lang="ts">
+    import type { SvelteMap } from "svelte/reactivity";
+
     import { getContext } from "svelte";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
@@ -11,9 +13,10 @@
 
     let { reload = $bindable() }: Props = $props();
 
-    let settings: Record<string, { data: any; value: any }> =
-        getContext("settings");
-    let updates: Map<string, any> = getContext("updates");
+    let settings: Record<string, { data: any; value: any }> = $derived(
+        getContext("settings"),
+    );
+    let updates: SvelteMap<string, any> = $derived(getContext("updates"));
 
     let visionRules = $derived(settings["automateVisionRules"].value);
     let charOnlyVisionRules = $derived(
@@ -34,7 +37,7 @@
         />
     </FieldWrapper>
 
-    {#if visionRules}
+    {#if visionRules || updates.get("automateVisionRules")}
         <FieldWrapper
             hint="A5E.settings.hints.visionRulesApplyToCharactersOnly"
         >
