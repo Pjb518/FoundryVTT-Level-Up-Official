@@ -113,7 +113,7 @@
     let tabs = getTabs();
     let currentTab = $derived(tabs[0]);
 
-    let updates = new SvelteMap<string, any>();
+    let updates = $state(new SvelteMap<string, any>());
     let reload = $state(false);
 
     setContext("appId", appId);
@@ -122,7 +122,12 @@
 </script>
 
 <main class="a5e-settings-sheet">
-    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
+    <NavigationBar
+        {currentTab}
+        {tabs}
+        showLock={false}
+        onTabChange={updateCurrentTab}
+    />
 
     <section class="a5e-settings-sheet__page">
         <currentTab.component bind:reload />

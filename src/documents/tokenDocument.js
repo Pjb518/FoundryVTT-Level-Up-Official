@@ -39,6 +39,7 @@ export default class TokenDocumentA5e extends TokenDocument {
     this.automateVision ??=
       game.settings.storage.get("world").getItem("a5e.automateVisionRules") ??
       false;
+
     this.charOnlyVisionAutomation ??=
       game.settings.storage
         .get("world")
@@ -60,7 +61,7 @@ export default class TokenDocumentA5e extends TokenDocument {
     const lightPerception = {
       id: "lightPerception",
       enabled: true,
-      range: null,
+      range: Infinity,
     };
     const basicSight = { id: "basicSight", enabled: true, range: 0 };
     this.detectionModes = [lightPerception, basicSight];

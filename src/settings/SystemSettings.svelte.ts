@@ -12,7 +12,7 @@ export class SystemSettings extends SvelteApplicationMixin(
 
   root = SystemSettingsComponent;
 
-  store = $state();
+  store: Record<string, { data: any; value: any }> = $state({});
 
   public promise = null;
 
@@ -45,17 +45,12 @@ export class SystemSettings extends SvelteApplicationMixin(
   }
 
   populateSettings() {
-    this.store = settings.reduce(
-      (acc, setting) => {
-        acc[setting.key] = {
-          data: setting.options,
-          value: game.settings.get(setting.namespace, setting.key),
-        };
-
-        return acc;
-      },
-      {} as Record<string, { data: any; value: any }>,
-    );
+    settings.forEach((setting) => {
+      this.store[setting.key] = {
+        data: setting.options,
+        value: game.settings.get(setting.namespace, setting.key),
+      };
+    });
   }
 
   static getActiveApp(): SystemSettings {
