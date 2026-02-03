@@ -2,7 +2,7 @@ import getDefaultInitiativeFormula from "./getDefaultInitiativeFormula";
 
 import GenericRollDialog from "#view/dialogs/initializers/GenericRollDialog.svelte.ts";
 import InitiativeRollDialog from "#view/dialogs/actor/InitiativeRollDialog.svelte";
-import SimpleInitiativeRollDialog from "../apps/dialogs/SimpleInitiativeRollDialog.svelte";
+import SimpleInitiativeRollDialog from "#view/dialogs/actor/SimpleInitiativeRollDialog.svelte";
 
 /**
  * Override the default Initiative formula to customize special behaviors of the system.
