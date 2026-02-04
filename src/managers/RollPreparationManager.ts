@@ -465,7 +465,7 @@ class RollPreparationManager {
       {},
     );
 
-    const label = localize("A5E.ToolCheckSpecific", {
+    const label = localize("A5E.actions.labels.toolCheckSpecific", {
       tool: localize(tools[_roll?.tool] ?? ""),
     });
 
