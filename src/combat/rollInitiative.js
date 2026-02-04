@@ -54,7 +54,7 @@ export default async function rollInitiative(
 		const messageData = foundry.utils.mergeObject(
 			{
 				speaker: {
-					scene: this.scene.id,
+					scene: this.scene?.id,
 					actor: combatant.actor?.id,
 					token: combatant.token?.id,
 					alias: combatant.name,
