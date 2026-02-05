@@ -57,8 +57,7 @@
     const showVRCImplants =
         (game.settings.get("a5e", "showVRCImplants") as boolean) ?? false;
 
-    const useCredits =
-        (game.settings.get("a5e", "useCredits") as boolean) ?? false;
+    const useCredits = (game.settings.get("a5e", "useCredits") as boolean) ?? false;
 
     let bulkyItems = $derived(
         actor.reactive.items.reduce((bulkyCount: number, item: Item) => {
@@ -85,8 +84,7 @@
 
     let supplyItems = $derived(
         actor.reactive.items.reduce((supplyCount: number, item: Item) => {
-            if (item.system.supply && item.system.equippedState)
-                supplyCount += 1;
+            if (item.system.supply && item.system.equippedState) supplyCount += 1;
 
             return supplyCount;
         }, 0),
@@ -115,16 +113,14 @@
             --a5e-field-wrapper-gap="0.5rem"
             --a5e-field-wrapper-header-width="100%"
         >
-            <span
-                class="a5e-footer-group__value a5e-footer-group__value--attunement"
-            >
+            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
                 {attunement.current}
             </span>
 
             /
 
             <input
-                class="a5e-input a5e-input--actor-footer"
+                class="a5e-footer-group__input"
                 class:disable-pointer-events={!actor.isOwner}
                 type="number"
                 name="system.attributes.attunement.max"
@@ -153,7 +149,7 @@
         >
             {#if !sheetIsLocked()}
                 <input
-                    class="a5e-input a5e-input--actor-footer"
+                    class="a5e-footer-group__input"
                     class:disable-pointer-events={!actor.isOwner}
                     type="number"
                     name="system.supply"
@@ -169,7 +165,7 @@
                 />
             {:else}
                 <input
-                    class="a5e-input a5e-input--actor-footer"
+                    class="a5e-footer-group__input"
                     class:disable-pointer-events={!actor.isOwner}
                     type="number"
                     name="system.supply"
@@ -211,16 +207,14 @@
             --a5e-field-wrapper-gap="0.5rem"
             --a5e-field-wrapper-header-width="100%"
         >
-            <span
-                class="a5e-footer-group__value a5e-footer-group__value--attunement"
-            >
+            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
                 {implantItems}
             </span>
 
             /
 
             <input
-                class="a5e-input a5e-input--actor-footer"
+                class="a5e-footer-group__input"
                 class:disable-pointer-events={!actor.isOwner}
                 type="number"
                 name="system.attributes.prof"
