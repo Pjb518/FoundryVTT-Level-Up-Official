@@ -56,6 +56,8 @@ export default class TokenDocumentA5e extends TokenDocument {
       return;
     }
 
+     super._prepareDetectionModes();
+
     // Enable actor vision if setting checked
     this.sight.enabled = true;
     const lightPerception = {
