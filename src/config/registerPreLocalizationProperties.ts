@@ -30,6 +30,7 @@ export default [
 	'featureTypes',
 	'healingTypes',
 	'itemRarity',
+  'itemTechLevels',
 	'itemTypes',
 	'languages',
 	'maneuverDegrees',

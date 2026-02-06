@@ -6,7 +6,7 @@ export default function getEnergyProperties(item) {
   if (item.system.energyProperties) {
     const properties = energyProperties[item.system.energyProperties];
 
-    return localize("A5E.weaponAugments.energySpecific", { type: properties });
+    return localize("A5E.weapons.augments.energySpecific", { type: properties });
   }
 
   return weaponAugments.energy;

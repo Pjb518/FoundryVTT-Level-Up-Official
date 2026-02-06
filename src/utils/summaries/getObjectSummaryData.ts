@@ -1,11 +1,13 @@
-import type ObjectItemA5e from '../../documents/item/object';
+import type ObjectItemA5e from '../../documents/item/object.ts';
 
-import getArmorProperties from './getArmorProperties';
-import getCraftingComponentsLabel from './getCraftingComponentsLabel';
-import getMaterialProperties from './getMaterialProperties';
-import getObjectMechanicsLabel from './getObjectMechanicsLabel';
-import getShieldProperties from './getShieldProperties';
-import getWeaponProperties from './getWeaponProperties';
+import getArmorMods from './getArmorMods.ts';
+import getArmorProperties from './getArmorProperties.ts';
+import getCraftingComponentsLabel from './getCraftingComponentsLabel.ts';
+import getMaterialProperties from './getMaterialProperties.ts';
+import getObjectMechanicsLabel from './getObjectMechanicsLabel.ts';
+import getShieldProperties from './getShieldProperties.ts';
+import getWeaponAugments from './getWeaponAugments.ts';
+import getWeaponProperties from './getWeaponProperties.ts';
 
 export default function getObjectSummaryData(item: ObjectItemA5e, options: Record<string, any>) {
 	// @ts-expect-error
@@ -19,9 +21,9 @@ export default function getObjectSummaryData(item: ObjectItemA5e, options: Recor
 
 	const objectProperties = getMaterialProperties(item);
 
-	if (objectType === 'armor') objectProperties.push(...getArmorProperties(item));
+	if (objectType === 'armor') objectProperties.push(...getArmorProperties(item), ...getArmorMods(item));
 	else if (objectType === 'shield') objectProperties.push(...getShieldProperties(item));
-	else if (objectType === 'weapon') objectProperties.push(...getWeaponProperties(item));
+	else if (objectType === 'weapon') objectProperties.push(...getWeaponProperties(item), ...getWeaponAugments(item));
 
 	objectProperties.sort((a, b) => a.localeCompare(b));
 
