@@ -112,13 +112,7 @@ export default function init() {
       options: {},
       effectsPanel: null,
     },
-    compendiumSheets: {
-      // DND5ESpellCompendiumSheet,
-      // ItemCompendiumSheet,
-      // ManeuverCompendiumSheet,
-      // MonsterCompendiumSheet,
-      // SpellCompendiumSheet,
-    },
+    compendiumSheets: {},
     config: A5E,
     dice: {
       D20Roll,

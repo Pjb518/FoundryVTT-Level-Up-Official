@@ -6,6 +6,7 @@ import { handleMigration } from "../migration/handlers/handleMigration.ts";
 import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
 import KeyPressHandler from "../apps/KeyPressHandler.svelte";
 import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
+import { CompendiumSheet } from "../documents/sheets/CompendiumSheet.svelte.ts";
 
 // eslint-disable-next-line no-unused-vars
 async function handleAnnouncement() {
@@ -55,4 +56,10 @@ export default async function ready() {
   handleAnnouncement();
   handleIncompatibilityWarning();
   addKeyPressLogger();
+
+  // TODO: Seperate out
+
+  game.packs.forEach((pack) => {
+    pack.apps = [new CompendiumSheet({ collection: pack })];
+  });
 }
