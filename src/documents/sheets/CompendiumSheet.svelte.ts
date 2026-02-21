@@ -27,7 +27,7 @@ export class CompendiumSheet extends SvelteApplicationMixin(
   }
 
   static override DEFAULT_OPTIONS = {
-    classes: ["application", "a5e-sheet", "a5e-sheet-compendium"],
+    classes: ["application", "a5e-sheet", "a5e-sheet--compendium"],
     position: { width: 560, height: "auto" },
     tag: "form",
     window: {
