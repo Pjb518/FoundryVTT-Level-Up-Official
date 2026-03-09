@@ -1,4 +1,6 @@
-const PRODUCTS = Object.entries(CONFIG.A5E.products).reduce((acc, [k, v]) => {
+import { A5E } from "../../../../config.ts";
+
+const PRODUCTS = Object.entries(A5E.products).reduce((acc, [k, v]) => {
   acc[k] = v.title;
   return acc;
 }, {});
