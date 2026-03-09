@@ -6,7 +6,6 @@ import { handleMigration } from "../migration/handlers/handleMigration.ts";
 import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
 import KeyPressHandler from "../apps/KeyPressHandler.svelte";
 import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
-import { CompendiumSheet } from "../documents/sheets/CompendiumSheet.svelte.ts";
 
 // eslint-disable-next-line no-unused-vars
 async function handleAnnouncement() {
@@ -60,6 +59,8 @@ export default async function ready() {
   // TODO: Seperate out
 
   game.packs.forEach((pack) => {
-    pack.apps = [new CompendiumSheet({ collection: pack })];
+    const App = pack.applicationClass;
+    const app = new App({ collection: pack });
+    pack.apps = [app];
   });
 }
