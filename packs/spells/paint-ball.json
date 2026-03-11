@@ -1,0 +1,209 @@
+{
+	"folder": null,
+	"name": "Paint Ball",
+	"type": "spell",
+	"img": "icons/tools/hand/brush-paint-pink.webp",
+	"system": {
+		"actions": {
+			"FtgXC8HnNzbhlNux": {
+				"name": "Paint Ball",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"oQXSuhKY34btnhUK": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 2,
+						"spellLevel": 2,
+						"points": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ZQzpA7hPbrHdVarH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"Pq99NZn4Kds3kFaT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cLOoWAiCRawO5C1N"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"euQ1QOcPwqf8y5qf": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p><em><strong>Target:</strong> An area or object within range</em></p>\n<p>You magically convert a pot of paint into a sizable ball of paint that you may throw at a spot you can see within range. This may be a spot on the floor or a vertical surface, such as a wall. The paint ball explodes on impact, creating a brilliant burst of color and covering all creatures and objects within its area of effect. Any invisible creatures or objects are immediately revealed as they are covered in paint. A creature may use its action to wipe the paint away, ending the effect.</p>\n<p>Creatures who are in the affected area at the start of their turn must make a Strength saving throw versus your spell save DC or be restrained. Creatures restrained in this fashion may repeat their saving throw at the end of each of their turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"artificer",
+			"bard",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "a pot of paint",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"movement",
+				"prismatic",
+				"senses"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.y25kP9ppN9qeQPmv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FtgXC8HnNzbhlNux"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"img": "icons/tools/hand/brush-paint-pink.webp",
+			"_id": "cLOoWAiCRawO5C1N",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192101,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "W06t3tZQ4iJ8VlGe"
+}

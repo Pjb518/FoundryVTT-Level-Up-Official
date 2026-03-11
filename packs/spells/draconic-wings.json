@@ -1,0 +1,490 @@
+{
+	"name": "Draconic Wings",
+	"type": "spell",
+	"img": "icons/commodities/biological/wing-green.webp",
+	"system": {
+		"actions": {
+			"lhs0xCsDd5nXwSUt": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"QwQzt8SKGepzTwbj": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 4,
+						"spellLevel": 4,
+						"points": 6,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"pC2XTcNFIZKuPMTH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YcqiL0xU9ItKOvN1"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"OgFV8NTlhauMcKcZ": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			},
+			"f7M372AFfd84Svra": {
+				"name": "Wing Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"n3OiqcrK2orecD12": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 4,
+						"spellLevel": 4,
+						"points": 6,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"JVHwXgmY4kZdhVIR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gcsLq10uMjGzbLZU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"53HCZM3RXD575Dbt": {
+				"name": "Shove",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"3z05MQg6Nhe8oCzz": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 4,
+						"spellLevel": 4,
+						"points": 6,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"TcI6WmWSAy0EAxg9": {
+						"canCrit": false,
+						"damageType": "",
+						"formula": "1 + @spellcasting.mod",
+						"label": "Basic Melee Damage",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true
+					}
+				},
+				"prompts": {
+					"UVu9ZVC0beiWNgAV": {
+						"ability": "str",
+						"onSave": "Creature is not shoved",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Strength Saving Throw",
+						"default": true
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"WuV2DX47Jb2bN9zF": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {}
+				},
+				"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			},
+			"XLRxvEA29fpheRTW": {
+				"name": "Knockdown",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"fEdNiktLsiGthyyP": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 4,
+						"spellLevel": 4,
+						"points": 6,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"Wgx2bdExxjzRu7nR": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @spellcasting.mod",
+						"label": "Basic Melee Damage",
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {
+					"L65ZmTO0KcmeQ2EQ": {
+						"ability": "str",
+						"onSave": "Creature is not knocked down",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Strength Saving Throw",
+						"default": true
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"F4lx1PvHlWBtiSjw": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {}
+				},
+				"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>A pair of massive, spectral dragon wings sprout from your back. You gain a fly speed of 90.&nbsp;While you are on the ground and not flying, you can spend a bonus action to do one of the following:</p>\n<ul>\n<li>You lose your fly speed until the beginning of your next turn, but gain an AC bonus of +1 for the same period of time as you use the wings to shield yourself.</li>\n<li>You can make a @UUID[Compendium.a5e.a5e-maneuvers.Item.md35qozzy2fxy2o6]{Shove} or @UUID[Compendium.a5e.a5e-maneuvers.Item.zzg7j7cb0vkgctwi]{Knockdown} basic maneuver against a creature of your size or smaller within 15 feet of you using the wings. The maneuver DC is equal to your spell save DC, and the damage uses you spellcasting ability modifier instead of your Strength modifier.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"movement",
+				"transformation",
+				"dragon"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": []
+	},
+	"effects": [
+		{
+			"origin": "Item.3B91k16HSyIaPomj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "lhs0xCsDd5nXwSUt",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Draconic Wings",
+			"img": "icons/commodities/biological/wing-green.webp",
+			"_id": "YcqiL0xU9ItKOvN1",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "90",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain a fly speed of 90.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440216769,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3B91k16HSyIaPomj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "f7M372AFfd84Svra",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Wing Shield",
+			"img": "icons/commodities/biological/wing-green.webp",
+			"_id": "gcsLq10uMjGzbLZU",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Lose your fly speed until the beginning of your next turn, but gain an AC bonus of +1 for the same period of time.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440216769,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440216738,
+		"modifiedTime": 1766440216738,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DuNCGdV2XQ5et3qq"
+}

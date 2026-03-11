@@ -1,0 +1,182 @@
+{
+	"name": "Telekinetic Blow",
+	"type": "maneuver",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"actions": {
+			"26ns3XOPSOwZaW73": {
+				"name": "Telekinetic Blow",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When a creature enters or exits a square within your reach"
+				},
+				"consumers": {
+					"PqQt4cE3lzDqJy0G": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1,
+						"classIdentifier": "",
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"Gvw3Hvl48UkSgItf": {
+						"type": "damage",
+						"default": true,
+						"critBonus": "",
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "1 + @str.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"FHpxKlEuqa5n0faX": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"EkiltkjZO13GBNu0"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Lashing out with your psionic power against a foolish foe, you attempt to blast them with the ferocity of your mind. When a creature enters or exits a square within your reach you can use your reaction to force the target to make a Strength saving throw. On a failure you may move them 10 feet in a direction of your choosing and knock them prone, causing them to take basic melee damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "awakenedMind",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.8emelLlqMj5xbYSQ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "EkiltkjZO13GBNu0",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753212817570,
+				"modifiedTime": 1753212834558,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753212349712,
+		"modifiedTime": 1753212860270,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "sRzCkkZ1ybJl7dC2"
+}

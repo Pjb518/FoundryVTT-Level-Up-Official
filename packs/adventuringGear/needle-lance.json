@@ -1,0 +1,232 @@
+{
+	"folder": null,
+	"name": "Needle Lance",
+	"type": "object",
+	"img": "icons/tools/hand/needle-grey.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Q1RLmZboNT2s4BuR": {
+				"name": "Pike",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"c8fg8myLZcaf3swR": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"t4JpiB3Z2pg2qMtp": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d10 + @str.mod",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/polearms/spear-hooked-spike.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			}
+		},
+		"description": "<p><em>Can only be used by a Tiny creature</em></p>\n<p>This hefty knitting needle functions as a pike in the hands of more diminutive folk, with the following changes:</p>\n<ul>\n<li>It has the Defensive (light) property.</li>\n<li>This weapon is considered a martial weapon, but it is not heavy. It weighs 2 lbs. when calculating your carrying capacity.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A metal knitting needle",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "150 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"reach"
+		],
+		"weight": 2,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "light",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.bJXQJWZuVtWZsmBi",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Q1RLmZboNT2s4BuR",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "E4rCzCzeB6nKK0Fp",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650190684,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/weapons/polearms/spear-hooked-spike.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190556,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fhoD3Tkrx9tYPGLs"
+}

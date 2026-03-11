@@ -1,0 +1,255 @@
+{
+	"name": "Gimlet Eye",
+	"type": "feature",
+	"img": "icons/magic/perception/eye-ringed-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CUo6g8Cgnn3PBMfi": {
+				"name": "See Invisibility",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"BkU0uIi2sh4b8lf1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"M15sczS3FdIcYnjH": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": "1"
+				},
+				"ranges": {
+					"Gl9R8627ugUVd95C": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "self",
+					"scaling": {}
+				},
+				"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			},
+			"BlL8dryf5KdwRukp": {
+				"name": "Find Traps",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"TKJI125G9NBwRQmv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "turn",
+					"value": "1"
+				},
+				"ranges": {
+					"qNVGHTaOLqoM23KP": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "other",
+					"scaling": {}
+				},
+				"img": "icons/skills/ranged/shuriken-thrown-sawblade-blue.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>Also at 3rd level, you&rsquo;ve learned to keep an eye out for danger and things that are out of place. You gain an expertise die on Perception and Investigation checks.</p>\n<p>You can also spend a bonus action to replicate the effects of either the @UUID[Compendium.a5e.a5e-spells.Item.i7sh0e2wqmql4cac]{See Invisibility} spell or the @UUID[Compendium.a5e.a5e-spells.Item.u4r9fu1nxbtieekm]{Find Traps} spell until the end of your turn. Once you have used this spell-replicating capability a number of times equal to your Intelligence modifier, you can&rsquo;t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "@int.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"0hWcfM9SkirQaDOw": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0hWcfM9SkirQaDOw",
+				"label": "Gimlet Eye",
+				"keys": {
+					"base": [
+						"prc",
+						"inv"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scholar",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ICoNSSgBYjQnWzsT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CUo6g8Cgnn3PBMfi",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "See Invisibility",
+			"_id": "5NIfvleigpGMWAxL",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can see invisible creatures and objects, and you can see into the Ethereal Plane. Ethereal creatures and objects appear translucent.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440208843,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440208680,
+		"modifiedTime": 1766440208680,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nog40orHGLcudh4A"
+}

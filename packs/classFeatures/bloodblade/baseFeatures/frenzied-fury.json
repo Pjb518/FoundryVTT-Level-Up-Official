@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Frenzied Fury",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-blood-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CLWzUg0zecTxStgR": {
+				"name": "Sustain Frenzy",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"HGYsqJhoDRRMajZs": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"feVpEWXyuKzKTuvj": {
+				"name": "End Frenzy",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"oGmTh9C4A1x0JA5d": {
+						"type": "effect",
+						"default": true,
+						"effectId": "b9nm0ZfTQzpMI4Vv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 11th level, while in your frenzied state, you score a critical hit on a 19–20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum of 17–20).</p><p>Additionally, when you would otherwise fall out of your @UUID[Compendium.a5e.a5e-class-features.Item.Zy5SjEocWsJaxdiy]{Blood Frenzy} you may immediately expend a hit die to sustain your frenzy. You must expend a hit die at the start of each of your turns each consecutive round thereafter to maintain your Blood Frenzy. When you fall out of your Frenzy after sustaining it beyond its normal duration, you gain a level of Fatigue.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.d9mVSriVzZw5Vlyb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "feVpEWXyuKzKTuvj",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Frenzied Fury",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "b9nm0ZfTQzpMI4Vv",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you fall out of your Frenzy after sustaining it beyond its normal duration, you gain a level of Fatigue.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512929797,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512929773,
+		"modifiedTime": 1761551393890,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "RxXgBwcryu2kcT4l"
+}

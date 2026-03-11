@@ -1,0 +1,127 @@
+{
+	"name": "Fling Foe",
+	"type": "feature",
+	"img": "icons/magic/control/energy-stream-link-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"B4kjGjpwnuy6gQa3": {
+				"name": "Fling Foe",
+				"ranges": {
+					"a9XdGscVvNXPu7vl": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"rolls": {
+					"0N9nO1OiGvS7kczz": {
+						"type": "damage",
+						"default": true,
+						"label": "Struck Target",
+						"formula": "1d8 + @int.mod",
+						"damageType": "bludgeoning",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"fMykfPbtib1M66H5": {
+						"type": "damage",
+						"default": true,
+						"label": "Flung Target",
+						"formula": "@int.mod",
+						"damageType": "bludgeoning",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>Rather than only hurling objects you can also hurl people. When you use your mind strike you may instead choose a medium size or smaller creature to throw at another creature or object within 15ft of your target if they fail an Intelligence save. On a successful hit, the struck creature takes 1d8+int bludgeoning damage while the flung target takes bludgeoning damage equal to your Intelligence modifier, and both creatures become adjacent to each other. On a miss, the flung target is still placed adjacent to the other creature or object but neither takes damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Ballistic Mind Strike",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1739814477805,
+		"modifiedTime": 1739817283045,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "27Rc2o1ZrmyMnSNF"
+}

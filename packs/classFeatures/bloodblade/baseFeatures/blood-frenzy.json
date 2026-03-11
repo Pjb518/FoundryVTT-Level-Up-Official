@@ -1,0 +1,180 @@
+{
+	"folder": null,
+	"name": "Blood Frenzy",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-blood-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FXceURYjMrbHAkfp": {
+				"name": "Blood Frenzy",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"EFHc0x6PZTW6EGuD": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"prompts": {
+					"WFCBW6bppVi97RdE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lkXUs9BFdAHf5YMW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Starting at 3rd level, when you start your turn and are bloodied, you must immediately make a Wisdom saving throw (DC 11 + proficiency bonus) or fall into a frenzied state (you may choose to voluntarily fail this saving throw). While frenzied, you gain a number of temporary hit points equal to your Constitution score, and your weapon attacks deal an extra 1d6 points of damage. However, while in this state you cannot recognize friend from foe. You must attack the creature nearest to you, even if that creature is an ally. If there are no creatures within your reach when you become frenzied, on your turn you must move to whichever creature is closest to you. Your Blood Frenzy lasts until you are no longer bloodied, you drop to 0 hit points, or you reduce a target creature to 0 hit points.</p>\n<p>If you are still frenzied when combat ends, you automatically fall out of your Blood Frenzy as you no longer sense any lingering threats.</p>\n<p>The extra damage that you deal while frenzied increases to 2d6 at 11th level and 3d6 at 17th level.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": true,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.eSbauOXs2C1ajtDf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FXceURYjMrbHAkfp"
+				}
+			},
+			"transfer": false,
+			"name": "Frenzied",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "lkXUs9BFdAHf5YMW",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.hp.temp",
+					"value": "@con.mod",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Frenzied\",\"formula\":\"@classResources.frenzied-damage\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/melee/strike-axe-blood-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While frenzied, you gain a number of temporary hit points equal to your Constitution score, and your weapon attacks deal an extra 1d6 points of damage. However, while in this state you cannot recognize friend from foe. You must attack the creature nearest to you, even if that creature is an ally. If there are no creatures within your reach when you become frenzied, on your turn you must move to whichever creature is closest to you. Your Blood Frenzy lasts until you are no longer bloodied, you drop to 0 hit points, or you reduce a target creature to 0 hit points.</p>\n<p>If you are still frenzied when combat ends, you automatically fall out of your Blood Frenzy as you no longer sense any lingering threats.</p>\n<p>The extra damage that you deal while frenzied increases to 2d6 at 11th level and 3d6 at 17th level.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761512351815,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512351614,
+		"modifiedTime": 1761512351614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "Zy5SjEocWsJaxdiy"
+}

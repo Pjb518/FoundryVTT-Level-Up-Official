@@ -1,0 +1,234 @@
+{
+	"folder": null,
+	"name": "Glitter Bomb",
+	"type": "object",
+	"img": "icons/consumables/potions/flask-corked-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2WiyAnyShD3U96BV": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"YZKS49NODXEgXwmz": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "lbtvMSpkGiJX7USD",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"pDoL7f4JgJemSC3i": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"nGFIYCN8vHWTUSl5": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yruLduAFnybEV8C7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"oQTPPUoitaRh4zK5": {
+						"range": "short"
+					},
+					"TFdWZc7xSE5cwHQm": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This clear bottle is filled with sparkling particles that shimmer in the sun.</p>\n<p>As an action, you may throw this bottle at an unoccupied space you can see. The bottle shatters on impact, and the particles burst upwards in a cloud that slowly drifts down. Creatures within 10 feet of the glitter bomb&rsquo;s detonation must succeed on a DC 12 Constitution saving throw or be dazzled until the end of their next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A jar of glitter",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "75 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.lbtvMSpkGiJX7USD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2WiyAnyShD3U96BV",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled",
+			"img": "icons/consumables/potions/flask-corked-green.webp",
+			"_id": "yruLduAFnybEV8C7",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A flash of brilliant light, sparkling spell effects, or sudden exposure to sunlight—all of these could result in a creature being dazzled.<br />•    A dazzled creature has disadvantage on ability checks that require sight.<br />•    A dazzled creature cannot take reactions.<br />•    Creatures that are immune to being blinded are immune to being dazzled.<br />•    If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650190689,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190716,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9OwvVkerVvuNmiKk"
+}

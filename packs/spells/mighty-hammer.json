@@ -1,0 +1,194 @@
+{
+	"folder": null,
+	"name": "Mighty Hammer",
+	"type": "spell",
+	"img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
+	"system": {
+		"actions": {
+			"IF8Jg7v28FYMr2ll": {
+				"name": "Mighty Hammer",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"4pNh9LDKVtcbciLU": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 2,
+						"spellLevel": 2,
+						"points": 3,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Ya7t9ygfVwt8Qk7y": {
+						"type": "effect",
+						"default": true,
+						"effectId": "oSSkNOq2FgJPQJIG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"ranges": {
+					"akdrjW7zbU3ztEKj": {
+						"range": "self"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p><em><strong>Target:</strong> One hammer that you are holding</em></p>\n<p>You magically imbue a hammer to strike harder and faster. When cast on a mundane hammer or smithing hammer, the metal of the hammer&rsquo;s head becomes magically reinforced, allowing it to work more efficiently. You gain an expertise die on checks made to craft or repair items that would require the use of a hammer.</p>\n<p>When this spell is cast on a light hammer or warhammer, the weapon deals an additional 2d6 force damage for its duration.</p>\n<p><strong>Cast at Higher Levels.</strong> The damage increases by 1d6 for every spell slot above 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"artificer",
+			"herald",
+			"wielder"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "a hammer, light hammer, or warhammer",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"attack",
+				"utility"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.C1xxHjtjdGXvyDMG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IF8Jg7v28FYMr2ll",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mighty Hammer",
+			"img": "icons/weapons/hammers/hammer-double-glowing-yellow.webp",
+			"_id": "oSSkNOq2FgJPQJIG",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"mode": 0,
+					"value": "{\"label\":\"Mighty Hammer\",\"formula\":\"2d6\",\"damageType\":\"force\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[\"bludgeoning\"],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/hammers/hammer-double-glowing-yellow.webp\"}",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When this spell is cast on a light hammer or warhammer, the weapon deals an additional 2d6 force damage for its duration.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192059,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "l2SoLC62JmIzyn7r"
+}

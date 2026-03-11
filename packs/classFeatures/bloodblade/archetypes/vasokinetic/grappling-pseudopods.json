@@ -1,0 +1,188 @@
+{
+	"folder": null,
+	"name": "Grappling Pseudopods",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-movement-dripping-pseudopods-green.webp",
+	"system": {
+		"description": "<p>As an Action, you create a number of pseudopods that protrude from your body equal to your Strength modifier (minimum of 1) to grapple up to that many creatures within melee range. Any pseudopods you manifest last for 1 minute. The creatures you attempt to grapple in this way must be your size or smaller. Any creature targeted by the grappling pseudopod makes a Dexterity or Strength saving throw, chosen by you at the time of the grappling attempt, against your maneuver DC. On a failure, the creature becomes grappled.</p><p>Grappling with your pseudopods leaves your limbs free throughout grapple and does not prohibit you from normally grappling with your limbs. You can end the grapple of any number of your grappled targets with a Free Action. You can attempt to grapple a creature up to 1 size larger than yourself by using 2 pseudopods for that target; however, you can’t use a combination of limbs and pseudopods to accomplish this feat.</p><p>You can use this feature a number of times equal to your proficiency bonus per long rest; any manifestation of 1 or more pseudopod(s) counts against this usage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"uLQTzAo5yE30YHw7": {
+				"name": "Grappling Pseudopods",
+				"consumers": {
+					"wTk2AbecE2xgqhZe": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"RI1cZmGaOxLfDs7j": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"sI2QE7iAKdhxmQeF": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"8pqQDhpY1Zhq0vvc"
+				],
+				"macro": "",
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.z0DH7BgRcmv1ff4L",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Grappling Pseudopods",
+			"img": "icons/creatures/slimes/slime-movement-dripping-pseudopods-green.webp",
+			"_id": "8pqQDhpY1Zhq0vvc",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</p></li><li><p>If the grappler becomes incapacitated the condition ends.</p></li><li><p>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the @UUID[Compendium.a5e.a5e-maneuvers.Item.i5m1k81burf6n2t9]{Doubleteam} combat maneuver) the condition ends.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767721795091,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721794913,
+		"modifiedTime": 1767721794913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ARxx0XNatxfCHJcG"
+}

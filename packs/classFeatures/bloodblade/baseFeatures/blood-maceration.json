@@ -1,0 +1,196 @@
+{
+	"folder": null,
+	"name": "Blood Maceration",
+	"type": "feature",
+	"img": "icons/skills/wounds/blood-cells-disease-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"r9jDvWMUFuNCTeYN": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"t7QqvcjX95OcRCaQ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"qt7T17J5OU9xhUPo": {
+						"type": "damage",
+						"default": true,
+						"formula": "10d8+30",
+						"damageType": "acid",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"8SDiJJtKH7OuefZJ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"onSave": "No damage and the spell ends",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special",
+					"value": "0"
+				},
+				"ranges": {
+					"mVZ3P2wD4QgJIhwJ": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"img": "icons/skills/wounds/blood-cells-disease-green.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": ""
+			},
+			"A8qjYOGEg11NOlDL": {
+				"name": "Start of Turn",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"cLJVmfYIykKwtimQ": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8",
+						"damageType": "acid",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"qWtGr102Eis68tyI": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "No damage and the spell ends",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/wounds/blood-cells-disease-green.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 17th level you learn the spell @UUID[Compendium.a5e.a5e-spells.Item.iqr42dqv7y8yz7d0]{Brutal Maceration}, and you may cast it without expending a spell slot or requiring material components. Intelligence is your spellcasting modifier for this spell. Once you have cast this spell using this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761512351614,
+		"modifiedTime": 1761512351614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5Urs5xvDQ78LDa2y"
+}

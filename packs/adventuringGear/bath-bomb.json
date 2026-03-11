@@ -1,0 +1,300 @@
+{
+	"folder": null,
+	"name": "Bath Bomb",
+	"type": "object",
+	"img": "icons/consumables/potions/conical-ornate-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZWy7TmvW0bxVPcHy": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"MgtuF1ZFJUI95ZJA": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "VqEsSkmIk8axaRow",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"5TiA33XiClPuXvqF": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"UxqwUJ4xP4ad7Dri": {
+						"type": "effect",
+						"default": true,
+						"effectId": "h0MVH4QZEkn6RTlN"
+					},
+					"jgqU52ComehY9mMk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VQMnOvRwJDcMPmtl"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"JUKYYMHA34K7VkxO": {
+						"range": "short"
+					},
+					"rg4YbBvK3cyONS2m": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This clear bottle is filled with a pale, viscous lavender liquid that, when opened, smells strongly of lilac and rosewater.</p>\n<p>As an action, you may throw this bottle at an unoccupied space you can see. The bottle shatters on impact and the liquid fizzles and turns to bubbles in a 10-foot area. While the bubbles persist, that area is considered to be difficult terrain, and creatures entering that area must make a DC 12 Dexterity saving throw or slip and fall prone. The bubbles persist unless they are washed away (such as by casting @UUID[Compendium.a5e.a5e-spells.Item.6na38wnae58eief3]{Create or Destroy Water}) or until 1 minute has passed, at which point they disappear.</p>\n<p>Creatures who come into contact with the bubbles are immediately cleaned of dirt and smell faintly of roses for the next hour.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Mineral oil and crushed rose petals",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "50 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "common",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.VqEsSkmIk8axaRow",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZWy7TmvW0bxVPcHy"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/consumables/potions/conical-ornate-purple.webp",
+			"_id": "h0MVH4QZEkn6RTlN",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650190699,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.VqEsSkmIk8axaRow",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZWy7TmvW0bxVPcHy",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Cleaned",
+			"img": "icons/consumables/potions/conical-ornate-purple.webp",
+			"_id": "VQMnOvRwJDcMPmtl",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cleaned of dirt and smell faintly of roses for the next hour.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650190699,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190710,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zFI3gT3otqsOKz4u"
+}

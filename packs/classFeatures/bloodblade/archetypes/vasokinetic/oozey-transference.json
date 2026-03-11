@@ -1,0 +1,118 @@
+{
+	"folder": null,
+	"name": "Oozey Transference",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-movement-pseudopods-blue.webp",
+	"system": {
+		"description": "<p>You tap into the amorphous nature of oozes to transfer an opponent's attack to another target. When you are hit by a melee attack, you can use your Reaction to move your body in such a way that your opponent is forced to change the target of their melee attack. Your opponent makes a Dexterity saving throw against your maneuver DC. On failure, that melee attack redirects to any creature of the bloodblade’s choice, within the opponent's range. The redirected Attack is made against new target's AC. You can use this feature a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"MY2tEIqrZv9EF0Zo": {
+				"name": "Oozey Transference",
+				"consumers": {
+					"3Hjgwp8xMEEXYwQf": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "When you are hit by a melee attack",
+					"cost": 1
+				},
+				"prompts": {
+					"F4FrEIOstRj1bWYa": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721794913,
+		"modifiedTime": 1767721794913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oDHfrtgYGZ5Z1FyS"
+}

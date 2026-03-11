@@ -4,7 +4,7 @@
 	"type": "background",
 	"img": "icons/consumables/drinks/alcohol-beer-mug-yellow.webp",
 	"system": {
-		"description": "<div class=\"page\" title=\"Page 53\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p dir=\"ltr\">Innkeeps, chefs, baristas, and bartenders. The inns and taverns where barkeeps work are essential to the economy of the fantasy world&mdash;how else will towns attract the adventurers they so desperately need? Of course, your role is also essential for the everyday people, giving them venu to congregate and celebrate, an outlet for their energy. As such, barkeeps are frequently a pillar in their community, becoming a local celebrity for whatever personality they have. Who could forget the charismatic dwarf bartender with their shirt sleeves rolled up, or the hot-headed but motherly halfling who helps everyone feel safe?</p>\n<p dir=\"ltr\">Inns and taverns are some of the best means of income in the world of fantasy&mdash;so why become an adventurer? Does your old establishment still exist, or was it tragically destroyed? Do you still have good relations there, or were you dramatically outcast? How do the skills of your old life apply to you as an adventurer now?</p>\n<h3 dir=\"ltr\">Barkeep Traits</h3>\n<p dir=\"ltr\"><strong>Ability Score Increases:</strong> +1 to your choice of Charisma or Wisdom, plus one other ability score.</p>\n<p dir=\"ltr\"><strong>Skill Proficiencies:</strong> Insight, and either Culture, Perception, or Persuasion.</p>\n<p dir=\"ltr\"><strong>Tool Proficiencies: </strong>Brewer&rsquo;s supplies and cook&rsquo;s utensils.</p>\n<p dir=\"ltr\"><strong>Language Proficiencies:</strong> Any one of your choice.</p>\n<p dir=\"ltr\"><strong>Suggested Equipment (Cost 23 gold):</strong> Brewer&rsquo;s supplies, cook&rsquo;s utensils, traveler&rsquo;s clothes.</p>\n<p dir=\"ltr\"><strong>Feature: Service With a Smile.</strong>&nbsp;When you are in a settlement where you haven't made yourself unpopular, you can ply your trade at a local tavern or inn. As compensation you earn room and board (modest lifestyle) for yourself plus a number of creatures equal to your Wisdom or Charisma modifier (whichever is higher, minimum of 1). While plying your trade in this way, you can Gather Information simultaneously with no penalty.</p>\n<p dir=\"ltr\"><strong>Adventures and Advancement.</strong>&nbsp;After enough adventures, you are rewarded with the deed to your own inn or tavern (or enough money to buy back or rebuild the one you lost). This establishment is a Grade 1 Tavern which you can upgrade further at your own expense.</p>\n</div>\n</div>\n</div>\n</div>",
+		"description": "<div class=\"page\" title=\"Page 53\"><div class=\"section\"><div class=\"layoutArea\"><div class=\"column\"><p dir=\"ltr\"><strong>Ability Score Increases:</strong> +1 to your choice of Charisma or Wisdom, plus one other ability score.</p><p dir=\"ltr\"><strong>Skill Proficiencies:</strong> Insight, and either Culture, Perception, or Persuasion.</p><p dir=\"ltr\"><strong>Tool Proficiencies: </strong>Brewer’s supplies and cook’s utensils.</p><p dir=\"ltr\"><strong>Language Proficiencies:</strong> Any one of your choice.</p><p dir=\"ltr\"><strong>Suggested Equipment (Cost 23 gold):</strong> Brewer’s supplies, cook’s utensils, traveler’s clothes.</p><p dir=\"ltr\"><strong>Feature: Service With a Smile.</strong> When you are in a settlement where you haven't made yourself unpopular, you can ply your trade at a local tavern or inn. As compensation you earn room and board (modest lifestyle) for yourself plus a number of creatures equal to your Wisdom or Charisma modifier (whichever is higher, minimum of 1). While plying your trade in this way, you can Gather Information simultaneously with no penalty.</p><p dir=\"ltr\"><strong>Adventures and Advancement.</strong> After enough adventures, you are rewarded with the deed to your own inn or tavern (or enough money to buy back or rebuild the one you lost). This establishment is a Grade 1 Tavern which you can upgrade further at your own expense.</p></div></div></div></div>",
 		"grants": {
 			"lxPMq8Md8Hz0wAVw": {
 				"grantType": "ability",
@@ -23,10 +23,17 @@
 				"context": {
 					"types": [
 						"base"
-					]
+					],
+					"requiresProficiency": false,
+					"default": true
 				},
 				"bonus": "1",
-				"label": "Default ASI"
+				"label": "Default ASI",
+				"_id": "lxPMq8Md8Hz0wAVw",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false
 			},
 			"6PJo0qP0F5wfpQEs": {
 				"grantType": "proficiency",
@@ -42,7 +49,13 @@
 					]
 				},
 				"proficiencyType": "skill",
-				"label": "Skill Proficiencies"
+				"label": "Skill Proficiencies",
+				"_id": "6PJo0qP0F5wfpQEs",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"isExpertise": false
 			},
 			"nNHP1YVnOfK2syy5": {
 				"grantType": "feature",
@@ -54,8 +67,15 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
-				}
+					],
+					"options": [],
+					"total": 0
+				},
+				"_id": "nNHP1YVnOfK2syy5",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false
 			},
 			"9xUqeNavzP54ZaiO": {
 				"grantType": "item",
@@ -73,10 +93,16 @@
 						},
 						{
 							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
-							"quantity": 1
+							"quantityOverride": 0
 						}
-					]
-				}
+					],
+					"options": [],
+					"total": 0
+				},
+				"_id": "9xUqeNavzP54ZaiO",
+				"img": "",
+				"level": 1,
+				"levelType": "character"
 			},
 			"oJsPvNJ5h23uFzAZ": {
 				"grantType": "proficiency",
@@ -86,19 +112,81 @@
 					"base": [
 						"brewersSupplies",
 						"cooksUtensils"
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"_id": "oJsPvNJ5h23uFzAZ",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"isExpertise": false
+			},
+			"1PStvrhyobBGsSjV": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "1PStvrhyobBGsSjV",
+				"label": "Language",
+				"traits": {
+					"base": [],
+					"options": [
+						"abyssal",
+						"aquan",
+						"auran",
+						"boggard",
+						"celestial",
+						"common",
+						"deep",
+						"draconic",
+						"dwarvish",
+						"elvish",
+						"giant",
+						"gnoll",
+						"gnomish",
+						"goblin",
+						"grimlock",
+						"grippli",
+						"halfling",
+						"ignan",
+						"infernal",
+						"machine",
+						"minotaur",
+						"mycelial",
+						"orc",
+						"primordial",
+						"sylvan",
+						"terran",
+						"undercommon"
+					],
+					"total": 1,
+					"traitType": "languages"
 				}
 			}
 		},
 		"source": "moarComplete",
-		"actions": {}
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "ip5u1dzpx0blxomu",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754815576805,
+		"modifiedTime": 1754815626938,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ip5u1dzpx0blxomu"
 }

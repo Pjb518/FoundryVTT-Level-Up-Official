@@ -1,0 +1,207 @@
+{
+	"folder": null,
+	"name": "Sparkler Spray",
+	"type": "spell",
+	"img": "icons/magic/light/orbs-firefly-hand-yellow.webp",
+	"system": {
+		"actions": {
+			"QPN86G8m4rFN4aWM": {
+				"name": "Sparkler Spray",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you are hit with a melee weapon attack"
+				},
+				"consumers": {
+					"WaNzj8QsaF2j1xOV": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 2,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oHwJiGU8miAdAEmh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"elyL2kIBFRfevniv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kiNSr9eR1QCicCZo"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"yLl4UoMPVoWSHTqg": {
+						"range": "self",
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 10,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>You throw a handful of glittering particles in the eyes of your attacker, briefly disorienting them. When you are hit with a melee weapon attack, you may use your reaction to toss glitter at your foe. All creatures within the area of effect must succeed on a Constitution saving throw versus your spell save DC or be dazzled until the end of their next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"artificer",
+			"bard",
+			"sorcerer",
+			"warlock"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "a handful of glitter",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"attack",
+				"prismatic",
+				"senses"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.RV8vId87G9e2kjZn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QPN86G8m4rFN4aWM",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dazzled",
+			"img": "icons/magic/light/orbs-firefly-hand-yellow.webp",
+			"_id": "kiNSr9eR1QCicCZo",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A flash of brilliant light, sparkling spell effects, or sudden exposure to sunlight—all of these could result in a creature being dazzled.<br />•    A dazzled creature has disadvantage on ability checks that require sight.<br />•    A dazzled creature cannot take reactions.<br />•    Creatures that are immune to being blinded are immune to being dazzled.<br />•    If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192090,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "h3aWPe9r0xZeDwxw"
+}

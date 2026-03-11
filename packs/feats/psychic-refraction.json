@@ -1,0 +1,132 @@
+{
+	"folder": null,
+	"name": "Psychic Refraction",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-star-orange-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TFR3v93Us1MWzM8o": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you or a friendly creature within 30 feet of you would take force, necrotic, or psychic damage or suffer a level of strife"
+				},
+				"consumers": {
+					"zlE7TPXK2ux1d79C": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"VAhsEkgHiWpghB4A": {
+						"type": "damage",
+						"default": true,
+						"formula": "@divine-smite-damage",
+						"damageType": "psychic",
+						"label": "Psychic Refraction",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"prompts": {
+					"xoHM9zoS1MBkmpSo": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "none",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>When you or a friendly creature within 30 feet of you would take&nbsp;<em>force</em>,&nbsp;<em>necrotic</em>, or&nbsp;<em>psychic</em>&nbsp;damage or suffer a level of&nbsp;<em>strife</em>, you can use your reaction and a use of Channel Divinity to negate the triggering effect and reflect it back on its source, which must make a Wisdom save against your Psionics save DC or suffer&nbsp;<em>psychic</em>&nbsp;damage equal to the damage bonus of your&nbsp;<em>Divine Smite</em>.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "herald",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "RD6uOriE1kRSaQBD"
+}

@@ -19,7 +19,7 @@
 			"2KLvqtExuY2UCORf": {
 				"name": "Crossbow, Ratcheting",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
@@ -38,36 +38,146 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"scaling": {}
 				},
 				"rolls": {
 					"4cbJ7iCwIcZzieVP": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
-						"ability": "dex"
+						"ability": "dex",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"hTpsqTJZs18eN6KK": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + @dex.mod",
-						"name": "Ratcheting Crossbow",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"9EE5wVJPPnrJPBYH": {
-						"itemid": "",
 						"quantity": 1,
-						"type": "ammunition"
+						"type": "ammunition",
+						"itemId": "",
+						"deleteOnZero": false,
+						"default": true,
+						"label": ""
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "2KLvqtExuY2UCORf",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/crossbows/crossbow-ornamental-black.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"pm8dDfQhMwkSZAgI": {
+				"name": "Wind",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"id": "pm8dDfQhMwkSZAgI",
+				"img": "icons/weapons/crossbows/crossbow-ornamental-black.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"jg4jFgK5wRSBJMyA": {
+				"name": "Wind",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>This crossbow has a large winding wheel affixed to its drawstring which feeds into extra machinery along the stock that catches and pulls the string back again after it is fired. </p><p>Winding a ratcheting crossbow for a single bolt requires a bonus action or action, and it can be wound to prepare two bolts. Masterwork ratcheting crossbows can be prepared to fire up to four bolts, or be constructed smaller (with statistics like a hand crossbow).</p>",
@@ -116,13 +226,39 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "o5jeeze2r4k167r2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.10",
+		"createdTime": 1754777607714,
+		"modifiedTime": 1754777701331,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "o5jeeze2r4k167r2"
 }

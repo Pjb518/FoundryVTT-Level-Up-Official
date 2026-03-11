@@ -1,0 +1,226 @@
+{
+	"folder": null,
+	"name": "Baleful Eye",
+	"type": "feature",
+	"img": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"axyqkheJYZol9rz6": {
+				"name": "Baleful Eye",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"kxecj7rLwl1MJ0xn": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "axyqkheJYZol9rz6",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"7vECTCQfZiO5FXDA"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"9CUiNNZcpHvTq289": {
+				"name": "Gain Power Point",
+				"consumers": {
+					"zyBK0qDuWlLj41YR": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "power-point",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>You focus the eye of the universe on a single enemy, cursing them as a bonus action. Creatures cursed in this way take an additional 1d4 psionic damage from your attacks and spells. Any time a creature under your curse fails a saving throw, you gain one power point. You may use your curse once per short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"a5RTxdMwaQd4Sj84": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "a5RTxdMwaQd4Sj84",
+				"label": "Baleful Eye",
+				"bonus": "1d4",
+				"damageType": "psychic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "warlock",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.C3OXK0QlBBvDGyw2",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cursed",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp",
+			"_id": "7vECTCQfZiO5FXDA",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Take an additional 1d4 psionic damage from your attacks and spells. Any time a creature under your curse fails a saving throw, you gain one power point.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753203434649,
+				"modifiedTime": 1753203456295,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753203198332,
+		"modifiedTime": 1753207068320,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "OJcctk9fh8i1AWOC"
+}

@@ -1,0 +1,210 @@
+{
+	"name": "Mentalist Mastermind",
+	"type": "feature",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Q9PsAsKDBJL3oYTU": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"id": "Q9PsAsKDBJL3oYTU",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"J3Lqshdbs5MTlB6h": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"keHAP77682oAHGbd": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "keHAP77682oAHGbd",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"YLNI73mptIQnq0KM": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>At 3rd level you find yourself able to reach out into the minds of others to provide warnings and encouragement. You gain a reservoir of psychic power. This reservoir contains a 1d6 Psi Dice, though you will gain 1 additional dice at levels 5, 10, and 15.</p><p style=\"text-align: start\">Whenever an ally in your aura takes damage or uses a Maneuver or @UUID[Compendium.a5e.a5e-class-features.Item.k9a86qhku4stw0kg]{Focus Feature} you may use your reaction to attempt to defend or empower your ally telepathically. When you augment an ally in this way, roll your Psi Dice to reduce the damage they take, or add to the damage of their Maneuver or Focus Feature. You may also augment an Investigation or Insight check by rolling a Psi Dice and adding the value to the total. On a roll of a 1 or a 2, the die is lost. On a roll of the maximum value of the die you instead recover one, if any, lost die. You recover all of your Psi Dice at the end of a long rest and during a short rest can trade 1 HD for 1 Psi Die. HD used in this way provide no HP recovery.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "marshal",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753128463957,
+		"modifiedTime": 1753133732285,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "o71mFMpurZyO3Sl1"
+}

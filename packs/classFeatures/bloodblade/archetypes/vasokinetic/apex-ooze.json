@@ -1,0 +1,459 @@
+{
+	"folder": null,
+	"name": "Apex Ooze",
+	"type": "feature",
+	"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+	"system": {
+		"description": "<p>At 18th level, you seem to be more ooze than not. You seep, you flow, and you destroy those around you in equal measure. You gain the following benefits:</p><ul><li><p><strong>Viscous Movement.</strong> When you move through the space of other creatures, per the @UUID[Compendium.a5e.a5e-class-features.Item.5ZeFAIqUj80sz3EE]{Anomalous Physique} feature, each creature makes a Strength saving throw against your maneuver DC. On a failure, each creature becomes restrained until the start of your next turn. You (and your equipment) can also move through a space as small as 1 inch without squeezing. With Contortionist Esoteric Art or if you have the ooze creature type, you can seep through cracks in walls or floorboards as though you were a liquid (there must be a space to fully reform on the other side within the range of your Speed; otherwise you will be shunted back, fully formed and prone).</p></li><li><p><strong>Writhing Combatant.</strong> You gain immunity to the restrained condition and cannot be grappled against your will. You gain an expertise die when resisting the paralyzed condition.</p></li><li><p><strong>Adaptive Threat.</strong> Instead of rolling to determine your @UUID[Compendium.a5e.a5e-class-features.Item.t4fBlBaiSejL8KVX]{Sanguine Transference} damage type, you can now choose at the end of each rest. Additionally, you can now choose force damage for your Sanguine Transference. Your choice applies to your resistance and @UUID[Compendium.a5e.a5e-class-features.Item.Zy5SjEocWsJaxdiy]{Blood Frenzy} immunity.</p><ul><li><p>If you choose bludgeoning, piercing, or slashing damage, your resistance and Blood Frenzy immunity now includes the magical versions of that damage type.</p></li></ul></li></ul><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "corrosiveSouls",
+		"actions": {
+			"BAVObTgDWt2I9vop": {
+				"name": "Viscous Movement",
+				"id": "BAVObTgDWt2I9vop",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"UseyaLWlWIzBQUz3"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"f3o9QwDxzDFjIZzW": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"MjyOre0z5V5tZHdu": {
+				"name": "Adaptive Threat",
+				"consumers": {
+					"sHSeNlzSpRtVIjkU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "bZsKaGLnEgCtpTUC",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"8jD15D8RKXgaSyUB",
+					"ERNcrYX0k9ANMcgk",
+					"FRq8CtQAjCwSOSfN",
+					"Ou2JnyNq7ZJnYEFM"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"bJbsZJ434wAHaiOs": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bJbsZJ434wAHaiOs",
+				"label": "Apex Ooze",
+				"traits": {
+					"base": [
+						"restrained"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.cxsOekmivGBb3Eqm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Restrained",
+			"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"_id": "UseyaLWlWIzBQUz3",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</p></li><li><p>Attack rolls against a restrained creature are made with advantage.</p></li><li><p>A restrained creature makes attack rolls with disadvantage.</p></li><li><p>The restrained creature has disadvantage on Dexterity saving throws.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725417811,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.cxsOekmivGBb3Eqm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Adaptive Threat (Bludgeoning)",
+			"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"_id": "8jD15D8RKXgaSyUB",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"bludgeoning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725417811,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.cxsOekmivGBb3Eqm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Adaptive Threat (Piercing)",
+			"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"_id": "ERNcrYX0k9ANMcgk",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"piercing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725417811,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.cxsOekmivGBb3Eqm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Adaptive Threat (Slashing)",
+			"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"_id": "FRq8CtQAjCwSOSfN",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725417811,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.cxsOekmivGBb3Eqm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Adaptive Threat (Force)",
+			"img": "icons/creatures/slimes/slime-giant-face-eyes.webp",
+			"_id": "Ou2JnyNq7ZJnYEFM",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"force\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the damage type associated with your current Sanguine Transference during your Blood Frenzy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.15",
+				"createdTime": null,
+				"modifiedTime": 1767725417811,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.15",
+		"createdTime": 1767725417738,
+		"modifiedTime": 1767725459336,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oVbZDrnWTitExifE"
+}

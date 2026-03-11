@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"KqI7mhiDvxqQoDix": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 4,
-						"points": 6
+						"points": 6,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -29,7 +32,10 @@
 							"mode": "spellLevel",
 							"formula": "1d6"
 						},
-						"damageType": "fire"
+						"damageType": "fire",
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -38,9 +44,11 @@
 						"default": true,
 						"ability": "dex",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "spellcasting",
+							"bonus": ""
 						},
-						"onSave": "half damage"
+						"onSave": "half damage",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -53,7 +61,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"ranges": {
 					"29qhaKyqiM42doJy": {
@@ -62,17 +71,28 @@
 				},
 				"target": {
 					"type": "self",
-					"quantity": 1
+					"quantity": 1,
+					"scaling": {}
 				},
 				"area": {
 					"shape": "cube",
 					"quantity": 2,
 					"width": 15,
 					"placeTemplate": true
-				}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			}
 		},
-		"description": "<p>You disappear in a burst of burning brimstone and teleport to an unoccupied space that you can see within range. An explosion of fire and smoke, and the scent of burning brimstone, accompanies your exit and entrance, targeting all creatures adjacent to you at the point you left and the point you appear. Target creatures in those areas must make Dexterity saving throws, taking 3d6 damage on a failure or half on a success. The areas are also filled with obscuring smoke for 1 round, which dissipates at the end of your next turn.</p><p><strong>Cast at Higher Levels</strong>. The fire damage increases by 1d6 for every slot level above 4th.</p>",
+		"description": "<p>You disappear in a burst of burning brimstone and teleport to an unoccupied space that you can see within range. An explosion of fire and smoke, and the scent of burning brimstone, accompanies your exit and entrance, targeting all creatures adjacent to you at the point you left and the point you appear. Target creatures in those areas must make Dexterity saving throws, taking 3d6 damage on a failure or half on a success. The areas are also filled with heavy obscuring smoke for 1 round, which dissipates at the end of your next turn.</p><p><strong>Cast at Higher Levels</strong>. The fire damage increases by 1d6 for every slot level above 4th.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -113,14 +133,26 @@
 				"teleportation"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": []
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "2o2ko6fs0op9be6h",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.15",
+		"createdTime": 1767721446504,
+		"modifiedTime": 1767721488738,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2o2ko6fs0op9be6h"
 }

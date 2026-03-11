@@ -1,0 +1,912 @@
+{
+	"folder": null,
+	"name": "Chirurgery",
+	"type": "spell",
+	"img": "icons/magic/life/heart-area-circle-red-green.webp",
+	"system": {
+		"description": "<p>By extending your mind out into another being you can affect repairs to their mind and body through your understanding of mortal systems, or disable such systems to horrifying results. When you manifest this power on a target within range, that target can immediately expend 1 hit die as if they were taking a short rest and immediately gain HP and/or Psionic Dice as normal. You may also choose to target an enemy creature within range and force them to expend 1 hit dice, taking damage equal to the value rolled on a failed Intelligence Saving throw. If your target has no hit dice available, in either case, this power has no effect. When targeting animals and other monsters, treat the number of dice that determine their hit points as hit dice.</p><h2>Augments:</h2><p><strong>Anosmia/Blindness/Deafness/Numbness:</strong> Your target loses access to one of their senses, temporarily. This lasts for up to 1 minute per power point you expend, though your target may spend an action to roll a saving throw on any round, ending the effect on a successful save. Anosmic and Numb creatures have disadvantage on skill and ability checks relying on smell or taste for Anosmia, and touch for Numbness.</p><p><strong>Deep Healing:</strong> The target expends an additional Hit Dice per augment.</p><p><strong>Repaired Systems:</strong> Remove one disease or condition from your target for every hit die they spend as part of this power’s manifestation. Choose from anosmia, blinded, deafened, paralyzed, or poisoned. At the Narrator’s discretion, some diseases may not be cured with this power.</p><h2>Augments requiring two Psi Dice:</h2><p><strong>Rest and Rejuvenate:</strong> Your target may remove one of the following effects for every hit die they spend as part of this power’s manifestation: One level of Fatigue or Strife, any reduction to a single ability score, or any effect that has reduced their hit point maximum.</p><h2>Augments requiring three Psi Dice:</h2><p><strong>Restore Activity:</strong> You may attempt to immediately expend all of your currently dead target’s remaining hit dice in an attempt to bring them back to life. Your target can be dead for no more than 1 minute when you use your power in this way, and regains hit points as if they expended a single hit dice. If your target has half or less of their normal maximum hit dice when you manifest this power, they must make a constitution save against your Psionics DC.</p><p>On a failure, they instead regain only 1 hit point and remain unconscious until they’ve completed a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"yVAHZnUkRgrnfPVe": {
+				"name": "Chirurgery",
+				"consumers": {
+					"toZLIyafrxkooPCv": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 0,
+						"spellLevel": 0,
+						"points": 0,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"7cb15kuNw8WZ5y0h": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"prompts": {
+					"kMB8mcOWtjIk1kkU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "yVAHZnUkRgrnfPVe",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"cZyxb3tvisQECSjQ": {
+				"name": "Range",
+				"consumers": {},
+				"id": "cZyxb3tvisQECSjQ",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"1yi3wuKdY0iVKmGv": {
+				"name": "Harm",
+				"consumers": {},
+				"rolls": {
+					"aZNBmsLUMZR6Xpvn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": null
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"id": "1yi3wuKdY0iVKmGv",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"8fXxAABWmWIfuHP2": {
+				"name": "Restoration",
+				"consumers": {},
+				"rolls": {
+					"MXTYHdYK7wvVbnUw": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d8",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "8fXxAABWmWIfuHP2",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"RRa881yghUp9EXdF": {
+				"name": "Split",
+				"consumers": {},
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"id": "RRa881yghUp9EXdF",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"TFk7PHBInhSVfHZb": {
+				"name": "Anosmia/Blindness/Deafness/Numbness",
+				"consumers": {},
+				"effects": [
+					"CbpZaTCfYVXxf4ut",
+					"09P6GiOfQq1k20sD",
+					"ybNTaDGbQZ3VUNqg",
+					"CLQ6mejs2uBtVtCF"
+				],
+				"id": "TFk7PHBInhSVfHZb",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"1PvFvSNRZfyR9QwX": {
+				"name": "Deep Healing",
+				"consumers": {},
+				"id": "1PvFvSNRZfyR9QwX",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"CQfHJ7IQOIFCbADU": {
+				"name": "Repaired Systems",
+				"consumers": {},
+				"id": "CQfHJ7IQOIFCbADU",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"S4eMX1F0vUg2fmNj": {
+				"name": "Rest and Rejuvenate",
+				"consumers": {},
+				"id": "S4eMX1F0vUg2fmNj",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"pqcVsbtaKvh2b2pB": {
+				"name": "Restore Activity",
+				"consumers": {},
+				"prompts": {
+					"ISJtLJxsBb8giDHf": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "pqcVsbtaKvh2b2pB",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"OMfNNqFOfvywl6uz": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "OMfNNqFOfvywl6uz",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"sJBNxtqJmQYKdynO": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "sJBNxtqJmQYKdynO",
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"wkKhXq3Y5RAonksF": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/life/heart-area-circle-red-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"discipline": [
+			"kinesthetic",
+			"telepathic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9Cx4cgTk79jkAFCe",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Anosmia",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
+			"_id": "CbpZaTCfYVXxf4ut",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on skill and ability checks relying on smell or taste.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1740009506204,
+				"modifiedTime": 1740009545409,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.9Cx4cgTk79jkAFCe",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Blindness",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
+			"_id": "09P6GiOfQq1k20sD",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A blinded creature can't see and it automatically fails ability checks that require sight.</p></li><li><p>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1740009547876,
+				"modifiedTime": 1740009590366,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.9Cx4cgTk79jkAFCe",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Deafness",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
+			"_id": "ybNTaDGbQZ3VUNqg",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1740009597730,
+				"modifiedTime": 1740009617164,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.9Cx4cgTk79jkAFCe",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Numbness",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
+			"_id": "CLQ6mejs2uBtVtCF",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on skill and ability checks relying on touch.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1740009621280,
+				"modifiedTime": 1740009650861,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1740009138832,
+		"modifiedTime": 1751205180018,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hCE6V4pDqp0GdjAa"
+}

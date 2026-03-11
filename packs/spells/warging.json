@@ -1,0 +1,552 @@
+{
+	"name": "Warging",
+	"type": "spell",
+	"img": "icons/magic/perception/eye-slit-orange.webp",
+	"system": {
+		"description": "<p>Warging is most easily understood as a form of telepathic contact in which you perceive the world as the creature that you are in contact with, so closely linked as to essentially become the same creature. When you manifest this power, choose a creature within range. The creature makes a Wisdom saving throw. On a failed save, you can no longer perceive the world through your normal senses, and instead perceive the world through the eyes, ears, touch, taste, and olfactory senses of the target. The target also perceives reality normally, but is aware of a ‘presence’ in their mind.</p><p>This effect lasts for up to 10 minutes, and a creature may attempt to roll a saving throw as a bonus action on their turn to attempt to end this effect. This power requires concentration. Once the target has failed the saving throw, the range of the continued effect is unlimited.</p><h2>Augments:</h2><p><strong>Control Movement:</strong> You take control of your target’s movement until the start of your next turn. You must use this augment on any turn you wish to control the creature.</p><p><strong>Imperceptible:</strong> Your presence in the creature’s mind is not perceived, and the creature is unaware of your sharing senses if you use this augment every round.</p><p>However once you use any other augment of this power, the target is aware and Imperceptible cannot be used again.</p><p><strong>Slow Down:</strong> You alter your target’s initiative by up to 6 turns in the initiative count. You must use this augment on any turn you wish to control the creature.</p><h2>Augments requiring two Psi Dice:</h2><p><strong>Duration:</strong> You may only use this augment when you initially manifest this power. The duration is increased by 1 hour per use of this augment.</p><p><strong>Take Action:</strong> You control the creature’s action on its turn. You must use this augment on any turn you wish to control the creature.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"hoMKXRFG2EK2gAvM": {
+				"name": "Warging",
+				"consumers": {},
+				"id": "hoMKXRFG2EK2gAvM",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"UVoFiuF0yoXBRpah": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"W44KAoQPoWPwNRKf": {
+						"range": "long"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"3zoUkumRlWTtrQPA": {
+				"name": "Range",
+				"consumers": {},
+				"id": "3zoUkumRlWTtrQPA",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"eBLX4twZGTCqFg33": {
+				"name": "Split",
+				"consumers": {},
+				"id": "eBLX4twZGTCqFg33",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"jhegBk6x3sg5knDG": {
+				"name": "Control Movement",
+				"consumers": {},
+				"id": "jhegBk6x3sg5knDG",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"m3zv9kyDgxbPqvYZ": {
+				"name": "Imperceptible",
+				"consumers": {},
+				"id": "m3zv9kyDgxbPqvYZ",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"KN6lg9TtITO5JuQv": {
+				"name": "Slow Down",
+				"consumers": {},
+				"id": "KN6lg9TtITO5JuQv",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"z3xsI7Aoion7s8lD": {
+				"name": "Duration",
+				"consumers": {},
+				"id": "z3xsI7Aoion7s8lD",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Rjy9r4TmseoyP3XW": {
+				"name": "Take Action",
+				"consumers": {},
+				"id": "Rjy9r4TmseoyP3XW",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"unn4uS1xKPGPARzS": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "unn4uS1xKPGPARzS",
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"ymCcOhoh47V5hS8p": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "ymCcOhoh47V5hS8p",
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Ys25M44MxPblvj3F": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "Zjohucujs98zgvIY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/eye-slit-orange.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"discipline": [
+			"empathic",
+			"telekinetic",
+			"telepathic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1752871857402,
+		"modifiedTime": 1752872601923,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "OdMTGgaOEvyhNXHL"
+}

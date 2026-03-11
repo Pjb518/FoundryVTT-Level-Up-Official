@@ -1,0 +1,216 @@
+{
+	"folder": null,
+	"name": "Lather Flood",
+	"type": "spell",
+	"img": "icons/sundries/survival/soap.webp",
+	"system": {
+		"actions": {
+			"uiMfSz0VmMAZcRmK": {
+				"name": "Lather Flood",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"3C8XB5ORI9R287Zb": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 2,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3f0OxsMLzW4jBJXn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"0HQ68zbLTrJfcxuS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZRdAgVL5jJULQBPT"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"ranges": {
+					"hD8wBLp2KzLvK9MC": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"radius": "10"
+						}
+					},
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You magically flood an area within range with soap suds and soapy water. Creatures within the affected area must succeed on a Dexterity saving throw versus your spell save DC or be knocked prone.</p>\n<p>Additionally, the soap and water thoroughly cleans the area in which it is cast, removing dirt, debris that weighs less than 5 lbs., and substances such as oil, grease, or acid.</p>\n<p><strong>Cast at Higher Levels:</strong> Increase the area of effect by 10 feet for every spell slot above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"bard",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "a bar of soap",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"control",
+				"hearth",
+				"utility"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.3kNme6tZLE0S2pDB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "uiMfSz0VmMAZcRmK"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/sundries/survival/soap.webp",
+			"_id": "ZRdAgVL5jJULQBPT",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753650192051,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650191959,
+		"modifiedTime": 1753650191959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "y3dCEYZE5cjwEsMf"
+}

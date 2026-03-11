@@ -1,0 +1,650 @@
+{
+	"folder": null,
+	"name": "Telepathy",
+	"type": "spell",
+	"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+	"system": {
+		"description": "<p>You may use telepathic contact to assail or communicate with a creature within range. When you assault the target they must make a Wisdom save or take 1d10 + your esper level points of Psychic damage. When you attempt to communicate you’re able to transfer meaning to and from your target, allowing for the sharing of words and emotion, regardless of any language barrier. Though creatures without language, such as a beast, will be incapable of providing words in return and may not understand words that you share.</p><h2>Augments:</h2><p><strong>Learning:</strong> You may attempt to subtly take information from your target by listening in to their active thoughts.</p><h2>Augments requiring Two Psi Dice:</h2><p><strong>Overwhelm:</strong> Roll 10d4 and compare the value to the target’s current hit points. If the value equals or exceeds the target’s hit points they immediately fall into natural sleep.</p><p><strong>Invade:</strong> You may attempt to steal a memory from your target. Doing so causes your target to make a Wisdom Save. On a failure you are able to select one memory, generally an hour or less, and gain it for yourself. At your discretion, your target loses access to that memory for 24 hours.</p><h2>Augments requiring three Psi Dice:</h2><p><strong>Traumatic Interference:</strong> You assail your target’s mind in a manner that is so traumatic and painful that your target gains a Short-Term Mental Stress Effect of your choosing for the next 1 minute.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"actions": {
+			"euk9Dy9auLpHOeLp": {
+				"name": "Telepathy",
+				"consumers": {},
+				"ranges": {
+					"Wap0aiPxlQ6MpV1a": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"prompts": {
+					"CqoG4apC92BG1EyP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"rolls": {
+					"hhzbq5CxmuTa7bxL": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d10 +@classes.esper.level",
+						"damageType": "psychic",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "euk9Dy9auLpHOeLp",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"F8Q60xojcRXwKR4u": {
+				"name": "Range",
+				"consumers": {},
+				"id": "F8Q60xojcRXwKR4u",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"ilFGm8wtmZWftBjy": {
+				"name": "Harm",
+				"consumers": {},
+				"rolls": {
+					"aZNBmsLUMZR6Xpvn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "psychic",
+						"scaling": {
+							"mode": null
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"label": ""
+					}
+				},
+				"id": "ilFGm8wtmZWftBjy",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"eGB81zwSHBv7EOfK": {
+				"name": "Split",
+				"consumers": {},
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"id": "eGB81zwSHBv7EOfK",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"qbZKOzy9eZeSfwBP": {
+				"name": "Learning",
+				"consumers": {},
+				"id": "qbZKOzy9eZeSfwBP",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"UYn00jiFcLhwjsp4": {
+				"name": "Overwhelm",
+				"consumers": {},
+				"rolls": {
+					"E0yn0eFcPdxhvKQi": {
+						"type": "generic",
+						"default": true,
+						"formula": "10d4",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "UYn00jiFcLhwjsp4",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Em2tkHG9H6n1ar6g": {
+				"name": "Invade",
+				"consumers": {},
+				"prompts": {
+					"GsmyJLd3eZwpNU52": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"id": "Em2tkHG9H6n1ar6g",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"bPsrWgF9OBp5miHd": {
+				"name": "Traumatic Interference",
+				"consumers": {},
+				"effects": [
+					"BRM7ThYqD1vs0i1f"
+				],
+				"id": "bPsrWgF9OBp5miHd",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"DeHokTRXA11h729Y": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"rolls": {
+					"FuvYLNHrPHzyy2Rv": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.psi-die-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "DeHokTRXA11h729Y",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"pGHqmYhCNvI58t8c": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "pGHqmYhCNvI58t8c",
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"eNIU1iYaahoDLR64": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"Ro8ajNkVmrPlN6Vh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"esper"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"discipline": [
+			"telepathic"
+		],
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "",
+			"secondary": []
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9pl9Fss8CJHB6SYX",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Traumatic Interference",
+			"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+			"_id": "BRM7ThYqD1vs0i1f",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gains a Short-Term Mental Stress Effect of your choosing for the next 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1739991728971,
+				"modifiedTime": 1739991749694,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1739991105977,
+		"modifiedTime": 1751205180018,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6uUjnCRaZVlJConE"
+}

@@ -1,0 +1,197 @@
+{
+	"folder": null,
+	"name": "Arterial Spray",
+	"type": "maneuver",
+	"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+	"system": {
+		"actions": {
+			"I6C7AeEaXzfS2U9X": {
+				"name": "Arterial Spray",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"i5PUfIGWLdStwUsJ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 4,
+						"restore": false,
+						"label": ""
+					},
+					"cuJnt7hafHHSfeL4": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"label": "Costs 2 Hit Dice"
+					},
+					"C318XQAHRrGGV6vv": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "hp",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"HvzIz04Yzqt2V0d4": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "No danage, rattled",
+						"label": ""
+					},
+					"ysB689igAklISZyn": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dwuuXM2Sybxbuall"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p><em><strong>Requirement:</strong> You must be wielding a weapon that deals piercing or slashing damage</em></p>\n<p>You slash at a creature&rsquo;s arteries, hoping to exsanguinate it. Spend 2 hit dice and make a melee weapon attack against a target within range. If you hit, the creature takes normal weapon damage and must make a Constitution saving throw. If it fails, it immediately suffers necrotic damage equal to half of its normal hit points or enough to drop it to 1 hit point remaining, whichever is less. A creature that succeeds on its saving throw is rattled until the end of its next turn. Creatures without blood are immune to this maneuver.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 4,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "viciousVein",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.E6wunJCOGD8Hubki",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "I6C7AeEaXzfS2U9X",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+			"_id": "dwuuXM2Sybxbuall",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555536119,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555536043,
+		"modifiedTime": 1761555536043,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nd5vkTUgtOThjKyo"
+}

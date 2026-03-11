@@ -19,7 +19,8 @@
 				"name": "Targeting Module",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -30,8 +31,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -42,10 +41,28 @@
 				},
 				"effects": [
 					"8aLWqzbvuRsR3daT"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			}
 		},
-		"description": "<p><strong> </strong>On its turn as an action, the automaton can highlight a target within 30 feet, granting an expertise die to creatures targeting it with attacks.</p>",
+		"description": "<p>On its turn as an action, the automaton can highlight a target within 30 feet, granting an expertise die to creatures targeting it with attacks, <span>until the beginning of its next turn.</span></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -64,13 +81,26 @@
 		"prerequisite": "Upgraded Automaton",
 		"requiresBloodied": false,
 		"classes": "artificer",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"effects": [
 		{
-			"origin": "Item.BzdC6i3TRnoVc2Qg",
+			"origin": "Item.R3e7WzVcyEgM1HES",
 			"flags": {
-				"a5e": {}
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
 			},
 			"transfer": false,
 			"name": "Target",
@@ -79,7 +109,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"changes": [],
 			"disabled": false,
@@ -87,7 +125,7 @@
 				"startTime": null,
 				"seconds": null,
 				"combat": null,
-				"rounds": null,
+				"rounds": 1,
 				"turns": null,
 				"startRound": null,
 				"startTurn": null
@@ -99,11 +137,11 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.330",
+				"coreVersion": "12.343",
 				"systemId": "a5e",
-				"systemVersion": "0.19.19",
-				"createdTime": 1722222100505,
-				"modifiedTime": 1722222136564,
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1765839039936,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -111,11 +149,11 @@
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "12.330",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.19",
-		"createdTime": 1722221952802,
-		"modifiedTime": 1722222870419,
+		"systemVersion": "1.0.14",
+		"createdTime": 1765839016733,
+		"modifiedTime": 1765839026215,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "cjfmplp3bor2lon9"

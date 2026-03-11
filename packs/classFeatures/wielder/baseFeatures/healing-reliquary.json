@@ -1,0 +1,122 @@
+{
+	"folder": null,
+	"name": "Healing Reliquary",
+	"type": "feature",
+	"img": "icons/equipment/neck/amulet-heart.webp",
+	"system": {
+		"description": "<p>Your bonded artifact is a source of divine healing power. As an action you may spend 2 artifact charges to heal a creature you touch for a number of hit points equal to 1d8 + your Charisma modifier. </p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "wielder",
+		"actions": {
+			"A6XjcjIkEuCkgPth": {
+				"name": "Healing Reliquary",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"E6E1Vhvg6aBTtQMw": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 2,
+						"spellLevel": 1,
+						"points": 1,
+						"label": ""
+					}
+				},
+				"ranges": {
+					"0Zo3hETZVVfV84w9": {
+						"range": "touch"
+					}
+				},
+				"rolls": {
+					"4XpAOlKgf6R97bIz": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d8 + @cha.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "wielder",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Bestowed archetype",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.16",
+		"createdTime": 1767893768861,
+		"modifiedTime": 1767893768861,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ZIvlD4AuXIWM45dM"
+}

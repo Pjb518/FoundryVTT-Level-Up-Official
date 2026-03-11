@@ -1,0 +1,541 @@
+{
+	"folder": null,
+	"name": "Staff of the Dandelion",
+	"type": "object",
+	"img": "icons/commodities/flowers/dandelion-pod-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"lNmjE4U1WZ0GQodx": {
+				"name": "Quarterstaff",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"kIPu7GmdIzAicMJ7": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"pkL2dfIfjmcWiwlT": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d6 + @str.mod",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/weapons/staves/staff-simple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"waGcBtN8Ar4nVW2Q": {
+				"name": "Parry",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"Wr28F3fXpV7iLaWM": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/staves/staff-simple.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"CTuNj5kZrd02Av1m": {
+				"name": "Small Gust of Wind",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"WlowC1MfqSVFNe0v": {
+				"name": "Gust of Wind",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ch7BQNj2zbdWwdgb": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"zFS1YAEU6aNM2hAq": {
+						"ability": "str",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"OR9JLLUhjiqqZrKh": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"length": "60",
+					"width": "5",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {}
+				},
+				"img": "icons/magic/air/wind-swirl-gray-blue.webp",
+				"description": "<p>A torrent of wind erupts from your hand in a direction you choose. Each creature that starts its turn in the area or moves into the area must succeed on a Strength saving throw or be pushed 15 feet from you in the direction of the line.</p><p>Any creature in the area must spend 2 feet of movement for every foot moved when trying to approach you.</p><p>The blast of wind extinguishes small fires and disperses gas or vapor.</p><p>You can use a bonus action to change the direction of the gust.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": ""
+			},
+			"aPX9nRARa7kAv5YX": {
+				"name": "Levitate",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"sdgTAy8XWMRHaG7z": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8kE6DnVwczNtGqFz": {
+						"ability": "con",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"cOhU4VaL2lluttPp": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/magic/control/debuff-energy-hold-yellow.webp",
+				"description": "<p>Until the spell ends, the target rises vertically in the air up to 20 feet and remains floating there, able to move only by pushing or pulling on fixed objects or surfaces within its reach. This allows the target to move as if it was climbing.</p><p>On subsequent turns, you can use your action to alter the target's altitude by up to 20 feet in either direction so long as it remains within range. If you have targeted yourself you may move up or down as part of your movement.</p><p>The target floats gently to the ground if it is still in the air when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 5th-level spell slot the target can levitate or come to the ground at will. When using a 7th-level spell slot its duration increases to 1 hour and it no longer requires concentration.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": ""
+			},
+			"YhsTHmPqij6Mgo03": {
+				"name": "Float Down",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"rd9bIgOJBduQpVXA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 4,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"A2O9qRYdHqltwWjn": {
+				"name": "Last Charge Expended",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"KYWfF1nTwEgU4VsE": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d20",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"v2BhpJfmpe7rHqos": {
+				"name": "Regain Charges",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"iIMzu1KQaJisiv7Y": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"wqqrMoGU8yOgstem": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4 + 1",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This staff resembles an oversized dandelion seed head. As a bonus action, you may command the staff to produce a small gust of wind to dramatically billow your cloak or robes behind you.</p>\n<p>The staff of the dandelion has 8 charges. You may expend two charges to cast either the @UUID[Compendium.a5e.a5e-spells.Item.8rsevg8q1eygarlk]{Gust of Wind} or @UUID[Compendium.a5e.a5e-spells.Item.42mrmh4skb5qibp6]{Levitate} spell. Alternatively, you may expend four charges to grasp the staff in both hands and step off of a vertical ledge at least 25 feet high. The staff will gently float you down at a rate of 10 feet per round until you reach the bottom. The staff of the dandelion regains 1d4 + 1 charges every dawn. When the last charge is expended, roll a d20. On a 1, the staff drops all of its dandelion seeds and loses all magical properties.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 8,
+			"max": "8",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A dandelion plucked from the fey realms",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "350 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"parrying",
+			"simple",
+			"twoHanded"
+		],
+		"weight": 4,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753650190556,
+		"modifiedTime": 1753650190556,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oATQ2pbysCe5Edbf"
+}

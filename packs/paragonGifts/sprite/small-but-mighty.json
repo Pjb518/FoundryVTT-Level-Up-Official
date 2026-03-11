@@ -1,0 +1,214 @@
+{
+	"folder": null,
+	"name": "Small but Mighty",
+	"type": "feature",
+	"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FhBOkOBsS5PbXN6U": {
+				"name": "Enlarge",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"VsgNKbhJkNVU3rin": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"tFZABqrhAEre0tc4": {
+						"ability": "con",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					},
+					"ihoRmBLotqfboXIo": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"VrklmmY8yOHCxBRO": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"fIY8VQlDxQa6alnc": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/magic/control/debuff-energy-hold-blue-yellow.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</p>",
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>Your larger-than-life personality more than makes up for your Tiny size, and it now has a way to manifest physically. You may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.ap6klied8mqbclvn]{Enlarge/Reduce} on yourself a number of times equal to your proficiency bonus per long rest. The spell can only target you and can only be used with the Enlarge option.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.YQBqWu45rmmSkTEC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FhBOkOBsS5PbXN6U",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Enlarged",
+			"_id": "djmDJdaTw5iV5YtK",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Enlarged\",\"formula\":\"1d4[Enlarged]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/movement/arrows-up-trio-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753391124445,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/control/silhouette-grow-shrink-tan.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753391124188,
+		"modifiedTime": 1753391124188,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ESsPtU8H0kUTT5Zn"
+}

@@ -1,0 +1,210 @@
+{
+	"name": "Psionic Awakening",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nqYLckzeQq06zbkT": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"id": "nqYLckzeQq06zbkT",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"J3Lqshdbs5MTlB6h": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Bp9DNVqeJct8hsfJ": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "Bp9DNVqeJct8hsfJ",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"EDYrCdydOrQJnKAt": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p style=\"text-align: start\">When you become a Psi Knight at 3rd level you gain a reservoir of power that you use to push your body’s limits. This reservoir is a 1d6 Psi Dice, though you will gain 1 additional dice at levels 5, 10, and 15.</p><p style=\"text-align: start\">Whenever you use a maneuver that allows you to make one or more weapon attacks you may augment that maneuver. Augmenting a maneuver allows you to roll one of your Psi Dice and add the value rolled to any damage dealt. You may also augment an Athletics or Investigation check by rolling a Psi Dice and adding the value to the total. On a roll of a 1 or a 2, the die is lost. On a roll of the maximum value of the die you instead recover one, if any, lost die. You recover all of your Psi Dice at the end of a long rest and during a short rest you can trade 1 HD for 1 Psi Die. HD used in this way provide no HP recovery.</p><p style=\"text-align: start\">If your maneuver allows you to make multiple attacks and you have multiple Psi Dice available you may assign one Psi Dice to each attack.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "fighter",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753127767866,
+		"modifiedTime": 1753127836230,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "hXRg8mfrNkTxg9Lk"
+}

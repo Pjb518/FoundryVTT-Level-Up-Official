@@ -18,13 +18,15 @@
 				"name": "Stone Eye",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"j9Ad9JDzTKvazdqP": {
 						"type": "actionUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -34,9 +36,11 @@
 						"default": true,
 						"ability": "con",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "spellcasting",
+							"bonus": ""
 						},
-						"onSave": "Negates"
+						"onSave": "Negates",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -49,7 +53,8 @@
 					}
 				},
 				"duration": {
-					"unit": "special"
+					"unit": "special",
+					"value": "0"
 				},
 				"ranges": {
 					"YS3Nb1isuALpXZBe": {
@@ -58,20 +63,33 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
-				}
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			},
 			"VTZto45L4eSy28Of": {
 				"name": "Transmogrifier",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"xSoLii9Rj0YQ754m": {
 						"type": "actionUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -86,16 +104,32 @@
 					}
 				},
 				"duration": {
-					"unit": "special"
+					"unit": "special",
+					"value": "0"
 				},
 				"ranges": {
 					"sbShhELEp5bp5qLe": {
 						"range": "self"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
 				}
 			}
 		},
-		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<ul>\n<li><strong>Stone Eye</strong>: You may attempt to petrify a creature of your choosing within 60ft simply by meeting their gaze. As a bonus action on your turn you force the target to make a Constitution save against your spell save DC. On a failed save the target is Restrained or Petrified instead if they rolled a natural 1. At the end of their next turn restrained targets must make a second Constitution save, becoming Petrified on a failure. This petrification lasts for 1 minute and you may use it once per short rest, or expend two sorcery points as a bonus action to recover it.<br>In addition, if you possess the baleful gaze bonded power the effect does not end at the start of the creature&rsquo;s next turn. Instead they must make Constitution saves at the beginning of their turn to end the effect, and it lasts a maximum of 3 turns.</li>\n<li><strong>Wings of the Beast</strong>: You grow a pair of broad, leathery, wings not unlike those of a bat or a dragon. You gain a fly speed of 40ft. In addition, if you possess the beastmantle bonded power you may now make your tail attack as a ranged weapon attack. It has a range of 20/60 and flings poisoned spines. Your tail&rsquo;s damage increases to 1d10 piercing damage plus Constitution modifier poison damage and any creature damaged becomes poisoned for 1 minute.</li>\n<li><strong>Transmogrifier</strong>: Once per short rest you may use your action to transform yourself into a tiny or smaller creature, or an animated object up to medium size as per the spell&rsquo;s functions though you retain your mental attributes and can still perform S components for spellcasting purposes you cannot vocalize. You gain a number of temporary HP equal to the animated object&rsquo;s HP. Once your temporary HP run out you revert to your normal form, though you can choose to end this effect at any time, otherwise it has no duration. Any objects you carry become a part of your new form and do not function.<br>In addition, if you possess the shapeshifter bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</li>\n</ul>",
+		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you’ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p><ul><li><p><strong>Stone Eye</strong>: You may attempt to petrify a creature of your choosing within 60ft simply by meeting their gaze. As a bonus action on your turn you force the target to make a Constitution save against your spell save DC. On a failed save the target is Restrained or Petrified instead if they rolled a natural 1. At the end of their next turn restrained targets must make a second Constitution save, becoming Petrified on a failure. This petrification lasts for 1 minute and you may use it once per short rest, or expend two sorcery points as a bonus action to recover it.<br>In addition, if you possess the baleful gaze bonded power the effect does not end at the start of the creature’s next turn. Instead they must make Constitution saves at the beginning of their turn to end the effect, and it lasts a maximum of 3 turns.</p></li><li><strong>Wings of the Beast</strong>: You grow a pair of broad, leathery, wings not unlike those of a bat or a dragon. You gain a fly speed of 40ft. In addition, if you possess the beastmantle bonded power you may now make your tail attack as a ranged weapon attack. It has a range of 20/60 and flings poisoned spines. Your tail’s damage increases to 1d10 piercing damage plus Constitution modifier poison damage and any creature damaged becomes poisoned for 1 minute.</li><li><p><strong>Transmogrifier</strong>: Once per short rest you can use your action to transform yourself into a medium or smaller creature, with an appearance of your choosing. Regardless of the chosen appearance, you use the stat block of an animated object of the same size as the creature whose form you are emulating (and you can choose an animated object as your emulated creature) with the following exceptions:</p><ul><li><p>You retain your mental ability scores and can still cast sorcerer spells normally as long as they do not use material components. You are unable to speak while transformed, but can still satisfy the vocalized spell components of sorcerer spells (only) via creature noises or eerie creaking object sounds. Other spellcasters attempting to identify the spells you are casting do so with disadvantage.</p></li><li><p>You retain your normal hit points, and gain a number of temporary HP equal to the hit points of an animated object of the chosen size. If you have none of these temporary hit points remaining, you revert to your normal form. You can also choose to end this effect at any time (no action required), reverting instantly to your normal form and losing any remaining temporary hit points.</p></li><li><p>You can otherwise remain in the form indefinitely. Any objects you carry become a part of your new form and do not function.</p></li></ul><p>In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.uz6shdo0snfhzfzq]{Shapeshifter}bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -147,17 +181,25 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "sorcerer",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.331",
+		"coreVersion": "12.343",
 		"systemId": "a5e",
-		"systemVersion": "0.19.26",
-		"createdTime": 1726854247820,
-		"modifiedTime": 1726854275581,
+		"systemVersion": "1.0.10",
+		"createdTime": 1754777021225,
+		"modifiedTime": 1754777208132,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "jxgdg83gdunedomk"

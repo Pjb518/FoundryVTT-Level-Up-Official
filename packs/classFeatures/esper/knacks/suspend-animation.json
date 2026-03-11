@@ -1,0 +1,274 @@
+{
+	"name": "Suspend Animation",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-star-magenta.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"c4IX5GGupf6X0TaJ": {
+				"name": "Suspend Animation (Reaction)",
+				"id": "c4IX5GGupf6X0TaJ",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/symbols/runes-star-magenta.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Reduced to 0 hit points"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"B22ZGEwgnnr1ok9X"
+				],
+				"macro": "",
+				"consumers": {
+					"usS3k7kV1ycSGy6i": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"943XwZBB9qCpQLQO": {
+				"name": "Suspend Animation (1 Minute)",
+				"id": "c4IX5GGupf6X0TaJ",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/symbols/runes-star-magenta.webp",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": "Reduced to 0 hit points"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"yNHKOA9TuUzuMJcl"
+				],
+				"macro": "",
+				"consumers": {
+					"usS3k7kV1ycSGy6i": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psychic-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>When you are reduced to 0 hit points you may take a special reaction to expend your psychic focus. If you do so, you immediately become stabilized but appear to be utterly dead to all onlookers. You gain fatigue, normally, but immediately begin taking a short rest. At the end of which you can expend hit dice normally. If you choose, this short rest can be 1 hour, 8 hours, or 24 hours long. You may also enter into this state of your own volition at any time by spending 1 minute of preparation. While you are in this state you still breathe, and your heart still beats, but so slowly as to be imperceptible. You also require no food or water and use no supply until you wake.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "3rd level Esper",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.Jso5T3aNdBR1vDy7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Suspend Animation",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"_id": "B22ZGEwgnnr1ok9X",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain fatigue, normally, but immediately begin taking a short rest. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1739906124894,
+				"modifiedTime": 1739906175151,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Jso5T3aNdBR1vDy7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Suspend Animation",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"_id": "yNHKOA9TuUzuMJcl",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain fatigue, normally, but immediately begin taking a short rest. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1739906213240,
+				"modifiedTime": 1739906213240,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1739900598645,
+		"modifiedTime": 1739906244939,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "ypXXQkbztrEimIuK"
+}

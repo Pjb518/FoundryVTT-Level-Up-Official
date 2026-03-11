@@ -1,0 +1,314 @@
+{
+	"name": "Concuss",
+	"type": "spell",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"actions": {
+			"peyX7Wdf6so5XEla": {
+				"name": "Concuss",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"M4k5uwhj2GqoNzFU": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"charges": 0,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"Ed0FHn6tlczNmJMq": {
+						"type": "damage",
+						"default": true,
+						"damageType": "psychic",
+						"formula": "3d6",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"gnnVMYYuFwzDpGui": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"3qJImSBSom5myWxD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Lq871T1J9eDT9mgw"
+					},
+					"R4Koyjozu9FPmxEn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"NHozH1NilWDBOO2u": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"effects": [
+					"4BX4ufGZ9Ru01zM3"
+				],
+				"macro": ""
+			}
+		},
+		"description": "<p>Your target takes 3d6 psychic damage and must make an intelligence saving throw. On a failed save, your target is concussed for up to 1 minute. While concussed they have disadvantage on all attack rolls, ability checks, and saving throws. At the end of each of the creature’s turns, they can attempt a constitution saving throw to end the condition.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"psionic"
+			]
+		},
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": []
+	},
+	"effects": [
+		{
+			"origin": "Item.LxkCvr9D5TcHtc5l",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "peyX7Wdf6so5XEla",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Concussed",
+			"_id": "Lq871T1J9eDT9mgw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1752874258748,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.LxkCvr9D5TcHtc5l",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Concussed",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "4BX4ufGZ9Ru01zM3",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on all attack rolls, ability checks, and saving throws.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1752874365576,
+				"modifiedTime": 1752874467398,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1752874258722,
+		"modifiedTime": 1752874500315,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "U8TcYYto6h0alod5"
+}

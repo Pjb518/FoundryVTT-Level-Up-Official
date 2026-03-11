@@ -1,0 +1,201 @@
+{
+	"name": "Bloody Wrath",
+	"type": "feature",
+	"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nu0XHCupsKXPoWjQ": {
+				"name": "Raging and Frenzied",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"ROgK70WKiUZOjI9P": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"AM52MfDD13KL1R4E": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eEjXgmhV7WTA5UCW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>When you see red, you really see red. The supernatural blood flowing through your body and your innate reserves of fury augment each other. Pity the one who tries to bring you to heel. You gain the following benefits:</p>\n<ul>\n<li>Your Strength, Constitution, or Intelligence score increases by 1, to a maximum of 20.</li>\n<li>Half your berserker levels count as bloodblade levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.q1v63h8j4a87n3t0]{Extra Attack} and @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.Rw64mkIKwTispsrX]{Sanguine Reach} features.</li>\n<li>Half your bloodblade levels count as berserker levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.ncx1gkqpz5dypxx8]{Crushing Blows} feature.</li>\n<li>When you rage, you can choose to enter frenzy as part of the same bonus action (but are not required to). When you enter frenzy (and are not already raging), you must also spend a use of rage and enter rage. If you do not have any uses of rage remaining when you frenzy, you rage anyway, but suffer a level of fatigue and a level of strife when your rage ends.</li>\n<li>When you are both raging and frenzied, you gain the benefits and drawbacks of both, plus the following:\n<ul>\n<li>You do not automatically exit frenzy or rage when you reduce a creature to 0 hit points or when you are no longer bloodied. Instead, you must make a Charisma saving throw against your maneuver DC with a bonus equal to the number of times you have failed this save to exit your rage.</li>\n<li>Your movement speed increases by 20 feet and your jumping distance doubles.</li>\n<li>When a creature hits you with a melee attack, you can use your reaction to make a weapon attack against it.</li>\n<li>When either your frenzy or your rage would end, you can choose to end both. You cannot choose to end your rage on your turn as a bonus action if you are also frenzied.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"zZ6RvfBbnqENXXwB": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "zZ6RvfBbnqENXXwB",
+				"label": "Bloody Wrath",
+				"bonus": "1",
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"con",
+						"int"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "3 levels in berserker, 3 levels in bloodblade",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.i32sx8VjL4lnwgDi",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nu0XHCupsKXPoWjQ",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Raging and Frenzied",
+			"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
+			"_id": "eEjXgmhV7WTA5UCW",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "20",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>You do not automatically exit frenzy or rage when you reduce a creature to 0 hit points or when you are no longer bloodied. Instead, you must make a Charisma saving throw against your maneuver DC with a bonus equal to the number of times you have failed this save to exit your rage.</li>\n<li>Your movement speed increases by 20 feet and your jumping distance doubles.</li>\n<li>When a creature hits you with a melee attack, you can use your reaction to make a weapon attack against it.</li>\n<li>When either your frenzy or your rage would end, you can choose to end both. You cannot choose to end your rage on your turn as a bonus action if you are also frenzied.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761555798455,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555798329,
+		"modifiedTime": 1761555798329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "XOtBmiKyKOkumfpP"
+}

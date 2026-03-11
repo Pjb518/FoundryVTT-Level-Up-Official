@@ -1,0 +1,210 @@
+{
+	"name": "Emotional Empowerment",
+	"type": "feature",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"RZplGJRJTEdCZjhh": {
+				"name": "Roll Psi Die",
+				"consumers": {},
+				"id": "RZplGJRJTEdCZjhh",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"J3Lqshdbs5MTlB6h": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"HS0ibOwiQACQgmw6": {
+				"name": "Remove Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "HS0ibOwiQACQgmw6",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"vIUAeWz9b9eqLYAc": {
+				"name": "Add Psi Die",
+				"consumers": {
+					"X6TiUp18eWxKWutF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "psi-reservoir",
+						"resource": "classResource",
+						"quantity": -1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/perception/third-eye-blue-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>Also at 3rd level, you gain a reservoir of power that you use to empower your emotions. This reservoir is a 1d6 Psi Dice, though you will gain 1 additional dice at levels 5, 10, and 15. When you roll a Deception, Intimidation, or Persuasion check you may roll your psi dice and add the result to the check. On a roll of a 1 or a 2, the die is lost. On a roll of the maximum value of the die you instead recover one, if any, lost die. You recover all of your Psi Dice at the end of a long rest and during a short rest can trade 1 HD for 1 Psi Die. HD used in this way provide no HP recovery.</p><p style=\"text-align: start\">In addition, when you would provide an ally with your bardic inspiration, you may instead give your ally use of a psi die, if you have any in your reservoir. Doing so does not expend a use of your bardic inspiration, but you may lose your psi die based on the roll. Maximum results on this use of psi dice do not restore psi dice to you or the ally when used.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bard",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753127017166,
+		"modifiedTime": 1753127332588,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"folder": null,
+	"_id": "vfh0sduXyEljBaiF"
+}

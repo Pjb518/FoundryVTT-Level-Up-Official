@@ -1,0 +1,233 @@
+{
+	"folder": null,
+	"name": "Infuse Shield",
+	"type": "feature",
+	"img": "icons/equipment/shield/heater-steel-crystal-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"rmqWMaKKDcV1qbpt": {
+				"name": "Infuse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"n9Ta8ufz7vthknw6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>As a bonus action, spend a use of&nbsp;<em>Channel Divinity</em>, choose a type of damage you can deal with your&nbsp;<em>Elemental Blast</em>, and touch a shield you are wielding, infusing it with elemental energy. The infusion lasts for one minute, until you stop wielding the shield, or the energy is discharged as described below. The next time a creature hits you with a melee attack while your shield is infused this way, the energy discharges, blasting the creature that hit you, which must make a Dexterity saving throw against your maneuver DC. A creature that fails its save takes damage as if you had hit it with your&nbsp;<em>Elemental Blast</em>&nbsp;and is&nbsp;<em>rattled</em>&nbsp;until the end of its next turn. A creature that succeeds on its save takes half damage and is not&nbsp;<em>rattled</em>.</p>",
+				"duration": {
+					"unit": "special",
+					"value": "1"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"9LmTnMrZ3VybVl93": {
+				"name": "Energy Discharge",
+				"activation": {
+					"type": "none",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"qs9COIXREor4aPdF": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "take half damage & not rattled",
+						"label": ""
+					},
+					"sCJKBjMb7NPhP36H": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eVMG7eRTc3v6NwZs"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>The next time a creature hits you with a melee attack while your shield is infused this way, the energy discharges, blasting the creature that hit you, which must make a Dexterity saving throw against your maneuver DC. A creature that fails its save takes damage as if you had hit it with your&nbsp;<em>Elemental Blast</em>&nbsp;and is&nbsp;<em>rattled</em>&nbsp;until the end of its next turn. A creature that succeeds on its save takes half damage and is not&nbsp;<em>rattled</em>.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>As a bonus action, spend a use of <em>Channel Divinity</em>, choose a type of damage you can deal with your <em>Elemental Blast</em>, and touch a shield you are wielding, infusing it with elemental energy. The infusion lasts for one minute, until you stop wielding the shield, or the energy is discharged as described below. The next time a creature hits you with a melee attack while your shield is infused this way, the energy discharges, blasting the creature that hit you, which must make a Dexterity saving throw against your maneuver DC. A creature that fails its save takes damage as if you had hit it with your <em>Elemental Blast</em> and is <em>rattled</em> until the end of its next turn. A creature that succeeds on its save takes half damage and is not <em>rattled</em>.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "herald",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.OUoC2VTIBWkBPeHF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9LmTnMrZ3VybVl93",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/equipment/shield/heater-steel-crystal-red.webp",
+			"_id": "eVMG7eRTc3v6NwZs",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 0,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214435,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dtDvs1EwJK35UYNu"
+}

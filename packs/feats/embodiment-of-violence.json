@@ -1,0 +1,225 @@
+{
+	"folder": null,
+	"name": "Embodiment of Violence",
+	"type": "feature",
+	"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"EXDjdg9UOueOKRwz": {
+				"name": "Devastating Roar",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"eMmFehtBQeHEGIWO": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d4",
+						"damageType": "thunder",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"XfEvEEPt6YJ1UM3i": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not deafened",
+						"label": ""
+					},
+					"bQ5EpgcvMcoVu1XT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "avS2XenaKYQfURWU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When you activate your rage, you can let out a devastating roar, strike the ground or something similar. Creatures within 10 feet of you must make a Constitution save against your maneuver DC or take 4d4 points of thunder damage and be deafened for one minute. A creature that succeeds on its save takes half damage and is not deafened. A creature deafened this way can repeat the save at the end of each of its turns, ending the effect on a success.</p>",
+				"ranges": {
+					"RerxJ1NypFk67wk2": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You came to slay and will not be deterred. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Your Strength or Constitution score increases by 1, to a maximum of 20.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You can use your @UUID[Compendium.a5e.a5e-class-features.Item.9txksq0xfe5sgspl]{Furious Critical} feature with any weapon.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">While you are raging, your weapon&rsquo;s damage dice increase by one step (for example, a dagger would deal 1d6 points of damage and a greatsword would deal 2d8). If the weapon already deals a d12 of damage, it gains a flat +2 bonus instead.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Half your berserker levels count as fighter levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.7vvqy990w8pxatdy]{Indomitable} feature.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">When you activate your rage, you can let out a devastating roar, strike the ground or something similar. Creatures within 10 feet of you must make a Constitution save against your maneuver DC or take 4d4 points of thunder damage and be deafened for one minute. A creature that succeeds on its save takes half damage and is not deafened. A creature deafened this way can repeat the save at the end of each of its turns, ending the effect on a success.</p>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManualVol2",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"hY3pVRTHx6XCzYc5": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "hY3pVRTHx6XCzYc5",
+				"label": "Embodiment of Violence",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"str",
+						"con"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Furious Devastator feat",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.tFLznkQceuF4yWvl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EXDjdg9UOueOKRwz",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+			"_id": "avS2XenaKYQfURWU",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li aria-level=\"1\">A deafened creature can't hear and automatically fails ability checks that require hearing.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.14",
+				"createdTime": null,
+				"modifiedTime": 1766440214451,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.14",
+		"createdTime": 1766440213728,
+		"modifiedTime": 1766440213728,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "a54TrYk9wVGITUMM"
+}

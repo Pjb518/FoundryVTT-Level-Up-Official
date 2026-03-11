@@ -1,0 +1,290 @@
+{
+	"folder": null,
+	"name": "Unfettered Emotions",
+	"type": "feature",
+	"img": "icons/magic/control/control-influence-crown-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"gnARcVk5eh17zuI2": {
+				"name": "Unfettered Emotions",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"klUSgPf3HNGWCLNX"
+				],
+				"macro": "",
+				"consumers": {
+					"2owUhSZ2IZJ4xlzX": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"k4IbSeWxuS8p9io7": {
+						"type": "healing",
+						"default": true,
+						"formula": "@prof",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>At 3rd level you become capable of entering a state of raw emotional response. By spending a bonus action on your turn you can become Unfettered.</p><p>While unfettered you gain the following benefits and penalty:</p><ul><li><p>You have advantage on Charisma checks and Charisma saving throws.</p></li><li><p>Every round you remain unfettered you gain a number of temporary hit points equal to your proficiency bonus. These do not stack with themselves, or with other temporary hit points. These hit points dissipate when you’re no longer unfettered.</p></li><li><p>You gain resistance to Psychic damage. If you have resistance to psychic damage you instead gain immunity.</p></li><li><p>You cannot add or remove dice from your reservoir.</p></li><li><p>If you are affected by a spell or ability that allows you to make a Wisdom saving throw to end the effect on your turn, you may expend your bonus action on your turn to end the effect without rolling a saving throw.</p></li><li><p>While Unfettered you have disadvantage on Wisdom saving throws and Insight checks.</p></li></ul><p>Unfettered lasts for up to 1 minute, though it ends if you fall unconscious or choose to end it as a bonus action on your turn. You can enter the Unfettered state once per long rest, but regain use of this ability after removing 2 psi dice from your reservoir or expending your psychic focus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "paranormalPower",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.1VvaChNSsxCpsE8O",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RPExctexGlnvx9S4",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Unfettered",
+			"img": "icons/magic/control/control-influence-crown-gold.webp",
+			"_id": "jZGIVCf5IPBiFqzB",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.cha",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753020463490,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.1VvaChNSsxCpsE8O",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Unfettered",
+			"img": "icons/magic/control/control-influence-crown-gold.webp",
+			"_id": "klUSgPf3HNGWCLNX",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.cha",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>You have advantage on Charisma checks and Charisma saving throws.</p></li><li><p>Every round you remain unfettered you gain a number of temporary hit points equal to your proficiency bonus. These do not stack with themselves, or with other temporary hit points. These hit points dissipate when you’re no longer unfettered.</p></li><li><p>You gain resistance to Psychic damage. If you have resistance to psychic damage you instead gain immunity.</p></li><li><p>You cannot add or remove dice from your reservoir.</p></li><li><p>If you are affected by a spell or ability that allows you to make a Wisdom saving throw to end the effect on your turn, you may expend your bonus action on your turn to end the effect without rolling a saving throw.</p></li><li><p>While Unfettered you have disadvantage on Wisdom saving throws and Insight checks.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": 1753020549256,
+				"modifiedTime": 1753020683805,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753020463453,
+		"modifiedTime": 1753020738711,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "atv5uuFa8gLxaA79"
+}

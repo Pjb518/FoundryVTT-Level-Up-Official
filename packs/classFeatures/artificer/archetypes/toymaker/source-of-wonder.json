@@ -1,0 +1,220 @@
+{
+	"folder": null,
+	"name": "Source of Wonder",
+	"type": "feature",
+	"img": "icons/magic/light/hand-sparks-glow-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"uCZKvO2XGdFAn1UE": {
+				"name": "Designate Spell Invention",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"jnItIQ7IxxjuQo9Q": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"ULSiu735ObHUxaKY": {
+				"name": "First Use of Spell Invention",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"v4k8wIBeqWH8SLJT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"nKzkUbh6cccP6ZEg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wAdpWUafKhxUaOLE"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 15th level, your ability to instill a sense of wonder in children and adults may also extend to your foes. At the start of the adventuring day, you may designate either one of your toy-like spell inventions as a source of wonder. You may not select a different source of wonder until you complete a long rest.</p>\n<p>The first time you use this spell invention, choose a number of hostile creatures that can see your source of wonder equal to your Intelligence modifier &times;2. The selected creature(s) must succeed on a Wisdom saving throw versus your spell save DC. On a success, creatures are immune to your source of wonder for 24 hours. On a failure, each affected target must use their entire movement to move towards your source of wonder for the next minute. If affected targets take damage, they may repeat their Wisdom saving throw, ending the effect on a success. If the source of wonder is destroyed before its duration is up, the effect ends immediately.</p>\n<p>Alternatively, you may target the same number of allied creatures with your source of wonder to bolster their resolve. Any creatures who witness your source of wonder in this fashion are immediately cured of the either the charmed or frightened condition, or may remove two levels of either fatigue or strife (the target&rsquo;s choice).</p>\n<p>Once you have used this ability, you may not do so again until you complete a long rest and designate another source of wonder for the next day.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "artificer",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.I6FuOBVA3UwQ11H5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ULSiu735ObHUxaKY",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enthralled",
+			"img": "icons/magic/light/hand-sparks-glow-yellow.webp",
+			"_id": "wAdpWUafKhxUaOLE",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Must use their entire movement to move towards your source of wonder for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.10",
+				"createdTime": null,
+				"modifiedTime": 1753648807056,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753648806895,
+		"modifiedTime": 1753648806895,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "geCT3joagmdL5pyG"
+}

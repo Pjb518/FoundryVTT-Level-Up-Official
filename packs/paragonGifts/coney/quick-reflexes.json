@@ -1,0 +1,127 @@
+{
+	"folder": null,
+	"name": "Quick Reflexes",
+	"type": "feature",
+	"img": "icons/creatures/mammals/rabbit-movement-glowing-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"QUVxG33GsyiM5JrM": {
+				"name": "First Blood",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "After rolling initiative."
+				},
+				"consumers": {
+					"L0rcFA4qIrAQttrb": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "self",
+					"scaling": {}
+				},
+				"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You react and attack quicker than the eye can see.</p>\n<p>After rolling initiative, you can use your reaction to treat your initiative as if you had rolled a critical success.</p>",
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			}
+		},
+		"description": "<p>You learn the @UUID[Compendium.a5e.a5e-maneuvers.Item.zwmd7l8xyvwv22fd]{First Blood} combat maneuver. This does not count towards the number of maneuvers you know and you may activate it without consuming exertion. Once you have used this ability, you cannot use it again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hearthAndHome",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"9qLnDYOfeyCFOPrK": {
+				"grantType": "item",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "9qLnDYOfeyCFOPrK",
+				"label": "Quick Reflexes",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-maneuvers.Item.zwmd7l8xyvwv22fd"
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.10",
+		"createdTime": 1753391124188,
+		"modifiedTime": 1753391124188,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "znuubixtZTS3msPe"
+}

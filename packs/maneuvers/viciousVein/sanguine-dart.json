@@ -1,0 +1,133 @@
+{
+	"folder": null,
+	"name": "Sanguine Dart",
+	"type": "maneuver",
+	"img": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+	"system": {
+		"actions": {
+			"KXAQHTwlmKfzkC4U": {
+				"name": "Sanguine Dart",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"0KxqAYPccT2YzavO": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"XDHOB7kEgzEfIy1C": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					},
+					"J8RFqxeJdhqwMWlY": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"tBznStnWguOWICOH": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10 + @int.mod",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"jAfBLGhFjlcehEo6": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": ""
+			}
+		},
+		"description": "<p>When you deal piercing or slashing damage to a creature that has blood with a melee attack or when you take piercing or slashing damage yourself, you can seize control of the shed blood and transform it into a lethal projectile. The creature that took the initial damage suffers an additional 1d4 points of necrotic damage and you make an immediate ranged weapon attack against a different creature within 60 feet that you can see. On a hit, that creature suffers necrotic damage equal to 1d10 + your Intelligence modifier. Creatures without blood are immune to this maneuver.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "viciousVein",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761555536043,
+		"modifiedTime": 1761555536043,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "CjblzACFFUUybCX4"
+}

@@ -1,0 +1,303 @@
+{
+	"folder": null,
+	"name": "Blood of the Seraph",
+	"type": "feature",
+	"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"u21DS7DJn8Jj8akG": {
+				"name": "Fire Storm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"DJJNNuh9YrV7RXMB": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"6BAVrcUqNVJPTtGZ": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "7d10",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"YAKi6hUl8KKWjFRq": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"udlVGLQZCk8mnm8f": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 10,
+					"width": 10,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"quantity": "1"
+						}
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"img": "icons/magic/fire/projectile-beams-salvo-red.webp",
+				"description": "<p>Flames roar, dealing 7d10 fire damage to creatures and objects in the area and igniting unattended flammable objects. If you choose, plant life in the area is unaffected. This spell's area consists of a contiguous group of ten 10-foot cubes in an arrangement you choose, with each cube adjacent to at least one other cube.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d10 for each slot level above 7th.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"id": "",
+				"default": false,
+				"effects": [],
+				"macro": ""
+			},
+			"kH3tfNH1jsI77Z9D": {
+				"name": "Angelic Aspect",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"KPUjd2l8CVPBKHBJ": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"hd3GZZXPfvm69PaK": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"TdWKiRnMUgAqKgFk": {
+				"name": "Dismiss Wings",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>At 18th level, the celestial blood in your veins has fully asserted itself. You gain the following abilities:</p>\n<h2>Heaven&rsquo;s Ire</h2>\n<p>Once per long rest you may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.1ueqga5yu55bntti]{Fire Storm}. Intelligence is your spellcasting modifier for this spell.</p>\n<h2>Mighty Wings</h2>\n<p>Your fly speed granted by your @UUID[Compendium.a5e-bloody-heretics.bloody-heretics.Item.gWUTY3pRWMWEt6rR]{Angelic Aspect} increases to 60 feet. Additionally, your spectral wings persist until you dismiss them as a bonus action.</p>\n<h2>Truthseeker</h2>\n<p>You automatically detect when a creature is lying.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "bloodyHeretics",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "bloodblade",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.5Mgml3oVzcKNZBcL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kH3tfNH1jsI77Z9D",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Angelic Aspect",
+			"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
+			"_id": "17fnQbi0iGPcVDu1",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance + 60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A pair of spectral, angelic wings to appear on your back, granting you a fly speed equal to your Speed. These wings last a number of rounds equal to your Constitution modifier. If you are still airborne when this effect ends, you are incapacitated, or you drop to 0 hit points, you fall at a rate of 30 feet per round.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.13",
+				"createdTime": null,
+				"modifiedTime": 1761553707393,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.13",
+		"createdTime": 1761553707209,
+		"modifiedTime": 1761553707209,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qWt1dSuxft1JsROw"
+}
