@@ -1,4 +1,4 @@
-import renderPartyViewer from './hooks/renderPartyViewer.js';
+import renderPartyViewer from "./hooks/renderPartyViewer.js";
 import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
 export function registerKeybindings() {
@@ -22,7 +22,7 @@ export function registerKeybindings() {
     name: "Open/Close System Settings",
     editable: [{ key: "KeyS", modifiers: ["Alt"] }],
     onDown: () => {
-      SystemSettings.show();
+      new SystemSettings().render(true);
     },
   });
 }
