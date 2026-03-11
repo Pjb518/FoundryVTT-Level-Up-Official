@@ -73,6 +73,7 @@ import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 // import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
 // import openCompendium from "../utils/openCompendium.ts";
 
+import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
 // Stores
 // import { gameSettings } from "../settings/SettingsStore.ts";
 
@@ -112,12 +113,8 @@ export default function init() {
       options: {},
       effectsPanel: null,
     },
-    compendiumSheets: {
-      // DND5ESpellCompendiumSheet,
-      // ItemCompendiumSheet,
-      // ManeuverCompendiumSheet,
-      // MonsterCompendiumSheet,
-      // SpellCompendiumSheet,
+    compendium: {
+      applicationClass: CompendiumBrowser,
     },
     config: A5E,
     dice: {
