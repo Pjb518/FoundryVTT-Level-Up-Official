@@ -1,3 +1,4 @@
+import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
 import renderPartyViewer from "./hooks/renderPartyViewer.js";
 import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
@@ -23,6 +24,14 @@ export function registerKeybindings() {
     editable: [{ key: "KeyS", modifiers: ["Alt"] }],
     onDown: () => {
       new SystemSettings().render(true);
+    },
+  });
+
+  game.keybindings.register("a5e", "compendium-browser-open-close", {
+    name: "Open/Close Compendium Browser",
+    editable: [{ key: "KeyC", modifiers: ["Alt"] }],
+    onDown: () => {
+      new CompendiumBrowser().render(true);
     },
   });
 }
