@@ -74,7 +74,10 @@
         // @ts-expect-error
         if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function getDescription(item: Item) {
@@ -115,7 +118,8 @@
     );
 
     let containerItems = $derived(
-        item.reactive.isType("object") && item.reactive.system.objectType === "container"
+        item.reactive.isType("object") &&
+            item.reactive.system.objectType === "container"
             ? [...(actor.reactive.items?.values() ?? [])]
                   .filter((child) => child.system.containerId === item.uuid)
                   .map((child) => [child.id, child])
@@ -144,6 +148,7 @@
     class:a5e-item--red-highlight={itemStore.requiresBloodied}
     draggable="true"
     data-document-uuid={item.uuid}
+    data-item-id={item.id}
     ondragstart={onDragStart}
     onclick={() => {
         showDescription = !showDescription;

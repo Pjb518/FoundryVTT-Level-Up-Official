@@ -92,6 +92,43 @@ export default class ActorSheet extends SvelteApplicationMixin(
     this.document.updateEmbeddedDocuments(documentName, updateData);
   }
 
+  _onSortItem(event, item) {
+    const items = this.actor.items;
+    const source = items.get(item.id);
+
+    // Confirm the drop target
+    const dropTarget = event.target.closest("[data-item-id]");
+    if (!dropTarget) return;
+    const target = items.get(dropTarget.dataset.itemId);
+    if (source.id === target.id) return;
+
+    // Identify sibling items based on adjacent HTML elements
+    // Note: Bypassing svelte css wrapper
+    const parent = dropTarget.closest("ul");
+    const children = parent.querySelectorAll(":scope > * > li");
+
+    const siblings = [];
+    for (const element of children) {
+      const siblingId = element.dataset.itemId;
+      if (siblingId && siblingId !== source.id)
+        siblings.push(items.get(element.dataset.itemId));
+    }
+
+    // Perform the sort
+    const sortUpdates = foundry.utils.performIntegerSort(source, {
+      target,
+      siblings,
+    });
+    const updateData = sortUpdates.map((u) => {
+      const update = u.update;
+      update._id = u.target._id;
+      return update;
+    });
+
+    // Perform the update
+    return this.actor.updateEmbeddedDocuments("Item", updateData);
+  }
+
   override async _onDragStart(event: DragEvent) {
     const target = event.currentTarget!;
     if ("link" in event.target?.dataset) return;
@@ -111,7 +148,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
     // Set data transfer
     if (!dragData) return;
-    event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+    return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
   }
 
   override async _onDropItem(event: DragEvent, item: Item) {
