@@ -202,7 +202,6 @@ export function constructFilters(
   filtersSelections: Record<string, any>,
   compendiumType: string,
 ) {
-  console.log("Constructing filters with selections:", filtersSelections);
   const filters = [] as ((doc: any) => boolean)[];
 
   const filterConfig = typeMap[compendiumType];

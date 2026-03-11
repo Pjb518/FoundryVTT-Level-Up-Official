@@ -84,12 +84,17 @@
         selections: {},
     });
 
+    let totalDocuments = $state(0);
+    let shownDocuments = $state(0);
+
     $effect(() => {
         // Reset Filter Options on Tab Change
         currentTab;
 
         filterOptions.searchTerm = "";
         filterOptions.selections = {};
+        totalDocuments = 0;
+        shownDocuments = 0;
     });
 </script>
 
@@ -131,6 +136,8 @@
                 <CompendiumItemList
                     compendiumType={currentTab.name}
                     {filterOptions}
+                    bind:totalDocuments
+                    bind:shownDocuments
                 />
             {:else}
                 <CompendiumFiltersTab
@@ -141,7 +148,11 @@
         </div>
     </section>
 
-    <footer class="a5e-cb__footer">I am the footer</footer>
+    <footer class="a5e-cb__footer">
+        <span class="a5e-cb__footer-note">
+            Showing {shownDocuments} of {totalDocuments} items
+        </span>
+    </footer>
 </main>
 
 <style lang="scss">
@@ -168,6 +179,8 @@
 
         &__footer {
             margin-top: 0.5rem;
+            border-top: 1px solid var(--a5e-border-color);
+            padding-top: 0.5rem;
             text-align: center;
         }
     }

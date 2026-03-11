@@ -50,8 +50,6 @@
     let filterSelections = $derived(filterOptions.selections);
 
     const formSections = getFilterConfig(compendiumType);
-
-    $inspect(filterSelections);
 </script>
 
 {#snippet FilterCategory(
