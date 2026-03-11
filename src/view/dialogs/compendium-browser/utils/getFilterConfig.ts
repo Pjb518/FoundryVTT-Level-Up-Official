@@ -163,6 +163,6 @@ export function getFilterConfig(documentType: string) {
   if (documentType === "maneuver") return getManeuverFilterConfig();
   if (documentType === "npc") return getMonsterFilterConfig();
   if (documentType === "object") return getObjectFilterConfig();
-  if (documentType === "spells") return getSpellFilterConfig();
+  if (documentType === "spell") return getSpellFilterConfig();
   return [];
 }

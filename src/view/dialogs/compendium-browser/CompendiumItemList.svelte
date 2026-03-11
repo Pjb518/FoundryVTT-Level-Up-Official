@@ -4,6 +4,7 @@
     import getDocumentSourceTooltip from "#utils/getDocumentSourceTooltip.ts";
     import { getDetailsLabel } from "./utils/getDetailsLabel.ts";
     import { getSource } from "./utils/getSource.ts";
+    import { constructFilters } from "./utils/constructFilters.ts";
 
     type Props = {
         compendiumType: string;
@@ -26,6 +27,9 @@
                 return docs;
             }, [])
             .flat()
+            .filter((doc) => {
+                return filters.every((filter) => filter(doc));
+            })
             .sort((a, b) => a.name.localeCompare(b.name));
 
         return docs;
@@ -36,8 +40,11 @@
     const packs = [...game.packs.values()];
 
     let visibleDocumentCount = $state(100);
-
-    const documents = $derived(getDocuments());
+    let { filters, filterCount } = $derived(
+        constructFilters(filterOptions.selections, compendiumType),
+    );
+    $inspect(filters);
+    let documents = $derived(getDocuments());
 </script>
 
 {#snippet ObjectItem(doc: any)}
