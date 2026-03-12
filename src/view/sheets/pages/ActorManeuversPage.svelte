@@ -51,7 +51,8 @@
             if (tradition) filterableValues.add(tradition);
 
             //Miscellaneous
-            if (item.system.concentration) filterableValues.add("concentration");
+            if (item.system.concentration)
+                filterableValues.add("concentration");
             if (item.system.isStance) filterableValues.add("stance");
 
             for (const value of filterableValues) {
@@ -86,7 +87,9 @@
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
 
-    let maneuverDegrees = Object.entries(CONFIG.A5E.maneuverDegrees) as string[][];
+    let maneuverDegrees = Object.entries(
+        CONFIG.A5E.maneuverDegrees,
+    ) as string[][];
 </script>
 
 {#if actor.isOwner}
@@ -102,7 +105,7 @@
         {sortHandler}
         onAddIconClick={(subType) => createItem(actor, "maneuver", subType)}
     >
-        <button
+        <!-- <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Import Manuevers from Compendium"
             data-tooltip-direction="UP"
@@ -110,7 +113,7 @@
             onclick={() => openCompendium(actor, "manuevers")}
         >
             <i class="fa-solid fa-download"></i>
-        </button>
+        </button> -->
     </UtilityBar>
 {/if}
 

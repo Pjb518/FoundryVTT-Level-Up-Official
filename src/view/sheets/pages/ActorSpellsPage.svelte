@@ -16,7 +16,9 @@
     import ShowDescription from "../../../apps/components/actorUtilityBar/ShowDescription.svelte";
 
     async function addSpellBook() {
-        const initialSpellBookQuantity = Object.keys(actorStore.spellBooks ?? {}).length;
+        const initialSpellBookQuantity = Object.keys(
+            actorStore.spellBooks ?? {},
+        ).length;
 
         const newSpellBookId = await actor.spellBooks.add({});
 
@@ -46,7 +48,11 @@
             actor.system.spellBooks ?? {},
         ).length;
 
-        const dialog = new DeletionConfirmationDialog(undefined, false, "SpellBook");
+        const dialog = new DeletionConfirmationDialog(
+            undefined,
+            false,
+            "SpellBook",
+        );
         await dialog.render(true);
 
         const { confirmDeletion } = await dialog.promise;
@@ -61,7 +67,9 @@
         }
 
         if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys(actor.system.spellBooks ?? {})?.[0];
+            const firstSpellBook = Object.keys(
+                actor.system.spellBooks ?? {},
+            )?.[0];
 
             updateCurrentSpellBook(firstSpellBook);
         }
@@ -111,12 +119,15 @@
             }
 
             //Components
-            if (item.system.components.material) filterableValues.add("material");
+            if (item.system.components.material)
+                filterableValues.add("material");
             if (item.system.components.seen) filterableValues.add("seen");
-            if (item.system.components.vocalized) filterableValues.add("vocalized");
+            if (item.system.components.vocalized)
+                filterableValues.add("vocalized");
 
             //Miscellaneous
-            if (item.system.concentration) filterableValues.add("concentration");
+            if (item.system.concentration)
+                filterableValues.add("concentration");
             if (item.system.ritual) filterableValues.add("ritual");
             if (item.system.prepared) filterableValues.add("prepared");
 
@@ -178,7 +189,7 @@
         {sortHandler}
         onAddIconClick={(subType) => createItem(actor, "spell", subType)}
     >
-        <button
+        <!-- <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Import Spells from Compendium"
             data-tooltip-direction="UP"
@@ -186,7 +197,7 @@
             onclick={() => openCompendium(actor, "spells")}
         >
             <i class="fa-solid fa-download"></i>
-        </button>
+        </button> -->
     </UtilityBar>
 {/if}
 

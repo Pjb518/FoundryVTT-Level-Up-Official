@@ -106,7 +106,7 @@
         {sortHandler}
         onAddIconClick={(subType) => createItem(actor, "object", subType)}
     >
-        <button
+        <!-- <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Import Objects from Compendium"
             data-tooltip-direction="UP"
@@ -114,7 +114,7 @@
             onclick={() => openCompendium(actor, "objects")}
         >
             <i class="fa-solid fa-download"></i>
-        </button>
+        </button> -->
     </UtilityBar>
 {/if}
 
