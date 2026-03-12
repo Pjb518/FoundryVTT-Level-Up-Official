@@ -48,6 +48,7 @@ const FIELD_MAPPINGS = {
     "system.rarity",
     "system.source",
   ],
+  generic: ["system.source"],
 } as const;
 
 async function updateIndex(packId: string, type: keyof typeof FIELD_MAPPINGS) {
@@ -128,11 +129,9 @@ export async function indexCompendiaFields() {
 
     if (!indexTypes.every((type: string) => indexTypes[0] === type)) return;
 
-    const indexType = indexTypes[0];
-    if (FIELD_MAPPINGS[indexType]) {
-      // @ts-expect-error
-      updateIndex(id, indexType);
-    }
+    const indexType = indexTypes[0] as any;
+    if (FIELD_MAPPINGS[indexType]) updateIndex(id, indexType);
+    else updateIndex(id, "generic");
   });
   // );
 }

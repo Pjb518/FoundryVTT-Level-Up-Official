@@ -147,10 +147,21 @@ const objectFilterConfig = {
 };
 
 const featureConfig = {
+  featureType: {
+    key: "system.featureType",
+    type: "value",
+  },
   classes: {
     key: "system.classes",
     type: "value",
   },
+  source: {
+    key: "system.source",
+    type: "value",
+  },
+};
+
+const genericConfig = {
   source: {
     key: "system.source",
     type: "value",
@@ -204,7 +215,7 @@ export function constructFilters(
 ) {
   const filters = [] as ((doc: any) => boolean)[];
 
-  const filterConfig = typeMap[compendiumType];
+  const filterConfig = typeMap[compendiumType] ?? genericConfig;
   const filterCount = { and: 0, or: 0 };
 
   for (const [filterKey, filterData] of Object.entries(filtersSelections)) {

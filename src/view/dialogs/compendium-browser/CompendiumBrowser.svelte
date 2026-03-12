@@ -77,7 +77,7 @@
         spell: "Spells",
     };
 
-    let currentTab = $state(tabs[8]);
+    let currentTab = $state(tabs[0]);
     let viewTab = $state("items");
     let filterOptions = $state({
         searchTerm: "",
@@ -162,6 +162,8 @@
         overflow: hidden;
 
         &__header {
+            padding-top: 0.125rem;
+
             &-buttons {
                 display: flex;
                 gap: 0.25rem;

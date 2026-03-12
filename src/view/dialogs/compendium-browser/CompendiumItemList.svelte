@@ -5,6 +5,7 @@
     import { getDetailsLabel } from "./utils/getDetailsLabel.ts";
     import { getSource } from "./utils/getSource.ts";
     import { constructFilters } from "./utils/constructFilters.ts";
+    import { localize } from "#utils/localization/localize.ts";
 
     type Props = {
         compendiumType: string;
@@ -108,69 +109,6 @@
     });
 </script>
 
-{#snippet ObjectItem(doc: any)}
-    {@const objectSource = getSource(doc)}
-    {@const objectDetails = getDetailsLabel(doc)}
-
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <li
-        class="a5e-item a5e-item--compendium-document"
-        draggable="true"
-        onclick={async () => {
-            const d = (await fromUuid(doc.uuid)) as any;
-            if (!d) return;
-            d.sheet.render(true);
-        }}
-        ondragstart={(e) => onDragStart(e, doc)}
-    >
-        <img
-            class="a5e-item__image a5e-item__image--compendium-document"
-            src={doc.img}
-            alt={doc.nam}
-        />
-
-        <h3 class="a5e-item__name a5e-item__name--compendium-document">
-            {doc.name}
-
-            {#if doc.system?.requiresAttunement}
-                <i
-                    class="a5e-item__icon icon fa-solid fa-link"
-                    data-tooltip="Requires Attunement"
-                    data-tooltip-direction="UP"
-                ></i>
-            {/if}
-        </h3>
-
-        <span class="a5e-item__details">
-            {#if objectSource?.abbreviation}
-                <a
-                    class="a5e-item__source-tag"
-                    href={objectSource?.url}
-                    target="_blank"
-                    data-tooltip={getDocumentSourceTooltip(objectSource)}
-                    data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source"
-                    onclick={(e) => e.stopPropagation()}
-                >
-                    {objectSource?.abbreviation}
-                </a>
-            {/if}
-
-            {objectDetails}
-        </span>
-
-        <button
-            class="a5e-compendium-import-button icon fa-solid fa-download"
-            data-tooltip={`Import ${doc.name}`}
-            data-tooltip-direction="UP"
-            aria-label={`Import ${doc.name}`}
-            onclick={async (e) => {
-                importDocument(e, doc);
-            }}
-        ></button>
-    </li>
-{/snippet}
-
 <ul
     class="a5e-item-list a5e-item-list--compendium"
     transition:fade
@@ -183,7 +121,129 @@
     }}
 >
     {#each documents.slice(0, visibleDocumentCount) as doc}
-        {@render ObjectItem(doc)}
+        {@const itemSource = getSource(doc)}
+        {@const itemDetails = getDetailsLabel(doc)}
+
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <li
+            class="a5e-item a5e-item--compendium-document"
+            draggable="true"
+            onclick={async () => {
+                const d = (await fromUuid(doc.uuid)) as any;
+                if (!d) return;
+                d.sheet.render(true);
+            }}
+            ondragstart={(e) => onDragStart(e, doc)}
+        >
+            <img
+                class="a5e-item__image a5e-item__image--compendium-document"
+                src={doc.img}
+                alt={doc.nam}
+            />
+
+            <h3 class="a5e-item__name a5e-item__name--compendium-document">
+                {doc.name}
+
+                {#if doc.type === "object" && doc.system?.requiresAttunement}
+                    <i
+                        class="a5e-item__icon icon fa-solid fa-link"
+                        data-tooltip="Requires Attunement"
+                        data-tooltip-direction="UP"
+                    ></i>
+                {/if}
+
+                {#if doc.type === "spell" && doc.system?.rare}
+                    <i
+                        class="a5e-item__icon icon fa-solid fa-sun"
+                        data-tooltip="Rare Spell Variant"
+                        data-tooltip-direction="UP"
+                    ></i>
+                {/if}
+            </h3>
+
+            <span class="a5e-item__details">
+                {#if itemSource?.abbreviation}
+                    <a
+                        class="a5e-item__source-tag"
+                        href={itemSource?.url}
+                        target="_blank"
+                        data-tooltip={getDocumentSourceTooltip(itemSource)}
+                        data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source"
+                        onclick={(e) => e.stopPropagation()}
+                    >
+                        {itemSource?.abbreviation}
+                    </a>
+                {/if}
+
+                {itemDetails}
+            </span>
+
+            <!-- Spell Components -->
+            {#if doc.type === "spell"}
+                <ul class="component-wrapper">
+                    {#if doc.system.components.vocalized}
+                        <span
+                            class="component"
+                            data-tooltip="A5E.spells.components.vocalized"
+                            data-tooltip-direction="UP"
+                        >
+                            {localize("A5E.spells.components.vocalizedAbbr")}
+                        </span>
+                    {/if}
+
+                    {#if doc.system.components.seen}
+                        <span
+                            class="component"
+                            data-tooltip="A5E.spells.components.seen"
+                            data-tooltip-direction="UP"
+                        >
+                            {localize("A5E.spells.components.seenAbbr")}
+                        </span>
+                    {/if}
+
+                    {#if doc.system.components.material}
+                        <span
+                            class="component"
+                            data-tooltip="A5E.spells.components.material"
+                            data-tooltip-direction="UP"
+                        >
+                            {localize("A5E.spells.components.materialAbbr")}
+                        </span>
+                    {/if}
+
+                    {#if doc.system.concentration}
+                        <span
+                            class="component"
+                            data-tooltip="A5E.SpellConcentration"
+                            data-tooltip-direction="UP"
+                        >
+                            {localize("A5E.spells.concentrationAbbr")}
+                        </span>
+                    {/if}
+
+                    {#if doc.system.ritual}
+                        <span
+                            class="component"
+                            data-tooltip="A5E.spells.ritual"
+                            data-tooltip-direction="UP"
+                        >
+                            {localize("A5E.spells.ritualAbbr")}
+                        </span>
+                    {/if}
+                </ul>
+            {/if}
+
+            <button
+                class="a5e-compendium-import-button icon fa-solid fa-download"
+                data-tooltip={`Import ${doc.name}`}
+                data-tooltip-direction="UP"
+                aria-label={`Import ${doc.name}`}
+                onclick={async (e) => {
+                    importDocument(e, doc);
+                }}
+            ></button>
+        </li>
     {/each}
 </ul>
 
@@ -208,5 +268,27 @@
             transform: scale(1.2);
             box-shadow: none;
         }
+    }
+
+    .component {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1rem;
+        border-radius: var(--a5e-border-radius-standard);
+        font-size: var(--a5e-xxs-text);
+        background: var(--a5e-border-color);
+    }
+
+    .component-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.25rem;
+        grid-area: components;
+        margin: 0 0.25rem;
+        padding: 0;
+        font-family: var(--a5e-primary-font);
+        list-style: none;
     }
 </style>

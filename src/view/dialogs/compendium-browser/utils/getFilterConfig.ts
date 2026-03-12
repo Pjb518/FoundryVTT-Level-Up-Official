@@ -5,6 +5,16 @@ const PRODUCTS = Object.entries(A5E.products).reduce((acc, [k, v]) => {
   return acc;
 }, {});
 
+function getGenericConfig() {
+  return [
+    {
+      filterKey: "source",
+      heading: "Source",
+      options: PRODUCTS,
+    },
+  ];
+}
+
 function getFeatureFilterConfig() {
   return [
     {
@@ -164,5 +174,5 @@ export function getFilterConfig(documentType: string) {
   if (documentType === "npc") return getMonsterFilterConfig();
   if (documentType === "object") return getObjectFilterConfig();
   if (documentType === "spell") return getSpellFilterConfig();
-  return [];
+  return getGenericConfig();
 }
