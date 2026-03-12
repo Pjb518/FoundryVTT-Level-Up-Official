@@ -38,7 +38,6 @@
     }: Props = $props();
 
     let showMenu = $state(false);
-    $inspect("Util", showMenu);
 </script>
 
 <section class="a5e-utility-bar">
