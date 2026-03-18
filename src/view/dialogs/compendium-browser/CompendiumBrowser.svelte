@@ -81,6 +81,7 @@
     let viewTab = $state("items");
     let filterOptions = $state({
         searchTerm: "",
+        searchDescription: false,
         selections: {},
     });
 
@@ -109,6 +110,24 @@
                 bind:value={filterOptions.searchTerm}
                 placeholder={game.i18n.localize("Search ...")}
             />
+
+            <button
+                class="a5e-button a5e-cb__header-button"
+                class:a5e-cb__header-button--active={filterOptions.searchDescription}
+                data-tooltip={filterOptions.searchDescription
+                    ? "Exclude item descriptions in search"
+                    : "Include item descriptions in search"}
+                data-tooltip-direction="UP"
+                aria-label="Include / Exclude item descriptions in search"
+                onclick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    filterOptions.searchDescription =
+                        !filterOptions.searchDescription;
+                }}
+            >
+                <i class="a5e-compendia-header__button fa-solid fa-book"></i>
+            </button>
 
             <button
                 class="a5e-button a5e-cb__header-button"
@@ -172,6 +191,10 @@
             &-button {
                 width: fit-content;
                 padding: 0.5rem;
+
+                &--active {
+                    color: var(--a5e-color-primary);
+                }
             }
         }
 

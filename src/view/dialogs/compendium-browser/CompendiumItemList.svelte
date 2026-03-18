@@ -18,13 +18,29 @@
     function getDocuments() {
         const docs: any[] = packs
             .reduce((docs, pack) => {
-                const filtered = pack.index.filter(
-                    (doc) =>
-                        doc.type === compendiumType &&
-                        doc.name
-                            .toLowerCase()
-                            .includes(filterOptions.searchTerm.toLowerCase()),
-                );
+                const filtered = pack.index.filter((doc) => {
+                    if (doc.type !== compendiumType) return false;
+
+                    const searchTerm = filterOptions.searchTerm.toLowerCase();
+
+                    const nameMatch = doc.name
+                        .toLowerCase()
+                        .includes(searchTerm);
+
+                    if (filterOptions.searchDescription) {
+                        const description = (
+                            doc.system?.description ?? ""
+                        ).toLowerCase();
+
+                        const containsDescription =
+                            description.includes(searchTerm);
+
+                        if (nameMatch || containsDescription) return true;
+                        else return false;
+                    }
+
+                    return nameMatch;
+                });
 
                 if (filtered.length) docs.push(filtered);
                 return docs;

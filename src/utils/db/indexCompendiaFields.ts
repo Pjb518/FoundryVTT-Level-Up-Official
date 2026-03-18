@@ -43,6 +43,7 @@ const FIELD_MAPPINGS = {
     "system.requiresAttunement",
     "system.bulky",
     "system.objectType",
+    "system.description",
     "system.price",
     "system.quantity",
     "system.rarity",
