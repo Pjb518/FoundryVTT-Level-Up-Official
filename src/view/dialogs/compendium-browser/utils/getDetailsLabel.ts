@@ -3,15 +3,25 @@ import { localize } from "#utils/localization/localize.ts";
 import { prepareXP } from "#utils/view/helpers/prepareXP.ts";
 
 export function getDetailsLabel(doc) {
+  if (doc.name === "A Better Mousetrap") {
+    console.log(doc);
+  }
+
   if (!doc.system) return null;
 
   const type = doc.type;
 
+  if (type === "archetype") return getArchetypeDetailsLabel(doc);
   if (type === "feature") return getFeatureDetailsLabel(doc);
   if (type === "maneuver") return getManeuverDetailsLabel(doc);
   if (type === "npc") return getMonsterDetailsLabel(doc);
   if (type === "object") return getObjectDetailsLabel(doc);
   if (type === "spell") return getSpellDetailsLabel(doc);
+}
+
+function getArchetypeDetailsLabel(archetype: Item): string {
+  const parentClass = CONFIG.A5E.classes[archetype.system.class] ?? "";
+  return parentClass;
 }
 
 function getFeatureDetailsLabel(feature: Item): string {

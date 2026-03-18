@@ -114,9 +114,27 @@ async function updateIndex(packId: string, type: keyof typeof FIELD_MAPPINGS) {
   // return pack.index;
 }
 
+function getMostFrequentElement(arr) {
+  const freqMap = arr.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+  }, {});
+
+  let maxCount = 0;
+  let mostFreqItem: string;
+
+  for (const item of Object.keys(freqMap)) {
+    if (freqMap[item] > maxCount) {
+      maxCount = freqMap[item];
+      mostFreqItem = item;
+    }
+  }
+
+  return mostFreqItem;
+}
+
 export async function indexCompendiaFields() {
   // await Promise.all(
-  console.log("here");
   game.packs.map((pack) => {
     const id = pack.metadata.id || pack.collection;
     if (!id) return;
@@ -128,9 +146,9 @@ export async function indexCompendiaFields() {
       .map((idx) => idx.type)
       .filter(Boolean);
 
-    if (!indexTypes.every((type: string) => indexTypes[0] === type)) return;
+    const indexType = getMostFrequentElement(indexTypes) as any;
+    if (!indexType) return;
 
-    const indexType = indexTypes[0] as any;
     if (FIELD_MAPPINGS[indexType]) updateIndex(id, indexType);
     else updateIndex(id, "generic");
   });
