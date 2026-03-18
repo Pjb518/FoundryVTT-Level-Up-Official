@@ -49,7 +49,7 @@ const FIELD_MAPPINGS = {
     "system.rarity",
     "system.source",
   ],
-  generic: ["system.source"],
+  generic: ["system.source", "system.description"],
 } as const;
 
 async function updateIndex(packId: string, type: keyof typeof FIELD_MAPPINGS) {

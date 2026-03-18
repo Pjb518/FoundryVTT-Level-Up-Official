@@ -15,6 +15,21 @@ function getGenericConfig() {
   ];
 }
 
+function getArchetypeFilterConfig() {
+  return [
+    {
+      filterKey: "class",
+      heading: "Class",
+      options: CONFIG.A5E.classes,
+    },
+    {
+      filterKey: "source",
+      heading: "Source",
+      options: PRODUCTS,
+    },
+  ];
+}
+
 function getFeatureFilterConfig() {
   return [
     {
@@ -169,6 +184,7 @@ function getSpellFilterConfig() {
 }
 
 export function getFilterConfig(documentType: string) {
+  if (documentType === "archetype") return getArchetypeFilterConfig();
   if (documentType === "feature") return getFeatureFilterConfig();
   if (documentType === "maneuver") return getManeuverFilterConfig();
   if (documentType === "npc") return getMonsterFilterConfig();

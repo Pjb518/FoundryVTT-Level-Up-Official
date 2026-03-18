@@ -1,3 +1,14 @@
+const archetypesFilterConfig = {
+  class: {
+    key: "system.class",
+    type: "value",
+  },
+  source: {
+    key: "system.source",
+    type: "value",
+  },
+};
+
 const spellsFilterConfig = {
   spellLists: {
     key: "system.classes",
@@ -169,6 +180,7 @@ const genericConfig = {
 };
 
 const typeMap = {
+  archetype: archetypesFilterConfig,
   feature: featureConfig,
   maneuver: maneuverFilterConfig,
   monster: monstersFilterConfig,
