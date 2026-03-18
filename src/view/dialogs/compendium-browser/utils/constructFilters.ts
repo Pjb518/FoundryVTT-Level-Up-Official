@@ -183,7 +183,7 @@ const typeMap = {
   archetype: archetypesFilterConfig,
   feature: featureConfig,
   maneuver: maneuverFilterConfig,
-  monster: monstersFilterConfig,
+  npc: monstersFilterConfig,
   object: objectFilterConfig,
   spell: spellsFilterConfig,
 };

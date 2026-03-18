@@ -1,6 +1,7 @@
 <script lang="ts">
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import MultiStateCheckBoxGroup from "#view/snippets/MultiStateCheckBoxGroup.svelte";
+    import RangeSlider from "svelte-range-slider-pips";
 
     import { getFilterConfig } from "./utils/getFilterConfig.ts";
 
@@ -108,8 +109,36 @@
 {/snippet}
 
 <div class="a5e-cb-filter-tab">
-    {#each formSections as { display, heading, filterKey, options }}
-        {#if display ?? true}
+    {#each formSections as { display, heading, filterKey, options, type }}
+        {#if type && type === "range"}
+            <FieldWrapper {heading} --a5e-field-wrapper-header-width="100%">
+                <RangeSlider
+                    --range-handle="var(--a5e-color-primary)"
+                    --range-handle-focus="var(--a5e-color-primary)"
+                    --range-handle-inactive="var(--a5e-color-primary)"
+                    --range-pip="var(--a5e-color-text-medium)"
+                    --range-slider="#c8c6be"
+                    first={"label"}
+                    last={"label"}
+                    min={options.min}
+                    max={options.max}
+                    pips={true}
+                    pipstep={1}
+                    range={true}
+                    springValues={{ stiffness: 1, damping: 1 }}
+                    step={1}
+                    values={[
+                        filterSelections.cr?.min ?? options.min,
+                        filterSelections.cr?.max ?? options.max,
+                    ]}
+                    on:change={({ detail }) =>
+                        (filterSelections.cr = {
+                            min: detail.values[0],
+                            max: detail.values[1],
+                        })}
+                ></RangeSlider>
+            </FieldWrapper>
+        {:else if display ?? true}
             {@render FilterCategory(heading, options, filterKey, display)}
         {/if}
     {/each}

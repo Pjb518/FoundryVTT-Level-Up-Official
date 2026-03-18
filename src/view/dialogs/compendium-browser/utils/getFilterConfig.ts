@@ -81,6 +81,15 @@ function getManeuverFilterConfig() {
 function getMonsterFilterConfig() {
   return [
     {
+      filterKey: "cr",
+      heading: "CR Range",
+      options: {
+        min: 0,
+        max: 30,
+      },
+      type: "range",
+    },
+    {
       filterKey: "creatureTypes",
       heading: "Creature Types",
       options: CONFIG.A5E.creatureTypes,
