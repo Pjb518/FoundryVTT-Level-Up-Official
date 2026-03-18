@@ -128,11 +128,11 @@
                     springValues={{ stiffness: 1, damping: 1 }}
                     step={1}
                     values={[
-                        filterSelections.cr?.min ?? options.min,
-                        filterSelections.cr?.max ?? options.max,
+                        filterSelections?.[filterKey]?.min ?? options.min,
+                        filterSelections?.[filterKey]?.max ?? options.max,
                     ]}
                     on:change={({ detail }) =>
-                        (filterSelections.cr = {
+                        (filterSelections[filterKey] = {
                             min: detail.values[0],
                             max: detail.values[1],
                         })}

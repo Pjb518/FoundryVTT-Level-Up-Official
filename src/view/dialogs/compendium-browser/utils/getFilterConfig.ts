@@ -53,6 +53,15 @@ function getFeatureFilterConfig() {
 function getManeuverFilterConfig() {
   return [
     {
+      filterKey: "exertion",
+      heading: "Exertion Cost Range",
+      options: {
+        min: 0,
+        max: 6,
+      },
+      type: "range",
+    },
+    {
       filterKey: "maneuverDegrees",
       heading: "Maneuver Degrees",
       options: CONFIG.A5E.maneuverDegrees,
