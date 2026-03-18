@@ -8,7 +8,7 @@ const FIELD_MAPPINGS = {
     "system.prerequisite",
     "system.source",
   ],
-  manuever: [
+  maneuver: [
     "system.description",
     "system.exertionCost",
     "system.concentration",
