@@ -8,19 +8,26 @@ function getItemType(item: Item) {
   }
 
   return;
-};
+}
 
 export function groupItemsByType(
   items: Item[],
   property: string,
 ): Record<string, Item[]> {
-  return items.reduce((categories, item) => {
-    //@ts-ignore
-    const type = foundry.utils.getProperty(item.reactive.system, property) ?? getItemType(item.reactive) ?? "uncategorized";
+  return Object.fromEntries(
+    Object.entries(
+      items.reduce((categories, item) => {
+        //@ts-ignore
+        const type =
+          foundry.utils.getProperty(item.reactive.system, property) ??
+          getItemType(item.reactive) ??
+          "uncategorized";
 
-    categories[type] ??= [] as Item[];
-    categories[type].push(item);
+        categories[type] ??= [] as Item[];
+        categories[type].push(item);
 
-    return categories;
-  }, {});
+        return categories;
+      }, {}),
+    ).sort(([a], [b]) => a.localeCompare(b)),
+  ) as Record<string, Item[]>;
 }

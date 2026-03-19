@@ -119,7 +119,7 @@
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#each Object.entries(categorizedItems) as [label, itemList]}
+    {#each Object.entries(categorizedItems) as [label, itemList], idx}
         {#if itemList.length > 0}
             <ItemCategory
                 {label}
