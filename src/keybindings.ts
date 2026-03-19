@@ -1,5 +1,5 @@
 import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
-import renderPartyViewer from "./hooks/renderPartyViewer.js";
+import renderPartyViewer from "./hooks/renderPartyViewer.ts";
 import { SystemSettings } from "./settings/SystemSettings.svelte.ts";
 
 export function registerKeybindings() {

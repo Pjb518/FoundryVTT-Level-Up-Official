@@ -1,20 +1,21 @@
 import "./scss/main.scss";
 
-import canvasInit from "./hooks/canvasInit";
-import canvasReady from "./hooks/canvasReady";
-import createActor from "./hooks/createActor";
-import createToken from "./hooks/createToken";
-import init from "./hooks/init";
-import getDocumentDirectoryContext from "./hooks/getDocumentDirectoryContext";
-import preDeleteChatMessage from "./hooks/preDeleteChatMessage";
-import preCreateChatMessage from "./hooks/preCreateChatMessage";
-import ready from "./hooks/ready";
-import renderApplication from "./hooks/renderApplication";
-import renderChatMessage from "./hooks/renderChatMessage";
+import canvasInit from "./hooks/canvasInit.ts";
+import canvasReady from "./hooks/canvasReady.ts";
+import createActor from "./hooks/createActor.ts";
+import createToken from "./hooks/createToken.ts";
+import init from "./hooks/init.ts";
+import getDocumentDirectoryContext from "./hooks/getDocumentDirectoryContext.ts";
+import preDeleteChatMessage from "./hooks/preDeleteChatMessage.ts";
+import preCreateChatMessage from "./hooks/preCreateChatMessage.ts";
+import ready from "./hooks/ready.ts";
+import renderApplication from "./hooks/renderApplication.ts";
+import renderChatMessage from "./hooks/renderChatMessage.ts";
 import renderSettings from "./hooks/renderSettings.ts";
 import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E.ts";
-import setup from "./hooks/setup";
-import updateActor from "./hooks/updateActor";
+import setup from "./hooks/setup.ts";
+import updateActor from "./hooks/updateActor.ts";
+import { renderAbstractSideBarTab } from "./hooks/renderAbstractSidebarTab.ts";
 
 Hooks.once("init", init);
 Hooks.once("setup", setup);
@@ -38,6 +39,7 @@ Hooks.on("createToken", createToken);
 
 Hooks.on("updateActor", updateActor);
 
+Hooks.on("renderAbstractSidebarTab", renderAbstractSideBarTab);
 Hooks.on("renderApplicationV2", renderApplication);
 Hooks.on("renderChatMessage", renderChatMessage);
 Hooks.on("preCreateChatMessage", preCreateChatMessage);

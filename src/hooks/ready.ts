@@ -1,6 +1,6 @@
 import { mount } from "svelte";
 
-import hotbarDrop from "./hotBarDrop.js";
+import hotbarDrop from "./hotBarDrop.ts";
 import { handleMigration } from "../migration/handlers/handleMigration.ts";
 
 import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
