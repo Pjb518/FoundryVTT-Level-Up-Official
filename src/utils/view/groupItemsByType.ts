@@ -1,5 +1,6 @@
-function getItemType(item: Item) {
+function getItemType(item: Item, property: string) {
   let itemType = foundry.utils.getProperty(item, "type");
+  let subType = foundry.utils.getProperty(item.system, property);
 
   if (CONFIG.A5E.FEATURES_LIST.includes(itemType)) {
     return itemType;
@@ -7,27 +8,30 @@ function getItemType(item: Item) {
     return "class";
   }
 
-  return;
+  if (itemType === "object") {
+    if (["armor", "shield", "helm"].includes(subType)) subType = "armor";
+  }
+
+  return subType ?? "uncategorized";
 }
 
 export function groupItemsByType(
   items: Item[],
   property: string,
 ): Record<string, Item[]> {
-  return Object.fromEntries(
-    Object.entries(
-      items.reduce((categories, item) => {
-        //@ts-ignore
-        const type =
-          foundry.utils.getProperty(item.reactive.system, property) ??
-          getItemType(item.reactive) ??
-          "uncategorized";
+  const reducerSortMap = CONFIG.A5E.reducerSortMap?.[items[0]?.type];
+  let acc = {};
+  if (reducerSortMap) {
+    Object.keys(reducerSortMap).forEach((k) => (acc[k] ??= []));
+  }
 
-        categories[type] ??= [] as Item[];
-        categories[type].push(item);
+  return items.reduce((categories, item) => {
+    //@ts-ignore
+    const type = getItemType(item, property);
 
-        return categories;
-      }, {}),
-    ).sort(([a], [b]) => a.localeCompare(b)),
-  ) as Record<string, Item[]>;
+    categories[type] ??= [] as Item[];
+    categories[type].push(item);
+
+    return categories;
+  }, acc);
 }
