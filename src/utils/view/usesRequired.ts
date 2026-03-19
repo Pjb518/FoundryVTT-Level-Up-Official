@@ -4,6 +4,12 @@ export function usesRequired(items: any[]): boolean {
   return [...items].some((item) => {
     if (item?.system?.uses?.max) return true;
 
+    // Check container items
+    if (item.type === "object" && item.system.objectType === "container") {
+      const containerItems = item.containerItems?.items;
+      if (usesRequired(containerItems)) return true;
+    }
+
     return [...(item?.actions?.values() ?? [])].some(
       (action) => action?.uses?.max,
     );
