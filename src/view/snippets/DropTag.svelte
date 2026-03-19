@@ -40,10 +40,13 @@
         if (type === "item") {
             return embeddedData.map(({ uuid, quantityOverride }) => {
                 const i = fromUuidSync(uuid);
+
+                console.log(uuid);
+                console.log(i);
                 return [
-                    i.reactive.img,
-                    i.reactive.name,
-                    quantityOverride || i.reactive.system.quantity || 1,
+                    i.img,
+                    i.name,
+                    quantityOverride || i.system.quantity || 1,
                 ];
             });
         }
@@ -64,7 +67,7 @@
 <FieldWrapper --a5e-field-wrapper-direction="row">
     {#each documents as [img, name, quantity], idx}
         <div class="a5e-tag-wrapper">
-            <img src={img} alt={name} class="tag-img" />
+            <img src={img} alt={name} class="a5e-tag-img" />
 
             <span class="a5e-tag-name">{name}</span>
 
