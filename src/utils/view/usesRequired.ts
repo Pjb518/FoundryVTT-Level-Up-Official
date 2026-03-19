@@ -2,6 +2,7 @@ export function usesRequired(items: any[]): boolean {
   // TODO: Add back in conditions for current uses without max when we add an interface for that.
 
   return [...items].some((item) => {
+    if (!item) return false;
     if (item?.system?.uses?.max) return true;
 
     // Check container items

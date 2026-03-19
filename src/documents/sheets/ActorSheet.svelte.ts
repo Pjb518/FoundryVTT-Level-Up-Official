@@ -155,8 +155,13 @@ export default class ActorSheet extends SvelteApplicationMixin(
     const options = await this.#getDragOptions(event, item);
 
     if (!this.actor.isOwner) return;
-    if (this.actor.uuid === item.parent?.uuid)
+    if (
+      this.actor.uuid === item.parent?.uuid &&
+      !options.containerUuid &&
+      !options.isMovingOut
+    ) {
       return this._onSortItem(event, item);
+    }
 
     if (item.type === "destiny") return this.#onDropDestiny(item);
     if (item.type === "object") return this.#onDropObject(item, options);
@@ -344,8 +349,15 @@ export default class ActorSheet extends SvelteApplicationMixin(
     const targetUUID = target?.getAttribute("data-document-uuid");
     const targetItem = await fromUuid(targetUUID);
 
-    if (targetItem?.system?.objectType === "container") {
-      options.containerUuid = targetUUID ?? "";
+    const isContainer = targetItem?.system?.objectType === "container";
+    const containerId = isContainer
+      ? targetUUID
+      : targetItem?.system?.containerId;
+    const isMovingOut = item.system?.containerId && !containerId;
+
+    if (containerId || isMovingOut) {
+      options.isMovingOut = isMovingOut;
+      options.containerUuid = containerId ?? "";
     }
 
     options.spellBookId = currentSpellBook;
@@ -358,4 +370,5 @@ interface DragDropOptions {
   actionId?: string;
   spellBookId?: string;
   containerUuid?: string;
+  isMovingOut?: boolean;
 }
