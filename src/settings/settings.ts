@@ -748,14 +748,14 @@ export const settings = [
   // Compendia Settings
   {
     namespace,
-    key: "enabledCompendiaSources",
+    key: "disabledCompendiaSources",
     options: {
-      name: "A5E.settings.enabledCompendiaSources",
-      hint: "A5E.settings.hints.enabledCompendiaSources",
+      name: "A5E.settings.disabledCompendiaSources",
+      hint: "A5E.settings.hints.disabledCompendiaSources",
       scope: scope.world,
       config: false,
       type: Array,
-      default: Object.keys(CONFIG.products),
+      default: ["voidrunnersCodex"],
     },
   },
   // Hidden system settings

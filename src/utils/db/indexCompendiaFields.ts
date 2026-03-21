@@ -52,33 +52,21 @@ const FIELD_MAPPINGS = {
   generic: ["system.source", "system.description"],
 } as const;
 
-async function updateIndex(packId: string, type: keyof typeof FIELD_MAPPINGS) {
+async function updateIndex(
+  packId: string,
+  type: keyof typeof FIELD_MAPPINGS,
+  invalidSources: string[],
+) {
   const pack = game.packs.get(packId);
 
   // Needs to be done to update indexed fields
-  await pack?.getIndex({
+  const originalIndex = await pack?.getIndex({
     // @ts-expect-error
     fields: FIELD_MAPPINGS[type],
   });
 
-  // todo: TEST
-
-  const fields = FIELD_MAPPINGS[type];
-  const cls = pack.documentClass;
-
-  // Maybe reuse the existing index if we have already indexed all fields
-  const indexFields = new Set([...pack.indexFields, ...fields]);
-
-  // Request the new index from the server
-  const index = await cls.database.get(
-    cls,
-    {
-      query: { system: { source: "adventurersGuide" } },
-      index: true,
-      indexFields: Array.from(indexFields),
-      pack: pack.collection,
-    },
-    game.user,
+  const index = [...originalIndex?.values()].filter(
+    (v) => !invalidSources.includes(v.system.source),
   );
 
   const newIndexIds = new Set<number>();
@@ -113,6 +101,7 @@ async function updateIndex(packId: string, type: keyof typeof FIELD_MAPPINGS) {
   console.log(
     `${CONST.vtt} | Constructed index of ${pack.collection} Compendium containing ${pack.index.size} entries`,
   );
+
   return pack.index;
 }
 
@@ -136,6 +125,11 @@ function getMostFrequentElement(arr) {
 }
 
 export async function indexCompendiaFields() {
+  const invalidSources =
+    game.settings.storage
+      .get("world")
+      ?.getItem("a5e.disabledCompendiaSources") ?? [];
+
   // await Promise.all(
   game.packs.map((pack) => {
     const id = pack.metadata.id || pack.collection;
@@ -151,8 +145,8 @@ export async function indexCompendiaFields() {
     const indexType = getMostFrequentElement(indexTypes) as any;
     if (!indexType) return;
 
-    if (FIELD_MAPPINGS[indexType]) updateIndex(id, indexType);
-    else updateIndex(id, "generic");
+    if (FIELD_MAPPINGS[indexType]) updateIndex(id, indexType, invalidSources);
+    else updateIndex(id, "generic", []);
   });
   // );
 }
