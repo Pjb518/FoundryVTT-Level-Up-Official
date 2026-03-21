@@ -55,12 +55,4 @@ export default async function ready() {
   handleAnnouncement();
   handleIncompatibilityWarning();
   addKeyPressLogger();
-
-  // TODO: Seperate out
-
-  game.packs.forEach((pack) => {
-    const App = pack.applicationClass;
-    const app = new App({ collection: pack });
-    pack.apps = [app];
-  });
 }
