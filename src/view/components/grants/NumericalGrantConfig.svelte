@@ -11,7 +11,13 @@
     type Props = {
         document: any;
         grantId: string;
-        grantType: "abilities" | "damage" | "healing" | "movement" | "senses" | "skills";
+        grantType:
+            | "abilities"
+            | "damage"
+            | "healing"
+            | "movement"
+            | "senses"
+            | "skills";
     };
 
     function updateImage() {
@@ -61,9 +67,12 @@
         },
         skills: {},
     };
-    const hasSelectDialog = ["damage", "healing", "movement", "senses"].includes(
-        grantType,
-    );
+    const hasSelectDialog = [
+        "damage",
+        "healing",
+        "movement",
+        "senses",
+    ].includes(grantType);
 
     let grant = $derived(item.reactive.system.grants[grantId]);
     let selectProperty = $derived(configObject[grantType]?.selectProperty);
@@ -129,7 +138,8 @@
                             currentTarget.value,
                         )}
                 >
-                    {#if selectProperty === "damage"}
+                    {console.log(selectProperty)}
+                    {#if selectProperty === "damageType"}
                         <option
                             value={null}
                             selected={grant[selectProperty] === "null" ||
@@ -140,7 +150,10 @@
                     {/if}
 
                     {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
-                        <option value={key} selected={grant[selectProperty] === key}>
+                        <option
+                            value={key}
+                            selected={grant[selectProperty] === key}
+                        >
                             {localize(name as string)}
                         </option>
                     {/each}
