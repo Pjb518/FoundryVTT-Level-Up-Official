@@ -58,7 +58,7 @@
     );
 
     let filtersActive = $derived(
-        activeFilters.inclusive.length || activeFilters.exclusive.length,
+        activeFilters.inclusive?.length || activeFilters.exclusive?.length,
     );
 </script>
 
