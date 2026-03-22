@@ -9,7 +9,8 @@
 				"name": "Biting Arrow",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"bOpUZewLX6Ce8BCp": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 0,
-						"points": 0
+						"points": 0,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -27,7 +30,9 @@
 						"canCrit": true,
 						"formula": "1d6",
 						"damageType": "cold",
-						"label": "Levels 1-4 Cold Damage"
+						"label": "Levels 1-4 Cold Damage",
+						"critBonus": "",
+						"scaling": {}
 					},
 					"EOdkqFbiPU1onW9A": {
 						"type": "damage",
@@ -39,7 +44,8 @@
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d6"
-						}
+						},
+						"critBonus": ""
 					},
 					"O1yeAy1qVAYgsnsl": {
 						"type": "damage",
@@ -51,7 +57,8 @@
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d6"
-						}
+						},
+						"critBonus": ""
 					}
 				},
 				"prompts": {},
@@ -61,8 +68,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -73,12 +78,26 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"duration": {
 					"unit": "round",
-					"value": 1
-				}
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>As part of the action used to cast this spell, you make a ranged weapon attack with a bow, a crossbow, or a thrown weapon.The effect is limited to a range of 120 feet despite the weapon&rsquo;s range, and the attack is made with disadvantage if the target is in the weapon&rsquo;s long range.</p><p>If the weapon attack hits, it deals damage as usual. In addition, the target becomes coated in thin frost until the start of your next turn. If the target uses its reaction before the start of your next turn, it immediately takes 1d6 cold damage and the spell ends.</p><p>The spell&rsquo;s damage, for both the ranged attack and the cold damage, increases by 1d6 when you reach 5th level (+1d6 and 2d6), 11th level (+2d6 and 3d6), and 17th level (+3d6 and 4d6).</p>",
@@ -86,17 +105,13 @@
 		"secretDescription": "",
 		"source": "deepMagic1",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"classes": [
 			"druid",
@@ -112,7 +127,7 @@
 		"level": 0,
 		"materials": "An arrow or a thrown weapon",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
@@ -123,14 +138,25 @@
 				"cold",
 				"weaponry"
 			]
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "5ztanmb162mkappn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064666,
+		"modifiedTime": 1774217064666,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "5ztanmb162mkappn"
 }

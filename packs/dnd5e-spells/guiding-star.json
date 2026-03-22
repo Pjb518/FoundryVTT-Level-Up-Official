@@ -9,7 +9,8 @@
 				"name": "Guiding Star",
 				"activation": {
 					"type": "minute",
-					"cost": 10
+					"cost": 10,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"67Bo0a2TUYx0JmG4": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 1,
-						"points": 2
+						"points": 2,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -28,8 +31,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -40,7 +41,25 @@
 				},
 				"duration": {
 					"unit": "hour",
-					"value": 8
+					"value": "8"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -49,17 +68,13 @@
 		"secretDescription": "",
 		"source": "deepMagic1",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"classes": [
 			"druid",
@@ -74,7 +89,7 @@
 		"level": 1,
 		"materials": "",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": true,
@@ -83,14 +98,25 @@
 			"secondary": [
 				"nature"
 			]
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "2dt8zpgooa6hotau",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064666,
+		"modifiedTime": 1774217064666,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "2dt8zpgooa6hotau"
 }
