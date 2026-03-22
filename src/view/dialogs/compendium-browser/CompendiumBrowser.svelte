@@ -28,6 +28,11 @@
             icon: "fa-solid fa-chalkboard-user",
         },
         {
+            name: "culture",
+            label: "Cultures",
+            icon: "fa-solid fa-landmark",
+        },
+        {
             name: "destiny",
             label: "Destinies",
             icon: "fa-solid fa-chart-line",
@@ -68,6 +73,7 @@
         archetype: "Archetypes",
         background: "Backgrounds",
         class: "Classes",
+        culture: "Cultures",
         destiny: "Destinies",
         feature: "Features",
         heritage: "Heritages",
@@ -122,7 +128,8 @@
                 onclick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    filterOptions.searchDescription = !filterOptions.searchDescription;
+                    filterOptions.searchDescription =
+                        !filterOptions.searchDescription;
                 }}
             >
                 <i class="a5e-compendia-header__button fa-solid fa-book"></i>
@@ -130,7 +137,9 @@
 
             <button
                 class="a5e-button a5e-cb__header-button"
-                aria-label={viewTab === "items" ? "Open Filter Tab" : "Close Filter Tab"}
+                aria-label={viewTab === "items"
+                    ? "Open Filter Tab"
+                    : "Close Filter Tab"}
                 data-tooltip={viewTab === "items"
                     ? "Open Filter Tab"
                     : "Close Filter Tab"}
