@@ -86,9 +86,7 @@
 
     let actorStore = $derived(actor.reactive.system);
 
-    let headingTemplateConfiguration = $derived(
-        getHeadingTemplateConfiguration(),
-    );
+    let headingTemplateConfiguration = $derived(getHeadingTemplateConfiguration());
     let itemTemplateConfiguration = $derived(getItemTemplateConfiguration());
 </script>
 
@@ -102,9 +100,7 @@
                 --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
             "
         >
-            <h3
-                class="a5e-section-header__heading a5e-section-header__heading--name"
-            >
+            <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
                 <div>
                     {#if icon}
                         <i class={icon}></i>
@@ -134,7 +130,7 @@
                 {/if} -->
 
                 {#if type === "spellLevels" && showSpellPoints}
-                    {localize("A5E.SpellPointsCost", {
+                    {localize("A5E.spells.spellcasting.pointsCost", {
                         cost: A5E.spellLevelCost[level],
                     })}
                 {/if}
