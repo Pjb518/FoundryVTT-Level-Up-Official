@@ -21,19 +21,29 @@
 						"saveDC": {
 							"bonus": "",
 							"type": "spellcasting"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"5roPUGia0C1pgBN7": {
 						"mode": "variable",
 						"spellLevel": 2,
 						"points": 3,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -41,25 +51,41 @@
 					"c76ADZVW1GmhKODS": {
 						"range": "medium"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
 				}
 			}
 		},
 		"description": "<p>One creature or object of your choice that you can see within range rises vertically, up to 20 feet, and remains suspended there for the duration. The spell can levitate a target that weighs up to 500 pounds. An unwilling creature that succeeds on a Constitution saving throw is unaffected.</p><p>The target can move only by pushing or pulling against a fixed object or surface within reach (such as a wall or a ceiling), which allows it to move as if it were climbing. You can change the target's altitude by up to 20 feet in either direction on your turn. If you are the target, you can move up or down as part of your move. Otherwise, you can use your action to move the target, which must remain within the spell's range.</p><p>When the spell ends, the target floats gently to the ground if it is still aloft.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -71,22 +97,33 @@
 		"level": 2,
 		"materials": "Either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "transmutation",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "8dfao4rv4qw09a88",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064666,
+		"modifiedTime": 1774217064666,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "8dfao4rv4qw09a88"
 }

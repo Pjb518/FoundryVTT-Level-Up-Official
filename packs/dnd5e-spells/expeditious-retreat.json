@@ -15,15 +15,22 @@
 					"value": "10"
 				},
 				"target": {
-					"quantity": null,
-					"type": "self"
+					"quantity": 1,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"ywrX65xcqvIaAqpF": {
 						"mode": "variable",
 						"spellLevel": 1,
 						"points": 2,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -32,25 +39,41 @@
 						"range": "self"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -62,22 +85,33 @@
 		"level": 1,
 		"materials": "",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "transmutation",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "tik7qyx4o2ha77k4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217065231,
+		"modifiedTime": 1774217065231,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "tik7qyx4o2ha77k4"
 }

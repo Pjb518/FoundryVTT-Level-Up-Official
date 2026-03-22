@@ -21,19 +21,29 @@
 						"saveDC": {
 							"bonus": "",
 							"type": "spellcasting"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"ZBGpmB4ogtLwEszf": {
 						"mode": "variable",
 						"spellLevel": 4,
 						"points": 6,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -41,25 +51,41 @@
 					"O0A1Ykl7V4sxPmDs": {
 						"range": "medium"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
 				}
 			}
 		},
 		"description": "<p>You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a Charisma saving throw or be banished.</p><p>If the target is native to the plane of existence you're on, you banish the target to a harmless demiplane. While there, the target is incapacitated. The target remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.</p><p>If the target is native to a different plane of existence than the one you're on, the target is banished with a faint popping noise, returning to its home plane. If the spell ends before 1 minute has passed, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. Otherwise, the target doesn't return.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -71,22 +97,33 @@
 		"level": 4,
 		"materials": "An item distasteful to the target",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "abjuration",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "e7kznxdth35p3kr6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064941,
+		"modifiedTime": 1774217064941,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "e7kznxdth35p3kr6"
 }

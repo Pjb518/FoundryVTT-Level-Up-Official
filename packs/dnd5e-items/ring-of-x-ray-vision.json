@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"Yk2y9CBsQmGTi9ly": {
@@ -29,19 +30,47 @@
 						"ability": "con",
 						"type": "savingThrow",
 						"saveDC": {
-							"bonus": 15,
+							"bonus": "15",
 							"type": "custom"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"target": {
-					"quantity": null,
-					"type": "self"
+					"quantity": 1,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"name": "Use Ring of X-ray Vision",
 				"ranges": {
 					"UWxh0FU4BxcTeAPe": {
 						"range": "short"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
 					}
 				}
 			}
@@ -49,19 +78,15 @@
 		"description": "<p><em>(Requires attunement)</em></p><p>While wearing this ring, you can use an action to speak its command word. When you do so, you can see into and through solid matter for 1 minute. This vision has a radius of 30 feet. To you, solid objects within that radius appear transparent and don't prevent light from passing through them. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances block the vision, as does a thin sheet of lead.</p><p>Whenever you use the ring again before taking a long rest, you must succeed on a DC 15 Constitution saving throw or gain one level of exhaustion.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -87,14 +112,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "3h9nbv7rn7otnlu2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188491885,
+		"modifiedTime": 1774188491885,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "3h9nbv7rn7otnlu2"
 }

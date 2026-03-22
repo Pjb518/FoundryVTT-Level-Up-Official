@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"Gu12LKen6G17DTNn": {
@@ -25,8 +26,12 @@
 					"value": ""
 				},
 				"target": {
-					"quantity": null,
-					"type": "self"
+					"quantity": 1,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"name": "Use Ring of Mind Shielding",
 				"ranges": {
@@ -34,25 +39,42 @@
 						"range": "self"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>(Requires attunement)</em></p><p>While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.</p><p>You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.</p><p>If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -78,14 +100,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "qoqi2hwrmblhtpcf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188494439,
+		"modifiedTime": 1774188494439,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "qoqi2hwrmblhtpcf"
 }

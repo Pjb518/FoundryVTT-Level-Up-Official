@@ -16,14 +16,21 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"j0xuyzhFNJEoB7F3": {
 						"mode": "variable",
 						"spellLevel": 9,
 						"points": 13,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -32,25 +39,41 @@
 						"range": "touch"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. If the creature's soul is free and willing, the creature is restored to life with all its hit points.</p><p>This spell closes all wounds, neutralizes any poison, cures all diseases, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was undead, it is restored to its non-undead form.</p><p>The spell can even provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -62,22 +85,33 @@
 		"level": 9,
 		"materials": "A sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes",
 		"materialsConsumed": true,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "necromancy",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "xc8t9lr032524tvc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217065436,
+		"modifiedTime": 1774217065436,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "xc8t9lr032524tvc"
 }

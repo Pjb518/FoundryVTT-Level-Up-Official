@@ -16,14 +16,21 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"CaTkIdCkJbPnTDuq": {
 						"mode": "variable",
 						"spellLevel": 3,
 						"points": 5,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -32,25 +39,41 @@
 						"range": "touch"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>For the Duration, you hide a target that you touch from Divination magic. The target can be a willing creature or a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any divination magic or perceived through magical Scrying sensors.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -62,22 +85,33 @@
 		"level": 3,
 		"materials": "A pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes",
 		"materialsConsumed": true,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "abjuration",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "dbqade0b4iu2lzgn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064941,
+		"modifiedTime": 1774217064941,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "dbqade0b4iu2lzgn"
 }

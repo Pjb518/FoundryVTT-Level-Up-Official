@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"OPRrAvq2pNFl3M4x": {
@@ -32,7 +33,9 @@
 				"consumers": {
 					"kcg3ALaHDenBFIDX": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Censer of Controlling Air Elementals",
@@ -42,25 +45,49 @@
 						"range": 90
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>Wondrous item</em></p><p>While incense is burning in this censer, you can use an action to speak the censer's command word and summon an @Compendium[dnd5e.monsters.banHjKDMCegbUwYE]{Air Elemental}, as if you had cast the @Compendium[dnd5e.spells.1LkZvINag7KqBmDR]{Conjure Elemental} spell. The censer can't be used this way again until the next dawn.</p><p>This 6-inch-wide, 1-foot-high vessel resembles a chalice with a decorated lid. It weighs 1 pound.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -86,14 +113,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 1
+		"weight": 1,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "uswuxa32833f267e",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188494843,
+		"modifiedTime": 1774188494843,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "uswuxa32833f267e"
 }

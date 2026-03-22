@@ -34,7 +34,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -54,7 +56,11 @@
 			"scaleY": 2,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 2,
 		"displayName": 0,
@@ -72,7 +78,29 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null
 	},
 	"system": {
 		"abilities": {
@@ -109,7 +137,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -152,7 +181,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -163,7 +192,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -174,7 +203,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -185,7 +214,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -196,7 +225,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -207,7 +236,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -218,7 +247,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -229,7 +258,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -240,7 +269,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -251,7 +280,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -262,7 +291,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -273,7 +302,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -284,7 +313,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -295,7 +324,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -306,7 +335,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -317,7 +346,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -328,7 +357,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -339,7 +368,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -350,7 +379,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -361,7 +390,18 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -413,7 +453,16 @@
 			"points": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -509,7 +558,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "cha",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -539,14 +590,17 @@
 			"attacks": {},
 			"initiative": {},
 			"movement": {},
-			"senses": {}
+			"senses": {},
+			"exertion": {},
+			"hitPoint": {}
 		},
 		"currency": {
 			"pp": 0,
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -558,13 +612,16 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [],
+			"isShapechanger": false,
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -612,7 +669,7 @@
 				}
 			}
 		},
-		"source": "",
+		"source": "systemReferenceDocument",
 		"traits": {
 			"size": "lg",
 			"conditionImmunities": [],
@@ -632,6 +689,11 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {}
 		}
 	},
 	"items": [
@@ -689,16 +751,43 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 55
+				"weight": 55,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"breakerProperties": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"defensiveProperties": "",
+				"energyProperties": "",
+				"flaws": [],
+				"implant": false,
+				"modPorts": "",
+				"mounted": [],
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"versatile": "",
+				"weaponAugments": []
 			},
 			"_id": "TdTRPuF1Cv4hkKAC",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -734,7 +823,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"HJ64QYMC7kUqpLjx": {
 								"canCrit": true,
@@ -742,8 +834,9 @@
 								"damageType": "slashing",
 								"formula": "2d10 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							},
 							"NkCWf5AAl0oivWer": {
 								"canCrit": true,
@@ -751,8 +844,9 @@
 								"damageType": "slashing",
 								"formula": "1d10 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Attack",
@@ -762,7 +856,35 @@
 								"range": 10
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+7 to hit,</strong>, <strong>10 ft.,</strong> one target. Hit: <strong>15 (2d10 + 4) <em>slashing damage</em></strong>, or <strong>9 (1d10 + 4) <em>slashing damage</em></strong> in Small or Medium form.</p></section><p>The Oni attacks with its Glaive.</p>",
@@ -806,16 +928,43 @@
 					"twoHanded",
 					"reach"
 				],
-				"weight": 6
+				"weight": 6,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"breakerProperties": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"defensiveProperties": "",
+				"energyProperties": "",
+				"flaws": [],
+				"implant": false,
+				"modPorts": "",
+				"mounted": [],
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"versatile": "",
+				"weaponAugments": []
 			},
 			"_id": "mg9zLxyZaRtV0YTz",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -851,7 +1000,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"JI8T7PX8blqhkFVk": {
 								"canCrit": true,
@@ -859,8 +1011,9 @@
 								"damageType": "slashing",
 								"formula": "1d8 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Use Claw (Oni Form Only)",
@@ -869,7 +1022,35 @@
 								"range": "fiveFeet"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+7 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>8 (1d8 + 4) <em>slashing damage</em></strong>.</p></section><p>The Oni attacks with its Claw.</p>",
@@ -889,16 +1070,29 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "PXfqED076Y1Pk8bB",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -935,16 +1129,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "wpzwhCh3Tr9T8O3j",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -975,7 +1182,37 @@
 							"value": ""
 						},
 						"name": "Use Multiattack",
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"ranges": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The oni makes two attacks, either with its claws or its glaive.</p>",
@@ -995,16 +1232,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "jrCQw8xDyHa212zH",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1026,7 +1276,7 @@
 				"actions": {
 					"Ab9pkL4Q71Rqo1MA": {
 						"activation": {
-							"cost": null,
+							"cost": 1,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -1036,17 +1286,45 @@
 						},
 						"rolls": {
 							"gOW7WBGrMRDeXLVG": {
-								"canCrit": false,
-								"critBonus": "",
 								"healingType": "healing",
 								"formula": "10",
 								"scaling": {},
-								"name": "",
-								"type": "healing"
+								"type": "healing",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Use Regeneration",
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"ranges": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p>The oni regains <strong>10 hit points</strong> at the start of its turn if it has at least <strong>1 hit point</strong>.</p></section><p>The oni regains <strong>10 hit points</strong> at the start of its turn.</p>",
@@ -1066,16 +1344,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "wsvzlumlrEWd549k",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1112,16 +1403,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "UGtlo0v7JWBoIa5X",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1152,7 +1456,37 @@
 							"value": ""
 						},
 						"name": "Use Change Shape",
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"ranges": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The oni magically <strong>polymorphs</strong> into a <strong>Small</strong> or<strong> Medium humanoid</strong>, into <strong>a Large giant</strong>, or <strong>back into its true form</strong>. Other than its size, its statistics are the same in each form.<strong> The only equipment that is transformed is its glaive</strong>, which shrinks so that it can be wielded in humanoid form. If the oni dies, it reverts to its true form, and its glaive reverts to its normal size.</p>",
@@ -1172,16 +1506,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "LDOVRsKATpliOtDZ",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1210,7 +1557,10 @@
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1219,7 +1569,35 @@
 								"range": "medium"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it.</p><p>If the point you choose is on an object you are holding or one that isn't being worn or carried, the darkness emanates from the object and moves with it. Completely covering the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness.</p><p>If any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled.</p>",
@@ -1252,7 +1630,15 @@
 					"primary": "evocation",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "AXbbrE2JTKAPeq5M",
 			"effects": [],
@@ -1260,9 +1646,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1283,14 +1670,21 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"FNppoaavJ65QEpX7": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1299,7 +1693,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.</p>",
@@ -1332,7 +1746,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "HXX4bfSWvkobffGU",
 			"effects": [],
@@ -1340,9 +1762,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1368,29 +1791,61 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"KxSP47DObdduSCAt": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"CnHrdVCX0oAbg5HX": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"AqAq5UGucsrhjsEg": {
 								"range": "short"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1425,7 +1880,15 @@
 					"primary": "enchantment",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "NXGjhiB7G6ckb2Yz",
 			"effects": [],
@@ -1433,9 +1896,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1461,7 +1925,10 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"rolls": {
@@ -1474,8 +1941,9 @@
 									"mode": "spellLevel",
 									"formula": "1d8"
 								},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"area": {
@@ -1486,19 +1954,51 @@
 						"consumers": {
 							"mFS8Bhs8CYCFPr06": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"kGcE6zUtAq6jK4gR": {
 								"mode": "variable",
 								"spellLevel": 5,
 								"points": 7,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"27Des7foGqU6vvHJ": {
 								"range": "self"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1533,7 +2033,15 @@
 					"primary": "evocation",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "5zTmgtsVdDBSe0BZ",
 			"effects": [],
@@ -1541,9 +2049,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1564,18 +2073,27 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"voibrXNeGBHilyAA": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"0DpaSB5gUGxpUR46": {
 								"mode": "variable",
 								"spellLevel": 3,
 								"points": 5,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1584,7 +2102,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You transform a willing creature you touch, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends if the creature drops to 0 hit points. An incorporeal creature isn't affected.</p><p>While in this form, the target's only method of movement is a flying speed of 10 feet. The target can enter and occupy the space of another creature. The target has resistance to nonmagical damage, and it has advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through small holes, narrow openings, and even mere cracks, though it treats liquids as though they were solid surfaces. The target can't fall and remains hovering in the air even when stunned or otherwise incapacitated.</p><p>While in the form of a misty cloud, the target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. The target can't attack or cast spells.</p>",
@@ -1617,7 +2155,15 @@
 					"primary": "transmutation",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "LMsAu9DIbNik2rju",
 			"effects": [],
@@ -1625,9 +2171,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1656,8 +2203,9 @@
 									"mode": "spellLevel",
 									"formula": "2d8"
 								},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"area": {
@@ -1668,13 +2216,18 @@
 						"consumers": {
 							"QwUjhxCj3HDrbo9a": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"pZNySHUV6Bdmu28U": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1684,7 +2237,34 @@
 								"range": 90
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures).</p><p>Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.</p><p>Undead and creatures immune to being charmed aren't affected by this spell.</p><p><strong>Higher Levels.</strong> When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.</p>",
@@ -1717,7 +2297,15 @@
 					"primary": "enchantment",
 					"secondary": []
 				},
-				"spellBook": "TNBwVnIdj4Kt2c3m"
+				"spellBook": "TNBwVnIdj4Kt2c3m",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "MNvUp5ZLgOfeTiHf",
 			"effects": [],
@@ -1725,9 +2313,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1747,7 +2336,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -1760,10 +2349,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -1773,7 +2364,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1783,7 +2376,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1791,7 +2406,7 @@
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1806,15 +2421,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "5u3GWvudBqAYqvDp",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1834,7 +2456,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -1847,10 +2469,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -1860,7 +2484,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1870,7 +2496,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1878,7 +2526,7 @@
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1893,15 +2541,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "TZxAo86ZgaGx4RWr",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1921,7 +2576,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -1934,10 +2589,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -1945,7 +2602,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1956,16 +2616,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1980,15 +2661,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "rjM8qv1Go1MBAtG8",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2008,7 +2696,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -2021,10 +2709,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -2034,7 +2724,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2044,7 +2736,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2052,7 +2766,7 @@
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2067,15 +2781,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "v989qkwB52i2CdcA",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2095,7 +2816,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -2108,10 +2829,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -2121,7 +2844,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2131,7 +2856,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2139,7 +2886,7 @@
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2154,15 +2901,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "7Z0lQ6vM7QXr99rH",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2182,7 +2936,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -2195,10 +2949,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -2206,7 +2962,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -2217,16 +2976,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2241,24 +3021,34 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "tevGxjPVWYG5EZA0",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"folder": null,
-	"_id": "ojquayo7hs76uybf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774187406301,
+		"modifiedTime": 1774187406301,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "ojquayo7hs76uybf"
 }

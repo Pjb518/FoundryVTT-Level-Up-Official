@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"gxDAjlI9YyuS0qJ0": {
@@ -29,9 +30,12 @@
 						"ability": "con",
 						"type": "savingThrow",
 						"saveDC": {
-							"bonus": 13,
+							"bonus": "13",
 							"type": "custom"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -41,8 +45,9 @@
 						"damageType": "necrotic",
 						"formula": "10d6",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"area": {
@@ -53,28 +58,54 @@
 				"consumers": {
 					"t4a9azbL4VYpTFcr": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
-				"name": "Use Dust of Dryness"
+				"name": "Use Dust of Dryness",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>Wondrous item</em></p><p>This small packet contains 1d6 + 4 pinches of dust. You can use an action to sprinkle a pinch of it over water. The dust turns a cube of water 15 feet on a side into one marble-sized pellet, which floats or rests near where the dust was sprinkled. The pellet's weight is negligible.</p><p>Someone can use an action to smash the pellet against a hard surface, causing the pellet to shatter and release the water the dust absorbed. Doing so ends that pellet's magic.</p><p>An elemental composed mostly of water that is exposed to a pinch of the dust must make a DC 13 Constitution saving throw, taking 10d6 necrotic damage on a failed save, or half as much damage on a successful one.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -100,14 +131,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "zr08euc7uwjnen58",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188495154,
+		"modifiedTime": 1774188495154,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "zr08euc7uwjnen58"
 }

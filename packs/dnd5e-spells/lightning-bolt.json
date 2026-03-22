@@ -21,7 +21,10 @@
 						"saveDC": {
 							"bonus": "",
 							"type": "spellcasting"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -34,8 +37,9 @@
 							"mode": "spellLevel",
 							"formula": "1d6"
 						},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"area": {
@@ -49,7 +53,10 @@
 						"mode": "variable",
 						"spellLevel": 3,
 						"points": 5,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -57,25 +64,48 @@
 					"jHqrVFAmpWH0J22N": {
 						"range": "self"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
 				}
 			}
 		},
 		"description": "<p>A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one.</p><p>The lightning ignites flammable objects in the area that aren't being worn or carried.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -87,22 +117,33 @@
 		"level": 3,
 		"materials": "A bit of fur and a rod of amber, crystal, or glass",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "evocation",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "4rw3zrw6asba7xys",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064666,
+		"modifiedTime": 1774217064666,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "4rw3zrw6asba7xys"
 }

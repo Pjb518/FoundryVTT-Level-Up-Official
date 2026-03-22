@@ -22,6 +22,15 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
+    brokenSynapsePress: {
+			name: 'Broken Synapse Press',
+			releases: [
+				{
+					title: 'Corrosive Souls',
+					url: '(https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
+				},
+			],
+		},
 		dmSarah: {
 			name: 'DM Sarah',
 			releases: [
@@ -64,6 +73,11 @@ export default function registerPremiumContentConfig() {
 					title: 'Advanced Artificers',
 					url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381',
 				},
+        {
+					title: 'Wielder',
+					url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
+
+				},
 			],
 		},
 		plantWitchPress: {
@@ -76,6 +90,10 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Hearth & Home',
 					url: 'https://www.drivethrurpg.com/en/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381',
+				},
+				{
+					title: 'Bloody Heretics',
+					url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
 				},
 			],
 		},
@@ -160,6 +178,15 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
+    wizardsOfTheCoast: {
+			name: 'Wizards of the Coast',
+			releases: [
+				{
+					title: 'Dungeons & Dragons 5th Edition System Reference Document',
+					url: 'http://bit.ly/3DUPt5G',
+				},
+			],
+		},
 		wolfworksPress: {
 			name: 'Wolfworks Press',
 			releases: [
@@ -228,6 +255,14 @@ export default function registerPremiumContentConfig() {
 			title: 'Arcane Sniper',
 			url: 'https://bit.ly/3I3t0SW',
 		},
+		bloodyHeretics: {
+			abbreviation: 'BH',
+			affiliate: true,
+			publisher: 'plantWitchPress',
+			systems: ['a5e'],
+			title: 'Bloody Heretics',
+			url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
+		},
 		confidenceMage: {
 			abbreviation: 'ConfMage',
 			affiliate: true,
@@ -235,6 +270,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Confidence Mage',
 			url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381',
+		},
+    corrosiveSouls: {
+			abbreviation: 'CS',
+			affiliate: true,
+			publisher: 'brokenSynapsePress',
+			systems: ['a5e'],
+			title: 'Corrosive Souls',
+			url: 'https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
 		},
 		deepMagic1: {
 			abbreviation: 'DM Vol.1',
@@ -546,7 +589,7 @@ export default function registerPremiumContentConfig() {
 			title: 'System Architecture: Motif Classes',
 			url: 'https://bit.ly/4bgzU4N',
 		},
-		multiclassersManual: {
+		multiclassersManualVol1: {
 			abbreviation: 'MulMan Vol. 1',
 			affiliate: true,
 			publisher: 'purpleMartinGames',
@@ -554,6 +597,15 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: "Multiclasser's Manual, Volume 1",
 			url: 'https://bit.ly/3JZTA08',
+		},
+		multiclassersManualVol2: {
+			abbreviation: 'MulMan Vol. 2',
+			affiliate: true,
+			publisher: 'purpleMartinGames',
+			series: 'multiclassersManual',
+			systems: ['a5e'],
+			title: "Multiclasser's Manual, Volume 2",
+			url: 'https://www.drivethrurpg.com/en/product/500104/multiclasser-s-manual-volume-2-a5e?affiliate_id=1388381',
 		},
 		mysteriousAndMarvelousMiscellanea: {
 			abbreviation: 'MMM',
@@ -570,6 +622,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Paradigms of Skill',
 			url: 'https://bit.ly/3TvtZRl',
+		},
+		paranormalPower: {
+			abbreviation: 'PP',
+			affiliate: true,
+			publisher: 'steampunkette',
+			systems: ['a5e'],
+			title: 'Paranormal Power',
+			url: 'https://bit.ly/49bS1XH',
 		},
 		planestridersJournal: {
 			abbreviation: 'PJ',
@@ -823,6 +883,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: "Voidrunner's Codex",
 			url: '',
+		},
+    wielder: {
+			abbreviation: 'W',
+			affiliate: true,
+			publisher: 'loottheboss',
+			systems: ['a5e'],
+			title: "Wielder",
+			url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
 		},
 	};
 

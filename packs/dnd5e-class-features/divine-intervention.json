@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"VoqPnZXmDyYDQvcA": {
@@ -27,41 +28,84 @@
 				"consumers": {
 					"tYbugwwumpuNsBNZ": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Divine Intervention",
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great.</p><p>Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The GM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate.</p><p>If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest.</p><p>At 20th level, your call for intervention succeeds automatically, no roll required.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 1,
-			"max": 1,
+			"max": "1",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": ""
+		"prerequisite": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": "",
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"requiresBloodied": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "tk6qi30w0ej4lsnb",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774216846186,
+		"modifiedTime": 1774216846186,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "tk6qi30w0ej4lsnb"
 }

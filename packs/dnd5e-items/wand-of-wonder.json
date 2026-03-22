@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"x6VShSTIqZJJkRK8": {
@@ -31,14 +32,17 @@
 						"damageType": "",
 						"formula": "1d4 +1",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"cdG99H7aGSfEKdpi": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Wand of Wonder",
@@ -47,25 +51,48 @@
 						"range": "long"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>(Requires attunement by a spellcaster)</em></p><p>This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges and choose a target within 120 feet of you. The target can be a creature, an object, or a point in space. Roll on the @Compendium[dnd5e.tables.X03rbSjVcNNJNqa8]{Wand of Wonder} table to discover what happens.</p><p>If the effect causes you to cast a spell from the wand, the spell's save DC is 15. If the spell normally has a range expressed in feet, its range becomes 120 feet if it isn't already. If an effect covers an area, you must center the spell on and include the target. If an effect has multiple possible subjects, the GM randomly determines which ones are affected.</p><p>The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into dust and is destroyed.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -91,14 +118,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 1
+		"weight": 1,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "f7mfsnfq0lp7ac4l",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188493073,
+		"modifiedTime": 1774188493073,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "f7mfsnfq0lp7ac4l"
 }

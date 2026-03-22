@@ -11,12 +11,13 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"f4CAd4aEBvoXRP0l": {
 				"activation": {
-					"cost": null,
+					"cost": 1,
 					"type": "special",
 					"reactionTrigger": ""
 				},
@@ -26,47 +27,87 @@
 				},
 				"rolls": {
 					"tjurfKpV6AaJTnN5": {
-						"canCrit": false,
-						"critBonus": "",
 						"healingType": "healing",
 						"formula": "1@scale.bard.song-of-rest",
 						"scaling": {},
-						"name": "",
-						"type": "healing"
+						"type": "healing",
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Song of Rest",
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest.</p><p>If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.</p><p>The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": ""
+		"prerequisite": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": "",
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"requiresBloodied": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "oaurb89y36thrxpl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774216846186,
+		"modifiedTime": 1774216846186,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "oaurb89y36thrxpl"
 }

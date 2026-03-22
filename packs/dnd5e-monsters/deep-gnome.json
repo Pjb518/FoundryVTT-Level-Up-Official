@@ -34,7 +34,9 @@
 				"max": 1
 			},
 			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -54,7 +56,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"displayName": 0,
@@ -72,7 +78,29 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null
 	},
 	"system": {
 		"abilities": {
@@ -109,7 +137,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -152,7 +181,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -163,7 +192,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -174,7 +203,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -185,7 +214,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -196,7 +225,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -207,7 +236,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -218,7 +247,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -229,7 +258,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -240,7 +269,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -251,7 +280,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -262,7 +291,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -273,7 +302,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -284,7 +313,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -295,7 +324,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -306,7 +335,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -317,7 +346,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -328,7 +357,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -339,7 +368,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -350,7 +379,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -361,7 +390,18 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -413,7 +453,16 @@
 			"points": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -509,7 +558,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -525,14 +576,17 @@
 			"attacks": {},
 			"initiative": {},
 			"movement": {},
-			"senses": {}
+			"senses": {},
+			"exertion": {},
+			"hitPoint": {}
 		},
 		"currency": {
 			"pp": 0,
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -544,13 +598,16 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [],
+			"isShapechanger": false,
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -598,7 +655,7 @@
 				}
 			}
 		},
-		"source": "",
+		"source": "systemReferenceDocument",
 		"traits": {
 			"size": "sm",
 			"conditionImmunities": [],
@@ -618,6 +675,11 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {}
 		}
 	},
 	"items": [
@@ -675,16 +737,43 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 20
+				"weight": 20,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"breakerProperties": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"defensiveProperties": "",
+				"energyProperties": "",
+				"flaws": [],
+				"implant": false,
+				"modPorts": "",
+				"mounted": [],
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"versatile": "",
+				"weaponAugments": []
 			},
 			"_id": "K5TZ8LEjZkXqSZDV",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -721,16 +810,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "f4H7gAnj39hu1A7W",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -767,16 +869,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "G2rcLPuEzs8DYypM",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -813,16 +928,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "Eh7OK5hx8jrl4uy2",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -858,7 +986,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"y1naz7JjVfjAfZYK": {
 								"canCrit": true,
@@ -866,8 +997,9 @@
 								"damageType": "piercing",
 								"formula": "1d8 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Attack",
@@ -876,7 +1008,35 @@
 								"range": "fiveFeet"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+4 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>6 (1d8 + 2) <em>piercing damage</em></strong>.</p></section><p>The Deep Gnome (Svirfneblin) attacks with its War Pick.</p>",
@@ -916,16 +1076,43 @@
 				"unidentifiedDescription": "",
 				"unidentifiedName": "",
 				"weaponProperties": [],
-				"weight": 2
+				"weight": 2,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"breakerProperties": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"defensiveProperties": "",
+				"energyProperties": "",
+				"flaws": [],
+				"implant": false,
+				"modPorts": "",
+				"mounted": [],
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"versatile": "",
+				"weaponAugments": []
 			},
 			"_id": "Nv0IqGFUd9QxVm7z",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -961,7 +1148,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "rangedWeaponAttack",
-								"ability": "dex"
+								"ability": "dex",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"rb231eOy7n8Tiskf": {
 								"canCrit": true,
@@ -969,15 +1159,19 @@
 								"damageType": "piercing",
 								"formula": "1d4 + @dex.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"v12ZJQ9GJHRcZ4KC": {
 								"itemId": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"deleteOnZero": false,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Attack",
@@ -989,7 +1183,34 @@
 								"range": "short"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p>Ranged Weapon Attack: +4 to hit, range 30/120 ft., one creature. Hit: <strong>4 (1d4 + 2) <em>piercing damage</em></strong>.</p><p>The target must succeed on a  <strong>DC 12 Constitution</strong> saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p></section><p>The Deep Gnome (Svirfneblin) attacks with its Poisoned Dart. The target must make a <strong>Constitution</strong> saving throw. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
@@ -1032,16 +1253,43 @@
 					"finesse",
 					"thrown"
 				],
-				"weight": 0.25
+				"weight": 0.25,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"armorMods": [],
+				"attunementHint": "",
+				"breakerProperties": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"defensiveProperties": "",
+				"energyProperties": "",
+				"flaws": [],
+				"implant": false,
+				"modPorts": "",
+				"mounted": [],
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"versatile": "",
+				"weaponAugments": []
 			},
 			"_id": "HyuT0hWS5ud1UvPX",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1062,14 +1310,21 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"VLKhoWD8mHLjifWi": {
 								"mode": "variable",
 								"spellLevel": 3,
 								"points": 5,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1078,7 +1333,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>For the Duration, you hide a target that you touch from Divination magic. The target can be a willing creature or a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any divination magic or perceived through magical Scrying sensors.</p>",
@@ -1111,7 +1386,15 @@
 					"primary": "abjuration",
 					"secondary": []
 				},
-				"spellBook": "5kWpDX5x5d4l7Hcn"
+				"spellBook": "5kWpDX5x5d4l7Hcn",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "4CrTbwy6iLGfvdoP",
 			"effects": [],
@@ -1119,9 +1402,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1147,29 +1431,61 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"rLNaphIdh7oWb7OQ": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"r6ktNhcTtEaifN1W": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"q7ze6uz8s6nDdIsq": {
 								"range": "short"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1204,7 +1520,15 @@
 					"primary": "necromancy",
 					"secondary": []
 				},
-				"spellBook": "5kWpDX5x5d4l7Hcn"
+				"spellBook": "5kWpDX5x5d4l7Hcn",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "QA7gmtWln5h4xc2D",
 			"effects": [],
@@ -1212,9 +1536,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1234,19 +1559,28 @@
 							"value": "1"
 						},
 						"target": {
-							"quantity": null,
-							"type": "self"
+							"quantity": 1,
+							"type": "self",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"z2fhewWEvMwjM64I": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"b3QMpSKENTGNXGdx": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1255,7 +1589,27 @@
 								"range": "self"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any creature has disadvantage on attack rolls against you. An attacker is immune to this effect if it doesn't rely on sight, as with blindsight, or can see through illusions, as with truesight.</p>",
@@ -1288,7 +1642,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "5kWpDX5x5d4l7Hcn"
+				"spellBook": "5kWpDX5x5d4l7Hcn",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "h1k26UPMJn1oR4KP",
 			"effects": [],
@@ -1296,9 +1658,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1318,19 +1681,28 @@
 							"value": "1"
 						},
 						"target": {
-							"quantity": null,
-							"type": "self"
+							"quantity": 1,
+							"type": "self",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"ZCMDGfeHyzXjqMnu": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"wxRJCS63U6LoHn9y": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1339,7 +1711,27 @@
 								"range": "self"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You make yourself—including your clothing, armor, weapons, and other belongings on your person—look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p><p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p><p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.</p>",
@@ -1372,7 +1764,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "5kWpDX5x5d4l7Hcn"
+				"spellBook": "5kWpDX5x5d4l7Hcn",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "1DwmpJ53SXZtWIwT",
 			"effects": [],
@@ -1380,9 +1780,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1402,7 +1803,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -1415,10 +1816,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -1428,7 +1831,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1438,7 +1843,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1446,7 +1873,7 @@
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1461,15 +1888,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "An00B7kX1IADHKZU",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1489,7 +1923,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -1502,10 +1936,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -1515,7 +1951,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1525,7 +1963,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1533,7 +1993,7 @@
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1548,15 +2008,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "ZVOkCFSHiS25l4Yy",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1576,7 +2043,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -1589,10 +2056,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -1600,7 +2069,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1611,16 +2083,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1635,15 +2128,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "a8NdhfvLwy2fU2Nc",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1663,7 +2163,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -1676,10 +2176,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -1689,7 +2191,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1699,7 +2203,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1707,7 +2233,7 @@
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1722,15 +2248,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "XLSGdv9BsLZ8B3iB",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1750,7 +2283,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -1763,10 +2296,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -1776,7 +2311,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1786,7 +2323,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1794,7 +2353,7 @@
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1809,15 +2368,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "IftGgXEl1xlk46IW",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1837,7 +2403,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -1850,10 +2416,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -1861,7 +2429,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1872,16 +2443,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1896,24 +2488,34 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "3jnHNVzxhKbegwhP",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"folder": null,
-	"_id": "qiwvmhmt8abwwyfw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774187406301,
+		"modifiedTime": 1774187406301,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "qiwvmhmt8abwwyfw"
 }

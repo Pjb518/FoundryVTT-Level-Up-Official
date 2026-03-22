@@ -11,12 +11,13 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"y2yGsb77hdM6UzVX": {
 				"activation": {
-					"cost": null,
+					"cost": 1,
 					"type": "special",
 					"reactionTrigger": ""
 				},
@@ -25,13 +26,19 @@
 					"value": ""
 				},
 				"target": {
-					"quantity": null,
-					"type": "self"
+					"quantity": 1,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"uWDpvJFI5ElKdBI2": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Natural Recovery",
@@ -40,37 +47,69 @@
 						"range": "self"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature.</p><p>During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher. You can't use this feature again until you finish a long rest.</p><p>For example, when you are a 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level slot or two 1st-level slots.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 1,
-			"max": 1,
+			"max": "1",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": ""
+		"prerequisite": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": "",
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"requiresBloodied": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "xg639z0hxz1cx2zh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774216846426,
+		"modifiedTime": 1774216846426,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "xg639z0hxz1cx2zh"
 }

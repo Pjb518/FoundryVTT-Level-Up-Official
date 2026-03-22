@@ -11,12 +11,13 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"pQ3XrTngkjyqPhVh": {
 				"activation": {
-					"cost": null,
+					"cost": 1,
 					"type": "special",
 					"reactionTrigger": ""
 				},
@@ -27,41 +28,84 @@
 				"consumers": {
 					"zdwkmSgn8WysRO8d": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Channel Divinity (Paladin)",
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>Your oath allows you to channel divine energy to fuel magical effects. Each Channel Divinity option provided by your oath explains how to use it.</p><p>When you use your Channel Divinity, you choose which option to use. You must then finish a short or long rest to use your Channel Divinity again.</p><p>Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC.</p><section class=\"secret foundry-note\" id=\"secret-zMJG0jvMiZEEkLfI\"><p><strong>Foundry Note</strong></p><p>Use this to track all the various uses of Channel Divinity for the paladin.</p></section>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 1,
-			"max": 1,
+			"max": "1",
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": ""
+		"prerequisite": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": "",
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"requiresBloodied": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "l49430ncn9kev156",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774216846186,
+		"modifiedTime": 1774216846186,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "l49430ncn9kev156"
 }

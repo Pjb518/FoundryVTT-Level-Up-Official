@@ -9,7 +9,8 @@
 				"name": "Shifting the Odds",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"yRiTpP4p7vZGLaNl": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 2,
-						"points": 3
+						"points": 3,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -28,8 +31,6 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -40,15 +41,29 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"effects": [
 					"M1olMtQTKxlQgRm8",
 					"osJUgWySxtMp3C2f"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": ""
 			}
 		},
 		"description": "<p>By wrapping yourself in strands of chaotic energy,&nbsp;you gain advantage on the next attack roll or ability&nbsp;check that you make. Fate is a cruel mistress,&nbsp;however, and her scales must always be balanced.&nbsp;The second attack roll or ability check (whichever&nbsp;occurs first) that you make after casting shifting the&nbsp;odds is made with disadvantage.</p>",
@@ -56,17 +71,13 @@
 		"secretDescription": "",
 		"source": "deepMagic1",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"classes": [
 			"bard",
@@ -82,7 +93,7 @@
 		"level": 2,
 		"materials": "",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
@@ -92,12 +103,19 @@
 				"chaos",
 				"enhancement"
 			]
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
-			"origin": "Item.wUKzDtHDn1D1NK8I",
+			"origin": "Item.j0xgp3wmy1atz5ca",
 			"flags": {
 				"a5e": {}
 			},
@@ -130,20 +148,31 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1774217065110
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
-			}
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/magic/unholy/energy-smoke-pink.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
-			"origin": "Item.wUKzDtHDn1D1NK8I",
+			"origin": "Item.j0xgp3wmy1atz5ca",
 			"flags": {
 				"a5e": {}
 			},
@@ -176,23 +205,38 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1774217065110
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
-			}
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/magic/unholy/energy-smoke-pink.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "j0xgp3wmy1atz5ca",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217064941,
+		"modifiedTime": 1774217064941,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "j0xgp3wmy1atz5ca"
 }

@@ -122,8 +122,7 @@
                 onclick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    filterOptions.searchDescription =
-                        !filterOptions.searchDescription;
+                    filterOptions.searchDescription = !filterOptions.searchDescription;
                 }}
             >
                 <i class="a5e-compendia-header__button fa-solid fa-book"></i>
@@ -131,9 +130,7 @@
 
             <button
                 class="a5e-button a5e-cb__header-button"
-                aria-label={viewTab === "items"
-                    ? "Open Filter Tab"
-                    : "Close Filter Tab"}
+                aria-label={viewTab === "items" ? "Open Filter Tab" : "Close Filter Tab"}
                 data-tooltip={viewTab === "items"
                     ? "Open Filter Tab"
                     : "Close Filter Tab"}
@@ -181,7 +178,7 @@
         overflow: hidden;
 
         &__header {
-            padding-top: 0.125rem;
+            padding-top: 0.5rem;
 
             &-buttons {
                 display: flex;

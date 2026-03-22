@@ -34,7 +34,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -54,7 +56,11 @@
 			"scaleY": 3,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"displayName": 0,
@@ -72,7 +78,29 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null
 	},
 	"system": {
 		"abilities": {
@@ -109,7 +137,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -152,7 +181,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -163,7 +192,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -174,7 +203,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -185,7 +214,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -196,7 +225,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -207,7 +236,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -218,7 +247,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -229,7 +258,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -240,7 +269,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -251,7 +280,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -262,7 +291,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -273,7 +302,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -284,7 +313,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -295,7 +324,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -306,7 +335,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -317,7 +346,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -328,7 +357,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -339,7 +368,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -350,7 +379,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -361,7 +390,18 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -413,7 +453,16 @@
 			"points": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -509,7 +558,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -539,14 +590,17 @@
 			"attacks": {},
 			"initiative": {},
 			"movement": {},
-			"senses": {}
+			"senses": {},
+			"exertion": {},
+			"hitPoint": {}
 		},
 		"currency": {
 			"pp": 0,
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -558,13 +612,16 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [],
+			"isShapechanger": false,
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -612,7 +669,7 @@
 				}
 			}
 		},
-		"source": "",
+		"source": "systemReferenceDocument",
 		"traits": {
 			"size": "med",
 			"conditionImmunities": [],
@@ -634,6 +691,11 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {}
 		}
 	},
 	"items": [
@@ -671,16 +733,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "7lPeDEGYYR2C64el",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -713,11 +788,42 @@
 						"consumers": {
 							"53uSNkvy0TODcaGB": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Use Breath Weapons",
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p>The dragon uses one of the following breath weapons.</p><p>**Lightning Breath.** The dragon exhales lightning in a 40-foot line that is 5 feet wide. Each creature in that line must make a  <strong>DC 12 Dexterity</strong> saving throw, taking <strong>16 (3d10) <em>lightning damage</em></strong> on a failed save, or half as much damage on a successful one.</p><p>**Repulsion Breath.** The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a  <strong>DC 12 Strength</strong> saving throw. On a failed save, the creature is pushed 30 feet away from the dragon.</p></section><p>The dragon breathes in!</p>",
@@ -737,16 +843,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "fqlKSO5TYhMxytgL",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -781,9 +900,12 @@
 								"ability": "dex",
 								"type": "savingThrow",
 								"saveDC": {
-									"bonus": 12,
+									"bonus": "12",
 									"type": "custom"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"rolls": {
@@ -793,8 +915,9 @@
 								"damageType": "lightning",
 								"formula": "3d10",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"area": {
@@ -807,6 +930,34 @@
 						"ranges": {
 							"MHzV9mivqKYBtr4J": {
 								"range": "self"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -828,16 +979,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "38APcx8EAPOiwPCr",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -872,9 +1036,12 @@
 								"ability": "str",
 								"type": "savingThrow",
 								"saveDC": {
-									"bonus": 12,
+									"bonus": "12",
 									"type": "custom"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"area": {
@@ -886,6 +1053,35 @@
 						"ranges": {
 							"aKSLekStfiIh7uz6": {
 								"range": "self"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -907,16 +1103,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "q0cWWbsOY4bspmK2",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -952,7 +1161,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"frGAAUqMVjEVzUaB": {
 								"canCrit": true,
@@ -960,8 +1172,9 @@
 								"damageType": "piercing",
 								"formula": "1d10 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Use Bite",
@@ -970,7 +1183,35 @@
 								"range": "fiveFeet"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+5 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>8 (1d10 + 3) <em>piercing damage</em></strong>.</p></section><p>The Bronze Dragon Wyrmling attacks with its Bite.</p>",
@@ -990,16 +1231,29 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "snJTN4eEe2zPVagT",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1019,7 +1273,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -1032,10 +1286,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -1045,7 +1301,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1055,7 +1313,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1063,7 +1343,7 @@
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1078,15 +1358,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "pRjB9wCN0Wi3PkAe",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1106,7 +1393,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -1119,10 +1406,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -1132,7 +1421,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1142,7 +1433,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1150,7 +1463,7 @@
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1165,15 +1478,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "dXh6ubao8lMDolbk",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1193,7 +1513,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -1206,10 +1526,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -1217,7 +1539,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1228,16 +1553,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1252,15 +1598,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "Agv34ExvXmI3od06",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1280,7 +1633,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -1293,10 +1646,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -1306,7 +1661,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1316,7 +1673,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1324,7 +1703,7 @@
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1339,15 +1718,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "NXa8Oho4NF1U1Ewc",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1367,7 +1753,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -1380,10 +1766,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -1393,7 +1781,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -1403,7 +1793,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1411,7 +1823,7 @@
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1426,15 +1838,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "0MCZyuEB9aQs2T9A",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1454,7 +1873,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -1467,10 +1886,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -1478,7 +1899,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -1489,16 +1913,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1513,24 +1958,34 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "qtn2Cg5qrB3KqEwT",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"folder": null,
-	"_id": "fhfweb2nnue3jb2y",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774187401335,
+		"modifiedTime": 1774187401335,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "fhfweb2nnue3jb2y"
 }

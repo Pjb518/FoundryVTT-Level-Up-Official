@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"YiuZEqUwkYgNYwiA": {
@@ -30,7 +31,10 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "str"
+						"ability": "str",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"7E1dymtp43PwPsJt": {
 						"canCrit": true,
@@ -38,8 +42,9 @@
 						"damageType": "bludgeoning",
 						"formula": "1d6 + @str.mod + 3",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					},
 					"QYWGz6fv9rx6E2xN": {
 						"canCrit": true,
@@ -47,14 +52,17 @@
 						"damageType": "bludgeoning",
 						"formula": "1d8 + @str.mod + 3",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"WDyphT3H8S6mqcxn": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Attack",
@@ -63,25 +71,48 @@
 						"range": "fiveFeet"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>(Requires attunement)</em></p><p>This staff can be wielded as a magic quarterstaff that grants a +3 bonus to attack and damage rolls made with it.</p><p>The staff has 10 charges. When you hit with a melee attack using it, you can expend up to 3 of its charges. For each charge you expend, the target takes an extra 1d6 force damage. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff becomes a nonmagical quarterstaff.</p><section class=\"secret foundry-note\" id=\"secret-Fp8PZmbsQFbsmSHS\"><p><strong>Foundry Note</strong></p><p>The Other Formula button has been configured to roll 1d6. Use to calculate any additional force damage.</p></section>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -109,14 +140,43 @@
 		"weaponProperties": [
 			"versatile"
 		],
-		"weight": 4
+		"weight": 4,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "6ewjzpmv8n9ykrrm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188492335,
+		"modifiedTime": 1774188492335,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "6ewjzpmv8n9ykrrm"
 }

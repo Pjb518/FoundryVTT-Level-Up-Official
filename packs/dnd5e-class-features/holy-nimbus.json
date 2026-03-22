@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"g2TGAx0eBpnh3WNR": {
@@ -31,18 +32,25 @@
 						"damageType": "radiant",
 						"formula": "10",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"target": {
-					"quantity": null,
-					"type": "self"
+					"quantity": 1,
+					"type": "self",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"bBMSE4rKPD9ug9Vp": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Use Holy Nimbus",
@@ -54,37 +62,68 @@
 						"range": "short"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>At 20th level, as an action, you can emanate an aura of sunlight. For 1 minute, bright light shines from you in a 30-foot radius, and dim light shines 30 feet beyond that. Whenever an enemy creature starts its turn in the bright light, the creature takes 10 radiant damage.</p><p>In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.</p><p>Once you use this feature, you can't use it again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 1,
-			"max": 1,
+			"max": "1",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
-		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": ""
+		"prerequisite": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": "",
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"requiresBloodied": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "nny13exn4ti5v0ha",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774216846186,
+		"modifiedTime": 1774216846186,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "nny13exn4ti5v0ha"
 }

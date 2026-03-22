@@ -34,7 +34,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"angle": 360,
@@ -54,7 +56,11 @@
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"displayName": 0,
@@ -72,7 +78,29 @@
 			"attribute": null
 		},
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null
 	},
 	"system": {
 		"abilities": {
@@ -109,7 +137,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -152,7 +181,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -163,7 +192,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -174,7 +203,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -185,7 +214,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -196,7 +225,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -207,7 +236,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -218,7 +247,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -229,7 +258,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -240,7 +269,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -251,7 +280,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -262,7 +291,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -273,7 +302,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -284,7 +313,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -295,7 +324,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -306,7 +335,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -317,7 +346,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -328,7 +357,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -339,7 +368,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -350,7 +379,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -361,7 +390,18 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -413,7 +453,16 @@
 			"points": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -509,7 +558,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "cha",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -525,14 +576,17 @@
 			"attacks": {},
 			"initiative": {},
 			"movement": {},
-			"senses": {}
+			"senses": {},
+			"exertion": {},
+			"hitPoint": {}
 		},
 		"currency": {
 			"pp": 0,
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "",
@@ -544,13 +598,16 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [],
+			"isShapechanger": false,
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -598,7 +655,7 @@
 				}
 			}
 		},
-		"source": "",
+		"source": "systemReferenceDocument",
 		"traits": {
 			"size": "med",
 			"conditionImmunities": [],
@@ -622,6 +679,11 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {}
 		}
 	},
 	"items": [
@@ -659,16 +721,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "p3N4USnvcjJZ8Q52",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -705,16 +780,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "EXn5UA2YezilQooN",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -745,7 +833,37 @@
 							"value": ""
 						},
 						"name": "Use Multiattack",
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"ranges": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The rakshasa makes two claw attacks.</p>",
@@ -765,16 +883,29 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "hJNnH2tnXGuNcbxF",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -810,7 +941,10 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"Md7AOIxYYCJxg5wl": {
 								"canCrit": true,
@@ -818,8 +952,9 @@
 								"damageType": "slashing",
 								"formula": "2d6 + @str.mod",
 								"scaling": {},
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Use Claw",
@@ -828,7 +963,35 @@
 								"range": "fiveFeet"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<section class=\"secret\"><p><em>Melee Weapon Attack:</em><strong>+7 to hit,</strong>, <strong>5 ft.,</strong> one target. Hit: <strong>9 (2d6 + 2) <em>slashing damage</em></strong>, and the target is cursed if it is a creature. </p><p>The magical curse takes effect whenever the target takes a short or long rest, filling the target's thoughts with horrible images and dreams. The cursed target gains no benefit from finishing a short or long rest. The curse lasts until it is lifted by a remove curse spell or similar magic.</p></section><p>The Rakshasa attacks with its Claw.</p>",
@@ -848,16 +1011,29 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBlooded": false
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": "",
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"requiresBloodied": false,
+				"synergy": ""
 			},
 			"_id": "8Nox0kl8abqIkU4I",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -883,25 +1059,55 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"jEm8dorGHO0Z3cQo": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"urqueQW2OPn7AqFo": {
 								"range": "short"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -936,7 +1142,15 @@
 					"primary": "divination",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "jkjDGbTlMJjArHV2",
 			"effects": [],
@@ -944,9 +1158,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -966,15 +1181,22 @@
 							"value": "1"
 						},
 						"target": {
-							"quantity": null,
-							"type": "self"
+							"quantity": 1,
+							"type": "self",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"XOfsZsuWBiM1ecv9": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -983,7 +1205,27 @@
 								"range": "self"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You make yourself—including your clothing, armor, weapons, and other belongings on your person—look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.</p><p>The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.</p><p>To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.</p>",
@@ -1016,7 +1258,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "bPgzpYXFj4k1Fg3u",
 			"effects": [],
@@ -1024,9 +1274,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1047,7 +1298,11 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": ""
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"name": "Cast Spell",
 						"ranges": {
@@ -1055,7 +1310,28 @@
 								"range": "short"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.</p><p>You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.</p><p>The hand can't attack, activate magic items, or carry more than 10 pounds.</p>",
@@ -1088,7 +1364,15 @@
 					"primary": "conjuration",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "WSLthSZ6jXQ2l68L",
 			"effects": [],
@@ -1096,9 +1380,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1128,7 +1413,36 @@
 								"range": "short"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"consumers": {},
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You create a sound or an image of an object within range that lasts for the duration. The illusion also ends if you dismiss it as an action or cast this spell again.</p><p>If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.</p><p>If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, because things can pass through it.</p><p>If a creature uses its action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.</p>",
@@ -1161,7 +1475,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "1MCUOV8poqLn2pkc",
 			"effects": [],
@@ -1169,9 +1491,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1197,29 +1520,61 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"k8242nQzwad15c1q": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"3bdx2p7CFjA2xVk5": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"Utbm0GeMXeswPfhc": {
 								"range": "short"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1254,7 +1609,15 @@
 					"primary": "enchantment",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "Tzao2wIH82q5LqPh",
 			"effects": [],
@@ -1262,9 +1625,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1291,13 +1655,18 @@
 						"consumers": {
 							"EQtgCjxlw944h5CO": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"txeycTaRkQwy4WrN": {
 								"mode": "variable",
 								"spellLevel": 1,
 								"points": 2,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1306,7 +1675,35 @@
 								"range": "self"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.</p><p>The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.</p>",
@@ -1339,7 +1736,15 @@
 					"primary": "divination",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "L3FSf2DcKtLnIflH",
 			"effects": [],
@@ -1347,9 +1752,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1370,18 +1776,27 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"vT9oIbvbiFfDKNxr": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"iW8DYc57rhBcD7ey": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1390,7 +1805,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.</p>",
@@ -1423,7 +1858,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "P0BzeIG3chDsWIfT",
 			"effects": [],
@@ -1431,9 +1874,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1460,13 +1904,18 @@
 						"consumers": {
 							"gXDo7G3pWzua91UI": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"yFpivgvTvJ2Pr2Hi": {
 								"mode": "variable",
 								"spellLevel": 3,
 								"points": 5,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1475,7 +1924,35 @@
 								"range": "long"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"target": {
+							"heard": false,
+							"otherText": "",
+							"quantity": 1,
+							"scaling": {},
+							"seen": false,
+							"type": ""
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot cube. The image appears at a spot that you can see within range and lasts for the duration. It seems completely real, including sounds, smells, and temperature appropriate to the thing depicted. You can't create sufficient heat or cold to cause damage, a sound loud enough to deal thunder damage or deafen a creature, or a smell that might sicken a creature (like a troglodyte's stench).</p><p>As long as you are within range of the illusion, you can use your action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.</p><p>Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 6th level or higher, the spell lasts until dispelled, without requiring your concentration.</p>",
@@ -1508,7 +1985,15 @@
 					"primary": "illusion",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "EBe36CSQPxwbqkdn",
 			"effects": [],
@@ -1516,9 +2001,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1544,29 +2030,61 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"TwSfvdTppMkrFvHx": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"Ndhrtqeug2xV74bw": {
 								"mode": "variable",
 								"spellLevel": 2,
 								"points": 3,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"lPM0VSM3XnUDbhvP": {
 								"range": "short"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1601,7 +2119,15 @@
 					"primary": "enchantment",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "js1uDgCpwxsfihG5",
 			"effects": [],
@@ -1609,9 +2135,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1637,29 +2164,61 @@
 								"saveDC": {
 									"bonus": "",
 									"type": "spellcasting"
-								}
+								},
+								"onSave": "",
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"GRwc4vqzpRJb2noi": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"sS79BlG4VSDjXWg7": {
 								"mode": "variable",
 								"spellLevel": 5,
 								"points": 7,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
 						"ranges": {
 							"NeqGS35uQZi6RqAE": {
 								"range": "medium"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -1694,7 +2253,15 @@
 					"primary": "enchantment",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "DjY34Jb4Nu3gqziH",
 			"effects": [],
@@ -1702,9 +2269,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1725,18 +2293,27 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"ZQJz67iiFZ2kDsPv": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"dt6nVXRqHSy2EaiS": {
 								"mode": "variable",
 								"spellLevel": 3,
 								"points": 5,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1745,7 +2322,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You touch a willing creature. The target gains a flying speed of 60 feet for the Duration. When the spell ends, the target falls if it is still aloft, unless it can stop the fall.</p><p><strong>At Higher Levels.</strong> When you cast this spell using a spell slot of 4th level or higher, you can target one additional creature for each slot level above 3rd.</p>",
@@ -1778,7 +2375,15 @@
 					"primary": "transmutation",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "GwdbRuSHVzbooBw6",
 			"effects": [],
@@ -1786,9 +2391,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1813,23 +2419,35 @@
 								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeSpellAttack",
-								"ability": "spellcasting"
+								"ability": "spellcasting",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							}
 						},
 						"target": {
 							"quantity": 8,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"l0FxwfsAtAGcIWCW": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"Cy6IPGMo0yoI38Sz": {
 								"mode": "variable",
 								"spellLevel": 7,
 								"points": 10,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1838,7 +2456,26 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination. If you are trying to reach the City of Brass, for example, you might arrive in its Street of Steel, before its Gate of Ashes, or looking at the city from across the Sea of Fire, at the DM's discretion.</p><p>Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle.</p><p>You can use this spell to banish an unwilling creature to another plane. Choose a creature within your reach and make a melee spell attack against it. On a hit, the creature must make a Charisma saving throw. If the creature fails this save, it is transported to a random location on the plane of existence you specify. A creature so transported must find its own way back to your current plane of existence.</p>",
@@ -1871,7 +2508,15 @@
 					"primary": "conjuration",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "g1qbhi5XWjmXUgTX",
 			"effects": [],
@@ -1879,9 +2524,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1902,18 +2548,27 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {
 							"t2cOT8UHqD7cn6MI": {
 								"type": "itemUses",
-								"quantity": 1
+								"quantity": 1,
+								"default": true,
+								"label": ""
 							},
 							"vtgV2SxMzo0wsJxM": {
 								"mode": "variable",
 								"spellLevel": 6,
 								"points": 9,
-								"type": "spell"
+								"type": "spell",
+								"charges": 0,
+								"default": true,
+								"label": ""
 							}
 						},
 						"name": "Cast Spell",
@@ -1922,7 +2577,27 @@
 								"range": "touch"
 							}
 						},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>This spell gives the willing creature you touch the ability to see things as they actually are. For the duration, the creature has truesight, notices secret doors hidden by magic, and can see into the Ethereal Plane, all out to a range of 120 feet.</p>",
@@ -1955,7 +2630,15 @@
 					"primary": "divination",
 					"secondary": []
 				},
-				"spellBook": "8jMoeiCHW50okpkM"
+				"spellBook": "8jMoeiCHW50okpkM",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"concentration": false,
+				"disciplines": []
 			},
 			"_id": "3khPkdapn3IXauAu",
 			"effects": [],
@@ -1963,9 +2646,10 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1985,7 +2669,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"5nrDtksc3KPCbcJd": {
@@ -1998,10 +2682,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"B9sbtgKAz5GLtsp3": {
@@ -2011,7 +2697,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2021,7 +2709,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2029,7 +2739,7 @@
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2044,15 +2754,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "7DXYu3DRFEtig5rp",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2072,7 +2789,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"x479yGm9lUjVLHDy": {
@@ -2085,10 +2802,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"duRNu9hfiRNwhtCq": {
@@ -2098,7 +2817,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2108,7 +2829,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2116,7 +2859,7 @@
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2131,15 +2874,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "TyvR7YeuFalFuuGz",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2159,7 +2909,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"dFgwvnjjgmzR7vlN": {
@@ -2172,10 +2922,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"FDMYIPcl2LveduMw": {
@@ -2183,7 +2935,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -2194,16 +2949,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2218,15 +2994,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "1eP2feAvYLxXUbIr",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2246,7 +3029,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"NbOuce8AtLVjDeeL": {
@@ -2259,10 +3042,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"L65ZmTO0KcmeQ2EQ": {
@@ -2272,7 +3057,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2282,7 +3069,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2290,7 +3099,7 @@
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2305,15 +3114,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "SLoX5AVW0ufZCLNp",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2333,7 +3149,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"VAh3uPOJAaI5ShrA": {
@@ -2346,10 +3162,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"bvFJU6hHDstCwg1b": {
@@ -2359,7 +3177,9 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -2369,7 +3189,29 @@
 								"default": true,
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"canCrit": false
+								"canCrit": false,
+								"critBonus": "",
+								"damageType": "",
+								"scaling": {}
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -2377,7 +3219,7 @@
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2392,15 +3234,22 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "bfEydUf6miS2NosI",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -2420,7 +3269,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"j7yuRUD8cu1y0Jia": {
@@ -2433,10 +3282,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"TcI6WmWSAy0EAxg9": {
@@ -2444,7 +3295,10 @@
 								"damageType": "",
 								"formula": "1 + @str.mod",
 								"label": "Basic Melee Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true
 							}
 						},
 						"prompts": {
@@ -2455,16 +3309,37 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "systemReferenceDocument",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -2479,24 +3354,34 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"folder": null,
 			"_id": "B5SDWxJCfgKkEyLS",
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.1.0",
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"folder": null,
-	"_id": "a5ylox96j3vwkiie",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774187396428,
+		"modifiedTime": 1774187396428,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "a5ylox96j3vwkiie"
 }

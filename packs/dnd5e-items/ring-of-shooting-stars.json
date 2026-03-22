@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"syHsDT8HWiSIOFER": {
@@ -29,36 +30,66 @@
 						"ability": "dex",
 						"type": "savingThrow",
 						"saveDC": {
-							"bonus": 15,
+							"bonus": "15",
 							"type": "custom"
-						}
+						},
+						"onSave": "",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"j5OYy4dwVqunP9kw": {
 						"type": "itemUses",
-						"quantity": 1
+						"quantity": 1,
+						"default": true,
+						"label": ""
 					}
 				},
-				"name": "Use Ring of Shooting Stars"
+				"name": "Use Ring of Shooting Stars",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p><em>(Requires attunement outdoors at night)</em></p><p>While wearing this ring in dim light or darkness, you can cast @Compendium[dnd5e.spells.CAxSzHWizrafT033]{Dancing Lights} and @Compendium[dnd5e.spells.Bnn9Nzajixvow9xi]{Light} from the ring at will. Casting either spell from the ring requires an action.</p><p>The ring has 6 charges for the following other properties. The ring regains 1d6 expended charges daily at dawn.</p><p><strong>Faerie Fire</strong>. You can expend 1 charge as an action to cast @Compendium[dnd5e.spells.nqBDWkVOfcGZt4YU]{Faerie Fire} from the ring.</p><p><strong>Ball Lightning</strong>. You can expend 2 charges as an action to create one to four 3-foot-diameter spheres of lightning. The more spheres you create, the less powerful each sphere is individually.</p><p>Each sphere appears in an unoccupied space you can see within 120 feet of you. The spheres last as long as you concentrate (as if concentrating on a spell), up to 1 minute. Each sphere sheds dim light in a 30-foot radius.</p><p>As a bonus action, you can move each sphere up to 30 feet, but no farther than 120 feet away from you. When a creature other than you comes within 5 feet of a sphere, the sphere discharges lightning at that creature and disappears. That creature must make a DC 15 Dexterity saving throw. On a failed save, the creature takes lightning damage based on the number of spheres you created.</p><table><thead><tr><td><strong>Spheres</strong></td><td><strong>Lightning Damage</strong></td></tr></thead><tbody><tr><td>4</td><td>2d4</td></tr><tr><td>3</td><td>2d6</td></tr><tr><td>2</td><td>5d4</td></tr><tr><td>1</td><td>4d12</td></tr></tbody></table><p><strong>Shooting Stars</strong>. You can expend 1 to 3 charges as an action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of you. Each creature within a 15-foot cube originating from that point is showered in sparks and must make a DC 15 Dexterity saving throw, taking 5d4 fire damage on a failed save, or half as much damage on a successful one.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -84,14 +115,43 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 0
+		"weight": 0,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "y8cwc7srkisvjtom",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188494843,
+		"modifiedTime": 1774188494843,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "y8cwc7srkisvjtom"
 }

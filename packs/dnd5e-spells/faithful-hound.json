@@ -20,7 +20,10 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"mQIwFe9MQMN55LIW": {
 						"canCrit": true,
@@ -30,20 +33,28 @@
 						"scaling": {
 							"formula": ""
 						},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"target": {
-					"quantity": null,
-					"type": ""
+					"quantity": 1,
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"consumers": {
 					"FIkwQ798kOlqzKLU": {
 						"mode": "variable",
 						"spellLevel": 4,
 						"points": 6,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Cast Spell",
@@ -52,25 +63,40 @@
 						"range": "short"
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the Duration, until you dismiss it as an action, or until you move more than 100 feet away from it.</p><p>The hound is Invisible to all creatures except you and can't be harmed. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound sees invisible creatures and can see into the Ethereal Plane. It ignores illusions.</p><p>At the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you. The hound's Attack bonus is equal to your Spellcasting ability modifier + your Proficiency Bonus. On a hit, it deals 4d8 piercing damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
 			"value": 0,
-			"max": 0,
+			"max": "0",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"classes": [],
 		"components": {
@@ -82,22 +108,33 @@
 		"level": 4,
 		"materials": "A tiny silver whistle, a piece of bone, and a thread",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 0,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
 		"schools": {
 			"primary": "conjuration",
 			"secondary": []
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": [],
+		"spellBook": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "ve0uj5rzpkdroqj6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774217065231,
+		"modifiedTime": 1774217065231,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "ve0uj5rzpkdroqj6"
 }

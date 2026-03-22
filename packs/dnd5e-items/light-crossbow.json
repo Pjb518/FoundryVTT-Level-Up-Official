@@ -11,7 +11,8 @@
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": false,
+			"grantsDisadvantage": false
 		},
 		"actions": {
 			"yCChJfTTbNh1ewvT": {
@@ -30,7 +31,10 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
-						"ability": "dex"
+						"ability": "dex",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"gJw4SYSe4IwmRBsm": {
 						"canCrit": true,
@@ -38,15 +42,19 @@
 						"damageType": "piercing",
 						"formula": "1d8 + @dex.mod",
 						"scaling": {},
-						"name": "",
-						"type": "damage"
+						"type": "damage",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"PbjsrRgA5N3i74Gg": {
 						"itemId": "",
 						"quantity": 1,
-						"type": "ammunition"
+						"type": "ammunition",
+						"deleteOnZero": false,
+						"default": true,
+						"label": ""
 					}
 				},
 				"name": "Attack",
@@ -60,25 +68,48 @@
 						"range": 320
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
 		"description": "<p>A small crossbow with a wooden haft and a tense cord which is capable of firing a single bolt which can puncture even heavy armor at close range.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "systemReferenceDocument",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": 0.01,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
@@ -107,14 +138,43 @@
 			"range",
 			"twoHanded"
 		],
-		"weight": 5
+		"weight": 5,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": false,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"versatile": "",
+		"weaponAugments": []
 	},
 	"effects": [],
 	"folder": null,
-	"_id": "uhsp239jkeg0bn6o",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.1.0",
+		"createdTime": 1774188494843,
+		"modifiedTime": 1774188494843,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "uhsp239jkeg0bn6o"
 }
