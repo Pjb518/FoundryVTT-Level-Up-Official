@@ -215,7 +215,6 @@
     let { messageDocument }: Props = $props();
 
     const message = messageDocument;
-    console.log(message);
     const { system } = message;
 
     const promptTypes = [

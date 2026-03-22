@@ -146,7 +146,7 @@ export async function indexCompendiaFields() {
     if (!indexType) return;
 
     if (FIELD_MAPPINGS[indexType]) updateIndex(id, indexType, invalidSources);
-    else updateIndex(id, "generic", []);
+    else updateIndex(id, "generic", invalidSources);
   });
   // );
 }
