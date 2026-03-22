@@ -5,6 +5,29 @@
     import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
+    async function updateClassLevel(newLevel: number) {
+        // @ts-ignore
+        const value = Number.parseInt(newLevel, 10);
+        const current = item.system.classLevels;
+        const diff = Math.abs(current - value);
+        const sign = Math.sign(value - current);
+
+        for (let i = 0; i < diff; i++) {
+            if (sign === 1) {
+                await item.update({
+                    "system.classLevels": Math.min(
+                        item.system.classLevels + 1,
+                        item.system.maxLevel,
+                    ),
+                });
+            } else {
+                await item.update({
+                    "system.classLevels": item.system.classLevels - 1,
+                });
+            }
+        }
+    }
+
     let item: any = getContext("item");
     let itemStore = $derived(item.reactive.system);
 
@@ -112,7 +135,8 @@
             >
                 <i
                     class="fa-solid"
-                    class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
+                    class:fa-heart={itemStore.damagedState ===
+                        DAMAGED_STATES.INTACT}
                     class:fa-heart-crack={itemStore.damagedState ===
                         DAMAGED_STATES.DAMAGED}
                     class:fa-heart-pulse={itemStore.damagedState ===
@@ -124,6 +148,18 @@
                 ></i>
             </button>
         </div>
+    {/if}
+
+    <!-- Add Class Level -->
+    {#if item.type === "class" && item.actor}
+        <input
+            class="a5e-item-sheet-header__class-level"
+            type="number"
+            min="1"
+            max="20"
+            value={itemStore.classLevels}
+            onchange={({ target }) => updateClassLevel(target.value)}
+        />
     {/if}
 </header>
 
@@ -172,6 +208,23 @@
                     transform: none;
                     color: var(--a5e-button-gray);
                 }
+            }
+        }
+
+        &__class-level {
+            font-size: var(--a5e-xxl-text);
+            width: 5rem;
+            height: 2rem;
+            color: var(--a5e-text-color-dark);
+            font-family: var(--a5e-secondary-font);
+            text-align: center;
+            background-color: var(--a5e-input-background);
+            box-shadow: none;
+            border: 1px solid var(--a5e-border-color);
+            border-radius: 5px;
+
+            &:focus {
+                box-shadow: none;
             }
         }
     }
