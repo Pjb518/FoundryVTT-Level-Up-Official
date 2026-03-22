@@ -51,7 +51,7 @@
                     showArtifactCharges={spellBook?.showArtifactCharges ??
                         false}
                     showSpellPoints={spellBook?.showSpellPoints ?? false}
-                    showSpellSlots={spellBook?.showArtifactCharges ?? true}
+                    showSpellSlots={spellBook?.showSpellSlots ?? true}
                     items={itemList}
                     type="spellLevels"
                 />
