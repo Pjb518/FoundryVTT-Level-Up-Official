@@ -144,7 +144,6 @@
         &:focus {
             background: var(--a5e-tag-background-color-hover);
             color: var(--a5e-tag-color-hover);
-            /* color: pink; */
         }
 
         &:disabled,
