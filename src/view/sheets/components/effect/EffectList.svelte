@@ -46,7 +46,9 @@
         if (!actionId || doc.documentName !== "Item") return;
 
         const action = doc.actions.get(actionId);
-        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
+        const updatedEffects = [...action.effects].filter(
+            (id) => id !== effectId,
+        );
 
         doc.update({
             [`system.actions.${actionId}.effects`]: updatedEffects,
@@ -59,11 +61,15 @@
 
         dragData.parentId = effect?.parent?.id;
 
-        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     const doc: any = getContext("item") ?? getContext("actor");
-    const actionId = (getContext("actionId") as string | undefined) ?? undefined;
+    const actionId =
+        (getContext("actionId") as string | undefined) ?? undefined;
     let sheetIsLocked: () => boolean =
         getContext("sheetIsLocked") ??
         (() => {
@@ -71,7 +77,8 @@
         });
 
     let rightClickConfigure =
-        (game.settings.get("a5e", "itemRightClickConfigure") as boolean) ?? false;
+        (game.settings.get("a5e", "itemRightClickConfigure") as boolean) ??
+        false;
 
     let allowTransfer = $derived(
         effect.system.effectType === "passive" &&
@@ -101,8 +108,10 @@
     >
         <img
             class="effect-image"
-            src={effect?.img ?? doc.img ?? "icons/svg/aura.svg"}
-            alt={effect?.name ?? localize("A5E.effects.new")}
+            src={effect?.reactive?.img ??
+                doc.reactive.img ??
+                "icons/svg/aura.svg"}
+            alt={effect?.reactive?.name ?? localize("A5E.effects.new")}
         />
     </button>
 
