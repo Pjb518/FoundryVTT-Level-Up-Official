@@ -44,7 +44,7 @@
         customIcons = getCustomIcons();
     }
 
-    function updateConditionIcon(key, current) {
+    function updateConditionIcon([key, current]) {
         const filePicker = new FilePicker({
             type: "image",
             current,
