@@ -46,7 +46,10 @@
                 const activationType = action.activation?.type;
 
                 if (exclusive.includes(activationType)) return false;
-                if (inclusive.length > 0 && inclusive.includes(activationType)) {
+                if (
+                    inclusive.length > 0 &&
+                    inclusive.includes(activationType)
+                ) {
                     return true;
                 }
             }
@@ -96,15 +99,22 @@
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
     {#if actor.type === "character"}
         {#each Object.entries(categorizedItems) as [label, itemList]}
-            <ItemCategory
-                {label}
-                {showDescription}
-                {showUses}
-                items={itemList}
-                type="featureTypes"
-            />
+            {#if itemList?.length}
+                <ItemCategory
+                    {label}
+                    {showDescription}
+                    {showUses}
+                    items={itemList}
+                    type="featureTypes"
+                />
+            {/if}
         {/each}
     {:else}
-        <ItemCategory {showDescription} {showUses} {items} type="featureTypes" />
+        <ItemCategory
+            {showDescription}
+            {showUses}
+            {items}
+            type="featureTypes"
+        />
     {/if}
 </section>
