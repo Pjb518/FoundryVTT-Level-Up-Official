@@ -16,14 +16,14 @@ export function getCheckTitle(messageData) {
         case "concentration":
           return localize("A5E.ConcentrationCheck");
         case "death":
-          return localize("A5E.DeathSavingThrow");
+          return localize("A5E.deathSavingThrow.title");
         default:
           return localize("A5E.rollLabels.prompts.savingThrow", { ability });
       }
     case "skillCheck":
       return ability
         ? localize("A5E.skillLabels.checks.ability", { skill, ability })
-        : localize("A5E.SkillCheck", { skill });
+        : localize("A5E.skillLabels.checks.skillSpecific", { skill });
     default:
       return null;
   }
