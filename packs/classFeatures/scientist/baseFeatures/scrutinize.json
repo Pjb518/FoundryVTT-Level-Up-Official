@@ -49,14 +49,17 @@
 				],
 				"duration": {
 					"unit": "",
-					"value": 1
+					"value": "1"
 				},
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1,
 					"scaling": {
 						"mode": null
-					}
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
 				},
 				"ranges": {
 					"jDaP5vQOuF0MtvBz": {
@@ -68,19 +71,20 @@
 				"description": "",
 				"img": "",
 				"effects": [
-					"qXAn2TgiKPtnE2nW"
+					"qXAn2TgiKPtnE2nW,fvqy1N8Bc4UfsEdS,UUvL6GjL9nOxBY3S,JjLh6STxf016SQJz,V51kRnLtf7wdhNXe,YYEDpt0AKB6bv5Sn,2JWy9Oti1dfNkINJ",
+					"zDfzJS0G5iqpYuw4"
 				],
 				"macro": ""
 			}
 		},
-		"description": "<p>At 1st level, you can apply your deep cunning to analyze enemy weaknesses.&nbsp;You can use a bonus action to critically assess a target you can see within 30 feet (or in space combat, within firing range of your spacecraft). When you do, you learn of any vulnerabilities that creature has.</p>\n<p>Additionally, you can identify a specific weakness and choose one damage type. Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p>\n<p>Your range for this feature increases by 30 feet at 6th, 11th, and 16th level. At 20th level, your range is limited only by sight.</p>\n<p>You have one use of this feature, gaining a second at 11th level. You regain all spent uses whenever you finish a short or long rest.&nbsp;Additionally, you may always use your Intelligence modifier instead of Strength or Dexterity on attack and damage rolls with weapons in which you are proficient.</p>",
+		"description": "<p>At 1st level, you can apply your deep cunning to analyze enemy weaknesses. You can use a bonus action to critically assess a target you can see within 30 feet (or in space combat, within firing range of your spacecraft). When you do, you learn of any vulnerabilities that creature has.</p><p>Additionally, you can identify a specific weakness and choose one damage type. Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p><p>Your range for this feature increases by 30 feet at 6th, 11th, and 16th level. At 20th level, your range is limited only by sight.</p><p>You have one use of this feature, gaining a second at 11th level. You regain all spent uses whenever you finish a short or long rest. Additionally, you may always use your Intelligence modifier instead of Strength or Dexterity on attack and damage rolls with weapons in which you are proficient.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "voidrunnersCodex",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "ceil(@classes.scientist.level/10)",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "",
 				"threshold": 0
@@ -102,47 +106,40 @@
 			},
 			"type": ""
 		},
-		"macro": ""
+		"macro": "",
+		"asi": "",
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
 	},
 	"effects": [
 		{
-			"origin": "Item.8e9eT2tGYyca0GF4",
+			"name": "Scrutinize",
+			"origin": "Item.7QAI7uG0oiujaZKU",
 			"transfer": false,
 			"system": {
-				"effectType": "passive",
-				"applyToSelf": true,
+				"effectType": "onUse",
+				"applyToSelf": false,
 				"default": true,
 				"migrationData": {
 					"version": null,
 					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
+					"lastMigration": {}
 				}
 			},
-			"name": "Scrutinize",
 			"img": "icons/commodities/tech/sensor-brown.webp",
-			"_id": "qXAn2TgiKPtnE2nW",
+			"_id": "zDfzJS0G5iqpYuw4",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Scrutinize\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"attackTypes\":[],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/commodities/tech/sensor-brown.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
+			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": 60,
 				"combat": null,
+				"seconds": 60,
 				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"turns": null
 			},
-			"description": "<p>You can identify a specific weakness and choose one damage type. Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p>",
+			"description": "<p>Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
@@ -154,26 +151,24 @@
 				}
 			},
 			"_stats": {
-				"compendiumSource": null,
-				"duplicateSource": null,
-				"coreVersion": "12.331",
+				"coreVersion": "13.351",
 				"systemId": "a5e",
-				"systemVersion": "1.0.3",
-				"createdTime": null,
-				"modifiedTime": 1735851302569,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.1.1",
+				"createdTime": 1774459078654,
+				"modifiedTime": 1774459096494,
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d"
 			},
 			"folder": null
 		}
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "12.331",
+		"coreVersion": "13.351",
 		"systemId": "a5e",
-		"systemVersion": "1.0.3",
-		"createdTime": 1735851302515,
-		"modifiedTime": 1735851450808,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.1.1",
+		"createdTime": 1774458729755,
+		"modifiedTime": 1774459508769,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
 	},
 	"_id": "BZGaXcUluVc3Zdaq"
 }
