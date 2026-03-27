@@ -19,7 +19,7 @@
         ...prepareAbilityOptions(),
     ];
 
-    let book = document.reactive.spellBooks.get(spellBookId);
+    let book = $derived(document.reactive.spellBooks.get(spellBookId));
 </script>
 
 <form>
