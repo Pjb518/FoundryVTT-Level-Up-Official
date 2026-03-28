@@ -55,7 +55,7 @@
     const { A5E } = CONFIG;
     const { skillSpecialties } = A5E;
 
-    let skills = $derived(actorStore.skills);
+    let skills = $derived(getSkills(actorStore.skills));
     let showSpecialties = $derived(determineWhetherToShowSkillSpecialties(skills));
 
     let skillListFlowDirection = $derived(
