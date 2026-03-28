@@ -487,8 +487,8 @@
                 {#if itemStore.requiresAttunement}
                     <button
                         class="action-button icon fa-solid fa-link"
-                        class:active={item.system.attuned}
-                        data-tooltip={item.system.attuned
+                        class:active={itemStore?.attuned}
+                        data-tooltip={itemStore?.attuned
                             ? localize("A5E.buttons.tooltips.breakAttunement", {
                                   item: item.name,
                               })
