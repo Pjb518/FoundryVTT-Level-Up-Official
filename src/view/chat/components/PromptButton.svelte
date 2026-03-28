@@ -18,10 +18,7 @@
 </script>
 
 <button class="save-prompt" onclick={() => onTriggerPrompt()}>
-    <div
-        class="icon-wrapper"
-        class:icon-wrapper--effect={prompt.type === "effect"}
-    >
+    <div class="icon-wrapper" class:icon-wrapper--effect={prompt.type === "effect"}>
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />
         {:else}
@@ -77,6 +74,7 @@
     .save-prompt {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         gap: 0.5rem;
         margin: 0;
         padding: 0;
