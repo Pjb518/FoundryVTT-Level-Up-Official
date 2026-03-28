@@ -489,10 +489,10 @@
                         class="action-button icon fa-solid fa-link"
                         class:active={item.system.attuned}
                         data-tooltip={item.system.attuned
-                            ? localize("A5E.ButtonToolTipBreakAttunement", {
+                            ? localize("A5E.buttons.tooltips.breakAttunement", {
                                   item: item.name,
                               })
-                            : localize("A5E.ButtonToolTipAttune", {
+                            : localize("A5E.buttons.tooltips.attune", {
                                   item: item.name,
                               })}
                         data-tooltip-direction="UP"

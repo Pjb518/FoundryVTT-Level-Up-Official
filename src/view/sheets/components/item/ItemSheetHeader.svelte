@@ -108,10 +108,10 @@
                     class="a5e-button a5e-item-sheet-header__button"
                     class:a5e-item-sheet-header__button-active={itemStore.attuned}
                     data-tooltip={itemStore.attuned
-                        ? localize("A5E.ButtonToolTipBreakAttunement", {
+                        ? localize("A5E.buttons.tooltips.breakAttunement", {
                               item: item.name,
                           })
-                        : localize("A5E.ButtonToolTipAttune")}
+                        : localize("A5E.buttons.tooltips.attune")}
                     data-tooltip-direction="UP"
                     aria-label="Toggle Attunement"
                     onclick={(e) => {
@@ -135,8 +135,7 @@
             >
                 <i
                     class="fa-solid"
-                    class:fa-heart={itemStore.damagedState ===
-                        DAMAGED_STATES.INTACT}
+                    class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
                     class:fa-heart-crack={itemStore.damagedState ===
                         DAMAGED_STATES.DAMAGED}
                     class:fa-heart-pulse={itemStore.damagedState ===
