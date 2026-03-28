@@ -348,8 +348,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   //  CRUD Methods
   // -------------------------------------------------------
   _onCreate(data, options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onCreate(data, options, userId);
-    this.#updateCanvas();
+    this.#updateCanvas(sizeSnapshot);
     if (this.parent?.documentName === "Item") return;
 
     this.#handleSubConditions(data, userId, true);
@@ -402,8 +403,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   _onUpdate(data, options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onUpdate(data, options, userId);
-    this.#updateCanvas();
+    this.#updateCanvas(sizeSnapshot);
 
     if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
@@ -416,28 +418,26 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * Updates the canvas perception and lights if token effect has changed.
    * @param {Object} data
    */
-  #updateCanvas() {
+  async #updateCanvas(sizeSnapshot = null) {
     // TODO: Move to related update on token document
     if (this.parent?.documentName !== "Actor") return;
 
     const changeKeys = this.changes?.map((c) => c.key) ?? [];
     if (!changeKeys.some((k) => k.startsWith("@token"))) return;
 
+    const hasSizeChange = sizeSnapshot !== null && changeKeys.some((k) => k === "@token.width" || k === "@token.height");
+
     // Reset tokens
-    if (
-      foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ??
-      true
-    ) {
-      const tokens = this.parent.getActiveTokens().map((t) => t.document);
-      if (!tokens.length) return;
-      tokens.forEach((t) => {
-        t?.reset();
-        t?.object?.draw();
-      });
-    } else {
-      if (!this.parent.token) return;
-      this.parent.token.reset();
-      this.parent.token.object.draw();
+    const tokens = (foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ?? true)
+    ? this.parent.getActiveTokens().map((t) => t.document)
+    : this.parent.token
+    ? [this.parent.token]
+    : [];
+
+    if (!tokens.length) return;
+
+    for (const t of tokens) {
+      await this.#applyTokenSizeEffect(t, hasSizeChange, sizeSnapshot);
     }
 
     const updateLighting = changeKeys.some((k) => k.startsWith("@token.light"));
@@ -447,15 +447,123 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
   }
 
+  #snapshotTokenSizes() {
+    if (this.parent?.documentName !== "Actor") return null;
+
+    const snapshot = new Map();
+    const isLinked =
+      foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ?? true;
+
+
+    const widthChange = this.changes.find((c) => c.key === "@token.width");
+    const heightChange = this.changes.find((c) => c.key === "@token.height");
+    const effectWidth = widthChange ? Number(widthChange.value) : null;
+    const effectHeight = heightChange ? Number(heightChange.value) : null;
+
+    const captureToken = (doc) => {
+      if (!doc?.id) return;
+      const currentWidth = doc.width ?? 1;
+      const currentHeight = doc.height ?? 1;
+
+      const protoWidth = this.parent.prototypeToken?.width ?? 1;
+      const protoHeight = this.parent.prototypeToken?.height ?? 1;
+
+      const baseWidth = (effectWidth !== null && currentWidth === effectWidth)
+        ? protoWidth
+        : currentWidth;
+      const baseHeight = (effectHeight !== null && currentHeight === effectHeight)
+        ? protoHeight
+        : currentHeight;
+
+      snapshot.set(doc.id, { width: baseWidth, height: baseHeight });
+    };
+
+    if (isLinked) {
+      this.parent.getActiveTokens().forEach((token) => captureToken(token.document));
+    } else if (this.parent.token?.id) {
+      captureToken(this.parent.token);
+    }
+
+    return snapshot;
+  }
+
+  async #applyTokenSizeEffect(t, hasSizeChange, sizeSnapshot) {
+    if (!t) return;
+
+    if (!hasSizeChange) {
+      t.object?.refresh();
+      return;
+    }
+
+    const snapshotEntry = sizeSnapshot?.get(t.id);
+    const oldWidth = snapshotEntry?.width ?? t.width ?? 1;
+    const oldHeight = snapshotEntry?.height ?? t.height ?? 1;
+
+    const widthChange = this.changes.find((c) => c.key === "@token.width");
+    const heightChange = this.changes.find((c) => c.key === "@token.height");
+    const newWidth = widthChange ? (Number(widthChange.value) || oldWidth) : oldWidth;
+    const newHeight = heightChange ? (Number(heightChange.value) || oldHeight) : oldHeight;
+
+    if (newWidth === oldWidth && newHeight === oldHeight) return;
+
+    const gridSize = t.parent?.grid?.size ?? canvas.grid.size;
+    const newX = t.x + ((oldWidth - newWidth) * gridSize) / 2;
+    const newY = t.y + ((oldHeight - newHeight) * gridSize) / 2;
+
+    await t.update(
+      { x: newX, y: newY, width: newWidth, height: newHeight },
+      { animate: false, diff: true }
+    );
+  }
+
   _onDelete(options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onDelete(options, userId);
-    this.#updateCanvas();
+    this.#updateCanvasOnDelete(sizeSnapshot);
 
     if (this.parent?.documentName !== "Actor") return;
 
     this.parent.effectPhases = null;
     this.parent.reset();
     this.#handleSubConditions({}, userId, false);
+  }
+
+  async #updateCanvasOnDelete(sizeSnapshot) {
+    if (this.parent?.documentName !== "Actor") return;
+
+    const changeKeys = this.changes?.map((c) => c.key) ?? [];
+    if (!changeKeys.some((k) => k.startsWith("@token"))) return;
+
+    const hasSizeChange = sizeSnapshot !== null && changeKeys.some(
+      (k) => k === "@token.width" || k === "@token.height"
+    );
+
+    if (!hasSizeChange) return;
+
+    const tokens = (
+      foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ?? true
+    )
+      ? this.parent.getActiveTokens().map((t) => t.document)
+      : this.parent.token ? [this.parent.token] : [];
+
+    for (const t of tokens) {
+      const snapshotEntry = sizeSnapshot?.get(t.id);
+      if (!snapshotEntry) continue;
+
+      const gridSize = t.parent?.grid?.size ?? canvas.grid.size;
+      const currentWidth = t.width ?? 1;
+      const currentHeight = t.height ?? 1;
+      const oldWidth = snapshotEntry.width;
+      const oldHeight = snapshotEntry.height;
+
+      const newX = t.x + ((currentWidth - oldWidth) * gridSize) / 2;
+      const newY = t.y + ((currentHeight - oldHeight) * gridSize) / 2;
+
+      await t.update(
+        { x: newX, y: newY, width: oldWidth, height: oldHeight },
+        { animate: false, diff: true }
+      );
+    }
   }
 
   async #handleSubConditions(data, userId, active) {
