@@ -258,6 +258,7 @@
         align-items: center;
         gap: 0.5rem;
         margin: 0;
+        color: var(--a5e-chat-card-color);
         font-size: var(--a5e-text-size-sm);
         line-height: 1;
         font-weight: bold;
