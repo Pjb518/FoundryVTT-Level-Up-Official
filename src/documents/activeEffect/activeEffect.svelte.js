@@ -348,8 +348,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   //  CRUD Methods
   // -------------------------------------------------------
   _onCreate(data, options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onCreate(data, options, userId);
-    this.#updateCanvas();
+    this.#updateCanvas(sizeSnapshot);
     if (this.parent?.documentName === "Item") return;
 
     this.#handleSubConditions(data, userId, true);
@@ -402,8 +403,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   _onUpdate(data, options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onUpdate(data, options, userId);
-    this.#updateCanvas();
+    this.#updateCanvas(sizeSnapshot);
 
     if (!(this.parent?.parent instanceof Actor)) return;
     const actor = this.parent.parent;
@@ -416,40 +418,97 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * Updates the canvas perception and lights if token effect has changed.
    * @param {Object} data
    */
-  #updateCanvas() {
+  async #updateCanvas(sizeSnapshot = null) {
     // TODO: Move to related update on token document
     if (this.parent?.documentName !== "Actor") return;
 
     const changeKeys = this.changes?.map((c) => c.key) ?? [];
     if (!changeKeys.some((k) => k.startsWith("@token"))) return;
 
-    // Reset tokens
-    if (
-      foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ??
-      true
-    ) {
-      const tokens = this.parent.getActiveTokens().map((t) => t.document);
-      if (!tokens.length) return;
-      tokens.forEach((t) => {
-        t?.reset();
-        t?.object?.draw();
-      });
-    } else {
-      if (!this.parent.token) return;
-      this.parent.token.reset();
-      this.parent.token.object.draw();
+    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
+    const hasSizeChange = sizeSnapshot !== null && (effectWidth !== null || effectHeight !== null);
+
+    for (const t of this.#getActiveTokenDocuments()) {
+      if (!hasSizeChange) {
+        t.object?.refresh();
+        continue;
+      }
+      const snap = sizeSnapshot.get(t.id);
+      const oldWidth = snap?.width ?? t.width ?? 1;
+      const oldHeight = snap?.height ?? t.height ?? 1;
+      await this.#resizeAndCenterToken(t, oldWidth, oldHeight, effectWidth ?? oldWidth, effectHeight ?? oldHeight);
     }
 
-    const updateLighting = changeKeys.some((k) => k.startsWith("@token.light"));
-
-    if (updateLighting) {
-      canvas.perception.update({ initializeLighting: updateLighting }, true);
+    if (changeKeys.some((k) => k.startsWith("@token.light"))) {
+      canvas.perception.update({ initializeLighting: true }, true);
     }
   }
 
+  #getActiveTokenDocuments() {
+    const isLinked = foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ?? true;
+    if (isLinked) return this.parent.getActiveTokens().map((t) => t.document);
+    return this.parent.token ? [this.parent.token] : [];
+  }
+
+  #getEffectSizeChanges() {
+    const widthChange = this.changes.find((c) => c.key === "@token.width");
+    const heightChange = this.changes.find((c) => c.key === "@token.height");
+    return {
+      width: widthChange ? Number(widthChange.value) : null,
+      height: heightChange ? Number(heightChange.value) : null,
+    };
+  }
+
+  async #revertTokenSizes(sizeSnapshot) {
+    if (this.parent?.documentName !== "Actor") return;
+    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
+    if (effectWidth === null && effectHeight === null) return;
+
+    for (const t of this.#getActiveTokenDocuments()) {
+      const snap = sizeSnapshot?.get(t.id);
+      if (!snap) continue;
+      await this.#resizeAndCenterToken(t, t.width ?? 1, t.height ?? 1, snap.width, snap.height);
+    }
+  }
+
+  #snapshotTokenSizes() {
+    if (this.parent?.documentName !== "Actor") return null;
+
+    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
+    const protoWidth = this.parent.prototypeToken?.width ?? 1;
+    const protoHeight = this.parent.prototypeToken?.height ?? 1;
+
+    const snapshot = new Map();
+    for (const doc of this.#getActiveTokenDocuments()) {
+      if (!doc?.id) continue;
+      const currentWidth = doc.width ?? 1;
+      const currentHeight = doc.height ?? 1;
+      snapshot.set(doc.id, {
+        width: (effectWidth !== null && currentWidth === effectWidth) ? protoWidth : currentWidth,
+        height: (effectHeight !== null && currentHeight === effectHeight) ? protoHeight : currentHeight,
+      });
+    }
+    return snapshot;
+  }
+
+  async #resizeAndCenterToken(t, fromWidth, fromHeight, toWidth, toHeight) {
+    if (toWidth === fromWidth && toHeight === fromHeight) return;
+    const gridSize = t.parent?.grid?.size ?? canvas.grid.size;
+    await t.update(
+      {
+        x: t.x + ((fromWidth - toWidth) * gridSize) / 2,
+        y: t.y + ((fromHeight - toHeight) * gridSize) / 2,
+        width: toWidth,
+        height: toHeight,
+      },
+      { animate: false, diff: true },
+    );
+  }
+
   _onDelete(options, userId) {
+    const sizeSnapshot = this.#snapshotTokenSizes();
     super._onDelete(options, userId);
-    this.#updateCanvas();
+    this.#revertTokenSizes(sizeSnapshot);
 
     if (this.parent?.documentName !== "Actor") return;
 
@@ -457,6 +516,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.parent.reset();
     this.#handleSubConditions({}, userId, false);
   }
+
 
   async #handleSubConditions(data, userId, active) {
     if (game.user.id !== userId) return;
