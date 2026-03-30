@@ -58,7 +58,6 @@
         const { confirmDeletion } = await dialog.promise;
 
         if (!confirmDeletion) return;
-        console.log("Here");
 
         actor.spellBooks.remove(spellBookId);
 
@@ -90,18 +89,18 @@
     let sheet: any = getContext("sheet");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
+    let actorStore = $derived(actor.reactive.system);
+
+    let currentSpellBook = $derived(
+        actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
+            Object.keys(actorStore.spellBooks ?? {})?.[0],
+    );
+
     let filterOptions = $state({
         searchTerm: "",
         searchDescription: false,
         page: "spells",
     });
-
-    let activeFilters = $derived(
-        actor.reactive.flags.a5e?.filters?.spells ?? {
-            inclusive: [],
-            exclusive: [],
-        },
-    );
 
     let filterFunction = $derived.by(() => {
         const { inclusive, exclusive } = activeFilters;
@@ -151,8 +150,6 @@
         };
     });
 
-    let actorStore = $derived(actor.reactive.system);
-
     let items = $derived(
         filterItems(actor.reactive, "spell", {
             searchTerm: filterOptions.searchTerm,
@@ -168,9 +165,11 @@
     let spellBooks = $derived(actor.reactive.spellBooks);
     let showDescription = $state(false);
 
-    let currentSpellBook = $derived(
-        actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
-            Object.keys(actorStore.spellBooks ?? {})?.[0],
+    let activeFilters = $derived(
+        actor.reactive.flags.a5e?.filters?.spells?.[currentSpellBook] ?? {
+            inclusive: [],
+            exclusive: [],
+        },
     );
 
     let spellLevels = Object.entries(CONFIG.A5E.spellLevels) as string[][];
@@ -187,6 +186,7 @@
         showFilters={true}
         showSortButton={true}
         {sortHandler}
+        subPage={currentSpellBook}
         onAddIconClick={(subType) => createItem(actor, "spell", subType)}
     >
         <!-- <button

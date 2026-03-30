@@ -19,6 +19,7 @@
         showFilters?: boolean;
         showSortButton?: boolean;
         sortHandler?: (reverse: boolean) => void;
+        subPage?: string;
         children?: () => any;
     };
 
@@ -34,6 +35,7 @@
         showFilters = false,
         showSortButton = false,
         sortHandler = () => {},
+        subPage = "",
         children,
     }: Props = $props();
 
@@ -93,7 +95,7 @@
 
     <!-- Filters -->
     {#if showFilters}
-        <ActorFilter page={filterOptions.page!} />
+        <ActorFilter page={filterOptions.page!} {subPage} />
     {/if}
 
     <!-- Add Menu -->

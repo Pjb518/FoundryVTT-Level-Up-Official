@@ -46,9 +46,9 @@
     let actor: Actor = getContext("actor");
 
     const filterSections: any[] = Object.values(CONFIG.A5E.filters[page] ?? {});
-    const flagId = subPage.length
-        ? `filters.${page}.${subPage}`
-        : `filters.${page}`;
+    const flagId = $derived(
+        subPage.length ? `filters.${page}.${subPage}` : `filters.${page}`,
+    );
 
     let activeFilters = $derived(
         actor.reactive.getFlag("a5e", flagId) ?? {

@@ -1,4 +1,5 @@
 import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
+import getDocumentSourceTooltip from "#utils/getDocumentSourceTooltip.ts";
 
 import ItemSheetComponent from "#view/sheets/ItemSheet.svelte";
 import LimitedSheetComponent from "#view/sheets/LimitedSheet.svelte";
@@ -46,6 +47,9 @@ export default class ItemSheet extends SvelteApplicationMixin(
     baseApplication: "ItemSheet",
     classes: ["a5e-sheet", "a5e-sheet--item"],
     position: { width: 555, height: 592 },
+    actions: {
+      openSourceLink: ItemSheet.#onSourceLinkClick,
+    },
     window: {
       resizable: true,
       minimizable: true,
@@ -147,6 +151,35 @@ export default class ItemSheet extends SvelteApplicationMixin(
 
       this.item.actions.add(actionData);
     }
+  }
+
+  async _renderFrame(options) {
+    const frame = await super._renderFrame(options);
+    if (!this.hasFrame) return frame;
+
+    const docSource = CONFIG.A5E.products?.[this.item?.system.source];
+    if (docSource) {
+      const sourceLink = document.createElement("button");
+      sourceLink.classList.add("header-control");
+      sourceLink.classList.add("a5e-document-source-link");
+      sourceLink.dataset.action = "openSourceLink";
+      sourceLink.dataset.tooltip = getDocumentSourceTooltip(docSource);
+      sourceLink.dataset.tooltipClass =
+        "a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source";
+      sourceLink.dataset.tooltipDirection = "DOWN";
+      sourceLink.dataset.url = docSource.url;
+      sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${docSource?.abbreviation}`;
+
+      this.window.close.insertAdjacentElement("beforebegin", sourceLink);
+    }
+
+    return frame;
+  }
+
+  static #onSourceLinkClick(event, target) {
+    const url = target.dataset.url;
+    if (!url) return;
+    window.open(url, "_blank")?.focus();
   }
 
   static getSheetComponent(type: string) {
