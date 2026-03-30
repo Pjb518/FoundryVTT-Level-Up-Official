@@ -18,6 +18,10 @@
     function getDocuments() {
         const docs: any[] = packs
             .reduce((docs, pack) => {
+                // Check perms for pack
+                if (!pack.visible) return docs;
+
+                // Get docs
                 const filtered = pack.index.filter((doc) => {
                     if (doc.type !== compendiumType) return false;
 
