@@ -170,7 +170,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
       sourceLink.dataset.url = docSource.url;
       sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${docSource?.abbreviation}`;
 
-      this.window.close.insertAdjacentElement("beforebegin", sourceLink);
+      this.window.title.insertAdjacentElement("afterend", sourceLink);
     }
 
     return frame;
