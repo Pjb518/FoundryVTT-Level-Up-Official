@@ -17,9 +17,10 @@
     type Props = {
         item: any;
         sheet: any;
+        editable: boolean;
     };
 
-    let { item, sheet }: Props = $props();
+    let { item, sheet, editable }: Props = $props();
 
     async function _onDrop(
         event: DragEvent & {
@@ -55,7 +56,7 @@
                 label: "A5E.tabs.properties",
                 icon: "fa-solid fa-table-list",
                 component: ItemPropertiesPage,
-                display: itemStore.unidentified || game.user?.isGM,
+                display: canEdit,
             },
             {
                 name: "equipment",
@@ -65,21 +66,21 @@
                 display:
                     item.type === "object" &&
                     itemStore.objectType === "container" &&
-                    (itemStore.unidentified || game.user?.isGM),
+                    canEdit,
             },
             {
                 name: "actions",
                 label: "A5E.tabs.actions",
                 icon: "fa-solid fa-crosshairs",
                 component: ItemActionsPage,
-                display: itemStore.unidentified || game.user?.isGM,
+                display: canEdit,
             },
             {
                 name: "effects",
                 label: "A5E.tabs.effects",
                 icon: "fa-solid fa-bolt",
                 component: ItemEffectsPage,
-                display: itemStore.unidentified || game.user?.isGM,
+                display: canEdit,
             },
             {
                 name: "grants",
@@ -93,12 +94,16 @@
                 label: "A5E.tabs.macro",
                 icon: "fa-solid fa-terminal",
                 component: ItemMacroPage,
-                display: ["feature", "maneuver", "object", "spell"].includes(item.type),
+                display: ["feature", "maneuver", "object", "spell"].includes(
+                    item.type,
+                ),
             },
         ];
     }
 
     let itemStore: any = $derived(item.reactive.system);
+
+    let canEdit = $state(editable);
 
     let tabs = $state(getTabs());
     let currentTab = $derived(tabs[0]);
@@ -110,7 +115,12 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
-    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
+    <NavigationBar
+        {currentTab}
+        {tabs}
+        showLock={false}
+        onTabChange={updateCurrentTab}
+    />
 
     <section class="a5e-item-sheet__page">
         <currentTab.component />
