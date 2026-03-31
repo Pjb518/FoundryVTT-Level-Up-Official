@@ -135,7 +135,7 @@
                         onAddIconClick(value);
                     },
                 }))}
-                menuPosition={{ x: -480, y: -180 }}
+                menuPosition={{ x: -250, y: 30 }}
                 --a5e-context-menu-font-size="var(--a5e-xs-text)"
             />
         {:else}

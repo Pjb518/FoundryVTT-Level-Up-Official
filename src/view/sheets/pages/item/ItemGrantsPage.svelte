@@ -89,7 +89,7 @@
     </div>
 
     <div class="sticky-add-button">
-        <Menu {menuItems} menuPosition={{ x: -215, y: -750 }} />
+        <Menu {menuItems} menuPosition={{ x: -235, y: -280 }} />
     </div>
 </div>
 
@@ -120,7 +120,7 @@
     }
 
     .sticky-add-button {
-        position: relative;
+        position: sticky;
         display: flex;
         justify-content: space-around;
         align-items: center;

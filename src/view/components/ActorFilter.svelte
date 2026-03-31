@@ -64,8 +64,8 @@
 
 <Menu
     buttonIcon="fa-solid fa-filter"
-    menuPosition={{ x: -550, y: -180 }}
-    --a5e-context-menu-width="500px"
+    menuPosition={{ x: -400, y: 30 }}
+    --a5e-context-menu-width="min-content"
     --a5e-context-menu-icon-color={filtersActive
         ? "var(--a5e-color-primary)"
         : "inherit"}

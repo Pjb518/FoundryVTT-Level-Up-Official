@@ -99,10 +99,12 @@
     .a5e-context-menu {
         background: rgba(0, 0, 0, 0.85);
         border: 1px khaki solid;
-        width: var(--a5e-context=menu-width, min-content);
+        width: var(--a5e-context-menu-width, min-content);
         height: var(--a5e-context-menu-height, min-content);
+        max-height: 25rem;
         z-index: 100;
-        position: absolute;
+        position: fixed;
+        overflow-y: auto;
 
         &__button {
             color: var(--a5e-context-menu-icon-color, inherit);
@@ -122,7 +124,10 @@
 
             &-button {
                 color: white;
-                font-size: var(--a5e-context-menu-font-size, var(--a5e-sm-text));
+                font-size: var(
+                    --a5e-context-menu-font-size,
+                    var(--a5e-sm-text)
+                );
                 padding: 1rem;
             }
         }
