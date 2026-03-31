@@ -46,7 +46,6 @@
     const optionsList = sheet.optionsList;
 
     let changes = $derived(effect.reactive.changes);
-    $inspect(changes);
 </script>
 
 <div class="a5e-sticky-page">

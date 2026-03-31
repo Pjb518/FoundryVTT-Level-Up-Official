@@ -21,7 +21,6 @@
     const contextMap = getContextsMap("grant", grantType);
 
     let grant = $derived(item.reactive.system.grants[grantId]);
-    $inspect(grant);
 </script>
 
 <Section

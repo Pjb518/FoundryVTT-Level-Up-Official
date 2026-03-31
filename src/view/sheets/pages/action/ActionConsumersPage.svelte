@@ -29,7 +29,10 @@
         });
     }
 
-    function duplicateConsumer(actionId: string, consumer: Record<string, any>) {
+    function duplicateConsumer(
+        actionId: string,
+        consumer: Record<string, any>,
+    ) {
         const newConsumer = foundry.utils.duplicate(consumer);
 
         item.update({
@@ -88,24 +91,32 @@
     const { A5E } = CONFIG;
 
     let action = $derived(item.reactive.actions.get(actionId));
-    let consumers: [string, any][] = $derived(Object.entries(action.consumers ?? {}));
+    let consumers: [string, any][] = $derived(
+        Object.entries(action.consumers ?? {}),
+    );
 
     let isClassResource = formulaIsClassResource(action.uses?.max ?? "");
-
-    $inspect(action.consumers);
 </script>
 
-{#snippet ConsumerListItem(consumerType: string, consumerConfig: ActionComponentType)}
+{#snippet ConsumerListItem(
+    consumerType: string,
+    consumerConfig: ActionComponentType,
+)}
     <Section
         heading={consumerConfig.heading}
         headerButtons={[
             {
                 classes: "add-button",
                 handler: () =>
-                    ActionsManager.addConsumer(item, [actionId, action], consumerType),
+                    ActionsManager.addConsumer(
+                        item,
+                        [actionId, action],
+                        consumerType,
+                    ),
                 label: localize("A5E.buttons.addConsumer", {
                     type: localize(
-                        consumerConfig.buttonLabel ?? consumerConfig.singleLabel,
+                        consumerConfig.buttonLabel ??
+                            consumerConfig.singleLabel,
                     ),
                 }),
             },
@@ -154,7 +165,10 @@
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper heading="A5E.consumers.uses.max" --a5e-field-wrapper-width="7.5rem">
+        <FieldWrapper
+            heading="A5E.consumers.uses.max"
+            --a5e-field-wrapper-width="7.5rem"
+        >
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"

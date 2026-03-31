@@ -67,8 +67,6 @@
     let prompts: [string, any][] = $derived(
         Object.entries(action.prompts ?? {}),
     );
-
-    $inspect(action.prompts);
 </script>
 
 {#snippet PromptListItem(promptType: string, promptConfig: ActionComponentType)}
