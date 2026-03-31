@@ -548,6 +548,7 @@ const featureTypes = {
   knack: "A5E.features.types.knack",
   legendaryAction: "A5E.features.types.legendaryAction",
   naturalWeapon: "A5E.features.types.naturalWeapon",
+  paragon: "A5E.features.types.paragon",
   other: "A5E.features.types.other",
 };
 
