@@ -42,7 +42,7 @@ export default class ConsumptionValidator {
     };
   }
 
-  validateData(currentInputData, selectedConsumers: string[]) {
+  validateData(currentInputData, selectedConsumers: string[]): string[] {
     // Reset Warnings
     this.warnings.length = 0;
 
@@ -83,11 +83,12 @@ export default class ConsumptionValidator {
     if (item) {
       if (consumer.quality === "0") return;
       if (item.system.damagedState === 2) {
-        this.warnings.push(localize("A5E.validations.warnings.quality", { name: item?.name }),);
+        this.warnings.push(
+          localize("A5E.validations.warnings.quality", { name: item?.name }),
+        );
       }
     }
   }
-
 
   #validateItemQuantity(_, consumer) {
     const item = this.#actor.items.get(consumer.itemId);
@@ -128,10 +129,10 @@ export default class ConsumptionValidator {
     if (consumer.resource === "fatigue" || consumer.resource === "strife") {
       if (availableUses + consumer.quantity <= 7) return;
       this.warnings.push(
-      localize("A5E.validations.warnings.resource", {
-        type: consumer.resource,
-      }),
-    );
+        localize("A5E.validations.warnings.resource", {
+          type: consumer.resource,
+        }),
+      );
     }
     if (availableUses >= consumer.quantity) return;
 

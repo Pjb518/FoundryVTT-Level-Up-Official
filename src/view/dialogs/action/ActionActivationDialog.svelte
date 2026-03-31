@@ -25,7 +25,6 @@
     import RollsSection from "#view/components/activationDialog/RollsSection.svelte";
     import SpellSection from "#view/components/activationDialog/SpellSection.svelte";
     import UsesSection from "#view/components/activationDialog/UsesSection.svelte";
-    import { preventDefault } from "svelte/legacy";
 
     type Props = {
         actionId: string;
@@ -36,8 +35,6 @@
     };
 
     function onSubmit() {
-        console.log(attackRollData);
-
         dialog.submit({
             attack: attackRollData,
             consumers: {
@@ -207,7 +204,9 @@
     const isValidTemplate = validateTemplateData(action.area);
 
     // Validator
-    const validator = new ConsumptionValidator(actor, item, action, consumers);
+    const validator = $derived(
+        new ConsumptionValidator(actor, item, action, consumers),
+    );
 
     const preventActionRollOnWarning =
         (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ??
@@ -219,9 +218,11 @@
         itemUses: itemUsesData,
     });
 
-    let warnings = $derived(
-        validator.validateData(consumerData, selectedConsumers),
-    );
+    let warnings: string[] = $derived([]);
+
+    $effect(() => {
+        warnings = validator.validateData(consumerData, selectedConsumers);
+    });
 
     setContext("actionId", actionId);
     setContext("actor", actor);
