@@ -35,7 +35,7 @@ export default function getFormattedTimeFromSeconds(
   }
   if (seconds >= 12) {
     // two rounds
-    return `${Math.floor(seconds / 6)} ${localize("A5E.DurationRoundPlural")}`;
+    return `${Math.floor(seconds / 6)} ${localize("A5E.durations.roundPlural")}`;
   }
   if (seconds >= 6) {
     // one round

@@ -308,7 +308,7 @@ class RollPreparationManager {
       ? localize("A5E.damage.labels.specific", {
           damageType: localize(CONFIG.A5E.damageTypes[damageType]),
         })
-      : localize("A5E.Damage");
+      : localize("A5E.damage.title");
 
     return {
       baseRoll: baseRoll as EvaluatedRoll,
