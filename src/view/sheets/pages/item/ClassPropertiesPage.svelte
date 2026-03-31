@@ -28,8 +28,7 @@
                 actor.getRollData(),
             ) ?? 0;
 
-        const otherHpBonuses =
-            allHpBonuses - hpBonusPerLevel * actor.levels.character;
+        const otherHpBonuses = allHpBonuses - hpBonusPerLevel * actor.levels.character;
 
         const tempBonuses = actor.system.attributes.hp.bonus;
 
@@ -84,8 +83,7 @@
                     aria-label="Reset Class Identifier"
                     data-tooltip="Reset Class Identifier"
                     data-tooltip-direction="UP"
-                    onclick={() =>
-                        updateDocumentDataFromField(item, "system.slug", "")}
+                    onclick={() => updateDocumentDataFromField(item, "system.slug", "")}
                 >
                     <i class="icon fas fa-solid fa-rotate-left"></i>
                 </button>
@@ -111,10 +109,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper
-            heading="Max Class Level"
-            --a5e-field-wrapper-header-gap="0.5rem"
-        >
+        <FieldWrapper heading="Max Class Level" --a5e-field-wrapper-header-gap="0.5rem">
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
@@ -136,11 +131,7 @@
             options={hitDiceSize}
             selected={itemStore.hp.hitDiceSize}
             onUpdateSelection={(detail) =>
-                updateDocumentDataFromField(
-                    item,
-                    "system.hp.hitDiceSize",
-                    detail,
-                )}
+                updateDocumentDataFromField(item, "system.hp.hitDiceSize", detail)}
         />
 
         {#if item.actor}
@@ -189,7 +180,7 @@
                             onchange={({ currentTarget }) =>
                                 updateDocumentDataFromField(
                                     item,
-                                    `system.hp.levels.{level}`,
+                                    `system.hp.levels.${level}`,
                                     Number(currentTarget.value),
                                 )}
                         />
