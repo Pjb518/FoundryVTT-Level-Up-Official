@@ -1369,7 +1369,8 @@ class BaseActorA5e extends Actor {
 
     Hooks.callAll("a5e.rollAbilityCheck", this, hookData, rolls);
 
-    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    const finalRollMode =
+      visibilityMode ?? game.settings.get("core", "rollMode");
     if (finalRollMode === "gmroll") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -1529,7 +1530,8 @@ class BaseActorA5e extends Actor {
       Hooks.callAll("a5e.rollSavingThrow", this, hookData, rolls);
     }
 
-    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    const finalRollMode =
+      visibilityMode ?? game.settings.get("core", "rollMode");
     if (finalRollMode === "gmroll") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -1690,7 +1692,8 @@ class BaseActorA5e extends Actor {
 
     Hooks.callAll("a5e.rollSkillCheck", this, hookData, rolls);
 
-    const finalRollMode = visibilityMode ?? game.settings.get("core", "rollMode");
+    const finalRollMode =
+      visibilityMode ?? game.settings.get("core", "rollMode");
     if (finalRollMode === "gmroll") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -1860,9 +1863,12 @@ class BaseActorA5e extends Actor {
   }
 
   configureArmorProficiencies(data: Record<string, any> = {}, options = {}) {
-    const title = localize("A5E.armorClass.headings.proficienciesConfigurationPrompt", {
-      name: this.name,
-    });
+    const title = localize(
+      "A5E.armorClass.headings.proficienciesConfigurationPrompt",
+      {
+        name: this.name,
+      },
+    );
 
     data.heading ??= "A5E.armorClass.headings.proficiencies";
     data.propertyKey ??= "system.proficiencies.armor";
@@ -1886,9 +1892,12 @@ class BaseActorA5e extends Actor {
   }
 
   configureCreatureTypes(data: Record<string, any> = {}, options = {}) {
-    const title = localize("A5E.details.creature.headings.typesConfigurationPrompt", {
-      name: this.name,
-    });
+    const title = localize(
+      "A5E.details.creature.headings.typesConfigurationPrompt",
+      {
+        name: this.name,
+      },
+    );
 
     data.heading ??= "A5E.details.creature.labels.types";
     data.configObject ??= CONFIG.A5E.creatureTypes;
@@ -1921,9 +1930,12 @@ class BaseActorA5e extends Actor {
   }
 
   configureDamageImmunities(data: Record<string, any> = {}, options = {}) {
-    const title = localize("A5E.traits.headings.damage.immunitiesConfigurationPrompt", {
-      name: this.name,
-    });
+    const title = localize(
+      "A5E.traits.headings.damage.immunitiesConfigurationPrompt",
+      {
+        name: this.name,
+      },
+    );
 
     data.heading ??= "A5E.damage.headings.typePlural";
     data.configObject ??= CONFIG.A5E.damageTypes;
@@ -1934,9 +1946,12 @@ class BaseActorA5e extends Actor {
   }
 
   configureDamageResistances(data: Record<string, any> = {}, options = {}) {
-    const title = localize("A5E.traits.headings.damage.resistancesConfigurationPrompt", {
-      name: this.name,
-    });
+    const title = localize(
+      "A5E.traits.headings.damage.resistancesConfigurationPrompt",
+      {
+        name: this.name,
+      },
+    );
 
     data.heading ??= "A5E.damage.headings.typePlural";
     data.configObject ??= CONFIG.A5E.damageTypes;
@@ -1947,9 +1962,12 @@ class BaseActorA5e extends Actor {
   }
 
   configureDamageVulnerabilities(data: Record<string, any> = {}, options = {}) {
-    const title = localize("A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt", {
-      name: this.name,
-    });
+    const title = localize(
+      "A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt",
+      {
+        name: this.name,
+      },
+    );
 
     data.heading ??= "A5E.damage.headings.typePlural";
     data.configObject ??= CONFIG.A5E.damageTypes;
@@ -2221,14 +2239,14 @@ class BaseActorA5e extends Actor {
   override _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
 
-    // const applyBloodied =
-    //   game.settings.get("a5e", "automateBloodiedApplication") ?? true;
-    // const applyUnconscious =
-    //   game.settings.get("a5e", "automateUnconsciousApplication") ?? true;
+    const applyBloodied =
+      game.settings.get("a5e", "automateBloodiedApplication") ?? true;
+    const applyUnconscious =
+      game.settings.get("a5e", "automateUnconsciousApplication") ?? true;
 
-    // if (applyBloodied) automateHpConditions(this, changed, userId, "bloodied");
-    // if (applyUnconscious)
-    //   automateHpConditions(this, changed, userId, "unconscious");
+    if (applyBloodied) automateHpConditions(this, changed, userId, "bloodied");
+    if (applyUnconscious)
+      automateHpConditions(this, changed, userId, "unconscious");
   }
 
   // -------------------------------------------------------------
