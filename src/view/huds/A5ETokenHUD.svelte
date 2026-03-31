@@ -16,6 +16,11 @@
         HUD.object._removeStatusEffect({ id, src }, options);
     }
 
+    function isVisible(elem) {
+        const classList = [...elem.offsetParent.classList];
+        return classList.includes("active");
+    }
+
     let { HUD, token }: Props = $props();
 
     let actorData = $derived(HUD?.object?.actor?.reactive?.system);
@@ -86,12 +91,14 @@
             onclick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
+                if (!isVisible(e.target)) return;
                 if (linked) return;
                 handleStatusEffectAdd(effect, { overlay: effect.isOverlay });
             }}
             onauxclick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                if (!isVisible(e.target)) return;
                 if (linked) return;
                 handleStatusEffectRemove(effect, { overlay: effect.isOverlay });
             }}
@@ -132,11 +139,13 @@
             onclick={(e) => {
                 e.stopPropagation();
                 e.preventDefault();
+                if (!isVisible(e.target)) return;
                 handleStatusEffectAdd(effect);
             }}
             onauxclick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                if (!isVisible(e.target)) return;
                 handleStatusEffectRemove(effect);
             }}
         >

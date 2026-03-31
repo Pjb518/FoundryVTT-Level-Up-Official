@@ -69,8 +69,8 @@ export default class TokenHUDA5e extends foundry.applications.hud.TokenHUD {
   /**
    * Destroy svelte components when the HUD is closed
    */
-  clear() {
-    super.clear();
+  _onClose() {
+    super._onClose();
 
     if (this._svelteComponent) {
       unmount(this._svelteComponent);
