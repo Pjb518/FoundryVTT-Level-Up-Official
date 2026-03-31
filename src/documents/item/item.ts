@@ -246,28 +246,37 @@ class ItemA5e extends BaseItemA5e {
         castingLevel:
           activationData.consumers?.spell?.level ?? this.system.level ?? null,
         actionDescription: action?.descriptionOutputs?.includes("action")
-          ? await TextEditor.enrichHTML(action.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {},
-            })
-          : null,
-        itemDescription:
-          (action?.descriptionOutputs?.includes("item") ?? true)
-            ? await TextEditor.enrichHTML(this.system.description, {
+          ? await foundry.applications.ux.TextEditor.enrichHTML(
+              action.description,
+              {
                 secrets: this.isOwner,
                 relativeTo: this,
                 rollData: this?.actor?.getRollData(this) ?? {},
-              })
+              },
+            )
+          : null,
+        itemDescription:
+          (action?.descriptionOutputs?.includes("item") ?? true)
+            ? await foundry.applications.ux.TextEditor.enrichHTML(
+                this.system.description,
+                {
+                  secrets: this.isOwner,
+                  relativeTo: this,
+                  rollData: this?.actor?.getRollData(this) ?? {},
+                },
+              )
             : null,
         unidentifiedDescription:
           (action?.descriptionOutputs?.includes("item") ?? true)
             ? // @ts-expect-error
-              await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-                secrets: this.isOwner,
-                relativeTo: this,
-                rollData: this?.actor?.getRollData(this) ?? {},
-              })
+              await foundry.applications.ux.TextEditor.enrichHTML(
+                this.system.unidentifiedDescription,
+                {
+                  secrets: this.isOwner,
+                  relativeTo: this,
+                  rollData: this?.actor?.getRollData(this) ?? {},
+                },
+              )
             : null,
         effects: activationData.effects ?? [],
         prompts: activationData.prompts,

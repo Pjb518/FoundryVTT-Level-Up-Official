@@ -86,7 +86,7 @@
 
     async function getDescription(item: BaseItemA5e) {
         const data =
-            (await TextEditor.enrichHTML(
+            (await foundry.applications.ux.TextEditor.enrichHTML(
                 actionId && action
                     ? action.description
                     : item.system.description,

@@ -82,7 +82,7 @@
 
     async function getDescription(item: Item) {
         const data =
-            (await TextEditor.enrichHTML(
+            (await foundry.applications.ux.TextEditor.enrichHTML(
                 actionId && action
                     ? action.description
                     : // @ts-expect-error

@@ -166,28 +166,37 @@ class BaseItemA5e extends Item {
         img: action?.img ?? this.img,
         itemId: this.uuid,
         actionDescription: action?.descriptionOutputs?.includes("action")
-          ? await TextEditor.enrichHTML(action.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {},
-            })
-          : null,
-        itemDescription:
-          (action?.descriptionOutputs?.includes("item") ?? true)
-            ? await TextEditor.enrichHTML(this.system.description, {
+          ? await foundry.applications.ux.TextEditor.enrichHTML(
+              action.description,
+              {
                 secrets: this.isOwner,
                 relativeTo: this,
                 rollData: this?.actor?.getRollData(this) ?? {},
-              })
+              },
+            )
+          : null,
+        itemDescription:
+          (action?.descriptionOutputs?.includes("item") ?? true)
+            ? await foundry.applications.ux.TextEditor.enrichHTML(
+                this.system.description,
+                {
+                  secrets: this.isOwner,
+                  relativeTo: this,
+                  rollData: this?.actor?.getRollData(this) ?? {},
+                },
+              )
             : null,
         unidentifiedDescription:
           (action?.descriptionOutputs?.includes("item") ?? true)
             ? // @ts-expect-error
-              await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-                secrets: this.isOwner,
-                relativeTo: this,
-                rollData: this?.actor?.getRollData(this) ?? {},
-              })
+              await foundry.applications.ux.TextEditor.enrichHTML(
+                this.system.unidentifiedDescription,
+                {
+                  secrets: this.isOwner,
+                  relativeTo: this,
+                  rollData: this?.actor?.getRollData(this) ?? {},
+                },
+              )
             : null,
         summaryData: getSummaryData(this, action, {
           hideSpellClasses: true,
