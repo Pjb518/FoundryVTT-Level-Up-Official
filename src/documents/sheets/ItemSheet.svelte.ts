@@ -58,7 +58,6 @@ export default class ItemSheet extends SvelteApplicationMixin(
 
   protected override async _prepareContext() {
     const context = await super._prepareContext();
-    console.log(context);
 
     return {
       ...context,

@@ -46,6 +46,7 @@
     const optionsList = sheet.optionsList;
 
     let changes = $derived(effect.reactive.changes);
+    $inspect(changes);
 </script>
 
 <div class="a5e-sticky-page">
@@ -78,13 +79,16 @@
                         />
                     </div>
 
-                    <EffectChangeValue
-                        {key}
-                        {value}
-                        {mode}
-                        {optionsList}
-                        onchange={(value) => updateChange(idx, "value", value)}
-                    />
+                    {#key key}
+                        <EffectChangeValue
+                            {key}
+                            {value}
+                            {mode}
+                            {optionsList}
+                            onchange={(value) =>
+                                updateChange(idx, "value", value)}
+                        />
+                    {/key}
                 </li>
             {/each}
         </ul>
