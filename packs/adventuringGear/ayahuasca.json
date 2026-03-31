@@ -1,0 +1,229 @@
+{
+	"folder": null,
+	"name": "Ayahuasca",
+	"type": "object",
+	"img": "icons/consumables/potions/flask-corked-yellow-glow.webp",
+	"system": {
+		"description": "<p><strong>Ayahuasca (‘eye-ah-WAH-ska’)</strong></p>\n<p>This concoction is commonly made by concentrating the essence of the stems of the caapi vine and the leaves of the chacruna shrub. It is traditionally used for divination, spiritual ceremonies, and healing a variety of complaints related to the interactions of mind and body. Temporary poisoning and possible extreme side effects are well-known.</p>\n<p><em><strong>Effect.</strong></em> The imbiber of the ayahuasca brew has advantage on all Religion checks for 24 hours, as well as imitating the effects of an enhanced @UUID[Compendium.a5e.a5e-spells.Item.6ia3gup3j0m6oigb]{Speak with Dead} spell for the same period. While under the influence of this concoction, a creature can use an action to view the memories of an event the deceased soul is describing.</p>\n<p>However, every imbiber of ayahuasca gains the [[/condition id=poisoned]] condition for the same 24-hour period, with no save allowed. Note that any immunity or resistance to poison also negates the beneficial effects of this brew.</p>\n<p>Also note that, despite the poisoned condition imposing disadvantage on all checks, the consumer retains advantage on all Religion checks.</p>\n<p>Additionally, at the end of the 24 hours, the creature must make a DC 15 Charisma saving throw or gain a short-term mental stress effect for the next 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "obscureMedicinals",
+		"actions": {
+			"mTTgEvEexZnn9823": {
+				"name": "Ayahuasca",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"effects": [
+					"nL6wEYWe8aqJEsS2"
+				],
+				"macro": "",
+				"consumers": {
+					"0Fjo1t0ksHu8tFgt": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "fGf8pUBAQo5yXVU0",
+						"quantity": 1,
+						"deleteOnZero": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"NgaNdDxhUR3zIOAa": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "150 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0.5,
+		"attunementHint": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.fGf8pUBAQo5yXVU0",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Ayahuasca",
+			"img": "icons/consumables/potions/flask-corked-yellow-glow.webp",
+			"_id": "nL6wEYWe8aqJEsS2",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.rel",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The imbiber of the ayahuasca brew has advantage on all Religion checks for 24 hours, as well as imitating the effects of an enhanced @UUID[Compendium.a5e.a5e-spells.Item.6ia3gup3j0m6oigb]{Speak with Dead} spell for the same period. While under the influence of this concoction, a creature can use an action to view the memories of an event the deceased soul is describing.</p>\n<p>However, every imbiber of ayahuasca gains the poisoned condition for the same 24-hour period, with no save allowed. Note that any immunity or resistance to poison also negates the beneficial effects of this brew.</p>\n<p>Also note that, despite the poisoned condition imposing disadvantage on all checks, the consumer retains advantage on all Religion checks.</p>\n<p>Additionally, at the end of the 24 hours, the creature must make a DC 15 Charisma saving throw or gain a short-term mental stress effect for the next 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1774989496738,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1774989496606,
+		"modifiedTime": 1774989496606,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0VkwnXAzUU71gdHb"
+}

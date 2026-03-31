@@ -1,0 +1,337 @@
+{
+	"name": "Ginkgo Biloba",
+	"type": "object",
+	"img": "icons/consumables/plants/leaf-elm-glowing-green.webp",
+	"system": {
+		"description": "<p>Ginkgo trees are tall, with leaves growing either from the tips of branches or from embedded buds near the base of the trunk. The fan-shaped leaves have two or more lobes and a rich green color with prominent veins. In the fall, the leaves turn a brilliant yellow or gold. Ginkgo can help improve memory in people with dementia.</p>\n<p><em><strong>Effect.</strong></em> For 1 hour after being ingested, a dose of ginkgo biloba enables a creature to repeat a failed saving throw against the [[/condition id=confused]] condition, and it grants an expertise die on Engineering, History, or Religion checks to recall information. A companion can administer a dose of ginkgo following all the rules for administering a potion. Note that if a second dose is ingested in the same 24-hour period, you must also make a successful DC 13 Constitution saving throw or be [[/condition id=poisoned]] for 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "obscureMedicinals",
+		"actions": {
+			"CpfDKn1JnLSLSDGf": {
+				"name": "Ginkgo Biloba",
+				"consumers": {
+					"NX2XZ7BtDS5OcGVO": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "NMYWOO3kwpHOnLwt",
+						"quantity": 1,
+						"deleteOnZero": true,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"fFWXVaMRwGwjpex6"
+				],
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"id": "CpfDKn1JnLSLSDGf",
+				"img": "icons/consumables/plants/leaf-elm-glowing-green.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"0Qx5k3kXt4JVVDQK": {
+				"name": "2nd Dose",
+				"prompts": {
+					"Qc0lmJQSbay77jiO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"RkgTsnC93Z0Dfc6g"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"consumers": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "15 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"attunementHint": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.NMYWOO3kwpHOnLwt",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Ginkgo Biloba",
+			"img": "icons/consumables/plants/leaf-elm-glowing-green.webp",
+			"_id": "fFWXVaMRwGwjpex6",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.skills.eng.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.his.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.rel.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For 1 hour after being ingested, a dose of ginkgo biloba enables a creature to repeat a failed saving throw against the Confused condition, and it grants an expertise die on Engineering, History, or Religion checks to recall information.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1774989496747,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.NMYWOO3kwpHOnLwt",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Poisoned",
+			"img": "icons/consumables/plants/leaf-elm-glowing-green.webp",
+			"_id": "RkgTsnC93Z0Dfc6g",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1774989496747,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1774989496606,
+		"modifiedTime": 1774989496767,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "IipX7l5dZHj1sOsV"
+}

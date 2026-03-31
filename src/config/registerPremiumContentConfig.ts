@@ -178,6 +178,15 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
+    variantCodexPress: {
+			name: 'Variant Codex Press',
+			releases: [
+				{
+					title: 'Obscure Medicinials',
+					url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
+				},
+			],
+		},
     wizardsOfTheCoast: {
 			name: 'Wizards of the Coast',
 			releases: [
@@ -614,6 +623,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Mysterious and Marvelous Miscellanea',
 			url: 'https://bit.ly/42fLLM8',
+		},
+    obscureMedicinals: {
+			abbreviation: 'OM',
+			affiliate: true,
+			publisher: 'variantCodexPress',
+			systems: ['a5e'],
+			title: 'Obscure Medicinials',
+			url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
 		},
 		paradigmsOfSkill: {
 			abbreviation: 'PoS',

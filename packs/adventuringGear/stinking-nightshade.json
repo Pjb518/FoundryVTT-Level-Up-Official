@@ -1,0 +1,231 @@
+{
+	"name": "Stinking Nightshade",
+	"type": "object",
+	"img": "icons/commodities/flowers/strawberry-trio-white.webp",
+	"system": {
+		"description": "<p>Also known as Henbane, this is a low-growing plant with thick leaves that are sticky to the touch. For the entire summer it has hollow yellow flowers with purple veins, and is found along paths and open spaces. Its odor is foul and it causes intoxication. But for severe wounds, a powerful painkiller can be created by boiling henbane leaves.</p>\n<p><em><strong>Effect.</strong></em> When ingested, the mixture temporarily removes a reduction to your maximum hit points by 2d6 hit points. Note that healing is still required, only the maximum is temporarily restored. You must also make a successful DC 10 Constitution saving throw or be [[/condition id=poisoned]] for one hour. The reduction to your hit point maximum reverts at the end of your next short or long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "obscureMedicinals",
+		"actions": {
+			"wZmQCh4kwjfOlVcU": {
+				"name": "Stinking Nightshade",
+				"consumers": {
+					"tYUTMOZYZFq3vHmm": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "XFMCK4WLG8deVXRC",
+						"quantity": 1,
+						"deleteOnZero": true,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"rolls": {
+					"mtty0B4yiz5F9huF": {
+						"type": "generic",
+						"default": true,
+						"label": "Temporary Maximum Hit Point Increase",
+						"formula": "2d6",
+						"scaling": {}
+					}
+				},
+				"prompts": {
+					"RVkcRFI9Sk84K7H2": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "10"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"kG14iUEaUe5cc9zB"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "75 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"attunementHint": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.XFMCK4WLG8deVXRC",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Poisoned",
+			"img": "icons/commodities/flowers/strawberry-single-white.webp",
+			"_id": "kG14iUEaUe5cc9zB",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1774989496730,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1774989496606,
+		"modifiedTime": 1774989496776,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4pr4gqvIaKp1eJmS"
+}
