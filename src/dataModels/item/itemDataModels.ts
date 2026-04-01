@@ -1,14 +1,15 @@
-import { A5EArchetypeData } from './ArchetypeDataModel';
-import { A5EBackgroundData } from './BackgroundDataModel';
-import { A5EClassData } from './ClassDataModel';
-import { A5ECultureData } from './CultureDataModel';
-import { A5EDestinyData } from './DestinyDataModel';
-import { A5EHeritageData } from './HeritageDataModel';
+import { A5EArchetypeData } from './ArchetypeDataModel.ts';
+import { A5EBackgroundData } from './BackgroundDataModel.ts';
+import { A5EClassData } from './ClassDataModel.ts';
+import { A5ECultureData } from './CultureDataModel.ts';
+import { A5EDestinyData } from './DestinyDataModel.ts';
+import { A5EHeritageData } from './HeritageDataModel.ts';
 
-import { A5EFeatureData } from './FeatureDataModel';
-import { A5EManeuverData } from './ManeuverDataModel';
-import { A5EObjectData } from './ObjectDataModel';
-import { A5ESpellData } from './SpellDataModel';
+import { A5EFeatureData } from './FeatureDataModel.ts';
+import { A5EInteractionData } from './InteractionDataModel.ts';
+import { A5EManeuverData } from './ManeuverDataModel.ts';
+import { A5EObjectData } from './ObjectDataModel.ts';
+import { A5ESpellData } from './SpellDataModel.ts';
 
 const itemDataModels = {
 	archetype: A5EArchetypeData,
@@ -19,6 +20,7 @@ const itemDataModels = {
 	heritage: A5EHeritageData,
 
 	feature: A5EFeatureData,
+  interaction: A5EInteractionData,
 	maneuver: A5EManeuverData,
 	object: A5EObjectData,
 	spell: A5ESpellData,
@@ -38,6 +40,7 @@ declare global {
 			heritage: A5EHeritageData;
 
 			feature: A5EFeatureData;
+      interaction: A5EInteractionData;
 			maneuver: A5EManeuverData;
 			object: A5EObjectData;
 			spell: A5ESpellData;

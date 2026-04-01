@@ -11,6 +11,7 @@
 
     import ActorCorePage from "./pages/ActorCorePage.svelte";
     import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
+    import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
     import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
     import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
     import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
@@ -87,6 +88,12 @@
             //     component: ActorBioPage,
             //     display: actor.type === "character",
             // },
+            {
+                name: "interactions",
+                label: "A5E.interactions.tab",
+                icon: "fa-solid fa-star-of-life",
+                component: ActorInteractionsPage,
+            },
             {
                 name: "notes",
                 label: "A5E.tabs.notes",

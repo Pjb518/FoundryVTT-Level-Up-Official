@@ -94,9 +94,13 @@
                 label: "A5E.tabs.macro",
                 icon: "fa-solid fa-terminal",
                 component: ItemMacroPage,
-                display: ["feature", "maneuver", "object", "spell"].includes(
-                    item.type,
-                ),
+                display: [
+                    "feature",
+                    "interaction",
+                    "maneuver",
+                    "object",
+                    "spell",
+                ].includes(item.type),
             },
         ];
     }
@@ -115,12 +119,7 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
-    <NavigationBar
-        {currentTab}
-        {tabs}
-        showLock={false}
-        onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-item-sheet__page">
         <currentTab.component />
