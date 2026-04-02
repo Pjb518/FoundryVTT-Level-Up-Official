@@ -38,10 +38,26 @@
             field: "savingThrow",
             label: "A5E.actions.headings.savingThrows.title",
         },
+        {
+            field: "criticalFailure",
+            label: "A5E.interactions.journeyRolls.criticalFailure",
+        },
+        {
+            field: "failure",
+            label: "A5E.interactions.journeyRolls.failure",
+        },
+        {
+            field: "success",
+            label: "A5E.interactions.journeyRolls.success",
+        },
+        {
+            field: "criticalSuccess",
+            label: "A5E.interactions.journeyRolls.criticalSuccess",
+        },
     ];
 
-    export let summaryData = {};
-    let listHeight;
+    let { summaryData = {} } = $props();
+    let listHeight = $state(0);
 </script>
 
 <div class="summary-wrapper">

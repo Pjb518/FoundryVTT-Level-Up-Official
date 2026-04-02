@@ -8,14 +8,12 @@ const { fields } = foundry.data;
 
 const schema = {
 	interactionType: new fields.StringField({ required: true, initial: '' }),
-	journeyProperties: new fields.ArrayField(
-		new fields.SchemaField({
-			criticalFailure: new fields.StringField({ required: false, initial: '' }),
-			failure: new fields.StringField({ required: false, initial: '' }),
-			success: new fields.StringField({ required: false, initial: '' }),
-			criticalSuccess: new fields.StringField({ required: false, initial: '' }),
+	journeyProperties: new fields.SchemaField({
+			criticalFailure: new fields.StringField({ required: true, initial: '' }),
+			failure: new fields.StringField({ required: true, initial: '' }),
+			success: new fields.StringField({ required: true, initial: '' }),
+			criticalSuccess: new fields.StringField({ required: true, initial: '' }),
 		}),
-	),
 };
 
 declare namespace A5EInteractionData {
