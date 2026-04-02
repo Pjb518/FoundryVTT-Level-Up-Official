@@ -1,4 +1,5 @@
 export type ActorSheetTempSetting = {
+  currentInteractionTab: string;
   currentSpellBook: string;
   currentNotesTab: string;
   currentSettingsTab: string;
