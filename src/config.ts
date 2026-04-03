@@ -568,6 +568,7 @@ const healingColors = {
 
 const interactionTypes = {
   basicAction: "A5E.interactions.types.basicAction",
+  downtime: "A5E.interactions.types.downtime",
 	journey: "A5E.interactions.types.journey",
 	other: "A5E.interactions.types.other",
 };

@@ -11,9 +11,9 @@ import {
 	skills,
 	spellBooks,
 	traits,
-} from './common';
+} from './common.ts';
 
-import { migrationData, source } from '../common';
+import { migrationData, source } from '../common.ts';
 
 const { fields } = foundry.data;
 
@@ -58,6 +58,25 @@ const characterSchema = () => ({
 				return acc;
 			}, {}),
 		}),
+    keyKnowledge: new fields.NumberField({
+      required: true,
+      initial: 0,
+      integer: true,
+      nullable: false,
+	  }),
+    projectName: new fields.StringField({ required: true, initial: '' }),
+    projectTime: new fields.NumberField({
+      required: true,
+      initial: 0,
+      integer: true,
+      nullable: false,
+    }),
+    religiousFavors: new fields.NumberField({
+      required: true,
+      initial: 0,
+      integer: true,
+      nullable: false,
+    }),
 		...attributes(),
 	}),
 	details: new fields.SchemaField({

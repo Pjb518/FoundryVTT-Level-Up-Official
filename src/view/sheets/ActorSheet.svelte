@@ -1,6 +1,5 @@
 <script lang="ts">
     import { setContext } from "svelte";
-
     import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
     import type { Tab } from "../navigation/data.ts";
@@ -21,6 +20,7 @@
     import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
     import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
 
+    import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
     import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
     import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
     import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
@@ -28,13 +28,19 @@
 
     let { actor, sheet } = $props();
 
+    const interactionTabs = ["basicAction", "downtime", "journey", "other"];
+
+    let currentInteractionTab = $derived(
+        interactionTabs.find(
+            (name) => name === actorSheetTempSettings[actor.uuid]?.currentInteractionTab,
+        ) ?? "journey",
+    );
+
+    setContext("interactionCurrentTab", () => currentInteractionTab);
+
     function updateCurrentTab(name: string) {
         const { uuid } = actor;
-        const newTabName = name ?? "core";
-
-        currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
-
-        actorSheetTempSettings[uuid].currentTab = newTabName;
+        actorSheetTempSettings[uuid].currentTab = name ?? "core";
     }
 
     function getTabs(flags: any): Tab[] {
@@ -93,6 +99,8 @@
                 label: "A5E.interactions.tab",
                 icon: "fa-solid fa-star-of-life",
                 component: ActorInteractionsPage,
+                footerComponent: ActorInteractionFooter,
+                hasSubNavigation: true,
             },
             {
                 name: "notes",

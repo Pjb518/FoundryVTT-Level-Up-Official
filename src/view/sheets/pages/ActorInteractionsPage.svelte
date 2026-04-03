@@ -19,10 +19,7 @@
 
     function updateCurrentTab(name: string) {
         const { uuid } = actor;
-        const newTabName = name ?? "journey";
-        currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
-
-        actorSheetTempSettings[uuid].currentInteractionTab = name;
+        actorSheetTempSettings[uuid].currentInteractionTab = name ?? "journey";
     }
 
     let actor: any = getContext("actor");
@@ -38,6 +35,11 @@
         {
             name: "basicAction",
             label: "Basic Actions",
+        },
+        {
+            name: "downtime",
+            label: "Downtime Activities",
+            display: actor.type === "character",
         },
         {
             name: "journey",
