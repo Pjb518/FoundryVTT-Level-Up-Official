@@ -39,59 +39,59 @@
 
         {#if ["journey"].includes(itemStore.interactionType)}
             <FieldWrapper heading="Critical Failure">
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
+                <textarea
+                    class="a5e-input"
+                    rows="5"
                     value={itemStore.journeyProperties.criticalFailure || ""}
                     onchange={({ target }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.journeyProperties.criticalFailure",
-                            (target as HTMLInputElement).value,
+                            (target as HTMLTextAreaElement).value,
                         )}
-                />
+                ></textarea>
             </FieldWrapper>
 
             <FieldWrapper heading="Failure">
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
+                <textarea
+                    class="a5e-input"
+                    rows="5"
                     value={itemStore.journeyProperties.failure || ""}
                     onchange={({ target }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.journeyProperties.failure",
-                            (target as HTMLInputElement).value,
+                            (target as HTMLTextAreaElement).value,
                         )}
-                />
+                ></textarea>
             </FieldWrapper>
 
             <FieldWrapper heading="Success">
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
+                <textarea
+                    class="a5e-input"
+                    rows="5"
                     value={itemStore.journeyProperties.success || ""}
                     onchange={({ target }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.journeyProperties.success",
-                            (target as HTMLInputElement).value,
+                            (target as HTMLTextAreaElement).value,
                         )}
-                />
+                ></textarea>
             </FieldWrapper>
 
             <FieldWrapper heading="Critical Success">
-                <input
-                    class="a5e-input a5e-input--slim"
-                    type="text"
+                <textarea
+                    class="a5e-input"
+                    rows="5"
                     value={itemStore.journeyProperties.criticalSuccess || ""}
                     onchange={({ target }) =>
                         updateDocumentDataFromField(
                             item,
                             "system.journeyProperties.criticalSuccess",
-                            (target as HTMLInputElement).value,
+                            (target as HTMLTextAreaElement).value,
                         )}
-                />
+                ></textarea>
             </FieldWrapper>
         {/if}
     {:else}
