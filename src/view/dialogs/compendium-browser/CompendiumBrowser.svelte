@@ -48,6 +48,11 @@
             icon: "fa-solid fa-dna",
         },
         {
+            name: "interaction",
+            label: "Interactions",
+            icon: "fa-solid fa-star-of-life",
+        },
+        {
             name: "maneuver",
             label: "Maneuvers",
             icon: "fa-solid fa-person-running",
@@ -77,6 +82,7 @@
         destiny: "Destinies",
         feature: "Features",
         heritage: "Heritages",
+        interaction: "Interactions",
         maneuver: "Maneuvers",
         npc: "Monsters",
         object: "Objects",
@@ -128,8 +134,7 @@
                 onclick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    filterOptions.searchDescription =
-                        !filterOptions.searchDescription;
+                    filterOptions.searchDescription = !filterOptions.searchDescription;
                 }}
             >
                 <i class="a5e-compendia-header__button fa-solid fa-book"></i>
@@ -137,9 +142,7 @@
 
             <button
                 class="a5e-button a5e-cb__header-button"
-                aria-label={viewTab === "items"
-                    ? "Open Filter Tab"
-                    : "Close Filter Tab"}
+                aria-label={viewTab === "items" ? "Open Filter Tab" : "Close Filter Tab"}
                 data-tooltip={viewTab === "items"
                     ? "Open Filter Tab"
                     : "Close Filter Tab"}

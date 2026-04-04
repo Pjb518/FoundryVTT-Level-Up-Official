@@ -25,6 +25,12 @@ function createFeature(type) {
   };
 }
 
+function createInteraction(type) {
+	return {
+		interactionType: type,
+	};
+}
+
 function createManuever(type) {
   const system = {
     degree: Number(type),
@@ -89,6 +95,7 @@ function createSpell(type, options = {}) {
 
 const itemMappings = {
   feature: createFeature,
+  interaction: createInteraction,
   maneuver: createManuever,
   object: createObject,
   spell: createSpell,

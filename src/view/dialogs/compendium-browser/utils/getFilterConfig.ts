@@ -50,6 +50,21 @@ function getFeatureFilterConfig() {
   ];
 }
 
+function getInteractionFilterConfig() {
+  return [
+    {
+      filterKey: "interactionType",
+      heading: "Interaction Type",
+      options: CONFIG.A5E.interactionTypes,
+    },
+    {
+      filterKey: "source",
+      heading: "Source",
+      options: PRODUCTS,
+    },
+  ];
+}
+
 function getManeuverFilterConfig() {
   return [
     {
@@ -204,6 +219,7 @@ function getSpellFilterConfig() {
 export function getFilterConfig(documentType: string) {
   if (documentType === "archetype") return getArchetypeFilterConfig();
   if (documentType === "feature") return getFeatureFilterConfig();
+  if (documentType === "interaction") return getInteractionFilterConfig();
   if (documentType === "maneuver") return getManeuverFilterConfig();
   if (documentType === "npc") return getMonsterFilterConfig();
   if (documentType === "object") return getObjectFilterConfig();

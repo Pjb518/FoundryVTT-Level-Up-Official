@@ -13,6 +13,7 @@ export function getDetailsLabel(doc) {
 
   if (type === "archetype") return getArchetypeDetailsLabel(doc);
   if (type === "feature") return getFeatureDetailsLabel(doc);
+  if (type === "interaction") return getInteractionDetailsLabel(doc);
   if (type === "maneuver") return getManeuverDetailsLabel(doc);
   if (type === "npc") return getMonsterDetailsLabel(doc);
   if (type === "object") return getObjectDetailsLabel(doc);
@@ -43,6 +44,14 @@ function getFeatureDetailsLabel(feature: Item): string {
   }
 
   return featureProperties.filter(Boolean).join(" | ");
+}
+
+function getInteractionDetailsLabel(interaction: Item): string {
+  const interactionType =
+    CONFIG.A5E.interactionTypes?.[interaction.system.interactionType] ??
+    interaction.system.interactionType;
+
+  return interactionType;
 }
 
 function getManeuverDetailsLabel(maneuver: Item) {

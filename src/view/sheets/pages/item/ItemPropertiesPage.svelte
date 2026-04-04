@@ -6,6 +6,7 @@
     import ArmorConfiguration from "../../components/item/ArmorConfiguration.svelte";
     import ContainerConfiguration from "../../components/item/ContainerConfiguration.svelte";
     import FeatureConfiguration from "../../components/item/FeatureConfiguration.svelte";
+    import InteractionConfiguration from "../../components/item/InteractionConfiguration.svelte";
     import ManeuverConfiguration from "../../components/item/ManeuverConfiguration.svelte";
     import MaterialConfiguration from "../../components/item/MaterialConfiguration.svelte";
     import ObjectConfiguration from "../../components/item/ObjectConfiguration.svelte";
@@ -22,6 +23,8 @@
     {#if item.type === "feature"}
         <FeatureConfiguration />
         <ArmorClassConfiguration />
+    {:else if item.type === "interaction"}
+        <InteractionConfiguration />
     {:else if item.type === "maneuver"}
         <ManeuverConfiguration />
     {:else if item.type === "object"}

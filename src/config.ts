@@ -566,6 +566,13 @@ const healingColors = {
   temporaryHealing: "#2fa6b1",
 };
 
+const interactionTypes = {
+  basicAction: "A5E.interactions.types.basicAction",
+  downtime: "A5E.interactions.types.downtime",
+	journey: "A5E.interactions.types.journey",
+	other: "A5E.interactions.types.other",
+};
+
 /**
  * List of various item rarities.
  * @enum {string}
@@ -2085,6 +2092,7 @@ const A5E = {
   featureTypes,
   healingTypes,
   healingColors,
+  interactionTypes,
   itemRarity,
   itemTechLevels,
   itemTypes,

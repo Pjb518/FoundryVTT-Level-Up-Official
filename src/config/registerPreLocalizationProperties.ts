@@ -29,6 +29,7 @@ export default [
 	'effectsKeyLocalizations',
 	'featureTypes',
 	'healingTypes',
+  'interactionTypes',
 	'itemRarity',
   'itemTechLevels',
 	'itemTypes',

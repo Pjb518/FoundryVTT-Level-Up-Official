@@ -38,6 +38,22 @@
             field: "savingThrow",
             label: "A5E.rollLabels.savingThrows.title",
         },
+        {
+            field: "criticalFailure",
+            label: "A5E.interactions.journeyRolls.criticalFailure",
+        },
+        {
+            field: "failure",
+            label: "A5E.interactions.journeyRolls.failure",
+        },
+        {
+            field: "success",
+            label: "A5E.interactions.journeyRolls.success",
+        },
+        {
+            field: "criticalSuccess",
+            label: "A5E.interactions.journeyRolls.criticalSuccess",
+        },
     ];
 
     let { summaryData } = $props();
