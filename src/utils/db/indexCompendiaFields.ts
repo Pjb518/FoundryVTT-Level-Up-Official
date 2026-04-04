@@ -8,6 +8,11 @@ const FIELD_MAPPINGS = {
     "system.prerequisite",
     "system.source",
   ],
+  interaction: [
+    "system.description",
+    "system.interactionType",
+    "system.source",
+  ],
   maneuver: [
     "system.description",
     "system.exertionCost",

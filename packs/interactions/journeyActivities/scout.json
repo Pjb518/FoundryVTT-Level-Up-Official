@@ -1,0 +1,203 @@
+{
+	"folder": null,
+	"name": "Scout",
+	"type": "interaction",
+	"img": "icons/tools/navigation/spyglass-telescope-brass.webp",
+	"system": {
+		"description": "<p><em><strong>Note:</strong> This journey activity may only be performed once per region.<br></em></p>\n<p>An adventurer roams at a distance from the party, making a Perception check seeking vantage points to look ahead.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "trialsAndTreasures",
+		"actions": {
+			"gUHZxO77Z7LhHkmc": {
+				"name": "Scout",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"3F9hr0lbq0tII0t0",
+					"gWdNZPEIAFDFRSYZ"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"dsguK2sX4X3O9h80": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prc",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The adventurer gets lost and suffers a level of fatigue before returning to the party.",
+			"failure": "The adventurer learns nothing useful.",
+			"success": "The party automatically learns which regions adjoin the current region. Additionally, the party gains advantage on Perception checks made against any attempts to surprise or ambush them while journeying through this region.",
+			"criticalSuccess": "As a success, and the adventurer finds a handy path. The party gains half a day’s travel for each day spent doing this journey activity."
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.N86j8rN3tKLN9gV4",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Scout Critical Failure",
+			"img": "icons/tools/navigation/spyglass-telescope-brass.webp",
+			"_id": "3F9hr0lbq0tII0t0",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737059158236,
+				"modifiedTime": 1737059174143,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.N86j8rN3tKLN9gV4",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Scout Success",
+			"img": "icons/tools/navigation/spyglass-telescope-brass.webp",
+			"_id": "gWdNZPEIAFDFRSYZ",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gains advantage on Perception checks made against any attempts to surprise or ambush them while journeying through this region.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737059183110,
+				"modifiedTime": 1737059204969,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737059039689,
+		"modifiedTime": 1737059224259,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ghO1hwYTnBu4TydF"
+}

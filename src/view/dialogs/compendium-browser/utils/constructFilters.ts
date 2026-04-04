@@ -172,6 +172,17 @@ const featureConfig = {
   },
 };
 
+const interactionConfig = {
+  interactionType: {
+    key: "system.interactionType",
+    type: "value",
+  },
+  source: {
+    key: "system.source",
+    type: "value",
+  },
+};
+
 const genericConfig = {
   source: {
     key: "system.source",
@@ -182,6 +193,7 @@ const genericConfig = {
 const typeMap = {
   archetype: archetypesFilterConfig,
   feature: featureConfig,
+  interaction: interactionConfig,
   maneuver: maneuverFilterConfig,
   npc: monstersFilterConfig,
   object: objectFilterConfig,
