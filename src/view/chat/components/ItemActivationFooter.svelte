@@ -22,7 +22,7 @@
 
         if (item.system.ritual) {
             components.push({
-                label: localize("A5E.SpellRitualAbbr"),
+                label: localize("A5E.spells.ritualAbbr"),
                 tooltip: localize("A5E.SpellRitual"),
             });
         }

@@ -271,7 +271,9 @@
                         {localize("A5E.AttunementRequired")}
 
                         ({localize(
-                            $item.system.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
+                            $item.system.attuned
+                                ? "A5E.attunement.attuned"
+                                : "A5E.attunement.not",
                         )})
                     {:else}
                         {localize("A5E.attunement.headings.notRequired")}

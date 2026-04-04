@@ -271,7 +271,9 @@
                 <dd class="a5e-dl-box__content">
                     {#if itemStore.requiresAttunement}
                         {localize("A5E.AttunementRequired")}: ({localize(
-                            itemStore.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
+                            itemStore.attuned
+                                ? "A5E.attunement.attuned"
+                                : "A5E.attunement.not",
                         )})
                     {:else}
                         {localize("A5E.attunement.headings.notRequired")}

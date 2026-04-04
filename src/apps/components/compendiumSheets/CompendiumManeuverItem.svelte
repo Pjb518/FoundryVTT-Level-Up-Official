@@ -27,7 +27,7 @@
             ? `(${maneuver.system.exertionCost} ${localize(
                   maneuver.system.exertionCost > 1
                       ? "A5E.exertion.pointPlural"
-                      : "A5E.ExertionPoint",
+                      : "A5E.exertion.point",
               )})`
             : "";
 

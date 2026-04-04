@@ -396,7 +396,7 @@
                         data-tooltip="A5E.SpellRitual"
                         data-tooltip-direction="UP"
                     >
-                        {localize("A5E.SpellRitualAbbr")}
+                        {localize("A5E.spells.ritualAbbr")}
                     </span>
                 {/if}
             </div>
