@@ -1,10 +1,10 @@
 {
 	"folder": null,
-	"name": "Hunt and Gather",
+	"name": "Block Critical",
 	"type": "interaction",
-	"img": "icons/skills/trades/fishing-rod-gray.webp",
+	"img": "icons/skills/melee/shield-block-gray-orange.webp",
 	"system": {
-		"description": "<p>It’s often fruitful for an adventurer to track and kill game, or forage for food and water, along the road with a Survival check.</p>",
+		"description": "<p>When you take a critical hit, you can use your reaction to block it, turning the critical hit into a regular hit and suffering a level of fatigue (if you have a shield, you can Sacrifice Shield instead). Once you have turned a critical hit into a regular hit in this way, you cannot do so again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -15,10 +15,26 @@
 			}
 		},
 		"secretDescription": "",
-		"source": "trialsAndTreasures",
+		"source": "adventurersGuide",
 		"actions": {
-			"gUHZxO77Z7LhHkmc": {
-				"name": "Hunt and Gather",
+			"kCb4B05i62nccEuN": {
+				"name": "Block Critical",
+				"consumers": {
+					"QTjgOweVpSplDJCx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Take a critical hit",
+					"cost": 1
+				},
+				"effects": [
+					"DoVmwaClurDDBfUv"
+				],
 				"id": "",
 				"default": false,
 				"description": "",
@@ -27,32 +43,14 @@
 					"action"
 				],
 				"img": "",
-				"activation": {
-					"cost": 1,
-					"type": "day",
-					"reactionTrigger": ""
-				},
 				"duration": {
 					"unit": "",
 					"value": 0
 				},
-				"effects": [
-					"yMqLOnB04RuFn1wq"
-				],
 				"macro": "",
-				"consumers": {},
 				"prompts": {},
 				"ranges": {},
-				"rolls": {
-					"dsguK2sX4X3O9h80": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "sur",
-						"ability": "wis",
-						"bonus": "",
-						"label": ""
-					}
-				},
+				"rolls": {},
 				"target": {
 					"quantity": 0,
 					"scaling": {},
@@ -70,25 +68,25 @@
 			}
 		},
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "",
 				"threshold": 0
 			}
 		},
-		"interactionType": "journey",
+		"interactionType": "basicAction",
 		"journeyProperties": {
-			"criticalFailure": "The adventurer gains toxic Supply, and the entire party suffers a level of fatigue.",
-			"failure": "The adventurer gains no Supply.",
-			"success": "The adventurer gains 1 Supply per day spent doing this journey activity.",
-			"criticalSuccess": "The adventurer gains double the Supply."
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
 		}
 	},
 	"effects": [
 		{
-			"origin": "Item.M172EZB6hTucbEz0",
+			"origin": "Item.JDye9bzD984psMn3",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -102,9 +100,9 @@
 					}
 				}
 			},
-			"name": "Hunt and Gather Critical Failure",
-			"img": "icons/skills/trades/fishing-rod-gray.webp",
-			"_id": "yMqLOnB04RuFn1wq",
+			"name": "Block Critical",
+			"img": "icons/skills/melee/shield-block-gray-orange.webp",
+			"_id": "DoVmwaClurDDBfUv",
 			"type": "base",
 			"changes": [
 				{
@@ -135,8 +133,8 @@
 				"coreVersion": "12.331",
 				"systemId": "a5e",
 				"systemVersion": "1.0.4",
-				"createdTime": 1737058599938,
-				"modifiedTime": 1737058615838,
+				"createdTime": 1737068243883,
+				"modifiedTime": 1737068251293,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -147,9 +145,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "1.0.4",
-		"createdTime": 1737058533144,
-		"modifiedTime": 1737058978106,
+		"createdTime": 1737068178516,
+		"modifiedTime": 1737068243947,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hLOL2LS93RgdIGVm"
+	"_id": "n1NrQ4LYAWIc1hZq"
 }

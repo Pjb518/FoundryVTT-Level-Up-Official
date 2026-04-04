@@ -1,10 +1,10 @@
 {
 	"folder": null,
-	"name": "Hunt and Gather",
+	"name": "Network",
 	"type": "interaction",
-	"img": "icons/skills/trades/fishing-rod-gray.webp",
+	"img": "icons/skills/social/diplomacy-handshake.webp",
 	"system": {
-		"description": "<p>It’s often fruitful for an adventurer to track and kill game, or forage for food and water, along the road with a Survival check.</p>",
+		"description": "<p><em><strong>Note:</strong> To perform this journey activity, the party must be in a populated area such as a Country Shire, Open Roads, or Urban Township.</em></p>\n<p>Success on a Deception or Persuasion check allows an adventurer to make connections that will come in handy later. You can gain an expertise die on this check by making a bribe (or equivalent gift) of a number of gold pieces equal to 5 × twice the region’s tier (minimum 5 gold).</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -15,10 +15,10 @@
 			}
 		},
 		"secretDescription": "",
-		"source": "trialsAndTreasures",
+		"source": "gpg3",
 		"actions": {
-			"gUHZxO77Z7LhHkmc": {
-				"name": "Hunt and Gather",
+			"2tK6G0OqK94NWf4I": {
+				"name": "Network",
 				"id": "",
 				"default": false,
 				"description": "",
@@ -37,18 +37,26 @@
 					"value": 0
 				},
 				"effects": [
-					"yMqLOnB04RuFn1wq"
+					"aqeSS5lkmI6Ct4vA"
 				],
 				"macro": "",
 				"consumers": {},
 				"prompts": {},
 				"ranges": {},
 				"rolls": {
-					"dsguK2sX4X3O9h80": {
+					"7gizegS5K43HHlFA": {
 						"type": "skillCheck",
-						"default": true,
-						"skill": "sur",
-						"ability": "wis",
+						"default": false,
+						"skill": "dec",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					},
+					"V86Fjef5nSeFoFqE": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "per",
+						"ability": "cha",
 						"bonus": "",
 						"label": ""
 					}
@@ -80,15 +88,15 @@
 		},
 		"interactionType": "journey",
 		"journeyProperties": {
-			"criticalFailure": "The adventurer gains toxic Supply, and the entire party suffers a level of fatigue.",
-			"failure": "The adventurer gains no Supply.",
-			"success": "The adventurer gains 1 Supply per day spent doing this journey activity.",
-			"criticalSuccess": "The adventurer gains double the Supply."
+			"criticalFailure": "The adventurer commits some taboo or crosses a serious social line and is firmly reprimanded or ostracized, suffering a level of strife.",
+			"failure": "The adventurer simply isn’t engaging enough to be memorable.",
+			"success": "The adventurer has made or reinforced a meaningful social connection or attained some level of influence, gaining 1 favor point.",
+			"criticalSuccess": "The adventurer has proven themselves exceptionally well-connected, competent, or generous, gaining 2 favor points."
 		}
 	},
 	"effects": [
 		{
-			"origin": "Item.M172EZB6hTucbEz0",
+			"origin": "Item.uCZlKBeSSTXWSfVA",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -102,13 +110,13 @@
 					}
 				}
 			},
-			"name": "Hunt and Gather Critical Failure",
-			"img": "icons/skills/trades/fishing-rod-gray.webp",
-			"_id": "yMqLOnB04RuFn1wq",
+			"name": "Network Critical Failure",
+			"img": "icons/skills/social/diplomacy-handshake.webp",
+			"_id": "aqeSS5lkmI6Ct4vA",
 			"type": "base",
 			"changes": [
 				{
-					"key": "system.attributes.fatigue",
+					"key": "system.attributes.strife",
 					"value": "1",
 					"mode": 2,
 					"priority": null
@@ -135,8 +143,8 @@
 				"coreVersion": "12.331",
 				"systemId": "a5e",
 				"systemVersion": "1.0.4",
-				"createdTime": 1737058599938,
-				"modifiedTime": 1737058615838,
+				"createdTime": 1737060054788,
+				"modifiedTime": 1737060071099,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -147,9 +155,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "1.0.4",
-		"createdTime": 1737058533144,
-		"modifiedTime": 1737058978106,
+		"createdTime": 1737059794929,
+		"modifiedTime": 1737060054828,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hLOL2LS93RgdIGVm"
+	"_id": "8ysPqygBCvjoMZlQ"
 }

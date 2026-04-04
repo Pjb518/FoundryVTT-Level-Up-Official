@@ -1,10 +1,10 @@
 {
 	"folder": null,
-	"name": "Hunt and Gather",
+	"name": "Hide",
 	"type": "interaction",
-	"img": "icons/skills/trades/fishing-rod-gray.webp",
+	"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
 	"system": {
-		"description": "<p>It’s often fruitful for an adventurer to track and kill game, or forage for food and water, along the road with a Survival check.</p>",
+		"description": "<p>When you take the Hide action, you make a Dexterity (Stealth) check contested by the passive Perception scores of creatures able to observe you. If you succeed, you gain the benefits described under Unseen Attackers and Targets.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -15,10 +15,28 @@
 			}
 		},
 		"secretDescription": "",
-		"source": "trialsAndTreasures",
+		"source": "adventurersGuide",
 		"actions": {
-			"gUHZxO77Z7LhHkmc": {
-				"name": "Hunt and Gather",
+			"cjkhHbZIIcx2w8Yt": {
+				"name": "Hide",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"rolls": {
+					"evQs243cQSvQ9y52": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ste",
+						"ability": "dex",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"MeR2t8MSP0c9mkZR"
+				],
 				"id": "",
 				"default": false,
 				"description": "",
@@ -27,32 +45,14 @@
 					"action"
 				],
 				"img": "",
-				"activation": {
-					"cost": 1,
-					"type": "day",
-					"reactionTrigger": ""
-				},
 				"duration": {
 					"unit": "",
 					"value": 0
 				},
-				"effects": [
-					"yMqLOnB04RuFn1wq"
-				],
 				"macro": "",
 				"consumers": {},
 				"prompts": {},
 				"ranges": {},
-				"rolls": {
-					"dsguK2sX4X3O9h80": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "sur",
-						"ability": "wis",
-						"bonus": "",
-						"label": ""
-					}
-				},
 				"target": {
 					"quantity": 0,
 					"scaling": {},
@@ -78,21 +78,21 @@
 				"threshold": 0
 			}
 		},
-		"interactionType": "journey",
+		"interactionType": "basicAction",
 		"journeyProperties": {
-			"criticalFailure": "The adventurer gains toxic Supply, and the entire party suffers a level of fatigue.",
-			"failure": "The adventurer gains no Supply.",
-			"success": "The adventurer gains 1 Supply per day spent doing this journey activity.",
-			"criticalSuccess": "The adventurer gains double the Supply."
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
 		}
 	},
 	"effects": [
 		{
-			"origin": "Item.M172EZB6hTucbEz0",
+			"origin": "Item.IRwtxE1yqu77wnda",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
-				"applyToSelf": false,
+				"applyToSelf": true,
 				"default": true,
 				"migrationData": {
 					"version": null,
@@ -102,18 +102,11 @@
 					}
 				}
 			},
-			"name": "Hunt and Gather Critical Failure",
-			"img": "icons/skills/trades/fishing-rod-gray.webp",
-			"_id": "yMqLOnB04RuFn1wq",
+			"name": "Hidden",
+			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+			"_id": "MeR2t8MSP0c9mkZR",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
+			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -124,7 +117,7 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>If your target can’t see you, you have advantage on your attack rolls against it. If you are hidden when you make your attack, you give away your location after making the attack.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
@@ -135,8 +128,8 @@
 				"coreVersion": "12.331",
 				"systemId": "a5e",
 				"systemVersion": "1.0.4",
-				"createdTime": 1737058599938,
-				"modifiedTime": 1737058615838,
+				"createdTime": 1737066699144,
+				"modifiedTime": 1737066765723,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -147,9 +140,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "1.0.4",
-		"createdTime": 1737058533144,
-		"modifiedTime": 1737058978106,
+		"createdTime": 1737066604566,
+		"modifiedTime": 1737066699179,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hLOL2LS93RgdIGVm"
+	"_id": "iGAfOTgrIDsAwDEd"
 }

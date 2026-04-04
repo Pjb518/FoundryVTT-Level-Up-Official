@@ -1,10 +1,10 @@
 {
 	"folder": null,
-	"name": "Hunt and Gather",
+	"name": "Dash",
 	"type": "interaction",
-	"img": "icons/skills/trades/fishing-rod-gray.webp",
+	"img": "icons/skills/movement/feet-winged-sandals-tan.webp",
 	"system": {
-		"description": "<p>It’s often fruitful for an adventurer to track and kill game, or forage for food and water, along the road with a Survival check.</p>",
+		"description": "<p>When you take the Dash action, your speed is doubled for the current turn (after applying any modifiers). You can’t Dash if you’re suffering fatigue.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -15,10 +15,18 @@
 			}
 		},
 		"secretDescription": "",
-		"source": "trialsAndTreasures",
+		"source": "adventurersGuide",
 		"actions": {
-			"gUHZxO77Z7LhHkmc": {
-				"name": "Hunt and Gather",
+			"G8G8yO6zphQLRFrG": {
+				"name": "Dash",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"IROHSo8oWnhxFL3G"
+				],
 				"id": "",
 				"default": false,
 				"description": "",
@@ -27,32 +35,15 @@
 					"action"
 				],
 				"img": "",
-				"activation": {
-					"cost": 1,
-					"type": "day",
-					"reactionTrigger": ""
-				},
 				"duration": {
 					"unit": "",
 					"value": 0
 				},
-				"effects": [
-					"yMqLOnB04RuFn1wq"
-				],
 				"macro": "",
 				"consumers": {},
 				"prompts": {},
 				"ranges": {},
-				"rolls": {
-					"dsguK2sX4X3O9h80": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "sur",
-						"ability": "wis",
-						"bonus": "",
-						"label": ""
-					}
-				},
+				"rolls": {},
 				"target": {
 					"quantity": 0,
 					"scaling": {},
@@ -78,21 +69,21 @@
 				"threshold": 0
 			}
 		},
-		"interactionType": "journey",
+		"interactionType": "basicAction",
 		"journeyProperties": {
-			"criticalFailure": "The adventurer gains toxic Supply, and the entire party suffers a level of fatigue.",
-			"failure": "The adventurer gains no Supply.",
-			"success": "The adventurer gains 1 Supply per day spent doing this journey activity.",
-			"criticalSuccess": "The adventurer gains double the Supply."
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
 		}
 	},
 	"effects": [
 		{
-			"origin": "Item.M172EZB6hTucbEz0",
+			"origin": "Item.P3ggV8pDRhTxbg87",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
-				"applyToSelf": false,
+				"applyToSelf": true,
 				"default": true,
 				"migrationData": {
 					"version": null,
@@ -102,14 +93,14 @@
 					}
 				}
 			},
-			"name": "Hunt and Gather Critical Failure",
-			"img": "icons/skills/trades/fishing-rod-gray.webp",
-			"_id": "yMqLOnB04RuFn1wq",
+			"name": "Dash",
+			"img": "icons/skills/movement/feet-winged-sandals-tan.webp",
+			"_id": "IROHSo8oWnhxFL3G",
 			"type": "base",
 			"changes": [
 				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
+					"key": "system.attributes.movement.walk.distance",
+					"value": "@attributes.movement.walk.distance",
 					"mode": 2,
 					"priority": null
 				}
@@ -120,23 +111,30 @@
 				"seconds": null,
 				"combat": null,
 				"rounds": null,
-				"turns": null,
+				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>When you take the Dash action, your speed is doubled for the current turn (after applying any modifiers).</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
-			"flags": {},
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
 				"coreVersion": "12.331",
 				"systemId": "a5e",
 				"systemVersion": "1.0.4",
-				"createdTime": 1737058599938,
-				"modifiedTime": 1737058615838,
+				"createdTime": 1737064538946,
+				"modifiedTime": 1737064595802,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -147,9 +145,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "1.0.4",
-		"createdTime": 1737058533144,
-		"modifiedTime": 1737058978106,
+		"createdTime": 1737064506637,
+		"modifiedTime": 1737064538979,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hLOL2LS93RgdIGVm"
+	"_id": "JzsYBHWtsPQT3dHh"
 }
