@@ -35,17 +35,19 @@
     heading="A5E.settings.sectionHeader.compendia"
     --a5e-section-body-gap="0.5rem"
 >
-    <CheckboxGroup
-        hint="A5E.settings.hints.disabledCompendiaSources"
-        options={sources}
-        selected={updates.get("disabledCompendiaSources") ??
-            compendiaSources ??
-            []}
-        onUpdateSelection={(detail) => {
-            updates.set("disabledCompendiaSources", detail);
-            reload = true;
-        }}
-    />
+    <FieldWrapper heading="Hidden Compendia Sources">
+        <CheckboxGroup
+            hint="A5E.settings.hints.disabledCompendiaSources"
+            options={sources}
+            selected={updates.get("disabledCompendiaSources") ??
+                compendiaSources ??
+                []}
+            onUpdateSelection={(detail) => {
+                updates.set("disabledCompendiaSources", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
 </Section>
 
 <Section
