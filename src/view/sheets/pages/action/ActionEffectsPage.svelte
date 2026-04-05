@@ -22,10 +22,9 @@
     let effects = $derived(
         filterEffects(item.reactive, "onUse", {
             ...filterOptions,
-            filters: {
-                currentAction: (effect) =>
-                    item.actions.get(actionId).effects.has(effect.id),
-            },
+            filters: [
+                (effect) => item.actions.get(actionId).effects.has(effect.id),
+            ],
         }),
     );
 

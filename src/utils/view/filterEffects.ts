@@ -1,7 +1,7 @@
 type FilterOptions = {
   searchTerm?: string;
   searchDescription?: boolean;
-  filters?: Record<string, (effect: ActiveEffect) => boolean>;
+  filters?: ((e) => boolean)[];
 };
 
 function filterByName(effect: ActiveEffect, searchTerm: string) {
@@ -23,7 +23,7 @@ export function filterEffects(
   type: string,
   options: FilterOptions = {},
 ) {
-  const { searchTerm, searchDescription, filters } = options;
+  const { searchTerm, searchDescription, filters = [] } = options;
 
   return document.effects
     .filter((effect) => {
@@ -39,6 +39,9 @@ export function filterEffects(
 
         if (!hasName) return false;
       }
+
+      // Apply custom filters
+      if (!filters?.every((fn) => fn(effect))) return false;
 
       return true;
     })

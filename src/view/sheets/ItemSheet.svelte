@@ -107,7 +107,7 @@
 
     let itemStore: any = $derived(item.reactive.system);
 
-    let canEdit = $state(editable);
+    let canEdit = $state(editable || game.user?.isGM);
 
     let tabs = $state(getTabs());
     let currentTab = $derived(tabs[0]);
@@ -119,7 +119,12 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
     <ItemSheetHeader />
 
-    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
+    <NavigationBar
+        {currentTab}
+        {tabs}
+        showLock={false}
+        onTabChange={updateCurrentTab}
+    />
 
     <section class="a5e-item-sheet__page">
         <currentTab.component />
