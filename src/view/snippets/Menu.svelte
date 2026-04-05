@@ -99,7 +99,8 @@
     .a5e-context-menu {
         background: rgba(0, 0, 0, 0.85);
         border: 1px khaki solid;
-        width: var(--a5e-context-menu-width, min-content);
+        width: var(--a5e-context-menu-width, 17rem);
+        /* width: var(--a5e-context-menu-width, max-content); */
         height: var(--a5e-context-menu-height, min-content);
         max-height: 25rem;
         z-index: 100;
@@ -124,11 +125,19 @@
 
             &-button {
                 color: white;
+                width: 100%;
                 font-size: var(
                     --a5e-context-menu-font-size,
                     var(--a5e-sm-text)
                 );
-                padding: 1rem;
+                padding-inline: var(
+                    --a5e-context-menu-button-padding-inline,
+                    0.75rem
+                );
+                padding-block: var(
+                    --a5e-context-menu-button-padding-block,
+                    1rem
+                );
             }
         }
     }
