@@ -9,7 +9,25 @@
         const newTabName = name ?? "archetype";
 
         currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
+
+        //Reset filters when switching tabs
+        filterOptions.searchTerm = "";
+        filterOptions.selections = {};
+        totalDocuments = 0;
+        shownDocuments = 0;
     }
+
+    const {
+        tab: initialTab,
+        filters: initialFilters,
+    }: {
+        tab?: string;
+        filters?: {
+            searchTerm?: string;
+            searchDescription?: boolean;
+            selections?: Record<string, any>;
+        };
+    } = $props();
 
     const tabs: Tab[] = [
         {
@@ -89,26 +107,16 @@
         spell: "Spells",
     };
 
-    let currentTab = $state(tabs[0]);
+    let currentTab = $state(tabs.find((t) => t.name === initialTab) ?? tabs[0]);
     let viewTab = $state("items");
     let filterOptions = $state({
-        searchTerm: "",
-        searchDescription: false,
-        selections: {},
+        searchTerm: initialFilters?.searchTerm ?? "",
+        searchDescription: initialFilters?.searchDescription ?? false,
+        selections: initialFilters?.selections ?? {},
     });
 
     let totalDocuments = $state(0);
     let shownDocuments = $state(0);
-
-    $effect(() => {
-        // Reset Filter Options on Tab Change
-        currentTab;
-
-        filterOptions.searchTerm = "";
-        filterOptions.selections = {};
-        totalDocuments = 0;
-        shownDocuments = 0;
-    });
 </script>
 
 <main class="a5e-cb">
