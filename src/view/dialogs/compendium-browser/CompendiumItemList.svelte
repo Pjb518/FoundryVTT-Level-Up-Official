@@ -27,17 +27,12 @@
 
                     const searchTerm = filterOptions.searchTerm.toLowerCase();
 
-                    const nameMatch = doc.name
-                        .toLowerCase()
-                        .includes(searchTerm);
+                    const nameMatch = doc.name.toLowerCase().includes(searchTerm);
 
                     if (filterOptions.searchDescription) {
-                        const description = (
-                            doc.system?.description ?? ""
-                        ).toLowerCase();
+                        const description = (doc.system?.description ?? "").toLowerCase();
 
-                        const containsDescription =
-                            description.includes(searchTerm);
+                        const containsDescription = description.includes(searchTerm);
 
                         if (nameMatch || containsDescription) return true;
                         else return false;
@@ -60,9 +55,7 @@
 
     function getTotalDocuments() {
         return packs.reduce((total, pack) => {
-            const count = pack.index.filter(
-                (doc) => doc.type === compendiumType,
-            ).length;
+            const count = pack.index.filter((doc) => doc.type === compendiumType).length;
             return total + count;
         }, 0);
     }
@@ -134,8 +127,7 @@
     transition:fade
     onscroll={({ target }) => {
         const scrollPercent =
-            (target.scrollTop / (target.scrollHeight - target.clientHeight)) *
-            100;
+            (target.scrollTop / (target.scrollHeight - target.clientHeight)) * 100;
 
         if (scrollPercent > 80) visibleDocumentCount += 50;
     }}
@@ -164,6 +156,28 @@
 
             <h3 class="a5e-item__name a5e-item__name--compendium-document">
                 {doc.name}
+
+                {#if doc.type === "npc"}
+                    {#if doc.system?.details.elite}
+                        <i
+                            class="a5e-item__icon icon fa-solid fa-skull"
+                            data-tooltip="Elite Monster"
+                            data-tooltip-direction="UP"
+                        ></i>
+                    {:else if doc.system?.details.isSquad}
+                        <i
+                            class="a5e-item__icon icon fa-solid fa-people-group"
+                            data-tooltip="Squad"
+                            data-tooltip-direction="UP"
+                        ></i>
+                    {:else if doc.system?.details.isSwarm}
+                        <i
+                            class="a5e-item__icon icon fa-solid fa-locust"
+                            data-tooltip="Swarm"
+                            data-tooltip-direction="UP"
+                        ></i>
+                    {/if}
+                {/if}
 
                 {#if doc.type === "object" && doc.system?.requiresAttunement}
                     <i
