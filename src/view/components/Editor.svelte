@@ -42,10 +42,20 @@
         });
     }
 
-    function handleSave() {
-        application?.submit();
+    async function handleSave() {
+        const proseMirror = proseMirrorContainerEl.querySelector<
+            HTMLElement & { value: string }
+        >("prose-mirror");
+
+        const value = proseMirror?.value ?? content;
+
+        if (applicationType === "sheet") {
+            application?.submit();
+        } else {
+            await document.update({ [field]: value });
+        }
+
         onSave?.();
-        bindSecretUI();
     }
 
     function onEditorActivation(node: HTMLElement) {
@@ -62,8 +72,7 @@
             if (
                 game.keyboard.isModifierActive(
                     // @ts-ignore
-                    foundry.helpers.interaction.KeyboardManager.MODIFIER_KEYS
-                        .CONTROL,
+                    foundry.helpers.interaction.KeyboardManager.MODIFIER_KEYS.CONTROL,
                 ) &&
                 e.key === "s"
             ) {
@@ -133,16 +142,13 @@
 
         proseMirrorContainerEl.innerHTML = element.outerHTML;
 
-        proseMirrorContainerEl.firstChild?.addEventListener(
-            "plugins",
-            (e: any) => {
-                e.detail.highlightDocumentMatches =
-                    // @ts-ignore
-                    ProseMirror.ProseMirrorHighlightMatchesPlugin.build(
-                        ProseMirror.defaultSchema,
-                    );
-            },
-        );
+        proseMirrorContainerEl.firstChild?.addEventListener("plugins", (e: any) => {
+            e.detail.highlightDocumentMatches =
+                // @ts-ignore
+                ProseMirror.ProseMirrorHighlightMatchesPlugin.build(
+                    ProseMirror.defaultSchema,
+                );
+        });
 
         bindSecretUI();
     });

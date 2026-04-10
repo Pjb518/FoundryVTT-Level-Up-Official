@@ -45,6 +45,7 @@
 
     {#key action.description}
         <Editor
+            applicationType="actionSheet"
             content={action.description}
             document={item}
             documentUuid={item.uuid}
