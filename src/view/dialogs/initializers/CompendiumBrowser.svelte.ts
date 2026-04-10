@@ -2,6 +2,17 @@ import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationM
 
 import CompendiumBrowserComponent from "../compendium-browser/CompendiumBrowser.svelte";
 
+export type CompendiumBrowserTab =
+    | "archetype" | "background" | "class" | "culture"
+    | "destiny"   | "feature"    | "heritage" | "interaction"
+    | "maneuver"  | "npc"        | "object"   | "spell";
+
+export interface CompendiumBrowserFilters {
+    searchTerm?: string;
+    searchDescription?: boolean;
+    selections?: Record<string, any>;
+}
+
 export class CompendiumBrowser extends SvelteApplicationMixin(
   foundry.applications.api.ApplicationV2,
 ) {
@@ -41,4 +52,21 @@ export class CompendiumBrowser extends SvelteApplicationMixin(
   }
 
   #prepareData() {}
+
+  // -------------------------------------------------------------------------
+  // Public helpers for modules / enrichers
+  // -------------------------------------------------------------------------
+  static openTo(tab: CompendiumBrowserTab): CompendiumBrowser {
+      const browser = new CompendiumBrowser({ tab });
+      browser.render(true);
+      return browser;
+  }
+  static openWithFilters(
+      tab: CompendiumBrowserTab,
+      filters: CompendiumBrowserFilters,
+  ): CompendiumBrowser {
+      const browser = new CompendiumBrowser({ tab, filters });
+      browser.render(true);
+      return browser;
+  }
 }
