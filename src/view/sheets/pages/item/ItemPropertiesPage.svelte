@@ -5,6 +5,7 @@
     import ArmorClassConfiguration from "../../components/item/ArmorClassConfiguration.svelte";
     import ArmorConfiguration from "../../components/item/ArmorConfiguration.svelte";
     import ContainerConfiguration from "../../components/item/ContainerConfiguration.svelte";
+    import EndemicLifeConfiguration from "../../components/item/EndemicLifeConfiguration.svelte";
     import FeatureConfiguration from "../../components/item/FeatureConfiguration.svelte";
     import InteractionConfiguration from "../../components/item/InteractionConfiguration.svelte";
     import ManeuverConfiguration from "../../components/item/ManeuverConfiguration.svelte";
@@ -36,6 +37,8 @@
             <ArmorConfiguration />
         {:else if itemStore.objectType === "container"}
             <ContainerConfiguration />
+        {:else if itemStore.objectType === "endemicLife"}
+            <EndemicLifeConfiguration />
         {:else if itemStore.objectType === "shield"}
             <ShieldConfiguration />
         {:else if itemStore.objectType === "weapon"}

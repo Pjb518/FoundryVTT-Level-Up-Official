@@ -363,6 +363,35 @@ const attackTypes = {
   rangedSpellAttack: "A5E.attacks.types.rangedSpell",
 };
 
+const biomes = {
+  astralPlane: "A5E.biomes.astralPlane",
+  caves: "A5E.biomes.caves",
+  coastal: "A5E.biomes.coastal",
+  elementalPlaneOfFire: "A5E.biomes.elementalPlaneOfFire",
+  everywhere: "A5E.biomes.everywhere",
+  flowerFields: "A5E.biomes.flowerFields",
+  graveyard: "A5E.biomes.graveyard",
+  hells: "A5E.biomes.hells",
+  holySites: "A5E.biomes.holySites",
+  iceFields: "A5E.biomes.iceFields",
+  jungles: "A5E.biomes.jungles",
+  lakeCountry: "A5E.biomes.lakeCountry",
+  mountainPasses: "A5E.biomes.mountainPasses",
+  openOcean: "A5E.biomes.openOcean",
+  riverBanks: "A5E.biomes.riverBanks",
+  shadowPlane: "A5E.biomes.shadowPlane",
+  shallowSeas: "A5E.biomes.shallowSeas",
+  tropics: "A5E.biomes.tropics",
+  tundra: "A5E.biomes.tundra",
+  underground: "A5E.biomes.underground",
+  upperPlanes: "A5E.biomes.upperPlanes",
+  urban: "A5E.biomes.urban",
+  vegetation: "A5E.biomes.vegetation",
+  volcanic: "A5E.biomes.volcanic",
+  wizardsLaboratory: "A5E.biomes.wizardsLaboratory",
+  woodlands: "A5E.biomes.woodlands",
+};
+
 const carryCapacityMultiplier = {
   tiny: 0.5,
   sm: 1,
@@ -512,6 +541,20 @@ const defaultActorImportCompendia = {
   inventory: "a5e.a5e-adventuring-gear",
   maneuvers: "a5e.a5e-maneuvers",
   spells: "a5e.a5e-spells",
+};
+
+const endemicProperties = {
+  boon: "A5E.objects.endemicLife.properties.boon",
+  hazard: "A5E.objects.endemicLife.properties.hazard",
+  magical: "A5E.objects.endemicLife.properties.magical",
+  material: "A5E.objects.endemicLife.properties.material",
+  mundane: "A5E.objects.endemicLife.properties.mundane"
+};
+
+const endemicTypes = {
+  creature: "A5E.objects.endemicLife.types.creature",
+  fungus: "A5E.objects.endemicLife.types.fungus",
+  plant: "A5E.objects.endemicLife.types.plant",
 };
 
 const equippedStates = {
@@ -816,6 +859,7 @@ const objectTypes = {
   clothing: "A5E.objects.types.singular.clothing",
   consumable: "A5E.objects.types.singular.consumable",
   container: "A5E.objects.types.singular.container",
+  endemicLife: "A5E.objects.types.singular.endemicLife",
   helm: "A5E.objects.types.singular.helm",
   jewelry: "A5E.objects.types.singular.jewelry",
   miscellaneous: "A5E.objects.types.singular.miscellaneous",
@@ -880,6 +924,27 @@ const rangeValues = {
   medium: 60,
   long: 120,
 };
+
+const regions = {
+  blastedBadlands: "A5E.regions.blastedBadlands",
+  countryShire: "A5E.regions.countryShire",
+  feywood: "A5E.regions.feywood",
+  fieryHellscape: "A5E.regions.fieryHellscape",
+  flowingRiver: "A5E.regions.flowingRiver",
+  frozenWastes: "A5E.regions.frozenWastes",
+  hauntedLands: "A5E.regions.hauntedLands",
+  loftyMountains: "A5E.regions.loftyMountains",
+  openRoads: "A5E.regions.openRoads",
+  parchedSands: "A5E.regions.parchedSands",
+  restlessSea: "A5E.regions.restlessSea",
+  rollingGrasslands: "A5E.regions.rollingGrasslands",
+  tangledForest: "A5E.regions.tangledForest",
+  underlandRealm: "A5E.regions.underlandRealm",
+  unrelentingMarsh: "A5E.regions.unrelentingMarsh",
+  urbanTownship: "A5E.regions.urbanTownship",
+  wartornKingdom: "A5E.regions.wartornKingdom"
+};
+
 
 /**
  * The set of core armor properties in the system.
@@ -2075,6 +2140,7 @@ const A5E = {
   armorProperties,
   armorPlural,
   attackTypes,
+  biomes,
   carryCapacityMultiplier,
   capacityTypes,
   chatCardTypes,
@@ -2086,6 +2152,8 @@ const A5E = {
   damageTypes,
   damageColors,
   defaultActorImportCompendia,
+  endemicProperties,
+  endemicTypes,
   equippedStates,
   expertiseDiceSidesMap,
   featTypes,
@@ -2115,6 +2183,7 @@ const A5E = {
   psionicDisciplines,
   rangeDescriptors,
   rangeValues,
+  regions,
   repairTools,
   resourceRecoveryOptions,
   rollModes,

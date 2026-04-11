@@ -1,7 +1,7 @@
-import type { ActionsData, ArmorData, UsesData } from './common';
+import type { ActionsData, ArmorData, UsesData } from './common.ts';
 
-import { A5EBaseItemData } from './base';
-import { actions, armor, uses } from './common';
+import { A5EBaseItemData } from './base.ts';
+import { actions, armor, uses } from './common.ts';
 
 const { fields } = foundry.data;
 
@@ -41,6 +41,23 @@ const schema = {
 		max: 2,
 	}),
 	defensiveProperties: new fields.StringField({ required: true, initial: '' }),
+  endemicLifeProperties: new fields.SchemaField({
+    biomes: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { required: true, initial: [] },
+    ),
+    creatureType: new fields.StringField({ nullable: false, initial: '' }),
+    properties: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { required: true, initial: [] },
+    ),
+    regions: new fields.ArrayField(
+      new fields.StringField({ required: true, initial: '' }),
+      { required: true, initial: [] },
+    ),
+    size: new fields.StringField({ nullable: false, initial: '' }),
+    type: new fields.StringField({ nullable: false, initial: '' }),
+  }),
 	energyProperties: new fields.StringField({ required: true, initial: '' }),
 	equippedState: new fields.NumberField({
 		required: true,
