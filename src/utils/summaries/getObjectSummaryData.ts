@@ -3,7 +3,6 @@ import type ObjectItemA5e from '../../documents/item/object.ts';
 import getArmorMods from './getArmorMods.ts';
 import getArmorProperties from './getArmorProperties.ts';
 import getEndemicLifeProperties from './getEndemicLifeProperties.ts';
-import getEndemicLifeSizeAndType from './getEndemicLifeSizeAndType.ts';
 import getCraftingComponentsLabel from './getCraftingComponentsLabel.ts';
 import getMaterialProperties from './getMaterialProperties.ts';
 import getObjectMechanicsLabel from './getObjectMechanicsLabel.ts';
