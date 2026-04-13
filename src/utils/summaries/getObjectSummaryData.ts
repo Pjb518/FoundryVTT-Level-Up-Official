@@ -2,6 +2,7 @@ import type ObjectItemA5e from '../../documents/item/object.ts';
 
 import getArmorMods from './getArmorMods.ts';
 import getArmorProperties from './getArmorProperties.ts';
+import getEndemicLifeProperties from './getEndemicLifeProperties.ts';
 import getCraftingComponentsLabel from './getCraftingComponentsLabel.ts';
 import getMaterialProperties from './getMaterialProperties.ts';
 import getObjectMechanicsLabel from './getObjectMechanicsLabel.ts';
@@ -26,6 +27,8 @@ export default function getObjectSummaryData(item: ObjectItemA5e, options: Recor
 	else if (objectType === 'weapon') objectProperties.push(...getWeaponProperties(item), ...getWeaponAugments(item));
 
 	objectProperties.sort((a, b) => a.localeCompare(b));
+
+  if (objectType === 'endemicLife') objectProperties.push(...getEndemicLifeProperties(item));
 
 	summaryData.objectProperties = objectProperties.join(', ');
 
