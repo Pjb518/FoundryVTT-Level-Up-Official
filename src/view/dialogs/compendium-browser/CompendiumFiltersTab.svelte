@@ -74,9 +74,7 @@
                             filterKey,
                         )}
                 >
-                    {filterSelections[filterKey]?.inclusiveMode == 1
-                        ? "AND"
-                        : "OR"}
+                    {filterSelections[filterKey]?.inclusiveMode == 1 ? "AND" : "OR"}
                 </button>
 
                 <button
@@ -89,9 +87,7 @@
                             filterKey,
                         )}
                 >
-                    {filterSelections[filterKey]?.exclusiveMode == 1
-                        ? "AND"
-                        : "OR"}
+                    {filterSelections[filterKey]?.exclusiveMode == 1 ? "AND" : "OR"}
                 </button>
             </div>
         </header>
@@ -111,7 +107,13 @@
 <div class="a5e-cb-filter-tab">
     {#each formSections as { display, heading, filterKey, options, type }}
         {#if type && type === "range"}
-            <FieldWrapper {heading} --a5e-field-wrapper-header-width="100%">
+            {@const rangeMin = filterSelections?.[filterKey]?.min ?? options.min}
+            {@const rangeMax = filterSelections?.[filterKey]?.max ?? options.max}
+
+            <FieldWrapper
+                heading="{heading} ({rangeMin}-{rangeMax})"
+                --a5e-field-wrapper-header-width="100%"
+            >
                 <RangeSlider
                     --range-handle="var(--a5e-color-primary)"
                     --range-handle-focus="var(--a5e-color-primary)"
