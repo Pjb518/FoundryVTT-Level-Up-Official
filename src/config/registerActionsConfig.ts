@@ -41,22 +41,22 @@ export default function registerActionsConfig() {
     supply: { path: 'supply', label: 'A5E.supply.title', type: 'value' },
 		primaryResource: {
 			path: 'resources.primary.value',
-			label: 'A5E.consumers.resources.primary',
+			label: "A5E.consumers.resources.titlePluralPrimary",
 			type: 'value',
 		},
 		secondaryResource: {
 			path: 'resources.secondary.value',
-			label: 'A5E.consumers.resources.secondary',
+			label: "A5E.consumers.resources.titlePluralSecondary",
 			type: 'value',
 		},
 		tertiaryResource: {
 			path: 'resources.tertiary.value',
-			label: 'A5E.consumers.resources.tertiary',
+			label: "A5E.consumers.resources.titlePluralTertiary",
 			type: 'value',
 		},
 		quaternaryResource: {
 			path: 'resources.quaternary.value',
-			label: 'A5E.consumers.resources.quaternary',
+			label: "A5E.consumers.resources.titlePluralQuaternary",
 			type: 'value',
 		},
 	};
