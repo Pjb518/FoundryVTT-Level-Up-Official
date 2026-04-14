@@ -1,0 +1,99 @@
+{
+	"name": "Maintain Vehicle",
+	"type": "interaction",
+	"img": "icons/tools/hand/hammer-and-nail.webp",
+	"system": {
+		"description": "<p><em><strong>Time:</strong></em> The adventurer must spend the entire region undertaking this activity.</p><p>Through constant attention, minor tweaks and repairs, and a measure of expertise, a character can enhance one of the party’s undamaged vehicles of size Huge or smaller. Choose one of the benefits below, which lasts until the end of the current Journey. Each benefit can only be selected once on a single Journey, whether by a single or multiple characters taking this activity.</p><ul><li><p><strong>Fortify:</strong> Constant maintenance and vigilance effectively give the vehicle +25% hit points</p></li><li><p><strong>Buffer:</strong> Increase the AC of the vehicle by 2</p></li><li><p><strong>Allow Stealth:</strong> By padding the vehicle’s wheels, oiling the joints, etc, a character’s constant care allows a land vehicle to operate with Stealth</p></li><li><p><strong>Damage Resistance:</strong> Choose one damage type from acid, fire, lightning, or cold. The vehicle gains resistance to this damage type. Note that this option cannot be chosen again for a different damage type</p></li><li><p><strong>Reduce Drag:</strong> The vehicle moves 1 mph faster than usual for the party’s travel pace</p></li></ul><p>A successful Engineering check, or an appropriate tool check for the vehicle’s primary material, provides the chosen benefit.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"actions": {
+			"eyz1mlepRgTsdCyM": {
+				"name": "Maintain Vehicle",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"sBIdflwzALD9hAjq": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "eng",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The vehicle loses half its hit points and suffers a malfunction. Roll 1d6 on Table: Journey Malfunctions, above, to determine which aspect of the vehicle breaks.",
+			"failure": "The vehicle is not enhanced.",
+			"success": "The vehicle is enhanced as chosen.",
+			"criticalSuccess": "As success, and vehicle checks made in the current region are made with advantage."
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776178308992,
+		"modifiedTime": 1776178504959,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "y7KeV9xvfNk0Cion"
+}

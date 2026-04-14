@@ -1,0 +1,115 @@
+{
+	"name": "Light Fervent Fire",
+	"type": "interaction",
+	"img": "icons/magic/fire/flame-burning-campfire-smoke.webp",
+	"system": {
+		"description": "<p><em><strong>Requirement:</strong></em> At least one truly random (not planned or plot-essential) encounter remains in the current Journey. The character won’t know whether or not they meet this requirement until they attempt to resolve this activity. If no random encounters remain in the Journey, they will gain 1 Supply Die (or 2 Supply) instead, as game is attracted to the fire, nearby flora blooms, etc. A maximum of 1 character can perform this activity per Journey.</p><p>By using their knowledge of the mystical properties of flora, a character making a successful check with Arcana, Alchemist’s Supplies, or an Herbalism Kit can gather rare campfire fuel or aromatics. These can deter creatures from the party’s camps for a period of time – or attract them to the camps!</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"actions": {
+			"gnVcrvPsjQ3yL8iB": {
+				"name": "Light Fervent Fire",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 7,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"F7QMM3CR8i3fj5he": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "arc",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					},
+					"VqtBIbRhWKwXBksQ": {
+						"type": "toolCheck",
+						"default": false,
+						"tool": "alchemistsSupplies",
+						"ability": "none",
+						"bonus": "",
+						"label": ""
+					},
+					"bLCaTElVTAjoOPVg": {
+						"type": "toolCheck",
+						"default": false,
+						"tool": "herbalismKit",
+						"ability": "none",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The character confuses their find for similar flora, and the smoke from their fire is highly corrosive. Creatures not immune to acid damage must make a DC 15 Constitution saving throw or be forced to flee the area for several hours as the smoldering fire slowly burns away the flora. Each fleeing character gains a level of fatigue.",
+			"failure": "The adventurers do not affect encounters with creatures, but they do avoid the effects of any swarming insects for 1 week of their Journey.",
+			"success": "The character can choose an encounter in the current region, and decides whether their campfire repelled or attracted creatures by rolling an expertise die. The Narrator then rolls to determine the random encounter, and advises whether adding the expertise result to the roll would result in an easier or more difficult encounter. The Narrator provides similar information for subtracting the expertise die result, and the character chooses whether to add or subtract the roll.",
+			"criticalSuccess": "As success, but the character gets to know the specific encounter results for adding vs subtracting prior to making the choice."
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776178112151,
+		"modifiedTime": 1776180128775,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "3PhIS2Dgj6EODrvz"
+}

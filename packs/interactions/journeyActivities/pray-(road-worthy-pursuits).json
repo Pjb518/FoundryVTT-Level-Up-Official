@@ -1,0 +1,230 @@
+{
+	"folder": null,
+	"name": "Pray (Road Worthy Pursuits)",
+	"type": "interaction",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+	"system": {
+		"description": "<p>While traveling many choose to connect with deities and spirits. An adventurer makes a Religion check.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"actions": {
+			"gUHZxO77Z7LhHkmc": {
+				"name": "Pray",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"tf1FbAN47TYJ6MZN",
+					"5FF4FtGiTXApkgpB"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"dsguK2sX4X3O9h80": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "rel",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The gods are displeased. Each party member discovers that 1 Supply Die has spoiled. Should the party have zero Supply Dice, then the next source of them during this Journey are spoiled and unusable.",
+			"failure": "The gods do not listen.",
+			"success": "The entire party gains advantage to one ability check or attack made while within this region, and the gods lead the adventurer to a Boon or Discovery.",
+			"criticalSuccess": "The entire party gains an expertise die on their next ability checks made in this region, and the gods lead the adventurer to a Boon or Discovery."
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.qLx4UHqtC0CUFo0g",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Pray Success",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"_id": "tf1FbAN47TYJ6MZN",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The entire party gains advantage to one ability check or attack made while within this region.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.6",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776176346545
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qLx4UHqtC0CUFo0g",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Pray Critical Success",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"_id": "5FF4FtGiTXApkgpB",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.abilities.str.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.wis.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The entire party gains an expertise die on their next ability checks made in this region.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.6",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776176346545
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776176346468,
+		"modifiedTime": 1776176395343,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "pL04wx2Qlda9RKSw"
+}

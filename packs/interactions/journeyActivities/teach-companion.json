@@ -1,0 +1,99 @@
+{
+	"name": "Teach Companion",
+	"type": "interaction",
+	"img": "icons/creatures/mammals/dog-husky-white-blue.webp",
+	"system": {
+		"description": "<p>As they travel, an adventurer can teach a companion a new trick by making an Animal Handling check. This can be used for any type of companion creature that can learn, including animals, constructs, and even simple undead. A creature cannot learn more than one trick per Journey.</p><p>The trick should match the difficulty of a single trick or task learnable by a common dog, cat, crow, etc. If using Pet Tricks, this can be any Trick except as follows:</p><ul><li><p><strong>Comfort:</strong> This training requires a downtime activity.</p></li><li><p><strong>Herd:</strong> Possible if there are constant animals available to be herded on your journey.</p></li><li><p><strong>Manipulate:</strong> This training requires a downtime activity.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"actions": {
+			"fthLcWadPrGXp4bO": {
+				"name": "Teach Companion",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 30,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"T8FyUYGJZVNBu8g5": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ani",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The attempt frightens or lightly injures the creature, causing it to flee the adventurer in the night. It only returns to the party at the end of the current Journey.",
+			"failure": "The adventurer is unable to teach the companion the trick.",
+			"success": "The adventurer teaches the creature one trick, which will last beyond the current Journey.",
+			"criticalSuccess": "As a success, but the creature also leads the adventurer to a Boon or Discovery."
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776180619144,
+		"modifiedTime": 1776183141736,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "edqJvjqb4DW472x5"
+}

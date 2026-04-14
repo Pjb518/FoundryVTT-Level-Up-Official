@@ -1,0 +1,251 @@
+{
+	"name": "Channel Divinity (Road Worthy Pursuits)",
+	"type": "feature",
+	"img": "icons/magic/nature/leaf-drip-light-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Pu8iRLLLJLTltGdl": {
+				"name": "Blessing of Nature",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"z53Zc0rKfGP9ZlFV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"2j3WeYWqRlfzoDp1": {
+						"range": "touch"
+					}
+				},
+				"effects": [
+					"woDB58PX3XLySsMX"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				}
+			},
+			"fK9uan9rZL0aK99C": {
+				"name": "Rely on Nature",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Fail a Nature or Survival check"
+				},
+				"consumers": {
+					"z53Zc0rKfGP9ZlFV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p><h2>Blessing of Nature</h2><p>For the next hour, you have advantage on Persuasion checks made to influence druids and beasts. Alternatively, you can end the blessing early to gain advantage on a Survival check made to find Supply Dice or a haven in the wilderness. </p><h2>Rely on Nature</h2><p>When you fail a Nature or Survival check, you can use your reaction to succeed instead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"3CX4cVYi29JDuQDB": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "3CX4cVYi29JDuQDB",
+				"label": "Channel Divinity",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.f0fwxl74msbqby7h",
+							"name": "Blessing of Nature",
+							"img": "icons/svg/item-bag.svg",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.gnw6134l4p8ht3au",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "herald",
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"asi": "",
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.UhJKYv1cuJwQzZjX",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blessing of Nature",
+			"img": "icons/magic/nature/leaf-drip-light-green.webp",
+			"_id": "woDB58PX3XLySsMX",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Be recognized by nature as one of its protectors for the next hour. For the duration, you gain advantage on Persuasion checks made to influence druids and beasts. Alternatively, you can end the blessing early to gain advantage on a Survival check made to find Supply or a Haven in the wilderness.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.6",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776113494189
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776113494139,
+		"modifiedTime": 1776113494139,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "KQENC5etdrOMz3Zv"
+}

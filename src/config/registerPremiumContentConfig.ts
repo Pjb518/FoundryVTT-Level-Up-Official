@@ -185,6 +185,10 @@ export default function registerPremiumContentConfig() {
 					title: 'Obscure Medicinials',
 					url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
 				},
+        {
+					title: 'Road Worthy Pursuits',
+					url: 'https://www.drivethrurpg.com/en/product/510738/road-worthy-pursuits-expanded-edition-a5e-explorations?affiliate_id=1388381',
+				},
 			],
 		},
     wizardsOfTheCoast: {
@@ -663,6 +667,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Riding Parsnip',
 			url: 'https://bit.ly/3xh28Nk',
+		},
+    roadWorthyPursuits: {
+			abbreviation: 'RWP',
+			affiliate: true,
+			publisher: 'variantCodexPress',
+			systems: ['a5e'],
+			title: 'Road Worthy Pursuits',
+			url: 'https://www.drivethrurpg.com/en/product/510738/road-worthy-pursuits-expanded-edition-a5e-explorations?affiliate_id=1388381',
 		},
 		secretsOfTheSelkies: {
 			abbreviation: 'SotS',

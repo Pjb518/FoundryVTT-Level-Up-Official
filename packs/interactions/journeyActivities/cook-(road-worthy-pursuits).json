@@ -1,0 +1,259 @@
+{
+	"folder": null,
+	"name": "Cook (Road Worthy Pursuits)",
+	"type": "interaction",
+	"img": "icons/consumables/food/cooked-kebab-meat-skewer-orange.webp",
+	"system": {
+		"description": "<p>By acting as the party’s cook and quartermaster, with a cook’s utensils or Survival check an adventurer can help ensure that everybody remains fed.</p><p><em><strong>Note.</strong></em> This activity is limited to once per region, and only a single character can perform this activity for each region.</p><p><em><strong>Requirement.</strong></em> Including the cook, any character choosing to be involved must pay one of the two costs listed below. Those unable to pay this cost up front are unable to select (or join the cook in) this Journey Activity.</p><p>The cook needs supplies to begin work on this endeavor. The cook, and any additional party members wishing to participate, must each choose which of the following costs to pay up front:</p><ul><li><p>Pay 1 Hit Die, with the goal of converting it to 2 Supply Dice which spoil if unused after the current Journey.</p></li><li><p>Pay 1 Supply Die, with the goal of converting it to 2 Supply Dice which spoil if unused after the current Journey.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "roadWorthyPursuits",
+		"actions": {
+			"Z0eRLDhRBKin2QXk": {
+				"name": "Cook",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"vcdwrNjsMfHfNiMb"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"NRGfv9z9ga96hePg": {
+						"type": "toolCheck",
+						"default": false,
+						"tool": "cooksUtensils",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					},
+					"smDQb2EEVrTHBVYL": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "sur",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Pt6WxuYXJDyE0M6m": {
+				"name": "Pay Hit Die",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"PQ9cpkKcLFa2VrP6": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"xiiG5XDnzYH7f1tN": {
+				"name": "Pay Supply",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"g3lvlMJWuIinxWSN": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "supply",
+						"quantity": 2,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "Each character involved loses 1 additional Supply Die (even if they paid with a Hit Die). Any character unable to pay this penalty gains a level of fatigue.",
+			"failure": "The cooking is adequate, but has no special effects. The cost paid is returned to each involved character, and no Supply Dice are gained.",
+			"success": "2 Supply Dice are returned to each involved character.",
+			"criticalSuccess": "3 Supply Dice are returned to each involved character."
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.u4D6wbO37kfkF6Fy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cook Critical Success",
+			"img": "icons/consumables/food/cooked-kebab-meat-skewer-orange.webp",
+			"_id": "vcdwrNjsMfHfNiMb",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gains one additional hit die to spend on each day they are fed by the adventurer.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.6",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776115537427
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.6",
+		"createdTime": 1776115537405,
+		"modifiedTime": 1776116376317,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "4g2HfVfefLc0MwDA"
+}
