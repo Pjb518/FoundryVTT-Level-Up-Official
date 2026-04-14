@@ -91,34 +91,52 @@
         />
     </FieldWrapper>
 {:else if currentTab === "journey" && showFavorPoints}
-    <FieldWrapper
-        heading={"A5E.consumers.favorPoints"}
-        --a5e-field-wrapper-direction="row"
-        --a5e-field-wrapper-item-alignment="center"
-        --a5e-field-wrapper-gap="0.5rem"
-    >
-        <input
-            class="a5e-input a5e-input--actor-footer"
-            class:disable-pointer-events={!actor.isOwner}
-            type="number"
-            name="system.attributes.favorPoints.current"
-            value={favorPoints.current}
-            placeholder="0"
-            min="0"
-            onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                    actor,
-                    currentTarget.name,
-                    Number(currentTarget.value),
-                )}
-        />
+    <div class="a5e-actor-footer__shields">
+        <div
+            class="a5e-details-box a5e-actor-footer__shield a5e-actor-footer__shield--wide"
+        >
+            <label for="favor-points-current" class="a5e-details-box__label">
+                {localize("A5E.consumers.favorPoints")}
+            </label>
 
-        /
+            <div class="a5e-actor-footer__shield-inputs">
+                <input
+                    id="favor-points-current"
+                    class="a5e-input a5e-input--slim a5e-details-box__input"
+                    class:disable-pointer-events={!actor.isOwner}
+                    type="number"
+                    name="system.attributes.favorPoints.current"
+                    value={favorPoints.current}
+                    placeholder="0"
+                    min="0"
+                    onchange={({ currentTarget }) =>
+                        updateDocumentDataFromField(
+                            actor,
+                            currentTarget.name,
+                            Number(currentTarget.value),
+                        )}
+                />
 
-        <span class="a5e-footer-group__value">
-            {favorPoints.max}
-        </span>
-    </FieldWrapper>
+                <span class="a5e-actor-footer__shield-divider">/</span>
+
+                <input
+                    class="a5e-input a5e-input--slim a5e-details-box__input"
+                    type="number"
+                    name="system.attributes.favorPoints.max"
+                    value={favorPoints.max}
+                    disabled={true}
+                    placeholder="0"
+                    min="0"
+                    onchange={({ currentTarget }) =>
+                        updateDocumentDataFromField(
+                            actor,
+                            currentTarget.name,
+                            Number(currentTarget.value),
+                        )}
+                />
+            </div>
+        </div>
+    </div>
 {/if}
 
 <style lang="scss">
@@ -130,6 +148,30 @@
     .a5e-actor-footer__shield {
         display: flex;
         justify-content: space-between;
+
+        &--wide {
+            flex-direction: column;
+            align-items: center;
+            min-height: 3.85rem;
+            min-width: 7rem;
+        }
+    }
+
+    .a5e-actor-footer__shield-inputs {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        .a5e-details-box__input {
+            width: 2.75rem;
+        }
+    }
+
+    .a5e-actor-footer__shield-divider {
+        font-size: var(--a5e-sm-text);
+        line-height: 1;
+        color: var(--a5e-text-color-secondary, #555);
+        user-select: none;
     }
 
     .a5e-details-box__label {
