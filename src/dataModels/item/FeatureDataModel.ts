@@ -1,12 +1,15 @@
-import type { ActionsData, ArmorData, UsesData } from './common';
+import type { ActionsData, ArmorData, UsesData } from './common.ts';
 
-import { A5EBaseItemData } from './base';
-import { actions, armor, uses } from './common';
+import { A5EBaseItemData } from './base.ts';
+import { actions, armor, uses } from './common.ts';
 
 const { fields } = foundry.data;
 
 const schema = {
-	asi: new fields.StringField({ required: true, initial: '' }),
+	asi: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		required: true,
+		initial: [],
+	}),
   class: new fields.StringField({ required: true, initial: '' }),
 	classes: new fields.StringField({ required: true, initial: '' }),
 	concentration: new fields.BooleanField({ required: true, initial: false }),

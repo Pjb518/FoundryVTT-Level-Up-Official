@@ -38,7 +38,7 @@
 </script>
 
 <Section
-    heading="A5E.objects.materialProperties"
+    heading="A5E.tabs.featureProperties"
     headerButtons={[
         {
             classes: `icon fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -98,7 +98,7 @@
         {/if}
 
         {#if ["feat"].includes(itemStore.featureType)}
-            <RadioGroup
+            <CheckboxGroup
                 heading="A5E.asi"
                 options={Object.entries(newAbilityList)}
                 selected={itemStore.asi}
