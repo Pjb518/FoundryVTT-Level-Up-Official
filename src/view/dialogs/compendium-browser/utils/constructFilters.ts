@@ -162,6 +162,22 @@ const featureConfig = {
     key: "system.featureType",
     type: "value",
   },
+  asi: {
+    key: "system.asi",
+    type: "array",
+  },
+  featClasses: {
+    key: "system.featClasses",
+    type: "array",
+  },
+  featType: {
+    key: "system.featType",
+    type: "value",
+  },
+  synergy: {
+    key: "system.synergy",
+    type: "value",
+  },
   classes: {
     key: "system.classes",
     type: "value",
@@ -243,6 +259,8 @@ export function constructFilters(
   const filterCount = { and: 0, or: 0 };
 
   for (const [filterKey, filterData] of Object.entries(filtersSelections)) {
+    if (filterData == null) continue;
+
     const andFilters = [];
     const orFilters = [];
 

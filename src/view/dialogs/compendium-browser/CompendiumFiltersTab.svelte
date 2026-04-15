@@ -10,6 +10,8 @@
         filterOptions: Record<string, any>;
     };
 
+    const FEAT_ONLY_FILTERS = ["asi", "featClasses", "featType", "synergy"];
+
     function onUpdateExclusiveMode(detail, filterKey) {
         filterOptions.selections = {
             ...filterOptions.selections,
@@ -35,8 +37,22 @@
     }
 
     function onUpdateFilterSelection(detail, filterKey) {
+        const wasFeatSelected =
+            filterSelections["featureType"]?.inclusive?.includes("feat") ?? false;
+
+        const isFeatSelected =
+            filterKey === "featureType"
+                ? (detail[0] as string[]).includes("feat")
+                : wasFeatSelected;
+
+        const clearedFeatFilters =
+            filterKey === "featureType" && wasFeatSelected && !isFeatSelected
+                ? Object.fromEntries(FEAT_ONLY_FILTERS.map((k) => [k, undefined]))
+                : {};
+
         filterOptions.selections = {
             ...filterOptions.selections,
+            ...clearedFeatFilters,
             [filterKey]: {
                 inclusive: detail[0],
                 inclusiveMode: filterSelections[filterKey]?.inclusiveMode ?? 0,
@@ -50,7 +66,7 @@
 
     let filterSelections = $derived(filterOptions.selections);
 
-    const formSections = getFilterConfig(compendiumType);
+    let formSections = $derived(getFilterConfig(compendiumType, filterSelections));
 </script>
 
 {#snippet FilterCategory(

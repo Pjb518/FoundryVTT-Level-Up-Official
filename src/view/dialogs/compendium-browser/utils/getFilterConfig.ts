@@ -30,24 +30,63 @@ function getArchetypeFilterConfig() {
   ];
 }
 
-function getFeatureFilterConfig() {
-  return [
-    {
-      filterKey: "featureType",
-      heading: "Feature Type",
-      options: CONFIG.A5E.featureTypes,
-    },
-    {
-      filterKey: "classes",
-      heading: "Class",
-      options: CONFIG.A5E.classes,
-    },
-    {
-      filterKey: "source",
-      heading: "Source",
-      options: PRODUCTS,
-    },
-  ];
+  function getFeatureFilterConfig(filterSelections?: Record<string, any>) {
+    const featSelected =
+      filterSelections?.featureType?.inclusive?.includes("feat") ?? false;
+
+    const newAbilityList = {
+        none: "A5E.None",
+        ...CONFIG.A5E.abilities,
+        spellcasting: "A5E.abilities.spellcasting",
+    };
+
+    const config: any[] = [
+      {
+        filterKey: "featureType",
+        heading: "Feature Type",
+        options: CONFIG.A5E.featureTypes,
+      },
+    ];
+
+    if (featSelected && CONFIG.A5E.synergies && Object.keys(CONFIG.A5E.synergies).length > 0) {
+      config.push(
+        {
+          filterKey: "asi",
+          heading: "ASI",
+          options: newAbilityList,
+        },
+        {
+          filterKey: "featClasses",
+          heading: "A5E Class Prerequisites",
+          options: CONFIG.A5E.classes,
+        },
+        {
+          filterKey: "featType",
+          heading: "Feat Type",
+          options: CONFIG.A5E.featTypes,
+        },
+        {
+          filterKey: "synergy",
+          heading: "Synergy Chain",
+          options: CONFIG.A5E.synergies,
+        },
+      );
+    }
+
+    config.push(
+      {
+        filterKey: "classes",
+        heading: "Class",
+        options: CONFIG.A5E.classes,
+      },
+      {
+        filterKey: "source",
+        heading: "Source",
+        options: PRODUCTS,
+      },
+    );
+
+  return config;
 }
 
 function getInteractionFilterConfig() {
@@ -216,9 +255,9 @@ function getSpellFilterConfig() {
   ];
 }
 
-export function getFilterConfig(documentType: string) {
+export function getFilterConfig(documentType: string, filterSelections?: Record<string, any>) {
   if (documentType === "archetype") return getArchetypeFilterConfig();
-  if (documentType === "feature") return getFeatureFilterConfig();
+  if (documentType === "feature") return getFeatureFilterConfig(filterSelections);
   if (documentType === "interaction") return getInteractionFilterConfig();
   if (documentType === "maneuver") return getManeuverFilterConfig();
   if (documentType === "npc") return getMonsterFilterConfig();

@@ -1,12 +1,16 @@
 const FIELD_MAPPINGS = {
   archetype: ["system.description", "system.class", "system.source"],
   feature: [
+    "system.asi",
     "system.description",
     "system.classes",
     "system.concentration",
+    "system.featClasses",
+    "system.featType",
     "system.featureType",
     "system.prerequisite",
     "system.source",
+    "system.synergy",
   ],
   interaction: [
     "system.description",
@@ -154,4 +158,23 @@ export async function indexCompendiaFields() {
     else updateIndex(id, "generic", invalidSources);
   });
   // );
+}
+
+export function collectSynergies() {
+  const synergies = new Set<string>();
+
+  for (const pack of game.packs.values()) {
+    if (pack.metadata.type !== "Item") continue;
+
+    for (const doc of pack.index.values()) {
+      if (doc.type !== "feature") continue;
+      if (doc.system?.featureType !== "feat") continue;
+
+      const synergy = doc.system?.synergy;
+      if (synergy && synergy.trim()) synergies.add(synergy.trim());
+    }
+  }
+
+  const sorted = [...synergies].sort((a, b) => a.localeCompare(b));
+  CONFIG.A5E.synergies = Object.fromEntries(sorted.map((s) => [s, s]));
 }
