@@ -928,6 +928,7 @@ const rangeValues = {
 const regions = {
   blastedBadlands: "A5E.regions.blastedBadlands",
   countryShire: "A5E.regions.countryShire",
+  dungeon: "A5E.regions.dungeon",
   feywood: "A5E.regions.feywood",
   fieryHellscape: "A5E.regions.fieryHellscape",
   flowingRiver: "A5E.regions.flowingRiver",
