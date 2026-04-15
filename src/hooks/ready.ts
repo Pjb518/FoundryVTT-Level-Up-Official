@@ -2,6 +2,7 @@ import { mount } from "svelte";
 
 import hotbarDrop from "./hotBarDrop.ts";
 import { handleMigration } from "../migration/handlers/handleMigration.ts";
+import { collectSynergies } from "#utils/db/indexCompendiaFields.ts";
 
 import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
 import KeyPressHandler from "../apps/KeyPressHandler.svelte";
@@ -51,6 +52,7 @@ async function addKeyPressLogger() {
 export default async function ready() {
   Hooks.on("hotbarDrop", hotbarDrop);
 
+  collectSynergies();
   handleMigration();
   handleAnnouncement();
   handleIncompatibilityWarning();

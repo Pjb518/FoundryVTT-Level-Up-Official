@@ -100,6 +100,10 @@ export default function registerPremiumContentConfig() {
 		purpleMartinGames: {
 			name: 'Purple Martin Games',
 			releases: [
+        {
+					title: 'Single-Class Synergy, Volume 1: The Core Four',
+					url: 'https://www.drivethrurpg.com/en/product/521124/single-class-synergy-volume-1-the-core-four-a5e?affiliate_id=1388381',
+				},
 				{
 					title: 'MoAR: Battlemages',
 					url: 'https://bit.ly/41HQd4G',
@@ -291,6 +295,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Corrosive Souls',
 			url: 'https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
+		},
+    coreFour: {
+			abbreviation: 'CF',
+			affiliate: true,
+			publisher: 'purpleMartinGames',
+			systems: ['a5e'],
+			title: 'Single-Class Synergy, Volume 1: The Core Four',
+			url: 'https://www.drivethrurpg.com/en/product/521124/single-class-synergy-volume-1-the-core-four-a5e?affiliate_id=1388381',
 		},
 		deepMagic1: {
 			abbreviation: 'DM Vol.1',
