@@ -259,6 +259,8 @@ export function constructFilters(
   const filterCount = { and: 0, or: 0 };
 
   for (const [filterKey, filterData] of Object.entries(filtersSelections)) {
+    if (filterData == null) continue;
+
     const andFilters = [];
     const orFilters = [];
 
