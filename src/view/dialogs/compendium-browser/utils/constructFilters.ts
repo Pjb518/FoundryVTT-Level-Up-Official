@@ -162,6 +162,18 @@ const featureConfig = {
     key: "system.featureType",
     type: "value",
   },
+  asi: {
+    key: "system.asi",
+    type: "array",
+  },
+  featClasses: {
+    key: "system.featClasses",
+    type: "array",
+  },
+  featType: {
+    key: "system.featType",
+    type: "value",
+  },
   synergy: {
     key: "system.synergy",
     type: "value",

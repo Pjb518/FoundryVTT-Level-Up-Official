@@ -1,9 +1,12 @@
 const FIELD_MAPPINGS = {
   archetype: ["system.description", "system.class", "system.source"],
   feature: [
+    "system.asi",
     "system.description",
     "system.classes",
     "system.concentration",
+    "system.featClasses",
+    "system.featType",
     "system.featureType",
     "system.prerequisite",
     "system.source",
