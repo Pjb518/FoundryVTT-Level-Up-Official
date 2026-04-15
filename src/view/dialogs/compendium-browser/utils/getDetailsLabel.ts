@@ -3,10 +3,6 @@ import { localize } from "#utils/localization/localize.ts";
 import { prepareXP } from "#utils/view/helpers/prepareXP.ts";
 
 export function getDetailsLabel(doc) {
-  if (doc.name === "A Better Mousetrap") {
-    console.log(doc);
-  }
-
   if (!doc.system) return null;
 
   const type = doc.type;
@@ -38,6 +34,11 @@ function getFeatureDetailsLabel(feature: Item): string {
   featureProperties.push(
     CONFIG.A5E.classes[parentClass] ?? CONFIG.A5E.classes5e[parentClass],
   );
+
+  if (feature.system.featureType === "feat") {
+    featureProperties.push(localize(CONFIG.A5E.featTypes[feature.system.featType]));
+    featureProperties.push(feature.system.synergy);
+  }
 
   if (feature.system.featureType === "knack") {
     featureProperties.push(CONFIG.A5E.knackTypes[parentClass]);
