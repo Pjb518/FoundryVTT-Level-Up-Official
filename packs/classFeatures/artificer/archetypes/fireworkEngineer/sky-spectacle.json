@@ -1,0 +1,405 @@
+{
+	"folder": null,
+	"name": "Sky Spectacle",
+	"type": "feature",
+	"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+	"system": {
+		"description": "<p>At 15th level, once per long rest, you can create a great spectacle. As an action, you can simultaneously activate a number of fireworks equal to your proficiency bonus, which doesn’t count toward the number of fireworks you can launch per day.</p><p>When you do so, the sky above the explosion is lit in dazzling colors for 1 minute. You can choose one of the following benefits to apply for the duration:</p><p><strong>Guiding Light.</strong> Allied creatures in the area gain an expertise die (1d4) on their attack rolls.</p><p><strong>Signal of War.</strong> Allied creatures in the area gain +10 feet movement speed and don’t provoke opportunity attacks when they move out of the range of an hostile creature.</p><p><strong>Celestial Harmony.</strong> Allied creatures in the area gain resistance to thunder and psychic damage, and cannot be deafened or stunned. When an ally in the area succeeds on a saving throw against a magical effect, they may move 10 feet without provoking opportunity attacks.</p><p><strong>Echoes of Laughter.</strong> Hostile creatures in the area subtract 1d4 from the first saving throw they make each round. Allies in the area gain advantage on Charisma saving throws and checks, and any charmed or frightened condition affecting them ends at the start of their turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"70tYB5J2qKTdEOzm": {
+				"name": "Sky Spectacle",
+				"consumers": {
+					"SVDGT8ayUn1uspAZ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"GelW4m2NO5vChrCj",
+					"qvHoRlO1j30MQs4a",
+					"AE3ZXWpz72497hAZ",
+					"v9S4YFFLV9JYhE4b",
+					"AlXr0yWz32u705M0"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "artificer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.HMMWonwYDuQLqkZm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Guiding Light",
+			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+			"_id": "GelW4m2NO5vChrCj",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Allied creatures in the area gain an expertise die (1d4) on their attack rolls.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208906,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.HMMWonwYDuQLqkZm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Signal of War",
+			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+			"_id": "qvHoRlO1j30MQs4a",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Allied creatures in the area gain +10 feet movement speed and don’t provoke opportunity attacks when they move out of the range of an hostile creature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208906,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.HMMWonwYDuQLqkZm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Celestial Harmony",
+			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+			"_id": "AE3ZXWpz72497hAZ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"thunder\",\"psychic\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"deafened\",\"stunned\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Allied creatures in the area gain resistance to thunder and psychic damage, and cannot be deafened or stunned. When an ally in the area succeeds on a saving throw against a magical effect, they may move 10 feet without provoking opportunity attacks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208906,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.HMMWonwYDuQLqkZm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Echoes of Laughter (Hostile Creatures)",
+			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+			"_id": "v9S4YFFLV9JYhE4b",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Hostile creatures in the area subtract 1d4 from the first saving throw they make each round.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208906,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.HMMWonwYDuQLqkZm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Echoes of Laughter (Allies)",
+			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
+			"_id": "AlXr0yWz32u705M0",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.cha",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Allies in the area gain advantage on Charisma saving throws and checks, and any charmed or frightened condition affecting them ends at the start of their turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208906,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "TW9tokYDiMLtwviA"
+}

@@ -1,0 +1,340 @@
+{
+	"folder": null,
+	"name": "Rocket Leap",
+	"type": "feature",
+	"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+	"system": {
+		"description": "<p>At 5th level, you’ve refined your pyrotechnics to serve as propulsion. As a bonus action, you can expend one of your fireworks to launch yourself in a burst of controlled flame.</p><p>You fly in a straight line up to a distance equal to your firework’s maximum range (normally 120 feet, increased at 5th, 11th, and 17th level), choosing the direction of your movement. If this movement would cause you to collide with a solid object or terrain, you stop just before impact and take no damage. If you end this movement within 5 feet of a hostile creature, it must make a Dexterity saving throw against your spell save DC. On a failed save, it takes 2d6 fire damage and is knocked prone; on a successful save, it takes half damage and is not knocked prone.</p><p>Alternatively, you can use this feature on a friendly creature, as an action. They are launched in the same way you would be. You can use this feature a number of times equal to your proficiency bonus per long rest.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"aCAazjccabzkKjrY": {
+				"name": "Rocket Leap",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"l6RogoohtXxByc5O": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					}
+				},
+				"ranges": {
+					"gj48WPCQf7JLQRXq": {
+						"range": 150,
+						"unit": "feet"
+					}
+				},
+				"prompts": {
+					"Ww6uwHS0hfdcEPJ6": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage; not prone",
+						"label": ""
+					}
+				},
+				"rolls": {
+					"mU6DLNK8sFsoqS6J": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "fire",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"effects": [
+					"QwRVICogVWuMiPaT"
+				],
+				"id": "aCAazjccabzkKjrY",
+				"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"4uge11qqRrm0eg5W": {
+				"name": "Rocket Leap (Ally)",
+				"id": "aCAazjccabzkKjrY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"P0bPVv2MpVEouXc5"
+				],
+				"macro": "",
+				"consumers": {
+					"l6RogoohtXxByc5O": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					},
+					"srLQmLRRa5n8xLyj": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"Ww6uwHS0hfdcEPJ6": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage; not prone",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"gj48WPCQf7JLQRXq": {
+						"range": 150,
+						"unit": "feet"
+					}
+				},
+				"rolls": {
+					"mU6DLNK8sFsoqS6J": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "2d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "artificerrevised",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.xIaM1bCAYvSZlyPO",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+			"_id": "QwRVICogVWuMiPaT",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.8",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776891930202
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.xIaM1bCAYvSZlyPO",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/magic/fire/projectile-arrow-fire-orange-yellow.webp",
+			"_id": "P0bPVv2MpVEouXc5",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.8",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1776891930202
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.8",
+		"createdTime": 1776891930181,
+		"modifiedTime": 1776891965786,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "V2J9OU4jZOmJayUf"
+}

@@ -1,0 +1,130 @@
+{
+	"folder": null,
+	"name": "Firework Arsenal",
+	"type": "feature",
+	"img": "icons/magic/air/air-wave-gust-smoke-yellow.webp",
+	"system": {
+		"description": "<p>At 3rd level, your artificer craft turns bursts of light and sound into tactical marvels. You gain proficiency with alchemist’s supplies.</p><p>During a long rest, you can create a number of fireworks up to your Intelligence Modifier. Crafting fireworks this way requires access to tools of artifice (such as alchemist’s supplies or tinker's tools), but has no material cost. You can hold a maximum of fireworks equal to twice your Intelligence modifier. You cannot create or regain fireworks without access to these tools.</p><p>When you create a firework, choose one of the following effects:</p><ul><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.ZkJhgAaaThvnYz4K]{Dazzling Brilliance} Each creature in the area of effect must make a Constitution saving throw or be blinded until the start of your next turn.</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.W7Woe21X8DPRvIQq]{Inspiring Lights} Each ally in the area of effect gains temporary hit points equal to your Intelligence modifier + twice your artificer level.</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.MUKTDXDWgEFKQHf3]{Rallying Bang} Allies in the area can immediately use their reaction to move up to 10 feet without provoking opportunity attacks. If they are frightened or charmed, they can make a new saving throw to end the condition.</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.3fPFo7PLmGzXi8V8]{Radiating Ray} Each creature in the area of effect must make a Dexterity saving throw. On a failure, the creature takes a number of d6 equal to your proficiency bonus in radiant damage and is poisoned until the start of your next turn.</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.eDpTwSwOeHtYEbxN]{Smokescreen Bloom} The area becomes heavily obscured by colored smoke until the end of your next turn. The smoke disperses in strong wind.</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.Item.JwVQ18iaBoOCMM6N]{Mirthful Sparkle} Each creature in the area must make a Charisma saving throw or fall into uncontrollable laughter. They are considered incapacitated until the start of your next turn. If a creature is hit by an attack while in this state, it can do another saving throw to end the effect.</p></li></ul><p>You can use an action to arm and launch a firework. You can do so a number of times equal to your proficiency bonus per short rest. Fireworks have a range of 120 feet, which increases by 30 feet at 5th, 11th, and 17th level. The area of effect is a cylinder with a 10-foot radius and a height of 30 feet, centered on the point of explosion. The radius increases by 10 feet and the height by 30 feet at 5th, 11th, and 17th level. You can choose the radius and height of the cylinder when you launch the firework.</p><p>The DC for all saving throws caused by your fireworks equals your spell save DC.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"1cYxAidnEH3J503I": {
+				"name": "Create Firework",
+				"consumers": {
+					"eHN6fV6peWRy0tsR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "2*@int.mod",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "artificerrevised",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"2uHkfVFvwwS3HZYw": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "2uHkfVFvwwS3HZYw",
+				"keys": {
+					"base": [
+						"alchemistsSupplies"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool",
+				"label": "Firework Arsenal"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.8",
+		"createdTime": 1776891286478,
+		"modifiedTime": 1776891939559,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "vZ7Vfyyzf1ouqa2c"
+}

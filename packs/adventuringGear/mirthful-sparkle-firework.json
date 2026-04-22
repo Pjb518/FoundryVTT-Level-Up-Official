@@ -1,0 +1,255 @@
+{
+	"folder": null,
+	"name": "Mirthful Sparkle Firework",
+	"type": "object",
+	"img": "icons/magic/fire/explosion-fireball-large-blue.webp",
+	"system": {
+		"description": "<p>Each creature in the area must make a Charisma saving throw or fall into uncontrollable laughter. They are considered [[/condition id=incapacitated]] until the start of your next turn. If a creature is hit by an attack while in this state, it can do another saving throw to end the effect.</p><p>You can use an action to arm and launch a firework. You can do so a number of times equal to your proficiency bonus per short rest. Fireworks have a range of 120 feet, which increases by 30 feet at 5th, 11th, and 17th level. The area of effect is a cylinder with a 10-foot radius and a height of 30 feet, centered on the point of explosion. The radius increases by 10 feet and the height by 30 feet at 5th, 11th, and 17th level. You can choose the radius and height of the cylinder when you launch the firework.</p><p>The DC for all saving throws caused by your fireworks equals your spell save DC.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"P78xBhvTI2YcKHsp": {
+				"name": "Launch",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cylinder",
+					"quantity": 1,
+					"radius": 10,
+					"height": 30,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "cantrip",
+						"formula": {
+							"radius": "10",
+							"height": "30"
+						}
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"lcg8Hb9tQUAoNiYL"
+				],
+				"macro": "",
+				"consumers": {
+					"TPePT2hHmyBBF8mp": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "fireworks",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					},
+					"8VG8gBgBugP3w9Ys": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "ybKhHIJV5hyTds2g",
+						"quantity": 1,
+						"deleteOnZero": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"8izFhy3QS4lixvM6": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"HB29PNykPjW00Jj3": {
+						"range": "long"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "ammunition",
+		"plotItem": false,
+		"price": "",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"origin": "Item.ybKhHIJV5hyTds2g",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Incapacitated",
+			"img": "icons/magic/fire/explosion-fireball-large-blue.webp",
+			"_id": "lcg8Hb9tQUAoNiYL",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>An incapacitated creature can’t take actions, bonus actions, or reactions.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"incapacitated"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890211850,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890211760,
+		"modifiedTime": 1776890211760,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "JwVQ18iaBoOCMM6N"
+}

@@ -1,0 +1,379 @@
+{
+	"folder": null,
+	"name": "Channel Divinity (Colorful Clown)",
+	"type": "feature",
+	"img": "icons/equipment/head/mask-carved-scream-tan.webp",
+	"system": {
+		"description": "<p>When you choose this archetype at 3rd level, you gain the following Channel Divinity options:</p><h2>Joke of the Century</h2><p>As an action, you unleash a sudden barrage of divine foolishness—prismatic flashes, booming jokes, illusory balloons, or magical slapstick.</p><p>Choose a number of creatures equal to your Charisma modifier within 30 feet. Each must succeed on a Wisdom saving throw or be [[/condition id=confused]] until the end of your next turn. If they fail the saving throw by 5 or more, they are [[/condition id=incapacitated]] until the end of your next turn as they can’t stop laughing.</p><h2>Burst of Joy</h2><p>As a bonus action, you release an aura of uplifting radiance. You and all allies within 30 ft are cured of the [[/condition id=frightened]] condition and have advantage on the next saving throw you make for 1 minute.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"hvyxpGQh112acslC": {
+				"name": "Joke of the Century",
+				"id": "hvyxpGQh112acslC",
+				"default": true,
+				"description": "<p>As an action, you unleash a sudden barrage of divine foolishness—prismatic flashes, booming jokes, illusory balloons, or magical slapstick.</p><p>Choose a number of creatures equal to your Charisma modifier within 30 feet. Each must succeed on a Wisdom saving throw or be confused until the end of your next turn. If they fail the saving throw by 5 or more, they are incapacitated until the end of your next turn as they can’t stop laughing.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/equipment/head/mask-carved-scream-tan.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"tc4HUVjHixxo2K3e",
+					"fHVrPy58BwChBW2K"
+				],
+				"macro": "",
+				"consumers": {
+					"qIzFavB1Mdn2PegO": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"1IrRKf4elTM5gC2H": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"5uPCaZAThczfsiBE": {
+						"range": "short"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "other"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"X65WrQ86oEimpzio": {
+				"name": "Burst of Joy",
+				"id": "",
+				"default": false,
+				"description": "<p>As a bonus action, you release an aura of uplifting radiance. You and all allies within 30 ft are cured of the frightened condition and have advantage on the next saving throw you make for 1 minute.</p><p></p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"LXgmp9BymFLL9naR"
+				],
+				"macro": "",
+				"consumers": {
+					"vRyl5YAA5gLLoBaB": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"ru1JL84cXITHgBFF": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.y7epmRlV0EJSdCjR",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/equipment/head/mask-carved-scream-tan.webp",
+			"_id": "tc4HUVjHixxo2K3e",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A confused creature can't take reactions.</p></li><li><p>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does.</p><ul><li><p>On a 1 to 4, a confused creature does nothing.</p></li><li><p>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p></li><li><p>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p></li></ul></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208880,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.y7epmRlV0EJSdCjR",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Incapacitated",
+			"img": "icons/equipment/head/mask-carved-scream-tan.webp",
+			"_id": "fHVrPy58BwChBW2K",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>An incapacitated creature can’t take actions, bonus actions, or reactions.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"incapacitated"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208880,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.y7epmRlV0EJSdCjR",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Burst of Joy",
+			"img": "icons/equipment/head/mask-carved-scream-tan.webp",
+			"_id": "LXgmp9BymFLL9naR",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Advantage on the next saving throw you make for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208880,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rR7fhJ1EJ77x67Ii"
+}
