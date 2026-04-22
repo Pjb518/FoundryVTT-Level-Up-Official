@@ -1,0 +1,196 @@
+{
+	"folder": null,
+	"name": "Laughter is Life",
+	"type": "feature",
+	"img": "icons/magic/symbols/star-solid-gold.webp",
+	"system": {
+		"description": "<p>Starting at 15th level, your divine humor defies death and despair. When you or an ally within your @UUID[Compendium.a5e.a5e-class-features.Item.xezwxikwrsfkzg4o]{Sacred Aura} would be reduced to 0 hit points, you can use your reaction to unleash a divine burst of radiant laughter. That creature instead drops to 1 hit point and gains temporary hit points equal to your Charisma modifier + your herald level. In addition, they are immune to the frightened condition until the end of their next turn, and their next attack deals extra radiant damage equal to your Charisma modifier.</p><p>You can use this feature once per long rest, or again by expending a use of channel divinity.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"tqnDCVp6jSAZ8D2O": {
+				"name": "Laughter is Life",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "You or an ally within your Sacred Aura would be reduced to 0 hit points"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"ffePYFdQNvYlhAuk"
+				],
+				"macro": "",
+				"consumers": {
+					"68KpnSdItmbkTZLz": {
+						"type": "itemUses",
+						"default": false,
+						"quantity": 1,
+						"label": ""
+					},
+					"l2S8KD44PmB8iNVV": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"qdtcqRp1S80Hp3cM": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"IcwnZNOACpJHjHza": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod + @classes.herald.level",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.eANVK7rOHzkDW99h",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Laughter is Life",
+			"img": "icons/magic/symbols/star-solid-gold.webp",
+			"_id": "ffePYFdQNvYlhAuk",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immune to the frightened condition until the end of their next turn, and their next attack deals extra radiant damage equal to your Charisma modifier.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208852,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bYexHKAQRJtLAN7Q"
+}

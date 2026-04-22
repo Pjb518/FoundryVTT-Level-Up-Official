@@ -1,0 +1,113 @@
+{
+	"folder": null,
+	"name": "Magical Brush",
+	"type": "feature",
+	"img": "icons/tools/hand/brush-paint-pink.webp",
+	"system": {
+		"description": "<p>Starting at 3rd level, you can use painter’s supplies as your arcane focus. When you cast a bard spell with painter’s supplies, you can cast it without vocalized components, which is replaced by the seen component, even if the spell wouldn’t normally have this component.</p><p>Additionally, when you cast a spell that targets only one or more allies, you can paint an inspiring symbol on one surface within 15 feet of yourself. Until the start of your next turn, the next ally who starts their turn in that space gains temporary hit points equal to your Charisma modifier + half your bard level.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"RWUTI9FR4MmZ44RN": {
+				"name": "Magical Brush",
+				"ranges": {
+					"BA4Of7znLLsHhN1A": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"rolls": {
+					"4CG5Rf6pVWIHwzvH": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod + floor(@classes.bard.level / 2)",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bard",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "47eEaFOglkDHIANk"
+}

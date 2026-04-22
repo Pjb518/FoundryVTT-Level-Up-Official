@@ -1,0 +1,416 @@
+{
+	"folder": null,
+	"name": "Stroke of Genius",
+	"type": "feature",
+	"img": "icons/tools/scribal/ink-quill-pink.webp",
+	"system": {
+		"description": "<p>At 14th level, when you cast a bard spell with painter’s supplies, you can use a @UUID[Compendium.a5e.a5e-class-features.Item.m7siz0z3rlng8h20]{Bardic Inspiration} to ignore any material component worth up to a 100gp.</p><p>When you give someone a Bardic Inspiration die, you can imbue it with the essence of your artistic soul. Choose one of the following bonuses to grant to this Bardic Inspiration:</p><ul><li><p>You paint an illusion over an ally. When the Bardic Inspiration is used, the creature becomes [[/condition id=invisible]] until the end of their next turn or until they attack or cast a spell.</p></li><li><p>You use your brush to paint armors on one of your allies. When the Bardic Inspiration is used, the creature’s armor class is increased by 2 until the end of their next turn.</p></li><li><p>You use your brush to paint life. You paint a surge of life into your ally’s form. When the Bardic Inspiration is used, the creature regains hit points equal to your Charisma modifier + your bard level.</p></li><li><p>You sketch a door or path beneath your ally. When the Bardic Inspiration is used, they can teleport up to 60 feet to an unoccupied space they can see.</p></li><li><p>You draw a symbol of clarity and poise. The creature using the Bardic Inspiration has advantage on their next concentration saving throw, and if they are currently concentrating, they can’t lose concentration from taking damage until the start of their next turn.</p></li><li><p>You paint a symbol that dampens sound. Until the end of the creature’s next turn, they are considered silenced (they can’t speak or be heard), but they are also immune to thunder damage and can’t be detected by sound-based effects (e.g., detect thoughts, thunderwave, tremorsense).</p></li></ul><p>You can use this feature a number of times equal to half your Proficiency Bonus per long rest.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"O0cdjX1KhaAA9C7m": {
+				"name": "Ignore Material Component",
+				"consumers": {
+					"zH4bT6Nkda2TWVaG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"9pacUSGtf9Cq4sTo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "O0cdjX1KhaAA9C7m",
+				"img": "icons/tools/scribal/ink-quill-pink.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"0vriEHT98mLTwyDd": {
+				"name": "Imbue",
+				"consumers": {
+					"3MVa5vmmGMDwbBMW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"effects": [
+					"I3Mnn4hulWIjY35w",
+					"rFQuFK8vuIXQOJq2",
+					"jilWn97h1IEWGHjU",
+					"IXypxlOBnrJ9deGY"
+				],
+				"rolls": {
+					"CuZS9Cd3uF8CazU0": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod + @classes.bard.level",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof/2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bard",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.X8OXIbKjuw7nt3PG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Invisible",
+			"img": "icons/tools/scribal/ink-quill-pink.webp",
+			"_id": "I3Mnn4hulWIjY35w",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</p></li><li><p>An invisible creature is heavily obscured for the purpose of hiding.</p></li><li><p>An invisible creature's location can be detected by noises it makes or tracks it leaves.</p></li><li><p>Attack rolls against an invisible creature are made with disadvantage.</p></li><li><p>An invisible creature makes attack rolls with advantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208890,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.X8OXIbKjuw7nt3PG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Armor",
+			"img": "icons/tools/scribal/ink-quill-pink.webp",
+			"_id": "rFQuFK8vuIXQOJq2",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The creature’s armor class is increased by 2 until the end of their next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208890,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.X8OXIbKjuw7nt3PG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Concentration",
+			"img": "icons/tools/scribal/ink-quill-pink.webp",
+			"_id": "jilWn97h1IEWGHjU",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Has advantage on their next concentration saving throw, and if they are currently concentrating, they can’t lose concentration from taking damage until the start of their next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208890,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.X8OXIbKjuw7nt3PG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Dampen Sound",
+			"img": "icons/tools/scribal/ink-quill-pink.webp",
+			"_id": "IXypxlOBnrJ9deGY",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Considered silenced (they can’t speak or be heard), but they are also immune to thunder damage and can’t be detected by sound-based effects (e.g., detect thoughts, thunderwave, tremorsense).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208890,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "JvruRoloqLQdqei4"
+}

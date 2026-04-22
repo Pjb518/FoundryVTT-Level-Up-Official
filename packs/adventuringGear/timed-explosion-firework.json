@@ -1,0 +1,177 @@
+{
+	"folder": null,
+	"name": "Timed Explosion Firework",
+	"type": "object",
+	"img": "icons/magic/fire/explosion-fireball-large-blue.webp",
+	"system": {
+		"description": "<p>When setting this firework you choose an amount of time up to 1 hour. The firework is activated and its effects occur at the chosen time. You choose the point of explosion of the firework when you set it up.</p><p>You can use an action to arm and launch a firework. You can do so a number of times equal to your proficiency bonus per short rest. Fireworks have a range of 120 feet, which increases by 30 feet at 5th, 11th, and 17th level. The area of effect is a cylinder with a 10-foot radius and a height of 30 feet, centered on the point of explosion. The radius increases by 10 feet and the height by 30 feet at 5th, 11th, and 17th level. You can choose the radius and height of the cylinder when you launch the firework.</p><p>The DC for all saving throws caused by your fireworks equals your spell save DC.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"P78xBhvTI2YcKHsp": {
+				"name": "Launch",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cylinder",
+					"quantity": 1,
+					"radius": 10,
+					"height": 30,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "cantrip",
+						"formula": {
+							"radius": "10",
+							"height": "30"
+						}
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"TPePT2hHmyBBF8mp": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "fireworks",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					},
+					"8VG8gBgBugP3w9Ys": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "2j3RmuQ73huGTDI8",
+						"quantity": 1,
+						"deleteOnZero": true,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"HB29PNykPjW00Jj3": {
+						"range": "long"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "ammunition",
+		"plotItem": false,
+		"price": "",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890211760,
+		"modifiedTime": 1776890211760,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "J6rpZLg9snLe9QFy"
+}

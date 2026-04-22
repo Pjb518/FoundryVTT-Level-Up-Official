@@ -1,0 +1,237 @@
+{
+	"folder": null,
+	"name": "Painted Reality",
+	"type": "feature",
+	"img": "icons/tools/hand/brush-paint-brown-white.webp",
+	"system": {
+		"description": "<p>At 6th level, you can spend 10 minutes painting an illusory zone over a square area equal to your Proficiency bonus multiplied by 50 feet. You can freely change how the zone looks, how it sounds and what it smells like as an action during your turn. You can make it a difficult terrain as a free action during your turn for creatures hostile to you. You can also choose the lighting in the zone, from bright light to dim light, which you can also change as a free action during your turn. The illusion appears real to the touch. If given sufficient reason, a creature may make an Investigation check against your spell save DC to disbelieve it. On a successful check, the creature sees the illusion superimposed over the actual terrain. If you make a change in your illusion which is too extreme, the creature automatically succeeds on their investigation check to disbelieve your illusion.</p><p>As an action, you can cause the zone to shift and animate, forcing each hostile creature within it to make a Wisdom saving throw against your spell save DC or become confused until the end of your next turn.</p><p>You can use this feature a number of times equal to half your Proficiency bonus per long rest. The illusory terrain remains until your next long rest.</p><p>If you use Painted Reality on the same zone for one year, your illusion becomes reality.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"dwWWm90zd0By9PDi": {
+				"name": "Create Zone",
+				"activation": {
+					"type": "minute",
+					"cost": 10,
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 1,
+					"width": 0
+				},
+				"prompts": {
+					"V5jVsjNOKmqWaPwO": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "inv",
+						"ability": "int",
+						"label": ""
+					}
+				},
+				"id": "dwWWm90zd0By9PDi",
+				"img": "icons/tools/hand/brush-paint-brown-white.webp",
+				"consumers": {
+					"VVDl0B9NaSHNSFyh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"6wt6AshNZMXjIIhN": {
+				"name": "Shift and Animate",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"prompts": {
+					"JoQxEU7WYhDZfmh2": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"IuJEyN6kYZlHlTbh"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"macro": "",
+				"consumers": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof/2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bard",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.RjRrUFyB07vb7JYf",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/tools/hand/brush-paint-brown-white.webp",
+			"_id": "IuJEyN6kYZlHlTbh",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A confused creature can't take reactions.</p></li><li><p>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does.</p><ul><li><p>On a 1 to 4, a confused creature does nothing.</p></li><li><p>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p></li><li><p>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p></li></ul></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208842,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "NKXhtQc63gNGiiMF"
+}

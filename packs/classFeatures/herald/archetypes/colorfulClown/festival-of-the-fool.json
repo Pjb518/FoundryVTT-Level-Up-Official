@@ -1,0 +1,300 @@
+{
+	"folder": null,
+	"name": "Festival of the Fool",
+	"type": "feature",
+	"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+	"system": {
+		"description": "<p>At 20th level, you become the living embodiment of divine celebration. As an action, you can invoke the Festival of the Fool, a 1-minute radiant performance that turns the battlefield into a sacred carnival of joy, chaos, and glory.</p><p>For the duration:</p><ul><li><p>Your @UUID[Compendium.a5e.a5e-class-features.Item.xezwxikwrsfkzg4o]{Sacred Aura} doubles in radius.</p></li><li><p>Allies within the aura gain immunity to the [[/condition id=frightened]] condition as well as an expertise die on attack rolls, saving throws and Charisma checks.</p></li><li><p>Hostile creatures that start their turn in the aura must succeed on a Charisma saving throw or be [[/condition id=confused]] as they become mad from laughing. A creature which succeeds on this saving throw has advantage to resist against it at the start of their turn. The creature can try to do another saving throw at the end of their turn.</p></li></ul><p>A creature who fails this saving throw while already confused is instead [[/condition id=charmed]] by you for one hour or until you or one of your companions do anything harmful to it.</p><p>Once you use this feature, you can’t use it again until you finish a long rest.</p><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "paletteOfHeroes",
+		"actions": {
+			"Hd2TnhE7ZPjHXJgl": {
+				"name": "Festival of the Fool",
+				"id": "Hd2TnhE7ZPjHXJgl",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"tvEy5gIhK5vH3bVc",
+					"HeEtHUaMJK1Opdy3",
+					"qPlSX3ssLN5htF3I"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"k0jKEofN6UopA7OU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.ZYvtIsH7yhaojuVq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Festival of the Fool",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "tvEy5gIhK5vH3bVc",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Allies within the aura gain immunity to the frightened condition as well as an expertise die on attack rolls, saving throws and Charisma checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208870,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ZYvtIsH7yhaojuVq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "HeEtHUaMJK1Opdy3",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A confused creature can't take reactions.</p></li><li><p>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does.</p><ul><li><p>On a 1 to 4, a confused creature does nothing.</p></li><li><p>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p></li><li><p>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p></li></ul></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208870,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ZYvtIsH7yhaojuVq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Charmed",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "qPlSX3ssLN5htF3I",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A charmed creature can't take any hostile action against the charmer.</p></li><li><p>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1776890208870,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1776890208677,
+		"modifiedTime": 1776890208677,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bjojCAxILPzRBhbu"
+}

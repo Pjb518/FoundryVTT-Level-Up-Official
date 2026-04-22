@@ -80,6 +80,15 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
+    owlSomeGames: {
+			name: 'Owl(some) Games',
+			releases: [
+				{
+					title: 'The Palette of Heroes',
+					url: 'https://www.drivethrurpg.com/en/product/524798/the-palette-of-heroes?affiliate_id=1388381',
+				},
+			],
+		},
 		plantWitchPress: {
 			name: 'Plant Witch Press',
 			releases: [
@@ -647,6 +656,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Obscure Medicinials',
 			url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
+		},
+    paletteOfHeroes: {
+			abbreviation: 'PoH',
+			affiliate: true,
+			publisher: 'owlSomeGames',
+			systems: ['a5e'],
+			title: 'The Palette of Heroes',
+			url: 'https://www.drivethrurpg.com/en/product/524798/the-palette-of-heroes?affiliate_id=1388381',
 		},
 		paradigmsOfSkill: {
 			abbreviation: 'PoS',
