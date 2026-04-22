@@ -184,14 +184,20 @@
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
-        <button onclick={() => rollOnSkillTable(rollData.skillKey, "critical")}>
+        <button
+            class="skill-table-button skill-table-button--critical"
+            onclick={() => rollOnSkillTable(rollData.skillKey, "critical")}
+        >
             <i class="fa-solid icon fa-dice-d20"></i>
             Roll on the skill critical success table
         </button>
     {/if}
 
     {#if isCriticalFailure}
-        <button onclick={() => rollOnSkillTable(rollData.skillKey, "fumble")}>
+        <button
+            class="skill-table-button skill-table-button--fumble"
+            onclick={() => rollOnSkillTable(rollData.skillKey, "fumble")}
+        >
             <i class="icon fa-solid fa-dice-d20"></i>
             Roll on the skill critical failure table
         </button>
@@ -310,6 +316,48 @@
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: var(--a5e-color-text-medium);
+    }
+
+    .skill-table-button {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        width: 100%;
+        margin: 0;
+        padding: 0.25rem 0.5rem;
+        font-size: var(--a5e-text-size-sm);
+        line-height: 1;
+        color: var(--a5e-color-text-medium);
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--a5e-chat-card-border-color);
+        border-radius: var(--a5e-border-radius-standard);
+        transition: var(--a5e-transition-standard);
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            color: var(--a5e-color-text-dark);
+            background: rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+        }
+
+        &--critical {
+            border-color: #97ae8f;
+
+            &:hover,
+            &:focus {
+                background: rgba(151, 174, 143, 0.3);
+            }
+        }
+
+        &--fumble {
+            border-color: #f0b5b5;
+
+            &:hover,
+            &:focus {
+                background: rgba(240, 181, 181, 0.3);
+            }
+        }
     }
 
     .subtitle-wrapper {
