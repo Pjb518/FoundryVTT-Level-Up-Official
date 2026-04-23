@@ -74,10 +74,7 @@
         // @ts-expect-error
         if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer?.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
     async function getDescription(item: Item) {
@@ -95,6 +92,40 @@
             )) ?? localize("A5E.NoDescription");
 
         return data;
+    }
+
+    function sortContainer(a: any, b: any) {
+        switch (sortMethod) {
+            case "alphabetical":
+                if (sortDirection === "ascending")
+                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+
+            case "quantity":
+                if (sortDirection === "ascending") {
+                    if (a.system.quantity < b.system.quantity) return -1;
+                    if (a.system.quantity > b.system.quantity) return 1;
+                    return 0;
+                }
+
+                if (a.system.quantity > b.system.quantity) return -1;
+                if (a.system.quantity < b.system.quantity) return 1;
+                return 0;
+
+            case "weight":
+                if (sortDirection === "ascending") {
+                    if (a.system.weight < b.system.weight) return -1;
+                    if (a.system.weight > b.system.weight) return 1;
+                    return 0;
+                }
+
+                if (a.system.weight > b.system.weight) return -1;
+                if (a.system.weight < b.system.weight) return 1;
+                return 0;
+
+            default:
+                return 0;
+        }
     }
 
     let actor: any = getContext("actor");
@@ -117,11 +148,14 @@
             .catch((err) => (description = err)),
     );
 
+    let sortMethod = $derived(item.reactive.system.containerSortMethod);
+    let sortDirection = $derived(item.reactive.system.containerSortDirection);
+
     let containerItems = $derived(
-        item.reactive.isType("object") &&
-            item.reactive.system.objectType === "container"
+        item.reactive.isType("object") && item.reactive.system.objectType === "container"
             ? [...(actor.reactive.items?.values() ?? [])]
                   .filter((child) => child.system.containerId === item.uuid)
+                  .sort((a, b) => sortContainer(a, b))
                   .map((child) => [child.id, child])
             : [],
     );

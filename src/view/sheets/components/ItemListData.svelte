@@ -175,17 +175,19 @@
         item.actions?.configure(id);
     }
 
+    /*
     function getCapacity(item: Item): number {
         if (!item.isType("object")) return 0;
         if (item.system?.objectType !== "container") return 0;
 
         const capacity = item.containerItems
             ?.capacity()
-            .then((c) => (containerCapacity = c.percentage))
+            .then((c) => (containerCapacity = c.value))
             .catch((e) => console.error(e));
 
-        return capacity?.percentage ?? 0;
+        return capacity?.value ?? 0;
     }
+    */
 
     function generateUsesConfig() {
         const usesData = {
@@ -272,6 +274,7 @@
     });
 
     let uses = $derived(generateUsesConfig());
+    let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? true);
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items
@@ -294,9 +297,24 @@
 
     let activationCost = $derived(getActivationCost());
     let activationCostLabel = $derived(getActivationCostLabel(activationCost));
-    let containerCapacity = $derived(getCapacity(item));
+    let containerCapacity = $state(0);
     let isMagicalItem = $derived(isMagical(item));
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
+
+    $effect(() => {
+        if (
+            !item.reactive.isType("object") ||
+            item.reactive.system?.objectType !== "container"
+        ) {
+            containerCapacity = 0;
+            return;
+        }
+
+        item.reactive.containerItems
+            ?.capacity()
+            .then((c) => (containerCapacity = c.value))
+            .catch((e) => console.error(e));
+    });
 </script>
 
 <div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
@@ -357,7 +375,19 @@
         {#if itemStore?.objectType === "container"}
             {#if containerCapacity}
                 <span data-tooltip="Capacity" data-tooltip-direction="UP">
-                    ({containerCapacity}%)
+                    {#if item.system.capacity.value}
+                        (
+                        {containerCapacity}
+
+                        /
+
+                        {item.system.capacity.value}
+
+                        {#if item.system.capacity.type === "weight"}
+                            lbs.
+                        {/if}
+                        )
+                    {/if}
                 </span>
             {/if}
 
@@ -658,6 +688,20 @@
     </div>
 {/if}
 
+{#if !actionId && item?.type === "object" && itemStore?.weight > 0 && showWeightColumnFlag}
+    <div class="weight-wrapper">
+        <input
+            class="number-input"
+            id="{actor.id}-{item.id}-weight"
+            type="number"
+            name="system.weight"
+            value={itemStore.weight}
+            disabled={true}
+            onclick={(e) => e.stopPropagation()}
+        />
+    </div>
+{/if}
+
 <style lang="scss">
     .action-button {
         flex-grow: 0;
@@ -817,6 +861,7 @@
     }
 
     .quantity-wrapper,
+    .weight-wrapper,
     .uses-wrapper {
         display: flex;
         align-items: center;
@@ -830,5 +875,9 @@
 
     .quantity-wrapper {
         grid-area: quantity;
+    }
+
+    .weight-wrapper {
+        grid-area: weight;
     }
 </style>

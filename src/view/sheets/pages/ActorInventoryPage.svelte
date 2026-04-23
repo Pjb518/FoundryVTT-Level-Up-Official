@@ -5,6 +5,7 @@
     import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
     import { usesRequired } from "#utils/view/usesRequired.ts";
     import { quantityRequired } from "#utils/view/quantityRequired.ts";
+    import { weightRequired } from "#utils/view/weightRequired.ts";
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import ItemCategory from "../components/ItemCategory.svelte";
@@ -22,6 +23,10 @@
         searchDescription: false,
         page: "objects",
     });
+
+    let showWeightColumnFlag = $derived(
+        actor.reactive.flags?.a5e?.showWeightColumn ?? true,
+    );
 
     let activeFilters = $derived(
         actor.reactive.flags.a5e?.filters?.objects ?? {
@@ -81,6 +86,14 @@
         }).filter((item) => !item.system.containerId),
     );
 
+    let weightedItems = $derived(
+        filterItems(actor.reactive, "object", {
+            searchTerm: filterOptions.searchTerm,
+            searchDescription: filterOptions.searchDescription,
+            filters: filterFunction,
+        }),
+    );
+
     let categorizedItems = $derived(groupItemsByType(items, "objectType"));
 
     const openCompendium = game.a5e.utils.openCompendium;
@@ -88,6 +101,7 @@
     let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
+    let showWeight = $derived(weightRequired(weightedItems) && showWeightColumnFlag);
 
     let objectTypes = Object.entries(CONFIG.A5E.objectTypes) as string[][];
 
@@ -126,6 +140,7 @@
                 {showDescription}
                 {showQuantity}
                 {showUses}
+                {showWeight}
                 items={itemList}
                 type="objectTypesPlural"
             />
