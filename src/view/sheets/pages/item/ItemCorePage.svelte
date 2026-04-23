@@ -22,7 +22,7 @@
                 display: !itemStore.unidentified || game.user?.isGM,
             },
             {
-                name: "unIdentifiedDescription",
+                name: "unidentifiedDescription",
                 label: "A5E.objects.unidentifiedDescriptionTab",
                 display:
                     item.type === "object" && (itemStore.unidentified || game.user?.isGM),
@@ -36,9 +36,7 @@
     }
 
     function updateCurrentTab(name: string) {
-        const { uuid } = item;
-        const newTabName = name ?? "description";
-        currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
+        selectedTabName = name ?? "description";
     }
 
     let item: any = getContext("item");
@@ -46,9 +44,14 @@
     let summaryData = $derived(getSummaryData(item.reactive));
 
     let tabs = $derived(getTabs());
-    let currentTab = $derived(
-        itemStore?.unidentified && !game.user?.isGM ? tabs[1] : tabs[0],
-    );
+    let selectedTabName: string | null = $state(null);
+
+    let currentTab = $derived.by(() => {
+        const name =
+            selectedTabName ??
+            (itemStore?.unidentified && !game.user?.isGM ? tabs[1]?.name : tabs[0]?.name);
+        return tabs.find((tab) => tab.name === name) ?? tabs[0];
+    });
 
     let property = $derived(getProperty());
 </script>
@@ -66,7 +69,7 @@
         <hr class="a5e-rule a5e-rule--card" />
     {/if}
 
-    {#key itemStore[property]}
+    {#key `${property}::${itemStore[property]}`}
         <Editor
             content={itemStore[property]}
             document={item}
