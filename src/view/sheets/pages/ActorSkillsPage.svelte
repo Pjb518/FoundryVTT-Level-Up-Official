@@ -8,7 +8,9 @@
     function determineWhetherToShowSkillSpecialties(skills: any) {
         if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
 
-        return Object.values(skills).some((skill: any) => skill.specialties.length);
+        return Object.values(skills).some(
+            (skill: any) => skill.specialties.length,
+        );
     }
 
     function getSkills(baseSkills: any) {
@@ -56,7 +58,9 @@
     const { skillSpecialties } = A5E;
 
     let skills = $derived(getSkills(actorStore.skills));
-    let showSpecialties = $derived(determineWhetherToShowSkillSpecialties(skills));
+    let showSpecialties = $derived(
+        determineWhetherToShowSkillSpecialties(skills),
+    );
 
     let skillListFlowDirection = $derived(
         game.settings.get("a5e", "skillListFlowDirection"),
@@ -71,6 +75,7 @@
             --a5e-field-wrapper-background="var(--a5e-skill-specialty-background)"
             --a5e-field-wrapper-border="1px solid var(--a5e-border-color)"
             --a5e-field-wrapper-padding="0.5rem"
+            --a5e-field-wrapper-gap="0.55rem"
         >
             <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
 
@@ -90,7 +95,8 @@
                                     class="a5e-skill-specialties__list-item"
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"
-                                    onclick={() => rollSkillCheckWithSpecialty(skillKey)}
+                                    onclick={() =>
+                                        rollSkillCheckWithSpecialty(skillKey)}
                                 >
                                     {specialty}
                                 </button>
@@ -104,13 +110,18 @@
 
     <ul
         class="skills-container"
-        class:skills-container--column-flow={skillListFlowDirection === "column"}
+        class:skills-container--column-flow={skillListFlowDirection ===
+            "column"}
         style:grid-template-rows={skillListFlowDirection === "column"
             ? `repeat(${numberOfRows}, 1.5rem)`
             : null}
     >
         {#each Object.entries(skills) as [skillKey, skill], idx}
-            <Skill {skillKey} {skill} columnFlow={skillListFlowDirection === "column"} />
+            <Skill
+                {skillKey}
+                {skill}
+                columnFlow={skillListFlowDirection === "column"}
+            />
         {/each}
     </ul>
 </div>
