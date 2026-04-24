@@ -46,6 +46,11 @@ export default function registerModuleIncompatibilities() {
           'The content from this module is included in the core system packs, and the module is no longer necessary.',
         priority: 'low',
       },
+      'a5e-fable-of-flames': {
+        reason:
+          'The content from this module is included in the core system packs, and the module is no longer necessary.',
+        priority: 'low',
+      },
       'a5e-fancy-compendia': {
         reason:
           'The updated compendium sheets are now included in the A5e system without any need for a module and include several new features. We highly recommend you disable this module to take full advantage of those new features.',

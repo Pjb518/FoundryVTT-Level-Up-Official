@@ -1,0 +1,243 @@
+{
+	"name": "Legend Dice",
+	"type": "feature",
+	"img": "icons/sundries/gaming/dice-pair-white-green.webp",
+	"system": {
+		"description": "<p>At 3rd level, you gain a pool of Legend Dice, which represent your growing mythic momentum. Legend Dice start as a d4 and become a d6 at 10th level and a d10 at 20th level.</p><p>You have a number of Legend Dices equal to your proficiency bonus and you regain all Legend Dices at the end of a long rest.</p><p>You can use a Legend Dice in a few different ways:</p><ul><li><p>When you use a combat maneuver, you may expend a Legend Die to increase its damage by an amount equal to the result of the die or increase its DC by 1.</p></li><li><p>When you are hit by a weapon attack, you may use your reaction to expend a Legend Die and add the result to your AC until the start of your next turn. If this causes the attack to miss, it deals no damage.</p></li><li><p>When you would fall to 0 hit points, you may use your reaction to expend a Legend Die and instead remain at 1 hit point. You can’t use a legend dice this way more than once per short rest.</p></li></ul><p>Additional uses for your Legend Dice become available as you develop your @UUID[Compendium.a5e-fable-of-flames.features.Item.mDrQzw78mvTVZZQR]{Mythic Fable}.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"sGCuQRjbrPr74HIV": {
+				"name": "Combat Maneuver",
+				"id": "sGCuQRjbrPr74HIV",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/gaming/dice-pair-white-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"NL2fpa6LRTvpTqof": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"6sLxFNwvAWHLRWiS": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"U6ZucWLJGKHgwboB": {
+				"name": "Hit By A Weapon",
+				"id": "U6ZucWLJGKHgwboB",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/gaming/dice-pair-white-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Hit by a weapon attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"NL2fpa6LRTvpTqof": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"bNNWnR3TZ5GsK4pE": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": "AC Bonus"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"wBQ66yiBw93FLczX": {
+				"name": "0 HP",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Fall to 0 hit points"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"NL2fpa6LRTvpTqof": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					},
+					"Mb3wDdpl9yP9sX8D": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"h6P0ZkogvNhn98mK": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "SdkTtahNdnXE8OEA"
+}

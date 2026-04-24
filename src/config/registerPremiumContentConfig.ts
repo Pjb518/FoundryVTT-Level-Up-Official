@@ -84,6 +84,10 @@ export default function registerPremiumContentConfig() {
 			name: 'Owl(some) Games',
 			releases: [
 				{
+					title: 'Fable of Flames',
+					url: 'https://www.drivethrurpg.com/en/product/525752/fable-of-flames?affiliate_id=1388381',
+				},
+        {
 					title: 'The Palette of Heroes',
 					url: 'https://www.drivethrurpg.com/en/product/524798/the-palette-of-heroes?affiliate_id=1388381',
 				},
@@ -352,6 +356,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Extra Credit and Deeper Mysteries',
 			url: 'https://bit.ly/47UnJaV',
+		},
+    fableOfFlames: {
+			abbreviation: 'FoF',
+			affiliate: true,
+			publisher: 'owlSomeGames',
+			systems: ['a5e'],
+			title: 'Fable of Flames',
+			url: 'https://www.drivethrurpg.com/en/product/525752/fable-of-flames?affiliate_id=1388381',
 		},
 		fieldEngineer: {
 			abbreviation: 'FE',

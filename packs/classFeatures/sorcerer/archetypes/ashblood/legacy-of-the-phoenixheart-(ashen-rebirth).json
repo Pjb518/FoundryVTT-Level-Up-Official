@@ -1,0 +1,147 @@
+{
+	"name": "Legacy of the Phoenixheart (Ashen Rebirth)",
+	"type": "feature",
+	"img": "icons/magic/fire/projectile-wave-arrow.webp",
+	"system": {
+		"description": "<p>When you use Ashen Rebirth, each creature of your choice within 60 feet of your new form takes fire damage equal to twice your sorcerer level if they fail a Dexterity Saving Throw (Spell save DC) or half on a success.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"o89HTMqi212aPkLv": {
+				"name": "Ashen Rebirth",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/projectile-wave-arrow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"fzgm7WK32FwA7cXo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"1gXBfWW1T8OPbLvn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"UC7nKQIdXzU5MaDe": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"OnTAt7GwnqpJq9jv": {
+						"type": "healing",
+						"default": true,
+						"formula": "2 * @classes.sorcerer.level",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"7uNCeeOj50MjqlfX": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "2 * @classes.sorcerer.level",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 60,
+					"placeTemplate": true
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sorcerer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DkBpQz2OgZZhrLde"
+}

@@ -1,0 +1,172 @@
+{
+	"name": "Voice in the Flame",
+	"type": "feature",
+	"img": "icons/magic/fire/elemental-fire-humanoid.webp",
+	"system": {
+		"description": "<p>At 10th level, you can cast @UUID[Compendium.a5e.a5e-spells.Item.kbyg7uvh3w8osgiq]{Sending} and @UUID[Compendium.a5e.a5e-spells.Item.24rmiwo0w5pd746x]{Legend Lore} without material components and you add them to your spell list, they don’t count toward the number of warlock spells you can have. You can cast each spell once without expending a spell slot, regaining the ability to do so when you finish a long rest. When you cast <em>legend lore</em> this way, the information you receive is conveyed through visions of fire and whispered myths, often referencing you as if you were part of the tale.</p><p>While you are within 30 feet of an open flame, you are under the effects of the @UUID[Compendium.a5e.a5e-spells.Item.ef9fuzf8xcja2p7c]{Tongues} spell.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"CAeRk8Er2bMBccsf": {
+				"name": "Sending",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"ranges": {
+					"A7nPVHjsiQq1WZoC": {
+						"range": "Unlimited"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {}
+				},
+				"consumers": {
+					"lxdj94Ik2hfHcbKu": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "CAeRk8Er2bMBccsf",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"riLikVimB8CfFcgl": {
+				"name": "Legend Lore",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"MkK8h8GgIqgDLsGJ": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creatureObject",
+					"scaling": {}
+				},
+				"consumers": {
+					"OyGrEJ5pNTEBr9ih": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/books/book-open-purple.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warlock",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ySOU1mRvFLNYRtZJ"
+}

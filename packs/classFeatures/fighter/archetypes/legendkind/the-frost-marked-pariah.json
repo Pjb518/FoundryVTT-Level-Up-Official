@@ -1,0 +1,213 @@
+{
+	"name": "The Frost-Marked Pariah",
+	"type": "feature",
+	"img": "icons/magic/water/heart-ice-freeze.webp",
+	"system": {
+		"description": "<p><em>Passive: You gain resistance to cold damage, and ignore movement penalties from ice and snow.</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Winter Requital:</strong> When a creature ends its turn within 5 feet of you, you can expend a Legend Die as a reaction to force it to make a Constitution saving throw (Maneuver DC). On a failure, its speed is halved until the end of its next turn and it takes cold damage equal to the result.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"JtNfwCNZfsT93p9Q": {
+				"name": "Winter Requital",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A creature ends its turn within 5 feet of you"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"Mj1EKpaTyYFL7OnF"
+				],
+				"macro": "",
+				"consumers": {
+					"z1KQwXqMciZH5bFl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"3jH56jD2ZgGSp7i6": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"9M1GJYvIJxWLt0Bt": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"CHZo52I61e2b21Yx": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "CHZo52I61e2b21Yx",
+				"traits": {
+					"base": [
+						"cold"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"label": "The Frost-Marked Pariah"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.FIX1fi5zGrR8EqCY",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Winter Requital",
+			"img": "icons/magic/water/heart-ice-freeze.webp",
+			"_id": "Mj1EKpaTyYFL7OnF",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.movement.allDistances",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Speed is halved until the end of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929370,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "A6Cy6yM8h3vya4N0"
+}

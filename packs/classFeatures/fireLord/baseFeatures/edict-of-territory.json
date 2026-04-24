@@ -1,0 +1,125 @@
+{
+	"name": "Edict of Territory",
+	"type": "feature",
+	"img": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp",
+	"system": {
+		"description": "<p>You mark the battlefield as your territory. As a bonus action, you create a blazing sigil in a 15-foot radius on a point you can see within 60 feet. This area becomes a sacred ground for 1 minute. Enemies treat it as difficult terrain while allies within the area gain temporary hit points equal to twice your Constitution modifier the first time they enter the zone or start their turn there.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"oYbayjDCirmHFbdu": {
+				"name": "Edict of Territory",
+				"consumers": {
+					"N7tT6k64O6jqAksu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"eixpDbNrt5bPIZrd": {
+						"range": "medium"
+					}
+				},
+				"rolls": {
+					"EyYSwVMVJ2WZ3ej7": {
+						"type": "healing",
+						"default": true,
+						"formula": "2 * @con.mod",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fireLord",
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1uep8mxeY9wXPsQK"
+}

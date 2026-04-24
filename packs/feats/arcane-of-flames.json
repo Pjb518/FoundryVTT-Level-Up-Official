@@ -1,0 +1,146 @@
+{
+	"name": "Arcane of Flames",
+	"type": "feature",
+	"img": "icons/magic/fire/beam-jet-stream-spiral-yellow.webp",
+	"system": {
+		"description": "<p>Fire is the elemental power of destruction, a power every user of the arcane uses this ancestral art to destroy their foes. You gain the following benefits:</p><ul><li><p>Your Charisma score increases by 1.</p></li><li><p>You add the <em>fire</em> school of spells to your spell list, and you take two spells from this list for a level you can cast. You can cast one of these spells once per Long Rest without expending a spell slot, and they are considered always prepared and don’t count toward the number of spells you may know.</p></li><li><p>When you cast a spell that deals fire damage, you can add your Charisma modifier to one damage roll of the spell. You can do this a number of times equal to your proficiency bonus per Short Rest.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"5A9C2SlRHuUSoBsU": {
+				"name": "Arcane of Flames",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"1upWVMK6gzEQAC35": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"B4wPYx5JSAEcBtKK": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "@cha.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"e2oZGXzJBe7OTDD3": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "e2oZGXzJBe7OTDD3",
+				"label": "Arcane of Flames",
+				"bonus": "1",
+				"abilities": {
+					"base": [
+						"cha"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "You must have the spellcasting feature",
+		"requiresBloodied": false,
+		"asi": [
+			"cha"
+		],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.9",
+		"createdTime": 1777054805134,
+		"modifiedTime": 1777054814810,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "8aZ6VVzqMzvFwrqL"
+}

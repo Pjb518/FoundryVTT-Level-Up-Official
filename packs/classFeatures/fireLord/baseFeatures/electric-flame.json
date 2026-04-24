@@ -1,0 +1,256 @@
+{
+	"name": "Electric Flame",
+	"type": "feature",
+	"img": "icons/magic/lightning/orb-ball-blue.webp",
+	"system": {
+		"description": "<p>You add the <em>lightning</em> and <em>thunder</em> schools of magic to your fire lord spell list. You gain two spells from these schools when you gain this feature, they don’t count toward the number of spells you know.</p><p>Once per Long Rest, when you use the @UUID[Compendium.a5e.a5e-class-features.Item.0VKJHXDtUHxvSFv0]{Searing Fire} feature, instead of burning, you can choose a number of creatures up to your proficiency bonus which were affected by your spell. They make a Constitution Saving Throw (Spell save DC), or they are [[/condition id=rattled]] for 1 minute. They make a new saving throw at the end of each of their turns. If they fail their initial saving throw by 5 or more, they are [[/condition id=paralyzed]] instead of rattled.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"hJIIzMPQTmALllLn": {
+				"name": "Searing Fire",
+				"id": "Beh4hkWsQCjeSFz8",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"Q1JbCGPD906USqjK",
+					"mwosAAmEBNqLNspV"
+				],
+				"macro": "",
+				"consumers": {
+					"ufxsMq2YlLAmS4S6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "searing-fire-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					},
+					"FpqpvrLgp4ZeKPr3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"igEAnoEg3vpX53MV": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fireLord",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.JSKOjRSk57OvKbbf",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Rattled",
+			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+			"_id": "Q1JbCGPD906USqjK",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A rattled creature cannot benefit from expertise dice.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li><li><p>A rattled creature cannot take reactions.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.9",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1777053636578
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.JSKOjRSk57OvKbbf",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Paralyzed",
+			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+			"_id": "mwosAAmEBNqLNspV",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A paralyzed creature is incapacitated and can't move or speak.</p></li><li><p>A paralyzed creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against a paralyzed creature have advantage.</p></li><li><p>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"paralyzed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.9",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1777053636578
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.9",
+		"createdTime": 1777053636562,
+		"modifiedTime": 1777053940344,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "rCVH3KNL9R7hE9JE"
+}

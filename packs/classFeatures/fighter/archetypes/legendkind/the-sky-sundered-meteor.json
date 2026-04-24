@@ -1,0 +1,190 @@
+{
+	"name": "The Sky-Sundered Meteor",
+	"type": "feature",
+	"img": "icons/magic/earth/projectile-orb-asteroid-yellow.webp",
+	"system": {
+		"description": "<p><em>Passive: You can fall up to 30 feet without taking falling damage. You also gain proficiency in Acrobatics or Performance (your choice).</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Meteoric Momentum:</strong> When you move at least 20 feet in a straight line before making a melee weapon attack, you can expend a Legend Die to increase your speed. For 1 minute, your speed is increased by 5ft. You can stack speed increases if you use Meteoric Momentum again. Additionally, you can Dash as a bonus action during the turn you activate this legend dice feature.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"iBMGy4eZJbK2uKXy": {
+				"name": "Meteoric Momentum",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"VSMmE3DlYrHVqt4G"
+				],
+				"macro": "",
+				"consumers": {
+					"Rd82Ni2W2odZQw9E": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"4qUyZFOxIOthWZkS": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "4qUyZFOxIOthWZkS",
+				"label": "The Sky-Sundered Meteor",
+				"keys": {
+					"base": [],
+					"options": [
+						"acr",
+						"prf"
+					],
+					"total": 1
+				},
+				"proficiencyType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.NYHerWLq22NTWEWu",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Meteoric Momentum",
+			"img": "icons/magic/earth/projectile-orb-asteroid-yellow.webp",
+			"_id": "VSMmE3DlYrHVqt4G",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For 1 minute, your speed is increased by 5ft. You can stack speed increases if you use Meteoric Momentum again. Additionally, you can Dash as a bonus action during the turn you activate this legend dice feature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929415,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "06Xx5mvTHs6L6HlV"
+}

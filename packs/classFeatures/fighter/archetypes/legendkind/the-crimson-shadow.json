@@ -1,0 +1,204 @@
+{
+	"name": "The Crimson Shadow",
+	"type": "feature",
+	"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
+	"system": {
+		"description": "<p><em>Passive: You gain advantage on Stealth checks and can move through the space of Large or larger creatures without penalty.</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Vengeful Echo:</strong> When a creature within 30 feet deals damage to you or an ally, you can expend a Legend Die as a reaction to mark them. The next time you hit that creature before the end of your next turn, add the Legend Die to the attack’s damage and the creature has disadvantage on attack roll until the end of its next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"fZMDbJiw5x9dH0N9": {
+				"name": "Vengeful Echo",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"fue2sPxFhxsTPQ6X"
+				],
+				"macro": "",
+				"consumers": {
+					"CKmhXfZZbYwGFMNT": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"bkpGWy0qfuZpkqw6": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"hFP1nhC5tlECDRgX": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"LBxB0i1ZmkdZvfBX": {
+				"grantType": "rollOverride",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "LBxB0i1ZmkdZvfBX",
+				"label": "The Crimson Shadow",
+				"rollOverrideType": "skill",
+				"keys": {
+					"base": [
+						"ste"
+					]
+				},
+				"rollMode": 1
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.UtwFJaCMG3EbkrWI",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Marked",
+			"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
+			"_id": "fue2sPxFhxsTPQ6X",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The next time you hit that creature before the end of your next turn, add the Legend Die to the attack’s damage and the creature has disadvantage on attack roll until the end of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929466,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0VFwSpvi244DS0jm"
+}
