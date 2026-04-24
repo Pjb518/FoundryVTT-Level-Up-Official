@@ -33,6 +33,16 @@ export default class CharacterActorA5E extends BaseActorA5e {
     return this._classes;
   }
 
+  get supply(): number {
+    return this.items.reduce((count: number, item) => {
+      if (item.system.supply && item.system.equippedState) {
+        count += item.system.quantity || 1;
+      }
+
+      return count;
+    }, this.system.supply);
+  }
+
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
@@ -540,35 +550,41 @@ export default class CharacterActorA5E extends BaseActorA5e {
   // -------------------------------------------------------------
   // Fix Nested UUIDs in Grants
   // -------------------------------------------------------------
-    async _fixNestedUuids() {
+  async _fixNestedUuids() {
     const actorData = this.toObject();
     let modified = false;
 
     function fixNestedUuids(obj) {
-      if (typeof obj !== 'object' || obj === null) return;
+      if (typeof obj !== "object" || obj === null) return;
 
       for (const key in obj) {
         const value = obj[key];
 
         // Check if this is the problematic structure: {uuid: {uuid: "...", ...}, ...}
-        if (key === 'uuid' && typeof value === 'object' && value !== null) {
-          if (value.uuid && typeof value.uuid === 'string') {
+        if (key === "uuid" && typeof value === "object" && value !== null) {
+          if (value.uuid && typeof value.uuid === "string") {
             const innerUuid = value.uuid;
             const limitedReselection = value.limitedReselection;
             const selectionLimit = value.selectionLimit;
 
             obj.uuid = innerUuid;
 
-            if (obj.limitedReselection === undefined && limitedReselection !== undefined) {
+            if (
+              obj.limitedReselection === undefined &&
+              limitedReselection !== undefined
+            ) {
               obj.limitedReselection = limitedReselection;
             }
-            if (obj.selectionLimit === undefined && selectionLimit !== undefined) {
+            if (
+              obj.selectionLimit === undefined &&
+              selectionLimit !== undefined
+            ) {
               obj.selectionLimit = selectionLimit;
             }
 
             modified = true;
           }
-        } else if (typeof value === 'object') {
+        } else if (typeof value === "object") {
           // Recursively check nested objects
           fixNestedUuids(value);
         }

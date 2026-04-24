@@ -15,7 +15,7 @@
         return actor?.system?.spellResources?.points?.max;
     }
     function hasSupply(actor) {
-        return actor?.system?.supply;
+        return actor?.reactive.supply;
     }
 
     const { spellLevels } = CONFIG.A5E;
@@ -38,7 +38,9 @@
 
 {#if showResources}
     {#if propData.partyHasInspiration}
-        <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--inspiration">
+        <span
+            class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--inspiration"
+        >
             {#if actorData?.attributes.inspiration}
                 <i
                     class="a5e-party-viewer__resources__check icon fa-solid fa-circle-check"
@@ -56,10 +58,12 @@
     {/if}
 
     {#if propData.partyHasExertionPool}
-        <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--exertion">
+        <span
+            class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--exertion"
+        >
             {#if showExertion}
-                {actorData?.attributes.exertion?.current} / {actorData?.attributes
-                    .exertion?.max}
+                {actorData?.attributes.exertion?.current} / {actorData
+                    ?.attributes.exertion?.max}
             {:else}
                 <i
                     class="a5e-party-viewer__resources__cross icon fa-solid fa-xmark"
@@ -71,9 +75,11 @@
     {/if}
 
     {#if propData.partyHasSupply}
-        <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--supply">
+        <span
+            class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--supply"
+        >
             {#if showSupply}
-                {actorData?.supply} / {actorData?.abilities.str.value}
+                {actor?.reactive?.supply} / {actorData?.abilities.str.value}
             {:else}
                 <i
                     class="a5e-party-viewer__resources__cross icon fa-solid fa-xmark"
@@ -85,7 +91,9 @@
     {/if}
 
     {#if propData.partyHasArtifactCharges}
-        <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--artifactCharges">
+        <span
+            class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--artifactCharges"
+        >
             {#if showArtifactCharges}
                 {actorData?.spellResources.artifactCharges.current} / {actorData
                     ?.spellResources.artifactCharges.max}
@@ -100,10 +108,12 @@
     {/if}
 
     {#if propData.partyHasSpellPointPool}
-        <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--spellPoints">
+        <span
+            class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--spellPoints"
+        >
             {#if showSpellPoints}
-                {actorData?.spellResources.points.current} / {actorData?.spellResources
-                    .points.max}
+                {actorData?.spellResources.points.current} / {actorData
+                    ?.spellResources.points.max}
             {:else}
                 <i
                     class="a5e-party-viewer__resources__cross icon fa-solid fa-xmark"
@@ -140,5 +150,8 @@
         </ol>
     {/if}
 {:else}
-    <span class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--no-resources">No resources to display</span>
+    <span
+        class="a5e-party-viewer__resources__field a5e-party-viewer__resources__value--no-resources"
+        >No resources to display</span
+    >
 {/if}

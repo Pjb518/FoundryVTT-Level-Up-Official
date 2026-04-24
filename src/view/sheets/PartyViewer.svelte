@@ -39,7 +39,7 @@
 
     function getAnyMemberHasSupply() {
         return (partyMembers ?? []).some((actor) => {
-            return actor?.system?.supply;
+            return actor?.supply;
         });
     }
 
@@ -248,12 +248,16 @@
 
     async function onDropDocument(event) {
         if (!game.user.isGM) {
-            ui.notifications.warn("You do not have permission to edit this party.");
+            ui.notifications.warn(
+                "You do not have permission to edit this party.",
+            );
             return;
         }
 
         try {
-            const { uuid } = JSON.parse(event.dataTransfer.getData("text/plain"));
+            const { uuid } = JSON.parse(
+                event.dataTransfer.getData("text/plain"),
+            );
             const document = await fromUuid(uuid);
 
             if (document?.documentName === "Actor") onDropActor(uuid);
@@ -297,12 +301,14 @@
     }
 
     async function togglePartyLock() {
-        const parties = Object.entries(partiesStore ?? {}).map(([id, partyData]) => ({
-            id,
-            label: partyData.name || "New Party",
-            actors: partyData.actors ?? [],
-            isLocked: partyData.isLocked ?? false,
-        }));
+        const parties = Object.entries(partiesStore ?? {}).map(
+            ([id, partyData]) => ({
+                id,
+                label: partyData.name || "New Party",
+                actors: partyData.actors ?? [],
+                isLocked: partyData.isLocked ?? false,
+            }),
+        );
 
         if (parties.length) {
             const p = partiesStore[parties[0]?.id];
@@ -350,7 +356,8 @@
 
     const { isGM } = game.user;
 
-    const useCredits = (game.settings.get("a5e", "useCredits") as boolean) ?? false;
+    const useCredits =
+        (game.settings.get("a5e", "useCredits") as boolean) ?? false;
 
     // Reactive state
     let partiesStore = $state(game.settings.get("a5e", "parties"));
@@ -361,12 +368,14 @@
 
     // Derived state
     let currentParty = $derived.by(() => {
-        const parties = Object.entries(partiesStore ?? {}).map(([id, partyData]) => ({
-            id,
-            label: partyData.name || "New Party",
-            actors: partyData.actors ?? [],
-            isLocked: partyData.isLocked ?? false,
-        }));
+        const parties = Object.entries(partiesStore ?? {}).map(
+            ([id, partyData]) => ({
+                id,
+                label: partyData.name || "New Party",
+                actors: partyData.actors ?? [],
+                isLocked: partyData.isLocked ?? false,
+            }),
+        );
 
         if (parties.length) {
             return partiesStore[parties[0]?.id];
@@ -404,7 +413,10 @@
     });
 </script>
 
-<article class="a5e-party-viewer__article" ondrop={(event) => onDropDocument(event)}>
+<article
+    class="a5e-party-viewer__article"
+    ondrop={(event) => onDropDocument(event)}
+>
     {#if partyMembers.length}
         <FieldWrapper
             --a5e-field-wrapper-direction="row"
@@ -430,7 +442,9 @@
                         ? 'a5e-party-viewer__sheet-lock--locked fa-lock'
                         : 'fa-unlock'}"
                     onclick={togglePartyLock}
-                    data-tooltip={partyIsLocked ? "Unlock this party" : "Lock this party"}
+                    data-tooltip={partyIsLocked
+                        ? "Unlock this party"
+                        : "Lock this party"}
                     data-tooltip-direction="UP"
                     aria-labelledby={partyIsLocked
                         ? "Unlock this party"
