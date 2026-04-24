@@ -143,7 +143,10 @@
                     {#if type === "favorites"}
                         {localize(label)}
                     {:else}
-                        {localize((A5E[type] ?? {})[label] ?? label)}
+                        {localize(
+                            (A5E[type] ?? {})[label] ??
+                                (label === "uncategorized" ? "A5E.Uncategorized" : label),
+                        )}
                     {/if}
                 </div>
 

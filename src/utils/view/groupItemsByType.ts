@@ -12,7 +12,7 @@ function getItemType(item: Item, property: string) {
     if (["armor", "shield", "helm"].includes(subType)) subType = "armor";
   }
 
-  return subType ?? "uncategorized";
+  return subType || "uncategorized";
 }
 
 export function groupItemsByType(
