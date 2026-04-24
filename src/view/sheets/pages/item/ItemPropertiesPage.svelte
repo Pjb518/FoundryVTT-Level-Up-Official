@@ -10,6 +10,7 @@
     import InteractionConfiguration from "../../components/item/InteractionConfiguration.svelte";
     import ManeuverConfiguration from "../../components/item/ManeuverConfiguration.svelte";
     import MaterialConfiguration from "../../components/item/MaterialConfiguration.svelte";
+    import Metadata from "../../components/item/Metadata.svelte";
     import ObjectConfiguration from "../../components/item/ObjectConfiguration.svelte";
     import ShieldConfiguration from "../../components/item/ShieldConfiguration.svelte";
     import SpellConfiguration from "../../components/item/SpellConfiguration.svelte";
@@ -50,4 +51,5 @@
     {/if}
 
     <UsesConfiguration />
+    <Metadata />
 </section>

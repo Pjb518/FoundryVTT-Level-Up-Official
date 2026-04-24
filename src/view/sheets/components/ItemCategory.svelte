@@ -122,94 +122,101 @@
 
     let headingTemplateConfiguration = $derived(getHeadingTemplateConfiguration());
     let itemTemplateConfiguration = $derived(getItemTemplateConfiguration());
+    let visibleItems = $derived(
+        [...items].filter((item) => !item?.system?.hidden || !sheetIsLocked()),
+    );
 </script>
 
-<section class="category-container">
-    {#if !(type === "featureTypes" && actor.type === "npc")}
-        <header
-            class="a5e-section-header a5e-section-header--item-list"
-            class:a5e-section-header--flat-bottom={[...items].length}
-            style="
-                --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
-                --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
-            "
-        >
-            <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
-                <div>
-                    {#if icon}
-                        <i class={icon}></i>
+{#if visibleItems.length}
+    <section class="category-container">
+        {#if !(type === "featureTypes" && actor.type === "npc")}
+            <header
+                class="a5e-section-header a5e-section-header--item-list"
+                class:a5e-section-header--flat-bottom={visibleItems.length}
+                style="
+                    --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
+                    --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
+                "
+            >
+                <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
+                    <div>
+                        {#if icon}
+                            <i class={icon}></i>
+                        {/if}
+
+                        {#if type === "favorites"}
+                            {localize(label)}
+                        {:else}
+                            {localize(
+                                (A5E[type] ?? {})[label] ??
+                                    (label === "uncategorized"
+                                        ? "A5E.Uncategorized"
+                                        : label),
+                            )}
+                        {/if}
+                    </div>
+
+                    {#if type === "spellLevels" && showSpellSlots}
+                        <ItemListSpellSlots {level} />
                     {/if}
 
-                    {#if type === "favorites"}
-                        {localize(label)}
-                    {:else}
-                        {localize(
-                            (A5E[type] ?? {})[label] ??
-                                (label === "uncategorized" ? "A5E.Uncategorized" : label),
-                        )}
+                    {#if type === "spellLevels" && showArtifactCharges}
+                        {localize("A5E.ArtifactChargesCost", {
+                            cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
+                        })}
                     {/if}
-                </div>
 
-                {#if type === "spellLevels" && showSpellSlots}
-                    <ItemListSpellSlots {level} />
+                    <!-- {#if type === "spellLevels" && showSpellInventions}
+                        {localize("A5E.SpellInventionsCost", {
+                            cost: 1,
+                        })}
+                    {/if} -->
+
+                    {#if type === "spellLevels" && showSpellPoints}
+                        {localize("A5E.spells.spellcasting.pointsCost", {
+                            cost: A5E.spellLevelCost[level],
+                        })}
+                    {/if}
+                </h3>
+
+                {#if showQuantity}
+                    <h3
+                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
+                    >
+                        Quantity
+                    </h3>
                 {/if}
 
-                {#if type === "spellLevels" && showArtifactCharges}
-                    {localize("A5E.ArtifactChargesCost", {
-                        cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
-                    })}
+                {#if showUses}
+                    <h3
+                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
+                    >
+                        Uses
+                    </h3>
                 {/if}
 
-                <!-- {#if type === "spellLevels" && showSpellInventions}
-                    {localize("A5E.SpellInventionsCost", {
-                        cost: 1,
-                    })}
-                {/if} -->
-
-                {#if type === "spellLevels" && showSpellPoints}
-                    {localize("A5E.spells.spellcasting.pointsCost", {
-                        cost: A5E.spellLevelCost[level],
-                    })}
+                {#if showWeight}
+                    <h3
+                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--weight"
+                    >
+                        Weight
+                    </h3>
                 {/if}
-            </h3>
+            </header>
+        {/if}
 
-            {#if showQuantity}
-                <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
-                >
-                    Quantity
-                </h3>
-            {/if}
-
-            {#if showUses}
-                <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
-                >
-                    Uses
-                </h3>
-            {/if}
-
-            {#if showWeight}
-                <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--weight"
-                >
-                    Weight
-                </h3>
-            {/if}
-        </header>
-    {/if}
-
-    <ul class="a5e-item-list">
-        {#each [...items] as item (item?.id)}
-            <ItemList
-                {item}
-                {showDescription}
-                --itemTemplateAreas={itemTemplateConfiguration.areas}
-                --itemTemplateColumns={itemTemplateConfiguration.columns}
-            />
-        {/each}
-    </ul>
-</section>
+        <ul class="a5e-item-list">
+            {#each visibleItems as item (item?.id)}
+                <ItemList
+                    {item}
+                    {showDescription}
+                    --itemTemplateAreas={itemTemplateConfiguration.areas}
+                    --itemTemplateColumns={itemTemplateConfiguration.columns}
+                />
+            {/each}
+        </ul>
+    </section>
+{/if}
 
 <style lang="scss">
     .a5e-section-header__heading {
