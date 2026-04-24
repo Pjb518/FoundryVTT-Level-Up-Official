@@ -1,0 +1,190 @@
+{
+	"name": "White Flame",
+	"type": "feature",
+	"img": "icons/magic/light/projectile-smoke-blue-white.webp",
+	"system": {
+		"description": "<p>White Flames are as bright as the sun. Once per turn, when you inflict fire damage to a target, you can force it to make a Constitution Saving Throw (Spell save DC) or be [[/condition id=blinded]] until the end of its next turn. You can only use this on one target, even if you inflicted fire damage to more than one creature.</p><p>You can use this ability a number of times equal to your Constitution modifier per Long Rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"jC1wVTqMEDg240CW": {
+				"name": "White Flame",
+				"consumers": {
+					"ASwTnyjZNXPWFiNM": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"GW91x0bjQJLjgdNj": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"b1KW5yzIpzcKYIB5"
+				],
+				"macro": "",
+				"prompts": {
+					"CN5fvMIocNc3PIYz": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@con.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fireLord",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.CKwaLoFKMgwmvjld",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Blinded",
+			"img": "icons/magic/light/projectile-smoke-blue-white.webp",
+			"_id": "b1KW5yzIpzcKYIB5",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A blinded creature can't see and it automatically fails ability checks that require sight.</p></li><li><p>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929359,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "LT348wf5AdDjtLcW"
+}

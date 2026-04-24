@@ -1,0 +1,240 @@
+{
+	"name": "Legacy of the Phoenixheart",
+	"type": "feature",
+	"img": "icons/magic/fire/projectile-wave-arrow.webp",
+	"system": {
+		"description": "<p>When you cast a spell of 1st level or higher that deals fire damage, you can spend 1 sorcery point to gain temporary hit points equal to your Charisma modifier + the spell’s level.</p><p>Once per long rest, when you drop to 0 HP, you can instead remain at 1 HP and immediately emit a 5-foot burst explosion. Any creature in range must make a Dexterity Saving Throw (Spell save DC) or take fire damage equal to your sorcerer level, and half on a success.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"1Hx8C2aQDKnUwZLC": {
+				"name": "Temporary Hit Points",
+				"id": "1Hx8C2aQDKnUwZLC",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/projectile-wave-arrow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"C32ngh5vIN01qn9f": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "sorcery-points",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"cMKbrNnv895DdAJv": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod",
+						"healingType": "healing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1"
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"myUKh0AV7W8yikTN": {
+				"name": "Legacy of the Phoenixheart",
+				"consumers": {
+					"ARXVqWuTLTmPFUz1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"CB0XOsz56E5wyuCO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"BduHFOrLzrkwduTG": {
+						"range": "self"
+					}
+				},
+				"rolls": {
+					"kbs3rAVUG6hXJ4fK": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"FdEeUxFIAvmutnxo": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "@classes.sorcerer.level",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sorcerer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"osBLRFpuTNCJgpV1": {
+				"grantType": "feature",
+				"level": 14,
+				"levelType": "class",
+				"optional": false,
+				"_id": "osBLRFpuTNCJgpV1",
+				"label": "Legacy of the Phoenixheart",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.DkBpQz2OgZZhrLde",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.9",
+		"createdTime": 1777055502195,
+		"modifiedTime": 1777055537813,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "MwXkMmGkMV3K2z9h"
+}

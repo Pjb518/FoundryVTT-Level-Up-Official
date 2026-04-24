@@ -1,0 +1,219 @@
+{
+	"name": "The Flame Remember",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-eye.webp",
+	"system": {
+		"description": "<p>At 14th level, the ability you choose as a spellcasting ability is increased by 2 and you can go up to 22 in this ability instead of 20.</p><p>Whenever you use a spell of the <em>knowledge</em> school, the information you receive are more accurate, and you gain an expertise die on a skill of your choice until your next long rest. While you are within 30 feet of any natural fire, you may cast @UUID[Compendium.a5e.a5e-spells.Item.kbyg7uvh3w8osgiq]{Sending} or speak aloud through any other fire within 1 mile as if using message. You don’t need to know the location of the other fire—your patron knows, and routes the message accordingly.</p><p>When you light a flame somewhere, you can see through this flame what happened here in the last hundred years, as if your vision was directly projected into the past. You can give a date and an hour if you want to see specific things.</p><p>You can use this feature only once per Long Rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"L4DtxeNPgF3cS0xo": {
+				"name": "Knowledge School Spell",
+				"id": "L4DtxeNPgF3cS0xo",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/flame-burning-eye.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"j80TlZ13PIKGdxh6"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"6GuCvN6CIk7sndBX": {
+				"name": "The Flame Remember",
+				"consumers": {
+					"OGut4SDs0ZAaqpmS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warlock",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"wu3LpMmABaFC5YEK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "wu3LpMmABaFC5YEK",
+				"label": "The Flame Remember",
+				"bonus": "2",
+				"abilities": {
+					"options": [
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.UK2xVQ9x14ZZzUQq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "The Flame Remember",
+			"img": "icons/magic/fire/flame-burning-eye.webp",
+			"_id": "j80TlZ13PIKGdxh6",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on a skill of your choice until your next long rest. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929455,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "grWm9Sc2LqWr6Cen"
+}

@@ -1,0 +1,196 @@
+{
+	"name": "Mind Flame",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"description": "<p>You add the <em>psychic</em> and <em>knowledge</em> schools of magic to your fire lord spell list. You gain one spell from each of these schools when you gain this feature, they don’t count toward the number of spells you know.</p><p>Once per Long Rest, when you use the @UUID[Compendium.a5e.a5e-class-features.Item.0VKJHXDtUHxvSFv0]{Searing Fire} feature, instead of burning, you can choose a number of creatures up to your proficiency bonus which were affected by your spell. They must make a Wisdom Saving Throw (Spell save DC), or they are [[/condition id=confused]] for 1 minute. They make a new saving throw at the end of each of their turns.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"PIOaexSitwJ4L6Gh": {
+				"name": "Searing Fire",
+				"id": "PIOaexSitwJ4L6Gh",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"j1c1uM7xFW0wt2zv"
+				],
+				"macro": "",
+				"consumers": {
+					"ufxsMq2YlLAmS4S6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "searing-fire-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					},
+					"7eiKSefz46U9wKJK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"482Fpy7AdfJW9Vzg": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fireLord",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.V1Ey9teksOgXKjoz",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Confused",
+			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+			"_id": "j1c1uM7xFW0wt2zv",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A confused creature can't take reactions.</p></li><li><p>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does.</p><ul><li><p>On a 1 to 4, a confused creature does nothing.</p></li><li><p>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction.</p></li><li><p>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p></li></ul></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.9",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1777053592182
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.9",
+		"createdTime": 1777053592164,
+		"modifiedTime": 1777053940344,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "vOqOAymmPr40ENFu"
+}

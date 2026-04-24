@@ -1,0 +1,191 @@
+{
+	"name": "Legacy of the Pyreborn (Ashen Rebirth)",
+	"type": "feature",
+	"img": "icons/magic/life/heart-hand-gold-green-light.webp",
+	"system": {
+		"description": "<p>When you use Ashen Rebirth, each ally within 30 feet of your reformation also gains temporary hit points equal to your Charisma modifier + sorcerer level, and they gain advantage on their next saving throw before the end of their next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"r78yXEsIVJbB4TBF": {
+				"name": "Ashen Rebirth",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"ozd2cyqTfr3gd5VB"
+				],
+				"macro": "",
+				"consumers": {
+					"fzgm7WK32FwA7cXo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"UC7nKQIdXzU5MaDe": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"OnTAt7GwnqpJq9jv": {
+						"type": "healing",
+						"default": true,
+						"formula": "2 * @classes.sorcerer.level",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"OahdtL0Gb66OUAq1": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod + @classes.sorcerer.level",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sorcerer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.ii2G927TfO5PtL76",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Ashen Rebirth",
+			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
+			"_id": "ozd2cyqTfr3gd5VB",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain advantage on their next saving throw before the end of their next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929576,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ez8x6p0OGQThK3im"
+}

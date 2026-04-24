@@ -1,0 +1,137 @@
+{
+	"name": "Bears the Burden",
+	"type": "feature",
+	"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+	"system": {
+		"description": "<p><em>Passive: You have advantage on Constitution Saving Throw and when you are healed in any manner, you regain the maximum hit point possible (for example if something heals you by 3d6, you regain 18 hit points).</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Steadfast Legend:</strong> When you or an ally within 30 feet fails a saving throw, you can expend a Legend Die and add it to the result of the die.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"GVcrkIu8FHXnlxaX": {
+				"name": "Steadfast Legend",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"073qEmyy5MEwL3d0": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"VkHAVnFSnRycHKvY": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"TPeO2vq6LXcFZcsI": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"TxSNsup2YMl9pSPF": {
+				"grantType": "rollOverride",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "TxSNsup2YMl9pSPF",
+				"label": "Bears the Burden",
+				"rollOverrideType": "abilitySave",
+				"keys": {
+					"base": [
+						"con"
+					]
+				},
+				"rollMode": 1
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1x5dGQChi7AlQuqN"
+}

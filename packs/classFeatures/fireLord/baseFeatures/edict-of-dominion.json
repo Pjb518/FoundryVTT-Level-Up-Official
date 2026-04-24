@@ -1,0 +1,216 @@
+{
+	"name": "Edict of Dominion",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+	"system": {
+		"description": "<p>Your authority radiates like a commandment of flame. You gain proficiency in Persuasion, or if you are already proficient, an expertise die. As an action, you choose a creature within 60 feet that can see or hear you. The creature must succeed on a Charisma Saving Throw (Spellcasting DC) or be [[/condition id=charmed]] until the end of its next turn. While charmed, the creature cannot willingly attack you or target you with harmful abilities or effects. On a success, it takes your proficiency bonus d6 psychic damage as your presence sears their mind.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"tfyMjcKmx4lrQZ7F": {
+				"name": "Edict of Dominion",
+				"consumers": {
+					"7XVI6u7RQyJq60uH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"BkDZzNbPI4CpO9Lo"
+				],
+				"macro": "",
+				"prompts": {
+					"4iPo3BbhZDIsIkI1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Psychic damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"cLhf2GMsCFmHHe7V": {
+						"range": "medium"
+					}
+				},
+				"rolls": {
+					"Jj7bTHlfiWTkZI7D": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "((@prof)d6)",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fireLord",
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"9C7IztalRozH6McE": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "9C7IztalRozH6McE",
+				"label": "Edict of Dominion",
+				"keys": {
+					"base": [
+						"per"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.MoN0GbsL1faLI7FS",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Charmed",
+			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+			"_id": "BkDZzNbPI4CpO9Lo",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A charmed creature can't take any hostile action against the charmer.</p></li><li><p>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929382,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "QRNoEcmAFbUp14kS"
+}

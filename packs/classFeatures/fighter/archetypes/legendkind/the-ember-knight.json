@@ -1,0 +1,256 @@
+{
+	"name": "The Ember Knight",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+	"system": {
+		"description": "<p><em>Passive: You gain resistance to fire damage.</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Burning Reversal:</strong> When a creature within 5 feet hits you with a melee weapon attack, you can expend a Legend Die as a reaction. The attacker takes fire damage equal to the result, and must succeed on a Dexterity saving throw (Maneuver DC) or catch fire, taking 1d6 fire damage at the start of its turns for 1 minute or until they use an action to put out the fire.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"EZNdfp1mJkGv9D1M": {
+				"name": "Burning Reversal",
+				"id": "EZNdfp1mJkGv9D1M",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Creature within 5 feet hits you with a melee weapon attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"YJEHMcdjmV5KmmGF"
+				],
+				"macro": "",
+				"consumers": {
+					"Kc8zsw8JTDVzAdjX": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"c138rLuB4YARcVeW": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"LL5hvPMte2q8WFyz": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"TmVrYqCHqtd57QZG": {
+				"name": "Ongoing Damage",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"Zy4FUoPK9Wtx9EBK": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "1d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"RCg1kJwRHfEjWVnp": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "RCg1kJwRHfEjWVnp",
+				"label": "The Ember Knight",
+				"traits": {
+					"base": [
+						"fire"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.NQXt4yHwHN4YMQWs",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "On Fire",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-red.webp",
+			"_id": "YJEHMcdjmV5KmmGF",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Taking 1d6 fire damage at the start of its turns for 1 minute or until they use an action to put out the fire.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.343",
+				"systemId": "a5e",
+				"systemVersion": "1.0.17",
+				"createdTime": null,
+				"modifiedTime": 1777040929403,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DxiAF2KZvTvjmTTf"
+}

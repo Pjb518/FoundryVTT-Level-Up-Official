@@ -1,0 +1,146 @@
+{
+	"name": "The Flame-Wrought Prince",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-hand-white.webp",
+	"system": {
+		"description": "<p><em>Passive: Allies within 10 feet of you ( including you) gain a +1 bonus to saving throws.</em></p><p><em><strong>Legend Dice Feature</strong></em><strong> — Royal Edict:</strong> When a creature within 30 feet that can see or hear you makes an attack roll or saving throw, you may expend a Legend Die as a reaction to add the result to their roll.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "fableOfFlames",
+		"actions": {
+			"h4XCBUBjGUc0ZAzS": {
+				"name": "Royal Edict",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A creature within 30 feet that can see or hear you makes an attack roll or saving throw"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"KjfWZCLqY08bpmCC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "legend-dice-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"D6IsHBnsljrLpt0e": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"vMdgg5GWYvgc5ksd": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.legend-dice-size",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "fighter",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"KImZpBbFAQk0Fm80": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "KImZpBbFAQk0Fm80",
+				"label": "The Flame-Wrought Prince",
+				"context": {
+					"types": [
+						"save"
+					]
+				},
+				"abilities": {
+					"base": [
+						"str",
+						"dex",
+						"con",
+						"int",
+						"wis",
+						"cha"
+					]
+				},
+				"bonus": "1"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.343",
+		"systemId": "a5e",
+		"systemVersion": "1.0.17",
+		"createdTime": 1777040928954,
+		"modifiedTime": 1777040928954,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "TLxbnpWkfcPFgmJA"
+}

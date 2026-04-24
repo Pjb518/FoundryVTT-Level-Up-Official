@@ -687,6 +687,7 @@ const knackTypes = {
   druid: "Secret of Nature",
   elementalist: "Elemental Adaptation",
   fighter: "Soldiering Knack",
+  fireLord: "Edict of Flame",
   herald: "Divine Lesson",
   marshal: "Lesson of War",
   psion: "Cognitive Discoveries",
