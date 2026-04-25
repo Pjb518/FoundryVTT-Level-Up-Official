@@ -27,7 +27,7 @@
 >
     {#if editMode}
         <Checkbox
-            label="A5E.metadata.favorite"
+            label="A5E.metadata.favorite.setting"
             checked={itemStore.favorite}
             onUpdateSelection={(detail) => {
                 updateDocumentDataFromField(item, "system.favorite", detail);
@@ -47,7 +47,7 @@
         <dl class="a5e-dl-box">
             <div class="a5e-dl-box__section">
                 <dt class="a5e-dl-box__header">
-                    {localize("A5E.metadata.favorite")}:
+                    {localize("A5E.metadata.favorite.title")}:
                 </dt>
 
                 <dd class="a5e-dl-box__content">

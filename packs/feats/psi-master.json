@@ -1,0 +1,190 @@
+{
+	"folder": null,
+	"name": "Psi Master",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"system": {
+		"description": "<p>You have worked to hone your psychic focus, and it has become more potent than that of other espers. You gain the following benefits:</p><ul><li><p>Your Intelligence, Wisdom, or Charisma score increases by +1 to a maximum of 20.</p></li><li><p>You gain an expertise die to the Insight skill. Your maximum expertise die for Insight becomes a d10.</p></li><li><p>You gain proficiency with the Arcana skill or an expertise die if you are already proficient.</p></li><li><p>You gain an additional noetic. It does not count against your noetics known.</p></li><li><p>When your psionic focus ends, you can choose to emit a pulse that deals [[/r 2d6]] points of psychic damage to creatures within 10 feet of you as a reaction.</p></li><li><p>While you are psionically-focused, you have truesight with a range of 5 feet.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergySingularSpecialists",
+		"actions": {
+			"jWYauoD6YPWV1OxO": {
+				"name": "Psi Master",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When your psionic focus ends"
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"BiGSqe3XpwhjVRJn": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"4zrjNRNyxz5zwq2Z": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "4zrjNRNyxz5zwq2Z",
+				"label": "Psi Master",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"options": [
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1,
+					"base": []
+				},
+				"img": ""
+			},
+			"dqNhi0tA0Cpt2lYH": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "dqNhi0tA0Cpt2lYH",
+				"label": "Psi Master",
+				"keys": {
+					"base": [
+						"ins"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1
+			},
+			"lcag5XVV8PqDcdn7": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "lcag5XVV8PqDcdn7",
+				"label": "Psi Master",
+				"keys": {
+					"base": [
+						"arc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill"
+			}
+		},
+		"prerequisite": "8 levels in esper, Master Mentalist feat, no levels in non-esper classes at the time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"int",
+			"wis",
+			"cha"
+		],
+		"featClasses": [
+			"esper"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Master Mentalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.10",
+		"createdTime": 1777066836557,
+		"modifiedTime": 1777066902265,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "n9Aigqnv87utT2Xb"
+}
