@@ -116,6 +116,11 @@ export default function registerModuleIncompatibilities() {
           'The content from this module is included in the core system packs, and the module is no longer necessary.',
         priority: 'low',
       },
+      'a5e-singular-specialists': {
+        reason:
+          'The content from this module is included in the core system packs, and the module is no longer necessary.',
+        priority: 'low',
+      },
       'a5e-sinuous-sentinels': {
         reason:
           'The content from this module is included in the core system packs, and the module is no longer necessary.',

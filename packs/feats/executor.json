@@ -1,0 +1,269 @@
+{
+	"name": "Executor",
+	"type": "feature",
+	"img": "icons/magic/symbols/star-rising-purple.webp",
+	"system": {
+		"description": "<p>You have, through study and practice, forged an exceptionally-strong bond with your artifact, to the point where it has become hazardous for others to touch. You gain the following benefits:</p><ul><li><p>Your Dexterity, Constitution, or wielder spellcasting ability score increases by +1, to a maximum of 20.</p></li><li><p>You gain proficiency with either Arcana or History. If you are already proficient with both, choose one to gain an expertise die. The maximum expertise die size for the chosen skill becomes a d12 for you.</p></li><li><p>You gain proficiency with your choice of the Arcane Artillery, Arcane Knight, Cutting Omen, or Eldritch Blackguard combat tradition. You learn a maneuver of up to 3rd degree from the chosen tradition. It does not count against your maneuvers known.</p></li><li><p>Your artifact becomes dangerous for anyone else to handle. Creatures other than you attempting to wield or wear your bonded artifact must make a Wisdom save against your spell save or maneuver DC (whichever is higher) at the beginning of each of their turns or suffer 2d10 points of force damage. A creature can choose to drop the artifact or have it fall off of their body as a reaction in response to this damage. If they do, they take half damage.</p></li><li><p>You can summon your artifact to yourself as a bonus action. When you do, it teleports to you and you are immediately wielding it or wearing it, as appropriate. If you were wielding or wearing something else when you do, the other object appears at your feet. You must be on the same plane as your artifact to use this benefit, but otherwise its range is unlimited.</p></li><li><p>Choose a spell of the Weaponry school of a level you can cast. You learn the spell and it counts as a wielder spell for you. It does not count against your spells known.</p></li></ul><p>Once you have selected this feat, you can no longer gain levels in classes other than wielder.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergySingularSpecialists",
+		"actions": {
+			"SHtdz79Jd86tNt8j": {
+				"name": "Executor",
+				"id": "SHtdz79Jd86tNt8j",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/symbols/star-rising-purple.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"ER6IbgWec9Dz2usz": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "max(@attributes.maneuverDC,@attributes.spellDC)"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"ZUBIH2LxnjnOVoIq": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "force",
+						"formula": "2d10",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"pFqOdLP9FCxobUKf": {
+				"name": "Summon",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"xSpun7pYbCwrkBWd": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "xSpun7pYbCwrkBWd",
+				"label": "Executor",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"dex",
+						"con",
+						"int",
+						"wis",
+						"cha"
+					],
+					"base": []
+				},
+				"img": ""
+			},
+			"m4YJJCcKvSRFpwOh": {
+				"grantType": "skill",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "m4YJJCcKvSRFpwOh",
+				"label": "Executor",
+				"bonus": "1",
+				"skills": {
+					"options": [
+						"arc",
+						"his"
+					],
+					"total": 1,
+					"base": []
+				},
+				"img": "",
+				"context": {
+					"passiveOnly": false,
+					"requiresProficiency": false,
+					"default": true
+				}
+			},
+			"PKrEPTQn3eZb2GXp": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "PKrEPTQn3eZb2GXp",
+				"label": "Executor",
+				"keys": {
+					"base": [],
+					"options": [
+						"arc",
+						"his"
+					],
+					"total": 1
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1
+			},
+			"SvqYh2DsgIUb1NXk": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "SvqYh2DsgIUb1NXk",
+				"label": "Executor",
+				"keys": {
+					"base": [],
+					"options": [
+						"arcaneArtillery",
+						"arcaneKnight",
+						"cuttingOmen",
+						"eldritchBlackguard"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tradition"
+			}
+		},
+		"prerequisite": "12 levels in wielder, Carrier feat, Keeper feat, no levels in non-wielder classes at the time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"dex",
+			"con",
+			"spellcasting"
+		],
+		"featClasses": [
+			"wielder"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Carrier"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.10",
+		"createdTime": 1777067237587,
+		"modifiedTime": 1777067301830,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "qOHm7aNDnphha9kC"
+}
