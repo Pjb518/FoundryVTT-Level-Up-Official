@@ -70,13 +70,6 @@
         }
     }
 
-    function isMagical(item: Item) {
-        if (!item.isType("object")) return false;
-        if (item.system.rarity !== "mundane") return true;
-
-        return false;
-    }
-
     function getSelectedAmmo(item: Item, action: Action) {
         let _action = action;
 
@@ -298,8 +291,13 @@
     let activationCost = $derived(getActivationCost());
     let activationCostLabel = $derived(getActivationCostLabel(activationCost));
     let containerCapacity = $state(0);
-    let isMagicalItem = $derived(isMagical(item));
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
+
+    let isMagicalItem = $derived(
+        item.reactive.isType("object") &&
+            itemStore.rarity !== "mundane" &&
+            itemStore.rarity !== "",
+    );
 
     $effect(() => {
         if (
