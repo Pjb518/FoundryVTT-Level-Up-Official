@@ -743,7 +743,7 @@ const languages = {
 };
 
 const maneuverDegrees = {
-  0: "A5E.maneuvers.degrees.basic",
+  0: "A5E.maneuvers.degrees.0",
   1: "A5E.maneuvers.degrees.1",
   2: "A5E.maneuvers.degrees.2",
   3: "A5E.maneuvers.degrees.3",

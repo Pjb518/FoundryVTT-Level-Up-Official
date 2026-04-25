@@ -51,8 +51,7 @@
             if (tradition) filterableValues.add(tradition);
 
             //Miscellaneous
-            if (item.system.concentration)
-                filterableValues.add("concentration");
+            if (item.system.concentration) filterableValues.add("concentration");
             if (item.system.isStance) filterableValues.add("stance");
 
             for (const value of filterableValues) {
@@ -87,9 +86,7 @@
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
 
-    let maneuverDegrees = Object.entries(
-        CONFIG.A5E.maneuverDegrees,
-    ) as string[][];
+    let maneuverDegrees = Object.entries(CONFIG.A5E.maneuverDegrees) as string[][];
 </script>
 
 {#if actor.isOwner}
@@ -118,10 +115,10 @@
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#each Object.entries(categorizedItems) as [label, itemList]}
+    {#each Object.entries(categorizedItems) as [key, itemList]}
         {#if itemList.length > 0}
             <ItemCategory
-                {label}
+                label={game.i18n.localize(`A5E.maneuvers.degrees.${key}`)}
                 {showDescription}
                 {showQuantity}
                 {showUses}
