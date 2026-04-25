@@ -43,17 +43,17 @@
             if (showUses) {
                 if (showQuantity) {
                     areas = "name quantity uses weight";
-                    columns = "1fr 4rem 6.25rem 4rem";
+                    columns = "1fr 4rem 6.25rem 2rem";
                 } else {
                     areas = "name uses weight";
-                    columns = "1fr 6.25rem 4rem";
+                    columns = "1fr 6.25rem 2rem";
                 }
             } else if (showQuantity) {
                 areas = "name quantity weight";
-                columns = "1fr 4rem 4rem";
+                columns = "1fr 4rem 2rem";
             } else {
                 areas = "name weight";
-                columns = "1fr 4rem";
+                columns = "1fr 2rem";
             }
         } else if (showUses) {
             if (showQuantity) {
@@ -82,17 +82,17 @@
             if (showUses) {
                 if (showQuantity) {
                     areas = "icon name indicators quantity uses weight";
-                    columns = "min-content 1fr min-content 4rem 6.25rem 4rem";
+                    columns = "min-content 1fr min-content 4rem 6.25rem 2rem";
                 } else {
                     areas = "icon name indicators uses weight";
-                    columns = "min-content 1fr min-content 6.25rem 4rem";
+                    columns = "min-content 1fr min-content 6.25rem 2rem";
                 }
             } else if (showQuantity) {
                 areas = "icon name indicators quantity weight";
-                columns = "min-content 1fr min-content 4rem 4rem";
+                columns = "min-content 1fr min-content 4rem 2rem";
             } else {
                 areas = "icon name indicators weight";
-                columns = "min-content 1fr min-content 4rem";
+                columns = "min-content 1fr min-content 2rem";
             }
         } else if (showUses) {
             if (showQuantity) {

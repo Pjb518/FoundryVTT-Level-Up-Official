@@ -3,12 +3,15 @@
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
 
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     let actor: any = getContext("actor");
     let flags = $derived(actor.reactive.flags?.a5e ?? {});
+
+    const { weightColumnOptions } = CONFIG.A5E;
 
     let globalCurrencyWeightTrackingSelection = game.settings.get(
         "a5e",
@@ -17,15 +20,17 @@
 </script>
 
 <Section heading="Weight Column Options" --a5e-section-body-gap="0.75rem">
-    <FieldWrapper>
-        <Checkbox
-            label="A5E.settings.showWeightColumn"
-            checked={flags?.showWeightColumn ?? true}
-            onUpdateSelection={(checked) => {
-                updateDocumentDataFromField(actor, "flags.a5e.showWeightColumn", checked);
-            }}
-        />
-    </FieldWrapper>
+    <RadioGroup
+        optionStyles="min-width:2rem; text-align: center;"
+        options={Object.entries(weightColumnOptions)}
+        selected={flags?.showWeightColumn ?? 0}
+        onUpdateSelection={(value) =>
+            updateDocumentDataFromField(
+                actor,
+                "flags.a5e.showWeightColumn",
+                Number(value),
+            )}
+    />
 </Section>
 
 <Section heading="Weight Tracking Options" --a5e-section-body-gap="0.75rem">

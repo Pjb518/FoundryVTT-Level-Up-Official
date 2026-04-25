@@ -6,6 +6,7 @@
 
     import { formulaIsClassResource } from "#utils/formulaIsClassResource.ts";
     import { getDeterministicBonus } from "../../../dice/getDeterministicBonus.ts";
+    import { weightRequired } from "#utils/view/weightRequired.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
     type Props = {
@@ -267,7 +268,8 @@
     });
 
     let uses = $derived(generateUsesConfig());
-    let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? true);
+    let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? 0);
+    let showWeight = $derived(weightRequired(actor.reactive.items, showWeightColumnFlag));
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items
@@ -317,7 +319,7 @@
 
 <div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
     <div class="name">
-        {action?.name ?? item.name}
+        <span class="name__text">{action?.name ?? item.name}</span>
 
         {#if isMagicalItem}
             <i
@@ -686,7 +688,7 @@
     </div>
 {/if}
 
-{#if !actionId && item?.type === "object" && itemStore?.weight > 0 && showWeightColumnFlag}
+{#if !actionId && item?.type === "object" && itemStore?.weight > 0 && showWeight}
     <div class="weight-wrapper">
         <input
             class="number-input"
@@ -822,8 +824,14 @@
         align-items: center;
         gap: 0.375rem;
         overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+
+        &__text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-width: 0;
+            flex-shrink: 1;
+        }
     }
 
     .name-wrapper {

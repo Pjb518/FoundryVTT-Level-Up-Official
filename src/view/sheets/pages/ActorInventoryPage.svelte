@@ -24,9 +24,7 @@
         page: "objects",
     });
 
-    let showWeightColumnFlag = $derived(
-        actor.reactive.flags?.a5e?.showWeightColumn ?? true,
-    );
+    let showWeightColumnFlag = $derived(actor.reactive.flags?.a5e?.showWeightColumn ?? 0);
 
     let activeFilters = $derived(
         actor.reactive.flags.a5e?.filters?.objects ?? {
@@ -101,7 +99,7 @@
     let showDescription = $state(false);
     let showUses = $derived(usesRequired(items));
     let showQuantity = $derived(quantityRequired(items));
-    let showWeight = $derived(weightRequired(weightedItems) && showWeightColumnFlag);
+    let showWeight = $derived(weightRequired(weightedItems, showWeightColumnFlag));
 
     let objectTypes = Object.entries(CONFIG.A5E.objectTypes) as string[][];
 

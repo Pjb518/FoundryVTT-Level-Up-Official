@@ -2141,6 +2141,12 @@ const versatileOptions = {
   d12: "d12",
 };
 
+const weightColumnOptions = {
+  0: "A5E.weightColumnOptions.0",
+  1: "A5E.weightColumnOptions.1",
+  2: "A5E.weightColumnOptions.2",
+};
+
 /* ------------------------------------------------- */
 /*                    Object                         */
 /* ------------------------------------------------- */
@@ -2263,6 +2269,7 @@ const A5E = {
   defensiveProperties,
   energyProperties,
   versatileOptions,
+  weightColumnOptions,
 
   // Function Properties
   // These are purposefully done first
