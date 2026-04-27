@@ -4,32 +4,31 @@ import hotbarDrop from "./hotBarDrop.ts";
 import { handleMigration } from "../migration/handlers/handleMigration.ts";
 import { collectSynergies } from "#utils/db/indexCompendiaFields.ts";
 
-import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
-import KeyPressHandler from "../apps/KeyPressHandler.svelte";
-import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
+// import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
+import KeyPressHandler from "#view/globals/KeyPressHandler.svelte";
+// import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
 
-// eslint-disable-next-line no-unused-vars
-async function handleAnnouncement() {
-  const LATEST_ANNOUNCEMENT_VERSION = "0.18.14";
-  const lastAnnouncementShown = game.user?.getFlag("a5e", "latestAnnouncement");
+// async function handleAnnouncement() {
+//   const LATEST_ANNOUNCEMENT_VERSION = "0.18.14";
+//   const lastAnnouncementShown = game.user?.getFlag("a5e", "latestAnnouncement");
 
-  // NOTE: The date comparison below is to ensure that this announcement isn't shown after
-  // the product bundles expire. It should be removed for future announcements.
-  const showAnnouncement =
-    (!lastAnnouncementShown ||
-      foundry.utils.isNewerVersion(
-        LATEST_ANNOUNCEMENT_VERSION,
-        lastAnnouncementShown,
-      )) &&
-    Date.now() < 1718600413000;
+//   // NOTE: The date comparison below is to ensure that this announcement isn't shown after
+//   // the product bundles expire. It should be removed for future announcements.
+//   const showAnnouncement =
+//     (!lastAnnouncementShown ||
+//       foundry.utils.isNewerVersion(
+//         LATEST_ANNOUNCEMENT_VERSION,
+//         lastAnnouncementShown,
+//       )) &&
+//     Date.now() < 1718600413000;
 
-  if (!showAnnouncement) return;
+//   if (!showAnnouncement) return;
 
-  const announcementDialog = new AnnouncementDialog("3PP Content Bundles");
-  announcementDialog.render(true);
+//   const announcementDialog = new AnnouncementDialog("3PP Content Bundles");
+//   announcementDialog.render(true);
 
-  game.user?.setFlag("a5e", "latestAnnouncement", game.system.version);
-}
+//   game.user?.setFlag("a5e", "latestAnnouncement", game.system.version);
+// }
 
 async function handleIncompatibilityWarning() {
   if (!game.user?.isGM) return;
@@ -54,7 +53,7 @@ export default async function ready() {
 
   collectSynergies();
   handleMigration();
-  handleAnnouncement();
-  handleIncompatibilityWarning();
+  // handleAnnouncement();
+  // handleIncompatibilityWarning();
   addKeyPressLogger();
 }
