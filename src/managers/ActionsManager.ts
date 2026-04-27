@@ -2,7 +2,6 @@ import type { Action } from "#types/action.d.ts";
 import type { ItemA5e } from "../documents/item/item.ts";
 
 // import GenericConfigDialog from "../apps/dialogs/initializers/GenericConfigDialog";
-import ActionConfigDialog from "../apps/dialogs/ActionConfigDialog.svelte";
 import { ActionSheet } from "../documents/sheets/ActionSheet.svelte.ts";
 
 class ActionsManager extends Map<string, Action> {
