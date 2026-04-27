@@ -13,7 +13,6 @@
     import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
     import UtilityBar from "#view/snippets/UtilityBar.svelte";
     import createItem from "#utils/createItem.ts";
-    import ShowDescription from "../../../apps/components/actorUtilityBar/ShowDescription.svelte";
 
     async function addSpellBook() {
         const initialSpellBookQuantity = Object.keys(
