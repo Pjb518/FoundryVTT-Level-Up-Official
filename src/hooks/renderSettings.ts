@@ -1,6 +1,6 @@
-import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog";
-import HelpAndSupportDialog from "../apps/dialogs/initializers/HelpAndSupportDialog";
-import PremiumContentListDialog from "../apps/dialogs/initializers/PremiumContentListDialog";
+// import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog";
+// import HelpAndSupportDialog from "../apps/dialogs/initializers/HelpAndSupportDialog";
+// import PremiumContentListDialog from "../apps/dialogs/initializers/PremiumContentListDialog";
 
 export default function renderSettings(_app, html: HTMLElement) {
   const systemTitle = html.querySelector(
@@ -53,19 +53,19 @@ export default function renderSettings(_app, html: HTMLElement) {
 
   const buttons = [
     {
-      DialogApplication: HelpAndSupportDialog,
+      DialogApplication: null, //HelpAndSupportDialog,
       dialogName: "helpAndSupport",
       iconClasses: ["fa-solid", "fa-life-ring"],
       label: "Help and Support",
     },
     {
-      DialogApplication: AnnouncementDialog,
+      DialogApplication: null, //AnnouncementDialog,
       dialogName: "latestAnnouncements",
       iconClasses: ["fa-solid", "fa-bullhorn"],
       label: "Latest Announcements",
     },
     {
-      DialogApplication: PremiumContentListDialog,
+      DialogApplication: null, //PremiumContentListDialog,
       dialogName: "premiumContentList",
       iconClasses: ["fa-solid", "fa-wallet"],
       label: "Premium Content",
