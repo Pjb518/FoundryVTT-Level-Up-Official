@@ -93,10 +93,11 @@ class RecordField<
   const IKeyField extends foundry.data.fields.DataField.Any,
   const IValueField extends foundry.data.fields.DataField.Any,
   const AssignmentElementType = RecordField.AssignmentElementType<IValueField>,
-  const InitializedElementType = RecordField.InitializedElementType<IValueField>,
+  const InitializedElementType =
+    RecordField.InitializedElementType<IValueField>,
   const PersistedElementType = RecordField.PersistedElementType<IValueField>,
-  const Options extends
-    RecordField.Options<AssignmentElementType> = RecordField.DefaultOptions<AssignmentElementType>,
+  const Options extends RecordField.Options<AssignmentElementType> =
+    RecordField.DefaultOptions<AssignmentElementType>,
   const AssignmentType = RecordField.AssignmentType<
     AssignmentElementType,
     Options
@@ -187,26 +188,24 @@ class RecordField<
   override _cleanType(
     values: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions,
+    _state?: any,
   ): InitializedType {
+    const upstreamCleaned = super._cleanType(values, options, _state);
+
     // @ts-expect-error
-    for (const [key, value] of Object.entries(values)) {
-      if (key.startsWith("-=")) continue;
-      values[key] = this.valueField.clean(value, options);
+    for (const [key, value] of Object.entries(upstreamCleaned)) {
+      if (value instanceof foundry.data.operators.DataFieldOperator) continue;
+      upstreamCleaned[key] = this.valueField.clean(value, options, _state);
     }
 
-    return values;
+    return upstreamCleaned;
   }
 
   override _validateType(
     values: InitializedType,
     options: foundry.data.fields.DataField.ValidationOptions<foundry.data.fields.DataField.Any> = {},
   ): boolean | void {
-    if (!(values instanceof Object)) {
-      // @ts-expect-error
-      return new foundry.data.validation.DataModelValidationFailure({
-        message: "must be an Object",
-      });
-    }
+    super._validateType(values, options);
 
     // @ts-expect-error
     return this._validateValues(values, options);
@@ -218,9 +217,21 @@ class RecordField<
     options?: Record<string, unknown>,
   ): InitializedType | (() => InitializedType | null) {
     if (!values) return {} as InitializedType;
-    const data = {};
 
+    // Check for validation failures in the model to omit from the results
+    const path = this.fieldPath.startsWith(model.schema.fieldPath + ".")
+      ? this.fieldPath.substring(model.schema.fieldPath.length + 1)
+      : this.fieldPath;
+
+    const pathParts = path.split(".");
+    const failures = pathParts.reduce((fields, part) => {
+      return fields ? fields.fields[part] : null;
+    }, model.validationFailures.fields);
+    const failureKeys = failures?.elements.map((e) => e.id) ?? [];
+
+    const data = {};
     for (const [key, value] of Object.entries(values)) {
+      if (failureKeys.includes(key)) continue;
       data[key] = this.valueField.initialize(value, model, options);
     }
 
