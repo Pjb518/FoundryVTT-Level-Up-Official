@@ -34,7 +34,7 @@
 <FieldWrapper>
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="a5e-drop-area" ondrop={onDrop}>
-        <i class="a5e-drop-icon fa-sold fa-plus"></i>
+        <i class="a5e-drop-icon fa-solid fa-plus"></i>
     </div>
 </FieldWrapper>
 
@@ -52,7 +52,7 @@
 
     .a5e-drop-icon {
         color: var(--a5e-border-color);
-        font-size: var(--a5e-xl-text);
+        font-size: var(--a5e-md-text);
         font-style: normal;
     }
 </style>

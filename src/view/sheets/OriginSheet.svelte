@@ -11,6 +11,7 @@
     import ItemGrantsPage from "./pages/item/ItemGrantsPage.svelte";
     import OriginCorePage from "./pages/item/OriginCorePage.svelte";
     import OriginResourcesPage from "./pages/item/OriginResourcesPage.svelte";
+    import DestinyFeaturesPage from "./pages/item/DestinyFeaturesPage.svelte";
 
     type Props = {
         item: any;
@@ -41,6 +42,13 @@
                 component: ClassPropertiesPage,
                 display: item.type === "class",
             },
+            {
+                name: "destinyFeatures",
+                label: "A5E.tabs.grants",
+                icon: "fa-solid fa-gift",
+                component: DestinyFeaturesPage,
+                display: item.type === "destiny",
+            },
             // Resources
             {
                 name: "resources",
@@ -55,6 +63,7 @@
                 label: "A5E.tabs.grants",
                 icon: "fa-solid fa-gift",
                 component: ItemGrantsPage,
+                display: item.type !== "destiny",
             },
         ];
     }
@@ -78,7 +87,12 @@
 <main class="a5e-origin-sheet">
     <ItemSheetHeader />
 
-    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
+    <NavigationBar
+        {currentTab}
+        {tabs}
+        showLock={false}
+        onTabChange={updateCurrentTab}
+    />
 
     <section class="a5e-origin-sheet__page">
         <currentTab.component />
