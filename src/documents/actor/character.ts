@@ -4,7 +4,6 @@ import type ClassItemA5e from "../item/class";
 import { BaseActorA5e } from "./base.svelte.ts";
 
 import HitDiceManager from "../../managers/HitDiceManager";
-import ActionActivationDialog from "../../apps/dialogs/initializers/ActionActivationDialog";
 
 import { getDeterministicBonus } from "../../dice/getDeterministicBonus";
 
