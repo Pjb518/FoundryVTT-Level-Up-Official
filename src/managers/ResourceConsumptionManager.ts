@@ -1,12 +1,12 @@
-import type { BaseActorA5e } from "../documents/actor/base";
-import type { ItemA5e } from "../documents/item/item";
+import type { BaseActorA5e } from "../documents/actor/base.svelte.ts";
+import type { ItemA5e } from "../documents/item/item.ts";
 import type { ConsumerHandlerReturnType } from "../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
-import type SpellItemA5e from "../documents/item/spell";
-import type * as ConsumerData from "../dataModels/item/actions/ActionConsumersDataModel";
+import type SpellItemA5e from "../documents/item/spell.ts";
+import type * as ConsumerData from "../dataModels/item/actions/ActionConsumersDataModel.ts";
 
-import { getDeterministicBonus } from "../dice/getDeterministicBonus";
-import getActionScalingModes from "../utils/getActionScalingModes";
-import prepareHitDice from "../apps/dataPreparationHelpers/prepareHitDice";
+import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
+import getActionScalingModes from "#utils/getActionScalingModes.ts";
+import { prepareHitDice } from "#utils/view/helpers/prepareHitDice.ts";
 
 class ResourceConsumptionManager {
   #actor: BaseActorA5e;
@@ -63,7 +63,7 @@ class ResourceConsumptionManager {
       else if (consumerType === "resource") this.#consumeResource(consumer);
       else if (["ammunition", "quantity"].includes(consumerType))
         this.#consumeQuantity(consumerId, consumer);
-      else if (consumerType === 'quality') this.#consumeQuality(consumer);
+      else if (consumerType === "quality") this.#consumeQuality(consumer);
     });
 
     // Updates documents
@@ -118,28 +118,27 @@ class ResourceConsumptionManager {
   }
 
   // @ts-ignore
-  async #consumeQuality( consumer = {}) {
+  async #consumeQuality(consumer = {}) {
     //@ts-expect-error
     const { itemId, quality } = consumer;
 
-		if (!this.#actor || itemId === '') return;
+    if (!this.#actor || itemId === "") return;
 
-		const item = this.#actor.items.get(itemId);
-		if (!item) return;
+    const item = this.#actor.items.get(itemId);
+    if (!item) return;
 
-		let newQuality = 0;
+    let newQuality = 0;
 
-		if (quality === "1") {
-		  newQuality = Math.min((item.system.damagedState ?? 0) + quality, 2);
-		} else {
-		  newQuality = quality;
-		}
+    if (quality === "1") {
+      newQuality = Math.min((item.system.damagedState ?? 0) + quality, 2);
+    } else {
+      newQuality = quality;
+    }
 
-		await this.#actor.updateEmbeddedDocuments(
-		  'Item',
-		  [{ _id: item.id, 'system.damagedState': newQuality }]
-		);
-	}
+    await this.#actor.updateEmbeddedDocuments("Item", [
+      { _id: item.id, "system.damagedState": newQuality },
+    ]);
+  }
 
   // @ts-ignore
   async #consumeQuantity(consumerId: string, consumer = {}) {
@@ -195,7 +194,6 @@ class ResourceConsumptionManager {
 
       return;
     }
-
 
     const { path, type } = config;
     const value =
