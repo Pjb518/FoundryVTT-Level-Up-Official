@@ -917,11 +917,11 @@ class BaseActorA5e extends Actor {
 
     if (temp) {
       updates["system.attributes.hp"] = {
-        temp: Math.clamped(temp - totalDamage, 0, temp),
-        value: Math.clamped(value + temp - totalDamage, 0, value),
+        temp: Math.clamp(temp - totalDamage, 0, temp),
+        value: Math.clamp(value + temp - totalDamage, 0, value),
       };
     } else {
-      updates["system.attributes.hp.value"] = Math.clamped(
+      updates["system.attributes.hp.value"] = Math.clamp(
         value - totalDamage,
         0,
         value,
