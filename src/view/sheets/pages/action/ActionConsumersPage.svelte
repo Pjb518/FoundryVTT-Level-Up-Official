@@ -19,7 +19,7 @@
     import QuantityConsumer from "#view/sheets/components/action/QuantityConsumer.svelte";
     import ResourceConsumer from "#view/sheets/components/action/ResourceConsumer.svelte";
     import SpellConsumer from "#view/sheets/components/action/SpellConsumer.svelte";
-    import UsesConsumer from "../../../../apps/components/itemActionsConfig/UsesConsumer.svelte";
+    import UsesConsumer from "#view/sheets/components/action/UsesConsumer.svelte";
 
     async function deleteConsumer(actionId: string, consumerId: string) {
         item.update({
