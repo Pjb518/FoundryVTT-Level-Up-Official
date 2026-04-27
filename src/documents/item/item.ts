@@ -212,9 +212,9 @@ class ItemA5e extends BaseItemA5e {
     );
 
     const validTemplate = templateManager.validateBaseTemplateData();
-    if (activationData.placeTemplate && validTemplate) {
-      await templateManager.placeActionTemplates();
-    }
+    // if (activationData.placeTemplate && validTemplate) {
+    //   await templateManager.placeActionTemplates();
+    // }
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
       this.actor,
