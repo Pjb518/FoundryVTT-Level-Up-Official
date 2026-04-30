@@ -295,6 +295,16 @@
     let containerCapacity = $state(0);
     let selectedAmmo = $derived(getSelectedAmmo(item, action));
 
+    let containerCurrentWeight = $derived.by(() => {
+        if (itemStore?.objectType !== "container") return 0;
+        return actor.reactive.items
+            .filter((i) => i.system?.containerId === item.uuid)
+            .reduce(
+                (sum, i) => sum + parseFloat(i.weight ?? 0) * (i.system?.quantity ?? 1),
+                0,
+            );
+    });
+
     let isMagicalItem = $derived(
         item.reactive.isType("object") &&
             itemStore.rarity !== "mundane" &&
@@ -373,21 +383,19 @@
         {/if}
 
         {#if itemStore?.objectType === "container"}
-            {#if containerCapacity}
+            {#if itemStore.capacity.value}
                 <span data-tooltip="Capacity" data-tooltip-direction="UP">
-                    {#if item.system.capacity.value}
-                        (
-                        {containerCapacity}
+                    (
+                    {containerCurrentWeight}
 
-                        /
+                    /
 
-                        {item.system.capacity.value}
+                    {itemStore.capacity.value}
 
-                        {#if item.system.capacity.type === "weight"}
-                            lbs.
-                        {/if}
-                        )
+                    {#if itemStore.capacity.type === "weight"}
+                        lbs.
                     {/if}
+                    )
                 </span>
             {/if}
 
