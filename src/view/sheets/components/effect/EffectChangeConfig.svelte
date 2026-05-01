@@ -11,7 +11,7 @@
         key: string;
         optionsList: Record<string, any>;
         clearable?: boolean;
-        onchangeMode?: (mode: string) => void;
+        onchangeType?: (type: string) => void;
         onchangeKey?: (key: string) => void;
         onchangePriority?: (priority: number) => void;
     };
@@ -22,12 +22,12 @@
         optionsList,
         clearable = true,
         onchangeKey,
-        onchangeMode,
+        onchangeType,
         onchangePriority,
     }: Props = $props();
 
     let effect: ActiveEffect = getContext("effect");
-    let changes = $derived(effect.reactive.changes);
+    let changes = $derived(effect.reactive.system.changes);
 
     const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
     const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
@@ -88,7 +88,7 @@
     />
 </div>
 
-<!-- Mode - Show only if available -->
+<!-- Type - Show only if available -->
 {#if optionsList[key]?.modes?.length > 1}
     <div class="a5e-effect-change-section">
         <h3 class="a5e-effect-change-section__heading">
@@ -98,9 +98,9 @@
         <select
             class="a5e-input a5e-input--slim a5e-input--fit"
             id=""
-            value={changes[idx]?.mode}
+            value={changes[idx]?.type}
             onchange={({ currentTarget }) =>
-                onchangeMode?.(currentTarget.value)}
+                onchangeType?.(currentTarget.value)}
         >
             {#each optionsList[key]?.modes ?? [] as label}
                 <option value={MODES[label]}>

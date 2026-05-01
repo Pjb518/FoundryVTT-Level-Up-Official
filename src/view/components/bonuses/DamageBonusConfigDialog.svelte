@@ -8,10 +8,10 @@
     import Section from "#view/snippets/Section.svelte";
 
     type Props = {
-        document: any;
-        bonusID: string;
-        jsonValue?: JSON;
-        onchange?: (value: string) => void;
+        document?: any;
+        bonusID?: string;
+        data?: Record<string, any>;
+        onchange?: (value: Record<string, any>) => void;
     };
 
     function updateImage() {
@@ -29,7 +29,7 @@
     }
 
     function onUpdateValue(key, value) {
-        if (jsonValue === undefined) {
+        if (data === undefined) {
             key = `system.bonuses.damage.${bonusID}.${key}`;
             updateDocumentDataFromField(actor, key, value);
             return;
@@ -40,14 +40,15 @@
             [key]: value,
         });
 
-        onchange?.(JSON.stringify(newObj));
+        onchange?.(newObj);
     }
 
     function getDamageBonus() {
-        if (jsonValue === undefined) return actor.reactive.system.bonuses.damage[bonusID];
+        if (data === undefined)
+            return actor.reactive.system.bonuses.damage[bonusID];
 
         try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
+            const obj = data ?? {};
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
@@ -80,8 +81,8 @@
 
     let {
         document,
-        bonusID,
-        jsonValue = undefined,
+        bonusID = "",
+        data = undefined,
         onchange = undefined,
     }: Props = $props();
 
@@ -120,8 +121,14 @@
         </div>
     </header>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.damage.headings.formula" --a5e-field-wrapper-grow="1">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper
+            heading="A5E.damage.headings.formula"
+            --a5e-field-wrapper-grow="1"
+        >
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"
@@ -151,8 +158,11 @@
                 </option>
 
                 {#each Object.entries(damageTypes) as [key, name] (key)}
-                    <option value={key} selected={damageBonus.damageType === key}>
-                        {localize(name)}
+                    <option
+                        value={key}
+                        selected={damageBonus.damageType === key}
+                    >
+                        {localize(name as string)}
                     </option>
                 {/each}
             </select>
