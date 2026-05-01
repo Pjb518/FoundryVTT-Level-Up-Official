@@ -7,10 +7,10 @@
     import Section from "#view/snippets/Section.svelte";
 
     type Props = {
-        document: any;
-        bonusID: string;
-        jsonValue?: JSON;
-        onchange?: (value: string) => void;
+        document?: any;
+        bonusID?: string;
+        data?: Record<string, any>;
+        onchange?: (value: Record<string, any>) => void;
     };
 
     function updateImage() {
@@ -28,7 +28,7 @@
     }
 
     function onUpdateValue(key, value) {
-        if (jsonValue === undefined) {
+        if (data === undefined) {
             key = `system.bonuses.attacks.${bonusID}.${key}`;
             updateDocumentDataFromField(actor, key, value);
             return;
@@ -39,15 +39,15 @@
             [key]: value,
         });
 
-        onchange?.(JSON.stringify(newObj));
+        onchange?.(newObj);
     }
 
     function getAttackBonus() {
-        if (jsonValue === undefined)
+        if (data === undefined)
             return actor.reactive.system.bonuses.attacks[bonusID];
 
         try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
+            const obj = data ?? {};
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
@@ -76,8 +76,8 @@
 
     let {
         document,
-        bonusID,
-        jsonValue = undefined,
+        bonusID = "",
+        data = undefined,
         onchange = undefined,
     }: Props = $props();
 
@@ -88,7 +88,9 @@
     let attackBonus = $derived(getAttackBonus() ?? {});
     let attackTypesContext = $derived(attackBonus.context.attackTypes ?? []);
     let spellLevelsContext = $derived(attackBonus.context.spellLevels ?? []);
-    let requiresProficiency = $derived(attackBonus.context.requiresProficiency ?? false);
+    let requiresProficiency = $derived(
+        attackBonus.context.requiresProficiency ?? false,
+    );
 </script>
 
 <form class="a5e-bonus">
@@ -115,8 +117,14 @@
         </div>
     </header>
 
-    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.rollLabels.formula" --a5e-field-wrapper-grow="1">
+    <Section
+        --a5e-section-body-direction="row"
+        --a5e-section-margin="0.25rem 0"
+    >
+        <FieldWrapper
+            heading="A5E.rollLabels.formula"
+            --a5e-field-wrapper-grow="1"
+        >
             <input
                 class="a5e-input a5e-input--slim"
                 type="text"

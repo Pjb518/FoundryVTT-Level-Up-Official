@@ -7,10 +7,10 @@
     import Section from "#view/snippets/Section.svelte";
 
     type Props = {
-        document: any;
-        bonusID: string;
-        jsonValue?: JSON;
-        onchange?: (value: string) => void;
+        document?: any;
+        bonusID?: string;
+        data?: Record<string, any>;
+        onchange?: (value: Record<string, any>) => void;
     };
 
     function updateImage() {
@@ -28,7 +28,7 @@
     }
 
     function onUpdateValue(key, value) {
-        if (jsonValue === undefined) {
+        if (data === undefined) {
             key = `system.bonuses.hitPoint.${bonusID}.${key}`;
             updateDocumentDataFromField(actor, key, value);
             return;
@@ -38,15 +38,15 @@
             ...hitPointsBonus,
             [key]: value,
         });
-        onchange?.(JSON.stringify(newObj));
+        onchange?.(newObj);
     }
 
     function getHealingBonus() {
-        if (jsonValue === undefined)
+        if (data === undefined)
             return actor.reactive.system.bonuses.hitPoint[bonusID];
 
         try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
+            const obj = data ?? {};
             if (typeof obj !== "object") throw new Error();
             obj.label = obj.label ?? "";
             obj.formula = obj.formula ?? "";
@@ -71,8 +71,8 @@
 
     let {
         document,
-        bonusID,
-        jsonValue = undefined,
+        bonusID = "",
+        data = undefined,
         onchange = undefined,
     }: Props = $props();
 
