@@ -13,7 +13,8 @@ import type HitDiceManager from "../../managers/HitDiceManager.ts";
 import { createSubscriber } from "svelte/reactivity";
 import { localize } from "#utils/localization/localize.ts";
 
-import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
+// import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
+import { ActiveEffectA5E } from "../activeEffect/ae.svelte.ts";
 
 import ActorGrantsManager from "../../managers/ActorGrantsManager.ts";
 import BonusesManager from "../../managers/BonusesManager.ts";
@@ -282,18 +283,38 @@ class BaseActorA5e extends Actor {
 
     this.initialized = true;
 
+    // Identify which special statuses had been active
+    const specialStatuses = new Map();
+    for (const statusId of Object.values(CONFIG.specialStatusEffects)) {
+      specialStatuses.set(statusId, this.statuses.has(statusId));
+    }
+
     this.prepareBaseData();
-    super.prepareEmbeddedDocuments();
+    this.prepareEmbeddedDocuments();
 
     this.prepareDerivedData();
-    this.afterDerivedData();
+    // this.afterDerivedData();
 
     this.prepareArmorClass();
+    // Apply Derived effects after armor class data
+    this.applyActiveEffects("final");
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
     this.spellBooks = new SpellBookManager(this);
     this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+
+    // Apply special statuses that changed to active tokens
+    let tokens;
+    for (const [statusId, wasActive] of specialStatuses) {
+      const isActive = this.statuses.has(statusId);
+      if (isActive === wasActive) continue;
+      tokens ??= this.getDependentTokens({ scenes: canvas.scene })
+        .filter((t) => t.rendered)
+        .map((t) => t.object);
+      for (const token of tokens)
+        token._onApplyStatusEffect(statusId, isActive);
+    }
   }
 
   /**
@@ -313,48 +334,64 @@ class BaseActorA5e extends Actor {
     };
   }
 
+  override prepareEmbeddedDocuments() {
+    super.prepareEmbeddedDocuments();
+    this.applyActiveEffects("initial");
+  }
+
   /**
    * Apply activeEffects to the actor with the phase 'applyAEs'.
    */
-  override applyActiveEffects() {
-    this.overrides = {};
+  override applyActiveEffects(phase: "initial" | "final") {
+    const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
-    // Create base to store statuses on actor.
-    this.statuses ??= new Set();
+    this._completedActiveEffectPhases.add(phase);
 
-    // Identify which special statuses had been active
-    const specialStatuses = new Map();
-    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
-      specialStatuses.set(statusId, this.statuses.has(statusId));
-    });
+    const changes: any[] = [];
+    const tokenChanges: any[] = [];
 
-    this.statuses.clear();
+    for (const effect of this.allApplicableEffects()) {
+      if (!effect.active) continue;
 
-    // Create base to store effect phases to retry effects on the next pass
-    this.effectPhases ??= {
-      beforeDerived: [],
-      afterDerived: [],
-    };
+      for (const change of effect.system.changes) {
+        if (change.key === "" || change.phase !== phase) continue;
 
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      "applyAEs",
-      "afterDerived",
-      (change) =>
-        game.a5e.activeEffects.options[this.type].allOptions[change.key]
-          ?.phase === "applyAEs",
-    );
+        const copy = foundry.utils.deepClone(change);
+        copy.effect = effect;
 
-    // Apply special statuses that changed to active tokens
-    let tokens;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [statusId, wasActive] of specialStatuses) {
-      const isActive = this.statuses.has(statusId);
-      if (isActive === wasActive) return;
-      tokens ??= this.getActiveTokens();
-      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
+        // Keep Token changes separate for later application
+        if (copy.key?.startsWith("@token.")) {
+          copy.key = copy.key.slice(6);
+          tokenChanges.push(copy);
+        } else {
+          changes.push(copy);
+        }
+      }
+
+      if (phase === "initial") {
+        for (const statusId of effect.statuses) this.statuses.add(statusId);
+      }
     }
+
+    changes.sort((a, b) => a.priority - b.priority);
+    // this.tokenActiveEffectChanges[phase] = tokenChanges;
+
+    // Apply all changes
+    const overrides = {};
+    const replacementData = this.getRollData();
+
+    for (const change of changes) {
+      // TODO: Adds support for `@original`
+      const result = ActiveEffect.applyChange(this, change, {
+        replacementData,
+      });
+      if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
+    }
+
+    // foundry.utils.mergeObject(
+    //   this.overrides,
+    //   foundry.utils.expandObject(overrides),
+    // );
   }
 
   /**
@@ -892,7 +929,7 @@ class BaseActorA5e extends Actor {
    * Prepare active effects for the actor with the phase 'afterDerived'.
    */
   afterDerivedData() {
-    ActiveEffectA5e.applyEffects(
+    ActiveEffectA5E.applyEffects(
       this,
       this.actorEffects,
       "afterDerived",
