@@ -4,10 +4,10 @@
  * @returns {Promise}
  */
 export default async () =>
-	loadTemplates([
-		// Settings
-		'systems/a5e/templates/conditionAutomationMenu.hbs',
+  foundry.applications.handlebars.loadTemplates([
+    // Settings
+    "systems/a5e/templates/conditionAutomationMenu.hbs",
 
-		// Hud
-		'systems/a5e/templates/hud/token-hud.hbs',
-	]);
+    // Hud
+    "systems/a5e/templates/hud/token-hud.hbs",
+  ]);
