@@ -42,7 +42,7 @@
     let effect: ActiveEffect = getContext("effect");
     let sheet: ActiveEffectSheet = getContext("sheet");
 
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
     const optionsList = sheet.optionsList;
 
     let changes = $derived(effect.reactive.system.changes);

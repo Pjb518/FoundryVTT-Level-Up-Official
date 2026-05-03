@@ -63,6 +63,21 @@ class A5EBaseActiveEffectData extends foundry.abstract.TypeDataModel<
       ...migrationData(),
     };
   }
+
+  static #validateType(type: string): boolean {
+    if (type.length < 3)
+      throw new Error("must be at least three characters long");
+    if (
+      !/^custom\.-?\d+$/.test(type) &&
+      !type.split(".").every((s) => /^[a-z0-9]+$/i.test(s))
+    ) {
+      throw new Error(
+        "A change type must either be a sequence of dot-delimited, alpha-numeric substrings or of the form" +
+          ' "custom.{number}"',
+      );
+    }
+    return true;
+  }
 }
 
 export { A5EBaseActiveEffectData };

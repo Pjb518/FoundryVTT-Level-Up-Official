@@ -41,7 +41,7 @@ export function getACComponents(actor: Actor) {
   let changes;
   if (
     effectChanges.find(
-      ({ mode }) => mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE,
+      ({ mode }) => mode === CONFIG.A5E.ACTIVE_EFFECT_TYPES.OVERRIDE,
     )
   ) {
     changes = effectChanges;

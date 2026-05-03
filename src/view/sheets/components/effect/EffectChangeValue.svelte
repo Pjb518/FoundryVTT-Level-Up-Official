@@ -20,17 +20,6 @@
         onchange: (value: any) => void;
     };
 
-    // Convert value to array if possible
-    function convertToArray(value: JSON) {
-        try {
-            const values = JSON.parse((value ?? "").trim());
-            if (Array.isArray(values)) return values;
-            return [values];
-        } catch {
-            return [];
-        }
-    }
-
     function getConditionalObj(value: any) {
         if (type === MODES.CONDITIONAL && typeof value !== "object") {
             ui.notifications.warn("Conditional object is malformed.");
@@ -45,17 +34,10 @@
         return value;
     }
 
-    function updateObjectValue(obj: Record<string, any>) {
-        const returnValue = JSON.stringify(obj);
-        onchange(returnValue);
-    }
-
     let { key, type, optionsList, value, onchange }: Props = $props();
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
 
     let conditionalObj = $state(getConditionalObj(value));
-    $inspect(conditionalObj);
-    $inspect(type);
 
     let componentType = $state(optionsList[key]?.type ?? "DEFAULT");
 </script>
@@ -68,7 +50,7 @@
         <select
             class="a5e-input a5e-input--slim a5e-input--fit"
             bind:value={conditionalObj.comparisonOperator}
-            onchange={() => updateObjectValue(conditionalObj)}
+            onchange={() => onchange(conditionalObj)}
         >
             <option value="==">equal to</option>
             <option value="!==">not equal</option>
@@ -82,7 +64,7 @@
             class="a5e-input a5e-input--slim a5e-conditional-input"
             type="text"
             bind:value={conditionalObj.comparisonValue}
-            onchange={() => updateObjectValue(conditionalObj)}
+            onchange={() => onchange(conditionalObj)}
         />
 
         then change to
@@ -91,7 +73,7 @@
             class="a5e-input a5e-input--slim a5e-conditional-input"
             type="text"
             bind:value={conditionalObj.positiveValue}
-            onchange={() => updateObjectValue(conditionalObj)}
+            onchange={() => onchange(conditionalObj)}
         />
 
         else change to
@@ -100,7 +82,7 @@
             class="a5e-input a5e-input--slim a5e-conditional-input"
             type="text"
             bind:value={conditionalObj.negativeValue}
-            onchange={() => updateObjectValue(conditionalObj)}
+            onchange={() => onchange(conditionalObj)}
         />
     </div>
 {:else if componentType === "RADIO"}
@@ -115,16 +97,16 @@
     <CheckboxGroup
         heading="A5E.effects.options"
         options={optionsList[key]?.options ?? [[null, null]]}
-        selected={convertToArray(value)}
-        onUpdateSelection={(value) => onchange(JSON.stringify(value))}
+        selected={value}
+        onUpdateSelection={(value) => onchange(value)}
     />
 {:else if componentType === "TAG_GROUP"}
     <CustomTagGroup
         heading="A5E.effects.options"
         options={optionsList[key]?.options ?? [[null, null]]}
-        selected={convertToArray(value)}
+        selected={value}
         onUpdateSelection={(value) => {
-            onchange(JSON.stringify(value));
+            onchange(value);
         }}
     />
 {:else if componentType === "ABILITY_BONUS"}
