@@ -30,7 +30,7 @@
     let changes = $derived(effect.reactive.system.changes);
 
     const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
     const items = getEffectOptionGroups(optionsList);
 
     const groupBy = (item) => item.group;
