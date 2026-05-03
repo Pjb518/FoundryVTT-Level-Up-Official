@@ -649,10 +649,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     delete e1.flags?.a5e?.actionId;
     delete e2.flags?.a5e?.actionId;
 
-    e1.changes.forEach((c) => delete c.priority);
-    e2.changes.forEach((c) => delete c.priority);
+    e1.system.changes.forEach((c) => delete c.priority);
+    e2.system.changes.forEach((c) => delete c.priority);
 
-    return foundry.utils.objectsEqual(e1, e2);
+    return foundry.utils.equals(e1, e2);
   }
 
   // -------------------------------------------------------
