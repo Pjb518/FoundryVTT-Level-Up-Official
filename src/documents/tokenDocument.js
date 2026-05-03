@@ -23,16 +23,15 @@ export default class TokenDocumentA5e extends TokenDocument {
   }
 
   applyActiveEffects() {
-    this.overrides = {};
-    if (!this.actor) return;
-
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actor.effects?.contents ?? [],
-      "afterDerived",
-      null,
-      (change) => change.key.startsWith("@token"),
-    );
+    // this.overrides = {};
+    // if (!this.actor) return;
+    // ActiveEffectA5e.applyEffects(
+    //   this,
+    //   this.actor.effects?.contents ?? [],
+    //   "afterDerived",
+    //   null,
+    //   (change) => change.key.startsWith("@token"),
+    // );
   }
 
   _prepareDetectionModes() {
@@ -56,7 +55,7 @@ export default class TokenDocumentA5e extends TokenDocument {
       return;
     }
 
-     super._prepareDetectionModes();
+    super._prepareDetectionModes();
 
     // Enable actor vision if setting checked
     this.sight.enabled = true;

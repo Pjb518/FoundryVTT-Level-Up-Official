@@ -95,6 +95,69 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   // -------------------------------------------------------
+  //  Apply Methods
+  // -------------------------------------------------------
+  static applyChange(
+    targetDoc,
+    change,
+    { replacementData = {}, modifyTarget = true },
+  ) {
+    let field;
+    const changes = {};
+
+    if (typeof change.key === "string" && change.key.startsWith("system.")) {
+      if (targetDoc.system instanceof foundry.abstract.DataModel) {
+        field = targetDoc.system.getFieldForProperty(change.key.slice(7));
+      }
+    } else {
+      field = targetDoc.getFieldForProperty(String(change.key ?? ""));
+    }
+
+    const configuredHandler =
+      ActiveEffectA5e.CHANGE_TYPES[change.type]?.handler;
+
+    if (typeof configuredHandler === "function") {
+      configuredHandler(targetDoc, change, {
+        field,
+        replacementData,
+        modifyTarget,
+      });
+    } else if (field) {
+      changes[change.key] = this.applyChangeField(targetDoc, change, {
+        field,
+        replacementData,
+        modifyTarget,
+      });
+    } else {
+      this._applyChangeUnguided(targetDoc, change, changes, {
+        replacementData,
+        modifyTarget,
+      });
+    }
+
+    console.log(changes);
+
+    return changes;
+  }
+
+  static applyChangeField(
+    targetDoc,
+    change,
+    { field, replacementData = {}, modifyTarget = true },
+  ) {
+    field ??= targetDoc.getFieldForProperty(change.key);
+
+    const current = foundry.utils.getProperty(targetDoc, change.key);
+    const update = field.applyChange(current, targetDoc, change, {
+      replacementData,
+    });
+    if (modifyTarget && update !== undefined)
+      foundry.utils.setProperty(targetDoc, change.key, update);
+
+    return update;
+  }
+
+  // -------------------------------------------------------
   //  Class Methods
   // -------------------------------------------------------
   /**
@@ -104,6 +167,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // eslint-disable-next-line no-constant-binary-expression
     if (this.isSuppressed) return null;
 
+    console.log(_change);
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace("@token.", "");
 
@@ -749,7 +813,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         effect.statuses.forEach((statusId) => document.statuses.add(statusId));
       }
 
-      return effect._source.changes.filter(predicate).map((change) => {
+      return effect._source.system.changes.filter(predicate).map((change) => {
         const originalPriority = change.priority ?? 0;
         change.priority = originalPriority ?? change.mode * 10;
         return { effect, change };

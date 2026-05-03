@@ -74,12 +74,14 @@ import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 // import openCompendium from "../utils/openCompendium.ts";
 
 import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
+import { ActiveEffectA5E } from "../documents/activeEffect/ae.svelte.ts";
 // Stores
 // import { gameSettings } from "../settings/SettingsStore.ts";
 
 export default function init() {
   CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  // CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5E;
   // @ts-expect-error
   CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
