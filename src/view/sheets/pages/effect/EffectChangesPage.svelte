@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type ActiveEffectSheet from "#view/sheets/ActiveEffectSheet.svelte";
+    import type ActiveEffectSheet from "../../../../documents/sheets/ActiveEffectSheet.svelte.ts";
 
     import { getContext } from "svelte";
 
