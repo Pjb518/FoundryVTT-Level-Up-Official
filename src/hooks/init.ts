@@ -169,33 +169,48 @@ export default function init() {
   };
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
+  foundry.documents.collections.Actors.unregisterSheet(
+    "core",
+    foundry.applications.sheets.ActorSheetV2,
+  );
   // @ts-expect-error
-  Actors.registerSheet("a5e", ActorSheetA5e, {
+  foundry.documents.collections.Actors.registerSheet("a5e", ActorSheetA5e, {
     types: ["character"],
     makeDefault: true,
     label: "A5E.SheetClassCharacter",
   });
 
   // @ts-expect-error
-  Actors.registerSheet("a5e", ActorSheetA5e, {
+  foundry.documents.collections.Actors.registerSheet("a5e", ActorSheetA5e, {
     types: ["npc"],
     makeDefault: true,
     label: "A5E.SheetClassNPC",
   });
 
-  Items.unregisterSheet("core", ItemSheet);
+  foundry.documents.collections.Items.unregisterSheet(
+    "core",
+    foundry.applications.sheets.ItemSheetV2,
+  );
   // @ts-expect-error
-  Items.registerSheet("a5e", ItemSheetA5e, {
+  foundry.documents.collections.Items.registerSheet("a5e", ItemSheetA5e, {
     makeDefault: true,
     label: "A5E.SheetClassItem",
   });
 
-  DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
-  DocumentSheetConfig.registerSheet(ActiveEffect, "a5e", ActiveEffectSheetA5e, {
-    makeDefault: true,
-    label: "A5E.SheetClassActiveEffectConfig",
-  });
+  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(
+    ActiveEffect,
+    "core",
+    foundry.applications.sheets.ActiveEffectConfig,
+  );
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(
+    ActiveEffect,
+    "a5e",
+    ActiveEffectSheetA5e,
+    {
+      makeDefault: true,
+      label: "A5E.SheetClassActiveEffectConfig",
+    },
+  );
 
   // @ts-expect-error
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula;
@@ -205,15 +220,17 @@ export default function init() {
   Combat.prototype.rollInitiative = rollInitiative;
 
   // @ts-expect-error
-  CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+  foundry.applications.sidebar.tabs.CombatTracker.prototype._onCombatantControl =
+    _onCombatantControl;
   // @ts-expect-error
-  CombatTracker.prototype._onCombatControl = _onCombatControl;
+  foundry.applications.sidebar.tabs.CombatTracker.prototype._onCombatControl =
+    _onCombatControl;
 
   // Register detection modes
   prepareDetectionModes();
 
   // Set tooltips to animate faster
-  TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
+  foundry.helpers.interaction.TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
 
   // Pre-localize any static strings once localization files become available.
   Hooks.once("i18nInit", () => {
