@@ -35,6 +35,8 @@
                 MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
         }
 
+        console.log(changes);
+
         // Update Document
         effect.update({ "system.changes": changes });
     }

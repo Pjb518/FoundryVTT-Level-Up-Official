@@ -380,6 +380,9 @@ class BaseActorA5e extends Actor {
     const overrides = {};
     const replacementData = this.getRollData();
 
+    // TODO: Figure out why this fails on token npc
+    this.overrides ??= {};
+
     for (const change of changes) {
       // TODO: Adds support for `@original`
       const result = ActiveEffect.applyChange(this, change, {
@@ -388,10 +391,11 @@ class BaseActorA5e extends Actor {
       if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
     }
 
-    // foundry.utils.mergeObject(
-    //   this.overrides,
-    //   foundry.utils.expandObject(overrides),
-    // );
+    console.log(this.overrides, overrides);
+    foundry.utils.mergeObject(
+      this.overrides,
+      foundry.utils.expandObject(overrides),
+    );
   }
 
   /**
@@ -2196,32 +2200,32 @@ class BaseActorA5e extends Actor {
 
   /** @inheritdoc */
   override async _preUpdate(changed, options, user) {
-    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes(
-      "-=autoApplyFSConditions",
-    );
-    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes(
-      "-=-=autoApplyFSConditions",
-    );
+    // const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes(
+    //   "-=autoApplyFSConditions",
+    // );
+    // const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes(
+    //   "-=-=autoApplyFSConditions",
+    // );
 
-    if (hasRemoveFlag && !isRemoveFlag) {
-      await this.unsetFlag("a5e", "-=autoApplyFSConditions");
-    }
+    // if (hasRemoveFlag && !isRemoveFlag) {
+    //   await this.unsetFlag("a5e", "-=autoApplyFSConditions");
+    // }
 
-    const autoApplyFSConditions =
-      changed?.flags?.a5e?.autoApplyFSConditions ?? true;
-    if (autoApplyFSConditions) {
-      automateMultiLevelConditions(
-        this,
-        foundry.utils.deepClone(changed),
-        user.id,
-      );
-    }
+    // const autoApplyFSConditions =
+    //   changed?.flags?.a5e?.autoApplyFSConditions ?? true;
+    // if (autoApplyFSConditions) {
+    //   automateMultiLevelConditions(
+    //     this,
+    //     foundry.utils.deepClone(changed),
+    //     user.id,
+    //   );
+    // }
 
-    foundry.utils.setProperty(
-      changed,
-      "flags.a5e.-=autoApplyFSConditions",
-      null,
-    );
+    // foundry.utils.setProperty(
+    //   changed,
+    //   "flags.a5e.-=autoApplyFSConditions",
+    //   null,
+    // );
 
     await super._preUpdate(changed, options, user);
 
