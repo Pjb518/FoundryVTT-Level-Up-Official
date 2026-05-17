@@ -17,7 +17,8 @@
         toggleContainer?: () => void;
     };
 
-    let { item, action, actionId, toggleActionList, toggleContainer }: Props = $props();
+    let { item, action, actionId, toggleActionList, toggleContainer }: Props =
+        $props();
 
     function getActivationCost() {
         let _action = action;
@@ -131,7 +132,7 @@
 
     function hasRecharge(item: ItemA5e) {
         if (actionId && action) return action.uses?.per === "recharge";
-        return item.system?.uses?.per === "recharge";
+        return item.reactive.system?.uses?.per === "recharge";
     }
 
     function updateField(event) {
@@ -146,9 +147,17 @@
 
         const { target } = event;
         if (isClassResource) {
-            updateDocumentDataFromField(actor, target.name, Number(target.value));
+            updateDocumentDataFromField(
+                actor,
+                target.name,
+                Number(target.value),
+            );
         } else {
-            updateDocumentDataFromField(item, target.name, Number(target.value));
+            updateDocumentDataFromField(
+                item,
+                target.name,
+                Number(target.value),
+            );
         }
     }
 
@@ -225,7 +234,8 @@
                 ) ?? getDeterministicBonus(maxFormula, actor.getRollData(item));
 
             usesData[usesType].value = resource;
-            usesData[usesType].updatePath = `system.resources.classResources.${slug}`;
+            usesData[usesType].updatePath =
+                `system.resources.classResources.${slug}`;
         }
 
         return usesData;
@@ -252,8 +262,10 @@
 
     let usesType: "action" | "item" = actionId ? "action" : "item";
 
-    let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
-        false) as boolean;
+    let rightClickConfigure = (game.settings.get(
+        "a5e",
+        "itemRightClickConfigure",
+    ) ?? false) as boolean;
 
     let flags = $derived(actor.reactive.flags);
     let isClassResource = $derived.by(() => {
@@ -269,7 +281,9 @@
 
     let uses = $derived(generateUsesConfig());
     let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? 0);
-    let showWeight = $derived(weightRequired(actor.reactive.items, showWeightColumnFlag));
+    let showWeight = $derived(
+        weightRequired(actor.reactive.items, showWeightColumnFlag),
+    );
 
     let ammunitionItems = $derived.by(() =>
         actor.reactive.items
@@ -279,7 +293,9 @@
                     i.reactive.system.objectType === "ammunition",
             )
             .map((i) => ({ name: i.name, id: i.id }))
-            .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())),
+            .sort((a, b) =>
+                a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
+            ),
     );
 
     let rechargeState = $derived(
@@ -287,7 +303,8 @@
             ? // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
               action.uses?.max == action.uses?.value
             : // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-              item.system?.uses?.max == item.system?.uses?.value,
+              item.reactive.system?.uses?.max ==
+                  item.reactive.system?.uses?.value,
     );
 
     let activationCost = $derived(getActivationCost());
@@ -300,7 +317,8 @@
         return actor.reactive.items
             .filter((i) => i.system?.containerId === item.uuid)
             .reduce(
-                (sum, i) => sum + parseFloat(i.weight ?? 0) * (i.system?.quantity ?? 1),
+                (sum, i) =>
+                    sum + parseFloat(i.weight ?? 0) * (i.system?.quantity ?? 1),
                 0,
             );
     });
@@ -327,7 +345,10 @@
     });
 </script>
 
-<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
+<div
+    class="name-wrapper"
+    class:name-wrapper--ammunition={hasAmmunition(item, action)}
+>
     <div class="name">
         <span class="name__text">{action?.name ?? item.name}</span>
 
@@ -506,21 +527,6 @@
         {/if}
 
         <div class="button-wrapper">
-            {#if flags.a5e?.showFavoritesSection ?? true}
-                <button
-                    class="action-button icon fas fa-star"
-                    class:active={itemStore?.favorite ?? false}
-                    data-tooltip="A5E.buttons.tooltips.favorite"
-                    data-tooltip-direction="UP"
-                    aria-label="Toggle Favorite"
-                    onclick={(e) => {
-                        e.stopPropagation();
-                        item.toggleFavorite();
-                    }}
-                >
-                </button>
-            {/if}
-
             {#if item.type === "object"}
                 {#if itemStore.requiresAttunement}
                     <button
@@ -555,7 +561,9 @@
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(itemStore.equippedState)}
-                        data-tooltip={equippedStates[itemStore.equippedState ?? 0]}
+                        data-tooltip={equippedStates[
+                            itemStore.equippedState ?? 0
+                        ]}
                         data-tooltip-direction="UP"
                         aria-label="Toggle Equipped State"
                         onclick={(e) => {
@@ -569,7 +577,8 @@
                 {#if !hideBrokenAndDamaged}
                     <button
                         class="action-button icon fas"
-                        class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
+                        class:fa-heart={itemStore.damagedState ===
+                            DAMAGED_STATES.INTACT}
                         class:fa-heart-crack={itemStore.damagedState ===
                             DAMAGED_STATES.DAMAGED}
                         class:fa-heart-pulse={itemStore.damagedState ===
@@ -578,7 +587,9 @@
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(itemStore.damagedState)}
-                        data-tooltip={damagedStates[itemStore.damagedState ?? 0]}
+                        data-tooltip={damagedStates[
+                            itemStore.damagedState ?? 0
+                        ]}
                         data-tooltip-direction="UP"
                         aria-label="Toggle Damaged Dtate"
                         onclick={(e) => {
@@ -603,7 +614,9 @@
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(itemStore.prepared ?? 0))}
-                    data-tooltip={preparedStates[Number(itemStore.prepared ?? 0)]}
+                    data-tooltip={preparedStates[
+                        Number(itemStore.prepared ?? 0)
+                    ]}
                     data-tooltip-direction="UP"
                     aria-label="Toggle Prepared State"
                     onclick={(e) => {
@@ -619,7 +632,7 @@
                     class:active={rechargeState}
                     data-tooltip={rechargeState
                         ? "A5E.buttons.tooltips.charged"
-                        : "A5E.ButtonToolTipRecharge"}
+                        : "A5E.buttons.tooltips.recharge"}
                     data-tooltip-direction="UP"
                     aria-label="Toggle Recharge State"
                     onclick={(e) => {
@@ -627,6 +640,21 @@
                         item.recharge(actionId, rechargeState);
                     }}
                 ></button>
+            {/if}
+
+            {#if flags.a5e?.showFavoritesSection ?? true}
+                <button
+                    class="action-button icon fas fa-star"
+                    class:active={itemStore?.favorite ?? false}
+                    data-tooltip="A5E.buttons.tooltips.favorite"
+                    data-tooltip-direction="UP"
+                    aria-label="Toggle Favorite"
+                    onclick={(e) => {
+                        e.stopPropagation();
+                        item.toggleFavorite();
+                    }}
+                >
+                </button>
             {/if}
         </div>
     </div>
@@ -861,7 +889,8 @@
         width: 7ch;
 
         &:hover {
-            border: 1px solid var(--item-input-border-color, var(--a5e-border-color));
+            border: 1px solid
+                var(--item-input-border-color, var(--a5e-border-color));
         }
     }
 
