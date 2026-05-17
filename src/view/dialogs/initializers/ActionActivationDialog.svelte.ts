@@ -26,7 +26,7 @@ export class ActionActivationDialog extends SvelteApplicationMixin(
       },
     });
 
-    this.data = { actionId, actorDocument, itemDocument };
+    this.data = { actionId, actorDocument, itemDocument, options };
 
     this.promise = new Promise((resolve) => {
       this.resolve = resolve;

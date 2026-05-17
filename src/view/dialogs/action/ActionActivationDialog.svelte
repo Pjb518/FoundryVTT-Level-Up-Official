@@ -71,8 +71,13 @@
         });
     }
 
-    let { actionId, options, dialog, actorDocument, itemDocument }: Props =
-        $props();
+    let {
+        actionId,
+        options = {},
+        dialog,
+        actorDocument,
+        itemDocument,
+    }: Props = $props();
 
     let actor = actorDocument;
     let item = itemDocument;

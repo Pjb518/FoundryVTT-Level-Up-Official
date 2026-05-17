@@ -1,0 +1,18 @@
+<script lang="ts">
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+
+    const rollModes = CONST.DICE_ROLL_MODES;
+    const { DICE_ROLL_MODES } = CONFIG.A5E;
+
+    export let visibilityMode: string;
+</script>
+
+<RadioGroup
+    heading="Visibility Mode"
+    options={Object.entries(rollModes).map(([_, mode]) => [
+        mode,
+        DICE_ROLL_MODES[mode],
+    ])}
+    selected={visibilityMode}
+    onUpdateSelection={(detail) => (visibilityMode = detail)}
+/>
