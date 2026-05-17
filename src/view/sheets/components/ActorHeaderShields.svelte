@@ -21,7 +21,8 @@
 
     function getCharacterLevel() {
         if (actor.type !== "character") return 1;
-        if (!Object.keys(actor.classes ?? {}).length) return actorStore.details.level;
+        if (!Object.keys(actor.classes ?? {}).length)
+            return actorStore.details.level;
 
         return actor.levels.character;
     }
@@ -58,6 +59,7 @@
     }
 
     function toggleInspiration() {
+        console.log(actor.system.attributes.inspiration);
         updateDocumentDataFromField(
             actor,
             "system.attributes.inspiration",
@@ -85,22 +87,30 @@
         levelIsLocked: isLevelLocked(),
         requiredXP: getRequiredExperiencePoints(actor),
         showXP: showXP(),
-        xp: actor.type === "character" ? actorStore.details.xp : prepareXP(actor),
+        xp:
+            actor.type === "character"
+                ? actorStore.details.xp
+                : prepareXP(actor),
     });
+
+    $inspect(actorStore.attributes.inspiration);
 </script>
 
 <div class="a5e-actor-header-shields__container">
     {#if actor.type === "character"}
         <!-- Inspiration -->
         <div class="a5e-actor-details-box">
-            <label for="{actor.id}-inspiration" class="a5e-actor-details-box__label">
+            <label
+                for="{actor.id}-inspiration"
+                class="a5e-actor-details-box__label"
+            >
                 {localize("A5E.consumers.inspiration")}
             </label>
 
             <button
                 class="a5e-actor-details-box__button"
-                class:a5e-actor-details-box__button--selected={actorStore.attributes
-                    .inspiration}
+                class:a5e-actor-details-box__button--active={actorStore
+                    .attributes.inspiration}
                 aria-labelledby="Inspiration"
                 onclick={() => toggleInspiration()}
             >
@@ -118,7 +128,8 @@
 
             <button
                 class="a5e-actor-details-box__button"
-                class:a5e-actor-details-box__button--selected={actorStore.details.elite}
+                class:a5e-actor-details-box__button--selected={actorStore
+                    .details.elite}
                 aria-labelledby="Elite"
                 onclick={() => toggleElite()}
             >
@@ -157,7 +168,9 @@
 
     <!-- Proficiency -->
     <div class="a5e-actor-details-box">
-        <label for="{actor.id}-prof" class="a5e-actor-details-box__label"> Prof. </label>
+        <label for="{actor.id}-prof" class="a5e-actor-details-box__label">
+            Prof.
+        </label>
 
         <input
             id="{actor.id}-prof"
@@ -173,7 +186,9 @@
     {#if actor.type === "npc"}
         <!-- CR -->
         <div class="a5e-actor-details-box">
-            <label for="{actor.id}-cr" class="a5e-actor-details-box__label"> CR </label>
+            <label for="{actor.id}-cr" class="a5e-actor-details-box__label">
+                CR
+            </label>
 
             <input
                 id="{actor.id}-cr"
@@ -190,7 +205,10 @@
     <!-- XP -->
     {#if data.showXP}
         <div class="a5e-actor-details-box">
-            <label for="{actor.id}-current-xp" class="a5e-actor-details-box__label">
+            <label
+                for="{actor.id}-current-xp"
+                class="a5e-actor-details-box__label"
+            >
                 {actor.type === "character" ? "Current XP" : "XP"}
             </label>
 
@@ -215,7 +233,10 @@
         <!-- Required XP -->
         {#if actor.type === "character"}
             <div class="a5e-actor-details-box">
-                <label for="{actor.id}-required-xp" class="a5e-actor-details-box__label">
+                <label
+                    for="{actor.id}-required-xp"
+                    class="a5e-actor-details-box__label"
+                >
                     Required XP
                 </label>
 
@@ -291,6 +312,15 @@
 
             &--selected {
                 color: var(--a5e-text-color-dark);
+            }
+
+            &--active {
+                color: var(--a5e-color-advantage);
+
+                &:hover,
+                &:focus {
+                    color: var(--a5e-color-primary);
+                }
             }
         }
     }
