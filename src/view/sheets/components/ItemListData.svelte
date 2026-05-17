@@ -325,8 +325,7 @@
 
     let isMagicalItem = $derived(
         item.reactive.isType("object") &&
-            itemStore.rarity !== "mundane" &&
-            itemStore.rarity !== "",
+            !["mundane", ""].includes(itemStore.rarity),
     );
 
     $effect(() => {
