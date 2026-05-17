@@ -74,7 +74,10 @@
         // @ts-expect-error
         if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function getDescription(item: Item) {
@@ -98,7 +101,9 @@
         switch (sortMethod) {
             case "alphabetical":
                 if (sortDirection === "ascending")
-                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                    return a.name
+                        .toLowerCase()
+                        .localeCompare(b.name.toLowerCase());
                 return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
 
             case "quantity":
@@ -152,7 +157,8 @@
     let sortDirection = $derived(item.reactive.system.containerSortDirection);
 
     let containerItems = $derived(
-        item.reactive.isType("object") && item.reactive.system.objectType === "container"
+        item.reactive.isType("object") &&
+            item.reactive.system.objectType === "container"
             ? [...(actor.reactive.items?.values() ?? [])]
                   .filter((child) => child.system.containerId === item.uuid)
                   .sort((a, b) => sortContainer(a, b))

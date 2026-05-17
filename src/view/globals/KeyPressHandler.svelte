@@ -17,7 +17,7 @@
 </script>
 
 <svelte:window
-    onkeydown={(event) => logKey(event)}
-    onkeyup={(event) => logKey(event)}
+    onkeydowncapture={(event) => logKey(event)}
+    onkeyupcapture={(event) => logKey(event)}
     onblur={() => resetKeys()}
 />
