@@ -1,32 +1,31 @@
 <script>
     import { localize } from "#utils/localization/localize.ts";
 
-    let { actor, propData = {} } = $props();
-
     function hasArtifactCharges(actor) {
-        return actor?.system?.spellResources?.artifactCharges?.max;
+        return actorData?.system?.spellResources?.artifactCharges?.max;
     }
 
     function hasExertionPool(actor) {
-        return actor?.system?.attributes.exertion?.max;
+        return actorData?.system?.attributes.exertion?.max;
     }
 
     function hasSpellPoints(actor) {
-        return actor?.system?.spellResources?.points?.max;
+        return actorData?.system?.spellResources?.points?.max;
     }
     function hasSupply(actor) {
         return actor?.reactive.supply;
     }
 
+    let { actor, propData = {} } = $props();
     const { spellLevels } = CONFIG.A5E;
 
-    const actorData = $derived(actor?.system);
-    const showArtifactCharges = $derived(hasArtifactCharges(actor));
-    const showExertion = $derived(hasExertionPool(actor));
-    const showSpellPoints = $derived(hasSpellPoints(actor));
-    const showSupply = $derived(hasSupply(actor));
+    let actorData = $derived(actor?.reactive?.system);
+    let showArtifactCharges = $derived(hasArtifactCharges(actor));
+    let showExertion = $derived(hasExertionPool(actor));
+    let showSpellPoints = $derived(hasSpellPoints(actor));
+    let showSupply = $derived(hasSupply(actor));
 
-    const showResources = $derived(
+    let showResources = $derived(
         propData.partyHasArtifactCharges ||
             propData.partyHasExertionPool ||
             propData.partyHasInspiration ||

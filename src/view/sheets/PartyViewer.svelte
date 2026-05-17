@@ -11,29 +11,28 @@
     import PartyViewerWealthHeader from "#view/sheets/pages/partyViewer/PartyViewerWealthHeader.svelte";
     import PartyViewerWealthFooter from "#view/sheets/pages/partyViewer/PartyViewerWealthFooter.svelte";
 
-    let { sheet } = $props();
-
     function getAnyMemberHasArtifactCharges() {
         return (partyMembers ?? []).some((actor) => {
-            return actor?.system?.spellResources?.artifactCharges?.max;
+            return actor?.reactive?.system?.spellResources?.artifactCharges
+                ?.max;
         });
     }
 
     function getAnyMemberHasExertionPool() {
         return (partyMembers ?? []).some((actor) => {
-            return actor?.system?.attributes?.exertion?.max;
+            return actor?.reactive?.system?.attributes?.exertion?.max;
         });
     }
 
     function getAnyMemberHasInspiration() {
         return (partyMembers ?? []).some((actor) => {
-            return actor?.system?.attributes?.inspiration;
+            return actor?.reactive?.system?.attributes?.inspiration;
         });
     }
 
     function getAnyMemberHasSpellPointPool() {
         return (partyMembers ?? []).some((actor) => {
-            return actor?.system?.spellResources?.points?.max;
+            return actor?.reactive?.system?.spellResources?.points?.max;
         });
     }
 
@@ -199,7 +198,7 @@
 
     function getHighestPassiveScoresForParty() {
         return (partyMembers ?? []).reduce((passiveScores, actor) => {
-            Object.entries(actor?.system?.skills ?? {}).forEach(
+            Object.entries(actor?.reactive?.system?.skills ?? {}).forEach(
                 ([skillKey, { passive }]) => {
                     passiveScores[skillKey] ??= 0;
 
@@ -215,13 +214,13 @@
 
     function getHighestSpellSlotLevel() {
         return (partyMembers ?? []).reduce((highestSlotLevel, actor) => {
-            Object.entries(actor?.system?.spellResources?.slots ?? {}).forEach(
-                ([slotLevel, { max }]) => {
-                    if (slotLevel > highestSlotLevel && max && max > 0) {
-                        highestSlotLevel = slotLevel;
-                    }
-                },
-            );
+            Object.entries(
+                actor?.reactive?.system?.spellResources?.slots ?? {},
+            ).forEach(([slotLevel, { max }]) => {
+                if (slotLevel > highestSlotLevel && max && max > 0) {
+                    highestSlotLevel = slotLevel;
+                }
+            });
 
             return highestSlotLevel;
         }, 0);
@@ -230,7 +229,7 @@
     function getTotalPartyWealth() {
         return (partyMembers ?? []).reduce(
             (wealthData, actor) => {
-                const currency = actor?.system?.currency;
+                const currency = actor?.reactive?.system?.currency;
 
                 wealthData.cp += currency?.cp ?? 0;
                 wealthData.sp += currency?.sp ?? 0;
@@ -353,6 +352,8 @@
         ["resources", "Resources"],
         ["wealth", "Wealth"],
     ];
+
+    let { sheet } = $props();
 
     const { isGM } = game.user;
 

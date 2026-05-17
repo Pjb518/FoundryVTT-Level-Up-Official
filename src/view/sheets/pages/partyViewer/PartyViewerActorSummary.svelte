@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import PartyViewerAttributesSummary from "./PartyViewerAttributesSummary.svelte";
     import PartyViewerCoreSummary from "./PartyViewerCoreSummary.svelte";
     import PartyViewerLanguagesSummary from "./PartyViewerLanguagesSummary.svelte";
@@ -26,9 +26,16 @@
     const { isGM } = game.user;
 </script>
 
-<li class="a5e-item a5e-item--party-member" ondblclick={() => actor?.sheet.render(true)}>
+<li
+    class="a5e-item a5e-item--party-member"
+    ondblclick={() => actor?.sheet.render(true)}
+>
     {#if showActorImagesInPartyViewer}
-        <img class="a5e-party-viewer__actor-image" src={actor?.img} alt={actor?.name} />
+        <img
+            class="a5e-party-viewer__actor-image"
+            src={actor?.img}
+            alt={actor?.name}
+        />
     {/if}
 
     <span class="a5e-party-viewer__actor-name">{actor?.name}</span>
