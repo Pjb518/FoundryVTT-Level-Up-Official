@@ -10,7 +10,7 @@ export function getKeyPressAsOptions(
 ) {
   const { Shift, Control, Alt } = keyPressStore;
 
-  const altBehavior = false; // game.settings.get('a5e', 'reverseAltBehavior');
+  const altBehavior = game.settings.get("a5e", "reverseAltBehavior");
 
   let rollMode = Shift
     ? CONFIG.A5E.ROLL_MODE.ADVANTAGE
