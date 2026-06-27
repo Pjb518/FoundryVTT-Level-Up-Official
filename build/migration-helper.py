@@ -107,6 +107,7 @@ def main():
     files = get_files()
 
     for file in files:
+        print(f"Migrating {file}")
         document = parse_file(file)
         migrated_document = migrate_document(document)
         write_file(file, migrated_document)
