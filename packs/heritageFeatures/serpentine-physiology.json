@@ -45,14 +45,6 @@
 			"transfer": false,
 			"name": "On The Ground",
 			"_id": "vN4WQ4SdewRygAUl",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"prone\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -74,7 +66,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"prone\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

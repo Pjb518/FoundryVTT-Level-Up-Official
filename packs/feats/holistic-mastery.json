@@ -45,14 +45,6 @@
 			"transfer": false,
 			"name": "Holistic Mastery",
 			"_id": "LotsoTF8c9a9eNxb",
-			"changes": [
-				{
-					"key": "system.attributes.exertion.max",
-					"value": "@int.mod",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -73,7 +65,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.exertion.max",
+						"value": "@int.mod",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

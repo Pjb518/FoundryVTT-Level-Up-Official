@@ -2868,38 +2868,6 @@
 					"transfer": false,
 					"name": "Bless",
 					"_id": "BVzQZTrd5DWfDSRB",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.bonuses.abilities",
-							"mode": 0,
-							"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
-							"priority": null
-						},
-						{
-							"key": "system.bonuses.meleeSpellAttack",
-							"mode": 2,
-							"value": "1d4",
-							"priority": null
-						},
-						{
-							"key": "system.bonuses.meleeWeaponAttack",
-							"mode": 2,
-							"value": "1d4",
-							"priority": null
-						},
-						{
-							"key": "system.bonuses.rangedSpellAttack",
-							"mode": 2,
-							"value": "1d4",
-							"priority": null
-						},
-						{
-							"key": "system.bonuses.rangedWeaponAttack",
-							"mode": 2,
-							"value": "1d4",
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2935,7 +2903,39 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.bonuses.abilities",
+								"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
+								"priority": null,
+								"type": "custom"
+							},
+							{
+								"key": "system.bonuses.meleeSpellAttack",
+								"value": "1d4",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "system.bonuses.meleeWeaponAttack",
+								"value": "1d4",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "system.bonuses.rangedSpellAttack",
+								"value": "1d4",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "system.bonuses.rangedWeaponAttack",
+								"value": "1d4",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"sort": 0,
 					"folder": null

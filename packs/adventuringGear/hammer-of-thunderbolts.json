@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Hammer of Thunderbolts",
 			"_id": "vno7PcGhnbPFvwJs",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"str\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"4\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/hammers/hammer-double-engraved-green.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -40,7 +32,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"4\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/hammers/hammer-double-engraved-green.webp\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

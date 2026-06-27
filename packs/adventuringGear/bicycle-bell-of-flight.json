@@ -178,20 +178,6 @@
 			"transfer": false,
 			"name": "Fly",
 			"_id": "PL5NOkbWAboQXNS2",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "50",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.traits.hover",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -212,7 +198,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "50",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.traits.hover",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -228,14 +228,6 @@
 			"transfer": false,
 			"name": "Ringing Bell",
 			"_id": "xtrKb4D4SJrYkBkX",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -256,7 +248,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

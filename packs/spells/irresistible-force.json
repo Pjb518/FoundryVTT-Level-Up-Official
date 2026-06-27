@@ -103,14 +103,6 @@
 			"transfer": false,
 			"name": "Fatigue",
 			"_id": "m9AEuxWtZiEYYKFb",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -131,7 +123,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.fatigue",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -143,14 +143,6 @@
 			"transfer": false,
 			"name": "Rattled",
 			"_id": "v9BuNsC3D6vapPio",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -173,7 +165,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -185,14 +185,6 @@
 			"transfer": false,
 			"name": "Slowed",
 			"_id": "L8n5R9KEgG7ZaTel",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"slowed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -215,7 +207,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"slowed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

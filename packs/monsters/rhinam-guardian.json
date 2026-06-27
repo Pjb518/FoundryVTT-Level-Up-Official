@@ -1766,14 +1766,6 @@
 					"transfer": false,
 					"name": "Empowered Blows",
 					"_id": "Oy71OH6islbZq088",
-					"changes": [
-						{
-							"key": "system.abilities.str.value",
-							"mode": 2,
-							"value": "4",
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1792,6 +1784,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.abilities.str.value",
+								"value": "4",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				},
 				{
@@ -1806,14 +1808,6 @@
 					"transfer": false,
 					"name": "Empowered Defense",
 					"_id": "XPlHe2qywxglXQPq",
-					"changes": [
-						{
-							"key": "system.attributes.ac.value",
-							"mode": 2,
-							"value": "3",
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1832,6 +1826,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.value",
+								"value": "3",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				},
 				{
@@ -1846,20 +1850,6 @@
 					"transfer": false,
 					"name": "Empowered Movement",
 					"_id": "eCD8sHhVREBM99HN",
-					"changes": [
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "20",
-							"mode": 2,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.fly.distance",
-							"mode": 2,
-							"value": "20",
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1878,6 +1868,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "20",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "system.attributes.movement.fly.distance",
+								"value": "20",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -1901,14 +1907,6 @@
 			"transfer": false,
 			"name": "Empowered Blows",
 			"_id": "sSqXiCeapoqCh8E1",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"mode": 0,
-					"value": "{\"context\":{\"abilities\":[\"str\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"4\",\"label\":\"Ability Bonus\",\"img\":\"icons/skills/melee/unarmed-punch-fist-yellow-red.webp\",\"default\":true}",
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1930,7 +1928,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"4\",\"label\":\"Ability Bonus\",\"img\":\"icons/skills/melee/unarmed-punch-fist-yellow-red.webp\",\"default\":true}",
+						"priority": 0,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -1942,14 +1948,6 @@
 			"transfer": false,
 			"name": "Empowered Defense",
 			"_id": "T0e7gVVhIFiX2q6Y",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"mode": 2,
-					"value": "3",
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1971,7 +1969,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "3",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -1983,20 +1989,6 @@
 			"transfer": false,
 			"name": "Empowered Movement",
 			"_id": "7RFztYsdK5T2DbXi",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "20",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"mode": 2,
-					"value": "20",
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2018,7 +2010,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "20",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "20",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

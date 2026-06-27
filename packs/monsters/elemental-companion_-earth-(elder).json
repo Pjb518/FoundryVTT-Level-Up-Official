@@ -1561,14 +1561,6 @@
 					"transfer": false,
 					"name": "Reduce to Small",
 					"_id": "aCCi1SuXrjAAup0o",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"mode": 5,
-							"value": "sm",
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1603,7 +1595,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "sm",
+								"priority": null,
+								"type": "upgrade"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -1723,14 +1723,6 @@
 					"transfer": false,
 					"name": "Enlarge to Medium",
 					"_id": "aCCi1SuXrjAAup0o",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"value": "med",
-							"mode": 5,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1765,7 +1757,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "med",
+								"priority": null,
+								"type": "upgrade"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2376,14 +2376,6 @@
 					"transfer": false,
 					"name": "Reduce to Medium",
 					"_id": "aCCi1SuXrjAAup0o",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"value": "med",
-							"mode": 5,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2418,7 +2410,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "med",
+								"priority": null,
+								"type": "upgrade"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2538,14 +2538,6 @@
 					"transfer": false,
 					"name": "Enlarge to Large",
 					"_id": "aCCi1SuXrjAAup0o",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"value": "lg",
-							"mode": 5,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2580,7 +2572,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "lg",
+								"priority": null,
+								"type": "upgrade"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2727,14 +2727,6 @@
 			},
 			"name": "Puppeteer's Spell Save DC (Change As Needed)",
 			"_id": "4yC36AQDFlE3A5s5",
-			"changes": [
-				{
-					"key": "system.attributes.spellDC",
-					"value": "0[Spell DC]",
-					"mode": 5,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2768,7 +2760,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.spellDC",
+						"value": "0[Spell DC]",
+						"priority": 0,
+						"type": "upgrade"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -2783,44 +2783,6 @@
 			},
 			"name": "Puppeteer's Proficiency (2)",
 			"_id": "MOK0tlZap1nNBo5b",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + 2",
-					"mode": 6,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.prof",
-					"value": "2",
-					"mode": 5,
-					"priority": 31250
-				},
-				{
-					"key": "system.attributes.maneuverDC",
-					"value": "12",
-					"mode": 5,
-					"priority": 31250
-				},
-				{
-					"key": "system.skills.ath.bonuses.check",
-					"value": "2",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.check",
-					"value": "2",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.bonuses.abilities.save",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2854,7 +2816,45 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + 2",
+						"priority": 20,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.prof",
+						"value": "2",
+						"priority": 31250,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.maneuverDC",
+						"value": "12",
+						"priority": 31250,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.skills.ath.bonuses.check",
+						"value": "2",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.bonuses.check",
+						"value": "2",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.bonuses.abilities.save",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -2869,26 +2869,6 @@
 			},
 			"name": "Puppeteer's Spellcasting Modifier (Change As Needed)",
 			"_id": "bQRshuTH5UpuAVlJ",
-			"changes": [
-				{
-					"key": "system.attributes.hp.value",
-					"value": "0[Spellcasting Modifier]",
-					"mode": 2,
-					"priority": 320
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "0[Spellcasting Modifier]",
-					"mode": 2,
-					"priority": 320
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"label\":\"Attack Bonus\",\"formula\":\"0[Spellcasting Modifier]\",\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": 20
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2922,7 +2902,27 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.hp.value",
+						"value": "0[Spellcasting Modifier]",
+						"priority": 320,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "0[Spellcasting Modifier]",
+						"priority": 320,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"label\":\"Attack Bonus\",\"formula\":\"0[Spellcasting Modifier]\",\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": 20,
+						"type": "custom"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -2937,32 +2937,6 @@
 			},
 			"name": "Puppeteer's Level (Change As Needed)",
 			"_id": "hHu1dE2bvHaZLigL",
-			"changes": [
-				{
-					"key": "system.attributes.hp.value",
-					"value": "4*0[Level]",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "4*0[Level]",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hitDice.d6.current",
-					"value": "0[Level]",
-					"mode": 5,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hitDice.d6.total",
-					"value": "0[Level]",
-					"mode": 5,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2996,7 +2970,33 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.hp.value",
+						"value": "4*0[Level]",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "4*0[Level]",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hitDice.d6.current",
+						"value": "0[Level]",
+						"priority": 0,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.hitDice.d6.total",
+						"value": "0[Level]",
+						"priority": 0,
+						"type": "upgrade"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -3011,14 +3011,6 @@
 			},
 			"name": "Guardian",
 			"_id": "TAdMCfEeBqQBGWL3",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -3052,7 +3044,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -3067,38 +3067,6 @@
 			},
 			"name": "Puppeteer's Proficiency (3)",
 			"_id": "j06ZFEIM75nWe0mD",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + 3",
-					"mode": 6,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.prof",
-					"value": "3",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.attributes.maneuverDC",
-					"value": "13",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.skills.ath.bonuses.check",
-					"value": "3",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.check",
-					"value": "3",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -3132,7 +3100,39 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + 3",
+						"priority": 20,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.prof",
+						"value": "3",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.maneuverDC",
+						"value": "13",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.skills.ath.bonuses.check",
+						"value": "3",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.bonuses.check",
+						"value": "3",
+						"priority": 20,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -3147,38 +3147,6 @@
 			},
 			"name": "Puppeteer's Proficiency (4)",
 			"_id": "Y10Hb5zunAkKGZau",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + 4",
-					"mode": 6,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.prof",
-					"value": "4",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.attributes.maneuverDC",
-					"value": "14",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.skills.ath.bonuses.check",
-					"value": "4",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.check",
-					"value": "4",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -3212,7 +3180,39 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + 4",
+						"priority": 20,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.prof",
+						"value": "4",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.maneuverDC",
+						"value": "14",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.skills.ath.bonuses.check",
+						"value": "4",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.bonuses.check",
+						"value": "4",
+						"priority": 20,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -3227,38 +3227,6 @@
 			},
 			"name": "Puppeteer's Proficiency (5)",
 			"_id": "HVRYCZFzQrhONqql",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + 5",
-					"mode": 6,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.prof",
-					"value": "5",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.attributes.maneuverDC",
-					"value": "15",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.skills.ath.bonuses.check",
-					"value": "5",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.check",
-					"value": "5",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -3292,7 +3260,39 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + 5",
+						"priority": 20,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.prof",
+						"value": "5",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.maneuverDC",
+						"value": "15",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.skills.ath.bonuses.check",
+						"value": "5",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.bonuses.check",
+						"value": "5",
+						"priority": 20,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
@@ -3307,38 +3307,6 @@
 			},
 			"name": "Puppeteer's Proficiency (6)",
 			"_id": "1OLBTpTsTgniHUQB",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + 6",
-					"mode": 6,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.prof",
-					"value": "6",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.attributes.maneuverDC",
-					"value": "16",
-					"mode": 5,
-					"priority": 50
-				},
-				{
-					"key": "system.skills.ath.bonuses.check",
-					"value": "6",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.check",
-					"value": "6",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -3372,7 +3340,39 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + 6",
+						"priority": 20,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.prof",
+						"value": "6",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.maneuverDC",
+						"value": "16",
+						"priority": 50,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.skills.ath.bonuses.check",
+						"value": "6",
+						"priority": 20,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.bonuses.check",
+						"value": "6",
+						"priority": 20,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",

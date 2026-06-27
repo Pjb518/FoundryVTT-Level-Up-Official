@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Arcane Sensitivity",
 			"_id": "MG6lLtyFTv5KEwIr",
-			"changes": [
-				{
-					"key": "system.skills.arc.proficient",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.skills.arc.proficient",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

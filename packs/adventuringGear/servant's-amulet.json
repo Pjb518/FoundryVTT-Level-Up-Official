@@ -139,14 +139,6 @@
 			"transfer": false,
 			"name": "Servant's Amulet",
 			"_id": "PWCCjFvS9UG02yej",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"charmed\",\"frightened\",\"rattled\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -167,7 +159,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"charmed\",\"frightened\",\"rattled\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

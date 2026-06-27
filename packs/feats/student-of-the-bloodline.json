@@ -89,20 +89,6 @@
 			"transfer": false,
 			"name": "Student of the Bloodline",
 			"_id": "217TBjd3JiYjwSTH",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.int",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -123,7 +109,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.int",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

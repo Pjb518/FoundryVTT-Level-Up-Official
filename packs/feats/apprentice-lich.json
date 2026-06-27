@@ -116,14 +116,6 @@
 			"transfer": false,
 			"name": "Soul Vessel",
 			"_id": "JO7P8tODYRgNhkWb",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.deathSave",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -144,7 +136,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.deathSave",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

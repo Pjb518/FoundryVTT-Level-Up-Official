@@ -129,14 +129,6 @@
 			"transfer": false,
 			"name": "Poisoned",
 			"_id": "o8ICo9Vs7BKgsSWN",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -159,7 +151,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -17,14 +17,6 @@
 			"transfer": false,
 			"name": "Frost",
 			"_id": "i4bWmHzg2OE6Ddvk",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "-10",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -45,7 +37,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "-10",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		},
 		{
@@ -62,20 +62,6 @@
 			"transfer": false,
 			"name": "Frigid Frost",
 			"_id": "AL14b1NHwiT31LRk",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -98,7 +84,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -45,14 +45,6 @@
 			"transfer": false,
 			"name": "Expanded Mind",
 			"_id": "ClmmV3aXWMlUgHEf",
-			"changes": [
-				{
-					"key": "system.abilities.int.value",
-					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"20\",\"positiveValue\":\"5\",\"negativeValue\":\"20\"}",
-					"mode": 7,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -73,7 +65,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.abilities.int.value",
+						"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"20\",\"positiveValue\":\"5\",\"negativeValue\":\"20\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			}
 		}
 	],

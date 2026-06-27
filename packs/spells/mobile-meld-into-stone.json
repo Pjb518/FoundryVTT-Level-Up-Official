@@ -16,26 +16,6 @@
 			"transfer": false,
 			"name": "Meld Into Stone",
 			"_id": "htVmTfcczNtoGlkv",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -59,7 +39,27 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.burrow.distance",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -75,44 +75,6 @@
 			"transfer": false,
 			"name": "Meld Into Stone",
 			"_id": "tcfKQGFVAzfz3pr8",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.rangedSpellAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.rangedWeaponAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -136,7 +98,45 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.rangedSpellAttack",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.rangedWeaponAttack",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.burrow.distance",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

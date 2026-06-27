@@ -12,26 +12,6 @@
 			"transfer": false,
 			"name": "Osseous Plate",
 			"_id": "kEq0dPbVbI5w6l0N",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"mode": 2,
-					"value": "necrotic",
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"mode": 2,
-					"value": "bludgeoning",
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"mode": 2,
-					"value": "poison",
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -53,7 +33,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "necrotic",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageVulnerabilities",
+						"value": "bludgeoning",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageResistances",
+						"value": "poison",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

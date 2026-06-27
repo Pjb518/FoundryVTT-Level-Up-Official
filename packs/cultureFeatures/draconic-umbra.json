@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Spiritual Umbra",
 			"_id": "MS53pisnBIj2W1jY",
-			"changes": [
-				{
-					"key": "system.skills.ste.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.ste.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -60,20 +60,6 @@
 			"transfer": false,
 			"name": "Protective Umbra",
 			"_id": "FeAkARRCr2RMMMfN",
-			"changes": [
-				{
-					"key": "system.abilities.wis.check.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.int.check.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -94,7 +80,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.abilities.wis.check.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.abilities.int.check.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Mindshield",
 			"_id": "QwxVLuOkkUcHrb7o",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"psychic\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"psychic\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

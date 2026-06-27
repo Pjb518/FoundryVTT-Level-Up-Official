@@ -45,20 +45,6 @@
 			"transfer": false,
 			"name": "Blindsight",
 			"_id": "sWv1kQNA2rxfrcIo",
-			"changes": [
-				{
-					"key": "system.attributes.senses.blindsight.distance",
-					"value": "60",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.blindsight.otherwiseBlind",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -79,7 +65,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.senses.blindsight.distance",
+						"value": "60",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.senses.blindsight.otherwiseBlind",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

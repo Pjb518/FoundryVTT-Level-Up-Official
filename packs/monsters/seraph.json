@@ -1260,20 +1260,6 @@
 					"transfer": false,
 					"name": "Divine Knowledge",
 					"_id": "Pms5paXkJFGD7IUL",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.int",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.abilities",
-							"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1291,6 +1277,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.abilities",
+								"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -2025,14 +2027,6 @@
 					"transfer": false,
 					"name": "Prone",
 					"_id": "OifQ5dYGIvyfSfy0",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2052,6 +2046,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"prone\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -2189,20 +2193,6 @@
 			"transfer": false,
 			"name": "Divine Knowledge",
 			"_id": "Nb7UKY33nzjT8Zah",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
-					"value": "1",
-					"mode": 6,
-					"priority": 0
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2223,7 +2213,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+						"value": "1",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"label\":\"Divine Knowledge\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"abilities\":[\"int\"],\"types\":[\"check\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": 0,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -17,14 +17,6 @@
 			"transfer": false,
 			"name": "Cursed Moonbeam",
 			"_id": "um7bNftnG5CQyDEL",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -45,7 +37,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					}
+				]
 			}
 		}
 	],

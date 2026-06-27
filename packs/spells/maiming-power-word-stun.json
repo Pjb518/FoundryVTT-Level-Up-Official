@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Stunned",
 			"_id": "XmnbNrYSr8Cs83YZ",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -42,7 +34,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -59,14 +59,6 @@
 			"transfer": false,
 			"name": "Rattled",
 			"_id": "3RDhoMrcJ50CBCD3",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -89,7 +81,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -106,20 +106,6 @@
 			"transfer": false,
 			"name": "Blinded",
 			"_id": "wIrEeKizn1i910qR",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -142,7 +128,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"blinded\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -159,20 +159,6 @@
 			"transfer": false,
 			"name": "Deafened",
 			"_id": "8vWJ5oGL42EGzvLe",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"deafened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -195,7 +181,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"deafened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

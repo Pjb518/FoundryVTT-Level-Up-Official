@@ -104,14 +104,6 @@
 			"transfer": false,
 			"name": "Poisoned",
 			"_id": "kAqWv6hoAYMyac8c",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -134,7 +126,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -151,14 +151,6 @@
 			"transfer": false,
 			"name": "Poisoned and Incapacitated",
 			"_id": "AWZjbktmspRzUMk8",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -182,7 +174,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\",\"incapacitated\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -199,20 +199,6 @@
 			"transfer": false,
 			"name": "Poisoned, Incapacitated, and Fatigue (3rd-level Spell)",
 			"_id": "LY3thCfJJPjyXjBS",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -236,7 +222,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\",\"incapacitated\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.fatigue",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -253,20 +253,6 @@
 			"transfer": false,
 			"name": "Poisoned, Incapacitated, and Fatigue (4th-level Spell)",
 			"_id": "ucBMYQ4AtlcdQ3rF",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -290,7 +276,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\",\"incapacitated\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.fatigue",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

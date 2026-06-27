@@ -136,20 +136,6 @@
 			"transfer": false,
 			"name": "Shroud of Glory",
 			"_id": "dNeNU8Brrn93bpjs",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -170,7 +156,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

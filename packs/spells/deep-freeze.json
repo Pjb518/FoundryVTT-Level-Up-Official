@@ -112,14 +112,6 @@
 			"transfer": false,
 			"name": "Suspended Animation",
 			"_id": "V84jd7yLk3ccpiz4",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"unconscious\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -142,7 +134,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"unconscious\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

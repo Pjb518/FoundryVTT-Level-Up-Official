@@ -71,20 +71,6 @@
 					"transfer": false,
 					"name": "Sunlight Sensitivity",
 					"_id": "OLlGBjQef9ATCy04",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -102,6 +88,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.attack.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -1105,20 +1107,6 @@
 					"transfer": false,
 					"name": "Flame",
 					"_id": "fX7ykJezw2Vd0NZv",
-					"changes": [
-						{
-							"key": "@token.light.bright",
-							"value": "10",
-							"mode": 6,
-							"priority": 0
-						},
-						{
-							"key": "@token.light.dim",
-							"value": "20",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1136,6 +1124,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "@token.light.bright",
+								"value": "10",
+								"priority": 0,
+								"type": "override"
+							},
+							{
+								"key": "@token.light.dim",
+								"value": "20",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -1405,7 +1409,6 @@
 					"transfer": false,
 					"name": "Expeditious Retreat",
 					"_id": "ekbRuKaLFm6ygsHw",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1423,6 +1426,9 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": []
 					}
 				}
 			],
@@ -1543,26 +1549,6 @@
 					"transfer": false,
 					"name": "Enlarged",
 					"_id": "fB0ob8QMcMyug2fP",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"Enlarged\",\"formula\":\"1d4[Enlarged]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/movement/arrows-up-trio-red.webp\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1580,6 +1566,28 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.damage",
+								"value": "{\"label\":\"Enlarged\",\"formula\":\"1d4[Enlarged]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/movement/arrows-up-trio-red.webp\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				},
 				{
@@ -1598,26 +1606,6 @@
 					"transfer": false,
 					"name": "Reduced",
 					"_id": "6tEfvkxFPUZJ1Uwx",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.str",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"Reduced\",\"formula\":\"-1d4[Reduced]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"rangedWeaponAttack\",\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/control/silhouette-grow-shrink-blue.webp\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1635,6 +1623,28 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.str",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.damage",
+								"value": "{\"label\":\"Reduced\",\"formula\":\"-1d4[Reduced]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"rangedWeaponAttack\",\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/control/silhouette-grow-shrink-blue.webp\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1768,14 +1778,6 @@
 					"transfer": false,
 					"name": "Held",
 					"_id": "3JVj6W1lcRJTlRBV",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"paralyzed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1795,6 +1797,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"paralyzed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -2136,20 +2148,6 @@
 			"transfer": false,
 			"name": "Sunlight Sensitivity",
 			"_id": "q2WYhc6aKtjrsi7t",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2170,7 +2168,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

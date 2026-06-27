@@ -107,22 +107,22 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"12\",\"positiveValue\":\"12\",\"negativeValue\":\"\"}",
+						"priority": null,
+						"type": "conditional"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"12\",\"positiveValue\":\"12\",\"negativeValue\":\"\"}",
-					"mode": 7,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

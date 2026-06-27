@@ -127,20 +127,6 @@
 			"transfer": false,
 			"name": "Powdered Fiendhorn Poisoning",
 			"_id": "PsZGIT5ziioLmJKn",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"value": "[\"necrotic\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -164,7 +150,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.traits.damageVulnerabilities",
+						"value": "[\"necrotic\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

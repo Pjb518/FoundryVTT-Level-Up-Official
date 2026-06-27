@@ -119,14 +119,6 @@
 			"transfer": false,
 			"name": "Fleeing",
 			"_id": "2di5gGXvhhBstcOq",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -149,7 +141,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

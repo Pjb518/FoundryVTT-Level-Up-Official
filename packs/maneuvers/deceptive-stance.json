@@ -16,20 +16,6 @@
 			"transfer": false,
 			"name": "Deceptive Stance",
 			"_id": "90zJehW2Xnuy13y3",
-			"changes": [
-				{
-					"key": "system.skills.dec.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.slt.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -51,7 +37,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.dec.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.slt.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

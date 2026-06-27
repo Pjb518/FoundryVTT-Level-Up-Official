@@ -16,20 +16,6 @@
 			"transfer": false,
 			"name": "Bickering",
 			"_id": "FhmCm5plIWOsuM2G",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -50,7 +36,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -66,14 +66,6 @@
 			"transfer": false,
 			"name": "Confused",
 			"_id": "Qwyegf8YgPuFgdhE",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"confused\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -96,7 +88,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"confused\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -112,14 +112,6 @@
 			"transfer": false,
 			"name": "Frightened",
 			"_id": "SPbQBUOVc31SWThp",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -142,7 +134,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -158,7 +158,6 @@
 			"transfer": false,
 			"name": "Despair",
 			"_id": "rvRY7MRxgkXiCMdd",
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -179,7 +178,8 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			}
 		},
 		{
@@ -195,14 +195,6 @@
 			"transfer": false,
 			"name": "Pain",
 			"_id": "LHiujdHARaUna92n",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -225,7 +217,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"incapacitated\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -241,14 +241,6 @@
 			"transfer": false,
 			"name": "Asleep",
 			"_id": "RXej9oPVgCcfdJtG",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"unconscious\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -271,7 +263,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"unconscious\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -287,14 +287,6 @@
 			"transfer": false,
 			"name": "Stunned",
 			"_id": "IJAlwYPT9vkWDRRm",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -317,7 +309,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

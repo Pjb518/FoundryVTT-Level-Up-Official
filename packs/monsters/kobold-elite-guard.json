@@ -71,20 +71,6 @@
 					"transfer": false,
 					"name": "Sunlight Sensitivity",
 					"_id": "OLlGBjQef9ATCy04",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -102,6 +88,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.attack.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -926,14 +928,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "Llj5xb79gCEj7iz8",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -952,6 +946,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -1368,20 +1372,6 @@
 			"transfer": false,
 			"name": "Sunlight Sensitivity",
 			"_id": "q2WYhc6aKtjrsi7t",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -1402,7 +1392,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

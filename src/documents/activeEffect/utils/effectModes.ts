@@ -1,19 +1,19 @@
-import { A5E } from "../../../config";
+import { A5E } from "../../../config.ts";
 
-const MODES: Record<string, number> = A5E.ACTIVE_EFFECT_TYPES;
+const MODES: Record<string, string> = A5E.ACTIVE_EFFECT_CHANGE_TYPES;
 const DEFAULT_MODES = Object.keys(MODES)
-  .filter((k) => k !== "CUSTOM")
+  .filter((k) => k !== "custom")
   .sort((a, b) => a.localeCompare(b));
 
 const DEFAULT_STRING_MODES = Object.keys(MODES)
-  .filter((k) => !["CUSTOM", "UPGRADE", "DOWNGRADE", "CONDITIONAL"].includes(k))
+  .filter((k) => !["custom", "upgrade", "downgrade", "conditional"].includes(k))
   .sort((a, b) => a.localeCompare(b));
 
-const ADD_AND_OVERRIDE = ["ADD", "OVERRIDE"];
-const OVERRIDE_ONLY = ["OVERRIDE"];
-const CUSTOM_ONLY = ["CUSTOM"];
-const CONDITIONAL_ONLY = ["CONDITIONAL"];
-const CONDITIONAL_AND_OVERRIDE = ["OVERRIDE", "CONDITIONAL"];
+const ADD_AND_OVERRIDE = ["add", "override"];
+const OVERRIDE_ONLY = ["override"];
+const CUSTOM_ONLY = ["custom"];
+const CONDITIONAL_ONLY = ["conditional"];
+const CONDITIONAL_AND_OVERRIDE = ["override", "conditional"];
 
 export default {
   MODES,

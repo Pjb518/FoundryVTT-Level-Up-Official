@@ -49,22 +49,22 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "10",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

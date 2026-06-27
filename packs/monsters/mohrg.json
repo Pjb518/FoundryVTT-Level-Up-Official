@@ -1243,26 +1243,6 @@
 					"transfer": false,
 					"name": "Haste",
 					"_id": "oyWcQwKND17h4HZY",
-					"changes": [
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "2",
-							"mode": 1,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "2",
-							"mode": 2,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.dex",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1280,6 +1260,28 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "2",
+								"priority": null,
+								"type": "multiply"
+							},
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "2",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -1578,14 +1580,6 @@
 					"transfer": false,
 					"name": "Grappled",
 					"_id": "JIOyamaAEiCZhMIW",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1605,6 +1599,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1719,14 +1723,6 @@
 					"transfer": false,
 					"name": "Paralyzed",
 					"_id": "Z4MCLJLiukKfRl5X",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"paralyzed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1746,6 +1742,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"paralyzed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],

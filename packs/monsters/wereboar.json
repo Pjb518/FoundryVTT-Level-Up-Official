@@ -1069,14 +1069,6 @@
 			},
 			"name": "Boar or Hybrid Form",
 			"_id": "UXxgqyvzwLHPTBgR",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 1680242400,
@@ -1099,7 +1091,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "40",
+						"priority": 0,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

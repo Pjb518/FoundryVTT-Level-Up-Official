@@ -1503,14 +1503,6 @@
 			},
 			"name": "Proficiency Bonus",
 			"_id": "VOHYdQSD3g0vayIm",
-			"changes": [
-				{
-					"key": "system.attributes.prof",
-					"value": "1",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1532,7 +1524,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.prof",
+						"value": "1",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

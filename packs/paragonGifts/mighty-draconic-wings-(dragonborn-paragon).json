@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Mighty Draconic Wings",
 			"_id": "Md5SaUfrJrEEmJjP",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "40",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

@@ -16,20 +16,6 @@
 			"transfer": false,
 			"name": "Mind Blank",
 			"_id": "RBAh2Q7IrMLfxazw",
-			"changes": [
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"psychic\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"charmed\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -50,7 +36,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"psychic\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"charmed\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

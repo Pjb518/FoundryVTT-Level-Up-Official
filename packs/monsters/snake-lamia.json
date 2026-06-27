@@ -1469,14 +1469,6 @@
 					"transfer": false,
 					"name": "Charm Person",
 					"_id": "m8ZI2ALQ9jH4sptL",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1510,7 +1502,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/control-influence-puppet.webp",
 					"type": "base",
@@ -1669,7 +1669,6 @@
 					"transfer": false,
 					"name": "Disguise Self",
 					"_id": "kccGRUIN2X9rExb1",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1704,7 +1703,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2114,20 +2114,6 @@
 					"transfer": false,
 					"name": "Charmed",
 					"_id": "TMK1Tbwva04SwRyb",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\",\"incapacitated\"]",
-							"mode": 0,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "0",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2163,7 +2149,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\",\"incapacitated\"]",
+								"priority": null,
+								"type": "custom"
+							},
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "0",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
 					"type": "base",
@@ -2457,14 +2457,6 @@
 					"transfer": false,
 					"name": "Geas",
 					"_id": "5yXypfbHYm721cZf",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2499,7 +2491,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
 					"type": "base",

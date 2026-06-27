@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Divine Protection",
 			"_id": "4xRYT16mJkMFXmBK",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"radiant\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"radiant\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

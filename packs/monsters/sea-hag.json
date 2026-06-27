@@ -1427,7 +1427,6 @@
 					"transfer": false,
 					"name": "Disguise Self",
 					"_id": "kccGRUIN2X9rExb1",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1462,7 +1461,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -1614,14 +1614,6 @@
 					"transfer": false,
 					"name": "Geas",
 					"_id": "5yXypfbHYm721cZf",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1656,7 +1648,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/debuff-chains-shackles-movement-blue.webp",
 					"type": "base",

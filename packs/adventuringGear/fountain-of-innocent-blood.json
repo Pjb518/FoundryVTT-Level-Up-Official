@@ -102,14 +102,6 @@
 			"transfer": false,
 			"name": "Poisoned",
 			"_id": "fkIwkGRUYl6vftRy",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -132,7 +124,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -144,14 +144,6 @@
 			"transfer": false,
 			"name": "Increase Ability Score",
 			"_id": "47enmjBJ2A7WgeXv",
-			"changes": [
-				{
-					"key": "system.traits.alignment",
-					"value": "Evil",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -172,7 +164,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.alignment",
+						"value": "Evil",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -16,20 +16,6 @@
 			"transfer": false,
 			"name": "Charmed",
 			"_id": "TMK1Tbwva04SwRyb",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"charmed\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -53,7 +39,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"charmed\",\"incapacitated\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

@@ -332,14 +332,6 @@
 			"transfer": false,
 			"name": "Attuned",
 			"_id": "JMzBEA0C9172djCb",
-			"changes": [
-				{
-					"key": "system.abilities.str.value",
-					"value": "20",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -361,7 +353,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.str.value",
+						"value": "20",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		},
 		{
@@ -373,14 +373,6 @@
 			"transfer": false,
 			"name": "Light Armor Proficient",
 			"_id": "ROS0RisLRT6jYjoE",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "13 + @dex.mod",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -402,7 +394,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "13 + @dex.mod",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -414,14 +414,6 @@
 			"transfer": false,
 			"name": "Medium Armor Proficient",
 			"_id": "FYyA8SADntql23LX",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "15 + min(@dex.mod,2)",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -443,7 +435,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "15 + min(@dex.mod,2)",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -455,14 +455,6 @@
 			"transfer": false,
 			"name": "Heavy Armor Proficient",
 			"_id": "owBJQGt6zWTdqlm5",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "19",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -484,7 +476,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "19",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

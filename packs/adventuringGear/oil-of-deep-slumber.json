@@ -98,14 +98,6 @@
 			"transfer": false,
 			"name": "Unconscious",
 			"_id": "MwrZOJ2Ii1qiDRKw",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"unconscious\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -128,7 +120,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"unconscious\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Deep Darkvision",
 			"_id": "YwEd1ZLBjnU4yGEO",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

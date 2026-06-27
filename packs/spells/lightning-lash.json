@@ -124,20 +124,6 @@
 			"transfer": false,
 			"name": "Lightning Lash",
 			"_id": "PNuI2bN5w4P3TTJb",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -158,7 +144,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

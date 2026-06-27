@@ -963,7 +963,6 @@
 					"transfer": false,
 					"name": "Commanding Inspiration",
 					"_id": "k8GcspgFAxXOYM6v",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -981,6 +980,9 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": []
 					}
 				}
 			],
@@ -1073,14 +1075,6 @@
 					"transfer": false,
 					"name": "Cursed",
 					"_id": "dFq9nsEPpJEAHuXx",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.bonuses.attacks",
-							"value": "{\"label\":\"Cursed\",\"formula\":\"-1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/downgrade.svg\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1098,6 +1092,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.bonuses.attacks",
+								"value": "{\"label\":\"Cursed\",\"formula\":\"-1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/downgrade.svg\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1204,14 +1208,6 @@
 					"transfer": false,
 					"name": "Charmed",
 					"_id": "i2hYfcO9N9ES1Lum",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1231,6 +1227,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1953,38 +1959,6 @@
 					"transfer": false,
 					"name": "Tiny",
 					"_id": "fXz1fBgI0c83x0Nj",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"value": "tiny",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.width",
-							"value": "0.5",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.height",
-							"value": "0.5",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2002,6 +1976,40 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "tiny",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.width",
+								"value": "0.5",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.height",
+								"value": "0.5",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				},
 				{
@@ -2018,32 +2026,6 @@
 					"transfer": false,
 					"name": "Large",
 					"_id": "8MJohUK1IuZouBra",
-					"changes": [
-						{
-							"key": "system.traits.size",
-							"value": "lg",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.width",
-							"value": "2",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.width",
-							"value": "2",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2061,6 +2043,34 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.traits.size",
+								"value": "lg",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.width",
+								"value": "2",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.width",
+								"value": "2",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -2099,14 +2109,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "Llj5xb79gCEj7iz8",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2125,6 +2127,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -2346,14 +2358,6 @@
 					"transfer": false,
 					"name": "Fey Light",
 					"_id": "G7I2vgPTguCi7k4y",
-					"changes": [
-						{
-							"key": "@token.light.dim",
-							"value": "30",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2371,6 +2375,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "@token.light.dim",
+								"value": "30",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],

@@ -2380,7 +2380,6 @@
 					"transfer": false,
 					"name": "Full Damage",
 					"_id": "V8PnQoGtQziwTy3J",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2415,7 +2414,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2574,14 +2574,6 @@
 					"transfer": false,
 					"name": "Frightened",
 					"_id": "gH21s05nyx7HIolX",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"frightened\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2618,7 +2610,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"frightened\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,

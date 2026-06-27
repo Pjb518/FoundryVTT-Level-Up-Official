@@ -1313,14 +1313,6 @@
 					"transfer": false,
 					"name": "Blinded",
 					"_id": "fk0dJtkVBRtweNIe",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"blinded\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1357,7 +1349,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"blinded\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2117,14 +2117,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "PiHWvQKjPGNpP7A7",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2160,7 +2152,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"sort": 0,
 					"folder": null

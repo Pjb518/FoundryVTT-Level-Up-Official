@@ -115,20 +115,6 @@
 			"transfer": false,
 			"name": "Additional Damage (Skull of the Celestial Viper)",
 			"_id": "XodrJC52wN1k5MMN",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"\",\"formula\":\"1d4\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"\",\"formula\":\"1d4\",\"damageType\":\"poison\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -150,7 +136,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"\",\"formula\":\"1d4\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"\",\"formula\":\"1d4\",\"damageType\":\"poison\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

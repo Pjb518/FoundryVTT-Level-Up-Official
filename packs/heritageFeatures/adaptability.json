@@ -112,14 +112,6 @@
 			"transfer": false,
 			"name": "Amphibious",
 			"_id": "VyKVCm34qo6KTwKK",
-			"changes": [
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "@movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -136,7 +128,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.swim.distance",
+						"value": "@movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -159,16 +159,16 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "@movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -202,16 +202,16 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"cold\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"cold\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -245,16 +245,16 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"fire\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"fire\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

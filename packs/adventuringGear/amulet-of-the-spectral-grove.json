@@ -281,14 +281,6 @@
 			"transfer": false,
 			"name": "Immune to Fear",
 			"_id": "Vd1VJWb4BOTl6l6c",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -309,7 +301,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -325,50 +325,6 @@
 			"transfer": false,
 			"name": "Spectral Form",
 			"_id": "2oFgPZdwZYPfsaP5",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "3",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.traits.hover",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "120",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"acid\",\"fire\",\"lightning\",\"thunder\",\"bludgeoning\",\"piercing\",\"slashing\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"cold\",\"necrotic\",\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"charmed\",\"fatigue\",\"grappled\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -389,7 +345,51 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "3",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "40",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.traits.hover",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "120",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"acid\",\"fire\",\"lightning\",\"thunder\",\"bludgeoning\",\"piercing\",\"slashing\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"cold\",\"necrotic\",\"poison\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"charmed\",\"fatigue\",\"grappled\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -12,26 +12,6 @@
 			"transfer": false,
 			"name": "Spell Focus",
 			"_id": "60Fsmeg4pivzIva7",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"2\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"2\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.bonuses.spellDC",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -53,7 +33,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"2\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"2\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.bonuses.spellDC",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -69,14 +69,6 @@
 			"transfer": false,
 			"name": "1: Strength",
 			"_id": "x8lMjnsGKKHHkqTG",
-			"changes": [
-				{
-					"key": "system.abilities.str.value",
-					"value": "18",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -98,7 +90,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.str.value",
+						"value": "18",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		},
 		{
@@ -114,14 +114,6 @@
 			"transfer": false,
 			"name": "2: Dexterity",
 			"_id": "YR02Gi9mDGvV4IMg",
-			"changes": [
-				{
-					"key": "system.abilities.dex.value",
-					"value": "18",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -143,7 +135,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.dex.value",
+						"value": "18",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		},
 		{
@@ -159,14 +159,6 @@
 			"transfer": false,
 			"name": "3: Constitution",
 			"_id": "WESZ0a34aJjeWboC",
-			"changes": [
-				{
-					"key": "system.abilities.con.value",
-					"value": "{\"context\":{\"abilities\":[\"con\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"18\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-ornate-blue-jewel.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -188,7 +180,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.con.value",
+						"value": "{\"context\":{\"abilities\":[\"con\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"18\",\"label\":\"Ability Bonus\",\"img\":\"icons/weapons/staves/staff-ornate-blue-jewel.webp\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -204,14 +204,6 @@
 			"transfer": false,
 			"name": "4: Intelligence",
 			"_id": "PcB52EdxPXaollvf",
-			"changes": [
-				{
-					"key": "system.abilities.int.value",
-					"value": "18",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -233,7 +225,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.int.value",
+						"value": "18",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		},
 		{
@@ -249,14 +249,6 @@
 			"transfer": false,
 			"name": "5: Wisdom",
 			"_id": "LkQoZd862dHs2jJz",
-			"changes": [
-				{
-					"key": "system.abilities.wis.value",
-					"value": "18",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -278,7 +270,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.wis.value",
+						"value": "18",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		},
 		{
@@ -294,14 +294,6 @@
 			"transfer": false,
 			"name": "6: Charisma",
 			"_id": "sDCeOic1lQKqykKY",
-			"changes": [
-				{
-					"key": "system.abilities.cha.value",
-					"value": "18",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -323,7 +315,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.cha.value",
+						"value": "18",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		}
 	],

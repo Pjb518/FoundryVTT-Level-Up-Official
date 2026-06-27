@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Amphibian",
 			"_id": "aWJvZ7khnOwjuaSx",
-			"changes": [
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.swim.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -60,7 +60,6 @@
 			"transfer": false,
 			"name": "Altered State",
 			"_id": "pbVzDLcW2AHNtMtc",
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -81,7 +80,8 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			}
 		},
 		{
@@ -97,14 +97,6 @@
 			"transfer": false,
 			"name": "Red in Tooth and Claw",
 			"_id": "g2Ihn9nUKotDHkr8",
-			"changes": [
-				{
-					"key": "",
-					"mode": null,
-					"value": "",
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -125,7 +117,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "",
+						"value": "",
+						"priority": null,
+						"type": null
+					}
+				]
 			}
 		},
 		{
@@ -141,7 +141,6 @@
 			"transfer": false,
 			"name": "Greater Natural Weapons",
 			"_id": "ElyzF3pbRGSP2Hvz",
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -162,7 +161,8 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			}
 		},
 		{
@@ -178,20 +178,6 @@
 			"transfer": false,
 			"name": "Mask of the Grave",
 			"_id": "02RyHWQLVaTDdPlH",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"undead\"]",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -212,7 +198,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.details.creatureTypes",
+						"value": "[\"undead\"]",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"poison\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -228,14 +228,6 @@
 			"transfer": false,
 			"name": "Wings",
 			"_id": "W1p5BbOSgISqDkXG",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -256,7 +248,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

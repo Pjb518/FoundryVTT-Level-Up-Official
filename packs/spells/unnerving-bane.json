@@ -16,44 +16,6 @@
 			"transfer": false,
 			"name": "Unnerving Bane",
 			"_id": "uSWdUVo1KS5blnPN",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"label\":\"\",\"formula\":\"-1d4\",\"damageType\":\"\",\"context\":{\"types\":[\"save\"]},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -76,7 +38,45 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"label\":\"\",\"formula\":\"-1d4\",\"damageType\":\"\",\"context\":{\"types\":[\"save\"]},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -95,20 +95,6 @@
 			"transfer": false,
 			"name": "Even Petals",
 			"_id": "zR1z6k0whzzLdheb",
-			"changes": [
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -130,7 +116,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.per.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -142,20 +142,6 @@
 			"transfer": false,
 			"name": "Odd Petals",
 			"_id": "00P8PJsZsIyiHqek",
-			"changes": [
-				{
-					"key": "system.skills.ste.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.per",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -177,7 +163,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.ste.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.per",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

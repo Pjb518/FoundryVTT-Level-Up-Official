@@ -12,20 +12,6 @@
 			"transfer": false,
 			"name": "Bless",
 			"_id": "BVzQZTrd5DWfDSRB",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -47,7 +33,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

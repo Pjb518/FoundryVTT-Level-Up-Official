@@ -104,14 +104,6 @@
 			"transfer": false,
 			"name": "Rattled",
 			"_id": "MdVQkUaQJEKNrZMY",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -134,7 +126,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -151,14 +151,6 @@
 			"transfer": false,
 			"name": "Frightened and Rattled",
 			"_id": "8xKUSBmPCtn3ZBN6",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\",\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -182,7 +174,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\",\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -199,20 +199,6 @@
 			"transfer": false,
 			"name": "Frightened, Rattled, and Strife",
 			"_id": "zcZUH3bvncGW6QMu",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\",\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -236,7 +222,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\",\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.strife",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -253,20 +253,6 @@
 			"transfer": false,
 			"name": "Paralyzed and Strife",
 			"_id": "t1bg7MPvknXLtKk0",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"paralyzed\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.strife",
-					"value": "",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -289,7 +275,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"paralyzed\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.strife",
+						"value": "",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

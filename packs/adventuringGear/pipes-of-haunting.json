@@ -157,14 +157,6 @@
 			"transfer": false,
 			"name": "Frightened",
 			"_id": "CSBI2B4nN4L0Qt0z",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -188,7 +180,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

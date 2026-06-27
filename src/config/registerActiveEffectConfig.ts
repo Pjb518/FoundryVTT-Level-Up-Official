@@ -11,14 +11,14 @@ export default function registerActiveEffectConfig() {
   };
 
   const ACTIVE_EFFECT_CHANGE_TYPES = {
-    custom: 0,
-    multiply: 1,
-    add: 2,
-    subtract: 3,
-    downgrade: 4,
-    upgrade: 5,
-    override: 6,
-    conditional: 7,
+    custom: "Custom",
+    multiply: "Multiply",
+    add: "Add",
+    subtract: "Subtract",
+    downgrade: "Downgrade",
+    upgrade: "Upgrade",
+    override: "Override",
+    conditional: "Conditional",
   };
 
   const activeEffectTypes = {

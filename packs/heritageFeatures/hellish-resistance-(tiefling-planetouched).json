@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Hellish Resistance",
 			"_id": "TZtAR71r1MiXA6GY",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"fire\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"fire\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

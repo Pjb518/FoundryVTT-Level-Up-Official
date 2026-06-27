@@ -154,32 +154,6 @@
 			"transfer": false,
 			"name": "Orbiting Eye",
 			"_id": "yQMpGqTG1SFoM5SS",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Ability Bonus\",\"img\":\"icons/commodities/biological/eye-red-pink.webp\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.int.check.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prc.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"blinded\",\"surprised\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -201,7 +175,33 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"int\"],\"types\":[\"base\"],\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Ability Bonus\",\"img\":\"icons/commodities/biological/eye-red-pink.webp\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.abilities.int.check.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prc.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"blinded\",\"surprised\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -213,14 +213,6 @@
 			"transfer": false,
 			"name": "Paranoid",
 			"_id": "qBLlxsrkv8bPPj1A",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -242,7 +234,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

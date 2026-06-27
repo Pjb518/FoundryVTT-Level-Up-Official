@@ -143,14 +143,6 @@
 			"transfer": false,
 			"name": "Deafened",
 			"_id": "JfavgSRmrOkczpQE",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"deafened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -174,7 +166,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"deafened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

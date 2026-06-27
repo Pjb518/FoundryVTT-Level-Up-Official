@@ -30,7 +30,7 @@
     let changes = $derived(effect.reactive.system.changes);
 
     const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
+    const CHANGE_TYPES = CONFIG.A5E.ACTIVE_EFFECT_CHANGE_TYPES;
     const items = getEffectOptionGroups(optionsList);
 
     const groupBy = (item) => item.group;
@@ -102,9 +102,9 @@
             onchange={({ currentTarget }) =>
                 onchangeType?.(currentTarget.value)}
         >
-            {#each optionsList[key]?.modes ?? [] as label}
-                <option value={MODES[label]}>
-                    {label.toLowerCase().capitalize()}
+            {#each optionsList[key]?.modes ?? [] as changeType}
+                <option value={changeType}>
+                    {CHANGE_TYPES[changeType]}
                 </option>
             {/each}
         </select>

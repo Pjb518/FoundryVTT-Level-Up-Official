@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Barkskin",
 			"_id": "mZPoe5J9Scfw7HYB",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "max(16, @original)",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "max(16, @original)",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

@@ -102,14 +102,6 @@
 			"transfer": false,
 			"name": "Flight",
 			"_id": "QRC9SUIQeUfTAl4s",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -130,7 +122,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -146,20 +146,6 @@
 			"transfer": false,
 			"name": "Burrowing",
 			"_id": "EIQRQl7z8bpZuJyV",
-			"changes": [
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -180,7 +166,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.burrow.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "20",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -196,14 +196,6 @@
 			"transfer": false,
 			"name": "Swimming",
 			"_id": "rNfRR11EY0OFl8sh",
-			"changes": [
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -224,7 +216,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.swim.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

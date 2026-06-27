@@ -106,38 +106,6 @@
 			"transfer": false,
 			"name": "Be Ye Not Afraid",
 			"_id": "oXwkfaBAlPr169XO",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "120",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.traits.hover",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"radiant\",\"fire\",\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"blinded\",\"charmed\",\"confused\",\"deafened\",\"frightened\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\",\"stunned\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.truesight.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -158,7 +126,39 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "120",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.traits.hover",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"radiant\",\"fire\",\"poison\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"blinded\",\"charmed\",\"confused\",\"deafened\",\"frightened\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\",\"slowed\",\"stunned\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.senses.truesight.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

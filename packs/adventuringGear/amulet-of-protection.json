@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Saving Throw Bonus",
 			"_id": "ipg903ivgFYbAb7N",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"mode": 0,
-					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1\",\"label\":\"Ability Bonus\",\"default\":true}",
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -41,7 +33,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1\",\"label\":\"Ability Bonus\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

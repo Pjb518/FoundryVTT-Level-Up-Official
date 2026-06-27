@@ -855,14 +855,6 @@
 					"transfer": false,
 					"name": "Defeaned",
 					"_id": "aDhGgywUJhIwTrt8",
-					"changes": [
-						{
-							"key": "system.attributes.senses.blindsight.distance",
-							"value": "0",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -880,6 +872,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.senses.blindsight.distance",
+								"value": "0",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				},
 				{
@@ -900,20 +902,6 @@
 					"transfer": false,
 					"name": "Deafened",
 					"_id": "i7V3gJzZIKktIv0S",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"deafened\"]",
-							"mode": 0,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.senses.blindsight.distance",
-							"value": "0",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -933,6 +921,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"deafened\"]",
+								"priority": null,
+								"type": "custom"
+							},
+							{
+								"key": "system.attributes.senses.blindsight.distance",
+								"value": "0",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],

@@ -12,20 +12,6 @@
 			"transfer": false,
 			"name": "Disadvantage Insight & Perception",
 			"_id": "mWSGh6JuQEXE5MB2",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
-					"mode": 6,
-					"value": "-1",
-					"priority": 50
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"mode": 6,
-					"value": "-1",
-					"priority": 50
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -47,7 +33,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+						"value": "-1",
+						"priority": 50,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": 50,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

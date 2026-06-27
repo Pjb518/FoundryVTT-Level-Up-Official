@@ -144,14 +144,6 @@
 			"transfer": false,
 			"name": "Rattled",
 			"_id": "oN9LSZsi5K82jYJo",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -180,7 +172,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -199,14 +199,6 @@
 			"transfer": false,
 			"name": "Half Speed",
 			"_id": "tfjmCLVihWFZmAIn",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.movement.allDistances",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -233,7 +225,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.movement.allDistances",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

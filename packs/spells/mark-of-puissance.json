@@ -104,32 +104,6 @@
 			"transfer": false,
 			"name": "Mark of Puissance",
 			"_id": "T1g2kNYMcFwQdzSA",
-			"changes": [
-				{
-					"key": "@token.light.dim",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.itm.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Mark of Puissance\",\"formula\":\"1d4\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/runes-etched-steel-blade.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -150,7 +124,33 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.dim",
+						"value": "5",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.itm.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Mark of Puissance\",\"formula\":\"1d4\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/runes-etched-steel-blade.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

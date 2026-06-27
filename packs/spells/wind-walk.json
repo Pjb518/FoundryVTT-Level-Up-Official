@@ -12,20 +12,6 @@
 			"transfer": false,
 			"name": "Cloud form",
 			"_id": "9HTihRW6cAtGO5Zz",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "300",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"nonmagical weapons\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -46,7 +32,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "300",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"nonmagical weapons\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -69,14 +69,6 @@
 			"transfer": false,
 			"name": "Periapt of Proof Against Poison",
 			"_id": "tyHU7gAfgRL07VuM",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"poisoned\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -98,7 +90,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -105,7 +105,6 @@
 			"transfer": false,
 			"name": "Hiccups",
 			"_id": "t1feBKT3W7JD6fo4",
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -126,7 +125,8 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			}
 		},
 		{
@@ -142,44 +142,6 @@
 			"transfer": false,
 			"name": "Unsteady",
 			"_id": "3lCtDLtw7VQM76ZT",
-			"changes": [
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.initiative",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -200,7 +162,45 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.burrow.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "system.attributes.movement.swim.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0.5",
+						"priority": null,
+						"type": "multiply"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.initiative",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -216,20 +216,6 @@
 			"transfer": false,
 			"name": "Cross-Eyed",
 			"_id": "MvWmRJzOj3U6jzib",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -250,7 +236,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

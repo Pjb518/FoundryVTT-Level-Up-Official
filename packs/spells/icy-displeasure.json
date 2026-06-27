@@ -12,26 +12,6 @@
 			"transfer": false,
 			"name": "Icy Displeasure",
 			"_id": "OjOqqvFcGNrnL1YE",
-			"changes": [
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"value": "[\"cold\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -52,7 +32,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageVulnerabilities",
+						"value": "[\"cold\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

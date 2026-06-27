@@ -119,20 +119,6 @@
 			"transfer": false,
 			"name": "Pale Tincture Poisoning",
 			"_id": "5UaBqRqzFKFk9i84",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -156,7 +142,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		}
 	],

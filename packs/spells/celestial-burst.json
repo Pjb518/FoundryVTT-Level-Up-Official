@@ -109,14 +109,6 @@
 			"transfer": false,
 			"name": "Light",
 			"_id": "wmr7Gf8AiO0FhPZ7",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -137,7 +129,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

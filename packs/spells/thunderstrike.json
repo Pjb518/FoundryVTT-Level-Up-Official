@@ -103,14 +103,6 @@
 			"transfer": false,
 			"name": "Shatter Composure",
 			"_id": "ZFC0wIwzCkslp1Lh",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.concentration",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -131,7 +123,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.concentration",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

@@ -16,26 +16,6 @@
 			"transfer": false,
 			"name": "Heart of Dis",
 			"_id": "8RMEOvbdw1PZafUw",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\",\"poisoned\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"fire\",\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"cold\",\"bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -56,7 +36,27 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"frightened\",\"poisoned\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"fire\",\"poison\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"cold\",\"bludgeoning, piercing, and slashing damage from nonmagical weapons that aren't silvered\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

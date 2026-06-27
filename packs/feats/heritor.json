@@ -95,20 +95,6 @@
 			"transfer": false,
 			"name": "Heritor",
 			"_id": "A93JSb5aMIoAWCNi",
-			"changes": [
-				{
-					"key": "system.skills.his.proficient",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.his.specialties",
-					"value": "Legends",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -129,7 +115,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.his.proficient",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.his.specialties",
+						"value": "Legends",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

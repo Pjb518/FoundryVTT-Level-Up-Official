@@ -1433,20 +1433,6 @@
 					"transfer": false,
 					"name": "Flame",
 					"_id": "fX7ykJezw2Vd0NZv",
-					"changes": [
-						{
-							"key": "@token.light.bright",
-							"value": "10",
-							"mode": 6,
-							"priority": 0
-						},
-						{
-							"key": "@token.light.dim",
-							"value": "20",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1479,7 +1465,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "@token.light.bright",
+								"value": "10",
+								"priority": 0,
+								"type": "override"
+							},
+							{
+								"key": "@token.light.dim",
+								"value": "20",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"img": "icons/magic/fire/flame-burning-hand-white.webp",
 					"type": "base",
@@ -1966,7 +1966,6 @@
 					"transfer": false,
 					"name": "Heat Metal",
 					"_id": "1jsD60bmaSEw7wg5",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1999,7 +1998,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"img": "icons/magic/fire/projectile-arrow-fire-gem-yellow.webp",
 					"type": "base",
@@ -2169,20 +2169,6 @@
 					"transfer": false,
 					"name": "Pass Without Trace",
 					"_id": "d6Rax3xoxbujUTgh",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "system.skills.ste.expertiseDice",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2215,7 +2201,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "system.skills.ste.expertiseDice",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
 					"type": "base",
@@ -3057,14 +3057,6 @@
 					"transfer": false,
 					"name": "Defensive AC",
 					"_id": "R4H9hwQqrcReSUg6",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3098,7 +3090,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"img": "icons/equipment/shield/heater-steel-worn.webp",
 					"type": "base",
@@ -3403,22 +3403,22 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
-			},
-			"changes": [
-				{
-					"key": "@token.height",
-					"value": "2",
-					"mode": 6,
-					"priority": 0
 				},
-				{
-					"key": "@token.width",
-					"value": "2",
-					"mode": 6,
-					"priority": 0
-				}
-			],
+				"changes": [
+					{
+						"key": "@token.height",
+						"value": "2",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "@token.width",
+						"value": "2",
+						"priority": 0,
+						"type": "override"
+					}
+				]
+			},
 			"disabled": true,
 			"duration": {
 				"startTime": 0,

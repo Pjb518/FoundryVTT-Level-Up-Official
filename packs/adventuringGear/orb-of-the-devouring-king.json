@@ -542,20 +542,6 @@
 			"transfer": false,
 			"name": "Attuned (Intelligence)",
 			"_id": "AWozlRi5emGtRore",
-			"changes": [
-				{
-					"key": "system.abilities.int.value",
-					"value": "20",
-					"mode": 5,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.int.check.expertiseDice",
-					"value": "4",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -577,7 +563,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.int.value",
+						"value": "20",
+						"priority": null,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.abilities.int.check.expertiseDice",
+						"value": "4",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -589,20 +589,6 @@
 			"transfer": false,
 			"name": "Attuned (Charisma)",
 			"_id": "XT7G5wadvQU6OtVW",
-			"changes": [
-				{
-					"key": "system.abilities.cha.value",
-					"value": "",
-					"mode": 7,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.int.check.expertiseDice",
-					"value": "4",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -624,7 +610,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.cha.value",
+						"value": "",
+						"priority": null,
+						"type": "conditional"
+					},
+					{
+						"key": "system.abilities.int.check.expertiseDice",
+						"value": "4",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

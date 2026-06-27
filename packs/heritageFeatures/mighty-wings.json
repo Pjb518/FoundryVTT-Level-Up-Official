@@ -68,20 +68,6 @@
 			"transfer": false,
 			"name": "Fly Speed",
 			"_id": "JAz9dUiKRa1KQI65",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "50",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.unit",
-					"value": "feet",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -102,7 +88,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "50",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.movement.fly.unit",
+						"value": "feet",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -114,14 +114,6 @@
 			"transfer": false,
 			"name": "Size Increase",
 			"_id": "WyFGqzdZwWgRh4rP",
-			"changes": [
-				{
-					"key": "system.traits.size",
-					"value": "huge",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -142,7 +134,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.size",
+						"value": "huge",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

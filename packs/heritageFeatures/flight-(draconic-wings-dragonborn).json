@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Flight",
 			"_id": "8qQ2mOuGEiuwnCgw",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,
