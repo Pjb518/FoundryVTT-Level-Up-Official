@@ -104,6 +104,17 @@ export default function init() {
   CONFIG.ChatMessage.dataModels = chatDataModels;
   CONFIG.Item.dataModels = itemDataModels;
 
+  CONFIG.ActiveEffect.changeTypes = {
+    0: "custom",
+    1: "multiply",
+    2: "add",
+    3: "subtract",
+    4: "downgrade",
+    5: "upgrade",
+    6: "override",
+    7: "conditional",
+  };
+
   // Initialize the game's A5E namespace
   game.a5e = {
     applications: {

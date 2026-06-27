@@ -193,6 +193,70 @@ class ActiveEffectA5E extends ActiveEffect {
   }
 
   static _applyChangeCustom(targetDoc, change, current, delta, changes) {}
+
+  // Temporary Migration Hook in for v14
+
+  static #MODES_TO_TYPES = {
+    0: "custom",
+    1: "multiply",
+    2: "add",
+    3: "subtract",
+    4: "downgrade",
+    5: "upgrade",
+    6: "override",
+    7: "conditional",
+  };
+
+  static override migrateData(source) {
+    if (source.name.includes("Anti-Grav")) {
+      console.error("Break");
+    }
+    const originalChanges = foundry.utils.duplicate(source.changes);
+    console.log("original", originalChanges);
+    // const updatedSource = super.migrateData(source) as any;
+    const updatedSource = {};
+    updatedSource.changes = originalChanges;
+
+    if (Array.isArray(updatedSource.changes)) {
+      updatedSource.system ??= {};
+      this._addDataFieldMigration(updatedSource, "changes", "system.changes");
+      if (Array.isArray(updatedSource.system.changes)) {
+        for (const change of updatedSource.system.changes) {
+          if (
+            !Object.hasOwn(change, "type") &&
+            typeof change.mode === "number"
+          ) {
+            change.type =
+              ActiveEffectA5E.#MODES_TO_TYPES[change.mode] ??
+              `custom.${change.mode}`;
+            delete change.mode;
+          }
+          if (
+            foundry.utils.isPlainObject(change) &&
+            typeof change.value === "string"
+          ) {
+            change.value = ActiveEffectA5E.#migrateChangeValue(change.value);
+          }
+        }
+      }
+    }
+
+    return updatedSource;
+  }
+
+  /**
+   * Migrate a single change value
+   * @param {unknown} value
+   * @returns {SerializableBuiltin}
+   */
+  static #migrateChangeValue(value) {
+    if (typeof value !== "string" || value === "") return value;
+    try {
+      return ActiveEffectA5E.#migrateChangeValue(JSON.parse(value));
+    } catch {
+      return value;
+    }
+  }
 }
 
 export { ActiveEffectA5E };

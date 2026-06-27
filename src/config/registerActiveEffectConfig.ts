@@ -1,13 +1,24 @@
 export default function registerActiveEffectConfig() {
   const ACTIVE_EFFECT_TYPES = {
-    CUSTOM: "custom.0",
-    MULTIPLY: "custom.1",
-    ADD: "custom.2",
-    SUBTRACT: "custom.3",
-    DOWNGRADE: "custom.4",
-    UPGRADE: "custom.5",
-    OVERRIDE: "custom.6",
-    CONDITIONAL: "custom.7",
+    CUSTOM: 0,
+    MULTIPLY: 1,
+    ADD: 2,
+    SUBTRACT: 3,
+    DOWNGRADE: 4,
+    UPGRADE: 5,
+    OVERRIDE: 6,
+    CONDITIONAL: 7,
+  };
+
+  const ACTIVE_EFFECT_CHANGE_TYPES = {
+    custom: 0,
+    multiply: 1,
+    add: 2,
+    subtract: 3,
+    downgrade: 4,
+    upgrade: 5,
+    override: 6,
+    conditional: 7,
   };
 
   const activeEffectTypes = {
@@ -96,6 +107,7 @@ export default function registerActiveEffectConfig() {
 
   return {
     ACTIVE_EFFECT_TYPES,
+    ACTIVE_EFFECT_CHANGE_TYPES,
     activeEffectTypes,
     conditionIconsDefault,
     actionActiveEffectTypes,
