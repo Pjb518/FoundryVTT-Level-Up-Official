@@ -21,7 +21,7 @@
     };
 
     function getConditionalObj(value: any) {
-        if (type === MODES.CONDITIONAL && typeof value !== "object") {
+        if (type === "conditional" && typeof value !== "object") {
             ui.notifications.warn("Conditional object is malformed.");
             return {
                 comparisonOperator: "==",
@@ -35,7 +35,6 @@
     }
 
     let { key, type, optionsList, value, onchange }: Props = $props();
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
 
     let conditionalObj = $state(getConditionalObj(value));
 
@@ -43,7 +42,7 @@
 </script>
 
 <!-- Adding Components Based on Type AND MODE -->
-{#if type === MODES.CONDITIONAL}
+{#if type === "conditional"}
     <div class="a5e-conditional-container">
         If original value is
 
