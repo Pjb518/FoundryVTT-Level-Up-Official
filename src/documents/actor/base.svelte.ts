@@ -290,7 +290,7 @@ class BaseActorA5e extends Actor {
     }
 
     this.prepareBaseData();
-    this.prepareEmbeddedDocuments();
+    super.prepareEmbeddedDocuments();
 
     this.prepareDerivedData();
     // this.afterDerivedData();
@@ -334,15 +334,11 @@ class BaseActorA5e extends Actor {
     };
   }
 
-  override prepareEmbeddedDocuments() {
-    super.prepareEmbeddedDocuments();
-    this.applyActiveEffects("initial");
-  }
-
   /**
    * Apply activeEffects to the actor with the phase 'applyAEs'.
    */
   override applyActiveEffects(phase: "initial" | "final") {
+    console.log("Applying effects phase: ", phase);
     const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
     this._completedActiveEffectPhases.add(phase);
@@ -383,6 +379,7 @@ class BaseActorA5e extends Actor {
     // TODO: Figure out why this fails on token npc
     this.overrides ??= {};
 
+    console.log("Changes at ", phase, changes);
     for (const change of changes) {
       // TODO: Adds support for `@original`
       const result = ActiveEffect.applyChange(this, change, {

@@ -36,9 +36,9 @@
 
     let { key, type, optionsList, value, onchange }: Props = $props();
 
-    let conditionalObj = $state(getConditionalObj(value));
-
     let componentType = $state(optionsList[key]?.type ?? "DEFAULT");
+    // TODO: This gives an error
+    let conditionalObj = $state(getConditionalObj(value));
 </script>
 
 <!-- Adding Components Based on Type AND MODE -->
@@ -89,21 +89,21 @@
         heading="A5E.effects.options"
         allowDeselect={false}
         options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value}
+        selected={value ?? []}
         onUpdateSelection={(value) => onchange(value)}
     />
 {:else if componentType === "CHECKBOX"}
     <CheckboxGroup
         heading="A5E.effects.options"
         options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value}
+        selected={value || []}
         onUpdateSelection={(value) => onchange(value)}
     />
 {:else if componentType === "TAG_GROUP"}
     <CustomTagGroup
         heading="A5E.effects.options"
         options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value}
+        selected={value || []}
         onUpdateSelection={(value) => {
             onchange(value);
         }}
