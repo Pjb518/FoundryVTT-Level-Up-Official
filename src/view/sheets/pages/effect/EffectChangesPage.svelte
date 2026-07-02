@@ -32,10 +32,8 @@
         if (key === "key") {
             changes[idx]["value"] = "";
             changes[idx]["type"] =
-                MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
+                optionsList[changes[idx]?.key]?.modes?.[0] ?? null;
         }
-
-        console.log(changes);
 
         // Update Document
         effect.update({ "system.changes": changes });

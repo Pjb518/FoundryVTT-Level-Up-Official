@@ -1,4 +1,4 @@
-import MODES from "./effectModes";
+import MODES from "./effectModes.ts";
 
 // const [sampleValue, modes, effectOpts, componentType, phase] = specialOptions[key];
 export default function modifyBaseOptions(options: Object) {
