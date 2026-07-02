@@ -70,6 +70,8 @@ class ActiveEffectA5E extends ActiveEffect {
     let field;
     const changes = {};
 
+    console.log("Here");
+
     if (typeof change.key === "string" && change.key.startsWith("system.")) {
       if (targetDoc.system instanceof foundry.abstract.DataModel) {
         field = targetDoc.system.getFieldForProperty(change.key.slice(7));

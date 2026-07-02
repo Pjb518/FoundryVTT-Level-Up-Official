@@ -21,6 +21,13 @@ export default function registerActiveEffectConfig() {
     conditional: "Conditional",
   };
 
+  const ACTIVE_EFFECT_PHASES = {
+    applyAEs: "initial",
+    afterDerived: "final",
+    initial: 0,
+    final: 1,
+  };
+
   const activeEffectTypes = {
     onUse: "A5E.effects.types.plural.onUse",
     ongoing: "A5E.effects.types.plural.ongoing",
@@ -108,6 +115,7 @@ export default function registerActiveEffectConfig() {
   return {
     ACTIVE_EFFECT_TYPES,
     ACTIVE_EFFECT_CHANGE_TYPES,
+    ACTIVE_EFFECT_PHASES,
     activeEffectTypes,
     conditionIconsDefault,
     actionActiveEffectTypes,

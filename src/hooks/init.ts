@@ -29,7 +29,7 @@ import chatDataModels from "../dataModels/chat/chatCardDataModels.ts";
 import itemDataModels from "../dataModels/item/itemDataModels.ts";
 
 // Effects
-import constructEffectOptions from "../documents/activeEffect/utils/constructEffectOptions.js";
+import constructEffectOptions from "../documents/activeEffect/utils/constructEffectOptions.ts";
 import EffectOption from "../documents/activeEffect/EffectOption.ts";
 
 import { registerKeybindings } from "../keybindings.ts";

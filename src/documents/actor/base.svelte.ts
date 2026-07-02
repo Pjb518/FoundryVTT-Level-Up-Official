@@ -296,13 +296,14 @@ class BaseActorA5e extends Actor {
     // this.afterDerivedData();
 
     this.prepareArmorClass();
-    // Apply Derived effects after armor class data
-    this.applyActiveEffects("final");
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
     this.spellBooks = new SpellBookManager(this);
     this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+
+    // Apply Derived effects after armor class data
+    this.applyActiveEffects("final");
 
     // Apply special statuses that changed to active tokens
     let tokens;
@@ -346,11 +347,29 @@ class BaseActorA5e extends Actor {
     const changes: any[] = [];
     const tokenChanges: any[] = [];
 
+    const effectOptions =
+      this.type === "character"
+        ? game.a5e.activeEffects.options.character.allOptions
+        : this.type === "npc"
+          ? game.a5e.activeEffects.options.npc.allOptions
+          : game.a5e.activeEffects.options.all.allOptions;
+
     for (const effect of this.allApplicableEffects()) {
+      console.log(`${effect.name}: ${phase}`);
+
       if (!effect.active) continue;
 
       for (const change of effect.system.changes) {
-        if (change.key === "" || change.phase !== phase) continue;
+        if (change.key === "") continue;
+        // Phase check
+        const effectConfig = effectOptions[change.key];
+        let registeredPhase = change.phase;
+        if (effectConfig) {
+          registeredPhase =
+            CONFIG.A5E.ACTIVE_EFFECT_PHASES[effectConfig.phase] ?? change.phase;
+        }
+
+        if (registeredPhase !== phase) continue;
 
         const copy = foundry.utils.deepClone(change);
         copy.effect = effect;
@@ -374,7 +393,8 @@ class BaseActorA5e extends Actor {
 
     // Apply all changes
     const overrides = {};
-    const replacementData = this.getRollData();
+    const replacementData = this.getRollData() ?? {};
+    console.log(replacementData);
 
     // TODO: Figure out why this fails on token npc
     this.overrides ??= {};
@@ -551,14 +571,16 @@ class BaseActorA5e extends Actor {
         value: Number.parseInt(tempFinalAC, 10) || 10,
       });
 
-      const overrideChange = effectOverride?.apply(
-        this,
-        effectOverride?.changes.find((change) =>
-          change.key.includes("ac.value"),
-        ),
-        // @ts-expect-error
-        "afterDerived",
-      ) as Record<string, any>; // TODO: Types - Update this
+      // const overrideChange = effectOverride?.apply(
+      //   this,
+      //   effectOverride?.changes.find((change) =>
+      //     change.key.includes("ac.value"),
+      //   ),
+      //   // @ts-expect-error
+      //   "afterDerived",
+      // ) as Record<string, any>; // TODO: Types - Update this
+      //
+      const overrideChange = { x: 2 };
 
       const overrideValue = Object.values(overrideChange)?.[0] ?? valueOverride;
 

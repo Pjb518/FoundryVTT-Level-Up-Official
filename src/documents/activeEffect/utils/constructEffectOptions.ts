@@ -1,10 +1,10 @@
-import MODES from "./effectModes";
+import MODES from "./effectModes.ts";
 
-import EffectOption from "../EffectOption";
+import EffectOption from "../EffectOption.ts";
 
-import modifyBaseOptions from "./modifyBaseOptions";
-import modifyDerivedOptions from "./modifyDerivedOptions";
-import modifySpecialOptions from "./modifySpecialOptions";
+import modifyBaseOptions from "./modifyBaseOptions.ts";
+import modifyDerivedOptions from "./modifyDerivedOptions.ts";
+import modifySpecialOptions from "./modifySpecialOptions.ts";
 
 export default function constructEffectOptions() {
   const options = {};
