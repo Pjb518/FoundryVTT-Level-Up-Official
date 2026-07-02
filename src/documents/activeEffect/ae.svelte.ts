@@ -36,7 +36,29 @@ class ActiveEffectA5E extends ActiveEffect {
   // -------------------------------------------------------
   //  Getters
   // -------------------------------------------------------
+  get parentItem() {
+    if (!(this.parent instanceof Actor)) return null;
 
+    const idRegex = /Item\.([a-zA-Z0-9]+)/;
+    const itemId = this.origin?.match(idRegex)?.[1];
+
+    if (!itemId) return null;
+    return this.parent.items.get(itemId);
+  }
+
+  get isLocked() {
+    if (!["Actor", "ActorDelta", "Token"].includes(this.parent.documentName))
+      return true;
+
+    if (this.system.effectType === "onUse") return false;
+
+    const { parentItem } = this;
+    if (!parentItem || parentItem?.type !== "object") return false;
+
+    return (
+      parentItem?.system?.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+    );
+  }
   // -------------------------------------------------------
   //  Apply Methods
   // -------------------------------------------------------
