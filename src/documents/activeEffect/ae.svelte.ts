@@ -1,4 +1,6 @@
 import { createSubscriber } from "svelte/reactivity";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
+import evaluateConditional from "./utils/evaluateConditional.ts";
 
 class ActiveEffectA5E extends ActiveEffect {
   #subscribe: () => void;
@@ -27,11 +29,102 @@ class ActiveEffectA5E extends ActiveEffect {
 
     return this;
   }
-
   // -------------------------------------------------------
   //  Static Properties
   // -------------------------------------------------------
   static FALLBACK_IMG = "icons/svg/hazard.svg";
+
+  static CHANGE_TYPES = {
+    add: {
+      label: "EFFECT.CHANGES.TYPES.add",
+      defaultPriority: 20,
+      handler: null,
+      render: null,
+    },
+    conditional: {
+      label: "EFFECT.CHANGES.TYPES.conditional",
+      defaultPriority: 50,
+      handler: (
+        targetDoc: any,
+        change: any,
+        changes: any,
+        { field, replacementData, modifyTarget },
+      ) => {
+        const operationData = change.value;
+        if (!foundry.utils.isPlainObject(operationData)) return null;
+
+        const current =
+          field.value ?? foundry.utils.getProperty(targetDoc, change.key) ?? 0;
+
+        let trueValue = getDeterministicBonus(
+          operationData.positiveValue,
+          replacementData,
+        );
+        let falseValue = getDeterministicBonus(
+          operationData.negativeValue,
+          replacementData,
+        );
+
+        const compareValue = getDeterministicBonus(
+          operationData.comparisonValue ?? "0",
+          replacementData,
+        );
+
+        const operator = operationData.comparisonOperator ?? "==";
+
+        const result = evaluateConditional(
+          current,
+          operator,
+          compareValue,
+          trueValue,
+          falseValue,
+        );
+
+        if (modifyTarget && result !== undefined) {
+          foundry.utils.setProperty(targetDoc, change.key, result);
+        }
+
+        changes[change.key] = result;
+      },
+      render: null,
+    },
+    custom: {
+      label: "EFFECT.CHANGES.TYPES.add",
+      defaultPriority: 0,
+      handler: null,
+      render: null,
+    },
+    downgrade: {
+      label: "EFFECT.CHANGES.TYPES.downgrade",
+      defaultPriority: 30,
+      handler: null,
+      render: null,
+    },
+    multiply: {
+      label: "EFFECT.CHANGES.TYPES.multiply",
+      defaultPriority: 10,
+      handler: null,
+      render: null,
+    },
+    override: {
+      label: "EFFECT.CHANGES.TYPES.override",
+      defaultPriority: 60,
+      handler: null,
+      render: null,
+    },
+    subtract: {
+      label: "EFFECT.CHANGES.TYPES.subtract",
+      defaultPriority: 20,
+      handler: null,
+      render: null,
+    },
+    upgrade: {
+      label: "EFFECT.CHANGES.TYPES.upgrade",
+      defaultPriority: 40,
+      handler: null,
+      render: null,
+    },
+  };
 
   // -------------------------------------------------------
   //  Getters
@@ -84,7 +177,7 @@ class ActiveEffectA5E extends ActiveEffect {
       ActiveEffectA5E.CHANGE_TYPES[change.type]?.handler;
 
     if (typeof configuredHandler === "function") {
-      configuredHandler(targetDoc, change, {
+      configuredHandler(targetDoc, change, changes, {
         field,
         replacementData,
         modifyTarget,
