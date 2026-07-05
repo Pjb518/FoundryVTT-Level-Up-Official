@@ -91,7 +91,48 @@ class ActiveEffectA5E extends ActiveEffect {
     custom: {
       label: "EFFECT.CHANGES.TYPES.add",
       defaultPriority: 0,
-      handler: null,
+      handler: (
+        targetDoc: any,
+        change: any,
+        changes: any,
+        { field, replacementData, modifyTarget },
+      ) => {
+        if (!change.key.startsWith("flags.a5e.effects")) return null;
+
+        let newKey = "";
+        let result: any;
+
+        switch (change.key) {
+          case "flags.a5e.effects.damageResistances.all":
+          case "flags.a5e.effects.damageVulnerabilities.all":
+          case "flags.a5e.effects.damageImmunities.all":
+            newKey = `system.traits.${change.key.split(".").at(-2)}`;
+            result = Object.keys(CONFIG.A5E.damageTypes);
+            break;
+          case "flags.a5e.effects.conditionImmunities.all":
+            newKey = `system.traits.${change.key.split(".").at(-2)}`;
+            result = Object.keys(CONFIG.A5E.conditions);
+            break;
+          default:
+            // Case for adding custom bonuses
+            if (change.key.startsWith("flags.a5e.effects.bonuses")) {
+              const parts = change.key.split(".");
+              const type = parts.at(-1);
+              newKey = `system.bonuses.${type}.${foundry.utils.randomID()}`;
+              result = change.value;
+              break;
+            }
+            break;
+        }
+
+        console.log(newKey, result);
+
+        if (modifyTarget && result !== undefined) {
+          foundry.utils.setProperty(targetDoc, newKey, result);
+        }
+
+        changes[newKey] = result;
+      },
       render: null,
     },
     downgrade: {
