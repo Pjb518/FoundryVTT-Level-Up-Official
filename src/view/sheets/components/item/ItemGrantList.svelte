@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { Grant } from "#types/itemGrants.d.ts";
     import { getContext } from "svelte";
-    import { preventDefault, stopPropagation } from "svelte/legacy";
 
     type Props = {
         grant: Grant;
@@ -20,7 +19,10 @@
             type: "Grant",
         };
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function onAuxClick() {

@@ -170,6 +170,22 @@ class ActiveEffectA5E extends ActiveEffect {
   // -------------------------------------------------------
   //  Getters
   // -------------------------------------------------------
+  get active() {
+    if (this.disabled) return false;
+    if (this.isSuppressed) return false;
+
+    // If not a passive effect then early return
+    if (this.system.effectType !== "passive") return true;
+
+    const item = this.item;
+    if (!item || item.type !== "object") return true;
+
+    if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED)
+      return false;
+
+    return true;
+  }
+
   get parentItem() {
     if (!(this.parent instanceof Actor)) return null;
 
