@@ -252,8 +252,6 @@ class ActiveEffectA5E extends ActiveEffect {
       });
     }
 
-    console.log(changes);
-
     return changes;
   }
 

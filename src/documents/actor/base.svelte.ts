@@ -56,6 +56,7 @@ import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
 import getRollFormula from "../../utils/getRollFormula.js";
 import displayCascadingNumbers from "../../utils/displayCascadingNumbers.js";
 import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";
+import { generateExpandedChanges } from "../activeEffect/utils/generateExpandedChanges.ts";
 
 // *****************************************************************************************
 
@@ -402,6 +403,7 @@ class BaseActorA5e extends Actor {
       }
     }
 
+    generateExpandedChanges(changes);
     changes.sort((a, b) => a.priority - b.priority);
     // this.tokenActiveEffectChanges[phase] = tokenChanges;
 
