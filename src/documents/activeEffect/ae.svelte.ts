@@ -401,6 +401,60 @@ class ActiveEffectA5E extends ActiveEffect {
   async toggleActiveState() {
     await this.update({ disabled: !this.disabled });
   }
+
+  /**
+   *  Transfer effect to another document
+   */
+  transferEffect(document) {
+    if (!["Actor", "ActorDelta", "Token"].includes(document.documentName)) {
+      ui.notifications.error(
+        `Document of type ${document.documentName} is not supported by this operation.`,
+      );
+    }
+
+    const effectData = foundry.utils.deepClone(this.toObject());
+    effectData.origin = this.parent.uuid;
+
+    // Check if effect already exists
+    const effects =
+      document.documentName === "Token"
+        ? document.actor.effects.contents
+        : document.effects.contents;
+
+    for (const effect of effects) {
+      if (this.equals(effect)) {
+        effect.update({ disabled: false });
+        return;
+      }
+    }
+
+    document.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  }
+
+  equals(other) {
+    const e1 = foundry.utils.deepClone(this.toObject());
+    const e2 = foundry.utils.deepClone(other.toObject());
+
+    delete e1._id;
+    delete e2._id;
+
+    delete e1.disabled;
+    delete e2.disabled;
+
+    delete e1.duration;
+    delete e2.duration;
+
+    delete e1.flags?.a5e?.sort;
+    delete e2.flags?.a5e?.sort;
+
+    delete e1.flags?.a5e?.actionId;
+    delete e2.flags?.a5e?.actionId;
+
+    e1.system.changes.forEach((c) => delete c.priority);
+    e2.system.changes.forEach((c) => delete c.priority);
+
+    return foundry.utils.equals(e1, e2);
+  }
 }
 
 export { ActiveEffectA5E };
