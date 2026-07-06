@@ -371,18 +371,36 @@ class ActiveEffectA5E extends ActiveEffect {
 
   static _applyChangeCustom(targetDoc, change, current, delta, changes) {}
 
-  // Temporary Migration Hook in for v14
+  // -------------------------------------------------------
+  //  External Helpers
+  // -------------------------------------------------------
+  async duplicateEffect(actionId = null) {
+    const owningDocument = this.parent;
+    const newEffect: any = foundry.utils.duplicate(this);
+    newEffect.name = `${this.name} (Copy)`;
 
-  static #MODES_TO_TYPES = {
-    0: "custom",
-    1: "multiply",
-    2: "add",
-    3: "subtract",
-    4: "downgrade",
-    5: "upgrade",
-    6: "override",
-    7: "conditional",
-  };
+    if (!owningDocument) return;
+
+    const effects = await owningDocument.createEmbeddedDocuments(
+      "ActiveEffect",
+      [newEffect],
+    );
+
+    // Handle action update
+    if (owningDocument?.documentName === "Item" && actionId) {
+      const action = owningDocument.actions.get(actionId);
+      owningDocument.update({
+        [`system.actions.${actionId}.effects`]: [
+          [...action.effects],
+          ...effects.map((e) => e.id),
+        ],
+      });
+    }
+  }
+
+  async toggleActiveState() {
+    await this.update({ disabled: !this.disabled });
+  }
 }
 
 export { ActiveEffectA5E };

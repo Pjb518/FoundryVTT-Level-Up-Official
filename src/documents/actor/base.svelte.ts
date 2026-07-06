@@ -259,6 +259,20 @@ class BaseActorA5e extends Actor {
     };
   }
 
+  // *****************************************************************************************
+  // Generators
+  // *****************************************************************************************
+  override *allApplicableEffects() {
+    for (const effect of this.effects) yield effect;
+
+    for (const item of this.items) {
+      for (const effect of item.effects) {
+        if (effect.transfer || effect.system.effectType === "passive")
+          yield effect;
+      }
+    }
+  }
+
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
