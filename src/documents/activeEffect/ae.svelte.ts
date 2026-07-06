@@ -125,8 +125,6 @@ class ActiveEffectA5E extends ActiveEffect {
             break;
         }
 
-        console.log(newKey, result);
-
         if (modifyTarget && result !== undefined) {
           foundry.utils.setProperty(targetDoc, newKey, result);
         }

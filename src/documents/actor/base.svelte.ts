@@ -354,7 +354,6 @@ class BaseActorA5e extends Actor {
    * Apply activeEffects to the actor with the phase 'applyAEs'.
    */
   override applyActiveEffects(phase: "initial" | "final") {
-    console.log("Applying effects phase: ", phase);
     const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
     this._completedActiveEffectPhases.add(phase);
@@ -370,8 +369,6 @@ class BaseActorA5e extends Actor {
           : game.a5e.activeEffects.options.all.allOptions;
 
     for (const effect of this.allApplicableEffects()) {
-      console.log(`${effect.name}: ${phase}`);
-
       if (!effect.active) continue;
 
       for (const change of effect.system.changes) {
@@ -410,12 +407,10 @@ class BaseActorA5e extends Actor {
     // Apply all changes
     const overrides = {};
     const replacementData = this.getRollData() ?? {};
-    console.log(replacementData);
 
     // TODO: Figure out why this fails on token npc
     this.overrides ??= {};
 
-    console.log("Changes at ", phase, changes);
     for (const change of changes) {
       // TODO: Adds support for `@original`
       const result = ActiveEffect.applyChange(this, change, {
@@ -424,7 +419,6 @@ class BaseActorA5e extends Actor {
       if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
     }
 
-    console.log(this.overrides, overrides);
     foundry.utils.mergeObject(
       this.overrides,
       foundry.utils.expandObject(overrides),
