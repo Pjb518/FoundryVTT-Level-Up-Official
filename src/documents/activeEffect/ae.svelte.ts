@@ -220,7 +220,12 @@ class ActiveEffectA5E extends ActiveEffect {
     let field;
     const changes = {};
 
-    console.log("Here");
+    // Sub @original for current value
+    delete replacementData.original;
+    if (change.mode !== "custom") {
+      const current = foundry.utils.getProperty(targetDoc, change.key);
+      replacementData.original = current;
+    }
 
     if (typeof change.key === "string" && change.key.startsWith("system.")) {
       if (targetDoc.system instanceof foundry.abstract.DataModel) {
