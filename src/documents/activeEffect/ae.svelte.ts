@@ -373,6 +373,48 @@ class ActiveEffectA5E extends ActiveEffect {
   static _applyChangeCustom(targetDoc, change, current, delta, changes) {}
 
   // -------------------------------------------------------
+  //  CRUD Methods
+  // -------------------------------------------------------
+  override _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
+    this.#handleSubConditions(data, userId, true);
+  }
+
+  override _onDelete(options, userId) {
+    super._onDelete(options, userId);
+
+    (this, this.#handleSubConditions({}, userId, false));
+  }
+
+  #handleSubConditions(data, userId, active) {
+    if (game.user.id !== userId) return;
+
+    const statuses = data.statuses ?? [...(this?.statuses ?? [])];
+    const subConditions = new Set();
+
+    statuses.forEach((statusId) => {
+      const statusEffect = CONFIG.statusEffects.find((e) => e.id === statusId);
+      if (!statusEffect) return;
+
+      subConditions.add(...(statusEffect?.statuses ?? []));
+    });
+
+    if (!subConditions.size) return;
+    const actor = this.parent;
+    if (!actor) return;
+
+    subConditions.forEach(async (c) => {
+      const effect = CONFIG.statusEffects.find((e) => e.id === c);
+      if (!effect) return;
+
+      const newEffect = await actor.toggleStatusEffect(effect.id, { active });
+      if (!newEffect) return;
+
+      newEffect.update({ "flags.a5e.source": statuses[0] });
+    });
+  }
+
+  // -------------------------------------------------------
   //  External Helpers
   // -------------------------------------------------------
   async duplicateEffect(actionId = null) {
