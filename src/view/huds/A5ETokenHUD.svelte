@@ -352,12 +352,12 @@
         position: absolute;
         bottom: 100%;
         right: -1px;
-        padding: 0.25em;
+        padding: 0.5em;
         color: rgb(204 204 204);
         border: none;
-        border-radius: 4px 4px 0 0;
-        background-color: black;
-        font-size: 1.25rem;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(11 10 19 / 0.85);
+        font-size: var(--a5e-xl-text);
         cursor: pointer;
         transition: var(--a5e-transition-standard);
 
