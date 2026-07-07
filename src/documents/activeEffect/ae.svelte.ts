@@ -207,6 +207,11 @@ class ActiveEffectA5E extends ActiveEffect {
       parentItem?.system?.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
     );
   }
+
+  override get isTemporary() {
+    return super.isTemporary || this.statuses.size > 0;
+  }
+
   // -------------------------------------------------------
   //  Apply Methods
   // -------------------------------------------------------
