@@ -1,13 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.2/schema.json",
   "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
   "files": {
     "ignoreUnknown": false,
-    "experimentalScannerIgnores": [
-      "dist/**/*",
-      "src/a5e.js",
-      "public/**/*",
-      "*.scss"
+    "includes": [
+      "**",
+      "!!**/dist/**/*",
+      "!!**/src/a5e.js",
+      "!!**/public/**/*",
+      "!!**/*.scss"
     ]
   },
   "formatter": {
@@ -28,7 +29,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "complexity": {
         "noForEach": "off",
         "noThisInStatic": "off"
