@@ -75,6 +75,7 @@ import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 
 import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
 import { ActiveEffectA5E } from "../documents/activeEffect/ae.svelte.ts";
+import { ConditionsManager } from "#managers/ConditionsManager.ts";
 // Stores
 // import { gameSettings } from "../settings/SettingsStore.ts";
 
@@ -122,6 +123,7 @@ export default function init() {
       ItemSheetA5e,
     },
     activeEffects: {
+      condition: { ConditionsManager },
       EffectOption,
       options: {},
       effectsPanel: null,
