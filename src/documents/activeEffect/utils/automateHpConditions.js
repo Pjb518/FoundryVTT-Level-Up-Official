@@ -20,7 +20,6 @@ export default async function automateHpConditions(actor, changes, userId, condi
 	if (!changes?.system?.attributes?.hp) return;
 
 	const { value, max } = actor.system.attributes.hp;
-	// const condition = CONFIG.statusEffects.find((c) => c.id === conditionId);
 	const condition = game.a5e.ConditionManager.get(conditionId);
 	if (!condition) return;
 

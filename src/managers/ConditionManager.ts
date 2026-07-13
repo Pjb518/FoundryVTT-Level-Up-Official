@@ -38,8 +38,9 @@ class ConditionManager {
 			const name = CONFIG.A5E.conditions[id];
 			const img = customIcons[id] || CONFIG.A5E.conditionIconsDefault[id];
 			const description = CONFIG.A5E.conditionDescriptions[id];
-			const statuses = CONFIG.A5E.conditionLinkedConditions[id];
+			const statuses = CONFIG.A5E.conditionLinkedConditions[id] ?? [];
 			const stackable = CONFIG.A5E.conditionStackableConditions[id];
+			const changes = CONFIG.A5E.conditionChanges[id] ?? [];
 
 			const data = {
 				_id,
@@ -49,6 +50,7 @@ class ConditionManager {
 				description,
 				statuses,
 				stackable,
+				changes,
 			} as Condition;
 
 			this.#conditions.set(id, data);
@@ -82,6 +84,10 @@ class ConditionManager {
 		const effects = [...actor.effects];
 		return effects.filter((e) => e.system.effectType === 'condition');
 	}
+
+	/* ---------------------------------------------------------
+    Complex Condtion Helpers
+	--------------------------------------------------------- */
 }
 
 export { ConditionManager };
