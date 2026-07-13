@@ -10,6 +10,7 @@
  */
 export default async function automateHpConditions(actor, changes, userId, conditionId) {
 	// Guard for non-gm users
+	console.log('Here');
 	if (game.user.id !== userId) return;
 
 	// eslint-disable-next-line no-param-reassign
@@ -19,7 +20,8 @@ export default async function automateHpConditions(actor, changes, userId, condi
 	if (!changes?.system?.attributes?.hp) return;
 
 	const { value, max } = actor.system.attributes.hp;
-	const condition = CONFIG.statusEffects.find((c) => c.id === conditionId);
+	// const condition = CONFIG.statusEffects.find((c) => c.id === conditionId);
+	const condition = game.a5e.ConditionManager.get(conditionId);
 	if (!condition) return;
 
 	const isApplicable = conditionId === 'bloodied' ? value <= max / 2 && value > 0 : value <= 0;
