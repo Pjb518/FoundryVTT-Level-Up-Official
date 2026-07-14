@@ -1,92 +1,125 @@
-import { getStaticId } from '#utils/getStaticId.ts';
-import { localize } from '#utils/localization/localize.ts';
+import { getStaticId } from "#utils/getStaticId.ts";
+import { localize } from "#utils/localization/localize.ts";
 
 export interface Condition {
-	_id: string;
-	id: string;
-	name: string;
-	description: string;
-	img: string;
-	statuses: string[];
-	stackable: boolean;
-	enriched: string;
+  _id: string;
+  id: string;
+  name: string;
+  description: string;
+  img: string;
+  statuses: string[];
+  stackable: boolean;
+  changes: any[];
+  enriched: string;
 }
 
 class ConditionManager {
-	#conditions: Map<string, Condition>;
+  #conditions: Map<string, Condition>;
 
-	#ready: boolean;
+  #ready: boolean;
 
-	constructor() {
-		this.#conditions = new Map();
-		this.#ready = false;
-	}
+  constructor() {
+    this.#conditions = new Map();
+    this.#ready = false;
+  }
 
-	/* ---------------------------------------------------------
+  /* ---------------------------------------------------------
     Setup
 	--------------------------------------------------------- */
 
-	init() {
-		const conditions = Object.keys(CONFIG.A5E.conditions);
+  init() {
+    const conditions = Object.keys(CONFIG.A5E.conditions);
 
-		const customIcons = game.settings.get('a5e', 'customConditionIcons') as Record<string, string>;
+    const customIcons = game.settings.get(
+      "a5e",
+      "customConditionIcons",
+    ) as Record<string, string>;
 
-		conditions.forEach(async (c) => {
-			const _id = getStaticId(c);
+    conditions.forEach(async (c) => {
+      const _id = getStaticId(c);
 
-			const id = c;
-			const name = CONFIG.A5E.conditions[id];
-			const img = customIcons[id] || CONFIG.A5E.conditionIconsDefault[id];
-			const description = CONFIG.A5E.conditionDescriptions[id];
-			const statuses = CONFIG.A5E.conditionLinkedConditions[id] ?? [];
-			const stackable = CONFIG.A5E.conditionStackableConditions[id];
-			const changes = CONFIG.A5E.conditionChanges[id] ?? [];
+      const id = c;
+      const name = CONFIG.A5E.conditions[id];
+      const img = customIcons[id] || CONFIG.A5E.conditionIconsDefault[id];
+      const description = CONFIG.A5E.conditionDescriptions[id];
+      const statuses = CONFIG.A5E.conditionLinkedConditions[id] ?? [];
+      const stackable = CONFIG.A5E.conditionStackableConditions[id];
+      const changes = CONFIG.A5E.conditionChanges[id] ?? [];
 
-			const data = {
-				_id,
-				id,
-				name,
-				img,
-				description,
-				statuses,
-				stackable,
-				changes,
-			} as Condition;
+      const data = {
+        _id,
+        id,
+        name,
+        img,
+        description,
+        statuses,
+        stackable,
+        changes,
+      } as Condition;
 
-			this.#conditions.set(id, data);
-		});
+      // Add an enriched version of the condition to the data
+      // try {
+      //   console.log("Here");
+      //   data.enriched =
+      //     (await foundry.applications.ux?.TextEditor?.implementation?.enrichHTML?.(
+      //       `[[/condition condition=${id}]]`,
+      //     )) || `[[/condition condition=${id}]]`;
+      // } catch (_error) {
+      //   console.error(_error);
+      //   data.enriched =
+      //     await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+      //       `[[/condition condition=${id}]]`,
+      //     );
+      // }
 
-		this.#ready = true;
-	}
+      this.#conditions.set(id, data);
+    });
 
-	configureStatusEffects() {
-		if (!this.#ready) throw Error('Conditions are not ready yet.');
+    // Setup exhaustion
+    const replaceFatigue = game.settings.get("a5e", "replaceFatigueAndStrife");
 
-		const statusEffects = [...this.#conditions.values()].sort((a, b) => {
-			const aid = a.name !== undefined ? localize(a.name) : a.id || a;
-			const bid = b.name !== undefined ? localize(b.name) : b.id || b;
+    if (replaceFatigue) {
+      this.#conditions.delete("strife");
+      const fatigue = this.#conditions.get("fatigue")!;
 
-			return aid > bid ? 1 : aid < bid ? -1 : 0;
-		});
+      fatigue.description = CONFIG.A5E.conditionDescriptions["exhaustion"];
+      fatigue.name = CONFIG.A5E.conditions["exhaustion"];
+      fatigue.statuses = [];
+      fatigue.changes = [];
+      this.#conditions.set("fatigue", fatigue);
+    }
 
-		CONFIG.statusEffects.length = 0;
-		CONFIG.statusEffects.push(...statusEffects);
-	}
+    this.#ready = true;
+  }
 
-	/* ---------------------------------------------------------
+  configureStatusEffects() {
+    if (!this.#ready) throw Error("Conditions are not ready yet.");
+
+    const statusEffects = [...this.#conditions.values()].sort((a, b) => {
+      const aid = a.name !== undefined ? localize(a.name) : a.id || a;
+      const bid = b.name !== undefined ? localize(b.name) : b.id || b;
+
+      return aid > bid ? 1 : aid < bid ? -1 : 0;
+    });
+
+    CONFIG.statusEffects.length = 0;
+    CONFIG.statusEffects.push(...statusEffects);
+  }
+
+  /* ---------------------------------------------------------
 	   Getters
 	--------------------------------------------------------- */
-	get(conditionId: string): Condition {
-		return this.#conditions.get(conditionId);
-	}
+  get(conditionId: string): Condition | undefined {
+    return this.#conditions.get(conditionId);
+  }
 
-	getActorConditions(actor: Actor) {
-		const effects = [...actor.effects];
-		return effects.filter((e) => e.system.effectType === 'condition');
-	}
+  getActorConditions(actor: Actor) {
+    const effects = [...actor.effects];
+    return effects.filter((e) => e.system.effectType === "condition");
+  }
 
-	/* ---------------------------------------------------------
-    Complex Condtion Helpers
+  /* ---------------------------------------------------------
+    Complex Condition Helpers
 	--------------------------------------------------------- */
 }
 
