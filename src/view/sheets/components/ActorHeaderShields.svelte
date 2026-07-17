@@ -59,7 +59,6 @@
     }
 
     function toggleInspiration() {
-        console.log(actor.system.attributes.inspiration);
         updateDocumentDataFromField(
             actor,
             "system.attributes.inspiration",
@@ -92,8 +91,6 @@
                 ? actorStore.details.xp
                 : prepareXP(actor),
     });
-
-    $inspect(actorStore.attributes.inspiration);
 </script>
 
 <div class="a5e-actor-header-shields__container">

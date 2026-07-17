@@ -381,7 +381,7 @@ class BaseActorA5e extends Actor {
 
         // Keep Token changes separate for later application
         if (copy.key?.startsWith("@token.")) {
-          copy.key = copy.key.slice(6);
+          copy.key = copy.key.slice(7);
           tokenChanges.push(copy);
         } else {
           changes.push(copy);
@@ -395,7 +395,8 @@ class BaseActorA5e extends Actor {
 
     generateExpandedChanges(changes);
     changes.sort((a, b) => a.priority - b.priority);
-    // this.tokenActiveEffectChanges[phase] = tokenChanges;
+    console.log(tokenChanges);
+    this.tokenActiveEffectChanges[phase] = tokenChanges;
 
     // Apply all changes
     const overrides = {};
