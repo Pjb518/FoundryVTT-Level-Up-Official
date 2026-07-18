@@ -85,6 +85,13 @@
         return null;
     }
 
+    function placeTemplate() {
+        const data = message.system.shapeData.value;
+        if (!data) return;
+
+        canvas.regions.placeRegion(data);
+    }
+
     async function _toggleExpertiseDice(rollIndex, expertiseDice) {
         toggleExpertiseDice(message, rolls, rollIndex, expertiseDice);
     }
@@ -250,6 +257,8 @@
         ) as boolean) ?? false,
     );
 
+    console.log(message.system.shapeData);
+
     setContext("message", message);
 
     let hoverColor = $derived(getHoverColor(pressedKeys));
@@ -383,6 +392,8 @@
             />
         {/each}
     {/if}
+
+    <button onclick={placeTemplate}> Place Shape </button>
 </article>
 
 {#if item.type === "spell"}

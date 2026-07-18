@@ -28,8 +28,7 @@ class EffectAreaManager {
     let scaledArea = foundry.utils.duplicate(area);
     scaledArea = this.#applyTemplateScaling(scaledArea);
 
-    const data = this.#getRegionData(scaledArea);
-    return canvas.regions.placeRegion(data);
+    return this.#getRegionData(scaledArea);
   }
 
   validateBaseTemplateData(action = this.#action) {
@@ -111,7 +110,7 @@ class EffectAreaManager {
   // Internal Functions - Scaling
   // --------------------------------------------
   #getRegionData(area) {
-    const { shape } = area;
+    const { shape, quantity } = area;
 
     let regionData = {
       name: this.#item.name,
@@ -171,7 +170,7 @@ class EffectAreaManager {
       }
     }
 
-    return regionData;
+    return { value: regionData, quantity };
   }
 
   #applyTemplateScaling(area) {

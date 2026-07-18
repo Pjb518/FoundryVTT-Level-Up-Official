@@ -14,7 +14,6 @@ import ActionSelectionDialog from "#view/dialogs/action/ActionSelectionDialog.sv
 import { ActionsManager } from "#managers/ActionsManager.ts";
 import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
 import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
-import TemplatePreparationManager from "#managers/TemplatePreparationManager.js";
 
 import { getSummaryData } from "#utils/summaries/getSummaryData.ts";
 import { EffectAreaManager } from "#managers/EffectAreaManager.ts";
@@ -205,25 +204,14 @@ class ItemA5e extends BaseItemA5e {
 
     const rolls = await rollPreparationManager.prepareRolls();
 
-    const templateManager = new TemplatePreparationManager(
+    const effectAreaManager = new EffectAreaManager(
       this.actor,
       this,
       action,
       activationData.consumers ?? {},
     );
-
-    const validTemplate = templateManager.validateBaseTemplateData();
-    // if (activationData.placeTemplate && validTemplate) {
-    //   await templateManager.placeActionTemplates();
-    // }
-
-    const regionManager = new EffectAreaManager(
-      this.actor,
-      this,
-      action,
-      activationData.consumers ?? {},
-    );
-    regionManager.getShapeData();
+    const validShape = effectAreaManager.validateBaseTemplateData();
+    const shapeData = validShape ? effectAreaManager.getShapeData() : null;
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
       this.actor,
@@ -290,6 +278,7 @@ class ItemA5e extends BaseItemA5e {
         effects: activationData.effects ?? [],
         prompts: activationData.prompts,
         rollData: rolls.map(({ roll, ...rollData }) => rollData),
+        shapeData: shapeData,
         summaryData: getSummaryData(this, action, {
           hideAttunementData: true,
           hideCraftingComponents: true,
@@ -328,7 +317,6 @@ class ItemA5e extends BaseItemA5e {
       macro: this.system.macro,
       options,
       rolls,
-      validTemplate,
     });
 
     // Trigger Macros

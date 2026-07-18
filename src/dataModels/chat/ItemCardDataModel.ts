@@ -1,42 +1,72 @@
-import { metadata } from './common';
+import { metadata } from "./common";
 
 const { fields } = foundry.data;
 
 const itemCardSchema = () => ({
-	actionName: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	actionId: new fields.StringField({ required: false, nullable: true }),
-	actionDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
-	castingLevel: new fields.NumberField({ required: true, nullable: true }),
-	effects: new fields.ArrayField(
-		new fields.StringField({ required: true, nullable: false, initial: '' }),
-		{ required: true, nullable: false },
-	),
-	itemDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
-	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	prompts: new fields.ArrayField(new fields.ObjectField({ required: true, nullable: false })),
-	rollData: new fields.ArrayField(new fields.ObjectField({ required: true, nullable: false })),
-	summaryData: new fields.ObjectField({ required: true, nullable: false }),
-	unidentifiedDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+  actionName: new fields.StringField({
+    required: true,
+    nullable: false,
+    initial: "",
+  }),
+  actionId: new fields.StringField({ required: false, nullable: true }),
+  actionDescription: new fields.HTMLField({
+    required: true,
+    nullable: false,
+    initial: "",
+  }),
+  castingLevel: new fields.NumberField({ required: true, nullable: true }),
+  effects: new fields.ArrayField(
+    new fields.StringField({ required: true, nullable: false, initial: "" }),
+    { required: true, nullable: false },
+  ),
+  itemDescription: new fields.HTMLField({
+    required: true,
+    nullable: false,
+    initial: "",
+  }),
+  itemId: new fields.StringField({
+    required: true,
+    nullable: false,
+    initial: "",
+  }),
+  prompts: new fields.ArrayField(
+    new fields.ObjectField({ required: true, nullable: false }),
+  ),
+  rollData: new fields.ArrayField(
+    new fields.ObjectField({ required: true, nullable: false }),
+  ),
+  shapeData: new fields.SchemaField({
+    quantity: new fields.NumberField({ required: false, nullable: true }),
+    value: new fields.AnyField({ required: false, nullable: true }),
+  }),
+  summaryData: new fields.ObjectField({ required: true, nullable: false }),
+  unidentifiedDescription: new fields.HTMLField({
+    required: true,
+    nullable: false,
+    initial: "",
+  }),
 });
 
 declare namespace A5eItemCardData {
-	type Schema = DataSchema & ReturnType<typeof metadata> & ReturnType<typeof itemCardSchema>;
-	interface BaseData extends Record<string, unknown> {}
-	interface DerivedData extends Record<string, unknown> {}
+  type Schema = DataSchema &
+    ReturnType<typeof metadata> &
+    ReturnType<typeof itemCardSchema>;
+  interface BaseData extends Record<string, unknown> {}
+  interface DerivedData extends Record<string, unknown> {}
 }
 
 class A5eItemCardData extends foundry.abstract.TypeDataModel<
-	A5eItemCardData.Schema,
-	ChatMessage.ConfiguredInstance,
-	A5eItemCardData.BaseData,
-	A5eItemCardData.DerivedData
+  A5eItemCardData.Schema,
+  ChatMessage.ConfiguredInstance,
+  A5eItemCardData.BaseData,
+  A5eItemCardData.DerivedData
 > {
-	static override defineSchema(): A5eItemCardData.Schema {
-		return {
-			...itemCardSchema(),
-			...metadata(),
-		};
-	}
+  static override defineSchema(): A5eItemCardData.Schema {
+    return {
+      ...itemCardSchema(),
+      ...metadata(),
+    };
+  }
 }
 
 export { A5eItemCardData };
