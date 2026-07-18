@@ -397,7 +397,6 @@ class BaseActorA5e extends Actor {
 
     generateExpandedChanges(changes);
     changes.sort((a, b) => a.priority - b.priority);
-    console.log(tokenChanges);
     this.tokenActiveEffectChanges[phase] = tokenChanges;
 
     // Apply all changes

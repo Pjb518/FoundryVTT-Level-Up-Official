@@ -17,6 +17,7 @@ import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
 import TemplatePreparationManager from "#managers/TemplatePreparationManager.js";
 
 import { getSummaryData } from "#utils/summaries/getSummaryData.ts";
+import { EffectAreaManager } from "#managers/EffectAreaManager.ts";
 
 // *****************************************************************************************
 
@@ -215,6 +216,14 @@ class ItemA5e extends BaseItemA5e {
     // if (activationData.placeTemplate && validTemplate) {
     //   await templateManager.placeActionTemplates();
     // }
+
+    const regionManager = new EffectAreaManager(
+      this.actor,
+      this,
+      action,
+      activationData.consumers ?? {},
+    );
+    regionManager.getShapeData();
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
       this.actor,
