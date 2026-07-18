@@ -330,6 +330,8 @@ class BaseActorA5e extends Actor {
    * Prepare base data for the actor.
    */
   override prepareBaseData() {
+    this._clearData();
+
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
     this.RollOverrideManager = new RollOverrideManager(this);
@@ -403,7 +405,7 @@ class BaseActorA5e extends Actor {
     const replacementData = this.getRollData() ?? {};
 
     // TODO: Figure out why this fails on token npc
-    this.overrides ??= {};
+    // this.overrides ??= {};
 
     for (const change of changes) {
       // TODO: Adds support for `@original`
