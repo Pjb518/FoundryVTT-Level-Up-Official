@@ -10,7 +10,7 @@ import preDeleteChatMessage from "./hooks/preDeleteChatMessage.ts";
 import preCreateChatMessage from "./hooks/preCreateChatMessage.ts";
 import ready from "./hooks/ready.ts";
 import renderApplication from "./hooks/renderApplication.ts";
-import renderChatMessage from "./hooks/renderChatMessage.ts";
+import renderChatMessageHTML from "./hooks/renderChatMessageHTML.ts";
 import renderSettings from "./hooks/renderSettings.ts";
 import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E.ts";
 import setup from "./hooks/setup.ts";
@@ -41,7 +41,7 @@ Hooks.on("updateActor", updateActor);
 
 Hooks.on("renderAbstractSidebarTab", renderAbstractSideBarTab);
 Hooks.on("renderApplicationV2", renderApplication);
-Hooks.on("renderChatMessage", renderChatMessage);
+Hooks.on("renderChatMessageHTML", renderChatMessageHTML);
 Hooks.on("preCreateChatMessage", preCreateChatMessage);
 Hooks.on("preDeleteChatMessage", preDeleteChatMessage);
 Hooks.on("renderSettings", renderSettings);

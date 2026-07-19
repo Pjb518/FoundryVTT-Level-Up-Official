@@ -9,8 +9,6 @@
 
     const rollModes = CONFIG.ChatMessage.modes;
     const { DICE_ROLL_MODES } = CONFIG.A5E;
-
-    console.log(Object.entries(rollModes))
 </script>
 
 <RadioGroup
