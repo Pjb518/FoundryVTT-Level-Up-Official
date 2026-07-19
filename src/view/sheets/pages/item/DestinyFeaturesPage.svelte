@@ -72,7 +72,7 @@
             type="uuid"
             documentType="Item"
             onDocumentDropped={(data) =>
-                addFeature("featureInspiration", data.uuid)}
+                addFeature("inspirationFeature", data.uuid)}
         ></DropArea>
 
         {#if inspiration}
@@ -90,7 +90,7 @@
                 <button
                     class="a5e-button a5e-button--transparent"
                     aria-label="Delete Feature"
-                    onclick={() => deleteFeature("featureInspiration")}
+                    onclick={() => deleteFeature("inspirationFeature")}
                 >
                     <i class="fa-solid fa-trash"></i>
                 </button>
