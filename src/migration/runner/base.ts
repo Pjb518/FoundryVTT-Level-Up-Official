@@ -19,7 +19,7 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_MIGRATION_VERSION = 0.021;
+	static LATEST_MIGRATION_VERSION = 0.020;
 
 	static RECOMMENDED_SAFE_VERSION = 0.019;
 
