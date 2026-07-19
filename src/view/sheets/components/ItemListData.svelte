@@ -349,7 +349,7 @@
     class:name-wrapper--ammunition={hasAmmunition(item, action)}
 >
     <div class="name">
-        <span class="name__text">{action?.name ?? item.name}</span>
+        <span class="name__text">{action?.name ?? item.reactive.name}</span>
 
         {#if isMagicalItem}
             <i

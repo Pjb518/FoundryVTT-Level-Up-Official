@@ -71,7 +71,7 @@
                 label: "Party Viewer",
                 icon: "fa-solid fa-users",
                 component: SettingsPartyViewerPage,
-                display: playersCanAccessPartyViewer,
+                display: playersCanAccessPartyViewer || game.user!.isGM,
             },
             {
                 name: "rolls",
@@ -109,6 +109,8 @@
     let playersCanAccessPartyViewer = $derived(
         settings["playersCanAccessPartyViewer"].value,
     );
+
+    $inspect(playersCanAccessPartyViewer);
 
     let tabs = getTabs();
     let currentTab = $derived(tabs[0]);
