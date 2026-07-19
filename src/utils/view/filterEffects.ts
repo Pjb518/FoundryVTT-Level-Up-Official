@@ -25,7 +25,9 @@ export function filterEffects(
 ) {
   const { searchTerm, searchDescription, filters = [] } = options;
 
-  return document.effects
+  const effects = document.documentName === "Actor" ? [...document.allApplicableEffects()] : document.effects;
+
+  return effects
     .filter((effect) => {
       // Filter by type first
       if (type.length && effect.system.effectType !== type) return false;

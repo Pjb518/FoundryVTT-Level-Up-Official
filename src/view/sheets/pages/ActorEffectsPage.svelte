@@ -3,10 +3,13 @@
 
     import { createEffect } from "#utils/createActiveEffect.ts";
     import { filterEffects } from "#utils/view/filterEffects.ts";
-    import { groupEffectsByType } from "#utils/view/groupEffectsByType..ts";
+    import { groupEffectsByType } from "#utils/view/groupEffectsByType.ts";
 
     import UtilityBar from "../../snippets/UtilityBar.svelte";
     import EffectCategory from "#view/sheets/components/effect/EffectCategory.svelte";
+    import type { Tab } from "#view/navigation/data.ts";
+    import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
+    import SecondaryNavigationBar from "#view/navigation/SecondaryNavigationBar.svelte";
 
     function onAddIconClick() {
         createEffect(actor, { effectType: "passive" });
@@ -15,6 +18,24 @@
     function sortHandler(reverse: boolean) {
         sheet._sortEmbeddedAlphabetically(effects, "ActiveEffect", reverse);
     }
+
+    function updateCurrentTab(name: string) {
+        const { uuid } = actor;
+        currentTab = tabs.find((tab) => tab.name === name) ?? tabs[0];
+
+        actorSheetTempSettings[uuid].currentEffectsTab = name;
+    }
+
+    const tabs: Tab[] = [
+        {
+            name: "effects",
+            label: "Active Effects",
+        },
+        {
+            name: "conditions",
+            label: "Conditions",
+        },
+    ];
 
     let filterOptions = $state({
         searchTerm: "",
@@ -28,11 +49,24 @@
     let categorizedEffects = $derived(groupEffectsByType(effects));
 
     const openCompendium = game.a5e.utils.openCompendium;
-
     const subTypes = CONFIG.A5E.activeEffectTypes;
+
+    let currentTab = $derived(
+        tabs.find(
+            (tab) =>
+                tab.name ===
+                actorSheetTempSettings[actor.uuid]?.currentEffectsTab,
+        ) ?? tabs[0],
+    );
 </script>
 
-{#if actor.isOwner}
+<SecondaryNavigationBar
+    currentTab={currentTab.name}
+    {tabs}
+    onTabChange={updateCurrentTab}
+/>
+
+{#if actor.isOwner && currentTab.name === "effects"}
     <UtilityBar
         bind:filterOptions
         showAddIcon={true}
