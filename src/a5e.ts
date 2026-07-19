@@ -24,14 +24,14 @@ Hooks.once("ready", ready);
 Hooks.on("canvasInit", canvasInit);
 Hooks.on("canvasReady", canvasReady);
 
-Hooks.on("getActorDirectoryEntryContext", (dialog, html, data) =>
-  getDocumentDirectoryContext(dialog, html, data, "Actor"),
+Hooks.on("getActorContextOptions", (app, options) =>
+  getDocumentDirectoryContext(app, options, "Actor"),
 );
-Hooks.on("getItemDirectoryEntryContext", (dialog, html, data) =>
-  getDocumentDirectoryContext(dialog, html, data, "Item"),
+Hooks.on("getItemContextOptions", (app, options) =>
+  getDocumentDirectoryContext(app, options, "Item"),
 );
-Hooks.on("getCompendiumDirectoryEntryContext", (dialog, html, data) =>
-  getDocumentDirectoryContext(dialog, html, data, "Pack"),
+Hooks.on("getCompendiumContextOptions", (app, options) =>
+  getDocumentDirectoryContext(app, options, "Pack"),
 );
 
 Hooks.on("createActor", createActor);
