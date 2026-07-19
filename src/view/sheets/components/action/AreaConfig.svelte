@@ -38,7 +38,7 @@
     function removeArea() {
         item.update({
             [`system.actions.${actionId}`]: {
-                "-=area": null,
+                "area": _del,
             },
         });
     }

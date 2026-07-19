@@ -67,7 +67,7 @@ export class ItemGrantsManager extends Map<string, Grant> {
 
   override async clear() {
     await this.#item.update({
-      "system.-=grants": null,
+      "system.grants": _del,
     });
 
     await this.#item.update({ "system.grants": {} });
@@ -92,7 +92,7 @@ export class ItemGrantsManager extends Map<string, Grant> {
 
     await this.#item.update({
       "system.grants": {
-        [`-=${id}`]: null,
+        [`${id}`]: _del,
       },
     });
 

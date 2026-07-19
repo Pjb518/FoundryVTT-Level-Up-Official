@@ -226,7 +226,7 @@ export default class ObjectItemA5e extends ItemA5e {
 
     // eslint-disable-next-line no-restricted-syntax
     for await (const [key, item] of children) {
-      updates[`system.items.-=${key}`] = null;
+      updates[`system.items.${key}`] = _del;
 
       const child = await fromUuid(item.uuid);
       if (!child) continue;

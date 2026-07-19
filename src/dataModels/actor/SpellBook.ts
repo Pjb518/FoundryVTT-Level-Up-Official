@@ -166,7 +166,7 @@ export default class SpellBook extends foundry.abstract.DataModel<
     const id = this._id;
 
     this.parent.update({
-      [`system.spellBooks.-=${id}`]: null,
+      [`system.spellBooks.${id}`]: _del,
     });
   }
 }

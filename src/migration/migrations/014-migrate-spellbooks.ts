@@ -24,10 +24,10 @@ export class Migration014MigrateSpellBooks extends MigrationBase {
 		actorData['system.spellBooks'] = { [id]: spellBook };
 
 		// Update flags
-		actorData['flags.a5e.filters.-=exclusive'] = null;
-		actorData['flags.a5e.filters.-=inclusive'] = null;
-		actorData['flags.a5e.-=showSpellPoints'] = null;
-		actorData['flags.a5e.-=showSpellSlots'] = null;
+		actorData['flags.a5e.filters.exclusive'] = _del;
+		actorData['flags.a5e.filters.inclusive'] = _del;
+		actorData['flags.a5e.showSpellPoints'] = _del;
+		actorData['flags.a5e.showSpellSlots'] = _del;
 		foundry.utils.setProperty(actorData, 'flags.a5e.sortMode', {});
 
 		// Update items

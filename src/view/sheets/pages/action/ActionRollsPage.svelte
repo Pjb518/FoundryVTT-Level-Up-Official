@@ -26,7 +26,7 @@
 
         item.update({
             [`system.actions.${actionId}.rolls`]: {
-                [`-=${rollId}`]: null,
+                [`${rollId}`]: _del,
             },
         });
     }

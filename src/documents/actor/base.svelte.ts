@@ -2162,7 +2162,7 @@ class BaseActorA5e extends Actor {
 
     await this.update({
       [`system.bonuses.${type}`]: {
-        [`-=${id}`]: null,
+        [`${id}`]: _del,
       },
     });
   }

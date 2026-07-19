@@ -31,10 +31,10 @@ export class Migration020MigrateToV1 extends MigrationBase {
 			source?.flags?.a5e?.transferType ?? source?.system?.transferType ?? 'passive',
 		);
 
-		source['flags.a5e.-=actionId'] = null;
-		source['flags.a5e.-=applyToSelf'] = null;
-		source['flags.a5e.-=sort'] = null;
-		source['flags.a5e.-=transferType'] = null;
+		source['flags.a5e.actionId'] = _del;
+		source['flags.a5e.applyToSelf'] = _del;
+		source['flags.a5e.sort'] = _del;
+		source['flags.a5e.transferType'] = _del;
 	}
 
 	#migrateActionData(source: Record<string, any>) {
@@ -56,7 +56,7 @@ export class Migration020MigrateToV1 extends MigrationBase {
 
 				data.effects ??= [];
 				data.effects.push(effectId);
-				acc[`-=${promptId}`] = null;
+				acc[`${promptId}`] = _del;
 
 				return acc;
 			}, {});

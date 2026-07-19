@@ -193,7 +193,7 @@ class ActionsManager extends Map<string, Action> {
 
     await this.#item.update({
       "system.actions": {
-        [`-=${actionId}`]: null,
+        [`${actionId}`]: _del,
       },
     });
 

@@ -304,7 +304,7 @@ export default class ClassItemA5e extends OriginItemA5e {
       // Delete actor resource data
       const resourceData = this.resources.consumableResources.reduce(
         (acc, r) => {
-          acc[`-=${r.slug}`] = null;
+          acc[`${r.slug}`] = _del;
           return acc;
         },
         {},

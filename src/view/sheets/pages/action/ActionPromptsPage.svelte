@@ -22,7 +22,7 @@
 
         item.update({
             [`system.actions.${actionId}.prompts`]: {
-                [`-=${promptId}`]: null,
+                [`${promptId}`]: _del,
             },
         });
     }

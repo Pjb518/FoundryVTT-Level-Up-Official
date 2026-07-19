@@ -77,7 +77,6 @@
       const action = item.actions.get(message.system.actionId);
       if (!action) return "Place Region";
       const shape = action.area.shape;
-      console.log(A5E.areaIcons[shape])
 
       return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
     }
@@ -267,8 +266,6 @@
             "hideChatDescriptionsByDefault",
         ) as boolean) ?? false,
     );
-
-    console.log(message.system.shapeData);
 
     setContext("message", message);
 

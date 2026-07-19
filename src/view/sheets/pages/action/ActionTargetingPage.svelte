@@ -50,7 +50,7 @@
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}`]: {
-                    "-=target": null,
+                    "target": _del,
                 },
             });
         } else {
