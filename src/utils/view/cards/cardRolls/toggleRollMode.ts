@@ -81,7 +81,7 @@ export async function toggleRollMode(message, rolls, rollIndex, rollMode) {
 
     game.dice3d.showForRoll(
       fakeD20Roll,
-      game.users.get(message.user.id),
+      game.users.get(message.author.id),
       true,
       message.whisper,
       message.blind,

@@ -22,7 +22,7 @@ async function rollTokenHitDie(token, userID) {
 	if (!game.settings.get('a5e', 'hideRandomizedHPRolls')) {
 		await hpRoll.toMessage(
 			{ flavor: `Rolling hit points for ${token.name}.` },
-			{ rollMode: 'gmroll' },
+			{ rollMode: 'gm' },
 		);
 	} else await hpRoll.evaluate();
 

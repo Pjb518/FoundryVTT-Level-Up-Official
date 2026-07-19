@@ -34,7 +34,7 @@
         };
 
         // @ts-expect-error
-        ChatMessage.applyRollMode(chatData, message.rollMode);
+        ChatMessage.applyMode(chatData, message.rollMode);
         // @ts-expect-error
         await ChatMessage.create(chatData);
     }

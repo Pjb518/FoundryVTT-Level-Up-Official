@@ -208,7 +208,7 @@ class BaseItemA5e extends Item {
     };
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
+    ChatMessage.applyMode(chatData, game.settings.get("core", "messageMode"));
     const chatCard = ChatMessage.create(chatData);
 
     // Execute Macro

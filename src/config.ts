@@ -89,10 +89,11 @@ const DAMAGED_STATES = {
  * Supported dice roll modes
  */
 const DICE_ROLL_MODES = {
-  blindroll: "A5E.diceRollModes.blind",
-  gmroll: "A5E.diceRollModes.gm",
-  publicroll: "A5E.diceRollModes.public",
-  selfroll: "A5E.diceRollModes.self",
+  blind: "A5E.diceRollModes.blind",
+  gm: "A5E.diceRollModes.gm",
+  public: "A5E.diceRollModes.public",
+  self: "A5E.diceRollModes.self",
+  ic: "In Character"
 };
 
 /**

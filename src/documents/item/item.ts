@@ -231,7 +231,7 @@ class ItemA5e extends BaseItemA5e {
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode:
-        activationData.visibilityMode ?? game.settings.get("core", "rollMode"),
+        activationData.visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actionName: action.name,
         actionId,
@@ -292,9 +292,9 @@ class ItemA5e extends BaseItemA5e {
       type: "item",
     };
 
-    ChatMessage.applyRollMode(
+    ChatMessage.applyMode(
       chatData,
-      activationData.visibilityMode ?? game.settings.get("core", "rollMode"),
+      activationData.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
     const chatCard = await ChatMessage.create(chatData);
 

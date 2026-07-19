@@ -80,7 +80,7 @@ export async function toggleExpertiseDice(
       // @ts-expect-error
       game.dice3d.showForRoll(
         Roll.fromTerms([newExpertiseDieRoll]),
-        game.users.get(message.user.id),
+        game.users.get(message.author.id),
         true,
         message.whisper,
         message.blind,

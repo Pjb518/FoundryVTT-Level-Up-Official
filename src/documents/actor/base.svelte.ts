@@ -1414,7 +1414,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1435,8 +1435,8 @@ class BaseActorA5e extends Actor {
     Hooks.callAll("a5e.rollAbilityCheck", this, hookData, rolls);
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1444,7 +1444,7 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(chatData, finalRollMode);
+    ChatMessage.applyMode(chatData, finalRollMode);
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
     return chatCard;
@@ -1520,7 +1520,7 @@ class BaseActorA5e extends Actor {
   async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
     options.saveType = "death";
     options.expertiseDice ??= 0;
-    options.visibilityMode ??= "gmroll";
+    options.visibilityMode ??= "gm";
 
     if (game.settings.get("a5e", "blindDeathSaves")) {
       options.visibilityMode = "blindroll";
@@ -1570,7 +1570,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1596,8 +1596,8 @@ class BaseActorA5e extends Actor {
     }
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1605,9 +1605,9 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(
+    ChatMessage.applyMode(
       chatData,
-      visibilityMode ?? game.settings.get("core", "rollMode"),
+      visibilityMode ?? game.settings.get("core", "messageMode"),
     );
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
@@ -1736,7 +1736,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1758,8 +1758,8 @@ class BaseActorA5e extends Actor {
     Hooks.callAll("a5e.rollSkillCheck", this, hookData, rolls);
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1767,9 +1767,9 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(
+    ChatMessage.applyMode(
       chatData,
-      visibilityMode ?? game.settings.get("core", "rollMode"),
+      visibilityMode ?? game.settings.get("core", "messageMode"),
     );
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);

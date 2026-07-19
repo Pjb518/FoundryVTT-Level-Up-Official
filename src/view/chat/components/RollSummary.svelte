@@ -80,7 +80,7 @@
             type: "rollTableOutput",
         };
 
-        ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
+        ChatMessage.applyMode(chatData, game.settings.get("core", "messageMode"));
 
         return ChatMessage.create(chatData);
     }

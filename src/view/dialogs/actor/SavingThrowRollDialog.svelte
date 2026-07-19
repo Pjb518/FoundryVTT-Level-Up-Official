@@ -86,7 +86,7 @@
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     let visibilityMode = $state(
-        options.visibilityMode ?? game.settings.get("core", "rollMode"),
+        options.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
 
     let saveType = $state(options.saveType ?? "standard");
