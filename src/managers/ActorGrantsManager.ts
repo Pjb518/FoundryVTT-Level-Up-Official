@@ -369,7 +369,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
         g.grantedBy = {
           id: grant._id,
-          selectionId: hasSelectionId ? doc.flags.core.sourceId : "",
+          selectionId: hasSelectionId ? doc._stats.compendiumSource : "",
         };
 
         return g;

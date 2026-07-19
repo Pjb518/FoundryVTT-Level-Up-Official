@@ -92,7 +92,7 @@ class BaseItemA5e extends Item {
   // *****************************************************************************************
   get sourceId(): string | null {
     // @ts-expect-error
-    return this._stats.compendiumSource || this.flags.core?.sourceId || null;
+    return this._stats.compendiumSource ||  null;
   }
 
   /** ------------------------------------------------------ */

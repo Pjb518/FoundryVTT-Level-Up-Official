@@ -36,7 +36,7 @@ export default async function fromUuidMulti(uuids: string[], options: Record<str
 
 		// eslint-disable-next-line new-cap
 		const item = new Item.implementation(doc.toObject(), { parent, keepId: true });
-		item.updateSource({ 'flags.core.sourceId': doc.uuid });
+		item.updateSource({ '_stats.compendiumSource': doc.uuid });
 		acc.push(item);
 		return acc;
 	}, []);
