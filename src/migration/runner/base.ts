@@ -19,7 +19,7 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_MIGRATION_VERSION = 0.02;
+	static LATEST_MIGRATION_VERSION = 0.021;
 
 	static RECOMMENDED_SAFE_VERSION = 0.019;
 
@@ -76,6 +76,15 @@ class MigrationRunnerBase {
 						console.info(`Actor ${actorData.name} failed items update.`);
 						console.error(e);
 					}
+
+          for (const effect of item.effects) {
+            try {
+              await migration?.updateEffect?.(effect, item);
+            } catch (e) {
+              console.info(`Actor ${actorData.name} failed effects update on ${item.name}`);
+              console.error(e);
+            }
+					}
 				}
 
 				for (const effect of actorData.effects) {
@@ -102,6 +111,12 @@ class MigrationRunnerBase {
 				itemData.system._migration ??= { version: null, previous: null };
 				// @ts-expect-error
 				this.#updateMigrationRecord(itemData.system._migration, latestMigration);
+
+				for (const effectData of itemData.effects) {
+					effectData.system._migration ??= { version: null, previous: null };
+					// @ts-expect-error
+					this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+				}
 			}
 
 			for (const effectData of actorData.effects) {

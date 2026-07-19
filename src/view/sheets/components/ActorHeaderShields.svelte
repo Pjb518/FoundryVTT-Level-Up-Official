@@ -93,7 +93,6 @@
                 : prepareXP(actor),
     });
 
-    $inspect(actorStore.attributes.inspiration);
 </script>
 
 <div class="a5e-actor-header-shields__container">
