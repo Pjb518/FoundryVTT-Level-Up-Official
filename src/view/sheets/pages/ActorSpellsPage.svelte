@@ -216,6 +216,7 @@
 
                 {#if !sheetIsLocked()}
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent a5e-control-button"
                         data-tooltip="Configure Spell Book"
                         aria-label="Configure Spell Book"
@@ -229,6 +230,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent a5e-control-button"
                         data-tooltip="Delete Spell Book"
                         aria-label="Delete Spell Book"

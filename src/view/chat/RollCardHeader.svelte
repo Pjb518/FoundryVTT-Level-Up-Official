@@ -35,6 +35,7 @@
     {#if isGM || isOwner}
         <span class="a5e-chat-card__header__buttons">
             <button
+                type="button"
                 class="a5e-chat-card__header__button--repeat"
                 data-tooltip="Repeat Roll"
                 data-tooltip-direction="LEFT"

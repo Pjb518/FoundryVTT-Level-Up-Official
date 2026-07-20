@@ -81,6 +81,7 @@
 
             <div class="a5e-cb-filter-mode-button-wrapper">
                 <button
+                    type="button"
                     class="a5e-cb-filter-mode-button a5e-cb-filter-mode-button--inclusive"
                     data-tooltip="Toggle Inclusive Filter Mode"
                     data-tooltip-direction="UP"
@@ -94,6 +95,7 @@
                 </button>
 
                 <button
+                    type="button"
                     class="a5e-cb-filter-mode-button a5e-cb-filter-mode-button--exclusive"
                     data-tooltip="Toggle Exclusive Filter Mode"
                     data-tooltip-direction="UP"

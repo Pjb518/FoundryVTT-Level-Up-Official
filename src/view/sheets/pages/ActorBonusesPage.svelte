@@ -126,6 +126,7 @@
                             <ul class="bonus-buttons">
                                 <li>
                                     <button
+                                        type="button"
                                         class="action-button icon fas fa-cog"
                                         data-tooltip="A5E.buttons.tooltips.configure"
                                         data-tooltip-direction="UP"
@@ -140,6 +141,7 @@
                                 <!-- {#if !grants.includes(`${bonusType}.${id}`)} -->
                                 <li>
                                     <button
+                                        type="button"
                                         class="action-button icon fa-solid fa-clone"
                                         data-tooltip="A5E.buttons.tooltips.duplicate"
                                         data-tooltip-direction="UP"
@@ -153,6 +155,7 @@
 
                                 <li>
                                     <button
+                                        type="button"
                                         class="action-button delete-button icon fas fa-trash"
                                         data-tooltip="A5E.buttons.tooltips.delete"
                                         data-tooltip-direction="UP"

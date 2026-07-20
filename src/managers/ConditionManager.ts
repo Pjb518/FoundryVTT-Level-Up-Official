@@ -109,6 +109,10 @@ class ConditionManager {
   /* ---------------------------------------------------------
 	   Getters
 	--------------------------------------------------------- */
+  get conditions() {
+    return this.#conditions;
+	}
+
   get(conditionId: string): Condition | undefined {
     return this.#conditions.get(conditionId);
   }

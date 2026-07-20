@@ -76,6 +76,7 @@
         )}
 
         <button
+            type="button"
             class="condition-container {effect.cssClass}"
             class:linked
             class:locked={conditionImmunities.includes(effect.id)}
@@ -133,6 +134,7 @@
 <div class="generic-effects-container">
     {#each genericEffects as effect}
         <button
+            type="button"
             class="condition-container {effect.cssClass}"
             title={effect.title ?? ""}
             data-status-id={effect.id}
@@ -161,6 +163,7 @@
 </div>
 
 <button
+    type="button"
     class="clear-all-conditions"
     onclick={HUD?._clearAllConditions.bind(HUD)}
 >

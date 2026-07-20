@@ -91,6 +91,7 @@
                     {/if}
 
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent delete-button"
                         data-tooltip="A5E.buttons.tooltips.delete"
                         data-tooltip-direction="UP"

@@ -32,6 +32,7 @@
                     {#each headerButtons as { classes = "", display, handler, htmlString, label, tooltip }}
                         {#if display ?? true}
                             <button
+                                type="button"
                                 class={`a5e-section-header__button ${classes}`}
                                 onclick={(e) => {
                                     e.preventDefault();

@@ -105,6 +105,7 @@
             </label>
 
             <button
+                type="button"
                 class="a5e-actor-details-box__button"
                 class:a5e-actor-details-box__button--active={actorStore
                     .attributes.inspiration}
@@ -124,6 +125,7 @@
             </label>
 
             <button
+                type="button"
                 class="a5e-actor-details-box__button"
                 class:a5e-actor-details-box__button--selected={actorStore
                     .details.elite}

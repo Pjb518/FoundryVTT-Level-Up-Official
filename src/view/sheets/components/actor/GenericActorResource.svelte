@@ -114,6 +114,7 @@
 
             {#if !sheetIsLocked && !isClassResource}
                 <button
+                    type="button"
                     class="a5e-button a5e-button--config"
                     onclick={configureResource}
                     aria-labelledby="Configure Resource"
@@ -124,6 +125,7 @@
 
             {#if showRechargeButton}
                 <button
+                    type="button"
                     class="a5e-button a5e-resource__btn icon fas fa-dice"
                     data-tooltip="Recharge Resource"
                     data-tooltip-direction="UP"

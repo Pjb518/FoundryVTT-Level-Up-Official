@@ -86,6 +86,7 @@
     {#if item.type === "object"}
         <div class="a5e-item-sheet-header__button-container">
             <button
+                type="button"
                 class="a5e-button a5e-item-sheet-header__button"
                 class:a5e-item-sheet-header__button-active={itemStore.unidentified}
                 class:a5e-item-sheet-header__button-locked={!isGM}
@@ -105,6 +106,7 @@
 
             {#if item.actor && itemStore.requiresAttunement}
                 <button
+                    type="button"
                     class="a5e-button a5e-item-sheet-header__button"
                     class:a5e-item-sheet-header__button-active={itemStore.attuned}
                     data-tooltip={itemStore.attuned
@@ -124,6 +126,7 @@
             {/if}
 
             <button
+                type="button"
                 class="a5e-button a5e-item-sheet-header__button"
                 data-tooltip={damagedStates[itemStore.damagedState ?? 0]}
                 data-tooltip-direction="UP"

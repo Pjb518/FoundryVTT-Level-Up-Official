@@ -132,6 +132,7 @@
             />
 
             <button
+                type="button"
                 class="a5e-button a5e-cb__header-button"
                 class:a5e-cb__header-button--active={filterOptions.searchDescription}
                 data-tooltip={filterOptions.searchDescription
@@ -149,6 +150,7 @@
             </button>
 
             <button
+                type="button"
                 class="a5e-button a5e-cb__header-button"
                 aria-label={viewTab === "items" ? "Open Filter Tab" : "Close Filter Tab"}
                 data-tooltip={viewTab === "items"

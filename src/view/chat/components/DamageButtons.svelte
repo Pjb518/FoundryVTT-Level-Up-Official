@@ -99,6 +99,7 @@
     </div>
 {:else if rollData.healingType === "temporaryHealing"}
     <button
+        type="button"
         class="a5e-button healing-button"
         data-tooltip="Apply Temporary Healing"
         data-tooltip-direction="LEFT"
@@ -113,6 +114,7 @@
     </button>
 {:else if rollData.healingType === "healing"}
     <button
+        type="button"
         class="a5e-button healing-button"
         data-tooltip={"Apply Healing"}
         data-tooltip-direction="LEFT"

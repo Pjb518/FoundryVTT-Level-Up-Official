@@ -14,6 +14,7 @@
 
 <div class="a5e-actor-death-saves">
     <button
+        type="button"
         class="a5e-actor-death-saves__button"
         aria-label="Increase Death Success"
         onclick={() =>
@@ -49,6 +50,7 @@
         class="a5e-actor-death-saves__icon u-align-center u-flex u-flex-col u-pos-relative"
     >
         <button
+            type="button"
             class="a5e-actor-death-saves__button"
             data-tooltip="A5E.deathSavingThrow.roll"
             data-tooltip-direction="UP"
@@ -82,6 +84,7 @@
     {/if}
 
     <button
+        type="button"
         class="a5e-actor-death-saves__button"
         aria-label="Increase Death Failures"
         onclick={() =>

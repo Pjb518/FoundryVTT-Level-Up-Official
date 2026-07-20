@@ -55,6 +55,7 @@
                 <li class="a5e-item a5e-item--effect-config">
                     <div class="a5e-button-wrapper">
                         <button
+                            type="button"
                             class="a5e-button a5e-button--transparent"
                             style="font-size: var(--a5e-md-sm);"
                             aria-label="Delete Change"
@@ -95,6 +96,7 @@
 
     <div class="a5e-sticky-add-button">
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             aria-label="Add Change"
             onclick={addChange}

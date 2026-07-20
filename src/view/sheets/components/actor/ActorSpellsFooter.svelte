@@ -212,6 +212,7 @@
 
             {#if spellResources.points.current < maxSpellPoints && maxSpellPoints && startingClass === "psion"}
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent"
                     data-tooltip="A5E.psionicDisciplines.rechargeFromHitDice"
                     data-tooltip-direction="UP"
@@ -266,6 +267,7 @@
 
         {#if exertion.current < exertion.max && exertion.max}
             <button
+                type="button"
                 class="a5e-button a5e-button--transparent"
                 data-tooltip="A5E.exertion.rechargeFromHitDice"
                 data-tooltip-direction="UP"

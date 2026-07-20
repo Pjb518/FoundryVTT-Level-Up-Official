@@ -405,6 +405,7 @@
 
         <button
             onclick={placeTemplate}
+            type="button"
             class="region-template-button"
         >
             {@html getRegionTemplateLabel()}

@@ -167,6 +167,7 @@
         <DamageButtons {roll} {rollData} />
     {:else if (user?.isGM || actor?.testUserPermission(user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
         <button
+            type="button"
             class="roll-mode-button"
             data-tooltip={"Modify Roll"}
             data-tooltip-direction="LEFT"
@@ -185,6 +186,7 @@
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
+            type="button"
             class="skill-table-button skill-table-button--critical"
             onclick={() => rollOnSkillTable(rollData.skillKey, "critical")}
         >
@@ -195,6 +197,7 @@
 
     {#if isCriticalFailure}
         <button
+            type="button"
             class="skill-table-button skill-table-button--fumble"
             onclick={() => rollOnSkillTable(rollData.skillKey, "fumble")}
         >

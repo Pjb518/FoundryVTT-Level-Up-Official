@@ -54,6 +54,7 @@
 
         {#if exertion.current < exertion.max && exertion.max}
             <button
+                type="button"
                 class="a5e-button a5e-button--transparent"
                 data-tooltip="A5E.exertion.rechargeFromHitDice"
                 data-tooltip-direction="UP"

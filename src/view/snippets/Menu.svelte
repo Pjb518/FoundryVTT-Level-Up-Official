@@ -53,6 +53,7 @@
 </script>
 
 <button
+    type="button"
     bind:this={button}
     class="a5e-button a5e-button--transparent a5e-context-menu__button"
     onclick={onActivate}
@@ -76,6 +77,7 @@
                     {:else}
                         <li class="a5e-context-menu__list-item">
                             <button
+                                type="button"
                                 class="a5e-context-menu__list-button"
                                 onpointerdown={(e) => {
                                     item.onClick();

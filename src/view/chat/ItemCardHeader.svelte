@@ -74,6 +74,7 @@
         <span class="a5e-chat-card__header__buttons">
             {#if showCritDamageToggle}
                 <button
+                    type="button"
                     class="a5e-button a5e-chat-card__header__button--crit-toggle"
                     class:a5e-chat-card__header__button--crit-toggle--crit={critDamageEnabled}
                     data-tooltip="Toggle Critical Damage"
@@ -89,6 +90,7 @@
             {/if}
 
             <button
+                type="button"
                 class="a5e-button a5e-chat-card__header__button--repeat"
                 data-tooltip="Repeat Roll"
                 data-tooltip-direction="LEFT"

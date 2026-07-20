@@ -92,6 +92,7 @@
                         <dd class="a5e-skill-specialties__list">
                             {#each specialties as specialty}
                                 <button
+                                    type="button"
                                     class="a5e-skill-specialties__list-item"
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"

@@ -162,6 +162,7 @@
 
                 {#if !sheetIsLocked()}
                     <button
+                        type="button"
                         class="a5e-button a5e-button--config"
                         aria-labelledby="Configure"
                         data-tooltip={tooltip}

@@ -78,6 +78,7 @@
         />
 
         <button
+            type="button"
             class="a5e-button a5e-button--scaling"
             data-tooltip="A5E.scaling.headings.configureRoll"
             data-tooltip-direction="UP"

@@ -83,6 +83,7 @@
             {/if}
 
             <button
+                type="button"
                 class="a5e-button a5e-tag-delete-button"
                 aria-label="Delete Item"
                 onclick={(e) => {

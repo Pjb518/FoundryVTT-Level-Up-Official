@@ -45,6 +45,7 @@
         {#each options as { value, hint }}
             <li data-tooltip={hint || null} data-tooltip-direction="DOWN">
                 <button
+                    type="button"
                     class="a5e-button a5e-actor-track__item"
                     class:a5e-actor-track__item-selected={value ===
                         selectedOption}
