@@ -21,7 +21,7 @@ export class Migration021MigrateEffects extends MigrationBase {
 
     // Update change mode to type
     changes.forEach((change) => {
-      const mode = change.mode || 2;
+      const mode = change.mode ?? 2;
       change.type = MODES_TO_TYPES[mode];
       delete change.mode;
 
