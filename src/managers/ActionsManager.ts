@@ -424,7 +424,7 @@ class ActionsManager extends Map<string, Action> {
     const existingEffects = action.effects;
     const newList = new Set([...existingEffects, effectId]);
     return item.update({
-      [`system.actions.${actionId}.effects`]: newList,
+      [`system.actions.${actionId}.effects`]: [...newList],
     });
   }
 

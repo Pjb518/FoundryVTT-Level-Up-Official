@@ -627,7 +627,6 @@ class ItemA5e extends BaseItemA5e {
   }
 
   override async _preUpdate(data, options, user) {
-    console.log("here");
     super._preUpdate(data, options, user);
   }
 
