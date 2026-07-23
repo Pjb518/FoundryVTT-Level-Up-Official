@@ -11,6 +11,7 @@ export async function createEffect(
   document: Actor | Item,
   { effectType, actionId }: Options = {},
 ) {
+  console.log("Here");
   const action = document?.actions?.get(actionId) ?? {};
 
   const updateData = {

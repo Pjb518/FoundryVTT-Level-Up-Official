@@ -225,12 +225,13 @@ class ActionField<
   override _cleanType(
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions,
+    _state: any,
   ): InitializedType {
     // eslint-disable-next-line no-param-reassign
     if (!(typeof value === "object")) value = {} as InitializedType;
 
     // @ts-expect-error
-    return A5EActionData.cleanData(value, options);
+    return A5EActionData.cleanData(value, options, _state);
   }
 
   override initialize(

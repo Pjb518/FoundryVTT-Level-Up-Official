@@ -41,13 +41,14 @@ class ActionAreaField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
+		_state,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
 		// @ts-expect-error
-		if (Cls) return Cls.cleanData(value, options);
+		if (Cls) return Cls.cleanData(value, options, _state);
 		return value;
 	}
 
@@ -103,13 +104,14 @@ class ActionConsumerField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
+		_state: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
 		// @ts-expect-error
-		if (Cls) return Cls.cleanData(value, options);
+		if (Cls) return Cls.cleanData(value, options, _state);
 		return value;
 	}
 
@@ -160,13 +162,14 @@ class ActionPromptField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
+		_state: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
 		// @ts-expect-error
-		if (Cls) return Cls.cleanData(value, options);
+		if (Cls) return Cls.cleanData(value, options, _state);
 		return value;
 	}
 
@@ -218,13 +221,14 @@ class ActionRollField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
+		_state: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
 		// @ts-expect-error
-		if (Cls) return Cls.cleanData(value, options);
+		if (Cls) return Cls.cleanData(value, options, _state);
 		return value;
 	}
 
