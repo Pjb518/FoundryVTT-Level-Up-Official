@@ -64,11 +64,11 @@
     const conditions = [...conditionManager.conditions];
 </script>
 
-<SecondaryNavigationBar
+<!-- <SecondaryNavigationBar
     currentTab={currentTab.name}
     {tabs}
     onTabChange={updateCurrentTab}
-/>
+/> -->
 
 {#if actor.isOwner && currentTab.name === "effects"}
     <UtilityBar
@@ -90,7 +90,7 @@
     </section>
 {/if}
 
-{#if currentTab.name === "conditions"}
+<!-- {#if currentTab.name === "conditions"}
     <section class="a5e-actor-conditions-section">
         {#each conditions as [conditionId, condition]}
             <div
@@ -109,7 +109,7 @@
             </div>
         {/each}
     </section>
-{/if}
+{/if} -->
 
 <style lang="scss">
     .a5e-actor-conditions-section {
