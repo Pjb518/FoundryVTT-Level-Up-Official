@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Mirror Shield",
 			"_id": "4OZVMsZIy0Fa9ZhV",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"mode": 2,
-					"value": "radiant",
-					"priority": 100
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -41,7 +33,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "radiant",
+						"priority": 100,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

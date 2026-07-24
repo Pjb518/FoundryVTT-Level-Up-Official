@@ -45,14 +45,6 @@
 			"transfer": false,
 			"name": "Blind",
 			"_id": "otza1OWaNq45VVTG",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -75,7 +67,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"blinded\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

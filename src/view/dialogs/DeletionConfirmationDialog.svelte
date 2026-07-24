@@ -42,6 +42,7 @@
 
     <div class="button-container">
         <button
+            type="button"
             class="a5e-button"
             onclick={(e) => {
                 e.preventDefault();
@@ -57,6 +58,7 @@
         </button>
 
         <button
+            type="button"
             class="a5e-button"
             onclick={(e) => {
                 e.preventDefault();

@@ -166,14 +166,6 @@
 			"transfer": false,
 			"name": "Deployed",
 			"_id": "n1gCzMx9cW2Rk0b8",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -194,7 +186,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "5",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

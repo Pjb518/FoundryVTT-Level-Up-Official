@@ -723,16 +723,16 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1724,7 +1724,6 @@
 					"transfer": false,
 					"name": "Dispel Evil and Good",
 					"_id": "I6pMooPwSuSE9EP2",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1759,7 +1758,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2401,20 +2401,6 @@
 					"transfer": false,
 					"name": "Bless",
 					"_id": "BVzQZTrd5DWfDSRB",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.bonuses.abilities",
-							"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
-							"mode": 0,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.attacks",
-							"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2450,7 +2436,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.bonuses.abilities",
+								"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
+								"priority": null,
+								"type": "custom"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.attacks",
+								"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"sort": 0,
 					"folder": null
@@ -2735,7 +2735,6 @@
 					"transfer": false,
 					"name": "Bane of Aberrations",
 					"_id": "Tk4dvU1tLjSTVpS1",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2770,7 +2769,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -3527,7 +3527,6 @@
 					"transfer": false,
 					"name": "Detect Magic",
 					"_id": "VwDA4rGAh4SCb5a4",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3562,7 +3561,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -4880,14 +4880,6 @@
 					"transfer": false,
 					"name": "Protection from Acid",
 					"_id": "BcV1LNApxh2qlUlp",
-					"changes": [
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"acid\"]",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -4922,7 +4914,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"acid\"]",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -4943,14 +4943,6 @@
 					"transfer": false,
 					"name": "Protection from Cold",
 					"_id": "cr9bDtmh7LdcdMpN",
-					"changes": [
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"cold\"]",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -4985,7 +4977,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"cold\"]",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -5006,14 +5006,6 @@
 					"transfer": false,
 					"name": "Protection from Fire",
 					"_id": "08ylBKx5mLNEQFKb",
-					"changes": [
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"fire\"]",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -5048,7 +5040,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"fire\"]",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -5069,14 +5069,6 @@
 					"transfer": false,
 					"name": "Protection from Lightning",
 					"_id": "uZKqiFahBbkZjYPW",
-					"changes": [
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"lightning\"]",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -5111,7 +5103,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"lightning\"]",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -5132,14 +5132,6 @@
 					"transfer": false,
 					"name": "Protection from Thunder",
 					"_id": "NKbhuvssFTFPB8d2",
-					"changes": [
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"thunder\"]",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -5174,7 +5166,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"thunder\"]",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -5360,16 +5360,16 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.prof",
+						"value": "1",
+						"priority": 0,
+						"type": "subtract"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.prof",
-					"value": "1",
-					"mode": 3,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,

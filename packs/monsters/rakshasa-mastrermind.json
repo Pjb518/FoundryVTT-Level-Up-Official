@@ -142,7 +142,6 @@
 					"transfer": false,
 					"name": "Detect Magic",
 					"_id": "VwDA4rGAh4SCb5a4",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -175,7 +174,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
 					"type": "base",
@@ -593,14 +593,6 @@
 					"transfer": false,
 					"name": "Charm Person",
 					"_id": "m8ZI2ALQ9jH4sptL",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -634,7 +626,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/control-influence-puppet.webp",
 					"type": "base",
@@ -797,14 +797,6 @@
 					"transfer": false,
 					"name": "Dominated",
 					"_id": "1xK38WqshsDZYjPq",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -839,7 +831,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/control-influence-puppet.webp",
 					"type": "base",
@@ -1000,14 +1000,6 @@
 					"transfer": false,
 					"name": "Flying",
 					"_id": "f7HJasNajZGyTMya",
-					"changes": [
-						{
-							"key": "system.attributes.movement.fly.distance",
-							"value": "60",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1040,7 +1032,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.movement.fly.distance",
+								"value": "60",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
 					"type": "base",
@@ -1191,14 +1191,6 @@
 					"transfer": false,
 					"name": "Invisible",
 					"_id": "o1qvWrwid36w8yeW",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1234,7 +1226,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 					"type": "base",
@@ -1658,14 +1658,6 @@
 					"transfer": false,
 					"name": "True Seeing",
 					"_id": "CToxxyRFbSpHQoVY",
-					"changes": [
-						{
-							"key": "system.attributes.senses.truesight.distance",
-							"value": "120",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1698,7 +1690,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.senses.truesight.distance",
+								"value": "120",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
 					"type": "base",
@@ -1850,14 +1850,6 @@
 					"transfer": false,
 					"name": "Greater Invisibility",
 					"_id": "jyK6dZmZykERNKlw",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1892,7 +1884,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 					"type": "base",
@@ -2867,14 +2867,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "fNsg1fB0AQvNW0yM",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2908,7 +2900,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"img": "icons/weapons/swords/swords-sharp-worn.webp",
 					"type": "base",

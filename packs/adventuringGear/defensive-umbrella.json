@@ -286,14 +286,6 @@
 			"transfer": false,
 			"name": "Shield, Light +1",
 			"_id": "oP9c68nHxpuEmeCm",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -314,7 +306,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

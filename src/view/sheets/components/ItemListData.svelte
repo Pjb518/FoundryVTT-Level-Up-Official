@@ -361,6 +361,7 @@
 
         {#if activationCost && (item.reactive.actions?.count === 1 || action)}
             <button
+                type="button"
                 class="action-button action-button--activation-cost"
                 data-tooltip={activationCostLabel}
                 data-tooltip-direction="UP"
@@ -392,6 +393,7 @@
 
         {#if !action && item.reactive.actions?.count > 1}
             <button
+                type="button"
                 class="action-button icon fas fa-chevron-down"
                 aria-label="Expand Action List"
                 onclick={(e) => {
@@ -420,6 +422,7 @@
             {/if}
 
             <button
+                type="button"
                 class="action-button icon fas fa-chevron-down"
                 aria-label="Expand Container"
                 onclick={(e) => {
@@ -529,6 +532,7 @@
             {#if item.type === "object"}
                 {#if itemStore.requiresAttunement}
                     <button
+                        type="button"
                         class="action-button icon fa-solid fa-link"
                         class:active={itemStore?.attuned}
                         data-tooltip={itemStore?.attuned
@@ -549,6 +553,7 @@
 
                 {#if !itemStore?.containerId}
                     <button
+                        type="button"
                         class="action-button icon fas"
                         class:fa-shield-alt={itemStore.equippedState ===
                             EQUIPPED_STATES.EQUIPPED}
@@ -575,6 +580,7 @@
 
                 {#if !hideBrokenAndDamaged}
                     <button
+                        type="button"
                         class="action-button icon fas"
                         class:fa-heart={itemStore.damagedState ===
                             DAMAGED_STATES.INTACT}
@@ -602,6 +608,7 @@
 
             {#if item.type === "spell"}
                 <button
+                    type="button"
                     class="action-button icon fas"
                     class:fa-book={[
                         PREPARED_STATES.UNPREPARED,
@@ -627,6 +634,7 @@
 
             {#if hasRecharge(item)}
                 <button
+                    type="button"
                     class="action-button icon fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState
@@ -643,6 +651,7 @@
 
             {#if flags.a5e?.showFavoritesSection ?? true}
                 <button
+                    type="button"
                     class="action-button icon fas fa-star"
                     class:active={itemStore?.favorite ?? false}
                     data-tooltip="A5E.buttons.tooltips.favorite"
@@ -662,6 +671,7 @@
         <div class="button-wrapper">
             {#if hasRecharge(item.reactive)}
                 <button
+                    type="button"
                     class="action-button icon fas fa-dice"
                     class:active={rechargeState}
                     data-tooltip={rechargeState

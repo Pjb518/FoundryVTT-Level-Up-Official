@@ -112,20 +112,6 @@
 			"transfer": false,
 			"name": "Ice Armour",
 			"_id": "IVj4mYGtXn1rAS9X",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"cold\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -146,7 +132,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"cold\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

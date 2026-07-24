@@ -1718,14 +1718,6 @@
 					"transfer": false,
 					"name": "Mage Armor",
 					"_id": "xILhsp6xwaUWS7YT",
-					"changes": [
-						{
-							"key": "system.attributes.ac.value",
-							"value": "13 + @dex.mod",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1744,6 +1736,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.value",
+								"value": "13 + @dex.mod",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -1876,14 +1878,6 @@
 					"transfer": false,
 					"name": "Shield",
 					"_id": "3JSn5GwbNdSgD0oS",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "5",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1901,6 +1895,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "5",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -2654,14 +2658,6 @@
 					"transfer": false,
 					"name": "Greater Invisibility",
 					"_id": "jyK6dZmZykERNKlw",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2681,6 +2677,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -3127,14 +3133,6 @@
 					"transfer": false,
 					"name": "Poisoned",
 					"_id": "FgefDvZyFWTK09wX",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"poisoned\",\"paralyzed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3155,6 +3153,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"poisoned\",\"paralyzed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -3499,14 +3507,6 @@
 					"transfer": false,
 					"name": "Poisoned",
 					"_id": "hUQMJTQLkxCakeW1",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"poisoned\",\"paralyzed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3527,6 +3527,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"poisoned\",\"paralyzed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -3637,14 +3647,6 @@
 					"transfer": false,
 					"name": "Frightened",
 					"_id": "R95px6FWfjHWulhY",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"frightened\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3664,6 +3666,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"frightened\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -3759,26 +3771,6 @@
 			},
 			"name": "Elite",
 			"_id": "AJdfgigAkH294opi",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.bonuses.spellDC",
-					"value": "2",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"value": "{\"label\":\"Elite\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -3800,7 +3792,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "1",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.bonuses.spellDC",
+						"value": "2",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"label\":\"Elite\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": 0,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

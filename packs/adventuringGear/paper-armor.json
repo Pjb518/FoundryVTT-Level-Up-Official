@@ -136,14 +136,6 @@
 			"transfer": false,
 			"name": "Armor Class",
 			"_id": "dPknLn9s94xSFe3Z",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "14+@dex.mod",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -165,7 +157,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "14+@dex.mod",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

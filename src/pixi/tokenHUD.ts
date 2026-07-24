@@ -1,6 +1,7 @@
 import { unmount } from "svelte";
 
 import { localize } from "#utils/localization/localize.ts";
+import { getStaticId } from "#utils/getStaticId.ts";
 
 /**
  * Extends the Token HUD class to add system specific options
@@ -39,7 +40,6 @@ export default class TokenHUDA5e extends foundry.applications.hud.TokenHUD {
 
   /**
    * Removes all conditions on the current object
-   * @param {*} event
    */
   async _clearAllConditions(event) {
     event.preventDefault();
@@ -51,6 +51,8 @@ export default class TokenHUDA5e extends foundry.applications.hud.TokenHUD {
     for (const condition of conditions) {
       const existing = this.object.actor.effects.reduce((arr, e) => {
         if (e.statuses.size === 1 && e.statuses.has(condition.id))
+          arr.push(e.id);
+        if (e.statuses.size && getStaticId(condition.id) === e._id)
           arr.push(e.id);
         return arr;
       }, []);

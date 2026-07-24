@@ -67,6 +67,7 @@
                 />
 
                 <button
+                    type="button"
                     class="a5e-class-resource-delete-button"
                     aria-label="Delete Resource"
                     onclick={() => item.resources.remove(slug)}
@@ -95,6 +96,7 @@
                             />
 
                             <button
+                                type="button"
                                 class="slug-reset-button"
                                 aria-label="Reset Identifier"
                                 onclick={() => null}
@@ -170,6 +172,7 @@
 
     <div class="sticky-add-button">
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             aria-label="Add Resource"
             data-tooltip="Add Resource"

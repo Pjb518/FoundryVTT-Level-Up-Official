@@ -439,6 +439,7 @@
 
             {#if isGM}
                 <button
+                    type="button"
                     class="a5e-party-viewer__sheet-lock icon fas {partyIsLocked
                         ? 'a5e-party-viewer__sheet-lock--locked fa-lock'
                         : 'fa-unlock'}"

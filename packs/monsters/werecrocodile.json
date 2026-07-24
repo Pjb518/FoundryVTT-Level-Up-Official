@@ -2077,28 +2077,28 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "10",
+						"priority": 0,
+						"type": "subtract"
+					},
+					{
+						"key": "@token.height",
+						"value": "2",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.width",
+						"value": "2",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 3,
-					"priority": 0
-				},
-				{
-					"key": "@token.height",
-					"value": "2",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.width",
-					"value": "2",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2145,22 +2145,22 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
-			},
-			"changes": [
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "30",
-					"mode": 2,
-					"priority": 0
 				},
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "12 + @dex.mod",
-					"mode": 6,
-					"priority": 0
-				}
-			],
+				"changes": [
+					{
+						"key": "system.attributes.movement.swim.distance",
+						"value": "30",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "12 + @dex.mod",
+						"priority": 0,
+						"type": "override"
+					}
+				]
+			},
 			"disabled": false,
 			"duration": {
 				"startTime": 0,

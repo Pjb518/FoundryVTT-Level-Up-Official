@@ -12,20 +12,6 @@
 			"transfer": false,
 			"name": "Flame",
 			"_id": "fX7ykJezw2Vd0NZv",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "10",
-					"mode": 6,
-					"priority": 0
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -46,7 +32,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "10",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "20",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

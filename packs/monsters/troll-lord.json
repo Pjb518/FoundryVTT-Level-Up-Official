@@ -975,14 +975,6 @@
 					"transfer": false,
 					"name": "Four-Armed",
 					"_id": "yuB6ka9lyP0x4ayZ",
-					"changes": [
-						{
-							"key": "system.bonuses.maneuverDC",
-							"value": "2",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1000,6 +992,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.bonuses.maneuverDC",
+								"value": "2",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -1032,14 +1034,6 @@
 					"transfer": false,
 					"name": "Severed Limbs",
 					"_id": "XFnxFqjJiVc6Itrq",
-					"changes": [
-						{
-							"key": "system.attributes.hp.max",
-							"value": "10",
-							"mode": 3,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1057,6 +1051,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.hp.max",
+								"value": "10",
+								"priority": null,
+								"type": "subtract"
+							}
+						]
 					}
 				}
 			],
@@ -1334,14 +1338,6 @@
 			"transfer": false,
 			"name": "Four-Armed",
 			"_id": "EduL7iZ8wtbSZYt4",
-			"changes": [
-				{
-					"key": "system.bonuses.maneuverDC",
-					"value": "2",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1362,7 +1358,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.bonuses.maneuverDC",
+						"value": "2",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

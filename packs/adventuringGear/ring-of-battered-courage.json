@@ -139,20 +139,6 @@
 			"transfer": false,
 			"name": "Ring of Battered Courage",
 			"_id": "EHR8T5ZT2HN0Pvte",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.deathSaveThreshold",
-					"value": "13",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -173,7 +159,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.deathSaveThreshold",
+						"value": "13",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -185,20 +185,6 @@
 			"transfer": false,
 			"name": "Coward’s Bane",
 			"_id": "QJJ7ncCX9SEdqEjX",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.deathSaveThreshold",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -219,7 +205,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"poison\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.deathSaveThreshold",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -231,14 +231,6 @@
 			"transfer": false,
 			"name": "Charge Into Danger",
 			"_id": "r15DlHQHD1WMQTQR",
-			"changes": [
-				{
-					"key": "flags.a5e.deathSaveThreshold",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -259,7 +251,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.deathSaveThreshold",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

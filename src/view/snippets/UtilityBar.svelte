@@ -58,6 +58,7 @@
     <!-- Show Description Button -->
     {#if showDescriptionButton}
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             onclick={() => (showDescription = !showDescription)}
             data-tooltip={showDescription
@@ -73,6 +74,7 @@
     <!-- Sort -->
     {#if showSortButton}
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             data-tooltip="Sort Alphabetically Ascending"
             data-tooltip-direction="UP"
@@ -83,6 +85,7 @@
         </button>
 
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             data-tooltip="Sort Alphabetically Descending"
             data-tooltip-direction="UP"
@@ -140,6 +143,7 @@
             />
         {:else}
             <button
+                type="button"
                 class="a5e-button a5e-button--transparent"
                 data-tooltip="Add Document"
                 data-tooltip-direction="UP"

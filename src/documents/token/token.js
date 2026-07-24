@@ -8,7 +8,7 @@ let circularMask = null;
  * Extend the base Token class to implement additional system-specific logic.
  * @extends {Token}
  */
-export default class TokenA5e extends Token {
+export default class TokenA5e extends foundry.canvas.placeables.Token {
   /**
    * Get an array of icon paths which represent valid status effect choices
    * @private

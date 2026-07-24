@@ -234,20 +234,6 @@
 			"transfer": false,
 			"name": "Attuned",
 			"_id": "0hdgJKDDStY4LiXU",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"poisoned\",\"Aging\",\"Diseased\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageImmunities",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -281,7 +267,21 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"poisoned\",\"Aging\",\"Diseased\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"poison\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"img": "icons/equipment/neck/pendant-rough-silver-red.webp",
 			"type": "base",

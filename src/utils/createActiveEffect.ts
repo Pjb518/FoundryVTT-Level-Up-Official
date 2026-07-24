@@ -15,7 +15,7 @@ export async function createEffect(
 
   const updateData = {
     name: localize("A5E.effects.new"),
-    icon:
+    img:
       document.documentName === "Item"
         ? (action?.img ?? document.img)
         : "icons/svg/aura.svg",

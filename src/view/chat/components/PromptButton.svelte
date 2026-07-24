@@ -17,7 +17,7 @@
     }: Props = $props();
 </script>
 
-<button class="save-prompt" onclick={() => onTriggerPrompt()}>
+<button type="button" class="save-prompt" onclick={() => onTriggerPrompt()}>
     <div class="icon-wrapper" class:icon-wrapper--effect={prompt.type === "effect"}>
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />

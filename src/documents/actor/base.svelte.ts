@@ -1,3 +1,48 @@
+// *****************************************************************************************
+import { createSubscriber } from "svelte/reactivity";
+import { localize } from "#utils/localization/localize.ts";
+import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
+import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
+import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
+import ExertionBonusConfigDialog from "#view/components/bonuses/ExertionBonusConfigDialog.svelte";
+import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
+import HitPointsBonusConfigDialog from "#view/components/bonuses/HitPointsBonusConfigDialog.svelte";
+import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
+import MovementBonusConfigDialog from "#view/components/bonuses/MovementBonusConfigDialog.svelte";
+import SensesBonusConfigDialog from "#view/components/bonuses/SensesBonusConfigDialog.svelte";
+import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
+import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.svelte";
+
+import AbilityConfigDialog from "#view/dialogs/actor/AbilityConfigDialog.svelte";
+import ArmorClassConfigDialog from "#view/dialogs/actor/ArmorClassConfigDialog.svelte";
+import DetailsConfigDialog from "#view/dialogs/actor/DetailsConfigDialog.svelte";
+import HitPointsConfigDialog from "#view/dialogs/actor/HitPointsConfigDialog.svelte";
+import InitiativeConfigDialog from "#view/dialogs/actor/InitiativeConfigDialog.svelte";
+import MovementConfigDialog from "#view/dialogs/actor/MovementConfigDialog.svelte";
+import RestDialog from "#view/dialogs/actor/RestDialog.svelte";
+import SavingThrowRollDialog from "#view/dialogs/actor/SavingThrowRollDialog.svelte";
+import SensesConfigDialog from "#view/dialogs/actor/SensesConfigDialog.svelte";
+import SkillCheckRollDialog from "#view/dialogs/actor/SkillCheckRollDialog.svelte";
+import SkillConfigDialog from "#view/dialogs/actor/SkillConfigDialog.svelte";
+import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
+import ActorGrantsManager from "../../managers/ActorGrantsManager.ts";
+import BonusesManager from "../../managers/BonusesManager.ts";
+import type HitDiceManager from "../../managers/HitDiceManager.ts";
+import RestManager from "../../managers/RestManager.js";
+import RollOverrideManager from "../../managers/RollOverrideManager.ts";
+import { RollPreparationManager } from "../../managers/RollPreparationManager.ts";
+import SpellBookManager from "../../managers/SpellBookManager.ts";
+import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";
+import { MigrationRunnerBase } from "../../migration/runner/base.ts";
+import displayCascadingNumbers from "../../utils/displayCascadingNumbers.js";
+import getRollFormula from "../../utils/getRollFormula.js";
+// import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
+import { ActiveEffectA5E } from "../activeEffect/ae.svelte.ts";
+import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
+import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions.js";
+import { generateExpandedChanges } from "../activeEffect/utils/generateExpandedChanges.ts";
+import type { BaseItemA5e } from "../item/base.svelte.ts";
 import type {
   AbilityCheckRollOptions,
   ActorDialogs,
@@ -5,56 +50,6 @@ import type {
   SavingThrowRollOptions,
   SkillCheckRollOptions,
 } from "./data.ts";
-import type { BaseItemA5e } from "../item/base.svelte.ts";
-
-import type HitDiceManager from "../../managers/HitDiceManager.ts";
-
-// *****************************************************************************************
-import { createSubscriber } from "svelte/reactivity";
-import { localize } from "#utils/localization/localize.ts";
-
-import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
-
-import ActorGrantsManager from "../../managers/ActorGrantsManager.ts";
-import BonusesManager from "../../managers/BonusesManager.ts";
-import { MigrationRunnerBase } from "../../migration/runner/base.ts";
-import SpellBookManager from "../../managers/SpellBookManager.ts";
-import RestManager from "../../managers/RestManager.js";
-import RollOverrideManager from "../../managers/RollOverrideManager.ts";
-import { RollPreparationManager } from "../../managers/RollPreparationManager.ts";
-
-import AbilityConfigDialog from "#view/dialogs/actor/AbilityConfigDialog.svelte";
-import AbilityCheckRollDialog from "#view/dialogs/actor/AbilityCheckRollDialog.svelte";
-import HitPointsConfigDialog from "#view/dialogs/actor/HitPointsConfigDialog.svelte";
-import InitiativeConfigDialog from "#view/dialogs/actor/InitiativeConfigDialog.svelte";
-import ArmorClassConfigDialog from "#view/dialogs/actor/ArmorClassConfigDialog.svelte";
-import DetailsConfigDialog from "#view/dialogs/actor/DetailsConfigDialog.svelte";
-import MovementConfigDialog from "#view/dialogs/actor/MovementConfigDialog.svelte";
-import RestDialog from "#view/dialogs/actor/RestDialog.svelte";
-import SavingThrowRollDialog from "#view/dialogs/actor/SavingThrowRollDialog.svelte";
-import SensesConfigDialog from "#view/dialogs/actor/SensesConfigDialog.svelte";
-import SkillCheckRollDialog from "#view/dialogs/actor/SkillCheckRollDialog.svelte";
-import SkillConfigDialog from "#view/dialogs/actor/SkillConfigDialog.svelte";
-
-import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
-import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
-import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
-import ExertionBonusConfigDialog from "#view/components/bonuses/ExertionBonusConfigDialog.svelte";
-import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
-import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
-import HitPointsBonusConfigDialog from "#view/components/bonuses/HitPointsBonusConfigDialog.svelte";
-import MovementBonusConfigDialog from "#view/components/bonuses/MovementBonusConfigDialog.svelte";
-import SensesBonusConfigDialog from "#view/components/bonuses/SensesBonusConfigDialog.svelte";
-import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
-
-import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-
-import automateHpConditions from "../activeEffect/utils/automateHpConditions.js";
-import automateMultiLevelConditions from "../activeEffect/utils/automateMultiLevelConditions.js";
-import { getDeterministicBonus } from "../../dice/getDeterministicBonus.ts";
-import getRollFormula from "../../utils/getRollFormula.js";
-import displayCascadingNumbers from "../../utils/displayCascadingNumbers.js";
-import { handleDocumentImportMigration } from "../../migration/handlers/handleDocumentMigration.ts";
 
 // *****************************************************************************************
 
@@ -258,6 +253,20 @@ class BaseActorA5e extends Actor {
     };
   }
 
+  // *****************************************************************************************
+  // Generators
+  // *****************************************************************************************
+  override *allApplicableEffects() {
+    for (const effect of this.effects) yield effect;
+
+    for (const item of this.items) {
+      for (const effect of item.effects) {
+        if (effect.transfer || effect.system.effectType === "passive")
+          yield effect;
+      }
+    }
+  }
+
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
@@ -282,11 +291,17 @@ class BaseActorA5e extends Actor {
 
     this.initialized = true;
 
+    // Identify which special statuses had been active
+    const specialStatuses = new Map();
+    for (const statusId of Object.values(CONFIG.specialStatusEffects)) {
+      specialStatuses.set(statusId, this.statuses.has(statusId));
+    }
+
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
 
     this.prepareDerivedData();
-    this.afterDerivedData();
+    // this.afterDerivedData();
 
     this.prepareArmorClass();
     this.RollOverrideManager.initialize();
@@ -294,12 +309,29 @@ class BaseActorA5e extends Actor {
     // Initialize the SpellBooks
     this.spellBooks = new SpellBookManager(this);
     this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+
+    // Apply Derived effects after armor class data
+    this.applyActiveEffects("final");
+
+    // Apply special statuses that changed to active tokens
+    let tokens;
+    for (const [statusId, wasActive] of specialStatuses) {
+      const isActive = this.statuses.has(statusId);
+      if (isActive === wasActive) continue;
+      tokens ??= this.getDependentTokens({ scenes: canvas.scene })
+        .filter((t) => t.rendered)
+        .map((t) => t.object);
+      for (const token of tokens)
+        token._onApplyStatusEffect(statusId, isActive);
+    }
   }
 
   /**
    * Prepare base data for the actor.
    */
   override prepareBaseData() {
+    this._clearData();
+
     // Register Managers
     this.BonusesManager = new BonusesManager(this);
     this.RollOverrideManager = new RollOverrideManager(this);
@@ -316,45 +348,76 @@ class BaseActorA5e extends Actor {
   /**
    * Apply activeEffects to the actor with the phase 'applyAEs'.
    */
-  override applyActiveEffects() {
-    this.overrides = {};
+  override applyActiveEffects(phase: "initial" | "final") {
+    const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
-    // Create base to store statuses on actor.
-    this.statuses ??= new Set();
+    this._completedActiveEffectPhases.add(phase);
 
-    // Identify which special statuses had been active
-    const specialStatuses = new Map();
-    Object.values(CONFIG.specialStatusEffects).forEach((statusId) => {
-      specialStatuses.set(statusId, this.statuses.has(statusId));
-    });
+    const changes: any[] = [];
+    const tokenChanges: any[] = [];
 
-    this.statuses.clear();
+    const effectOptions =
+      this.type === "character"
+        ? game.a5e.activeEffects.options.character.allOptions
+        : this.type === "npc"
+          ? game.a5e.activeEffects.options.npc.allOptions
+          : game.a5e.activeEffects.options.all.allOptions;
 
-    // Create base to store effect phases to retry effects on the next pass
-    this.effectPhases ??= {
-      beforeDerived: [],
-      afterDerived: [],
-    };
+    for (const effect of this.allApplicableEffects()) {
+      if (!effect.active) continue;
 
-    ActiveEffectA5e.applyEffects(
-      this,
-      this.actorEffects,
-      "applyAEs",
-      "afterDerived",
-      (change) =>
-        game.a5e.activeEffects.options[this.type].allOptions[change.key]
-          ?.phase === "applyAEs",
-    );
+      for (const change of effect.system.changes) {
+        if (change.key === "") continue;
+        // Phase check
+        const effectConfig = effectOptions[change.key];
+        let registeredPhase = change.phase;
+        if (effectConfig) {
+          registeredPhase =
+            CONFIG.A5E.ACTIVE_EFFECT_PHASES[effectConfig.phase] ?? change.phase;
+        }
 
-    // Apply special statuses that changed to active tokens
-    let tokens;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [statusId, wasActive] of specialStatuses) {
-      const isActive = this.statuses.has(statusId);
-      if (isActive === wasActive) return;
-      tokens ??= this.getActiveTokens();
-      tokens.forEach((token) => token._onApplyStatusEffect(statusId, isActive));
+        if (registeredPhase !== phase) continue;
+
+        const copy = foundry.utils.deepClone(change);
+        copy.effect = effect;
+
+        // Keep Token changes separate for later application
+        if (copy.key?.startsWith("@token.")) {
+          copy.key = copy.key.slice(7);
+          tokenChanges.push(copy);
+        } else {
+          changes.push(copy);
+        }
+      }
+
+      if (phase === "initial") {
+        for (const statusId of effect.statuses) this.statuses.add(statusId);
+      }
     }
+
+    generateExpandedChanges(changes);
+    changes.sort((a, b) => a.priority - b.priority);
+    this.tokenActiveEffectChanges[phase] = tokenChanges;
+
+    // Apply all changes
+    const overrides = {};
+    const replacementData = this.getRollData() ?? {};
+
+    // TODO: Figure out why this fails on token npc
+    // this.overrides ??= {};
+
+    for (const change of changes) {
+      // TODO: Adds support for `@original`
+      const result = ActiveEffect.applyChange(this, change, {
+        replacementData,
+      });
+      if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
+    }
+
+    foundry.utils.mergeObject(
+      this.overrides,
+      foundry.utils.expandObject(overrides),
+    );
   }
 
   /**
@@ -513,14 +576,16 @@ class BaseActorA5e extends Actor {
         value: Number.parseInt(tempFinalAC, 10) || 10,
       });
 
-      const overrideChange = effectOverride?.apply(
-        this,
-        effectOverride?.changes.find((change) =>
-          change.key.includes("ac.value"),
-        ),
-        // @ts-expect-error
-        "afterDerived",
-      ) as Record<string, any>; // TODO: Types - Update this
+      // const overrideChange = effectOverride?.apply(
+      //   this,
+      //   effectOverride?.changes.find((change) =>
+      //     change.key.includes("ac.value"),
+      //   ),
+      //   // @ts-expect-error
+      //   "afterDerived",
+      // ) as Record<string, any>; // TODO: Types - Update this
+      //
+      const overrideChange = { x: 2 };
 
       const overrideValue = Object.values(overrideChange)?.[0] ?? valueOverride;
 
@@ -892,7 +957,7 @@ class BaseActorA5e extends Actor {
    * Prepare active effects for the actor with the phase 'afterDerived'.
    */
   afterDerivedData() {
-    ActiveEffectA5e.applyEffects(
+    ActiveEffectA5E.applyEffects(
       this,
       this.actorEffects,
       "afterDerived",
@@ -917,11 +982,11 @@ class BaseActorA5e extends Actor {
 
     if (temp) {
       updates["system.attributes.hp"] = {
-        temp: Math.clamped(temp - totalDamage, 0, temp),
-        value: Math.clamped(value + temp - totalDamage, 0, value),
+        temp: Math.clamp(temp - totalDamage, 0, temp),
+        value: Math.clamp(value + temp - totalDamage, 0, value),
       };
     } else {
-      updates["system.attributes.hp.value"] = Math.clamped(
+      updates["system.attributes.hp.value"] = Math.clamp(
         value - totalDamage,
         0,
         value,
@@ -1349,7 +1414,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1370,8 +1435,8 @@ class BaseActorA5e extends Actor {
     Hooks.callAll("a5e.rollAbilityCheck", this, hookData, rolls);
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1379,7 +1444,7 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(chatData, finalRollMode);
+    ChatMessage.applyMode(chatData, finalRollMode);
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
     return chatCard;
@@ -1455,7 +1520,7 @@ class BaseActorA5e extends Actor {
   async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
     options.saveType = "death";
     options.expertiseDice ??= 0;
-    options.visibilityMode ??= "gmroll";
+    options.visibilityMode ??= "gm";
 
     if (game.settings.get("a5e", "blindDeathSaves")) {
       options.visibilityMode = "blindroll";
@@ -1505,7 +1570,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1531,8 +1596,8 @@ class BaseActorA5e extends Actor {
     }
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1540,9 +1605,9 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(
+    ChatMessage.applyMode(
       chatData,
-      visibilityMode ?? game.settings.get("core", "rollMode"),
+      visibilityMode ?? game.settings.get("core", "messageMode"),
     );
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
@@ -1671,7 +1736,7 @@ class BaseActorA5e extends Actor {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get("core", "rollMode"),
+      rollMode: visibilityMode ?? game.settings.get("core", "messageMode"),
       system: {
         actorId: this.uuid,
         actorName: this.name,
@@ -1693,8 +1758,8 @@ class BaseActorA5e extends Actor {
     Hooks.callAll("a5e.rollSkillCheck", this, hookData, rolls);
 
     const finalRollMode =
-      visibilityMode ?? game.settings.get("core", "rollMode");
-    if (finalRollMode === "gmroll") {
+      visibilityMode ?? game.settings.get("core", "messageMode");
+    if (finalRollMode === "gm") {
       // @ts-expect-error
       const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
       // @ts-expect-error
@@ -1702,9 +1767,9 @@ class BaseActorA5e extends Actor {
     }
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(
+    ChatMessage.applyMode(
       chatData,
-      visibilityMode ?? game.settings.get("core", "rollMode"),
+      visibilityMode ?? game.settings.get("core", "messageMode"),
     );
     // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
@@ -2097,7 +2162,7 @@ class BaseActorA5e extends Actor {
 
     await this.update({
       [`system.bonuses.${type}`]: {
-        [`-=${id}`]: null,
+        [`${id}`]: _del,
       },
     });
   }
@@ -2159,32 +2224,13 @@ class BaseActorA5e extends Actor {
 
   /** @inheritdoc */
   override async _preUpdate(changed, options, user) {
-    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes(
-      "-=autoApplyFSConditions",
-    );
-    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes(
-      "-=-=autoApplyFSConditions",
-    );
-
-    if (hasRemoveFlag && !isRemoveFlag) {
-      await this.unsetFlag("a5e", "-=autoApplyFSConditions");
-    }
-
-    const autoApplyFSConditions =
-      changed?.flags?.a5e?.autoApplyFSConditions ?? true;
-    if (autoApplyFSConditions) {
+    if (!options.fromCondition) {
       automateMultiLevelConditions(
         this,
         foundry.utils.deepClone(changed),
         user.id,
       );
     }
-
-    foundry.utils.setProperty(
-      changed,
-      "flags.a5e.-=autoApplyFSConditions",
-      null,
-    );
 
     await super._preUpdate(changed, options, user);
 
@@ -2260,6 +2306,7 @@ class BaseActorA5e extends Actor {
     },
   ) {
     const { active, overlay = false } = options;
+    console.log(statusId);
 
     const status = CONFIG.statusEffects.find((e) => e.id === statusId);
     if (!status)
@@ -2324,10 +2371,12 @@ class BaseActorA5e extends Actor {
         ? Math.min(currLevel + 1, maxLevel)
         : Math.max(currLevel - 1, 0);
 
-      this.update({
-        [`system.attributes.${statusId}`]: actorValue,
-        "flags.a5e.autoApplyFSConditions": false,
-      });
+      this.update(
+        {
+          [`system.attributes.${statusId}`]: actorValue,
+        },
+        { fromCondition: true },
+      );
 
       // Delete Existing effect
       if (existing.length && currLevel === 1 && !active) {
@@ -2347,7 +2396,10 @@ class BaseActorA5e extends Actor {
         // @ts-expect-error
         const effect =
           await ActiveEffect.implementation.fromStatusEffect(statusId);
-        effect.updateSource({ changes });
+        effect.updateSource({
+          "system.changes": changes,
+          "system.effectType": "condition",
+        });
         return ActiveEffect.implementation.create(effect, {
           parent: this,
           keepId: true,
@@ -2366,6 +2418,7 @@ class BaseActorA5e extends Actor {
     if (!active && active !== undefined) return undefined;
     // @ts-expect-error
     const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
+    effect.updateSource({ "system.effectType": "condition" });
     if (overlay) effect.updateSource({ "flags.core.overlay": true });
     return ActiveEffect.implementation.create(effect, {
       parent: this,

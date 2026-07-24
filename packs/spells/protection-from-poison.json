@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Protection from Poison",
 			"_id": "qPau3CSpppzHRDbG",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"poison\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"poison\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

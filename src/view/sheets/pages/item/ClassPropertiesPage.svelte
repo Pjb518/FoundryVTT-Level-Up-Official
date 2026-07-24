@@ -79,6 +79,7 @@
                 />
 
                 <button
+                    type="button"
                     class="slug-reset-button"
                     aria-label="Reset Class Identifier"
                     data-tooltip="Reset Class Identifier"

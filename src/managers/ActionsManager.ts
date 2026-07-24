@@ -2,7 +2,6 @@ import type { Action } from "#types/action.d.ts";
 import type { ItemA5e } from "../documents/item/item.ts";
 
 // import GenericConfigDialog from "../apps/dialogs/initializers/GenericConfigDialog";
-import ActionConfigDialog from "../apps/dialogs/ActionConfigDialog.svelte";
 import { ActionSheet } from "../documents/sheets/ActionSheet.svelte.ts";
 
 class ActionsManager extends Map<string, Action> {
@@ -194,7 +193,7 @@ class ActionsManager extends Map<string, Action> {
 
     await this.#item.update({
       "system.actions": {
-        [`-=${actionId}`]: null,
+        [`${actionId}`]: _del,
       },
     });
 
@@ -425,7 +424,7 @@ class ActionsManager extends Map<string, Action> {
     const existingEffects = action.effects;
     const newList = new Set([...existingEffects, effectId]);
     return item.update({
-      [`system.actions.${actionId}.effects`]: newList,
+      [`system.actions.${actionId}.effects`]: [...newList],
     });
   }
 

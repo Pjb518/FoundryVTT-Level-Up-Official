@@ -17,14 +17,6 @@
 			"transfer": false,
 			"name": "Critical Hit",
 			"_id": "meovN7b3LuJzCOR6",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -48,7 +40,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"blinded\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -60,14 +60,6 @@
 			"transfer": false,
 			"name": "Attuned",
 			"_id": "IeV31WTlOtKG6Kdf",
-			"changes": [
-				{
-					"key": "system.skills.arc.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -89,7 +81,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.arc.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

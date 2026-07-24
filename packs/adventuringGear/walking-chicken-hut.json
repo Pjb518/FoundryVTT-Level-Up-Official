@@ -260,14 +260,6 @@
 			"transfer": false,
 			"name": "Additional Attunement",
 			"_id": "fajFaYvVpOS59orv",
-			"changes": [
-				{
-					"key": "system.attributes.attunement.current",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -289,7 +281,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.attunement.current",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -306,14 +306,6 @@
 			"transfer": false,
 			"name": "Poisoned",
 			"_id": "rGrVRN2PqFeJ8Og5",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -337,7 +329,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -349,20 +349,6 @@
 			"transfer": false,
 			"name": "Lanterns",
 			"_id": "3lZo2JyVkVmzqZ90",
-			"changes": [
-				{
-					"key": "@token.light.dim",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.bright",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -384,7 +370,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "@token.light.dim",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.bright",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Prone",
 			"_id": "1UMxQAEJ2CW4R8PH",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -42,7 +34,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

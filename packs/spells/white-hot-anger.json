@@ -135,26 +135,6 @@
 			"transfer": false,
 			"name": "White-Hot Anger",
 			"_id": "d3XrFAZ9kpxR6Mlk",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"White-Hot Anger\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -175,7 +155,27 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"White-Hot Anger\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

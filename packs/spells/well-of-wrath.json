@@ -172,14 +172,6 @@
 			"transfer": false,
 			"name": "Well of Wrath",
 			"_id": "PlIMiUGDe1VJlRS5",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Well of Wrath\",\"formula\":\"1d4\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/abilities/mouth-teeth-rows-red.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -200,7 +192,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Well of Wrath\",\"formula\":\"1d4\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/abilities/mouth-teeth-rows-red.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -212,14 +212,6 @@
 			"transfer": false,
 			"name": "Strife",
 			"_id": "G3K91FouTqbnpdDv",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -240,7 +232,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.strife",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -252,14 +252,6 @@
 			"transfer": false,
 			"name": "Well of Wrath",
 			"_id": "Guk7hXRa4xm7RFQs",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Well of Wrath\",\"formula\":\"2d8\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/abilities/mouth-teeth-rows-red.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -280,7 +272,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Well of Wrath\",\"formula\":\"2d8\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/abilities/mouth-teeth-rows-red.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

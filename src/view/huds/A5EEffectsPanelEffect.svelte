@@ -38,7 +38,8 @@
         }
         totalDuration ??= 0;
 
-        const remainingDuration = startTime + totalDuration - game.time.worldTime ?? 0;
+        const remainingDuration =
+            startTime + totalDuration - game.time.worldTime ?? 0;
 
         if (remainingDuration <= 0 && !turns) {
             return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
@@ -82,7 +83,8 @@
     function getEffectDescription(actor) {
         if (description) return description;
 
-        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } =
+            actor.system.attributes;
 
         if (conditionId === "corruption") {
             return localize(`A5E.tracks.corruption.hints.${corruption}`);
@@ -108,7 +110,8 @@
     }
 
     function getEffectName(actor) {
-        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } =
+            actor.system.attributes;
 
         if (conditionId === "corruption") return `${name} (${corruption}) `;
         if (conditionId === "fatigue") return `${name} (${fatigue}) `;
@@ -164,10 +167,11 @@
         return () => Hooks.off("updateWorldTime", durationHook);
     });
 
-    let corruption = $derived(actor?.system.attributes.corruption ?? 0);
-    let fatigue = $derived(actor?.system.attributes.fatigue ?? 0);
-    let inebriated = $derived(actor?.system.attributes.inebriated ?? 0);
-    let strife = $derived(actor?.system.attributes.strife ?? 0);
+    let actorData = $derived(actor?.reactive?.system);
+    let corruption = $derived(actorData?.attributes.corruption ?? 0);
+    let fatigue = $derived(actorData?.attributes.fatigue ?? 0);
+    let inebriated = $derived(actorData?.attributes.inebriated ?? 0);
+    let strife = $derived(actorData?.attributes.strife ?? 0);
 
     let tooltip = $derived(`
         <h3 class="a5e-tooltip__heading">${getEffectName(actor)}</h3>

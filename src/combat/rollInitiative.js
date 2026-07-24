@@ -68,7 +68,7 @@ export default async function rollInitiative(
 		// eslint-disable-next-line no-await-in-loop
 		const chatData = await roll.toMessage(messageData, {
 			create: false,
-			rollMode: combatant.hidden && rollMode === 'roll' ? 'gmroll' : rollMode,
+			rollMode: combatant.hidden && rollMode === 'roll' ? 'gm' : rollMode,
 		});
 
 		// Play 1 sound for the whole rolled set

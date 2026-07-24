@@ -11,20 +11,6 @@
 			"transfer": false,
 			"name": "Inexorable Darkvision",
 			"_id": "KF683cwLPSkMJhyF",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.unit",
-					"value": "unlimited",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -42,7 +28,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.unit",
+						"value": "unlimited",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "0",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

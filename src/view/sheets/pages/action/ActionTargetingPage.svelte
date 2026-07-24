@@ -50,7 +50,7 @@
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}`]: {
-                    "-=target": null,
+                    "target": _del,
                 },
             });
         } else {
@@ -155,6 +155,7 @@
             {/if}
 
             <button
+                type="button"
                 class="a5e-button a5e-button--scaling"
                 data-tooltip="A5E.scaling.headings.configureTarget"
                 data-tooltip-direction="UP"

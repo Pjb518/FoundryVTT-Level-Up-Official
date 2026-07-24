@@ -113,14 +113,6 @@
 			"transfer": false,
 			"name": "Prone and Restrained",
 			"_id": "CuONxIzO0YzGTk5F",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\",\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -144,7 +136,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\",\"restrained\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

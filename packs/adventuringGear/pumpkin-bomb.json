@@ -170,20 +170,6 @@
 			"transfer": false,
 			"name": "Emit Light",
 			"_id": "Q4kBL3tAnfHeG0nF",
-			"changes": [
-				{
-					"key": "@token.light.color",
-					"value": "800080",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -217,7 +203,21 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "@token.light.color",
+						"value": "800080",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"img": "icons/consumables/vegetable/squash-pumpkin-glow-orange.webp",
 			"type": "base",

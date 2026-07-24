@@ -401,26 +401,6 @@
 			"transfer": false,
 			"name": "Spinning One Knife",
 			"_id": "6eygVVKISv7zYGX6",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -441,7 +421,27 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "10",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -458,20 +458,6 @@
 			"transfer": false,
 			"name": "Spinning Two Knives",
 			"_id": "tVPCQLENpbDlsamo",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "20",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "4",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -492,7 +478,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "20",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "4",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -41,6 +41,7 @@
 
     {#if sheetIsLocked()}
         <button
+            type="button"
             class="a5e-button a5e-actor-initiative__roll-button"
             class:a5e-actor-initiative__roll-button--shift={pressedKeys.Shift}
             class:a5e-actor-initiative__roll-button--ctrl={pressedKeys.Control}
@@ -60,6 +61,7 @@
         </button>
     {:else}
         <button
+            type="button"
             class="a5e-button a5e-actor-initiative__roll-button"
             data-tooltip="A5E.initiative.configurationTitle"
             data-tooltip-direction="DOWN"

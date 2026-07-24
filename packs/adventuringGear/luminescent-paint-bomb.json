@@ -132,20 +132,6 @@
 			"transfer": false,
 			"name": "Luminescent Paint Bomb",
 			"_id": "uX9YtNgILm7pWh4f",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -167,7 +153,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

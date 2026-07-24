@@ -63,7 +63,7 @@
     </div>
 {:else}
     <div class="a5e-actor-hp-config__container">
-        <button class="a5e-button" onclick={() => actor.configureHealth()}>
+        <button type="button" class="a5e-button" onclick={() => actor.configureHealth()}>
             <i class="fa-solid fa-gear"></i>
             {localize("A5E.hitPoints.configurationTooltip")}
         </button>

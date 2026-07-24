@@ -79,6 +79,7 @@
                     </h3>
 
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent a5e-actor-filter__toggle-all"
                         onpointerdown={(e) => {
                             e.stopPropagation();

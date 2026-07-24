@@ -80,14 +80,6 @@
 			"transfer": false,
 			"name": "Underwater Darkvision",
 			"_id": "nRKkfclbAjoYRwKQ",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
-					"mode": 7,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -108,7 +100,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			}
 		}
 	],

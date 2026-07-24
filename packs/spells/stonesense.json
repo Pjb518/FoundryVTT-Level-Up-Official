@@ -106,14 +106,6 @@
 			"transfer": false,
 			"name": "Stonesense",
 			"_id": "fq3x71S2Kb6t2Fw6",
-			"changes": [
-				{
-					"key": "system.attributes.senses.tremorsense.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -134,7 +126,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.tremorsense.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

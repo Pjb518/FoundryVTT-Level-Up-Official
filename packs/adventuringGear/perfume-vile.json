@@ -151,14 +151,6 @@
 			"transfer": false,
 			"name": "Stunned",
 			"_id": "6OjwXLb7ABG2rqkv",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -182,7 +174,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

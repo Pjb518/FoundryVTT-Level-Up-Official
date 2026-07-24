@@ -269,6 +269,7 @@
             {/if}
 
             <button
+                type="button"
                 class="a5e-compendium-import-button icon fa-solid fa-download"
                 data-tooltip={`Import ${doc.name}`}
                 data-tooltip-direction="UP"

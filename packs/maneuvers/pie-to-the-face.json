@@ -81,14 +81,6 @@
 			"transfer": false,
 			"name": "Blinded",
 			"_id": "zzk5izccdBTuxWIW",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -111,7 +103,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"blinded\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

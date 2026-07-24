@@ -90,6 +90,7 @@
 
 <li class="skill" class:skill--column-flow={columnFlow}>
     <button
+        type="button"
         class="a5e-button a5e-button--config skill__proficiency-icon icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
@@ -107,6 +108,7 @@
     ></button>
 
     <button
+        type="button"
         id="{actor.id}-{skillKey}-proficient"
         class="a5e-button a5e-button--config icon fa-solid fa-dice-d20 skill__roll-icon"
         class:skill__roll-icon--shift={pressedKeys.Shift}
@@ -152,6 +154,7 @@
 
     {#if !sheetIsLocked()}
         <button
+            type="button"
             class="a5e-button a5e-button--config icon fas fa-cog"
             aria-label={localize("A5E.skillLabels.configurationTooltip", {
                 skill: skills[skillKey],

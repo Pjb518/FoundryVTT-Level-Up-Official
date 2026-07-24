@@ -128,28 +128,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "5",
+						"priority": null,
+						"type": "subtract"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "5",
-					"mode": 3,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

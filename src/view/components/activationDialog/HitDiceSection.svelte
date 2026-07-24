@@ -35,6 +35,7 @@
         {#each availableHitDice as die}
             <div class="a5e-hit-die-wrapper">
                 <button
+                    type="button"
                     class="a5e-hit-die a5e-hit-die--rollable a5e-hit-die--{die}"
                     class:disabled={hitDice[die].current === 0}
                     disabled={hitDice[die].current === 0}

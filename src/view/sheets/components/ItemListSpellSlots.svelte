@@ -58,6 +58,7 @@
                     slot > spellResources.slots[level.toString()].current}
 
                 <button
+                    type="button"
                     class="a5e-spell-slot"
                     class:a5e-spell-slot--expended={slotExpended}
                     class:disable-pointer-events={!actor.isOwner}

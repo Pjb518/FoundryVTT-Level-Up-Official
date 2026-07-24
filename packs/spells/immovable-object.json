@@ -98,20 +98,6 @@
 			"transfer": false,
 			"name": "Rooted",
 			"_id": "T2tTuCaOxeVuzGAA",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.damageResistances.all",
-					"value": "",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -132,7 +118,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.damageResistances.all",
+						"value": "",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

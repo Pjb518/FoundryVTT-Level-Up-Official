@@ -195,6 +195,7 @@
                     </span>
 
                     <button
+                        type="button"
                         class="feature-table__delete-button"
                         aria-label="Delete Feature"
                         onclick={(e) => {
@@ -284,6 +285,7 @@
                     </span>
 
                     <button
+                        type="button"
                         class="feature-table__delete-button"
                         aria-label="Delete Feature"
                         onclick={(e) => {

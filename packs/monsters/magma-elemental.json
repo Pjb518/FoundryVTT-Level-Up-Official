@@ -804,32 +804,6 @@
 					"transfer": false,
 					"name": "Ablaze",
 					"_id": "n64BrYtgCkWfFgnV",
-					"changes": [
-						{
-							"key": "system.attributes.ac.baseFormula",
-							"value": "15",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.light.bright",
-							"value": "10",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.light.dim",
-							"value": "20",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"Ablaze\",\"formula\":\"1d10\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -864,7 +838,33 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.ac.baseFormula",
+								"value": "15",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.light.bright",
+								"value": "10",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.light.dim",
+								"value": "20",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.damage",
+								"value": "{\"label\":\"Ablaze\",\"formula\":\"1d10\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -988,14 +988,6 @@
 					"transfer": false,
 					"name": "Fire Extinguished",
 					"_id": "2akX234OTI5d1FqO",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"Fire Extinguished\",\"formula\":\"1d12\",\"damageType\":\"bludgeoning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1030,7 +1022,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.bonuses.damage",
+								"value": "{\"label\":\"Fire Extinguished\",\"formula\":\"1d12\",\"damageType\":\"bludgeoning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2085,22 +2085,22 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
-			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": 0
 				},
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"\",\"formula\":\"1d12\",\"damageType\":\"bludgeoning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": 0
-				}
-			],
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"\",\"formula\":\"1d12\",\"damageType\":\"bludgeoning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+						"priority": 0,
+						"type": "custom"
+					}
+				]
+			},
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -2145,22 +2145,22 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
-			},
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "10",
-					"mode": 6,
-					"priority": 0
 				},
-				{
-					"key": "@token.light.dim",
-					"value": "20",
-					"mode": 6,
-					"priority": 0
-				}
-			],
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "10",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "20",
+						"priority": 0,
+						"type": "override"
+					}
+				]
+			},
 			"disabled": false,
 			"duration": {
 				"startTime": 0,

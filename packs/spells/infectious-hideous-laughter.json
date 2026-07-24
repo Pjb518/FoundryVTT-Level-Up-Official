@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Infectious Hideous Laughter",
 			"_id": "5v894F2O2XD9o2IP",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"incapacitated\",\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -47,7 +39,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"incapacitated\",\"prone\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

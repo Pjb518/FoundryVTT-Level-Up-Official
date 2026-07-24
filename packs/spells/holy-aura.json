@@ -16,20 +16,6 @@
 			"transfer": false,
 			"name": "Holy Aura",
 			"_id": "FtdsJCGGLpJKoYQ5",
-			"changes": [
-				{
-					"key": "@token.light.dim",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.all",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -50,7 +36,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.dim",
+						"value": "5",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

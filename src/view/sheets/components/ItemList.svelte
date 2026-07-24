@@ -198,6 +198,7 @@
     }}
 >
     <button
+        type="button"
         class="a5e-item__roll-button"
         class:a5e-item__roll-button--shift={pressedKeys.Shift}
         class:a5e-item__roll-button--ctrl={pressedKeys.Control}

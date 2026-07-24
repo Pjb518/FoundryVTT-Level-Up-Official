@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Slowed",
 			"_id": "LXb9usc2xuwRlcss",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"slowed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -46,7 +38,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"slowed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

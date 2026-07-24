@@ -16,6 +16,7 @@ import registerPremiumContentConfig from "./config/registerPremiumContentConfig.
 import registerPublisherConfig from "./config/registerPublisherConfig.ts";
 import registerReducerConfig from "./config/registerReducerConfig.ts";
 import registerSettingsConfig from "./config/registerSettingsConfig.ts";
+import registerConditionsConfig from "./config/registerConditionsConfig.ts";
 
 /* ------------------------------------------------- */
 /*                    Constants                      */
@@ -88,10 +89,11 @@ const DAMAGED_STATES = {
  * Supported dice roll modes
  */
 const DICE_ROLL_MODES = {
-  blindroll: "A5E.diceRollModes.blind",
-  gmroll: "A5E.diceRollModes.gm",
-  publicroll: "A5E.diceRollModes.public",
-  selfroll: "A5E.diceRollModes.self",
+  blind: "A5E.diceRollModes.blind",
+  gm: "A5E.diceRollModes.gm",
+  public: "A5E.diceRollModes.public",
+  self: "A5E.diceRollModes.self",
+  ic: "In Character"
 };
 
 /**
@@ -426,52 +428,16 @@ const chatCardTypes = [
   "skillCheck",
 ] as const;
 
-/**
- * The set of core conditions in the system.
- * @enum {string}
- */
-const conditions = {
-  blinded: "A5E.conditions.blinded",
-  bloodied: "A5E.conditions.bloodied",
-  charmed: "A5E.conditions.charmed",
-  concentration: "A5E.conditions.concentration",
-  confused: "A5E.conditions.confused",
-  corruption: "A5E.conditions.corruption",
-  dazzled: "A5E.conditions.dazzled",
-  deafened: "A5E.conditions.deafened",
-  doomed: "A5E.conditions.doomed",
-  encumbered: "A5E.conditions.encumbered",
-  enervated: "A5E.conditions.enervated",
-  fatigue: "A5E.conditions.fatigue",
-  fixated: "A5E.conditions.fixated",
-  frightened: "A5E.conditions.frightened",
-  grappled: "A5E.conditions.grappled",
-  hungover: "A5E.conditions.hungover",
-  incapacitated: "A5E.conditions.incapacitated",
-  inebriated: "A5E.conditions.inebriated",
-  invisible: "A5E.conditions.invisible",
-  paralyzed: "A5E.conditions.paralyzed",
-  petrified: "A5E.conditions.petrified",
-  poisoned: "A5E.conditions.poisoned",
-  prone: "A5E.conditions.prone",
-  rattled: "A5E.conditions.rattled",
-  restrained: "A5E.conditions.restrained",
-  slowed: "A5E.conditions.slowed",
-  strife: "A5E.conditions.strife",
-  stunned: "A5E.conditions.stunned",
-  unconscious: "A5E.conditions.unconscious",
-};
-
 const containerSortDirections = {
   ascending: "A5E.objects.containers.sortDirection.ascending",
-  descending: "A5E.objects.containers.sortDirection.descending"
+  descending: "A5E.objects.containers.sortDirection.descending",
 };
 
 const containerSortMethods = {
-  none: 'A5E.None',
+  none: "A5E.None",
   alphabetical: "A5E.objects.containers.sortMethod.alphabetical",
   quantity: "A5E.objects.containers.sortMethod.quantity",
-  weight: "A5E.objects.containers.sortMethod.weight"
+  weight: "A5E.objects.containers.sortMethod.weight",
 };
 
 /**
@@ -566,7 +532,7 @@ const endemicProperties = {
   hazard: "A5E.objects.endemicLife.properties.hazard",
   magical: "A5E.objects.endemicLife.properties.magical",
   material: "A5E.objects.endemicLife.properties.material",
-  mundane: "A5E.objects.endemicLife.properties.mundane"
+  mundane: "A5E.objects.endemicLife.properties.mundane",
 };
 
 const endemicTypes = {
@@ -630,8 +596,8 @@ const healingColors = {
 const interactionTypes = {
   basicAction: "A5E.interactions.types.basicAction",
   downtime: "A5E.interactions.types.downtime",
-	journey: "A5E.interactions.types.journey",
-	other: "A5E.interactions.types.other",
+  journey: "A5E.interactions.types.journey",
+  other: "A5E.interactions.types.other",
 };
 
 /**
@@ -962,9 +928,8 @@ const regions = {
   underlandRealm: "A5E.regions.underlandRealm",
   unrelentingMarsh: "A5E.regions.unrelentingMarsh",
   urbanTownship: "A5E.regions.urbanTownship",
-  wartornKingdom: "A5E.regions.wartornKingdom"
+  wartornKingdom: "A5E.regions.wartornKingdom",
 };
-
 
 /**
  * The set of core armor properties in the system.
@@ -2187,7 +2152,6 @@ const A5E = {
   carryCapacityMultiplier,
   capacityTypes,
   chatCardTypes,
-  conditions,
   containerSortDirections,
   containerSortMethods,
   creatureTypes,
@@ -2277,6 +2241,7 @@ const A5E = {
   ...registerClassesConfig(),
   ...registerContextsConfig(),
   ...registerGrantsConfig(),
+  ...registerConditionsConfig(),
 
   ...registerActionsConfig(),
   ...registerActiveEffectConfig(),

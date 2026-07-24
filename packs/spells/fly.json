@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Flying",
 			"_id": "f7HJasNajZGyTMya",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

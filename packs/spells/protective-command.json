@@ -104,14 +104,6 @@
 			"transfer": false,
 			"name": "Increased AC",
 			"_id": "Zq0ICP57QuAuWkNZ",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "@prof/2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -132,7 +124,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "@prof/2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -45,20 +45,6 @@
 			"transfer": false,
 			"name": "Maintenance Training",
 			"_id": "7ktWwHyXL3Xu505m",
-			"changes": [
-				{
-					"key": "system.skills.eng.proficient",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.proficiencies.tools",
-					"value": "[\"tinkersTools\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -79,7 +65,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.eng.proficient",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.proficiencies.tools",
+						"value": "[\"tinkersTools\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

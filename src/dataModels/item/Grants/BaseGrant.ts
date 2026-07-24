@@ -86,7 +86,7 @@ export default class BaseGrant extends A5EDataModel {
   async deleteGrant(): Promise<void> {
     const item = this.parent;
     await item.update({
-      [`system.grants.-=${this._id}`]: null,
+      [`system.grants.${this._id}`]: _del,
     });
 
     const document = this.parent?.parent;

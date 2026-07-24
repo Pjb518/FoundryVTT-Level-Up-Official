@@ -1369,7 +1369,6 @@
 					"transfer": false,
 					"name": "Blur",
 					"_id": "WRbkreWcyxoYrIGy",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1385,7 +1384,9 @@
 					"tint": "#ffffff",
 					"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
 					"type": "base",
-					"system": {},
+					"system": {
+						"changes": []
+					},
 					"sort": 0,
 					"folder": null,
 					"_stats": {
@@ -1728,14 +1729,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "o3RplnB3d2bgc5Cs",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1751,7 +1744,16 @@
 					"tint": "#ffffff",
 					"img": "icons/weapons/swords/shortsword-guard-brass.webp",
 					"type": "base",
-					"system": {},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
+					},
 					"sort": 0,
 					"folder": null,
 					"_stats": {

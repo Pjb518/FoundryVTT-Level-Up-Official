@@ -24,7 +24,7 @@
     async function deleteConsumer(actionId: string, consumerId: string) {
         item.update({
             [`system.actions.${actionId}.consumers`]: {
-                [`-=${consumerId}`]: null,
+                [`${consumerId}`]: _del,
             },
         });
     }

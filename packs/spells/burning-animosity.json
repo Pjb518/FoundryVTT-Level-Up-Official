@@ -213,28 +213,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "5",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "20",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"invisible\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

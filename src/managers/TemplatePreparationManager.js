@@ -1,4 +1,4 @@
-import ItemMeasuredTemplate from "../pixi/ItemMeasuredTemplate";
+// import ItemMeasuredTemplate from "../pixi/ItemMeasuredTemplate";
 
 import { getDeterministicBonus } from "../dice/getDeterministicBonus";
 
@@ -49,7 +49,8 @@ export default class TemplatePreparationManager {
       for (let i = 0; i < quantity; i += 1) {
         const templateDocument = this.#createTemplateDocument(scaledArea);
 
-        const template = new ItemMeasuredTemplate(templateDocument);
+        // const template = new ItemMeasuredTemplate(templateDocument);
+        const template = null;
         if (!template) return;
 
         template.item = this.#item;

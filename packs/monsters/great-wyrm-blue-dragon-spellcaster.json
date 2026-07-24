@@ -2111,14 +2111,6 @@
 					"transfer": false,
 					"name": "Frightened",
 					"_id": "IO58N7q33Tfx2zQ9",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"frightened\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2155,7 +2147,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"frightened\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -3410,7 +3410,6 @@
 					"transfer": false,
 					"name": "Blur",
 					"_id": "WRbkreWcyxoYrIGy",
-					"changes": [],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3446,7 +3445,8 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": []
 					},
 					"sort": 0,
 					"folder": null
@@ -3610,20 +3610,6 @@
 					"transfer": false,
 					"name": "Charmed",
 					"_id": "TMK1Tbwva04SwRyb",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\",\"incapacitated\"]",
-							"mode": 0,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "0",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3661,7 +3647,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\",\"incapacitated\"]",
+								"priority": null,
+								"type": "custom"
+							},
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "0",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,

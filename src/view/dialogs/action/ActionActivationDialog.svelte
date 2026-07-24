@@ -198,7 +198,7 @@
         RollPreparationManager.getDefaultSelectedEffects(effects),
     );
 
-    let visibilityMode = $state(game.settings?.get("core", "rollMode")!);
+    let visibilityMode = $state(game.settings?.get("core", "messageMode")!);
 
     let placeTemplate = $state(
         (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||

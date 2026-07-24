@@ -97,6 +97,7 @@
     }}
 >
     <button
+        type="button"
         class="effect-activate-button"
         class:disable-pointer-events={!doc.isOwner}
         disabled={true}
@@ -137,6 +138,7 @@
         <div class="button-wrapper">
             {#if allowTransfer}
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent effect-button"
                     data-tooltip="A5E.effects.applyToActor"
                     data-tooltip-direction="UP"
@@ -149,6 +151,7 @@
 
             {#if doc.documentName === "Actor"}
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent effect-button effect-button--active-toggle"
                     data-tooltip={effect.isLocked
                         ? "Originating item is not equipped."
@@ -179,6 +182,7 @@
                 <ul class="track-items">
                     <li>
                         <button
+                            type="button"
                             class="action-button icon fas fa-cog"
                             data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
@@ -189,6 +193,7 @@
 
                     <li>
                         <button
+                            type="button"
                             class="action-button icon fa-solid fa-clone"
                             data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
@@ -199,6 +204,7 @@
 
                     <li>
                         <button
+                            type="button"
                             class="action-button delete-button icon fas fa-trash"
                             data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"

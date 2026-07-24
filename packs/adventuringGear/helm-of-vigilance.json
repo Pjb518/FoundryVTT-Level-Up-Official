@@ -297,14 +297,6 @@
 			"transfer": false,
 			"name": "Invisibility",
 			"_id": "2z7hVXdU5T4luoLm",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -333,7 +325,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -351,14 +351,6 @@
 			"transfer": false,
 			"name": "True Seeing",
 			"_id": "fSz9cXj76y665LqC",
-			"changes": [
-				{
-					"key": "system.attributes.senses.truesight.distance",
-					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
-					"mode": 7,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -385,7 +377,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.senses.truesight.distance",
+						"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -403,14 +403,6 @@
 			"transfer": false,
 			"name": "Darkvision",
 			"_id": "uPHSnzmEYjq1KqP5",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"(@original + 30)\",\"negativeValue\":\"60\"}",
-					"mode": 7,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -437,7 +429,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"(@original + 30)\",\"negativeValue\":\"60\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -455,16 +455,16 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.skills",
+						"value": "{\"label\":\"Helm of Vigilance\",\"formula\":\"-2\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":false,\"img\":\"icons/equipment/head/helm-barbute-brass-steel.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.skills",
-					"value": "{\"label\":\"Helm of Vigilance\",\"formula\":\"-2\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":false,\"img\":\"icons/equipment/head/helm-barbute-brass-steel.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

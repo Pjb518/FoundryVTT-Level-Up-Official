@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Held",
 			"_id": "NQK3wIAZ9vLb28kh",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"paralyzed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -46,7 +38,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"paralyzed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

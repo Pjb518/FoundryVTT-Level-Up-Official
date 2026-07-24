@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Flying Swiftly",
 			"_id": "hXdmLCSqaWmEA5Nh",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "90",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "90",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

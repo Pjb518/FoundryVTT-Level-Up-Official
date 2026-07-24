@@ -99,14 +99,6 @@
 			"transfer": false,
 			"name": "Last in Initiative",
 			"_id": "UQBZsRlKvfELWZJE",
-			"changes": [
-				{
-					"key": "system.attributes.initiative.bonus",
-					"value": "100",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -128,7 +120,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.initiative.bonus",
+						"value": "100",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		}
 	],

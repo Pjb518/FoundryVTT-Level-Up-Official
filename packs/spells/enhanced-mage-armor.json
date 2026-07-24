@@ -15,14 +15,6 @@
 			"transfer": false,
 			"name": "Enhanced Mage Armor",
 			"_id": "xILhsp6xwaUWS7YT",
-			"changes": [
-				{
-					"key": "system.attributes.ac.baseFormula",
-					"value": "10 + @prof[Proficiency Bonus] + @dex.mod[Dexterity Modifier]",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -50,7 +42,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "10 + @prof[Proficiency Bonus] + @dex.mod[Dexterity Modifier]",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null

@@ -152,14 +152,6 @@
 			"transfer": false,
 			"name": "Ash",
 			"_id": "2lxNntsDTsQRl39k",
-			"changes": [
-				{
-					"key": "system.attributes.hp.value",
-					"value": "9999",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -180,7 +172,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.hp.value",
+						"value": "9999",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		}
 	],

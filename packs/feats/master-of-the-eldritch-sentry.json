@@ -140,14 +140,6 @@
 			"transfer": false,
 			"name": "True Seeing",
 			"_id": "mGsjqnemruEnPRmK",
-			"changes": [
-				{
-					"key": "system.attributes.senses.truesight.distance",
-					"value": "120",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -174,7 +166,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.truesight.distance",
+						"value": "120",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

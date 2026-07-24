@@ -95,6 +95,69 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   // -------------------------------------------------------
+  //  Apply Methods
+  // -------------------------------------------------------
+  static applyChange(
+    targetDoc,
+    change,
+    { replacementData = {}, modifyTarget = true },
+  ) {
+    let field;
+    const changes = {};
+
+    if (typeof change.key === "string" && change.key.startsWith("system.")) {
+      if (targetDoc.system instanceof foundry.abstract.DataModel) {
+        field = targetDoc.system.getFieldForProperty(change.key.slice(7));
+      }
+    } else {
+      field = targetDoc.getFieldForProperty(String(change.key ?? ""));
+    }
+
+    const configuredHandler =
+      ActiveEffectA5e.CHANGE_TYPES[change.type]?.handler;
+
+    if (typeof configuredHandler === "function") {
+      configuredHandler(targetDoc, change, {
+        field,
+        replacementData,
+        modifyTarget,
+      });
+    } else if (field) {
+      changes[change.key] = this.applyChangeField(targetDoc, change, {
+        field,
+        replacementData,
+        modifyTarget,
+      });
+    } else {
+      this._applyChangeUnguided(targetDoc, change, changes, {
+        replacementData,
+        modifyTarget,
+      });
+    }
+
+    console.log(changes);
+
+    return changes;
+  }
+
+  static applyChangeField(
+    targetDoc,
+    change,
+    { field, replacementData = {}, modifyTarget = true },
+  ) {
+    field ??= targetDoc.getFieldForProperty(change.key);
+
+    const current = foundry.utils.getProperty(targetDoc, change.key);
+    const update = field.applyChange(current, targetDoc, change, {
+      replacementData,
+    });
+    if (modifyTarget && update !== undefined)
+      foundry.utils.setProperty(targetDoc, change.key, update);
+
+    return update;
+  }
+
+  // -------------------------------------------------------
   //  Class Methods
   // -------------------------------------------------------
   /**
@@ -104,6 +167,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     // eslint-disable-next-line no-constant-binary-expression
     if (this.isSuppressed) return null;
 
+    console.log(_change);
     const change = foundry.utils.deepClone(_change);
     change.key = change.key.replace("@token.", "");
 
@@ -121,7 +185,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // Determine types
     const current = getCorrectedTypeValueFromKey(document, change.key) ?? null;
-    if (change.mode !== CONFIG.A5E.ACTIVE_EFFECT_MODES.CUSTOM) {
+    if (change.mode !== CONFIG.A5E.ACTIVE_EFFECT_TYPES.CUSTOM) {
       change.value = change.value.replace("@original", current);
     }
 
@@ -145,7 +209,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
    * @param {*} change
    */
   #getNewValue(document, current, change, delta) {
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
     const { mode } = change;
 
     if (mode === MODES.ADD) return this.#addOrSubtractValues(current, delta);
@@ -313,7 +377,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const isActor = document.documentName === "Actor";
     const isItem = document.documentName === "Item";
 
-    if (change.mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.CONDITIONAL) return 0;
+    if (change.mode === CONFIG.A5E.ACTIVE_EFFECT_TYPES.CONDITIONAL) return 0;
 
     try {
       if (isActor) {
@@ -425,8 +489,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const changeKeys = this.changes?.map((c) => c.key) ?? [];
     if (!changeKeys.some((k) => k.startsWith("@token"))) return;
 
-    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
-    const hasSizeChange = sizeSnapshot !== null && (effectWidth !== null || effectHeight !== null);
+    const { width: effectWidth, height: effectHeight } =
+      this.#getEffectSizeChanges();
+    const hasSizeChange =
+      sizeSnapshot !== null && (effectWidth !== null || effectHeight !== null);
 
     for (const t of this.#getActiveTokenDocuments()) {
       if (!hasSizeChange) {
@@ -436,7 +502,13 @@ export default class ActiveEffectA5e extends ActiveEffect {
       const snap = sizeSnapshot.get(t.id);
       const oldWidth = snap?.width ?? t.width ?? 1;
       const oldHeight = snap?.height ?? t.height ?? 1;
-      await this.#resizeAndCenterToken(t, oldWidth, oldHeight, effectWidth ?? oldWidth, effectHeight ?? oldHeight);
+      await this.#resizeAndCenterToken(
+        t,
+        oldWidth,
+        oldHeight,
+        effectWidth ?? oldWidth,
+        effectHeight ?? oldHeight,
+      );
     }
 
     if (changeKeys.some((k) => k.startsWith("@token.light"))) {
@@ -445,7 +517,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
   }
 
   #getActiveTokenDocuments() {
-    const isLinked = foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ?? true;
+    const isLinked =
+      foundry.utils.getProperty(this.parent, "prototypeToken.actorLink") ??
+      true;
     if (isLinked) return this.parent.getActiveTokens().map((t) => t.document);
     return this.parent.token ? [this.parent.token] : [];
   }
@@ -461,20 +535,28 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
   async #revertTokenSizes(sizeSnapshot) {
     if (this.parent?.documentName !== "Actor") return;
-    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
+    const { width: effectWidth, height: effectHeight } =
+      this.#getEffectSizeChanges();
     if (effectWidth === null && effectHeight === null) return;
 
     for (const t of this.#getActiveTokenDocuments()) {
       const snap = sizeSnapshot?.get(t.id);
       if (!snap) continue;
-      await this.#resizeAndCenterToken(t, t.width ?? 1, t.height ?? 1, snap.width, snap.height);
+      await this.#resizeAndCenterToken(
+        t,
+        t.width ?? 1,
+        t.height ?? 1,
+        snap.width,
+        snap.height,
+      );
     }
   }
 
   #snapshotTokenSizes() {
     if (this.parent?.documentName !== "Actor") return null;
 
-    const { width: effectWidth, height: effectHeight } = this.#getEffectSizeChanges();
+    const { width: effectWidth, height: effectHeight } =
+      this.#getEffectSizeChanges();
     const protoWidth = this.parent.prototypeToken?.width ?? 1;
     const protoHeight = this.parent.prototypeToken?.height ?? 1;
 
@@ -484,8 +566,14 @@ export default class ActiveEffectA5e extends ActiveEffect {
       const currentWidth = doc.width ?? 1;
       const currentHeight = doc.height ?? 1;
       snapshot.set(doc.id, {
-        width: (effectWidth !== null && currentWidth === effectWidth) ? protoWidth : currentWidth,
-        height: (effectHeight !== null && currentHeight === effectHeight) ? protoHeight : currentHeight,
+        width:
+          effectWidth !== null && currentWidth === effectWidth
+            ? protoWidth
+            : currentWidth,
+        height:
+          effectHeight !== null && currentHeight === effectHeight
+            ? protoHeight
+            : currentHeight,
       });
     }
     return snapshot;
@@ -516,7 +604,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
     this.parent.reset();
     this.#handleSubConditions({}, userId, false);
   }
-
 
   async #handleSubConditions(data, userId, active) {
     if (game.user.id !== userId) return;
@@ -626,10 +713,10 @@ export default class ActiveEffectA5e extends ActiveEffect {
     delete e1.flags?.a5e?.actionId;
     delete e2.flags?.a5e?.actionId;
 
-    e1.changes.forEach((c) => delete c.priority);
-    e2.changes.forEach((c) => delete c.priority);
+    e1.system.changes.forEach((c) => delete c.priority);
+    e2.system.changes.forEach((c) => delete c.priority);
 
-    return foundry.utils.objectsEqual(e1, e2);
+    return foundry.utils.equals(e1, e2);
   }
 
   // -------------------------------------------------------
@@ -726,7 +813,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         effect.statuses.forEach((statusId) => document.statuses.add(statusId));
       }
 
-      return effect._source.changes.filter(predicate).map((change) => {
+      return effect._source.system.changes.filter(predicate).map((change) => {
         const originalPriority = change.priority ?? 0;
         change.priority = originalPriority ?? change.mode * 10;
         return { effect, change };

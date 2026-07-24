@@ -1024,14 +1024,6 @@
 					"transfer": false,
 					"name": "Defensive AC",
 					"_id": "R4H9hwQqrcReSUg6",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1050,6 +1042,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -1181,26 +1183,6 @@
 					"transfer": false,
 					"name": "Enlarged",
 					"_id": "fB0ob8QMcMyug2fP",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.bonuses.damage",
-							"value": "{\"label\":\"Enlarged\",\"formula\":\"1d4[Enlarged]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/movement/arrows-up-trio-red.webp\"}",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1218,6 +1200,28 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.bonuses.damage",
+								"value": "{\"label\":\"Enlarged\",\"formula\":\"1d4[Enlarged]\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/movement/arrows-up-trio-red.webp\"}",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1336,14 +1340,6 @@
 					"transfer": false,
 					"name": "Invisible",
 					"_id": "o1qvWrwid36w8yeW",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1364,6 +1360,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],

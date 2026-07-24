@@ -93,7 +93,7 @@ export default class ForeignDocumentManager extends DataProxy {
 		const key = this.getIdByUuid(uuid);
 		if (!key) return false;
 
-		await this.#doc.update({ [`system.${this.#attribute}.-=${key}`]: null });
+		await this.#doc.update({ [`system.${this.#attribute}.${key}`]: _del });
 		return true;
 	}
 
@@ -103,7 +103,7 @@ export default class ForeignDocumentManager extends DataProxy {
 
 		const updates = {};
 		keys.forEach((key) => {
-			updates[`system.${this.#attribute}.-=${key}`] = null;
+			updates[`system.${this.#attribute}.${key}`] = _del;
 		});
 
 		await this.#doc.update(updates);
@@ -115,7 +115,7 @@ export default class ForeignDocumentManager extends DataProxy {
 		for await (const [key, value] of Object.entries(this.#doc.system[this.#attribute])) {
 			// @ts-ignore
 			const child = await fromUuid(value?.uuid);
-			if (!child) updates[`system.${this.#attribute}.-=${key}`] = null;
+			if (!child) updates[`system.${this.#attribute}.${key}`] = _del;
 		}
 
 		await this.#doc.update(updates);

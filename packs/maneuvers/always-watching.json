@@ -80,20 +80,6 @@
 			"transfer": false,
 			"name": "Always Watching",
 			"_id": "C2gNB0g5xxFtR4kR",
-			"changes": [
-				{
-					"key": "system.attributes.senses.blindsight.distance",
-					"value": "30",
-					"mode": 5,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.senses.tremorsense.distance",
-					"value": "30",
-					"mode": 5,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -114,7 +100,21 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.blindsight.distance",
+						"value": "30",
+						"priority": null,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.senses.tremorsense.distance",
+						"value": "30",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			}
 		}
 	],

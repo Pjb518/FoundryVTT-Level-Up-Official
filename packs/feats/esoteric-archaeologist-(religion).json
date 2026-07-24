@@ -65,20 +65,6 @@
 			"transfer": false,
 			"name": "Esoteric Archaeologist",
 			"_id": "tUucssVFeeVLhFpG",
-			"changes": [
-				{
-					"key": "system.skills.rel.proficient",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.rel.specialties",
-					"value": "Relics",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -99,7 +85,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.rel.proficient",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.rel.specialties",
+						"value": "Relics",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

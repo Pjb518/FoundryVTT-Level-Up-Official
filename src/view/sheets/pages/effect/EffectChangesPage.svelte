@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type ActiveEffectSheet from "#view/sheets/ActiveEffectSheet.svelte";
+    import type ActiveEffectSheet from "../../../../documents/sheets/ActiveEffectSheet.svelte.ts";
 
     import { getContext } from "svelte";
 
@@ -9,52 +9,53 @@
     function addChange() {
         const change = {
             key: "",
-            mode: null,
+            type: null,
             value: "",
             priority: null,
         };
 
         changes = [...changes, change];
 
-        effect.update({ changes });
+        effect.update({ "system.changes": changes });
     }
 
     function deleteChange(id) {
         changes = changes.filter((_, idx) => idx !== id);
-        effect.update({ changes });
+        effect.update({ "system.changes": changes });
     }
 
     function updateChange(idx, key, value) {
         changes[idx] ??= {};
         changes[idx][key] = value;
 
-        // Change mode and reset value if key has changed
+        // Change type and reset value if key has changed
         if (key === "key") {
             changes[idx]["value"] = "";
-            changes[idx]["mode"] =
-                MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
+            changes[idx]["type"] =
+                optionsList[changes[idx]?.key]?.modes?.[0] ?? null;
         }
 
         // Update Document
-        effect.update({ changes });
+        effect.update({ "system.changes": changes });
     }
 
     let effect: ActiveEffect = getContext("effect");
     let sheet: ActiveEffectSheet = getContext("sheet");
 
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
     const optionsList = sheet.optionsList;
 
-    let changes = $derived(effect.reactive.changes);
+    let changes = $derived(effect.reactive.system.changes);
 </script>
 
 <div class="a5e-sticky-page">
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         <ul class="a5e-item-list a5e-item-list--effect-changes">
-            {#each changes as { key, value, mode }, idx (idx)}
+            {#each changes as { key, value, type }, idx (idx)}
                 <li class="a5e-item a5e-item--effect-config">
                     <div class="a5e-button-wrapper">
                         <button
+                            type="button"
                             class="a5e-button a5e-button--transparent"
                             style="font-size: var(--a5e-md-sm);"
                             aria-label="Delete Change"
@@ -73,8 +74,8 @@
                                 updateChange(idx, "key", value)}
                             onchangePriority={(value) =>
                                 updateChange(idx, "priority", value)}
-                            onchangeMode={(value) =>
-                                updateChange(idx, "mode", value)}
+                            onchangeType={(value) =>
+                                updateChange(idx, "type", value)}
                         />
                     </div>
 
@@ -82,7 +83,7 @@
                         <EffectChangeValue
                             {key}
                             {value}
-                            {mode}
+                            {type}
                             {optionsList}
                             onchange={(value) =>
                                 updateChange(idx, "value", value)}
@@ -95,6 +96,7 @@
 
     <div class="a5e-sticky-add-button">
         <button
+            type="button"
             class="a5e-button a5e-button--transparent"
             aria-label="Add Change"
             onclick={addChange}

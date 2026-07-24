@@ -12,14 +12,6 @@
 			"transfer": false,
 			"name": "Poison Resistance",
 			"_id": "3WKCvDuoStUxzdRU",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "poison",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -41,7 +33,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "poison",
+						"priority": 20,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -66,6 +66,7 @@
     </div>
 
     <button
+        type="button"
         onclick={(e) => {
             e.preventDefault();
             handleSave();

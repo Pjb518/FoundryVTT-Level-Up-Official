@@ -11,7 +11,6 @@
     import RollModePicker from "#view/components/RollModePicker.svelte";
 
     import getRollFormula from "#utils/getRollFormula.js";
-    import { preventDefault } from "svelte/legacy";
 
     type Props = {
         document: any;
@@ -74,14 +73,20 @@
 
     let actor = document;
 
-    const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(abilityKey, "save");
+    const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
+        abilityKey,
+        "save",
+    );
 
     const appId = dialog.id;
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
     const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
     let visibilityMode = $state(
-        options.visibilityMode ?? game.settings.get("core", "rollMode"),
+        options.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
 
     let saveType = $state(options.saveType ?? "standard");
@@ -106,11 +111,17 @@
     );
 
     let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(rollModeKey, selectedRollMode),
+        actor.RollOverrideManager.getRollOverride(
+            rollModeKey,
+            selectedRollMode,
+        ),
     );
 
     let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource(rollModeKey, selectedRollMode),
+        actor.RollOverrideManager.getRollOverridesSource(
+            rollModeKey,
+            selectedRollMode,
+        ),
     );
 
     let buttonText = $derived(getSubmitButtonText(saveType, abilityKey));

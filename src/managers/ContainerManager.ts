@@ -206,7 +206,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 
     [...this.values()].forEach((i) => {
       const child = fromUuidSync(i.uuid);
-      if (!child) updates[`system.items.-=${i._id}`] = null;
+      if (!child) updates[`system.items.${i._id}`] = _del;
     });
 
     await this.#item.update(updates);
@@ -217,7 +217,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 
     [...this.values()].forEach((i) => {
       const child = fromUuidSync(i.uuid);
-      if (!child) updates[`system.items.-=${i._id}`] = null;
+      if (!child) updates[`system.items.${i._id}`] = _del;
     });
 
     this.#item.update(updates);
@@ -227,7 +227,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     const key = [...this.values()].find((i) => i.uuid === uuid)?._id;
     if (!key) return;
 
-    await this.#item.update({ [`system.items.-=${key}`]: null });
+    await this.#item.update({ [`system.items.${key}`]: _del });
   }
 
   async removeMulti(uuids: string[]) {
@@ -240,7 +240,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 
     const updates = {};
     keys.forEach((key) => {
-      updates[`system.items.-=${key}`] = null;
+      updates[`system.items.${key}`] = _del;
     });
 
     await this.#item.update(updates);
@@ -252,7 +252,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 
     const updates = {};
     keys.forEach((key) => {
-      updates[`system.items.-=${key}`] = null;
+      updates[`system.items.${key}`] = _del;
     });
 
     await this.#item.update(updates);

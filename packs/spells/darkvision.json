@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Darkvision",
 			"_id": "k0mSg1sj30nvHV36",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

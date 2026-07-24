@@ -16,6 +16,7 @@
 
         {#if !sheetIsLocked()}
             <button
+                type="button"
                 class="a5e-button a5e-button--transparent a5e-actor-ac__config-button"
                 data-tooltip="A5E.armorClass.headings.configurationTitle"
                 data-tooltip-direction="DOWN"

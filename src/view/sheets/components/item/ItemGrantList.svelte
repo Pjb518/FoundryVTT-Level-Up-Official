@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { Grant } from "#types/itemGrants.d.ts";
     import { getContext } from "svelte";
-    import { preventDefault, stopPropagation } from "svelte/legacy";
 
     type Props = {
         grant: Grant;
@@ -20,7 +19,10 @@
             type: "Grant",
         };
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData(
+            "text/plain",
+            JSON.stringify(dragData),
+        );
     }
 
     async function onAuxClick() {
@@ -44,6 +46,7 @@
     onauxclick={onAuxClick}
 >
     <button
+        type="button"
         class="grant-activate-button"
         class:disable-pointer-events={!item.isOwner}
         disabled={true}
@@ -77,6 +80,7 @@
                 <ul class="track-items">
                     <li>
                         <button
+                            type="button"
                             class="a5e-button a5e-button--transparent action-button"
                             data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
@@ -92,6 +96,7 @@
 
                     <li>
                         <button
+                            type="button"
                             class="a5e-button a5e-button--transparent action-button"
                             data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
@@ -107,6 +112,7 @@
 
                     <li>
                         <button
+                            type="button"
                             class="a5e-button a5e-button--transparent action-button"
                             data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"

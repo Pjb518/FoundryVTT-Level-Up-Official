@@ -103,14 +103,6 @@
 			"transfer": false,
 			"name": "Feel the Burn",
 			"_id": "AD8nB36sx7asGlE3",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"cold\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -131,7 +123,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"cold\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -12,26 +12,6 @@
 			"transfer": false,
 			"name": "Celestial Aegis",
 			"_id": "iJee53DSME4VxDK0",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-					"value": "1",
-					"mode": 6,
-					"priority": 100
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.str",
-					"value": "1",
-					"mode": 6,
-					"priority": 99
-				},
-				{
-					"key": "system.skills.itm.expertiseDice",
-					"value": "",
-					"mode": 2,
-					"priority": 98
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -53,7 +33,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+						"value": "1",
+						"priority": 100,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.str",
+						"value": "1",
+						"priority": 99,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.itm.expertiseDice",
+						"value": "",
+						"priority": 98,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -1338,38 +1338,6 @@
 					"transfer": false,
 					"name": "Ray of Frost",
 					"_id": "6meIM37yip1QShpH",
-					"changes": [
-						{
-							"key": "system.attributes.movement.burrow.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.climb.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.fly.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.swim.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
-							"mode": 7,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1387,6 +1355,40 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.movement.burrow.distance",
+								"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+								"priority": null,
+								"type": "conditional"
+							},
+							{
+								"key": "system.attributes.movement.climb.distance",
+								"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+								"priority": null,
+								"type": "conditional"
+							},
+							{
+								"key": "system.attributes.movement.fly.distance",
+								"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+								"priority": null,
+								"type": "conditional"
+							},
+							{
+								"key": "system.attributes.movement.swim.distance",
+								"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+								"priority": null,
+								"type": "conditional"
+							},
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"10\",\"positiveValue\":\"@original - 10\",\"negativeValue\":\"0\"}",
+								"priority": null,
+								"type": "conditional"
+							}
+						]
 					}
 				}
 			],
@@ -1762,14 +1764,6 @@
 					"transfer": false,
 					"name": "Shield",
 					"_id": "3JSn5GwbNdSgD0oS",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "5",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1787,6 +1781,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "5",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],
@@ -1905,14 +1909,6 @@
 					"transfer": false,
 					"name": "Invisible",
 					"_id": "o1qvWrwid36w8yeW",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1933,6 +1929,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -2302,14 +2308,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "PiHWvQKjPGNpP7A7",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2328,6 +2326,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					}
 				}
 			],

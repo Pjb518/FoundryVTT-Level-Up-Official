@@ -108,20 +108,6 @@
 			"transfer": false,
 			"name": "Expertise",
 			"_id": "zXvJwsQeRv2gO21a",
-			"changes": [
-				{
-					"key": "system.skills.med.proficient",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.med.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -143,7 +129,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.med.proficient",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.med.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

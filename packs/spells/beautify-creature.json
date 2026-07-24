@@ -104,20 +104,6 @@
 			"transfer": false,
 			"name": "Beautify Creature",
 			"_id": "XHqm9rAaTyAgfWo1",
-			"changes": [
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prf.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -139,7 +125,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.per.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.prf.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

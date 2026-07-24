@@ -1693,20 +1693,6 @@
 					"transfer": false,
 					"name": "Sunlight",
 					"_id": "toeZIrdRTl04zEDk",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1741,7 +1727,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.attack.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2018,14 +2018,6 @@
 					"transfer": false,
 					"name": "AC +1",
 					"_id": "Llj5xb79gCEj7iz8",
-					"changes": [
-						{
-							"key": "system.attributes.ac.changes.bonuses.value",
-							"value": "1",
-							"mode": 2,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2061,7 +2053,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.ac.changes.bonuses.value",
+								"value": "1",
+								"priority": null,
+								"type": "add"
+							}
+						]
 					},
 					"sort": 0,
 					"folder": null
@@ -2581,14 +2581,6 @@
 					"transfer": false,
 					"name": "Grappled",
 					"_id": "ABDskPCE0EQ02aK5",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\",\"restrained\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2626,7 +2618,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\",\"restrained\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,
@@ -2895,20 +2895,6 @@
 			"transfer": false,
 			"name": "Sunlight",
 			"_id": "KLDO3QEuapkT5jq4",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2941,7 +2927,21 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"img": "icons/svg/item-bag.svg",
 			"type": "base",

@@ -92,7 +92,7 @@ class BaseItemA5e extends Item {
   // *****************************************************************************************
   get sourceId(): string | null {
     // @ts-expect-error
-    return this._stats.compendiumSource || this.flags.core?.sourceId || null;
+    return this._stats.compendiumSource ||  null;
   }
 
   /** ------------------------------------------------------ */
@@ -208,7 +208,7 @@ class BaseItemA5e extends Item {
     };
 
     // @ts-expect-error
-    ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
+    ChatMessage.applyMode(chatData, game.settings.get("core", "messageMode"));
     const chatCard = ChatMessage.create(chatData);
 
     // Execute Macro
@@ -519,40 +519,6 @@ class BaseItemA5e extends Item {
 
   override _onDelete(options, user) {
     super._onDelete(options, user);
-  }
-
-  static async _onCreateOperation(documents, operation, user) {
-    // @ts-expect-error
-    if (game.user?.id !== user.id)
-      return Item._onCreateOperation(documents, operation, user);
-
-    // eslint-disable-next-line no-undef
-    const parent = fromUuidSync(operation.parentUuid) ?? {};
-    if (!(parent instanceof Actor)) {
-      // @ts-expect-error
-      return Item._onCreateOperation(documents, operation, user);
-    }
-
-    const toCreate: any[] = [];
-    documents.forEach((item) => {
-      item.effects.forEach((effect) => {
-        const isPassive = effect.flags?.a5e?.transferType === "passive";
-        if (!isPassive) return;
-
-        const effectData = effect.toObject();
-        effectData.origin = item.uuid;
-        toCreate.push(effectData);
-      });
-    });
-
-    // @ts-expect-error
-    if (!toCreate.length)
-      return Item._onCreateOperation(documents, operation, user);
-    const cls = getDocumentClass("ActiveEffect");
-    await cls.createDocuments(toCreate, operation);
-
-    // @ts-expect-error
-    return Item._onCreateOperation(documents, operation, user);
   }
 }
 

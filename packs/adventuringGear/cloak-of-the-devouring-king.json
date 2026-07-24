@@ -395,20 +395,6 @@
 			"transfer": false,
 			"name": "Attuned",
 			"_id": "Rx0RyzGX6rpHv58q",
-			"changes": [
-				{
-					"key": "system.abilities.con.value",
-					"value": "20",
-					"mode": 5,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -430,7 +416,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.abilities.con.value",
+						"value": "20",
+						"priority": null,
+						"type": "upgrade"
+					},
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

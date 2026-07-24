@@ -1667,14 +1667,6 @@
 					"transfer": false,
 					"name": "Invisible",
 					"_id": "o1qvWrwid36w8yeW",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"invisible\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1710,7 +1702,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"invisible\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 					"type": "base",
@@ -1860,14 +1860,6 @@
 					"transfer": false,
 					"name": "Charm Person",
 					"_id": "m8ZI2ALQ9jH4sptL",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"charmed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1901,7 +1893,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"charmed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"img": "icons/magic/control/control-influence-puppet.webp",
 					"type": "base",
@@ -2223,44 +2223,6 @@
 					"transfer": false,
 					"name": "Gaseous Form",
 					"_id": "d7zjOFHwtMtfNE8u",
-					"changes": [
-						{
-							"key": "system.attributes.movement.walk.distance",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "system.attributes.movement.fly.distance",
-							"value": "10",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "system.traits.damageResistances",
-							"value": "[\"Nonmagical damage\"]",
-							"mode": 2,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.str",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.dex",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.con",
-							"value": "1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2293,7 +2255,45 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "system.attributes.movement.walk.distance",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "system.attributes.movement.fly.distance",
+								"value": "10",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "system.traits.damageResistances",
+								"value": "[\"Nonmagical damage\"]",
+								"priority": null,
+								"type": "add"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.str",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.con",
+								"value": "1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
 					"type": "base",
@@ -2449,14 +2449,6 @@
 					"transfer": false,
 					"name": "Held",
 					"_id": "3JVj6W1lcRJTlRBV",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"paralyzed\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2493,7 +2485,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"paralyzed\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,

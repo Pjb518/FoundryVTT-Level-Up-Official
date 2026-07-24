@@ -59,7 +59,6 @@
     }
 
     function toggleInspiration() {
-        console.log(actor.system.attributes.inspiration);
         updateDocumentDataFromField(
             actor,
             "system.attributes.inspiration",
@@ -92,7 +91,6 @@
                 ? actorStore.details.xp
                 : prepareXP(actor),
     });
-
 </script>
 
 <div class="a5e-actor-header-shields__container">
@@ -107,6 +105,7 @@
             </label>
 
             <button
+                type="button"
                 class="a5e-actor-details-box__button"
                 class:a5e-actor-details-box__button--active={actorStore
                     .attributes.inspiration}
@@ -126,6 +125,7 @@
             </label>
 
             <button
+                type="button"
                 class="a5e-actor-details-box__button"
                 class:a5e-actor-details-box__button--selected={actorStore
                     .details.elite}

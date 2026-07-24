@@ -199,14 +199,6 @@
 			"transfer": false,
 			"name": "Greater Invisibility",
 			"_id": "P96OMpM2H6ztg3Bq",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -235,7 +227,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

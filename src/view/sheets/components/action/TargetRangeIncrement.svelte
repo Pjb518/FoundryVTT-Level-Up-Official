@@ -20,7 +20,7 @@
     function deleteRangeIncrement() {
         item.update({
             [`system.actions.${actionId}.ranges`]: {
-                [`-=${id}`]: null,
+                [`${id}`]: _del,
             },
         });
     }
@@ -30,7 +30,7 @@
 
         item.update({
             [`system.actions.${actionId}.ranges.${id}`]: {
-                "-=unit": null,
+                "unit": _del,
             },
         });
     }
@@ -39,7 +39,7 @@
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}.ranges.${id}`]: {
-                    "-=unit": null,
+                    "unit": _del,
                 },
             });
         } else {

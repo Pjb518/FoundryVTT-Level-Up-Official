@@ -17,14 +17,6 @@
 			"transfer": false,
 			"name": "Meteor Swarm (50 or More Damage)",
 			"_id": "Dg1eJ0V2SR2fQNtz",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -48,7 +40,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -65,14 +65,6 @@
 			"transfer": false,
 			"name": "Meteor Swarm (100 or More Damage)",
 			"_id": "n2mrbhqhIjS9GS7M",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\",\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -97,7 +89,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\",\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

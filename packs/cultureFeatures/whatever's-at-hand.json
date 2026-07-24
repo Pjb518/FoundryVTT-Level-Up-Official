@@ -45,14 +45,6 @@
 			"transfer": false,
 			"name": "Improvised Proficency",
 			"_id": "SOT7MlyFZi5fIYlg",
-			"changes": [
-				{
-					"key": "system.proficiencies.weapons",
-					"value": "[\"improvised weapons\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -73,7 +65,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.proficiencies.weapons",
+						"value": "[\"improvised weapons\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

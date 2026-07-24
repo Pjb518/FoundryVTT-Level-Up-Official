@@ -101,26 +101,6 @@
 			"transfer": false,
 			"name": "Fey Tongue",
 			"_id": "gMp1O3sIWlxqKCCy",
-			"changes": [
-				{
-					"key": "system.skills.prf.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.skills",
-					"value": "{\"label\":\"Fey Tongue\",\"formula\":\"10[Fey Tongue]\",\"damageType\":\"\",\"context\":{\"skills\":[\"ins\"],\"requiresProficiency\":false,\"passiveOnly\":false},\"default\":false,\"img\":\"icons/creatures/magical/fae-fairy-winged-glowing-green.webp\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -141,7 +121,27 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.prf.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.skills.per.expertiseDice",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.skills",
+						"value": "{\"label\":\"Fey Tongue\",\"formula\":\"10[Fey Tongue]\",\"damageType\":\"\",\"context\":{\"skills\":[\"ins\"],\"requiresProficiency\":false,\"passiveOnly\":false},\"default\":false,\"img\":\"icons/creatures/magical/fae-fairy-winged-glowing-green.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

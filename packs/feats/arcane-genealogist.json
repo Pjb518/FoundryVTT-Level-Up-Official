@@ -70,20 +70,6 @@
 			"transfer": false,
 			"name": "Arcane Genealogist",
 			"_id": "G5jaIGIlCaQoynU0",
-			"changes": [
-				{
-					"key": "system.skills.his.proficient",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.his.specialties",
-					"value": "Genealogy",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -104,7 +90,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.skills.his.proficient",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.his.specialties",
+						"value": "Genealogy",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

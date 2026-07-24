@@ -2629,20 +2629,6 @@
 					"transfer": false,
 					"name": "Irresistible Dance",
 					"_id": "T0e2N19TSqmvLOQi",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -2678,7 +2664,21 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.attack.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					},
 					"sort": 0,
 					"folder": null
@@ -2986,14 +2986,6 @@
 					"transfer": false,
 					"name": "Hideous Laughter",
 					"_id": "sEzBFpSnqGKITqF4",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"prone\",\"incapacitated\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -3031,7 +3023,15 @@
 							"lastMigration": {
 								"schema": null
 							}
-						}
+						},
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"prone\",\"incapacitated\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					},
 					"tint": "#ffffff",
 					"sort": 0,

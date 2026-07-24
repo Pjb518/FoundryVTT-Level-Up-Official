@@ -1,16 +1,14 @@
+import { A5E } from "../config.ts";
+import D20Roll from "../dice/d20Roll.js";
+import ActiveEffectA5e from "../documents/activeEffect/activeEffect.svelte.js";
+import ActorProxy from "../documents/actor/actorProxy.ts";
+import { ChatMessageA5e } from "../documents/chatMessage.ts";
+import ItemProxy from "../documents/item/itemProxy.ts";
+import ActiveEffectSheetA5e from "../documents/sheets/ActiveEffectSheet.svelte.ts";
 import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
 import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
-import ActiveEffectSheetA5e from "../documents/sheets/ActiveEffectSheet.svelte.ts";
-
-import { A5E } from "../config.ts";
-import ActiveEffectA5e from "../documents/activeEffect/activeEffect.svelte.js";
-import D20Roll from "../dice/d20Roll.js";
 import TokenA5e from "../documents/token/token.js";
 import TokenDocumentA5e from "../documents/tokenDocument.js";
-
-import ActorProxy from "../documents/actor/actorProxy.ts";
-import ItemProxy from "../documents/item/itemProxy.ts";
-import { ChatMessageA5e } from "../documents/chatMessage.ts";
 
 // Canvas
 import prepareDetectionModes from "../pixi/visionModes/prepareDetectionModes.js";
@@ -22,33 +20,28 @@ import prepareDetectionModes from "../pixi/visionModes/prepareDetectionModes.js"
 // import MonsterCompendiumSheet from "../apps/MonsterCompendiumSheet.js";
 // import SpellCompendiumSheet from "../apps/SpellCompendiumSheet.js";
 
-// DataModels
-import actorDataModels from "../dataModels/actor/actorDataModels.ts";
-import activeEffectModels from "../dataModels/effect/effectDataModels.ts";
-import chatDataModels from "../dataModels/chat/chatCardDataModels.ts";
-import itemDataModels from "../dataModels/item/itemDataModels.ts";
-
-// Effects
-import constructEffectOptions from "../documents/activeEffect/utils/constructEffectOptions.js";
-import EffectOption from "../documents/activeEffect/EffectOption.ts";
-
-import { registerKeybindings } from "../keybindings.ts";
-
-import _onCombatControl from "../combat/_onCombatControl.js";
 import _onCombatantControl from "../combat/_onCombatantControl.js";
+import _onCombatControl from "../combat/_onCombatControl.js";
 import getInitiativeFormula from "../combat/getInitiativeFormula.js";
 import getInitiativeRoll from "../combat/getInitiativeRoll.js";
-import preloadHandlebarsTemplates from "../templates.js";
-import performPreLocalization from "../utils/localization/performLocalization.js";
 import rollCombatantInitiative from "../combat/rollCombatantInitiative.js";
 import rollInitiative from "../combat/rollInitiative.js";
+// DataModels
+import actorDataModels from "../dataModels/actor/actorDataModels.ts";
+import chatDataModels from "../dataModels/chat/chatCardDataModels.ts";
+import activeEffectModels from "../dataModels/effect/effectDataModels.ts";
+import itemDataModels from "../dataModels/item/itemDataModels.ts";
+// Utility functions
+import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
+import EffectOption from "../documents/activeEffect/EffectOption.ts";
+// Effects
+import constructEffectOptions from "../documents/activeEffect/utils/constructEffectOptions.ts";
 import trackableAttributes from "../documents/actor/trackableAttributes.js";
-
+import { registerKeybindings } from "../keybindings.ts";
 // Macros
 import activateActionMacro from "../macros/activateActionMacro.js";
 import activateItemMacro from "../macros/activateItemMacro.js";
 import createMacro from "../macros/createMacro.js";
-
 // Managers
 import { A5eEnricherManager } from "../managers/A5eEnricherManager.ts";
 import { ActionsManager } from "../managers/ActionsManager.ts";
@@ -61,25 +54,28 @@ import { ResourceConsumptionManager } from "../managers/ResourceConsumptionManag
 import RestManager from "../managers/RestManager.js";
 import { RollPreparationManager } from "../managers/RollPreparationManager.ts";
 import TemplatePreparationManager from "../managers/TemplatePreparationManager.js";
-
+import { handleMigration } from "../migration/handlers/handleMigration.ts";
+import { handlePackMigration } from "../migration/handlers/handlePackMigration.ts";
 // Migrations
 import { MigrationList } from "../migration/MigrationList.ts";
 import { MigrationRunnerFoundry } from "../migration/runner/foundryRunner.ts";
-import { handleMigration } from "../migration/handlers/handleMigration.ts";
-import { handlePackMigration } from "../migration/handlers/handlePackMigration.ts";
+import preloadHandlebarsTemplates from "../templates.js";
+import performPreLocalization from "../utils/localization/performLocalization.js";
 
-// Utility functions
-import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
 // import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
 // import openCompendium from "../utils/openCompendium.ts";
 
+import { ConditionManager } from "#managers/ConditionManager.ts";
 import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
+import { ActiveEffectA5E } from "../documents/activeEffect/ae.svelte.ts";
+import { RegionLayerA5E } from "../canvas/layers/region.ts";
 // Stores
 // import { gameSettings } from "../settings/SettingsStore.ts";
 
 export default function init() {
   CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  // CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  CONFIG.ActiveEffect.documentClass = ActiveEffectA5E;
   // @ts-expect-error
   CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
@@ -102,6 +98,20 @@ export default function init() {
   CONFIG.ChatMessage.dataModels = chatDataModels;
   CONFIG.Item.dataModels = itemDataModels;
 
+  CONFIG.ActiveEffect.changeTypes = {
+    0: "custom",
+    1: "multiply",
+    2: "add",
+    3: "subtract",
+    4: "downgrade",
+    5: "upgrade",
+    6: "override",
+    7: "conditional",
+  };
+
+  // Layers
+  CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
+
   // Initialize the game's A5E namespace
   game.a5e = {
     applications: {
@@ -109,6 +119,7 @@ export default function init() {
       ItemSheetA5e,
     },
     activeEffects: {
+      conditions: { ConditionManager },
       EffectOption,
       options: {},
       effectsPanel: null,
@@ -169,33 +180,48 @@ export default function init() {
   };
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
+  foundry.documents.collections.Actors.unregisterSheet(
+    "core",
+    foundry.applications.sheets.ActorSheetV2,
+  );
   // @ts-expect-error
-  Actors.registerSheet("a5e", ActorSheetA5e, {
+  foundry.documents.collections.Actors.registerSheet("a5e", ActorSheetA5e, {
     types: ["character"],
     makeDefault: true,
     label: "A5E.SheetClassCharacter",
   });
 
   // @ts-expect-error
-  Actors.registerSheet("a5e", ActorSheetA5e, {
+  foundry.documents.collections.Actors.registerSheet("a5e", ActorSheetA5e, {
     types: ["npc"],
     makeDefault: true,
     label: "A5E.SheetClassNPC",
   });
 
-  Items.unregisterSheet("core", ItemSheet);
+  foundry.documents.collections.Items.unregisterSheet(
+    "core",
+    foundry.applications.sheets.ItemSheetV2,
+  );
   // @ts-expect-error
-  Items.registerSheet("a5e", ItemSheetA5e, {
+  foundry.documents.collections.Items.registerSheet("a5e", ItemSheetA5e, {
     makeDefault: true,
     label: "A5E.SheetClassItem",
   });
 
-  DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
-  DocumentSheetConfig.registerSheet(ActiveEffect, "a5e", ActiveEffectSheetA5e, {
-    makeDefault: true,
-    label: "A5E.SheetClassActiveEffectConfig",
-  });
+  foundry.applications.apps.DocumentSheetConfig.unregisterSheet(
+    ActiveEffect,
+    "core",
+    foundry.applications.sheets.ActiveEffectConfig,
+  );
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(
+    ActiveEffect,
+    "a5e",
+    ActiveEffectSheetA5e,
+    {
+      makeDefault: true,
+      label: "A5E.SheetClassActiveEffectConfig",
+    },
+  );
 
   // @ts-expect-error
   Combatant.prototype._getInitiativeFormula = getInitiativeFormula;
@@ -205,15 +231,17 @@ export default function init() {
   Combat.prototype.rollInitiative = rollInitiative;
 
   // @ts-expect-error
-  CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+  foundry.applications.sidebar.tabs.CombatTracker.prototype._onCombatantControl =
+    _onCombatantControl;
   // @ts-expect-error
-  CombatTracker.prototype._onCombatControl = _onCombatControl;
+  foundry.applications.sidebar.tabs.CombatTracker.prototype._onCombatControl =
+    _onCombatControl;
 
   // Register detection modes
   prepareDetectionModes();
 
   // Set tooltips to animate faster
-  TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
+  foundry.helpers.interaction.TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
 
   // Pre-localize any static strings once localization files become available.
   Hooks.once("i18nInit", () => {

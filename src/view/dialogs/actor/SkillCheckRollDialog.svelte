@@ -54,7 +54,7 @@
     let abilityKey = $state(options.abilityKey ?? actor.system.skills[skillKey].ability);
 
     let visibilityMode = $state(
-        options.visibilityMode ?? game.settings.get("core", "rollMode"),
+        options.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
 
     let { minRoll } = options.minRoll ?? actor.system.skills[skillKey];

@@ -13,7 +13,6 @@
     import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
     import UtilityBar from "#view/snippets/UtilityBar.svelte";
     import createItem from "#utils/createItem.ts";
-    import ShowDescription from "../../../apps/components/actorUtilityBar/ShowDescription.svelte";
 
     async function addSpellBook() {
         const initialSpellBookQuantity = Object.keys(
@@ -217,6 +216,7 @@
 
                 {#if !sheetIsLocked()}
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent a5e-control-button"
                         data-tooltip="Configure Spell Book"
                         aria-label="Configure Spell Book"
@@ -230,6 +230,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="a5e-button a5e-button--transparent a5e-control-button"
                         data-tooltip="Delete Spell Book"
                         aria-label="Delete Spell Book"

@@ -481,44 +481,6 @@
 			"transfer": false,
 			"name": "Mounted",
 			"_id": "XSNCEfI6owr4LH5C",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "18",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.str.value",
-					"value": "21",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.size",
-					"value": "huge",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageVulnerabilities",
-					"value": "[\"psychic\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -540,7 +502,45 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "18",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.abilities.str.value",
+						"value": "21",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.size",
+						"value": "huge",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "40",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageVulnerabilities",
+						"value": "[\"psychic\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		},
 		{
@@ -552,14 +552,6 @@
 			"transfer": false,
 			"name": "Shield",
 			"_id": "FP8Dhu1Fv9ATg4Rl",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -581,7 +573,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

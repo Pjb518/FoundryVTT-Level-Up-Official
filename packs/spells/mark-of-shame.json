@@ -109,20 +109,6 @@
 			"transfer": false,
 			"name": "Mark of Shame",
 			"_id": "9buCyaJRlvQWUmNQ",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"invisible\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -143,7 +129,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

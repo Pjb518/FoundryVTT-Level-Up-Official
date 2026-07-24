@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Heroic",
 			"_id": "Na0MpYjm82TpmXwU",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -44,7 +36,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

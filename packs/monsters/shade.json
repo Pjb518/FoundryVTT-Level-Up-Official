@@ -708,15 +708,16 @@
 					"img": "icons/skills/melee/unarmed-punch-fist.webp",
 					"_id": "x80lDS07noV5SPtH",
 					"type": "base",
-					"system": {},
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
+					},
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1560,27 +1561,28 @@
 					"img": "icons/svg/item-bag.svg",
 					"_id": "0f5Bq7il0L1j7ZqF",
 					"type": "base",
-					"system": {},
-					"changes": [
-						{
-							"key": "flags.a5e.effects.rollMode.attack.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.skillCheck.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "flags.a5e.effects.rollMode.abilitySave.all",
-							"value": "-1",
-							"mode": 6,
-							"priority": null
-						}
-					],
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.rollMode.attack.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.skillCheck.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "flags.a5e.effects.rollMode.abilitySave.all",
+								"value": "-1",
+								"priority": null,
+								"type": "override"
+							}
+						]
+					},
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1814,28 +1816,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "4",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "10",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "10",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "4",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "10",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "10",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1874,28 +1876,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "4",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "11",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "11",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "4",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "11",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "11",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -1934,28 +1936,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "4",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "12",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "12",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "4",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "12",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "12",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -1994,28 +1996,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "5",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "13",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "13",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "5",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "13",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "13",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2054,28 +2056,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "5",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "14",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "14",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "5",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "14",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "14",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2114,28 +2116,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "5",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "15",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "15",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "5",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "15",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "15",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2174,28 +2176,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "5",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "16",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "16",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "5",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "16",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "16",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2234,28 +2236,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "6",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "17",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "17",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "6",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "17",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "17",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2294,28 +2296,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "6",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "18",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "18",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "6",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "18",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "18",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2354,28 +2356,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "6",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "19",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "19",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "6",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "19",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "19",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2414,28 +2416,28 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "6",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"value": "20",
+						"priority": 0,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.hp.value",
+						"value": "20",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			},
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "6",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "20",
-					"mode": 2,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "20",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,

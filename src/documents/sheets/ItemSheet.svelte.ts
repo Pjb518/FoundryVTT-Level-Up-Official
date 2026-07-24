@@ -163,6 +163,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
     const docSource = CONFIG.A5E.products?.[this.item?.system.source];
     if (docSource) {
       const sourceLink = document.createElement("button");
+      sourceLink.type = "button";
       sourceLink.classList.add("header-control");
       sourceLink.classList.add("a5e-document-source-link");
       sourceLink.dataset.action = "openSourceLink";

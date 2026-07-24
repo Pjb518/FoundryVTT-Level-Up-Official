@@ -12,26 +12,6 @@
 			"transfer": false,
 			"name": "Robe of the Archmagi",
 			"_id": "DYHfotveDpF2NtGR",
-			"changes": [
-				{
-					"key": "system.bonuses.spellDC",
-					"mode": 2,
-					"value": "2",
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"2\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"2\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -53,7 +33,27 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.bonuses.spellDC",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"2\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"2\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

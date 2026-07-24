@@ -1445,14 +1445,6 @@
 					"transfer": false,
 					"name": "Grappled",
 					"_id": "iknXh1IjQQKH97g0",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1472,6 +1464,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -2062,14 +2064,6 @@
 			},
 			"name": "Prone",
 			"_id": "epASPiAhAQThlfqT",
-			"changes": [
-				{
-					"key": "system.attributes.ac.value",
-					"value": "12",
-					"mode": 6,
-					"priority": 0
-				}
-			],
 			"disabled": true,
 			"duration": {
 				"startTime": 0,
@@ -2091,7 +2085,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "12",
+						"priority": 0,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

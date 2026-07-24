@@ -1376,20 +1376,6 @@
 					"transfer": false,
 					"name": "Titanic",
 					"_id": "QbCsfI51xpHwScR2",
-					"changes": [
-						{
-							"key": "@token.width",
-							"value": "20",
-							"mode": 6,
-							"priority": null
-						},
-						{
-							"key": "@token.height",
-							"value": "20",
-							"mode": 6,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1407,6 +1393,22 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "@token.width",
+								"value": "20",
+								"priority": null,
+								"type": "override"
+							},
+							{
+								"key": "@token.height",
+								"value": "20",
+								"priority": null,
+								"type": "override"
+							}
+						]
 					}
 				}
 			],
@@ -1510,14 +1512,6 @@
 					"transfer": false,
 					"name": "Grappled",
 					"_id": "VoWX1KHsXy3MhV6l",
-					"changes": [
-						{
-							"key": "flags.a5e.effects.statusConditions",
-							"value": "[\"grappled\"]",
-							"mode": 0,
-							"priority": null
-						}
-					],
 					"disabled": false,
 					"duration": {
 						"startTime": null,
@@ -1537,6 +1531,16 @@
 						"coreVersion": "12",
 						"systemId": "a5e",
 						"systemVersion": "0.19.17"
+					},
+					"system": {
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": "[\"grappled\"]",
+								"priority": null,
+								"type": "custom"
+							}
+						]
 					}
 				}
 			],
@@ -1560,20 +1564,6 @@
 			"transfer": false,
 			"name": "Titanic",
 			"_id": "IFZ0U4LcLHKMle1T",
-			"changes": [
-				{
-					"key": "@token.width",
-					"value": "20",
-					"mode": 6,
-					"priority": 0
-				},
-				{
-					"key": "@token.height",
-					"value": "20",
-					"mode": 6,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1594,7 +1584,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "@token.width",
+						"value": "20",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "@token.height",
+						"value": "20",
+						"priority": 0,
+						"type": "override"
+					}
+				]
 			}
 		},
 		{
@@ -1605,14 +1609,6 @@
 			},
 			"name": "Proficiency Bonus",
 			"_id": "IkZDDXna9pDQimI2",
-			"changes": [
-				{
-					"key": "system.attributes.prof",
-					"value": "3",
-					"mode": 2,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 0,
@@ -1634,7 +1630,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.prof",
+						"value": "3",
+						"priority": 0,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

@@ -111,14 +111,6 @@
 			"transfer": false,
 			"name": "Oil of Taggit Poisoning",
 			"_id": "dDKukCX2YSt7Tw4X",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\",\"unconscious\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -143,7 +135,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\",\"unconscious\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

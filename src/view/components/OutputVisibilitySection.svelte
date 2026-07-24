@@ -7,13 +7,13 @@
 
     let { visibilityMode = $bindable() }: Props = $props();
 
-    const rollModes = CONST.DICE_ROLL_MODES;
+    const rollModes = CONFIG.ChatMessage.modes;
     const { DICE_ROLL_MODES } = CONFIG.A5E;
 </script>
 
 <RadioGroup
     heading="Visibility Mode"
-    options={Object.entries(rollModes).map(([_, mode]) => [
+    options={Object.entries(rollModes).map(([mode, _]) => [
         mode,
         DICE_ROLL_MODES[mode],
     ])}

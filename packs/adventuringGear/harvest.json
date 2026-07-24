@@ -16,14 +16,6 @@
 			"transfer": false,
 			"name": "Blood Clone",
 			"_id": "gIqzuUJfbEMGmYbF",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"ooze\",\"undead\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -45,7 +37,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.details.creatureTypes",
+						"value": "[\"ooze\",\"undead\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

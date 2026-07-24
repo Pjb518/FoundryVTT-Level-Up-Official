@@ -68,14 +68,6 @@
 			"transfer": false,
 			"name": "Amulet of Melora",
 			"_id": "VLXwc2eQ8F2ZF6D9",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"Diseased\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -97,7 +89,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"Diseased\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

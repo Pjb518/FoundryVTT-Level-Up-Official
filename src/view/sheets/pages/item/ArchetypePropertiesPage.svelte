@@ -38,6 +38,7 @@
                 />
 
                 <button
+                    type="button"
                     class="slug-reset-button"
                     data-tooltoip="Reset Identifier"
                     aria-label="Reset Identifier"

@@ -54,6 +54,7 @@
                 </span>
 
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent"
                     aria-label="Delete Feature"
                     onclick={() => deleteFeature("sourceOfInspiration")}
@@ -88,6 +89,7 @@
                 </span>
 
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent"
                     aria-label="Delete Feature"
                     onclick={() => deleteFeature("inspirationFeature")}
@@ -122,6 +124,7 @@
                 </span>
 
                 <button
+                    type="button"
                     class="a5e-button a5e-button--transparent"
                     aria-label="Delete Feature"
                     onclick={() => deleteFeature("fulfillmentFeature")}

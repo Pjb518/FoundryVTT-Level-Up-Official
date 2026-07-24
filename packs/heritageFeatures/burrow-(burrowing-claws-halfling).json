@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Burrow",
 			"_id": "7PRDg0KDEdWcGPPN",
-			"changes": [
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.attributes.movement.burrow.distance",
+						"value": "10",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

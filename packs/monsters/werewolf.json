@@ -1157,20 +1157,6 @@
 			},
 			"name": "Wolf or Hybrid Form",
 			"_id": "QvvTJWG2td5T3sOW",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": 0
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": 0
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": 1680242400,
@@ -1193,7 +1179,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "30",
+						"priority": 0,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "40",
+						"priority": 0,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

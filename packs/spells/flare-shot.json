@@ -141,20 +141,6 @@
 			"transfer": false,
 			"name": "Light",
 			"_id": "R2sDkL9ZcWz4S6SQ",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -175,7 +161,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "20",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "40",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

@@ -108,14 +108,6 @@
 			"transfer": false,
 			"name": "Expertise",
 			"_id": "zXvJwsQeRv2gO21a",
-			"changes": [
-				{
-					"key": "system.proficiencies.tools",
-					"value": "[\"smithsTools\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -137,7 +129,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.proficiencies.tools",
+						"value": "[\"smithsTools\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			}
 		}
 	],

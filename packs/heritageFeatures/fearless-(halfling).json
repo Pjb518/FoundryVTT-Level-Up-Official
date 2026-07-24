@@ -11,14 +11,6 @@
 			"transfer": false,
 			"name": "Fearless",
 			"_id": "lj2fxPIUQJVUt1vl",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -36,7 +28,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "permanent"
+				"effectType": "permanent",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null,

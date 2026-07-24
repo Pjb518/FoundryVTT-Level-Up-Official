@@ -51,6 +51,7 @@
 
                     <div class="a5e-button--action-wrapper">
                         <button
+                            type="button"
                             class="a5e-button--action icon fas fa-shield"
                             class:default={id === defaultAction}
                             data-tooltip="Set Default"
@@ -60,6 +61,7 @@
                         ></button>
 
                         <button
+                            type="button"
                             class="a5e-button--action icon fas fa-cog"
                             data-tooltip="A5E.buttons.tooltips.configure"
                             data-tooltip-direction="UP"
@@ -68,6 +70,7 @@
                         ></button>
 
                         <button
+                            type="button"
                             class="a5e-button--action icon fa-solid fa-clone"
                             data-tooltip="A5E.buttons.tooltips.duplicate"
                             data-tooltip-direction="UP"
@@ -76,6 +79,7 @@
                         ></button>
 
                         <button
+                            type="button"
                             class="a5e-button--action icon delete-button fas fa-trash"
                             data-tooltip="A5E.buttons.tooltips.delete"
                             data-tooltip-direction="UP"

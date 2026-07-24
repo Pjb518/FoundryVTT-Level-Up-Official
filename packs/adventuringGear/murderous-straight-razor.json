@@ -170,14 +170,6 @@
 			"transfer": false,
 			"name": "Murderous Rage",
 			"_id": "gOR0FfIeVFMUMMUr",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -198,7 +190,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			}
 		}
 	],

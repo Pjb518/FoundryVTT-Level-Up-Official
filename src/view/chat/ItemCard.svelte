@@ -15,6 +15,7 @@
     import { toggleExpertiseDice } from "#utils/view/cards/cardRolls/toggleExpertiseDice.ts";
     import { toggleRollMode } from "#utils/view/cards/cardRolls/toggleRollMode.ts";
     import zip from "#utils/zip.ts";
+    import getAreaLabel from "#utils/summaries/getAreaLabel.ts";
 
     import ItemSummary from "#view/sheets/components/item/ItemSummary.svelte";
     import ItemCardHeader from "./ItemCardHeader.svelte";
@@ -72,6 +73,14 @@
         return "var(--a5e-color-text-dark)";
     }
 
+    function getRegionTemplateLabel() {
+      const action = item.actions.get(message.system.actionId);
+      if (!action) return "Place Region";
+      const shape = action.area.shape;
+
+      return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
+    }
+
     function prepareRollColor(rollData) {
         if (!game.settings?.get("a5e", "enableDamageRollColors")) return null;
 
@@ -83,6 +92,13 @@
             return healingColors[rollData.healingType];
 
         return null;
+    }
+
+    function placeTemplate() {
+        const data = message.system.shapeData.value;
+        if (!data) return;
+
+        canvas.regions.placeRegion(data);
     }
 
     async function _toggleExpertiseDice(rollIndex, expertiseDice) {
@@ -239,6 +255,7 @@
     const hasRolls = rolls.length;
     const effects = system.effects.map((id) => item?.effects.get(id));
     const hasEffects = !!effects.length;
+    const hasRegionData = !!message.system?.shapeData.value;
 
     const itemName = item.name ?? "";
     let subtitle = getSubtitle(itemName, actionName);
@@ -383,6 +400,17 @@
             />
         {/each}
     {/if}
+
+    {#if hasRegionData}
+
+        <button
+            onclick={placeTemplate}
+            type="button"
+            class="region-template-button"
+        >
+            {@html getRegionTemplateLabel()}
+        </button>
+    {/if}
 </article>
 
 {#if item.type === "spell"}
@@ -465,5 +493,11 @@
 
     .spell-level {
         font-size: var(--a5e-xs-text);
+    }
+
+    .region-template-button {
+        margin-block-start: 0.75rem;
+        color: var(--a5e-text-color-dark);
+        background-color: var(--a5e-button-regular);
     }
 </style>

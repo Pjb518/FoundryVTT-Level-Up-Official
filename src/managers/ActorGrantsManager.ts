@@ -369,7 +369,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
         g.grantedBy = {
           id: grant._id,
-          selectionId: hasSelectionId ? doc.flags.core.sourceId : "",
+          selectionId: hasSelectionId ? doc._stats.compendiumSource : "",
         };
 
         return g;
@@ -653,7 +653,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     for (const [, grant] of this) {
       if (grant.itemUuid !== itemUuid) continue;
 
-      updates[`system.grants.-=${grant.grantId}`] = null;
+      updates[`system.grants.${grant.grantId}`] = _del;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
@@ -678,7 +678,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         continue;
 
       if (grant.level > classLevel) {
-        updates[`system.grants.-=${grant.grantId}`] = null;
+        updates[`system.grants.${grant.grantId}`] = _del;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -709,7 +709,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     for (const [, grant] of this) {
       if (grant.level > level) {
-        updates[`system.grants.-=${grant.grantId}`] = null;
+        updates[`system.grants.${grant.grantId}`] = _del;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -732,7 +732,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (!grant) return;
 
     const updates: Record<string, any> = {
-      [`system.grants.-=${grantId}`]: null,
+      [`system.grants.${grantId}`]: _del,
       ...this.#getRemoveUpdates(grant),
     };
 
@@ -743,7 +743,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const updates: Record<string, any> = {};
 
     for (const [, grant] of this) {
-      updates[`system.grants.-=${grant.grantId}`] = null;
+      updates[`system.grants.${grant.grantId}`] = _del;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
@@ -755,13 +755,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     if (grant instanceof actorGrants.bonus) {
       if (grant.bonusId)
-        updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
+        updates[`system.bonuses.${grant.type}.${grant.bonusId}`] = _del;
     }
 
     if (grant instanceof actorGrants.exertion) {
       if (grant.exertionData.exertionType === "bonus") {
-        updates[`system.bonuses.exertion.-=${grant.exertionData.bonusId}`] =
-          null;
+        updates[`system.bonuses.exertion.${grant.exertionData.bonusId}`] =
+          _del;
       }
     }
 
