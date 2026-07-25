@@ -1,33 +1,34 @@
-import ActiveEffectA5e from "./activeEffect/activeEffect.svelte.js";
-
 /**
  * Extend the base TokenDocument class to implement system-specific HP bar logic.
  * @extends {TokenDocument}
  */
 export default class TokenDocumentA5e extends TokenDocument {
-  overrides = this.overrides ?? {};
+  declare automateVision: boolean;
 
-  automateVision;
-
-  charOnlyVisionAutomation;
+  declare charOnlyVisionAutomation: boolean;
 
   get scene() {
     return this.parent;
   }
 
-  prepareBaseData() {
+  override prepareBaseData() {
     this.updateTokenSize();
     super.prepareBaseData();
   }
 
+  // TODO: Fix this
   async _onOverrideSize(changes) {
-    console.log(changes);
     const width = changes.width || this.width;
     const height = changes.height || this.height;
     this.update({ width, height });
   }
 
-  _prepareDetectionModes() {
+  /* ----------------------------------------
+    Detection Mode
+  ------------------------------------------- */
+  override _prepareDetectionModes() {
+    console.log("Here");
+
     this.automateVision ??=
       game.settings.storage.get("world").getItem("a5e.automateVisionRules") ??
       false;
@@ -48,62 +49,52 @@ export default class TokenDocumentA5e extends TokenDocument {
       return;
     }
 
-    super._prepareDetectionModes();
+    const { visionData } = actor;
+    const lightPerception = { enabled: true, range: Infinity };
+    const basicSight = { enabled: true, range: 0 };
+    this.detectionModes = { lightPerception, basicSight };
 
-    // Enable actor vision if setting checked
+    const visionMode = visionData.hasDarkvision ? "darkvision" : "basic";
     this.sight.enabled = true;
-    const lightPerception = {
-      id: "lightPerception",
-      enabled: true,
-      range: Infinity,
-    };
-    const basicSight = { id: "basicSight", enabled: true, range: 0 };
-    this.detectionModes = [lightPerception, basicSight];
-
     this.sight.attenuation = 0.1;
     this.sight.brightness = 0;
     this.sight.contrast = 0;
     this.sight.range = 0;
     this.sight.saturation = 0;
+    this.sight.visionMode = visionMode;
 
-    const { visionData } = actor;
-    const currentMode = visionData.hasDarkvision ? "darkvision" : "basic";
-    this.sight.visionMode = currentMode;
-    const { defaults } = CONFIG.Canvas.visionModes[currentMode].vision;
+    const visionModeDefaults = CONFIG.Canvas.visionModes[visionMode].vision.defaults;
+    this.sight.brightness = visionModeDefaults.brightness ?? 0;
+    this.sight.saturation = visionModeDefaults.saturation ?? 0;
 
-    this.sight.visionMode = currentMode;
-    this.sight.brightness = defaults.brightness ?? 0;
-    this.sight.saturation = defaults.saturation ?? 0;
-
-    if (currentMode === "darkvision") {
-      this.sight.range = visionData.senses.darkvision.distance;
-      basicSight.range = visionData.senses.darkvision.distance;
-      this.sight.saturation = -1;
+    if (visionMode === "darkvision") {
+      this.sight.range = basicSight.range = visionData.senses.darkvision.distance;
+      // TODO: Add support for color darkvision
+      this.sight.saturation = 0;
     }
 
     if (visionData.hasBlindsight) {
-      this.detectionModes.push({
-        id: "blindsight",
-        enabled: true,
-        range: visionData.senses.blindsight.distance ?? 0,
-      });
+      this.detectionModes.blindsight = {
+        enabled: true, range: visionData.senses.blindsight.distance ?? 0
+      };
     }
 
     if (visionData.hasTremorsense) {
-      this.detectionModes.push({
-        id: "feelTremor",
-        enabled: true,
-        range: visionData.senses.tremorsense.distance ?? 0,
-      });
+      this.detectionModes.feelTremor = {
+        enabled: true, range: visionData.senses.tremorsense.distance ?? 0
+      };
     }
 
     if (visionData.hasTruesight) {
-      this.detectionModes.push({
-        id: "seeInvisibility",
-        enabled: true,
-        range: visionData.senses.truesight.distance ?? 0,
-      });
+      this.detectionModes.seeAll = {
+        enabled: true, range: visionData.senses.truesight.distance ?? 0
+      }
     }
+
+    if (!actor.statuses.has("deafened")) {
+      this.detectionModes.hearing = { enabled: true, range: Infinity };
+    }
+
   }
 
   updateTokenSize() {

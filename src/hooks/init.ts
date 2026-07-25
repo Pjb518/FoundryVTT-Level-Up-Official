@@ -8,7 +8,7 @@ import ActiveEffectSheetA5e from "../documents/sheets/ActiveEffectSheet.svelte.t
 import ActorSheetA5e from "../documents/sheets/ActorSheet.svelte.ts";
 import ItemSheetA5e from "../documents/sheets/ItemSheet.svelte.ts";
 import TokenA5e from "../documents/token/token.js";
-import TokenDocumentA5e from "../documents/tokenDocument.js";
+import TokenDocumentA5e from "../documents/tokenDocument.ts";
 
 // Canvas
 import prepareDetectionModes from "../pixi/visionModes/prepareDetectionModes.js";
