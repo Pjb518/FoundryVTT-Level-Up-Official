@@ -27,7 +27,6 @@ export default class TokenDocumentA5e extends TokenDocument {
     Detection Mode
   ------------------------------------------- */
   override _prepareDetectionModes() {
-    console.log("Here");
 
     this.automateVision ??=
       game.settings.storage.get("world").getItem("a5e.automateVisionRules") ??
