@@ -86,7 +86,7 @@
         icon="fa-solid fa-running"
         tooltipText={replaceFatigueAndStrife
             ? "A5E.Exhaustion"
-            : "A5E.conditions.fatigue"}
+            : "A5E.conditions.fatigue.name"}
         trackProperty="fatigue"
         options={fatigueOptions}
         selectedOption={actorStore.attributes.fatigue}
@@ -96,7 +96,7 @@
     {#if !replaceFatigueAndStrife}
         <ActorStatusTrack
             icon="fa-solid fa-brain"
-            tooltipText="A5E.conditions.strife"
+            tooltipText="A5E.conditions.strife.name"
             trackProperty="strife"
             options={strifeOptions}
             selectedOption={actorStore.attributes.strife}

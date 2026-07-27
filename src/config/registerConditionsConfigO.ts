@@ -771,7 +771,7 @@ export default function registerConditionsConfig() {
     {
       id: "strife",
       _id: "strife0000000000",
-      name: "A5E.conditions.strife",
+      name: "A5E.conditions.strife.name",
       img: "systems/a5e/assets/icons/strife.svg",
       changes: changes.strife,
       duration: {},
