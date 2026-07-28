@@ -1,14 +1,17 @@
-import { mount } from "svelte";
+import { mount } from 'svelte';
 
-import A5eTokenHUD from "#view/huds/A5ETokenHUD.svelte";
+import A5eTokenHUD from '#view/huds/A5ETokenHUD.svelte';
 
 export default function renderNimbleTokenHUD(HUD, html, token) {
-  const target = html.querySelector(".palette, .status-effects");
-  if (!target) return;
+	const target = html.querySelector('.palette.status-effects');
+	if (!target) return;
 
-  target.innerHTML = "";
-  HUD._svelteComponent = mount(A5eTokenHUD, {
-    target,
-    props: { HUD, token },
-  });
+	// Check if palette is for effects
+	if (target.dataset.palette !== 'effects') return;
+
+	target.innerHTML = '';
+	HUD._svelteComponent = mount(A5eTokenHUD, {
+		target,
+		props: { HUD, token },
+	});
 }
