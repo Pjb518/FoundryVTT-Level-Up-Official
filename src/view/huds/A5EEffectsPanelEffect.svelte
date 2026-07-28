@@ -81,7 +81,7 @@
     }
 
     function getEffectDescription(actor) {
-        if (description) return description;
+        if (description) return localize(description);
 
         const { corruption, fatigue, inebriated, strife } =
             actor.system.attributes;
