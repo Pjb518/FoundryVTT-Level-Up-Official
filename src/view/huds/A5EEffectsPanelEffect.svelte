@@ -81,7 +81,8 @@
     }
 
     function getEffectDescription(actor) {
-        if (description) return localize(description);
+        const localized = localize(description);
+        if (localized) return localize(description);
 
         const { corruption, fatigue, inebriated, strife } =
             actor.system.attributes;
@@ -109,9 +110,9 @@
         return "";
     }
 
-    function getEffectName(actor) {
+    function getEffectName() {
         const { corruption, fatigue, inebriated, strife } =
-            actor.system.attributes;
+            actorData.attributes;
 
         if (conditionId === "corruption") return `${name} (${corruption}) `;
         if (conditionId === "fatigue") return `${name} (${fatigue}) `;
@@ -174,7 +175,7 @@
     let strife = $derived(actorData?.attributes.strife ?? 0);
 
     let tooltip = $derived(`
-        <h3 class="a5e-tooltip__heading">${getEffectName(actor)}</h3>
+        <h3 class="a5e-tooltip__heading">${getEffectName()}</h3>
         ${getEffectDescription(actor)}
         ${getEffectRemovalNote()}
         ${getEffectNotes(actor, duration)}
