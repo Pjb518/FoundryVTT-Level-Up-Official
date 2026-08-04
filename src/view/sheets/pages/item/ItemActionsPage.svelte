@@ -43,7 +43,9 @@
                 >
                     <img
                         class="a5e-item__image a5e-item__image--action"
-                        src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
+                        src={action?.img ??
+                            item.reactive.img ??
+                            "icons/svg/item-bag.svg"}
                         alt=""
                     />
 
