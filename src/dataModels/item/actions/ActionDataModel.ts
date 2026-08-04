@@ -233,6 +233,4 @@ class ActionField<
 	}
 }
 
-window.ActionDataModel = A5EActionData;
-
 export { A5EActionData, ActionField };
