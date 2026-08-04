@@ -85,6 +85,14 @@
             doc.documentName === "Item" &&
             ["Actor", "ActorDelta"].includes(doc.parent?.documentName),
     );
+
+    const legacyCheck = (effect) => {
+        const isActorBased = effect.parent?.documentName === "Actor";
+        const isPassive = effect.system?.effectType === "passive";
+        const isItemOrigin = effect.origin?.includes("Item");
+
+        return isActorBased && isPassive && isItemOrigin;
+    };
 </script>
 
 <li
@@ -119,6 +127,9 @@
     <div class="name-wrapper">
         <div class="name">
             {effect.name}
+            {#if legacyCheck(effect)}
+                (Legacy - Please Delete)
+            {/if}
         </div>
     </div>
 

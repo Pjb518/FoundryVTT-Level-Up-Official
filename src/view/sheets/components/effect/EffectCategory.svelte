@@ -46,7 +46,8 @@
     </header>
 
     <ul class="a5e-item-list">
-        {#each [...effects] as effect (effect.id)}
+        <!-- Temp id work around for old effects -->
+        {#each [...effects] as effect (effect.id + effect.parent.documentName)}
             <EffectList
                 {effect}
                 --effectTemplateAreas={effectTemplateConfiguration.areas}

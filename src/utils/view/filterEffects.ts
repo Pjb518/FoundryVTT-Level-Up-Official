@@ -1,51 +1,41 @@
 type FilterOptions = {
-  searchTerm?: string;
-  searchDescription?: boolean;
-  filters?: ((e) => boolean)[];
+	searchTerm?: string;
+	searchDescription?: boolean;
+	filters?: ((e) => boolean)[];
 };
 
 function filterByName(effect: ActiveEffect, searchTerm: string) {
-  if (effect.name.toLocaleLowerCase().includes(searchTerm?.toLocaleLowerCase()))
-    return true;
+	if (effect.name.toLocaleLowerCase().includes(searchTerm?.toLocaleLowerCase())) return true;
 }
 
 function filterByDescription(effect: ActiveEffect, searchTerm: string) {
-  if (
-    effect.system.description
-      .toLocaleLowerCase()
-      .includes(searchTerm?.toLocaleLowerCase())
-  )
-    return true;
+	if (effect.system.description.toLocaleLowerCase().includes(searchTerm?.toLocaleLowerCase()))
+		return true;
 }
 
-export function filterEffects(
-  document: Actor | Item,
-  type: string,
-  options: FilterOptions = {},
-) {
-  const { searchTerm, searchDescription, filters = [] } = options;
+export function filterEffects(document: Actor | Item, type: string, options: FilterOptions = {}) {
+	const { searchTerm, searchDescription, filters = [] } = options;
 
-  const effects = document.documentName === "Actor" ? [...document.allApplicableEffects()] : document.effects;
+	const effects =
+		document.documentName === 'Actor' ? [...document.allApplicableEffects()] : document.effects;
 
-  return effects
-    .filter((effect) => {
-      // Filter by type first
-      if (type.length && effect.system.effectType !== type) return false;
+	return effects
+		.filter((effect) => {
+			// Filter by type first
+			if (type.length && effect.system.effectType !== type) return false;
 
-      // Filter by search term
-      if (searchTerm) {
-        const funcArrays = searchDescription
-          ? [filterByName, filterByDescription]
-          : [filterByName];
-        const hasName = funcArrays.some((f) => f(effect, searchTerm));
+			// Filter by search term
+			if (searchTerm) {
+				const funcArrays = searchDescription ? [filterByName, filterByDescription] : [filterByName];
+				const hasName = funcArrays.some((f) => f(effect, searchTerm));
 
-        if (!hasName) return false;
-      }
+				if (!hasName) return false;
+			}
 
-      // Apply custom filters
-      if (!filters?.every((fn) => fn(effect))) return false;
+			// Apply custom filters
+			if (!filters?.every((fn) => fn(effect))) return false;
 
-      return true;
-    })
-    .sort((a, b) => a.sort - b.sort);
+			return true;
+		})
+		.sort((a, b) => a.sort - b.sort);
 }
