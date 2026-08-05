@@ -1,6 +1,6 @@
-import { RecordField } from '../../fields/RecordField';
-import type { A5EObjectData } from '../ObjectDataModel';
-import { ActionConsumerField, ActionPromptField, ActionRollField } from './ActionFields';
+import { RecordField } from '../../fields/RecordField.ts';
+import type { A5EObjectData } from '../ObjectDataModel.ts';
+import { ActionConsumerField, ActionPromptField, ActionRollField } from './ActionFields.ts';
 
 const { fields } = foundry.data;
 
@@ -65,6 +65,7 @@ const actionSchema = () => ({
 			nullable: false,
 			initial: '0',
 		}),
+		concentration: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	}),
 
 	effects: new fields.SetField(

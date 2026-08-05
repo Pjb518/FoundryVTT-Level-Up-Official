@@ -505,7 +505,7 @@
                 {#if itemStore.ritual}
                     <span
                         class="component"
-                        data-tooltip="A5E.SpellRitual"
+                        data-tooltip="A5E.spells.ritual"
                         data-tooltip-direction="UP"
                     >
                         {localize("A5E.spells.ritualAbbr")}

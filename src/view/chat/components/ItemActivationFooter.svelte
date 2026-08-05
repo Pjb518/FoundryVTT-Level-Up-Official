@@ -23,7 +23,7 @@
         if (item.system.ritual) {
             components.push({
                 label: localize("A5E.spells.ritualAbbr"),
-                tooltip: localize("A5E.SpellRitual"),
+                tooltip: localize("A5E.spells.ritual"),
             });
         }
 
@@ -36,7 +36,8 @@
     const spellComponents = getSpellComponents(item);
     const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
 
-    const castingLevel = CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
+    const castingLevel =
+        CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
 </script>
 
 {#if item?.type === "spell"}

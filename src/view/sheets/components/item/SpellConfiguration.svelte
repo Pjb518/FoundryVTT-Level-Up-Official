@@ -29,7 +29,10 @@
     function prepareSpellComponents() {
         return Object.entries(itemStore.components)
             .filter(([, state]) => state)
-            .map(([component]) => spellComponentAbbreviations[component] ?? component)
+            .map(
+                ([component]) =>
+                    spellComponentAbbreviations[component] ?? component,
+            )
             .join(", ");
     }
 
@@ -96,7 +99,11 @@
             options={Object.entries(spellSchools.primary)}
             selected={itemStore.schools.primary}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(item, "system.schools.primary", value)}
+                updateDocumentDataFromField(
+                    item,
+                    "system.schools.primary",
+                    value,
+                )}
         />
 
         <CheckboxGroup
@@ -112,7 +119,11 @@
             options={Object.entries(spellSchools.secondary)}
             selected={itemStore.schools.secondary}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(item, "system.schools.secondary", value)}
+                updateDocumentDataFromField(
+                    item,
+                    "system.schools.secondary",
+                    value,
+                )}
         />
 
         <CheckboxGroup
@@ -146,15 +157,10 @@
             </FieldWrapper>
         {/if}
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
-            <Checkbox
-                label="A5E.SpellConcentration"
-                checked={itemStore.concentration}
-                onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(item, "system.concentration", value);
-                }}
-            />
-
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <Checkbox
                 label="A5E.ItemPrepared"
                 checked={itemStore.prepared}
@@ -180,10 +186,14 @@
 
             {#if itemStore.level > 0}
                 <Checkbox
-                    label="A5E.SpellRitual"
+                    label="A5E.spells.ritual"
                     checked={itemStore.ritual}
                     onUpdateSelection={(value) => {
-                        updateDocumentDataFromField(item, "system.ritual", value);
+                        updateDocumentDataFromField(
+                            item,
+                            "system.ritual",
+                            value,
+                        );
                     }}
                 />
             {/if}
@@ -197,7 +207,10 @@
             />
         </Section>
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper>
                 <Checkbox
                     label="A5E.items.requiresBloodied"
