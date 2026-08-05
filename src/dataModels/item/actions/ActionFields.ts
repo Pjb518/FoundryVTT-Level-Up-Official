@@ -1,10 +1,7 @@
-/* eslint-disable max-len */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-param-reassign */
-import * as AreaData from './ActionAreaDataModels';
-import * as ConsumerData from './ActionConsumersDataModel';
-import * as PromptData from './ActionPromptsDataModel';
-import * as RollData from './ActionRollsDataModel';
+import * as AreaData from './ActionAreaDataModels.ts';
+import * as ConsumerData from './ActionConsumersDataModel.ts';
+import * as PromptData from './ActionPromptsDataModel.ts';
+import * as RollData from './ActionRollsDataModel.ts';
 
 // ======================================================
 //                       Areas
@@ -59,8 +56,11 @@ class ActionAreaField<
 	): InitializedType {
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
+		const schema = Cls?.schema;
+		const filledValue = foundry.utils.mergeObject(schema?.getInitialValue() ?? {}, value);
+
 		// @ts-expect-error
-		if (Cls) return new Cls(value, { parent: model, ...options });
+		if (Cls) return new Cls(filledValue, { parent: model, ...options });
 		// @ts-expect-error
 		return foundry.utils.deepClone(value);
 	}
@@ -122,8 +122,11 @@ class ActionConsumerField<
 	): InitializedType {
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
+		const schema = Cls?.schema;
+		const filledValue = foundry.utils.mergeObject(schema?.getInitialValue() ?? {}, value);
+
 		// @ts-expect-error
-		if (Cls) return new Cls(value, { parent: model, ...options });
+		if (Cls) return new Cls(filledValue, { parent: model, ...options });
 		// @ts-expect-error
 		return foundry.utils.deepClone(value);
 	}
@@ -180,8 +183,11 @@ class ActionPromptField<
 	): InitializedType {
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
+		const schema = Cls?.schema;
+		const filledValue = foundry.utils.mergeObject(schema?.getInitialValue() ?? {}, value);
+
 		// @ts-expect-error
-		if (Cls) return new Cls(value, { parent: model, ...options });
+		if (Cls) return new Cls(filledValue, { parent: model, ...options });
 		// @ts-expect-error
 		return foundry.utils.deepClone(value);
 	}
@@ -239,8 +245,11 @@ class ActionRollField<
 	): InitializedType {
 		// @ts-expect-error
 		const Cls = this.getModelForType(value?.type);
+		const schema = Cls?.schema;
+		const filledValue = foundry.utils.mergeObject(schema?.getInitialValue() ?? {}, value);
+
 		// @ts-expect-error
-		if (Cls) return new Cls(value, { parent: model, ...options });
+		if (Cls) return new Cls(filledValue, { parent: model, ...options });
 		// @ts-expect-error
 		return foundry.utils.deepClone(value);
 	}

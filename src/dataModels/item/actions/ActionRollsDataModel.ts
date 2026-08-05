@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 const { fields } = foundry.data;
 
 // ======================================================
