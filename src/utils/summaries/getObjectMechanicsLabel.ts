@@ -1,16 +1,18 @@
-import type ObjectItemA5e from '../../documents/item/object';
+import type ObjectItemA5e from '../../documents/item/object.ts';
 
-import getAttunementLabel from './getAttunementLabel';
-import getRarityLabel from './getRarityLabel';
+import getAttunementLabel from './getAttunementLabel.ts';
+import getRarityLabel from './getRarityLabel.ts';
 
 export default function getObjectMechanicsLabel(item: ObjectItemA5e, options: Record<string, any>) {
 	const attunement = getAttunementLabel(item);
-	const { price } = item.system;
+	const { value, denomination, special } = item.system.price;
 	const rarity = getRarityLabel(item);
 
 	const includeAttunement = attunement && !options?.hideAttunementData;
-	const includePrice = price && !options?.hidePrice;
+	const includePrice = (value || special.length) && !options?.hidePrice;
 	const includeRarity = rarity && !options?.hideRarity;
+
+	const price = value ? `${value} ${denomination}` : `${special}`;
 
 	if (includeRarity) {
 		if (includePrice && includeAttunement) return `${rarity} (${attunement}; Cost ${price})`;
