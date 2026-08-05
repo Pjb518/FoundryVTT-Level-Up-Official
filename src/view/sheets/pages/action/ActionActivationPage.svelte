@@ -9,6 +9,7 @@
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
 
     function getDurationHeadingLabel(action: Action): string {
         if (!action.duration?.unit) return "A5E.actions.headings.duration";
@@ -19,6 +20,35 @@
         ) {
             return "A5E.actions.headings.duration";
         } else return "A5E.actions.headings.durationFormula";
+    }
+
+    async function updateConcentration(value: boolean) {
+        // Update action
+        await updateDocumentDataFromField(
+            item,
+            `system.actions.${actionId}.duration.concentration`,
+            value,
+        );
+
+        // Update item if true
+        if (value === true) {
+            await updateDocumentDataFromField(
+                item,
+                "system.concentration",
+                true,
+            );
+            return;
+        }
+
+        // Update item if false
+        // Find out if any actions have concentration
+        const otherActions = [...item.actions].some(
+            ([id, a]) => !!a.duration.concentration && id !== actionId,
+        );
+
+        if (otherActions) return;
+
+        updateDocumentDataFromField(item, "system.concentration", false);
     }
 
     let actor: any = getContext("actor");
@@ -153,4 +183,10 @@
             {/each}
         </select>
     </FieldWrapper>
+
+    <Checkbox
+        label="Requires Concentration"
+        checked={action.duration.concentration}
+        onUpdateSelection={(detail) => updateConcentration(detail)}
+    />
 </Section>

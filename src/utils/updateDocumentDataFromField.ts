@@ -1,3 +1,7 @@
-export default function updateDocumentDataFromField(document: any, key: string, value: any): void {
+export default async function updateDocumentDataFromField(
+	document: any,
+	key: string,
+	value: any,
+): Promise<void> {
 	document.update({ [key]: value });
 }
