@@ -217,16 +217,50 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper heading="A5E.objects.price">
+        <FieldWrapper
+            heading="A5E.objects.price"
+            --a5e-field-wrapper-gap="0.375rem 1rem"
+            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-header-width="100%"
+        >
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
-                type="text"
-                id="{item.uuid}-price"
-                value={itemStore.price}
+                type="number"
+                value={itemStore.price.value}
+                data-tooltip="Price Value"
+                data-tooltip-direction="UP"
                 onchange={({ currentTarget }) =>
                     updateDocumentDataFromField(
                         item,
-                        "system.price",
+                        "system.price.value",
+                        Number(currentTarget.value),
+                    )}
+            />
+
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="text"
+                value={itemStore.price.denomination}
+                data-tooltip="Price Denomination"
+                data-tooltip-direction="UP"
+                onchange={({ currentTarget }) =>
+                    updateDocumentDataFromField(
+                        item,
+                        "system.price.denomination",
+                        currentTarget.value,
+                    )}
+            />
+
+            <input
+                class="a5e-input a5e-input--slim a5e-input--fit"
+                type="text"
+                value={itemStore.price.special}
+                data-tooltip="Price Special Value"
+                data-tooltip-direction="UP"
+                onchange={({ currentTarget }) =>
+                    updateDocumentDataFromField(
+                        item,
+                        "system.price.special",
                         currentTarget.value,
                     )}
             />
