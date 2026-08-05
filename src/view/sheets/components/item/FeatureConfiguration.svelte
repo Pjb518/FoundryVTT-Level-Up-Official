@@ -13,7 +13,10 @@
     function getClassSummary() {
         const parentClass = itemStore.classes;
 
-        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
+        return (
+            localize(classes[parentClass] ?? classes5e[parentClass]) ||
+            parentClass
+        );
     }
 
     let item: any = getContext("item");
@@ -112,7 +115,11 @@
                 options={Object.entries(classes)}
                 selected={itemStore.featClasses}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(item, "system.featClasses", value);
+                    updateDocumentDataFromField(
+                        item,
+                        "system.featClasses",
+                        value,
+                    );
                 }}
             />
 
@@ -144,20 +151,14 @@
 
         <FieldWrapper>
             <Checkbox
-                label="A5E.SpellConcentration"
-                checked={itemStore.concentration}
-                onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(item, "system.concentration", value);
-                }}
-            />
-        </FieldWrapper>
-
-        <FieldWrapper>
-            <Checkbox
                 label="A5E.items.requiresBloodied"
                 checked={itemStore.requiresBloodied}
                 onUpdateSelection={(value) => {
-                    updateDocumentDataFromField(item, "system.requiresBloodied", value);
+                    updateDocumentDataFromField(
+                        item,
+                        "system.requiresBloodied",
+                        value,
+                    );
                 }}
             />
         </FieldWrapper>

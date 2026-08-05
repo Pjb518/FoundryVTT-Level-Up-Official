@@ -291,6 +291,14 @@
                     </dd>
                 </div>
             {/if}
+
+            <div class="a5e-dl-box__section">
+                <dt class="a5e-dl-box__header">Requires Concentration:</dt>
+
+                <dd class="a5e-dl-box__content">
+                    {itemStore.concentration ? "Yes" : "No"}
+                </dd>
+            </div>
         </dl>
     {/if}
 </Section>
