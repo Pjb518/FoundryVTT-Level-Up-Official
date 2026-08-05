@@ -230,6 +230,11 @@ const alignments = {
 	neutral: 'Neutral',
 };
 
+const ammunitionDamageModes = {
+	bonus: 'A5E.ammunition.damageModes.bonus',
+	override: 'A5E.ammunition.damageModes.override',
+};
+
 const ammunitionProperties = {
 	explosive: 'A5E.ammunition.properties.explosive',
 	flaming: 'A5E.ammunition.properties.flaming',
@@ -2140,6 +2145,7 @@ const A5E = {
 	actorSizes,
 	originItemTypes,
 	alignments,
+	ammunitionDamageModes,
 	ammunitionProperties,
 	appliedArmorTypes,
 	areaIcons,

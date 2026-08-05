@@ -14,7 +14,7 @@
     const { A5E } = CONFIG;
     const isGM = game.user?.isGM;
 
-    let editMode = $state(true);
+    let editMode = $state(false);
     let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
     let showVRCTechLevel = game.settings.get("a5e", "showVRCTechLevel");
     let showVRCImplants = game.settings.get("a5e", "showVRCImplants");

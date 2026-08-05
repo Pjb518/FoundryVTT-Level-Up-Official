@@ -6,6 +6,7 @@
 
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
     function prepareAmmunitionProperties() {
         const properties = itemStore.ammunitionProperties.map(
@@ -43,7 +44,23 @@
             options={Object.entries(ammunitionProperties)}
             selected={itemStore.ammunitionProperties}
             onUpdateSelection={(value) =>
-                updateDocumentDataFromField(item, "system.ammunitionProperties", value)}
+                updateDocumentDataFromField(
+                    item,
+                    "system.ammunitionProperties",
+                    value,
+                )}
+        />
+
+        <RadioGroup
+            heading="A5E.ammunition.headings.damageMode"
+            options={Object.entries(CONFIG.A5E.ammunitionDamageModes)}
+            selected={itemStore.ammunitionDamageMode}
+            onUpdateSelection={(value) =>
+                updateDocumentDataFromField(
+                    item,
+                    "system.ammunitionDamageMode",
+                    value,
+                )}
         />
     {:else}
         <dl class="a5e-dl-box">
@@ -54,6 +71,20 @@
 
                 <dd class="a5e-dl-box__content">
                     {selectedAmmunitionProperties || localize("A5E.None")}
+                </dd>
+            </div>
+
+            <div class="a5e-dl-box__section">
+                <dt class="a5e-dl-box__header">
+                    {localize("A5E.ammunition.headings.damageMode")}:
+                </dt>
+
+                <dd class="a5e-dl-box__content">
+                    {localize(
+                        CONFIG.A5E.ammunitionDamageModes[
+                            itemStore.ammunitionDamageMode
+                        ],
+                    ) || localize("A5E.None")}
                 </dd>
             </div>
         </dl>

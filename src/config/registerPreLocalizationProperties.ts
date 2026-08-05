@@ -11,6 +11,7 @@ export default [
 	'abilityActivationTypesPlural',
 	'actionOptions',
 	'actorSizes',
+	'ammunitionDamageModes',
 	'ammunitionProperties',
 	'areaTypes',
 	'armor',
