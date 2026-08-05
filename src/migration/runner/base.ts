@@ -19,11 +19,11 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_MIGRATION_VERSION = 0.021;
+	static LATEST_MIGRATION_VERSION = 0.022;
 
-	static RECOMMENDED_SAFE_VERSION = 0.019;
+	static RECOMMENDED_SAFE_VERSION = 0.022;
 
-	static MINIMUM_SAFE_VERSION = 0.014;
+	static MINIMUM_SAFE_VERSION = 0.022;
 
 	constructor(migrations?: MigrationBase[]) {
 		if (!migrations) migrations = [];
@@ -77,13 +77,13 @@ class MigrationRunnerBase {
 						console.error(e);
 					}
 
-          for (const effect of item.effects) {
-            try {
-              await migration?.updateEffect?.(effect, item);
-            } catch (e) {
-              console.info(`Actor ${actorData.name} failed effects update on ${item.name}`);
-              console.error(e);
-            }
+					for (const effect of item.effects) {
+						try {
+							await migration?.updateEffect?.(effect, item);
+						} catch (e) {
+							console.info(`Actor ${actorData.name} failed effects update on ${item.name}`);
+							console.error(e);
+						}
 					}
 				}
 

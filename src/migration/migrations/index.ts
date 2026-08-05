@@ -5,4 +5,5 @@ export { Migration017MigrateSpellMax } from './017-migrate-spell-max.ts';
 export { Migration018MigrateTraitProficiencyGrant } from './018-migrate-trait-proficiency-grant.ts';
 export { Migration019MigrateFeatureGrant } from './019-migrate-feature-grant.ts';
 export { Migration020MigrateToV1 } from './020-migrate-v1.ts';
-export { Migration021MigrateEffects } from "./021-migrate-effects.ts";
+export { Migration021MigrateEffects } from './021-migrate-effects.ts';
+export { Migration022MigratePrice } from './022-migrate-price.ts';

@@ -162,34 +162,32 @@ class A5EObjectData extends A5EBaseItemData<
 		};
 	}
 
-	static override migrateData(source: object, options): object {
-		console.log(source);
-		console.log(source.price);
-		if (typeof source.price === 'string') this.#migratePrice(source);
+	// static override migrateData(source: object, options): object {
+	// 	if (typeof source.price === 'string') this.#migratePrice(source);
 
-		return super.migrateData(source, options);
-	}
+	// 	return super.migrateData(source, options);
+	// }
 
-	static #migratePrice(source) {
-		const original = source.price;
-		const trimmed = original.trim();
+	// static #migratePrice(source) {
+	// 	const original = source.price;
+	// 	const trimmed = original.trim();
 
-		let amount: number = 0;
-		let denomination = 'gp';
-		let special = '';
+	// 	let amount: number = 0;
+	// 	let denomination = 'gp';
+	// 	let special = '';
 
-		// number + optional space + 2-character denomination
-		const match = trimmed.match(/^((?:\d{1,3}(?:,\d{3})+)|\d+)\s*([A-Za-z]{2})$/);
+	// 	// number + optional space + 2-character denomination
+	// 	const match = trimmed.match(/^((?:\d{1,3}(?:,\d{3})+)|\d+)\s*([A-Za-z]{2})$/);
 
-		if (match) {
-			amount = Number(match[1].replace(/,/g, ''));
-			denomination = match[2];
-		} else {
-			special = trimmed;
-		}
+	// 	if (match) {
+	// 		amount = Number(match[1].replace(/,/g, ''));
+	// 		denomination = match[2];
+	// 	} else {
+	// 		special = trimmed;
+	// 	}
 
-		source.price = { value: amount, denomination, special };
-	}
+	// 	source.price = { value: amount, denomination, special };
+	// }
 }
 
 // eslint-disable-next-line import/prefer-default-export
