@@ -55,16 +55,27 @@
                 options={Object.entries(A5E.itemTechLevels)}
                 selected={itemStore.techLevel}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(item, "system.techLevel", value)}
+                    updateDocumentDataFromField(
+                        item,
+                        "system.techLevel",
+                        value,
+                    )}
             />
         {/if}
 
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.75rem"
+        >
             <Checkbox
                 label="A5E.attunement.headings.requiredPrompt"
                 checked={itemStore.requiresAttunement}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(item, "system.requiresAttunement", value)}
+                    updateDocumentDataFromField(
+                        item,
+                        "system.requiresAttunement",
+                        value,
+                    )}
             />
 
             {#if item.actor && itemStore.requiresAttunement}
@@ -72,7 +83,11 @@
                     label="A5E.attunement.headings.prompt"
                     checked={itemStore.attuned}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(item, "system.attuned", value)}
+                        updateDocumentDataFromField(
+                            item,
+                            "system.attuned",
+                            value,
+                        )}
                 />
             {/if}
 
@@ -81,14 +96,22 @@
                     label="A5E.objects.plotItem"
                     checked={itemStore.plotItem}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(item, "system.plotItem", value)}
+                        updateDocumentDataFromField(
+                            item,
+                            "system.plotItem",
+                            value,
+                        )}
                 />
 
                 <Checkbox
                     label="A5E.objects.unidentified"
                     checked={itemStore.unidentified}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(item, "system.unidentified", value)}
+                        updateDocumentDataFromField(
+                            item,
+                            "system.unidentified",
+                            value,
+                        )}
                 />
             {/if}
 
@@ -97,7 +120,11 @@
                     label="A5E.supply.title"
                     checked={itemStore.supply}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(item, "system.supply", value)}
+                        updateDocumentDataFromField(
+                            item,
+                            "system.supply",
+                            value,
+                        )}
                 />
             {/if}
 
@@ -106,7 +133,11 @@
                     label="A5E.objects.implant"
                     checked={itemStore.implant}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(item, "system.implant", value)}
+                        updateDocumentDataFromField(
+                            item,
+                            "system.implant",
+                            value,
+                        )}
                 />
             {/if}
         </Section>
@@ -237,7 +268,8 @@
                 </dt>
 
                 <dd class="a5e-dl-box__content">
-                    {A5E.objectTypes[itemStore.objectType] ?? localize("A5E.None")}
+                    {A5E.objectTypes[itemStore.objectType] ??
+                        localize("A5E.None")}
                 </dd>
             </div>
 
@@ -258,7 +290,8 @@
                     </dt>
 
                     <dd class="a5e-dl-box__content">
-                        {A5E.itemTechLevels[itemStore.techLevel] ?? itemStore.techLevel}
+                        {A5E.itemTechLevels[itemStore.techLevel] ??
+                            itemStore.techLevel}
                     </dd>
                 </div>
             {/if}
@@ -328,7 +361,11 @@
                 </dt>
 
                 <dd class="a5e-dl-box__content">
-                    {itemStore.price || localize("A5E.None")}
+                    {itemStore.price.value
+                        ? `${itemStore.price.value} ${itemStore.price.denomination}`
+                        : itemStore.price.special.length
+                          ? itemStore.price.special
+                          : localize("A5E.None")}
                 </dd>
             </div>
 
