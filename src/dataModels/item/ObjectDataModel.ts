@@ -1,6 +1,5 @@
-import type { ActionsData, ArmorData, UsesData } from './common.ts';
-
 import { A5EBaseItemData } from './base.ts';
+import type { ActionsData, ArmorData, UsesData } from './common.ts';
 import { actions, armor, uses } from './common.ts';
 
 const { fields } = foundry.data;
@@ -32,8 +31,8 @@ const schema = {
 		weightlessContents: new fields.BooleanField({ required: true, initial: false }),
 	}),
 	containerId: new fields.StringField({ required: true, initial: '' }),
-  containerSortDirection: new fields.StringField({ required: true, initial: 'ascending' }),
-  containerSortMethod: new fields.StringField({ required: true, initial: 'none' }),
+	containerSortDirection: new fields.StringField({ required: true, initial: 'ascending' }),
+	containerSortMethod: new fields.StringField({ required: true, initial: 'none' }),
 	craftingComponents: new fields.StringField({ required: true, initial: '' }),
 	damagedState: new fields.NumberField({
 		required: true,
@@ -43,23 +42,23 @@ const schema = {
 		max: 2,
 	}),
 	defensiveProperties: new fields.StringField({ required: true, initial: '' }),
-  endemicLifeProperties: new fields.SchemaField({
-    biomes: new fields.ArrayField(
-      new fields.StringField({ required: true, initial: '' }),
-      { required: true, initial: [] },
-    ),
-    creatureType: new fields.StringField({ nullable: false, initial: '' }),
-    properties: new fields.ArrayField(
-      new fields.StringField({ required: true, initial: '' }),
-      { required: true, initial: [] },
-    ),
-    regions: new fields.ArrayField(
-      new fields.StringField({ required: true, initial: '' }),
-      { required: true, initial: [] },
-    ),
-    size: new fields.StringField({ nullable: false, initial: '' }),
-    type: new fields.StringField({ nullable: false, initial: '' }),
-  }),
+	endemicLifeProperties: new fields.SchemaField({
+		biomes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+			required: true,
+			initial: [],
+		}),
+		creatureType: new fields.StringField({ nullable: false, initial: '' }),
+		properties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+			required: true,
+			initial: [],
+		}),
+		regions: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+			required: true,
+			initial: [],
+		}),
+		size: new fields.StringField({ nullable: false, initial: '' }),
+		type: new fields.StringField({ nullable: false, initial: '' }),
+	}),
 	energyProperties: new fields.StringField({ required: true, initial: '' }),
 	equippedState: new fields.NumberField({
 		required: true,
@@ -85,7 +84,15 @@ const schema = {
 	}),
 	objectType: new fields.StringField({ required: true, initial: '' }),
 	plotItem: new fields.BooleanField({ required: true, initial: false }),
-	price: new fields.StringField({ required: true, initial: '' }),
+	// price: new fields.StringField({ required: true, initial: '' }),
+	price: new fields.SchemaField(
+		{
+			value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			denomination: new fields.StringField({ required: true, nullable: false, initial: 'gp' }),
+			special: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		},
+		{ required: true, nullable: false },
+	),
 	proficient: new fields.BooleanField({ required: true, initial: false }),
 	quantity: new fields.NumberField({
 		required: true,
@@ -153,6 +160,35 @@ class A5EObjectData extends A5EBaseItemData<
 			...uses(),
 			...schema,
 		};
+	}
+
+	static override migrateData(source: object, options): object {
+		console.log(source);
+		console.log(source.price);
+		if (typeof source.price === 'string') this.#migratePrice(source);
+
+		return super.migrateData(source, options);
+	}
+
+	static #migratePrice(source) {
+		const original = source.price;
+		const trimmed = original.trim();
+
+		let amount: number = 0;
+		let denomination = 'gp';
+		let special = '';
+
+		// number + optional space + 2-character denomination
+		const match = trimmed.match(/^((?:\d{1,3}(?:,\d{3})+)|\d+)\s*([A-Za-z]{2})$/);
+
+		if (match) {
+			amount = Number(match[1].replace(/,/g, ''));
+			denomination = match[2];
+		} else {
+			special = trimmed;
+		}
+
+		source.price = { value: amount, denomination, special };
 	}
 }
 
