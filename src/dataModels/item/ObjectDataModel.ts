@@ -5,6 +5,12 @@ import { actions, armor, uses } from './common.ts';
 const { fields } = foundry.data;
 
 const schema = {
+	ammunitionDamageMode: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'bonus',
+		choices: ['bonus', 'override'],
+	}),
 	ammunitionProperties: new fields.ArrayField(
 		new fields.StringField({ required: true, initial: '' }),
 		{ required: true, initial: [] },

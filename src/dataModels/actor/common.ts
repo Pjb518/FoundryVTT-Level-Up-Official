@@ -1,5 +1,5 @@
-import { RecordField } from '../fields/RecordField';
-import UnchasteSchemaField from '../fields/UnchasteSchemaField';
+import { RecordField } from '../fields/RecordField.ts';
+import UnchasteSchemaField from '../fields/UnchasteSchemaField.ts';
 
 import {
 	getAbilitiesBonusData,
@@ -12,7 +12,7 @@ import {
 	getMovementBonusData,
 	getSensesBonusData,
 	getSkillBonusData,
-} from './Bonuses';
+} from './Bonuses.js';
 
 const { fields } = foundry.data;
 
