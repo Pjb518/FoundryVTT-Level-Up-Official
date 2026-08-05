@@ -455,6 +455,15 @@ const creatureTypes = {
 	undead: 'A5E.details.creature.types.undead',
 };
 
+const currencyDenominations = {
+	cp: 'A5E.currency.copper',
+	sp: 'A5E.currency.silver',
+	ep: 'A5E.currency.electrum',
+	gp: 'A5E.currency.gold',
+	pp: 'A5E.currency.platinum',
+	cr: 'A5E.currency.credits',
+};
+
 const damagedStates = {
 	0: 'A5E.damagedState.intact',
 	1: 'A5E.damagedState.damaged',
@@ -2149,6 +2158,7 @@ const A5E = {
 	containerSortDirections,
 	containerSortMethods,
 	creatureTypes,
+	currencyDenominations,
 	damagedStates,
 	baseScalingModes,
 	targetScalingModes,

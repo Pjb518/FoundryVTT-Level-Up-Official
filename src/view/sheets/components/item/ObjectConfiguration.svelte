@@ -14,7 +14,7 @@
     const { A5E } = CONFIG;
     const isGM = game.user?.isGM;
 
-    let editMode = $state(false);
+    let editMode = $state(true);
     let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
     let showVRCTechLevel = game.settings.get("a5e", "showVRCTechLevel");
     let showVRCImplants = game.settings.get("a5e", "showVRCImplants");
@@ -237,19 +237,27 @@
                     )}
             />
 
-            <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="text"
-                value={itemStore.price.denomination}
+            <select
+                class="a5e-input a5e-input--slim a5e-input--fit"
                 data-tooltip="Price Denomination"
                 data-tooltip-direction="UP"
-                onchange={({ currentTarget }) =>
+                onchange={({ currentTarget }) => {
                     updateDocumentDataFromField(
                         item,
                         "system.price.denomination",
                         currentTarget.value,
-                    )}
-            />
+                    );
+                }}
+            >
+                {#each Object.entries(CONFIG.A5E.currencyDenominations) as [id, label]}
+                    <option
+                        value={id}
+                        selected={id === itemStore.price.denomination}
+                    >
+                        {label}
+                    </option>
+                {/each}
+            </select>
 
             <input
                 class="a5e-input a5e-input--slim a5e-input--fit"
