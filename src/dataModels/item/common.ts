@@ -1,5 +1,4 @@
-import { RecordField } from '../fields/RecordField';
-import { ActionField } from './actions/ActionDataModel';
+import { ActionField } from './actions/ActionDataModel.ts';
 
 const { fields } = foundry.data;
 
@@ -8,11 +7,7 @@ const { fields } = foundry.data;
 // -----------------------------------------
 
 export const actions = () => ({
-	// actions: new fields.ObjectField({ required: true, initial: {} })
-	actions: new RecordField(
-		new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-		new ActionField(),
-	),
+	actions: new ActionField({ validateKey: foundry.data.validators.isValidId }),
 });
 
 export type ActionsData = ReturnType<typeof actions>;

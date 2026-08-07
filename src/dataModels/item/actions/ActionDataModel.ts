@@ -180,9 +180,7 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 		};
 	}
 
-	protected override _initialize(options?: any): void {
-		super._initialize(options);
-
+	protected init(options?: any): void {
 		this.prepareBaseData();
 		this.prepareDerivedData();
 	}
@@ -203,34 +201,23 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 // ======================================================
 //                   Action Field
 // ======================================================
-class ActionField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-	const AssignmentType = typeof A5EActionData,
-	const InitializedType = A5EActionData,
-	const PersistedType extends object | null | undefined = A5EActionData,
-> extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
-	override _cleanType(
-		value: InitializedType,
-		options?: foundry.data.fields.DataField.CleanOptions,
-		_state: any,
-	): InitializedType {
-		// eslint-disable-next-line no-param-reassign
-		if (!(typeof value === 'object')) value = {} as InitializedType;
+class ActionField extends foundry.data.fields.TypedObjectField {
+	constructor(options = {}, context = {}) {
+		const field = new fields.EmbeddedDataField(A5EActionData);
 
-		// @ts-expect-error
-		return A5EActionData.cleanData(value, options, _state);
+		options.validateKey ||= (key) => foundry.data.validators.isValidId(key);
+
+		super(field, options, context);
 	}
 
-	override initialize(
-		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
-		options = {},
-	): InitializedType {
-		const schema = A5EActionData.schema;
-		const filledValues = foundry.utils.mergeObject(A5EActionData.schema.getInitialValue(), value);
+	protected override initialize(value, model, options = {}): any {
+		const init = super.initialize(value, model, options);
 
-		// @ts-expect-error
-		return new A5EActionData(filledValues, { parent: model, schema, ...options });
+		for (const [id, model] of Object.entries(init)) {
+			model.init(options);
+		}
+
+		return init;
 	}
 }
 
