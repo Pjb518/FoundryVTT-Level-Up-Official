@@ -88,6 +88,11 @@ export const uses = () => ({
 		recharge: new fields.SchemaField({
 			formula: new fields.StringField({ required: true, initial: '' }),
 			threshold: new fields.NumberField({ required: true, initial: 0, integer: true }),
+			type: new fields.StringField({
+				required: true,
+				initial: 'recoverAll',
+				choices: CONFIG.A5E.usesRecoveryTypeOptions,
+			}),
 		}),
 	}),
 });

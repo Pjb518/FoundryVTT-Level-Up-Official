@@ -95,6 +95,7 @@ export default [
 	'toolsPlural.miscellaneous',
 	'toolsPlural.specialist',
 	'toolsPlural.vehicles',
+	'usesRecoveryTypeOptions',
 	'weapons.simple',
 	'weapons.martial',
 	'weapons.rare',

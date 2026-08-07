@@ -9,12 +9,16 @@
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import Checkbox from "#view/snippets/Checkbox.svelte";
 
     function prepareUsesSummary() {
         const { uses } = itemStore;
 
         const maxUses = item.actor
-            ? getDeterministicBonus(uses?.max ?? 0, item.actor?.getRollData(item) ?? {})
+            ? getDeterministicBonus(
+                  uses?.max ?? 0,
+                  item.actor?.getRollData(item) ?? {},
+              )
             : uses?.max;
 
         let summary: string;
@@ -24,8 +28,13 @@
         else if (!uses.value && maxUses) summary = `0 / ${maxUses}`;
         else return "";
 
-        if (uses.per === "recharge") {
+        if (uses.per === "recharge" && uses.recharge.type === "recoverAll") {
             summary = `${summary} (Recharges on ${uses.recharge.threshold})`;
+        } else if (
+            uses.per === "recharge" &&
+            uses.recharge.type === "formula"
+        ) {
+            summary = `${summary} (Recharges by ${uses.recharge.formula})`;
         } else if (uses.per) {
             summary = `${summary} (Per ${resourceRecoveryOptions[uses.per]})`;
         }
@@ -35,11 +44,13 @@
 
     let item: any = getContext("item");
     let itemStore = $derived(item.reactive.system);
-    const { resourceRecoveryOptions } = CONFIG.A5E;
+    const { resourceRecoveryOptions, usesRecoveryTypeOptions } = CONFIG.A5E;
 
     let editMode = $state(false);
     let usesSummary = $derived(prepareUsesSummary());
-    let isClassResource = $derived(formulaIsClassResource(itemStore.uses.max ?? ""));
+    let isClassResource = $derived(
+        formulaIsClassResource(itemStore.uses.max ?? ""),
+    );
 </script>
 
 <Section
@@ -55,7 +66,10 @@
     --a5e-section-heading-template-columns="max-content max-content"
 >
     {#if editMode}
-        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.5rem">
+        <Section
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.5rem"
+        >
             {#if !isClassResource}
                 <FieldWrapper heading="A5E.consumers.uses.current">
                     <input
@@ -101,7 +115,10 @@
                     <option value=""></option>
 
                     {#each Object.entries(resourceRecoveryOptions) as [key, name]}
-                        <option value={key} selected={itemStore.uses.per === key}>
+                        <option
+                            value={key}
+                            selected={itemStore.uses.per === key}
+                        >
                             {localize(name as string)}
                         </option>
                     {/each}
@@ -146,6 +163,36 @@
                                 Number(currentTarget.value),
                             )}
                     />
+                </FieldWrapper>
+
+                <FieldWrapper heading="A5E.actions.headings.recharge.type">
+                    <select
+                        class="a5e-input a5e-input--slim a5e-input--fit"
+                        onchange={({ currentTarget }) => {
+                            const value = currentTarget.value;
+
+                            updateDocumentDataFromField(
+                                item,
+                                "system.uses.recharge.type",
+                                value,
+                            );
+                            if (value !== "formula") return;
+                            updateDocumentDataFromField(
+                                item,
+                                "system.uses.recharge.threshold",
+                                0,
+                            );
+                        }}
+                    >
+                        {#each Object.entries(usesRecoveryTypeOptions) as [key, label]}
+                            <option
+                                value={key}
+                                selected={key === itemStore.uses.recharge.type}
+                            >
+                                {label}
+                            </option>
+                        {/each}
+                    </select>
                 </FieldWrapper>
             </Section>
         {/if}

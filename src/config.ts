@@ -1772,6 +1772,12 @@ const toolsPlural = {
 	},
 };
 
+const usesRecoveryTypeOptions = {
+	recoverAll: 'A5E.uses.recoveryTypes.recoverAll',
+	formula: 'A5E.uses.recoveryTypes.formula',
+	loseAll: 'A5E.uses.recoveryTypes.loseAll',
+};
+
 const weaponCategories = {
 	simple: 'A5E.weapons.categories.simple',
 	martial: 'A5E.weapons.categories.martial',
@@ -2234,6 +2240,7 @@ const A5E = {
 	toolCategories,
 	tools,
 	toolsPlural,
+	usesRecoveryTypeOptions,
 	weaponCategories,
 	weapons,
 	weaponsPlural,
