@@ -248,6 +248,36 @@
                         )}
                 />
             </FieldWrapper>
+
+            <FieldWrapper heading="A5E.actions.headings.recharge.type">
+                <select
+                    class="a5e-input a5e-input--slim a5e-input--fit"
+                    onchange={({ currentTarget }) => {
+                        const value = currentTarget.value;
+
+                        updateDocumentDataFromField(
+                            item,
+                            `system.actions.${actionId}.uses.recharge.type`,
+                            value,
+                        );
+                        if (value !== "formula") return;
+                        updateDocumentDataFromField(
+                            item,
+                            `system.actions.${actionId}.uses.recharge.threshold`,
+                            0,
+                        );
+                    }}
+                >
+                    {#each Object.entries(A5E.usesRecoveryTypeOptions) as [key, label]}
+                        <option
+                            value={key}
+                            selected={key === action?.uses?.recharge?.type}
+                        >
+                            {label}
+                        </option>
+                    {/each}
+                </select>
+            </FieldWrapper>
         </Section>
     {/if}
 

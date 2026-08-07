@@ -162,6 +162,11 @@ const actionSchema = () => ({
 				nullable: false,
 				initial: 0,
 			}),
+			type: new fields.StringField({
+				required: true,
+				initial: 'recoverAll',
+				choices: CONFIG.A5E.usesRecoveryTypeOptions,
+			}),
 		}),
 	}),
 });
