@@ -5,6 +5,7 @@
 export default function registerEffectLocalizationConfig() {
 	const effectsKeyLocalizations = {
 		'flags.a5e.deathSaveThreshold': 'A5E.effects.keys.flags.deathSaveThreshold',
+		'flags.a5e.carryCapacityAbility': 'A5E.effects.keys.flags.carryCapacityAbility',
 		'flags.a5e.criticalHitThresholdSpell': 'A5E.effects.keys.flags.criticalHitThresholdSpell',
 		'flags.a5e.criticalHitThresholdWeapon': 'A5E.effects.keys.flags.criticalHitThresholdWeapon',
 		'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
