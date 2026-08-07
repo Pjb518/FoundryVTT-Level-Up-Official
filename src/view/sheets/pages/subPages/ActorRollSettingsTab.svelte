@@ -66,4 +66,56 @@
             {localize("A5E.settings.deathSaveThreshold")}
         </label>
     </FieldWrapper>
+
+    <FieldWrapper
+        hint="A5E.settings.hints.criticalHitThresholdMelee"
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-item-alignment="center"
+    >
+        <input
+            id="{actor.id}-critical-hit-threshold-melee"
+            class="a5e-input a5e-input--small a5e-input--slim"
+            type="number"
+            min="0"
+            max="20"
+            value={flags?.criticalHitThresholdMelee ?? 20}
+            onchange={({ currentTarget }) => {
+                updateDocumentDataFromField(
+                    actor,
+                    "flags.a5e.criticalHitThresholdMelee",
+                    parseInt(currentTarget.value, 20),
+                );
+            }}
+        />
+
+        <label for="{actor.id}-critical-hit-threshold-melee">
+            {localize("A5E.settings.criticalHitThresholdMelee")}
+        </label>
+    </FieldWrapper>
+
+    <FieldWrapper
+        hint="A5E.settings.hints.criticalHitThresholdSpell"
+        --a5e-field-wrapper-direction="row"
+        --a5e-field-wrapper-item-alignment="center"
+    >
+        <input
+            id="{actor.id}-critical-hit-threshold-spell"
+            class="a5e-input a5e-input--small a5e-input--slim"
+            type="number"
+            min="0"
+            max="20"
+            value={flags?.criticalHitThresholdSpell ?? 20}
+            onchange={({ currentTarget }) => {
+                updateDocumentDataFromField(
+                    actor,
+                    "flags.a5e.criticalHitThresholdSpell",
+                    parseInt(currentTarget.value, 20),
+                );
+            }}
+        />
+
+        <label for="{actor.id}-critical-hit-threshold-spell">
+            {localize("A5E.settings.criticalHitThresholdSpell")}
+        </label>
+    </FieldWrapper>
 </Section>
