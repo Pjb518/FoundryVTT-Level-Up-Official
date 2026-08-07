@@ -1,12 +1,11 @@
 export function calculateCarryCapacity(actor: Actor) {
-  const strengthScore = actor.system.abilities.str.value;
-  const { size } = actor.system.traits;
-  const baseCarryCapacityMultiplier =
-    CONFIG.A5E.carryCapacityMultiplier[size || "med"];
+	const carryAbility = actor.getFlag('a5e', 'carryCapacityAbility') || 'str';
 
-  const carryCapacityMultiplier = actor.flags.a5e?.doubleCarryCapacity ? 2 : 1;
+	const ablScore = actor.system.abilities[carryAbility].value;
+	const { size } = actor.system.traits;
+	const baseCarryCapacityMultiplier = CONFIG.A5E.carryCapacityMultiplier[size || 'med'];
 
-  return (
-    strengthScore * baseCarryCapacityMultiplier * carryCapacityMultiplier * 15
-  );
+	const carryCapacityMultiplier = actor.flags.a5e?.doubleCarryCapacity ? 2 : 1;
+
+	return ablScore * baseCarryCapacityMultiplier * carryCapacityMultiplier * 15;
 }

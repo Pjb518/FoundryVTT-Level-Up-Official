@@ -13,8 +13,16 @@
 
         const supply = actorStore.supply;
 
-        if (supply) bulkyLimit = Math.max(1 + actorStore.abilities.str.mod, 1);
-        else bulkyLimit = Math.max(2 + actorStore.abilities.str.mod, 2);
+        if (supply)
+            bulkyLimit = Math.max(
+                1 + actorStore.abilities[carryAbility].mod,
+                1,
+            );
+        else
+            bulkyLimit = Math.max(
+                2 + actorStore.abilities[carryAbility].mod,
+                2,
+            );
 
         return `Bulky Limit: ${bulkyLimit}`;
     }
@@ -38,7 +46,7 @@
 
     function getSupplyTooltip() {
         const { supply } = actorStore;
-        const freeSupplyLimit = actorStore.abilities.str.value ?? 0;
+        const freeSupplyLimit = actorStore.abilities[carryAbility].value ?? 0;
 
         const excessSupply = Math.abs(Math.min(freeSupplyLimit - supply, 0));
 
@@ -53,6 +61,9 @@
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
     let actorStore = $derived(actor.reactive.system);
     let flags = $derived(actor.flags?.a5e ?? {});
+
+    // Carry Capacity Ability
+    let carryAbility = actor.getFlag("a5e", "carryCapacityAbility") ?? "str";
 
     const showVRCImplants =
         (game.settings.get("a5e", "showVRCImplants") as boolean) ?? false;

@@ -77,5 +77,22 @@
                 }}
             />
         </FieldWrapper>
+
+        <FieldWrapper
+            heading="A5E.settings.carryCapacityABility"
+            hint="A5E.settings.hints.carryCapacityAbility"
+        >
+            <RadioGroup
+                options={Object.entries(CONFIG.A5E.abilities)}
+                selected={flags?.carryCapacityAbility ?? "str"}
+                onUpdateSelection={(value) => {
+                    updateDocumentDataFromField(
+                        actor,
+                        "flags.a5e.carryCapacityAbility",
+                        value,
+                    );
+                }}
+            />
+        </FieldWrapper>
     {/if}
 </Section>
