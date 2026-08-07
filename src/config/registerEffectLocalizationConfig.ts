@@ -5,6 +5,8 @@
 export default function registerEffectLocalizationConfig() {
 	const effectsKeyLocalizations = {
 		'flags.a5e.deathSaveThreshold': 'A5E.effects.keys.flags.deathSaveThreshold',
+		'flags.a5e.criticalHitThresholdSpell': 'A5E.effects.keys.flags.criticalHitThresholdSpell',
+		'flags.a5e.criticalHitThresholdWeapon': 'A5E.effects.keys.flags.criticalHitThresholdWeapon',
 		'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
 		'flags.a5e.effects.bonuses.attacks': 'A5E.effects.keys.bonuses.attacks',
 		'flags.a5e.effects.bonuses.damage': 'A5E.effects.keys.bonuses.damage',
@@ -432,9 +434,12 @@ export default function registerEffectLocalizationConfig() {
 		'system.skills.sur.proficient': 'A5E.effects.keys.skills.sur.proficient',
 		'system.skills.sur.specialties': 'A5E.effects.keys.skills.sur.specialties',
 		'system.skills.sur.value': 'A5E.effects.keys.skills.sur.value',
-		'system.spellResources.artifactCharges.current': 'A5E.effects.keys.spellResources.currentArtifactCharges',
-		'system.spellResources.artifactCharges.max': 'A5E.effects.keys.spellResources.maxArtifactCharges',
-		'system.spellResources.inventions.current': 'A5E.effects.keys.spellResources.currentSpellInventions',
+		'system.spellResources.artifactCharges.current':
+			'A5E.effects.keys.spellResources.currentArtifactCharges',
+		'system.spellResources.artifactCharges.max':
+			'A5E.effects.keys.spellResources.maxArtifactCharges',
+		'system.spellResources.inventions.current':
+			'A5E.effects.keys.spellResources.currentSpellInventions',
 		'system.spellResources.inventions.max': 'A5E.effects.keys.spellResources.maxSpellInventions',
 		'system.spellResources.maxPrepared': 'A5E.effects.keys.spellMaxPrepared',
 		'system.spellResources.points.current': 'A5E.effects.keys.spellResources.currentSpellPoints',

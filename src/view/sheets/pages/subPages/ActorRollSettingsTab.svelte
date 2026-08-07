@@ -83,7 +83,7 @@
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.criticalHitThresholdWeapon",
-                    parseInt(currentTarget.value, 20),
+                    parseInt(currentTarget.value, 10),
                 );
             }}
         />
@@ -109,7 +109,7 @@
                 updateDocumentDataFromField(
                     actor,
                     "flags.a5e.criticalHitThresholdSpell",
-                    parseInt(currentTarget.value, 20),
+                    parseInt(currentTarget.value, 10),
                 );
             }}
         />
