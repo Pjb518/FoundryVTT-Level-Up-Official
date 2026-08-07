@@ -79,7 +79,7 @@
         </FieldWrapper>
 
         <FieldWrapper
-            heading="A5E.settings.carryCapacityABility"
+            heading="A5E.settings.carryCapacityAbility"
             hint="A5E.settings.hints.carryCapacityAbility"
         >
             <RadioGroup
