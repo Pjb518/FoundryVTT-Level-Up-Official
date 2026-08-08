@@ -69,7 +69,20 @@ class RestManager {
 
 		// Call post-rest Hook
 		// Generate Summary
-		console.log(this.#summary);
+		let content = `${this.#actor.name} completed a ${this.#restType.capitalize()} rest!<br /> <br />`;
+
+		this.#summary.forEach((m) => {
+			content += `- ${m} <br />`;
+		});
+
+		ChatMessage.create({
+			author: game.user?.id,
+			speaker: {
+				...ChatMessage.getSpeaker({ actor: this.#actor }),
+				alias: this.#actor.name,
+			},
+			content,
+		});
 	}
 
 	#consumeSupply() {
@@ -102,16 +115,15 @@ class RestManager {
 			if (!this.restTypes.includes(r.per) || !r.max) return;
 
 			const max = getDeterministicBonus(r.max, this.#actor.getRollData());
+			const restored = max - r.value;
 
 			if (resources.includes(slug)) {
 				this.#updates.actor[`system.resources.${slug}.value`] = max;
-				const restored = max - r.value;
-				this.#summary.push(`Recovered ${restored} uses of ${r.label}.`);
 			} else {
 				this.#updates.actor[`system.resources.classResources.${slug}`] = max;
-				const restored = max - r.value;
-				this.#summary.push(`Recovered ${restored} uses of ${r.label}.`);
 			}
+
+			if (restored) this.#summary.push(`Recovered ${restored} uses of ${r.label}.`);
 		});
 	}
 
