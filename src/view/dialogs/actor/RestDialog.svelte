@@ -13,7 +13,7 @@
 
     async function rollHitDie(dieSize: string) {
         try {
-            await actor.rollHitDice(dieSize);
+            await actor.rollHitDice(dieSize, 1, healOnDieRoll);
         } catch (e) {
             // TODO: Error System - Display a useful error to the user when hit die updates fail
             console.log(e);
@@ -31,7 +31,9 @@
             consumeSupply: simpleRests ? false : consumeSupply,
             haven: simpleRests ? true : haven,
             restType,
-            recoverStrifeAndFatigue: simpleRests ? true : recoverStrifeAndFatigue,
+            recoverStrifeAndFatigue: simpleRests
+                ? true
+                : recoverStrifeAndFatigue,
         });
     }
 
@@ -50,6 +52,8 @@
     let simpleRests = game.settings.get("a5e", "simpleRests");
     let consumeSupply = $state(false);
 
+    let healOnDieRoll = $state(true);
+
     let hitDice = $derived(actorStore.attributes.hitDice);
 </script>
 
@@ -62,7 +66,10 @@
     />
 
     {#if restType === "long" && !simpleRests}
-        <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
+        <Section
+            --a5e-section-body-padding="0"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper>
                 <Checkbox
                     label="A5E.rest.havenPrompt"
@@ -95,7 +102,9 @@
                 </FieldWrapper>
                 {#if consumeSupply && !actor.system.supply}
                     <div class="a5e-section__hint">
-                        {localize("A5E.rest.noSupplyWarning", { name: actor.name })}
+                        {localize("A5E.rest.noSupplyWarning", {
+                            name: actor.name,
+                        })}
                     </div>
                 {/if}
             {/if}
@@ -103,9 +112,9 @@
     {/if}
 
     {#if restType === "short"}
-        <Section --a5e-section-body-padding="0">
+        <Section --a5e-section-body-padding="0" --a5e-section-body-gap="1rem">
             <FieldWrapper heading="A5E.hitDice.title">
-                <div class="u-flex u-gap-md u-text-md">
+                <div class="a5e-hit-die-container">
                     {#each ["d6", "d8", "d10", "d12"] as die}
                         <div class="a5e-hit-die-wrapper">
                             <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -125,6 +134,12 @@
                     {/each}
                 </div>
             </FieldWrapper>
+
+            <Checkbox
+                label="Heal while rolling Hit Dice."
+                checked={healOnDieRoll}
+                onUpdateSelection={(checked) => (healOnDieRoll = checked)}
+            />
         </Section>
     {/if}
 
@@ -140,5 +155,11 @@
         flex-direction: column;
         gap: 0.75rem;
         padding: 0.75rem;
+    }
+
+    .a5e-hit-die-container {
+        display: flex;
+        font-size: var(--a5e-md-text);
+        gap: 0.5rem;
     }
 </style>

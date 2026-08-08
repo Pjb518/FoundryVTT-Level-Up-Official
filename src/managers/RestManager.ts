@@ -29,6 +29,8 @@ class RestManager {
 		const defaultData: RestManager.Data = {
 			consumeSupply: false,
 			haven: true,
+			ignoreSupply: false,
+			supplyAmount: 0,
 			restType: 'short',
 		};
 
@@ -88,12 +90,12 @@ class RestManager {
 	}
 
 	#adjustFatigueAndStrife() {
-		const { consumeSupply, haven } = this.#data;
+		const { consumeSupply, haven, ignoreSupply } = this.#data;
 		const { fatigue, strife } = this.#actor.system.attributes;
 
 		// If supply is not consumed add one level of fatigue.
 		// TODO: ADD && To prevent this if user doesn't wanna consume supply
-		if (!consumeSupply || this.#actor.system.supply) {
+		if ((!consumeSupply || this.#actor.system.supply) && !ignoreSupply) {
 			this.#updates.actor['system.attributes.fatigue'] = Math.min(fatigue + 1, 7);
 			this.#summary.push('Gained 1 level of fatigue.');
 			return;
@@ -128,11 +130,19 @@ class RestManager {
 	}
 
 	#consumeSupply() {
-		// If supply is not consumed a level of fatigue is applied.
+		if (this.#data.ignoreSupply) return;
+
 		let toConsume = 0;
 
+		const size = this.#actor.system.traits.size;
+
 		if (this.#data.consumeSupply) {
-			toConsume = 1;
+			// Get consumption based on size
+			if (size === 'med') toConsume = 1;
+			else if (size === 'lg') toConsume = 2;
+			// Get custom consumuption amount
+			else if (this.#data.supplyAmount) toConsume = this.#data.supplyAmount;
+			else toConsume = 1;
 		}
 
 		this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply - toConsume, 0);
@@ -329,6 +339,8 @@ declare namespace RestManager {
 	interface Data {
 		consumeSupply: boolean;
 		haven: boolean;
+		ignoreSupply: boolean;
+		supplyAmount: number;
 		restType: 'short' | 'long';
 	}
 }

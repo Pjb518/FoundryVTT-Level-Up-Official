@@ -117,9 +117,8 @@ export default class HitDiceManager {
 		await this.#actor.updateEmbeddedDocuments('Item', updates);
 	}
 
-	async rollHitDice(dieSize: string | null = null, quantity = 1): Promise<any> {
+	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true): Promise<any> {
 		const actorData = this.#actor.system;
-		//  @ts-expect-error
 		const conMod = Number.parseInt(actorData.abilities.con.check.mod, 10) || 0;
 
 		if (this.#actor.type === 'npc' || !this.#automate) {
@@ -135,6 +134,7 @@ export default class HitDiceManager {
 				attributes.hitDice[dieSize].current,
 				quantity,
 				formula,
+				heal,
 			);
 
 			this.#actor.update({
@@ -179,6 +179,7 @@ export default class HitDiceManager {
 			cls.hitDice.current,
 			quantity,
 			formula,
+			heal,
 		);
 
 		cls.update({
@@ -196,6 +197,7 @@ export default class HitDiceManager {
 		currentCount: number,
 		quantity: number,
 		formula: string,
+		heal: boolean,
 	): Promise<{ hookData: any; chatData: any }> {
 		const { attributes } = this.#actor.system;
 
@@ -221,16 +223,17 @@ export default class HitDiceManager {
 		};
 
 		const hpDelta = Math.max(roll.total, 0);
-		// @ts-expect-error
 		const maxHP = attributes.hp.max;
 
-		this.#actor.applyHealing(hpDelta);
+		if (heal) {
+			this.#actor.applyHealing(hpDelta);
+		}
 
 		const hookData = {
 			dieSize,
 			dieCount: currentCount - quantity,
 			formula,
-			newHp: Math.min(attributes.hp.value + hpDelta, maxHP),
+			newHp: heal ? Math.min(attributes.hp.value + hpDelta, maxHP) : 0,
 			roll,
 			quantity,
 		};

@@ -1393,8 +1393,8 @@ class BaseActorA5e extends Actor {
 		this.rollSavingThrow(undefined, options);
 	}
 
-	async rollHitDice(dieSize: string, quantity = 1) {
-		const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity);
+	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true) {
+		const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity, heal);
 		return chatCard;
 	}
 
