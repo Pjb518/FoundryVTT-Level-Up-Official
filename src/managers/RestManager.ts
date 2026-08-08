@@ -346,6 +346,17 @@ class RestManager {
 		// Update Summary
 		this.#summary.push(`Removed ${effects.length} temporary active effects.`);
 	}
+
+	// -----------------------------------------------------------
+	// Recovery Methods for smaller increments
+	// -----------------------------------------------------------
+	static recoverOnTurnStart() {}
+
+	static recoverOnTurnEnd() {}
+
+	static recoverOnRoundStart() {}
+
+	static recoverOnRoundEnd() {}
 }
 
 declare namespace RestManager {
