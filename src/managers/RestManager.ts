@@ -45,6 +45,8 @@ class RestManager {
 
 		// Start with restoration of long rest resources.
 		if (this.#restType === 'long') {
+			this.#adjustFatigueAndStrife();
+			this.#adjustInebriated();
 			this.#restoreHitDice();
 			this.#restoreHitPoints();
 			await this.#removeTemporaryActiveEffects();
@@ -83,6 +85,46 @@ class RestManager {
 			},
 			content,
 		});
+	}
+
+	#adjustFatigueAndStrife() {
+		const { consumeSupply, haven } = this.#data;
+		const { fatigue, strife } = this.#actor.system.attributes;
+
+		// If supply is not consumed add one level of fatigue.
+		// TODO: ADD && To prevent this if user doesn't wanna consume supply
+		if (!consumeSupply || this.#actor.system.supply) {
+			this.#updates.actor['system.attributes.fatigue'] = Math.min(fatigue + 1, 7);
+			this.#summary.push('Gained 1 level of fatigue.');
+			return;
+		}
+
+		// If not in haven only remove fatigue and strife if value is 1.
+		if (!haven) {
+			this.#updates.actor['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+			this.#updates.actor['system.attributes.strife'] = strife === 1 ? 0 : strife;
+
+			if (fatigue === 1) this.#summary.push('Removed 1 level of fatigue.');
+			if (strife === 1) this.#summary.push('Removed 1 level of strife.');
+
+			return;
+		}
+
+		// Remove 1 level of fatigue and strife
+		this.#updates.actor['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
+		this.#updates.actor['system.attributes.strife'] = Math.max(fatigue - 1, 0);
+
+		if (fatigue) this.#summary.push('Removed 1 level of fatigue.');
+		if (strife) this.#summary.push('Removed 1 level of strife.');
+	}
+
+	#adjustInebriated() {
+		const { inebriated } = this.#actor.system.attributes;
+
+		if (inebriated) {
+			this.#updates.actor['system.attributes.inebriated'] = 0;
+			this.#summary.push('Removed all levels of inebriated.');
+		}
 	}
 
 	#consumeSupply() {
