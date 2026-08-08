@@ -25,15 +25,12 @@
         e.preventDefault();
         e.stopPropagation();
 
-        const simpleRests = game.settings.get("a5e", "simpleRests");
-
         dialog.submit({
             consumeSupply: simpleRests ? false : consumeSupply,
             haven: simpleRests ? true : haven,
             restType,
-            recoverStrifeAndFatigue: simpleRests
-                ? true
-                : recoverStrifeAndFatigue,
+            ignoreSupply: simpleRests ? true : ignoreSupply,
+            supplyAmount,
         });
     }
 
@@ -48,9 +45,10 @@
 
     let restType = $state("short");
     let haven = $state(true);
-    let recoverStrifeAndFatigue = $state(true);
+    let ignoreSupply = $state(true);
     let simpleRests = game.settings.get("a5e", "simpleRests");
     let consumeSupply = $state(false);
+    let supplyAmount = $state(0);
 
     let healOnDieRoll = $state(true);
 
@@ -65,6 +63,8 @@
         onUpdateSelection={(detail) => (restType = detail)}
     />
 
+    <hr class="a5e-rule" />
+
     {#if restType === "long" && !simpleRests}
         <Section
             --a5e-section-body-padding="0"
@@ -74,34 +74,57 @@
                 <Checkbox
                     label="A5E.rest.havenPrompt"
                     checked={haven}
-                    onUpdateSelection={(detail) => {
-                        haven = detail;
+                    onUpdateSelection={(checked) => {
+                        if (checked === false) {
+                            consumeSupply = true;
+                            ignoreSupply = false;
+                        }
+                        haven = checked;
                     }}
                 />
             </FieldWrapper>
 
             <FieldWrapper>
                 <Checkbox
-                    label="A5E.supply.fatigueStrifePrompt"
-                    checked={recoverStrifeAndFatigue}
-                    onUpdateSelection={(detail) => {
-                        recoverStrifeAndFatigue = detail;
+                    label="A5E.supply.ignoreSupply"
+                    checked={ignoreSupply}
+                    onUpdateSelection={(checked) => {
+                        ignoreSupply = checked;
+                        if (checked) consumeSupply = false;
                     }}
                 />
             </FieldWrapper>
 
             {#if actor.type === "character"}
-                <FieldWrapper>
-                    <Checkbox
-                        label="A5E.supply.consume"
-                        checked={consumeSupply}
-                        onUpdateSelection={(detail) => {
-                            consumeSupply = detail;
-                        }}
-                    />
-                </FieldWrapper>
-                {#if consumeSupply && !actor.system.supply}
-                    <div class="a5e-section__hint">
+                {#if !ignoreSupply}
+                    <FieldWrapper>
+                        <Checkbox
+                            label="A5E.supply.consume"
+                            checked={consumeSupply}
+                            onUpdateSelection={(detail) => {
+                                consumeSupply = detail;
+                            }}
+                        />
+                    </FieldWrapper>
+                {/if}
+
+                {#if consumeSupply && !ignoreSupply}
+                    <div class="supply-amount-wrapper">
+                        <input
+                            class="a5e-input a5e-input--small a5e-input--slim"
+                            type="number"
+                            bind:value={supplyAmount}
+                        />
+
+                        <label for="">
+                            {localize("A5E.supply.supplyAmount")}
+                        </label>
+                    </div>
+                {/if}
+
+                {#if consumeSupply && !actor.system.supply && !ignoreSupply}
+                    <div class="supply-warning">
+                        <i class="fa-solid fa-warning"></i>
                         {localize("A5E.rest.noSupplyWarning", {
                             name: actor.name,
                         })}
@@ -161,5 +184,17 @@
         display: flex;
         font-size: var(--a5e-md-text);
         gap: 0.5rem;
+    }
+
+    .supply-amount-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: var(--a5e-sm-text);
+    }
+
+    .supply-warning {
+        color: var(--a5e-color-disadvantage);
+        font-size: var(--a5e-sm-text);
     }
 </style>

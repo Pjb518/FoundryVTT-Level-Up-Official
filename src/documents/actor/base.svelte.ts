@@ -1157,7 +1157,7 @@ class BaseActorA5e extends Actor {
 	// Resources Reset Handlers
 	// -------------------------------------------------------------
 	async triggerRest(restOptions: ActorRestOptions = {}) {
-		let restData;
+		let restData = restOptions;
 
 		if (foundry.utils.isEmpty(restOptions)) {
 			const title = localize('A5E.rest.configurationPrompt', {
@@ -1166,16 +1166,6 @@ class BaseActorA5e extends Actor {
 			const dialog = new GenericConfigDialog(this, title, RestDialog);
 			await dialog.render(true);
 			restData = await dialog?.promise;
-		} else {
-			restData = foundry.utils.mergeObject(
-				{
-					consumeSupply: false,
-					haven: true,
-					recoverStrifeAndFatigue: true,
-					restType: 'short',
-				},
-				restOptions,
-			);
 		}
 
 		if (!restData) return;
@@ -2095,7 +2085,6 @@ class BaseActorA5e extends Actor {
 		},
 	) {
 		const { active, overlay = false } = options;
-		console.log(statusId);
 
 		const status = CONFIG.statusEffects.find((e) => e.id === statusId);
 		if (!status)

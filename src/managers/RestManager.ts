@@ -67,11 +67,16 @@ class RestManager {
 		await this.#restoreUses();
 
 		// Call pre-rest hook
+		Hooks.callAll('a5e.preRest', this, {
+			data: this.#data,
+			updates: this.#updates,
+			summary: this.#summary,
+		});
+
 		// Update documents
 		await this.#actor.update(this.#updates.actor);
 		await this.#actor.updateEmbeddedDocuments('Item', this.#updates.items);
 
-		// Call post-rest Hook
 		// Generate Summary
 		let content = `${this.#actor.name} completed a ${this.#restType.capitalize()} rest!<br /> <br />`;
 
@@ -79,13 +84,21 @@ class RestManager {
 			content += `- ${m} <br />`;
 		});
 
-		ChatMessage.create({
+		const message = await ChatMessage.create({
 			author: game.user?.id,
 			speaker: {
 				...ChatMessage.getSpeaker({ actor: this.#actor }),
 				alias: this.#actor.name,
 			},
 			content,
+		});
+
+		// Call post-rest Hook
+		Hooks.callAll('a5e.restCompleted', this, {
+			data: this.#data,
+			updates: this.#updates,
+			summary: this.#summary,
+			message: message,
 		});
 	}
 
@@ -94,8 +107,7 @@ class RestManager {
 		const { fatigue, strife } = this.#actor.system.attributes;
 
 		// If supply is not consumed add one level of fatigue.
-		// TODO: ADD && To prevent this if user doesn't wanna consume supply
-		if ((!consumeSupply || this.#actor.system.supply) && !ignoreSupply) {
+		if ((!consumeSupply || !this.#actor.system.supply) && !ignoreSupply) {
 			this.#updates.actor['system.attributes.fatigue'] = Math.min(fatigue + 1, 7);
 			this.#summary.push('Gained 1 level of fatigue.');
 			return;
@@ -114,7 +126,7 @@ class RestManager {
 
 		// Remove 1 level of fatigue and strife
 		this.#updates.actor['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
-		this.#updates.actor['system.attributes.strife'] = Math.max(fatigue - 1, 0);
+		this.#updates.actor['system.attributes.strife'] = Math.max(strife - 1, 0);
 
 		if (fatigue) this.#summary.push('Removed 1 level of fatigue.');
 		if (strife) this.#summary.push('Removed 1 level of strife.');
@@ -131,18 +143,19 @@ class RestManager {
 
 	#consumeSupply() {
 		if (this.#data.ignoreSupply) return;
+		if (!this.#actor.system.supply) return;
 
 		let toConsume = 0;
 
 		const size = this.#actor.system.traits.size;
 
 		if (this.#data.consumeSupply) {
-			// Get consumption based on size
-			if (size === 'med') toConsume = 1;
-			else if (size === 'lg') toConsume = 2;
-			// Get custom consumuption amount
-			else if (this.#data.supplyAmount) toConsume = this.#data.supplyAmount;
+			// Adjust if large
+			if (size === 'lg') toConsume = 2;
 			else toConsume = 1;
+
+			// Get custom consumption amount
+			if (this.#data.supplyAmount) toConsume = this.#data.supplyAmount;
 		}
 
 		this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply - toConsume, 0);
