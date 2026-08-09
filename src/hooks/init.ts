@@ -69,6 +69,8 @@ import { ConditionManager } from '#managers/ConditionManager.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
 import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
+import { CombatantA5e } from '../encounter/Combatant.ts';
+import { EncounterA5e } from '../encounter/Encounter.ts';
 // Stores
 // import { gameSettings } from "../settings/SettingsStore.ts";
 
@@ -80,6 +82,8 @@ export default function init() {
 	CONFIG.Actor.documentClass = ActorProxy;
 	CONFIG.Actor.trackableAttributes = trackableAttributes;
 	CONFIG.ChatMessage.documentClass = ChatMessageA5e;
+	CONFIG.Combat.documentClass = EncounterA5e;
+	CONFIG.Combatant.documentClass = CombatantA5e;
 	CONFIG.Item.documentClass = ItemProxy;
 	CONFIG.Token.documentClass = TokenDocumentA5e;
 	CONFIG.Token.objectClass = TokenA5e;

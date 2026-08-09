@@ -350,13 +350,66 @@ class RestManager {
 	// -----------------------------------------------------------
 	// Recovery Methods for smaller increments
 	// -----------------------------------------------------------
-	static recoverOnTurnStart() {}
+	// TODO: Optimize to not recharge if already full
+	static async recharge(actor: BaseActorA5e, options = {} as RestManager.RechargeData) {
+		if (!actor) return;
+		const { duration } = options;
 
-	static recoverOnTurnEnd() {}
+		const actorUpdates = {} as Record<string, any>;
+		const itemUpdates = [] as any[];
 
-	static recoverOnRoundStart() {}
+		const items = Array.from(actor.items);
+		items.forEach((item) => {
+			const rollData = actor.getRollData(item);
+			const { uses } = item.system;
+			if (!uses) return;
 
-	static recoverOnRoundEnd() {}
+			const updates = { _id: item.id };
+
+			// Recharge actions
+			if (item.actions) {
+				item.actions.entries().forEach(([id, action]) => {
+					const actionUses = action.uses ?? {};
+					const maxUses = getDeterministicBonus(actionUses.max, rollData);
+
+					if (!maxUses) return;
+					if (actionUses?.per !== duration) return;
+
+					updates[`system.actions.${id}.uses.value`] = maxUses;
+				});
+			}
+
+			// Recharge items
+			const maxUses = getDeterministicBonus(uses.max, rollData);
+
+			if (uses.per !== duration || !maxUses) {
+				if (Object.keys(updates).length < 2) return;
+
+				itemUpdates.push(updates);
+			}
+
+			updates['system.uses.value'] = maxUses;
+			itemUpdates.push(updates);
+		});
+
+		// Recharge resources
+		const resources = ['primary', 'secondary', 'tertiary', 'quaternary'];
+
+		Object.entries(actor.system.resources ?? {}).forEach(([slug, r]) => {
+			if (r.per !== duration || !r.max) return;
+
+			const max = getDeterministicBonus(r.max, actor.getRollData());
+
+			if (resources.includes(slug)) {
+				actorUpdates[`system.resources.${slug}.value`] = max;
+			} else {
+				actorUpdates[`system.resources.classResources.${slug}`] = max;
+			}
+		});
+
+		await actor.update(actorUpdates);
+		await actor.updateEmbeddedDocuments('Item', itemUpdates);
+	}
 }
 
 declare namespace RestManager {
@@ -366,6 +419,10 @@ declare namespace RestManager {
 		ignoreSupply: boolean;
 		supplyAmount: number;
 		restType: 'short' | 'long';
+	}
+
+	interface RechargeData {
+		duration: 'turn' | 'round';
 	}
 }
 
