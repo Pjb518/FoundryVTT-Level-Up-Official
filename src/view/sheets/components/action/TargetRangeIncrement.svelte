@@ -30,7 +30,7 @@
 
         item.update({
             [`system.actions.${actionId}.ranges.${id}`]: {
-                "unit": _del,
+                unit: _del,
             },
         });
     }
@@ -39,7 +39,7 @@
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}.ranges.${id}`]: {
-                    "unit": _del,
+                    unit: _del,
                 },
             });
         } else {
@@ -85,24 +85,29 @@
         }),
     );
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
-        if (["short", "medium", "long"].includes(value)) {
-            const range = CONFIG.A5E.rangeValues[value];
-            return [value, `${localize(label as string)} (${range} ft.)`];
-        }
+    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
+        ([value, label]) => {
+            if (["short", "medium", "long"].includes(value)) {
+                const range = CONFIG.A5E.rangeValues[value];
+                return [value, `${localize(label as string)} (${range} ft.)`];
+            }
 
-        return [value, label];
-    }) as string[][];
+            return [value, label];
+        },
+    ) as string[][];
 
     let includeUnit = $derived(!!rangeObject.unit);
-    let customValue = $derived(isStandardRange(range) ? (includeUnit ? "" : 0) : range);
+    let customValue = $derived(
+        isStandardRange(range) ? (includeUnit ? "" : 0) : range,
+    );
     let selected = $derived(isStandardRange(range) ? range : "other");
 </script>
 
 <RadioGroup
     buttons={[
         {
-            classes: "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
+            classes:
+                "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
             handler: deleteRangeIncrement,
             tooltip: "Delete Range Increment",
         },
@@ -113,8 +118,6 @@
     onUpdateSelection={(value) => updateRangeValue(value)}
     --a5e-field-wrapper-header-width="100%"
     --a5e-field-wrapper-label-width="100%"
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 />
 
 {#if selected === "other"}
@@ -128,7 +131,9 @@
     />
 
     <Section
-        hint={includeUnit ? "When units are selected range must be a number." : ""}
+        hint={includeUnit
+            ? "When units are selected range must be a number."
+            : ""}
         --a5e-section-body-padding="0"
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"
