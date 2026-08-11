@@ -48,6 +48,10 @@
     let selectedSkillListFlowDirection = $derived(
         updates.get("skillListFlowDirection") ?? skillListFlowDirection,
     );
+
+    let consumeSupplyByDefault = $derived(
+        settings["consumeSupplyByDefault"].value,
+    );
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -130,6 +134,23 @@
                                 detail,
                             );
                             reload = true;
+                        }}
+                    />
+                </FieldWrapper>
+            {/if}
+
+            {#if isGM}
+                <FieldWrapper
+                    hint="Select consume supply by default on actor rest dialog."
+                    ,
+                >
+                    <Checkbox
+                        label="Consume Supply By Default"
+                        checked={updates.get("consumeSupplyByDefault") ??
+                            consumeSupplyByDefault ??
+                            false}
+                        onUpdateSelection={(detail) => {
+                            updates.set("consumeSupplyByDefault", detail);
                         }}
                     />
                 </FieldWrapper>

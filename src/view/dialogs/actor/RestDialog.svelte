@@ -43,11 +43,14 @@
         long: "A5E.rest.long",
     };
 
+    const consumeSupplyByDefault =
+        game.settings.get("a5e", "consumeSupplyByDefault") ?? false;
+
     let restType = $state("short");
-    let haven = $state(true);
-    let ignoreSupply = $state(true);
+    let haven = $state(!consumeSupplyByDefault);
+    let ignoreSupply = $state(!consumeSupplyByDefault);
     let simpleRests = game.settings.get("a5e", "simpleRests");
-    let consumeSupply = $state(false);
+    let consumeSupply = $state(consumeSupplyByDefault);
     let supplyAmount = $state(0);
 
     let healOnDieRoll = $state(true);
