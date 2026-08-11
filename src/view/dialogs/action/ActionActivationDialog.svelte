@@ -66,7 +66,6 @@
                 selectedRolls,
             ),
             selectedConsumers,
-            placeTemplate,
             visibilityMode,
         });
     }
@@ -200,14 +199,6 @@
 
     let visibilityMode = $state(game.settings?.get("core", "messageMode")!);
 
-    let placeTemplate = $state(
-        (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
-            (action?.area?.placeTemplate as boolean) ||
-            false,
-    );
-
-    const isValidTemplate = validateTemplateData(action.area);
-
     // Validator
     const validator = $derived(
         new ConsumptionValidator(actor, item, action, consumers),
@@ -328,17 +319,6 @@
             {#if showHitDiceSection}
                 <HitDiceSection {consumers} bind:hitDiceData />
             {/if}
-        </Section>
-    {/if}
-
-    <!-- Template Placement -->
-    {#if isValidTemplate}
-        <Section heading="Template Config" --a5e-section-body-gap="0.5rem">
-            <Checkbox
-                label="A5E.actions.labels.placeTemplate"
-                checked={placeTemplate}
-                onUpdateSelection={(detail) => (placeTemplate = detail)}
-            />
         </Section>
     {/if}
 

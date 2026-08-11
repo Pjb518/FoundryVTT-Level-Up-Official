@@ -22,7 +22,6 @@
     let charOnlyVisionRules = $derived(
         settings["visionRulesApplyToCharactersOnly"].value,
     );
-    let placeTemplate = $derived(settings["placeItemTemplateDefault"].value);
 </script>
 
 <Section heading="VIsion Settings" --a5e-section-body-gap="0.5rem">
@@ -53,18 +52,4 @@
             />
         </FieldWrapper>
     {/if}
-</Section>
-
-<Section heading="Template Settings" --a5e-section-body-gap="0.5rem">
-    <FieldWrapper hint="A5E.settings.hints.placeItemTemplateDefault">
-        <Checkbox
-            label="A5E.settings.placeItemTemplateDefault"
-            checked={updates.get("placeItemTemplateDefault") ??
-                placeTemplate ??
-                false}
-            onUpdateSelection={(detail) => {
-                updates.set("placeItemTemplateDefault", detail);
-            }}
-        />
-    </FieldWrapper>
 </Section>
