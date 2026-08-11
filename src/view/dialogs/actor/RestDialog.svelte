@@ -30,6 +30,7 @@
             haven: simpleRests ? true : haven,
             restType,
             ignoreSupply: simpleRests ? true : ignoreSupply,
+            ignoreObjectRecharge,
             supplyAmount,
         });
     }
@@ -52,6 +53,7 @@
     let simpleRests = game.settings.get("a5e", "simpleRests");
     let consumeSupply = $state(consumeSupplyByDefault);
     let supplyAmount = $state(0);
+    let ignoreObjectRecharge = $state(false);
 
     let healOnDieRoll = $state(true);
 
@@ -134,6 +136,12 @@
                     </div>
                 {/if}
             {/if}
+
+            <Checkbox
+                label="Ignore Recharging of Objects"
+                checked={ignoreObjectRecharge}
+                onUpdateSelection={(value) => (ignoreObjectRecharge = value)}
+            />
         </Section>
     {/if}
 

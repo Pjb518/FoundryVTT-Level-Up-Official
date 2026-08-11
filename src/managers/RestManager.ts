@@ -29,6 +29,7 @@ class RestManager {
 		const defaultData: RestManager.Data = {
 			consumeSupply: false,
 			haven: true,
+			ignoreObjectRecharge: false,
 			ignoreSupply: false,
 			supplyAmount: 0,
 			restType: 'short',
@@ -249,6 +250,7 @@ class RestManager {
 	}
 
 	async #restoreUses() {
+		const { ignoreObjectRecharge } = this.#data;
 		const items = Array.from(this.#actor.items);
 
 		items.forEach(async (item) => {
@@ -266,15 +268,15 @@ class RestManager {
 					// Restore action charges based on recharge type
 					if (actionUses?.per === 'recharge') {
 						if (actionUses?.recharge?.type === 'formula') {
-							if (!actionUses?.recharge?.formula) return;
+							if (!actionUses?.recharge?.formula || ignoreObjectRecharge) return;
 							const roll = new Roll(actionUses?.recharge?.formula, rollData);
 							const total = (await roll.roll()).total;
 							const recovered = Math.min(maxUses, (actionUses.value ?? 0) + total);
 
 							updates[`system.actions.${id}.uses.value`] = Math.min(maxUses, recovered);
 
-							if (recovered) {
-								this.#summary.push(`Recharged ${recovered} uses on ${item.name} (${action.name}).`);
+							if (actionUses.value !== maxUses) {
+								this.#summary.push(`Recharged ${total} uses on ${item.name} (${action.name}).`);
 							}
 							return;
 						} else if (actionUses?.recharge?.type === 'recoverAll') {
@@ -309,14 +311,15 @@ class RestManager {
 
 			if (uses?.per === 'recharge') {
 				if (uses?.recharge?.type === 'formula') {
-					if (!uses?.recharge?.formula) return;
+					if (!uses?.recharge?.formula || ignoreObjectRecharge) return;
 					const roll = new Roll(uses?.recharge?.formula, rollData);
 					const total = (await roll.roll()).total;
 					const recovered = Math.min(maxUses, (uses.value ?? 0) + total);
 
 					updates[`system.uses.value`] = Math.min(maxUses, recovered);
 
-					if (recovered) this.#summary.push(`Recharged ${recovered} uses on ${item.name}.`);
+					if (maxUses !== uses.value)
+						this.#summary.push(`Recharged ${total} uses on ${item.name}.`);
 					return;
 				} else if (uses?.recharge?.type === 'recoverAll') {
 					updates[`system.uses.value`] = maxUses;
@@ -419,6 +422,7 @@ declare namespace RestManager {
 		ignoreSupply: boolean;
 		supplyAmount: number;
 		restType: 'short' | 'long';
+		ignoreObjectRecharge: boolean;
 	}
 
 	interface RechargeData {
