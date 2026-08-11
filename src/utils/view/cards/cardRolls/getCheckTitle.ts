@@ -1,30 +1,30 @@
-import { localize } from "#utils/localization/localize.ts";
+import { localize } from '#utils/localization/localize.ts';
 
 export function getCheckTitle(messageData) {
-  const { abilities, skills } = CONFIG.A5E;
-  const { abilityKey, saveType, skillKey } = messageData;
-  const ability = localize(abilities[abilityKey]);
-  const skill = skills[skillKey];
+	const { abilities, skills } = CONFIG.A5E;
+	const { abilityKey, saveType, skillKey } = messageData;
+	const ability = localize(abilities[abilityKey]);
+	const skill = skills[skillKey];
 
-  switch (messageData.cardType) {
-    case "abilityCheck":
-      return localize("A5E.abilities.headings.checkSpecific", { ability });
-    case "hitDice":
-      return messageData.title;
-    case "savingThrow":
-      switch (saveType) {
-        case "concentration":
-          return localize("A5E.ConcentrationCheck");
-        case "death":
-          return localize("A5E.deathSavingThrow.title");
-        default:
-          return localize("A5E.rollLabels.prompts.savingThrow", { ability });
-      }
-    case "skillCheck":
-      return ability
-        ? localize("A5E.skillLabels.checks.ability", { skill, ability })
-        : localize("A5E.skillLabels.checks.skillSpecific", { skill });
-    default:
-      return null;
-  }
+	switch (messageData.cardType) {
+		case 'abilityCheck':
+			return localize('A5E.abilities.headings.checkSpecific', { ability });
+		case 'hitDice':
+			return messageData.title;
+		case 'savingThrow':
+			switch (saveType) {
+				case 'concentration':
+					return localize('A5E.rollLabels.concentrationCheck');
+				case 'death':
+					return localize('A5E.deathSavingThrow.title');
+				default:
+					return localize('A5E.rollLabels.prompts.savingThrow', { ability });
+			}
+		case 'skillCheck':
+			return ability
+				? localize('A5E.skillLabels.checks.ability', { skill, ability })
+				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
+		default:
+			return null;
+	}
 }

@@ -40,7 +40,7 @@
         if (saveType === "death") return "Roll Death Saving Throw";
 
         if (abilityKey === "con" && saveType === "concentration") {
-            return localize("A5E.RollConcentrationCheck");
+            return localize("A5E.rollLabels.rollConcentrationCheck");
         }
 
         if (options.dc)
@@ -67,8 +67,8 @@
     let { document, abilityKey, dialog, options }: Props = $props();
 
     const saveTypes = [
-        ["standard", "A5E.SavingThrowNormal"],
-        ["concentration", "A5E.ConcentrationCheck"],
+        ["standard", "A5E.rollLabels.savingThrows.normal"],
+        ["concentration", "A5E.rollLabels.concentrationCheck"],
     ];
 
     let actor = document;
@@ -162,7 +162,7 @@
             heading="A5E.ItemSavingThrowType"
             options={saveTypes}
             selected={saveType}
-            onUpdateSelection={(event) => (saveType = event.detail)}
+            onUpdateSelection={(value) => (saveType = value)}
         />
     {/if}
 

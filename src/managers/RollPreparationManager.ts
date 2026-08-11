@@ -380,7 +380,7 @@ class RollPreparationManager {
 		const roll = await new Roll(rollFormula).evaluate();
 		let label: string;
 
-		if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
+		if (_roll.saveType === 'concentration') label = localize('A5E.rollLabels.concentrationCheck');
 		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
 		else label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 

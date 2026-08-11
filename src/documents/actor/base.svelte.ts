@@ -1502,7 +1502,7 @@ class BaseActorA5e extends Actor {
 		if (rollOptions.saveType === 'death') {
 			title = localize('A5E.DeathSavingThrowPromptTitle', { name: this.name });
 		} else {
-			title = localize('A5E.SavingThrowPromptTitle', {
+			title = localize('A5E.rollLabels.prompts.savingThrowPromptTitle', {
 				name: this.name,
 				ability: localize(CONFIG.A5E.abilities[abilityKey]),
 			});
