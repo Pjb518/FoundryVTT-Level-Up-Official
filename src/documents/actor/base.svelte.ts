@@ -524,7 +524,7 @@ class BaseActorA5e extends Actor {
 		// Check for complete override of AC
 		const valueOverride = foundry.utils.getProperty(this.overrides, 'system.attributes.ac.value');
 		if (valueOverride !== null && valueOverride !== undefined) {
-			const effectOverride = this.actorEffects.findLast(
+			const effectOverride = [...this.allApplicableEffects()].findLast(
 				(effect) =>
 					effect.changes.some((change) => change.key.includes('ac.value')) && !effect.isSuppressed,
 			);
@@ -535,16 +535,11 @@ class BaseActorA5e extends Actor {
 				value: Number.parseInt(tempFinalAC, 10) || 10,
 			});
 
-			// const overrideChange = effectOverride?.apply(
-			//   this,
-			//   effectOverride?.changes.find((change) =>
-			//     change.key.includes("ac.value"),
-			//   ),
-			//   // @ts-expect-error
-			//   "afterDerived",
-			// ) as Record<string, any>; // TODO: Types - Update this
-			//
-			const overrideChange = { x: 2 };
+			const overrideChange = ActiveEffectA5E.applyChange(
+				this,
+				effectOverride?.system?.changes?.find?.((change) => change.key.includes('ac.value')),
+				{ replacementData: this.getRollData(), modifyTarget: true },
+			);
 
 			const overrideValue = Object.values(overrideChange)?.[0] ?? valueOverride;
 
