@@ -288,7 +288,6 @@ class BaseActorA5e extends Actor {
 		this.prepareDerivedData();
 		// this.afterDerivedData();
 
-		this.prepareArmorClass();
 		this.RollOverrideManager.initialize();
 
 		// Initialize the SpellBooks
@@ -297,6 +296,7 @@ class BaseActorA5e extends Actor {
 
 		// Apply Derived effects after armor class data
 		this.applyActiveEffects('final');
+		this.prepareArmorClass();
 
 		// Apply special statuses that changed to active tokens
 		let tokens;
