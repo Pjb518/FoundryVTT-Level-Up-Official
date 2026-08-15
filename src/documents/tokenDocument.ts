@@ -11,6 +11,11 @@ export default class TokenDocumentA5e extends TokenDocument {
 		return this.parent;
 	}
 
+	override prepareBaseData() {
+		this.updateTokenSize();
+		super.prepareBaseData();
+	}
+
 	_renderActiveEffectChanges(priorOverrides) {
 		if (foundry.utils.equals(priorOverrides, this.overrides)) return;
 		if (canvas.ready && canvas.scene === this.scene) {
@@ -121,6 +126,17 @@ export default class TokenDocumentA5e extends TokenDocument {
 		if (!actor.statuses.has('deafened')) {
 			this.detectionModes.hearing = { enabled: true, range: Infinity };
 		}
+	}
+
+	updateTokenSize() {
+		const { actor } = this;
+		if (!actor) return;
+
+		const { size } = actor.system.traits;
+		const numericalSize = CONFIG.A5E.tokenDimensions[size];
+
+		this.width = numericalSize ?? this.width ?? 1;
+		this.height = numericalSize ?? this.height ?? 1;
 	}
 
 	/**
