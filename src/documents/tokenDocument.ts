@@ -11,15 +11,44 @@ export default class TokenDocumentA5e extends TokenDocument {
 		return this.parent;
 	}
 
-	override prepareBaseData() {
-		this.updateTokenSize();
-		super.prepareBaseData();
+	_renderActiveEffectChanges(priorOverrides) {
+		if (foundry.utils.equals(priorOverrides, this.overrides)) return;
+		if (canvas.ready && canvas.scene === this.scene) {
+			const {
+				width: _w,
+				height: _h,
+				depth: _d,
+				shape: _s,
+				...changes
+			} = foundry.utils.mergeObject(
+				foundry.utils.mergeObject(priorOverrides, this, { insertKeys: false, insertValues: false }),
+				this.overrides,
+			);
+			this.object?._onUpdate(changes, {}, game.user.id);
+		}
+
+		// Hand off size changes to a secondary handler requiring downstream implementation.
+		const { width, height, depth, shape } = { ...priorOverrides, ...this.overrides };
+
+		const sizeChanges = foundry.utils.deepClone(
+			foundry.utils.diffObject(this._source, { width, height, depth, shape }),
+			{ prune: true },
+		);
+		if (!foundry.utils.isEmpty(sizeChanges)) this._onOverrideSize(sizeChanges);
 	}
 
 	// TODO: Fix this
 	async _onOverrideSize(changes) {
-		const width = changes.width || this.width;
-		const height = changes.height || this.height;
+		const { actor } = this;
+
+		const { size } = actor.system.traits;
+		const numericalSize = CONFIG.A5E.tokenDimensions[size];
+		console.log(numericalSize);
+
+		console.log(changes);
+
+		const width = (changes.width || this.overrides.width) ?? numericalSize;
+		const height = (changes.height || this.overrides.height) ?? numericalSize;
 		this.update({ width, height });
 	}
 
@@ -92,16 +121,6 @@ export default class TokenDocumentA5e extends TokenDocument {
 		if (!actor.statuses.has('deafened')) {
 			this.detectionModes.hearing = { enabled: true, range: Infinity };
 		}
-	}
-
-	updateTokenSize() {
-		const { actor } = this;
-		if (!actor) return;
-
-		const { size } = actor.system.traits;
-		const numericalSize = CONFIG.A5E.tokenDimensions[size];
-		this.width = numericalSize ?? this.width ?? 1;
-		this.height = numericalSize ?? this.height ?? 1;
 	}
 
 	/**
