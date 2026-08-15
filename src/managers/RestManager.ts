@@ -317,16 +317,19 @@ class RestManager {
 					const recovered = Math.min(maxUses, (uses.value ?? 0) + total);
 
 					updates[`system.uses.value`] = Math.min(maxUses, recovered);
+					this.#updates.items.push(updates);
 
 					if (maxUses !== uses.value)
 						this.#summary.push(`Recharged ${total} uses on ${item.name}.`);
 					return;
 				} else if (uses?.recharge?.type === 'recoverAll') {
 					updates[`system.uses.value`] = maxUses;
+					this.#updates.items.push(updates);
 					return;
 				}
 
 				updates[`system.uses.value`] = 0;
+				this.#updates.items.push(updates);
 				return;
 			}
 
