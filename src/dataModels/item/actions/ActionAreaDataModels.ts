@@ -7,7 +7,6 @@ const { fields } = foundry.data;
 const baseSchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Actions
-	placeTemplate: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),

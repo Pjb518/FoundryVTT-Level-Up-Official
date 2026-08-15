@@ -38,7 +38,7 @@
     function removeArea() {
         item.update({
             [`system.actions.${actionId}`]: {
-                "area": _del,
+                area: _del,
             },
         });
     }
@@ -171,20 +171,6 @@
         <small class="a5e-area-shape__scaling-hint">
             {scalingSummary}
         </small>
-
-        <!-- Place Template -->
-        <FieldWrapper>
-            <Checkbox
-                label="A5E.actions.labels.placeTemplate"
-                checked={action.area?.placeTemplate ?? false}
-                onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        `system.actions.${actionId}.area.placeTemplate`,
-                        value,
-                    )}
-            />
-        </FieldWrapper>
     {/if}
 </Section>
 
