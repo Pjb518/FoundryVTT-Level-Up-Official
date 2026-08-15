@@ -319,7 +319,6 @@ class ItemA5e extends BaseItemA5e {
 						action,
 						options,
 						rolls,
-						validTemplate,
 					});
 				} catch (err) {
 					ui.notifications?.error(
@@ -361,8 +360,6 @@ class ItemA5e extends BaseItemA5e {
 		const otherRolls = this.#getDefaultRollData(rolls);
 
 		const prompts = this.#getDefaultPrompts(actionId);
-		const placeTemplate =
-			game.settings.get('a5e', 'placeItemTemplateDefault') || action?.area?.placeTemplate || false;
 
 		return {
 			attack,
@@ -370,7 +367,6 @@ class ItemA5e extends BaseItemA5e {
 			damageBonuses,
 			effects,
 			healingBonuses,
-			placeTemplate,
 			prompts,
 			rolls: otherRolls,
 			selectedConsumers: ResourceConsumptionManager.getDefaultConsumerSelection(
