@@ -24,32 +24,18 @@
 
         notes += '<i class="icon fa-regular fa-clock"></i>';
 
-        const { startTime, seconds, rounds, turns } = duration;
-        if (!seconds && !rounds && !turns) {
+        const { secondsRemaining } = duration;
+
+        if (secondsRemaining === Infinity) {
             notes += "Infinite</p>";
             return notes;
         }
 
-        let totalDuration = seconds;
-        if (rounds === 1 && turns === 1) {
-            totalDuration = 0;
-        } else if (rounds >= 1) {
-            totalDuration = rounds * 6;
-        }
-        totalDuration ??= 0;
-
-        const remainingDuration =
-            startTime + totalDuration - game.time.worldTime ?? 0;
-
-        if (remainingDuration <= 0 && !turns) {
+        if (secondsRemaining <= 0) {
             return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
         }
 
-        notes += `${seconds ? "Remaining: " : ""} ${getFormattedTimeFromSeconds(
-            remainingDuration,
-            rounds,
-            turns,
-        )}`;
+        notes += `${secondsRemaining ? "Remaining" : ""} ${getFormattedTimeFromSeconds(secondsRemaining)}`;
         notes += "</p>";
 
         return notes;
