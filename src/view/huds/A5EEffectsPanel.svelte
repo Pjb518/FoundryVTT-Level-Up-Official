@@ -7,7 +7,9 @@
 
         if (statuses?.size === 1) {
             if (
-                subConditions[statuses.first()]?.some((c) => activeConditions.includes(c))
+                subConditions[statuses.first()]?.some((c) =>
+                    activeConditions.includes(c),
+                )
             )
                 return;
             const id = statuses.first();
@@ -24,7 +26,9 @@
 
         if (
             statuses?.size === 1 &&
-            ["corruption", "fatigue", "inebriated", "strife"].includes(statuses.first())
+            ["corruption", "fatigue", "inebriated", "strife"].includes(
+                statuses.first(),
+            )
         ) {
             const id = statuses.first();
             const src = effect.img;
@@ -46,7 +50,10 @@
     }
 
     function convertRemToPixels(rem) {
-        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        return (
+            rem *
+            parseFloat(getComputedStyle(document.documentElement).fontSize)
+        );
     }
 
     function getIconSize(size) {
@@ -58,10 +65,16 @@
     // Get panel settings
     let panelOffset = $derived(game.settings.get("a5e", "effectsPanelOffset"));
     let panelTop = $derived(convertRemToPixels(4) + (panelOffset.top ?? 0));
-    let panelLeft = $derived(convertRemToPixels(18.75) - (panelOffset.right ?? 0));
-    let panelBottom = $derived(convertRemToPixels(4) + 5 + (panelOffset.bottom ?? 0));
+    let panelLeft = $derived(
+        convertRemToPixels(18.75) - (panelOffset.right ?? 0),
+    );
+    let panelBottom = $derived(
+        convertRemToPixels(4) + 5 + (panelOffset.bottom ?? 0),
+    );
 
-    let panelIconSize = $derived(game.settings.get("a5e", "effectsPanelIconSize"));
+    let panelIconSize = $derived(
+        game.settings.get("a5e", "effectsPanelIconSize"),
+    );
     let iconSize = $derived(getIconSize(panelIconSize));
 
     let token = $state(canvas.tokens.controlled.at(0)?.document ?? null);
@@ -120,7 +133,9 @@
         };
     });
 
-    let activeConditions = $derived(token?.object?._getActiveConditions() ?? []);
+    let activeConditions = $derived(
+        token?.object?._getActiveConditions() ?? [],
+    );
 
     const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
         if (!c?.statuses?.length) return acc;
@@ -137,10 +152,17 @@
         // Access actorVersion to create dependency
         actorVersion;
 
-        if (!actor?.temporaryEffects) return [];
+        if (!actor?.effects) return [];
 
-        return [...actor.temporaryEffects]
-            .filter((e) => !e.statuses.first()?.startsWith("generic"))
+        return [...actor.effects]
+            .filter((e) => {
+                console.log(e.isTemporary);
+                if (e.system.effectType === "condition") return true;
+                if (e.system.effectType === "onUse") return true;
+                if (e.isTemporary) return true;
+
+                return false;
+            })
             .sort((a, b) => a.name.localeCompare(b.name));
     });
 </script>
