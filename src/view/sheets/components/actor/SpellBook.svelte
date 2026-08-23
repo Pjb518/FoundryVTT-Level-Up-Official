@@ -23,10 +23,14 @@
     let spellBook = $derived(actor.reactive.spellBooks?.get(spellBookId));
 
     let categorizedItems = $derived(groupItemsByType(items, "level"));
+    Object.entries(actorStore.spellResources.slots ?? {}).forEach(
+        ([level, slot]) => {
+            if (slot.max || slot.override) categorizedItems[level] ??= [];
+        },
+    );
 
     let isSpellLevelVisible = $derived((level: string) => {
         if (!sheetIsLocked()) return true;
-
         const maxSlots = actorStore.spellResources.slots[level]?.max ?? 0;
         const showSpellSlots =
             actor.reactive.flags?.a5e?.showSpellSlots ?? true;

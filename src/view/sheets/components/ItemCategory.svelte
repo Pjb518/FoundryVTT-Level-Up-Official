@@ -120,14 +120,16 @@
 
     let actorStore = $derived(actor.reactive.system);
 
-    let headingTemplateConfiguration = $derived(getHeadingTemplateConfiguration());
+    let headingTemplateConfiguration = $derived(
+        getHeadingTemplateConfiguration(),
+    );
     let itemTemplateConfiguration = $derived(getItemTemplateConfiguration());
     let visibleItems = $derived(
         [...items].filter((item) => !item?.system?.hidden || !sheetIsLocked()),
     );
 </script>
 
-{#if visibleItems.length}
+{#if visibleItems.length || type === "spellLevels"}
     <section class="category-container">
         {#if !(type === "featureTypes" && actor.type === "npc")}
             <header
@@ -138,7 +140,9 @@
                     --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
                 "
             >
-                <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
+                <h3
+                    class="a5e-section-header__heading a5e-section-header__heading--name"
+                >
                     <div>
                         {#if icon}
                             <i class={icon}></i>
@@ -162,7 +166,9 @@
 
                     {#if type === "spellLevels" && showArtifactCharges}
                         {localize("A5E.ArtifactChargesCost", {
-                            cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
+                            cost:
+                                A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ??
+                                0,
                         })}
                     {/if}
 

@@ -156,7 +156,6 @@
 
         return [...actor.effects]
             .filter((e) => {
-                console.log(e.isTemporary);
                 if (e.system.effectType === "condition") return true;
                 if (e.system.effectType === "onUse") return true;
                 if (e.isTemporary) return true;
