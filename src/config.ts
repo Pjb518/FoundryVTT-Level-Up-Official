@@ -2127,6 +2127,46 @@ const weightColumnOptions = {
 };
 
 /* ------------------------------------------------- */
+/*               Function Configs                    */
+/* ------------------------------------------------- */
+// These are sorted by priority
+const documentConfig = registerDocumentConfig();
+
+const classesConfig = registerClassesConfig();
+
+const contextsConfig = registerContextsConfig();
+
+const conditionsConfig = registerConditionsConfig();
+
+const grantsConfig = registerGrantsConfig({
+	armor,
+	maneuverTraditions,
+	skills,
+	abilities,
+	tools,
+	weapons,
+	alignments,
+	conditions: conditionsConfig.conditions,
+	creatureTypes,
+	damageTypes,
+	languages,
+	actorSizes,
+});
+
+const actionsConfig = registerActionsConfig();
+const activeEffectConfig = registerActiveEffectConfig();
+const bonusesConfig = registerBonusesConfig();
+const characterClassesConfig = registerCharacterClassesConfig();
+const encounterElementsConfig = registerEncounterElements();
+const effectGroupConfig = registerEffectGroupConfig();
+const effectLocalizationConfig = registerEffectLocalizationConfig();
+const moduleIncompatibilitiesConfig = registerModuleIncompatibilities();
+const premiumContentConfig = registerPremiumContentConfig();
+const publisherConfig = registerPublisherConfig();
+const reducerConfig = registerReducerConfig();
+const settingsConfig = registerSettingsConfig();
+
+/* ------------------------------------------------- */
 /*                    Object                         */
 /* ------------------------------------------------- */
 
@@ -2254,24 +2294,24 @@ const A5E = {
 
 	// Function Properties
 	// These are purposefully done first
-	...registerDocumentConfig(),
-	...registerClassesConfig(),
-	...registerContextsConfig(),
-	...registerGrantsConfig(),
-	...registerConditionsConfig(),
+	...documentConfig,
+	...classesConfig,
+	...contextsConfig,
+	...conditionsConfig,
+	...grantsConfig,
 
-	...registerActionsConfig(),
-	...registerActiveEffectConfig(),
-	...registerBonusesConfig(),
-	...registerCharacterClassesConfig(),
-	...registerEncounterElements(),
-	...registerEffectGroupConfig(),
-	...registerEffectLocalizationConfig(),
-	...registerModuleIncompatibilities(),
-	...registerPremiumContentConfig(),
-	...registerPublisherConfig(),
-	...registerReducerConfig(),
-	...registerSettingsConfig(),
+	...actionsConfig,
+	...activeEffectConfig,
+	...bonusesConfig,
+	...characterClassesConfig,
+	...encounterElementsConfig,
+	...effectGroupConfig,
+	...effectLocalizationConfig,
+	...moduleIncompatibilitiesConfig,
+	...premiumContentConfig,
+	...publisherConfig,
+	...reducerConfig,
+	...settingsConfig,
 	PRELOCALIZED_KEYS,
 };
 

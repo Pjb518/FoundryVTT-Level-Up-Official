@@ -1,4 +1,4 @@
-export default function registerGrantsConfig() {
+export default function registerGrantsConfig(config: Record<string, any>) {
 	const itemGrants = {
 		ability: 'A5E.grants.headings.ability',
 		attack: 'A5E.grants.headings.attack',
@@ -19,7 +19,85 @@ export default function registerGrantsConfig() {
 		trait: 'A5E.grants.headings.trait',
 	};
 
+	const proficiencyGrantConfigObject = {
+		armor: {
+			label: 'A5E.armorClass.headings.armorPlural',
+			config: Object.entries(config.armor),
+			propertyKey: 'system.proficiencies.armor',
+		},
+		tradition: {
+			label: 'A5E.maneuvers.headings.traditionPlural',
+			config: Object.entries(config.maneuverTraditions),
+			propertyKey: 'system.proficiencies.traditions',
+		},
+		skill: {
+			label: 'A5E.skillLabels.titlePlural',
+			config: Object.entries(config.skills),
+			propertyKey: '',
+		},
+		savingThrow: {
+			label: 'A5E.rollLabels.savingThrows.titlePlural',
+			config: Object.entries(config.abilities),
+			propertyKey: '',
+		},
+		tool: {
+			label: 'A5E.tools.titlePlural',
+			config: config.tools,
+			propertyKey: 'system.proficiencies.tools',
+		},
+		weapon: {
+			label: 'A5E.weapons.titlePlural',
+			config: config.weapons,
+			propertyKey: 'system.proficiencies.weapons',
+		},
+	};
+
+	const traitGrantConfigObject = {
+		lignment: {
+			label: 'A5E.traits.headings.alignment',
+			config: Object.entries(config.alignments),
+			propertyKey: 'system.traits.alignment',
+		},
+		conditionImmunities: {
+			label: 'A5E.conditions.immunities',
+			config: Object.entries(config.conditions),
+			propertyKey: 'system.traits.conditionImmunities',
+		},
+		creatureTypes: {
+			label: 'A5E.details.creature.labels.types',
+			config: Object.entries(config.creatureTypes),
+			propertyKey: 'system.details.creatureTypes',
+		},
+		damageImmunities: {
+			label: 'A5E.traits.headings.damage.immunities',
+			config: Object.entries(config.damageTypes),
+			propertyKey: 'system.traits.damageImmunities',
+		},
+		damageResistances: {
+			label: 'A5E.traits.headings.damage.resistances',
+			config: Object.entries(config.damageTypes),
+			propertyKey: 'system.traits.damageResistances',
+		},
+		damageVulnerabilities: {
+			label: 'A5E.traits.headings.damage.vulnerabilities',
+			config: Object.entries(config.damageTypes),
+			propertyKey: 'system.traits.damageVulnerabilities',
+		},
+		languages: {
+			label: 'A5E.details.languages',
+			config: Object.entries(config.languages),
+			propertyKey: 'system.proficiencies.languages',
+		},
+		size: {
+			label: 'A5E.traits.size.title',
+			config: Object.entries(config.actorSizes),
+			propertyKey: 'system.traits.size',
+		},
+	};
+
 	return {
 		itemGrants,
+		proficiencyGrantConfigObject,
+		traitGrantConfigObject,
 	};
 }
