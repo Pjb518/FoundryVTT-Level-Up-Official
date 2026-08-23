@@ -266,7 +266,7 @@ class RestManager {
 					const maxUses = getDeterministicBonus(actionUses.max, rollData);
 
 					// Restore action charges based on recharge type
-					if (actionUses?.per === 'recharge') {
+					if (actionUses?.per === 'recharge' && this.#restType === 'long') {
 						if (actionUses?.recharge?.type === 'formula') {
 							if (!actionUses?.recharge?.formula || ignoreObjectRecharge) return;
 							const roll = new Roll(actionUses?.recharge?.formula, rollData);
@@ -309,7 +309,7 @@ class RestManager {
 
 			const maxUses = getDeterministicBonus(uses.max, rollData);
 
-			if (uses?.per === 'recharge') {
+			if (uses?.per === 'recharge' && this.#restType === 'long') {
 				if (uses?.recharge?.type === 'formula') {
 					if (!uses?.recharge?.formula || ignoreObjectRecharge) return;
 					const roll = new Roll(uses?.recharge?.formula, rollData);
