@@ -20,7 +20,7 @@ export type SchemaSchema = {
 
 export default class SchemaDataModel extends foundry.abstract.TypeDataModel<
 	SchemaSchema,
-	Item.ConfiguredInstance
+	Item.Implementation
 > {
 	static override defineSchema(): SchemaSchema {
 		return {

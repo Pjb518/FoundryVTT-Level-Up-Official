@@ -1,18 +1,10 @@
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable max-len */
+import type { DeepPartial, EmptyObject, InterfaceToObject, SimpleMerge } from 'fvtt-types/utils';
+
+import fields = foundry.data.fields;
+type AnyDocument = foundry.abstract.Document.Any;
+
 /**
  * Metadata that describes a system data type.
- *
- * @typedef {object} A5EDataModelMetaData
- * @property {string} type - Name of type to which this system data model belongs.
- * @property {string} [module] - For module-defined types, which module provides this type.
- * @property {string} [category] - Which category in the create item dialog should this Document be listed?
- * @property {string} localization - Base localization key for this type. This should be a localization key that
- *                                   accepts plural types (e.g. `BF.Item.Type.Weapon` becomes
- *                                   `BF.Item.Type.Weapon[few]` and `BF.Item.Type.Weapon[other]`).
- * @property {string} [icon] - Font awesome icon string used for links to this type.
- * @property {string} [img] - Default image used when creating a Document of this type.
  */
 interface A5EDataModelMetaData {
 	type?: string;
@@ -25,10 +17,15 @@ interface A5EDataModelMetaData {
 
 export default class A5EDataModel<
 	Schema extends DataSchema,
-	Parent extends foundry.abstract.Document<DataSchema, any, any>,
-	BaseData extends Record<string, any> = Record<string, never>,
-	DerivedData extends Record<string, any> = Record<string, never>,
-> extends foundry.abstract.TypeDataModel<Schema, Parent, BaseData, DerivedData> {
+	Parent extends AnyDocument,
+	BaseData extends object = EmptyObject,
+	DerivedData extends object = EmptyObject,
+> extends foundry.abstract.TypeDataModel<
+	Schema,
+	Parent,
+	InterfaceToObject<BaseData>,
+	InterfaceToObject<DerivedData>
+> {
 	static metadata: A5EDataModelMetaData = {};
 
 	get metadata() {
@@ -72,7 +69,7 @@ export default class A5EDataModel<
 	 */
 	static get _schemaTemplateFields() {
 		const fieldNames = Object.freeze(
-			new Set(this._schemaTemplates.map((t) => t.schema.keys()).flat()),
+			new Set(this._schemaTemplates.flatMap((t) => t.schema.keys())),
 		);
 
 		Object.defineProperty(this, '_schemaTemplateFields', {
@@ -121,11 +118,9 @@ export default class A5EDataModel<
 		return schema;
 	}
 
-	// eslint-disable-next-line generator-star-spacing
-	protected static override *_initializationOrder(): Generator<
-		[string, foundry.data.fields.DataField.Any]
-	> {
+	static override *_initializationOrder(): Generator<[string, foundry.data.fields.DataField.Any]> {
 		super._initializationOrder();
+
 		for (const template of this._schemaTemplates) {
 			for (const entry of template._initializationOrder()) {
 				entry[1] = this.schema.get(entry[0]);
@@ -206,7 +201,11 @@ export default class A5EDataModel<
 		startingWith,
 		notEndingWith,
 		prototype = true,
-	}: { startingWith?: string; notEndingWith?: string; prototype?: boolean }) {
+	}: {
+		startingWith?: string;
+		notEndingWith?: string;
+		prototype?: boolean;
+	}) {
 		let keys: string[] = [];
 
 		// eslint-disable-next-line guard-for-in

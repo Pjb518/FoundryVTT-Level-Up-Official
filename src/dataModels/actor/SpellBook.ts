@@ -46,7 +46,7 @@ const spellBookSchema = () => ({
 
 export default class SpellBook extends foundry.abstract.DataModel<
 	DataSchema & ReturnType<typeof spellBookSchema>,
-	Actor.ConfiguredInstance
+	Actor.Implementation
 > {
 	declare _id: string;
 

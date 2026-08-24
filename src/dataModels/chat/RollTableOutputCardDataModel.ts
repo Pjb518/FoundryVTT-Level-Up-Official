@@ -17,7 +17,7 @@ declare namespace A5eRollTableOutputCardData {
 
 class A5eRollTableOutputCardData extends foundry.abstract.TypeDataModel<
 	A5eRollTableOutputCardData.Schema,
-	ChatMessage.ConfiguredInstance,
+	ChatMessage.Implementation,
 	A5eRollTableOutputCardData.BaseData,
 	A5eRollTableOutputCardData.DerivedData
 > {

@@ -20,7 +20,7 @@ declare namespace A5eRollCardData {
 
 class A5eRollCardData extends foundry.abstract.TypeDataModel<
 	A5eRollCardData.Schema,
-	ChatMessage.ConfiguredInstance,
+	ChatMessage.Implementation,
 	A5eRollCardData.BaseData,
 	A5eRollCardData.DerivedData
 > {

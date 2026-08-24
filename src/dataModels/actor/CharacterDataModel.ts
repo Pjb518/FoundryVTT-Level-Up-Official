@@ -14,7 +14,7 @@ import {
 	traits,
 } from './common.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
 const characterSchema = () => ({
 	attributes: new fields.SchemaField({
@@ -229,7 +229,7 @@ declare namespace A5ECharacterData {
 
 class A5ECharacterData extends foundry.abstract.TypeDataModel<
 	A5ECharacterData.Schema,
-	Actor.ConfiguredInstance,
+	Actor.Implementation,
 	A5ECharacterData.BaseData,
 	A5ECharacterData.DerivedData
 > {
