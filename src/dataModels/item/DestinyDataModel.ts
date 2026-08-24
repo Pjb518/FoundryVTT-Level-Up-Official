@@ -1,6 +1,6 @@
-import { A5EBaseItemData } from './base';
+import { A5EBaseItemData } from './base.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
 const schema = {
 	sourceOfInspiration: new fields.StringField({ required: true, nullable: false, initial: '' }),

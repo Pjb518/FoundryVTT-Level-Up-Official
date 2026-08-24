@@ -1,19 +1,17 @@
-
-import type { ActionsData, UsesData } from './common.ts';
-
 import { A5EBaseItemData } from './base.ts';
+import type { ActionsData, UsesData } from './common.ts';
 import { actions, uses } from './common.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
 const schema = {
 	interactionType: new fields.StringField({ required: true, initial: '' }),
 	journeyProperties: new fields.SchemaField({
-			criticalFailure: new fields.StringField({ required: true, initial: '' }),
-			failure: new fields.StringField({ required: true, initial: '' }),
-			success: new fields.StringField({ required: true, initial: '' }),
-			criticalSuccess: new fields.StringField({ required: true, initial: '' }),
-		}),
+		criticalFailure: new fields.StringField({ required: true, initial: '' }),
+		failure: new fields.StringField({ required: true, initial: '' }),
+		success: new fields.StringField({ required: true, initial: '' }),
+		criticalSuccess: new fields.StringField({ required: true, initial: '' }),
+	}),
 };
 
 declare namespace A5EInteractionData {

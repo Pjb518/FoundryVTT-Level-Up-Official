@@ -2,7 +2,7 @@ import { A5EBaseItemData } from './base.ts';
 import type { ActionsData, ArmorData, UsesData } from './common.ts';
 import { actions, armor, uses } from './common.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
 const schema = {
 	ammunitionDamageMode: new fields.StringField({

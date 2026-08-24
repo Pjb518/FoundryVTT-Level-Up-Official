@@ -6,7 +6,7 @@ import OriginItemA5e from './origin.ts';
 export default class ArchetypeItemA5e extends OriginItemA5e<'archetype'> {
 	declare casting: ClassCastingData | null;
 
-	declare class: ClassItemA5e | null;
+	declare class: Item.OfType<'class'> | null;
 
 	declare resources: ClassResourceManager;
 

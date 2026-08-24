@@ -31,18 +31,18 @@ export default itemDataModels;
 declare module 'fvtt-types/configuration' {
 	interface DataModelConfig {
 		Item: {
-			archetype: A5EArchetypeData;
-			background: A5EBackgroundData;
-			class: A5EClassData;
-			culture: A5ECultureData;
-			destiny: A5EDestinyData;
-			heritage: A5EHeritageData;
+			archetype: typeof A5EArchetypeData;
+			background: typeof A5EBackgroundData;
+			class: typeof A5EClassData;
+			culture: typeof A5ECultureData;
+			destiny: typeof A5EDestinyData;
+			heritage: typeof A5EHeritageData;
 
-			feature: A5EFeatureData;
-			interaction: A5EInteractionData;
-			maneuver: A5EManeuverData;
-			object: A5EObjectData;
-			spell: A5ESpellData;
+			feature: typeof A5EFeatureData;
+			interaction: typeof A5EInteractionData;
+			maneuver: typeof A5EManeuverData;
+			object: typeof A5EObjectData;
+			spell: typeof A5ESpellData;
 		};
 	}
 }
