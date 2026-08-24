@@ -9,7 +9,6 @@ const actorDataModels = {
 export default actorDataModels;
 
 // Merge types into fvtt-types
-
 declare module 'fvtt-types/configuration' {
 	interface DataModelConfig {
 		Actor: {

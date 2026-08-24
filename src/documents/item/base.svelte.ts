@@ -4,14 +4,26 @@ import { handleDocumentImportMigration } from '../../migration/handlers/handleDo
 
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import { getSummaryData } from '../../utils/summaries/getSummaryData.ts';
-import type { BaseActorA5e } from '../actor/base.svelte.ts';
 import type { RevitalizeOptions } from './data.ts';
+
+// *****************************************************************************************
+declare module 'fvtt-types/configuration' {
+	interface DocumentClassConfig {
+		Item: typeof BaseItemA5e<Item.SubType>;
+	}
+
+	interface ConfiguredItem<SubType extends Item.SubType> {
+		document: BaseItemA5e<SubType>;
+	}
+}
+
+// *****************************************************************************************
 
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class BaseItemA5e extends Item {
+class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubType> {
 	declare initialized: boolean;
 
 	dialogs: {

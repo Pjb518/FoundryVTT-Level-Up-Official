@@ -19,7 +19,7 @@ import type { ActionActivationOptions } from './data.ts';
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class ItemA5e extends BaseItemA5e {
+class ItemA5e extends BaseItemA5e<'feature' | 'interaction' | 'maneuver' | 'object' | 'spell'> {
 	declare actions: ActionsManager;
 
 	/** ------------------------------------------------------ */

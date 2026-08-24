@@ -1,9 +1,6 @@
-import type { A5ENPCData } from '../../dataModels/actor/NPCDataModel';
-
-import HitDiceManager from '../../managers/HitDiceManager';
+import HitDiceManager from '../../managers/HitDiceManager.ts';
 import { BaseActorA5e } from './base.svelte.ts';
 
-// @ts-expect-error
 export default class NPCActorA5E extends BaseActorA5e<'npc'> {
 	// -------------------------------------------------------------
 	// Data Preparation Methods

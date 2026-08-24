@@ -40,5 +40,4 @@ class A5EBaseItemData<
 	}
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { A5EBaseItemData };
