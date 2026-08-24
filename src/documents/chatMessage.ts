@@ -1,20 +1,4 @@
-export type SystemChatMessageTypes = Exclude<foundry.documents.BaseChatMessage.TypeNames, 'base'>;
-
-interface ChatMessageA5e<ChatMessageType extends SystemChatMessageTypes = SystemChatMessageTypes> {
-	type: ChatMessageType;
-	system: DataModelConfig['ChatMessage'][ChatMessageType];
-}
-
 class ChatMessageA5e extends ChatMessage {
-	/** ------------------------------------------------------ */
-	/**                    Type Helpers                        */
-	/** ------------------------------------------------------ */
-	isType<TypeName extends SystemChatMessageTypes>(
-		type: TypeName,
-	): this is ChatMessageA5e<TypeName> {
-		return type === (this.type as SystemChatMessageTypes);
-	}
-
 	/** ------------------------------------------------------ */
 	/**                       Getters                          */
 	/** ------------------------------------------------------ */

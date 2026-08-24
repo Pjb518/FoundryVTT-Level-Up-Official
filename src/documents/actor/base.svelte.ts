@@ -53,17 +53,6 @@ import type {
 
 // *****************************************************************************************
 
-type SystemActorTypes = Exclude<foundry.documents.BaseActor.TypeNames, 'base'>;
-
-// @ts-expect-error The type needs to be fixed in fvtt-types
-interface BaseActorA5e<ActorType extends SystemActorTypes = SystemActorTypes> {
-	type: ActorType;
-	system: DataModelConfig['Actor'][ActorType];
-	items: foundry.abstract.EmbeddedCollection<BaseItemA5e, Actor.ConfiguredInstance>;
-}
-
-// *****************************************************************************************
-
 class BaseActorA5e extends Actor {
 	// Defaults
 	#configDialogMap = {
@@ -182,10 +171,6 @@ class BaseActorA5e extends Actor {
 	}
 
 	// *****************************************************************************************
-
-	isType<TypeName extends SystemActorTypes>(type: TypeName): this is BaseActorA5e<TypeName> {
-		return type === (this.type as SystemActorTypes);
-	}
 
 	get reactive() {
 		this.#subscribe();
@@ -1096,7 +1081,7 @@ class BaseActorA5e extends Actor {
 			mod: Math.max(data.dex.mod, data.str.mod),
 		};
 
-		if (this.isType('character')) data.level = this.system.details.level;
+		if (this.type === 'character') data.level = this.system.details.level;
 
 		// @ts-expect-error
 		data.maneuverDC = this.system.attributes.maneuverDC;
@@ -1106,7 +1091,7 @@ class BaseActorA5e extends Actor {
 			data.item = item.getRollData();
 		}
 
-		if (item && item.isType('spell')) {
+		if (item && item.type === 'spell') {
 			const spellBook = this.spellBooks?.get(item.system.spellBook);
 			if (spellBook) {
 				data.spell = { mod: spellBook.stats.mod };

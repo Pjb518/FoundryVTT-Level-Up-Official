@@ -38,7 +38,7 @@ class ActionAreaField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
-		_state,
+		_state?,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
@@ -104,7 +104,7 @@ class ActionConsumerField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
-		_state: any,
+		_state?: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
@@ -165,7 +165,7 @@ class ActionPromptField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
-		_state: any,
+		_state?: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
@@ -227,7 +227,7 @@ class ActionRollField<
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
-		_state: any,
+		_state?: any,
 	): InitializedType {
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 

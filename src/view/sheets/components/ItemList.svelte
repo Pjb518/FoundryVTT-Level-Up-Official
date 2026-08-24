@@ -157,7 +157,7 @@
     let sortDirection = $derived(item.reactive.system.containerSortDirection);
 
     let containerItems = $derived(
-        item.reactive.isType("object") &&
+        item.reactive.type === "object" &&
             item.reactive.system.objectType === "container"
             ? [...(actor.reactive.items?.values() ?? [])]
                   .filter((child) => child.system.containerId === item.uuid)
@@ -239,7 +239,7 @@
 
 {#if showDescription}
     <div class="description-wrapper" transition:slide|local>
-        {#if !isGM && item.reactive.isType("object") && itemStore.unidentified}
+        {#if !isGM && item.reactive.type === "object" && itemStore.unidentified}
             {@html itemStore.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
         {:else}

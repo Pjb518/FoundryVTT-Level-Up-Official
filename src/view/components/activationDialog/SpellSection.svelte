@@ -36,7 +36,7 @@
     function disableArtifactChargeOptions() {
         const baseLevel =
             consumer.spellLevel ??
-            (item.isType("spell") ? item.system?.level : 1) ??
+            (item.type === "spell" ? item.system?.level : 1) ??
             1;
         disabled = spellLevels.reduce((acc: string[], [level]) => {
             const l = Number(level);
@@ -49,7 +49,7 @@
     function disableBaseSlotOptions() {
         const baseLevel =
             consumer.spellLevel ??
-            (item.isType("spell") ? item.system?.level : 1) ??
+            (item.type === "spell" ? item.system?.level : 1) ??
             1;
         disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
     }
@@ -58,7 +58,7 @@
         const temp = new Set(spellLevels.map((i) => i[0]));
         const baseLevel =
             consumer.spellLevel ??
-            (item.isType("spell") ? item.system?.level : 1) ??
+            (item.type === "spell" ? item.system?.level : 1) ??
             1;
         disabled = [
             ...temp.difference(new Set(availableSpellSlots)),
@@ -69,7 +69,7 @@
     function disableSpellPointOptions() {
         const baseLevel =
             consumer.spellLevel ??
-            (item.isType("spell") ? item.system?.level : 1) ??
+            (item.type === "spell" ? item.system?.level : 1) ??
             1;
         const cap = Object.entries(A5E.spellLevelCost).reduce(
             (acc, [level, cost]) => {
@@ -100,7 +100,7 @@
     function getBaseSpellLevel(): number {
         const defaultLevel =
             consumer.spellLevel ??
-            (item.isType("spell") ? item.system?.level : 1) ??
+            (item.type === "spell" ? item.system?.level : 1) ??
             1;
         const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 

@@ -359,11 +359,10 @@ class ActionsManager extends Map<string, Action> {
 
 		if (type === 'spell') {
 			defaultData.mode = 'variable';
-			defaultData.charges = item.isType('spell') ? (item.system.level ?? 1) : 1;
-			defaultData.spellLevel = item.isType('spell') ? (item.system.level ?? 1) : 1;
-			defaultData.points = item.isType('spell')
-				? (CONFIG.A5E.spellLevelCost?.[item.system.level] ?? 1)
-				: 1;
+			defaultData.charges = item.type === 'spell' ? (item.system.level ?? 1) : 1;
+			defaultData.spellLevel = item.type === 'spell' ? (item.system.level ?? 1) : 1;
+			defaultData.points =
+				item.type === 'spell' ? (CONFIG.A5E.spellLevelCost?.[item.system.level] ?? 1) : 1;
 		}
 
 		if (['actionUses', 'itemUses'].includes(type)) data.quantity = 1;
@@ -405,7 +404,7 @@ class ActionsManager extends Map<string, Action> {
 		if (itemType === 'maneuver') return 'Execute';
 		if (itemType === 'spell') return 'Cast Spell';
 
-		if (item.isType('object')) {
+		if (item.type === 'object') {
 			const { objectType } = item.system;
 
 			if (objectType === 'consumable') return 'Consume';

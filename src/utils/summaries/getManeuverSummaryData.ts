@@ -1,28 +1,25 @@
-import type { ItemA5e } from "../../documents/item/item";
-
-import { localize } from "#utils/localization/localize.ts";
+import { localize } from '#utils/localization/localize.ts';
+import type { ItemA5e } from '../../documents/item/item';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function getManeuverSummaryData(
-  item: ItemA5e,
-  options: Record<string, any>,
-) {
-  if (!item.isType("maneuver")) {
-    return { maneuverProperties: "" };
-  }
+export default function getManeuverSummaryData(item: ItemA5e, options: Record<string, any>) {
+	if (item.type !== 'maneuver') {
+		return { maneuverProperties: '' };
+	}
 
-  const maneuverDegree = CONFIG.A5E.maneuverDegrees[item.system.degree];
-  const tradition = CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? item.system.tradition ?? "";
-  const stance = item.system.isStance ? "Stance" : "";
+	const maneuverDegree = CONFIG.A5E.maneuverDegrees[item.system.degree];
+	const tradition =
+		CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? item.system.tradition ?? '';
+	const stance = item.system.isStance ? 'Stance' : '';
 
-  const exertionCost = item.system.exertionCost
-    ? `(${item.system.exertionCost}
-    ${localize(item.system.exertionCost > 1 ? "A5E.exertion.pointPlural" : "A5E.exertion.point")})`
-    : "";
+	const exertionCost = item.system.exertionCost
+		? `(${item.system.exertionCost}
+    ${localize(item.system.exertionCost > 1 ? 'A5E.exertion.pointPlural' : 'A5E.exertion.point')})`
+		: '';
 
-  const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]
-    .filter(Boolean)
-    .join(" ");
+	const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]
+		.filter(Boolean)
+		.join(' ');
 
-  return { maneuverProperties };
+	return { maneuverProperties };
 }

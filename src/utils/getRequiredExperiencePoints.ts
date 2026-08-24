@@ -1,7 +1,7 @@
 import type CharacterActorA5E from '../documents/actor/character';
 
 export default function getRequiredExperiencePoints(actor: CharacterActorA5E): number {
-	if (actor.isType('character')) {
+	if (actor.type === 'character') {
 		let level = actor.levels?.character ?? 1;
 
 		if (level < 1) level = 1;

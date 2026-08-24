@@ -15,18 +15,6 @@ import type { ActionActivationOptions } from './data.ts';
 
 // *****************************************************************************************
 
-type SystemItemTypes = Exclude<
-	foundry.documents.BaseItem.TypeNames,
-	'base' | 'archetype' | 'background' | 'class' | 'culture' | 'destiny' | 'heritage'
->;
-
-interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
-	type: ItemType;
-	system: DataModelConfig['Item'][ItemType];
-}
-
-// *****************************************************************************************
-
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}

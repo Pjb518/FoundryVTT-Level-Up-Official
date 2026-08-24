@@ -1,6 +1,5 @@
 import { A5E } from '../config.ts';
 import D20Roll from '../dice/d20Roll.js';
-import ActiveEffectA5e from '../documents/activeEffect/activeEffect.svelte.js';
 import ActorProxy from '../documents/actor/actorProxy.ts';
 import { ChatMessageA5e } from '../documents/chatMessage.ts';
 import ItemProxy from '../documents/item/itemProxy.ts';

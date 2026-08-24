@@ -1,5 +1,4 @@
 import { RecordField } from '../fields/RecordField.ts';
-import UnchasteSchemaField from '../fields/UnchasteSchemaField.ts';
 
 import {
 	getAbilitiesBonusData,
@@ -246,7 +245,7 @@ export const bonuses = () => ({
 		abilities: new RecordField(
 			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
 			// @ts-expect-error
-			new UnchasteSchemaField(getAbilitiesBonusData()),
+			new fields.SchemaField(getAbilitiesBonusData()),
 		),
 		attacks: new RecordField(
 			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),

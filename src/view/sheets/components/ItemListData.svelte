@@ -289,7 +289,7 @@
         actor.reactive.items
             .filter(
                 (i: Item) =>
-                    i.reactive.isType("object") &&
+                    i.reactive.type === "object" &&
                     i.reactive.system.objectType === "ammunition",
             )
             .map((i) => ({ name: i.name, id: i.id }))
@@ -324,13 +324,13 @@
     });
 
     let isMagicalItem = $derived(
-        item.reactive.isType("object") &&
+        item.reactive.type === "object" &&
             !["mundane", ""].includes(itemStore.rarity),
     );
 
     $effect(() => {
         if (
-            !item.reactive.isType("object") ||
+            !item.reactive.type === "object" ||
             item.reactive.system?.objectType !== "container"
         ) {
             containerCapacity = 0;

@@ -1,15 +1,15 @@
 /* eslint-disable no-param-reassign */
 import type {
-	Bonuses,
 	AbilityBonus,
+	AttackBonus,
+	Bonuses,
 	DamageBonus,
 	HealingBonus,
 	HitPointsBonus,
-	AttackBonus,
 	InitiativeBonus,
-	SkillBonus,
 	MovementBonus,
 	SensesBonus,
+	SkillBonus,
 } from 'types/bonuses';
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
@@ -193,7 +193,10 @@ export default class BonusesManager {
 	getInitiativeBonusFormula({
 		abilityKey,
 		skillKey,
-	}: { abilityKey?: string; skillKey?: string } = {}): string {
+	}: {
+		abilityKey?: string;
+		skillKey?: string;
+	} = {}): string {
 		const bonuses = this.prepareInitiativeBonuses({ abilityKey, skillKey });
 		const parts = bonuses.map(([, bonus]) => bonus.formula);
 		return parts.join(' + ').trim();
@@ -372,7 +375,7 @@ export default class BonusesManager {
 			| 'rangedSpellAttack' = 'meleeWeaponAttack',
 	): [string, AttackBonus][] {
 		const bonuses = this.#bonuses.attacks;
-		const spellLevel = item.isType('spell') ? item.system.level : null;
+		const spellLevel = item.type === 'spell' ? item.system.level : null;
 		const counts = {};
 
 		const parts = Object.entries(bonuses).filter(([, { context, formula }]) => {
@@ -421,7 +424,7 @@ export default class BonusesManager {
 	prepareGlobalDamageBonuses(item: ItemA5e, rolls: any): [string, DamageBonus][] {
 		const attackRoll: any[] = rolls.attack ?? [];
 		const damageRoll: any[] = rolls.damage ?? [];
-		const spellLevel = item.isType('spell') ? item.system.level : null;
+		const spellLevel = item.type === 'spell' ? item.system.level : null;
 
 		if (!Array.isArray(attackRoll)) return [];
 		if (!attackRoll.length) return [];
@@ -466,7 +469,7 @@ export default class BonusesManager {
 		const counts = {};
 
 		const healingRolls = rolls.healing ?? [];
-		const spellLevel = item.isType('spell') ? item.system.level : null;
+		const spellLevel = item.type === 'spell' ? item.system.level : null;
 
 		if (!healingRolls.length) return [];
 
@@ -504,7 +507,10 @@ export default class BonusesManager {
 	prepareInitiativeBonuses({
 		abilityKey,
 		skillKey,
-	}: { abilityKey?: string; skillKey?: string } = {}): [string, InitiativeBonus][] {
+	}: {
+		abilityKey?: string;
+		skillKey?: string;
+	} = {}): [string, InitiativeBonus][] {
 		const bonuses = this.#bonuses.initiative;
 		let counts = 0;
 
