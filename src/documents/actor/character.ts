@@ -4,9 +4,7 @@ import HitDiceManager from '../../managers/HitDiceManager';
 import type ClassItemA5e from '../item/class';
 import { BaseActorA5e } from './base.svelte.ts';
 
-export default class CharacterActorA5E extends BaseActorA5e {
-	declare system: A5ECharacterData;
-
+export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 	declare automationAvailable: boolean;
 
 	declare _classes: Record<string, ClassItemA5e> | undefined;
@@ -76,7 +74,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
 		this.prepareLevelData();
 
 		// Calculate the proficiency bonus for the character with a minimum value of 2.
-		// @ts-expect-error
 		this.system.attributes.prof = Math.max(2, Math.floor((this.levels.character + 7) / 4));
 	}
 
@@ -91,7 +88,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
 		const actorData = this.system;
 
 		actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
-			// @ts-expect-error
 			const { requiresAttunement, attuned } = curr.system;
 			return requiresAttunement && attuned ? acc + 1 : acc;
 		}, 0);
@@ -350,7 +346,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
 	}
 
 	prepareResources() {
-		// @ts-expect-error
 		const source = this._source.system.resources as any;
 
 		const genericResources = foundry.utils.deepClone(source);
