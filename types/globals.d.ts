@@ -3,29 +3,51 @@ import type { A5E } from '../src/config.ts';
 import type A5eGame from '../src/interfaces/A5eGame.interface';
 
 declare global {
-	interface AssumeHookRan {
-		init: never;
+	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
+	type DataSchema = foundry.data.fields.DataSchema;
+}
+
+declare module 'fvtt-types/configuration' {
+	interface SystemNameConfig {
+		name: 'a5e';
+	}
+
+	interface SystemConfig {
+		Item: {
+			discriminate: all;
+		};
+		Actor: {
+			discriminate: all;
+		};
 	}
 
 	interface AssumeHookRan {
-		setup: never;
+		ready: true;
 	}
 
-	interface AssumeHookRan {
-		ready: never;
+	interface ReadyGame {
+		a5e: A5eGame;
 	}
 
 	interface CONFIG {
 		A5E: typeof A5E;
 	}
 
-	interface Game {
-		a5e: A5eGame;
+	interface DataModelConfig {
+		ActiveEffect: {};
+		Actor: {};
+		Item: {};
 	}
 
-	/* Updated types begin here */
-	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
-	type DataSchema = foundry.data.fields.DataSchema;
+	interface FlagConfig {
+		Actor: {};
+	}
+
+	namespace Hooks {
+		interface HookConfig {}
+	}
+
+	interface SettingsConfig {}
 }
 
 export default (something = {});
