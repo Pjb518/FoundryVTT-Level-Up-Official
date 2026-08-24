@@ -1,10 +1,6 @@
-import type { A5ESpellData } from '../../dataModels/item/SpellDataModel';
+import { ItemA5e } from './item.ts';
 
-import { ItemA5e } from './item';
-
-export default class SpellItemA5e extends ItemA5e {
-	declare system: InstanceType<typeof A5ESpellData>;
-
+export default class SpellItemA5e extends ItemA5e<'spell'> {
 	get spellBook() {
 		return this.system.spellBook;
 	}
