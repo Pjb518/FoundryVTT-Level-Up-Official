@@ -37,7 +37,6 @@ import { handleDocumentImportMigration } from '../../migration/handlers/handleDo
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers.js';
 import getRollFormula from '../../utils/getRollFormula.js';
-// import ActiveEffectA5e from "../activeEffect/activeEffect.svelte.js";
 import { ActiveEffectA5E } from '../activeEffect/ae.svelte.ts';
 import automateHpConditions from '../activeEffect/utils/automateHpConditions.js';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions.js';
@@ -53,7 +52,19 @@ import type {
 
 // *****************************************************************************************
 
-class BaseActorA5e extends Actor {
+declare module 'fvtt-types/configuration' {
+	interface DocumentClassConfig {
+		Actor: typeof BaseActorA5e<Actor.SubType>;
+	}
+
+	interface ConfiguredActor<SubType extends Actor.SubType> {
+		document: BaseActorA5e<SubType>;
+	}
+}
+
+// *****************************************************************************************
+
+class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubType> {
 	// Defaults
 	#configDialogMap = {
 		ability: AbilityConfigDialog,

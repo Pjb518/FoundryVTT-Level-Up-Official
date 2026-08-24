@@ -11,7 +11,7 @@ export default class ActorBaseGrant extends A5EDataModel {
 	declare level: number;
 
 	constructor(data: Record<string, any>, options = {}) {
-		// @ts-ignore
+		// @ts-expect-error
 		super(data, options);
 	}
 

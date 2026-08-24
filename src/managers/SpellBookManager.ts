@@ -1,10 +1,9 @@
 import type { SpellBookData } from 'types/spellBook';
+import SpellBook from '../dataModels/actor/SpellBook';
 import type { BaseActorA5e } from '../documents/actor/base';
 
-import SpellBook from '../dataModels/actor/SpellBook';
-
 export default class SpellBookManager extends Map<string, SpellBook> {
-	private actor: BaseActorA5e;
+	private actor: Actor;
 
 	constructor(actor: BaseActorA5e) {
 		super();
@@ -12,7 +11,6 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		this.actor = actor;
 
 		// Initialize the spell books
-		// @ts-expect-error
 		const spellBookData: SpellBookData = this.actor.system.spellBooks ?? {};
 		Object.entries(spellBookData ?? {}).forEach(([id, data]: [string, SpellBookData]) => {
 			const spellBook = new SpellBook(data, { parent: this.actor });
