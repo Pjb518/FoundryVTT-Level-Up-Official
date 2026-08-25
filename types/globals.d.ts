@@ -33,12 +33,6 @@ declare module 'fvtt-types/configuration' {
 		A5E: typeof A5E;
 	}
 
-	interface DataModelConfig {
-		ActiveEffect: {};
-		Actor: {};
-		Item: {};
-	}
-
 	interface FlagConfig {
 		Actor: {};
 	}

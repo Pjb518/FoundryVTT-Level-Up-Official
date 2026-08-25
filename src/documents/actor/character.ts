@@ -1,13 +1,11 @@
-import type { A5ECharacterData } from '../../dataModels/actor/CharacterDataModel';
-import { getDeterministicBonus } from '../../dice/getDeterministicBonus';
-import HitDiceManager from '../../managers/HitDiceManager';
-import type ClassItemA5e from '../item/class';
+import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
+import HitDiceManager from '../../managers/HitDiceManager.ts';
 import { BaseActorA5e } from './base.svelte.ts';
 
 export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 	declare automationAvailable: boolean;
 
-	declare _classes: Record<string, ClassItemA5e> | undefined;
+	declare _classes: Record<string, Item.OfType<'class'>> | undefined;
 
 	declare levels: { character: number; classes: Record<string, number> };
 
@@ -177,11 +175,9 @@ export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 
 		const levelData = Object.values(classes ?? {}).reduce(
 			(acc, cls) => {
-				// @ts-expect-error
 				const level = cls.system.classLevels;
 				if (!level) return acc;
 
-				// @ts-expect-error
 				acc.classes[cls.system.slug || cls.name.slugify({ strict: true })] = level;
 				acc.character += level;
 				return acc;
@@ -224,11 +220,11 @@ export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 		actorData.spellResources.artifactCharges.max = 0;
 
 		const grantedResources = {
-			slots: [] as ClassItemA5e[],
-			additionalSlots: [] as ClassItemA5e[],
-			points: [] as ClassItemA5e[],
-			inventions: [] as ClassItemA5e[],
-			artifactCharges: [] as ClassItemA5e[],
+			slots: [] as Item.OfType<'class'>[],
+			additionalSlots: [] as Item.OfType<'class'>[],
+			points: [] as Item.OfType<'class'>[],
+			inventions: [] as Item.OfType<'class'>[],
+			artifactCharges: [] as Item.OfType<'class'>[],
 		};
 
 		Object.values(classes).forEach((cls) => {

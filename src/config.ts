@@ -633,10 +633,13 @@ const itemTechLevels = {
  * @enum {string}
  */
 const itemTypes = {
+	archetype: 'Types.Item.archetype',
 	background: 'TYPES.Item.background',
+	class: 'TYPES.Item.class',
 	culture: 'TYPES.Item.culture',
 	destiny: 'TYPES.Item.destiny',
 	feature: 'TYPES.Item.feature',
+	interaction: 'TYPES.Item.interaction',
 	maneuver: 'TYPES.Item.maneuver',
 	object: 'TYPES.Item.object',
 	spell: 'TYPES.Item.spell',

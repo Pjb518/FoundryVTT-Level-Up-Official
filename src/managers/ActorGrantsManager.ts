@@ -18,7 +18,7 @@ interface DefaultApplyOptions {
 }
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
-	private actor: Actor;
+	private actor: Actor.OfType<'character'>;
 
 	private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 

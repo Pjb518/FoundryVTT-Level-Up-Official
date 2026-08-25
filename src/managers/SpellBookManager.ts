@@ -3,7 +3,7 @@ import SpellBook from '../dataModels/actor/SpellBook';
 import type { BaseActorA5e } from '../documents/actor/base';
 
 export default class SpellBookManager extends Map<string, SpellBook> {
-	private actor: Actor;
+	private actor: Actor.OfType<'character'>;
 
 	constructor(actor: BaseActorA5e) {
 		super();

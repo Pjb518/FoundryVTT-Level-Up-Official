@@ -1,20 +1,55 @@
+import type { Identity } from 'fvtt-types/utils';
 import { createSubscriber } from 'svelte/reactivity';
 import type { Action } from '#types/action.d.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
-
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import { getSummaryData } from '../../utils/summaries/getSummaryData.ts';
+import type ArchetypeItemA5e from './archetype.ts';
+import type ClassItemA5e from './class.ts';
 import type { RevitalizeOptions } from './data.ts';
+import type FeatureItemA5e from './feature.ts';
+import type { ItemA5e } from './item.ts';
+import type ObjectItemA5e from './object.ts';
+import type OriginItemA5e from './origin.ts';
+import type SpellItemA5e from './spell.ts';
 
 // *****************************************************************************************
+type ItemMap = {
+	base: BaseItemA5e;
+
+	archetype: ArchetypeItemA5e;
+	background: OriginItemA5e;
+	class: ClassItemA5e;
+	culture: OriginItemA5e;
+	destiny: OriginItemA5e;
+	heritage: OriginItemA5e;
+
+	feature: FeatureItemA5e;
+	interaction: ItemA5e;
+	maneuver: ItemA5e;
+	object: ObjectItemA5e;
+	spell: SpellItemA5e;
+
+	[
+		K: foundry.abstract.Document.ModuleSubType
+	]: BaseItemA5e<foundry.abstract.Document.ModuleSubType>;
+};
+
 declare module 'fvtt-types/configuration' {
 	interface DocumentClassConfig {
-		Item: typeof BaseItemA5e<Item.SubType>;
+		Item: ItemA5E;
 	}
 
 	interface ConfiguredItem<SubType extends Item.SubType> {
-		document: BaseItemA5e<SubType>;
+		document: ItemMap[SubType];
 	}
+}
+
+declare interface ItemA5E extends Identity<BaseItemA5e> {
+	new <SubType extends Item.SubType>(
+		data: Item.CreateData<SubType>,
+		context?: Item.ConstructionContext,
+	): ItemMap[SubType];
 }
 
 // *****************************************************************************************
@@ -87,7 +122,6 @@ class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubT
 
 	// *****************************************************************************************
 	get sourceId(): string | null {
-		// @ts-expect-error
 		return this._stats.compendiumSource || null;
 	}
 
