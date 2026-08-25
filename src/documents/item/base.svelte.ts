@@ -45,7 +45,7 @@ declare module 'fvtt-types/configuration' {
 	}
 }
 
-declare interface ItemA5E extends Identity<BaseItemA5e> {
+declare interface ItemA5E extends Identity<typeof BaseItemA5e> {
 	new <SubType extends Item.SubType>(
 		data: Item.CreateData<SubType>,
 		context?: Item.ConstructionContext,

@@ -34,7 +34,11 @@ declare module 'fvtt-types/configuration' {
 	}
 
 	interface FlagConfig {
-		Actor: {};
+		Actor: {
+			a5e: {
+				automaticallyExecuteAvailableMacros: boolean;
+			};
+		};
 	}
 
 	namespace Hooks {
@@ -43,5 +47,9 @@ declare module 'fvtt-types/configuration' {
 
 	interface SettingsConfig {}
 }
+
+/**
+ * Custom defs
+ */
 
 export default (something = {});

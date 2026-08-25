@@ -2,6 +2,7 @@ import { ActionsManager } from '#managers/ActionsManager.ts';
 import { EffectAreaManager } from '#managers/EffectAreaManager.ts';
 import { ResourceConsumptionManager } from '#managers/ResourceConsumptionManager.ts';
 import { RollPreparationManager } from '#managers/RollPreparationManager.ts';
+import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
 import ActionSelectionDialog from '#view/dialogs/action/ActionSelectionDialog.svelte';
@@ -19,7 +20,9 @@ import type { ActionActivationOptions } from './data.ts';
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class ItemA5e<SubType extends Item.SubType = Item.SubType> extends BaseItemA5e<SubType> {
+class ItemA5e<
+	SubType extends Item.SubType = 'interaction' | 'feature' | 'object' | 'spell',
+> extends BaseItemA5e<SubType> {
 	declare actions: ActionsManager;
 
 	/** ------------------------------------------------------ */
@@ -142,6 +145,8 @@ class ItemA5e<SubType extends Item.SubType = Item.SubType> extends BaseItemA5e<S
 	async #activateAction(actionId: string, options: ActionActivationOptions = {}) {
 		let activationData: any;
 		const action = this.actions.get(actionId)!;
+
+		// const state = new RollStateManager(this, actionId);
 
 		if (options.skipRollDialog) {
 			activationData = this.#getDefaultActionActivationData(actionId, options);

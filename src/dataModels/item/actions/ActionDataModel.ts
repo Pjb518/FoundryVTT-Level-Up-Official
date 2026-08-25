@@ -2,7 +2,9 @@ import { RecordField } from '../../fields/RecordField.ts';
 import type { A5EObjectData } from '../ObjectDataModel.ts';
 import { ActionConsumerField, ActionPromptField, ActionRollField } from './ActionFields.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
+
+import type { AnyObject } from 'fvtt-types/utils';
 
 const actionSchema = () => ({
 	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -73,7 +75,6 @@ const actionSchema = () => ({
 		{ required: true, nullable: false },
 	),
 
-	// @ts-expect-error
 	macro: new fields.JavaScriptField({
 		required: true,
 		nullable: false,
@@ -165,7 +166,7 @@ const actionSchema = () => ({
 			type: new fields.StringField({
 				required: true,
 				initial: 'recoverAll',
-				choices: CONFIG.A5E.usesRecoveryTypeOptions,
+				choices: ['formula', 'recoverAll', 'loseAll'],
 			}),
 		}),
 	}),
@@ -206,22 +207,34 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 // ======================================================
 //                   Action Field
 // ======================================================
-class ActionField extends foundry.data.fields.TypedObjectField {
-	constructor(options = {}, context = {}) {
+const x = new fields.EmbeddedDataField(A5EActionData);
+
+class ActionField<
+	const Element extends fields.DataField.Any = typeof x,
+	const Options extends
+		fields.TypedObjectField.Options<AnyObject> = fields.TypedObjectField.DefaultOptions,
+	const AssignmentType = fields.TypedObjectField.AssignmentType<Element, Options>,
+	const InitializedType = fields.TypedObjectField.InitializedType<Element, Options>,
+	const PersistedType extends
+		| AnyObject
+		| null
+		| undefined = fields.TypedObjectField.InitializedType<Element, Options>,
+> extends fields.TypedObjectField<Options, AssignmentType, InitializedType, PersistedType> {
+	constructor(options = {} as Options, context = {} as fields.DataField.ConstructionContext) {
 		const field = new fields.EmbeddedDataField(A5EActionData);
-
 		options.validateKey ||= (key) => foundry.data.validators.isValidId(key);
-
 		super(field, options, context);
 	}
 
-	protected override initialize(value, model, options = {}): any {
+	override initialize(
+		value: InitializedType,
+		model: foundry.abstract.DataModel.Any,
+		options?: fields.DataField.InitializeOptions,
+	): InitializedType | (() => InitializedType | null) {
 		const init = super.initialize(value, model, options);
-
 		for (const [id, model] of Object.entries(init)) {
 			model.init(options);
 		}
-
 		return init;
 	}
 }
