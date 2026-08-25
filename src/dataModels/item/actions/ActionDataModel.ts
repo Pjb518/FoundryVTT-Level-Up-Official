@@ -1,10 +1,11 @@
 import { RecordField } from '../../fields/RecordField.ts';
 import type { A5EObjectData } from '../ObjectDataModel.ts';
-import { ActionConsumerField, ActionPromptField, ActionRollField } from './ActionFields.ts';
+import { ActionConsumerField, ActionPromptField } from './ActionFields.ts';
 
 import fields = foundry.data.fields;
 
 import type { AnyObject } from 'fvtt-types/utils';
+import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
 
 const actionSchema = () => ({
 	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -102,14 +103,7 @@ const actionSchema = () => ({
 
 	ranges: new fields.ObjectField({ required: true, nullable: false }),
 
-	rolls: new RecordField(
-		new fields.DocumentIdField({
-			required: true,
-			nullable: false,
-			initial: () => foundry.utils.randomID(),
-		}),
-		new ActionRollField({ required: true, nullable: false }),
-	),
+	rolls: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_ROLL_DATA_TYPES)),
 
 	target: new fields.SchemaField({
 		heard: new fields.BooleanField({

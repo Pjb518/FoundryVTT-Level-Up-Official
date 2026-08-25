@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { ActionActivationOptions } from "../../../documents/item/data.ts";
-    import type { AttackRollData } from "../../../dataModels/item/actions/ActionRollsDataModel.ts";
+    import type { AttackRollData } from "../../../dataModels/item/actions/ActionRollsDataModelN.ts";
 
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
     import { RollPreparationManager } from "#managers/RollPreparationManager.ts";

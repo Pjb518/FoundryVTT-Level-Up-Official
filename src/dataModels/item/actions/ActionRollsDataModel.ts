@@ -1,4 +1,5 @@
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
+import DataModel = foundry.abstract.DataModel;
 
 // ======================================================
 //                        Schemas
@@ -6,12 +7,17 @@ const { fields } = foundry.data;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 const abilityCheckSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'abilityCheck',
+	}),
 	...baseSchema(),
 });
 
@@ -26,6 +32,12 @@ const attackRollSchema = () => ({
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	critThreshold: new fields.NumberField({ required: true, nullable: false, initial: 20 }),
 	proficient: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'attack',
+	}),
 	...baseSchema(),
 });
 
@@ -35,12 +47,24 @@ const damageRollSchema = () => ({
 	damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'damage',
+	}),
 	...baseSchema(),
 });
 
 const genericRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'generic',
+	}),
 	...baseSchema(),
 });
 
@@ -48,12 +72,24 @@ const healingRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
 	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'healing',
+	}),
 	...baseSchema(),
 });
 
 const savingThrowSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'savingThrow',
+	}),
 	...baseSchema(),
 });
 
@@ -61,6 +97,12 @@ const skillCheckRollSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'skillCheck',
+	}),
 	...baseSchema(),
 });
 
@@ -68,12 +110,18 @@ const toolCheckRollSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	tool: new fields.StringField({ required: true, nullable: false, initial: 'airVehicles' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'toolCheck',
+	}),
 	...baseSchema(),
 });
 
-// ======================================================
-//                      NameSpaces
-// ======================================================
+// -----------------------------------
+// Namespaces
+// -----------------------------------
 declare namespace AbilityCheckRollData {
 	type Schema = DataSchema & ReturnType<typeof abilityCheckSchema>;
 }
@@ -106,13 +154,13 @@ declare namespace ToolCheckRollData {
 	type Schema = DataSchema & ReturnType<typeof toolCheckRollSchema>;
 }
 
-// ======================================================
-//                       Classes
-// ======================================================
-class AbilityCheckRollData extends foundry.abstract.DataModel<
-	AbilityCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+// -----------------------------------
+// Classes
+// -----------------------------------
+// TODO: Add Action as parent
+export class AbilityCheckRollData extends DataModel<AbilityCheckRollData.Schema> {
+	static type = 'abilityCheck';
+
 	static override defineSchema(): AbilityCheckRollData.Schema {
 		return {
 			...abilityCheckSchema(),
@@ -120,10 +168,9 @@ class AbilityCheckRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class AttackRollData extends foundry.abstract.DataModel<
-	AttackRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class AttackRollData extends DataModel<AttackRollData.Schema> {
+	static type = 'attack';
+
 	static override defineSchema(): AttackRollData.Schema {
 		return {
 			...attackRollSchema(),
@@ -131,10 +178,9 @@ class AttackRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class DamageRollData extends foundry.abstract.DataModel<
-	DamageRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class DamageRollData extends DataModel<DamageRollData.Schema> {
+	static type = 'damage';
+
 	static override defineSchema(): DamageRollData.Schema {
 		return {
 			...damageRollSchema(),
@@ -142,10 +188,9 @@ class DamageRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class GenericRollData extends foundry.abstract.DataModel<
-	GenericRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class GenericRollData extends DataModel<GenericRollData.Schema> {
+	static type = 'generic';
+
 	static override defineSchema(): GenericRollData.Schema {
 		return {
 			...genericRollSchema(),
@@ -153,10 +198,9 @@ class GenericRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class HealingRollData extends foundry.abstract.DataModel<
-	HealingRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class HealingRollData extends DataModel<HealingRollData.Schema> {
+	static type = 'healing';
+
 	static override defineSchema(): HealingRollData.Schema {
 		return {
 			...healingRollSchema(),
@@ -164,10 +208,9 @@ class HealingRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class SavingThrowRollData extends foundry.abstract.DataModel<
-	SavingThrowRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
+	static type = 'savingThrow';
+
 	static override defineSchema(): SavingThrowRollData.Schema {
 		return {
 			...savingThrowSchema(),
@@ -175,10 +218,9 @@ class SavingThrowRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class SkillCheckRollData extends foundry.abstract.DataModel<
-	SkillCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
+	static type = 'skillCheck';
+
 	static override defineSchema(): SkillCheckRollData.Schema {
 		return {
 			...skillCheckRollSchema(),
@@ -186,10 +228,9 @@ class SkillCheckRollData extends foundry.abstract.DataModel<
 	}
 }
 
-class ToolCheckRollData extends foundry.abstract.DataModel<
-	ToolCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
+	static type = 'toolCheck';
+
 	static override defineSchema(): ToolCheckRollData.Schema {
 		return {
 			...toolCheckRollSchema(),
@@ -197,34 +238,13 @@ class ToolCheckRollData extends foundry.abstract.DataModel<
 	}
 }
 
-export type A5eActionRolls = ((
-	| AbilityCheckRollData
-	| AttackRollData
-	| DamageRollData
-	| GenericRollData
-	| HealingRollData
-	| SavingThrowRollData
-	| SkillCheckRollData
-	| ToolCheckRollData
-) & {
-	type:
-		| 'abilityCheck'
-		| 'attack'
-		| 'damage'
-		| 'generic'
-		| 'healing'
-		| 'savingThrow'
-		| 'skillCheck'
-		| 'toolCheck';
-})[];
-
-export {
-	AbilityCheckRollData,
-	AttackRollData,
-	DamageRollData,
-	GenericRollData,
-	HealingRollData,
-	SavingThrowRollData,
-	SkillCheckRollData,
-	ToolCheckRollData,
-};
+export const ACTION_ROLL_DATA_TYPES = {
+	abilityCheck: AbilityCheckRollData,
+	attack: AttackRollData,
+	damage: DamageRollData,
+	generic: GenericRollData,
+	healing: HealingRollData,
+	savingThrow: SavingThrowRollData,
+	skillCheck: SkillCheckRollData,
+	toolCheck: ToolCheckRollData,
+} as const;

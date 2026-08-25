@@ -1,4 +1,4 @@
-import type { SavingThrowRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { SavingThrowRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareSavingThrows(
 	rolls: [string, SavingThrowRollData][],

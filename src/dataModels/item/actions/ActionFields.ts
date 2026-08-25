@@ -1,7 +1,6 @@
 import * as AreaData from './ActionAreaDataModels.ts';
 import * as ConsumerData from './ActionConsumersDataModel.ts';
 import * as PromptData from './ActionPromptsDataModel.ts';
-import * as RollData from './ActionRollsDataModel.ts';
 
 // ======================================================
 //                       Areas
@@ -194,68 +193,6 @@ class ActionPromptField<
 }
 
 // ======================================================
-//                       Rolls
-// ======================================================
-const rollTypesMap = {
-	abilityCheck: RollData.AbilityCheckRollData,
-	attack: RollData.AttackRollData,
-	damage: RollData.DamageRollData,
-	generic: RollData.GenericRollData,
-	healing: RollData.HealingRollData,
-	savingThrow: RollData.SavingThrowRollData,
-	skillCheck: RollData.SkillCheckRollData,
-	toolCheck: RollData.ToolCheckRollData,
-} as const;
-
-declare namespace ActionRollField {
-	export type RollTypesMap = typeof rollTypesMap;
-
-	export type RollTypes = keyof RollTypesMap;
-}
-
-class ActionRollField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-	const RollType extends ActionRollField.RollTypes = ActionRollField.RollTypes,
-	const AssignmentType = { type: RollType },
-	const InitializedType = ActionRollField.RollTypesMap[RollType] & { type: RollType },
-	const PersistedType extends object | null | undefined = ActionRollField.RollTypesMap[RollType],
-> extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
-	getModelForType(type: ActionRollField.RollTypes) {
-		return rollTypesMap[type];
-	}
-
-	override _cleanType(
-		value: InitializedType,
-		options?: foundry.data.fields.DataField.CleanOptions,
-		_state?: any,
-	): InitializedType {
-		if (!(typeof value === 'object')) value = {} as InitializedType;
-
-		// @ts-expect-error
-		const Cls = this.getModelForType(value?.type);
-		// @ts-expect-error
-		if (Cls) return Cls.cleanData(value, options, _state);
-		return value;
-	}
-
-	override initialize(
-		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
-		options = {},
-	): InitializedType {
-		// @ts-expect-error
-		const Cls = this.getModelForType(value?.type);
-		const schema = Cls?.schema;
-		const filledValue = foundry.utils.mergeObject(schema?.getInitialValue() ?? {}, value);
-
-		// @ts-expect-error
-		if (Cls) return new Cls(filledValue, { parent: model, ...options });
-		// @ts-expect-error
-		return foundry.utils.deepClone(value);
-	}
-}
-
-// ======================================================
 //                      Exports
 // ======================================================
-export { ActionAreaField, ActionConsumerField, ActionPromptField, ActionRollField };
+export { ActionAreaField, ActionConsumerField, ActionPromptField };

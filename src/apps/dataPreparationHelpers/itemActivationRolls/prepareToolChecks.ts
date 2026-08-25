@@ -1,4 +1,4 @@
-import type { ToolCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { ToolCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareToolChecks(
 	rolls: [string, ToolCheckRollData][],

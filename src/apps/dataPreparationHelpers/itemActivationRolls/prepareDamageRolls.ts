@@ -1,4 +1,4 @@
-import type { DamageRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { DamageRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareDamageRolls(
 	rolls: [string, DamageRollData][],

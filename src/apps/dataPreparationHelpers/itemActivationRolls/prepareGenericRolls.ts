@@ -1,4 +1,4 @@
-import type { GenericRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { GenericRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareGenericRolls(
 	rolls: [string, GenericRollData][],

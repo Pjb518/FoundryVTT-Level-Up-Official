@@ -1,4 +1,4 @@
-import type { AbilityCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { AbilityCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareAbilityChecks(
 	rolls: [string, AbilityCheckRollData][],

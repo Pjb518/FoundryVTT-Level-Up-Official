@@ -1,4 +1,4 @@
-import type { HealingRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+import type { HealingRollData } from '../../../dataModels/item/actions/ActionRollsDataModel.ts';
 
 export default function prepareHealingRolls(
 	rolls: [string, HealingRollData][],
