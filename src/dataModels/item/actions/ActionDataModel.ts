@@ -5,6 +5,7 @@ import { ActionConsumerField, ActionPromptField } from './ActionFields.ts';
 import fields = foundry.data.fields;
 
 import type { AnyObject } from 'fvtt-types/utils';
+import { ACTION_PROMPT_DATA_TYPES } from './ActionPromptsDataModel.ts';
 import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
 
 const actionSchema = () => ({
@@ -92,14 +93,7 @@ const actionSchema = () => ({
 		new ActionConsumerField({ required: true, nullable: false }),
 	),
 
-	prompts: new RecordField(
-		new fields.DocumentIdField({
-			required: true,
-			nullable: false,
-			initial: () => foundry.utils.randomID(),
-		}),
-		new ActionPromptField({ required: true, nullable: false }),
-	),
+	prompts: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_PROMPT_DATA_TYPES)),
 
 	ranges: new fields.ObjectField({ required: true, nullable: false }),
 

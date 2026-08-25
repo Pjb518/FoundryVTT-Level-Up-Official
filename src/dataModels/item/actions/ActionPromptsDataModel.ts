@@ -1,5 +1,5 @@
-/* eslint-disable max-classes-per-file */
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
+import DataModel = foundry.abstract.DataModel;
 
 // ======================================================
 //                        Schemas
@@ -7,11 +7,16 @@ const { fields } = foundry.data;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 const abilityCheckSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'abilityCheck',
+	}),
 	...baseSchema(),
 });
 
@@ -22,18 +27,46 @@ const abilitySaveSchema = () => ({
 		type: new fields.StringField({ required: true, nullable: false, initial: 'spellcasting' }),
 	}),
 	onSave: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'savingThrow',
+	}),
 	...baseSchema(),
 });
 
 const genericSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'generic',
+	}),
 	...baseSchema(),
 });
 
 const skillCheckSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'skillCheck',
+	}),
 	...baseSchema(),
+});
+
+const effectPromptSchema = () => ({
+	effectId: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'effect',
+	}),
 });
 
 // ======================================================
@@ -56,14 +89,18 @@ declare namespace SavingThrowPromptData {
 	type Schema = DataSchema & ReturnType<typeof abilitySaveSchema>;
 }
 
+/** @deprecated */
+declare namespace EffectPromptData {
+	type Schema = DataSchema & ReturnType<typeof effectPromptSchema>;
+}
+
 // ======================================================
 //                       Classes
 // ======================================================
 
-class AbilityCheckPromptData extends foundry.abstract.DataModel<
-	AbilityCheckPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class AbilityCheckPromptData extends DataModel<AbilityCheckPromptData.Schema> {
+	static type = 'abilityCheck';
+
 	static override defineSchema(): AbilityCheckPromptData.Schema {
 		return {
 			...abilityCheckSchema(),
@@ -71,10 +108,9 @@ class AbilityCheckPromptData extends foundry.abstract.DataModel<
 	}
 }
 
-class GenericPromptData extends foundry.abstract.DataModel<
-	GenericPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
+	static type = 'generic';
+
 	static override defineSchema(): GenericPromptData.Schema {
 		return {
 			...genericSchema(),
@@ -82,10 +118,9 @@ class GenericPromptData extends foundry.abstract.DataModel<
 	}
 }
 
-class SkillCheckPromptData extends foundry.abstract.DataModel<
-	SkillCheckPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class SkillCheckPromptData extends DataModel<SkillCheckPromptData.Schema> {
+	static type = 'skillCheck';
+
 	static override defineSchema(): SkillCheckPromptData.Schema {
 		return {
 			...skillCheckSchema(),
@@ -93,10 +128,9 @@ class SkillCheckPromptData extends foundry.abstract.DataModel<
 	}
 }
 
-class SavingThrowPromptData extends foundry.abstract.DataModel<
-	SavingThrowPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schema> {
+	static type = 'savingThrow';
+
 	static override defineSchema(): SavingThrowPromptData.Schema {
 		return {
 			...abilitySaveSchema(),
@@ -104,4 +138,22 @@ class SavingThrowPromptData extends foundry.abstract.DataModel<
 	}
 }
 
-export { AbilityCheckPromptData, GenericPromptData, SkillCheckPromptData, SavingThrowPromptData };
+/** @deprecated */
+export class EffectPromptData extends DataModel<EffectPromptData.Schema> {
+	static type = 'effect';
+
+	static override defineSchema(): EffectPromptData.Schema {
+		return {
+			...effectPromptSchema(),
+		};
+	}
+}
+
+export const ACTION_PROMPT_DATA_TYPES = {
+	abilityCheck: AbilityCheckPromptData,
+	generic: GenericPromptData,
+	savingThrow: SavingThrowPromptData,
+	skillCheck: SkillCheckPromptData,
+	/** @deprecated */
+	effect: EffectPromptData,
+} as const;
