@@ -13,7 +13,6 @@ class RollStateManager {
 	#state: RollStateManager.state;
 
 	constructor(item: ItemA5e, actionId: string) {
-		console.log('Here');
 		if (!item.isEmbedded || !item.actor) {
 			// TODO: Warning
 			return;

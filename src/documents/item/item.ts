@@ -43,6 +43,10 @@ class ItemA5e<
 
 	override prepareDerivedData() {
 		super.prepareDerivedData();
+
+		// Prepare Actions Derived Data
+		this.actions.prepareDerivedData();
+
 		if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
 	}
 

@@ -175,12 +175,19 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 
 	protected init(options?: any): void {
 		this.prepareBaseData();
-		this.prepareDerivedData();
+	}
+
+	/** ------------- Props ---------------- */
+	_effects: Map<string, ActiveEffect> = new Map();
+
+	/** ------------- Getters ---------------- */
+	get item() {
+		return this.parent.parent;
 	}
 
 	/** -------------Helpers---------------- */
 	getConsumersByType() {
-		const consumerArr = Object.values(this.consumers ?? {});
+		const consumersArr = Object.values(this.consumers ?? {});
 		return groupBy(consumersArr, 'type');
 	}
 
@@ -220,11 +227,19 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 			// Prepare Base Data
 			roll.prepareBaseData();
 		});
-
-		// Set Data for prompts
 	}
 
-	prepareDerivedData() {}
+	prepareDerivedData() {
+		// Prepare effect Documents
+		this.effects.forEach((e) => {
+			console.log(e, this.item);
+			const effect = this.item.effects.get(e);
+			console.log(effect);
+			if (!effect) return;
+
+			this._effects.set(e, effect);
+		});
+	}
 }
 
 // ======================================================
