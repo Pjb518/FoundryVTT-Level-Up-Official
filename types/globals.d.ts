@@ -52,4 +52,6 @@ declare module 'fvtt-types/configuration' {
  * Custom defs
  */
 
+declare global {}
+
 export default (something = {});

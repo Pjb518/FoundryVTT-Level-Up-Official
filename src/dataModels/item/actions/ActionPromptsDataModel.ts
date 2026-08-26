@@ -7,6 +7,7 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	id: new fields.StringField({ required: true, nullable: false, persisted: false }),
 });
 
 const abilityCheckSchema = () => ({
@@ -67,6 +68,7 @@ const effectPromptSchema = () => ({
 		blank: false,
 		initial: 'effect',
 	}),
+	...baseSchema(),
 });
 
 // ======================================================

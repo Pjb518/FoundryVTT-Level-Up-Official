@@ -3,6 +3,7 @@ import type { A5EObjectData } from '../ObjectDataModel.ts';
 import fields = foundry.data.fields;
 
 import type { AnyObject } from 'fvtt-types/utils';
+import { groupBy } from '#utils/groupBy.ts';
 import { ACTION_CONSUMER_DATA_TYPES } from './ActionConsumersDataModel.ts';
 import { ACTION_PROMPT_DATA_TYPES } from './ActionPromptsDataModel.ts';
 import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
@@ -178,13 +179,49 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	}
 
 	/** -------------Helpers---------------- */
-	rollsByType(type: ActionRollField.RollTypes) {
+	getConsumersByType() {
+		const consumerArr = Object.values(this.consumers ?? {});
+		return groupBy(consumersArr, 'type');
+	}
+
+	getPromptsByType() {
+		const promptsArr = Object.values(this.prompts ?? {});
+		return groupBy(promptsArr, 'type');
+	}
+
+	getRollsByType() {
+		const rollsArr = Object.values(this.rolls ?? {});
+		return groupBy(rollsArr, 'type');
+	}
+
+	filterRollsByType(type: ActionRollField.RollTypes) {
 		const rolls = Object.entries(this.rolls ?? {});
 		return rolls.filter(([, roll]) => roll.type === type);
 	}
 
+	/** --------- Data Model Functions ---------------- */
 	prepareBaseData() {
 		this.img ||= this.parent.parent.img || '';
+
+		// Set Data for consumers
+		Object.entries(this.consumers ?? {}).forEach(([id, consumer]) => {
+			consumer.id = id;
+		});
+
+		// Set Data for consumers
+		Object.entries(this.prompts ?? {}).forEach(([id, prompt]) => {
+			prompt.id = id;
+		});
+
+		// Set Data for prompts
+		Object.entries(this.rolls ?? {}).forEach(([id, roll]) => {
+			roll.id = id;
+
+			// Prepare Base Data
+			roll.prepareBaseData();
+		});
+
+		// Set Data for prompts
 	}
 
 	prepareDerivedData() {}

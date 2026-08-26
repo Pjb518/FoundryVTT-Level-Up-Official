@@ -1,3 +1,5 @@
+import { localize } from '#utils/localization/localize.ts';
+
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
@@ -7,6 +9,8 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	defaultLabel: new fields.StringField({ required: true, nullable: false, persisted: false }),
+	id: new fields.StringField({ required: true, nullable: false, persisted: false }),
 });
 
 const abilityCheckSchema = () => ({
@@ -166,6 +170,18 @@ export class AbilityCheckRollData extends DataModel<AbilityCheckRollData.Schema>
 			...abilityCheckSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.specificAbilityCheck', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class AttackRollData extends DataModel<AttackRollData.Schema> {
@@ -176,6 +192,8 @@ export class AttackRollData extends DataModel<AttackRollData.Schema> {
 			...attackRollSchema(),
 		};
 	}
+
+	prepareBaseData() {}
 }
 
 export class DamageRollData extends DataModel<DamageRollData.Schema> {
@@ -185,6 +203,16 @@ export class DamageRollData extends DataModel<DamageRollData.Schema> {
 		return {
 			...damageRollSchema(),
 		};
+	}
+
+	prepareBaseData() {
+		if (!this.label) {
+			const label = localize('A5E.damage.labels.specific', {
+				damageType: CONFIG.A5E.damageTypes[this.damageType] ?? '',
+			});
+
+			this.defaultLabel = label;
+		}
 	}
 }
 
@@ -196,6 +224,13 @@ export class GenericRollData extends DataModel<GenericRollData.Schema> {
 			...genericRollSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		if (!this.label) {
+			const label = localize('A5E.actions.labels.other');
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class HealingRollData extends DataModel<HealingRollData.Schema> {
@@ -205,6 +240,15 @@ export class HealingRollData extends DataModel<HealingRollData.Schema> {
 		return {
 			...healingRollSchema(),
 		};
+	}
+
+	prepareBaseData() {
+		this.healingType ??= 'healing';
+
+		if (!this.label) {
+			const label = localize(CONFIG.A5E.healingTypes[this.healingType] ?? '');
+			this.defaultLabel = label;
+		}
 	}
 }
 
@@ -216,6 +260,18 @@ export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
 			...savingThrowSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.prompts.savingThrow', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
@@ -226,6 +282,19 @@ export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
 			...skillCheckRollSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		this.skill ??= 'acr';
+		this.ability ??= 'dex';
+
+		if (!this.label) {
+			const label = localize('A5E.skillLabels.checks.skillSpecific', {
+				skill: CONFIG.A5E.skills[this.skill],
+			});
+
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
@@ -235,6 +304,18 @@ export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
 		return {
 			...toolCheckRollSchema(),
 		};
+	}
+
+	prepareBaseData() {
+		this.tool ??= 'airVehicles';
+
+		if (!this.label) {
+			const label = localize('A5E.actions.labels.toolCheckSpecific', {
+				tool: CONFIG.A5E.toolsFlattened[this.tool],
+			});
+
+			this.defaultLabel = label;
+		}
 	}
 }
 

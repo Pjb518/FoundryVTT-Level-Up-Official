@@ -146,7 +146,7 @@ class ItemA5e<
 		let activationData: any;
 		const action = this.actions.get(actionId)!;
 
-		// const state = new RollStateManager(this, actionId);
+		const state = new RollStateManager(this, actionId);
 
 		if (options.skipRollDialog) {
 			activationData = this.#getDefaultActionActivationData(actionId, options);

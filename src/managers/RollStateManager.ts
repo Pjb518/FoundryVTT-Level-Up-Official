@@ -13,6 +13,7 @@ class RollStateManager {
 	#state: RollStateManager.state;
 
 	constructor(item: ItemA5e, actionId: string) {
+		console.log('Here');
 		if (!item.isEmbedded || !item.actor) {
 			// TODO: Warning
 			return;
@@ -22,7 +23,7 @@ class RollStateManager {
 		this.#actor = item.actor;
 		this.#actionId = actionId;
 
-		const action = item.actions.get('actionId');
+		const action = item.actions.get(actionId);
 		if (!action) {
 			// TODO: Warning
 			return;
@@ -30,9 +31,20 @@ class RollStateManager {
 
 		this.#action = action;
 		this.#state = {};
+
+		this._prepareState();
 	}
 
-	_prepareState() {}
+	_prepareState() {
+		const rolls = this.#action.getRollsByType();
+		console.log(rolls);
+
+		const state = {
+			rolls: {},
+			consumers: {},
+			prompts: {},
+		};
+	}
 }
 
 declare namespace RollStateManager {

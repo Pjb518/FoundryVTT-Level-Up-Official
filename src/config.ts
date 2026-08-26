@@ -1773,7 +1773,13 @@ const toolsPlural = {
 		airVehicles: 'A5E.vehicles.plural.air',
 		spaceVehicles: 'A5E.vehicles.plural.space',
 	},
-};
+} as const;
+
+// Flatten the tools config object and extract just the inner tools keys
+const toolsFlattened: Record<string, string> = Object.values(tools).reduce(
+	(acc, curr) => ({ ...acc, ...curr }),
+	{},
+);
 
 const usesRecoveryTypeOptions = {
 	recoverAll: 'A5E.uses.recoveryTypes.recoverAll',
@@ -2282,6 +2288,7 @@ const A5E = {
 	tokenHPColors,
 	toolCategories,
 	tools,
+	toolsFlattened,
 	toolsPlural,
 	usesRecoveryTypeOptions,
 	weaponCategories,
