@@ -1,3 +1,5 @@
+import { localize } from '#utils/localization/localize.ts';
+
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
@@ -7,6 +9,7 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	defaultLabel: new fields.StringField({ required: true, nullable: false, persisted: false }),
 	id: new fields.StringField({ required: true, nullable: false, persisted: false }),
 });
 
@@ -108,6 +111,18 @@ export class AbilityCheckPromptData extends DataModel<AbilityCheckPromptData.Sch
 			...abilityCheckSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.specificAbilityCheck', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
@@ -117,6 +132,13 @@ export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
 		return {
 			...genericSchema(),
 		};
+	}
+
+	prepareBaseData() {
+		if (!this.label) {
+			const label = localize('A5E.actions.labels.other');
+			this.defaultLabel = label;
+		}
 	}
 }
 
@@ -128,6 +150,19 @@ export class SkillCheckPromptData extends DataModel<SkillCheckPromptData.Schema>
 			...skillCheckSchema(),
 		};
 	}
+
+	prepareBaseData() {
+		this.skill ??= 'acr';
+		this.ability ??= 'dex';
+
+		if (!this.label) {
+			const label = localize('A5E.skillLabels.checks.skillSpecific', {
+				skill: CONFIG.A5E.skills[this.skill],
+			});
+
+			this.defaultLabel = label;
+		}
+	}
 }
 
 export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schema> {
@@ -137,6 +172,18 @@ export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schem
 		return {
 			...abilitySaveSchema(),
 		};
+	}
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.prompts.savingThrow', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
 	}
 }
 
@@ -149,6 +196,8 @@ export class EffectPromptData extends DataModel<EffectPromptData.Schema> {
 			...effectPromptSchema(),
 		};
 	}
+
+	prepareBaseData() {}
 }
 
 export const ACTION_PROMPT_DATA_TYPES = {

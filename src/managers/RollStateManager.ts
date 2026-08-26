@@ -36,11 +36,12 @@ class RollStateManager {
 	}
 
 	_prepareState() {
+		const consumers = this.#action.getConsumersByType();
+		const prompts = this.#action.getPromptsByType();
 		const rolls = this.#action.getRollsByType();
-		console.log(rolls);
 
 		const state = {
-			rolls: {},
+			rolls: rolls,
 			consumers: {},
 			prompts: {},
 		};
