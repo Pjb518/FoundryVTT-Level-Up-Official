@@ -1,5 +1,7 @@
-/* eslint-disable max-classes-per-file */
-const { fields } = foundry.data;
+import { A5E } from '../../../config.ts';
+
+import fields = foundry.data.fields;
+import DataModel = foundry.abstract.DataModel;
 
 // ======================================================
 //                        Schemas
@@ -7,11 +9,11 @@ const { fields } = foundry.data;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 const usesSchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+	type: new fields.StringField({ required: true, nullable: false, blank: false, initial: '' }),
 	...baseSchema(),
 });
 
@@ -19,11 +21,18 @@ const quantitySchema = () => ({
 	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	deleteOnZero: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	type: new fields.StringField({ required: true, nullable: false, blank: false, initial: '' }),
 	...baseSchema(),
 });
 
 const hitDiceSchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'hitDice',
+	}),
 	...baseSchema(),
 });
 
@@ -32,6 +41,12 @@ const resourceSchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'resource',
+	}),
 	...baseSchema(),
 });
 
@@ -40,11 +55,12 @@ const spellSchema = () => ({
 		required: true,
 		nullable: false,
 		initial: 'variable',
-		choices: [...CONFIG.A5E.SPELL_CONSUMER_MODES],
+		choices: ['variable', 'chargesOnly', 'inventionsOnly', 'slotsOnly', 'pointsOnly'], // A5E.SPELLCONSUMERMODES
 	}),
 	charges: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	points: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	spellLevel: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	type: new fields.StringField({ required: true, nullable: false, blank: false, initial: 'spell' }),
 	...baseSchema(),
 });
 
@@ -82,10 +98,9 @@ declare namespace SpellConsumerData {
 // ======================================================
 //                       Classes
 // ======================================================
-class ActionUsesConsumerData extends foundry.abstract.DataModel<
-	ActionUsesConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
+	static type = 'actionUses';
+
 	static override defineSchema(): ActionUsesConsumerData.Schema {
 		return {
 			...usesSchema(),
@@ -93,10 +108,9 @@ class ActionUsesConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class AmmunitionConsumerData extends foundry.abstract.DataModel<
-	AmmunitionConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class AmmunitionConsumerData extends DataModel<AmmunitionConsumerData.Schema> {
+	static type = 'ammunition';
+
 	static override defineSchema(): AmmunitionConsumerData.Schema {
 		return {
 			...quantitySchema(),
@@ -104,10 +118,9 @@ class AmmunitionConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class HitDiceConsumerData extends foundry.abstract.DataModel<
-	HitDiceConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class HitDiceConsumerData extends DataModel<HitDiceConsumerData.Schema> {
+	static type = 'hitDice';
+
 	static override defineSchema(): HitDiceConsumerData.Schema {
 		return {
 			...hitDiceSchema(),
@@ -115,10 +128,9 @@ class HitDiceConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class ItemUsesConsumerData extends foundry.abstract.DataModel<
-	ItemUsesConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
+	static type = 'itemUses';
+
 	static override defineSchema(): ItemUsesConsumerData.Schema {
 		return {
 			...usesSchema(),
@@ -126,10 +138,9 @@ class ItemUsesConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class QuantityConsumerData extends foundry.abstract.DataModel<
-	QuantityConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class QuantityConsumerData extends DataModel<QuantityConsumerData.Schema> {
+	static type = 'quantity';
+
 	static override defineSchema(): QuantityConsumerData.Schema {
 		return {
 			...quantitySchema(),
@@ -137,10 +148,9 @@ class QuantityConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class ResourceConsumerData extends foundry.abstract.DataModel<
-	ResourceConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
+	static type = 'resource';
+
 	static override defineSchema(): ResourceConsumerData.Schema {
 		return {
 			...resourceSchema(),
@@ -148,10 +158,9 @@ class ResourceConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
-class SpellConsumerData extends foundry.abstract.DataModel<
-	SpellConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
-> {
+class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
+	static type = 'spell';
+
 	static override defineSchema(): SpellConsumerData.Schema {
 		return {
 			...spellSchema(),
@@ -159,7 +168,18 @@ class SpellConsumerData extends foundry.abstract.DataModel<
 	}
 }
 
+const ACTION_CONSUMER_DATA_TYPES = {
+	actionUses: ActionUsesConsumerData,
+	ammunition: AmmunitionConsumerData,
+	hitDice: HitDiceConsumerData,
+	itemUses: ItemUsesConsumerData,
+	quantity: QuantityConsumerData,
+	resource: ResourceConsumerData,
+	spell: SpellConsumerData,
+} as const;
+
 export {
+	ACTION_CONSUMER_DATA_TYPES,
 	ActionUsesConsumerData,
 	AmmunitionConsumerData,
 	HitDiceConsumerData,

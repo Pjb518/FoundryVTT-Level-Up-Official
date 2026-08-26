@@ -1,10 +1,9 @@
-import { RecordField } from '../../fields/RecordField.ts';
 import type { A5EObjectData } from '../ObjectDataModel.ts';
-import { ActionConsumerField, ActionPromptField } from './ActionFields.ts';
 
 import fields = foundry.data.fields;
 
 import type { AnyObject } from 'fvtt-types/utils';
+import { ACTION_CONSUMER_DATA_TYPES } from './ActionConsumersDataModel.ts';
 import { ACTION_PROMPT_DATA_TYPES } from './ActionPromptsDataModel.ts';
 import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
 
@@ -84,19 +83,18 @@ const actionSchema = () => ({
 		async: true,
 	}),
 
-	consumers: new RecordField(
-		new fields.DocumentIdField({
-			required: true,
-			nullable: false,
-			initial: () => foundry.utils.randomID(),
-		}),
-		new ActionConsumerField({ required: true, nullable: false }),
-	),
+	// consumers: new RecordField(
+	// 	new fields.DocumentIdField({
+	// 		required: true,
+	// 		nullable: false,
+	// 		initial: () => foundry.utils.randomID(),
+	// 	}),
+	// 	new ActionConsumerField({ required: true, nullable: false }),
+	// ),
 
+	consumers: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_CONSUMER_DATA_TYPES)),
 	prompts: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_PROMPT_DATA_TYPES)),
-
 	ranges: new fields.ObjectField({ required: true, nullable: false }),
-
 	rolls: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_ROLL_DATA_TYPES)),
 
 	target: new fields.SchemaField({
