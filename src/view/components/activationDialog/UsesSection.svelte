@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { ConsumerHandlerReturnType } from "../../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers.ts";
-
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
+    import type { ItemA5e } from "#documents/item/item.ts";
 
     import showActivationDialogSection from "#utils/showActivationDialogSection.ts";
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
@@ -10,7 +10,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
     type Props = {
-        consumers: ConsumerHandlerReturnType;
+        consumers: RollStateManager.state["consumers"];
         selectedConsumers: string[];
         actionUsesData: ResourceConsumptionManager.UsesConsumerData;
         itemUsesData: ResourceConsumptionManager.UsesConsumerData;
@@ -23,29 +23,43 @@
         itemUsesData = $bindable(),
     }: Props = $props();
 
-    let actor: Actor = getContext("actor");
-    let item: Item = getContext("item");
+    let actor: Actor.OfType<"base"> = getContext("actor");
+    let item: ItemA5e = getContext("item");
     let actionId: string = getContext("actionId");
     let action = $derived(item.reactive.actions.get(actionId)!);
 
-    let parts = $state(
-        ResourceConsumptionManager.prepareUsesData(
-            actor,
-            item,
-            consumers,
-            actionId,
-        ),
+    // let parts = $state(
+    //     ResourceConsumptionManager.prepareUsesData(
+    //         actor,
+    //         item,
+    //         consumers,
+    //         actionId,
+    //     ),
+    // );
+
+    let partsA = $state(
+        consumers?.actionUses?.at(0)?.getActivationData(actor, item),
+    );
+
+    let partsI = $state(
+        consumers?.itemUses?.at(0)?.getActivationData(actor, item),
     );
 
     // =======================================================
     // Consumer data
-    actionUsesData = parts.actionUsesData;
-    itemUsesData = parts.itemUsesData;
+    actionUsesData = {
+        baseUses: partsA?.baseUses || 1,
+        quantity: partsA?.quantity || 1,
+    };
+    itemUsesData = {
+        baseUses: partsI?.baseUses || 1,
+        quantity: partsI?.quantity || 1,
+    };
 
-    let actionUses = $derived(parts.actionUses);
-    let actionMaxUses = $derived(parts.actionMaxUses);
-    let itemUses = $derived(parts.itemUses);
-    let itemMaxUses = $derived(parts.itemMaxUses);
+    let actionUses = $derived(partsA?.actionUses ?? {});
+    let actionMaxUses = $derived(partsA?.maxUses || 0);
+    let itemUses = $derived(partsI?.itemUses ?? {});
+    let itemMaxUses = $derived(partsI?.maxUses || 0);
 </script>
 
 <div class="side-by-side">

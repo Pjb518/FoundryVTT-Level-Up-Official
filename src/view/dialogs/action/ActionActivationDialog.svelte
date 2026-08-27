@@ -101,26 +101,26 @@
 
     const attackRoll = rollState.attackRoll ?? {};
 
-    const consumerOptions = Object.entries(consumers ?? {}).reduce(
-        (acc, [type, data]) => {
-            if (type === "resource") {
-                data.forEach((e, idx) =>
-                    acc.push([
-                        e[0],
-                        e[1].label || `Resource Consumer #${idx + 1}`,
-                    ]),
-                );
-            } else {
-                acc.push([
-                    data[0],
-                    data[1].label || `${type.capitalize()} Consumer `,
-                ]);
-            }
+    // const consumerOptions = Object.entries(consumers ?? {}).reduce(
+    //     (acc, [type, data]) => {
+    //         if (type === "resource") {
+    //             data.forEach((e, idx) =>
+    //                 acc.push([
+    //                     e[0],
+    //                     e[1].label || `Resource Consumer #${idx + 1}`,
+    //                 ]),
+    //             );
+    //         } else {
+    //             acc.push([
+    //                 data[0],
+    //                 data[1].label || `${type.capitalize()} Consumer `,
+    //             ]);
+    //         }
 
-            return acc;
-        },
-        [] as any[],
-    );
+    //         return acc;
+    //     },
+    //     [] as any[],
+    // );
 
     let selectedConsumers = $state(defaults.consumers);
 
@@ -212,7 +212,7 @@
 </script>
 
 <form>
-    {#if warnings.length}
+    <!-- {#if warnings.length}
         <section class="warning__wrapper">
             {#each warnings as warning}
                 <p class="warning" style="color: var(--a5e-color-warning);">
@@ -221,7 +221,7 @@
                 </p>
             {/each}
         </section>
-    {/if}
+    {/if} -->
 
     <Section --a5e-section-body-gap="0.5rem">
         <OutputVisibilitySection bind:visibilityMode />
@@ -280,17 +280,17 @@
             <FieldWrapper
                 hint="These consumers are the only ones that will apply when the item is rolled."
             >
-                <CheckboxGroup
+                <!-- <CheckboxGroup
                     heading="Selected Consumers to apply on roll"
                     options={consumerOptions}
                     selected={selectedConsumers}
                     onUpdateSelection={(detail) => (selectedConsumers = detail)}
-                />
+                /> -->
             </FieldWrapper>
 
-            {#if showSpellSection}
+            <!-- {#if showSpellSection}
                 <SpellSection {consumers} bind:spellData />
-            {/if}
+            {/if} -->
 
             {#if showUsesSection}
                 <UsesSection
@@ -301,9 +301,9 @@
                 />
             {/if}
 
-            {#if showHitDiceSection}
+            <!-- {#if showHitDiceSection}
                 <HitDiceSection {consumers} bind:hitDiceData />
-            {/if}
+            {/if} -->
         </Section>
     {/if}
 

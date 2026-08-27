@@ -1,7 +1,10 @@
-import { A5E } from '../../../config.ts';
+import type { ItemA5e } from '../../../documents/item/item.ts';
 
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
+
+import { getDeterministicBonus } from '../../../dice/getDeterministicBonus.ts';
+import type { A5EActionData } from './ActionDataModel.ts';
 
 // ======================================================
 //                        Schemas
@@ -107,6 +110,17 @@ class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
 			...usesSchema(),
 		};
 	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const actionUses = this.parent?.uses ?? {};
+
+		return {
+			actionUses,
+			baseUses: this.quantity ?? 1,
+			maxUses: getDeterministicBonus(actionUses.max, actor.getRollData(item)),
+			quantity: this.quantity ?? 1,
+		};
+	}
 }
 
 class AmmunitionConsumerData extends DataModel<AmmunitionConsumerData.Schema> {
@@ -135,6 +149,17 @@ class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
 	static override defineSchema(): ItemUsesConsumerData.Schema {
 		return {
 			...usesSchema(),
+		};
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const itemUses = item.system.uses;
+
+		return {
+			baseUses: this.quantity ?? 1,
+			maxUses: getDeterministicBonus(itemUses.max, actor.getRollData(item)),
+			itemUses,
+			quantity: this.quantity ?? 1,
 		};
 	}
 }
