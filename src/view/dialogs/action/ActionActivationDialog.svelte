@@ -271,7 +271,7 @@
 
     {#if showPrompts}
         <Section heading="Prompts Config" --a5e-section-body-gap="0.5rem">
-            <PromptsSection {prompts} bind:selectedPrompts />
+            <PromptsSection {prompts} bind:selectedPrompts {stateConfig} />
         </Section>
     {/if}
 

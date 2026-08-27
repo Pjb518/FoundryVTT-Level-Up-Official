@@ -112,6 +112,8 @@ export class AbilityCheckPromptData extends DataModel<AbilityCheckPromptData.Sch
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.ability ??= 'str';
 
@@ -134,11 +136,17 @@ export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		if (!this.label) {
 			const label = localize('A5E.actions.labels.other');
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
 	}
 }
 
@@ -150,6 +158,8 @@ export class SkillCheckPromptData extends DataModel<SkillCheckPromptData.Schema>
 			...skillCheckSchema(),
 		};
 	}
+
+	formulaInvalid = false;
 
 	prepareBaseData() {
 		this.skill ??= 'acr';
@@ -174,6 +184,8 @@ export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schem
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.ability ??= 'str';
 
@@ -184,6 +196,10 @@ export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schem
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (this.saveDC.bonus && !Roll.validate(this.saveDC.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -196,6 +212,8 @@ export class EffectPromptData extends DataModel<EffectPromptData.Schema> {
 			...effectPromptSchema(),
 		};
 	}
+
+	formulaInvalid = true;
 
 	prepareBaseData() {}
 }

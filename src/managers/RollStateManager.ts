@@ -58,6 +58,7 @@ class RollStateManager {
 			},
 			invalids: {
 				rolls: this.#action.invalidRolls,
+				prompts: this.#action.invalidPrompts,
 			},
 		};
 

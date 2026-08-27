@@ -192,6 +192,13 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 		}, [] as string[]);
 	}
 
+	get invalidPrompts() {
+		return Object.values(this.prompts ?? {}).reduce((acc, prompt) => {
+			if (prompt.formulaInvalid) acc.push(prompt.id);
+			return acc;
+		}, [] as string[]);
+	}
+
 	/** -------------Helpers---------------- */
 	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls'): string[] {
 		const arr = Object.values(this[property] ?? {});
@@ -199,7 +206,7 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 
 		return arr.reduce((acc, prop) => {
 			if (prop.default) {
-				if (property === 'rolls') {
+				if (property === 'rolls' || property === 'prompts') {
 					if (!prop.formulaInvalid) acc.push(prop.id);
 				} else acc.push(prop.id);
 			}
@@ -236,9 +243,12 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 			consumer.id = id;
 		});
 
-		// Set Data for consumers
+		// Set Data for prompts
 		Object.entries(this.prompts ?? {}).forEach(([id, prompt]) => {
 			prompt.id = id;
+
+			// Prepare Base Data
+			prompt.prepareBaseData();
 		});
 
 		// Set Data for prompts
