@@ -1,3 +1,5 @@
+import type { RollStateManager } from '#managers/RollStateManager.ts';
+
 export interface ClassCastingData {
 	casterType: string;
 	charges?: number;
@@ -29,4 +31,5 @@ export interface ActionActivationOptions {
 	rollMode?: number | undefined;
 	situationalMods?: string | undefined;
 	skipRollDialog?: boolean | undefined;
+	rollState?: RollStateManager.state;
 }

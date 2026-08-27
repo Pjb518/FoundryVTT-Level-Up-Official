@@ -80,22 +80,21 @@
     let actor = actorDocument;
     let item = itemDocument;
 
+    const rollState = options.rollState!;
+    console.log(rollState);
+
     let action = $derived(item.reactive.actions.get(actionId)!);
     let { BonusesManager } = actor;
     const { isEmpty } = foundry.utils;
 
-    const consumers = RollPreparationManager.prepareConsumers(item, actionId); //
-    const effects = RollPreparationManager.prepareEffects(item, actionId); //
-    const prompts = RollPreparationManager.preparePrompts(item, actionId); //
-    const rolls = RollPreparationManager.prepareRolls(item, actionId); //
-    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses(
-        item,
+    const {
+        consumers,
+        effects,
+        prompts,
         rolls,
-    ); //
-    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses(
-        item,
-        rolls,
-    ); //
+        damageBonuses,
+        healingBonuses,
+    } = rollState;
 
     const attackRoll = rolls.attack?.length
         ? rolls.attack[0][1]
@@ -122,9 +121,7 @@
         [] as any[],
     );
 
-    let selectedConsumers = $state(
-        ResourceConsumptionManager.getDefaultConsumerSelection(consumers),
-    );
+    let selectedConsumers = $state(action.getDefaultIds("consumers"));
 
     // Show Config
     let showAttackRoll = $state(!isEmpty(attackRoll));
@@ -186,12 +183,8 @@
             healingBonuses,
         }),
     );
-    let selectedPrompts = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses(prompts),
-    );
-    let selectedRolls = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses(rolls),
-    );
+    let selectedPrompts = $state(action.getDefaultIds("prompts"));
+    let selectedRolls = $state(action.getDefaultIds("rolls"));
     let selectedEffects = $state(
         RollPreparationManager.getDefaultSelectedEffects(effects),
     );

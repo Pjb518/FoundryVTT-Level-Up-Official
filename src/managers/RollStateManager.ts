@@ -43,6 +43,13 @@ class RollStateManager {
 			healingBonuses,
 		};
 	}
+
+	// ===========================================
+	// Getters
+	// ===========================================
+	get state() {
+		return this.#state;
+	}
 }
 
 declare namespace RollStateManager {

@@ -186,6 +186,16 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	}
 
 	/** -------------Helpers---------------- */
+	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls') {
+		const arr = Object.values(this[property] ?? {});
+		if (!arr.length) return [] as string[];
+
+		return arr.reduce((acc, prop) => {
+			if (prop.default) acc.push(prop.id);
+			return acc;
+		}, [] as string[]);
+	}
+
 	getConsumersByType() {
 		const consumersArr = Object.values(this.consumers ?? {});
 		return groupBy(consumersArr, 'type');
