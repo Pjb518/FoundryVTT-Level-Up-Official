@@ -9,7 +9,6 @@
     import { localize } from "#utils/localization/localize.ts";
 
     import showActivationDialogSection from "#utils/showActivationDialogSection.ts";
-    import validateTemplateData from "#utils/measuredTemplates/validateTemplateData.ts";
 
     import ConsumptionValidator from "#utils/validators/ConsumptionValidator.ts";
 
@@ -85,18 +84,18 @@
     let { BonusesManager } = actor;
     const { isEmpty } = foundry.utils;
 
-    const consumers = RollPreparationManager.prepareConsumers(item, actionId);
-    const effects = RollPreparationManager.prepareEffects(item, actionId);
-    const prompts = RollPreparationManager.preparePrompts(item, actionId);
-    const rolls = RollPreparationManager.prepareRolls(item, actionId);
+    const consumers = RollPreparationManager.prepareConsumers(item, actionId); //
+    const effects = RollPreparationManager.prepareEffects(item, actionId); //
+    const prompts = RollPreparationManager.preparePrompts(item, actionId); //
+    const rolls = RollPreparationManager.prepareRolls(item, actionId); //
     const damageBonuses = BonusesManager.prepareGlobalDamageBonuses(
         item,
         rolls,
-    );
+    ); //
     const healingBonuses = BonusesManager.prepareGlobalHealingBonuses(
         item,
         rolls,
-    );
+    ); //
 
     const attackRoll = rolls.attack?.length
         ? rolls.attack[0][1]

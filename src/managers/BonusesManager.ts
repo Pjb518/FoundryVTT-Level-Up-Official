@@ -10,11 +10,11 @@ import type {
 	MovementBonus,
 	SensesBonus,
 	SkillBonus,
-} from 'types/bonuses';
-import type { BaseActorA5e } from '../documents/actor/base';
-import type { ItemA5e } from '../documents/item/item';
-
-import arraysAreEqual from '../utils/arraysAreEqual';
+} from 'types/bonuses.d.ts';
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
+import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
+import type { ItemA5e } from '../documents/item/item.ts';
+import arraysAreEqual from '../utils/arraysAreEqual.ts';
 
 interface SelectionData {
 	abilityKey?: string;
@@ -205,7 +205,6 @@ export default class BonusesManager {
 	getMovementBonusFormula(type: string): string {
 		const bonuses = this.prepareMovementBonuses(type);
 		const parts = bonuses.map(([, bonus]) => {
-			// @ts-expect-error
 			const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
 			const formula = bonus.formula.trim().replace('@original', original.toString());
 
@@ -220,7 +219,6 @@ export default class BonusesManager {
 		let isUnlimited = false;
 
 		const parts = bonuses.map(([, bonus]) => {
-			// @ts-expect-error
 			const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
 			if (bonus.unit === 'unlimited') isUnlimited = true;
 			const formula = bonus.formula.trim().replace('@original', original.toString());
@@ -250,7 +248,6 @@ export default class BonusesManager {
 	): string {
 		const bonuses = this.prepareSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
 		const parts = bonuses.map(([, bonus]) => {
-			// @ts-expect-error
 			const original: number = this.#actor._source.system.skills[skillKey]?.value ?? 0;
 			const formula = bonus.formula.trim().replace('@original', original.toString());
 
@@ -260,7 +257,6 @@ export default class BonusesManager {
 		// Expertise bonus addition for passive skills
 		const skill = this.#actor.system.skills[skillKey];
 		if (type === 'passive' && skill?.expertiseDice) {
-			// @ts-expect-error
 			const useNPCExpertise =
 				game.settings.storage
 					.get('world')
@@ -464,6 +460,52 @@ export default class BonusesManager {
 		});
 	}
 
+	_prepareGlobalDamageBonuses(
+		item: ItemA5e,
+		rolls: ReturnType<A5EActionData['getRollsByType']>,
+	): [string, DamageBonus][] {
+		const attackRoll: any[] = rolls.attack ?? [];
+		const damageRoll: any[] = rolls.damage ?? [];
+		const spellLevel = item.type === 'spell' ? item.system.level : null;
+
+		if (!Array.isArray(attackRoll)) return [];
+		if (!attackRoll.length) return [];
+
+		const { attackType }: { attackType: string } = attackRoll[0][1] ?? {};
+		const damages = new Set(damageRoll.map(({ damageType }) => damageType));
+		const bonuses = this.#bonuses.damage ?? {};
+		const counts = {};
+
+		const damageBonuses = Object.entries(bonuses).filter(([, { context, formula }]) => {
+			if (!formula) return false;
+			const { attackTypes, spellLevels } = context ?? { attackTypes: [], spellLevels: [] };
+			const damageTypes = new Set(context.damageTypes ?? []);
+
+			if (attackTypes?.length && !attackTypes.includes(attackType || 'meleeWeaponAttack'))
+				return false;
+			if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`))
+				return false;
+			if (damageTypes.size && !damageTypes.intersects(damages)) return false;
+
+			return true;
+		});
+
+		return damageBonuses.map(([key, damageBonus]) => {
+			if (!damageBonus.label) {
+				const label = game.i18n.format('A5E.DamageBonusSpecific', {
+					damageType: game.i18n.localize(CONFIG.A5E.damageTypes[damageBonus.damageType] ?? ''),
+				});
+
+				counts[damageBonus.damageType] ??= 0;
+				counts[damageBonus.damageType] += 1;
+
+				damageBonus.defaultLabel = `${label} #${counts[damageBonus.damageType]}`;
+			}
+
+			return [key, damageBonus];
+		});
+	}
+
 	prepareGlobalHealingBonuses(item: ItemA5e, rolls: any): [string, HealingBonus][] {
 		const bonuses = this.#bonuses.healing;
 		const counts = {};
@@ -474,6 +516,49 @@ export default class BonusesManager {
 		if (!healingRolls.length) return [];
 
 		const heals: Set<string> = new Set(healingRolls.map(([, { healingType }]) => healingType));
+
+		const healingBonuses = Object.entries(bonuses).filter(([, { context, formula }]) => {
+			if (!formula) return false;
+
+			const { spellLevels } = context ?? { spellLevels: [] };
+			const healingTypes = new Set(context.healingTypes ?? []);
+
+			if (healingTypes.size && !healingTypes.intersects(heals)) return false;
+			if (spellLevel !== null && spellLevels.length && !spellLevels.includes(`${spellLevel}`))
+				return false;
+
+			return true;
+		});
+
+		return healingBonuses.map(([key, healingBonus]) => {
+			const healingType = healingBonus.healingType || 'healing';
+
+			if (!healingBonus.label) {
+				const label = game.i18n.localize(CONFIG.A5E.healingTypes[healingType]);
+
+				counts[healingType] ??= 0;
+				counts[healingType] += 1;
+
+				healingBonus.defaultLabel = `${label} #${counts[healingType]}`;
+			}
+
+			return [key, healingBonus];
+		});
+	}
+
+	_prepareGlobalHealingBonuses(
+		item: ItemA5e,
+		rolls: ReturnType<A5EActionData['getRollsByType']>,
+	): [string, HealingBonus][] {
+		const bonuses = this.#bonuses.healing;
+		const counts = {};
+
+		const healingRolls = rolls.healing ?? [];
+		const spellLevel = item.type === 'spell' ? item.system.level || 1 : null;
+
+		if (!healingRolls.length) return [];
+
+		const heals: Set<string> = new Set(healingRolls.map(({ healingType }) => healingType));
 
 		const healingBonuses = Object.entries(bonuses).filter(([, { context, formula }]) => {
 			if (!formula) return false;

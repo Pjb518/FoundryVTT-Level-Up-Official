@@ -232,9 +232,7 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	prepareDerivedData() {
 		// Prepare effect Documents
 		this.effects.forEach((e) => {
-			console.log(e, this.item);
 			const effect = this.item.effects.get(e);
-			console.log(effect);
 			if (!effect) return;
 
 			this._effects.set(e, effect);

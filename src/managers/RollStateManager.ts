@@ -2,7 +2,7 @@ import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.t
 import type { ItemA5e } from '../documents/item/item.ts';
 
 class RollStateManager {
-	#actor: Actor;
+	#actor: Actor.OfType<'base'>;
 
 	#item: ItemA5e;
 
@@ -13,42 +13,40 @@ class RollStateManager {
 	#state: RollStateManager.state;
 
 	constructor(item: ItemA5e, actionId: string) {
-		if (!item.isEmbedded || !item.actor) {
-			// TODO: Warning
-			return;
-		}
-
 		this.#item = item;
 		this.#actor = item.actor;
 		this.#actionId = actionId;
 
-		const action = item.actions.get(actionId);
-		if (!action) {
-			// TODO: Warning
-			return;
-		}
-
+		const action = item.actions.get(actionId)!;
 		this.#action = action;
-		this.#state = {};
 
-		this._prepareState();
+		this.#state = this._prepareState();
 	}
 
 	_prepareState() {
 		const consumers = this.#action.getConsumersByType();
 		const prompts = this.#action.getPromptsByType();
 		const rolls = this.#action.getRollsByType();
+		console.log(rolls);
+		const effects = [...this.#action._effects].map(([, effect]) => effect);
 
-		const state = {
-			rolls: rolls,
-			consumers: {},
-			prompts: {},
+		const { BonusesManager } = this.#actor;
+		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
+		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
+
+		return {
+			consumers,
+			effects,
+			prompts,
+			rolls,
+			damageBonuses,
+			healingBonuses,
 		};
 	}
 }
 
 declare namespace RollStateManager {
-	type state = {};
+	type state = ReturnType<RollStateManager['_prepareState']>;
 }
 
 export { RollStateManager };
