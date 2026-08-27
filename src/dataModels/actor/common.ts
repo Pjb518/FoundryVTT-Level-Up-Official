@@ -15,6 +15,7 @@ import {
 
 const { fields } = foundry.data;
 
+// TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
 	abilities: new fields.SchemaField(
 		Object.keys(CONFIG.A5E.abilities ?? {}).reduce((acc, abl) => {

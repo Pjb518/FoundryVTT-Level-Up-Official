@@ -1,3 +1,4 @@
+import getAttackAbility from '#utils/getAttackAbility.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 
@@ -33,11 +34,25 @@ class RollStateManager {
 		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
 		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
 
+		// TODO:
+		const attackRoll = rolls.attack?.length ? rolls.attack.at(0) : null;
+		const attackRollConfig = attackRoll
+			? {
+					ability: getAttackAbility(this.#actor, this.#item, attackRoll),
+					bonuses: BonusesManager.prepareAttackBonuses(this.#item, attackRoll.attackType),
+				}
+			: {};
+
 		const config = {
+			attackRoll: attackRollConfig,
 			defaults: {
 				consumers: this.#action.getDefaultIds('consumers'),
 				prompts: this.#action.getDefaultIds('prompts'),
 				rolls: this.#action.getDefaultIds('rolls'),
+				attackBonuses: BonusesManager.getDefaultSelections('attacks', {
+					item: this.#item,
+					attackType: attackRoll?.attackType,
+				}),
 				damageBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ damageBonuses }),
 				healingBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ healingBonuses }),
 			},
@@ -56,7 +71,7 @@ class RollStateManager {
 			rolls,
 
 			// Other
-			attackRoll: rolls.attack?.length ? rolls.attack.at(0) : null,
+			attackRoll,
 			damageBonuses,
 			healingBonuses,
 		};
