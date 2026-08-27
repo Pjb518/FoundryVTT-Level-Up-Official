@@ -185,13 +185,24 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 		return this.parent.parent;
 	}
 
+	get invalidRolls() {
+		return Object.values(this.rolls ?? {}).reduce((acc, roll) => {
+			if (roll.formulaInvalid) acc.push(roll.id);
+			return acc;
+		}, [] as string[]);
+	}
+
 	/** -------------Helpers---------------- */
-	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls') {
+	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls'): string[] {
 		const arr = Object.values(this[property] ?? {});
 		if (!arr.length) return [] as string[];
 
 		return arr.reduce((acc, prop) => {
-			if (prop.default) acc.push(prop.id);
+			if (prop.default) {
+				if (property === 'rolls') {
+					if (!prop.formulaInvalid) acc.push(prop.id);
+				} else acc.push(prop.id);
+			}
 			return acc;
 		}, [] as string[]);
 	}

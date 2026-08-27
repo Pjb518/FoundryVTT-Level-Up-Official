@@ -672,9 +672,16 @@ class RollPreparationManager {
 	static #getInvalidSelections(property: [string, any][]): string[] {
 		return Object.values(property)
 			.flat()
-			.reduce((acc, [key, value]) => {
-				if (['generic', 'healing', 'damage'].includes(value.type) && !value.formula) {
-					acc.push(key);
+			.reduce((acc, elem) => {
+				if (Array.isArray(elem)) {
+					const [key, value] = elem;
+					if (['generic', 'healing', 'damage'].includes(value.type) && !value.formula) {
+						acc.push(key);
+					}
+				} else {
+					if (['generic', 'healing', 'damage'].includes(elem.type) && !elem.formula) {
+						acc.push(elem.id);
+					}
 				}
 
 				return acc;

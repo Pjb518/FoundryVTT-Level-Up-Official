@@ -27,18 +27,36 @@ class RollStateManager {
 		const consumers = this.#action.getConsumersByType();
 		const prompts = this.#action.getPromptsByType();
 		const rolls = this.#action.getRollsByType();
-		console.log(rolls);
 		const effects = [...this.#action._effects].map(([, effect]) => effect);
 
 		const { BonusesManager } = this.#actor;
 		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
 		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
 
+		const config = {
+			defaults: {
+				consumers: this.#action.getDefaultIds('consumers'),
+				prompts: this.#action.getDefaultIds('prompts'),
+				rolls: this.#action.getDefaultIds('rolls'),
+				damageBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ damageBonuses }),
+				healingBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ healingBonuses }),
+			},
+			invalids: {
+				rolls: this.#action.invalidRolls,
+			},
+		};
+
 		return {
+			config,
+
+			// Props
 			consumers,
 			effects,
 			prompts,
 			rolls,
+
+			// Other
+			attackRoll: rolls.attack?.length ? rolls.attack.at(0) : null,
 			damageBonuses,
 			healingBonuses,
 		};

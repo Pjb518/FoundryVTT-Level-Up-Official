@@ -171,6 +171,8 @@ export class AbilityCheckRollData extends DataModel<AbilityCheckRollData.Schema>
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.ability ??= 'str';
 
@@ -181,6 +183,10 @@ export class AbilityCheckRollData extends DataModel<AbilityCheckRollData.Schema>
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -193,7 +199,13 @@ export class AttackRollData extends DataModel<AttackRollData.Schema> {
 		};
 	}
 
-	prepareBaseData() {}
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+	}
 }
 
 export class DamageRollData extends DataModel<DamageRollData.Schema> {
@@ -205,6 +217,8 @@ export class DamageRollData extends DataModel<DamageRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		if (!this.label) {
 			const label = localize('A5E.damage.labels.specific', {
@@ -213,6 +227,11 @@ export class DamageRollData extends DataModel<DamageRollData.Schema> {
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		if (this.critBonus && !Roll.validate(this.critBonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -225,11 +244,17 @@ export class GenericRollData extends DataModel<GenericRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		if (!this.label) {
 			const label = localize('A5E.actions.labels.other');
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
 	}
 }
 
@@ -242,6 +267,8 @@ export class HealingRollData extends DataModel<HealingRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.healingType ??= 'healing';
 
@@ -249,6 +276,10 @@ export class HealingRollData extends DataModel<HealingRollData.Schema> {
 			const label = localize(CONFIG.A5E.healingTypes[this.healingType] ?? '');
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
 	}
 }
 
@@ -261,6 +292,8 @@ export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.ability ??= 'str';
 
@@ -271,6 +304,10 @@ export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -283,6 +320,8 @@ export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.skill ??= 'acr';
 		this.ability ??= 'dex';
@@ -294,6 +333,10 @@ export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -306,6 +349,8 @@ export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
 		};
 	}
 
+	formulaInvalid = false;
+
 	prepareBaseData() {
 		this.tool ??= 'airVehicles';
 
@@ -316,6 +361,10 @@ export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
 
 			this.defaultLabel = label;
 		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 

@@ -5,13 +5,15 @@
 
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
 
     type Props = {
         selectedRolls: string[];
         rolls: RollHandlerReturnType;
+        stateConfig: RollStateManager.state["config"];
     };
 
-    let { selectedRolls = $bindable(), rolls }: Props = $props();
+    let { selectedRolls = $bindable(), rolls, stateConfig }: Props = $props();
 
     const rollHeadingMap = {
         abilityCheck: "Ability Checks",
@@ -23,8 +25,8 @@
         toolCheck: "Tool Checks",
     };
 
-    const { invalidSelections: disabledRolls, otherRolls } =
-        RollPreparationManager.prepareOtherRollData(rolls);
+    const { otherRolls } = RollPreparationManager.prepareOtherRollData(rolls);
+    const disabledRolls = stateConfig.invalids.rolls;
 </script>
 
 <FieldWrapper hint="A5E.rollLabels.hint">
@@ -33,11 +35,13 @@
             {#if _rolls.length}
                 <CheckboxGroup
                     heading={rollHeadingMap[rollType]}
-                    options={_rolls.map(([key, roll]) => [
-                        key,
+                    options={_rolls.map((roll) => [
+                        roll.id,
                         roll.label || roll.defaultLabel,
                     ])}
+                    red={disabledRolls}
                     disabledOptions={disabledRolls}
+                    preferColor={true}
                     selected={selectedRolls}
                     onUpdateSelection={(detail) => (selectedRolls = detail)}
                 />

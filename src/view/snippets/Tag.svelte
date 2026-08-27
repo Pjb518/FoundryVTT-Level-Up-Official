@@ -9,6 +9,7 @@
         red?: boolean;
         label?: string;
         icon?: string;
+        preferColor?: boolean;
         showIcon?: boolean;
         tight?: boolean;
         tooltipDirection?: string;
@@ -26,6 +27,7 @@
         red = false,
         label = "",
         icon = "",
+        preferColor = false,
         showIcon = false,
         tight = false,
         tooltipDirection = "UP",
@@ -85,8 +87,8 @@
         orange: boolean,
         disabled: boolean,
     ): string {
+        if (disabled && !preferColor) return "disabled";
         if (green) return "green";
-        if (disabled) return "disabled";
         if (red) return "red";
         if (orange) return "orange";
         return "default";

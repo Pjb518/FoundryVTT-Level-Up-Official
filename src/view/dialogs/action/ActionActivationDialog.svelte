@@ -88,6 +88,7 @@
     const { isEmpty } = foundry.utils;
 
     const {
+        config: stateConfig,
         consumers,
         effects,
         prompts,
@@ -96,9 +97,9 @@
         healingBonuses,
     } = rollState;
 
-    const attackRoll = rolls.attack?.length
-        ? rolls.attack[0][1]
-        : ({} as AttackRollData);
+    let { defaults } = stateConfig;
+
+    const attackRoll = rollState.attackRoll ?? {};
 
     const consumerOptions = Object.entries(consumers ?? {}).reduce(
         (acc, [type, data]) => {
@@ -121,7 +122,7 @@
         [] as any[],
     );
 
-    let selectedConsumers = $state(action.getDefaultIds("consumers"));
+    let selectedConsumers = $state(defaults.consumers);
 
     // Show Config
     let showAttackRoll = $state(!isEmpty(attackRoll));
@@ -173,18 +174,10 @@
         {} as ResourceConsumptionManager.UsesConsumerData,
     );
     let spellData = $state({} as ResourceConsumptionManager.SpellConsumerData);
-    let selectedDamageBonuses = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses({
-            damageBonuses,
-        }),
-    );
-    let selectedHealingBonuses = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses({
-            healingBonuses,
-        }),
-    );
-    let selectedPrompts = $state(action.getDefaultIds("prompts"));
-    let selectedRolls = $state(action.getDefaultIds("rolls"));
+    let selectedDamageBonuses = $state(defaults.damageBonuses);
+    let selectedHealingBonuses = $state(defaults.healingBonuses);
+    let selectedPrompts = $state(defaults.prompts);
+    let selectedRolls = $state(defaults.rolls);
     let selectedEffects = $state(
         RollPreparationManager.getDefaultSelectedEffects(effects),
     );
@@ -242,7 +235,7 @@
 
     {#if showOtherRolls}
         <Section heading="Rolls Config" --a5e-section-body-gap="0.5rem">
-            <RollsSection {rolls} bind:selectedRolls />
+            <RollsSection {rolls} bind:selectedRolls {stateConfig} />
         </Section>
     {/if}
 
