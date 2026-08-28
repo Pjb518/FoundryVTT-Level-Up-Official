@@ -205,6 +205,65 @@ class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
 			...spellSchema(),
 		};
 	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const { A5E } = CONFIG;
+		const spellLevels = Object.entries(A5E.spellLevels).slice(1);
+		const spellBook = actor.spellBooks.get(item.system.spellBook || '');
+
+		// Actor Data
+		const { spellResources } = actor.system;
+		const availableCharges = spellResources.artifactCharges.current;
+		const availablePoints = spellResources.points.current;
+		const availableSpellSlots = actor.availableSpellSlots;
+
+		const defaultLevel = this.spellLevel ?? item.system.level ?? 1;
+
+		const spellData = {
+			baseCharges: defaultLevel,
+			basePoints: this.points ?? 1,
+			baseLevel: this.spellLevel ?? item.system.level ?? 1,
+			charges: defaultLevel,
+			consume: 'noConsume' as 'artifactCharge' | 'spellPoint' | 'spellSlot' | 'noConsume',
+			level: defaultLevel,
+			mode: this.mode ?? 'variable',
+			points: defaultLevel,
+		};
+
+		if (spellData.mode === 'chargesOnly') spellData.consume = 'artifactCharge';
+		else if (spellData.mode === 'pointsOnly') spellData.consume = 'spellPoint';
+		else if (spellData.mode === 'slotsOnly') spellData.consume = 'spellSlot';
+		else {
+			if (availableCharges > 0) spellData.consume = 'artifactCharge';
+			else if (availablePoints > 0) spellData.consume = 'spellPoint';
+			else if (availableSpellSlots.length) spellData.consume = 'spellSlot';
+			else spellData.consume = 'noConsume';
+		}
+
+		// If no level available on item
+		if (item.system.level === null || item.system.level === undefined) {
+			spellData.consume = 'noConsume';
+		}
+
+		if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
+
+		const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+		if (spellData.consume === 'spellSlot')
+			spellData.level = Math.max(defaultLevel, smallestAvailable);
+
+		spellData.charges = this.charges ?? spellData.level ?? 1;
+		spellData.points = this.points ?? A5E.spellLevelCost[item.system?.level] ?? 1;
+
+		return {
+			availableCharges,
+			availablePoints,
+			availableSpellSlots,
+			mode: spellData.mode,
+			spellData,
+			spellLevels,
+			spellResources,
+		};
+	}
 }
 
 const ACTION_CONSUMER_DATA_TYPES = {

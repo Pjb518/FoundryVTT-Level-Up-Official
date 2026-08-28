@@ -34,6 +34,14 @@ export default function registerActionsConfig() {
 		'pointsOnly',
 	] as const;
 
+	const SPELL_CONSUME_OPTIONS = {
+		artifactCharge: 'A5E.spells.spellcasting.artifactCharges',
+		spellSlot: 'A5E.consumers.spellSlot',
+		spellPoint: 'A5E.spells.spellcasting.points',
+		// inventions: "A5E.spells.spellcasting.inventions",
+		noConsume: 'A5E.consumers.nothing',
+	} as const;
+
 	const configurableConsumers = new Set(['actionUses', 'itemUses', 'hitDice', 'spell']);
 
 	const resourceConsumerConfig = {
@@ -90,6 +98,7 @@ export default function registerActionsConfig() {
 		// Constants
 		ACTION_CONSUMER_TYPES,
 		SPELL_CONSUMER_MODES,
+		SPELL_CONSUME_OPTIONS,
 
 		// Config
 		configurableConsumers,

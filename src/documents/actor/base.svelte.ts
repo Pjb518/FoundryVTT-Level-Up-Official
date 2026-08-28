@@ -212,6 +212,16 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return this.effects.map((e) => e);
 	}
 
+	get availableSpellSlots() {
+		return Object.entries(this.system.spellResources.slots ?? {}).reduce(
+			(acc: string[], [level, slot]: [string, any]) => {
+				if (slot.max > 0 && slot.current > 0) acc.push(level);
+				return acc;
+			},
+			[],
+		);
+	}
+
 	get isBloodied(): boolean {
 		const { max, value } = this.system.attributes.hp;
 		return (value / max) * 100 <= 50;

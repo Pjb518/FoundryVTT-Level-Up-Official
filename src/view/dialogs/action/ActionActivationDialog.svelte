@@ -286,9 +286,9 @@
                 /> -->
             </FieldWrapper>
 
-            <!-- {#if showSpellSection}
-                <SpellSection {consumers} bind:spellData />
-            {/if} -->
+            {#if showSpellSection}
+                <SpellSection consumer={consumers.spell} bind:spellData />
+            {/if}
 
             {#if showUsesSection}
                 <UsesSection
