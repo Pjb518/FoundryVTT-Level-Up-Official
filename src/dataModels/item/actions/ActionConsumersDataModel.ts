@@ -4,7 +4,6 @@ import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
 import { getDeterministicBonus } from '../../../dice/getDeterministicBonus.ts';
-import type { A5EActionData } from './ActionDataModel.ts';
 
 // ======================================================
 //                        Schemas
@@ -112,6 +111,7 @@ class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
 	}
 
 	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		// @ts-expect-error
 		const actionUses = this.parent?.uses ?? {};
 
 		return {
@@ -139,6 +139,19 @@ class HitDiceConsumerData extends DataModel<HitDiceConsumerData.Schema> {
 	static override defineSchema(): HitDiceConsumerData.Schema {
 		return {
 			...hitDiceSchema(),
+		};
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const availableHitDice = actor.HitDiceManager.availableList;
+
+		const hitDiceData = {
+			selected: Object.fromEntries(availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])),
+			quantity: this.quantity ?? 1,
+		};
+
+		return {
+			...hitDiceData,
 		};
 	}
 }

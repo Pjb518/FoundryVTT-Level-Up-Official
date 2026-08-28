@@ -154,10 +154,7 @@
         ),
     );
 
-    let showHitDiceSection = $derived(
-        !!Object.values(consumers.hitDice ?? {}).flat().length &&
-            selectedConsumers.includes(consumers?.hitDice?.[0]!),
-    );
+    let showHitDiceSection = $derived(!!consumers.hitDice);
 
     let showConsumersSection = $derived(
         Object.values(consumers ?? {}).flat().length > 0,
@@ -185,6 +182,7 @@
     let visibilityMode = $state(game.settings?.get("core", "messageMode")!);
 
     // Validator
+    // TODO: Update
     const validator = $derived(
         new ConsumptionValidator(actor, item, action, consumers),
     );
@@ -294,16 +292,17 @@
 
             {#if showUsesSection}
                 <UsesSection
-                    {consumers}
+                    actionUsesConsumer={consumers.actionUses}
+                    itemUsesConsumer={consumers.itemUses}
                     {selectedConsumers}
                     bind:actionUsesData
                     bind:itemUsesData
                 />
             {/if}
 
-            <!-- {#if showHitDiceSection}
+            {#if showHitDiceSection}
                 <HitDiceSection {consumers} bind:hitDiceData />
-            {/if} -->
+            {/if}
         </Section>
     {/if}
 

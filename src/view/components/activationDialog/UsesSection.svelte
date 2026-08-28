@@ -1,23 +1,25 @@
 <script lang="ts">
     import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
-    import type { RollStateManager } from "#managers/RollStateManager.ts";
     import type { ItemA5e } from "#documents/item/item.ts";
+    import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
+    import { localize } from "#utils/localization/localize.ts";
 
     import showActivationDialogSection from "#utils/showActivationDialogSection.ts";
-    import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
     type Props = {
-        consumers: RollStateManager.state["consumers"];
+        actionUsesConsumer: RollStateManager.state["consumers"]["actionUses"];
+        itemUsesConsumer: RollStateManager.state["consumers"]["itemUses"];
         selectedConsumers: string[];
         actionUsesData: ResourceConsumptionManager.UsesConsumerData;
         itemUsesData: ResourceConsumptionManager.UsesConsumerData;
     };
 
     let {
-        consumers,
+        actionUsesConsumer,
+        itemUsesConsumer,
         selectedConsumers,
         actionUsesData = $bindable(),
         itemUsesData = $bindable(),
@@ -28,22 +30,8 @@
     let actionId: string = getContext("actionId");
     let action = $derived(item.reactive.actions.get(actionId)!);
 
-    // let parts = $state(
-    //     ResourceConsumptionManager.prepareUsesData(
-    //         actor,
-    //         item,
-    //         consumers,
-    //         actionId,
-    //     ),
-    // );
-
-    let partsA = $state(
-        consumers?.actionUses?.at(0)?.getActivationData(actor, item),
-    );
-
-    let partsI = $state(
-        consumers?.itemUses?.at(0)?.getActivationData(actor, item),
-    );
+    let partsA = $state(actionUsesConsumer?.getActivationData(actor, item));
+    let partsI = $state(itemUsesConsumer?.getActivationData(actor, item));
 
     // =======================================================
     // Consumer data

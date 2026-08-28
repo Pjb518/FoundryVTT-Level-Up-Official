@@ -216,7 +216,17 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 
 	getConsumersByType() {
 		const consumersArr = Object.values(this.consumers ?? {});
-		return groupBy(consumersArr, 'type');
+		const grouped = groupBy(consumersArr, 'type');
+
+		return {
+			actionUses: grouped.actionUses?.at(0) || null,
+			ammunition: grouped.ammunition?.at(0) || null,
+			hitDice: grouped.hitDice?.at(0) || null,
+			itemUses: grouped.itemUses?.at(0) || null,
+			quantity: grouped.hitDice?.at(0) || null,
+			resource: grouped.resource,
+			spell: grouped.spell?.at(0) || null,
+		};
 	}
 
 	getPromptsByType() {

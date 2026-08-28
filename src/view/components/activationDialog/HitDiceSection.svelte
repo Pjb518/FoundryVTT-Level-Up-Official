@@ -1,13 +1,12 @@
 <script lang="ts">
-    import type { ConsumerHandlerReturnType } from "../../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers.ts";
     import { getContext } from "svelte";
-
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
     type Props = {
-        consumers: ConsumerHandlerReturnType;
+        consumers: RollStateManager.state["consumers"];
         hitDiceData: ResourceConsumptionManager.HitDiceConsumerData;
     };
 
@@ -20,13 +19,14 @@
 
     let { consumers, hitDiceData = $bindable() }: Props = $props();
 
-    let actor: Actor = getContext("actor");
-    let parts = ResourceConsumptionManager.prepareHitDiceData(actor, consumers);
+    let actor: Actor.OfType<"base"> = getContext("actor");
+    // let parts = ResourceConsumptionManager.prepareHitDiceData(actor, consumers);
+    let parts = consumers.hitDice[0].getActivationData(actor);
 
-    const { availableHitDice } = parts;
+    const availableHitDice = parts;
     hitDiceData = parts.hitDiceData;
 
-    let hitDice = actor.system.attributes.hitDice;
+    let hitDice = $derived(actor.reactive.system.attributes.hitDice);
 </script>
 
 <FieldWrapper heading="A5E.hitDice.title">
