@@ -13,7 +13,10 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
 .a5e-hit-die {
     position: relative;
     display: flex;
-    width: 100%;
+    width: var(--a5e-hit-die-width, 100%);
+    min-width: 5rem;
+    height: auto;
+    background: none;
     align-items: center;
     justify-content: center;
     padding: 1rem;

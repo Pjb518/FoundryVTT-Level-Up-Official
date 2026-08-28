@@ -301,7 +301,7 @@
             {/if}
 
             {#if showHitDiceSection}
-                <HitDiceSection {consumers} bind:hitDiceData />
+                <HitDiceSection consumer={consumers.hitDice} bind:hitDiceData />
             {/if}
         </Section>
     {/if}

@@ -142,7 +142,7 @@ class HitDiceConsumerData extends DataModel<HitDiceConsumerData.Schema> {
 		};
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
 		const availableHitDice = actor.HitDiceManager.availableList;
 
 		const hitDiceData = {

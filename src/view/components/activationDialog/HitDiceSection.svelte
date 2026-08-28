@@ -6,7 +6,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
     type Props = {
-        consumers: RollStateManager.state["consumers"];
+        consumer: RollStateManager.state["consumers"]["hitDice"];
         hitDiceData: ResourceConsumptionManager.HitDiceConsumerData;
     };
 
@@ -17,25 +17,31 @@
         hitDiceData.selected[dieSize] = Math.max(newValue, 0);
     }
 
-    let { consumers, hitDiceData = $bindable() }: Props = $props();
+    let { consumer, hitDiceData = $bindable() }: Props = $props();
 
     let actor: Actor.OfType<"base"> = getContext("actor");
-    // let parts = ResourceConsumptionManager.prepareHitDiceData(actor, consumers);
-    let parts = consumers.hitDice[0].getActivationData(actor);
 
-    const availableHitDice = parts;
-    hitDiceData = parts.hitDiceData;
+    const availableHitDice = actor.HitDiceManager.availableList;
+    hitDiceData = consumer?.getActivationData(actor) ?? {
+        selected: {},
+        quantity: 1,
+    };
 
     let hitDice = $derived(actor.reactive.system.attributes.hitDice);
 </script>
 
 <FieldWrapper heading="A5E.hitDice.title">
     <!-- Type -->
-    <div class="u-flex u-gap-md u-text-md">
+    <div class="a5e-hit-die-container">
         {#each availableHitDice as die}
             <div class="a5e-hit-die-wrapper">
+                <!-- svelte-ignore a11y_click_events_have_key_events -->
+                <!-- svelte-ignore a11y_no_static_element_interactions -->
                 <button
                     type="button"
+                    style:--a5e-hit-die-width={availableHitDice.length > 1
+                        ? "100%"
+                        : "auto"}
                     class="a5e-hit-die a5e-hit-die--rollable a5e-hit-die--{die}"
                     class:disabled={hitDice[die].current === 0}
                     disabled={hitDice[die].current === 0}
@@ -79,5 +85,11 @@
         display: flex;
         gap: 0.25rem;
         align-items: center;
+    }
+
+    .a5e-hit-die-container {
+        display: flex;
+        font-size: var(--a5e-md-text);
+        gap: 0.5rem;
     }
 </style>
