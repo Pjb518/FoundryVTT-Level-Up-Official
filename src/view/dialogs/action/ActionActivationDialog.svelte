@@ -12,7 +12,6 @@
 
     import ConsumptionValidator from "#utils/validators/ConsumptionValidator.ts";
 
-    import Checkbox from "#view/snippets/Checkbox.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
@@ -98,13 +97,14 @@
 
     let { defaults } = stateConfig;
 
-    const attackRoll = rollState.attackRoll ?? {};
+    const attackRoll = rollState.attackRoll;
 
     const consumerOptions = Object.entries(consumers ?? {}).reduce(
         (acc, [type, data]) => {
             if (!data) return acc;
 
             if (type === "resource") {
+                // @ts-expect-error
                 data?.forEach?.((c, idx) => {
                     acc.push([
                         c[0],
@@ -113,7 +113,9 @@
                 });
             } else {
                 acc.push([
+                    // @ts-expect-error
                     data.id,
+                    // @ts-expect-error
                     data.label || `${type.capitalize()} Consumer`,
                 ]);
             }
@@ -180,7 +182,10 @@
         RollPreparationManager.getDefaultSelectedEffects(effects),
     );
 
-    let visibilityMode = $state(game.settings?.get("core", "messageMode")!);
+    let visibilityMode = $state(
+        // @ts-expect-error
+        game.settings.get("core", "messageMode"),
+    ) as string;
 
     // Validator
     // TODO: Update
@@ -189,6 +194,7 @@
     );
 
     const preventActionRollOnWarning =
+        // @ts-expect-error
         (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ??
         false;
 
@@ -228,7 +234,12 @@
 
     {#if showAttackRoll}
         <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
-            <AttackRollSection {attackRoll} {options} bind:attackRollData />
+            <AttackRollSection
+                {attackRoll}
+                {options}
+                bind:attackRollData
+                {rollState}
+            />
         </Section>
     {/if}
 

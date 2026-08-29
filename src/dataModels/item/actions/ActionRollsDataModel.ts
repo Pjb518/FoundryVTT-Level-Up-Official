@@ -3,6 +3,8 @@ import { localize } from '#utils/localization/localize.ts';
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
+import type { ItemA5e } from '#documents/item/item.ts';
+
 // ======================================================
 //                        Schemas
 // ======================================================

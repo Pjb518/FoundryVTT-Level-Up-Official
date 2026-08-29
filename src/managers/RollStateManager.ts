@@ -1,5 +1,8 @@
+import type { ActionActivationOptions } from '#documents/item/data.ts';
 import getAttackAbility from '#utils/getAttackAbility.ts';
+import getRollFormula from '#utils/getRollFormula.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
+import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 
 class RollStateManager {
@@ -13,10 +16,13 @@ class RollStateManager {
 
 	#state: RollStateManager.state;
 
-	constructor(item: ItemA5e, actionId: string) {
+	#options: ActionActivationOptions;
+
+	constructor(item: ItemA5e, actionId: string, options: ActionActivationOptions) {
 		this.#item = item;
 		this.#actor = item.actor;
 		this.#actionId = actionId;
+		this.#options = options;
 
 		const action = item.actions.get(actionId)!;
 		this.#action = action;
@@ -40,12 +46,7 @@ class RollStateManager {
 
 		// TODO:
 		const attackRoll = rolls.attack?.length ? rolls.attack.at(0) : null;
-		const attackRollConfig = attackRoll
-			? {
-					ability: getAttackAbility(this.#actor, this.#item, attackRoll),
-					bonuses: BonusesManager.prepareAttackBonuses(this.#item, attackRoll.attackType),
-				}
-			: {};
+		const attackRollConfig = this.#prepareAttackRollConfig(attackRoll);
 
 		const config = {
 			attackRoll: attackRollConfig,
@@ -79,6 +80,60 @@ class RollStateManager {
 			attackRoll,
 			damageBonuses,
 			healingBonuses,
+		};
+	}
+
+	#prepareAttackRollConfig(attackRoll: AttackRollData | null | undefined) {
+		if (!attackRoll) return null;
+
+		const { attackType } = attackRoll;
+		const overrideManager = this.#actor.RollOverrideManager;
+
+		const attackAbility = getAttackAbility(this.#actor, this.#item, attackRoll);
+		const expertiseDie = overrideManager.getExpertiseDice(
+			`attackTypes.${attackType}`,
+			this.#options.expertiseDie ?? 0,
+		);
+		const expertiseDieSource = overrideManager.getExpertiseDiceSource(
+			`attackTypes.${attackType}`,
+			this.#options.expertiseDie ?? 0,
+		);
+		const rollMode = overrideManager.getRollOverride(
+			`attackTypes.${attackType}`,
+			this.#options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+		);
+
+		const rollModeSource = overrideManager.getRollOverridesSource(
+			`attackTypes.${attackType}`,
+			this.#options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+		);
+
+		const selectedAttackBonuses = this.#actor.BonusesManager.getDefaultSelections('attacks', {
+			item: this.#item,
+			attackType,
+		});
+
+		const formula = getRollFormula(this.#actor, {
+			ability: attackAbility,
+			attackBonus: attackRoll.bonus,
+			attackType,
+			expertiseDie,
+			proficient: attackRoll.proficient ?? true,
+			rollMode,
+			situationalMods: this.#options.situationalMods || '',
+			selectedAttackBonuses,
+			type: 'attack',
+		});
+
+		return {
+			ability: attackAbility,
+			bonuses: this.#actor.BonusesManager.prepareAttackBonuses(this.#item, attackRoll.attackType),
+			expertiseDie,
+			expertiseDieSource,
+			formula,
+			rollMode,
+			rollModeSource,
+			selectedAttackBonuses,
 		};
 	}
 

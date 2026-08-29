@@ -150,7 +150,7 @@ class ItemA5e<
 		let activationData: any;
 		const action = this.actions.get(actionId)!;
 
-		const rollStateManager = new RollStateManager(this, actionId);
+		const rollStateManager = new RollStateManager(this, actionId, options);
 		const rollState = rollStateManager.state;
 		options.rollState = rollState;
 
