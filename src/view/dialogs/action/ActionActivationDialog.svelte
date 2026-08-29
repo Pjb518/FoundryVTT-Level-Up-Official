@@ -159,9 +159,7 @@
 
     let showHitDiceSection = $derived(!!consumers.hitDice);
 
-    let showConsumersSection = $derived(
-        Object.values(consumers ?? {}).flat().length > 0,
-    );
+    let showConsumersSection = $derived(consumerOptions.length > 0);
 
     let attackRollData = $state({});
     let actionUsesData = $state(
@@ -235,7 +233,7 @@
     {#if showAttackRoll}
         <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
             <AttackRollSection
-                {attackRoll}
+                attackRoll={attackRoll!}
                 {options}
                 bind:attackRollData
                 {rollState}
