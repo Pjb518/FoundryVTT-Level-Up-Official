@@ -224,7 +224,7 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 			hitDice: grouped.hitDice?.at(0) || null,
 			itemUses: grouped.itemUses?.at(0) || null,
 			quantity: grouped.hitDice?.at(0) || null,
-			resource: grouped.resource,
+			resource: grouped.resource || null,
 			spell: grouped.spell?.at(0) || null,
 		};
 	}

@@ -84,7 +84,6 @@
     console.log(rollState);
 
     let action = $derived(item.reactive.actions.get(actionId)!);
-    let { BonusesManager } = actor;
     const { isEmpty } = foundry.utils;
 
     const {
@@ -101,26 +100,28 @@
 
     const attackRoll = rollState.attackRoll ?? {};
 
-    // const consumerOptions = Object.entries(consumers ?? {}).reduce(
-    //     (acc, [type, data]) => {
-    //         if (type === "resource") {
-    //             data.forEach((e, idx) =>
-    //                 acc.push([
-    //                     e[0],
-    //                     e[1].label || `Resource Consumer #${idx + 1}`,
-    //                 ]),
-    //             );
-    //         } else {
-    //             acc.push([
-    //                 data[0],
-    //                 data[1].label || `${type.capitalize()} Consumer `,
-    //             ]);
-    //         }
+    const consumerOptions = Object.entries(consumers ?? {}).reduce(
+        (acc, [type, data]) => {
+            if (!data) return acc;
 
-    //         return acc;
-    //     },
-    //     [] as any[],
-    // );
+            if (type === "resource") {
+                data?.forEach?.((c, idx) => {
+                    acc.push([
+                        c[0],
+                        c[1].label || `Resource Consumers #${idx + 1}`,
+                    ]);
+                });
+            } else {
+                acc.push([
+                    data.id,
+                    data.label || `${type.capitalize()} Consumer`,
+                ]);
+            }
+
+            return acc;
+        },
+        [] as any[],
+    );
 
     let selectedConsumers = $state(defaults.consumers);
 
@@ -278,16 +279,16 @@
             <FieldWrapper
                 hint="These consumers are the only ones that will apply when the item is rolled."
             >
-                <!-- <CheckboxGroup
+                <CheckboxGroup
                     heading="Selected Consumers to apply on roll"
                     options={consumerOptions}
                     selected={selectedConsumers}
                     onUpdateSelection={(detail) => (selectedConsumers = detail)}
-                /> -->
+                />
             </FieldWrapper>
 
             {#if showSpellSection}
-                <SpellSection consumer={consumers.spell} bind:spellData />
+                <SpellSection consumer={consumers.spell!} bind:spellData />
             {/if}
 
             {#if showUsesSection}
@@ -309,7 +310,7 @@
     {#if effects.length}
         <Section heading="Effects Config" --a5e-section-body-gap="0.5rem">
             <CheckboxGroup
-                options={effects.map((e) => [e.id, e.name])}
+                options={effects.map((e) => [e.id!, e.name])}
                 selected={selectedEffects}
                 hint="Select which effects to activate/display on chat card"
                 onUpdateSelection={(detail) => (selectedEffects = detail)}
