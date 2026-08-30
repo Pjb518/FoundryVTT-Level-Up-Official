@@ -58,6 +58,11 @@ export default function modifyBaseOptions(options: Object) {
 		'RADIO',
 	];
 
+	const ROLL_MODES = Object.entries(CONFIG.A5E.ROLL_MODE).map(([k, v]) => [
+		v,
+		k.toLowerCase().capitalize(),
+	]);
+
 	// Setup options for abilities and skills
 	Object.keys(CONFIG.A5E.abilities).forEach((a) => {
 		options[`system.abilities.${a}.save.proficient`] = [
@@ -69,6 +74,8 @@ export default function modifyBaseOptions(options: Object) {
 			],
 			'RADIO',
 		];
+
+		options[`system.abilities.${a}.check.rollMode`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
 	});
 
 	Object.keys(CONFIG.A5E.skills).forEach((s) => {
@@ -156,21 +163,18 @@ export default function modifyBaseOptions(options: Object) {
 		Object.entries(CONFIG.A5E.languages),
 		'TAG_GROUP',
 	];
-	// @ts-expect-error
 	options['system.proficiencies.tools'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
 		Object.values(CONFIG.A5E.tools).flatMap((c) => Object.entries(c)),
 		'TAG_GROUP',
 	];
-	// @ts-expect-error
 	options['system.proficiencies.traditions'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
 		Object.entries(CONFIG.A5E.maneuverTraditions),
 		'TAG_GROUP',
 	];
-	// @ts-expect-error
 	options['system.proficiencies.weapons'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,

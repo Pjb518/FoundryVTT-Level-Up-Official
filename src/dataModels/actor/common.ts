@@ -100,7 +100,7 @@ export const attributes = () => ({
 		ability: new fields.StringField({ required: true, initial: 'dex' }),
 		expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
 		// TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
-		bonus: new fields.StringField({ required: true, initial: '' }),
+		// bonus: new fields.StringField({ required: true, initial: '' }),
 		...d20RollModification(),
 	}),
 	movement: new fields.SchemaField({
@@ -365,6 +365,22 @@ export const resources = () => ({
 		return acc;
 	}, {}),
 });
+
+export const rolls = () =>
+	new fields.SchemaField(
+		{
+			attack: new fields.SchemaField(
+				{
+					meleeSpellAttack: new fields.SchemaField({ ...d20RollModification() }),
+					meleeWeaponAttack: new fields.SchemaField({ ...d20RollModification() }),
+					rangedSpellAttack: new fields.SchemaField({ ...d20RollModification() }),
+					rangedWeaponAttack: new fields.SchemaField({ ...d20RollModification() }),
+				},
+				{ persisted: false },
+			),
+		},
+		{ persisted: false },
+	);
 
 export const skills = () => ({
 	skills: new fields.SchemaField(

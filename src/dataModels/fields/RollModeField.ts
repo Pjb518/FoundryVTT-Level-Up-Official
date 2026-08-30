@@ -124,7 +124,7 @@ class RollModeField<
 
 		const parentKey = keyPath.substring(0, keyPath.lastIndexOf('.'));
 		const _default = {
-			modeCounts: {
+			rollModeCounts: {
 				override: null,
 				advantages: { count: 0, suppressed: false },
 				disadvantages: { count: 0, suppressed: false },
@@ -132,7 +132,9 @@ class RollModeField<
 		};
 
 		const roll = (foundry.utils.getProperty(model, parentKey) as typeof _default) ?? _default;
-		return roll.modeCounts;
+
+		roll.rollModeCounts ??= _default.rollModeCounts;
+		return roll.rollModeCounts;
 	}
 
 	static resolveMode(

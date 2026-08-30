@@ -12,7 +12,7 @@
     import getRollFormula from "#utils/getRollFormula.js";
 
     type Props = {
-        document: any;
+        document: Actor.OfType<"base">;
         abilityKey: string;
         dialog: any;
         options: AbilityCheckRollOptions;
