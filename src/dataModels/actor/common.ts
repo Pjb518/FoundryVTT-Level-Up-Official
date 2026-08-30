@@ -1,3 +1,4 @@
+import { d20RollModification } from '../common.ts';
 import { RecordField } from '../fields/RecordField.ts';
 
 import {
@@ -27,7 +28,8 @@ export const abilities = () => ({
 						initial: 0,
 						integer: true,
 					}),
-					bonus: new fields.StringField({ required: true, initial: '' }),
+					// bonus: new fields.StringField({ required: true, initial: '' }),
+					...d20RollModification(),
 				}),
 				save: new fields.SchemaField({
 					proficient: new fields.BooleanField({ required: true, initial: false }),
@@ -36,7 +38,8 @@ export const abilities = () => ({
 						initial: 0,
 						integer: true,
 					}),
-					bonus: new fields.StringField({ required: true, initial: '' }),
+					// bonus: new fields.StringField({ required: true, initial: '' }),
+					...d20RollModification(),
 					...(abl === 'con'
 						? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) }
 						: {}),
@@ -95,9 +98,10 @@ export const attributes = () => ({
 	}),
 	initiative: new fields.SchemaField({
 		ability: new fields.StringField({ required: true, initial: 'dex' }),
+		expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
 		// TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
 		bonus: new fields.StringField({ required: true, initial: '' }),
-		expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
+		...d20RollModification(),
 	}),
 	movement: new fields.SchemaField({
 		burrow: new fields.SchemaField({
@@ -245,7 +249,6 @@ export const bonuses = () => ({
 	bonuses: new fields.SchemaField({
 		abilities: new RecordField(
 			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			// @ts-expect-error
 			new fields.SchemaField(getAbilitiesBonusData()),
 		),
 		attacks: new RecordField(
@@ -383,17 +386,11 @@ export const skills = () => ({
 					{ required: true, initial: [] },
 				),
 				expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-				minRoll: new fields.NumberField({
-					required: true,
-					initial: 1,
-					integer: true,
-					min: 1,
-					max: 20,
-				}),
 				bonuses: new fields.SchemaField({
 					check: new fields.StringField({ required: true, initial: '' }),
 					passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
 				}),
+				...d20RollModification(),
 			});
 
 			return acc;

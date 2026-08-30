@@ -1,7 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import type { ItemA5e } from "#documents/item/item.ts";
-    import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
     import type { RollStateManager } from "#managers/RollStateManager.ts";
     import getRollFormula from "#utils/getRollFormula.js";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
@@ -38,17 +37,6 @@
     const item: ItemA5e = getContext("item");
 
     let situationalMods = $state("");
-
-    // let parts = $state(
-    //     RollPreparationManager.prepareAttackRollData(
-    //         actor,
-    //         item,
-    //         attackRoll,
-    //         options,
-    //     ),
-    // );
-
-    let parts = $state(rollState.config.attackRoll!);
 
     let attackAbility = $derived(parts.ability);
     let attackBonuses = $derived(parts.bonuses);

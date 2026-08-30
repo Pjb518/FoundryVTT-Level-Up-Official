@@ -2,6 +2,8 @@ import type { ExpertiseDiceGrant, RollOverrideGrant } from '../../types/actorGra
 import type { BaseActorA5e } from '../documents/actor/base';
 import type FeatureItemA5e from '../documents/item/feature';
 
+import { RollOverrideManager as RollOverrideM } from './RollOverrideManagerN.ts';
+
 type OverrideType = 'rollMode' | 'expertiseDice';
 
 type Change = {

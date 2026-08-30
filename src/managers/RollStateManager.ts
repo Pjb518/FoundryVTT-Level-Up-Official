@@ -36,10 +36,6 @@ class RollStateManager {
 		const rolls = this.#action.getRollsByType();
 		const effects = [...this.#action._effects].map(([, effect]) => effect);
 
-		// consumers.actionUses.forEach((consumer) => {
-		// 	consumer.getActivationData?.();
-		// });
-
 		const { BonusesManager } = this.#actor;
 		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
 		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
@@ -83,6 +79,11 @@ class RollStateManager {
 		};
 	}
 
+	/**
+	 *
+	 * @param attackRoll
+	 * @returns
+	 */
 	#prepareAttackRollConfig(attackRoll: AttackRollData | null | undefined) {
 		if (!attackRoll) return null;
 
