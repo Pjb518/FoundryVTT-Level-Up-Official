@@ -366,21 +366,29 @@ export const resources = () => ({
 	}, {}),
 });
 
-export const rolls = () =>
-	new fields.SchemaField(
+export const rolls = () => ({
+	attack: new fields.SchemaField(
 		{
-			attack: new fields.SchemaField(
-				{
-					meleeSpellAttack: new fields.SchemaField({ ...d20RollModification() }),
-					meleeWeaponAttack: new fields.SchemaField({ ...d20RollModification() }),
-					rangedSpellAttack: new fields.SchemaField({ ...d20RollModification() }),
-					rangedWeaponAttack: new fields.SchemaField({ ...d20RollModification() }),
-				},
-				{ persisted: false },
-			),
+			meleeSpellAttack: new fields.SchemaField({
+				incoming: new fields.SchemaField({ ...d20RollModification() }),
+				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+			}),
+			meleeWeaponAttack: new fields.SchemaField({
+				incoming: new fields.SchemaField({ ...d20RollModification() }),
+				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+			}),
+			rangedSpellAttack: new fields.SchemaField({
+				incoming: new fields.SchemaField({ ...d20RollModification() }),
+				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+			}),
+			rangedWeaponAttack: new fields.SchemaField({
+				incoming: new fields.SchemaField({ ...d20RollModification() }),
+				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+			}),
 		},
 		{ persisted: false },
-	);
+	),
+});
 
 export const skills = () => ({
 	skills: new fields.SchemaField(

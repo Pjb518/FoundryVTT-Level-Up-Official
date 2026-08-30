@@ -119,7 +119,7 @@ const characterSchema = () => ({
 		},
 		{ required: true, nullable: false },
 	),
-	rolls: rolls(),
+	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({
 			current: new fields.NumberField({

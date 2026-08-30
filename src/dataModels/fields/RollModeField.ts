@@ -2,9 +2,9 @@ import DataModel = foundry.abstract.DataModel;
 import NumberField = foundry.data.fields.NumberField;
 
 export type RollModeData = {
-	override: number | null;
-	advantages: { count: number; suppressed: boolean };
-	disadvantages: { count: number; suppressed: boolean };
+	override: { value: number | null; source: string | null };
+	advantages: { count: number; suppressed: boolean; sources: string[] };
+	disadvantages: { count: number; suppressed: boolean; sources: string[] };
 };
 
 class RollModeField<
@@ -37,8 +37,13 @@ class RollModeField<
 	): InitializedType {
 		if (delta !== -1 && delta !== 1) return value;
 		const counts = RollModeField.getCounts(model, change.key!);
-		if (delta === 1) counts.advantages.count++;
-		else counts.disadvantages.count++;
+		if (delta === 1) {
+			counts.advantages.count++;
+			counts.advantages.sources.push(change?.effect?.name || '');
+		} else {
+			counts.disadvantages.count++;
+			counts.disadvantages.sources.push(change?.effect?.name || '');
+		}
 
 		return RollModeField.resolveMode(model, change, counts) as InitializedType;
 	}
@@ -50,9 +55,14 @@ class RollModeField<
 		change: ActiveEffect.ChangeData,
 	): InitializedType {
 		if (delta !== -1 && delta !== 1) return value;
-		const counts = RollModeField.getCounts(model, change.key!);
-		if (delta === 1) counts.advantages.count--;
-		else counts.disadvantages.count--;
+		const counts = RollModeField.getCounts(model, change);
+		if (delta === 1) {
+			counts.advantages.count--;
+			counts.advantages.sources.push(change?.effect?.name || '');
+		} else {
+			counts.disadvantages.count--;
+			counts.disadvantages.sources.push(change?.effect?.name || '');
+		}
 
 		return RollModeField.resolveMode(model, change, counts) as InitializedType;
 	}
@@ -65,10 +75,13 @@ class RollModeField<
 	): InitializedType {
 		// Downgrade the roll so that it can no longer benefit from advantage.
 		if (delta !== -1 && delta !== 0) return value;
-		const counts = RollModeField.getCounts(model, change.key!);
+		const counts = RollModeField.getCounts(model, change);
 
 		counts.advantages.suppressed = true;
-		if (delta === -1) counts.disadvantages.count++;
+		if (delta === -1) {
+			counts.disadvantages.count++;
+			counts.disadvantages.sources.push(change?.effect?.name || '');
+		}
 
 		return RollModeField.resolveMode(model, change, counts) as InitializedType;
 	}
@@ -90,8 +103,10 @@ class RollModeField<
 	): InitializedType | undefined {
 		// Force a given roll mode.
 		if (delta === -1 || delta === 0 || delta === 1) {
-			const counts = RollModeField.getCounts(model, change.key!);
-			counts.override = delta as number;
+			const counts = RollModeField.getCounts(model, change);
+			counts.override.value = delta as number;
+			counts.override.source = change.effect?.name || '';
+			counts;
 
 			return delta;
 		}
@@ -110,7 +125,10 @@ class RollModeField<
 
 		const counts = RollModeField.getCounts(model, change);
 		counts.disadvantages.suppressed = true;
-		if (delta === 1) counts.advantages.count++;
+		if (delta === 1) {
+			counts.advantages.count++;
+			counts.advantages.sources.push(change?.effect?.name || '');
+		}
 
 		return RollModeField.resolveMode(model, change, counts) as InitializedType;
 	}
@@ -125,9 +143,9 @@ class RollModeField<
 		const parentKey = keyPath.substring(0, keyPath.lastIndexOf('.'));
 		const _default = {
 			rollModeCounts: {
-				override: null,
-				advantages: { count: 0, suppressed: false },
-				disadvantages: { count: 0, suppressed: false },
+				override: { value: null, source: null },
+				advantages: { count: 0, suppressed: false, sources: [] },
+				disadvantages: { count: 0, suppressed: false, sources: [] },
 			},
 		};
 
