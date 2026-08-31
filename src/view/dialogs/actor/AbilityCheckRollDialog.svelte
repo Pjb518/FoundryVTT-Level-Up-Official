@@ -8,7 +8,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RollModePicker from "#view/components/RollModePicker.svelte";
-
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
     import getRollFormula from "#utils/getRollFormula.js";
 
     type Props = {
@@ -35,8 +35,8 @@
 
     let { document, abilityKey, dialog, options }: Props = $props();
 
-    let actor = document;
-    const appId = dialog.id;
+    let actor: Actor.OfType<"base"> = document;
+    const appId: string = dialog.id;
 
     const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
@@ -54,7 +54,7 @@
     });
 
     let expertiseDie = $state(getInitialExpertiseDieSelection());
-    let selectedRollMode = $state(
+    let initialRollMode = $state(
         options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     );
 
@@ -63,17 +63,14 @@
         options.expertiseDice ?? 0,
     );
 
-    let rollMode = $state(
-        actor.RollOverrideManager.getRollOverride(
-            `system.abilities.${abilityKey}.check`,
-            selectedRollMode,
-        ),
+    let ability = actor.system.abilities[abilityKey].check;
+    let rollModeData = RollOverrideManager.resolveRollMode(
+        ability,
+        initialRollMode,
     );
 
-    let rollModeString = actor.RollOverrideManager?.getRollOverridesSource(
-        `system.abilities.${abilityKey}.check`,
-        selectedRollMode,
-    );
+    let rollMode = $state(rollModeData.value);
+    let rollModeString = $state(rollModeData.source);
 
     let visibilityMode = $state(
         options.visibilityMode ?? game.settings.get("core", "messageMode"),

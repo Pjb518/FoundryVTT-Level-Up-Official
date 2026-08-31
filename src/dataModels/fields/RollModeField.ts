@@ -45,7 +45,7 @@ class RollModeField<
 			counts.disadvantages.sources.push(change?.effect?.name || '');
 		}
 
-		return RollModeField.resolveMode(model, change, counts) as InitializedType;
+		return RollModeField.resolveRollMode(model, change, counts) as InitializedType;
 	}
 
 	protected override _applyChangeSubtract(
@@ -64,7 +64,7 @@ class RollModeField<
 			counts.disadvantages.sources.push(change?.effect?.name || '');
 		}
 
-		return RollModeField.resolveMode(model, change, counts) as InitializedType;
+		return RollModeField.resolveRollMode(model, change, counts) as InitializedType;
 	}
 
 	protected override _applyChangeDowngrade(
@@ -83,7 +83,7 @@ class RollModeField<
 			counts.disadvantages.sources.push(change?.effect?.name || '');
 		}
 
-		return RollModeField.resolveMode(model, change, counts) as InitializedType;
+		return RollModeField.resolveRollMode(model, change, counts) as InitializedType;
 	}
 
 	protected override _applyChangeMultiply(
@@ -130,7 +130,7 @@ class RollModeField<
 			counts.advantages.sources.push(change?.effect?.name || '');
 		}
 
-		return RollModeField.resolveMode(model, change, counts) as InitializedType;
+		return RollModeField.resolveRollMode(model, change, counts) as InitializedType;
 	}
 
 	/* -------------------------------------------- */
@@ -155,7 +155,7 @@ class RollModeField<
 		return roll.rollModeCounts;
 	}
 
-	static resolveMode(
+	static resolveRollMode(
 		model: DataModel.Any,
 		_keyPath: ActiveEffect.ChangeData | string,
 		counts: RollModeData,
@@ -164,7 +164,7 @@ class RollModeField<
 		const keyPath: string = foundry.utils.getType(_keyPath) === 'Object' ? _keyPath.key : _keyPath;
 
 		const { override, advantages, disadvantages } = counts ?? this.getCounts(model, keyPath);
-		if (override !== null) return override;
+		if (override.value !== null) return override;
 
 		const src = foundry.utils.getProperty(model._source, keyPath) ?? 0;
 		const advantageCount = advantages.suppressed
@@ -178,7 +178,12 @@ class RollModeField<
 		return Math.sign(advantageCount) - Math.sign(disadvantageCount);
 	}
 
-	static setMode(model: DataModel.Any, keyPath: string, value: number, { override = false } = {}) {
+	static setRollMode(
+		model: DataModel.Any,
+		keyPath: string,
+		value: number,
+		{ override = false } = {},
+	) {
 		const field = keyPath.startsWith('system.')
 			? //@ts-expect-error
 				model.system.schema.getField(keyPath.slice(7))
