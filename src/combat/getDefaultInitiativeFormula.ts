@@ -1,6 +1,6 @@
 import type { InitiativeRollOptions } from '#documents/actor/data.ts';
 import ModifierManager from '#managers/ModifierManager.js';
-import { RollOverrideManager } from '#managers/RollOverrideManagerN.ts';
+import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
 import constructD20RollFormula from '../dice/constructD20RollFormula.js';
 
 export default function getDefaultInitiativeFormula(actor, options = {} as InitiativeRollOptions) {

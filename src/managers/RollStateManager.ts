@@ -4,7 +4,7 @@ import getRollFormula from '#utils/getRollFormula.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
-import { RollOverrideManager } from './RollOverrideManagerN.ts';
+import { RollOverrideManager } from './RollOverrideManager.ts';
 
 class RollStateManager {
 	#actor: Actor.OfType<'base'>;

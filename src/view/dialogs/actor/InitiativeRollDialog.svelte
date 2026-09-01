@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
 
     import getRollFormula from "#utils/getRollFormula.js";
     import RollModePicker from "#view/components/RollModePicker.svelte";

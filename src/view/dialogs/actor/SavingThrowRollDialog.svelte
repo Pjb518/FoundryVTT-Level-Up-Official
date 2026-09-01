@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
     import getRollFormula from "#utils/getRollFormula.js";
     import { localize } from "#utils/localization/localize.ts";
     import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";

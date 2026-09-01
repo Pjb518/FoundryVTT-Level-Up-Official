@@ -18,7 +18,7 @@ import { computeSaveDC } from '../utils/computeSaveDC.ts';
 import getAttackAbility from '../utils/getAttackAbility';
 import getRollFormula from '../utils/getRollFormula';
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
-import { RollOverrideManager } from './RollOverrideManagerN.ts';
+import { RollOverrideManager } from './RollOverrideManager.ts';
 
 class RollPreparationManager {
 	#actor: BaseActorA5e;

@@ -2,7 +2,7 @@
 
 import type { Identity } from 'fvtt-types/utils';
 import { createSubscriber } from 'svelte/reactivity';
-import { RollOverrideManager } from '#managers/RollOverrideManagerN.ts';
+import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
 import { localize } from '#utils/localization/localize.ts';
 import AbilityBonusConfigDialog from '#view/components/bonuses/AbilityBonusConfigDialog.svelte';
 import AttackBonusConfigDialog from '#view/components/bonuses/AttackBonusConfigDialog.svelte';
