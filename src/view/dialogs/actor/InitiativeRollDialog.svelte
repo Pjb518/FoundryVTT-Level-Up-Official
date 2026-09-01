@@ -214,6 +214,7 @@
 
     <section>
         <button
+            type="button"
             class="roll-initiative-button"
             onclick={(e) => {
                 e.preventDefault();

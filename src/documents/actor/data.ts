@@ -23,7 +23,10 @@ export interface ActorRollOptions {
 
 export interface AbilityCheckRollOptions extends ActorRollOptions {}
 
-export interface InitiativeRollOptions extends ActorRollOptions {}
+export interface InitiativeRollOptions extends ActorRollOptions {
+	abilityKey?: string;
+	skillKey?: string;
+}
 
 export interface SavingThrowRollOptions extends ActorRollOptions {
 	saveType?: 'concentration' | 'death' | undefined;
