@@ -13,6 +13,7 @@
         document: any;
         dialog: any;
         options: InitiativeRollOptions;
+        isSimple: boolean;
     };
 
     function getInitialExpertiseDieSelection() {
@@ -32,7 +33,7 @@
         };
     }
 
-    let { document, dialog, options }: Props = $props();
+    let { document, dialog, options, isSimple = false }: Props = $props();
 
     const actor = document;
     const appId = dialog.id;
@@ -148,12 +149,14 @@
         onUpdateSelection={(detail) => (abilityKey = detail)}
     />
 
-    <RadioGroup
-        heading="A5E.skillLabels.title"
-        options={Object.entries(skills)}
-        selected={skillKey}
-        onUpdateSelection={(detail) => (skillKey = detail)}
-    />
+    {#if !isSimple}
+        <RadioGroup
+            heading="A5E.skillLabels.title"
+            options={Object.entries(skills)}
+            selected={skillKey}
+            onUpdateSelection={(detail) => (skillKey = detail)}
+        />
+    {/if}
 
     <ExpertiseDiePicker
         source={expertiseDieSource}
@@ -175,7 +178,7 @@
         />
     {/if}
 
-    {#if Object.values(skillBonuses).flat().length}
+    {#if Object.values(skillBonuses).flat().length && !isSimple}
         <CheckboxGroup
             heading="Skill Bonuses"
             options={skillBonuses.map(([key, skillBonus]) => [

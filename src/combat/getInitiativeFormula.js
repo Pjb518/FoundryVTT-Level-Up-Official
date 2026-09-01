@@ -1,5 +1,4 @@
 import InitiativeRollDialog from '#view/dialogs/actor/InitiativeRollDialog.svelte';
-import SimpleInitiativeRollDialog from '#view/dialogs/actor/SimpleInitiativeRollDialog.svelte';
 import GenericRollDialog from '#view/dialogs/initializers/GenericRollDialog.svelte.ts';
 import getDefaultInitiativeFormula from './getDefaultInitiativeFormula.ts';
 
@@ -16,13 +15,19 @@ export default async function getInitiativeFormula(options) {
 	const title = game.i18n.format('A5E.initiative.promptTitle', {
 		name: this.name,
 	});
-	const component = game.settings.get('a5e', 'simpleInitiative')
-		? SimpleInitiativeRollDialog
-		: InitiativeRollDialog;
 
-	const dialog = new GenericRollDialog(this.actor, title, component, {}, options, {
-		width: 530,
-	});
+	const isSimple = !!game.settings.get('a5e', 'simpleInitiative');
+
+	const dialog = new GenericRollDialog(
+		this.actor,
+		title,
+		InitiativeRollDialog,
+		{ isSimple },
+		options,
+		{
+			width: 530,
+		},
+	);
 
 	await dialog.render(true);
 
