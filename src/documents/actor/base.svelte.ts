@@ -1552,7 +1552,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	async rollSkillCheck(skillKey: string, options: SkillCheckRollOptions = {}) {
 		let dialogData;
 
-		options.expertiseDice ??= this.system.skills[skillKey].expertiseDice ?? 0;
+		options.expertiseDice ??= 0;
 
 		if (options.skipRollDialog) dialogData = this.getDefaultSkillCheckData(skillKey, options);
 		else dialogData = await this.#showSkillCheckPrompt(skillKey, options);

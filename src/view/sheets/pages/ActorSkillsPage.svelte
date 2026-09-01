@@ -1,9 +1,8 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
-
-    import Skill from "../components/Skill.svelte";
     import FieldWrapper from "../../snippets/FieldWrapper.svelte";
+    import Skill from "../components/Skill.svelte";
 
     function determineWhetherToShowSkillSpecialties(skills: any) {
         if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
@@ -42,11 +41,10 @@
             });
     }
 
-    function rollSkillCheckWithSpecialty(skillKey: string) {
-        const baseExpertiseDice = actor.system.skills[skillKey].expertiseDice;
-
+    function rollSkillCheckWithSpecialty(skillKey: string, speciality: string) {
         actor.rollSkillCheck(skillKey, {
-            expertiseDice: baseExpertiseDice + 1,
+            expertiseDice: 1,
+            speciality,
         });
     }
 
@@ -97,7 +95,10 @@
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"
                                     onclick={() =>
-                                        rollSkillCheckWithSpecialty(skillKey)}
+                                        rollSkillCheckWithSpecialty(
+                                            skillKey,
+                                            specialty,
+                                        )}
                                 >
                                     {specialty}
                                 </button>
