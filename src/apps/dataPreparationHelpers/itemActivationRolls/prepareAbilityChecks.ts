@@ -18,7 +18,6 @@ export default function prepareAbilityChecks(
 			counts[roll.ability] ??= 0;
 			counts[roll.ability] += 1;
 
-			// @ts-expect-error
 			roll.defaultLabel = `${label} #${counts[roll.ability]}`;
 		}
 

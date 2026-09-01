@@ -1,15 +1,13 @@
 <script lang="ts">
-    import type { AbilityCheckRollOptions } from "../../../documents/actor/data.ts";
-
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
+    import getRollFormula from "#utils/getRollFormula.js";
     import { localize } from "#utils/localization/localize.ts";
-
+    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
-    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
-    import getRollFormula from "#utils/getRollFormula.js";
+    import type { AbilityCheckRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
         document: Actor.OfType<"base">;
