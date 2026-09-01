@@ -1,6 +1,8 @@
 <script lang="ts">
     import { getContext } from "svelte";
+    import { pressedKeys } from "#stores/pressedKeysStore.svelte.ts";
     import { localize } from "#utils/localization/localize.ts";
+    import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
     import FieldWrapper from "../../snippets/FieldWrapper.svelte";
     import Skill from "../components/Skill.svelte";
 
@@ -45,6 +47,7 @@
         actor.rollSkillCheck(skillKey, {
             expertiseDice: 1,
             speciality,
+            ...getKeyPressAsOptions(pressedKeys),
         });
     }
 
