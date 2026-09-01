@@ -388,6 +388,12 @@ export const rolls = () => ({
 		},
 		{ persisted: false },
 	),
+	death: new fields.SchemaField(
+		{
+			...d20RollModification(),
+		},
+		{ persisted: false },
+	),
 });
 
 export const skills = () => ({

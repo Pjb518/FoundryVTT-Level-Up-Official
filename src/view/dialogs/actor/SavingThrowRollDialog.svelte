@@ -9,6 +9,7 @@
     import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import RollModePicker from "#view/components/RollModePicker.svelte";
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
 
     import getRollFormula from "#utils/getRollFormula.js";
 
@@ -34,6 +35,14 @@
                 options.expertiseDice ||
                 0,
         );
+    }
+
+    function getSaveSrc(saveType: string, abilityKey: string) {
+        if (!abilityKey) return actor.reactive.system.rolls.death;
+        // TODO: Update this to concentration when in place
+        if (saveType === "concentration")
+            return actor.reactive.system.abilities.con.save;
+        return actor.reactive.system.abilities[abilityKey].save;
     }
 
     function getSubmitButtonText(saveType: string, abilityKey: string) {
@@ -90,7 +99,7 @@
     );
 
     let saveType = $state(options.saveType ?? "standard");
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let initialRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = $state(options.situationalMods ?? "");
 
     let selectedAbilityBonuses = $state(
@@ -110,19 +119,24 @@
         ),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(
-            rollModeKey,
-            selectedRollMode,
-        ),
+    let saveSrc = $derived(getSaveSrc(saveType, abilityKey));
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(saveSrc, initialRollMode),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource(
-            rollModeKey,
-            selectedRollMode,
-        ),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
+
+    // let rollMode = $derived(
+    //     actor.RollOverrideManager.getRollOverride(rollModeKey, initialRollMode),
+    // );
+
+    // let rollModeString = $derived(
+    //     actor.RollOverrideManager.getRollOverridesSource(
+    //         rollModeKey,
+    //         initialRollMode,
+    //     ),
+    // );
 
     let buttonText = $derived(getSubmitButtonText(saveType, abilityKey));
 

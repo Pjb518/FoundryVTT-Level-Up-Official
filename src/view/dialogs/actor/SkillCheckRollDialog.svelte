@@ -112,22 +112,6 @@
     let rollMode = $derived(rollModeData.value);
     let rollModeString = $derived(rollModeData.source);
 
-    // let rollMode = $derived(
-    //     actor.RollOverrideManager.getRollOverride(
-    //         `system.skills.${skillKey}`,
-    //         initialRollMode,
-    //         { ability: abilityKey },
-    //     ),
-    // );
-
-    // let rollModeString = $derived(
-    //     actor.RollOverrideManager?.getRollOverridesSource(
-    //         `system.skills.${skillKey}`,
-    //         initialRollMode,
-    //         { ability: abilityKey },
-    //     ),
-    // );
-
     let rollFormula = $derived(
         getRollFormula(actor, {
             ability: abilityKey,
