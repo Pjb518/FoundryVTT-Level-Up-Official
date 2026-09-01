@@ -6,9 +6,9 @@ type ResolveOptions = {
 };
 
 class RollOverrideManager {
-	constructor() {}
-
 	init() {}
+
+	static resolveExpertiseDie(src: any, baseDie: number, options = {} as ResolveOptions) {}
 
 	/**
 	 * This is the final resolver, it takes the rolled roll Mode,

@@ -1,4 +1,5 @@
 import { d20RollModification } from '../common.ts';
+import { ExpertiseDieField } from '../fields/ExpertiseDieField.ts';
 import { RecordField } from '../fields/RecordField.ts';
 
 import {
@@ -23,11 +24,7 @@ export const abilities = () => ({
 			acc[abl] = new fields.SchemaField({
 				value: new fields.NumberField({ required: true, initial: 10, integer: true }),
 				check: new fields.SchemaField({
-					expertiseDice: new fields.NumberField({
-						required: true,
-						initial: 0,
-						integer: true,
-					}),
+					expertiseDice: new ExpertiseDieField(),
 					// bonus: new fields.StringField({ required: true, initial: '' }),
 					...d20RollModification(),
 				}),
