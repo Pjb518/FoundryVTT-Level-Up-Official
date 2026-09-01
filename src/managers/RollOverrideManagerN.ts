@@ -40,7 +40,7 @@ class RollOverrideManager {
 		const others = options.others ?? [];
 		others.forEach((other) => {
 			const otherSrc = other.src;
-			const oRollCounts = otherSrc.rollModeCounts as RollModeData | undefined;
+			const oRollCounts = otherSrc?.rollModeCounts as RollModeData | undefined;
 			if (!oRollCounts) return;
 
 			values.push(otherSrc.rollMode || 0);

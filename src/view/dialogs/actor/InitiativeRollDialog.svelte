@@ -8,6 +8,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import RollModePicker from "#view/components/RollModePicker.svelte";
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
 
     type Props = {
         document: any;
@@ -33,13 +34,17 @@
     }
 
     const initialAbilityKey =
-        options.abilityKey ?? actor.system.attributes.initiative.ability ?? "dex";
+        options.abilityKey ??
+        actor.system.attributes.initiative.ability ??
+        "dex";
     const initialSkillKey = options.skillKey ?? "none";
 
     let abilityKey = $state(initialAbilityKey);
     let skillKey = $state(initialSkillKey);
     let situationalMods = $state(options.situationalMods ?? "");
-    let selectedRollMode = $state(options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
+    let initialRollMode = $state(
+        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+    );
 
     let expertiseDie = $state(
         hideExpertiseDice
@@ -59,7 +64,11 @@
     $effect(() => {
         if (!hideExpertiseDice && !manualExpertiseDie) {
             let baseDie = 0;
-            if (skillKey && skillKey !== "none" && actor.system.skills[skillKey]) {
+            if (
+                skillKey &&
+                skillKey !== "none" &&
+                actor.system.skills[skillKey]
+            ) {
                 baseDie = actor.system.skills[skillKey].expertiseDice ?? 0;
             }
 
@@ -84,19 +93,22 @@
         ),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride("initiative", selectedRollMode, {
-            ability: abilityKey,
-            skill: skillKey,
+    let ability = $derived(actor.reactive.system.abilities[abilityKey]);
+    let skill = $derived(actor.reactive.system.skills[skillKey]);
+    let initiativeSrc = actor.reactive.system.attributes.initiative;
+    $inspect(ability, skill, initiativeSrc);
+
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(initiativeSrc, initialRollMode, {
+            others: [
+                { type: "ability", src: ability.check },
+                { type: "skill", src: skill },
+            ],
         }),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource("initiative", selectedRollMode, {
-            ability: abilityKey,
-            skill: skillKey,
-        }),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let abilityBonuses = $derived(
         actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check"),
@@ -153,7 +165,7 @@
     <RollModePicker
         selected={rollMode}
         source={rollModeString}
-        onUpdateSelection={(detail) => (selectedRollMode = detail)}
+        onUpdateSelection={(detail) => (initialRollMode = detail)}
     />
 
     <RadioGroup

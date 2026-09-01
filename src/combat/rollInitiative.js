@@ -44,7 +44,8 @@ export default async function rollInitiative(
 		try {
 			// eslint-disable-next-line no-await-in-loop
 			roll = await combatant.getInitiativeRoll(rollOptions);
-		} catch {
+		} catch (e) {
+			console.error(e);
 			continue;
 		}
 
