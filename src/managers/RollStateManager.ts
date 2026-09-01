@@ -93,26 +93,23 @@ class RollStateManager {
 		if (!attackRoll) return null;
 
 		const { attackType } = attackRoll;
-		const overrideManager = this.#actor.RollOverrideManager;
+		const overrideManager = RollOverrideManager;
+		const srcConfig = this.#actor.system.rolls.attack[attackType].outgoing;
 
 		const attackAbility = getAttackAbility(this.#actor, this.#item, attackRoll);
-		const expertiseDie = overrideManager.getExpertiseDice(
-			`attackTypes.${attackType}`,
-			this.#options.expertiseDie ?? 0,
-		);
-		const expertiseDieSource = overrideManager.getExpertiseDiceSource(
-			`attackTypes.${attackType}`,
-			this.#options.expertiseDie ?? 0,
-		);
 
-		// Get Roll Mode
-		const srcConfig = this.#actor.system.rolls.attack[attackType].outgoing;
 		const targetSrc =
 			targets.length === 0 || targets.length > 1
 				? undefined
 				: targets.map((t) => t.actor?.system?.rolls?.attack?.[attackType]?.incoming).at(0);
 
-		const rollModeData = RollOverrideManager.resolveRollMode(
+		const expertiseData = overrideManager.resolveExpertiseDie(srcConfig, { targetSrc });
+
+		const expertiseDie = expertiseData.value;
+		const expertiseDieSource = expertiseData.source;
+
+		// Get Roll Mode
+		const rollModeData = overrideManager.resolveRollMode(
 			srcConfig,
 			this.#options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
 			{ targetSrc },

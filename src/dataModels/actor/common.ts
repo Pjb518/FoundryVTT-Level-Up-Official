@@ -360,30 +360,38 @@ export const resources = () => ({
 	}, {}),
 });
 
+const attackData = () => ({
+	incoming: new fields.SchemaField({
+		expertiseDice: new ExpertiseDieField(),
+		...d20RollModification(),
+	}),
+	outgoing: new fields.SchemaField({
+		expertiseDice: new ExpertiseDieField(),
+		...d20RollModification(),
+	}),
+});
+
 export const rolls = () => ({
 	attack: new fields.SchemaField(
 		{
 			meleeSpellAttack: new fields.SchemaField({
-				incoming: new fields.SchemaField({ ...d20RollModification() }),
-				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+				...attackData(),
 			}),
 			meleeWeaponAttack: new fields.SchemaField({
-				incoming: new fields.SchemaField({ ...d20RollModification() }),
-				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+				...attackData(),
 			}),
 			rangedSpellAttack: new fields.SchemaField({
-				incoming: new fields.SchemaField({ ...d20RollModification() }),
-				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+				...attackData(),
 			}),
 			rangedWeaponAttack: new fields.SchemaField({
-				incoming: new fields.SchemaField({ ...d20RollModification() }),
-				outgoing: new fields.SchemaField({ ...d20RollModification() }),
+				...attackData(),
 			}),
 		},
 		{ persisted: false },
 	),
 	death: new fields.SchemaField(
 		{
+			expertiseDice: new ExpertiseDieField(),
 			...d20RollModification(),
 		},
 		{ persisted: false },

@@ -213,18 +213,14 @@ export default function modifyBaseOptions(options: Object) {
 		'RADIO',
 	];
 
-	options['system.rolls.attack.meleeWeaponAttack.incoming.rollMode'] = [
+	options['system.rolls.attack.meleeWeaponAttack.incoming.expertiseDice'] = [
 		0,
 		MODES.DEFAULT_MODES,
-		ROLL_MODES,
-		'RADIO',
 	];
 
-	options['system.rolls.attack.meleeWeaponAttack.outgoing.rollMode'] = [
+	options['system.rolls.attack.meleeWeaponAttack.outgoing.expertiseDice'] = [
 		0,
 		MODES.DEFAULT_MODES,
-		ROLL_MODES,
-		'RADIO',
 	];
 
 	// Removes these when data model is fixes
