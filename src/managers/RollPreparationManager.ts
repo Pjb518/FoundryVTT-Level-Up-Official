@@ -18,6 +18,7 @@ import { computeSaveDC } from '../utils/computeSaveDC.ts';
 import getAttackAbility from '../utils/getAttackAbility';
 import getRollFormula from '../utils/getRollFormula';
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
+import { RollOverrideManager } from './RollOverrideManagerN.ts';
 
 class RollPreparationManager {
 	#actor: BaseActorA5e;
@@ -615,29 +616,23 @@ class RollPreparationManager {
 		options: ActionActivationOptions = {},
 	) {
 		const { attackType } = attackRoll;
+		const overrideManager = RollOverrideManager;
+		const srcConfig = actor.system.rolls.attack[attackType].outgoing;
 
 		const attackBonuses = actor.BonusesManager.prepareAttackBonuses(item, attackType);
 		const attackAbility = getAttackAbility(actor, item, attackRoll);
 
-		const expertiseDie = actor.RollOverrideManager.getExpertiseDice(
-			`attackTypes.${attackType}`,
-			options.expertiseDie ?? 0,
-		);
+		const expertiseData = overrideManager.resolveExpertiseDie(srcConfig);
+		const expertiseDie = expertiseData.value;
+		const expertiseDieSource = expertiseData.source;
 
-		const expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
-			`attackTypes.${attackType}`,
-			options.expertiseDie ?? 0,
-		);
-
-		const rollMode = actor.RollOverrideManager.getRollOverride(
-			`attackTypes.${attackType}`,
+		const rollModeData = overrideManager.resolveRollMode(
+			srcConfig,
 			options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
 		);
 
-		const rollModeSource = actor.RollOverrideManager.getRollOverridesSource(
-			`attackTypes.${attackType}`,
-			options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-		);
+		const rollMode = rollModeData.value;
+		const rollModeSource = rollModeData.source;
 
 		const selectedAttackBonuses = actor.BonusesManager.getDefaultSelections('attacks', {
 			item,
