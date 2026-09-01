@@ -1,5 +1,10 @@
 import type { RollModeData } from '../dataModels/fields/RollModeField.ts';
 
+type ResolveOptions = {
+	targetSrc?: any;
+	others?: { src: any; type: string }[];
+};
+
 class RollOverrideManager {
 	constructor() {}
 
@@ -9,77 +14,62 @@ class RollOverrideManager {
 	 * This is the final resolver, it takes the rolled roll Mode,
 	 * existing effects and target effects into account
 	 */
-	static resolveRollMode(src: any, rollMode: number, targetSrc?: any) {
-		const rollCounts = src.rollModeCounts as RollModeData;
-		if (!rollCounts && !targetSrc) return { value: rollMode, source: '' };
+	static resolveRollMode(src: any, baseRollMode: number, options = {} as ResolveOptions) {
+		const rollCounts = src.rollModeCounts as RollModeData | undefined;
 
-		const { override, advantages, disadvantages } = rollCounts;
-
-		// Take care of override if target exists
-		if (targetSrc) {
-			// Check if targetSrc has counts
-			const targetRollCounts = targetSrc.rollModeCounts as RollModeData;
-			if (!targetRollCounts) return { value: rollMode, source: '' };
-
-			if (override.value && targetRollCounts.override.value) {
-				const result = Math.sign(override.value + targetRollCounts.override.value);
-				return {
-					value: result,
-					source: RollOverrideManager.sourcesToString(rollMode, result, {
-						overrides: [override.source!, `Target - ${targetRollCounts.override.source}`],
-					}),
-				};
-			}
-		} else if (override.value) {
-			// Take care of override for self
-			return {
-				value: override.value,
-				source: RollOverrideManager.sourcesToString(rollMode, override.value, {
-					overrides: [override.source!],
-				}),
-			};
-		}
-
-		// Take care of target rollOverride
-		if (targetSrc) {
-			const targetRollCounts = targetSrc.rollModeCounts as RollModeData;
-			const targetRollMode = targetSrc.rollMode as number;
-
-			const srcRollMode = src.rollMode as number;
-
-			const values = [targetRollMode, srcRollMode, rollMode];
-			let result = rollMode;
-			if (values.includes(-1) && values.includes(+1)) result = 0;
-			else Math.sign(values.reduce((sum, val) => sum + val, 0));
-
-			return {
-				value: result,
-				source: RollOverrideManager.sourcesToString(rollMode, result, {
-					advantages: [
-						...advantages.sources,
-						...targetRollCounts.advantages.sources.map((s) => `Target - ${s}`),
-					],
-					disadvantages: [
-						...disadvantages.sources,
-						...targetRollCounts.disadvantages.sources.map((s) => `Target - ${s}`),
-					],
-				}),
-			};
-		}
-
-		// Regular result
-		const result = Math.sign((src.rollMode as number) + rollMode);
-
-		return {
-			value: result,
-			source: RollOverrideManager.sourcesToString(rollMode, result, {
-				advantages: advantages.sources,
-				disadvantages: disadvantages.sources,
-			}),
+		const values: number[] = [src.rollMode, baseRollMode];
+		const sources = {
+			advantages: [...(rollCounts?.advantages?.sources ?? [])],
+			disadvantages: [...(rollCounts?.disadvantages?.sources ?? [])],
+			overrides: [rollCounts?.override?.source || ''],
 		};
-	}
 
-	resolveRollModeWT(src: any, rollMode: number, targetSrc: any) {}
+		// Add target data
+		const targetSrc = options.targetSrc;
+		if (targetSrc?.rollModeCounts) {
+			const tRollCounts = targetSrc.rollModeCounts as RollModeData;
+			values.push(targetSrc.rollMode || 0);
+
+			sources.advantages.push(...tRollCounts.advantages.sources.map((s) => `Target - ${s}`));
+			sources.disadvantages.push(...tRollCounts.disadvantages.sources.map((s) => `Target - ${s}`));
+			if (tRollCounts.override.value)
+				sources.overrides.push(`Target - ${tRollCounts.override.source}` || '');
+		}
+
+		// Add other data
+		const others = options.others ?? [];
+		others.forEach((other) => {
+			const otherSrc = other.src;
+			const oRollCounts = otherSrc.rollModeCounts as RollModeData | undefined;
+			if (!oRollCounts) return;
+
+			values.push(otherSrc.rollMode || 0);
+
+			const type = other.type.capitalize();
+			sources.advantages.push(...oRollCounts.advantages.sources.map((s) => `${type} - ${s}`));
+			sources.disadvantages.push(...oRollCounts.disadvantages.sources.map((s) => `${type} - ${s}`));
+			if (oRollCounts.override.value) {
+				sources.overrides.push(`${type} - ${oRollCounts.override.source}` || '');
+			}
+		});
+
+		// Get final value
+		const hasAdvantage = values.includes(1);
+		const hasDisadvantage = values.includes(-1);
+
+		let result = 0;
+		if (hasAdvantage && hasDisadvantage) result = 0;
+		else if (hasAdvantage && !hasDisadvantage) result = 1;
+		else if (!hasAdvantage && hasDisadvantage) result = -1;
+		else result = 0;
+
+		// Create source string
+		sources.overrides = sources.overrides.filter((s) => !!s);
+		const sourceString = RollOverrideManager.sourcesToString(baseRollMode, result, sources);
+
+		// Return
+		return { value: result, source: sourceString };
+	}
 
 	static sourcesToString(base: number, result: number, sources: Record<string, string[]>) {
 		const { advantages: adv = [], disadvantages: dis = [], overrides } = sources;
@@ -90,7 +80,7 @@ class RollOverrideManager {
 		let disString = '';
 		let resString = '';
 
-		if (overrides) {
+		if (overrides.length) {
 			overrideString = `<p> <strong>Override:</strong> ${overrides.join(', ')}</p>`;
 		}
 
@@ -108,8 +98,8 @@ class RollOverrideManager {
 		return `<div class='u-text-xs u-text-left'>
       <p> <strong>Base Roll Mode:</strong> ${baseString}</p>
       ${overrideString ? overrideString : ''}
-      ${overrideString ? '' : advString}
-      ${overrideString ? '' : disString}
+      ${advString}
+      ${disString}
       <p> <strong>Result:</strong> ${resString}</p>
     </div>
     `;

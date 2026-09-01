@@ -10,9 +10,10 @@
     import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import RollModePicker from "#view/components/RollModePicker.svelte";
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
 
     type Props = {
-        document: any;
+        document: Actor.OfType<"base">;
         dialog: any;
         skillKey: string;
         options: SkillCheckRollOptions;
@@ -23,7 +24,9 @@
 
         return actor.RollOverrideManager.getExpertiseDice(
             `system.skills.${skillKey}` || "",
-            actor.system.skills[skillKey].expertiseDice || options.expertiseDice || 0,
+            actor.system.skills[skillKey].expertiseDice ||
+                options.expertiseDice ||
+                0,
             { ability: abilityKey },
         );
     }
@@ -45,20 +48,27 @@
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
     const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
 
     const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
         ability: localizedSkill,
     });
 
-    let abilityKey = $state(options.abilityKey ?? actor.system.skills[skillKey].ability);
+    let abilityKey = $state(
+        options.abilityKey ?? actor.system.skills[skillKey].ability,
+    );
+    let ability = $derived(actor.reactive.system.abilities[abilityKey].check);
 
     let visibilityMode = $state(
         options.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
 
-    let { minRoll } = options.minRoll ?? actor.system.skills[skillKey];
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let skill = $state(actor.system.skills[skillKey]);
+    let { minRoll } = options.minRoll ?? skill;
+    let initialRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = $state(options.situationalMods ?? "");
 
     let abilityBonuses = $state(
@@ -93,21 +103,30 @@
         ),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(
-            `system.skills.${skillKey}`,
-            selectedRollMode,
-            { ability: abilityKey },
-        ),
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(skill, initialRollMode, {
+            others: [{ type: "ability", src: ability }],
+        }),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager?.getRollOverridesSource(
-            `system.skills.${skillKey}`,
-            selectedRollMode,
-            { ability: abilityKey },
-        ),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
+
+    // let rollMode = $derived(
+    //     actor.RollOverrideManager.getRollOverride(
+    //         `system.skills.${skillKey}`,
+    //         initialRollMode,
+    //         { ability: abilityKey },
+    //     ),
+    // );
+
+    // let rollModeString = $derived(
+    //     actor.RollOverrideManager?.getRollOverridesSource(
+    //         `system.skills.${skillKey}`,
+    //         initialRollMode,
+    //         { ability: abilityKey },
+    //     ),
+    // );
 
     let rollFormula = $derived(
         getRollFormula(actor, {
