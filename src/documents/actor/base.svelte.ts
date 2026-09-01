@@ -2,6 +2,7 @@
 
 import type { Identity } from 'fvtt-types/utils';
 import { createSubscriber } from 'svelte/reactivity';
+import { RollOverrideManager } from '#managers/RollOverrideManagerN.ts';
 import { localize } from '#utils/localization/localize.ts';
 import AbilityBonusConfigDialog from '#view/components/bonuses/AbilityBonusConfigDialog.svelte';
 import AttackBonusConfigDialog from '#view/components/bonuses/AttackBonusConfigDialog.svelte';
@@ -31,7 +32,6 @@ import ActorGrantsManager from '../../managers/ActorGrantsManager.ts';
 import BonusesManager from '../../managers/BonusesManager.ts';
 import type HitDiceManager from '../../managers/HitDiceManager.ts';
 import { RestManager } from '../../managers/RestManager.ts';
-import RollOverrideManager from '../../managers/RollOverrideManager.ts';
 import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
 import SpellBookManager from '../../managers/SpellBookManager.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
@@ -125,8 +125,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	declare grants: ActorGrantsManager;
 
 	declare spellBooks: SpellBookManager;
-
-	declare RollOverrideManager: RollOverrideManager;
 
 	declare initialized: boolean;
 
@@ -284,7 +282,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.HitDiceManager = null!;
 		this.grants = null!;
 		this.spellBooks = null!;
-		this.RollOverrideManager = null!;
 
 		super._initialize(options);
 	}
@@ -308,8 +305,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		this.prepareDerivedData();
 		// this.afterDerivedData();
-
-		this.RollOverrideManager.initialize();
 
 		// Initialize the SpellBooks
 		this.spellBooks = new SpellBookManager(this);
@@ -339,7 +334,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		// Register Managers
 		this.BonusesManager = new BonusesManager(this);
-		this.RollOverrideManager = new RollOverrideManager(this);
 		this.grants = new ActorGrantsManager(this);
 
 		// Add AC data to the actor.
@@ -1315,7 +1309,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
-			// @ts-expect-error
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
 			// @ts-expect-error
 			chatData.whisper = [...gmUsers, game.user.id];
@@ -1333,15 +1326,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const defaultExpertiseDie =
 			options.expertiseDice ?? this.system.abilities[abilityKey].check.expertiseDice ?? 0;
 
-		const expertiseDie = this.RollOverrideManager?.getExpertiseDice(
-			`system.abilities.${abilityKey}.check`,
-			defaultExpertiseDie,
-		);
+		const ability = this.system.abilities[abilityKey].check;
+		const expertiseDie = RollOverrideManager.resolveExpertiseDie(ability).value;
 
-		const rollMode = this.RollOverrideManager?.getRollOverride(
-			`system.abilities.${abilityKey}.check`,
-			defaultRollMode,
-		);
+		const rollMode = RollOverrideManager.resolveRollMode(ability, defaultRollMode).value;
 
 		const rollFormula = getRollFormula(this, {
 			ability: abilityKey,
@@ -1462,7 +1450,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
-			// @ts-expect-error
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
 			// @ts-expect-error
 			chatData.whisper = [...gmUsers, game.user.id];
@@ -1480,12 +1467,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const defaultExpertiseDice =
 			options.expertiseDice ?? this.system.abilities[abilityKey || '']?.save.expertiseDice ?? 0;
 
-		const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
-		const rollMode = this.RollOverrideManager?.getRollOverride(rollOverrideKey, defaultRollMode);
-		const expertiseDie = this.RollOverrideManager?.getExpertiseDice(
-			rollOverrideKey,
-			defaultExpertiseDice,
-		);
+		const src = abilityKey ? this.system.abilities[abilityKey].save : this.system.rolls.death;
+
+		const rollMode = RollOverrideManager.resolveRollMode(src, defaultRollMode).value;
+		const expertiseDie = RollOverrideManager.resolveExpertiseDie(src).value;
 
 		const rollFormula = getRollFormula(this, {
 			ability: abilityKey,
@@ -1605,7 +1590,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
-			// @ts-expect-error
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
 			// @ts-expect-error
 			chatData.whisper = [...gmUsers, game.user.id];
@@ -1621,19 +1605,27 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	getDefaultSkillCheckData(skillKey: string, options: SkillCheckRollOptions = {}) {
 		const skill = this.system.skills[skillKey];
 		const abilityKey = options?.abilityKey ?? skill.ability;
+		const ability = this.system.abilities[abilityKey]?.check;
 		const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-		const defaultExpertiseDie = options?.expertiseDice ?? skill.expertiseDice ?? 0;
+		const defaultExpertiseDie = options?.expertiseDice ?? 0;
 
-		const expertiseDie = this.RollOverrideManager?.getExpertiseDice(
-			`system.skills.${skillKey}`,
-			defaultExpertiseDie,
-			{ ability: abilityKey },
-		);
-		const rollMode = this.RollOverrideManager?.getRollOverride(
-			`system.skills.${skillKey}`,
-			defaultRollMode,
-			{ ability: abilityKey },
-		);
+		const others = [] as any[];
+		if (ability) others.push({ type: 'ability', src: ability });
+		if (defaultExpertiseDie && options.speciality) {
+			others.push({
+				type: 'speciality',
+				src: {
+					expertiseDice: defaultExpertiseDie || 0,
+					expertiseDieSources: { override: null, sources: [options.speciality] },
+				},
+			});
+		}
+
+		const expertiseDie = RollOverrideManager.resolveExpertiseDie(skill, { others }).value;
+
+		const rollMode = RollOverrideManager.resolveRollMode(skill, defaultRollMode, {
+			others: [{ type: 'ability', src: ability }],
+		}).value;
 
 		const rollFormula = getRollFormula(this, {
 			ability: abilityKey,
