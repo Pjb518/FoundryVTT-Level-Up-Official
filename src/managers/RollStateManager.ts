@@ -4,6 +4,7 @@ import getRollFormula from '#utils/getRollFormula.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
+import { RollOverrideManager } from './RollOverrideManagerN.ts';
 
 class RollStateManager {
 	#actor: Actor.OfType<'base'>;
@@ -40,9 +41,12 @@ class RollStateManager {
 		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
 		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
 
+		// Get Targets
+		const targets = [...game.user.targets];
+
 		// TODO:
 		const attackRoll = rolls.attack?.length ? rolls.attack.at(0) : null;
-		const attackRollConfig = this.#prepareAttackRollConfig(attackRoll);
+		const attackRollConfig = this.#prepareAttackRollConfig(attackRoll, targets);
 
 		const config = {
 			attackRoll: attackRollConfig,
@@ -76,6 +80,7 @@ class RollStateManager {
 			attackRoll,
 			damageBonuses,
 			healingBonuses,
+			targets,
 		};
 	}
 
@@ -84,7 +89,7 @@ class RollStateManager {
 	 * @param attackRoll
 	 * @returns
 	 */
-	#prepareAttackRollConfig(attackRoll: AttackRollData | null | undefined) {
+	#prepareAttackRollConfig(attackRoll: AttackRollData | null | undefined, targets: Token[]) {
 		if (!attackRoll) return null;
 
 		const { attackType } = attackRoll;
@@ -99,15 +104,22 @@ class RollStateManager {
 			`attackTypes.${attackType}`,
 			this.#options.expertiseDie ?? 0,
 		);
-		const rollMode = overrideManager.getRollOverride(
-			`attackTypes.${attackType}`,
+
+		// Get Roll Mode
+		const srcConfig = this.#actor.system.rolls.attack[attackType].outgoing;
+		const targetSrc =
+			targets.length === 0 || targets.length > 1
+				? undefined
+				: targets.map((t) => t.actor?.system?.rolls?.attack?.[attackType]?.incoming).at(0);
+
+		const rollModeData = RollOverrideManager.resolveRollMode(
+			srcConfig,
 			this.#options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
+			{ targetSrc },
 		);
 
-		const rollModeSource = overrideManager.getRollOverridesSource(
-			`attackTypes.${attackType}`,
-			this.#options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-		);
+		const rollMode = rollModeData.value;
+		const rollModeSource = rollModeData.source;
 
 		const selectedAttackBonuses = this.#actor.BonusesManager.getDefaultSelections('attacks', {
 			item: this.#item,

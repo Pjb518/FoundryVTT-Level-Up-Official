@@ -37,6 +37,7 @@
     const item: ItemA5e = getContext("item");
 
     let situationalMods = $state("");
+    let parts = $state(rollState.config.attackRoll!);
 
     let attackAbility = $derived(parts.ability);
     let attackBonuses = $derived(parts.bonuses);

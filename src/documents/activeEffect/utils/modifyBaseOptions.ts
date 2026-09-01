@@ -213,6 +213,20 @@ export default function modifyBaseOptions(options: Object) {
 		'RADIO',
 	];
 
+	options['system.rolls.attack.meleeWeaponAttack.incoming.rollMode'] = [
+		0,
+		MODES.DEFAULT_MODES,
+		ROLL_MODES,
+		'RADIO',
+	];
+
+	options['system.rolls.attack.meleeWeaponAttack.outgoing.rollMode'] = [
+		0,
+		MODES.DEFAULT_MODES,
+		ROLL_MODES,
+		'RADIO',
+	];
+
 	// Removes these when data model is fixes
 	delete options['system.bonuses.meleeWeaponAttack'];
 	delete options['system.bonuses.rangedWeaponAttack'];
