@@ -4,7 +4,7 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
     type Props = {
-        selected: string;
+        selected: string | number;
         source: string;
         onUpdateSelection: (value: string) => void;
     };

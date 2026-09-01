@@ -1,20 +1,36 @@
 <script lang="ts">
-    import type { InitiativeRollOptions } from "../../../documents/actor/data.ts";
+    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
 
     import getRollFormula from "#utils/getRollFormula.js";
-
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
-    import { RollOverrideManager } from "#managers/RollOverrideManagerN.ts";
+    import type { InitiativeRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
         document: any;
         dialog: any;
         options: InitiativeRollOptions;
     };
+
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
+
+        const others = [] as any[];
+        if (ability) others.push({ type: "ability", src: ability.check });
+        if (skill) others.push({ type: "skill", src: skill });
+        const edData = RollOverrideManager.resolveExpertiseDie(initiativeSrc, {
+            others,
+        });
+
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
+    }
 
     let { document, dialog, options }: Props = $props();
 
@@ -46,57 +62,13 @@
         options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     );
 
-    let expertiseDie = $state(
-        hideExpertiseDice
-            ? 0
-            : actor.RollOverrideManager.getExpertiseDice(
-                  "initiative",
-                  options.expertiseDice ?? 0,
-                  {
-                      ability: initialAbilityKey,
-                      skill: initialSkillKey,
-                  },
-              ),
-    );
-
-    let manualExpertiseDie = $state(false);
-
-    $effect(() => {
-        if (!hideExpertiseDice && !manualExpertiseDie) {
-            let baseDie = 0;
-            if (
-                skillKey &&
-                skillKey !== "none" &&
-                actor.system.skills[skillKey]
-            ) {
-                baseDie = actor.system.skills[skillKey].expertiseDice ?? 0;
-            }
-
-            const newExpertiseDie = actor.RollOverrideManager.getExpertiseDice(
-                "initiative",
-                baseDie,
-                {
-                    ability: abilityKey,
-                    skill: skillKey,
-                },
-            );
-
-            expertiseDie = newExpertiseDie;
-        }
-    });
-
-    let expertiseDieSource = $derived(
-        actor.RollOverrideManager.getExpertiseDiceSource(
-            "initiative",
-            options.expertiseDie ?? 0,
-            { ability: abilityKey, skill: skillKey },
-        ),
-    );
-
     let ability = $derived(actor.reactive.system.abilities[abilityKey]);
     let skill = $derived(actor.reactive.system.skills[skillKey]);
     let initiativeSrc = actor.reactive.system.attributes.initiative;
-    $inspect(ability, skill, initiativeSrc);
+
+    let { expertiseDie, expertiseDieSource } = $derived(
+        getInitialExpertiseDieSelection(),
+    );
 
     let rollModeData = $derived(
         RollOverrideManager.resolveRollMode(initiativeSrc, initialRollMode, {
@@ -165,37 +137,30 @@
     <RollModePicker
         selected={rollMode}
         source={rollModeString}
-        onUpdateSelection={(detail) => (initialRollMode = detail)}
+        onUpdateSelection={(detail) =>
+            (initialRollMode = Number.parseInt(detail, 10))}
     />
 
     <RadioGroup
         heading="A5E.abilities.headings.score"
         options={Object.entries(abilities)}
         selected={abilityKey}
-        onUpdateSelection={(detail) => {
-            abilityKey = detail;
-            manualExpertiseDie = false;
-        }}
+        onUpdateSelection={(detail) => (abilityKey = detail)}
     />
 
     <RadioGroup
         heading="A5E.skillLabels.title"
         options={Object.entries(skills)}
         selected={skillKey}
-        onUpdateSelection={(detail) => {
-            skillKey = detail;
-            manualExpertiseDie = false;
-        }}
+        onUpdateSelection={(detail) => (skillKey = detail)}
     />
 
     <ExpertiseDiePicker
         source={expertiseDieSource}
         selected={expertiseDie}
         type={actor.type}
-        onUpdateSelection={(value) => {
-            expertiseDie = value;
-            manualExpertiseDie = true;
-        }}
+        onUpdateSelection={(value) =>
+            (expertiseDie = Number.parseInt(value, 10))}
     />
 
     {#if Object.values(abilityBonuses).flat().length}
