@@ -19,14 +19,13 @@
     };
 
     function getInitialExpertiseDieSelection() {
-        if (hideExpertiseDice) return 0;
-
-        return actor.RollOverrideManager.getExpertiseDice(
-            `system.abilities.${abilityKey}.check`,
-            actor.system.abilities[abilityKey].check.expertiseDice ||
-                options.expertiseDice ||
-                0,
-        );
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
+        const edData = RollOverrideManager.resolveExpertiseDie(ability);
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
     }
 
     function onSubmit() {
@@ -37,6 +36,7 @@
 
     let actor: Actor.OfType<"base"> = document;
     const appId: string = dialog.id;
+    let ability = $derived(actor.reactive.system.abilities[abilityKey].check);
 
     const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
@@ -53,24 +53,19 @@
         ability: localizedAbility,
     });
 
-    let expertiseDie = $state(getInitialExpertiseDieSelection());
+    let { expertiseDie, expertiseDieSource } = $state(
+        getInitialExpertiseDieSelection(),
+    );
     let initialRollMode = $state(
         options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     );
 
-    let expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
-        `system.abilities.${abilityKey}.check`,
-        options.expertiseDice ?? 0,
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(ability, initialRollMode),
     );
 
-    let ability = actor.system.abilities[abilityKey].check;
-    let rollModeData = RollOverrideManager.resolveRollMode(
-        ability,
-        initialRollMode,
-    );
-
-    let rollMode = $state(rollModeData.value);
-    let rollModeString = $state(rollModeData.source);
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let visibilityMode = $state(
         options.visibilityMode ?? game.settings.get("core", "messageMode"),

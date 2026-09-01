@@ -1,3 +1,4 @@
+import type { ExpertiseDieData } from '../dataModels/fields/ExpertiseDieField.ts';
 import type { RollModeData } from '../dataModels/fields/RollModeField.ts';
 
 type ResolveOptions = {
@@ -8,7 +9,55 @@ type ResolveOptions = {
 class RollOverrideManager {
 	init() {}
 
-	static resolveExpertiseDie(src: any, baseDie: number, options = {} as ResolveOptions) {}
+	static resolveExpertiseDie(src: any, options = {} as ResolveOptions) {
+		const baseDie = src.expertiseDice || 0;
+		const srcData = src.expertiseDieSources as ExpertiseDieData | undefined;
+
+		const values: number[] = [baseDie];
+		const sources = {
+			values: [...(srcData?.sources ?? [])],
+			overrides: [srcData?.override || ''],
+		};
+
+		// Add target data
+		const targetSrc = options.targetSrc;
+		if (targetSrc?.expertiseDieSources) {
+			const tData = targetSrc.expertiseDieSources as ExpertiseDieData;
+			values.push(targetSrc.expertiseDice || 0);
+
+			// Add source
+			if (tData.override) sources.overrides.push(tData.override || '');
+			else sources.values.push(...tData.sources.map((s) => `Target - ${s}`));
+		}
+
+		// Add other data
+		const others = options.others ?? [];
+		others.forEach((other) => {
+			const otherSrc = other.src;
+			const oData = otherSrc?.expertiseDieSources as ExpertiseDieData | undefined;
+			if (!oData) return;
+
+			values.push(otherSrc.expertiseDice || 0);
+
+			// Add source
+			const type = other.type.capitalize();
+			if (oData.override) sources.overrides.push(oData.override || '');
+			else sources.values.push(...oData.sources.map((s) => `${type} - ${s}`));
+		});
+
+		// Get final value
+		const result = Math.clamp(
+			values.reduce((acc, val) => acc + val, 0),
+			0,
+			5,
+		);
+
+		// Create Source String
+		sources.overrides = sources.overrides.filter((s) => !!s);
+		const sourceString = RollOverrideManager.expertiseDiceToString(baseDie, result, sources);
+
+		return { value: result, source: sourceString };
+	}
 
 	/**
 	 * This is the final resolver, it takes the rolled roll Mode,
@@ -65,13 +114,37 @@ class RollOverrideManager {
 
 		// Create source string
 		sources.overrides = sources.overrides.filter((s) => !!s);
-		const sourceString = RollOverrideManager.sourcesToString(baseRollMode, result, sources);
+		const sourceString = RollOverrideManager.rollModesToString(baseRollMode, result, sources);
 
 		// Return
 		return { value: result, source: sourceString };
 	}
 
-	static sourcesToString(base: number, result: number, sources: Record<string, string[]>) {
+	static expertiseDiceToString(base: number, result: number, sources: Record<string, string[]>) {
+		const { overrides, values } = sources;
+
+		const baseString = `d${CONFIG.A5E.expertiseDiceSidesMap[base]}`;
+		const resString = `d${CONFIG.A5E.expertiseDiceSidesMap[result]}`;
+		let overrideString = '';
+		let sourcesString = '';
+
+		if (overrides.length) {
+			overrideString = `<p><strong>Overrides:</strong><br /> ${overrides.join(', <br />')}</p>`;
+		}
+
+		if (values.length) {
+			sourcesString = `<p><strong>Modifiers:</strong><br /> ${values.join(', <br />')}</p>`;
+		}
+
+		return `<div class='u-text-xs u-text-left'>
+      <p> <strong>Base Die:</strong> ${baseString}</p>
+      <p> ${overrideString} </p>
+      <p> ${sourcesString} </p>
+      <p> <strong>Total Bonus:</strong> ${resString}</p>
+      </div>`;
+	}
+
+	static rollModesToString(base: number, result: number, sources: Record<string, string[]>) {
 		const { advantages: adv = [], disadvantages: dis = [], overrides } = sources;
 
 		let baseString = '';

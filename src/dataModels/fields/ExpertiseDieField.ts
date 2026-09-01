@@ -24,6 +24,7 @@ class ExpertiseDieField<
 			max: 5,
 			nullable: false,
 			required: true,
+			integer: true,
 		};
 	}
 
