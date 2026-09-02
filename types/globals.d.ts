@@ -1,4 +1,8 @@
 import type { A5E } from '../src/config.ts';
+import type { BaseRoll } from '../src/dice/rolls/BaseRoll.ts';
+import type { D20Roll } from '../src/dice/rolls/D20Roll.ts';
+import type { BaseDie } from '../src/dice/terms/BaseDie.ts';
+import type { D20Die } from '../src/dice/terms/D20Die.ts';
 
 import type A5eGame from '../src/interfaces/A5eGame.interface';
 
@@ -31,6 +35,13 @@ declare module 'fvtt-types/configuration' {
 
 	interface CONFIG {
 		A5E: typeof A5E;
+		Dice: CONFIG.Dice & {
+			BaseRoll: typeof BaseRoll;
+			D20Roll: typeof D20Roll;
+			BaseDie: typeof BaseDie;
+			D20Die: typeof D20Die;
+			terms: { d: typeof BaseDie };
+		};
 	}
 
 	interface FlagConfig {

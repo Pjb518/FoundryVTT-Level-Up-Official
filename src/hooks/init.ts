@@ -1,6 +1,27 @@
+import { ConditionManager } from '#managers/ConditionManager.ts';
+import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
+import { RegionLayerA5E } from '../canvas/layers/region.ts';
+import _onCombatantControl from '../combat/_onCombatantControl.js';
+import _onCombatControl from '../combat/_onCombatControl.js';
+import getInitiativeFormula from '../combat/getInitiativeFormula.js';
+import getInitiativeRoll from '../combat/getInitiativeRoll.js';
+import rollCombatantInitiative from '../combat/rollCombatantInitiative.js';
+import rollInitiative from '../combat/rollInitiative.js';
 import { A5E } from '../config.ts';
-import D20Roll from '../dice/d20Roll.js';
+import actorDataModels from '../dataModels/actor/actorDataModels.ts';
+import chatDataModels from '../dataModels/chat/chatCardDataModels.ts';
+import activeEffectModels from '../dataModels/effect/effectDataModels.ts';
+import itemDataModels from '../dataModels/item/itemDataModels.ts';
+import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
+import { BaseRoll } from '../dice/rolls/BaseRoll.ts';
+import { D20Roll } from '../dice/rolls/D20Roll.ts';
+import { BaseDie } from '../dice/terms/BaseDie.ts';
+import { D20Die } from '../dice/terms/D20Die.ts';
+import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
+import EffectOption from '../documents/activeEffect/EffectOption.ts';
+import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
 import ActorProxy from '../documents/actor/actorProxy.ts';
+import trackableAttributes from '../documents/actor/trackableAttributes.js';
 import { ChatMessageA5e } from '../documents/chatMessage.ts';
 import ItemProxy from '../documents/item/itemProxy.ts';
 import ActiveEffectSheetA5e from '../documents/sheets/ActiveEffectSheet.svelte.ts';
@@ -8,40 +29,12 @@ import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
 import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
 import TokenA5e from '../documents/token/token.js';
 import TokenDocumentA5e from '../documents/tokenDocument.ts';
-
-// Canvas
-import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes.js';
-
-// CompendiumSheets
-// import DND5ESpellCompendiumSheet from "../apps/DND5ESpellCompendiumSheet.js";
-// import ItemCompendiumSheet from "../apps/ItemCompendiumSheet.js";
-// import ManeuverCompendiumSheet from "../apps/ManeuverCompendiumSheet.js";
-// import MonsterCompendiumSheet from "../apps/MonsterCompendiumSheet.js";
-// import SpellCompendiumSheet from "../apps/SpellCompendiumSheet.js";
-
-import _onCombatantControl from '../combat/_onCombatantControl.js';
-import _onCombatControl from '../combat/_onCombatControl.js';
-import getInitiativeFormula from '../combat/getInitiativeFormula.js';
-import getInitiativeRoll from '../combat/getInitiativeRoll.js';
-import rollCombatantInitiative from '../combat/rollCombatantInitiative.js';
-import rollInitiative from '../combat/rollInitiative.js';
-// DataModels
-import actorDataModels from '../dataModels/actor/actorDataModels.ts';
-import chatDataModels from '../dataModels/chat/chatCardDataModels.ts';
-import activeEffectModels from '../dataModels/effect/effectDataModels.ts';
-import itemDataModels from '../dataModels/item/itemDataModels.ts';
-// Utility functions
-import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
-import EffectOption from '../documents/activeEffect/EffectOption.ts';
-// Effects
-import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
-import trackableAttributes from '../documents/actor/trackableAttributes.js';
+import { CombatantA5e } from '../encounter/Combatant.ts';
+import { EncounterA5e } from '../encounter/Encounter.ts';
 import { registerKeybindings } from '../keybindings.ts';
-// Macros
 import activateActionMacro from '../macros/activateActionMacro.js';
 import activateItemMacro from '../macros/activateItemMacro.js';
 import createMacro from '../macros/createMacro.js';
-// Managers
 import { A5eEnricherManager } from '../managers/A5eEnricherManager.ts';
 import { ActionsManager } from '../managers/ActionsManager.ts';
 import ContainerManager from '../managers/ContainerManager.ts';
@@ -55,23 +48,13 @@ import { RollPreparationManager } from '../managers/RollPreparationManager.ts';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager.js';
 import { handleMigration } from '../migration/handlers/handleMigration.ts';
 import { handlePackMigration } from '../migration/handlers/handlePackMigration.ts';
-// Migrations
 import { MigrationList } from '../migration/MigrationList.ts';
 import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner.ts';
+import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes.js';
 import preloadHandlebarsTemplates from '../templates.js';
 import performPreLocalization from '../utils/localization/performLocalization.js';
 
-// import * as compendiaIndexFunctions from "../utils/createIndexes.ts";
-// import openCompendium from "../utils/openCompendium.ts";
-
-import { ConditionManager } from '#managers/ConditionManager.ts';
-import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
-import { RegionLayerA5E } from '../canvas/layers/region.ts';
-import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
-import { CombatantA5e } from '../encounter/Combatant.ts';
-import { EncounterA5e } from '../encounter/Encounter.ts';
-// Stores
-// import { gameSettings } from "../settings/SettingsStore.ts";
+// Update namespace
 
 export default function init() {
 	CONFIG.A5E = A5E;
@@ -87,17 +70,20 @@ export default function init() {
 	CONFIG.Token.documentClass = TokenDocumentA5e;
 	CONFIG.Token.objectClass = TokenA5e;
 
+	CONFIG.Dice.BaseRoll = BaseRoll;
 	CONFIG.Dice.D20Roll = D20Roll;
-
 	CONFIG.Dice.rolls.push(D20Roll);
+
+	CONFIG.Dice.BaseDie = BaseDie;
+	CONFIG.Dice.D20Die = D20Die;
+	CONFIG.Dice.terms.d = BaseDie;
+	CONFIG.Dice.types.push(D20Die);
 
 	CONFIG.MeasuredTemplate.defaults.angle = 60;
 
 	// DataModels
 	CONFIG.Actor.dataModels = actorDataModels;
-	// @ts-expect-error
 	CONFIG.ActiveEffect.dataModels = activeEffectModels;
-	// @ts-expect-error
 	CONFIG.ChatMessage.dataModels = chatDataModels;
 	CONFIG.Item.dataModels = itemDataModels;
 
