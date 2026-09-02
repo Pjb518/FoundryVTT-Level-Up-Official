@@ -5,7 +5,7 @@
 
     type Props = {
         type?: "character" | "npc";
-        selected: string;
+        selected: string | number;
         source?: string;
 
         onUpdateSelection?: (value: string) => void;

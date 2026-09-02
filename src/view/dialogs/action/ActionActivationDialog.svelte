@@ -62,7 +62,11 @@
                 actionId,
                 selectedRolls,
             ),
+            selectedDamageBonuses,
+            selectedHealingBonuses,
             selectedConsumers,
+            selectedPrompts,
+            selectedRolls,
             visibilityMode,
         });
     }

@@ -28,10 +28,20 @@ class RollStateManager {
 		const action = item.actions.get(actionId)!;
 		this.#action = action;
 
-		this.#state = this._prepareState();
+		this.#state = this._prepareInitialState();
 	}
 
-	_prepareState() {
+	/** ================================================ */
+	//  Getters
+	/** ================================================ */
+	get state() {
+		return this.#state;
+	}
+
+	/** ================================================ */
+	//  Pre Dialog State
+	/** ================================================ */
+	_prepareInitialState() {
 		const consumers = this.#action.getConsumersByType();
 		const prompts = this.#action.getPromptsByType();
 		const rolls = this.#action.getRollsByType();
@@ -147,16 +157,26 @@ class RollStateManager {
 		};
 	}
 
-	// ===========================================
-	// Getters
-	// ===========================================
-	get state() {
-		return this.#state;
-	}
+	/** ================================================ */
+	//  Post Dialog State
+	/** ================================================ */
+	_preparePostDialogState(data: RollStateManager.ActionDialogData) {}
 }
 
 declare namespace RollStateManager {
-	type state = ReturnType<RollStateManager['_prepareState']>;
+	type ActionDialogData = {
+		attack: never;
+		consumers: Record<string, never>;
+		effects: string[];
+		selectedDamageBonuses: string[];
+		selectedHealingBonuses: string[];
+		selectedConsumers: string[];
+		selectedPrompts: string[];
+		selectedRolls: string[];
+		visibilityMode: string;
+	};
+
+	type state = ReturnType<RollStateManager['_prepareInitialState']>;
 }
 
 export { RollStateManager };
