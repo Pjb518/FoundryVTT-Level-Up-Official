@@ -5,6 +5,7 @@ import { BaseRoll } from './BaseRoll.ts';
 import terms = foundry.dice.terms;
 
 import { A5E } from '../../config.ts';
+import { ExpertiseDie } from '../terms/ExpertiseDie.ts';
 
 class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	declare options: D20Roll.Options;
@@ -83,6 +84,17 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		this.d20.applyRollMode(this.options.rollMode);
 		this.d20.applyRange({ min, max: this.options.max || Infinity });
 
+		// Apply expertise
+		if (this.options.expertise) {
+			const expTerm = new ExpertiseDie({ faces: this.options.expertise });
+			const found = this.terms.findSplice((t) => t instanceof ExpertiseDie, expTerm);
+
+			if (!found) {
+				this.terms.push(new terms.OperatorTerm({ operator: '+' }));
+				this.terms.push(new ExpertiseDie({ faces: this.options.expertise }));
+			}
+		}
+
 		this.resetFormula();
 		this.options.configured = true;
 	}
@@ -102,6 +114,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		config.options ??= {};
 		config.options.critSuccess ??= D20Die.CRIT_SUCCESS_TOTAL;
 		config.options.critFail ??= D20Die.CRIT_FAIL_TOTAL;
+		config.options.expertise ??= 0;
 
 		// TODO: Add special modes from process
 		config.options.specialModes ??= {};
@@ -122,7 +135,8 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	) {
 		const merged = super.mergeOptions(original, other) as Partial<D20Roll.Options>;
 
-		merged.rollMode = original.rollMode || other.rollMode;
+		merged.rollMode = original.rollMode ?? other.rollMode;
+		merged.expertise = original.expertise ?? other.expertise;
 		merged.max = Math.min(original.max ?? Infinity, other.max ?? Infinity);
 		merged.min = Math.max(original.min ?? -Infinity, other.min ?? -Infinity);
 		return merged;
@@ -136,6 +150,7 @@ declare namespace D20Roll {
 
 	interface _Options extends BaseRoll._Options, D20Die.Options {
 		configured?: boolean;
+		expertise?: number;
 	}
 
 	interface Options extends InexactPartial<_Options> {}

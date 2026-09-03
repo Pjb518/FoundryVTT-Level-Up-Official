@@ -32,20 +32,6 @@ class D20Die extends BaseDie {
 	/** ===================================== */
 	//  D20 Methods
 	/** ===================================== */
-	applyRollMode(rollMode: number) {
-		this.options.rollMode = rollMode;
-		this.modifiers.findSplice(
-			(m) => m.startsWith('adv') || m.startsWith('dis') || m === 'kh' || m === 'kl',
-		);
-
-		this.number = 1;
-		if (rollMode === 0) return;
-		const isAdv = rollMode === 1;
-		this.modifiers.push(
-			`${isAdv ? 'adv' : 'dis'}${isAdv && this.options.specialModes?.elvenAccuracy ? '2' : ''}`,
-		);
-	}
-
 	applyFlag(flag: string, value: boolean) {
 		this.options.specialModes ??= {};
 		this.options.specialModes[flag] = value;
@@ -60,6 +46,20 @@ class D20Die extends BaseDie {
 			this.modifiers.findSplice((m) => m.startsWith(mod));
 			if (value) this.modifiers.push(`${mod}${value}`);
 		});
+	}
+
+	applyRollMode(rollMode: number) {
+		this.options.rollMode = rollMode;
+		this.modifiers.findSplice(
+			(m) => m.startsWith('adv') || m.startsWith('dis') || m === 'kh' || m === 'kl',
+		);
+
+		this.number = 1;
+		if (rollMode === 0) return;
+		const isAdv = rollMode === 1;
+		this.modifiers.push(
+			`${isAdv ? 'adv' : 'dis'}${isAdv && this.options.specialModes?.elvenAccuracy ? '2' : ''}`,
+		);
 	}
 
 	/** ===================================== */
