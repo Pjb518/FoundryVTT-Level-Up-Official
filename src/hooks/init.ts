@@ -16,6 +16,7 @@ import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import { BaseRoll } from '../dice/rolls/BaseRoll.ts';
 import { D20Roll } from '../dice/rolls/D20Roll.ts';
 import { BaseDie } from '../dice/terms/BaseDie.ts';
+import { CountDownPool } from '../dice/terms/CountDownPool.ts';
 import { D20Die } from '../dice/terms/D20Die.ts';
 import { ExpertiseDie } from '../dice/terms/ExpertiseDie.ts';
 import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
@@ -79,6 +80,9 @@ export default function init() {
 	CONFIG.Dice.D20Die = D20Die;
 	CONFIG.Dice.terms.d = BaseDie;
 	CONFIG.Dice.ExpertiseDie = ExpertiseDie;
+
+	// CONFIG.Dice.CountDownPool = CountDownPool;
+
 	CONFIG.Dice.types.push(D20Die);
 	CONFIG.Dice.types.push(ExpertiseDie);
 

@@ -4,13 +4,13 @@ class BasePoolTerm extends terms.PoolTerm {
 	declare options: BasePoolTerm.Options;
 
 	get type() {
-		return this.options.type || 'default';
+		return this.options.poolType || 'default';
 	}
 }
 
 declare namespace BasePoolTerm {
 	interface Options extends terms.RollTerm.Options {
-		type?: string;
+		poolType?: string;
 	}
 }
 
