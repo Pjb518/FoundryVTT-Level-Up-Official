@@ -3,6 +3,7 @@ import type { BaseRoll } from '../src/dice/rolls/BaseRoll.ts';
 import type { D20Roll } from '../src/dice/rolls/D20Roll.ts';
 import type { BaseDie } from '../src/dice/terms/BaseDie.ts';
 import type { D20Die } from '../src/dice/terms/D20Die.ts';
+import type { ExpertiseDie } from '../src/dice/terms/ExpertiseDie.ts';
 
 import type A5eGame from '../src/interfaces/A5eGame.interface';
 
@@ -37,9 +38,10 @@ declare module 'fvtt-types/configuration' {
 		A5E: typeof A5E;
 		Dice: CONFIG.Dice & {
 			BaseRoll: typeof BaseRoll;
-			D20Roll: typeof D20Roll;
 			BaseDie: typeof BaseDie;
+			ExpertiseDie: typeof ExpertiseDie;
 			D20Die: typeof D20Die;
+			D20Roll: typeof D20Roll;
 			terms: { d: typeof BaseDie };
 		};
 	}
