@@ -17,6 +17,7 @@ import { BaseRoll } from '../dice/rolls/BaseRoll.ts';
 import { D20Roll } from '../dice/rolls/D20Roll.ts';
 import { BaseDie } from '../dice/terms/BaseDie.ts';
 import { D20Die } from '../dice/terms/D20Die.ts';
+import { ExpertiseDie } from '../dice/terms/ExpertiseDie.ts';
 import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
 import EffectOption from '../documents/activeEffect/EffectOption.ts';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
@@ -77,7 +78,9 @@ export default function init() {
 	CONFIG.Dice.BaseDie = BaseDie;
 	CONFIG.Dice.D20Die = D20Die;
 	CONFIG.Dice.terms.d = BaseDie;
+	CONFIG.Dice.ExpertiseDie = ExpertiseDie;
 	CONFIG.Dice.types.push(D20Die);
+	CONFIG.Dice.types.push(ExpertiseDie);
 
 	CONFIG.MeasuredTemplate.defaults.angle = 60;
 

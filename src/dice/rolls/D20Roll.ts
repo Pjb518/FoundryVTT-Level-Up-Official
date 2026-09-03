@@ -38,12 +38,35 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		this.terms[0] = die;
 	}
 
+	get expertiseDie(): ExpertiseDie | undefined {
+		return this.terms.find((t) => t instanceof ExpertiseDie);
+	}
+
+	set expertiseDie(die: ExpertiseDie) {
+		if (!(die instanceof ExpertiseDie)) {
+			throw new Error(
+				// @ts-expect-error
+				`D20 die must be an instance of ${ExpertiseDie.name}, instead a ${die.constructor.name} was provided.`,
+			);
+		}
+
+		const found = this.terms.findSplice((t) => t instanceof ExpertiseDie, die);
+		if (found) return;
+
+		this.terms.push(new terms.OperatorTerm({ operator: '+' }));
+		this.terms.push(die);
+	}
+
 	get hasAdv() {
 		return this.options.rollMode === D20Roll.ROLL_MODE.ADVANTAGE;
 	}
 
 	get hasDis() {
 		return this.options.rollMode === D20Roll.ROLL_MODE.DISADVANTAGE;
+	}
+
+	get hasExpertise() {
+		return !!this.options.expertise;
 	}
 
 	get isCrit() {
