@@ -24,7 +24,12 @@
                 item,
                 `${item.name} Damage Scaling Configuration`,
                 RollScalingDialog,
-                { actionId, rollId },
+                {
+                    actionId,
+                    rollId,
+                    propertyKey: `actions.${actionId}.rolls.${rollId}.scaling`,
+                    scalingType: "roll",
+                },
                 { width: 432 },
             );
 

@@ -482,6 +482,7 @@ const scalingModes = {
 	artifactCharges: 'A5E.scaling.modes.artifactCharges',
 	actionUses: 'A5E.scaling.modes.actionUses',
 	itemUses: 'A5E.scaling.modes.itemUses',
+	resourceUses: 'A5E.scaling.modes.resourceUses',
 };
 
 const baseScalingModes = {

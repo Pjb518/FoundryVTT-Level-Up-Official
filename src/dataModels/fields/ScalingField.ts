@@ -31,8 +31,8 @@ export type ScalingDataArea = ReturnType<typeof scalingFieldArea>;
 export const scalingFieldRoll = () => ({
 	config: new fields.SchemaField({
 		value: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		number: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
-		denom: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+		number: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		denom: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	}),
 	...common(),
 });

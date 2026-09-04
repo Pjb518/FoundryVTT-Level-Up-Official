@@ -11,7 +11,7 @@
         listClasses?: string;
         optionStyles?: string;
         options?: string[][];
-        selected?: string | number;
+        selected?: string | number | null;
         showWarning?: boolean;
         tooltipData?: Record<string, string>;
         warning?: string;
@@ -59,7 +59,8 @@
     <ul class="radio-group {listClasses}">
         {#each options as [value, label]}
             <Tag
-                active={selected === value || selected?.toString() === value?.toString()}
+                active={selected === value ||
+                    selected?.toString() === value?.toString()}
                 {label}
                 {optionStyles}
                 {value}
