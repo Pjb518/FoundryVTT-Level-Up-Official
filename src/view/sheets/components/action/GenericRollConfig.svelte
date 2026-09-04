@@ -20,7 +20,6 @@
                 RollScalingDialog,
                 {
                     actionId,
-                    rollId,
                     propertyKey: `actions.${actionId}.rolls.${rollId}.scaling`,
                 },
                 { width: 432 },

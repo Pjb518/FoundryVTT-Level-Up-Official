@@ -2,7 +2,6 @@
     import type { ItemA5e } from "#documents/item/item.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
     import type { DamageRollData } from "../../../dataModels/item/actions/ActionRollsDataModel.ts";
@@ -10,9 +9,9 @@
     type Props = {
         document: ItemA5e;
         actionId: string;
-        rollId: string;
+        rollId?: string;
         propertyKey: string;
-        scalingType: "default" | "roll";
+        scalingType?: "default" | "roll";
     };
 
     function getHint(): string {
@@ -31,7 +30,6 @@
     let {
         document,
         actionId,
-        rollId,
         propertyKey,
         scalingType = "default",
     }: Props = $props();
@@ -54,7 +52,7 @@
             onUpdateSelection={(detail) => {
                 updateDocumentDataFromField(
                     item,
-                    `system.actions.${actionId}.rolls.${rollId}.scaling.mode`,
+                    `system.${propertyKey}.mode`,
                     detail,
                 );
             }}

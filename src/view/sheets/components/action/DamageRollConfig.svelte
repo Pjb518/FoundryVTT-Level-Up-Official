@@ -26,7 +26,6 @@
                 RollScalingDialog,
                 {
                     actionId,
-                    rollId,
                     propertyKey: `actions.${actionId}.rolls.${rollId}.scaling`,
                     scalingType: "roll",
                 },
