@@ -3,7 +3,7 @@ import { localize } from '#utils/localization/localize.ts';
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
-import { scalingFieldRoll } from '../../fields/ScalingField.ts';
+import { scalingFieldBase, scalingFieldRoll } from '../../fields/ScalingField.ts';
 
 // ======================================================
 //                        Schemas
@@ -69,7 +69,7 @@ const damageRollSchema = () => ({
 
 const genericRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	scaling: new fields.SchemaField(scalingFieldRoll()),
+	scaling: new fields.SchemaField(scalingFieldBase()),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,

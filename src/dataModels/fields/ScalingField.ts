@@ -30,7 +30,7 @@ export const scalingFieldRoll = () => ({
 	formula: new fields.SchemaField({
 		value: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		number: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
-		face: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+		denom: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 	}),
 	...common(),
 });

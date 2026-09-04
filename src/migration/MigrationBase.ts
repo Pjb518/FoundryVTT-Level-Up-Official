@@ -1,9 +1,9 @@
 interface MigrationBase {
-	updateActor?(source: Record<string, any>): Promise<void>;
+	updateActor?(source: Actor): Promise<void>;
 
-	updateItem?(source: Record<string, any>, parent?: any): Promise<void>;
+	updateItem?(source: Item, parent?: any): Promise<void>;
 
-	updateEffect?(source: any, parent?: any): Promise<void>;
+	updateEffect?(source: ActiveEffect, parent?: any): Promise<void>;
 
 	updateJournalEntry?(source: any): Promise<void>;
 

@@ -1,6 +1,6 @@
 import { migrationData } from '../common.ts';
 
-const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
 const baseSchema = () => ({
 	applyToSelf: new fields.BooleanField({

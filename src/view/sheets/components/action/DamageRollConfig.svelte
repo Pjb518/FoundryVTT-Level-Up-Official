@@ -1,8 +1,9 @@
 <script lang="ts">
+    import { localize } from "#utils/localization/localize.ts";
+    import { getContext } from "svelte";
+
     import type { RollProps } from "./data.ts";
 
-    import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
     import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
     import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
