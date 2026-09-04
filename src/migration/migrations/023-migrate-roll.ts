@@ -41,11 +41,41 @@ const KEY_MAP = {
 };
 
 const KEY_MAP_KEYS = new Set(Object.keys(KEY_MAP));
+const ITEM_TYPES = new Set(['base', 'feature', 'interaction', 'maneuver', 'object', 'spell']);
 
 export class Migration23MigrateRoll extends MigrationBase {
 	static override version = 0.023;
 
-	override async updateEffect(source: ActiveEffect, parent?: any): Promise<void> {
+	override async updateItem(source: Item): Promise<void> {
+		if (!ITEM_TYPES.has(source.type)) return;
+
+		// Update scaling values
+		const actions = Object.entries(source.system.actions ?? {});
+		actions.forEach(([actionId, action]) => {
+			// Update target scaling
+			const targetScaleValue = (action.target.scaling.formula as string) || '';
+			if (targetScaleValue) {
+				source.system.actions![actionId].target.scaling.config.value = targetScaleValue;
+			}
+
+			// Update rolls
+			const rolls = Object.entries(action.rolls ?? {});
+			rolls.forEach(([rollId, roll]) => {
+				if (roll.type === 'healing' || roll.type === 'damage' || roll.type === 'generic') {
+					const rollScaleValue = (roll.scaling.formula as string) || '';
+					if (rollScaleValue) {
+						foundry.utils.setProperty(
+							source.system,
+							`actions.${actionId}.rolls.${rollId}.scaling.config.value`,
+							rollScaleValue,
+						);
+					}
+				}
+			});
+		});
+	}
+
+	override async updateEffect(source: ActiveEffect): Promise<void> {
 		source.system.changes.forEach((change, idx) => {
 			// Update roll mode keys
 			if (KEY_MAP_KEYS.has(change.key)) {
