@@ -50,6 +50,8 @@ declare module 'fvtt-types/configuration' {
 		Actor: {
 			a5e: {
 				automaticallyExecuteAvailableMacros: boolean;
+				criticalHitThresholdWeapon: number;
+				criticalHitThresholdSpell: number;
 				jackOfAllTrades: boolean;
 			};
 		};

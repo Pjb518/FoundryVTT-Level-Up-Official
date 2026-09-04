@@ -149,6 +149,8 @@ class RollPreparationManager {
 	}
 
 	async #prepareAttackRoll(_roll: RollStateManager.WorkflowState['attack']) {
+		if (!_roll) return null;
+
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: _roll.formula,
@@ -170,7 +172,7 @@ class RollPreparationManager {
 		return {
 			attackType: _roll.attackType,
 			critThreshold,
-			expertiseDice: _roll.expertiseDie,
+			expertise: _roll.expertiseDie,
 			isCrit,
 			label,
 			roll,
