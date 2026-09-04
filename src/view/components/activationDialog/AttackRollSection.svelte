@@ -11,7 +11,6 @@
 
     type Props = {
         attackRollData: any;
-        options: ActionActivationOptions;
         attackRoll: NonNullable<RollStateManager.state["attackRoll"]>;
         rollState: RollStateManager.state;
     };
@@ -27,7 +26,6 @@
 
     let {
         attackRollData = $bindable(),
-        options,
         attackRoll,
         rollState,
     }: Props = $props();

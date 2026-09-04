@@ -97,6 +97,12 @@ export const attributes = () => ({
 		// bonus: new fields.StringField({ required: true, initial: '' }),
 		...d20RollModification(),
 	}),
+	maneuverDC: new fields.NumberField({
+		required: true,
+		nullable: false,
+		persisted: false,
+		initial: 0,
+	}),
 	movement: new fields.SchemaField({
 		burrow: new fields.SchemaField({
 			distance: new fields.NumberField({
@@ -196,6 +202,7 @@ export const attributes = () => ({
 		}),
 	}),
 	inspiration: new fields.BooleanField({ required: true, initial: false }),
+	prof: new fields.NumberField({ persisted: false, required: true, nullable: false, initial: 1 }),
 	corruption: new fields.NumberField({
 		required: true,
 		nullable: false,

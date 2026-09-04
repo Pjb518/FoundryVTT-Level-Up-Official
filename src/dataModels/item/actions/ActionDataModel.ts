@@ -262,6 +262,14 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	}
 
 	prepareDerivedData() {
+		// Set Data for prompts
+		Object.entries(this.prompts ?? {}).forEach(([id, prompt]) => {
+			prompt.id = id;
+
+			// Prepare Base Data
+			prompt.prepareDerivedData();
+		});
+
 		// Prepare effect Documents
 		this.effects.forEach((e) => {
 			const effect = this.item.effects.get(e);

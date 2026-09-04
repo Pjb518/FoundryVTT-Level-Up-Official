@@ -1,13 +1,13 @@
-import type { BaseActorA5e } from '../documents/actor/base';
-import type SpellItemA5e from '../documents/item/spell';
-
-export default function getSpellBookDC(actor: BaseActorA5e, item: SpellItemA5e): number {
+export default function getSpellBookDC(
+	actor: Actor.OfType<'base'>,
+	item: Item.OfType<'spell'>,
+): number {
 	let spellBook: any; // TODO: Types - Update this
 
 	const actorData: any = actor.system;
 	const spellBookId = item.system.spellBook;
 
-	if (spellBookId) spellBook = actor.spellBooks.get(item.system.spellBook);
+	if (spellBookId) spellBook = actor.system.spellBooks[spellBookId];
 
 	if (!spellBook) return actorData.attributes.spellDC ?? 8;
 	return spellBook.stats.dc ?? 8;

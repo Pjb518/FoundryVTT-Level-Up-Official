@@ -26,6 +26,7 @@ const abilityCheckSchema = () => ({
 
 const abilitySaveSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
+	dc: new fields.NumberField({ persisted: false, required: true, nullable: false, initial: 0 }),
 	saveDC: new fields.SchemaField({
 		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		type: new fields.StringField({ required: true, nullable: false, initial: 'spellcasting' }),
@@ -125,6 +126,8 @@ export class AbilityCheckPromptData extends DataModel<AbilityCheckPromptData.Sch
 			this.defaultLabel = label;
 		}
 	}
+
+	prepareDerivedData() {}
 }
 
 export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
@@ -148,6 +151,8 @@ export class GenericPromptData extends DataModel<GenericPromptData.Schema> {
 		this.formulaInvalid = false;
 		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
 	}
+
+	prepareDerivedData() {}
 }
 
 export class SkillCheckPromptData extends DataModel<SkillCheckPromptData.Schema> {
@@ -173,6 +178,8 @@ export class SkillCheckPromptData extends DataModel<SkillCheckPromptData.Schema>
 			this.defaultLabel = label;
 		}
 	}
+
+	prepareDerivedData() {}
 }
 
 export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schema> {
@@ -201,6 +208,8 @@ export class SavingThrowPromptData extends DataModel<SavingThrowPromptData.Schem
 		this.formulaInvalid = false;
 		if (this.saveDC.bonus && !Roll.validate(this.saveDC.bonus)) this.formulaInvalid = true;
 	}
+
+	prepareDerivedData() {}
 }
 
 /** @deprecated */
@@ -216,6 +225,8 @@ export class EffectPromptData extends DataModel<EffectPromptData.Schema> {
 	formulaInvalid = true;
 
 	prepareBaseData() {}
+
+	prepareDerivedData() {}
 }
 
 export const ACTION_PROMPT_DATA_TYPES = {

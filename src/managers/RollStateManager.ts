@@ -1,4 +1,5 @@
 import type { ActionActivationOptions } from '#documents/item/data.ts';
+import { computeSaveDC } from '#utils/computeSaveDC.ts';
 import getAttackAbility from '#utils/getAttackAbility.ts';
 import getRollFormula from '#utils/getRollFormula.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
@@ -160,7 +161,45 @@ class RollStateManager {
 	/** ================================================ */
 	//  Post Dialog State
 	/** ================================================ */
-	_preparePostDialogState(data: RollStateManager.ActionDialogData) {}
+	preparePostDialogState(data: RollStateManager.ActionDialogData) {
+		const damageBonuses = this.#state.damageBonuses
+			.filter(([key]) => data.selectedDamageBonuses.includes(key))
+			.map(([, bonus]) => bonus);
+
+		const healingBonuses = this.#state.healingBonuses
+			.filter(([key]) => data.selectedHealingBonuses.includes(key))
+			.map(([, bonus]) => bonus);
+
+		const prompts = Object.values(this.#action.prompts ?? {}).reduce(
+			(acc, prompt) => {
+				if (prompt.type === 'savingThrow') {
+					prompt.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC);
+				}
+				if (data.selectedPrompts.includes(prompt.id)) acc.push(prompt);
+				return acc;
+			},
+			[] as A5EActionData['prompts'][string][],
+		);
+
+		const rolls = Object.values(this.#action.rolls ?? {}).reduce(
+			(acc, roll) => {
+				if (roll.type === 'attack') return acc;
+				if (data.selectedRolls.includes(roll.id)) acc.push(roll);
+				return acc;
+			},
+			[] as A5EActionData['rolls'][string][],
+		);
+
+		return {
+			attack: data.attack,
+			consumers: data.consumers,
+			damageBonuses: damageBonuses,
+			effects: data.effects,
+			healingBonuses: healingBonuses,
+			prompts: prompts,
+			rolls: rolls,
+		};
+	}
 }
 
 declare namespace RollStateManager {

@@ -479,11 +479,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 
 		try {
-			// @ts-expect-error
 			actorData.attributes.maneuverDC = getDeterministicBonus(
 				[
 					8,
-					// @ts-expect-error
 					actorData.attributes.prof,
 					actorData.bonuses.maneuverDC,
 					// @ts-expect-error
@@ -503,7 +501,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			actorData.attributes.spellDC = getDeterministicBonus(
 				[
 					8,
-					// @ts-expect-error
 					actorData.attributes.prof,
 					actorData.bonuses?.spellDC || 0,
 					actorData.abilities[actorData.attributes.spellcasting || 'int'].check.mod,
@@ -715,7 +712,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	 */
 	prepareSkills() {
 		const actorData = this.system;
-		// @ts-expect-error
 		const proficiencyBonus = actorData.attributes.prof;
 		const jackOfAllTrades = this.flags?.a5e?.jackOfAllTrades;
 
