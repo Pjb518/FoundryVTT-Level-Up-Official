@@ -34,7 +34,7 @@
     function onSubmit() {
         dialog.submit({
             attack: attackRollData,
-            consumers: {
+            consumptionData: {
                 actionUses: actionUsesData,
                 hitDice: hitDiceData,
                 itemUses: itemUsesData,

@@ -162,19 +162,22 @@ class ItemA5e<
 
 		if (!activationData) return null;
 
-		activationData.rolls ??= [];
-		activationData.rolls.push(activationData?.attack ?? {});
+		await rollStateManager.startWorkflow(activationData);
 
-		const rollPreparationManager = new RollPreparationManager({
-			actor: this.actor,
-			item: this,
-			consumers: activationData.consumers ?? {},
-			damageBonuses: activationData.damageBonuses ?? {},
-			healingBonuses: activationData.healingBonuses ?? {},
-			rolls: activationData.rolls ?? {},
-		});
+		// activationData.rolls ??= [];
+		// activationData.rolls.push(activationData?.attack ?? {});
 
-		const rolls = await rollPreparationManager.prepareRolls();
+		// const rollPreparationManager = new RollPreparationManager({
+		// 	actor: this.actor,
+		// 	item: this,
+		// 	consumers: activationData.consumers ?? {},
+		// 	damageBonuses: activationData.damageBonuses ?? {},
+		// 	healingBonuses: activationData.healingBonuses ?? {},
+		// 	rolls: activationData.rolls ?? {},
+		// });
+
+		// const rolls = await rollPreparationManager.prepareRolls();
+		const rolls = [];
 
 		const effectAreaManager = new EffectAreaManager(
 			this.actor,
@@ -189,7 +192,7 @@ class ItemA5e<
 			this.actor,
 			this,
 			actionId,
-			activationData.consumers ?? {},
+			activationData.consumptionData ?? {},
 			activationData.selectedConsumers ?? [],
 		);
 

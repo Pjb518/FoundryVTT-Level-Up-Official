@@ -19,92 +19,88 @@ import getAttackAbility from '../utils/getAttackAbility';
 import getRollFormula from '../utils/getRollFormula';
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
 import { RollOverrideManager } from './RollOverrideManager.ts';
+import type { RollStateManager } from './RollStateManager.ts';
 
 class RollPreparationManager {
-	#actor: BaseActorA5e;
+	#actor: Actor.OfType<'base'>;
 
 	#consumers: ResourceConsumptionManager.ConsumptionData;
 
-	#damageBonuses: DamageBonus[];
-
-	#healingBonuses: HealingBonus[];
-
 	#item: ItemA5e;
 
-	#rolls: RollData.A5eActionRolls | any[];
+	#state: ReturnType<RollStateManager['_preparePostDialogState']>;
 
-	constructor({
-		actor,
-		item,
-		consumers,
-		damageBonuses,
-		healingBonuses,
-		rolls,
-	}: RollPreparationManager.ConstructorOptions) {
-		this.#actor = actor;
-		this.#consumers = consumers!;
-		this.#damageBonuses = damageBonuses!;
-		this.#healingBonuses = healingBonuses!;
-		this.#item = item!;
-		this.#rolls = rolls;
+	constructor(state: ReturnType<RollStateManager['_preparePostDialogState']>) {
+		this.#actor = state.actor;
+		this.#item = state.item;
+
+		this.#state = state;
 	}
 
-	/** ****************************************************
-	 *  Preparation Methods
-	 **************************************************** */
+	/** ================================================ */
+	//  Preparation Methods
+	/** ================================================ */
 	async prepareRolls() {
-		const { attack, damage, healing, other } = this.#rolls.reduce(
-			(acc, roll: any) => {
-				if (roll && roll.type === 'attack') acc.attack = roll;
-				else if (roll && roll.type === 'damage') acc.damage.push(roll);
-				else if (roll && roll.type === 'healing') acc.healing.push(roll);
-				else acc.other.push(roll);
+		const state = this.#state;
 
-				return acc;
-			},
-			{
-				attack: null as RollPreparationManager.AttackRollData | null,
-				damage: [] as any[],
-				healing: [] as any[],
-				other: [] as any[],
-			},
-		);
+		const prepared = [state.attack, ...state.rolls].map((roll) => {
+			if (roll.type === 'attack') return this.#prepareAttackRoll(roll);
 
-		const attackRoll = await this.#prepareAttackRoll(
-			attack ?? ({} as RollPreparationManager.AttackRollData),
-		);
+			return null;
+		});
 
-		const damageRolls = (await Promise.all(
-			damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i)),
-		)) as (PreparedDamageData | null)[];
+		//   const { attack, damage, healing, other } = this.#rolls.reduce(
+		// 	(acc, roll: any) => {
+		// 		if (roll && roll.type === 'attack') acc.attack = roll;
+		// 		else if (roll && roll.type === 'damage') acc.damage.push(roll);
+		// 		else if (roll && roll.type === 'healing') acc.healing.push(roll);
+		// 		else acc.other.push(roll);
 
-		const healingRolls = (
-			await Promise.all(healing.map(async (roll) => this.#prepareHealingRoll(roll)))
-		).filter(Boolean) as PreparedHealingData[];
+		// 		return acc;
+		// 	},
+		// 	{
+		// 		attack: null as RollPreparationManager.AttackRollData | null,
+		// 		damage: [] as any[],
+		// 		healing: [] as any[],
+		// 		other: [] as any[],
+		// 	},
+		// );
 
-		if (damageRolls.length) {
-			const bonusDamageRolls = await this.#prepareBonusDamageRolls(attackRoll);
-			damageRolls.push(...bonusDamageRolls);
-		}
+		// const attackRoll = await this.#prepareAttackRoll(
+		// 	attack ?? ({} as RollPreparationManager.AttackRollData),
+		// );
 
-		if (healingRolls.some(({ healingType }) => healingType === 'healing' || !healingType)) {
-			const bonusHealingRolls = (await this.#prepareBonusHealingRolls()).filter(
-				Boolean,
-			) as PreparedHealingData[];
-			healingRolls.push(...bonusHealingRolls);
-		}
+		// const damageRolls = (await Promise.all(
+		// 	damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i)),
+		// )) as (PreparedDamageData | null)[];
 
-		if (healingRolls.some(({ healingType }) => healingType === 'temporaryHealing')) {
-			const bonusTempHealingRolls = (await this.#prepareBonusTemporaryHealingRolls()).filter(
-				Boolean,
-			) as PreparedHealingData[];
-			healingRolls.push(...bonusTempHealingRolls);
-		}
+		// const healingRolls = (
+		// 	await Promise.all(healing.map(async (roll) => this.#prepareHealingRoll(roll)))
+		// ).filter(Boolean) as PreparedHealingData[];
 
-		const otherRolls = await Promise.all(other.map(async (roll) => this.#prepareItemRoll(roll)));
+		// if (damageRolls.length) {
+		// 	const bonusDamageRolls = await this.#prepareBonusDamageRolls(attackRoll);
+		// 	damageRolls.push(...bonusDamageRolls);
+		// }
 
-		// TODO: Type out the return for this
-		return [attackRoll, ...damageRolls, ...healingRolls, ...otherRolls].filter(Boolean);
+		// if (healingRolls.some(({ healingType }) => healingType === 'healing' || !healingType)) {
+		// 	const bonusHealingRolls = (await this.#prepareBonusHealingRolls()).filter(
+		// 		Boolean,
+		// 	) as PreparedHealingData[];
+		// 	healingRolls.push(...bonusHealingRolls);
+		// }
+
+		// if (healingRolls.some(({ healingType }) => healingType === 'temporaryHealing')) {
+		// 	const bonusTempHealingRolls = (await this.#prepareBonusTemporaryHealingRolls()).filter(
+		// 		Boolean,
+		// 	) as PreparedHealingData[];
+		// 	healingRolls.push(...bonusTempHealingRolls);
+		// }
+
+		// const otherRolls = await Promise.all(other.map(async (roll) => this.#prepareItemRoll(roll)));
+
+		// // TODO: Type out the return for this
+		// return [attackRoll, ...damageRolls, ...healingRolls, ...otherRolls].filter(Boolean);
 	}
 
 	#prepareItemRoll(roll: any) {
@@ -149,9 +145,7 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareAttackRoll(
-		_roll: RollPreparationManager.AttackRollData,
-	): Promise<PreparedAttackRoll | null> {
+	async #prepareAttackRoll(_roll: RollStateManager.WorkflowState['attack']) {
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: _roll.formula,

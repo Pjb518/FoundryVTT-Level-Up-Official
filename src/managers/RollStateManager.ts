@@ -7,6 +7,7 @@ import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.t
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 import { RollOverrideManager } from './RollOverrideManager.ts';
+import { RollPreparationManager } from './RollPreparationManager.ts';
 
 class RollStateManager {
 	#actor: Actor.OfType<'base'>;
@@ -162,7 +163,7 @@ class RollStateManager {
 	/** ================================================ */
 	//  Post Dialog State
 	/** ================================================ */
-	preparePostDialogState(data: RollStateManager.ActionDialogData) {
+	_preparePostDialogState(data: RollStateManager.ActionDialogData) {
 		const damageBonuses = this.#state.damageBonuses
 			.filter(([key]) => data.selectedDamageBonuses.includes(key))
 			.map(([, bonus]) => bonus);
@@ -200,9 +201,15 @@ class RollStateManager {
 		);
 
 		return {
+			// Self encapsulation for easy passing
+			actor: this.#actor,
+			item: this.#item,
+			action: this.#action,
+
+			// State Data
 			attack: data.attack,
-			consumers: data.consumers,
-			consumptionData: data.consumers,
+			consumers: consumers,
+			consumptionData: data.consumptionData,
 			damageBonuses: damageBonuses,
 			effects: data.effects,
 			healingBonuses: healingBonuses,
@@ -210,6 +217,19 @@ class RollStateManager {
 			rolls: rolls,
 			targets: this.#state.targets,
 		};
+	}
+
+	/** ================================================ */
+	//  Workflow Methods
+	/** ================================================ */
+	async startWorkflow(data: RollStateManager.ActionDialogData) {
+		const state = this._preparePostDialogState(data);
+
+		// TODO: Make this one line
+		// Prepare rolls
+		const RollManager = new RollPreparationManager(state);
+		const rolls = await RollManager.prepareRolls();
+		console.log(rolls);
 	}
 }
 
@@ -220,7 +240,6 @@ declare namespace RollStateManager {
 			rollMode: number;
 			formula: string;
 		};
-		consumers: never;
 		consumptionData: {
 			actionUses: { baseUses: number; quantity: number };
 			hitDice: { selected: Record<string, number>; quantity: number };
@@ -237,6 +256,8 @@ declare namespace RollStateManager {
 	};
 
 	type state = ReturnType<RollStateManager['_prepareInitialState']>;
+
+	type WorkflowState = ReturnType<RollStateManager['_preparePostDialogState']>;
 }
 
 export { RollStateManager };
