@@ -4,6 +4,7 @@ import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
 import type { ItemA5e } from '#documents/item/item.ts';
+import { scalingFieldBase } from '../../fields/ScalingField.ts';
 
 // ======================================================
 //                        Schemas
@@ -52,7 +53,7 @@ const damageRollSchema = () => ({
 	critBonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	scaling: new fields.SchemaField(scalingFieldBase()),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -77,7 +78,7 @@ const genericRollSchema = () => ({
 const healingRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
-	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	scaling: new fields.SchemaField(scalingFieldBase()),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,

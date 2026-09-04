@@ -475,6 +475,15 @@ const damagedStates = {
 	2: 'A5E.damagedState.broken',
 };
 
+const scalingModes = {
+	cantrip: 'A5E.scaling.modes.cantrip',
+	spellLevel: 'A5E.scaling.modes.spellLevel',
+	spellPoints: 'A5E.scaling.modes.spellPoints',
+	artifactCharges: 'A5E.scaling.modes.artifactCharges',
+	actionUses: 'A5E.scaling.modes.actionUses',
+	itemUses: 'A5E.scaling.modes.itemUses',
+};
+
 const baseScalingModes = {
 	cantrip: 'A5E.scaling.modes.cantrip',
 	spellLevel: 'A5E.scaling.modes.spellLevel',
@@ -2221,6 +2230,7 @@ const A5E = {
 	creatureTypes,
 	currencyDenominations,
 	damagedStates,
+	scalingModes,
 	baseScalingModes,
 	targetScalingModes,
 	damageTypes,

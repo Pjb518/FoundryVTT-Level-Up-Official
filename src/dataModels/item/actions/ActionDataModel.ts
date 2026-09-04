@@ -1,12 +1,12 @@
-import type { A5EObjectData } from '../ObjectDataModel.ts';
-
-import fields = foundry.data.fields;
-
 import type { AnyObject } from 'fvtt-types/utils';
 import { groupBy } from '#utils/groupBy.ts';
+import { scalingFieldBase } from '../../fields/ScalingField.ts';
+import type { A5EObjectData } from '../ObjectDataModel.ts';
 import { ACTION_CONSUMER_DATA_TYPES } from './ActionConsumersDataModel.ts';
 import { ACTION_PROMPT_DATA_TYPES } from './ActionPromptsDataModel.ts';
 import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
+
+import fields = foundry.data.fields;
 
 const actionSchema = () => ({
 	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -84,15 +84,6 @@ const actionSchema = () => ({
 		async: true,
 	}),
 
-	// consumers: new RecordField(
-	// 	new fields.DocumentIdField({
-	// 		required: true,
-	// 		nullable: false,
-	// 		initial: () => foundry.utils.randomID(),
-	// 	}),
-	// 	new ActionConsumerField({ required: true, nullable: false }),
-	// ),
-
 	consumers: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_CONSUMER_DATA_TYPES)),
 	prompts: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_PROMPT_DATA_TYPES)),
 	ranges: new fields.ObjectField({ required: true, nullable: false }),
@@ -114,7 +105,7 @@ const actionSchema = () => ({
 			nullable: false,
 			initial: 1,
 		}),
-		scaling: new fields.ObjectField({ required: true, nullable: false }),
+		scaling: new fields.SchemaField(scalingFieldBase()),
 		seen: new fields.BooleanField({
 			required: true,
 			nullable: false,
