@@ -1,0 +1,359 @@
+{
+	"name": "Shield, Medium",
+	"type": "object",
+	"img": "icons/equipment/shield/heater-steel-worn.webp",
+	"effects": [
+		{
+			"name": "Defensive AC",
+			"transfer": false,
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"flags": {},
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/equipment/shield/heater-steel-worn.webp",
+			"_id": "HUtZODF5yeT2E5pR",
+			"origin": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788556429408,
+				"modifiedTime": 1788556429408,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "2",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"cUpj4DbP1HGzD1wN": {
+				"name": "Attack",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon",
+						"bonus": "",
+						"critThreshold": 20
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
+				},
+				"img": "icons/equipment/shield/heater-steel-worn.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"JEahSlMI4KFp4o3L": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon",
+						"bonus": "",
+						"critThreshold": 20
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
+				},
+				"img": "icons/equipment/shield/heater-steel-worn.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": ""
+			},
+			"PwrEe2BhzH8Ia3ZA": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"effectId": ""
+					},
+					"hhUcyCDWAO7SCqQg": {
+						"type": "effect",
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
+				},
+				"img": "icons/equipment/shield/heater-steel-worn.webp",
+				"effects": [
+					"ee5CTKqflPMaNhE9",
+					"HUtZODF5yeT2E5pR"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "round",
+					"value": "1",
+					"concentration": false
+				},
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "shield",
+		"plotItem": false,
+		"price": {
+			"value": 20,
+			"denomination": "gp",
+			"special": ""
+		},
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "medium",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 8,
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788556429375,
+		"modifiedTime": 1788556429451,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "zQcB0hq3X5wyhISn"
+}

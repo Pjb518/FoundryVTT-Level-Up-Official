@@ -1,11 +1,63 @@
 {
-	"folder": null,
-	"name": "Folding Shield",
+	"name": "Shield, Light",
 	"type": "object",
-	"img": "icons/equipment/shield/buckler-wooden-boss.webp",
+	"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+	"effects": [
+		{
+			"name": "Defensive AC",
+			"transfer": false,
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"flags": {},
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"_id": "aY29whUeBA0gSUFV",
+			"origin": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788556429705,
+				"modifiedTime": 1788556429705,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "0",
+			"baseFormula": "1",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
@@ -15,58 +67,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"wIpxFGtm7rOiMjGx": {
-				"name": "Deploy Shield",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1,
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6,
-						"type": "recoverAll"
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": "0",
-					"concentration": false
-				},
-				"ranges": {
-					"cIEbXb6ULEolKb2m": {
-						"range": "self"
-					}
-				},
-				"effects": [
-					"fR9mr4OE2zazqB8Z"
-				],
-				"id": "",
-				"default": false,
-				"description": "",
-				"descriptionOutputs": [
-					"item",
-					"action"
-				],
-				"img": "",
-				"macro": "",
-				"target": {
-					"heard": false,
-					"otherText": "",
-					"quantity": 1,
-					"scaling": {},
-					"seen": false,
-					"type": ""
-				}
-			},
-			"jduqNLwsmfbkLvQz": {
+			"i4lMACo58uj5uDHr": {
 				"name": "Attack",
 				"activation": {
 					"type": "action",
@@ -115,7 +116,6 @@
 					"scaling": {},
 					"seen": false
 				},
-				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
 				"id": "",
 				"default": false,
 				"description": "",
@@ -123,6 +123,7 @@
 					"item",
 					"action"
 				],
+				"img": "",
 				"duration": {
 					"unit": "",
 					"value": "0",
@@ -132,7 +133,7 @@
 				"macro": "",
 				"ranges": {}
 			},
-			"77IEvTTZm9Brgzxt": {
+			"oOoI6D81EaROGZKz": {
 				"name": "Throw",
 				"activation": {
 					"type": "action",
@@ -190,7 +191,6 @@
 						"range": "medium"
 					}
 				},
-				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
 				"id": "",
 				"default": false,
 				"description": "",
@@ -198,6 +198,7 @@
 					"item",
 					"action"
 				],
+				"img": "",
 				"duration": {
 					"unit": "",
 					"value": "0",
@@ -206,7 +207,7 @@
 				"effects": [],
 				"macro": ""
 			},
-			"TKUVEiw7VRApNmdW": {
+			"kn1maAlgG7oWw9JY": {
 				"name": "Attack (Defensive)",
 				"activation": {
 					"type": "bonusAction",
@@ -276,7 +277,7 @@
 				"effects": [],
 				"macro": ""
 			},
-			"JapH59tzBavez9SR": {
+			"AOJzRldBZFJqSsnD": {
 				"name": "Increase Armor Class (Defensive)",
 				"activation": {
 					"type": "bonusAction",
@@ -287,18 +288,6 @@
 				"rolls": {},
 				"prompts": {
 					"1RmCVO4QKQ9DZpDM": {
-						"type": "effect",
-						"effectId": ""
-					},
-					"hhUcyCDWAO7SCqQg": {
-						"type": "effect",
-						"effectId": ""
-					},
-					"uoPg8EUOGKhSBNjo": {
-						"type": "effect",
-						"effectId": ""
-					},
-					"mMMkXo28jayZyoba": {
 						"type": "effect",
 						"effectId": ""
 					}
@@ -319,6 +308,11 @@
 					}
 				},
 				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+				"effects": [
+					"coU7q0AVHPnylR39",
+					"6kRlwrLhyZIeoGFg",
+					"aY29whUeBA0gSUFV"
+				],
 				"id": "",
 				"default": false,
 				"description": "",
@@ -331,55 +325,7 @@
 					"value": "1",
 					"concentration": false
 				},
-				"effects": [
-					"bvXjjEuVTvSIkfvF"
-				],
 				"macro": "",
-				"target": {
-					"heard": false,
-					"otherText": "",
-					"quantity": 1,
-					"scaling": {},
-					"seen": false,
-					"type": ""
-				}
-			},
-			"Vaa2JZkIiIkkvAYM": {
-				"name": "Retract Shield",
-				"activation": {
-					"type": "action",
-					"cost": 1,
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6,
-						"type": "recoverAll"
-					}
-				},
-				"id": "",
-				"default": false,
-				"description": "",
-				"descriptionOutputs": [
-					"item",
-					"action"
-				],
-				"img": "",
-				"duration": {
-					"unit": "",
-					"value": "0",
-					"concentration": false
-				},
-				"effects": [],
-				"macro": "",
-				"ranges": {},
 				"target": {
 					"heard": false,
 					"otherText": "",
@@ -390,10 +336,10 @@
 				}
 			}
 		},
-		"description": "<p>This light shield folds into a special gauntlet and can be deployed as a bonus action or retracted as an action.</p>",
+		"description": "<p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "sinuousSentinels",
+		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -418,7 +364,7 @@
 		"objectType": "shield",
 		"plotItem": false,
 		"price": {
-			"value": 15,
+			"value": 10,
 			"denomination": "gp",
 			"special": ""
 		},
@@ -432,17 +378,12 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 5,
+		"weight": 4,
 		"breakerProperties": [],
-		"capacity": {
-			"type": "weight",
-			"value": 0,
-			"weightlessContents": false
-		},
 		"defensiveProperties": "",
 		"flaws": [],
-		"mounted": [],
 		"versatile": "",
+		"mounted": [],
 		"macro": "",
 		"migrationData": {
 			"version": null,
@@ -452,6 +393,11 @@
 		"ammunitionDamageMode": "bonus",
 		"armorMods": [],
 		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
 		"containerSortDirection": "ascending",
 		"containerSortMethod": "none",
 		"endemicLifeProperties": {
@@ -471,66 +417,14 @@
 		"techLevel": "archaic",
 		"weaponAugments": []
 	},
-	"effects": [
-		{
-			"name": "Defensive AC",
-			"transfer": false,
-			"type": "base",
-			"disabled": false,
-			"start": null,
-			"duration": {
-				"value": 1,
-				"units": "rounds",
-				"expiry": null,
-				"expired": false
-			},
-			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
-			"tint": "#ffffff",
-			"statuses": [],
-			"showIcon": 1,
-			"folder": null,
-			"flags": {},
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"type": "add",
-						"value": "1",
-						"phase": "initial",
-						"priority": 20
-					}
-				],
-				"default": true,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {}
-				}
-			},
-			"img": "icons/equipment/shield/buckler-wooden-boss.webp",
-			"_id": "bvXjjEuVTvSIkfvF",
-			"origin": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "14.367",
-				"systemId": "a5e",
-				"systemVersion": "1.2.8",
-				"createdTime": 1788556429534,
-				"modifiedTime": 1788556429534,
-				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
-			}
-		}
-	],
-	"flags": {},
+	"folder": null,
 	"_stats": {
 		"coreVersion": "14.367",
 		"systemId": "a5e",
 		"systemVersion": "1.2.8",
-		"createdTime": 1788556429487,
-		"modifiedTime": 1788556429579,
+		"createdTime": 1788556429690,
+		"modifiedTime": 1788556429725,
 		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
-	"_id": "OrFUsavrtpUzz8cd"
+	"_id": "ULNU0DJgqLzTMh5Z"
 }
