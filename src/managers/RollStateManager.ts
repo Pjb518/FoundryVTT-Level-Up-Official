@@ -1,7 +1,7 @@
 import type { ActionActivationOptions } from '#documents/item/data.ts';
 import { computeSaveDC } from '#utils/computeSaveDC.ts';
 import getAttackAbility from '#utils/getAttackAbility.ts';
-import getRollFormula from '#utils/getRollFormula.js';
+import { getRollFormula } from '#utils/getRollFormula.ts';
 import type { SpellConsumerData } from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';

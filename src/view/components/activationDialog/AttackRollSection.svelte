@@ -2,11 +2,10 @@
     import { getContext } from "svelte";
     import type { ItemA5e } from "#documents/item/item.ts";
     import type { RollStateManager } from "#managers/RollStateManager.ts";
-    import getRollFormula from "#utils/getRollFormula.js";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import type { ActionActivationOptions } from "../../../documents/item/data.ts";
     import RollModePicker from "../RollModePicker.svelte";
 
     type Props = {

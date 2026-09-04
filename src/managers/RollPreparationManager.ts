@@ -1,4 +1,5 @@
 import type { DamageBonus, HealingBonus } from 'types/bonuses';
+import { getRollFormula } from '#utils/getRollFormula.ts';
 import { localize } from '#utils/localization/localize.ts';
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import _prepareEffects from '../apps/dataPreparationHelpers/itemActivationPrompts/prepareEffectPrompts';
@@ -16,7 +17,6 @@ import type { ActionActivationOptions } from '../documents/item/data';
 import type { ItemA5e } from '../documents/item/item';
 import { computeSaveDC } from '../utils/computeSaveDC.ts';
 import getAttackAbility from '../utils/getAttackAbility';
-import getRollFormula from '../utils/getRollFormula';
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
 import { RollOverrideManager } from './RollOverrideManager.ts';
 import type { RollStateManager } from './RollStateManager.ts';
@@ -25,6 +25,9 @@ class RollPreparationManager {
 	#actor: Actor.OfType<'base'>;
 
 	#consumers: ResourceConsumptionManager.ConsumptionData;
+
+	#damageBonuses;
+	#healingBonuses;
 
 	#item: ItemA5e;
 

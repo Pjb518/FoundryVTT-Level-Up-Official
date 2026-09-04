@@ -3,6 +3,7 @@
 import type { Identity } from 'fvtt-types/utils';
 import { createSubscriber } from 'svelte/reactivity';
 import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
+import { getRollFormula } from '#utils/getRollFormula.ts';
 import { localize } from '#utils/localization/localize.ts';
 import AbilityBonusConfigDialog from '#view/components/bonuses/AbilityBonusConfigDialog.svelte';
 import AttackBonusConfigDialog from '#view/components/bonuses/AttackBonusConfigDialog.svelte';
@@ -37,7 +38,6 @@ import SpellBookManager from '../../managers/SpellBookManager.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers.js';
-import getRollFormula from '../../utils/getRollFormula.js';
 import { ActiveEffectA5E } from '../activeEffect/ae.svelte.ts';
 import automateHpConditions from '../activeEffect/utils/automateHpConditions.js';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions.js';

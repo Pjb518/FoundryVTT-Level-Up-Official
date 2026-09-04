@@ -1,6 +1,6 @@
 <script lang="ts">
     import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
-    import getRollFormula from "#utils/getRollFormula.js";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import { localize } from "#utils/localization/localize.ts";
     import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RollModePicker from "#view/components/RollModePicker.svelte";

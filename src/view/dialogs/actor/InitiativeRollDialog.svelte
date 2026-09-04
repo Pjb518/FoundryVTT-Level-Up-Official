@@ -1,7 +1,7 @@
 <script lang="ts">
     import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
 
-    import getRollFormula from "#utils/getRollFormula.js";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
