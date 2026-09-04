@@ -1080,7 +1080,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const data: Record<string, any> = { ...super.getRollData() };
 		const { abilities, skills } = this.system;
 
-		// @ts-expect-error
 		data.prof = this.system.attributes.prof || 0;
 
 		// Add a shortcut for abilities.<ability>.check.mod, abilities.<ability>.mod, and <ability>.mod
@@ -1109,7 +1108,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		if (this.type === 'character') data.level = this.system.details.level;
 
-		// @ts-expect-error
 		data.maneuverDC = this.system.attributes.maneuverDC;
 
 		// Add item rollData
@@ -1132,6 +1130,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			// @ts-expect-error
 			data.spellDC = this.system.attributes.spellDC;
 		}
+
+		// Inject target data
+		const targets = [...game.user.targets];
+		if (targets.length !== 1) return data;
+
+		const target = targets[0]?.actor;
+		if (target && target.uuid !== this.uuid) data.target = target.getRollData();
 
 		return data;
 	}
