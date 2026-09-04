@@ -1,4 +1,4 @@
-import simplifyOperatorTerms from './simplifyOperatorTerms';
+import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 /**
  * A helper function to construct a roll formula from an array of component values.

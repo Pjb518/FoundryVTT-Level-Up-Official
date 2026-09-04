@@ -1,20 +1,22 @@
+import Terms = foundry.dice.terms;
+
 /**
  * A helper function to strip redundant operators from an array of RollTerms and to perform
  * arithmetic simplification.
  *
  * A new array of RollTerm objects is returned.
  *
- * @param {Array<RollTerm>} terms An array of RollTerm objects that form a valid roll formula.
- * @returns {Array<RollTerm>} A new array of RollTerm objects.
+ * @param  terms An array of RollTerm objects that form a valid roll formula.
+ * @returns A new array of RollTerm objects.
  */
-export default function simplifyOperatorTerms(terms) {
-	const Terms = foundry.dice.terms;
-
+export function simplifyOperatorTerms(terms: Terms.RollTerm[]) {
 	return terms.reduce((acc, term, i) => {
 		const prior = acc[acc.length - 1];
+		// @ts-expect-error
 		const ops = new Set([prior?.operator, term.operator]);
 
 		// If the final terms is an operator term, ignore it.
+		// @ts-expect-error
 		if (i === terms.length - 1 && term.operator) return acc;
 
 		// If one of the terms is not an operator, add the current term as is.
@@ -30,5 +32,5 @@ export default function simplifyOperatorTerms(terms) {
 		else if (!ops.has('+')) acc.push(term);
 
 		return acc;
-	}, []);
+	}, [] as Terms.RollTerm[]);
 }

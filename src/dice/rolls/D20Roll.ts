@@ -113,8 +113,8 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			const found = this.terms.findSplice((t) => t instanceof ExpertiseDie, expTerm);
 
 			if (!found) {
-				this.terms.push(new terms.OperatorTerm({ operator: '+' }));
-				this.terms.push(new ExpertiseDie({ faces: this.options.expertise }));
+				this.terms.splice(1, 0, new terms.OperatorTerm({ operator: '+' }));
+				this.terms.splice(2, 0, new ExpertiseDie({ faces: this.options.expertise }));
 			}
 		}
 

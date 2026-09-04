@@ -1,4 +1,4 @@
-import simplifyOperatorTerms from './simplifyOperatorTerms';
+import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 export default function simplifyDiceTerms(terms) {
 	const Terms = foundry.dice.terms;

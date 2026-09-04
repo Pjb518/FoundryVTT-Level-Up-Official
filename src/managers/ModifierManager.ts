@@ -1,5 +1,4 @@
 import type { ItemA5e } from '#documents/item/item.ts';
-import { getExpertiseDieSize } from '#utils/getExpertiseDieSize.ts';
 import { localize } from '#utils/localization/localize.ts';
 
 class ModifierManager {
@@ -12,18 +11,18 @@ class ModifierManager {
 		this.rollData = rollData;
 	}
 
-	getModifiers() {
+	getModifiers(): { label?: string; value: string | number }[] {
 		switch (this.rollData.type) {
 			case 'abilityCheck':
-				return this.#getAbilityCheckModifiers().filter(Boolean);
+				return this.#getAbilityCheckModifiers().filter((m) => !!m);
 			case 'attack':
-				return this.#getAttackRollModifiers().filter(Boolean);
+				return this.#getAttackRollModifiers().filter((m) => !!m);
 			case 'initiative':
-				return this.#getInitiativeRollModifiers().filter(Boolean);
+				return this.#getInitiativeRollModifiers().filter((m) => !!m);
 			case 'savingThrow':
-				return this.#getSavingThrowModifiers().filter(Boolean);
+				return this.#getSavingThrowModifiers().filter((m) => !!m);
 			case 'skillCheck':
-				return this.#getSkillCheckModifiers().filter(Boolean);
+				return this.#getSkillCheckModifiers().filter((m) => !!m);
 			default:
 				return [];
 		}
@@ -34,7 +33,6 @@ class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAbilityCheckProficiencyBonus(),
 			this.#getAbilityCheckBonus(),
-			// this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -45,7 +43,6 @@ class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAttackBonus(),
 			this.#getGlobalAttackBonus(),
-			// this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -64,7 +61,6 @@ class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAbilitySaveBonus(),
 			this.#getConcentrationBonus(),
-			// this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -75,7 +71,6 @@ class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getSkillCheckBonus(),
 			this.#getAbilityCheckBonus(),
-			// this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -98,7 +93,7 @@ class ModifierManager {
 			label: localize('A5E.abilities.headings.checkBonus', {
 				ability: CONFIG.A5E.abilities[ability],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
@@ -111,7 +106,7 @@ class ModifierManager {
 			label: localize('A5E.abilities.headings.checkMod', {
 				ability: CONFIG.A5E.abilities[ability] ?? ability,
 			}),
-			value: this.actor.system.abilities[ability]?.mod ?? null,
+			value: (this.actor.system.abilities[ability]?.mod as number) ?? 0,
 		};
 	}
 
@@ -151,7 +146,7 @@ class ModifierManager {
 			label: localize('A5E.abilities.headings.saveBonus', {
 				ability: CONFIG.A5E.abilities[ability],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
@@ -182,16 +177,9 @@ class ModifierManager {
 		return {
 			label: localize('A5E.ConcentrationBonus'),
 			// @ts-expect-error
-			value: this.actor.system.abilities.con.save.concentrationBonus,
+			value: this.actor.system.abilities.con.save.concentrationBonus as string,
 		};
 	}
-
-	// #getExpertiseDice() {
-	// 	return {
-	// 		label: localize('A5E.expertiseDie.title'),
-	// 		value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0),
-	// 	};
-	// }
 
 	#getGlobalAttackBonus() {
 		const { BonusesManager } = this.actor;
@@ -238,7 +226,7 @@ class ModifierManager {
 
 		return {
 			label: localize('A5E.InitiativeBonus'),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
@@ -266,7 +254,7 @@ class ModifierManager {
 
 		return {
 			label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',
-			value: skill?.mod ?? null,
+			value: (skill?.mod as number) ?? 0,
 		};
 	}
 
@@ -285,12 +273,12 @@ class ModifierManager {
 			label: localize('A5E.SkillCheckBonus', {
 				skill: CONFIG.A5E.skills[skill],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
 	#getSituationalModifiers() {
-		return { value: this.rollData.situationalMods };
+		return { value: this.rollData.situationalMods || 0 };
 	}
 }
 
@@ -305,7 +293,10 @@ declare namespace ModifierManager {
 			| 'rangedWeaponAttack';
 		item?: ItemA5e;
 		expertiseDie?: number;
+		minRoll?: number;
+		maxRoll?: number;
 		proficient?: number;
+		rollMode?: number;
 		saveType?: 'ability' | 'concentration' | 'death';
 		selectedAbilityBonuses?: string[];
 		selectedAttackBonuses?: string[];
