@@ -80,6 +80,11 @@ const genericRollSchema = () => ({
 });
 
 const healingRollSchema = () => ({
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField()),
+	}),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
 	scaling: new fields.SchemaField(scalingFieldRoll()),
