@@ -51,6 +51,11 @@ const damageRollSchema = () => ({
 	canCrit: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	critBonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField()),
+	}),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	scaling: new fields.SchemaField(scalingFieldRoll()),
 	type: new fields.StringField({
