@@ -50,6 +50,7 @@ declare module 'fvtt-types/configuration' {
 		Actor: {
 			a5e: {
 				automaticallyExecuteAvailableMacros: boolean;
+				jackOfAllTrades: boolean;
 			};
 		};
 	}

@@ -106,7 +106,6 @@ export default class BonusesManager {
 	getAbilityBonusesFormula(abilityKey: string, type: 'base' | 'check' | 'save' = 'check'): string {
 		const bonuses = this.prepareAbilityBonuses(abilityKey, type);
 		const parts = bonuses.map(([, bonus]) => {
-			// @ts-expect-error
 			const original: number = this.#actor._source.system.abilities[abilityKey]?.value ?? 0;
 			const formula = bonus.formula.trim().replace('@original', original.toString());
 

@@ -37,7 +37,8 @@ class ExpertiseDie extends BaseDie {
 	//  Getters
 	/** ===================================== */
 	override get flavor() {
-		return 'Expertise';
+		// @ts-expect-error
+		return _loc('A5E.expertiseDie.title');
 	}
 
 	get isValid() {
