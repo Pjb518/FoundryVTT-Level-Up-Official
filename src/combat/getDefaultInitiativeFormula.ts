@@ -1,7 +1,7 @@
 import type { InitiativeRollOptions } from '#documents/actor/data.ts';
-import ModifierManager from '#managers/ModifierManager.js';
+import { ModifierManager } from '#managers/ModifierManager.ts';
 import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
-import constructD20RollFormula from '../dice/constructD20RollFormula.js';
+import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 
 export default function getDefaultInitiativeFormula(actor, options = {} as InitiativeRollOptions) {
 	const { initiative } = actor.system.attributes;

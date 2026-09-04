@@ -1,5 +1,5 @@
-import constructD20Term from './constructD20Term';
-import simplifyOperatorTerms from './simplifyOperatorTerms';
+import constructD20Term from './constructD20Term.js';
+import simplifyOperatorTerms from './simplifyOperatorTerms.js';
 
 /**
  * A helper function to construct a roll formula from an array of component values.
@@ -9,7 +9,7 @@ import simplifyOperatorTerms from './simplifyOperatorTerms';
  *
  * @returns {string} A valid roll formula that can be passed to Roll.
  */
-export default function constructD20RollFormula({ actor, item, minRoll, modifiers, rollMode }) {
+export function constructD20RollFormula({ actor, item, minRoll, modifiers, rollMode }) {
 	const rollData = actor.getRollData(item);
 
 	const parts = [

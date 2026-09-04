@@ -43,7 +43,7 @@ import ContainerManager from '../managers/ContainerManager.ts';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager.ts';
 import HitDiceManager from '../managers/HitDiceManager.ts';
 import { ItemGrantsManager } from '../managers/ItemGrantsManager.ts';
-import ModifierManager from '../managers/ModifierManager.js';
+import { ModifierManager } from '../managers/ModifierManager.ts';
 import { ResourceConsumptionManager } from '../managers/ResourceConsumptionManager.ts';
 import RestManager from '../managers/RestManagerO.js';
 import { RollPreparationManager } from '../managers/RollPreparationManager.ts';

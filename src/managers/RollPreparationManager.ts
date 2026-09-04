@@ -8,7 +8,7 @@ import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompt
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
-import constructD20RollFormula from '../dice/constructD20RollFormula';
+import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import constructRollFormula from '../dice/constructRollFormula';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import simplifyDiceTerms from '../dice/simplifyDiceTerms';

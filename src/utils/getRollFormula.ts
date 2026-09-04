@@ -1,5 +1,5 @@
-import constructD20RollFormula from '../dice/constructD20RollFormula.js';
-import ModifierManager from '../managers/ModifierManager.js';
+import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
+import { ModifierManager } from '../managers/ModifierManager.ts';
 
 export function getRollFormula(actor, rollData = {}) {
 	const modifierManager = new ModifierManager(actor, rollData);
