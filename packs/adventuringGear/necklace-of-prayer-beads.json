@@ -25,7 +25,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -33,8 +34,12 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 0,
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"prompts": {
 					"PAyDHPZ1TxcsYNpi": {
@@ -44,17 +49,44 @@
 							"type": "spellcasting",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"l79ZQOA9dmYaqpir": {
-						"type": "itemUses"
+						"type": "itemUses",
+						"quantity": 1,
+						"default": true,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
 		},
-		"description": "<p>This many-beaded necklace helps mark prayers. Of the many types of gemstone beads, [[/r 1d4+2]] are magical and can be removed from the necklace as a bonus action to cast a spell (described on Table: Necklace of Prayer Beads). There are 6 types of magic beads, and which are on the necklace are randomly determined or chosen by the Narrator.</p><p>A necklace can have multiple beads of the same type. To use a bead, you must be wearing the necklace, and if it requires a spell save you use your spell save<br>DC. Once a bead has been used, it loses its magic until the next dawn</p><p style=\"text-align: center\"><strong>TABLE: NECKLACE OF PRAYER BEADS</strong><br><strong>D20 - </strong>BEAD OF  - SPELL</p><p style=\"text-align: center\"><strong>1–6</strong> Blessing - @Compendium[a5e.a5e-spells.iuy8bgmwgvhtgi83]{Bless}<br><strong>7–12 </strong>Curing - @Compendium[a5e.a5e-spells.n38oneuah7io59c9]{Cure Wounds} (2nd-level) or @Compendium[a5e.a5e-spells.g7bleenmf2e7ab6q]{Lesser Restoration}<br><strong>13–16</strong> Favor - @Compendium[a5e.a5e-spells.4funxoycwvh6d5p9]{Greater Restoration}<br><strong>17–18</strong> Invigorating - @Compendium[a5e.a5e-spells.cydwiqcwewvdpsps]{Invigorated Strikes}<br><strong>19</strong> Summons - @Compendium[a5e.a5e-spells.z17kiyvx36jh2tbs]{Planar Ally}<br><strong>20</strong> Wind - @Compendium[a5e.a5e-spells.rsqykeg9uwp6utdb]{Wind Walk}</p>",
+		"description": "<p>This many-beaded necklace helps mark prayers. Of the many types of gemstone beads, [[/r 1d4+2]] are magical and can be removed from the necklace as a bonus action to cast a spell (described on Table: Necklace of Prayer Beads). There are 6 types of magic beads, and which are on the necklace are randomly determined or chosen by the Narrator.</p><p>A necklace can have multiple beads of the same type. To use a bead, you must be wearing the necklace, and if it requires a spell save you use your spell save DC. Once a bead has been used, it loses its magic until the next dawn.</p><p></p><p><strong>Table: Necklace of Prayer Beads</strong></p><table><thead><tr><th style=\"text-align: left;\"><p>[[/r 1d20]]</p></th><th style=\"text-align: center;\"><p>Bead Of</p></th><th style=\"text-align: center;\"><p>Spell</p></th></tr></thead><tbody><tr><td style=\"text-align: left;\"><p>1–6</p></td><td style=\"text-align: center;\"><p>Blessing</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.xnm2hvlfzqp792tz]{Bless}</p></td></tr><tr><td style=\"text-align: left;\"><p>7–12</p></td><td style=\"text-align: center;\"><p>Curing</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.1vo427vjnzgzb5z2]{Cure Wounds} (2nd-Level) or @UUID[Compendium.a5e.a5e-spells.Item.sgiwn0n20mnf1ddx]{Lesser Restoration}</p></td></tr><tr><td style=\"text-align: left;\"><p>13–16</p></td><td style=\"text-align: center;\"><p>Favor</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.2fn904xje78xc7de]{Greater Restoration}</p></td></tr><tr><td style=\"text-align: left;\"><p>17–18</p></td><td style=\"text-align: center;\"><p>Invigorating</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.r3olvzsqtktkjwv2]{Invigorated Strikes}</p></td></tr><tr><td style=\"text-align: left;\"><p>19</p></td><td style=\"text-align: center;\"><p>Summons</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.j6guc3gcg18fn8rz]{Planar Ally}</p></td></tr><tr><td style=\"text-align: left;\"><p>20</p></td><td style=\"text-align: center;\"><p>Wind</p></td><td style=\"text-align: center;\"><p>@UUID[Compendium.a5e.a5e-spells.Item.y4sym3lqpde2dx80]{Wind Walk}</p></td></tr></tbody></table>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "trialsAndTreasures",
@@ -64,7 +96,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -100,13 +133,57 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "ci5b7qkurgkmks61",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788557111383,
+		"modifiedTime": 1788557413832,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.Item.ci5b7qkurgkmks61",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5ev14",
+			"uuid": "Item.ci5b7qkurgkmks61",
+			"coreVersion": "14.367",
+			"systemId": "a5e",
+			"systemVersion": "1.2.8"
+		}
+	},
+	"_id": "ci5b7qkurgkmks61"
 }
