@@ -2,6 +2,7 @@ import type { ActionActivationOptions } from '#documents/item/data.ts';
 import { computeSaveDC } from '#utils/computeSaveDC.ts';
 import getAttackAbility from '#utils/getAttackAbility.ts';
 import getRollFormula from '#utils/getRollFormula.js';
+import type { SpellConsumerData } from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
@@ -170,10 +171,18 @@ class RollStateManager {
 			.filter(([key]) => data.selectedHealingBonuses.includes(key))
 			.map(([, bonus]) => bonus);
 
+		const consumers = Object.values(this.#action.consumers ?? {}).reduce(
+			(acc, consumer) => {
+				if (data.selectedConsumers.includes(consumer.id)) acc.push(consumer);
+				return acc;
+			},
+			[] as A5EActionData['consumers'][string][],
+		);
+
 		const prompts = Object.values(this.#action.prompts ?? {}).reduce(
 			(acc, prompt) => {
 				if (prompt.type === 'savingThrow') {
-					prompt.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC);
+					prompt.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC) ?? 0;
 				}
 				if (data.selectedPrompts.includes(prompt.id)) acc.push(prompt);
 				return acc;
@@ -193,19 +202,31 @@ class RollStateManager {
 		return {
 			attack: data.attack,
 			consumers: data.consumers,
+			consumptionData: data.consumers,
 			damageBonuses: damageBonuses,
 			effects: data.effects,
 			healingBonuses: healingBonuses,
 			prompts: prompts,
 			rolls: rolls,
+			targets: this.#state.targets,
 		};
 	}
 }
 
 declare namespace RollStateManager {
 	type ActionDialogData = {
-		attack: never;
-		consumers: Record<string, never>;
+		attack: AttackRollData & {
+			expertiseDie: number;
+			rollMode: number;
+			formula: string;
+		};
+		consumers: never;
+		consumptionData: {
+			actionUses: { baseUses: number; quantity: number };
+			hitDice: { selected: Record<string, number>; quantity: number };
+			itemUses: { baseUses: number; quantity: number };
+			spell: ReturnType<SpellConsumerData['getActivationData']>['spellData'];
+		};
 		effects: string[];
 		selectedDamageBonuses: string[];
 		selectedHealingBonuses: string[];
