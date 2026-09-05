@@ -570,6 +570,7 @@ const featTypes = {
 	first: 'A5E.features.featTypes.first',
 	second: 'A5E.features.featTypes.second',
 	third: 'A5E.features.featTypes.third',
+	fourth: 'A5E.features.featTypes.fourth',
 };
 
 const featureTypes = {
