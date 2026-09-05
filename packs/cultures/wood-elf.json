@@ -7,7 +7,7 @@
 		"grants": {
 			"Fkut9TYzCU6zXJtv": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Languages",
 				"traits": {
@@ -21,61 +21,118 @@
 				},
 				"_id": "Fkut9TYzCU6zXJtv",
 				"default": true,
-				"img": ""
+				"img": "",
+				"levelType": "character"
 			},
 			"Vb1kT3hYRZMWpVNA": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
-				"label": "Nature's Touch",
+				"label": "Traits",
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e.a5e-culture-features.Item.hel7qdspdbc9ud6z",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
 							"uuid": "Compendium.a5e.a5e-culture-features.Item.q6enp1w6n8kgsgwa",
+							"name": "Nature's Ally (Wood Elf)",
+							"img": "icons/magic/nature/tree-elm-roots-brown.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e.a5e-culture-features.Item.078nmry72wvg1b15",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-culture-features.Item.jo8so1ru4xa4y6hq",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-culture-features.Item.0seevfxw00mqr6l6",
+							"name": "Nature's Touch",
+							"img": "icons/magic/nature/tree-elm-roots-brown.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
+				},
+				"_id": "Vb1kT3hYRZMWpVNA",
+				"img": "",
+				"levelType": "character"
+			},
+			"6CIZkU1gIfXiHRi8": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "6CIZkU1gIfXiHRi8",
+				"label": "Fleet of Foot",
+				"movementTypes": {
+					"base": [
+						"walk"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "5",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false
 				}
+			},
+			"zhLwm0CkzrRAX4Zz": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "zhLwm0CkzrRAX4Zz",
+				"movementTypes": {
+					"base": [
+						"climb"
+					],
+					"options": [],
+					"total": 0
+				},
+				"label": "Treeborne Scout",
+				"bonus": "@attributes.movement.walk.distance",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false
+				}
+			},
+			"QhVnNOJyRPZuLa2m": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "QhVnNOJyRPZuLa2m",
+				"keys": {
+					"base": [
+						"longbow",
+						"shortsword"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "weapon",
+				"label": "Wood Elf Weapon Training"
 			}
 		},
 		"source": "adventurersGuide",
-		"actions": {},
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "fhdte0dkcxilzsar",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788628498039,
+		"modifiedTime": 1788628807244,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "fhdte0dkcxilzsar"
 }
