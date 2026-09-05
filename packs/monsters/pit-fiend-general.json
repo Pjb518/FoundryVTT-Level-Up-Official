@@ -12,9 +12,7 @@
 			"folder": null,
 			"sort": 0,
 			"flags": {
-				"core": {
-					"sourceId": "Item.zSQQH9xjuyFFeTD1"
-				}
+				"core": {}
 			},
 			"system": {
 				"ac": {
@@ -38,7 +36,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -46,16 +45,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -67,9 +77,7 @@
 			"folder": null,
 			"sort": 0,
 			"flags": {
-				"core": {
-					"sourceId": "Item.TzXTbR13mntmQwwg"
-				}
+				"core": {}
 			},
 			"system": {
 				"ac": {
@@ -93,7 +101,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -101,67 +110,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"_id": "2smz54hWBFqu984H",
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The pit fiend’s spellcasting ability is Wisdom (spell save DC 18). It can innately cast the following spells, requiring no material components:</p><p>At will: <em>detect magic</em>,<em> fireball&nbsp;</em></p><p>3/day each:<em> hold monster</em>,<em> sending</em></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
-			},
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -188,13 +157,14 @@
 					"8RwY8IOOelErmPrZ": {
 						"name": "Fear Aura",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "emanation",
@@ -204,8 +174,12 @@
 							"radius": 20
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"nprJMt3Be3cWePgm": {
@@ -215,10 +189,34 @@
 									"type": "custom",
 									"bonus": "18"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p> A creature hostile to the pit fiend that starts its turn within 20 feet of it makes a DC 18 Wisdom saving throw. On a failure, it is frightened until the start of its next turn. On a success, it is immune to this pit fiend’s Fear Aura for 24 hours</p>",
@@ -231,7 +229,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -239,16 +238,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -281,7 +291,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -289,11 +300,37 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>The pit fiend attacks with its bite and mace.</p>",
@@ -306,7 +343,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -314,16 +352,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -350,13 +399,14 @@
 					"E0ci73Kb6yaFOmOr": {
 						"name": "Mace",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -364,30 +414,43 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"lUASVKGjm9W0mLJy": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"PKO6msp6X6NZCwUU": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "4d6+@str.mod",
-								"name": "Mace",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"u5FQtraSqL0Ig7zF": {
 								"canCrit": true,
 								"damageType": "fire",
 								"formula": "6d6",
-								"name": "Fire",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -398,10 +461,33 @@
 									"type": "custom",
 									"bonus": "22"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 22 Strength saving throw. On a failure, it is pushed 15 feet away from the pit fiend and knocked prone.</p>",
@@ -414,7 +500,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"ammunitionProperties": [],
@@ -450,12 +537,47 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"ammunitionDamageMode": "bonus",
+				"armorMods": [],
+				"attunementHint": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"containerSortDirection": "ascending",
+				"containerSortMethod": "none",
+				"endemicLifeProperties": {
+					"biomes": [],
+					"creatureType": "",
+					"properties": [],
+					"regions": [],
+					"size": "",
+					"type": ""
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -488,7 +610,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -496,23 +619,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"vMqIThLEmgNIGgJI": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": ""
+								"ability": "",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"Kt78MENqp4gmrHjH": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "4d6+@str.mod",
-								"name": "Bite",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -523,10 +656,33 @@
 									"type": "custom",
 									"bonus": "20"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>If the target is a creature, it makes a DC 20 Constitution saving throw. On a failure, it is poisoned for 1 minute. While poisoned in this way, the target can’t regain hit points and takes 21 (6d6) ongoing poison damage at the start of each of its turns. The target can repeat this saving throw at the end of each of its turns, ending the effect on a success.</p>",
@@ -539,7 +695,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -547,16 +704,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -589,7 +757,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "cylinder",
@@ -600,16 +769,23 @@
 							"height": 15
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"vVv2GFXDqkqaIQ70": {
 								"canCrit": false,
 								"damageType": "fire",
 								"formula": "5d8",
-								"name": "Fire",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -620,14 +796,38 @@
 									"type": "custom",
 									"bonus": "18"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {
 							"vC6WyfjbloS1E6ti": {
 								"type": "itemUses",
 								"default": true,
-								"quantity": 1
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
 							}
 						}
 					}
@@ -642,7 +842,8 @@
 					"per": "day",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -650,16 +851,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": true,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -692,7 +904,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -700,23 +913,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"sxQg4MT0vPhJzNUF": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"fnSjgfjrFAfiERIt": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d10+@str.mod",
-								"name": "Claw",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -727,10 +950,33 @@
 									"type": "custom",
 									"bonus": "22"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>On a hit, the target is grappled - escape DC22. While the target is grappled, the pit fiend can’t use its claw against a different creature.</p>",
@@ -743,7 +989,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -751,16 +998,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -793,7 +1051,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -801,27 +1060,58 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"ZmQnvvscBmKjBeU2": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"fnjolpWQ4BAEVc6u": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "3d10+@str.mod",
-								"name": "Tail",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "",
@@ -834,7 +1124,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -842,16 +1133,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -884,7 +1186,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -892,11 +1195,37 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>The pit fiend can only use this reaction while bloodied. When the pit fiend is hit by a melee attack on any turn but its own, it makes a claw or tail attack against the attacker<em>.</em></p>",
@@ -909,7 +1238,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -917,16 +1247,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": true,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -959,7 +1300,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -967,11 +1309,37 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>The pit fiend can only use this reaction while bloodied.  When the pit fiend is damaged by an area spell cast by a creature within 120 feet that it can see, it uses Fireball, centering the fireball on the caster of the triggering spell.</p>",
@@ -984,7 +1352,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -992,16 +1361,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": true,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1034,7 +1414,8 @@
 						},
 						"duration": {
 							"unit": "",
-							"value": ""
+							"value": "",
+							"concentration": false
 						},
 						"area": {
 							"shape": "",
@@ -1042,11 +1423,37 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>The pit fiend can only use this reaction while bloodied.  When the pit fiend is hit by a ranged melee or spell attack, it uses Hold Monster on the attacker.</p>",
@@ -1059,7 +1466,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1067,16 +1475,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": true,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1110,7 +1529,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1118,16 +1538,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": true,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1161,7 +1592,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1169,16 +1601,27 @@
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
-				}
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1187,9 +1630,7 @@
 			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1202,7 +1643,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"owUfWmcrdBfmVmks": {
@@ -1215,18 +1657,23 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"7iXYP1Lmi2QUY9bp": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1237,10 +1684,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -1253,7 +1722,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1262,19 +1732,23 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "ys13imsBQvjTbbjG",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1283,9 +1757,7 @@
 			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1298,7 +1770,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"PLWgTMmhgII2bvVR": {
@@ -1311,18 +1784,23 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"rolls": {
 							"F6w6TzqSWMNcd1dt": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -1333,10 +1811,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -1349,7 +1849,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1358,19 +1859,23 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "5SHaMf6hH0WchJ96",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1379,9 +1884,7 @@
 			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1394,7 +1897,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"eJ6qMlLgE4OpPqA1": {
@@ -1407,10 +1911,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"JdrqxxXyFG3FELP5": {
@@ -1420,10 +1926,33 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -1436,7 +1965,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1445,19 +1975,23 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "TRjJ5uorS71gvOnR",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1466,9 +2000,7 @@
 			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1481,7 +2013,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"97jQjhH5pIN6BD72": {
@@ -1494,10 +2027,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"tw3M3ozCPJapllvZ": {
@@ -1507,10 +2042,33 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -1523,7 +2081,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1532,19 +2091,23 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "CGFH2jmRaqXOhEVV",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1553,9 +2116,7 @@
 			"img": "icons/skills/melee/unarmed-punch-fist.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1568,7 +2129,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"HHUF0rHEwTlSwnvx": {
@@ -1581,10 +2143,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"n8tq1aGDswZgpS2l": {
@@ -1594,10 +2158,33 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -1610,7 +2197,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1619,19 +2207,23 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "HFf1jpOyBpChjoWU",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		},
 		{
@@ -1640,9 +2232,7 @@
 			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
 			"effects": [],
 			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-				}
+				"core": {}
 			},
 			"system": {
 				"actions": {
@@ -1655,7 +2245,8 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0",
+							"concentration": false
 						},
 						"ranges": {
 							"0jsCsc2Mqfk0WbXG": {
@@ -1668,10 +2259,12 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
 						},
 						"prompts": {
 							"OgqsnHTTut7zhxKt": {
@@ -1681,10 +2274,33 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -1697,7 +2313,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				},
 				"concentration": false,
@@ -1706,20 +2323,759 @@
 				"isStance": false,
 				"prerequisite": "",
 				"tradition": "",
-				"price": {
-					"value": 0,
-					"denomination": "gp",
-					"special": ""
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "RbSL4SvjvGZgHhtQ",
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645627182,
+				"modifiedTime": 1788645627182,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
+		},
+		{
+			"_id": "2smz54hWBFqu984H",
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The pit fiend’s spellcasting ability is Wisdom (spell save DC 18). It can innately cast the following spells, requiring no material components:</p><p>At will: @UUID[Compendium.a5e.a5e-spells.Item.kaye34nheyrit487]{detect magic}, @UUID[Compendium.a5e.a5e-spells.Item.n7vv8e7phkfc513j]{fireball }</p><p>3/day each: @UUID[Compendium.a5e.a5e-spells.Item.geix9369vzozz4zm]{hold monster}, @UUID[Compendium.a5e.a5e-spells.Item.kbyg7uvh3w8osgiq]{sending}</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"asi": [],
+				"class": "",
+				"classes": "",
+				"featClasses": [],
+				"featType": "",
+				"hidden": false,
+				"synergy": ""
+			},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645752382,
+				"modifiedTime": 1788645752383,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Detect Magic",
+			"type": "spell",
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"effects": [
+				{
+					"origin": "Actor.17uzwwmjjk2wgpjr.Item.67HEJx1biERhT9vK",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Detect Magic",
+					"_id": "VwDA4rGAh4SCb5a4",
+					"disabled": false,
+					"duration": {
+						"value": 600,
+						"units": "seconds",
+						"expiry": "turnStart",
+						"expired": false
+					},
+					"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p>\n<p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+					"statuses": [],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "14.367",
+						"systemId": "a5e",
+						"systemVersion": "1.2.8",
+						"createdTime": 1788645758670,
+						"modifiedTime": 1788645758736,
+						"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+					},
+					"system": {
+						"applyToSelf": true,
+						"effectType": "onUse",
+						"changes": [],
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {}
+						}
+					},
+					"start": null,
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"tint": "#ffffff",
+					"showIcon": 1,
+					"sort": 0
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"2Vcsudkl3nqor34U": {
+						"name": "Detect Magic",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10",
+							"concentration": false
+						},
+						"ranges": {
+							"nGx2plWAcoII9obA": {
+								"range": "30-foot radius"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "self",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
+						},
+						"consumers": {},
+						"prompts": {},
+						"effects": [
+							"VwDA4rGAh4SCb5a4"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p><p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 2nd-level spell slot or higher, the spell no longer requires your concentration. When using a 3rd-level spell slot or higher, the duration increases to 1 hour. When using a 4th-level spell slot or higher, the duration increases to 8 hours.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"cleric",
+					"druid",
+					"herald",
+					"sorcerer",
+					"wielder",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": true,
+				"schools": {
+					"primary": "divination",
+					"secondary": [
+						"arcane",
+						"divine",
+						"nature",
+						"senses"
+					]
+				},
+				"spellBook": "pl66UohLKI0NAlco",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"disciplines": []
+			},
+			"folder": null,
+			"_id": "67HEJx1biERhT9vK",
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645758670,
+				"modifiedTime": 1788645758670,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			},
+			"sort": 0
+		},
+		{
+			"name": "Fireball",
+			"type": "spell",
+			"img": "icons/magic/fire/explosion-fireball-large-red-orange.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"CVkWr37CemgLcpXZ": {
+						"name": "Fireball",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": "",
+							"concentration": false
+						},
+						"ranges": {
+							"smgOqcDyRA47k2UF": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
+						},
+						"rolls": {
+							"e9MtWpgQtR5V1hxX": {
+								"canCrit": false,
+								"damageType": "fire",
+								"formula": "6d6",
+								"type": "damage",
+								"scaling": {
+									"mode": "spellLevel",
+									"formula": "1d6"
+								},
+								"critBonus": "",
+								"default": true,
+								"label": ""
+							}
+						},
+						"prompts": {
+							"mhxKT92Mp2XFeWIl": {
+								"ability": "dex",
+								"onSave": "Half damage",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
+					}
+				},
+				"description": "<p>A fiery mote streaks to a point within range and explodes in a burst of flame. The fire spreads around corners and ignites unattended flammable objects. Each creature in the area takes 6d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"classes": [
+					"artificer",
+					"elementalistFire",
+					"sorcerer",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "bat guano and sulfur",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"fire"
+					]
+				},
+				"spellBook": "pl66UohLKI0NAlco",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"disciplines": []
+			},
+			"folder": null,
+			"_id": "xbWXCUEG5cwRGf2E",
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645759879,
+				"modifiedTime": 1788645759879,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			},
+			"sort": 0
+		},
+		{
+			"name": "Sending",
+			"type": "spell",
+			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"actions": {
+					"mhT4XNuz7srtM373": {
+						"name": "Sending",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "round",
+							"value": "1",
+							"concentration": false
+						},
+						"ranges": {
+							"A7nPVHjsiQq1WZoC": {
+								"range": "Unlimited"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
+						},
+						"consumers": {
+							"Sx8m4elyUahN1Bmh": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
+					}
+				},
+				"description": "<p>You send a message of 25 words or less to the target. It recognizes you as the sender and can reply immediately in kind. The message travels across any distance and into other planes of existence. If the target is on a different plane of existence than you, there is a 5% chance it doesn't receive your message. A target with an Intelligence score of at least 1 understands your message as you intend it (whether you share a language or not).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"classes": [
+					"bard",
+					"cleric",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "piece of copper wire",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"communication",
+						"divine"
+					]
+				},
+				"spellBook": "pl66UohLKI0NAlco",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"disciplines": []
+			},
+			"folder": null,
+			"_id": "U5BRMKXf5Jx0IfvV",
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645761179,
+				"modifiedTime": 1788645761179,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			},
+			"sort": 0
+		},
+		{
+			"name": "Hold Monster",
+			"type": "spell",
+			"img": "icons/magic/control/debuff-chains-green.webp",
+			"effects": [
+				{
+					"origin": "Actor.17uzwwmjjk2wgpjr.Item.oGX1b2unT7B2YHk7",
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Held",
+					"_id": "NQK3wIAZ9vLb28kh",
+					"disabled": false,
+					"duration": {
+						"value": 60,
+						"units": "seconds",
+						"expiry": "turnStart",
+						"expired": false
+					},
+					"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
+					"statuses": [
+						"paralyzed"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "14.367",
+						"systemId": "a5e",
+						"systemVersion": "1.2.8",
+						"createdTime": 1788645762227,
+						"modifiedTime": 1788645762266,
+						"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+					},
+					"system": {
+						"applyToSelf": false,
+						"effectType": "onUse",
+						"changes": [
+							{
+								"key": "flags.a5e.effects.statusConditions",
+								"value": [
+									"paralyzed"
+								],
+								"priority": null,
+								"type": "custom",
+								"phase": "initial"
+							}
+						],
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {}
+						}
+					},
+					"showIcon": 2,
+					"start": null,
+					"img": "icons/svg/aura.svg",
+					"type": "base",
+					"tint": "#ffffff",
+					"sort": 0
+				}
+			],
+			"flags": {},
+			"system": {
+				"actions": {
+					"prfWePmds6xnCq78": {
+						"name": "Hold Monster",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1",
+							"concentration": false
+						},
+						"ranges": {
+							"nU6WcELmQ00Tj6Ps": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 0,
+							"type": "creature",
+							"heard": false,
+							"otherText": "",
+							"scaling": {},
+							"seen": false
+						},
+						"prompts": {
+							"BvTqdZ6L7LNe1RV4": {
+								"ability": "wis",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
+							}
+						},
+						"consumers": {
+							"DapaHzkCzvv2qQ8Z": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1,
+								"label": ""
+							}
+						},
+						"effects": [
+							"NQK3wIAZ9vLb28kh"
+						],
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0,
+								"type": "recoverAll"
+							}
+						}
+					}
+				},
+				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"classes": [
+					"bard",
+					"elementalistAir",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 5,
+				"materials": "piece of iron",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "enchantment",
+					"secondary": [
+						"affliction",
+						"arcane"
+					]
+				},
+				"spellBook": "pl66UohLKI0NAlco",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				},
+				"disciplines": []
+			},
+			"folder": null,
+			"_id": "oGX1b2unT7B2YHk7",
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788645762227,
+				"modifiedTime": 1788645762227,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			},
+			"sort": 0
 		}
 	],
 	"effects": [],
@@ -2026,6 +3382,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -2078,7 +3445,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -2153,16 +3521,16 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"truesight": {
@@ -2173,8 +3541,10 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
+			"spellcasting": "wis",
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"maneuverDC": "",
@@ -2227,7 +3597,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2><strong>COMBAT</strong></h2><p>The pit fiend prefers to bite opponents that haven’t yet been poisoned. If three or more enemies are gathered together, it may instead use Fireball.</p><p>For its bonus action, the pit fiend attacks with its tail unless it’s near a weak melee attacker, in which case it grapples with its claw.&nbsp;</p><p>When the pit fiend is bloodied, it flies to the nearest ranged attacker and uses Circle of Fire, which blocks line of sight for many enemies and prevents creatures from easily escaping it. While fighting in the circle, it uses its Mace attack to push opponents through the flames, forcing them to take even more damage if they run back through the flames to reach the pit fiend.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DEVIL NAMES</strong></h2><p>Abathon, Alashel, Arcaxes, Asardel, Atha-Xul, Barashiel, Bel Nakari, Beleth, Besthelias, Bethegar, Brimstone, Calderax, Cenereth, Damaceus, Decimeth, Demedal, Elthodrath, Gethen, Glibris, Gur-Toras, Heleph, Ibaris, Kamien, Kush, Lorza, Machem, Maethiel, Meltis, Nensis, Silithis, Thaxes, Turel, Vish-Alatith, Zethayn, Zir</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Many scholars believe that devils are angels that fell from grace. When touched by evil, mortal souls may transform into devils, as well.</p><p><strong>DC 15</strong> Neither fire nor poison harms a devil, and even magical darkness doesn’t impede a devil’s vision. They are supernaturally resistant to mundane damage, although magical and silvered weapons wound them normally.</p><p><strong>DC 20</strong> Though irredeemably evil, devils can be bargained with at the bargainer’s peril. They generally keep their word.</p><p><strong>DESCRIPTION</strong></p><p>Pit fiends are the undisputed tyrants of hell, each subservient only to the archdevil that rules its plane. They command vast legions of devils and are generally considered to be among the most brilliant tacticians in the multiverse. If pit fiends have a weakness, it is pride: since only the most ambitious devils ever reach their lofty status, pit fiends believe their merit to be self-evident. Though it is not unknown for a pit fiend to face demotion after a crushing military defeat, more often it is a misstep navigating hell’s political landscape that leads to a pit fiend’s downfall.</p><p><strong>BEHAVIOR</strong></p><p>1 Whispering poison into a mortal’s ear</p><p>2 Engaging the pious in philosophical debate, so as to sow doubt</p><p>3 Offers the party the information they seek, for a price</p><p>4 Indulging pleasures of the flesh: enjoying a meal, listening to music, flirting with mortals</p><p>5 Hunting a mortal who defaulted on a deal</p><p>6 Imprisoned by ancient runes and seals; can’t leave its current general area</p><p>7 Guarding or otherwise serving a summoner</p><p>8 Guarding a sinister treasure, such as a forbidden book or cursed weapon</p><p><strong>SIGNS</strong></p><p><strong>Wilderness and Underground Signs</strong></p><p>1 A shrine to an archdevil, lit with black candles</p><p>2 Footprints, strangely warm to the touch</p><p>3 A waft of brimstone at a lonely crossroads</p><p>4 The remains of a humanoid who was clearly tortured to death</p><hr class=\"a5e-rule u-my-md\"><p><strong>Settlement Signs</strong></p><p>1 Statues of saints crying blood</p><p>2 Church bells magically fall silent</p><p>3 An infernal contract, as yet unsigned</p><p>4 Animals gather in large numbers, become aggressive, or die unexpectedly</p><p><strong>ENCOUNTERS</strong></p><p>Most devils are imprisoned in Hell but some are loosed upon the world by wicked spellcasters.&nbsp;</p><p><strong>CR 0–2</strong> imp; 1d8 lemures</p><p><strong>CR 3–4</strong> bearded devil; 2 lemure bands; imp leading lemure band</p><p><strong>CR 5–10</strong> 1 or 2 barbed devils; bone devil; chain devil; 2 or 3 bearded devils; bearded devil, barbed devil, or night hag leading 2 lemure bands</p><p><strong>Treasure</strong> a silver cup etched with a blasphemous word (the first three times the word is spoken, the cup fills with a <em>greater healing potion</em>; the fourth time, the cup breaks)</p><p><strong>CR 11–16 </strong>horned devil, erinyes, ice devil, or chained one, possibly with 1 or 2 lemure bands; 3 barbed devils; &nbsp; barbed devil with 3 bearded devils</p><p><strong>Treasure</strong> signed infernal contract that frees an evil soul from Hell if destroyed, <em>manual of quickness of action</em></p><p><strong>CR 17–22</strong> pit fiend; bone devil, chain devil, horned devil, erinyes, or ice devil with 3 bearded devils; erinyes with 1d6 + 3 harpies; chain devil with chained one</p><p><strong>Treasure</strong> 3 rubies (5,000 gp each), <em>spell scrolls</em> of <em>magic circle</em> and <em>raise dead</em>, <em>rope of entanglement</em></p><p><strong>CR 23–30</strong> pit fiend with 1 to 3 bearded devils or hellhounds; 4 bearded devils or barbed devils with bone devil, chain devil, or horned devil;&nbsp; 2 erinyes or ice devils; ice devil with 1d4 + 2 winter wolves&nbsp;</p><p><strong>Treasure</strong> 1,300 pp, 2 <em>potions of flying</em>, <em>+3 trident</em> (named <em>Artifice</em>; acts as a <em>hat of disguise</em> but the trident can’t be disguised)</p><p><strong>CR 31+</strong> Belethias, possibly with 1d4 + 2 lemure bands or bearded devils; pit fiend with 3 or 4 barbed devils; 3 or 4 erinyes</p><p><strong>Treasure </strong>gold and ruby scepter (25,000 gp), forbidden book with gold and diamond binding (25,000 gp), 13 star rubies (1,000 gp each), <em>spell scroll</em> of <em>gate</em>, <em>animated shield</em>, <em>deck of many things</em></p>",
@@ -2242,7 +3613,8 @@
 			"terrain": [
 				"hell"
 			],
-			"isSquad": false
+			"isSquad": false,
+			"isShapechanger": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -2251,7 +3623,8 @@
 				"Telepathy 120 ft"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -2327,6 +3700,11 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.022,
+			"type": "Actor",
+			"lastMigration": {}
 		}
 	},
 	"prototypeToken": {
@@ -2359,7 +3737,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -2375,10 +3755,11 @@
 			"src": "systems/a5e/assets/pit-fiend.webp",
 			"scaleX": 1,
 			"scaleY": 1,
-			"offsetX": 0,
-			"offsetY": 0,
-			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
@@ -2391,15 +3772,47 @@
 			"contrast": 0,
 			"visionMode": "basic"
 		},
-		"detectionModes": [],
+		"detectionModes": {},
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"depth": 2,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		},
+		"turnMarker": {
+			"mode": 1,
+			"animation": null,
+			"src": null,
+			"disposition": false
+		},
+		"movementAction": null
 	},
 	"folder": null,
-	"_id": "17uzwwmjjk2wgpjr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788645627182,
+		"modifiedTime": 1788645774743,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"exportSource": {
+			"world": "a5ev14",
+			"system": "a5e",
+			"coreVersion": "14.367",
+			"systemVersion": "1.2.8"
+		}
+	},
+	"_id": "17uzwwmjjk2wgpjr"
 }
