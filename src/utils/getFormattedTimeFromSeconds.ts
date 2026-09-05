@@ -27,7 +27,7 @@ export default function getFormattedTimeFromSeconds(seconds: number): string {
 	}
 	if (seconds > 120) {
 		// two minutes
-		return `${Math.floor(seconds / 60)} ${localize('A5E.DurationMinutePlural')}`;
+		return `${Math.floor(seconds / 60)} ${localize(`A5E.durations.minutePlural`)}`;
 	}
 	if (seconds >= 12) {
 		// two rounds
