@@ -5,15 +5,14 @@
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
     import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
     import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
-
     import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
     import type { DamageRollData } from "../../../../dataModels/item/actions/ActionRollsDataModel.ts";
     import type { RollProps } from "./data.ts";
+    import type { ItemA5e } from "#documents/item/item.ts";
 
     type Props = Omit<RollProps, "roll"> & {
         roll: DamageRollData;
@@ -43,7 +42,7 @@
 
     let { deleteRoll, duplicateRoll, roll, rollId }: Props = $props();
 
-    let item: any = getContext("item");
+    let item: ItemA5e = getContext("item");
     let actionId: string = getContext("actionId");
 
     const { damageTypes, dieModifiers } = CONFIG.A5E;
