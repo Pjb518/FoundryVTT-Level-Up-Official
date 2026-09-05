@@ -15,6 +15,7 @@ import itemDataModels from '../dataModels/item/itemDataModels.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import { BaseRoll } from '../dice/rolls/BaseRoll.ts';
 import { D20Roll } from '../dice/rolls/D20Roll.ts';
+import { DamageRoll } from '../dice/rolls/DamageRoll.ts';
 import { BaseDie } from '../dice/terms/BaseDie.ts';
 import { CountDownPool } from '../dice/terms/CountDownPool.ts';
 import { D20Die } from '../dice/terms/D20Die.ts';
@@ -74,7 +75,8 @@ export default function init() {
 
 	CONFIG.Dice.BaseRoll = BaseRoll;
 	CONFIG.Dice.D20Roll = D20Roll;
-	CONFIG.Dice.rolls.push(D20Roll);
+	CONFIG.Dice.DamageRoll = DamageRoll;
+	CONFIG.Dice.rolls.push(D20Roll, DamageRoll);
 
 	CONFIG.Dice.BaseDie = BaseDie;
 	CONFIG.Dice.D20Die = D20Die;
@@ -83,8 +85,7 @@ export default function init() {
 
 	// CONFIG.Dice.CountDownPool = CountDownPool;
 
-	CONFIG.Dice.types.push(D20Die);
-	CONFIG.Dice.types.push(ExpertiseDie);
+	CONFIG.Dice.types.push(D20Die, ExpertiseDie);
 
 	CONFIG.MeasuredTemplate.defaults.angle = 60;
 

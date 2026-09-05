@@ -131,7 +131,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		DISADVANTAGE: A5E.ROLL_MODE.DISADVANTAGE,
 	};
 
-	static override fromConfig(config: D20Roll.Config, process: BaseRoll.RollSetup) {
+	static override fromConfig(config: D20Roll.Config, setup: BaseRoll.RollSetup) {
 		const formula = [new CONFIG.Dice.D20Die().formula].concat(config.parts ?? []).join(' + ');
 
 		config.options ??= {};
@@ -142,7 +142,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		// TODO: Add special modes from process
 		config.options.specialModes ??= {};
 
-		config.options.target ??= process.target;
+		config.options.target ??= setup.target;
 		return new this(formula, config.data, config.options);
 	}
 

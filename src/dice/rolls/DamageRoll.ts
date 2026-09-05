@@ -1,0 +1,184 @@
+import type { BaseDie } from '../terms/BaseDie.ts';
+import { BaseRoll } from './BaseRoll.ts';
+
+import terms = foundry.dice.terms;
+
+import type { AnyObject, EmptyObject, InexactPartial } from 'fvtt-types/utils';
+
+class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
+	declare options: DamageRoll.Options;
+
+	constructor(formula: string, data: D, options: DamageRoll.Options) {
+		// @ts-expect-error
+		super(formula, data, options);
+
+		if (!this.options.preprocessed) this.preprocessFormula();
+		if (!this.options.configured) this.configure(options);
+	}
+
+	/** ===================================== */
+	//  Getters
+	/** ===================================== */
+	get isCrit() {
+		return this.options.isCrit === true;
+	}
+
+	/** ===================================== */
+	//  Methods
+	/** ===================================== */
+	configure({ critical = {} } = {} as DamageRoll.Options) {
+		if (this.options.configured) return;
+
+		// Handle criticals
+		if (this.isCrit) {
+			const newTerms = [] as terms.RollTerm[];
+			this.terms.forEach((term, idx) => {
+				if (term instanceof terms.OperatorTerm) newTerms.push(term);
+				else newTerms.push(...this.#applyCriticalTerm(term, critical, idx));
+			});
+
+			this.terms = newTerms;
+		}
+
+		this.resetFormula();
+		this.options.configured = true;
+	}
+
+	preprocessFormula() {
+		this.resetFormula();
+		this.options.preprocessed = true;
+	}
+
+	/** ===================================== */
+	//  Crit Methods
+	/** ===================================== */
+	#applyCriticalTerm(term: terms.RollTerm, critical: DamageRoll.CritConfiguration, index: number) {
+		if (term instanceof terms.DiceTerm && term._number instanceof Roll) {
+			if (term._number.isDeterministic) term.number = term._number.evaluateSync().total;
+			else if (term.modifiers.length) return [term];
+		}
+
+		// @ts-expect-error
+		term.options.critical = true;
+
+		const multiplier = critical.multiplier ?? 2;
+		const bonusDice = critical.bonusDice && !index ? critical.bonusDice : 0;
+
+		if (term instanceof terms.NumericTerm) {
+			if (critical.multiplyNumeric) term.number *= multiplier ?? 2;
+			return [term];
+		}
+
+		console.log('Here');
+		if (critical.powerfulCritical) {
+			const bonus =
+				Roll.create(term.formula).evaluateSync({ maximize: true }).total *
+				(Math.max(1, multiplier - 1) + bonusDice);
+
+			if (bonus <= 0) return [term];
+
+			const flavor = term.flavor?.toLocaleLowerCase() ?? 'Powerful Critical';
+			return this.#placeCritical(
+				term,
+				[new terms.NumericTerm({ number: bonus, options: { flavor } })],
+				index,
+			);
+		}
+
+		if (term instanceof terms.DiceTerm && !term.modifiers.length) {
+			term.alter(multiplier, bonusDice);
+			return [term];
+		}
+
+		const copies = multiplier - 1 + bonusDice;
+		if (!term.isDeterministic && copies > 0) {
+			const clones = Array.from({ length: copies }, () =>
+				terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
+			);
+
+			return this.#placeCritical(term, clones, index);
+		}
+
+		return [term];
+	}
+
+	#bound = (t: terms.RollTerm) =>
+		t instanceof terms.OperatorTerm && DamageRoll.#BINDING_OPERATORS.has(t.operator);
+
+	#placeCritical(term: terms.RollTerm, extras: terms.RollTerm[], index: number) {
+		const prev = this.terms[index - 1];
+		const next = this.terms[index + 1];
+
+		if (this.#bound(prev) || this.#bound(next)) {
+			const options = foundry.utils.deepClone(term.options);
+			const group = [term];
+
+			extras.forEach((extra) => {
+				group.push(new terms.OperatorTerm({ operator: '+' }), extra);
+			});
+
+			group.forEach((t) => {
+				t.options.flavor = '';
+			});
+
+			return [terms.ParentheticalTerm.fromTerms(group, options)];
+		}
+
+		const sign = prev instanceof terms.OperatorTerm ? prev.operator : '+';
+		const placed = [term];
+		extras.forEach((extra) => {
+			placed.push(new terms.OperatorTerm({ operator: '+' }), extra);
+		});
+		return placed;
+	}
+
+	/** ===================================== */
+	//  Static Methods
+	/** ===================================== */
+	static #BINDING_OPERATORS = new Set(['*', '/', '%']);
+
+	static override fromConfig(config: DamageRoll.Config, setup: DamageRoll.RollSetup) {
+		if (setup.critical) {
+			config = foundry.utils.deepClone(config);
+			config.options ??= {};
+			config.options.critical = foundry.utils.mergeObject(
+				setup.critical,
+				config.options.critical ?? {},
+				{ inplace: false },
+			);
+		}
+
+		return super.fromConfig(config, setup);
+	}
+}
+
+declare namespace DamageRoll {
+	interface Config extends BaseRoll.Config {
+		options?: Options;
+	}
+
+	interface _Options extends BaseRoll._Options, BaseDie.Options {
+		configured?: boolean;
+		critical: CritConfiguration;
+		isCrit?: boolean;
+		preprocessed?: boolean;
+	}
+
+	interface Options extends InexactPartial<_Options> {}
+
+	interface RollSetup extends BaseRoll.RollSetup {
+		critical?: CritConfiguration;
+	}
+
+	interface CritConfiguration {
+		allow?: boolean;
+		multiplier?: number;
+		bonusDice?: number;
+		bonusDamage?: string;
+		multiplyDice?: boolean;
+		multiplyNumeric?: boolean;
+		powerfulCritical?: boolean;
+	}
+}
+
+export { DamageRoll };
