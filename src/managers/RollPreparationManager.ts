@@ -8,6 +8,7 @@ import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompt
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
+import type { DamageRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import constructRollFormula from '../dice/constructRollFormula';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
@@ -46,8 +47,18 @@ class RollPreparationManager {
 	async prepareRolls() {
 		const state = this.#state;
 
-		const prepared = [state.attack, ...state.rolls].map((roll) => {
-			if (roll.type === 'attack') return this.#prepareAttackRoll(roll);
+		const attackRoll = this.#prepareAttackRoll(state.attack);
+		let applyGenericBonus = true;
+
+		const prepared = state.rolls.map((roll) => {
+			if (roll.type === 'attack') return attackRoll;
+			if (roll.type === 'damage') {
+				const damageRoll = this.#prepareDamageRoll(roll, attackRoll, applyGenericBonus);
+				applyGenericBonus = false;
+				return damageRoll;
+			}
+
+			const otherRoll = this.#prepareItemRoll(roll);
 
 			return null;
 		});
@@ -104,6 +115,7 @@ class RollPreparationManager {
 
 		// // TODO: Type out the return for this
 		// return [attackRoll, ...damageRolls, ...healingRolls, ...otherRolls].filter(Boolean);
+		return [attackRoll, ...prepared].filter(Boolean);
 	}
 
 	#prepareItemRoll(roll: any) {
@@ -124,7 +136,7 @@ class RollPreparationManager {
 	}
 
 	async #prepareAbilityCheckRoll(
-		_roll: RollData.AbilityCheckRollData & RollPreparationManager.ExtraRollData,
+		_roll: RollStateManager.WorkflowState['rolls'], // THis is incorrect
 	) {
 		const defaultData = this.#actor.getDefaultAbilityCheckData(_roll.ability, {
 			situationalMods: _roll.bonus,
@@ -181,7 +193,7 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareBonusDamageRolls(attackRoll: PreparedAttackRoll | null) {
+	async #prepareBonusDamageRolls(attackRoll: RollPreparationManager.PreparedAttackData | null) {
 		const bonusDamage = Object.values(this.#damageBonuses).filter(
 			({ damageType }) => damageType && damageType !== 'null',
 		);
@@ -236,9 +248,9 @@ class RollPreparationManager {
 	}
 
 	async #prepareDamageRoll(
-		_roll: RollData.DamageRollData & { context?: any },
-		attackRoll: PreparedAttackRoll | null,
-		index?: number,
+		_roll: DamageRollData & { context: Record<string, any> | undefined; type: 'damage' },
+		attackRoll: RollPreparationManager.PreparedAttackData,
+		applyGenericBonus: boolean = false,
 	): Promise<PreparedDamageData | null> {
 		const { isCrit } = attackRoll ?? {};
 		const { canCrit, critBonus, damageType } = _roll ?? {};
@@ -248,7 +260,7 @@ class RollPreparationManager {
 		const { context } = _roll;
 		let genericCritBonusDamage = '';
 
-		if (index === 0) {
+		if (applyGenericBonus) {
 			const genericBonusDamage = this.#prepareGenericBonusDamage(); // TODO: Had a isCrit param?
 
 			genericBonusDamage.forEach((bonus) => {
@@ -813,6 +825,21 @@ declare namespace RollPreparationManager {
 		formula: string;
 	}
 
+	type PreparedAttackData = {
+		attackType:
+			| 'meleeWeaponAttack'
+			| 'rangedWeaponAttack'
+			| 'meleeSpellAttack'
+			| 'rangedSpellAttack';
+		critThreshold: number;
+		expertiseDice: number;
+		isCrit: boolean;
+		label: string;
+		roll: EvaluatedRoll;
+		rollMode: number;
+		type: 'attack';
+	} | null;
+
 	interface ExtraRollData {
 		rollFormula: string;
 		expertiseDie: number;
@@ -822,17 +849,6 @@ declare namespace RollPreparationManager {
 
 // biome-ignore lint/complexity/noBannedTypes: <explanation>
 type EvaluatedRoll = Awaited<ReturnType<InstanceType<typeof Roll<{}>>['evaluate']>>;
-
-interface PreparedAttackRoll {
-	attackType: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack';
-	critThreshold: number;
-	expertiseDice: number;
-	isCrit: boolean;
-	label: string;
-	roll: EvaluatedRoll;
-	rollMode: number;
-	type: 'attack';
-}
 
 interface PreparedDamageData {
 	baseRoll: EvaluatedRoll;

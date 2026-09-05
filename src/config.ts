@@ -539,6 +539,28 @@ const damageColors = {
 	thunder: '#e2c269',
 };
 
+const dieModifiers = {
+	cf: 'Count Failures',
+	cs: 'Count Success',
+	d: 'Drop',
+	df: 'Deduct Failures',
+	dh: 'Drop Highest',
+	dl: 'Drop Lowest',
+	even: 'Count Even',
+	k: 'Keep',
+	kh: 'Keep Highest',
+	kl: 'Keep Lowest',
+	max: 'Maximum',
+	min: 'Minimum',
+	ms: 'Margin Success',
+	odd: 'Count Odd',
+	r: 'Reroll',
+	rr: 'Reroll Recursive',
+	sf: 'Subtract Failures',
+	x: 'Explode',
+	xo: 'Explode Once',
+};
+
 const defaultActorImportCompendia = {
 	inventory: 'a5e.a5e-adventuring-gear',
 	maneuvers: 'a5e.a5e-maneuvers',
@@ -2236,6 +2258,7 @@ const A5E = {
 	targetScalingModes,
 	damageTypes,
 	damageColors,
+	dieModifiers,
 	defaultActorImportCompendia,
 	endemicProperties,
 	endemicTypes,

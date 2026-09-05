@@ -1,20 +1,23 @@
 <script lang="ts">
-    import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";
-
-    import type { RollProps } from "./data.ts";
-
     import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
-    import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
+    import { localize } from "#utils/localization/localize.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+    import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
+    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
 
     import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
+    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
+    import type { DamageRollData } from "../../../../dataModels/item/actions/ActionRollsDataModel.ts";
+    import type { RollProps } from "./data.ts";
 
-    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
+    type Props = Omit<RollProps, "roll"> & {
+        roll: DamageRollData;
+    };
 
     function configureScaling() {
         let dialog = item.dialogs.rollScaling[rollId];
@@ -38,14 +41,15 @@
         dialog.render(true);
     }
 
-    let { deleteRoll, duplicateRoll, roll, rollId }: RollProps = $props();
+    let { deleteRoll, duplicateRoll, roll, rollId }: Props = $props();
 
     let item: any = getContext("item");
     let actionId: string = getContext("actionId");
 
-    const { damageTypes } = CONFIG.A5E;
+    const { damageTypes, dieModifiers } = CONFIG.A5E;
 
     let scalingSummary = $derived(
+        // @ts-expect-error
         prepareScalingSummary("damage", roll?.scaling, {
             damageType: damageTypes[roll.damageType],
             level: getOrdinalNumber(item.system.level ?? 1),
@@ -81,6 +85,55 @@
             )}
     />
 </FieldWrapper>
+
+<Section
+    --a5e-section-body-direction="row"
+    --a5e-section-body-wrap="nowrap"
+    --a5e-section-body-padding="0"
+>
+    <FieldWrapper heading="A5E.damage.headings.die.number">
+        <input
+            class="a5e-input a5e-input--slim a5e-input--small"
+            type="number"
+            value={roll.die.number || 0}
+            onchange={({ currentTarget }) =>
+                updateDocumentDataFromField(
+                    item,
+                    `system.actions.${actionId}.rolls.${rollId}.die.number`,
+                    Number.parseInt(currentTarget.value, 10),
+                )}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper heading="A5E.damage.headings.die.denom">
+        <input
+            class="a5e-input a5e-input--slim a5e-input--small"
+            type="number"
+            value={roll.die.denom || 0}
+            onchange={({ currentTarget }) =>
+                updateDocumentDataFromField(
+                    item,
+                    `system.actions.${actionId}.rolls.${rollId}.die.denom`,
+                    Number.parseInt(currentTarget.value, 10),
+                )}
+        />
+    </FieldWrapper>
+</Section>
+
+{#if roll.die.number && roll.die.denom}
+    <FieldWrapper heading="Modifier Options">
+        <CheckboxGroup
+            options={Object.entries(dieModifiers)}
+            selected={[...((roll.die.modifiers as Set<string>) ?? [])]}
+            onUpdateSelection={(values) =>
+                updateDocumentDataFromField(
+                    item,
+                    `system.actions.${actionId}.rolls.${rollId}.die.modifiers`,
+                    values,
+                )}
+        />
+    </FieldWrapper>
+{/if}
 
 <Section
     --a5e-section-body-direction="row"

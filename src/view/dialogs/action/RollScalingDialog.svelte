@@ -81,7 +81,9 @@
                         for="system.{propertyKey}.step"
                         class="a5e-scaling-dialog__label"
                     >
-                        Per
+                        Per Every {scalingMode === "spellLevel"
+                            ? "Level"
+                            : "Use"}
                     </label>
                 </div>
             {/if}
@@ -132,7 +134,7 @@
                         for="system.{propertyKey}.config.denom"
                         class="a5e-scaling-dialog__label"
                     >
-                        Dice Denomination
+                        Dice Size
                     </label>
                 </div>
             {/if}
