@@ -2,54 +2,7 @@
 	"name": "Saber +3",
 	"type": "object",
 	"img": "icons/weapons/swords/scimitar-guard.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/swords/scimitar-guard.webp",
-			"origin": "Item.x7c0cnlj7mqcxmao",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "xN74vJXEPsfOB6YU",
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			},
-			"system": {
-				"applyToSelf": false,
-				"effectType": "passive",
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
-						"priority": null,
-						"type": "add"
-					}
-				]
-			}
-		}
-	],
+	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -66,13 +19,14 @@
 			"914oL0fKXqu37lb1": {
 				"name": "Saber",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -82,36 +36,67 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"qqcS3IGZHOsRpkbP": {
 						"bonus": "3",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"LHzRRA6tNqeJ8lkM": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @finesse.mod + 3",
-						"name": "Saber Melee",
 						"type": "damage",
-						"label": "Unmounted"
+						"label": "Unmounted",
+						"critBonus": "",
+						"scaling": {},
+						"default": true
 					},
 					"EYsUPDxaSTNCJAD3": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d10 + @finesse.mod + 3",
-						"name": "Saber Mounted",
 						"type": "damage",
 						"label": "Mounted",
-						"default": false
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "",
@@ -124,7 +109,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -166,13 +152,48 @@
 		"versatile": "d10",
 		"mounted": [
 			"d10"
-		]
+		],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "x7c0cnlj7mqcxmao",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646698688,
+		"modifiedTime": 1788646698747,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "x7c0cnlj7mqcxmao"
 }
