@@ -1,0 +1,133 @@
+{
+	"name": "Like a Bird in a Nest",
+	"type": "feature",
+	"img": "icons/creatures/birds/chicken-hen-white.webp",
+	"system": {
+		"description": "<p>You can innately cast the @UUID[Compendium.a5e.a5e-spells.Item.qwng28nro7eme3nh]{Sleep} spell as an action without the need of spell components. For determining hit points worth of creatures affected, the spell is treated as if using a spell slot equal to your proficiency bonus. You can use this ability a number of times between long rests equal to half your proficiency bonus (rounded up).</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "thePodPersonPlague",
+		"actions": {
+			"ysRUvVvIYwsv1m2R": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"cA0IchggPVESz2fd": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"u6JJwOxLGB1KSrz8": {
+						"type": "generic",
+						"default": true,
+						"formula": "((2 * @prof)d10)",
+						"label": "Hit Point Pool",
+						"scaling": {
+							"mode": null,
+							"formula": "2d10"
+						}
+					}
+				},
+				"consumers": {
+					"8tayRRlddFjuIHgt": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/control/sleep-bubble-purple.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "ceil(@prof/2)",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788717034535,
+		"modifiedTime": 1788717034535,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "h5ULZ2hrmFjU0FSV"
+}

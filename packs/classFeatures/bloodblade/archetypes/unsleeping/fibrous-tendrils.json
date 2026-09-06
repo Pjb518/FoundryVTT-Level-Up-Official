@@ -1,0 +1,257 @@
+{
+	"name": "Fibrous Tendrils",
+	"type": "feature",
+	"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+	"system": {
+		"description": "<p>Also, as an action, you can shoot small, root-like fibrous tendrils from your hand in a 15-foot cone originating from you. A number of creatures up to your Intelligence modifier are affected, beginning with creatures in the cone closest to you and moving outward — you cannot choose which creatures in the cone are impacted. Targets must make a Charisma saving throw against your maneuver DC. Those failing their save are [[/condition id=poisoned]] for 1 minute and those failing by 5+ are  [[/condition id=stunned]] for 1 minute rather than poisoned. Bonuses and immunities to sleep effects apply to this ability (elves, constructs, undead, etc), and creatures can repeat this saving throw at the end of each of their turns.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "thePodPersonPlague",
+		"actions": {
+			"4OZg41hflgKbA6xJ": {
+				"name": "Fibrous Tendrils",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"k4goYrKw5ES3k39W",
+					"tLmaUxHNNoVu1Q1r"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"oWx1DXmBijDLv522": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"tbz17WKsbSUtee7u": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.8gdG7IjCvAVI3LoJ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Poisoned",
+			"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+			"_id": "k4goYrKw5ES3k39W",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788717034581
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.8gdG7IjCvAVI3LoJ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Stunned",
+			"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+			"_id": "tLmaUxHNNoVu1Q1r",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</p></li><li><p>The creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against the creature have advantage.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788717034581
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788717034535,
+		"modifiedTime": 1788717034535,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "sau9635Dx37VVLEk"
+}

@@ -1,0 +1,303 @@
+{
+	"name": "Apex Husk",
+	"type": "feature",
+	"img": "icons/commodities/flowers/lily-pink.webp",
+	"system": {
+		"description": "<p>At 18th level, you are more plant than animal. Small pink flowers sprout across your skin. These sporadically release small puffs of spores, though these are rendered harmless by your bloodblade infusions. You gain the following abilities:</p><h2>Unbending Oak</h2><p>Unless the source specifically targets plants, you have advantage on checks or saving throws to resist charm, fear, or sleep effects, and the charmed or frightened conditions.</p><h2>Friend Indeed</h2><p>As part of your regular movement, you can use a bonus action to release a cloud of spores as you go. This functions as your @UUID[Compendium.a5e.a5e-class-features.Item.1tkXARFWlLgwwCOu]{Pod Person Aspect} with the following additions:</p><ul><li><p>All creatures allow you to move through their space, even if they would normally deny an ally this benefit.</p></li><li><p>You provoke no opportunity attacks from any creature during this movement.</p></li></ul><h2>Fibrous Response</h2><p>Your @UUID[Compendium.a5e.a5e-class-features.Item.sau9635Dx37VVLEk]{Fibrous Tendrils} can now be used as a reaction when you are damaged by a melee attack. You can also use your tendrils as a reaction whenever you successfully resist charm, fear, or sleep effects. In both cases, the target of the reaction is limited to the source of the attack or effect. A single reaction can combine this ability with @UUID[Compendium.a5e.a5e-class-features.Item.ekiVsfk8NXXEIdeh]{Join Us}.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "thePodPersonPlague",
+		"actions": {
+			"6jhdXw6TajJgpdvW": {
+				"name": "Pod Person Aspect",
+				"id": "6jhdXw6TajJgpdvW",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/commodities/biological/pustules-brown.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"Wl8kIEcdl4zG4Od8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "pod-person-aspect",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"wnMVJy3FkPCknieD": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"oAFHhlG5IH4LAzbJ": {
+				"name": "Fibrous Tendrils",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Damaged by a melee attack or you successfully resist charm, fear, or sleep effects"
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"KT7CmqQSOGLwulHK",
+					"NiBjRbvgi1aUbgFh"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"oWx1DXmBijDLv522": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"tbz17WKsbSUtee7u": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.yTKyXf0w3a7radac",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Poisoned",
+			"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+			"_id": "KT7CmqQSOGLwulHK",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1788717929828,
+				"createdTime": 1788717929811
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		},
+		{
+			"origin": "Item.yTKyXf0w3a7radac",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Stunned",
+			"img": "icons/commodities/biological/tentacle-thorned-green.webp",
+			"_id": "NiBjRbvgi1aUbgFh",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</p></li><li><p>The creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against the creature have advantage.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1788717929828,
+				"createdTime": 1788717929811
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788717929811,
+		"modifiedTime": 1788717980223,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "yTKyXf0w3a7radac"
+}

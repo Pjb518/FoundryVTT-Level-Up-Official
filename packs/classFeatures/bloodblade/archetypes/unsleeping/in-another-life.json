@@ -1,0 +1,177 @@
+{
+	"name": "In Another Life",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"system": {
+		"description": "<p>At 10th level, whenever a creature fails its saving throw against your @UUID[Compendium.a5e.a5e-class-features.Item.h5ULZ2hrmFjU0FSV]{Like a Bird in a Nest} or @UUID[Compendium.a5e.a5e-class-features.Item.ekiVsfk8NXXEIdeh]{Join Us} ability, you briefly share images from deep in the memory of the collective. The creature(s) see scenes from another world where the podders have taken over. In these visions, emotions and free will are no more, and everyone is a pod person. Each creature seeing these images must make a new Wisdom saving throw against your maneuver DC or become [[/condition id=frightened]] of you and your allies for 1 minute. Creatures can repeat this saving throw at the end of each of their turns.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "thePodPersonPlague",
+		"actions": {
+			"B9pWaRa3DWY8ezm7": {
+				"name": "In Another Life",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"YBoBNz1J6tCEzHxz"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"TKzHoDXXJc2lmiSp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.3JEpiyytk6whvJVv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Frightened",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "YBoBNz1J6tCEzHxz",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1788717857316,
+				"createdTime": 1788717857301
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788717857301,
+		"modifiedTime": 1788717881026,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "3JEpiyytk6whvJVv"
+}
