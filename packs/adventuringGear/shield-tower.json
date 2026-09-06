@@ -1,0 +1,499 @@
+{
+	"name": "Shield, Tower",
+	"type": "object",
+	"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+	"effects": [
+		{
+			"name": "Defensive AC",
+			"transfer": false,
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"flags": {},
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+			"_id": "6r4ACDlSvHKaP6Q8",
+			"origin": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788556429660,
+				"modifiedTime": 1788556429660,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "2",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"eVdnASSupLPFYwdW": {
+				"name": "Attack",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon",
+						"bonus": "",
+						"critThreshold": 20
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
+				},
+				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+				"ranges": {
+					"TDxq9KZYHsgJBcBh": {
+						"range": "fiveFeet"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": ""
+			},
+			"nZgXF2r8tain41RZ": {
+				"name": "Dodge",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"qyOO8soiE0lDzpcz": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			},
+			"KD9Hql5rKrXpXAfd": {
+				"name": "Plant In Ground",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"effects": [
+					"WAJJPmYmySY3jVhd"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			},
+			"7zQojnMywKG9iu4P": {
+				"name": "Unplant",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			},
+			"lcfdAChNN8Klbw0D": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon",
+						"bonus": "",
+						"critThreshold": 20
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
+				},
+				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": ""
+			},
+			"3uhy6ONQQnTzwmYM": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
+				},
+				"effects": [
+					"o481jOizHTJLpIFf",
+					"6r4ACDlSvHKaP6Q8"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "round",
+					"value": "1",
+					"concentration": false
+				},
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</p><p>You cannot squeeze through spaces smaller than your size category.</p><p>These shields cover the entire body and reduce your Speed by 10 feet.</p><p>On your turn, you may use an object interaction to plant it in the ground, gaining half cover (+2 bonus to AC, Dexterity saving throws, and ability checks made to hide) and advantage on saving throws made to resist being shoved or knocked prone and while you remain behind it. Unplanting a tower shield requires a bonus action.</p><p>Tower shields are bulky items, and count as such even when donned.</p><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": true,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "shield",
+		"plotItem": false,
+		"price": {
+			"value": 75,
+			"denomination": "gp",
+			"special": ""
+		},
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "tower",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 25,
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788556429641,
+		"modifiedTime": 1788556429679,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "cvtziHaaPdT55q34"
+}

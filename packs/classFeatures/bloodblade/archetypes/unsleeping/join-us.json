@@ -1,0 +1,137 @@
+{
+	"name": "Join Us",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+	"system": {
+		"description": "<p>When an enemy creature hits you with an attack, you can immediately use your reaction to give it a taste of the hive mind. The creature must make a Wisdom saving throw against your maneuver DC or take 1d8 + your bloodblade level points of psychic damage. This ability can be used a number of times per short or long rest equal to your Intelligence modifier.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "thePodPersonPlague",
+		"actions": {
+			"rUVPmBXFCayR7Mcr": {
+				"name": "Join Us",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Enemy creature hits you with an attack"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"evEThSHjmhjTK0in": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"MCLM14jDDxu6W4kA": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"vIaUXRlhGq3E914f": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "1d8 + @classes.bloodblade.level",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@int.mod",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788717034535,
+		"modifiedTime": 1788717034535,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "ekiVsfk8NXXEIdeh"
+}

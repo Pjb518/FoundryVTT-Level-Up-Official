@@ -4,7 +4,6 @@
 	"img": "icons/weapons/polearms/spear-flared-gold.webp",
 	"effects": [
 		{
-			"icon": "icons/weapons/polearms/spear-flared-gold.webp",
 			"origin": "Item.fahk904w5388yyxt",
 			"flags": {
 				"a5e": {
@@ -19,22 +18,22 @@
 			"_id": "Yw7Mh6TxboywP22H",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"tint": "#ffffff",
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788702856946,
+				"modifiedTime": 1788702856946,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -42,12 +41,24 @@
 				"changes": [
 					{
 						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
@@ -66,13 +77,14 @@
 			"RDDSOGA3Vg3oiv4H": {
 				"name": "Lance",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -82,26 +94,57 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"07dac3JLXg0cm1bW": {
 						"bonus": "2",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"L5OMEhyYe5Yt5m37": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + @str.mod + 2",
-						"name": "Lance",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "<p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p>",
@@ -114,7 +157,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -150,16 +194,51 @@
 		],
 		"weight": 6,
 		"breakerProperties": [],
-		"defensiveProperties": "",
+		"defensiveProperties": "medium",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "fahk904w5388yyxt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788702856946,
+		"modifiedTime": 1788702894987,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "fahk904w5388yyxt"
 }

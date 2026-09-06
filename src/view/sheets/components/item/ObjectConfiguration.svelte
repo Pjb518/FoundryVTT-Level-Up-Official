@@ -115,7 +115,7 @@
                 />
             {/if}
 
-            {#if itemStore.objectType == "consumable"}
+            {#if itemStore.objectType === "consumable"}
                 <Checkbox
                     label="A5E.supply.title"
                     checked={itemStore.supply}
@@ -347,7 +347,7 @@
                     {#if itemStore.requiresAttunement}
                         {localize("A5E.AttunementRequired")}: ({localize(
                             itemStore.attuned
-                                ? "A5E.attunement.attuned"
+                                ? "A5E.attunement.headings.attuned."
                                 : "A5E.attunement.not",
                         )})
                     {:else}

@@ -4,54 +4,7 @@
 	"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
 	"effects": [
 		{
-			"icon": "icons/weapons/swords/greatsword-blue.webp",
-			"origin": "Item.lkxliinhoqr7l8as",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "Llj5xb79gCEj7iz8",
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			},
-			"system": {
-				"applyToSelf": false,
-				"effectType": "passive",
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
-						"priority": null,
-						"type": "add"
-					}
-				]
-			}
-		},
-		{
-			"icon": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
-			"origin": "Item.lkxliinhoqr7l8as",
+			"origin": "Item.TTo0DIx8bH73gJhZ",
 			"flags": {
 				"a5e": {}
 			},
@@ -60,22 +13,22 @@
 			"_id": "FsVHl5QDQEXtvIcU",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"tint": "#ffffff",
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788646698672,
+				"modifiedTime": 1788646699226,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -83,18 +36,35 @@
 				"changes": [
 					{
 						"key": "system.traits.damageResistances",
-						"value": "[\"fire\"]",
+						"value": [
+							"fire"
+						],
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					},
 					{
 						"key": "system.proficiencies.weapons",
-						"value": "[\"longsword\"]",
+						"value": [
+							"longsword"
+						],
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
@@ -119,7 +89,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -129,38 +100,74 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"UEwQqL1vKVE291PA": {
 						"bonus": "3",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"x4uy5CMwLzIKdqmH": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @str.mod + 3",
-						"name": "Longsword",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"kkwTpxmsbgS5Zgg9": {
 						"type": "damage",
 						"default": true,
 						"formula": "3d6",
-						"damageType": "fire"
+						"damageType": "fire",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			},
 			"zEtTCdT03tYo2eUn": {
 				"name": "Attack With Shield",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -170,13 +177,19 @@
 						"attackType": "meleeWeaponAttack",
 						"proficient": false,
 						"ability": "none",
-						"label": "Improvised Weapon"
+						"label": "Improvised Weapon",
+						"bonus": "",
+						"critThreshold": 20
 					},
 					"liKyWako9ZBgGHin": {
 						"type": "damage",
 						"default": true,
 						"formula": "1d4",
-						"damageType": "bludgeoning"
+						"damageType": "bludgeoning",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -186,16 +199,41 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
-				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp"
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"v3bptQ9yjfEMnfwo": {
 				"name": "AC +1",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -206,19 +244,38 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
 				"duration": {
 					"unit": "turn",
-					"value": 1
+					"value": "1",
+					"concentration": false
 				},
 				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
 				"effects": [
 					"PiHWvQKjPGNpP7A7",
 					"o3RplnB3d2bgc5Cs",
 					"Llj5xb79gCEj7iz8"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"OYExmPbuqqWZpBmL": {
 				"name": "Longsword (Reaction)",
@@ -229,7 +286,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -239,38 +297,74 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"UEwQqL1vKVE291PA": {
 						"bonus": "3",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"x4uy5CMwLzIKdqmH": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d8 + @str.mod + 3",
-						"name": "Longsword",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"kkwTpxmsbgS5Zgg9": {
 						"type": "damage",
 						"default": true,
 						"formula": "3d6",
-						"damageType": "fire"
+						"damageType": "fire",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			},
 			"VYITLvtCyduVLcCg": {
 				"name": "Corruption",
 				"activation": {
 					"type": "",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -278,7 +372,8 @@
 						"type": "generic",
 						"default": true,
 						"label": "Lose Charisma points",
-						"formula": "1d4"
+						"formula": "1d4",
+						"scaling": {}
 					}
 				},
 				"prompts": {},
@@ -288,8 +383,33 @@
 					"per": "week",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -303,7 +423,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -341,13 +462,48 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "lkxliinhoqr7l8as",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646698672,
+		"modifiedTime": 1788646698736,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "lkxliinhoqr7l8as"
 }

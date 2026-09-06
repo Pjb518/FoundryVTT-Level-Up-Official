@@ -210,6 +210,10 @@ export default function registerPremiumContentConfig() {
 					title: 'Road Worthy Pursuits',
 					url: 'https://www.drivethrurpg.com/en/product/510738/road-worthy-pursuits-expanded-edition-a5e-explorations?affiliate_id=1388381',
 				},
+        {
+					title: 'The Pod Person Plague: An Ecology of Gravitas for A5E',
+					url: 'https://www.drivethrurpg.com/en/product/526974/the-pod-person-plague-an-ecology-of-gravitas-for-a5e?affiliate_id=1388381',
+				},
 			],
 		},
     wizardsOfTheCoast: {
@@ -910,12 +914,20 @@ export default function registerPremiumContentConfig() {
 			title: 'The Errant Seer',
 			url: 'https://ravine.itch.io/a5e-subclass03-errant-seer',
 		},
+    thePodPersonPlague: {
+			abbreviation: 'PPP',
+			affiliate: true,
+			publisher: 'variantCodexPress',
+			systems: ['a5e'],
+			title: 'The Pod Person Plague: An Ecology of Gravitas for A5E',
+			url: 'https://www.drivethrurpg.com/en/product/526974/the-pod-person-plague-an-ecology-of-gravitas-for-a5e?affiliate_id=1388381',
+		},
 		theRuinStrider: {
 			abbreviation: 'TRS',
 			affiliate: false,
 			publisher: 'ravine',
 			systems: ['a5e'],
-			title: 'The Ruin Stider',
+			title: 'The Ruin Strider',
 			url: 'https://ravine.itch.io/a5e-subclass02-ruin-strider',
 		},
 		theSpellbreaker: {

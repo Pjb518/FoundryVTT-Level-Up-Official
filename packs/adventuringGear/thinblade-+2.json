@@ -2,54 +2,7 @@
 	"name": "Thinblade +2",
 	"type": "object",
 	"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
-			"origin": "Item.ipq805xo5kbmgyhv",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "fNsg1fB0AQvNW0yM",
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			},
-			"system": {
-				"applyToSelf": false,
-				"effectType": "passive",
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
-						"priority": null,
-						"type": "add"
-					}
-				]
-			}
-		}
-	],
+	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -66,13 +19,14 @@
 			"4hUX21XJHYN8ppgn": {
 				"name": "Thinblade",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -82,7 +36,11 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"r9swSspq97S1RfWR": {
@@ -90,24 +48,52 @@
 						"critThreshold": 19,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"uJI9p3ltabvV4LYr": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @finesse.mod + 2",
-						"name": "Rapier",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			},
 			"jE0oGbW4c91H4L9s": {
 				"name": "AC +1",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -118,12 +104,14 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
 				"duration": {
 					"unit": "turn",
-					"value": 1
+					"value": "1",
+					"concentration": false
 				},
 				"img": "icons/weapons/swords/greatsword-crossguard-flanged.webp",
 				"effects": [
@@ -132,7 +120,24 @@
 					"Llj5xb79gCEj7iz8",
 					"uyPf3aBTu6Dbjl7v",
 					"fNsg1fB0AQvNW0yM"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
 			}
 		},
 		"description": "<p>This weapon uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.l6qdjqzvk3sddr2i]{Rapier} but is so sharp that it has the vicious property.</p>",
@@ -145,7 +150,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -185,13 +191,48 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "ipq805xo5kbmgyhv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646698665,
+		"modifiedTime": 1788646698730,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "ipq805xo5kbmgyhv"
 }

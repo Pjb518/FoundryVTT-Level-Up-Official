@@ -5,12 +5,23 @@
 	"system": {
 		"actions": {
 			"n5yyLQQCZgqVcXcn": {
-				"name": "Cast Spell",
+				"name": "Invisible Object",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
-				"consumers": {},
+				"consumers": {
+					"bvVUQPCCWWzlk9Ub": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 3,
+						"spellLevel": 3,
+						"points": 5,
+						"label": ""
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -19,12 +30,14 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
 				"duration": {
 					"unit": "hour",
-					"value": 1
+					"value": "1",
+					"concentration": false
 				},
 				"ranges": {
 					"IPdCo1mnolJerJyQ": {
@@ -37,8 +50,21 @@
 					"scaling": {
 						"mode": null,
 						"step": 2
-					}
-				}
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			}
 		},
 		"description": "<p>A Medium or smaller object becomes invisible, as do any inanimate contents inside it when the spell is cast. Objects removed from the spell&rsquo;s original target become visible. Objects placed in or on the target after the spell is cast remain visible, and dirt, dust, and other markings may reveal the invisible object&rsquo;s location. The spell ends if the object deals damage.</p><p>Attacks made with an invisible melee weapon are made with advantage.</p><p><strong><em>Cast at Higher Levels</em>: </strong>When cast with a 5th-level spell slot, the duration is 1 day. When cast with a 7th-level spell slot, the duration is permanent until dispelled.</p>",
@@ -51,7 +77,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"classes": [
@@ -83,19 +110,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"disciplines": []
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "1ijheko64xsjmaaj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646183938,
+		"modifiedTime": 1788646193771,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "1ijheko64xsjmaaj"
 }

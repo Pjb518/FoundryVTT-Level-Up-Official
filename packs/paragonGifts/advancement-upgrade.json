@@ -1,5 +1,4 @@
 {
-	"folder": null,
 	"name": "Advancement Upgrade",
 	"type": "feature",
 	"img": "icons/sundries/scrolls/scroll-bound-black-brown.webp",
@@ -15,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You gain one new lore skill specialty (as&nbsp;bonus knowledge), one additional magical&nbsp;item attunement slot (to a maximum of 4),&nbsp;and 1 additional frame augmentation.</p>",
+		"description": "<p>You gain one new lore skill specialty (as bonus knowledge), one additional magical item attunement slot (to a maximum of 4), and 1 additional frame augmentation.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "gpg0",
@@ -25,47 +24,363 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "paragon",
 		"grants": {
-			"PFGKHK1GutPTyHdg": {
-				"grantType": "proficiency",
-				"level": 0,
-				"optional": false,
-				"label": "Skill Proficiency",
-				"keys": {
+			"PwYBaG9qvXNyMOdg": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "PwYBaG9qvXNyMOdg",
+				"specialties": {
 					"base": [],
 					"options": [
-						"arc",
-						"cul",
-						"eng",
-						"his",
-						"nat",
-						"rel"
+						"aberrations",
+						"artifacts",
+						"constructs",
+						"detection",
+						"dragons",
+						"elementals",
+						"fey",
+						"forbiddenKnowledge",
+						"monstrosities",
+						"oozes",
+						"thePlanes"
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"skill": "arc",
+				"label": "Arcana Skill Specialty Grant",
+				"img": ""
+			},
+			"JiSgBqfxNPGc74Vl": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "JiSgBqfxNPGc74Vl",
+				"specialties": {
+					"base": [],
+					"options": [
+						"courtlyManners",
+						"cuisine",
+						"etiquette",
+						"fencingProtocol",
+						"laws",
+						"linguistics",
+						"regionalGoods",
+						"streetwise",
+						"trade"
+					],
+					"total": 1
+				},
+				"skill": "cul",
+				"label": "Culture Skill Specialty Grant",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"b0WHb5NMcVkqlH7L": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "b0WHb5NMcVkqlH7L",
+				"specialties": {
+					"base": [],
+					"options": [
+						"architecture",
+						"chemistry",
+						"explosives",
+						"gadgetry",
+						"mathematics",
+						"mechanicalTraps",
+						"plumbing",
+						"siegecraft",
+						"weaponry"
+					],
+					"total": 1
+				},
+				"skill": "eng",
+				"label": "Engineering Skill Specialty Grant",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"4UpjWpSVURvY6yxH": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "4UpjWpSVURvY6yxH",
+				"specialties": {
+					"base": [],
+					"options": [
+						"arts",
+						"empires",
+						"genealogy",
+						"legends",
+						"militaryHistory",
+						"wars"
+					],
+					"total": 1
+				},
+				"skill": "his",
+				"label": "History Skill Specialty Grant",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"8nqfnk4STlzTQxB8": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "8nqfnk4STlzTQxB8",
+				"specialties": {
+					"base": [],
+					"options": [
+						"astronomy",
+						"beastLore",
+						"farming",
+						"fey",
+						"plantLore",
+						"weather"
+					],
+					"total": 1
+				},
+				"skill": "nat",
+				"label": "Nature Skill Specialty Grant",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"wfjZwJsRjyXi1bcF": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "wfjZwJsRjyXi1bcF",
+				"specialties": {
+					"base": [],
+					"options": [
+						"alignment",
+						"celestials",
+						"cults",
+						"fiends",
+						"gods",
+						"holySymbols",
+						"morality",
+						"prophecy",
+						"relics",
+						"undead"
+					],
+					"total": 1
+				},
+				"skill": "rel",
+				"label": "Religion Skill Specialty Grant",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"nY63f23hYLL8tPpB": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "nY63f23hYLL8tPpB",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.y2v7l73pp5r7hnfg",
+							"name": "Military Augments (Cavalry)",
+							"img": "icons/commodities/metal/arrowhead-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.fwpa66dx29apghim",
+							"name": "Military Augments (Heavy Artillery)",
+							"img": "icons/commodities/metal/arrowhead-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.fvvqqhg61bq6n8r6",
+							"name": "Military Augments (Infantry)",
+							"img": "icons/commodities/metal/arrowhead-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.pe40opebjz98dd8t",
+							"name": "Military Augments (Light Artillery)",
+							"img": "icons/commodities/metal/arrowhead-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.8ta4gsmr77b21byc",
+							"name": "Military Augments (Navy)",
+							"img": "icons/commodities/metal/arrowhead-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.xyeu37zrt3epk7yx",
+							"name": "Service Augments (Anticipatory Nimbleness)",
+							"img": "icons/commodities/tech/blueprint.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.cdc38en110wvmmtl",
+							"name": "Service Augments (Knowledge Archive)",
+							"img": "icons/commodities/tech/blueprint.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.lgikwuqpmdkgjbu7",
+							"name": "Service Augments (Mathematical Mnemonics)",
+							"img": "icons/commodities/tech/blueprint.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.1c77v4n2niv335dh",
+							"name": "Service Augments (Needle Gun)",
+							"img": "icons/commodities/tech/blueprint.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.2u7ivjyxmcm370hz",
+							"name": "Service Augments (Self-Defense)",
+							"img": "icons/commodities/tech/blueprint.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.pd7z5g3vyix9px0y",
+							"name": "Utility Augments (Gear Shift)",
+							"img": "icons/commodities/tech/metal-claws.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.ul5abuhqtep7hiuz",
+							"name": "Utility Augments (Gyroscopic Balance)",
+							"img": "icons/commodities/tech/metal-claws.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.zo5auue435pwc6ji",
+							"name": "Utility Augments (Immutable Form)",
+							"img": "icons/commodities/tech/metal-claws.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.010cc4k4lrg32xd7",
+							"name": "Utility Augments (Insectile Limbs)",
+							"img": "icons/commodities/tech/metal-claws.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-heritage-features.Item.8f77rf0eaf6gj5hy",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				},
+				"label": "Frame Augmentation"
 			}
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"name": "Advancement Upgrade",
+			"origin": "Item.HI7u70zRAOzVErZr",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"img": "icons/sundries/scrolls/scroll-bound-black-brown.webp",
+			"_id": "kCheLQ6xYsHoxmwo",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain an additional magical item attunement slot (to a maximum of 4).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null,
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": null,
+				"modifiedTime": 1788646035598,
+				"lastModifiedBy": null
+			},
+			"start": null,
+			"showIcon": 1,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788645950665,
+		"modifiedTime": 1788645950665,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"compendiumSource": "Compendium.a5e.a5e-paragon-gifts.Item.v8nqvrq1n4ieiuve",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5ev14",
+			"uuid": "Item.Go8w6GOmhNQNHVh6",
+			"coreVersion": "14.367",
+			"systemId": "a5e",
+			"systemVersion": "1.2.8"
 		}
 	},
-	"effects": [],
-	"flags": {},
-	"_id": "v8nqvrq1n4ieiuve",
-	"_stats": {
-		"coreVersion": "12",
-		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+	"_id": "v8nqvrq1n4ieiuve"
 }

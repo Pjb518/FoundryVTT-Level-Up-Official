@@ -4,7 +4,7 @@
 	"img": "icons/weapons/polearms/spear-flared-gold.webp",
 	"effects": [
 		{
-			"origin": "Item.p9oCKrmVN9eTNu1M",
+			"origin": "Item.p3fjoaip3sajiuer",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -18,13 +18,10 @@
 			"_id": "Yw7Mh6TxboywP22H",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
@@ -37,19 +34,31 @@
 				"changes": [
 					{
 						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					}
-				]
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "1.2.8",
+				"createdTime": 1788702867386,
+				"modifiedTime": 1788702867395,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			},
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
@@ -68,13 +77,14 @@
 			"RDDSOGA3Vg3oiv4H": {
 				"name": "Lance",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -84,23 +94,32 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"07dac3JLXg0cm1bW": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"L5OMEhyYe5Yt5m37": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + @str.mod",
-						"name": "Lance",
 						"type": "damage",
-						"critBonus": ""
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"AAfsc3IdBoUZkLKd": {
 						"type": "damage",
@@ -108,11 +127,34 @@
 						"label": "Natural 20",
 						"formula": "2d6",
 						"damageType": "piercing",
-						"canCrit": false
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {}
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "<p>You have disadvantage when you use a lance to attack a target within 5 feet of you. If you are not mounted, you must use two hands to wield the lance.</p>\n<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
@@ -125,7 +167,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -170,13 +213,43 @@
 			"type": "weight",
 			"value": 0,
 			"weightlessContents": false
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "p3fjoaip3sajiuer",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788702867386,
+		"modifiedTime": 1788702867386,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "p3fjoaip3sajiuer"
 }

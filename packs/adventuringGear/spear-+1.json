@@ -2,54 +2,7 @@
 	"name": "Spear +1",
 	"type": "object",
 	"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/polearms/spear-flared-wrapped.webp",
-			"origin": "Item.wgg70gn8bmuoc6oh",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "CzoRKz1aFF2zbPZy",
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			},
-			"system": {
-				"applyToSelf": false,
-				"effectType": "passive",
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
-						"priority": null,
-						"type": "add"
-					}
-				]
-			}
-		}
-	],
+	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -66,13 +19,14 @@
 			"kWsss8bI70rtpUV6": {
 				"name": "Spear",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"GLFs1wAhfJxSfSPp": {
@@ -91,48 +45,78 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"bgXGyMGdFJjCkrXA": {
 						"bonus": "1",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"EH41F8oxdy5FXyOT": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @str.mod + 1",
-						"name": "Spear - 1H",
 						"type": "damage",
 						"label": "One-Handed",
-						"default": false
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
 					},
 					"panx4AGUiOcDxR6b": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d8 + @str.mod + 1",
-						"name": "Spear - 2H",
 						"type": "damage",
 						"label": "Two-Handed",
-						"default": false
+						"default": false,
+						"critBonus": "",
+						"scaling": {}
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			},
 			"MrV3YZriaZmI1ygT": {
 				"name": "Spear (Throw)",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"GLFs1wAhfJxSfSPp": {
@@ -151,32 +135,63 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"bgXGyMGdFJjCkrXA": {
 						"bonus": "1",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"EH41F8oxdy5FXyOT": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d6 + @finesse.mod + 1",
-						"name": "Spear - 1H",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
 					"HxaaV7J2JDjit1gC": {
 						"type": "itemUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "",
@@ -189,7 +204,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -230,13 +246,48 @@
 		"defensiveProperties": "heavy",
 		"flaws": [],
 		"versatile": "d8",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "wgg70gn8bmuoc6oh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646698688,
+		"modifiedTime": 1788646698748,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "wgg70gn8bmuoc6oh"
 }

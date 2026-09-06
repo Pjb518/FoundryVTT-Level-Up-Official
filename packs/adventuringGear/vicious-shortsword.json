@@ -2,56 +2,7 @@
 	"name": "Vicious Shortsword",
 	"type": "object",
 	"img": "icons/weapons/swords/shortsword-guard-brass.webp",
-	"effects": [
-		{
-			"origin": "Item.RfzoCsKq6flcWPJc",
-			"flags": {
-				"a5e": {
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "o3RplnB3d2bgc5Cs",
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
-			"type": "base",
-			"system": {
-				"applyToSelf": false,
-				"effectType": "passive",
-				"changes": [
-					{
-						"key": "system.attributes.ac.changes.bonuses.value",
-						"value": "1",
-						"priority": null,
-						"type": "add"
-					}
-				]
-			},
-			"sort": 0,
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		}
-	],
+	"effects": [],
 	"flags": {
 		"core": {
 			"sheetClass": "a5e.ItemSheet5e"
@@ -72,13 +23,14 @@
 			"s8ufuOSoG0jsuNjg": {
 				"name": "Shortsword",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -88,23 +40,32 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"P7UeMDVPmv9D9fqE": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"HUbaIlANmQsN4fYO": {
 						"canCrit": true,
 						"damageType": "slashing",
 						"formula": "1d6 + @finesse.mod",
-						"name": "Shortsword",
 						"type": "damage",
-						"critBonus": ""
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"6QBPPD74eCzXktZH": {
 						"type": "damage",
@@ -112,22 +73,50 @@
 						"label": "Natural 20",
 						"formula": "2d6",
 						"damageType": "slashing",
-						"canCrit": false
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {}
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			},
 			"vQTQD7tzjEVIJLR0": {
 				"name": "Parry",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {
 					"tmuyLFz7KQutuiOG": {
 						"type": "generic",
 						"default": true,
 						"label": "Armor Class",
-						"formula": "1d4"
+						"formula": "1d4",
+						"scaling": {}
 					}
 				},
 				"prompts": {},
@@ -137,10 +126,34 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
-				"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+				"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
 			}
 		},
 		"description": "<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
@@ -153,7 +166,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -199,13 +213,43 @@
 			"type": "weight",
 			"value": 0,
 			"weightlessContents": false
-		}
+		},
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "hxe6a1tulpstijcc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788646698668,
+		"modifiedTime": 1788646698733,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "hxe6a1tulpstijcc"
 }

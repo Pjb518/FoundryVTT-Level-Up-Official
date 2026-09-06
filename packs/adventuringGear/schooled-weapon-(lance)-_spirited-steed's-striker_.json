@@ -19,13 +19,14 @@
 			"JVoO2ujOuBAAY7b0": {
 				"name": "Schooled Weapon (Lance) \"Spirited Steed's Striker\"",
 				"activation": {
-					"cost": "",
+					"cost": 0,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "",
@@ -34,33 +35,67 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creatureObject",
+					"heard": false,
+					"otherText": "",
+					"scaling": {},
+					"seen": false
 				},
 				"rolls": {
 					"nuSi6KQ4krsFt6De": {
 						"bonus": "1",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"J7CsOS3U6ozGHczq": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + 1 + @str.mod",
-						"name": "Schooled Lance",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					},
 					"nyyUDSUAJhI3xbzE": {
 						"canCrit": true,
 						"damageType": "piercing",
 						"formula": "1d12 + 2 + @str.mod",
-						"name": "Schooled Maneuver",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><p><em>Defensive (Medium), Reach</em></p><p><em>Disadvantage to attack a target within 5 ft of you, if you're not mounted you must use 2 hands to wield the lance.</em></p><hr class=\"a5e-rule u-my-md\"><p>You are proficient with this magic weapon as long as you are attuned to it, and you gain a +1 bonus on attack and damage rolls with it.</p><p>You cannot attune to this weapon if you do not know at least one combat maneuver from the tradition it is associated with. When you attune to this weapon, choose a combat maneuver from it's associated tradition that you meet the prerequisites for. While you remain attuned to this weapon, you have access to that combat maneuver.</p><p>In addition, any attacks you make with this weapon as part of a combat maneuver from the associated tradition gains an additional +1 bonus to attack and damage.</p>",
@@ -73,7 +108,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"ammunitionProperties": [],
@@ -109,16 +145,51 @@
 		],
 		"weight": 6,
 		"breakerProperties": [],
-		"defensiveProperties": "",
+		"defensiveProperties": "medium",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"ammunitionDamageMode": "bonus",
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": []
 	},
 	"folder": null,
-	"_id": "i2qou5648e6oyy55",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788702866467,
+		"modifiedTime": 1788702907524,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "i2qou5648e6oyy55"
 }

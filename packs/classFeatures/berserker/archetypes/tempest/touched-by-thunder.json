@@ -4,7 +4,7 @@
 	"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
 	"effects": [
 		{
-			"origin": "Item.DIuLYyQIlIzyGQqL",
+			"origin": "Item.yna0872v2fpkz51j",
 			"flags": {
 				"a5e": {}
 			},
@@ -15,44 +15,65 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
-			},
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Touched by Thunder (Lightning)\",\"formula\":\"@classResources.touched-by-thunder-damage\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/sonic/explosion-impact-shock-wave.webp\"}",
-					"mode": 0,
-					"priority": null
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": {
+							"label": "Touched by Thunder (Lightning)",
+							"formula": "@classResources.touched-by-thunder-damage",
+							"damageType": "lightning",
+							"context": {
+								"attackTypes": [
+									"meleeWeaponAttack"
+								],
+								"damageTypes": [],
+								"spellLevels": [],
+								"isCritBonus": false
+							},
+							"default": true,
+							"img": "icons/magic/sonic/explosion-impact-shock-wave.webp"
+						},
+						"priority": null,
+						"type": "custom",
+						"phase": "initial"
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
-			],
+			},
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
-			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 lightning or thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
+			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 lightning (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.330",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.20",
-				"createdTime": 1722374243156,
-				"modifiedTime": 1722374400501,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788558458095,
+				"modifiedTime": 1788558508499,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"exportSource": null
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.DIuLYyQIlIzyGQqL",
+			"origin": "Item.yna0872v2fpkz51j",
 			"flags": {
 				"a5e": {}
 			},
@@ -63,25 +84,43 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
-			},
-			"changes": [
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Touched by Thunder (Thunder)\",\"formula\":\"@classResources.touched-by-thunder-damage\",\"damageType\":\"thunder\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/sonic/explosion-impact-shock-wave.webp\"}",
-					"mode": 0,
-					"priority": null
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": {
+							"label": "Touched by Thunder (Thunder)",
+							"formula": "@classResources.touched-by-thunder-damage",
+							"damageType": "thunder",
+							"context": {
+								"attackTypes": [
+									"meleeWeaponAttack"
+								],
+								"damageTypes": [],
+								"spellLevels": [],
+								"isCritBonus": false
+							},
+							"default": true,
+							"img": "icons/magic/sonic/explosion-impact-shock-wave.webp"
+						},
+						"priority": null,
+						"type": "custom",
+						"phase": "initial"
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
 				}
-			],
+			},
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 lightning or thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
 			"tint": "#ffffff",
@@ -90,14 +129,86 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.330",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.20",
-				"createdTime": 1722374409462,
-				"modifiedTime": 1722374424949,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788558458095,
+				"modifiedTime": 1788558458122,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"exportSource": null
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.yna0872v2fpkz51j",
+			"flags": {
+				"a5e": {}
+			},
+			"transfer": false,
+			"name": "Touched by Thunder (Thunder)",
+			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
+			"_id": "tTV0h1UFAXMFSmoV",
+			"type": "base",
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"type": "custom",
+						"value": {
+							"label": "Touched by Thunder (Lightning)",
+							"formula": "@classResources.touched-by-thunder-damage",
+							"damageType": "thunder",
+							"context": {
+								"attackTypes": [
+									"meleeWeaponAttack"
+								],
+								"damageTypes": [],
+								"spellLevels": [],
+								"isCritBonus": false
+							},
+							"default": true,
+							"img": "icons/magic/sonic/explosion-impact-shock-wave.webp"
+						},
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788558465383,
+				"modifiedTime": 1788558511667,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"exportSource": null
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
@@ -115,7 +226,11 @@
 		"actions": {
 			"2c2KULBl3DHkFxrs": {
 				"name": "Rage",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {},
@@ -125,20 +240,44 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
 				"effects": [
-					"gCWwg3nQHF3t6LIX"
-				]
+					"gCWwg3nQHF3t6LIX",
+					"tTV0h1UFAXMFSmoV"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"BB8tqe3eEx7zMG2H": {
 				"name": "Transfer to Different Weapon",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -149,10 +288,33 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -166,7 +328,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
@@ -194,20 +357,35 @@
 		"requiresBloodied": false,
 		"classes": "berserker",
 		"class": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.330",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.20",
-		"createdTime": 1722373880859,
-		"modifiedTime": 1722374452685,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.2.8",
+		"createdTime": 1788558458095,
+		"modifiedTime": 1788558465397,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"compendiumSource": "Compendium.a5e.a5e-class-features.Item.yna0872v2fpkz51j",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5ev14",
+			"uuid": "Item.yna0872v2fpkz51j",
+			"coreVersion": "14.367",
+			"systemId": "a5e",
+			"systemVersion": "1.2.8"
+		}
 	},
 	"_id": "yna0872v2fpkz51j"
 }
