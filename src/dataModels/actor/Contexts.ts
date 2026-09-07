@@ -95,12 +95,15 @@ export const healingBonusContextGrant = () => ({
 // -------------------------------------
 // Hit Points Contexts
 // -------------------------------------
-const hitPointsBonusSchema = () => ({});
+const hitPointsBonusSchema = () => ({
+	perLevel: new fields.BooleanField({ required: true, initial: false }),
+});
 export const hitPointsBonusContext = () => ({ ...hitPointsBonusSchema() });
 export const hitPointsBonusContextGrant = () => ({
 	...hitPointsBonusSchema(),
 	...grantContextCommon(),
 });
+
 const InitiativeBonusSchema = () => ({});
 export const InitiativeBonusContext = () => ({ ...InitiativeBonusSchema() });
 export const InitiativeBonusContextGrant = () => ({
@@ -119,24 +122,6 @@ export const sensesBonusContextGrant = () => ({ ...sensesBonusSchema(), ...grant
 const skillBonusSchema = () => ({});
 export const skillBonusContext = () => ({ ...skillBonusSchema() });
 export const skillBonusContextGrant = () => ({ ...skillBonusSchema(), ...grantContextCommon() });
-
-export function getHealingBonusContext(type: 'grant' | 'bonus') {
-	const schema: Record<string, any> = {
-		healingTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: ['healing'],
-		}),
-		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: [],
-		}),
-	};
-
-	if (type === 'grant') {
-		// @ts-expect-error
-		schema.default = new fields.BooleanField({ required: true, initial: true });
-	}
-
-	return schema;
-}
 
 export function getHitPointsBonusContext() {
 	return {
