@@ -1,6 +1,6 @@
-export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
+import fields = foundry.data.fields;
 
+export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
 	const schema: Record<string, any> = {
 		types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: ['check', 'save'],
@@ -25,8 +25,6 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getAttackBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: Record<string, any> = {
 		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
@@ -51,8 +49,6 @@ export function getAttackBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getDamageBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: Record<string, any> = {
 		attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
@@ -76,7 +72,6 @@ export function getDamageBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getHealingBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
 	const schema: Record<string, any> = {
 		healingTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: ['healing'],
@@ -95,8 +90,6 @@ export function getHealingBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getHitPointsBonusContext() {
-	const { fields } = foundry.data;
-
 	return {
 		// @ts-expect-error
 		perLevel: new fields.BooleanField({ required: true, initial: false }),
@@ -104,8 +97,6 @@ export function getHitPointsBonusContext() {
 }
 
 export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: Record<string, any> = {
 		abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: Object.keys(CONFIG.A5E.abilities),
@@ -124,8 +115,6 @@ export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getMovementBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: any = {
 		// @ts-expect-error
 		isHover: new fields.BooleanField({ required: true, initial: false }),
@@ -143,8 +132,6 @@ export function getMovementBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getSensesBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: any = {
 		// @ts-expect-error
 		otherwiseBlind: new fields.BooleanField({ required: true, initial: false }),
@@ -161,8 +148,6 @@ export function getSensesBonusContext(type: 'grant' | 'bonus') {
 }
 
 export function getSkillBonusContext(type: 'grant' | 'bonus') {
-	const { fields } = foundry.data;
-
 	const schema: any = {
 		// @ts-expect-error
 		passiveOnly: new fields.BooleanField({ required: true, initial: false }),

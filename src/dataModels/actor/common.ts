@@ -13,7 +13,7 @@ import {
 	getMovementBonusData,
 	getSensesBonusData,
 	getSkillBonusData,
-} from './Bonuses.js';
+} from './Bonuses.ts';
 
 const { fields } = foundry.data;
 
