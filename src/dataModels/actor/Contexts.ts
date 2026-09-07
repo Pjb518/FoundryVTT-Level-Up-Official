@@ -74,24 +74,51 @@ const damageBonusSchema = () => ({
 export const damageBonusContext = () => ({ ...damageBonusSchema() });
 export const damageBonusContextGrant = () => ({ ...damageBonusSchema, ...grantContextCommon });
 
-const healingBonusSchema = () => ({});
-export const healingBonusContext = () => ({});
-export const healingBonusContextGrant = () => ({});
+// -------------------------------------
+// Healing Bonus Contexts
+// -------------------------------------
+const healingBonusSchema = () => ({
+	healingTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: ['healing'],
+	}),
+	spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+});
+
+export const healingBonusContext = () => ({ ...healingBonusSchema() });
+export const healingBonusContextGrant = () => ({
+	...healingBonusSchema(),
+	...grantContextCommon(),
+});
+
+// -------------------------------------
+// Hit Points Contexts
+// -------------------------------------
 const hitPointsBonusSchema = () => ({});
-export const hitPointsBonusContext = () => ({});
-export const hitPointsBonusContextGrant = () => ({});
+export const hitPointsBonusContext = () => ({ ...hitPointsBonusSchema() });
+export const hitPointsBonusContextGrant = () => ({
+	...hitPointsBonusSchema(),
+	...grantContextCommon(),
+});
 const InitiativeBonusSchema = () => ({});
-export const InitiativeBonusContext = () => ({});
-export const InitiativeBonusContextGrant = () => ({});
+export const InitiativeBonusContext = () => ({ ...InitiativeBonusSchema() });
+export const InitiativeBonusContextGrant = () => ({
+	...InitiativeBonusSchema(),
+	...grantContextCommon(),
+});
 const movementBonusSchema = () => ({});
-export const movementBonusContext = () => ({});
-export const movementBonusContextGrant = () => ({});
+export const movementBonusContext = () => ({ ...movementBonusSchema() });
+export const movementBonusContextGrant = () => ({
+	...movementBonusSchema(),
+	...grantContextCommon(),
+});
 const sensesBonusSchema = () => ({});
-export const sensesBonusContext = () => ({});
-export const sensesBonusContextGrant = () => ({});
+export const sensesBonusContext = () => ({ ...sensesBonusSchema() });
+export const sensesBonusContextGrant = () => ({ ...sensesBonusSchema(), ...grantContextCommon() });
 const skillBonusSchema = () => ({});
-export const skillBonusContext = () => ({});
-export const skillBonusContextGrant = () => ({});
+export const skillBonusContext = () => ({ ...skillBonusSchema() });
+export const skillBonusContextGrant = () => ({ ...skillBonusSchema(), ...grantContextCommon() });
 
 export function getHealingBonusContext(type: 'grant' | 'bonus') {
 	const schema: Record<string, any> = {

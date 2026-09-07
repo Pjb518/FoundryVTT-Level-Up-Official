@@ -1,13 +1,13 @@
 import {
 	abilitiesBonusContext,
 	attackBonusContext,
-	getDamageBonusContext,
-	getHealingBonusContext,
+	damageBonusContext,
 	getHitPointsBonusContext,
 	getInitiativeBonusContext,
 	getMovementBonusContext,
 	getSensesBonusContext,
 	getSkillBonusContext,
+	healingBonusContext,
 } from './Contexts.ts';
 
 import fields = foundry.data.fields;
@@ -39,7 +39,7 @@ export function getAttackBonusData() {
 
 export function getDamageBonusData() {
 	return {
-		context: new fields.SchemaField(getDamageBonusContext('bonus')),
+		context: new fields.SchemaField(damageBonusContext()),
 		damageType: new fields.StringField({ required: true, initial: '' }),
 		...baseBonusData(),
 	};
@@ -53,7 +53,7 @@ export function getExertionBonusData() {
 
 export function getHealingBonusData() {
 	return {
-		context: new fields.SchemaField(getHealingBonusContext('bonus')),
+		context: new fields.SchemaField(healingBonusContext()),
 		healingType: new fields.StringField({ required: true, initial: 'healing' }),
 		...baseBonusData(),
 	};
