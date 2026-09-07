@@ -2,12 +2,13 @@ import {
 	abilitiesBonusContext,
 	attackBonusContext,
 	damageBonusContext,
-	getInitiativeBonusContext,
 	getMovementBonusContext,
 	getSensesBonusContext,
 	getSkillBonusContext,
 	healingBonusContext,
 	hitPointsBonusContext,
+	initiativeBonusContext,
+	movementBonusContext,
 } from './Contexts.ts';
 
 import fields = foundry.data.fields;
@@ -68,14 +69,14 @@ export function getHitPointBonusData() {
 
 export function getInitiativeBonusData() {
 	return {
-		context: new fields.SchemaField(getInitiativeBonusContext('bonus')),
+		context: new fields.SchemaField(initiativeBonusContext()),
 		...baseBonusData(),
 	};
 }
 
 export function getMovementBonusData() {
 	return {
-		context: new fields.SchemaField(getMovementBonusContext('bonus')),
+		context: new fields.SchemaField(movementBonusContext()),
 		unit: new fields.StringField({ required: true, initial: 'feet' }),
 		...baseBonusData(),
 	};

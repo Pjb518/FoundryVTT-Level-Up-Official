@@ -98,72 +98,57 @@ export const healingBonusContextGrant = () => ({
 const hitPointsBonusSchema = () => ({
 	perLevel: new fields.BooleanField({ required: true, initial: false }),
 });
+
 export const hitPointsBonusContext = () => ({ ...hitPointsBonusSchema() });
+
 export const hitPointsBonusContextGrant = () => ({
 	...hitPointsBonusSchema(),
 	...grantContextCommon(),
 });
 
-const InitiativeBonusSchema = () => ({});
-export const InitiativeBonusContext = () => ({ ...InitiativeBonusSchema() });
-export const InitiativeBonusContextGrant = () => ({
-	...InitiativeBonusSchema(),
+// -------------------------------------
+// Initiative Contexts
+// -------------------------------------
+const initiativeBonusSchema = () => ({
+	abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: Object.keys(CONFIG.A5E.abilities),
+	}),
+	skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: Object.keys(CONFIG.A5E.skills),
+	}),
+});
+
+export const initiativeBonusContext = () => ({ ...initiativeBonusSchema() });
+export const initiativeBonusContextGrant = () => ({
+	...initiativeBonusSchema(),
 	...grantContextCommon(),
 });
-const movementBonusSchema = () => ({});
-export const movementBonusContext = () => ({ ...movementBonusSchema() });
+
+// -------------------------------------
+// Movement Bonus Contexts
+// -------------------------------------
+const movementBonusSchema = () => ({
+	isHover: new fields.BooleanField({ required: true, initial: false }),
+});
+
+export const movementBonusContext = () => ({
+	...movementBonusSchema(),
+	movementTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+});
+
 export const movementBonusContextGrant = () => ({
 	...movementBonusSchema(),
 	...grantContextCommon(),
 });
+
 const sensesBonusSchema = () => ({});
 export const sensesBonusContext = () => ({ ...sensesBonusSchema() });
 export const sensesBonusContextGrant = () => ({ ...sensesBonusSchema(), ...grantContextCommon() });
 const skillBonusSchema = () => ({});
 export const skillBonusContext = () => ({ ...skillBonusSchema() });
 export const skillBonusContextGrant = () => ({ ...skillBonusSchema(), ...grantContextCommon() });
-
-export function getHitPointsBonusContext() {
-	return {
-		// @ts-expect-error
-		perLevel: new fields.BooleanField({ required: true, initial: false }),
-	};
-}
-
-export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
-	const schema: Record<string, any> = {
-		abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: Object.keys(CONFIG.A5E.abilities),
-		}),
-		skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: Object.keys(CONFIG.A5E.skills),
-		}),
-	};
-
-	if (type === 'grant') {
-		// @ts-expect-error
-		schema.default = new fields.BooleanField({ required: true, initial: true });
-	}
-
-	return schema;
-}
-
-export function getMovementBonusContext(type: 'grant' | 'bonus') {
-	const schema: any = {
-		// @ts-expect-error
-		isHover: new fields.BooleanField({ required: true, initial: false }),
-		// valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
-	};
-
-	if (type === 'bonus') {
-		schema.movementTypes = new fields.ArrayField(
-			new fields.StringField({ required: true, initial: '' }),
-			{ initial: [] },
-		);
-	}
-
-	return schema;
-}
 
 export function getSensesBonusContext(type: 'grant' | 'bonus') {
 	const schema: any = {
