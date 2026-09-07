@@ -22,54 +22,46 @@ const abilityBonusSchema = () => ({
 });
 
 export const abilitiesBonusContext = () => ({
-	...abilitiesBonusContext(),
+	...abilityBonusSchema(),
 	abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 		initial: [],
 	}),
 });
 
 export const abilitiesBonusContextGrant = () => ({
-	...abilitiesBonusContext,
-	...grantContextCommon,
+	...abilityBonusSchema(),
+	...grantContextCommon(),
 });
 
-export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
-	const schema = {
-		types: new fields.ArrayField(
-			new fields.StringField({ required: true, initial: '', nullable: false }),
-			{
-				initial: ['check', 'save'],
-			},
-		),
-		requiresProficiency: new fields.BooleanField({
-			required: true,
-			nullable: false,
-			initial: false,
-		}),
-	};
+// -------------------------------------
+// Attack Bonus Contexts
+// -------------------------------------
+const attackBonusSchema = () => ({
+	spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+	requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
+});
 
-	if (type === 'grant') return { ...schema, ...grantContextCommon() };
+export const attackBonusContext = () => ({
+	...attackBonusSchema(),
+	attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+});
 
-	return {
-		...schema,
-	};
-}
+export const attackBonusContextGrant = () => ({
+	...attackBonusSchema(),
+	...grantContextCommon(),
+});
 
 export function getAttackBonusContext(type: 'grant' | 'bonus') {
-	const schema = {
-		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: [],
-		}),
-		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
-	};
+	const schema = {};
 
 	if (type === 'grant') return { ...schema, ...grantContextCommon() };
 
 	return {
 		...schema,
-		attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: [],
-		}),
 	};
 }
 

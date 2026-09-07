@@ -1,6 +1,6 @@
 import {
 	abilitiesBonusContext,
-	getAttackBonusContext,
+	attackBonusContext,
 	getDamageBonusContext,
 	getHealingBonusContext,
 	getHitPointsBonusContext,
@@ -32,7 +32,7 @@ export function getAbilitiesBonusData() {
 
 export function getAttackBonusData() {
 	return {
-		context: new fields.SchemaField(getAttackBonusContext('bonus')),
+		context: new fields.SchemaField(attackBonusContext()),
 		...baseBonusData(),
 	};
 }
