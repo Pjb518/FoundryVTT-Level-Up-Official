@@ -1,0 +1,282 @@
+{
+	"name": "Dualistic Energy",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-star-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"bhzQaEHzLO8x8qsC": {
+				"name": "Photokinetic",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"hsN8binFOhn6tzxr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"8dVSeHOIcjghl5zE": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @int.mod",
+						"damageType": "radiant",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>On a hit the target suffers disadvantage on sight-based Perception checks until the end of its next turn.</p>",
+				"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+				"id": "",
+				"default": false,
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"udPxCEeO0Qxx9wPk"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			},
+			"OGuzuGdeKOoPLwDH": {
+				"name": "Necrokinetic",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"hsN8binFOhn6tzxr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"8dVSeHOIcjghl5zE": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @int.mod",
+						"damageType": "necrotic",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					}
+				},
+				"descriptionOutputs": [
+					"item"
+				],
+				"description": "<p>On a hit the target cannot regain hit points until the end of its next turn.</p>",
+				"img": "icons/magic/unholy/beam-impact-green.webp",
+				"id": "",
+				"default": false,
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"DGwGE5lgchKcAqMc"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">At 1st level when you select this archetype, you gain access to the following additional @UUID[Compendium.a5e.a5e-class-features.Item.0rAgcjGN39v9X9v7]{Mind Strike} options:</p><ul><li dir=\"ltr\"><p><strong>Photokinetic</strong>: Make a ranged psionic attack roll to deal 1d6 + Intelligence modifier radiant damage. The target suffers disadvantage on sight-based Perception checks until the end of its next turn.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><strong>Necrokinetic</strong>:  Make a ranged psionic attack roll to deal 1d6 + Intelligence modifier necrotic damage and the target cannot regain hit points until the end of its next turn. </p></li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitItinerant",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"name": "Photokinetic",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"origin": "Item.ouywrsdruo4whuaq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "udPxCEeO0Qxx9wPk",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Disadvantage on sight-based Perception checks until the end of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744514615,
+				"modifiedTime": 1788744534378,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Necrokinetic",
+			"img": "icons/magic/unholy/beam-impact-green.webp",
+			"origin": "Item.ouywrsdruo4whuaq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "DGwGE5lgchKcAqMc",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Cannot regain hit points until the end of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744552553,
+				"modifiedTime": 1788744567153,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1788744452016,
+		"modifiedTime": 1788744552565,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "ouywrsdruo4whuaq"
+}

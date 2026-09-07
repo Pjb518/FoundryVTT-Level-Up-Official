@@ -13,39 +13,231 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1r93q4hz1hqGBb59": {
+				"name": "Connection to the Divine",
+				"consumers": {
+					"5mJrq75H3TmWhKdN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"6ZZa3LafcjGle8MZ",
+					"Bc3DbYq0uoVvBA40"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">At 6th level, your dualistic abilities continue to develop. When you chose your path, you designate a number of creatures equal to your proficiency bonus. You and the selected creatures benefit as follows:</p><h3 dir=\"ltr\">Glow of Succor</h3><p dir=\"ltr\">If you choose Path of the Light, any healing performed by you or one of the selected creatures in the area of your glow while it is active is increased by an amount equal to your intelligence modifier.</p><h3 dir=\"ltr\">Shroud of Punishment</h3><p dir=\"ltr\">If you choose Path of the Dark, whenever you or one of the selected creatures deals damage while within the area of your gloom, you can choose to have the attack deal additional damage equal to your intelligence modifier. This extra damage can only occur once per round.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Archetype Mystic, Esper 6",
+		"prerequisite": "",
 		"requiresBloodied": false,
-		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"name": "Glow of Succor",
+			"img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+			"origin": "Item.fbzmvg9xjyoy0w7h",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.healing",
+						"type": "custom",
+						"value": {
+							"label": "Glow of Succor",
+							"formula": "@int.mod",
+							"healingType": "healing",
+							"context": {
+								"healingTypes": [
+									"healing"
+								],
+								"spellLevels": []
+							},
+							"default": true,
+							"img": "icons/magic/holy/barrier-shield-winged-blue.webp"
+						},
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "6ZZa3LafcjGle8MZ",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Any healing performed by you or one of the selected creatures in the area of your glow while it is active is increased by an amount equal to your intelligence modifier.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788745246612,
+				"modifiedTime": 1788745298247,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Shroud of Punishment",
+			"img": "icons/magic/holy/barrier-shield-winged-blue.webp",
+			"origin": "Item.fbzmvg9xjyoy0w7h",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"type": "custom",
+						"value": {
+							"label": "Shroud of Punishment",
+							"formula": "@int.mod",
+							"damageType": "",
+							"context": {
+								"attackTypes": [],
+								"damageTypes": [],
+								"spellLevels": [],
+								"isCritBonus": false
+							},
+							"default": true,
+							"img": "icons/magic/holy/barrier-shield-winged-blue.webp"
+						},
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "Bc3DbYq0uoVvBA40",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Whenever you or one of the selected creatures deals damage while within the area of your gloom, you can choose to have the attack deal additional damage equal to your intelligence modifier. This extra damage can only occur once per round.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788745306870,
+				"modifiedTime": 1788745339559,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"folder": null,
 	"flags": {},
-	"_id": "fbzmvg9xjyoy0w7h",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788745209790,
+		"modifiedTime": 1788745306890,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "fbzmvg9xjyoy0w7h"
 }

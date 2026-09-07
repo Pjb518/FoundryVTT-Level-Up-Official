@@ -13,35 +13,110 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p dir=\"ltr\">Finally at level 1, whenever you finish a long rest, choose one of the following two options:</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><strong>Path of the Light.</strong> Until you finish a long rest, you gain an expertise die in Persuasion and your passive Perception score increases by an amount equal to your Intelligence modifier (minimum 1)</p></li><li dir=\"ltr\" aria-level=\"1\"><strong>Path of the Dark. </strong>Until you finish a long rest, you gain an expertise die in Deception and darkvision with a range of 60 feet. If you already have darkvision, its range increases by 60 feet instead.</li></ul>",
+		"actions": {
+			"1AFsGRmiVbfROfJm": {
+				"name": "Path of Duality",
+				"consumers": {
+					"PGjE9jBUqolpWrSC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"t3GQ6XLrXM3r4bJy",
+					"X0hb45JZd5zTOXNg"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Finally at level 1, whenever you finish a long rest, choose one of the following two options:</p><h2>Path of the Light</h2><p dir=\"ltr\" role=\"presentation\">Until you finish a long rest, you gain an expertise die in Persuasion and your passive Perception score increases by an amount equal to your Intelligence modifier (minimum 1).</p><h2>Path of the Dark</h2><p>Until you finish a long rest, you gain an expertise die in Deception and darkvision with a range of 60 feet. If you already have darkvision, its range increases by 60 feet instead.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Archetype Mystic, Esper 1",
+		"grants": {
+			"Cg2IwHElOWmuWjVM": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "class",
+				"optional": false,
+				"_id": "Cg2IwHElOWmuWjVM",
+				"label": "Path of Duality",
+				"features": {
+					"total": 1
+				}
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
-		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/light/beam-deflect-path-yellow.webp",
 			"origin": "Item.qbo302hh1n7s6fjd",
 			"flags": {
 				"a5e": {
@@ -53,50 +128,194 @@
 			"transfer": false,
 			"name": "Path of Light",
 			"_id": "b5iDUOowWjI9XWZ5",
-			"changes": [
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.skills.prc.bonuses.passive",
-					"value": "5",
-					"mode": 2,
-					"priority": 20
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 86400,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 86400,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744631284,
+				"modifiedTime": 1788744631284,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.per.expertiseDice",
+						"value": 1,
+						"priority": 20,
+						"type": "add",
+						"phase": "initial"
+					},
+					{
+						"key": "system.skills.prc.bonuses.passive",
+						"value": 5,
+						"priority": 20,
+						"type": "add",
+						"phase": "initial"
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
+		},
+		{
+			"name": "Path of the Light",
+			"img": "icons/magic/light/beam-deflect-path-yellow.webp",
+			"origin": "Item.qbo302hh1n7s6fjd",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.skills.per.expertiseDice",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 20
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.skills",
+						"type": "custom",
+						"value": {
+							"label": "Path of the Light",
+							"formula": "@int.mod",
+							"damageType": "",
+							"context": {
+								"skills": [
+									"prc"
+								],
+								"requiresProficiency": false,
+								"passiveOnly": true
+							},
+							"default": true,
+							"img": "icons/magic/light/beam-deflect-path-yellow.webp"
+						},
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "t3GQ6XLrXM3r4bJy",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain an expertise die in Persuasion and your passive Perception score increases by an amount equal to your Intelligence modifier (minimum 1).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744748799,
+				"modifiedTime": 1788744795890,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Path of the Dark",
+			"img": "icons/magic/light/beam-deflect-path-yellow.webp",
+			"origin": "Item.qbo302hh1n7s6fjd",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.skills.dec.expertiseDice",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 20
+					},
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"type": "add",
+						"value": "60",
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "X0hb45JZd5zTOXNg",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain an expertise die in Deception and darkvision with a range of 60 feet. If you already have darkvision, its range increases by 60 feet instead.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744802870,
+				"modifiedTime": 1788744832282,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			}
 		}
 	],
 	"folder": null,
 	"flags": {},
-	"_id": "qbo302hh1n7s6fjd",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788744631284,
+		"modifiedTime": 1788744802888,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "qbo302hh1n7s6fjd"
 }

@@ -13,39 +13,206 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"hMRs2W7veQhsqtNT": {
+				"name": "Connection to Others",
+				"consumers": {
+					"kZXRdXqCzxCoiwsy": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"cHeOzHOEKHnU9qIx",
+					"ZbSWMghQcBG6tgGY"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">At 3rd level, your chosen focus on light or dark becomes more powerful.</p><h3 dir=\"ltr\">Light of Truth</h3><p dir=\"ltr\">If you choose Path of the Light, you now emit bright light to a range of 30 feet and dim light to a range of 60 feet. You may suppress this light at will (no action required) and reactivate it as a bonus action. While this light is active, you have advantage on Insight checks against creatures within the area of bright light. In addition, creatures observing illusions within the area of the bright light have advantage on saves to disbelieve them.</p><h3 dir=\"ltr\">Gloom of Deceit</h3><p dir=\"ltr\">If you choose Path of the Dark, you now suppress light by one level within a range of 30 feet. (Bright light becomes dim light, dim light becomes darkness, and darkness becomes magical darkness). You may suppress this darkness (no action required) or reactivate it as a bonus action. While this darkness is active, illusions within its area become more potent. Creatures witnessing an illusion in the area have disadvantage on saves to disbelieve them, and creatures failing such a save become rattled. Creatures attempting an Insight check on you also do so with disadvantage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Archetype Mystic, Esper 3",
+		"prerequisite": "",
 		"requiresBloodied": false,
-		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"name": "Light of Truth",
+			"img": "icons/magic/symbols/chevron-elipse-circle-blue.webp",
+			"origin": "Item.n7eucq7xqnldt6y5",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"type": "override",
+						"value": "30",
+						"phase": "initial",
+						"priority": 20
+					},
+					{
+						"key": "@token.light.dim",
+						"type": "override",
+						"value": "60",
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "cHeOzHOEKHnU9qIx",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Emit bright light to a range of 30 feet and dim light to a range of 60 feet. You may suppress this light at will (no action required) and reactivate it as a bonus action. While this light is active, you have advantage on Insight checks against creatures within the area of bright light. In addition, creatures observing illusions within the area of the bright light have advantage on saves to disbelieve them.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744941330,
+				"modifiedTime": 1788744977143,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Gloom of Deceit",
+			"img": "icons/magic/symbols/chevron-elipse-circle-blue.webp",
+			"origin": "Item.n7eucq7xqnldt6y5",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "ZbSWMghQcBG6tgGY",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Uppress light by one level within a range of 30 feet. (Bright light becomes dim light, dim light becomes darkness, and darkness becomes magical darkness). You may suppress this darkness (no action required) or reactivate it as a bonus action. While this darkness is active, illusions within its area become more potent. Creatures witnessing an illusion in the area have disadvantage on saves to disbelieve them, and creatures failing such a save become rattled. Creatures attempting an Insight check on you also do so with disadvantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788744988751,
+				"modifiedTime": 1788745020617,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"folder": null,
 	"flags": {},
-	"_id": "n7eucq7xqnldt6y5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788744841244,
+		"modifiedTime": 1788744988766,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "n7eucq7xqnldt6y5"
 }

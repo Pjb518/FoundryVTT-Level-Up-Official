@@ -1,5 +1,5 @@
 {
-	"name": "Mystical gaze",
+	"name": "Mystical Gaze",
 	"type": "feature",
 	"img": "icons/magic/perception/eye-ringed-green.webp",
 	"system": {
@@ -13,39 +13,191 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"D8n2Urd1B6V4LEMu": {
+				"name": "Mystical Gaze",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"DhrgVHZpzsWL8yrS",
+					"EB82ac3R3coFqQoJ"
+				],
+				"macro": "",
+				"consumers": {
+					"DevfBgjGb9jNBlrL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">Also at 3rd level, your choice of light or dark modifies in a literal sense how you see the world.</p><h3 dir=\"ltr\">Eyes of Light</h3><p dir=\"ltr\">If you choose Path of the Light, your eyes sharpen, allowing you to see like a hawk. You have advantage on Perception checks based on sight.</p><h3 dir=\"ltr\">Eye of Darkness</h3><p dir=\"ltr\">If you choose Path of Darkness, your vision can penetrate the most tenebrous gloom. Your darkvision can see through magical darkness as it it were normal darkness.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Archetype Mystic, Esper 3",
+		"prerequisite": "",
 		"requiresBloodied": false,
-		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"classes": "esper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"name": "Eyes of Light",
+			"img": "icons/magic/perception/eye-ringed-green.webp",
+			"origin": "Item.zqkzzsi8yuqkme1t",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "DhrgVHZpzsWL8yrS",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Advantage on Perception checks based on sight.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788745142581,
+				"modifiedTime": 1788745154094,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Eye of Darkness",
+			"img": "icons/magic/perception/eye-ringed-green.webp",
+			"origin": "Item.zqkzzsi8yuqkme1t",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [],
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "EB82ac3R3coFqQoJ",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p><span style=\"color:rgb(34, 34, 34);font-family:Signika, ui-sans-serif, sans-serif;font-size:16px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-indent:0px;text-transform:none;widows:2;word-spacing:0px;-webkit-text-stroke-width:0px;white-space:normal;background-color:rgb(246, 241, 234);text-decoration-thickness:initial;text-decoration-style:initial;text-decoration-color:initial;display:inline !important;float:none\">Your darkvision can see through magical darkness as it it were normal darkness.</span></p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1788745164266,
+				"modifiedTime": 1788745176728,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"folder": null,
 	"flags": {},
-	"_id": "zqkzzsi8yuqkme1t",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.8",
+		"createdTime": 1788745091310,
+		"modifiedTime": 1788745164276,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "zqkzzsi8yuqkme1t"
 }
