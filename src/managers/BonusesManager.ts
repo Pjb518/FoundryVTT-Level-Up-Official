@@ -12,7 +12,6 @@ import type {
 	SkillBonus,
 } from 'types/bonuses.d.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 import arraysAreEqual from '../utils/arraysAreEqual.ts';
 
@@ -29,14 +28,14 @@ interface SelectionData {
 	skillKey?: string;
 }
 
-export default class BonusesManager {
-	#actor: BaseActorA5e;
+class BonusesManager {
+	#actor: Actor.OfType<'base'>;
 
-	#bonuses: Bonuses;
+	#bonuses: Actor.OfType<'base'>['system']['bonuses'];
 
-	constructor(actor: BaseActorA5e) {
+	constructor(actor: Actor.OfType<'base'>) {
 		this.#actor = actor;
-		this.#bonuses = (this.#actor.system.bonuses as Bonuses) ?? {};
+		this.#bonuses = this.#actor.system.bonuses ?? {};
 	}
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -753,3 +752,5 @@ export default class BonusesManager {
 		});
 	}
 }
+
+export { BonusesManager };

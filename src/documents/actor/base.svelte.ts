@@ -30,7 +30,7 @@ import SkillConfigDialog from '#view/dialogs/actor/SkillConfigDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import ActorGrantsManager from '../../managers/ActorGrantsManager.ts';
-import BonusesManager from '../../managers/BonusesManager.ts';
+import { BonusesManager } from '../../managers/BonusesManager.ts';
 import type HitDiceManager from '../../managers/HitDiceManager.ts';
 import { RestManager } from '../../managers/RestManager.ts';
 import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';

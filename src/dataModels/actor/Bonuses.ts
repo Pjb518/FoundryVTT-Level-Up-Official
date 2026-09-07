@@ -13,6 +13,12 @@ import {
 import fields = foundry.data.fields;
 
 const baseBonusData = () => ({
+	defaultLabel: new fields.StringField({
+		persisted: false,
+		required: true,
+		nullable: false,
+		initial: '',
+	}),
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
