@@ -230,6 +230,7 @@ class RollStateManager {
 		const RollManager = new RollPreparationManager(state);
 		const rolls = await RollManager.prepareRolls();
 		console.log(rolls);
+		return rolls;
 	}
 }
 
@@ -239,6 +240,7 @@ declare namespace RollStateManager {
 			expertiseDie: number;
 			rollMode: number;
 			formula: string;
+			terms: foundry.dice.terms.RollTerm[];
 		};
 		consumptionData: {
 			actionUses: { baseUses: number; quantity: number };

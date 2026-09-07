@@ -18,6 +18,6 @@ export function getRollFormula(
 		modifiers: modifierManager.getModifiers(),
 	});
 
-	if (options.terms) return formula.terms;
+	if (options.terms) return formula;
 	return formula.rollFormula;
 }

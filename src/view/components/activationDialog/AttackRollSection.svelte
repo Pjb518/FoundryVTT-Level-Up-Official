@@ -20,6 +20,7 @@
             expertiseDie,
             rollMode,
             formula: rollFormula,
+            terms,
         };
     }
 
@@ -44,20 +45,30 @@
     let rollModeSource = $derived(parts.rollModeSource);
     let selectedAttackBonuses = $derived(parts.selectedAttackBonuses);
 
-    let rollFormula = $derived(
-        getRollFormula(actor, {
-            ability: attackAbility,
-            attackBonus: attackRoll?.bonus,
-            attackType: attackRoll.attackType,
-            expertiseDie,
-            item: item,
-            proficient: attackRoll?.proficient ?? true,
-            situationalMods,
-            rollMode,
-            selectedAttackBonuses,
-            type: "attack",
-        }),
-    );
+    let terms: any[] = [];
+    let { rollFormula } = $derived.by(() => {
+        const res = getRollFormula(
+            actor,
+            {
+                ability: attackAbility,
+                attackBonus: attackRoll?.bonus,
+                attackType: attackRoll.attackType,
+                expertiseDie,
+                item: item,
+                proficient: attackRoll?.proficient ?? true,
+                situationalMods,
+                rollMode,
+                selectedAttackBonuses,
+                type: "attack",
+            },
+            { terms: true },
+        );
+
+        terms = res.terms;
+        return {
+            rollFormula: res.rollFormula,
+        };
+    });
 
     updateData();
     $effect(() => updateData());

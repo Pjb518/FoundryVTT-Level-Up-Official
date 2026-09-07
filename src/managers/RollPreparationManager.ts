@@ -10,7 +10,7 @@ import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/pr
 import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
 import type { DamageRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
-import constructRollFormula from '../dice/constructRollFormula';
+import { constructRollFormula } from '../dice/constructRollFormula.ts';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import simplifyDiceTerms from '../dice/simplifyDiceTerms';
 import type { BaseActorA5e } from '../documents/actor/base';
@@ -165,21 +165,22 @@ class RollPreparationManager {
 	async #prepareAttackRoll(_roll: RollStateManager.WorkflowState['attack']) {
 		if (!_roll) return null;
 
+		// For sanity check that a formula would work ?
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: _roll.formula,
 			item: this.#item,
 		});
-
 		if (!rollFormula) return null;
 
+		// TODO: Move this to formula creation
 		const globalCritThreshold = _roll.attackType.includes('Weapon')
 			? (this.#actor.getFlag('a5e', 'criticalHitThresholdWeapon') ?? 20)
 			: (this.#actor.getFlag('a5e', 'criticalHitThresholdSpell') ?? 20);
 
 		const critThreshold = Math.min(globalCritThreshold, _roll.critThreshold ?? 20);
-		// TODO: Use d20roll and update it to get expertise die from formula
-		const roll = await new Roll(rollFormula).evaluate();
+
+		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate();
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
 		const isCrit = ((roll.dice[0].total as number) ?? 0) >= critThreshold;

@@ -597,6 +597,16 @@ const expertiseDiceSidesMap = {
 	6: 20,
 };
 
+const expertiseDiceSidesMapInverted = {
+	0: 0,
+	4: 1,
+	6: 2,
+	8: 3,
+	10: 4,
+	12: 5,
+	20: 6,
+};
+
 const featTypes = {
 	basic: 'A5E.features.featTypes.basic',
 	first: 'A5E.features.featTypes.first',
@@ -2264,6 +2274,7 @@ const A5E = {
 	endemicTypes,
 	equippedStates,
 	expertiseDiceSidesMap,
+	expertiseDiceSidesMapInverted,
 	featTypes,
 	featureTypes,
 	healingTypes,

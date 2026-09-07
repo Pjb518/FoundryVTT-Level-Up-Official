@@ -81,7 +81,8 @@ export default function init() {
 	CONFIG.Dice.BaseDie = BaseDie;
 	CONFIG.Dice.D20Die = D20Die;
 	CONFIG.Dice.terms.d = BaseDie;
-	CONFIG.Dice.ExpertiseDie = ExpertiseDie;
+	CONFIG.Dice.termTypes.D20Die = D20Die;
+	CONFIG.Dice.termTypes.ExpertiseDie = ExpertiseDie;
 
 	// CONFIG.Dice.CountDownPool = CountDownPool;
 

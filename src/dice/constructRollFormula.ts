@@ -1,4 +1,12 @@
+import type { ItemA5e } from '#documents/item/item.ts';
 import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
+
+type Options = {
+	actor: Actor.OfType<'base'>;
+	formula?: string;
+	item: ItemA5e;
+	modifiers?: any;
+};
 
 /**
  * A helper function to construct a roll formula from an array of component values.
@@ -6,9 +14,9 @@ import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
  * Values which are undefined, null, or 0 are not included in the resulting formula, and some
  * arithmetic simplification is performed on the resulting formula for presentational purposes.
  *
- * @returns {string} A valid roll formula that can be passed to Roll.
+ * @returns  A valid roll formula that can be passed to Roll.
  */
-export default function constructRollFormula({ actor, formula, item, modifiers }) {
+export function constructRollFormula({ actor, formula, item, modifiers }: Options) {
 	const rollData = actor.getRollData(item);
 
 	const parts = [
@@ -16,7 +24,7 @@ export default function constructRollFormula({ actor, formula, item, modifiers }
 		...(modifiers ?? []).map(({ label, value }) => {
 			if (!value || value === 0) return null;
 
-			let modifier;
+			let modifier: any;
 			try {
 				modifier = new Roll(value.toString(), rollData);
 			} catch (err) {

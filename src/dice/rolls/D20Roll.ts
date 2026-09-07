@@ -15,7 +15,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		super(formula, data, options);
 
 		this.#createD20Die();
-		if (!this.options.preprocess) this.preprocessFormula();
+		if (!this.options.preprocessed) this.preprocessFormula();
 		if (!this.options.configured) this.configureModifiers();
 	}
 
@@ -89,6 +89,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		if (this.terms[0] instanceof D20Die) return;
 		if (!(this.terms[0] instanceof terms.Die)) return;
 		const { number, faces, ...data } = this.terms[0];
+
 		this.terms[0] = new D20Die({ ...data, number, faces });
 	}
 
@@ -110,12 +111,12 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 
 		// Apply expertise
 		if (this.options.expertise) {
-			const expTerm = new ExpertiseDie({ faces: this.options.expertise });
+			const expTerm = new ExpertiseDie({ expertise: this.options.expertise });
 			const found = this.terms.findSplice((t) => t instanceof ExpertiseDie, expTerm);
 
 			if (!found) {
 				this.terms.splice(1, 0, new terms.OperatorTerm({ operator: '+' }));
-				this.terms.splice(2, 0, new ExpertiseDie({ faces: this.options.expertise }));
+				this.terms.splice(2, 0, expTerm);
 			}
 		}
 
@@ -128,10 +129,14 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		this.terms.forEach((term, idx) => {
 			// @ts-expect-error
 			if (term.flavor === _loc('A5E.expertiseDie.title')) {
-				this.terms[idx] = ExpertiseDie.fromData(term.toJSON());
+				const t = term.toJSON();
+				t.class = 'ExpertiseDie';
+				this.terms[idx] = ExpertiseDie.fromData(t);
+				this.options.expertise = CONFIG.A5E.expertiseDiceSidesMapInverted[t.faces as number];
 			}
 		});
 
+		// Reset Formula
 		this.resetFormula();
 		this.options.preprocessed = true;
 	}
@@ -174,6 +179,8 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 
 		merged.rollMode = original.rollMode ?? other.rollMode;
 		merged.expertise = original.expertise ?? other.expertise;
+		merged.critSuccess = original.critSuccess ?? other.critSuccess;
+		merged.critFail = original.critFail ?? other.critFail;
 		merged.max = Math.min(original.max ?? Infinity, other.max ?? Infinity);
 		merged.min = Math.max(original.min ?? -Infinity, other.min ?? -Infinity);
 		return merged;

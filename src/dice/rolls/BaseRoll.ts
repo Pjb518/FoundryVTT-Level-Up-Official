@@ -1,6 +1,6 @@
 import type { InexactPartial } from 'fvtt-types/utils';
 
-import terms = foundry.dice.terms;
+import Terms = foundry.dice.terms;
 
 class BaseRoll extends Roll {
 	declare options: BaseRoll.Options;
@@ -25,11 +25,13 @@ class BaseRoll extends Roll {
 	/** ===================================== */
 	override async evaluate(options?: BaseRoll.Options): Promise<Roll.Evaluated<this>> {
 		this.modifyDiceTerms(options);
+		this.simplifyOperatorTerms();
 		return super.evaluate(options);
 	}
 
 	override evaluateSync(options?: Roll.Options): Roll.Evaluated<this> {
 		this.modifyDiceTerms(options);
+		this.simplifyOperatorTerms();
 		return super.evaluateSync(options);
 	}
 
@@ -38,24 +40,24 @@ class BaseRoll extends Roll {
 
 		this.terms = this.terms.map((term) => {
 			if (
-				(term instanceof terms.DiceTerm || term instanceof terms.PoolTerm) &&
+				(term instanceof Terms.DiceTerm || term instanceof Terms.PoolTerm) &&
 				term.modifiers.length
 			) {
 				const minimize = !options.maximize;
 
 				const number = 0;
-				if (term instanceof terms.DiceTerm) this.modifyTerm(term, { minimize });
+				if (term instanceof Terms.DiceTerm) this.modifyTerm(term, { minimize });
 				else this.modifyPoolTerm(term, { minimize });
 
 				if (Number.isFinite(number))
-					return new terms.NumericTerm({ number, options: term.options });
+					return new Terms.NumericTerm({ number, options: term.options });
 			}
 
 			return term;
 		});
 	}
 
-	modifyTerm(die: terms.DiceTerm, { minimize = false } = {}) {
+	modifyTerm(die: Terms.DiceTerm, { minimize = false } = {}) {
 		if (!die.number || !Number.isFinite(die.number)) return null;
 		if (!die.faces || !Number.isFinite(die.faces)) return null;
 		if (!die.modifiers.length) return null;
@@ -70,17 +72,45 @@ class BaseRoll extends Roll {
 		return die.total;
 	}
 
-	modifyPoolTerm(pool: terms.PoolTerm, { minimize = false } = {}) {
+	modifyPoolTerm(pool: Terms.PoolTerm, { minimize = false } = {}) {
 		pool.evaluate({ maximize: !minimize, minimize });
 		this.applyMinMaxModifiers(pool);
 		return pool.total;
 	}
 
+	simplifyOperatorTerms() {
+		const terms = this.terms;
+		this.terms = terms.reduce((acc, term, i) => {
+			const prior = acc[acc.length - 1];
+			// @ts-expect-error Operator exists on operator terms
+			const ops = new Set<string | undefined>([prior?.operator, term.operator]);
+
+			// If the final terms is an operator term, ignore it.
+			if (i === terms.length - 1 && term instanceof Terms.OperatorTerm) return acc;
+
+			// If one of the terms is not an operator, add the current term as is.
+			if (ops.has(undefined)) acc.push(term);
+			// Replace consecutive "+ -" operators with a "-" operator.
+			else if (ops.has('+') && ops.has('-')) {
+				acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '-' }));
+			}
+			// Replace double "-" operators with a "+" operator.
+			else if (ops.has('-') && ops.size === 1) {
+				acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '+' }));
+			}
+			// Don't include "+" operators that directly follow "+", "*", or "/".
+			// Otherwise, add the term as is.
+			else if (!ops.has('+')) acc.push(term);
+
+			return acc;
+		}, [] as Terms.RollTerm[]);
+	}
+
 	/** ===================================== */
 	//  Helpers
 	/** ===================================== */
-	applyMinMaxModifiers(term: terms.DiceTerm | terms.PoolTerm) {
-		const cls = term.constructor as unknown as terms.DiceTerm | terms.PoolTerm;
+	applyMinMaxModifiers(term: Terms.DiceTerm | Terms.PoolTerm) {
+		const cls = term.constructor as unknown as Terms.DiceTerm | Terms.PoolTerm;
 		// @ts-expect-error
 		const union = Object.keys(cls.MODIFIERS)
 			.sort((a, b) => b.length - a.length)
@@ -100,10 +130,10 @@ class BaseRoll extends Roll {
 
 	invert() {
 		// Add "0 +" to the start of formulas that don't begin with a numeric term
-		if (!(this.terms[0] instanceof terms.NumericTerm)) {
+		if (!(this.terms[0] instanceof Terms.NumericTerm)) {
 			this.terms.unshift(
-				new terms.NumericTerm({ number: 0 }),
-				new terms.OperatorTerm({ operator: '+' }),
+				new Terms.NumericTerm({ number: 0 }),
+				new Terms.OperatorTerm({ operator: '+' }),
 			);
 		}
 		// Otherwise remove "0 -" from formulas that start with that
@@ -113,11 +143,11 @@ class BaseRoll extends Roll {
 		}
 
 		// Starting numeric terms should be directly inverted
-		if (this.terms[0] instanceof terms.NumericTerm) this.terms[0].number *= -1;
+		if (this.terms[0] instanceof Terms.NumericTerm) this.terms[0].number *= -1;
 
 		// Invert all addition & subtraction operators
 		this.terms = this.terms.map((term) => {
-			if (term instanceof terms.OperatorTerm) {
+			if (term instanceof Terms.OperatorTerm) {
 				if (term.operator === '+') term.operator = '-';
 				else if (term.operator === '-') term.operator = '+';
 			}

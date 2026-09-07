@@ -39,10 +39,12 @@ declare module 'fvtt-types/configuration' {
 		Dice: CONFIG.Dice & {
 			BaseRoll: typeof BaseRoll;
 			BaseDie: typeof BaseDie;
-			ExpertiseDie: typeof ExpertiseDie;
 			D20Die: typeof D20Die;
 			D20Roll: typeof D20Roll;
 			terms: { d: typeof BaseDie };
+			termTypes: {
+				ExpertiseDie: typeof ExpertiseDie;
+			};
 		};
 	}
 

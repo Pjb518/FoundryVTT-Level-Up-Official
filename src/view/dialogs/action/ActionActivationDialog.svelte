@@ -164,7 +164,7 @@
 
     let showConsumersSection = $derived(consumerOptions.length > 0);
 
-    let attackRollData = $state({});
+    let attackRollData = $state.raw({});
     let actionUsesData = $state(
         {} as ResourceConsumptionManager.UsesConsumerData,
     );

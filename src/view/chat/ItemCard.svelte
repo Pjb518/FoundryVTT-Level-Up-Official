@@ -4,7 +4,7 @@
 
     import { localize } from "#utils/localization/localize.ts";
 
-    import constructRollFormula from "../../dice/constructRollFormula.js";
+    import { constructRollFormula } from "../../dice/constructRollFormula.ts";
     import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
     import { getPromptTitle } from "#utils/view/cards/cardPrompts/getPromptTitle.ts";
     import { getPromptSubtitle } from "#utils/view/cards/cardPrompts/getPromptSubtitle.ts";
@@ -74,11 +74,11 @@
     }
 
     function getRegionTemplateLabel() {
-      const action = item.actions.get(message.system.actionId);
-      if (!action) return "Place Region";
-      const shape = action.area.shape;
+        const action = item.actions.get(message.system.actionId);
+        if (!action) return "Place Region";
+        const shape = action.area.shape;
 
-      return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
+        return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
     }
 
     function prepareRollColor(rollData) {
@@ -98,7 +98,11 @@
         const data = message.system.shapeData.value;
         if (!data) return;
 
-        foundry.utils.setProperty(data, 'flags.a5e.originItem', message.system.itemId ?? null);
+        foundry.utils.setProperty(
+            data,
+            "flags.a5e.originItem",
+            message.system.itemId ?? null,
+        );
         canvas.regions.placeRegion(data);
     }
 
@@ -403,7 +407,6 @@
     {/if}
 
     {#if hasRegionData}
-
         <button
             onclick={placeTemplate}
             type="button"

@@ -15,13 +15,13 @@ class D20Die extends BaseDie {
 	/** ===================================== */
 	get isCritSuccess() {
 		if (!this.isValid || !this._evaluated) return undefined;
-		if (!Number.isNumeric(this.options.critSuccess)) return undefined;
+		if (!Number.isNumeric(this.options.critSuccess)) return false;
 		return this.total! >= (this.options.critSuccess || D20Die.CRIT_SUCCESS_TOTAL);
 	}
 
 	get isCritFail() {
 		if (!this.isValid || !this._evaluated) return undefined;
-		if (!Number.isNumeric(this.options.critSuccess)) return undefined;
+		if (!Number.isNumeric(this.options.critSuccess)) return false;
 		return this.total! <= (this.options.critFail || D20Die.CRIT_FAIL_TOTAL);
 	}
 
