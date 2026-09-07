@@ -224,10 +224,6 @@ export default function modifyBaseOptions(options: Object) {
 	];
 
 	// Removes these when data model is fixes
-	delete options['system.bonuses.meleeWeaponAttack'];
-	delete options['system.bonuses.rangedWeaponAttack'];
-	delete options['system.bonuses.meleeSpellAttack'];
-	delete options['system.bonuses.rangedSpellAttack'];
 	delete options['system.attributes.initiative.bonus'];
 
 	// Delete bonus associated values

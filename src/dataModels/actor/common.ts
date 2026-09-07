@@ -290,11 +290,6 @@ export const bonuses = () => ({
 		),
 		maneuverDC: new fields.StringField({ initial: '' }),
 		spellDC: new fields.StringField({ initial: '' }),
-		// TODO: Migration Upgrade - Remove these at a later date when migration is guaranteed
-		meleeSpellAttack: new fields.StringField({ initial: '' }),
-		meleeWeaponAttack: new fields.StringField({ initial: '' }),
-		rangedSpellAttack: new fields.StringField({ initial: '' }),
-		rangedWeaponAttack: new fields.StringField({ initial: '' }),
 	}),
 });
 
