@@ -9,6 +9,8 @@ import {
 	hitPointsBonusContext,
 	initiativeBonusContext,
 	movementBonusContext,
+	sensesBonusContext,
+	skillBonusContext,
 } from './Contexts.ts';
 
 import fields = foundry.data.fields;
@@ -84,7 +86,7 @@ export function getMovementBonusData() {
 
 export function getSensesBonusData() {
 	return {
-		context: new fields.SchemaField(getSensesBonusContext('bonus')),
+		context: new fields.SchemaField(sensesBonusContext()),
 		unit: new fields.StringField({ required: true, initial: 'feet' }),
 		...baseBonusData(),
 	};
@@ -92,7 +94,7 @@ export function getSensesBonusData() {
 
 export function getSkillBonusData() {
 	return {
-		context: new fields.SchemaField(getSkillBonusContext('bonus')),
+		context: new fields.SchemaField(skillBonusContext()),
 		...baseBonusData(),
 	};
 }
