@@ -1,5 +1,5 @@
 import {
-	getAbilitiesBonusContext,
+	abilitiesBonusContext,
 	getAttackBonusContext,
 	getDamageBonusContext,
 	getHealingBonusContext,
@@ -25,7 +25,7 @@ const baseBonusData = () => ({
 
 export function getAbilitiesBonusData() {
 	return {
-		context: new fields.SchemaField(getAbilitiesBonusContext('bonus')),
+		context: new fields.SchemaField({ ...abilitiesBonusContext() }),
 		...baseBonusData(),
 	};
 }

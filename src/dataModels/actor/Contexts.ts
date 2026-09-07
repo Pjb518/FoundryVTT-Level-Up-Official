@@ -1,55 +1,80 @@
 import fields = foundry.data.fields;
 
-export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
-	const schema: Record<string, any> = {
-		types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+const grantContextCommon = () => ({
+	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+});
+
+// -------------------------------------
+// Ability Bonus Contexts
+// -------------------------------------
+const abilityBonusSchema = () => ({
+	types: new fields.ArrayField(
+		new fields.StringField({ required: true, initial: '', nullable: false }),
+		{
 			initial: ['check', 'save'],
+		},
+	),
+	requiresProficiency: new fields.BooleanField({
+		required: true,
+		nullable: false,
+		initial: false,
+	}),
+});
+
+export const abilitiesBonusContext = () => ({
+	...abilitiesBonusContext(),
+	abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+});
+
+export const abilitiesBonusContextGrant = () => ({
+	...abilitiesBonusContext,
+	...grantContextCommon,
+});
+
+export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
+	const schema = {
+		types: new fields.ArrayField(
+			new fields.StringField({ required: true, initial: '', nullable: false }),
+			{
+				initial: ['check', 'save'],
+			},
+		),
+		requiresProficiency: new fields.BooleanField({
+			required: true,
+			nullable: false,
+			initial: false,
 		}),
-		// @ts-expect-error
-		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
 	};
 
-	if (type === 'bonus') {
-		schema.abilities = new fields.ArrayField(
-			new fields.StringField({ required: true, initial: '' }),
-			{ initial: [] },
-		);
-	}
+	if (type === 'grant') return { ...schema, ...grantContextCommon() };
 
-	if (type === 'grant') {
-		// @ts-expect-error
-		schema.default = new fields.BooleanField({ required: true, initial: true });
-	}
-
-	return schema;
+	return {
+		...schema,
+	};
 }
 
 export function getAttackBonusContext(type: 'grant' | 'bonus') {
-	const schema: Record<string, any> = {
+	const schema = {
 		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
 		}),
-		// @ts-expect-error
 		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
 	};
 
-	if (type === 'bonus') {
-		schema.attackTypes = new fields.ArrayField(
-			new fields.StringField({ required: true, initial: '' }),
-			{ initial: [] },
-		);
-	}
+	if (type === 'grant') return { ...schema, ...grantContextCommon() };
 
-	if (type === 'grant') {
-		// @ts-expect-error
-		schema.default = new fields.BooleanField({ required: true, initial: true });
-	}
-
-	return schema;
+	return {
+		...schema,
+		attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+			initial: [],
+		}),
+	};
 }
 
 export function getDamageBonusContext(type: 'grant' | 'bonus') {
-	const schema: Record<string, any> = {
+	const schema = {
 		attackTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
 		}),
