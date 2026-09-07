@@ -1,0 +1,215 @@
+{
+	"name": "A Friend Indeed",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+	"system": {
+		"description": "<p>At 3rd level, your imagination quite literally comes alive in the form of an imaginary friend. What form or shape this imaginary friend takes must be size Medium or smaller, but what their exact physical features are and whether they are whimsical or frightening is determined by your experiences in life. They may be a benign confidante—or a terrifying guardian.</p><p>You may summon your imaginary friend as a bonus action, appearing in an unoccupied square adjacent to you. While your imaginary friend is summoned, you gain an expertise die to any Performance checks or checks made with the other skill chosen under your @UUID[Compendium.out-of-the-wilds.features.Item.4Lt0Hr1OYDIUrDZl]{Bonus Proficiency}.</p><p>As an action, you may expend a use of your Bardic Inspiration to command your imaginary friend to Attack or Defend. If given the Defend command, your imaginary friend remains in a square adjacent to you and uses its reaction to place itself between you and your attacker. The triggering creature rolls its attack against your imaginary friend instead of you, and it takes all relevant damage on a hit. If given the Attack command, your imaginary friend may move away from you up to its movement speed, and you may use it to cast bard spells with a range of touch through it so long as your imaginary friend remains within 30 feet of you and you can see it.</p><p>While summoned, your imaginary friend has an AC of 10 + your proficiency bonus and a movement speed of 30 feet. When you roll for initiative, your imaginary friend gains a number of temporary hit points equal to your level multiplied by your proficiency bonus. If your imaginary friend is reduced to 0 hit points, or you dismiss it as a bonus action, it disappears and cannot be summoned again until you complete a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"9sUJcnSVOmihzwy1": {
+				"name": "Summon",
+				"id": "9sUJcnSVOmihzwy1",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"2kqlJ2LvzyoATnZe"
+				],
+				"macro": "",
+				"consumers": {
+					"YZMK9q2LJ7PkFpD2": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"kvffNecrAcKcsBWL": {
+				"name": "Command",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"pTcFJLtpMvisT7LK": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bard",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.wv0zyUeMuJQb7yAC",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Imaginary Friend",
+			"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
+			"_id": "2kqlJ2LvzyoATnZe",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While your imaginary friend is summoned, you gain an expertise die to any Performance checks or checks made with the other skill chosen under your Bonus Proficiency.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224786
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224696,
+		"modifiedTime": 1788788224696,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "6kki538YXCPWp9HZ"
+}

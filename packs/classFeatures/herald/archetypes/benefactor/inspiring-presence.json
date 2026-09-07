@@ -1,0 +1,175 @@
+{
+	"name": "Inspiring Presence",
+	"type": "feature",
+	"img": "icons/skills/social/wave-halt-stop.webp",
+	"system": {
+		"description": "<p>At 20th level, your ability to inspire others has reached its apex. As an action, choose a number of friendly creatures that are within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.xezwxikwrsfkzg4o]{Sacred Aura} equal to your Charisma modifier. Those creatures gain Inspiration for the next hour. If they already had Inspiration, such as from their Destiny’s Source of Inspiration feature, they gain additional Inspiration that lasts for the duration. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"U8dNcWBrT8JwovXC": {
+				"name": "Inspiring Presence",
+				"consumers": {
+					"aKTO3I1f3kWIyvCp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"g0M18Nej45b1Uz1b"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.VAJJlamlSvxBEHVv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Inspiring Presence",
+			"img": "icons/skills/social/wave-halt-stop.webp",
+			"_id": "g0M18Nej45b1Uz1b",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.inspiration",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain Inspiration for the next hour.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224672
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "t79gcg0J0ybxv8yA"
+}

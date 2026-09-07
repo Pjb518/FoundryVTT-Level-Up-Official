@@ -1,0 +1,194 @@
+{
+	"name": "Mighty Hooves",
+	"type": "feature",
+	"img": "icons/commodities/bones/hooves-cloven-grey.webp",
+	"system": {
+		"description": "<p>While in your horse form, your attacks with your hooves count as magical for the purposes of overcoming damage resistances.</p><p>Additionally, while in @UUID[Compendium.out-of-the-wilds.features.Item.Qtnb2A7Jam5E4k7s]{Horse Form}, you gain the following ability:</p><p><em><strong>Trample.</strong></em> You trample enemies in your path. As a bonus action, you may move up to half your movement speed without provoking opportunity attacks. Creatures in your path that are at least one size category smaller than you just make a Dexterity saving throw versus your maneuver DC. On a failure, a creature takes 2d6 bludgeoning damage and is knocked [[/condition id=prone]].</p><p>You may use your Trample ability once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"UqSegaerFpLFEjDZ": {
+				"name": "Trample",
+				"consumers": {
+					"oiJgjcEuuyscCjJ7": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"z5oZ30CN4mVOdYB2"
+				],
+				"macro": "",
+				"prompts": {
+					"aCPn473sDNq5pQTO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"fbzvrSkf3ppKcF7X": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "2d6",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.iEn0N6rwBERXKcEX",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Prone",
+			"img": "icons/commodities/bones/hooves-cloven-grey.webp",
+			"_id": "z5oZ30CN4mVOdYB2",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224682
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "dnM8eeN1LncmX1Yk"
+}

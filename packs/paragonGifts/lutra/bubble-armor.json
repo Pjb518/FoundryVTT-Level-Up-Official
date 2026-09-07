@@ -1,0 +1,215 @@
+{
+	"name": "Bubble Armor",
+	"type": "feature",
+	"img": "icons/magic/water/orb-water-transparent.webp",
+	"system": {
+		"description": "<p>When your fur is wet, your pelt traps bubbles within it, granting you a +1 bonus to your AC. If you are fully submerged in water, this bonus increases to +2. This bonus lasts until you exit the water or your fur becomes dry from a spell or environmental effect.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"RYw6tfJsu7zOpfg4": {
+				"name": "Bubble Armor",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"x8s6tp0yQ2276Lkb",
+					"jWwWl4HopYamKgZd"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.5FGZD0K7zOVS1afc",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Wet Fur",
+			"img": "icons/magic/water/orb-water-transparent.webp",
+			"_id": "x8s6tp0yQ2276Lkb",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+1 bonus to your AC.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224685
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.5FGZD0K7zOVS1afc",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Fully Submerged",
+			"img": "icons/magic/water/orb-water-transparent.webp",
+			"_id": "jWwWl4HopYamKgZd",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+2 bonus to your AC.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224685
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "pqpDMEp4re8ewftA"
+}

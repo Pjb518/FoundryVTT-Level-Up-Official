@@ -1,0 +1,204 @@
+{
+	"name": "Agitating Hairs",
+	"type": "feature",
+	"img": "icons/magic/air/fog-gas-smoke-brown.webp",
+	"system": {
+		"description": "<p>As a bonus action you may use your secondary pair of arms to rapidly rub at any exposed area of your body, sending this hairs up into a cloud in a 5-foot radius centered on you. All creatures in the area of effect must succeed on a Constitution saving throw versus your maneuver DC or become [[/condition id=blinded]] until the end of your next turn. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"tDTHfdFrCaDAGjZ4": {
+				"name": "Agitating Hairs",
+				"consumers": {
+					"InAl4Gc7DUJGwrv7": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"v9RTwdd5EGqFrdJS"
+				],
+				"macro": "",
+				"prompts": {
+					"OfN49GqNvn60zB69": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"8BErMHD3nmwcORQn": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9oYq0YChlAonplKE",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Blinded",
+			"img": "icons/magic/air/fog-gas-smoke-brown.webp",
+			"_id": "v9RTwdd5EGqFrdJS",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A blinded creature can't see and it automatically fails ability checks that require sight.</p></li><li><p>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224615
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "FH5dKBPjjEKzJ94c"
+}

@@ -1,0 +1,162 @@
+{
+	"name": "Aerial Dance",
+	"type": "feature",
+	"img": "icons/commodities/biological/wing-insect-blue.webp",
+	"system": {
+		"description": "<p>When you use one of your @UUID[Compendium.out-of-the-wilds.features.Item.gH6N2JQCNv0jTmmd]{Pollinator’s Dance} features, a pair of wings that correspond to the pollinator you are calling upon sprouts from your back. You gain a fly speed equal to your Speed in addition to the benefits the specific dance grants. These wings persist for a number of rounds equal to your Wisdom modifier.</p><p>If you are still airborne when this feature ends, you are reduced to 0 hit points, or you are incapacitated, you fall at a rate of 30 feet per round.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"Du6GjG6iBeN3dxcr": {
+				"name": "Aerial Dance",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@wis.mod"
+				},
+				"effects": [
+					"E1oxU2g9sW9ytE53"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "druid",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.vUaWoD4mR07aKOQ9",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Aerial Dance",
+			"img": "icons/commodities/biological/wing-insect-blue.webp",
+			"_id": "E1oxU2g9sW9ytE53",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a fly speed equal to your Speed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224782
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224696,
+		"modifiedTime": 1788788224696,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "KHTLtKzB9duFZBV3"
+}

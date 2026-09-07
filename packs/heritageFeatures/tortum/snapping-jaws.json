@@ -1,0 +1,193 @@
+{
+	"name": "Snapping Jaws",
+	"type": "feature",
+	"img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+	"system": {
+		"description": "<p>You gain a bite attack that on a hit deals 1d4 + your Strength or Dexterity modifier slashing damage, whichever is highest. When you hit with your bite attack, the target must succeed on an Athletics check versus your maneuver DC or become grappled by you. Creatures who are [[/condition id=grappled]] in this fashion may repeat their saving throw at the end of each of their turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"S3Y7LNvNrTnHL3L1": {
+				"name": "Snapping Jaws",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"jpIPToXa1naAHo6f"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"hj9RdLYnw57FuHTH": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "str",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"3IQztdQFu5xlyvjZ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"vi6wLtsPqBOslVAL": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "slashing",
+						"formula": "1d4 + @finesse.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9uxII6CZtSKe3NrK",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Grappled",
+			"img": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+			"_id": "jpIPToXa1naAHo6f",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</p></li><li><p>If the grappler becomes incapacitated the condition ends.</p></li><li><p>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the @UUID[Compendium.a5e.a5e-maneuvers.Item.i5m1k81burf6n2t9]{Doubleteam} combat maneuver) the condition ends.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224622
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "4k1NvwTGNTq0zOVG"
+}

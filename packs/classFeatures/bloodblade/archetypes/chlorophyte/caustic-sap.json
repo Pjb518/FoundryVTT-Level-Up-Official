@@ -1,0 +1,191 @@
+{
+	"name": "Caustic Sap",
+	"type": "feature",
+	"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
+	"system": {
+		"description": "<p>Starting at 10th level, when you hit a creature with your Sanguine Transference that is immune to poison, treat its immunity as resistance instead.</p><p>Additionally, so long as you are not at your full hit point total, any creature who hits you with a natural weapon (such as claws or a bite) or attempts to grapple you must succeed on a Constitution saving throw versus your maneuver DC. On a success, they take 2d4 acid damage and nothing further happens. On a failure, the creature takes the acid damage but also takes 1d4 ongoing acid damage. A creature may end this ongoing damage if they use an action to wipe the acid away. You may use this ability a number of times equal to your Constitution modifier per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"p7lVaHdUUD4uAYsN": {
+				"name": "Caustic Sap",
+				"consumers": {
+					"n0klcL9UM1jb5fMU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "p7lVaHdUUD4uAYsN",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"8mbvoaoW6uGAlnXG": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "No ongoing damage",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"uAnnyd5M1B2b21fg": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "acid",
+						"formula": "2d4",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"o5wR6QrZ10JEY6qg": {
+				"name": "Ongoing Damage",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"Qb5sbPy8KQvNBRhP": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "acid",
+						"formula": "1d4",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@con.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224696,
+		"modifiedTime": 1788788224696,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "q6AzD8cXknkLoIfI"
+}
