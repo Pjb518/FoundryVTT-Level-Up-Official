@@ -143,28 +143,25 @@ export const movementBonusContextGrant = () => ({
 	...grantContextCommon(),
 });
 
-const sensesBonusSchema = () => ({});
-export const sensesBonusContext = () => ({ ...sensesBonusSchema() });
+// -------------------------------------
+// Senses Bonus Contexts
+// -------------------------------------
+const sensesBonusSchema = () => ({
+	otherwiseBlind: new fields.BooleanField({ required: true, initial: false }),
+});
+
+export const sensesBonusContext = () => ({
+	...sensesBonusSchema(),
+	senses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		initial: [],
+	}),
+});
+
 export const sensesBonusContextGrant = () => ({ ...sensesBonusSchema(), ...grantContextCommon() });
+
 const skillBonusSchema = () => ({});
 export const skillBonusContext = () => ({ ...skillBonusSchema() });
 export const skillBonusContextGrant = () => ({ ...skillBonusSchema(), ...grantContextCommon() });
-
-export function getSensesBonusContext(type: 'grant' | 'bonus') {
-	const schema: any = {
-		// @ts-expect-error
-		otherwiseBlind: new fields.BooleanField({ required: true, initial: false }),
-		// valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
-	};
-
-	if (type === 'bonus') {
-		schema.senses = new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-			initial: [],
-		});
-	}
-
-	return schema;
-}
 
 export function getSkillBonusContext(type: 'grant' | 'bonus') {
 	const schema: any = {
