@@ -248,46 +248,16 @@ export const hitDice = () =>
 
 export const bonuses = () => ({
 	bonuses: new fields.SchemaField({
-		abilities: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getAbilitiesBonusData()),
-		),
-		attacks: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getAttackBonusData()),
-		),
-		damage: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getDamageBonusData()),
-		),
-		exertion: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getExertionBonusData()),
-		),
-		healing: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getHealingBonusData()),
-		),
-		hitPoint: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getHitPointBonusData()),
-		),
-		initiative: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getInitiativeBonusData()),
-		),
-		movement: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getMovementBonusData()),
-		),
-		senses: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getSensesBonusData()),
-		),
-		skills: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getSkillBonusData()),
-		),
+		abilities: new fields.TypedObjectField(new fields.SchemaField(getAbilitiesBonusData())),
+		attacks: new fields.TypedObjectField(new fields.SchemaField(getAttackBonusData())),
+		damage: new fields.TypedObjectField(new fields.SchemaField(getDamageBonusData())),
+		exertion: new fields.TypedObjectField(new fields.SchemaField(getExertionBonusData())),
+		healing: new fields.TypedObjectField(new fields.SchemaField(getHealingBonusData())),
+		hitPoint: new fields.TypedObjectField(new fields.SchemaField(getHitPointBonusData())),
+		initiative: new fields.TypedObjectField(new fields.SchemaField(getInitiativeBonusData())),
+		movement: new fields.TypedObjectField(new fields.SchemaField(getMovementBonusData())),
+		senses: new fields.TypedObjectField(new fields.SchemaField(getSensesBonusData())),
+		skills: new fields.TypedObjectField(new fields.SchemaField(getSkillBonusData())),
 		maneuverDC: new fields.StringField({ initial: '' }),
 		spellDC: new fields.StringField({ initial: '' }),
 	}),
