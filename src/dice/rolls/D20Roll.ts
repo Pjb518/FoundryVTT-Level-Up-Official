@@ -15,6 +15,7 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		super(formula, data, options);
 
 		this.#createD20Die();
+		if (!this.options.preprocess) this.preprocessFormula();
 		if (!this.options.configured) this.configureModifiers();
 	}
 
@@ -122,6 +123,19 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		this.options.configured = true;
 	}
 
+	preprocessFormula() {
+		// Convert expertise Die
+		this.terms.forEach((term, idx) => {
+			// @ts-expect-error
+			if (term.flavor === _loc('A5E.expertiseDie.title')) {
+				this.terms[idx] = ExpertiseDie.fromData(term.toJSON());
+			}
+		});
+
+		this.resetFormula();
+		this.options.preprocessed = true;
+	}
+
 	/** ===================================== */
 	//  Static Methods
 	/** ===================================== */
@@ -174,6 +188,7 @@ declare namespace D20Roll {
 	interface _Options extends BaseRoll._Options, D20Die.Options {
 		configured?: boolean;
 		expertise?: number;
+		preprocessed?: boolean;
 	}
 
 	interface Options extends InexactPartial<_Options> {}

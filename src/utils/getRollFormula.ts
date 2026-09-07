@@ -4,10 +4,11 @@ import { ModifierManager } from '../managers/ModifierManager.ts';
 export function getRollFormula(
 	actor: Actor.OfType<'base'>,
 	rollData = {} as ModifierManager.RollData,
+	options = { terms: false },
 ) {
 	const modifierManager = new ModifierManager(actor, rollData);
 
-	return constructD20RollFormula({
+	const formula = constructD20RollFormula({
 		actor,
 		rollMode: rollData.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
 		expertiseDie: rollData.expertiseDie ?? 0,
@@ -15,5 +16,8 @@ export function getRollFormula(
 		maxRoll: rollData.maxRoll ?? Infinity,
 		item: rollData.item ?? null,
 		modifiers: modifierManager.getModifiers(),
-	}).rollFormula;
+	});
+
+	if (options.terms) return formula.terms;
+	return formula.rollFormula;
 }

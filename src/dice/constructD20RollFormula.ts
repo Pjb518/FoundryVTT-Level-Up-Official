@@ -54,5 +54,8 @@ export function constructD20RollFormula(options: Options) {
 	const { terms } = new CONFIG.Dice.D20Roll(formula, rollData, { rollMode, expertise, min, max });
 	const simplifiedTerms = simplifyOperatorTerms(terms);
 
-	return { rollFormula: Roll.getFormula(simplifiedTerms) };
+	return {
+		rollFormula: Roll.getFormula(simplifiedTerms),
+		terms: simplifiedTerms,
+	};
 }

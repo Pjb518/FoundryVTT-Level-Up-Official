@@ -47,21 +47,23 @@ class RollPreparationManager {
 	async prepareRolls() {
 		const state = this.#state;
 
-		const attackRoll = this.#prepareAttackRoll(state.attack);
+		const attackRoll = await this.#prepareAttackRoll(state.attack);
 		let applyGenericBonus = true;
 
-		const prepared = state.rolls.map((roll) => {
-			if (roll.type === 'attack') return attackRoll;
-			if (roll.type === 'damage') {
-				const damageRoll = this.#prepareDamageRoll(roll, attackRoll, applyGenericBonus);
-				applyGenericBonus = false;
-				return damageRoll;
-			}
+		const prepared = await Promise.all(
+			state.rolls.map(async (roll) => {
+				if (roll.type === 'attack') return attackRoll;
+				if (roll.type === 'damage') {
+					const damageRoll = this.#prepareDamageRoll(roll, attackRoll, applyGenericBonus);
+					applyGenericBonus = false;
+					return damageRoll;
+				}
 
-			const otherRoll = this.#prepareItemRoll(roll);
+				const otherRoll = this.#prepareItemRoll(roll);
 
-			return null;
-		});
+				return null;
+			}),
+		);
 
 		//   const { attack, damage, healing, other } = this.#rolls.reduce(
 		// 	(acc, roll: any) => {
@@ -176,6 +178,7 @@ class RollPreparationManager {
 			: (this.#actor.getFlag('a5e', 'criticalHitThresholdSpell') ?? 20);
 
 		const critThreshold = Math.min(globalCritThreshold, _roll.critThreshold ?? 20);
+		// TODO: Use d20roll and update it to get expertise die from formula
 		const roll = await new Roll(rollFormula).evaluate();
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
@@ -322,7 +325,7 @@ class RollPreparationManager {
 	 * damage roll for the action.
 	 */
 	#prepareGenericBonusDamage() {
-		const genericBonusDamage = Object.values(this.#damageBonuses).filter(
+		const genericBonusDamage = (this.#state.damageBonuses ?? []).filter(
 			({ damageType }) => !damageType || damageType === 'null',
 		);
 

@@ -162,7 +162,8 @@ class ItemA5e<
 
 		if (!activationData) return null;
 
-		await rollStateManager.startWorkflow(activationData);
+		const rolls = await rollStateManager.startWorkflow(activationData);
+		console.log(rolls);
 
 		// activationData.rolls ??= [];
 		// activationData.rolls.push(activationData?.attack ?? {});
@@ -177,7 +178,7 @@ class ItemA5e<
 		// });
 
 		// const rolls = await rollPreparationManager.prepareRolls();
-		const rolls = [];
+		// const rolls = [];
 
 		const effectAreaManager = new EffectAreaManager(
 			this.actor,
