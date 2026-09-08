@@ -34,9 +34,9 @@ class RollPreparationManager {
 
 	#item: ItemA5e;
 
-	#state: ReturnType<RollStateManager['_preparePostDialogState']>;
+	#state: RollStateManager.WorkflowState;
 
-	constructor(state: ReturnType<RollStateManager['_preparePostDialogState']>) {
+	constructor(state: RollStateManager.WorkflowState) {
 		this.#actor = state.actor;
 		this.#item = state.item;
 
@@ -51,11 +51,17 @@ class RollPreparationManager {
 
 		const attackRoll = await this.#prepareAttackRoll(state.attack);
 
+		let hasDamageRoll = false;
+		const hasHealingRoll = false;
+
 		const prepared = await Promise.all(
 			state.rolls.map(async (roll) => {
 				if (roll.type === 'attack') return attackRoll;
 				if (roll.type === 'damage') {
-					const damageRoll = this.#prepareDamageRoll(roll, attackRoll, true);
+					const damageRoll = await this.#prepareDamageRoll(roll, attackRoll, {
+						applyGenericBonus: true,
+					});
+					hasDamageRoll = true;
 					return damageRoll;
 				}
 
@@ -64,6 +70,10 @@ class RollPreparationManager {
 				return null;
 			}),
 		);
+
+		if (hasDamageRoll) {
+			prepared.push(...(await this.#prepareBonusDamageRolls(attackRoll)));
+		}
 
 		//   const { attack, damage, healing, other } = this.#rolls.reduce(
 		// 	(acc, roll: any) => {
@@ -197,8 +207,10 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareBonusDamageRolls(attackRoll: RollPreparationManager.PreparedAttackData | null) {
-		const bonusDamage = Object.values(this.#damageBonuses).filter(
+	async #prepareBonusDamageRolls(attackRoll: RollStateManager.WorkflowState['attack']) {
+		const damageBonuses = this.#state.damageBonuses;
+
+		const bonusDamage = Object.values(damageBonuses).filter(
 			({ damageType }) => damageType && damageType !== 'null',
 		);
 
@@ -211,9 +223,9 @@ class RollPreparationManager {
 						canCrit: true,
 						critBonus: '',
 						damageType,
-						context,
 					} as RollData.DamageRollData & { context: any },
 					attackRoll,
+					{ context },
 				),
 			),
 		);
@@ -253,18 +265,19 @@ class RollPreparationManager {
 
 	async #prepareDamageRoll(
 		_roll: DamageRollData & { context: Record<string, any> | undefined; type: 'damage' },
-		attackRoll: RollPreparationManager.PreparedAttackData,
-		applyGenericBonus: boolean = false,
+		attackRoll: RollStateManager.WorkflowState['attack'],
+		{ applyGenericBonus = false, context = {} }: RollPreparationManager.DamageRollOptions = {},
 	): Promise<PreparedDamageData | null> {
 		const { isCrit } = attackRoll ?? {};
 		const { canCrit, critBonus, damageType } = _roll ?? {};
-		const { context } = _roll;
 
 		// Apply Generic Bonuses to all damage rolls that aren't bonuses
 		const critBonuses: string[] = [];
 		let critBonusFormula = critBonus || '';
 		let genericCritBonusDamage = '';
 		const modifiers: { value: string; label: string }[] = [];
+
+		console.log('Here');
 
 		if (applyGenericBonus) {
 			const genericBonusDamage = this.#prepareGenericBonusDamage(); // TODO: Had a isCrit param?
@@ -869,6 +882,11 @@ declare namespace RollPreparationManager {
 		rollFormula: string;
 		expertiseDie: number;
 		rollMode: number;
+	}
+
+	interface DamageRollOptions {
+		applyGenericBonus?: boolean;
+		context?: RollStateManager.WorkflowState['damageBonuses'][number];
 	}
 }
 
