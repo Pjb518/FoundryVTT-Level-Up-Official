@@ -620,6 +620,7 @@ class RollPreparationManager {
 
 	#applySpellLevelScaling(roll: DamageRollData | HealingRollData): string {
 		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
 		const baseSpellLevel = consumer?.baseLevel ?? this.#item.system.level ?? 1;
 		const castingLevel = consumer?.level ?? baseSpellLevel;
@@ -628,47 +629,47 @@ class RollPreparationManager {
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applySpellPointScaling(roll): string {
-		const spellConsumer = this.#consumers.spell;
-		if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
+	#applySpellPointScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const basePoints = spellConsumer?.basePoints || 1;
-		if (basePoints >= spellConsumer.points) return roll.formula;
+		const basePoints = consumer?.basePoints || 1;
+		if (basePoints >= consumer?.points) return roll.getFormula();
 
-		const delta = Math.max(0, spellConsumer.points - basePoints);
+		const delta = Math.max(0, consumer.points - basePoints);
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyArtifactChargesScaling(roll): string {
-		const spellConsumer = this.#consumers.spell;
-		if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
+	#applyArtifactChargesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseCharges = spellConsumer?.baseCharges || 1;
-		if (baseCharges >= spellConsumer.charges) return roll.formula;
+		const baseCharges = consumer?.baseCharges || 1;
+		if (baseCharges >= consumer.charges) return roll.getFormula();
 
-		const delta = Math.max(0, spellConsumer.charges - baseCharges);
+		const delta = Math.max(0, consumer.charges - baseCharges);
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyActionUsesScaling(roll): string {
-		const actionConsumer = this.#consumers.actionUses;
-		if (foundry.utils.isEmpty(actionConsumer)) return roll.formula;
+	#applyActionUsesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#consumers.actionUses;
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseQuantity = actionConsumer.baseUses;
-		if (baseQuantity >= actionConsumer.quantity) return roll.formula;
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= consumer.quantity) return roll.getFormula();
 
-		const delta = actionConsumer.quantity - baseQuantity;
+		const delta = consumer.quantity - baseQuantity;
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyItemUsesScaling(roll): string {
-		const itemConsumer = this.#consumers.itemUses;
-		if (foundry.utils.isEmpty(itemConsumer)) return roll.formula;
+	#applyItemUsesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#consumers.itemUses;
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseQuantity = itemConsumer.baseUses;
-		if (baseQuantity >= itemConsumer.quantity) return roll.formula;
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= consumer.quantity) return roll.getFormula();
 
-		const delta = itemConsumer.quantity - baseQuantity;
+		const delta = consumer.quantity - baseQuantity;
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
