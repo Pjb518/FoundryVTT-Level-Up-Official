@@ -4,36 +4,36 @@ const doubleAllDamage = {
 	multiplier: 2,
 	multiplyDiceTotal: true,
 	multiplyNumeric: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 const doubleDiceDamage = {
 	multiplier: 2,
 	multiplyDiceTotal: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 const doubleDiceQuantity = {
 	multiplier: 2,
 	multiplyDice: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 const doubleDiceQuantityAndMods = {
 	multiplier: 2,
 	multiplyDice: true,
 	multiplyNumeric: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 const maxDamage = {
 	maximizeDice: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 const maxDamagePlusRoll = {
 	powerfulCritical: true,
-} as DamageRoll.CritConfiguration;
+} satisfies DamageRoll.CritConfiguration;
 
 // const doubleDiceQuantityAndMods = {
 // } as DamageRoll.CritConfiguration;
 
-export function constructCriticalConfig() {
+export function constructCriticalConfig(): DamageRoll.CritConfiguration {
 	// @ts-expect-error
 	const mode = game.settings.get('a5e', 'critCalculationMode') as string;
 

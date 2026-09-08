@@ -3,6 +3,18 @@ import { ModifierManager } from '../managers/ModifierManager.ts';
 
 export function getRollFormula(
 	actor: Actor.OfType<'base'>,
+	rollData?: ModifierManager.RollData,
+	options?: { terms: false },
+): string;
+
+export function getRollFormula(
+	actor: Actor.OfType<'base'>,
+	rollData: ModifierManager.RollData | undefined,
+	options: { terms: true },
+): { rollFormula: string; terms: foundry.dice.terms.RollTerm[] };
+
+export function getRollFormula(
+	actor: Actor.OfType<'base'>,
 	rollData = {} as ModifierManager.RollData,
 	options = { terms: false },
 ) {

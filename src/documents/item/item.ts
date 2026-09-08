@@ -9,6 +9,7 @@ import ActionSelectionDialog from '#view/dialogs/action/ActionSelectionDialog.sv
 import { ActionActivationDialog } from '#view/dialogs/initializers/ActionActivationDialog.svelte.ts';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import type { RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDataModel.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import { computeSaveDC } from '../../utils/computeSaveDC.ts';
 import { BaseItemA5e } from './base.svelte.ts';
@@ -349,146 +350,79 @@ class ItemA5e<
 
 	#getDefaultActionActivationData(actionId: string, options: ActionActivationOptions) {
 		const action = this.actions.get(actionId);
-
 		if (!action) return null;
 
-		const rolls = RollPreparationManager.prepareRolls(this, actionId);
-		const attack = this.#getDefaultAttackRollData(rolls.attack, options);
-		const consumers = this.#getDefaultConsumerData(actionId);
-		const effects = RollPreparationManager.getDefaultSelectedEffects(
-			RollPreparationManager.prepareEffects(this, actionId),
-		);
-		const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
+		const rollState = options.rollState!;
 
-		const otherRolls = this.#getDefaultRollData(rolls);
-
-		const prompts = this.#getDefaultPrompts(actionId);
+		const attack = this.#getDefaultAttackRollData(rollState.attackRoll, options);
+		const consumptionData = this.#getDefaultConsumerData(options);
+		const effects = rollState.config.defaults.effects;
+		const { damageBonuses, healingBonuses } = rollState.config.defaults;
 
 		return {
 			attack,
-			consumers,
-			damageBonuses,
+			consumptionData,
 			effects,
-			healingBonuses,
-			prompts,
-			rolls: otherRolls,
-			selectedConsumers: ResourceConsumptionManager.getDefaultConsumerSelection(
-				RollPreparationManager.prepareConsumers(this, actionId),
-			),
+			selectedDamageBonuses: damageBonuses,
+			selectedHealingBonuses: healingBonuses,
+			selectedConsumers: rollState.config.defaults.consumers,
+			selectedRolls: rollState.config.defaults.rolls,
+			selectedPrompts: rollState.config.defaults.prompts,
 		};
 	}
 
-	#getDefaultAttackRollData(attack: any, options: ActionActivationOptions) {
-		if (!attack) return {};
+	#getDefaultAttackRollData(
+		attackRoll: RollStateManager.state['attackRoll'],
+		options: ActionActivationOptions,
+	) {
+		if (!attackRoll) return {};
 
 		const { actor } = this;
 		if (!actor) return {};
 
-		const attackRoll = attack[0][1];
-
-		const parts = RollPreparationManager.prepareAttackRollData(
-			this.actor!,
-			this,
-			attackRoll,
-			options,
-		);
-
-		const { attackAbility, rollMode, formula } = parts;
-		const globalCritThreshold = attackRoll.attackType.includes('Weapon')
-			? (this.actor.getFlag('a5e', 'criticalHitThresholdWeapon') ?? 20)
-			: (this.actor.getFlag('a5e', 'criticalHitThresholdSpell') ?? 20);
-
-		const threshold = Math.min(attackRoll.critThreshold ?? 20, globalCritThreshold);
+		const rollState = options.rollState!;
+		const parts = rollState.config.attackRoll!;
 
 		return {
-			bonus: attackRoll.bonus ?? '',
-			critThreshold: threshold,
-			type: 'attack',
-			attackType: attackRoll.attackType ?? 'meleeWeaponAttack',
-			ability: attackAbility,
-			rollMode,
-			formula,
-		};
+			...(attackRoll as AttackRollData),
+			expertiseDie: parts.expertiseDie,
+			rollMode: parts.rollMode,
+			formula: parts.formula.rollFormula,
+			terms: parts.formula.terms,
+		} as RollStateManager.ActionDialogData['attack'];
 	}
 
-	#getDefaultConsumerData(actionId: string) {
-		const consumers = RollPreparationManager.prepareConsumers(this, actionId);
+	#getDefaultConsumerData(options: ActionActivationOptions) {
+		const rollState = options.rollState!;
+		const consumers = rollState.consumers;
 
-		const { actionUsesData, itemUsesData } = ResourceConsumptionManager.prepareUsesData(
-			this.actor!,
-			this,
-			consumers,
-			actionId,
-		);
+		let actionUses = {};
+		if (consumers.actionUses) {
+			actionUses = consumers.actionUses.getActivationData(this.actor!, this as ItemA5e);
+		}
 
-		const { hitDiceData } = ResourceConsumptionManager.prepareHitDiceData(this.actor!, consumers);
+		let itemUses = {};
+		if (consumers.itemUses) {
+			itemUses = consumers.itemUses.getActivationData(this.actor!, this as ItemA5e);
+		}
 
-		const {
-			spellData,
-			// @ts-expect-error
-		} = ResourceConsumptionManager.prepareSpellData(this.actor!, this, consumers, actionId);
+		let hitDice = {};
+		if (consumers.hitDice) {
+			hitDice = consumers.hitDice.getActivationData(this.actor!);
+		}
+
+		let spell = {};
+		if (consumers.spell) {
+			spell = consumers.spell.getActivationData(this.actor!, this as ItemA5e).spellData;
+			console.log(spell);
+		}
 
 		return {
-			actionUses: actionUsesData,
-			hitDice: hitDiceData,
-			itemUses: itemUsesData,
-			spell: spellData,
+			actionUses,
+			hitDice,
+			itemUses,
+			spell,
 		};
-	}
-
-	#getDefaultBonuses(actor, rolls) {
-		const damageBonuses = actor.BonusesManager.prepareGlobalDamageBonuses(this, rolls);
-		const healingBonuses = actor.BonusesManager.prepareGlobalHealingBonuses(this, rolls);
-
-		const defaultDamageBonuses = damageBonuses.reduce((acc, [, bonus]) => {
-			if (bonus.default ?? true) acc.push(bonus);
-			return acc;
-		}, []);
-
-		const defaultHealingBonuses = healingBonuses.reduce((acc, [, bonus]) => {
-			if (bonus.default ?? true) acc.push(bonus);
-			return acc;
-		}, []);
-
-		return {
-			damageBonuses: defaultDamageBonuses,
-			healingBonuses: defaultHealingBonuses,
-		};
-	}
-
-	#getDefaultPrompts(actionId: string) {
-		const promptsByType = RollPreparationManager.preparePrompts(this, actionId);
-
-		return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
-			defaultPrompts.push(
-				...promptGroup.reduce((acc, [, prompt]) => {
-					if (promptType === 'savingThrow')
-						prompt.dc = computeSaveDC(this.actor, this, prompt.saveDC);
-
-					if (prompt.default ?? true) acc.push(prompt);
-
-					return acc;
-				}, [] as any[]),
-			);
-
-			return defaultPrompts;
-		}, [] as any[]);
-	}
-
-	#getDefaultRollData(rolls: RollHandlerReturnType) {
-		return Object.entries(rolls).reduce((defaultRolls, [rollType, rollGroup]) => {
-			if (rollType === 'attack') return defaultRolls;
-
-			defaultRolls.push(
-				// @ts-expect-error
-				...rollGroup.reduce((acc, [, roll]) => {
-					if (roll.default ?? true) acc.push(roll);
-					return acc;
-				}, []),
-			);
-
-			return defaultRolls;
-		}, []);
 	}
 
 	async recharge(actionId: string, state = false) {

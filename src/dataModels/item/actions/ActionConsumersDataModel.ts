@@ -115,10 +115,12 @@ class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
 		const actionUses = this.parent?.uses ?? {};
 
 		return {
+			actionUsesData: {
+				baseUses: this.quantity ?? 1,
+				quantity: this.quantity ?? 1,
+			},
 			actionUses,
-			baseUses: this.quantity ?? 1,
 			maxUses: getDeterministicBonus(actionUses.max, actor.getRollData(item)),
-			quantity: this.quantity ?? 1,
 		};
 	}
 }
@@ -169,10 +171,12 @@ class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
 		const itemUses = item.system.uses;
 
 		return {
-			baseUses: this.quantity ?? 1,
+			itemUsesData: {
+				baseUses: this.quantity ?? 1,
+				quantity: this.quantity ?? 1,
+			},
 			maxUses: getDeterministicBonus(itemUses.max, actor.getRollData(item)),
 			itemUses,
-			quantity: this.quantity ?? 1,
 		};
 	}
 }

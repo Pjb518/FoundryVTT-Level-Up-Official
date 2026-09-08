@@ -35,14 +35,8 @@
 
     // =======================================================
     // Consumer data
-    actionUsesData = {
-        baseUses: partsA?.baseUses || 1,
-        quantity: partsA?.quantity || 1,
-    };
-    itemUsesData = {
-        baseUses: partsI?.baseUses || 1,
-        quantity: partsI?.quantity || 1,
-    };
+    actionUsesData = partsA?.actionUsesData ?? {};
+    itemUsesData = partsI?.itemUsesData ?? {};
 
     let actionUses = $derived(partsA?.actionUses ?? {});
     let actionMaxUses = $derived(partsA?.maxUses || 0);

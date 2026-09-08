@@ -137,17 +137,21 @@ class RollStateManager {
 			attackType,
 		});
 
-		const formula = getRollFormula(this.#actor, {
-			ability: attackAbility,
-			attackBonus: attackRoll.bonus,
-			attackType,
-			expertiseDie,
-			proficient: attackRoll.proficient ?? true,
-			rollMode,
-			situationalMods: this.#options.situationalMods || '',
-			selectedAttackBonuses,
-			type: 'attack',
-		});
+		const formula = getRollFormula(
+			this.#actor,
+			{
+				ability: attackAbility,
+				attackBonus: attackRoll.bonus,
+				attackType,
+				expertiseDie,
+				proficient: attackRoll.proficient ?? true,
+				rollMode,
+				situationalMods: this.#options.situationalMods || '',
+				selectedAttackBonuses,
+				type: 'attack',
+			},
+			{ terms: true },
+		);
 
 		return {
 			ability: attackAbility,
