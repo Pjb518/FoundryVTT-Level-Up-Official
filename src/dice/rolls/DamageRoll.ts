@@ -74,7 +74,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			});
 
 			// Apply double damage dice modifer
-			if (critical.multiplyDice && this._evaluated) {
+			if (critical.multiplyDiceTotal && this._evaluated) {
 				const multiplier = critical.multiplier ?? 2;
 				const diceTotal = this.dice.reduce((acc, die) => acc + die.total!, 0) * (multiplier - 1);
 				newTerms.push(
@@ -112,6 +112,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		const bonusDice = critical.bonusDice && !index ? critical.bonusDice : 0;
 
 		if (term instanceof terms.NumericTerm) {
+			// Possibly make this it's own term to join with dice multiplication
 			if (critical.multiplyNumeric) term.number *= multiplier ?? 2;
 			return [term];
 		}
@@ -131,18 +132,20 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			);
 		}
 
-		if (term instanceof terms.DiceTerm && !term.modifiers.length) {
-			term.alter(multiplier, bonusDice);
-			return [term];
-		}
+		if (critical.multiplyDice) {
+			if (term instanceof terms.DiceTerm && !term.modifiers.length) {
+				term.alter(multiplier, bonusDice);
+				return [term];
+			}
 
-		const copies = multiplier - 1 + bonusDice;
-		if (!term.isDeterministic && copies > 0) {
-			const clones = Array.from({ length: copies }, () =>
-				terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
-			);
+			const copies = multiplier - 1 + bonusDice;
+			if (!term.isDeterministic && copies > 0) {
+				const clones = Array.from({ length: copies }, () =>
+					terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
+				);
 
-			return this.#placeCritical(term, clones, index);
+				return this.#placeCritical(term, clones, index);
+			}
 		}
 
 		return [term];
@@ -221,7 +224,8 @@ declare namespace DamageRoll {
 		multiplier?: number;
 		bonusDice?: number;
 		bonusDamage?: string; // Not Implemented
-		multiplyDice?: boolean; // Not Implemented
+		multiplyDice?: boolean;
+		multiplyDiceTotal?: boolean;
 		multiplyNumeric?: boolean;
 		powerfulCritical?: boolean;
 	}
