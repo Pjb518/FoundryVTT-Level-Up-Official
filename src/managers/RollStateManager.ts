@@ -71,6 +71,7 @@ class RollStateManager {
 					item: this.#item,
 					attackType: attackRoll?.attackType,
 				}),
+				effects: this.#action.selectedEffects,
 				damageBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ damageBonuses }),
 				healingBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ healingBonuses }),
 			},

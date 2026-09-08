@@ -40,28 +40,7 @@
                 itemUses: itemUsesData,
                 spell: spellData,
             },
-            damageBonuses: RollPreparationManager.getSelectedBonuses(
-                actor,
-                "damage",
-                selectedDamageBonuses,
-            ),
             effects: selectedEffects,
-            healingBonuses: RollPreparationManager.getSelectedBonuses(
-                actor,
-                "healing",
-                selectedHealingBonuses,
-            ),
-            prompts: RollPreparationManager.getSelectedPrompts(
-                actor,
-                item,
-                actionId,
-                selectedPrompts,
-            ),
-            rolls: RollPreparationManager.getSelectedRolls(
-                item,
-                actionId,
-                selectedRolls,
-            ),
             selectedDamageBonuses,
             selectedHealingBonuses,
             selectedConsumers,
@@ -179,9 +158,7 @@
     let selectedHealingBonuses = $state(defaults.healingBonuses);
     let selectedPrompts = $state(defaults.prompts);
     let selectedRolls = $state(defaults.rolls);
-    let selectedEffects = $state(
-        RollPreparationManager.getDefaultSelectedEffects(effects),
-    );
+    let selectedEffects = $state(defaults.effects);
 
     let visibilityMode = $state(
         // @ts-expect-error

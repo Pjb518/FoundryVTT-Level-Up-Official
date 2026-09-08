@@ -190,6 +190,13 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 		}, [] as string[]);
 	}
 
+	get selectedEffects() {
+		return [...this._effects].reduce((acc, [id, effect]) => {
+			if (effect.system.default ?? true) acc.push(id);
+			return acc;
+		}, [] as string[]);
+	}
+
 	/** -------------Helpers---------------- */
 	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls'): string[] {
 		const arr = Object.values(this[property] ?? {});

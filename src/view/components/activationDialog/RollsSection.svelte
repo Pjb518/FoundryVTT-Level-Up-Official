@@ -9,7 +9,7 @@
 
     type Props = {
         selectedRolls: string[];
-        rolls: RollHandlerReturnType;
+        rolls: RollStateManager.state["rolls"];
         stateConfig: RollStateManager.state["config"];
     };
 
@@ -25,7 +25,16 @@
         toolCheck: "Tool Checks",
     };
 
-    const { otherRolls } = RollPreparationManager.prepareOtherRollData(rolls);
+    const otherRolls = Object.entries(rolls).reduce(
+        (acc, [rollType, rollGroup]) => {
+            if (rollType === "attack") return acc;
+            acc[rollType] = rollGroup;
+
+            return acc;
+        },
+        {} as Record<string, any>,
+    );
+
     const disabledRolls = stateConfig.invalids.rolls;
 </script>
 
