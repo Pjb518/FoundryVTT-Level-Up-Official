@@ -26,8 +26,9 @@ const maxDamage = {
 	maximizeDice: true,
 } as DamageRoll.CritConfiguration;
 
-// const doubleDiceQuantityAndMods = {
-// } as DamageRoll.CritConfiguration;
+const maxDamagePlusRoll = {
+	powerfulCritical: true,
+} as DamageRoll.CritConfiguration;
 
 // const doubleDiceQuantityAndMods = {
 // } as DamageRoll.CritConfiguration;
@@ -41,4 +42,6 @@ export function constructCriticalConfig() {
 	if (mode === 'doubleDiceQuantity') return doubleDiceQuantity;
 	if (mode === 'doubleDiceQuantityAndMods') return doubleDiceQuantityAndMods;
 	if (mode === 'maxDamage') return maxDamage;
+	if (mode === 'maxDamagePlusRoll') return maxDamagePlusRoll;
+	return {} as DamageRoll.CritConfiguration;
 }

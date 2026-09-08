@@ -73,10 +73,10 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 				else newTerms.push(...this.#applyCriticalTermPost(term, critical, idx));
 			});
 
-			// Apply double damage dice modifer
+			// Apply double damage dice modifier
 			if (critical.multiplyDiceTotal && this._evaluated) {
-				const multiplier = critical.multiplier ?? 2;
-				const diceTotal = this.dice.reduce((acc, die) => acc + die.total!, 0) * (multiplier - 1);
+				const multiplier = Math.max(1, (critical.multiplier ?? 1) - 1);
+				const diceTotal = this.dice.reduce((acc, die) => acc + die.total!, 0) * multiplier;
 				newTerms.push(
 					new terms.OperatorTerm({ operator: '+' }),
 					new terms.NumericTerm({
@@ -108,43 +108,32 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		// @ts-expect-error
 		term.options.critical = true;
 
-		const multiplier = critical.multiplier ?? 2;
+		const multiplier = critical.multiplier ?? 1;
 		const bonusDice = critical.bonusDice && !index ? critical.bonusDice : 0;
 
 		if (term instanceof terms.NumericTerm) {
 			// Possibly make this it's own term to join with dice multiplication
-			if (critical.multiplyNumeric) term.number *= multiplier ?? 2;
+			if (critical.multiplyNumeric) term.number *= multiplier;
 			return [term];
 		}
 
 		if (critical.powerfulCritical) {
-			const bonus =
-				Roll.create(term.formula).evaluateSync({ maximize: true }).total *
-				(Math.max(1, multiplier - 1) + bonusDice);
+			const clone = terms.RollTerm.fromData(term.toJSON()).evaluate({
+				maximize: true,
+			}) as terms.RollTerm;
 
-			if (bonus <= 0) return [term];
-
-			const flavor = term.flavor?.toLocaleLowerCase() ?? 'Powerful Critical';
-			return this.#placeCritical(
-				term,
-				[new terms.NumericTerm({ number: bonus, options: { flavor } })],
-				index,
-			);
+			clone.options.flavor = term.flavor?.toLocaleLowerCase() ?? 'Powerful Critical';
+			return this.#placeCritical(term, [clone], index);
 		}
 
 		if (term instanceof terms.DiceTerm && !term.modifiers.length) {
-			if (critical.multiplyDice) {
+			if (critical.multiplyDice || critical.bonusDice) {
 				term.alter(multiplier, bonusDice);
 				return [term];
 			}
 
 			// Maximize term
-			if (critical.maximizeDice) {
-				term.results = [{ result: term.faces || 6, active: true }];
-				// @ts-expect-error
-				term._evaluated = true;
-				return [term];
-			}
+			if (critical.maximizeDice) return [term.evaluate({ maximize: true })];
 
 			return [term];
 		}
