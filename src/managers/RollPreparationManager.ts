@@ -9,7 +9,9 @@ import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemA
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
 import type {
+	AbilityCheckRollData,
 	DamageRollData,
+	GenericRollData,
 	HealingRollData,
 } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
@@ -75,9 +77,8 @@ class RollPreparationManager {
 					return await this.#prepareHealingRoll(roll);
 				}
 
-				const otherRoll = this.#prepareItemRoll(roll);
-
-				return null;
+				const otherRoll = await this.#prepareItemRoll(roll);
+				return otherRoll;
 			}),
 		);
 
@@ -164,15 +165,14 @@ class RollPreparationManager {
 		}
 	}
 
-	async #prepareAbilityCheckRoll(
-		_roll: RollStateManager.WorkflowState['rolls'], // THis is incorrect
-	) {
+	async #prepareAbilityCheckRoll(_roll: AbilityCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const defaultData = this.#actor.getDefaultAbilityCheckData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
@@ -180,11 +180,11 @@ class RollPreparationManager {
 		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
+			rollMode: defaultData.rollMode,
 			type: 'abilityCheck',
 		};
 	}
@@ -388,7 +388,9 @@ class RollPreparationManager {
 		}));
 	}
 
-	async #prepareGenericRoll(_roll: RollData.GenericRollData) {
+	async #prepareGenericRoll(_roll: GenericRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: this.#applyScaling(_roll),
@@ -397,13 +399,12 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		const label = _roll.label || localize('A5E.GenericRoll');
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const label = _roll.label || localize('A5E.rollLabels.generic');
 
 		return {
 			label,
-			roll: roll as EvaluatedRoll,
+			roll: roll,
 			type: 'generic',
 		};
 	}
