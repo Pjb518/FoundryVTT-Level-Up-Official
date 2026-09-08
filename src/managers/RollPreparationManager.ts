@@ -8,7 +8,10 @@ import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompt
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
-import type { DamageRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
+import type {
+	DamageRollData,
+	HealingRollData,
+} from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { constructRollFormula } from '../dice/constructRollFormula.ts';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
@@ -52,17 +55,24 @@ class RollPreparationManager {
 		const attackRoll = await this.#prepareAttackRoll(state.attack);
 
 		let hasDamageRoll = false;
-		const hasHealingRoll = false;
+		let hasHealingRoll = false;
+		let hasTempHealing = false;
 
 		const prepared = await Promise.all(
 			state.rolls.map(async (roll) => {
 				if (roll.type === 'attack') return attackRoll;
+
 				if (roll.type === 'damage') {
-					const damageRoll = await this.#prepareDamageRoll(roll, attackRoll, {
-						applyGenericBonus: true,
-					});
 					hasDamageRoll = true;
-					return damageRoll;
+					return await this.#prepareDamageRoll(roll, attackRoll, { applyGenericBonus: true });
+				}
+
+				if (roll.type === 'healing') {
+					const healingType = roll.healingType;
+					if (healingType === 'temporaryHealing') hasTempHealing = true;
+					else hasHealingRoll = true;
+
+					return await this.#prepareHealingRoll(roll);
 				}
 
 				const otherRoll = this.#prepareItemRoll(roll);
@@ -75,6 +85,13 @@ class RollPreparationManager {
 			prepared.push(...(await this.#prepareBonusDamageRolls(attackRoll)));
 		}
 
+		if (hasHealingRoll) {
+			prepared.push(...(await this.#prepareBonusHealingRolls()));
+		}
+
+		if (hasTempHealing) {
+			prepared.push(...(await this.#prepareBonusTempHealingRolls()));
+		}
 		//   const { attack, damage, healing, other } = this.#rolls.reduce(
 		// 	(acc, roll: any) => {
 		// 		if (roll && roll.type === 'attack') acc.attack = roll;
@@ -232,7 +249,7 @@ class RollPreparationManager {
 	}
 
 	async #prepareBonusHealingRolls() {
-		const bonusHealing = Object.values(this.#healingBonuses).filter(
+		const bonusHealing = this.#state.healingBonuses.filter(
 			({ healingType }) => healingType === 'healing' || !healingType,
 		);
 
@@ -242,13 +259,13 @@ class RollPreparationManager {
 					label: label || 'Bonus Healing',
 					formula,
 					healingType: healingType || 'healing',
-				} as RollData.HealingRollData),
+				} as unknown as HealingRollData),
 			),
 		);
 	}
 
-	async #prepareBonusTemporaryHealingRolls() {
-		const bonusHealing = Object.values(this.#healingBonuses).filter(
+	async #prepareBonusTempHealingRolls() {
+		const bonusHealing = this.#state.healingBonuses.filter(
 			({ healingType }) => healingType === 'temporaryHealing',
 		);
 
@@ -258,13 +275,13 @@ class RollPreparationManager {
 					label: label || 'Bonus Temporary Healing',
 					formula,
 					healingType,
-				} as RollData.HealingRollData),
+				} as unknown as HealingRollData),
 			),
 		);
 	}
 
 	async #prepareDamageRoll(
-		_roll: DamageRollData & { context: Record<string, any> | undefined; type: 'damage' },
+		_roll: DamageRollData,
 		attackRoll: RollStateManager.WorkflowState['attack'],
 		{ applyGenericBonus = false, context = {} }: RollPreparationManager.DamageRollOptions = {},
 	): Promise<PreparedDamageData | null> {
@@ -391,17 +408,17 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareHealingRoll(_roll: RollData.HealingRollData): Promise<PreparedHealingData | null> {
+	async #prepareHealingRoll(_roll: HealingRollData): Promise<PreparedHealingData | null> {
+		// Get Roll Formula
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: this.#applyScaling(_roll),
 			item: this.#item,
 		});
-
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+		const roll = new CONFIG.Dice.BaseRoll(rollFormula);
+		// const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
 		const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
 		const label = localize(healingType);
 
@@ -409,7 +426,7 @@ class RollPreparationManager {
 			label,
 			userLabel: _roll.label,
 			healingType: _roll.healingType,
-			roll: roll as EvaluatedRoll,
+			roll: await roll.evaluate(),
 			type: 'healing',
 		};
 	}
