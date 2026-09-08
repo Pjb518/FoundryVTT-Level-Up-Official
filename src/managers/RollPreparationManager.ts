@@ -297,8 +297,6 @@ class RollPreparationManager {
 		let genericCritBonusDamage = '';
 		const modifiers: { value: string; label: string }[] = [];
 
-		console.log('Here');
-
 		if (applyGenericBonus) {
 			const genericBonusDamage = this.#prepareGenericBonusDamage(); // TODO: Had a isCrit param?
 
@@ -557,13 +555,13 @@ class RollPreparationManager {
 		};
 	}
 
-	/** ****************************************************
-	 *  Scaling Adjustment Methods
-	 **************************************************** */
-	#applyScaling(roll: any): string {
-		const scalingMode: string = roll.scaling?.mode;
+	/** ================================================ */
+	//  Scaling Adjustment Methods
+	/** ================================================ */
+	#applyScaling(roll: DamageRollData | HealingRollData): string {
+		const scalingMode = roll.scaling?.mode;
 
-		if (!scalingMode) return roll?.formula ?? 0;
+		if (!scalingMode) return roll?.getFormula() ?? 0;
 
 		if (scalingMode === 'cantrip') return this.#applyCantripScaling(roll);
 		if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(roll);
@@ -575,10 +573,10 @@ class RollPreparationManager {
 		return roll.formula ?? 0;
 	}
 
-	#applyCantripScaling(roll): string {
+	#applyCantripScaling(roll: DamageRollData | HealingRollData): string {
 		const actorData = this.#actor.system;
 
-		const casterLevel =
+		const casterLevel: number =
 			// @ts-expect-error
 			this.#actor?.levels?.character ??
 			// @ts-expect-error
@@ -586,20 +584,40 @@ class RollPreparationManager {
 			// @ts-expect-error
 			actorData.attributes.casterLevel;
 
-		const baseRoll: string = roll.formula;
+		if (casterLevel < 5) return roll.getFormula();
 
-		if (casterLevel < 5) return baseRoll;
+		// Get Base
+		const die = roll.die;
+		const baseBonus = roll.formula;
 
-		const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
+		// Get Scaling Info
+		const config = roll.scaling.config;
+		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingBonus = new Roll(config.value || '');
+
+		// Get multiplier
 		let multiplier = 0;
-
 		if (casterLevel >= 17) multiplier = 3;
 		else if (casterLevel >= 11) multiplier = 2;
 		else if (casterLevel >= 5) multiplier = 1;
 
-		return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join(
-			'+',
-		);
+		// Apply die scaling
+		const scaledDie = new foundry.dice.terms.Die({
+			number: (die.number ?? 0) + multiplier * scalingDie.number,
+			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			modifiers: [...die.modifiers],
+		}).formula;
+
+		console.log('here');
+
+		const result: string[] = [];
+		if (!['0d0', '0d'].includes(scaledDie)) result.push(scaledDie);
+		if (baseBonus.length) result.push(baseBonus);
+		if (scalingBonus.terms) {
+			result.push(scalingBonus.alter(multiplier, 0, { multiplyNumeric: true }).formula);
+		}
+
+		return result.join('+');
 	}
 
 	#applySpellLevelScaling(roll): string {
