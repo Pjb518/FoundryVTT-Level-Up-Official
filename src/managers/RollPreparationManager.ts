@@ -608,22 +608,21 @@ class RollPreparationManager {
 			modifiers: [...die.modifiers],
 		}).formula;
 
-		console.log('here');
-
 		const result: string[] = [];
 		if (!['0d0', '0d'].includes(scaledDie)) result.push(scaledDie);
 		if (baseBonus.length) result.push(baseBonus);
-		if (scalingBonus.terms) {
+		if (scalingBonus.terms?.length) {
 			result.push(scalingBonus.alter(multiplier, 0, { multiplyNumeric: true }).formula);
 		}
 
 		return result.join('+');
 	}
 
-	#applySpellLevelScaling(roll): string {
-		// @ts-expect-error
-		const baseSpellLevel = this.#consumers.spell?.baseLevel ?? this.#item.system.level ?? 1;
-		const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
+	#applySpellLevelScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+
+		const baseSpellLevel = consumer?.baseLevel ?? this.#item.system.level ?? 1;
+		const castingLevel = consumer?.level ?? baseSpellLevel;
 		const delta = castingLevel - baseSpellLevel;
 
 		return this.#applyResourceBasedScaling(roll, delta);
@@ -673,20 +672,40 @@ class RollPreparationManager {
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyResourceBasedScaling(roll, delta): string {
-		const baseRoll = roll.formula;
+	#applyResourceBasedScaling(roll: DamageRollData | HealingRollData, delta: number): string {
+		if (!delta) return roll.getFormula();
 
-		if (!delta) return baseRoll;
+		// Get Base
+		const die = roll.die;
+		const baseBonus = roll.formula;
 
-		const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
-		const step = roll.scaling?.step || 1;
+		// Get Scaling Info
+		const config = roll.scaling.config;
+		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingBonus = new Roll(config.value || '');
+
+		// Get Multiplier
+		const step = roll.scaling.step || 1;
 		const multiplier = Math.floor(delta / step);
+		if (multiplier === 0) return roll.getFormula();
 
-		if (multiplier === 0) return baseRoll;
+		// Apply die scaling
+		const scaledDie = new foundry.dice.terms.Die({
+			number: (die.number ?? 0) + multiplier * scalingDie.number,
+			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			modifiers: [...die.modifiers],
+		}).formula;
 
-		return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join(
-			'+',
-		);
+		const result: string[] = [];
+		if (!['0d0', '0d'].includes(scaledDie)) result.push(scaledDie);
+		if (baseBonus.length) result.push(baseBonus);
+		if (scalingBonus.terms?.length) {
+			result.push(scalingBonus.alter(multiplier, 0, { multiplyNumeric: true }).formula);
+		}
+
+		console.log(result);
+
+		return result.join('+');
 	}
 
 	/** ****************************************************
