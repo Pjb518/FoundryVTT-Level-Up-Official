@@ -319,7 +319,7 @@ export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
 
 		// Check if invalid
 		this.formulaInvalid = false;
-		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -348,7 +348,7 @@ export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
 
 		// Check if invalid
 		this.formulaInvalid = false;
-		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -376,7 +376,7 @@ export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
 
 		// Check if invalid
 		this.formulaInvalid = false;
-		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 

@@ -13,6 +13,9 @@ import type {
 	DamageRollData,
 	GenericRollData,
 	HealingRollData,
+	SavingThrowRollData,
+	SkillCheckRollData,
+	ToolCheckRollData,
 } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { constructRollFormula } from '../dice/constructRollFormula.ts';
@@ -432,40 +435,35 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareSavingThrowRoll(
-		_roll: RollData.SavingThrowRollData &
-			RollPreparationManager.ExtraRollData & { saveType: string },
-	) {
+	async #prepareSavingThrowRoll(_roll: SavingThrowRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const defaultData = this.#actor.getDefaultSavingThrowData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new Roll(rollFormula).evaluate();
-		let label: string;
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
-		if (_roll.saveType === 'concentration') label = localize('A5E.rollLabels.concentrationCheck');
-		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
-		else label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
+		const label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
-			saveType: _roll.saveType,
+			rollMode: defaultData.rollMode,
+			saveType: 'ability',
 			type: 'savingThrow',
 		};
 	}
 
-	async #prepareSkillCheckRoll(
-		_roll: RollData.SkillCheckRollData & RollPreparationManager.ExtraRollData,
-	) {
+	async #prepareSkillCheckRoll(_roll: SkillCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
 
 		const defaultData = this.#actor.getDefaultSkillCheckData(_roll.skill, {
@@ -474,11 +472,10 @@ class RollPreparationManager {
 		});
 
 		const ability = _roll.ability ?? defaultData.abilityKey;
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
 		const label =
 			ability && ability !== 'none'
@@ -489,17 +486,19 @@ class RollPreparationManager {
 				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
+			rollMode: defaultData.rollMode,
 			skillKey: _roll?.skill,
 			type: 'skillCheck',
 		};
 	}
 
-	async #prepareToolCheckRoll(_roll: RollData.ToolCheckRollData) {
+	async #prepareToolCheckRoll(_roll: ToolCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const abilityKey = _roll.ability === 'none' ? null : _roll.ability;
 		const isProficient = this.#actor.system.proficiencies?.tools?.includes(_roll.tool);
 		const modifiers: { value: string; label?: string }[] = [];
@@ -525,8 +524,7 @@ class RollPreparationManager {
 		if (isProficient) {
 			modifiers.push({
 				label: localize('A5E.Proficiency'),
-				// @ts-expect-error
-				value: this.#actor.system.attributes.prof,
+				value: this.#actor.system.attributes.prof.toString(),
 			});
 		}
 
@@ -549,7 +547,7 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
 		return {
 			label,

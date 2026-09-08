@@ -3,15 +3,15 @@ import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 type Options = {
 	actor: Actor.OfType<'base'>;
-	expertiseDie: number;
+	expertiseDie?: number;
 	item: ItemA5e | null;
-	minRoll: number;
-	maxRoll: number;
-	modifiers: ({
+	minRoll?: number;
+	maxRoll?: number;
+	modifiers?: ({
 		label?: string;
 		value: string | number;
 	} | null)[];
-	rollMode: number;
+	rollMode?: number;
 };
 
 /**
