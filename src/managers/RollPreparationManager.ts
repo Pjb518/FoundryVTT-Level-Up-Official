@@ -12,6 +12,7 @@ import type { DamageRollData } from '../dataModels/item/actions/ActionRollsDataM
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { constructRollFormula } from '../dice/constructRollFormula.ts';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
+import { DamageRoll } from '../dice/rolls/DamageRoll.ts';
 import simplifyDiceTerms from '../dice/simplifyDiceTerms';
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ActionActivationOptions } from '../documents/item/data';
@@ -275,19 +276,38 @@ class RollPreparationManager {
 			if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
 		}
 
+		const formula = this.#applyScaling(_roll);
+
+		// For sanity check that a formula would work ?
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
-			formula: this.#applyScaling(_roll),
+			formula,
 			item: this.#item,
 			modifiers,
 		});
-
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		let roll = baseRoll;
-		let critRoll = baseRoll;
+		// Construct Rolls
+		let roll = new DamageRoll(formula, this.#actor.getRollData(this.#item));
+
+		// TODO: Update the terms to reflect roll
+		const critFormula = formula;
+		let critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+			critical: {
+				allow: canCrit ?? true,
+				multiplier: null,
+				bonusDice: null,
+				bonusDamage: null,
+				multiplyDice: null,
+				multiplyNumeric: null,
+				powerfulCritical: null,
+			},
+		});
+
+		// const r = await new Roll(rollFormula).evaluate();
+		// let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+		// let roll = baseRoll;
+		// let critRoll = baseRoll;
 
 		if (canCrit ?? true) {
 			if (context?.isCritBonus) {

@@ -29,7 +29,7 @@ class BaseRoll extends Roll {
 		return super.evaluate(options);
 	}
 
-	override evaluateSync(options?: Roll.Options): Roll.Evaluated<this> {
+	override evaluateSync(options?: BaseRoll.Options): Roll.Evaluated<this> {
 		this.modifyDiceTerms(options);
 		this.simplifyOperatorTerms();
 		return super.evaluateSync(options);
@@ -104,6 +104,9 @@ class BaseRoll extends Roll {
 
 			return acc;
 		}, [] as Terms.RollTerm[]);
+
+		// Reset formula
+		this.resetFormula();
 	}
 
 	/** ===================================== */

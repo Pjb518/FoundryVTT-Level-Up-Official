@@ -1,14 +1,14 @@
+import type { AnyObject, EmptyObject, InexactPartial } from 'fvtt-types/utils';
+import { localize } from '#utils/localization/localize.ts';
 import type { BaseDie } from '../terms/BaseDie.ts';
 import { BaseRoll } from './BaseRoll.ts';
 
 import terms = foundry.dice.terms;
 
-import type { AnyObject, EmptyObject, InexactPartial } from 'fvtt-types/utils';
-
 class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	declare options: DamageRoll.Options;
 
-	constructor(formula: string, data: D, options: DamageRoll.Options) {
+	constructor(formula: string, data: D, options = {} as DamageRoll.Options) {
 		// @ts-expect-error
 		super(formula, data, options);
 
@@ -50,8 +50,55 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	}
 
 	/** ===================================== */
+	//  Evaluation
+	/** ===================================== */
+	override async evaluate(options?: DamageRoll.Options): Promise<Roll.Evaluated<this>> {
+		const result = await super.evaluate(options);
+		this.#configurePostEvaluation(options);
+		return result;
+	}
+
+	override evaluateSync(options?: DamageRoll.Options): Roll.Evaluated<this> {
+		const result = super.evaluateSync(options);
+		this.#configurePostEvaluation(options);
+		return result;
+	}
+
+	#configurePostEvaluation(options?: DamageRoll.Options) {
+		if (this.isCrit) {
+			const critical = this.options.critical ?? options?.critical ?? {};
+			const newTerms = [] as terms.RollTerm[];
+			this.terms.forEach((term, idx) => {
+				if (term instanceof terms.OperatorTerm) newTerms.push(term);
+				else newTerms.push(...this.#applyCriticalTermPost(term, critical, idx));
+			});
+
+			// Apply double damage dice modifer
+			if (critical.multiplyDice && this._evaluated) {
+				const multiplier = critical.multiplier ?? 2;
+				const diceTotal = this.dice.reduce((acc, die) => acc + die.total!, 0) * (multiplier - 1);
+				newTerms.push(
+					new terms.OperatorTerm({ operator: '+' }),
+					new terms.NumericTerm({
+						number: diceTotal,
+						options: { flavor: localize('A5E.CritDamage') },
+					}).evaluate() as terms.NumericTerm,
+				);
+			}
+
+			this.terms = newTerms;
+		}
+
+		this.resetFormula();
+	}
+
+	/** ===================================== */
 	//  Crit Methods
 	/** ===================================== */
+	#applyCriticalTermPost(term: terms.RollTerm, critical: DamageRoll.CritConfiguration, index) {
+		return [term];
+	}
+
 	#applyCriticalTerm(term: terms.RollTerm, critical: DamageRoll.CritConfiguration, index: number) {
 		if (term instanceof terms.DiceTerm && term._number instanceof Roll) {
 			if (term._number.isDeterministic) term.number = term._number.evaluateSync().total;
@@ -69,7 +116,6 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			return [term];
 		}
 
-		console.log('Here');
 		if (critical.powerfulCritical) {
 			const bonus =
 				Roll.create(term.formula).evaluateSync({ maximize: true }).total *
@@ -174,8 +220,8 @@ declare namespace DamageRoll {
 		allow?: boolean;
 		multiplier?: number;
 		bonusDice?: number;
-		bonusDamage?: string;
-		multiplyDice?: boolean;
+		bonusDamage?: string; // Not Implemented
+		multiplyDice?: boolean; // Not Implemented
 		multiplyNumeric?: boolean;
 		powerfulCritical?: boolean;
 	}
