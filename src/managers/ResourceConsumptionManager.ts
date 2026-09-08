@@ -2,6 +2,7 @@ import getActionScalingModes from '#utils/getActionScalingModes.ts';
 import { prepareHitDice } from '#utils/view/helpers/prepareHitDice.ts';
 import type { ConsumerHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import type * as ConsumerData from '../dataModels/item/actions/ActionConsumersDataModel.ts';
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
@@ -13,7 +14,9 @@ class ResourceConsumptionManager {
 
 	#item: ItemA5e;
 
-	#actionId: string;
+	#action: A5EActionData;
+
+	#actionId;
 
 	#consumptionData: ResourceConsumptionManager.ConsumptionData;
 
@@ -26,6 +29,7 @@ class ResourceConsumptionManager {
 	constructor(state: RollStateManager.WorkflowState) {
 		this.#actor = state.actor;
 		this.#item = state.item;
+		this.#action = state.action;
 		this.#state = state;
 
 		// this.#actionId = actionId;
@@ -38,19 +42,15 @@ class ResourceConsumptionManager {
 		};
 	}
 
-	get action() {
-		return this.#item.actions.get(this.#actionId)!;
-	}
-
 	async consumeResources() {
 		const consumers = this.#state.consumers;
 		const { actionUses, hitDice, itemUses, spell } = this.#state.consumptionData;
 
-		consumers.forEach(([consumerId, consumer]) => {
+		// Promise all here
+		consumers.forEach((consumer) => {
+			const consumerId = consumer.id;
 			const consumerType = consumer.type;
-
 			if (!consumerType) return;
-			if (!this.#selectedConsumers.includes(consumerId)) return;
 
 			if (consumerType === 'actionUses') this.#consumeActionUses(actionUses);
 			else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
@@ -58,8 +58,7 @@ class ResourceConsumptionManager {
 			else if (consumerType === 'spell') this.#consumeSpellResource(spell);
 			// @ts-expect-error
 			else if (consumerType === 'resource') this.#consumeResource(consumer);
-			else if (['ammunition', 'quantity'].includes(consumerType))
-				this.#consumeQuantity(consumerId, consumer);
+			else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
 			else if (consumerType === 'quality') this.#consumeQuality(consumer);
 		});
 
@@ -69,7 +68,7 @@ class ResourceConsumptionManager {
 	}
 
 	#consumeActionUses({ quantity = 0 } = {}) {
-		const actionUses = this.action?.uses;
+		const actionUses = this.#action?.uses;
 		if (!actionUses) return;
 
 		if (!quantity || (actionUses?.value !== 0 && !actionUses?.value) || !this.#actor) return;
@@ -85,8 +84,7 @@ class ResourceConsumptionManager {
 		this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
 	}
 
-	// @ts-expect-error
-	#consumeHitDice({ selected } = {}) {
+	#consumeHitDice({ selected = 0 } = {}) {
 		if (!selected || !this.#actor) return;
 		this.#actor.HitDiceManager.consumeHitDice(selected);
 	}
@@ -127,21 +125,21 @@ class ResourceConsumptionManager {
 		]);
 	}
 
-	// @ts-expect-error
-	async #consumeQuantity(consumerId: string, consumer = {}) {
-		//@ts-expect-error
-		const { itemId, quantity = 1, deleteOnZero } = consumer;
+	async #consumeQuantity(
+		consumer = {} as ConsumerData.QuantityConsumerData | ConsumerData.AmmunitionConsumerData,
+	) {
+		const { itemId, quantity = 1, deleteOnZero, id } = consumer;
 
 		if (!this.#actor || itemId === '') return;
 
 		const item = this.#actor.items.get(itemId);
-		if (!item || item.type !== 'object') return;
+		if (item?.type !== 'object') return;
 
 		const newQuantity = Math.max((item.system.quantity ?? 0) - quantity, 0);
 
 		if (deleteOnZero && newQuantity === 0) {
 			// Update consumer
-			this.#updates.item[`system.actions.${this.#actionId}.consumers.${consumerId}.itemId`] = '';
+			this.#updates.item[`system.actions.${this.#actionId}.consumers.${id}.itemId`] = '';
 			item.delete();
 			return;
 		}
@@ -151,14 +149,8 @@ class ResourceConsumptionManager {
 		]);
 	}
 
-	#consumeResource(
-		{
-			quantity,
-			resource,
-			restore,
-			classIdentifier,
-		}: ConsumerData.ResourceConsumerData = {} as ConsumerData.ResourceConsumerData,
-	) {
+	// TODO
+	#consumeResource(consumer: ConsumerData.ResourceConsumerData) {
 		const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 		if (!this.#actor || !resource || !config) return;
 
@@ -197,8 +189,9 @@ class ResourceConsumptionManager {
 		}
 	}
 
-	#consumeSpellResource(consumptionData: ResourceConsumptionManager.ConsumptionData['spell']) {
+	#consumeSpellResource(consumptionData: ResourceConsumptionManager.SpellConsumerData) {
 		if (!consumptionData || !this.#actor) return;
+		if (foundry.utils.isEmpty(consumptionData)) return;
 
 		const { charges, consume, level, points } = consumptionData;
 
@@ -410,15 +403,16 @@ declare namespace ResourceConsumptionManager {
 		quantity: number;
 	}
 
-	interface SpellConsumerData {
-		basePoints: number;
-		baseCharges: number;
-		baseLevel: number;
-		charges: number;
-		level: number;
-		points: number;
-		consume: 'artifactCharge' | 'noConsume' | 'spellPoint' | 'spellSlot';
-	}
+	// interface SpellConsumerData {
+	// 	basePoints: number;
+	// 	baseCharges: number;
+	// 	baseLevel: number;
+	// 	charges: number;
+	// 	level: number;
+	// 	points: number;
+	// 	consume: 'artifactCharge' | 'noConsume' | 'spellPoint' | 'spellSlot';
+	// }
+	type SpellConsumerData = RollStateManager.WorkflowState['consumptionData']['spell'];
 
 	interface UsesConsumerData {
 		quantity: number;

@@ -20,11 +20,13 @@
     const { A5E } = CONFIG;
     let { consumer, consumerId, deleteConsumer }: ConsumerProps = $props();
 
+    const modifierChoices = consumer.schema.fields.qualityModifier.choices;
+
     const item: any = getContext("item");
     const actionId: string = getContext("actionId");
 
     let selectedItem: string = $state(consumer.itemId);
-    let selectedQuality: number = $state(consumer.quality ?? "1");
+    let selectedModifier: number = $state(consumer.qualityModifier ?? 1);
 
     let optGroup = $derived(
         item.actor
@@ -97,7 +99,8 @@
                 class="a5e-input a5e-input--slim a5e-input--fit"
                 id="{actionId}-{consumerId}-item-id"
                 value={selectedItem}
-                onchange={({ currentTarget }) => updateItemSelection(currentTarget.value)}
+                onchange={({ currentTarget }) =>
+                    updateItemSelection(currentTarget.value)}
             >
                 <option value=""></option>
                 {#each Object.entries(optGroup) as [type, objects]}
@@ -119,17 +122,21 @@
         <select
             class="a5e-input a5e-input--slim a5e-input--fit"
             name="{actionId}-{consumerId}-quality"
-            value={selectedQuality}
             onchange={({ currentTarget }) =>
                 updateDocumentDataFromField(
                     item,
-                    `system.actions.${actionId}.consumers.${consumerId}.quality`,
-                    currentTarget.value,
+                    `system.actions.${actionId}.consumers.${consumerId}.qualityModifier`,
+                    Number.parseInt(currentTarget.value, 10),
                 )}
         >
-            <option value="0" selectedQuality="0">Repair</option>
-            <option value="1" selectedQuality="1">Damage</option>
-            <option value="2" selectedQuality="2">Break</option>
+            {#each Object.entries(modifierChoices) as [value, label]}
+                <option
+                    {value}
+                    selected={value === selectedModifier.toString()}
+                >
+                    {label}
+                </option>
+            {/each}
         </select>
     </FieldWrapper>
 </Section>

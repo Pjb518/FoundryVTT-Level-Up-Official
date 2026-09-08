@@ -28,6 +28,22 @@ const quantitySchema = () => ({
 	...baseSchema(),
 });
 
+const qualitySchema = () => ({
+	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	qualityModifier: new fields.NumberField({
+		required: true,
+		nullable: false,
+		initial: 1,
+		choices: { 0: 'Repair', 1: 'Damage', 2: 'Break' },
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'quality',
+	}),
+});
+
 const hitDiceSchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	type: new fields.StringField({
@@ -88,6 +104,10 @@ declare namespace ItemUsesConsumerData {
 
 declare namespace QuantityConsumerData {
 	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
+}
+
+declare namespace QualityConsumerData {
+	type Schema = DataSchema & ReturnType<typeof qualitySchema>;
 }
 
 declare namespace ResourceConsumerData {
@@ -191,6 +211,14 @@ class QuantityConsumerData extends DataModel<QuantityConsumerData.Schema> {
 	}
 }
 
+class QualityConsumerData extends DataModel<QualityConsumerData.Schema> {
+	static type = 'quality';
+
+	static override defineSchema(): QualityConsumerData.Schema {
+		return { ...qualitySchema() };
+	}
+}
+
 class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 	static type = 'resource';
 
@@ -276,6 +304,7 @@ const ACTION_CONSUMER_DATA_TYPES = {
 	hitDice: HitDiceConsumerData,
 	itemUses: ItemUsesConsumerData,
 	quantity: QuantityConsumerData,
+	quality: QualityConsumerData,
 	resource: ResourceConsumerData,
 	spell: SpellConsumerData,
 } as const;
@@ -286,6 +315,7 @@ export {
 	AmmunitionConsumerData,
 	HitDiceConsumerData,
 	ItemUsesConsumerData,
+	QualityConsumerData,
 	QuantityConsumerData,
 	ResourceConsumerData,
 	SpellConsumerData,
