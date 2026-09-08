@@ -69,7 +69,12 @@ const damageRollSchema = () => ({
 
 const genericRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	scaling: new fields.SchemaField(scalingFieldBase()),
+	scaling: new fields.SchemaField(scalingFieldRoll()),
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField({ initial: '', nullable: false })),
+	}),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -286,7 +291,27 @@ export class GenericRollData extends DataModel<GenericRollData.Schema> {
 
 		// Check if invalid
 		this.formulaInvalid = false;
-		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		if (!this.die.number || !this.die.denom) {
+			if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		}
+		if (this.formula.length && !Roll.validate(this.formula)) this.formulaInvalid = true;
+	}
+
+	getFormula() {
+		// Get die data
+		let formula = '';
+		if (this.die.number && this.die.denom) {
+			formula = `${this.die.number}d${this.die.denom}`;
+			if (this.die.modifiers.size) {
+				formula += `${[...this.die.modifiers].join('')}`;
+			}
+		}
+
+		// Add bonus
+		if (formula.length && this.formula.length) formula += ` + ${this.formula}`;
+		else formula += `${this.formula}`;
+
+		return formula;
 	}
 }
 
@@ -311,7 +336,10 @@ export class HealingRollData extends DataModel<HealingRollData.Schema> {
 
 		// Check if invalid
 		this.formulaInvalid = false;
-		if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		if (!this.die.number || !this.die.denom) {
+			if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		}
+		if (this.formula.length && !Roll.validate(this.formula)) this.formulaInvalid = true;
 	}
 
 	getFormula() {

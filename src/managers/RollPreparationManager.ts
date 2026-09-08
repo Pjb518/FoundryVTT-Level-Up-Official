@@ -489,7 +489,7 @@ class RollPreparationManager {
 	/** ================================================ */
 	//  Scaling Adjustment Methods
 	/** ================================================ */
-	#applyScaling(roll: DamageRollData | HealingRollData): string {
+	#applyScaling(roll: DamageRollData | HealingRollData | GenericRollData): string {
 		const scalingMode = roll.scaling?.mode;
 
 		if (!scalingMode) return roll?.getFormula() ?? 0;
