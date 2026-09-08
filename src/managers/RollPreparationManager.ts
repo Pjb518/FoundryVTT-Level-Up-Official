@@ -12,6 +12,7 @@ import type { DamageRollData } from '../dataModels/item/actions/ActionRollsDataM
 import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { constructRollFormula } from '../dice/constructRollFormula.ts';
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
+import { constructCriticalConfig } from '../dice/damage/constructCriticalConfig.ts';
 import { DamageRoll } from '../dice/rolls/DamageRoll.ts';
 import simplifyDiceTerms from '../dice/simplifyDiceTerms';
 import type { BaseActorA5e } from '../documents/actor/base';
@@ -49,14 +50,12 @@ class RollPreparationManager {
 		const state = this.#state;
 
 		const attackRoll = await this.#prepareAttackRoll(state.attack);
-		let applyGenericBonus = true;
 
 		const prepared = await Promise.all(
 			state.rolls.map(async (roll) => {
 				if (roll.type === 'attack') return attackRoll;
 				if (roll.type === 'damage') {
-					const damageRoll = this.#prepareDamageRoll(roll, attackRoll, applyGenericBonus);
-					applyGenericBonus = false;
+					const damageRoll = this.#prepareDamageRoll(roll, attackRoll, true);
 					return damageRoll;
 				}
 
@@ -259,11 +258,13 @@ class RollPreparationManager {
 	): Promise<PreparedDamageData | null> {
 		const { isCrit } = attackRoll ?? {};
 		const { canCrit, critBonus, damageType } = _roll ?? {};
-		const critBonuses: string[] = [];
-		const modifiers: { value: string; label: string }[] = [];
-
 		const { context } = _roll;
+
+		// Apply Generic Bonuses to all damage rolls that aren't bonuses
+		const critBonuses: string[] = [];
+		let critBonusFormula = critBonus || '';
 		let genericCritBonusDamage = '';
+		const modifiers: { value: string; label: string }[] = [];
 
 		if (applyGenericBonus) {
 			const genericBonusDamage = this.#prepareGenericBonusDamage(); // TODO: Had a isCrit param?
@@ -275,53 +276,53 @@ class RollPreparationManager {
 
 			if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
 		}
+		critBonusFormula += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
 
-		const formula = this.#applyScaling(_roll);
-
-		// For sanity check that a formula would work ?
+		// We're using this to get a roll formula with bonuses
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
-			formula,
+			formula: this.#applyScaling(_roll),
 			item: this.#item,
 			modifiers,
 		});
 		if (!rollFormula) return null;
 
 		// Construct Rolls
-		let roll = new DamageRoll(formula, this.#actor.getRollData(this.#item));
+		const roll = new DamageRoll(rollFormula, this.#actor.getRollData(this.#item));
 
-		// TODO: Update the terms to reflect roll
-		const critFormula = formula;
-		let critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+		// Construct Critical roll
+		const critFormula = rollFormula;
+		const critConfig = constructCriticalConfig();
+		const critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+			isCrit: canCrit ?? true,
 			critical: {
-				allow: canCrit ?? true,
-				multiplier: null,
-				bonusDice: null,
-				bonusDamage: null,
-				multiplyDice: null,
-				multiplyNumeric: null,
-				powerfulCritical: null,
+				...critConfig,
+				bonusDamage: critBonusFormula,
 			},
 		});
+
+		// TODO: Update the terms to reflect roll
 
 		// const r = await new Roll(rollFormula).evaluate();
 		// let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
 		// let roll = baseRoll;
 		// let critRoll = baseRoll;
 
-		if (canCrit ?? true) {
-			if (context?.isCritBonus) {
-				critRoll = roll;
-				baseRoll = await new Roll('0').evaluate();
-				roll = baseRoll;
-			} else {
-				let bonus = critBonus || '';
-				bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
-				critRoll = await constructCritDamageRoll(roll, bonus);
-			}
-		}
+		// if (canCrit ?? true) {
+		// 	if (context?.isCritBonus) {
+		//    Left
+		//    critRoll = roll;
+		// 		baseRoll = await new Roll('0').evaluate();
+		// 		roll = baseRoll;
+		// 	} else {
+		//    Done ------
+		// 		let bonus = critBonus || '';
+		// 		bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
+		// 		critRoll = await constructCritDamageRoll(roll, bonus);
+		// 	}
+		// }
 
-		if (isCrit) roll = critRoll;
+		// if (isCrit) roll = critRoll;
 
 		const label = damageType
 			? localize('A5E.damage.labels.specific', {
@@ -330,13 +331,13 @@ class RollPreparationManager {
 			: localize('A5E.damage.title');
 
 		return {
-			baseRoll: baseRoll as EvaluatedRoll,
+			// baseRoll: baseRoll as EvaluatedRoll,
 			canCrit: canCrit ?? true,
-			critRoll: critRoll as EvaluatedRoll,
+			critRoll: await critRoll.evaluate(),
 			damageType,
 			label,
 			userLabel: _roll.label,
-			roll: roll as EvaluatedRoll,
+			roll: await roll.evaluate(),
 			type: 'damage',
 		};
 	}

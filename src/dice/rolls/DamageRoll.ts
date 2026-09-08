@@ -37,6 +37,14 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 				else newTerms.push(...this.#applyCriticalTerm(term, critical, idx));
 			});
 
+			// Add bonus Crit Damage
+			if (critical.bonusDamage) {
+				newTerms.push(
+					new terms.OperatorTerm({ operator: '+' }),
+					...(new DamageRoll(critical.bonusDamage, this.data).terms ?? []),
+				);
+			}
+
 			this.terms = newTerms;
 		}
 
@@ -133,7 +141,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			}
 
 			// Maximize term
-			if (critical.maximizeDice) return [term.evaluate({ maximize: true })];
+			if (critical.maximizeDice) return [term.evaluate({ maximize: true }) as terms.RollTerm];
 
 			return [term];
 		}
@@ -219,7 +227,6 @@ declare namespace DamageRoll {
 	}
 
 	interface CritConfiguration {
-		allow?: boolean;
 		multiplier?: number;
 		bonusDice?: number;
 		bonusDamage?: string; // Not Implemented
