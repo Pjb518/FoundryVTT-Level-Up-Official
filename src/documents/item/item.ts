@@ -163,23 +163,8 @@ class ItemA5e<
 
 		if (!activationData) return null;
 
-		const rolls = await rollStateManager.startWorkflow(activationData);
+		const { rolls } = await rollStateManager.startWorkflow(activationData);
 		console.log(rolls);
-
-		// activationData.rolls ??= [];
-		// activationData.rolls.push(activationData?.attack ?? {});
-
-		// const rollPreparationManager = new RollPreparationManager({
-		// 	actor: this.actor,
-		// 	item: this,
-		// 	consumers: activationData.consumers ?? {},
-		// 	damageBonuses: activationData.damageBonuses ?? {},
-		// 	healingBonuses: activationData.healingBonuses ?? {},
-		// 	rolls: activationData.rolls ?? {},
-		// });
-
-		// const rolls = await rollPreparationManager.prepareRolls();
-		// const rolls = [];
 
 		const effectAreaManager = new EffectAreaManager(
 			this.actor,
@@ -190,15 +175,15 @@ class ItemA5e<
 		const validShape = effectAreaManager.validateBaseTemplateData();
 		const shapeData = validShape ? effectAreaManager.getShapeData() : null;
 
-		const resourceConsumptionManager = new ResourceConsumptionManager(
-			this.actor,
-			this,
-			actionId,
-			activationData.consumptionData ?? {},
-			activationData.selectedConsumers ?? [],
-		);
+		// const resourceConsumptionManager = new ResourceConsumptionManager(
+		// 	this.actor,
+		// 	this,
+		// 	actionId,
+		// 	activationData.consumptionData ?? {},
+		// 	activationData.selectedConsumers ?? [],
+		// );
 
-		await resourceConsumptionManager.consumeResources();
+		// await resourceConsumptionManager.consumeResources();
 
 		const chatData = {
 			author: game.user?.id,

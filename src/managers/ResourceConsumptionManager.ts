@@ -6,9 +6,10 @@ import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 import type SpellItemA5e from '../documents/item/spell.ts';
+import type { RollStateManager } from './RollStateManager.ts';
 
 class ResourceConsumptionManager {
-	#actor: BaseActorA5e;
+	#actor: Actor.OfType<'character'> | Actor.OfType<'npc'>;
 
 	#item: ItemA5e;
 
@@ -18,20 +19,18 @@ class ResourceConsumptionManager {
 
 	#selectedConsumers: string[];
 
+	#state: RollStateManager.WorkflowState;
+
 	#updates: { actor: Record<string, any>; item: Record<string, any> };
 
-	constructor(
-		actor: BaseActorA5e,
-		item: ItemA5e,
-		actionId: string,
-		consumptionData: ResourceConsumptionManager.ConsumptionData,
-		selectedConsumers: string[],
-	) {
-		this.#actor = actor;
-		this.#item = item;
-		this.#actionId = actionId;
-		this.#consumptionData = consumptionData;
-		this.#selectedConsumers = selectedConsumers;
+	constructor(state: RollStateManager.WorkflowState) {
+		this.#actor = state.actor;
+		this.#item = state.item;
+		this.#state = state;
+
+		// this.#actionId = actionId;
+		// this.#consumptionData = consumptionData;
+		// this.#selectedConsumers = selectedConsumers;
 
 		this.#updates = {
 			actor: {},
@@ -44,9 +43,8 @@ class ResourceConsumptionManager {
 	}
 
 	async consumeResources() {
-		const consumers = Object.entries(this.action?.consumers ?? {});
-
-		const { actionUses, hitDice, itemUses, spell } = this.#consumptionData;
+		const consumers = this.#state.consumers;
+		const { actionUses, hitDice, itemUses, spell } = this.#state.consumptionData;
 
 		consumers.forEach(([consumerId, consumer]) => {
 			const consumerType = consumer.type;

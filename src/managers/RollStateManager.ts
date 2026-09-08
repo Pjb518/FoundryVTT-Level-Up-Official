@@ -6,6 +6,7 @@ import type { SpellConsumerData } from '../dataModels/item/actions/ActionConsume
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
+import { ResourceConsumptionManager } from './ResourceConsumptionManager.ts';
 import { RollOverrideManager } from './RollOverrideManager.ts';
 import { RollPreparationManager } from './RollPreparationManager.ts';
 
@@ -230,12 +231,14 @@ class RollStateManager {
 	async startWorkflow(data: RollStateManager.ActionDialogData) {
 		const state = this._preparePostDialogState(data);
 
-		// TODO: Make this one line
 		// Prepare rolls
-		const RollManager = new RollPreparationManager(state);
-		const rolls = await RollManager.prepareRolls();
-		console.log(rolls);
-		return rolls;
+		const rolls = await new RollPreparationManager(state).prepareRolls();
+
+		// Consumer resources
+		await new ResourceConsumptionManager(state).consumeResources();
+
+		// Prepare effects
+		return { rolls };
 	}
 }
 
