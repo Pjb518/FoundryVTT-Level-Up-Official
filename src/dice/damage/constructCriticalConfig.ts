@@ -12,9 +12,25 @@ const doubleDiceDamage = {
 } as DamageRoll.CritConfiguration;
 
 const doubleDiceQuantity = {
-	multiplier: 1,
-	bonusDice: 1,
+	multiplier: 2,
+	multiplyDice: true,
 } as DamageRoll.CritConfiguration;
+
+const doubleDiceQuantityAndMods = {
+	multiplier: 2,
+	multiplyDice: true,
+	multiplyNumeric: true,
+} as DamageRoll.CritConfiguration;
+
+const maxDamage = {
+	maximizeDice: true,
+} as DamageRoll.CritConfiguration;
+
+// const doubleDiceQuantityAndMods = {
+// } as DamageRoll.CritConfiguration;
+
+// const doubleDiceQuantityAndMods = {
+// } as DamageRoll.CritConfiguration;
 
 export function constructCriticalConfig() {
 	// @ts-expect-error
@@ -23,4 +39,6 @@ export function constructCriticalConfig() {
 	if (mode === 'doubleAllDamage') return doubleAllDamage;
 	if (mode === 'doubleDiceDamage') return doubleDiceDamage;
 	if (mode === 'doubleDiceQuantity') return doubleDiceQuantity;
+	if (mode === 'doubleDiceQuantityAndMods') return doubleDiceQuantityAndMods;
+	if (mode === 'maxDamage') return maxDamage;
 }

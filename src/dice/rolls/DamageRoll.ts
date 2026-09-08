@@ -29,7 +29,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	configure({ critical = {} } = {} as DamageRoll.Options) {
 		if (this.options.configured) return;
 
-		// Handle criticals
+		// Handle critical
 		if (this.isCrit) {
 			const newTerms = [] as terms.RollTerm[];
 			this.terms.forEach((term, idx) => {
@@ -132,20 +132,30 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			);
 		}
 
-		if (critical.multiplyDice) {
-			if (term instanceof terms.DiceTerm && !term.modifiers.length) {
+		if (term instanceof terms.DiceTerm && !term.modifiers.length) {
+			if (critical.multiplyDice) {
 				term.alter(multiplier, bonusDice);
 				return [term];
 			}
 
-			const copies = multiplier - 1 + bonusDice;
-			if (!term.isDeterministic && copies > 0) {
-				const clones = Array.from({ length: copies }, () =>
-					terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
-				);
-
-				return this.#placeCritical(term, clones, index);
+			// Maximize term
+			if (critical.maximizeDice) {
+				term.results = [{ result: term.faces || 6, active: true }];
+				// @ts-expect-error
+				term._evaluated = true;
+				return [term];
 			}
+
+			return [term];
+		}
+
+		const copies = multiplier - 1 + bonusDice;
+		if (!term.isDeterministic && copies > 0) {
+			const clones = Array.from({ length: copies }, () =>
+				terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
+			);
+
+			return this.#placeCritical(term, clones, index);
 		}
 
 		return [term];
@@ -224,6 +234,7 @@ declare namespace DamageRoll {
 		multiplier?: number;
 		bonusDice?: number;
 		bonusDamage?: string; // Not Implemented
+		maximizeDice?: boolean;
 		multiplyDice?: boolean;
 		multiplyDiceTotal?: boolean;
 		multiplyNumeric?: boolean;

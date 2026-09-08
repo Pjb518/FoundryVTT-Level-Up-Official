@@ -45,11 +45,11 @@ class BaseRoll extends Roll {
 			) {
 				const minimize = !options.maximize;
 
-				const number = 0;
-				if (term instanceof Terms.DiceTerm) this.modifyTerm(term, { minimize });
-				else this.modifyPoolTerm(term, { minimize });
+				let number: number | undefined | null;
+				if (term instanceof Terms.DiceTerm) number = this.modifyTerm(term, { minimize });
+				else number = this.modifyPoolTerm(term, { minimize });
 
-				if (Number.isFinite(number))
+				if (number && Number.isFinite(number))
 					return new Terms.NumericTerm({ number, options: term.options });
 			}
 
