@@ -28,6 +28,8 @@
     let selectedItem: string = $state(consumer.itemId);
     let selectedModifier: number = $state(consumer.qualityModifier ?? 1);
 
+    console.log(consumer);
+
     let optGroup = $derived(
         item.actor
             ? item.actor.reactive.items.reduce((acc, i) => {

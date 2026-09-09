@@ -56,7 +56,6 @@ class ResourceConsumptionManager {
 			else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
 			else if (consumerType === 'itemUses') this.#consumeItemUses(itemUses);
 			else if (consumerType === 'spell') this.#consumeSpellResource(spell);
-			// @ts-expect-error
 			else if (consumerType === 'resource') this.#consumeResource(consumer);
 			else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
 			else if (consumerType === 'quality') this.#consumeQuality(consumer);
@@ -102,22 +101,19 @@ class ResourceConsumptionManager {
 		this.#updates.item['system.uses.value'] = Math.clamp(value - quantity, 0, max);
 	}
 
-	// @ts-expect-error
-	async #consumeQuality(consumer = {}) {
-		//@ts-expect-error
-		const { itemId, quality } = consumer;
-
+	async #consumeQuality(consumer = {} as ConsumerData.QualityConsumerData) {
+		const { itemId, qualityModifier } = consumer;
 		if (!this.#actor || itemId === '') return;
 
 		const item = this.#actor.items.get(itemId);
-		if (!item) return;
+		if (item?.type !== 'object') return;
 
 		let newQuality = 0;
 
-		if (quality === '1') {
-			newQuality = Math.min((item.system.damagedState ?? 0) + quality, 2);
+		if (qualityModifier === 1) {
+			newQuality = Math.min((item.system.damagedState ?? 0) + qualityModifier, 2);
 		} else {
-			newQuality = quality;
+			newQuality = qualityModifier;
 		}
 
 		await this.#actor.updateEmbeddedDocuments('Item', [
@@ -151,12 +147,14 @@ class ResourceConsumptionManager {
 
 	// TODO
 	#consumeResource(consumer: ConsumerData.ResourceConsumerData) {
+		const { quantity, resource, restore } = consumer;
+		let { classIdentifier } = consumer;
+
 		const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 		if (!this.#actor || !resource || !config) return;
 
 		// Handle class resources
 		if (resource === 'classResource') {
-			// eslint-disable-next-line no-param-reassign
 			classIdentifier = classIdentifier.replace('@classResources.', '');
 
 			const value =

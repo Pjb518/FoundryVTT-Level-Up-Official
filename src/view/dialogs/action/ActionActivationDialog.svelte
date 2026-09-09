@@ -2,7 +2,6 @@
     import type { ActionActivationOptions } from "../../../documents/item/data.ts";
 
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
-    import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
 
     import { setContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
@@ -22,6 +21,7 @@
     import RollsSection from "#view/components/activationDialog/RollsSection.svelte";
     import SpellSection from "#view/components/activationDialog/SpellSection.svelte";
     import UsesSection from "#view/components/activationDialog/UsesSection.svelte";
+    import ResourcesSection from "#view/components/activationDialog/ResourcesSection.svelte";
 
     type Props = {
         actionId: string;
@@ -38,6 +38,7 @@
                 actionUses: actionUsesData,
                 hitDice: hitDiceData,
                 itemUses: itemUsesData,
+                resources: resourceUsesData,
                 spell: spellData,
             },
             effects: selectedEffects,
@@ -89,8 +90,8 @@
                 // @ts-expect-error
                 data?.forEach?.((c, idx) => {
                     acc.push([
-                        c[0],
-                        c[1].label || `Resource Consumers #${idx + 1}`,
+                        c.id,
+                        c.label || `Resource Consumers #${idx + 1}`,
                     ]);
                 });
             } else {
@@ -143,6 +144,8 @@
 
     let showConsumersSection = $derived(consumerOptions.length > 0);
 
+    let showResourcesSection = $derived(!!consumers?.resource?.length);
+
     let attackRollData = $state.raw({});
     let actionUsesData = $state(
         {} as ResourceConsumptionManager.UsesConsumerData,
@@ -153,6 +156,7 @@
     let itemUsesData = $state(
         {} as ResourceConsumptionManager.UsesConsumerData,
     );
+    let resourceData = $state.raw({});
     let spellData = $state({} as ResourceConsumptionManager.SpellConsumerData);
     let selectedDamageBonuses = $state(defaults.damageBonuses);
     let selectedHealingBonuses = $state(defaults.healingBonuses);
@@ -287,6 +291,13 @@
                     {selectedConsumers}
                     bind:actionUsesData
                     bind:itemUsesData
+                />
+            {/if}
+
+            {#if showResourcesSection}
+                <ResourcesSection
+                    consumers={consumers.resource}
+                    bind:resourceData
                 />
             {/if}
 

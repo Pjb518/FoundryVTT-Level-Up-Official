@@ -47,7 +47,7 @@ export default function registerActionsConfig() {
 	const resourceConsumerConfig = {
 		classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
 		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
-		fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue', type: 'value' },
+		fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue.name', type: 'value' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
 			label: 'A5E.consumers.favorPoints',

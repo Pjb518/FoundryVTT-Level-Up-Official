@@ -1,13 +1,16 @@
 <script lang="ts">
-    import type { ConsumerProps } from "./data.ts";
-
     import { getContext } from "svelte";
+    import type { ItemA5e } from "#documents/item/item.ts";
     import { localize } from "#utils/localization/localize.ts";
-
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import type { ResourceConsumerData } from "../../../../dataModels/item/actions/ActionConsumersDataModel.ts";
+    import type { ConsumerProps } from "./data.ts";
+
+    type Props = Omit<ConsumerProps, "consumer"> & {
+        consumer: ResourceConsumerData;
+    };
 
     function updateResourceSelection(value: string) {
         updateDocumentDataFromField(
@@ -17,11 +20,11 @@
         );
     }
 
-    let { consumer, consumerId, deleteConsumer }: ConsumerProps = $props();
+    let { consumer, consumerId, deleteConsumer }: Props = $props();
 
     const { resourceConsumerConfig } = CONFIG.A5E;
 
-    const item: any = getContext("item");
+    const item: ItemA5e = getContext("item");
     const actionId: string = getContext("actionId");
 
     let selectedResource: string = $derived(consumer.resource ?? "");
@@ -30,7 +33,7 @@
         (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
 
     if (!showFavorPoints) {
-        delete resourceConsumerConfig?.favorPoints;
+        delete resourceConsumerConfig.favorPoints;
     }
 </script>
 
@@ -108,10 +111,7 @@
     {/if}
 
     {#if resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper
-            heading="A5E.consumers.value"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="Value">
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"

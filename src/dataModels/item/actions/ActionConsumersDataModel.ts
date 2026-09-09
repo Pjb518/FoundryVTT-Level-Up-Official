@@ -3,6 +3,7 @@ import type { ItemA5e } from '../../../documents/item/item.ts';
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
+import { localize } from '#utils/localization/localize.ts';
 import { getDeterministicBonus } from '../../../dice/getDeterministicBonus.ts';
 
 // ======================================================
@@ -42,6 +43,7 @@ const qualitySchema = () => ({
 		blank: false,
 		initial: 'quality',
 	}),
+	...baseSchema(),
 });
 
 const hitDiceSchema = () => ({
@@ -223,10 +225,24 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 	static type = 'resource';
 
 	static override defineSchema(): ResourceConsumerData.Schema {
+		return { ...resourceSchema() };
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
+		const label = localize(CONFIG.A5E.resourceConsumerConfig[this.resource]?.label);
+
+		const usesData = {
+			baseUses: this.quantity ?? 1,
+			quantity: this.quantity ?? 1,
+		};
+
 		return {
-			...resourceSchema(),
+			label: this.label || label,
+			usesData,
 		};
 	}
+
+	getResource() {}
 }
 
 class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {

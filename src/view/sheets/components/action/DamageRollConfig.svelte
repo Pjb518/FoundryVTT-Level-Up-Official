@@ -1,5 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
+    import type { ItemA5e } from "#documents/item/item.ts";
     import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
     import { localize } from "#utils/localization/localize.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
@@ -12,7 +13,6 @@
     import Section from "#view/snippets/Section.svelte";
     import type { DamageRollData } from "../../../../dataModels/item/actions/ActionRollsDataModel.ts";
     import type { RollProps } from "./data.ts";
-    import type { ItemA5e } from "#documents/item/item.ts";
 
     type Props = Omit<RollProps, "roll"> & {
         roll: DamageRollData;

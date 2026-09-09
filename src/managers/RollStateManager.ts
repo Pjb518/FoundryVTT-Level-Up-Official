@@ -254,6 +254,7 @@ declare namespace RollStateManager {
 			actionUses: { baseUses: number; quantity: number };
 			hitDice: { selected: Record<string, number>; quantity: number };
 			itemUses: { baseUses: number; quantity: number };
+			resources: {};
 			spell: ReturnType<SpellConsumerData['getActivationData']>['spellData'];
 		};
 		effects: string[];
