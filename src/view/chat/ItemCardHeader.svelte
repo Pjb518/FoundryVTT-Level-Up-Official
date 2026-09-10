@@ -5,12 +5,18 @@
     import zip from "#utils/zip.ts";
 
     type Props = {
+        isCrit?: boolean;
         onRepeatCard: () => void;
         onToggleDescription: () => void;
         onToggleCriticalDamage: () => void;
     };
 
-    let { onRepeatCard, onToggleDescription, onToggleCriticalDamage }: Props = $props();
+    let {
+        isCrit,
+        onRepeatCard,
+        onToggleDescription,
+        onToggleCriticalDamage,
+    }: Props = $props();
 
     let message: any = getContext("message");
 
@@ -29,24 +35,19 @@
 
     let showCritDamageToggle = (message?.system?.rollData ?? []).some(
         (roll) =>
-            roll.type === "damage" &&
-            (roll.canCrit ?? true) &&
-            roll.critRoll &&
-            roll.baseRoll,
+            roll.type === "damage" && (roll.canCrit ?? true) && roll.critRoll,
     );
 
-    let critDamageEnabled = zip(
-        message?.rolls ?? [],
-        message?.system?.rollData ?? [],
-    ).some(([roll, rollData]) => {
-        if (rollData.type !== "damage") return false;
-        if (!rollData.canCrit ?? true) return false;
-        if (!rollData.critRoll || !rollData.baseRoll) return false;
-
-        if (rollData.baseRoll.formula === roll.formula) return false;
-
-        return true;
-    });
+    let critDamageEnabled = $derived(
+        zip(message?.rolls ?? [], message?.system?.rollData ?? []).some(
+            ([roll, rollData]) => {
+                if (rollData.type !== "damage") return false;
+                if (!(rollData.canCrit ?? true)) return false;
+                if (!rollData.critRoll) return false;
+                return isCrit;
+            },
+        ),
+    );
 </script>
 
 <!-- TODO: Display Token when hovered -->
@@ -85,7 +86,11 @@
                         onToggleCriticalDamage();
                     }}
                 >
-                    <i class="fa-solid fa-bullseye"></i>
+                    {#if isCrit}
+                        <i class="fa-solid fa-circle-dot"></i>
+                    {:else}
+                        <i class="fa-solid fa-bullseye"></i>
+                    {/if}
                 </button>
             {/if}
 

@@ -166,6 +166,7 @@ class ItemA5e<
 		const { rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
 		console.log(rolls);
 
+		// TODO: Move the rest of this to workflow
 		const chatData = {
 			author: game.user?.id,
 			flavor: action.name ? `${this.name}: ${action.name}` : this.name,

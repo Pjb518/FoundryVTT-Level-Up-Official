@@ -26,6 +26,30 @@
         messageDocument: any;
     };
 
+    function getCritState() {
+        const flag = message.getFlag("a5e", "isCrit");
+        if (flag != null) {
+            return flag as boolean;
+        }
+
+        const isCrit = zip(message.rolls, message.system.rollData).some(
+            ([roll, rollData]) => {
+                if (rollData.type !== "attack") return false;
+
+                const d20Roll = roll.terms.find((term) => term.faces === 20);
+                if (!d20Roll) return false;
+
+                return d20Roll.results.some(
+                    ({ result, active }) =>
+                        active && result >= (rollData.critThreshold ?? 20),
+                );
+            },
+        );
+
+        if (isCrit) return true;
+        return false;
+    }
+
     function getEffectIcon(effect) {
         return effect?.img ?? "icons/svg/hazard.svg";
     }
@@ -185,45 +209,12 @@
     }
 
     function reevaluateCritMode() {
-        const isCrit = zip(message.rolls, message.system.rollData).some(
-            ([roll, rollData]) => {
-                if (rollData.type !== "attack") return false;
-
-                const d20Roll = roll.terms.find((term) => term.faces === 20);
-
-                if (!d20Roll) return false;
-
-                return d20Roll.results.some(
-                    ({ result, active }) =>
-                        active && result >= (rollData.critThreshold ?? 20),
-                );
-            },
-        );
-
-        if (isCrit === undefined || isCrit === null) return;
-
-        toggleCriticalDamage(isCrit ? 1 : 0);
+        isCrit = getCritState();
     }
 
-    function toggleCriticalDamage(newCritMode) {
-        const rolls = zip(message.rolls, message.system.rollData).map(
-            ([roll, rollData]) => {
-                if (rollData.type !== "damage") return roll;
-                if (!rollData.canCrit ?? true) return roll;
-                if (!rollData.critRoll || !rollData.baseRoll) return roll;
-
-                if (newCritMode === 1) return Roll.fromData(rollData.critRoll);
-                if (newCritMode === 0) return Roll.fromData(rollData.baseRoll);
-
-                if (rollData.baseRoll.formula === roll.formula) {
-                    return Roll.fromData(rollData.critRoll);
-                }
-
-                return Roll.fromData(rollData.baseRoll);
-            },
-        );
-
-        message.update({ rolls });
+    function toggleCriticalDamage() {
+        isCrit = !isCrit;
+        message.setFlag("a5e", "isCrit", isCrit);
     }
 
     function repeatRoll() {
@@ -265,6 +256,9 @@
     const itemName = item.name ?? "";
     let subtitle = getSubtitle(itemName, actionName);
 
+    let isCrit = $derived(getCritState());
+    $inspect("global", isCrit);
+
     let hideDescription = $state(
         (game.settings.get(
             "a5e",
@@ -276,9 +270,12 @@
 
     let hoverColor = $derived(getHoverColor(pressedKeys));
     let summaryData = $derived(message?.system?.summaryData);
+    console.log("Hi");
+    console.log(message.flags);
 </script>
 
 <ItemCardHeader
+    {isCrit}
     onRepeatCard={repeatRoll}
     onToggleDescription={() => (hideDescription = !hideDescription)}
     onToggleCriticalDamage={toggleCriticalDamage}
@@ -350,15 +347,18 @@
                 {#if rollData?.baseRoll?.formula === "0" && roll._formula === "0"}
                     <!-- Hide checks with formula of 0 -->
                 {:else}
-                    <RollSummary
-                        {roll}
-                        {rollData}
-                        --a5e-roll-color={prepareRollColor(rollData)}
-                        onToggleRollMode={(detail) =>
-                            _toggleRollMode(i, detail)}
-                        onToggleExpertiseDice={(detail) =>
-                            _toggleExpertiseDice(i, detail)}
-                    />
+                    {#key isCrit}
+                        <RollSummary
+                            {roll}
+                            {rollData}
+                            {isCrit}
+                            --a5e-roll-color={prepareRollColor(rollData)}
+                            onToggleRollMode={(detail) =>
+                                _toggleRollMode(i, detail)}
+                            onToggleExpertiseDice={(detail) =>
+                                _toggleExpertiseDice(i, detail)}
+                        />
+                    {/key}
 
                     {#if rolls.length > 1 && rollData.type === "attack"}
                         <hr class="a5e-rule" />
