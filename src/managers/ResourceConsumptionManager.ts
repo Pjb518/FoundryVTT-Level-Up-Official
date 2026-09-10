@@ -1,12 +1,7 @@
-import getActionScalingModes from '#utils/getActionScalingModes.ts';
-import { prepareHitDice } from '#utils/view/helpers/prepareHitDice.ts';
-import type { ConsumerHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import type * as ConsumerData from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
-import type SpellItemA5e from '../documents/item/spell.ts';
 import type { RollStateManager } from './RollStateManager.ts';
 
 class ResourceConsumptionManager {
@@ -16,11 +11,7 @@ class ResourceConsumptionManager {
 
 	#action: A5EActionData;
 
-	#actionId;
-
-	#consumptionData: ResourceConsumptionManager.ConsumptionData;
-
-	#selectedConsumers: string[];
+	#actionId: string;
 
 	#state: RollStateManager.WorkflowState;
 
@@ -30,11 +21,8 @@ class ResourceConsumptionManager {
 		this.#actor = state.actor;
 		this.#item = state.item;
 		this.#action = state.action;
+		this.#actionId = state.action.id;
 		this.#state = state;
-
-		// this.#actionId = actionId;
-		// this.#consumptionData = consumptionData;
-		// this.#selectedConsumers = selectedConsumers;
 
 		this.#updates = {
 			actor: {},
@@ -48,7 +36,6 @@ class ResourceConsumptionManager {
 
 		// Promise all here
 		consumers.forEach((consumer) => {
-			const consumerId = consumer.id;
 			const consumerType = consumer.type;
 			if (!consumerType) return;
 
@@ -219,15 +206,6 @@ declare namespace ResourceConsumptionManager {
 		quantity: number;
 	}
 
-	// interface SpellConsumerData {
-	// 	basePoints: number;
-	// 	baseCharges: number;
-	// 	baseLevel: number;
-	// 	charges: number;
-	// 	level: number;
-	// 	points: number;
-	// 	consume: 'artifactCharge' | 'noConsume' | 'spellPoint' | 'spellSlot';
-	// }
 	type SpellConsumerData = RollStateManager.WorkflowState['consumptionData']['spell'];
 
 	interface UsesConsumerData {
