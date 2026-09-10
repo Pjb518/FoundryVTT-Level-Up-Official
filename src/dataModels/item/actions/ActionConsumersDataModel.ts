@@ -229,7 +229,27 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 	}
 
 	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
-		const label = localize(CONFIG.A5E.resourceConsumerConfig[this.resource]?.label);
+		const config = CONFIG.A5E.resourceConsumerConfig[this.resource] ?? {};
+		const label = localize(config?.label);
+
+		// Get available uses
+		let current: number = null;
+		let max: number = null;
+
+		if (!foundry.utils.isEmpty(config)) {
+			let path: string;
+
+			if (this.resource === 'classResource') {
+				path = `resources.${this.classIdentifier}`;
+			} else {
+				path = config.path.substring(0, config.path.lastIndexOf('.'));
+			}
+
+			const prop = foundry.utils.getProperty(actor.system, path) as any | undefined;
+
+			if (prop?.value != null || prop?.current != null) current = prop.value ?? prop.current;
+			if (prop?.max != null) max = getDeterministicBonus(prop.max, actor.getRollData());
+		}
 
 		const usesData = {
 			baseUses: this.quantity ?? 1,
@@ -239,6 +259,8 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		return {
 			label: this.label || label,
 			usesData,
+			current,
+			max,
 		};
 	}
 

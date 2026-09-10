@@ -1,6 +1,5 @@
 <script lang="ts">
     import { getContext } from "svelte";
-    import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
     import type { RollStateManager } from "#managers/RollStateManager.ts";
 
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
@@ -9,6 +8,22 @@
         consumers: NonNullable<RollStateManager.state["consumers"]["resource"]>;
         resourceData: RollStateManager.ActionDialogData["consumptionData"]["resources"];
     };
+
+    function getHint({
+        current,
+        max,
+    }: {
+        current: number | null;
+        max: number | null;
+    }) {
+        if (current != null && !max) {
+            return `(${current}) Available`;
+        }
+
+        if (current != null && max != null) {
+            return `(${current}/${max} Available)`;
+        }
+    }
 
     let { consumers, resourceData = $bindable() }: Props = $props();
 
@@ -19,16 +34,16 @@
         consumers.map((consumer) => {
             const d = consumer.getActivationData(actor);
             resourceData[consumer.id] = d.usesData;
-            return [consumer.id, d];
+            return [consumer.id, d] satisfies [string, typeof d];
         }),
     );
 </script>
 
-<div class="a5e-action-dialog-resources">
+<div class="side-by-side">
     {#each data as [id, consumerData]}
-        <FieldWrapper heading={consumerData.label}>
+        <FieldWrapper heading={consumerData.label} hint={getHint(consumerData)}>
             <input
-                class="a5e-input a5e-input--small a5e-input--slim"
+                class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
                 value={consumerData.usesData.quantity}
                 onchange={({ currentTarget }) => {
@@ -44,7 +59,10 @@
 </div>
 
 <style lang="scss">
-    .a5e-action-dialog-resources {
-        display: flex;
+    .side-by-side {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        grid-auto-rows: max-content;
+        gap: 0.5rem;
     }
 </style>

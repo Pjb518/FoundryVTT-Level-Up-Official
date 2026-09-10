@@ -268,7 +268,11 @@
     {/if}
 
     {#if showConsumersSection}
-        <Section heading="Consumers Config" --a5e-section-body-gap="0.5rem">
+        <Section
+            heading="Consumers Config"
+            --a5e-section-body-gap="0.5rem"
+            --a5e-section-body-wrap="nowrap"
+        >
             <FieldWrapper
                 hint="These consumers are the only ones that will apply when the item is rolled."
             >
@@ -296,7 +300,7 @@
 
             {#if showResourcesSection}
                 <ResourcesSection
-                    consumers={consumers.resource}
+                    consumers={consumers.resource!}
                     bind:resourceData
                 />
             {/if}

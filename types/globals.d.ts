@@ -63,7 +63,9 @@ declare module 'fvtt-types/configuration' {
 		interface HookConfig {}
 	}
 
-	interface SettingsConfig {}
+	interface SettingConfig {
+		'a5e.showFavorPoints': boolean;
+	}
 }
 
 /**

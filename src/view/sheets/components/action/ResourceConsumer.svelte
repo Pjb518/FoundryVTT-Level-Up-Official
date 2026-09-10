@@ -30,11 +30,12 @@
     let selectedResource: string = $derived(consumer.resource ?? "");
 
     const showFavorPoints =
-        (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
+        game.settings.get("a5e", "showFavorPoints") ?? false;
+    console.log(showFavorPoints);
 
-    if (!showFavorPoints) {
-        delete resourceConsumerConfig.favorPoints;
-    }
+    // if (!showFavorPoints) {
+    //     delete resourceConsumerConfig.favorPoints;
+    // }
 </script>
 
 <FieldWrapper
@@ -84,9 +85,15 @@
             <option value=""></option>
 
             {#each Object.entries(resourceConsumerConfig) as [value, { label }] (value)}
-                <option {value}>
-                    {localize(label)}
-                </option>
+                {#if value === "favorPoints" && showFavorPoints}
+                    <option {value}>
+                        {localize(label)}
+                    </option>
+                {:else if value !== "favorPoints"}
+                    <option {value}>
+                        {localize(label)}
+                    </option>
+                {/if}
             {/each}
         </select>
     </FieldWrapper>
@@ -110,32 +117,17 @@
         </FieldWrapper>
     {/if}
 
-    {#if resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper heading="Value">
-            <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={consumer.quantity ?? 1}
-                onchange={({ currentTarget }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        `system.actions.${actionId}.consumers.${consumerId}.quantity`,
-                        Number(currentTarget.value),
-                    )}
-            />
-        </FieldWrapper>
-    {/if}
+    <FieldWrapper heading="Value">
+        <input
+            class="a5e-input a5e-input--slim a5e-input--small"
+            type="number"
+            value={consumer.quantity ?? 1}
+            onchange={({ currentTarget }) =>
+                updateDocumentDataFromField(
+                    item,
+                    `system.actions.${actionId}.consumers.${consumerId}.quantity`,
+                    Number(currentTarget.value),
+                )}
+        />
+    </FieldWrapper>
 </div>
-
-{#if resourceConsumerConfig?.[selectedResource]?.type === "boolean"}
-    <Checkbox
-        label="A5E.consumers.restoreResourceOnUse"
-        checked={consumer.restore ?? false}
-        onUpdateSelection={(value) =>
-            updateDocumentDataFromField(
-                item,
-                `system.actions.${actionId}.consumers.${consumerId}.restore`,
-                value,
-            )}
-    />
-{/if}

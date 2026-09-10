@@ -45,43 +45,40 @@ export default function registerActionsConfig() {
 	const configurableConsumers = new Set(['actionUses', 'itemUses', 'hitDice', 'spell']);
 
 	const resourceConsumerConfig = {
-		classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
-		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title', type: 'value' },
-		fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue.name', type: 'value' },
+		classResource: { path: 'resources.classResources', label: 'Class Resource' },
+		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title' },
+		/** @deprecated */
+		fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue.name' },
 		favorPoints: {
 			path: 'attributes.favorPoints.current',
 			label: 'A5E.consumers.favorPoints',
-			type: 'value',
 		},
-		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title', type: 'value' },
-		inspiration: {
-			path: 'attributes.inspiration',
-			label: 'A5E.consumers.inspiration',
-			type: 'boolean',
-		},
-		strife: { path: 'attributes.strife', label: 'A5E.conditions.strife.name', type: 'value' },
-		supply: { path: 'supply', label: 'A5E.supply.title', type: 'value' },
+		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title' },
+		// inspiration: {
+		// 	path: 'attributes.inspiration',
+		// 	label: 'A5E.consumers.inspiration',
+		// 	type: 'boolean',
+		// },
+		/** @deprecated */
+		strife: { path: 'attributes.strife', label: 'A5E.conditions.strife.name' },
+		supply: { path: 'supply', label: 'A5E.supply.title' },
 		primaryResource: {
 			path: 'resources.primary.value',
 			label: 'A5E.consumers.resources.titlePluralPrimary',
-			type: 'value',
 		},
 		secondaryResource: {
 			path: 'resources.secondary.value',
 			label: 'A5E.consumers.resources.titlePluralSecondary',
-			type: 'value',
 		},
 		tertiaryResource: {
 			path: 'resources.tertiary.value',
 			label: 'A5E.consumers.resources.titlePluralTertiary',
-			type: 'value',
 		},
 		quaternaryResource: {
 			path: 'resources.quaternary.value',
 			label: 'A5E.consumers.resources.titlePluralQuaternary',
-			type: 'value',
 		},
-	};
+	} as const;
 
 	const spellConsumerModes = {
 		variable: 'A5E.consumers.modes.variable',
