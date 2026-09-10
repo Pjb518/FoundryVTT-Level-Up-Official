@@ -396,6 +396,13 @@ class ItemA5e<
 			hitDice = consumers.hitDice.getActivationData(this.actor!);
 		}
 
+		const resources = {};
+		if (consumers.resource?.length) {
+			consumers.resource.forEach((consumer) => {
+				resources[consumer.id] = consumer.getActivationData(this.actor!).usesData;
+			});
+		}
+
 		let spell = {};
 		if (consumers.spell) {
 			spell = consumers.spell.getActivationData(this.actor!, this as ItemA5e).spellData;
@@ -406,6 +413,7 @@ class ItemA5e<
 			actionUses,
 			hitDice,
 			itemUses,
+			resources,
 			spell,
 		};
 	}

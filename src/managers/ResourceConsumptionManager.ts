@@ -147,8 +147,11 @@ class ResourceConsumptionManager {
 
 	// TODO
 	#consumeResource(consumer: ConsumerData.ResourceConsumerData) {
-		const { quantity, resource, restore } = consumer;
+		const { resource } = consumer;
 		let { classIdentifier } = consumer;
+
+		const consumptionData = this.#state.consumptionData.resources?.[consumer.id] ?? {};
+		const quantity = consumptionData.quantity ?? consumer.quantity ?? 1;
 
 		const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 		if (!this.#actor || !resource || !config) return;
@@ -171,7 +174,7 @@ class ResourceConsumptionManager {
 			return;
 		}
 
-		const { path, type } = config;
+		const { path } = config;
 		const value = (foundry.utils.getProperty(this.#actor.system, path) as number) ?? 0;
 
 		if (resource === 'fatigue' || resource === 'strife') {
@@ -180,11 +183,7 @@ class ResourceConsumptionManager {
 			return;
 		}
 
-		if (type === 'boolean') {
-			this.#updates.actor[`system.${path}`] = restore ?? false;
-		} else {
-			this.#updates.actor[`system.${path}`] = Math.max(value - quantity, 0);
-		}
+		this.#updates.actor[`system.${path}`] = Math.max(value - quantity, 0);
 	}
 
 	#consumeSpellResource(consumptionData: ResourceConsumptionManager.SpellConsumerData) {

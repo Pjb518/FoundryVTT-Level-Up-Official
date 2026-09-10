@@ -61,7 +61,6 @@ const resourceSchema = () => ({
 	classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -233,8 +232,8 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		const label = localize(config?.label);
 
 		// Get available uses
-		let current: number = null;
-		let max: number = null;
+		let current: number | null = null;
+		let max: number | null = null;
 
 		if (!foundry.utils.isEmpty(config)) {
 			let path: string;

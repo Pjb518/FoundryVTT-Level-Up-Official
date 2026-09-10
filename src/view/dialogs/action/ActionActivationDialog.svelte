@@ -38,7 +38,7 @@
                 actionUses: actionUsesData,
                 hitDice: hitDiceData,
                 itemUses: itemUsesData,
-                resources: resourceUsesData,
+                resources: resourceData,
                 spell: spellData,
             },
             effects: selectedEffects,
@@ -284,8 +284,12 @@
                 />
             </FieldWrapper>
 
+            <hr class="a5e-rule a5e-action-dialog-rule" />
+
             {#if showSpellSection}
                 <SpellSection consumer={consumers.spell!} bind:spellData />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
 
             {#if showUsesSection}
@@ -296,6 +300,8 @@
                     bind:actionUsesData
                     bind:itemUsesData
                 />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
 
             {#if showResourcesSection}
@@ -303,10 +309,14 @@
                     consumers={consumers.resource!}
                     bind:resourceData
                 />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
 
             {#if showHitDiceSection}
                 <HitDiceSection consumer={consumers.hitDice} bind:hitDiceData />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
         </Section>
     {/if}
@@ -365,5 +375,9 @@
             font-family: var(--a5e-primary-font);
             font-size: var(--a5e-xs-text);
         }
+    }
+
+    .a5e-action-dialog-rule {
+        margin: 0.5rem;
     }
 </style>
