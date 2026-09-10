@@ -362,10 +362,6 @@ export const rolls = () => ({
 		},
 		{ persisted: false },
 	),
-	concentration: new fields.SchemaField({
-		expertiseDice: new ExpertiseDieField(),
-		...d20RollModification(),
-	}),
 	death: new fields.SchemaField(
 		{
 			expertiseDice: new ExpertiseDieField(),
