@@ -500,9 +500,9 @@ class RollPreparationManager {
 		if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(roll);
 		if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(roll);
 		if (scalingMode === 'artifactCharges') return this.#applyArtifactChargesScaling(roll);
-		// TODO: Add Support for resource Consumer
+		if (scalingMode === 'resourceUses') return this.#applyResourceScaling(roll);
 
-		return roll.formula ?? 0;
+		return roll.getFormula() ?? 0;
 	}
 
 	#applyCantripScaling(roll: DamageRollData | HealingRollData): string {
@@ -600,6 +600,21 @@ class RollPreparationManager {
 
 		const baseQuantity = consumer.baseUses;
 		if (baseQuantity >= consumer.quantity) return roll.getFormula();
+
+		const delta = consumer.quantity - baseQuantity;
+		return this.#applyResourceBasedScaling(roll, delta);
+	}
+
+	#applyResourceScaling(roll: DamageRollData | HealingRollData): string {
+		const consumers = this.#state.consumptionData.resources ?? {};
+		if (foundry.utils.isEmpty(consumers)) return roll.getFormula();
+
+		// Find the first instance for now and use that for resource scaling;
+		const consumer = Object.values(consumers).at(0);
+		if (!consumer) return roll.getFormula();
+
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= (consumer.quantity ?? 1)) return roll.getFormula();
 
 		const delta = consumer.quantity - baseQuantity;
 		return this.#applyResourceBasedScaling(roll, delta);
