@@ -244,7 +244,20 @@ class RollStateManager {
 		const shapeData = validShape ? eAManager.getShapeData() : null;
 
 		// Prepare effects
+		console.log('here');
+		this.handleEffects(state.effects);
+
 		return { rolls, shapeData };
+	}
+
+	handleEffects(effectIds: string[]) {
+		effectIds.forEach((id) => {
+			const effect = this.#item.effects.get(id);
+			if (!effect) return;
+			if (!effect.system.applyToSelf) return;
+			// @ts-expect-error Will fix when effects are typed
+			effect.transferEffect(this.#actor);
+		});
 	}
 }
 

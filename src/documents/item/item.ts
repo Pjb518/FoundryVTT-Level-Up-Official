@@ -243,17 +243,6 @@ class ItemA5e<
 		);
 		const chatCard = await ChatMessage.create(chatData);
 
-		// Apply onUse effects to self
-		const selfAppliedEffects = activationData.effects.reduce((acc, id) => {
-			const effect = this.effects.get(id);
-			if (!effect) return acc;
-			if (effect.system.applyToSelf) acc.push(effect);
-
-			return acc;
-		}, []);
-
-		selfAppliedEffects.forEach((effect) => effect.transferEffect(this.actor));
-
 		Hooks.callAll('a5e.itemActivate', this, {
 			actionId,
 			action,
