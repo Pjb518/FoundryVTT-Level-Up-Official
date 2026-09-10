@@ -85,13 +85,14 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			if (critical.multiplyDiceTotal && this._evaluated) {
 				const multiplier = Math.max(1, (critical.multiplier ?? 1) - 1);
 				const diceTotal = this.dice.reduce((acc, die) => acc + die.total!, 0) * multiplier;
-				newTerms.push(
-					new terms.OperatorTerm({ operator: '+' }),
-					new terms.NumericTerm({
-						number: diceTotal,
-						options: { flavor: localize('A5E.CritDamage') },
-					}).evaluate() as terms.NumericTerm,
-				);
+				const bonusTerm = new terms.NumericTerm({
+					number: diceTotal,
+					options: { flavor: localize('A5E.CritDamage') },
+				}).evaluate() as terms.NumericTerm;
+
+				newTerms.push(new terms.OperatorTerm({ operator: '+' }), bonusTerm);
+
+				this._total += bonusTerm.total;
 			}
 
 			this.terms = newTerms;

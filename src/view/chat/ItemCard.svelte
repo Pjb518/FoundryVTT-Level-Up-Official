@@ -257,7 +257,6 @@
     let subtitle = getSubtitle(itemName, actionName);
 
     let isCrit = $derived(getCritState());
-    $inspect("global", isCrit);
 
     let hideDescription = $state(
         (game.settings.get(
@@ -270,8 +269,6 @@
 
     let hoverColor = $derived(getHoverColor(pressedKeys));
     let summaryData = $derived(message?.system?.summaryData);
-    console.log("Hi");
-    console.log(message.flags);
 </script>
 
 <ItemCardHeader
