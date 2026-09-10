@@ -1,7 +1,9 @@
-import type { BaseActorA5e } from '../documents/actor/base';
-import type SpellItemA5e from '../documents/item/spell';
+import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 
-export default function getSpellBookAbility(actor: BaseActorA5e, item: SpellItemA5e): string {
+export default function getSpellBookAbility(
+	actor: BaseActorA5e,
+	item: Item.OfType<'spell'>,
+): string {
 	let spellBook: any; // TODO: Types - Update this
 
 	const actorData: any = actor.system;

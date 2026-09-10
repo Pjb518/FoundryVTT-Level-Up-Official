@@ -1,32 +1,29 @@
 <script lang="ts">
-    import type { AbilityCheckRollOptions } from "../../../documents/actor/data.ts";
-
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import { localize } from "#utils/localization/localize.ts";
-
+    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
-
-    import getRollFormula from "#utils/getRollFormula.js";
+    import type { AbilityCheckRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
-        document: any;
+        document: Actor.OfType<"base">;
         abilityKey: string;
         dialog: any;
         options: AbilityCheckRollOptions;
     };
 
     function getInitialExpertiseDieSelection() {
-        if (hideExpertiseDice) return 0;
-
-        return actor.RollOverrideManager.getExpertiseDice(
-            `system.abilities.${abilityKey}.check`,
-            actor.system.abilities[abilityKey].check.expertiseDice ||
-                options.expertiseDice ||
-                0,
-        );
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
+        const edData = RollOverrideManager.resolveExpertiseDie(ability);
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
     }
 
     function onSubmit() {
@@ -35,40 +32,38 @@
 
     let { document, abilityKey, dialog, options }: Props = $props();
 
-    let actor = document;
-    const appId = dialog.id;
+    let actor: Actor.OfType<"base"> = document;
+    const appId: string = dialog.id;
+    let ability = $derived(actor.reactive.system.abilities[abilityKey].check);
 
     const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
         abilityKey,
         "check",
     );
 
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
 
     const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
     const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
         ability: localizedAbility,
     });
 
-    let expertiseDie = $state(getInitialExpertiseDieSelection());
-    let selectedRollMode = $state(options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
-
-    let expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
-        `system.abilities.${abilityKey}.check`,
-        options.expertiseDice ?? 0,
+    let { expertiseDie, expertiseDieSource } = $state(
+        getInitialExpertiseDieSelection(),
+    );
+    let initialRollMode = $state(
+        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     );
 
-    let rollMode = $state(
-        actor.RollOverrideManager.getRollOverride(
-            `system.abilities.${abilityKey}.check`,
-            selectedRollMode,
-        ),
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(ability, initialRollMode),
     );
 
-    let rollModeString = actor.RollOverrideManager?.getRollOverridesSource(
-        `system.abilities.${abilityKey}.check`,
-        selectedRollMode,
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let visibilityMode = $state(
         options.visibilityMode ?? game.settings.get("core", "messageMode"),

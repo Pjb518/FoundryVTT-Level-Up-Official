@@ -1,31 +1,29 @@
-import { isObject } from "#utils/isObject.ts";
-import { localize } from "#utils/localization/localize.ts";
+import { isObject } from '#utils/isObject.ts';
+import { localize } from '#utils/localization/localize.ts';
 
 type ScalingData = {
-  formula: Record<string, any> | string;
-  mode: string;
-  step: string;
+	formula: Record<string, any> | string;
+	mode: string;
+	step: string;
 };
 
 export function prepareScalingSummary(
-  type: string,
-  data: ScalingData,
-  extra: Record<string, any> = {},
+	type: string,
+	data: ScalingData,
+	extra: Record<string, any> = {},
 ) {
-  if (!data) return "";
-  const { mode } = data;
-  if (!mode) return "";
+	if (!data) return '';
+	const { mode } = data;
+	if (!mode) return '';
 
-  const baseSummary = `A5E.scaling.summaries.${mode}.${type}`;
-  const formula = isObject(data.formula)
-    ? data.formula
-    : { formula: data.formula };
+	const baseSummary = `A5E.scaling.summaries.${mode}.${type}`;
+	const formula = isObject(data.formula) ? data.formula : { formula: data.formula };
 
-  const localized = localize(baseSummary, {
-    ...formula,
-    ...extra,
-    step: data.step,
-  });
+	const localized = localize(baseSummary, {
+		...formula,
+		...extra,
+		step: data.step,
+	});
 
-  return localized;
+	return localized;
 }

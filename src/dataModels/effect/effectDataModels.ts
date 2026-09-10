@@ -1,4 +1,4 @@
-import { A5EBaseActiveEffectData } from './base';
+import { A5EBaseActiveEffectData } from './base.ts';
 
 const activeEffectModels = {
 	base: A5EBaseActiveEffectData,
@@ -6,10 +6,10 @@ const activeEffectModels = {
 
 export default activeEffectModels;
 
-declare global {
+declare module 'fvtt-types/configuration' {
 	interface DataModelConfig {
 		ActiveEffect: {
-			base: A5EBaseActiveEffectData;
+			base: typeof A5EBaseActiveEffectData;
 		};
 	}
 }

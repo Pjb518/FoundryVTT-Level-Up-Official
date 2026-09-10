@@ -5,7 +5,6 @@
 
     import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 
-    import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
     import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
     import { updateAssociatedValues } from "#utils/view/updateAssociatedValues.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
@@ -15,7 +14,7 @@
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
     import TargetRangeIncrement from "../../components/action/TargetRangeIncrement.svelte";
-    import TargetScalingDialog from "#view/dialogs/action/TargetScalingDialog.svelte";
+    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
 
     function addRangeIncrement() {
         const newRange = {
@@ -40,8 +39,8 @@
         item.dialogs.targetScaling[actionId] = new GenericConfigDialog(
             item,
             `${item.name} Target Scaling Configuration`,
-            TargetScalingDialog,
-            { actionId },
+            RollScalingDialog,
+            { actionId, propertyKey: `actions.${actionId}.target.scaling` },
         );
     }
 
@@ -50,7 +49,7 @@
         if (selectedOption === "null") {
             item.update({
                 [`system.actions.${actionId}`]: {
-                    "target": _del,
+                    target: _del,
                 },
             });
         } else {

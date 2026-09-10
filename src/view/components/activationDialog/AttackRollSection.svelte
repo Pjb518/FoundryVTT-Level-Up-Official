@@ -1,13 +1,8 @@
 <script lang="ts">
-    import type { ActionActivationOptions } from "../../../documents/item/data.ts";
-    import type { AttackRollData } from "../../../dataModels/item/actions/ActionRollsDataModel.ts";
-
     import { getContext } from "svelte";
-
-    import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
-
-    import getRollFormula from "#utils/getRollFormula.js";
-
+    import type { ItemA5e } from "#documents/item/item.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
@@ -15,8 +10,8 @@
 
     type Props = {
         attackRollData: any;
-        options: ActionActivationOptions;
-        attackRoll: AttackRollData;
+        attackRoll: NonNullable<RollStateManager.state["attackRoll"]>;
+        rollState: RollStateManager.state;
     };
 
     function updateData() {
@@ -25,48 +20,55 @@
             expertiseDie,
             rollMode,
             formula: rollFormula,
+            terms,
         };
     }
 
-    let { attackRollData = $bindable(), options, attackRoll }: Props = $props();
+    let {
+        attackRollData = $bindable(),
+        attackRoll,
+        rollState,
+    }: Props = $props();
 
-    const actor: Actor = getContext("actor");
+    const actor: Actor.OfType<"base"> = getContext("actor");
     const dialog: any = getContext("dialog");
-    const item: Item = getContext("item");
+    const item: ItemA5e = getContext("item");
 
     let situationalMods = $state("");
+    let parts = $state(rollState.config.attackRoll!);
 
-    let parts = $state(
-        RollPreparationManager.prepareAttackRollData(
-            actor,
-            item,
-            attackRoll,
-            options,
-        ),
-    );
-
-    let attackAbility = $derived(parts.attackAbility);
-    let attackBonuses = $derived(parts.attackBonuses);
+    let attackAbility = $derived(parts.ability);
+    let attackBonuses = $derived(parts.bonuses);
     let expertiseDie = $derived(parts.expertiseDie);
     let expertiseDieSource = $derived(parts.expertiseDieSource);
     let rollMode = $derived(parts.rollMode);
     let rollModeSource = $derived(parts.rollModeSource);
     let selectedAttackBonuses = $derived(parts.selectedAttackBonuses);
 
-    let rollFormula = $derived(
-        getRollFormula(actor, {
-            ability: attackAbility,
-            attackBonus: attackRoll?.bonus,
-            attackType: attackRoll.attackType,
-            expertiseDie,
-            item: item,
-            proficient: attackRoll?.proficient ?? true,
-            situationalMods,
-            rollMode,
-            selectedAttackBonuses,
-            type: "attack",
-        }),
-    );
+    let terms: any[] = [];
+    let { rollFormula } = $derived.by(() => {
+        const res = getRollFormula(
+            actor,
+            {
+                ability: attackAbility,
+                attackBonus: attackRoll?.bonus,
+                attackType: attackRoll.attackType,
+                expertiseDie,
+                item: item,
+                proficient: attackRoll?.proficient ?? true,
+                situationalMods,
+                rollMode,
+                selectedAttackBonuses,
+                type: "attack",
+            },
+            { terms: true },
+        );
+
+        terms = res.terms;
+        return {
+            rollFormula: res.rollFormula,
+        };
+    });
 
     updateData();
     $effect(() => updateData());

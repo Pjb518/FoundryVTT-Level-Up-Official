@@ -1,11 +1,12 @@
-import type { A5EObjectData } from '../ObjectDataModel.ts';
-
-import fields = foundry.data.fields;
-
 import type { AnyObject } from 'fvtt-types/utils';
+import { groupBy } from '#utils/groupBy.ts';
+import { scalingFieldBase } from '../../fields/ScalingField.ts';
+import type { A5EObjectData } from '../ObjectDataModel.ts';
 import { ACTION_CONSUMER_DATA_TYPES } from './ActionConsumersDataModel.ts';
 import { ACTION_PROMPT_DATA_TYPES } from './ActionPromptsDataModel.ts';
 import { ACTION_ROLL_DATA_TYPES } from './ActionRollsDataModel.ts';
+
+import fields = foundry.data.fields;
 
 const actionSchema = () => ({
 	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -83,15 +84,6 @@ const actionSchema = () => ({
 		async: true,
 	}),
 
-	// consumers: new RecordField(
-	// 	new fields.DocumentIdField({
-	// 		required: true,
-	// 		nullable: false,
-	// 		initial: () => foundry.utils.randomID(),
-	// 	}),
-	// 	new ActionConsumerField({ required: true, nullable: false }),
-	// ),
-
 	consumers: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_CONSUMER_DATA_TYPES)),
 	prompts: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_PROMPT_DATA_TYPES)),
 	ranges: new fields.ObjectField({ required: true, nullable: false }),
@@ -113,7 +105,7 @@ const actionSchema = () => ({
 			nullable: false,
 			initial: 1,
 		}),
-		scaling: new fields.ObjectField({ required: true, nullable: false }),
+		scaling: new fields.SchemaField(scalingFieldBase()),
 		seen: new fields.BooleanField({
 			required: true,
 			nullable: false,
@@ -174,20 +166,126 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 
 	protected init(options?: any): void {
 		this.prepareBaseData();
-		this.prepareDerivedData();
+	}
+
+	/** ------------- Props ---------------- */
+	_effects: Map<string, ActiveEffect> = new Map();
+
+	/** ------------- Getters ---------------- */
+	get item() {
+		return this.parent.parent;
+	}
+
+	get invalidRolls() {
+		return Object.values(this.rolls ?? {}).reduce((acc, roll) => {
+			if (roll.formulaInvalid) acc.push(roll.id);
+			return acc;
+		}, [] as string[]);
+	}
+
+	get invalidPrompts() {
+		return Object.values(this.prompts ?? {}).reduce((acc, prompt) => {
+			if (prompt.formulaInvalid) acc.push(prompt.id);
+			return acc;
+		}, [] as string[]);
+	}
+
+	get selectedEffects() {
+		return [...this._effects].reduce((acc, [, effect]) => {
+			if (effect.system.default ?? true) acc.push(effect.uuid);
+			return acc;
+		}, [] as string[]);
 	}
 
 	/** -------------Helpers---------------- */
-	rollsByType(type: ActionRollField.RollTypes) {
+	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls'): string[] {
+		const arr = Object.values(this[property] ?? {});
+		if (!arr.length) return [] as string[];
+
+		return arr.reduce((acc, prop) => {
+			if (prop.default) {
+				if (property === 'rolls' || property === 'prompts') {
+					if (!prop.formulaInvalid) acc.push(prop.id);
+				} else acc.push(prop.id);
+			}
+			return acc;
+		}, [] as string[]);
+	}
+
+	getConsumersByType() {
+		const consumersArr = Object.values(this.consumers ?? {});
+		const grouped = groupBy(consumersArr, 'type');
+
+		return {
+			actionUses: grouped.actionUses?.at(0) || null,
+			ammunition: grouped.ammunition?.at(0) || null,
+			hitDice: grouped.hitDice?.at(0) || null,
+			itemUses: grouped.itemUses?.at(0) || null,
+			quantity: grouped.hitDice?.at(0) || null,
+			quality: grouped.quality?.at(0) || null,
+			resource: grouped.resource || null,
+			spell: grouped.spell?.at(0) || null,
+		};
+	}
+
+	getPromptsByType() {
+		const promptsArr = Object.values(this.prompts ?? {});
+		return groupBy(promptsArr, 'type');
+	}
+
+	getRollsByType() {
+		const rollsArr = Object.values(this.rolls ?? {});
+		return groupBy(rollsArr, 'type');
+	}
+
+	filterRollsByType(type: ActionRollField.RollTypes) {
 		const rolls = Object.entries(this.rolls ?? {});
 		return rolls.filter(([, roll]) => roll.type === type);
 	}
 
+	/** --------- Data Model Functions ---------------- */
 	prepareBaseData() {
 		this.img ||= this.parent.parent.img || '';
+
+		// Set Data for consumers
+		Object.entries(this.consumers ?? {}).forEach(([id, consumer]) => {
+			consumer.id = id;
+		});
+
+		// Set Data for prompts
+		Object.entries(this.prompts ?? {}).forEach(([id, prompt]) => {
+			prompt.id = id;
+
+			// Prepare Base Data
+			prompt.prepareBaseData();
+		});
+
+		// Set Data for prompts
+		Object.entries(this.rolls ?? {}).forEach(([id, roll]) => {
+			roll.id = id;
+
+			// Prepare Base Data
+			roll.prepareBaseData();
+		});
 	}
 
-	prepareDerivedData() {}
+	prepareDerivedData() {
+		// Set Data for prompts
+		Object.entries(this.prompts ?? {}).forEach(([id, prompt]) => {
+			prompt.id = id;
+
+			// Prepare Base Data
+			prompt.prepareDerivedData();
+		});
+
+		// Prepare effect Documents
+		this.effects.forEach((e) => {
+			const effect = this.item.effects.get(e);
+			if (!effect) return;
+
+			this._effects.set(e, effect);
+		});
+	}
 }
 
 // ======================================================

@@ -1,17 +1,16 @@
 <script lang="ts">
-    import type { ConsumerHandlerReturnType } from "../../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers.ts";
-
-    import { localize } from "#utils/localization/localize.ts";
     import { getContext } from "svelte";
-
+    import type { ItemA5e } from "#documents/item/item.ts";
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
+    import { localize } from "#utils/localization/localize.ts";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
     type Props = {
-        consumers: ConsumerHandlerReturnType;
+        consumer: NonNullable<RollStateManager.state["consumers"]["spell"]>;
         spellData: ResourceConsumptionManager.SpellConsumerData;
     };
 
@@ -61,6 +60,7 @@
             (item.type === "spell" ? item.system?.level : 1) ??
             1;
         disabled = [
+            // @ts-expect-error
             ...temp.difference(new Set(availableSpellSlots)),
             ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
         ];
@@ -112,37 +112,25 @@
         return selection;
     }
 
-    let { consumers, spellData = $bindable() }: Props = $props();
+    let { consumer, spellData = $bindable() }: Props = $props();
 
     const actionId: string = getContext("actionId");
-    const actor: Actor = getContext("actor");
-    const item: Item = getContext("item");
+    const actor: Actor.OfType<"base"> = getContext("actor");
+    const item: ItemA5e = getContext("item");
 
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
 
-    const consumeOptions: Record<string, any> = {
-        artifactCharge: "A5E.spells.spellcasting.artifactCharges",
-        spellSlot: "A5E.consumers.spellSlot",
-        spellPoint: "A5E.spells.spellcasting.points",
-        // inventions: "A5E.spells.spellcasting.inventions",
-        noConsume: "A5E.consumers.nothing",
-    };
+    const consumeOptions = A5E.SPELL_CONSUME_OPTIONS;
 
     let disabled: string[] = [];
 
-    const parts = ResourceConsumptionManager.prepareSpellData(
-        actor,
-        item,
-        consumers,
-        actionId,
-    );
+    const parts = consumer.getActivationData(actor, item);
 
     let {
         availableCharges,
         availablePoints,
         availableSpellSlots,
-        consumer,
         mode,
         spellLevels,
         spellResources,

@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
     type Props = {
@@ -10,6 +9,7 @@
         red?: boolean;
         label?: string;
         icon?: string;
+        preferColor?: boolean;
         showIcon?: boolean;
         tight?: boolean;
         tooltipDirection?: string;
@@ -27,6 +27,7 @@
         red = false,
         label = "",
         icon = "",
+        preferColor = false,
         showIcon = false,
         tight = false,
         tooltipDirection = "UP",
@@ -69,11 +70,11 @@
 
         if (color === "disabled") {
             return `
-                --a5e-tag-color: hsl(0, 0%, 100%);
+                --a5e-tag-color: hsl(0, 0%, 5%);
                 --a5e-tag-background-color: var(--a5e-color-disabled);
                 --a5e-tag-border-color: hsl(0, 0%, 60%);
                 --a5e-tag-background-color-hover: var(--a5e-color-disabled);
-                --a5e-tag-color-hover: var(--color-hover, hsl(0, 0%, 100%));
+                --a5e-tag-color-hover: var(--color-hover, hsl(0, 0%, 5%));
             `;
         }
 
@@ -86,8 +87,8 @@
         orange: boolean,
         disabled: boolean,
     ): string {
+        if (disabled && !preferColor) return "disabled";
         if (green) return "green";
-        if (disabled) return "disabled";
         if (red) return "red";
         if (orange) return "orange";
         return "default";
@@ -110,12 +111,14 @@
         data-tooltip-direction={tooltipDirection}
         onpointerdown={(e) => {
             e.preventDefault();
+            if (disabled) return;
             if (e.button === 0) {
                 onTagToggle(value);
             }
         }}
         onauxclick={(e) => {
             e.preventDefault();
+            if (disabled) return;
             onTagToggleAux(value);
         }}
     >

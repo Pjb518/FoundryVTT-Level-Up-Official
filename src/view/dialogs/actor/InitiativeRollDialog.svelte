@@ -1,21 +1,39 @@
 <script lang="ts">
-    import type { InitiativeRollOptions } from "../../../documents/actor/data.ts";
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
 
-    import getRollFormula from "#utils/getRollFormula.js";
-
+    import { getRollFormula } from "#utils/getRollFormula.ts";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
+    import type { InitiativeRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
         document: any;
         dialog: any;
         options: InitiativeRollOptions;
+        isSimple: boolean;
     };
 
-    let { document, dialog, options }: Props = $props();
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
+
+        const others = [] as any[];
+        if (ability) others.push({ type: "ability", src: ability.check });
+        if (skill) others.push({ type: "skill", src: skill });
+        const edData = RollOverrideManager.resolveExpertiseDie(initiativeSrc, {
+            others,
+        });
+
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
+    }
+
+    let { document, dialog, options, isSimple = false }: Props = $props();
 
     const actor = document;
     const appId = dialog.id;
@@ -33,70 +51,37 @@
     }
 
     const initialAbilityKey =
-        options.abilityKey ?? actor.system.attributes.initiative.ability ?? "dex";
+        options.abilityKey ??
+        actor.system.attributes.initiative.ability ??
+        "dex";
     const initialSkillKey = options.skillKey ?? "none";
 
     let abilityKey = $state(initialAbilityKey);
     let skillKey = $state(initialSkillKey);
     let situationalMods = $state(options.situationalMods ?? "");
-    let selectedRollMode = $state(options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL);
-
-    let expertiseDie = $state(
-        hideExpertiseDice
-            ? 0
-            : actor.RollOverrideManager.getExpertiseDice(
-                  "initiative",
-                  options.expertiseDice ?? 0,
-                  {
-                      ability: initialAbilityKey,
-                      skill: initialSkillKey,
-                  },
-              ),
+    let initialRollMode = $state(
+        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
     );
 
-    let manualExpertiseDie = $state(false);
+    let ability = $derived(actor.reactive.system.abilities[abilityKey]);
+    let skill = $derived(actor.reactive.system.skills[skillKey]);
+    let initiativeSrc = actor.reactive.system.attributes.initiative;
 
-    $effect(() => {
-        if (!hideExpertiseDice && !manualExpertiseDie) {
-            let baseDie = 0;
-            if (skillKey && skillKey !== "none" && actor.system.skills[skillKey]) {
-                baseDie = actor.system.skills[skillKey].expertiseDice ?? 0;
-            }
-
-            const newExpertiseDie = actor.RollOverrideManager.getExpertiseDice(
-                "initiative",
-                baseDie,
-                {
-                    ability: abilityKey,
-                    skill: skillKey,
-                },
-            );
-
-            expertiseDie = newExpertiseDie;
-        }
-    });
-
-    let expertiseDieSource = $derived(
-        actor.RollOverrideManager.getExpertiseDiceSource(
-            "initiative",
-            options.expertiseDie ?? 0,
-            { ability: abilityKey, skill: skillKey },
-        ),
+    let { expertiseDie, expertiseDieSource } = $derived(
+        getInitialExpertiseDieSelection(),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride("initiative", selectedRollMode, {
-            ability: abilityKey,
-            skill: skillKey,
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(initiativeSrc, initialRollMode, {
+            others: [
+                { type: "ability", src: ability.check },
+                { type: "skill", src: skill },
+            ],
         }),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource("initiative", selectedRollMode, {
-            ability: abilityKey,
-            skill: skillKey,
-        }),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let abilityBonuses = $derived(
         actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check"),
@@ -153,37 +138,32 @@
     <RollModePicker
         selected={rollMode}
         source={rollModeString}
-        onUpdateSelection={(detail) => (selectedRollMode = detail)}
+        onUpdateSelection={(detail) =>
+            (initialRollMode = Number.parseInt(detail, 10))}
     />
 
     <RadioGroup
         heading="A5E.abilities.headings.score"
         options={Object.entries(abilities)}
         selected={abilityKey}
-        onUpdateSelection={(detail) => {
-            abilityKey = detail;
-            manualExpertiseDie = false;
-        }}
+        onUpdateSelection={(detail) => (abilityKey = detail)}
     />
 
-    <RadioGroup
-        heading="A5E.skillLabels.title"
-        options={Object.entries(skills)}
-        selected={skillKey}
-        onUpdateSelection={(detail) => {
-            skillKey = detail;
-            manualExpertiseDie = false;
-        }}
-    />
+    {#if !isSimple}
+        <RadioGroup
+            heading="A5E.skillLabels.title"
+            options={Object.entries(skills)}
+            selected={skillKey}
+            onUpdateSelection={(detail) => (skillKey = detail)}
+        />
+    {/if}
 
     <ExpertiseDiePicker
         source={expertiseDieSource}
         selected={expertiseDie}
         type={actor.type}
-        onUpdateSelection={(value) => {
-            expertiseDie = value;
-            manualExpertiseDie = true;
-        }}
+        onUpdateSelection={(value) =>
+            (expertiseDie = Number.parseInt(value, 10))}
     />
 
     {#if Object.values(abilityBonuses).flat().length}
@@ -198,7 +178,7 @@
         />
     {/if}
 
-    {#if Object.values(skillBonuses).flat().length}
+    {#if Object.values(skillBonuses).flat().length && !isSimple}
         <CheckboxGroup
             heading="Skill Bonuses"
             options={skillBonuses.map(([key, skillBonus]) => [
@@ -237,6 +217,7 @@
 
     <section>
         <button
+            type="button"
             class="roll-initiative-button"
             onclick={(e) => {
                 e.preventDefault();

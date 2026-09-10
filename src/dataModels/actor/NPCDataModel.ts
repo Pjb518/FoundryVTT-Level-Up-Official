@@ -8,6 +8,7 @@ import {
 	grants,
 	proficiencies,
 	resources,
+	rolls,
 	skills,
 	spellBooks,
 	traits,
@@ -63,6 +64,7 @@ const npcSchema = () => ({
 		},
 		{ required: true, nullable: false },
 	),
+	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({
 			current: new fields.NumberField({

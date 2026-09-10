@@ -1,5 +1,9 @@
+import { localize } from '#utils/localization/localize.ts';
+
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
+
+import { scalingFieldBase, scalingFieldRoll } from '../../fields/ScalingField.ts';
 
 // ======================================================
 //                        Schemas
@@ -7,6 +11,8 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	defaultLabel: new fields.StringField({ required: true, nullable: false, persisted: false }),
+	id: new fields.StringField({ required: true, nullable: false, persisted: false }),
 });
 
 const abilityCheckSchema = () => ({
@@ -45,8 +51,13 @@ const damageRollSchema = () => ({
 	canCrit: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	critBonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField({ initial: '', nullable: false })),
+	}),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	scaling: new fields.SchemaField(scalingFieldRoll()),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -58,7 +69,12 @@ const damageRollSchema = () => ({
 
 const genericRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	scaling: new fields.SchemaField(scalingFieldRoll()),
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField({ initial: '', nullable: false })),
+	}),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -69,9 +85,14 @@ const genericRollSchema = () => ({
 });
 
 const healingRollSchema = () => ({
+	die: new fields.SchemaField({
+		number: new fields.NumberField({ min: 0, integer: true }),
+		denom: new fields.NumberField({ min: 0, integer: true }),
+		modifiers: new fields.SetField(new fields.StringField({ initial: '', nullable: false })),
+	}),
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
-	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
+	scaling: new fields.SchemaField(scalingFieldRoll()),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -166,6 +187,24 @@ export class AbilityCheckRollData extends DataModel<AbilityCheckRollData.Schema>
 			...abilityCheckSchema(),
 		};
 	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.specificAbilityCheck', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+	}
 }
 
 export class AttackRollData extends DataModel<AttackRollData.Schema> {
@@ -175,6 +214,14 @@ export class AttackRollData extends DataModel<AttackRollData.Schema> {
 		return {
 			...attackRollSchema(),
 		};
+	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -186,6 +233,43 @@ export class DamageRollData extends DataModel<DamageRollData.Schema> {
 			...damageRollSchema(),
 		};
 	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		if (!this.label) {
+			const label = localize('A5E.damage.labels.specific', {
+				damageType: CONFIG.A5E.damageTypes[this.damageType] ?? '',
+			});
+
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.die.number || !this.die.denom) {
+			if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		}
+		if (this.formula.length && !Roll.validate(this.formula)) this.formulaInvalid = true;
+		if (this.critBonus && !Roll.validate(this.critBonus)) this.formulaInvalid = true;
+	}
+
+	getFormula() {
+		// Get die data
+		let formula = '';
+		if (this.die.number && this.die.denom) {
+			formula = `${this.die.number}d${this.die.denom}`;
+			if (this.die.modifiers.size) {
+				formula += `${[...this.die.modifiers].join('')}`;
+			}
+		}
+
+		// Add bonus
+		if (formula.length && this.formula.length) formula += ` + ${this.formula}`;
+		else formula += `${this.formula}`;
+
+		return formula;
+	}
 }
 
 export class GenericRollData extends DataModel<GenericRollData.Schema> {
@@ -195,6 +279,39 @@ export class GenericRollData extends DataModel<GenericRollData.Schema> {
 		return {
 			...genericRollSchema(),
 		};
+	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		if (!this.label) {
+			const label = localize('A5E.actions.labels.other');
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.die.number || !this.die.denom) {
+			if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		}
+		if (this.formula.length && !Roll.validate(this.formula)) this.formulaInvalid = true;
+	}
+
+	getFormula() {
+		// Get die data
+		let formula = '';
+		if (this.die.number && this.die.denom) {
+			formula = `${this.die.number}d${this.die.denom}`;
+			if (this.die.modifiers.size) {
+				formula += `${[...this.die.modifiers].join('')}`;
+			}
+		}
+
+		// Add bonus
+		if (formula.length && this.formula.length) formula += ` + ${this.formula}`;
+		else formula += `${this.formula}`;
+
+		return formula;
 	}
 }
 
@@ -206,6 +323,41 @@ export class HealingRollData extends DataModel<HealingRollData.Schema> {
 			...healingRollSchema(),
 		};
 	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		this.healingType ??= 'healing';
+
+		if (!this.label) {
+			const label = localize(CONFIG.A5E.healingTypes[this.healingType] ?? '');
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (!this.die.number || !this.die.denom) {
+			if (!this.formula || !Roll.validate(this.formula)) this.formulaInvalid = true;
+		}
+		if (this.formula.length && !Roll.validate(this.formula)) this.formulaInvalid = true;
+	}
+
+	getFormula() {
+		// Get die data
+		let formula = '';
+		if (this.die.number && this.die.denom) {
+			formula = `${this.die.number}d${this.die.denom}`;
+			if (this.die.modifiers.size) {
+				formula += `${[...this.die.modifiers].join('')}`;
+			}
+		}
+
+		// Add bonus
+		if (formula.length && this.formula.length) formula += ` + ${this.formula}`;
+		else formula += `${this.formula}`;
+
+		return formula;
+	}
 }
 
 export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
@@ -215,6 +367,24 @@ export class SavingThrowRollData extends DataModel<SavingThrowRollData.Schema> {
 		return {
 			...savingThrowSchema(),
 		};
+	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		this.ability ??= 'str';
+
+		if (!this.label) {
+			const label = localize('A5E.rollLabels.prompts.savingThrow', {
+				ability: CONFIG.A5E.abilities[this.ability],
+			});
+
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 
@@ -226,6 +396,25 @@ export class SkillCheckRollData extends DataModel<SkillCheckRollData.Schema> {
 			...skillCheckRollSchema(),
 		};
 	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		this.skill ??= 'acr';
+		this.ability ??= 'dex';
+
+		if (!this.label) {
+			const label = localize('A5E.skillLabels.checks.skillSpecific', {
+				skill: CONFIG.A5E.skills[this.skill],
+			});
+
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
+	}
 }
 
 export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
@@ -235,6 +424,24 @@ export class ToolCheckRollData extends DataModel<ToolCheckRollData.Schema> {
 		return {
 			...toolCheckRollSchema(),
 		};
+	}
+
+	formulaInvalid = false;
+
+	prepareBaseData() {
+		this.tool ??= 'airVehicles';
+
+		if (!this.label) {
+			const label = localize('A5E.actions.labels.toolCheckSpecific', {
+				tool: CONFIG.A5E.toolsFlattened[this.tool],
+			});
+
+			this.defaultLabel = label;
+		}
+
+		// Check if invalid
+		this.formulaInvalid = false;
+		if (this.bonus && !Roll.validate(this.bonus)) this.formulaInvalid = true;
 	}
 }
 

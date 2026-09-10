@@ -9,6 +9,7 @@ import {
 	hitDice,
 	proficiencies,
 	resources,
+	rolls,
 	skills,
 	spellBooks,
 	traits,
@@ -118,6 +119,7 @@ const characterSchema = () => ({
 		},
 		{ required: true, nullable: false },
 	),
+	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({
 			current: new fields.NumberField({

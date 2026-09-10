@@ -107,7 +107,6 @@ export default class SpellBook extends foundry.abstract.DataModel<
 			getDeterministicBonus(
 				[
 					8,
-					// @ts-expect-error
 					actor.system.attributes.prof,
 					actor.system.bonuses.spellDC || 0,
 					actor.system.abilities[ability].check.mod,

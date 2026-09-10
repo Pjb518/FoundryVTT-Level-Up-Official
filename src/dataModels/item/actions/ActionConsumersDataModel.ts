@@ -1,7 +1,10 @@
-import { A5E } from '../../../config.ts';
+import type { ItemA5e } from '../../../documents/item/item.ts';
 
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
+
+import { localize } from '#utils/localization/localize.ts';
+import { getDeterministicBonus } from '../../../dice/getDeterministicBonus.ts';
 
 // ======================================================
 //                        Schemas
@@ -9,6 +12,7 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	id: new fields.StringField({ required: true, nullable: false, persisted: false }),
 });
 
 const usesSchema = () => ({
@@ -22,6 +26,23 @@ const quantitySchema = () => ({
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	deleteOnZero: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	type: new fields.StringField({ required: true, nullable: false, blank: false, initial: '' }),
+	...baseSchema(),
+});
+
+const qualitySchema = () => ({
+	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	qualityModifier: new fields.NumberField({
+		required: true,
+		nullable: false,
+		initial: 1,
+		choices: { 0: 'Repair', 1: 'Damage', 2: 'Break' },
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'quality',
+	}),
 	...baseSchema(),
 });
 
@@ -40,7 +61,6 @@ const resourceSchema = () => ({
 	classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	type: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -87,6 +107,10 @@ declare namespace QuantityConsumerData {
 	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
 }
 
+declare namespace QualityConsumerData {
+	type Schema = DataSchema & ReturnType<typeof qualitySchema>;
+}
+
 declare namespace ResourceConsumerData {
 	type Schema = DataSchema & ReturnType<typeof resourceSchema>;
 }
@@ -104,6 +128,20 @@ class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
 	static override defineSchema(): ActionUsesConsumerData.Schema {
 		return {
 			...usesSchema(),
+		};
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		// @ts-expect-error
+		const actionUses = this.parent?.uses ?? {};
+
+		return {
+			actionUsesData: {
+				baseUses: this.quantity ?? 1,
+				quantity: this.quantity ?? 1,
+			},
+			actionUses,
+			maxUses: getDeterministicBonus(actionUses.max, actor.getRollData(item)),
 		};
 	}
 }
@@ -126,6 +164,19 @@ class HitDiceConsumerData extends DataModel<HitDiceConsumerData.Schema> {
 			...hitDiceSchema(),
 		};
 	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
+		const availableHitDice = actor.HitDiceManager.availableList;
+
+		const hitDiceData = {
+			selected: Object.fromEntries(availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])),
+			quantity: this.quantity ?? 1,
+		};
+
+		return {
+			...hitDiceData,
+		};
+	}
 }
 
 class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
@@ -134,6 +185,19 @@ class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
 	static override defineSchema(): ItemUsesConsumerData.Schema {
 		return {
 			...usesSchema(),
+		};
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const itemUses = item.system.uses;
+
+		return {
+			itemUsesData: {
+				baseUses: this.quantity ?? 1,
+				quantity: this.quantity ?? 1,
+			},
+			maxUses: getDeterministicBonus(itemUses.max, actor.getRollData(item)),
+			itemUses,
 		};
 	}
 }
@@ -148,14 +212,58 @@ class QuantityConsumerData extends DataModel<QuantityConsumerData.Schema> {
 	}
 }
 
+class QualityConsumerData extends DataModel<QualityConsumerData.Schema> {
+	static type = 'quality';
+
+	static override defineSchema(): QualityConsumerData.Schema {
+		return { ...qualitySchema() };
+	}
+}
+
 class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 	static type = 'resource';
 
 	static override defineSchema(): ResourceConsumerData.Schema {
+		return { ...resourceSchema() };
+	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
+		const config = CONFIG.A5E.resourceConsumerConfig[this.resource] ?? {};
+		const label = localize(config?.label);
+
+		// Get available uses
+		let current: number | null = null;
+		let max: number | null = null;
+
+		if (!foundry.utils.isEmpty(config)) {
+			let path: string;
+
+			if (this.resource === 'classResource') {
+				path = `resources.${this.classIdentifier}`;
+			} else {
+				path = config.path.substring(0, config.path.lastIndexOf('.'));
+			}
+
+			const prop = foundry.utils.getProperty(actor.system, path) as any | undefined;
+
+			if (prop?.value != null || prop?.current != null) current = prop.value ?? prop.current;
+			if (prop?.max != null) max = getDeterministicBonus(prop.max, actor.getRollData());
+		}
+
+		const usesData = {
+			baseUses: this.quantity ?? 1,
+			quantity: this.quantity ?? 1,
+		};
+
 		return {
-			...resourceSchema(),
+			label: this.label || label,
+			usesData,
+			current,
+			max,
 		};
 	}
+
+	getResource() {}
 }
 
 class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
@@ -166,6 +274,65 @@ class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
 			...spellSchema(),
 		};
 	}
+
+	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+		const { A5E } = CONFIG;
+		const spellLevels = Object.entries(A5E.spellLevels).slice(1);
+		const spellBook = actor.spellBooks.get(item.system.spellBook || '');
+
+		// Actor Data
+		const { spellResources } = actor.system;
+		const availableCharges = spellResources.artifactCharges.current;
+		const availablePoints = spellResources.points.current;
+		const availableSpellSlots = actor.availableSpellSlots;
+
+		const defaultLevel = this.spellLevel ?? item.system.level ?? 1;
+
+		const spellData = {
+			baseCharges: defaultLevel,
+			basePoints: this.points ?? 1,
+			baseLevel: this.spellLevel ?? item.system.level ?? 1,
+			charges: defaultLevel,
+			consume: 'noConsume' as 'artifactCharge' | 'spellPoint' | 'spellSlot' | 'noConsume',
+			level: defaultLevel,
+			mode: this.mode ?? 'variable',
+			points: defaultLevel,
+		};
+
+		if (spellData.mode === 'chargesOnly') spellData.consume = 'artifactCharge';
+		else if (spellData.mode === 'pointsOnly') spellData.consume = 'spellPoint';
+		else if (spellData.mode === 'slotsOnly') spellData.consume = 'spellSlot';
+		else {
+			if (availableCharges > 0) spellData.consume = 'artifactCharge';
+			else if (availablePoints > 0) spellData.consume = 'spellPoint';
+			else if (availableSpellSlots.length) spellData.consume = 'spellSlot';
+			else spellData.consume = 'noConsume';
+		}
+
+		// If no level available on item
+		if (item.system.level === null || item.system.level === undefined) {
+			spellData.consume = 'noConsume';
+		}
+
+		if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
+
+		const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+		if (spellData.consume === 'spellSlot')
+			spellData.level = Math.max(defaultLevel, smallestAvailable);
+
+		spellData.charges = this.charges ?? spellData.level ?? 1;
+		spellData.points = this.points ?? A5E.spellLevelCost[item.system?.level] ?? 1;
+
+		return {
+			availableCharges,
+			availablePoints,
+			availableSpellSlots,
+			mode: spellData.mode,
+			spellData,
+			spellLevels,
+			spellResources,
+		};
+	}
 }
 
 const ACTION_CONSUMER_DATA_TYPES = {
@@ -174,6 +341,7 @@ const ACTION_CONSUMER_DATA_TYPES = {
 	hitDice: HitDiceConsumerData,
 	itemUses: ItemUsesConsumerData,
 	quantity: QuantityConsumerData,
+	quality: QualityConsumerData,
 	resource: ResourceConsumerData,
 	spell: SpellConsumerData,
 } as const;
@@ -184,6 +352,7 @@ export {
 	AmmunitionConsumerData,
 	HitDiceConsumerData,
 	ItemUsesConsumerData,
+	QualityConsumerData,
 	QuantityConsumerData,
 	ResourceConsumerData,
 	SpellConsumerData,

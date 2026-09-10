@@ -21,6 +21,7 @@
         showWarning?: boolean;
         tooltipData?: Record<string, string>;
         warning?: string;
+        preferColor?: boolean;
         onUpdateSelection?: (value: string[]) => void;
         onTagToggleAux?: (value: string) => void;
     };
@@ -42,6 +43,7 @@
         showWarning = false,
         tooltipData = {},
         warning = "",
+        preferColor = false,
         onUpdateSelection = () => {},
         onTagToggleAux = () => {},
     }: Props = $props();
@@ -101,6 +103,7 @@
                 disabled={disabledOptions.includes(value) ||
                     (disabled && !selected.includes(value))}
                 {icon}
+                {preferColor}
                 showIcon={iconList?.includes(value)}
                 tooltipText={tooltipData?.[value] ?? ""}
                 onTagToggle={(value) => {

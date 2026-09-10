@@ -475,6 +475,16 @@ const damagedStates = {
 	2: 'A5E.damagedState.broken',
 };
 
+const scalingModes = {
+	cantrip: 'A5E.scaling.modes.cantrip',
+	spellLevel: 'A5E.scaling.modes.spellLevel',
+	spellPoints: 'A5E.scaling.modes.spellPoints',
+	artifactCharges: 'A5E.scaling.modes.artifactCharges',
+	actionUses: 'A5E.scaling.modes.actionUses',
+	itemUses: 'A5E.scaling.modes.itemUses',
+	resourceUses: 'A5E.scaling.modes.resourceUses',
+};
+
 const baseScalingModes = {
 	cantrip: 'A5E.scaling.modes.cantrip',
 	spellLevel: 'A5E.scaling.modes.spellLevel',
@@ -529,6 +539,28 @@ const damageColors = {
 	thunder: '#e2c269',
 };
 
+const dieModifiers = {
+	cf: 'Count Failures',
+	cs: 'Count Success',
+	d: 'Drop',
+	df: 'Deduct Failures',
+	dh: 'Drop Highest',
+	dl: 'Drop Lowest',
+	even: 'Count Even',
+	k: 'Keep',
+	kh: 'Keep Highest',
+	kl: 'Keep Lowest',
+	max: 'Maximum',
+	min: 'Minimum',
+	ms: 'Margin Success',
+	odd: 'Count Odd',
+	r: 'Reroll',
+	rr: 'Reroll Recursive',
+	sf: 'Subtract Failures',
+	x: 'Explode',
+	xo: 'Explode Once',
+};
+
 const defaultActorImportCompendia = {
 	inventory: 'a5e.a5e-adventuring-gear',
 	maneuvers: 'a5e.a5e-maneuvers',
@@ -563,6 +595,16 @@ const expertiseDiceSidesMap = {
 	4: 10,
 	5: 12,
 	6: 20,
+};
+
+const expertiseDiceSidesMapInverted = {
+	0: 0,
+	4: 1,
+	6: 2,
+	8: 3,
+	10: 4,
+	12: 5,
+	20: 6,
 };
 
 const featTypes = {
@@ -1774,7 +1816,13 @@ const toolsPlural = {
 		airVehicles: 'A5E.vehicles.plural.air',
 		spaceVehicles: 'A5E.vehicles.plural.space',
 	},
-};
+} as const;
+
+// Flatten the tools config object and extract just the inner tools keys
+const toolsFlattened: Record<string, string> = Object.values(tools).reduce(
+	(acc, curr) => ({ ...acc, ...curr }),
+	{},
+);
 
 const usesRecoveryTypeOptions = {
 	recoverAll: 'A5E.uses.recoveryTypes.recoverAll',
@@ -2216,15 +2264,18 @@ const A5E = {
 	creatureTypes,
 	currencyDenominations,
 	damagedStates,
+	scalingModes,
 	baseScalingModes,
 	targetScalingModes,
 	damageTypes,
 	damageColors,
+	dieModifiers,
 	defaultActorImportCompendia,
 	endemicProperties,
 	endemicTypes,
 	equippedStates,
 	expertiseDiceSidesMap,
+	expertiseDiceSidesMapInverted,
 	featTypes,
 	featureTypes,
 	healingTypes,
@@ -2283,6 +2334,7 @@ const A5E = {
 	tokenHPColors,
 	toolCategories,
 	tools,
+	toolsFlattened,
 	toolsPlural,
 	usesRecoveryTypeOptions,
 	weaponCategories,

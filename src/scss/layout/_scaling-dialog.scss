@@ -4,9 +4,22 @@
     gap: 0.5rem;
     padding: 0.75rem;
 
+    &__config {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &--long {
+            flex-direction: column;
+            align-items: initial;
+        }
+    }
+
     &__label {
         font-weight: bold;
         font-size: var(--a5e-sm-text);
+        text-wrap: none;
+        white-space: nowrap;
     }
 
     &__section {

@@ -31,6 +31,10 @@ class ActionsManager extends Map<string, A5EActionData> {
 		}
 	}
 
+	prepareDerivedData() {
+		[...this.values()].forEach((action) => action.prepareDerivedData());
+	}
+
 	/** ************************************************
 	 * Getters
 	 * ************************************************ */

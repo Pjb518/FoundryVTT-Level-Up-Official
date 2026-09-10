@@ -12,6 +12,7 @@
         roll: any;
         rollData: any;
         isAction?: boolean;
+        isCrit?: boolean;
         onToggleRollMode: (value: any) => void;
         onToggleExpertiseDice: (value: any) => void;
     };
@@ -21,7 +22,9 @@
 
         if (!d20Roll) return false;
 
-        return d20Roll.results.some(({ result, active }) => active && result === 1);
+        return d20Roll.results.some(
+            ({ result, active }) => active && result === 1,
+        );
     }
 
     function determineIfCriticalSuccess(roll) {
@@ -30,7 +33,8 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
+            ({ result, active }) =>
+                active && result >= (rollData.critThreshold ?? 20),
         );
     }
 
@@ -54,7 +58,9 @@
 
     async function rollOnSkillTable(skillKey, resultType) {
         const tableKey =
-            resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
+            resultType === "critical"
+                ? "skillCriticalTables"
+                : "skillFumbleTables";
 
         const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
         const critTable = await fromUuid(critTableUUID);
@@ -80,7 +86,10 @@
             type: "rollTableOutput",
         };
 
-        ChatMessage.applyMode(chatData, game.settings.get("core", "messageMode"));
+        ChatMessage.applyMode(
+            chatData,
+            game.settings.get("core", "messageMode"),
+        );
 
         return ChatMessage.create(chatData);
     }
@@ -102,6 +111,7 @@
         roll,
         rollData = {},
         isAction = true,
+        isCrit = false,
         onToggleRollMode,
         onToggleExpertiseDice,
     }: Props = $props();
@@ -116,6 +126,13 @@
     const message = getContext("message");
     const actor: Actor = fromUuidSync(message?.system.actorId);
     const { user } = game;
+
+    // Get damage roll based on crit state
+    if (rollData.type === "damage") {
+        if (rollData.canCrit && isCrit) {
+            roll = CONFIG.Dice.DamageRoll.fromData(rollData.critRoll);
+        }
+    }
 
     let isCriticalFailure = $state(determineIfCriticalFailure(roll));
     let isCriticalSuccess = $state(determineIfCriticalSuccess(roll));
@@ -180,7 +197,11 @@
 </div>
 
 {#if showRollConfig}
-    <RollConfigurationOptions {rollData} {onToggleRollMode} {onToggleExpertiseDice} />
+    <RollConfigurationOptions
+        {rollData}
+        {onToggleRollMode}
+        {onToggleExpertiseDice}
+    />
 {/if}
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
@@ -218,7 +239,8 @@
         width: 2.5rem;
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
-        border: 0.5px solid var(--a5e-roll-color, var(--a5e-chat-card-border-color));
+        border: 0.5px solid
+            var(--a5e-roll-color, var(--a5e-chat-card-border-color));
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 

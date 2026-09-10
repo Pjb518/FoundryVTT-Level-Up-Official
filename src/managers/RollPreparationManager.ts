@@ -1,109 +1,81 @@
-import type { DamageBonus, HealingBonus } from 'types/bonuses';
 import { localize } from '#utils/localization/localize.ts';
-import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import _prepareEffects from '../apps/dataPreparationHelpers/itemActivationPrompts/prepareEffectPrompts';
-import type { PromptHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
-import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
-import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
-import constructD20RollFormula from '../dice/constructD20RollFormula';
-import constructRollFormula from '../dice/constructRollFormula';
-import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
-import simplifyDiceTerms from '../dice/simplifyDiceTerms';
-import type { BaseActorA5e } from '../documents/actor/base';
-import type { ActionActivationOptions } from '../documents/item/data';
-import type { ItemA5e } from '../documents/item/item';
-import { computeSaveDC } from '../utils/computeSaveDC.ts';
-import getAttackAbility from '../utils/getAttackAbility';
-import getRollFormula from '../utils/getRollFormula';
-import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
+import type {
+	AbilityCheckRollData,
+	DamageRollData,
+	GenericRollData,
+	HealingRollData,
+	SavingThrowRollData,
+	SkillCheckRollData,
+	ToolCheckRollData,
+} from '../dataModels/item/actions/ActionRollsDataModel.ts';
+import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
+import { constructRollFormula } from '../dice/constructRollFormula.ts';
+import { constructCriticalConfig } from '../dice/damage/constructCriticalConfig.ts';
+import { DamageRoll } from '../dice/rolls/DamageRoll.ts';
+import type { ItemA5e } from '../documents/item/item.ts';
+import type { RollStateManager } from './RollStateManager.ts';
 
 class RollPreparationManager {
-	#actor: BaseActorA5e;
-
-	#consumers: ResourceConsumptionManager.ConsumptionData;
-
-	#damageBonuses: DamageBonus[];
-
-	#healingBonuses: HealingBonus[];
+	#actor: Actor.OfType<'base'>;
 
 	#item: ItemA5e;
 
-	#rolls: RollData.A5eActionRolls | any[];
+	#state: RollStateManager.WorkflowState;
 
-	constructor({
-		actor,
-		item,
-		consumers,
-		damageBonuses,
-		healingBonuses,
-		rolls,
-	}: RollPreparationManager.ConstructorOptions) {
-		this.#actor = actor;
-		this.#consumers = consumers!;
-		this.#damageBonuses = damageBonuses!;
-		this.#healingBonuses = healingBonuses!;
-		this.#item = item!;
-		this.#rolls = rolls;
+	constructor(state: RollStateManager.WorkflowState) {
+		this.#actor = state.actor;
+		this.#item = state.item;
+
+		this.#state = state;
 	}
 
-	/** ****************************************************
-	 *  Preparation Methods
-	 **************************************************** */
+	/** ================================================ */
+	//  Preparation Methods
+	/** ================================================ */
 	async prepareRolls() {
-		const { attack, damage, healing, other } = this.#rolls.reduce(
-			(acc, roll: any) => {
-				if (roll && roll.type === 'attack') acc.attack = roll;
-				else if (roll && roll.type === 'damage') acc.damage.push(roll);
-				else if (roll && roll.type === 'healing') acc.healing.push(roll);
-				else acc.other.push(roll);
+		const state = this.#state;
 
-				return acc;
-			},
-			{
-				attack: null as RollPreparationManager.AttackRollData | null,
-				damage: [] as any[],
-				healing: [] as any[],
-				other: [] as any[],
-			},
+		const attackRoll = await this.#prepareAttackRoll(state.attack);
+
+		let hasDamageRoll = false;
+		let hasHealingRoll = false;
+		let hasTempHealing = false;
+
+		const prepared = await Promise.all(
+			state.rolls.map(async (roll) => {
+				if (roll.type === 'attack') return attackRoll;
+
+				if (roll.type === 'damage') {
+					hasDamageRoll = true;
+					return await this.#prepareDamageRoll(roll, attackRoll, { applyGenericBonus: true });
+				}
+
+				if (roll.type === 'healing') {
+					const healingType = roll.healingType;
+					if (healingType === 'temporaryHealing') hasTempHealing = true;
+					else hasHealingRoll = true;
+
+					return await this.#prepareHealingRoll(roll);
+				}
+
+				const otherRoll = await this.#prepareItemRoll(roll);
+				return otherRoll;
+			}),
 		);
 
-		const attackRoll = await this.#prepareAttackRoll(
-			attack ?? ({} as RollPreparationManager.AttackRollData),
-		);
-
-		const damageRolls = (await Promise.all(
-			damage.map(async (roll, i) => this.#prepareDamageRoll(roll, attackRoll, i)),
-		)) as (PreparedDamageData | null)[];
-
-		const healingRolls = (
-			await Promise.all(healing.map(async (roll) => this.#prepareHealingRoll(roll)))
-		).filter(Boolean) as PreparedHealingData[];
-
-		if (damageRolls.length) {
-			const bonusDamageRolls = await this.#prepareBonusDamageRolls(attackRoll);
-			damageRolls.push(...bonusDamageRolls);
+		if (hasDamageRoll) {
+			prepared.push(...(await this.#prepareBonusDamageRolls(attackRoll)));
 		}
 
-		if (healingRolls.some(({ healingType }) => healingType === 'healing' || !healingType)) {
-			const bonusHealingRolls = (await this.#prepareBonusHealingRolls()).filter(
-				Boolean,
-			) as PreparedHealingData[];
-			healingRolls.push(...bonusHealingRolls);
+		if (hasHealingRoll) {
+			prepared.push(...(await this.#prepareBonusHealingRolls()));
 		}
 
-		if (healingRolls.some(({ healingType }) => healingType === 'temporaryHealing')) {
-			const bonusTempHealingRolls = (await this.#prepareBonusTemporaryHealingRolls()).filter(
-				Boolean,
-			) as PreparedHealingData[];
-			healingRolls.push(...bonusTempHealingRolls);
+		if (hasTempHealing) {
+			prepared.push(...(await this.#prepareBonusTempHealingRolls()));
 		}
 
-		const otherRolls = await Promise.all(other.map(async (roll) => this.#prepareItemRoll(roll)));
-
-		// TODO: Type out the return for this
-		return [attackRoll, ...damageRolls, ...healingRolls, ...otherRolls].filter(Boolean);
+		return [attackRoll, ...prepared].filter(Boolean);
 	}
 
 	#prepareItemRoll(roll: any) {
@@ -123,15 +95,14 @@ class RollPreparationManager {
 		}
 	}
 
-	async #prepareAbilityCheckRoll(
-		_roll: RollData.AbilityCheckRollData & RollPreparationManager.ExtraRollData,
-	) {
+	async #prepareAbilityCheckRoll(_roll: AbilityCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const defaultData = this.#actor.getDefaultAbilityCheckData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
@@ -139,32 +110,34 @@ class RollPreparationManager {
 		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
+			rollMode: defaultData.rollMode,
 			type: 'abilityCheck',
 		};
 	}
 
-	async #prepareAttackRoll(
-		_roll: RollPreparationManager.AttackRollData,
-	): Promise<PreparedAttackRoll | null> {
+	async #prepareAttackRoll(_roll: RollStateManager.WorkflowState['attack']) {
+		if (!_roll) return null;
+
+		// For sanity check that a formula would work ?
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: _roll.formula,
 			item: this.#item,
 		});
-
 		if (!rollFormula) return null;
 
+		// TODO: Move this to formula creation
 		const globalCritThreshold = _roll.attackType.includes('Weapon')
 			? (this.#actor.getFlag('a5e', 'criticalHitThresholdWeapon') ?? 20)
 			: (this.#actor.getFlag('a5e', 'criticalHitThresholdSpell') ?? 20);
 
 		const critThreshold = Math.min(globalCritThreshold, _roll.critThreshold ?? 20);
-		const roll = await new Roll(rollFormula).evaluate();
+
+		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate();
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
 		const isCrit = ((roll.dice[0].total as number) ?? 0) >= critThreshold;
@@ -172,7 +145,7 @@ class RollPreparationManager {
 		return {
 			attackType: _roll.attackType,
 			critThreshold,
-			expertiseDice: _roll.expertiseDie,
+			expertise: _roll.expertiseDie,
 			isCrit,
 			label,
 			roll,
@@ -181,8 +154,10 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareBonusDamageRolls(attackRoll: PreparedAttackRoll | null) {
-		const bonusDamage = Object.values(this.#damageBonuses).filter(
+	async #prepareBonusDamageRolls(attackRoll: RollStateManager.WorkflowState['attack']) {
+		const damageBonuses = this.#state.damageBonuses;
+
+		const bonusDamage = Object.values(damageBonuses).filter(
 			({ damageType }) => damageType && damageType !== 'null',
 		);
 
@@ -195,16 +170,17 @@ class RollPreparationManager {
 						canCrit: true,
 						critBonus: '',
 						damageType,
-						context,
-					} as RollData.DamageRollData & { context: any },
+						getFormula: () => formula,
+					} as DamageRollData,
 					attackRoll,
+					{ context },
 				),
 			),
 		);
 	}
 
 	async #prepareBonusHealingRolls() {
-		const bonusHealing = Object.values(this.#healingBonuses).filter(
+		const bonusHealing = this.#state.healingBonuses.filter(
 			({ healingType }) => healingType === 'healing' || !healingType,
 		);
 
@@ -214,13 +190,14 @@ class RollPreparationManager {
 					label: label || 'Bonus Healing',
 					formula,
 					healingType: healingType || 'healing',
-				} as RollData.HealingRollData),
+					getFormula: () => formula,
+				} as unknown as HealingRollData),
 			),
 		);
 	}
 
-	async #prepareBonusTemporaryHealingRolls() {
-		const bonusHealing = Object.values(this.#healingBonuses).filter(
+	async #prepareBonusTempHealingRolls() {
+		const bonusHealing = this.#state.healingBonuses.filter(
 			({ healingType }) => healingType === 'temporaryHealing',
 		);
 
@@ -230,25 +207,27 @@ class RollPreparationManager {
 					label: label || 'Bonus Temporary Healing',
 					formula,
 					healingType,
-				} as RollData.HealingRollData),
+					getFormula: () => formula,
+				} as unknown as HealingRollData),
 			),
 		);
 	}
 
 	async #prepareDamageRoll(
-		_roll: RollData.DamageRollData & { context?: any },
-		attackRoll: PreparedAttackRoll | null,
-		index?: number,
+		_roll: DamageRollData,
+		attackRoll: RollStateManager.WorkflowState['attack'],
+		{ applyGenericBonus = false, context = {} }: RollPreparationManager.DamageRollOptions = {},
 	): Promise<PreparedDamageData | null> {
 		const { isCrit } = attackRoll ?? {};
 		const { canCrit, critBonus, damageType } = _roll ?? {};
+
+		// Apply Generic Bonuses to all damage rolls that aren't bonuses
 		const critBonuses: string[] = [];
+		let critBonusFormula = critBonus || '';
+		let genericCritBonusDamage = '';
 		const modifiers: { value: string; label: string }[] = [];
 
-		const { context } = _roll;
-		let genericCritBonusDamage = '';
-
-		if (index === 0) {
+		if (applyGenericBonus) {
 			const genericBonusDamage = this.#prepareGenericBonusDamage(); // TODO: Had a isCrit param?
 
 			genericBonusDamage.forEach((bonus) => {
@@ -258,34 +237,53 @@ class RollPreparationManager {
 
 			if (critBonuses.length) genericCritBonusDamage = critBonuses.join(' + ');
 		}
+		critBonusFormula += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
 
+		// We're using this to get a roll formula with bonuses
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: this.#applyScaling(_roll),
 			item: this.#item,
 			modifiers,
 		});
-
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		let roll = baseRoll;
-		let critRoll = baseRoll;
+		// Construct Rolls
+		const roll = new DamageRoll(rollFormula, this.#actor.getRollData(this.#item));
 
-		if (canCrit ?? true) {
-			if (context?.isCritBonus) {
-				critRoll = roll;
-				baseRoll = await new Roll('0').evaluate();
-				roll = baseRoll;
-			} else {
-				let bonus = critBonus || '';
-				bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
-				critRoll = await constructCritDamageRoll(roll, bonus);
-			}
-		}
+		// Construct Critical roll
+		const critFormula = rollFormula;
+		const critConfig = constructCriticalConfig();
+		const critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+			isCrit: canCrit ?? true,
+			critical: {
+				...critConfig,
+				bonusDamage: critBonusFormula,
+			},
+		});
 
-		if (isCrit) roll = critRoll;
+		// TODO: Update the terms to reflect roll
+
+		// const r = await new Roll(rollFormula).evaluate();
+		// let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+		// let roll = baseRoll;
+		// let critRoll = baseRoll;
+
+		// if (canCrit ?? true) {
+		// 	if (context?.isCritBonus) {
+		//    Left
+		//    critRoll = roll;
+		// 		baseRoll = await new Roll('0').evaluate();
+		// 		roll = baseRoll;
+		// 	} else {
+		//    Done ------
+		// 		let bonus = critBonus || '';
+		// 		bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
+		// 		critRoll = await constructCritDamageRoll(roll, bonus);
+		// 	}
+		// }
+
+		// if (isCrit) roll = critRoll;
 
 		const label = damageType
 			? localize('A5E.damage.labels.specific', {
@@ -294,13 +292,13 @@ class RollPreparationManager {
 			: localize('A5E.damage.title');
 
 		return {
-			baseRoll: baseRoll as EvaluatedRoll,
+			// baseRoll: baseRoll as EvaluatedRoll,
 			canCrit: canCrit ?? true,
-			critRoll: critRoll as EvaluatedRoll,
+			critRoll: await critRoll.evaluate(),
 			damageType,
 			label,
 			userLabel: _roll.label,
-			roll: roll as EvaluatedRoll,
+			roll: await roll.evaluate(),
 			type: 'damage',
 		};
 	}
@@ -310,7 +308,7 @@ class RollPreparationManager {
 	 * damage roll for the action.
 	 */
 	#prepareGenericBonusDamage() {
-		const genericBonusDamage = Object.values(this.#damageBonuses).filter(
+		const genericBonusDamage = (this.#state.damageBonuses ?? []).filter(
 			({ damageType }) => !damageType || damageType === 'null',
 		);
 
@@ -318,10 +316,13 @@ class RollPreparationManager {
 			formula,
 			context,
 			label,
+			getFormula: () => formula,
 		}));
 	}
 
-	async #prepareGenericRoll(_roll: RollData.GenericRollData) {
+	async #prepareGenericRoll(_roll: GenericRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: this.#applyScaling(_roll),
@@ -330,28 +331,27 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		const label = _roll.label || localize('A5E.GenericRoll');
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const label = _roll.label || localize('A5E.rollLabels.generic');
 
 		return {
 			label,
-			roll: roll as EvaluatedRoll,
+			roll: roll,
 			type: 'generic',
 		};
 	}
 
-	async #prepareHealingRoll(_roll: RollData.HealingRollData): Promise<PreparedHealingData | null> {
+	async #prepareHealingRoll(_roll: HealingRollData): Promise<PreparedHealingData | null> {
+		// Get Roll Formula
 		const { rollFormula } = constructRollFormula({
 			actor: this.#actor,
 			formula: this.#applyScaling(_roll),
 			item: this.#item,
 		});
-
 		if (!rollFormula) return null;
 
-		const r = await new Roll(rollFormula).evaluate();
-		const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
+		const roll = new CONFIG.Dice.BaseRoll(rollFormula);
+		// const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
 		const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
 		const label = localize(healingType);
 
@@ -359,45 +359,40 @@ class RollPreparationManager {
 			label,
 			userLabel: _roll.label,
 			healingType: _roll.healingType,
-			roll: roll as EvaluatedRoll,
+			roll: await roll.evaluate(),
 			type: 'healing',
 		};
 	}
 
-	async #prepareSavingThrowRoll(
-		_roll: RollData.SavingThrowRollData &
-			RollPreparationManager.ExtraRollData & { saveType: string },
-	) {
+	async #prepareSavingThrowRoll(_roll: SavingThrowRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const defaultData = this.#actor.getDefaultSavingThrowData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new Roll(rollFormula).evaluate();
-		let label: string;
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
-		if (_roll.saveType === 'concentration') label = localize('A5E.rollLabels.concentrationCheck');
-		else if (_roll.saveType === 'death') label = localize('A5E.deathSavingThrow.title');
-		else label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
+		const label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
-			saveType: _roll.saveType,
+			rollMode: defaultData.rollMode,
+			saveType: 'ability',
 			type: 'savingThrow',
 		};
 	}
 
-	async #prepareSkillCheckRoll(
-		_roll: RollData.SkillCheckRollData & RollPreparationManager.ExtraRollData,
-	) {
+	async #prepareSkillCheckRoll(_roll: SkillCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
 
 		const defaultData = this.#actor.getDefaultSkillCheckData(_roll.skill, {
@@ -406,11 +401,10 @@ class RollPreparationManager {
 		});
 
 		const ability = _roll.ability ?? defaultData.abilityKey;
-		const rollFormula = _roll.rollFormula ?? defaultData.rollFormula;
-
+		const rollFormula = defaultData.rollFormula as string;
 		if (!rollFormula) return null;
 
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
 		const label =
 			ability && ability !== 'none'
@@ -421,17 +415,19 @@ class RollPreparationManager {
 				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 
 		return {
-			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
+			expertiseDice: defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: _roll.rollMode ?? defaultData.rollMode,
+			rollMode: defaultData.rollMode,
 			skillKey: _roll?.skill,
 			type: 'skillCheck',
 		};
 	}
 
-	async #prepareToolCheckRoll(_roll: RollData.ToolCheckRollData) {
+	async #prepareToolCheckRoll(_roll: ToolCheckRollData) {
+		if (_roll.formulaInvalid) return null;
+
 		const abilityKey = _roll.ability === 'none' ? null : _roll.ability;
 		const isProficient = this.#actor.system.proficiencies?.tools?.includes(_roll.tool);
 		const modifiers: { value: string; label?: string }[] = [];
@@ -457,8 +453,7 @@ class RollPreparationManager {
 		if (isProficient) {
 			modifiers.push({
 				label: localize('A5E.Proficiency'),
-				// @ts-expect-error
-				value: this.#actor.system.attributes.prof,
+				value: this.#actor.system.attributes.prof.toString(),
 			});
 		}
 
@@ -481,7 +476,7 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
 		return {
 			label,
@@ -491,13 +486,13 @@ class RollPreparationManager {
 		};
 	}
 
-	/** ****************************************************
-	 *  Scaling Adjustment Methods
-	 **************************************************** */
-	#applyScaling(roll: any): string {
-		const scalingMode: string = roll.scaling?.mode;
+	/** ================================================ */
+	//  Scaling Adjustment Methods
+	/** ================================================ */
+	#applyScaling(roll: DamageRollData | HealingRollData | GenericRollData): string {
+		const scalingMode = roll.scaling?.mode;
 
-		if (!scalingMode) return roll?.formula ?? 0;
+		if (!scalingMode) return roll?.getFormula() ?? 0;
 
 		if (scalingMode === 'cantrip') return this.#applyCantripScaling(roll);
 		if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(roll);
@@ -505,14 +500,15 @@ class RollPreparationManager {
 		if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(roll);
 		if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(roll);
 		if (scalingMode === 'artifactCharges') return this.#applyArtifactChargesScaling(roll);
+		if (scalingMode === 'resourceUses') return this.#applyResourceScaling(roll);
 
-		return roll.formula ?? 0;
+		return roll.getFormula() ?? 0;
 	}
 
-	#applyCantripScaling(roll): string {
+	#applyCantripScaling(roll: DamageRollData | HealingRollData): string {
 		const actorData = this.#actor.system;
 
-		const casterLevel =
+		const casterLevel: number =
 			// @ts-expect-error
 			this.#actor?.levels?.character ??
 			// @ts-expect-error
@@ -520,318 +516,177 @@ class RollPreparationManager {
 			// @ts-expect-error
 			actorData.attributes.casterLevel;
 
-		const baseRoll: string = roll.formula;
+		if (casterLevel < 5) return roll.getFormula();
 
-		if (casterLevel < 5) return baseRoll;
+		// Get Base
+		const die = roll.die;
+		const baseBonus = roll.formula;
 
-		const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
+		// Get Scaling Info
+		const config = roll.scaling.config;
+		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingBonus = new Roll(config.value || '');
+
+		// Get multiplier
 		let multiplier = 0;
-
 		if (casterLevel >= 17) multiplier = 3;
 		else if (casterLevel >= 11) multiplier = 2;
 		else if (casterLevel >= 5) multiplier = 1;
 
-		return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join(
-			'+',
-		);
+		// Apply die scaling
+		const scaledDie = new foundry.dice.terms.Die({
+			number: (die.number ?? 0) + multiplier * scalingDie.number,
+			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			modifiers: [...die.modifiers],
+		}).formula;
+
+		const result: string[] = [];
+		if (!['0d0', '0d'].includes(scaledDie)) result.push(scaledDie);
+		if (baseBonus.length) result.push(baseBonus);
+		if (scalingBonus.terms?.length) {
+			result.push(scalingBonus.alter(multiplier, 0, { multiplyNumeric: true }).formula);
+		}
+
+		return result.join('+');
 	}
 
-	#applySpellLevelScaling(roll): string {
-		// @ts-expect-error
-		const baseSpellLevel = this.#consumers.spell?.baseLevel ?? this.#item.system.level ?? 1;
-		const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
+	#applySpellLevelScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
+
+		const baseSpellLevel = consumer?.baseLevel ?? this.#item.system.level ?? 1;
+		const castingLevel = consumer?.level ?? baseSpellLevel;
 		const delta = castingLevel - baseSpellLevel;
 
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applySpellPointScaling(roll): string {
-		const spellConsumer = this.#consumers.spell;
-		if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
+	#applySpellPointScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const basePoints = spellConsumer?.basePoints || 1;
-		if (basePoints >= spellConsumer.points) return roll.formula;
+		const basePoints = consumer?.basePoints || 1;
+		if (basePoints >= consumer?.points) return roll.getFormula();
 
-		const delta = Math.max(0, spellConsumer.points - basePoints);
+		const delta = Math.max(0, consumer.points - basePoints);
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyArtifactChargesScaling(roll): string {
-		const spellConsumer = this.#consumers.spell;
-		if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
+	#applyArtifactChargesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.spell ?? {};
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseCharges = spellConsumer?.baseCharges || 1;
-		if (baseCharges >= spellConsumer.charges) return roll.formula;
+		const baseCharges = consumer?.baseCharges || 1;
+		if (baseCharges >= consumer.charges) return roll.getFormula();
 
-		const delta = Math.max(0, spellConsumer.charges - baseCharges);
+		const delta = Math.max(0, consumer.charges - baseCharges);
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyActionUsesScaling(roll): string {
-		const actionConsumer = this.#consumers.actionUses;
-		if (foundry.utils.isEmpty(actionConsumer)) return roll.formula;
+	#applyActionUsesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.actionUses;
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseQuantity = actionConsumer.baseUses;
-		if (baseQuantity >= actionConsumer.quantity) return roll.formula;
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= consumer.quantity) return roll.getFormula();
 
-		const delta = actionConsumer.quantity - baseQuantity;
+		const delta = consumer.quantity - baseQuantity;
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyItemUsesScaling(roll): string {
-		const itemConsumer = this.#consumers.itemUses;
-		if (foundry.utils.isEmpty(itemConsumer)) return roll.formula;
+	#applyItemUsesScaling(roll: DamageRollData | HealingRollData): string {
+		const consumer = this.#state.consumptionData.itemUses;
+		if (foundry.utils.isEmpty(consumer)) return roll.getFormula();
 
-		const baseQuantity = itemConsumer.baseUses;
-		if (baseQuantity >= itemConsumer.quantity) return roll.formula;
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= consumer.quantity) return roll.getFormula();
 
-		const delta = itemConsumer.quantity - baseQuantity;
+		const delta = consumer.quantity - baseQuantity;
 		return this.#applyResourceBasedScaling(roll, delta);
 	}
 
-	#applyResourceBasedScaling(roll, delta): string {
-		const baseRoll = roll.formula;
+	#applyResourceScaling(roll: DamageRollData | HealingRollData): string {
+		const consumers = this.#state.consumptionData.resources ?? {};
+		if (foundry.utils.isEmpty(consumers)) return roll.getFormula();
 
-		if (!delta) return baseRoll;
+		// Find the first instance for now and use that for resource scaling;
+		const consumer = Object.values(consumers).at(0);
+		if (!consumer) return roll.getFormula();
 
-		const scalingFormula = new Roll(roll.scaling?.formula ?? 0);
-		const step = roll.scaling?.step || 1;
+		const baseQuantity = consumer.baseUses;
+		if (baseQuantity >= (consumer.quantity ?? 1)) return roll.getFormula();
+
+		const delta = consumer.quantity - baseQuantity;
+		return this.#applyResourceBasedScaling(roll, delta);
+	}
+
+	#applyResourceBasedScaling(roll: DamageRollData | HealingRollData, delta: number): string {
+		if (!delta) return roll.getFormula();
+
+		// Get Base
+		const die = roll.die;
+		const baseBonus = roll.formula;
+
+		// Get Scaling Info
+		const config = roll.scaling.config;
+		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingBonus = new Roll(config.value || '');
+
+		// Get Multiplier
+		const step = roll.scaling.step || 1;
 		const multiplier = Math.floor(delta / step);
+		if (multiplier === 0) return roll.getFormula();
 
-		if (multiplier === 0) return baseRoll;
+		// Apply die scaling
+		const scaledDie = new foundry.dice.terms.Die({
+			number: (die.number ?? 0) + multiplier * scalingDie.number,
+			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			modifiers: [...die.modifiers],
+		}).formula;
 
-		return [baseRoll, scalingFormula.alter(multiplier, 0, { multiplyNumeric: true }).formula].join(
-			'+',
-		);
-	}
+		const result: string[] = [];
+		if (!['0d0', '0d'].includes(scaledDie)) result.push(scaledDie);
+		if (baseBonus.length) result.push(baseBonus);
+		if (scalingBonus.terms?.length) {
+			result.push(scalingBonus.alter(multiplier, 0, { multiplyNumeric: true }).formula);
+		}
 
-	/** ****************************************************
-	 *  Static Methods
-	 **************************************************** */
-	static prepareAttackRollData(
-		actor: BaseActorA5e,
-		item: ItemA5e,
-		attackRoll: RollData.AttackRollData,
-		options: ActionActivationOptions = {},
-	) {
-		const { attackType } = attackRoll;
+		console.log(result);
 
-		const attackBonuses = actor.BonusesManager.prepareAttackBonuses(item, attackType);
-		const attackAbility = getAttackAbility(actor, item, attackRoll);
-
-		const expertiseDie = actor.RollOverrideManager.getExpertiseDice(
-			`attackTypes.${attackType}`,
-			options.expertiseDie ?? 0,
-		);
-
-		const expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
-			`attackTypes.${attackType}`,
-			options.expertiseDie ?? 0,
-		);
-
-		const rollMode = actor.RollOverrideManager.getRollOverride(
-			`attackTypes.${attackType}`,
-			options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-		);
-
-		const rollModeSource = actor.RollOverrideManager.getRollOverridesSource(
-			`attackTypes.${attackType}`,
-			options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-		);
-
-		const selectedAttackBonuses = actor.BonusesManager.getDefaultSelections('attacks', {
-			item,
-			attackType,
-		});
-
-		const formula: string = getRollFormula(actor, {
-			ability: attackAbility,
-			attackBonus: attackRoll?.bonus,
-			attackType: attackRoll?.attackType,
-			expertiseDie,
-			item,
-			proficient: attackRoll?.proficient ?? true,
-			rollMode,
-			situationalMods: options.situationalMods,
-			selectedAttackBonuses,
-			type: 'attack',
-		});
-
-		return {
-			attackBonuses,
-			attackAbility,
-			expertiseDie,
-			expertiseDieSource,
-			formula,
-			rollMode,
-			rollModeSource,
-			selectedAttackBonuses,
-		};
-	}
-
-	static #getInvalidSelections(property: [string, any][]): string[] {
-		return Object.values(property)
-			.flat()
-			.reduce((acc, [key, value]) => {
-				if (['generic', 'healing', 'damage'].includes(value.type) && !value.formula) {
-					acc.push(key);
-				}
-
-				return acc;
-			}, [] as string[]);
-	}
-
-	static prepareOtherRollData(rolls: RollHandlerReturnType) {
-		const invalidSelections = RollPreparationManager.#getInvalidSelections(
-			rolls as unknown as [string, any][],
-		);
-
-		const otherRolls = Object.entries(rolls).reduce(
-			(acc, [rollType, rollGroup]) => {
-				if (rollType === 'attack') return acc;
-				acc[rollType] = rollGroup;
-
-				return acc;
-			},
-			{} as Omit<RollHandlerReturnType, 'attack'>,
-		);
-
-		return {
-			invalidSelections,
-			otherRolls,
-		};
-	}
-
-	static getSelectedRolls(item: ItemA5e, actionId: string, selections: string[]) {
-		const action = item.actions.get(actionId)!;
-		const rolls = Object.entries(action.rolls ?? {});
-		// There to help with types
-		const temp = Object.values(action.rolls ?? {});
-
-		return rolls.reduce(
-			(acc, [key, roll]) => {
-				if (selections.includes(key) && roll.type !== 'attack') acc.push(roll);
-				return acc;
-			},
-			[] as typeof temp,
-		);
-	}
-
-	static preparePromptsData(prompts: PromptHandlerReturnType) {
-		const invalidSelections = RollPreparationManager.#getInvalidSelections(
-			prompts as unknown as [string, any][],
-		);
-
-		return {
-			invalidSelections,
-		};
-	}
-
-	static getSelectedPrompts(
-		actor: BaseActorA5e,
-		item: ItemA5e,
-		actionId: string,
-		selections: string[],
-	) {
-		const action = item.actions.get(actionId)!;
-		const prompts = Object.entries(action.prompts ?? {});
-
-		// There to help with types
-		const temp = Object.values(action.prompts ?? {});
-
-		return prompts.reduce(
-			(acc, [key, prompt]) => {
-				// eslint-disable-next-line no-param-reassign
-				prompt = foundry.utils.duplicate(prompt);
-
-				if (selections.includes(key)) {
-					// @ts-expect-error
-					if (prompt.type === 'savingThrow') {
-						// @ts-expect-error
-						prompt.dc = computeSaveDC(actor, item, prompt.saveDC);
-					}
-
-					acc.push(prompt);
-				}
-
-				return acc;
-			},
-			[] as typeof temp,
-		);
-	}
-
-	static getSelectedBonuses(actor: BaseActorA5e, type: 'damage' | 'healing', selections: string[]) {
-		const bonuses = Object.entries(actor.system.bonuses[type]);
-
-		return bonuses.reduce((acc, [key, bonus]) => {
-			if (selections.includes(key)) acc.push(bonus);
-
-			return acc;
-		}, [] as any[]);
-	}
-
-	static getDefaultSelectedEffects(effects) {
-		return effects.reduce((acc, e) => {
-			if (e.system.default) acc.push(e.id);
-			return acc;
-		}, [] as string[]);
-	}
-
-	/** ******************************************* */
-
-	static prepareConsumers(item: ItemA5e, actionId: string) {
-		return _prepareConsumers(item, actionId);
-	}
-
-	static prepareEffects(item: ItemA5e, actionId: string) {
-		return _prepareEffects(item, actionId);
-	}
-
-	static preparePrompts(item: ItemA5e, actionId: string) {
-		return _preparePrompts(item, actionId);
-	}
-
-	static prepareRolls(item: ItemA5e, actionId: string) {
-		return _prepareRolls(item, actionId);
+		return result.join('+');
 	}
 }
 
 declare namespace RollPreparationManager {
-	interface ConstructorOptions {
-		actor: BaseActorA5e;
-		item?: ItemA5e;
-		consumers?: ResourceConsumptionManager.ConsumptionData;
-		damageBonuses?: DamageBonus[];
-		healingBonuses?: HealingBonus[];
-		rolls: RollData.A5eActionRolls | any[];
-	}
-
-	interface AttackRollData extends RollData.AttackRollData {
-		expertiseDie: number;
+	type PreparedAttackData = {
+		attackType:
+			| 'meleeWeaponAttack'
+			| 'rangedWeaponAttack'
+			| 'meleeSpellAttack'
+			| 'rangedSpellAttack';
+		critThreshold: number;
+		expertiseDice: number;
+		isCrit: boolean;
+		label: string;
+		roll: EvaluatedRoll;
 		rollMode: number;
-		formula: string;
-	}
+		type: 'attack';
+	} | null;
 
 	interface ExtraRollData {
 		rollFormula: string;
 		expertiseDie: number;
 		rollMode: number;
 	}
+
+	interface DamageRollOptions {
+		applyGenericBonus?: boolean;
+		context?: RollStateManager.WorkflowState['damageBonuses'][number];
+	}
 }
 
 // biome-ignore lint/complexity/noBannedTypes: <explanation>
 type EvaluatedRoll = Awaited<ReturnType<InstanceType<typeof Roll<{}>>['evaluate']>>;
-
-interface PreparedAttackRoll {
-	attackType: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack';
-	critThreshold: number;
-	expertiseDice: number;
-	isCrit: boolean;
-	label: string;
-	roll: EvaluatedRoll;
-	rollMode: number;
-	type: 'attack';
-}
 
 interface PreparedDamageData {
 	baseRoll: EvaluatedRoll;

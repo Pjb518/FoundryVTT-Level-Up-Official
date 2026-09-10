@@ -1,25 +1,28 @@
+import type { ItemA5e } from '#documents/item/item.ts';
 import { localize } from '#utils/localization/localize.ts';
 
-import { getExpertiseDieSize } from '../utils/getExpertiseDieSize';
+class ModifierManager {
+	actor: Actor.OfType<'base'>;
 
-export default class ModifierManager {
-	constructor(actor, rollData) {
+	rollData: ModifierManager.RollData;
+
+	constructor(actor: Actor.OfType<'base'>, rollData: ModifierManager.RollData) {
 		this.actor = actor;
 		this.rollData = rollData;
 	}
 
-	getModifiers() {
+	getModifiers(): { label?: string; value: string | number }[] {
 		switch (this.rollData.type) {
 			case 'abilityCheck':
-				return this.#getAbilityCheckModifiers().filter(Boolean);
+				return this.#getAbilityCheckModifiers().filter((m) => !!m);
 			case 'attack':
-				return this.#getAttackRollModifiers().filter(Boolean);
+				return this.#getAttackRollModifiers().filter((m) => !!m);
 			case 'initiative':
-				return this.#getInitiativeRollModifiers().filter(Boolean);
+				return this.#getInitiativeRollModifiers().filter((m) => !!m);
 			case 'savingThrow':
-				return this.#getSavingThrowModifiers().filter(Boolean);
+				return this.#getSavingThrowModifiers().filter((m) => !!m);
 			case 'skillCheck':
-				return this.#getSkillCheckModifiers().filter(Boolean);
+				return this.#getSkillCheckModifiers().filter((m) => !!m);
 			default:
 				return [];
 		}
@@ -30,7 +33,6 @@ export default class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAbilityCheckProficiencyBonus(),
 			this.#getAbilityCheckBonus(),
-			this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -41,13 +43,12 @@ export default class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAttackBonus(),
 			this.#getGlobalAttackBonus(),
-			this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
 
 	#getInitiativeRollModifiers() {
-		if (game.settings.storage.get('world').getItem('a5e.simpleInitiative') ?? false) {
+		if (game.settings.storage.get('world')?.getItem('a5e.simpleInitiative') ?? false) {
 			return [this.#getInitiativeBonus(), ...this.#getAbilityCheckModifiers()];
 		}
 
@@ -60,7 +61,6 @@ export default class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getAbilitySaveBonus(),
 			this.#getConcentrationBonus(),
-			this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -71,7 +71,6 @@ export default class ModifierManager {
 			this.#getAbilityModifier(),
 			this.#getSkillCheckBonus(),
 			this.#getAbilityCheckBonus(),
-			this.#getExpertiseDice(),
 			this.#getSituationalModifiers(),
 		];
 	}
@@ -80,7 +79,7 @@ export default class ModifierManager {
 		const { ability, selectedAbilityBonuses } = this.rollData;
 		if (!ability) return null;
 
-		let value;
+		let value: string;
 		if (selectedAbilityBonuses) {
 			value = this.actor.BonusesManager.getSelectedBonusesFormula(
 				'abilities',
@@ -94,7 +93,7 @@ export default class ModifierManager {
 			label: localize('A5E.abilities.headings.checkBonus', {
 				ability: CONFIG.A5E.abilities[ability],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
@@ -107,7 +106,7 @@ export default class ModifierManager {
 			label: localize('A5E.abilities.headings.checkMod', {
 				ability: CONFIG.A5E.abilities[ability] ?? ability,
 			}),
-			value: this.actor.system.abilities[ability]?.mod ?? null,
+			value: (this.actor.system.abilities[ability]?.mod as number) ?? 0,
 		};
 	}
 
@@ -117,7 +116,7 @@ export default class ModifierManager {
 		if (!ability) return null;
 
 		let jackOfAllTrades = false;
-		if (game.settings.storage.get('world').getItem('a5e.5eStyleJackOfAllTrades') ?? false) {
+		if (game.settings.storage.get('world')?.getItem('a5e.5eStyleJackOfAllTrades') ?? false) {
 			jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades ?? false;
 		}
 
@@ -133,7 +132,7 @@ export default class ModifierManager {
 		const { ability, selectedAbilityBonuses } = this.rollData;
 		if (!ability) return null;
 
-		let value;
+		let value: string;
 		if (selectedAbilityBonuses) {
 			value = this.actor.BonusesManager.getSelectedBonusesFormula(
 				'abilities',
@@ -147,7 +146,7 @@ export default class ModifierManager {
 			label: localize('A5E.abilities.headings.saveBonus', {
 				ability: CONFIG.A5E.abilities[ability],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
@@ -177,22 +176,17 @@ export default class ModifierManager {
 
 		return {
 			label: localize('A5E.ConcentrationBonus'),
-			value: this.actor.system.abilities.con.save.concentrationBonus,
-		};
-	}
-
-	#getExpertiseDice() {
-		return {
-			label: localize('A5E.expertiseDie.title'),
-			value: getExpertiseDieSize(this.rollData?.expertiseDie ?? 0),
+			// @ts-expect-error
+			value: this.actor.system.abilities.con.save.concentrationBonus as string,
 		};
 	}
 
 	#getGlobalAttackBonus() {
 		const { BonusesManager } = this.actor;
 		const { attackType, item, selectedAttackBonuses } = this.rollData;
+		if (!item) return null;
 
-		let value;
+		let value: string;
 
 		if (selectedAttackBonuses) {
 			value = BonusesManager.getSelectedBonusesFormula('attacks', selectedAttackBonuses);
@@ -217,7 +211,7 @@ export default class ModifierManager {
 	#getInitiativeBonus() {
 		const { ability, selectedInitiativeBonuses, skill } = this.rollData;
 
-		let value;
+		let value: string;
 		if (selectedInitiativeBonuses) {
 			value = this.actor.BonusesManager.getSelectedBonusesFormula(
 				'initiative',
@@ -231,8 +225,8 @@ export default class ModifierManager {
 		}
 
 		return {
-			label: localize('A5E.initiative.bonus'),
-			value: value || null,
+			label: localize('A5E.InitiativeBonus'),
+			value: value || 0,
 		};
 	}
 
@@ -260,7 +254,7 @@ export default class ModifierManager {
 
 		return {
 			label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',
-			value: skill?.mod ?? null,
+			value: (skill?.mod as number) ?? 0,
 		};
 	}
 
@@ -268,7 +262,7 @@ export default class ModifierManager {
 		const { ability, selectedSkillBonuses, skill } = this.rollData;
 		if (!skill) return null;
 
-		let value;
+		let value: string;
 		if (selectedSkillBonuses) {
 			value = this.actor.BonusesManager.getSelectedBonusesFormula('skills', selectedSkillBonuses);
 		} else {
@@ -279,11 +273,39 @@ export default class ModifierManager {
 			label: localize('A5E.SkillCheckBonus', {
 				skill: CONFIG.A5E.skills[skill],
 			}),
-			value: value || null,
+			value: value || 0,
 		};
 	}
 
 	#getSituationalModifiers() {
-		return { value: this.rollData.situationalMods };
+		return { value: this.rollData.situationalMods || 0 };
 	}
 }
+
+declare namespace ModifierManager {
+	type RollData = {
+		ability?: string;
+		attackBonus?: string | number;
+		attackType?:
+			| 'meleeSpellAttack'
+			| 'meleeWeaponAttack'
+			| 'rangedSpellAttack'
+			| 'rangedWeaponAttack';
+		item?: ItemA5e;
+		expertiseDie?: number;
+		minRoll?: number;
+		maxRoll?: number;
+		proficient?: number;
+		rollMode?: number;
+		saveType?: 'ability' | 'concentration' | 'death';
+		selectedAbilityBonuses?: string[];
+		selectedAttackBonuses?: string[];
+		selectedInitiativeBonuses?: string[];
+		selectedSkillBonuses?: string[];
+		situationalMods?: string;
+		skill?: string;
+		type: 'abilityCheck' | 'attack' | 'initiative' | 'savingThrow' | 'skillCheck';
+	};
+}
+
+export { ModifierManager };

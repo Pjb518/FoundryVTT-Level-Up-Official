@@ -1,17 +1,20 @@
-import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel';
+import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
+import type { ItemA5e } from '../documents/item/item.ts';
 
-import getSpellBookAbility from './getSpellBookAbility';
+import getSpellBookAbility from './getSpellBookAbility.ts';
 
 /**
  * A utility function for determining the correct attribute to use for a given attack roll.
  */
 export default function getAttackAbility(
-	actor: any,
-	item: any,
-	attackData: AttackRollData,
+	actor: Actor.OfType<'base'>,
+	item: ItemA5e,
+	attackData: AttackRollData | undefined | null,
 ): string {
-	const actorData: any = actor.system;
-	const itemData: any = item.system;
+	if (!attackData) return 'str';
+
+	const actorData = actor.system;
+	const itemData = item.system;
 
 	const dexMod: number = actorData.abilities.dex.mod;
 	const strMod: number = actorData.abilities.str.mod;
@@ -21,11 +24,13 @@ export default function getAttackAbility(
 	}
 
 	if (attackData.ability === 'spellcasting') {
+		//@ts-expect-error
 		return getSpellBookAbility(actor, item);
 	}
 
 	if (attackData?.ability === 'default') {
 		if (['meleeSpellAttack', 'rangedSpellAttack'].includes(attackData.attackType)) {
+			//@ts-expect-error
 			return getSpellBookAbility(actor, item);
 		}
 

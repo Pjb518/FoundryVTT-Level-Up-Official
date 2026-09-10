@@ -1,3 +1,5 @@
+import { d20RollModification } from '../common.ts';
+import { ExpertiseDieField } from '../fields/ExpertiseDieField.ts';
 import { RecordField } from '../fields/RecordField.ts';
 
 import {
@@ -11,31 +13,27 @@ import {
 	getMovementBonusData,
 	getSensesBonusData,
 	getSkillBonusData,
-} from './Bonuses.js';
+} from './Bonuses.ts';
 
 const { fields } = foundry.data;
 
+// TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
 	abilities: new fields.SchemaField(
 		Object.keys(CONFIG.A5E.abilities ?? {}).reduce((acc, abl) => {
 			acc[abl] = new fields.SchemaField({
 				value: new fields.NumberField({ required: true, initial: 10, integer: true }),
 				check: new fields.SchemaField({
-					expertiseDice: new fields.NumberField({
-						required: true,
-						initial: 0,
-						integer: true,
-					}),
-					bonus: new fields.StringField({ required: true, initial: '' }),
+					expertiseDice: new ExpertiseDieField(),
+					// bonus: new fields.StringField({ required: true, initial: '' }),
+					...d20RollModification(),
 				}),
 				save: new fields.SchemaField({
 					proficient: new fields.BooleanField({ required: true, initial: false }),
-					expertiseDice: new fields.NumberField({
-						required: true,
-						initial: 0,
-						integer: true,
-					}),
-					bonus: new fields.StringField({ required: true, initial: '' }),
+					expertiseDice: new ExpertiseDieField(),
+
+					// bonus: new fields.StringField({ required: true, initial: '' }),
+					...d20RollModification(),
 					...(abl === 'con'
 						? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) }
 						: {}),
@@ -94,9 +92,16 @@ export const attributes = () => ({
 	}),
 	initiative: new fields.SchemaField({
 		ability: new fields.StringField({ required: true, initial: 'dex' }),
+		expertiseDice: new ExpertiseDieField(),
 		// TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
-		bonus: new fields.StringField({ required: true, initial: '' }),
-		expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
+		// bonus: new fields.StringField({ required: true, initial: '' }),
+		...d20RollModification(),
+	}),
+	maneuverDC: new fields.NumberField({
+		required: true,
+		nullable: false,
+		persisted: false,
+		initial: 0,
 	}),
 	movement: new fields.SchemaField({
 		burrow: new fields.SchemaField({
@@ -197,6 +202,7 @@ export const attributes = () => ({
 		}),
 	}),
 	inspiration: new fields.BooleanField({ required: true, initial: false }),
+	prof: new fields.NumberField({ persisted: false, required: true, nullable: false, initial: 1 }),
 	corruption: new fields.NumberField({
 		required: true,
 		nullable: false,
@@ -242,54 +248,18 @@ export const hitDice = () =>
 
 export const bonuses = () => ({
 	bonuses: new fields.SchemaField({
-		abilities: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			// @ts-expect-error
-			new fields.SchemaField(getAbilitiesBonusData()),
-		),
-		attacks: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getAttackBonusData()),
-		),
-		damage: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getDamageBonusData()),
-		),
-		exertion: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getExertionBonusData()),
-		),
-		healing: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getHealingBonusData()),
-		),
-		hitPoint: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getHitPointBonusData()),
-		),
-		initiative: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getInitiativeBonusData()),
-		),
-		movement: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getMovementBonusData()),
-		),
-		senses: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getSensesBonusData()),
-		),
-		skills: new RecordField(
-			new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-			new fields.SchemaField(getSkillBonusData()),
-		),
+		abilities: new fields.TypedObjectField(new fields.SchemaField(getAbilitiesBonusData())),
+		attacks: new fields.TypedObjectField(new fields.SchemaField(getAttackBonusData())),
+		damage: new fields.TypedObjectField(new fields.SchemaField(getDamageBonusData())),
+		exertion: new fields.TypedObjectField(new fields.SchemaField(getExertionBonusData())),
+		healing: new fields.TypedObjectField(new fields.SchemaField(getHealingBonusData())),
+		hitPoint: new fields.TypedObjectField(new fields.SchemaField(getHitPointBonusData())),
+		initiative: new fields.TypedObjectField(new fields.SchemaField(getInitiativeBonusData())),
+		movement: new fields.TypedObjectField(new fields.SchemaField(getMovementBonusData())),
+		senses: new fields.TypedObjectField(new fields.SchemaField(getSensesBonusData())),
+		skills: new fields.TypedObjectField(new fields.SchemaField(getSkillBonusData())),
 		maneuverDC: new fields.StringField({ initial: '' }),
 		spellDC: new fields.StringField({ initial: '' }),
-		// TODO: Migration Upgrade - Remove these at a later date when migration is guaranteed
-		meleeSpellAttack: new fields.StringField({ initial: '' }),
-		meleeWeaponAttack: new fields.StringField({ initial: '' }),
-		rangedSpellAttack: new fields.StringField({ initial: '' }),
-		rangedWeaponAttack: new fields.StringField({ initial: '' }),
 	}),
 });
 
@@ -362,6 +332,45 @@ export const resources = () => ({
 	}, {}),
 });
 
+/** Used in system.rolls */
+const attackData = () => ({
+	incoming: new fields.SchemaField({
+		expertiseDice: new ExpertiseDieField(),
+		...d20RollModification(),
+	}),
+	outgoing: new fields.SchemaField({
+		expertiseDice: new ExpertiseDieField(),
+		...d20RollModification(),
+	}),
+});
+
+export const rolls = () => ({
+	attack: new fields.SchemaField(
+		{
+			meleeSpellAttack: new fields.SchemaField({
+				...attackData(),
+			}),
+			meleeWeaponAttack: new fields.SchemaField({
+				...attackData(),
+			}),
+			rangedSpellAttack: new fields.SchemaField({
+				...attackData(),
+			}),
+			rangedWeaponAttack: new fields.SchemaField({
+				...attackData(),
+			}),
+		},
+		{ persisted: false },
+	),
+	death: new fields.SchemaField(
+		{
+			expertiseDice: new ExpertiseDieField(),
+			...d20RollModification(),
+		},
+		{ persisted: false },
+	),
+});
+
 export const skills = () => ({
 	skills: new fields.SchemaField(
 		Object.keys(CONFIG.A5E.skills ?? {}).reduce((acc, skill) => {
@@ -381,18 +390,12 @@ export const skills = () => ({
 					new fields.StringField({ required: true, initial: '' }),
 					{ required: true, initial: [] },
 				),
-				expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true }),
-				minRoll: new fields.NumberField({
-					required: true,
-					initial: 1,
-					integer: true,
-					min: 1,
-					max: 20,
-				}),
+				expertiseDice: new ExpertiseDieField(),
 				bonuses: new fields.SchemaField({
 					check: new fields.StringField({ required: true, initial: '' }),
 					passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
 				}),
+				...d20RollModification(),
 			});
 
 			return acc;

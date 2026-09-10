@@ -1,17 +1,20 @@
 <script lang="ts">
-    import type { PromptHandlerReturnType } from "../../../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts.ts";
-
-    import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
+    import type { RollStateManager } from "#managers/RollStateManager.ts";
 
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
 
     type Props = {
         selectedPrompts: string[];
-        prompts: PromptHandlerReturnType;
+        prompts: RollStateManager.state["prompts"];
+        stateConfig: RollStateManager.state["config"];
     };
 
-    let { selectedPrompts = $bindable(), prompts }: Props = $props();
+    let {
+        selectedPrompts = $bindable(),
+        prompts,
+        stateConfig,
+    }: Props = $props();
 
     const promptHeadingMap = {
         abilityCheck: "Ability Check Prompts",
@@ -21,8 +24,7 @@
         generic: "Generic Roll Prompts",
     };
 
-    let disabledPrompts =
-        RollPreparationManager.preparePromptsData(prompts).invalidSelections;
+    const disabledPrompts = stateConfig.invalids.prompts;
 </script>
 
 <FieldWrapper hint="A5E.PromptsHint">
@@ -31,11 +33,13 @@
             {#if _prompts.length}
                 <CheckboxGroup
                     heading={promptHeadingMap[promptType]}
-                    options={_prompts.map(([key, prompt]) => [
-                        key,
+                    options={_prompts.map((prompt) => [
+                        prompt.id,
                         prompt.label || prompt.defaultLabel || "",
                     ])}
+                    red={disabledPrompts}
                     disabledOptions={disabledPrompts}
+                    preferColor={true}
                     selected={selectedPrompts}
                     onUpdateSelection={(detail) => (selectedPrompts = detail)}
                 />

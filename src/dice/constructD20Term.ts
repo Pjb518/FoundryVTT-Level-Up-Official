@@ -1,4 +1,4 @@
-export default function constructD20Term({ actor, minRoll, rollMode }) {
+export function constructD20Term({ actor, minRoll, rollMode }) {
 	let d20Term = '1d20';
 
 	if ([CONFIG.A5E.ROLL_MODE.ADVANTAGE, CONFIG.A5E.ROLL_MODE.DISADVANTAGE].includes(rollMode)) {

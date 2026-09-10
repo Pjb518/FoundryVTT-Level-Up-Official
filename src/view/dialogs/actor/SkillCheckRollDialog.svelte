@@ -1,31 +1,49 @@
 <script lang="ts">
-    import type { SkillCheckRollOptions } from "../../../documents/actor/data.ts";
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import { localize } from "#utils/localization/localize.ts";
-
-    import getRollFormula from "#utils/getRollFormula.js";
-
+    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
+    import type { SkillCheckRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
-        document: any;
+        document: Actor.OfType<"base">;
         dialog: any;
         skillKey: string;
         options: SkillCheckRollOptions;
     };
 
     function getInitialExpertiseDieSelection() {
-        if (hideExpertiseDice) return 0;
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
 
-        return actor.RollOverrideManager.getExpertiseDice(
-            `system.skills.${skillKey}` || "",
-            actor.system.skills[skillKey].expertiseDice || options.expertiseDice || 0,
-            { ability: abilityKey },
-        );
+        const others = [] as any[];
+        if (ability) others.push({ type: "ability", src: ability });
+        if (options.expertiseDice && options.speciality) {
+            others.push({
+                type: "speciality",
+                src: {
+                    expertiseDice: options.expertiseDice || 0,
+                    expertiseDieSources: {
+                        override: null,
+                        sources: [options.speciality],
+                    },
+                },
+            });
+        }
+
+        const edData = RollOverrideManager.resolveExpertiseDie(skill, {
+            others,
+        });
+
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
     }
 
     function onSubmit() {
@@ -45,20 +63,27 @@
 
     const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
     const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
+    const hideExpertiseDice = game.settings.get(
+        "a5e",
+        "hideExpertiseDice",
+    ) as boolean;
 
     const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
         ability: localizedSkill,
     });
 
-    let abilityKey = $state(options.abilityKey ?? actor.system.skills[skillKey].ability);
+    let abilityKey = $state(
+        options.abilityKey ?? actor.system.skills[skillKey].ability,
+    );
+    let ability = $derived(actor.reactive.system.abilities[abilityKey].check);
 
     let visibilityMode = $state(
         options.visibilityMode ?? game.settings.get("core", "messageMode"),
     );
 
-    let { minRoll } = options.minRoll ?? actor.system.skills[skillKey];
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let skill = $state(actor.system.skills[skillKey]);
+    let { minRoll } = options.minRoll ?? skill;
+    let initialRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = $state(options.situationalMods ?? "");
 
     let abilityBonuses = $state(
@@ -83,31 +108,18 @@
         }),
     );
 
-    let expertiseDie = $derived(getInitialExpertiseDieSelection());
-
-    let expertiseDieSource = $derived(
-        actor.RollOverrideManager.getExpertiseDiceSource(
-            `system.skills.${skillKey}`,
-            options.expertiseDice ?? 0,
-            { ability: abilityKey },
-        ),
+    let { expertiseDie, expertiseDieSource } = $derived(
+        getInitialExpertiseDieSelection(),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(
-            `system.skills.${skillKey}`,
-            selectedRollMode,
-            { ability: abilityKey },
-        ),
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(skill, initialRollMode, {
+            others: [{ type: "ability", src: ability }],
+        }),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager?.getRollOverridesSource(
-            `system.skills.${skillKey}`,
-            selectedRollMode,
-            { ability: abilityKey },
-        ),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let rollFormula = $derived(
         getRollFormula(actor, {

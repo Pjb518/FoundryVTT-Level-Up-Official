@@ -1,8 +1,6 @@
-import getDefaultInitiativeFormula from "./getDefaultInitiativeFormula";
-
-import GenericRollDialog from "#view/dialogs/initializers/GenericRollDialog.svelte.ts";
-import InitiativeRollDialog from "#view/dialogs/actor/InitiativeRollDialog.svelte";
-import SimpleInitiativeRollDialog from "#view/dialogs/actor/SimpleInitiativeRollDialog.svelte";
+import InitiativeRollDialog from '#view/dialogs/actor/InitiativeRollDialog.svelte';
+import GenericRollDialog from '#view/dialogs/initializers/GenericRollDialog.svelte.ts';
+import getDefaultInitiativeFormula from './getDefaultInitiativeFormula.ts';
 
 /**
  * Override the default Initiative formula to customize special behaviors of the system.
@@ -10,24 +8,30 @@ import SimpleInitiativeRollDialog from "#view/dialogs/actor/SimpleInitiativeRoll
  * @returns {string}  Final initiative formula for the actor.
  */
 export default async function getInitiativeFormula(options) {
-  if (options?.skipRollDialog) {
-    return getDefaultInitiativeFormula(this.actor, options);
-  }
+	if (options?.skipRollDialog) {
+		return getDefaultInitiativeFormula(this.actor, options);
+	}
 
-  const title = game.i18n.format("A5E.initiative.promptTitle", {
-    name: this.name,
-  });
-  const component = game.settings.get("a5e", "simpleInitiative")
-    ? SimpleInitiativeRollDialog
-    : InitiativeRollDialog;
+	const title = game.i18n.format('A5E.initiative.promptTitle', {
+		name: this.name,
+	});
 
-  const dialog = new GenericRollDialog(this.actor, title, component, {}, options, {
-    width: 530,
-  });
+	const isSimple = !!game.settings.get('a5e', 'simpleInitiative');
 
-  await dialog.render(true);
+	const dialog = new GenericRollDialog(
+		this.actor,
+		title,
+		InitiativeRollDialog,
+		{ isSimple },
+		options,
+		{
+			width: 530,
+		},
+	);
 
-  const { rollFormula } = await dialog.promise;
+	await dialog.render(true);
 
-  return rollFormula;
+	const { rollFormula } = await dialog.promise;
+
+	return rollFormula;
 }

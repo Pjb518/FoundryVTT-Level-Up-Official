@@ -1,19 +1,17 @@
 <script lang="ts">
-    import type { SavingThrowRollOptions } from "../../../documents/actor/data.ts";
-
+    import { RollOverrideManager } from "#managers/RollOverrideManager.ts";
+    import { getRollFormula } from "#utils/getRollFormula.ts";
     import { localize } from "#utils/localization/localize.ts";
-
+    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
+    import RollModePicker from "#view/components/RollModePicker.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import ExpertiseDiePicker from "#view/snippets/ExpertiseDiePicker.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import OutputVisibilitySection from "#view/components/OutputVisibilitySection.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import RollModePicker from "#view/components/RollModePicker.svelte";
-
-    import getRollFormula from "#utils/getRollFormula.js";
+    import type { SavingThrowRollOptions } from "../../../documents/actor/data.ts";
 
     type Props = {
-        document: any;
+        document: Actor.OfType<"base">;
         abilityKey: string;
         dialog: any;
         options: SavingThrowRollOptions;
@@ -26,14 +24,22 @@
     }
 
     function getInitialExpertiseDieSelection() {
-        if (hideExpertiseDice) return 0;
+        if (hideExpertiseDice)
+            return { expertiseDie: 0, expertiseDieSource: "" };
 
-        return actor.RollOverrideManager.getExpertiseDice(
-            rollModeKey ?? "",
-            actor.system.abilities[abilityKey]?.save?.expertiseDice ||
-                options.expertiseDice ||
-                0,
-        );
+        const edData = RollOverrideManager.resolveExpertiseDie(saveSrc);
+        return {
+            expertiseDie: edData.value,
+            expertiseDieSource: edData.source,
+        };
+    }
+
+    function getSaveSrc(saveType: string, abilityKey: string) {
+        if (!abilityKey) return actor.reactive.system.rolls.death;
+        // TODO: Update this to concentration when in place
+        if (saveType === "concentration")
+            return actor.reactive.system.abilities.con.save;
+        return actor.reactive.system.abilities[abilityKey].save;
     }
 
     function getSubmitButtonText(saveType: string, abilityKey: string) {
@@ -90,7 +96,7 @@
     );
 
     let saveType = $state(options.saveType ?? "standard");
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let initialRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = $state(options.situationalMods ?? "");
 
     let selectedAbilityBonuses = $state(
@@ -101,28 +107,17 @@
     );
 
     let rollModeKey = $derived(getRollModeKey(saveType, abilityKey));
-    let expertiseDie = $state(getInitialExpertiseDieSelection());
-
-    let expertiseDieSource = $derived(
-        actor.RollOverrideManager.getExpertiseDiceSource(
-            rollModeKey,
-            options.expertiseDice ?? 0,
-        ),
+    let saveSrc = $derived(getSaveSrc(saveType, abilityKey));
+    let { expertiseDie, expertiseDieSource } = $derived(
+        getInitialExpertiseDieSelection(),
     );
 
-    let rollMode = $derived(
-        actor.RollOverrideManager.getRollOverride(
-            rollModeKey,
-            selectedRollMode,
-        ),
+    let rollModeData = $derived(
+        RollOverrideManager.resolveRollMode(saveSrc, initialRollMode),
     );
 
-    let rollModeString = $derived(
-        actor.RollOverrideManager.getRollOverridesSource(
-            rollModeKey,
-            selectedRollMode,
-        ),
-    );
+    let rollMode = $derived(rollModeData.value);
+    let rollModeString = $derived(rollModeData.source);
 
     let buttonText = $derived(getSubmitButtonText(saveType, abilityKey));
 

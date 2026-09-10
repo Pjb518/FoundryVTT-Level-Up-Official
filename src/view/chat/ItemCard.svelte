@@ -4,7 +4,7 @@
 
     import { localize } from "#utils/localization/localize.ts";
 
-    import constructRollFormula from "../../dice/constructRollFormula.js";
+    import { constructRollFormula } from "../../dice/constructRollFormula.ts";
     import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
     import { getPromptTitle } from "#utils/view/cards/cardPrompts/getPromptTitle.ts";
     import { getPromptSubtitle } from "#utils/view/cards/cardPrompts/getPromptSubtitle.ts";
@@ -25,6 +25,30 @@
     type Props = {
         messageDocument: any;
     };
+
+    function getCritState() {
+        const flag = message.getFlag("a5e", "isCrit");
+        if (flag != null) {
+            return flag as boolean;
+        }
+
+        const isCrit = zip(message.rolls, message.system.rollData).some(
+            ([roll, rollData]) => {
+                if (rollData.type !== "attack") return false;
+
+                const d20Roll = roll.terms.find((term) => term.faces === 20);
+                if (!d20Roll) return false;
+
+                return d20Roll.results.some(
+                    ({ result, active }) =>
+                        active && result >= (rollData.critThreshold ?? 20),
+                );
+            },
+        );
+
+        if (isCrit) return true;
+        return false;
+    }
 
     function getEffectIcon(effect) {
         return effect?.img ?? "icons/svg/hazard.svg";
@@ -74,11 +98,11 @@
     }
 
     function getRegionTemplateLabel() {
-      const action = item.actions.get(message.system.actionId);
-      if (!action) return "Place Region";
-      const shape = action.area.shape;
+        const action = item.actions.get(message.system.actionId);
+        if (!action) return "Place Region";
+        const shape = action.area.shape;
 
-      return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
+        return `${A5E.areaIcons[shape]} Place ${getAreaLabel(action)}`;
     }
 
     function prepareRollColor(rollData) {
@@ -98,7 +122,11 @@
         const data = message.system.shapeData.value;
         if (!data) return;
 
-        foundry.utils.setProperty(data, 'flags.a5e.originItem', message.system.itemId ?? null);
+        foundry.utils.setProperty(
+            data,
+            "flags.a5e.originItem",
+            message.system.itemId ?? null,
+        );
         canvas.regions.placeRegion(data);
     }
 
@@ -181,45 +209,12 @@
     }
 
     function reevaluateCritMode() {
-        const isCrit = zip(message.rolls, message.system.rollData).some(
-            ([roll, rollData]) => {
-                if (rollData.type !== "attack") return false;
-
-                const d20Roll = roll.terms.find((term) => term.faces === 20);
-
-                if (!d20Roll) return false;
-
-                return d20Roll.results.some(
-                    ({ result, active }) =>
-                        active && result >= (rollData.critThreshold ?? 20),
-                );
-            },
-        );
-
-        if (isCrit === undefined || isCrit === null) return;
-
-        toggleCriticalDamage(isCrit ? 1 : 0);
+        isCrit = getCritState();
     }
 
-    function toggleCriticalDamage(newCritMode) {
-        const rolls = zip(message.rolls, message.system.rollData).map(
-            ([roll, rollData]) => {
-                if (rollData.type !== "damage") return roll;
-                if (!rollData.canCrit ?? true) return roll;
-                if (!rollData.critRoll || !rollData.baseRoll) return roll;
-
-                if (newCritMode === 1) return Roll.fromData(rollData.critRoll);
-                if (newCritMode === 0) return Roll.fromData(rollData.baseRoll);
-
-                if (rollData.baseRoll.formula === roll.formula) {
-                    return Roll.fromData(rollData.critRoll);
-                }
-
-                return Roll.fromData(rollData.baseRoll);
-            },
-        );
-
-        message.update({ rolls });
+    function toggleCriticalDamage() {
+        isCrit = !isCrit;
+        message.setFlag("a5e", "isCrit", isCrit);
     }
 
     function repeatRoll() {
@@ -254,12 +249,14 @@
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls(message);
     const hasRolls = rolls.length;
-    const effects = system.effects.map((id) => item?.effects.get(id));
+    const effects = system.effects.map((uuid) => fromUuidSync(uuid));
     const hasEffects = !!effects.length;
     const hasRegionData = !!message.system?.shapeData.value;
 
     const itemName = item.name ?? "";
     let subtitle = getSubtitle(itemName, actionName);
+
+    let isCrit = $derived(getCritState());
 
     let hideDescription = $state(
         (game.settings.get(
@@ -275,6 +272,7 @@
 </script>
 
 <ItemCardHeader
+    {isCrit}
     onRepeatCard={repeatRoll}
     onToggleDescription={() => (hideDescription = !hideDescription)}
     onToggleCriticalDamage={toggleCriticalDamage}
@@ -346,15 +344,18 @@
                 {#if rollData?.baseRoll?.formula === "0" && roll._formula === "0"}
                     <!-- Hide checks with formula of 0 -->
                 {:else}
-                    <RollSummary
-                        {roll}
-                        {rollData}
-                        --a5e-roll-color={prepareRollColor(rollData)}
-                        onToggleRollMode={(detail) =>
-                            _toggleRollMode(i, detail)}
-                        onToggleExpertiseDice={(detail) =>
-                            _toggleExpertiseDice(i, detail)}
-                    />
+                    {#key isCrit}
+                        <RollSummary
+                            {roll}
+                            {rollData}
+                            {isCrit}
+                            --a5e-roll-color={prepareRollColor(rollData)}
+                            onToggleRollMode={(detail) =>
+                                _toggleRollMode(i, detail)}
+                            onToggleExpertiseDice={(detail) =>
+                                _toggleExpertiseDice(i, detail)}
+                        />
+                    {/key}
 
                     {#if rolls.length > 1 && rollData.type === "attack"}
                         <hr class="a5e-rule" />
@@ -403,7 +404,6 @@
     {/if}
 
     {#if hasRegionData}
-
         <button
             onclick={placeTemplate}
             type="button"

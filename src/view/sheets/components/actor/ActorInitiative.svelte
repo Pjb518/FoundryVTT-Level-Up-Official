@@ -12,20 +12,6 @@
             ) as boolean,
         }) as Record<string, any>;
 
-        options.expertiseDie = actor.RollOverrideManager.getExpertiseDice(
-            "initiative",
-            options.expertiseDie ?? 0,
-            { ability: abilityKey },
-        );
-
-        options.rollMode = actor.RollOverrideManager.getRollOverride(
-            "initiative",
-            options.rollMode,
-            {
-                ability: abilityKey,
-            },
-        );
-
         return options;
     }
 
@@ -33,7 +19,9 @@
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
     let actorStore = $derived(actor.reactive.system);
-    let abilityKey = $derived(actorStore.attributes.initiative.ability ?? "dex");
+    let abilityKey = $derived(
+        actorStore.attributes.initiative.ability ?? "dex",
+    );
 </script>
 
 <li class="a5e-actor-initiative__wrapper">

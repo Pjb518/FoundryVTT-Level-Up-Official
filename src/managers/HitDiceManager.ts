@@ -1,8 +1,7 @@
 import { localize } from '#utils/localization/localize.ts';
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
 
 export default class HitDiceManager {
-	#actor: BaseActorA5e;
+	#actor: Actor.OfType<'base'>;
 
 	#automate: boolean;
 
@@ -12,7 +11,7 @@ export default class HitDiceManager {
 
 	dieSizes = new Set<number>();
 
-	constructor(actor: BaseActorA5e, automate = true) {
+	constructor(actor: Actor.OfType<'base'>, automate = true) {
 		this.#actor = actor;
 		this.#automate = automate;
 
@@ -35,6 +34,15 @@ export default class HitDiceManager {
 				this.dieSizes.add(size);
 			},
 		);
+	}
+
+	get availableList(): string[] {
+		return [...this.dieSizes]
+			.filter((n) => {
+				if (this.#actor.system.attributes.hitDice[`d${n}`].current) return true;
+				return false;
+			})
+			.map((n) => `d${n}`);
 	}
 
 	get max(): number {
@@ -208,7 +216,6 @@ export default class HitDiceManager {
 		});
 		const chatData = {
 			author: game.user?.id,
-			//  @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
 			sound: CONFIG.sounds.dice,
 			rolls: [roll],

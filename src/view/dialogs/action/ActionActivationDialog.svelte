@@ -1,19 +1,15 @@
 <script lang="ts">
     import type { ActionActivationOptions } from "../../../documents/item/data.ts";
-    import type { AttackRollData } from "../../../dataModels/item/actions/ActionRollsDataModelN.ts";
 
     import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
-    import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
 
     import { setContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
 
     import showActivationDialogSection from "#utils/showActivationDialogSection.ts";
-    import validateTemplateData from "#utils/measuredTemplates/validateTemplateData.ts";
 
     import ConsumptionValidator from "#utils/validators/ConsumptionValidator.ts";
 
-    import Checkbox from "#view/snippets/Checkbox.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import Section from "#view/snippets/Section.svelte";
@@ -25,6 +21,7 @@
     import RollsSection from "#view/components/activationDialog/RollsSection.svelte";
     import SpellSection from "#view/components/activationDialog/SpellSection.svelte";
     import UsesSection from "#view/components/activationDialog/UsesSection.svelte";
+    import ResourcesSection from "#view/components/activationDialog/ResourcesSection.svelte";
 
     type Props = {
         actionId: string;
@@ -37,35 +34,19 @@
     function onSubmit() {
         dialog.submit({
             attack: attackRollData,
-            consumers: {
+            consumptionData: {
                 actionUses: actionUsesData,
                 hitDice: hitDiceData,
                 itemUses: itemUsesData,
+                resources: resourceData,
                 spell: spellData,
             },
-            damageBonuses: RollPreparationManager.getSelectedBonuses(
-                actor,
-                "damage",
-                selectedDamageBonuses,
-            ),
             effects: selectedEffects,
-            healingBonuses: RollPreparationManager.getSelectedBonuses(
-                actor,
-                "healing",
-                selectedHealingBonuses,
-            ),
-            prompts: RollPreparationManager.getSelectedPrompts(
-                actor,
-                item,
-                actionId,
-                selectedPrompts,
-            ),
-            rolls: RollPreparationManager.getSelectedRolls(
-                item,
-                actionId,
-                selectedRolls,
-            ),
+            selectedDamageBonuses,
+            selectedHealingBonuses,
             selectedConsumers,
+            selectedPrompts,
+            selectedRolls,
             visibilityMode,
         });
     }
@@ -81,40 +62,44 @@
     let actor = actorDocument;
     let item = itemDocument;
 
+    const rollState = options.rollState!;
+    console.log(rollState);
+
     let action = $derived(item.reactive.actions.get(actionId)!);
-    let { BonusesManager } = actor;
     const { isEmpty } = foundry.utils;
 
-    const consumers = RollPreparationManager.prepareConsumers(item, actionId);
-    const effects = RollPreparationManager.prepareEffects(item, actionId);
-    const prompts = RollPreparationManager.preparePrompts(item, actionId);
-    const rolls = RollPreparationManager.prepareRolls(item, actionId);
-    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses(
-        item,
+    const {
+        config: stateConfig,
+        consumers,
+        effects,
+        prompts,
         rolls,
-    );
-    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses(
-        item,
-        rolls,
-    );
+        damageBonuses,
+        healingBonuses,
+    } = rollState;
 
-    const attackRoll = rolls.attack?.length
-        ? rolls.attack[0][1]
-        : ({} as AttackRollData);
+    let { defaults } = stateConfig;
+
+    const attackRoll = rollState.attackRoll;
 
     const consumerOptions = Object.entries(consumers ?? {}).reduce(
         (acc, [type, data]) => {
+            if (!data) return acc;
+
             if (type === "resource") {
-                data.forEach((e, idx) =>
+                // @ts-expect-error
+                data?.forEach?.((c, idx) => {
                     acc.push([
-                        e[0],
-                        e[1].label || `Resource Consumer #${idx + 1}`,
-                    ]),
-                );
+                        c.id,
+                        c.label || `Resource Consumers #${idx + 1}`,
+                    ]);
+                });
             } else {
                 acc.push([
-                    data[0],
-                    data[1].label || `${type.capitalize()} Consumer `,
+                    // @ts-expect-error
+                    data.id,
+                    // @ts-expect-error
+                    data.label || `${type.capitalize()} Consumer`,
                 ]);
             }
 
@@ -123,9 +108,7 @@
         [] as any[],
     );
 
-    let selectedConsumers = $state(
-        ResourceConsumptionManager.getDefaultConsumerSelection(consumers),
-    );
+    let selectedConsumers = $state(defaults.consumers);
 
     // Show Config
     let showAttackRoll = $state(!isEmpty(attackRoll));
@@ -157,16 +140,13 @@
         ),
     );
 
-    let showHitDiceSection = $derived(
-        !!Object.values(consumers.hitDice ?? {}).flat().length &&
-            selectedConsumers.includes(consumers?.hitDice?.[0]!),
-    );
+    let showHitDiceSection = $derived(!!consumers.hitDice);
 
-    let showConsumersSection = $derived(
-        Object.values(consumers ?? {}).flat().length > 0,
-    );
+    let showConsumersSection = $derived(consumerOptions.length > 0);
 
-    let attackRollData = $state({});
+    let showResourcesSection = $derived(!!consumers?.resource?.length);
+
+    let attackRollData = $state.raw({});
     let actionUsesData = $state(
         {} as ResourceConsumptionManager.UsesConsumerData,
     );
@@ -176,35 +156,27 @@
     let itemUsesData = $state(
         {} as ResourceConsumptionManager.UsesConsumerData,
     );
+    let resourceData = $state.raw({});
     let spellData = $state({} as ResourceConsumptionManager.SpellConsumerData);
-    let selectedDamageBonuses = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses({
-            damageBonuses,
-        }),
-    );
-    let selectedHealingBonuses = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses({
-            healingBonuses,
-        }),
-    );
-    let selectedPrompts = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses(prompts),
-    );
-    let selectedRolls = $state(
-        BonusesManager.getDefaultSelectionsFromBonuses(rolls),
-    );
-    let selectedEffects = $state(
-        RollPreparationManager.getDefaultSelectedEffects(effects),
-    );
+    let selectedDamageBonuses = $state(defaults.damageBonuses);
+    let selectedHealingBonuses = $state(defaults.healingBonuses);
+    let selectedPrompts = $state(defaults.prompts);
+    let selectedRolls = $state(defaults.rolls);
+    let selectedEffects = $state(defaults.effects);
 
-    let visibilityMode = $state(game.settings?.get("core", "messageMode")!);
+    let visibilityMode = $state(
+        // @ts-expect-error
+        game.settings.get("core", "messageMode"),
+    ) as string;
 
     // Validator
+    // TODO: Update
     const validator = $derived(
         new ConsumptionValidator(actor, item, action, consumers),
     );
 
     const preventActionRollOnWarning =
+        // @ts-expect-error
         (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ??
         false;
 
@@ -227,7 +199,7 @@
 </script>
 
 <form>
-    {#if warnings.length}
+    <!-- {#if warnings.length}
         <section class="warning__wrapper">
             {#each warnings as warning}
                 <p class="warning" style="color: var(--a5e-color-warning);">
@@ -236,7 +208,7 @@
                 </p>
             {/each}
         </section>
-    {/if}
+    {/if} -->
 
     <Section --a5e-section-body-gap="0.5rem">
         <OutputVisibilitySection bind:visibilityMode />
@@ -244,13 +216,18 @@
 
     {#if showAttackRoll}
         <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
-            <AttackRollSection {attackRoll} {options} bind:attackRollData />
+            <AttackRollSection
+                attackRoll={attackRoll!}
+                {options}
+                bind:attackRollData
+                {rollState}
+            />
         </Section>
     {/if}
 
     {#if showOtherRolls}
         <Section heading="Rolls Config" --a5e-section-body-gap="0.5rem">
-            <RollsSection {rolls} bind:selectedRolls />
+            <RollsSection {rolls} bind:selectedRolls {stateConfig} />
         </Section>
     {/if}
 
@@ -286,12 +263,16 @@
 
     {#if showPrompts}
         <Section heading="Prompts Config" --a5e-section-body-gap="0.5rem">
-            <PromptsSection {prompts} bind:selectedPrompts />
+            <PromptsSection {prompts} bind:selectedPrompts {stateConfig} />
         </Section>
     {/if}
 
     {#if showConsumersSection}
-        <Section heading="Consumers Config" --a5e-section-body-gap="0.5rem">
+        <Section
+            heading="Consumers Config"
+            --a5e-section-body-gap="0.5rem"
+            --a5e-section-body-wrap="nowrap"
+        >
             <FieldWrapper
                 hint="These consumers are the only ones that will apply when the item is rolled."
             >
@@ -303,21 +284,39 @@
                 />
             </FieldWrapper>
 
+            <hr class="a5e-rule a5e-action-dialog-rule" />
+
             {#if showSpellSection}
-                <SpellSection {consumers} bind:spellData />
+                <SpellSection consumer={consumers.spell!} bind:spellData />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
 
             {#if showUsesSection}
                 <UsesSection
-                    {consumers}
+                    actionUsesConsumer={consumers.actionUses}
+                    itemUsesConsumer={consumers.itemUses}
                     {selectedConsumers}
                     bind:actionUsesData
                     bind:itemUsesData
                 />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
+            {/if}
+
+            {#if showResourcesSection}
+                <ResourcesSection
+                    consumers={consumers.resource!}
+                    bind:resourceData
+                />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
 
             {#if showHitDiceSection}
-                <HitDiceSection {consumers} bind:hitDiceData />
+                <HitDiceSection consumer={consumers.hitDice} bind:hitDiceData />
+
+                <hr class="a5e-rule a5e-action-dialog-rule" />
             {/if}
         </Section>
     {/if}
@@ -325,7 +324,7 @@
     {#if effects.length}
         <Section heading="Effects Config" --a5e-section-body-gap="0.5rem">
             <CheckboxGroup
-                options={effects.map((e) => [e.id, e.name])}
+                options={effects.map((e) => [e.uuid!, e.name])}
                 selected={selectedEffects}
                 hint="Select which effects to activate/display on chat card"
                 onUpdateSelection={(detail) => (selectedEffects = detail)}
@@ -376,5 +375,9 @@
             font-family: var(--a5e-primary-font);
             font-size: var(--a5e-xs-text);
         }
+    }
+
+    .a5e-action-dialog-rule {
+        margin: 0.5rem;
     }
 </style>
