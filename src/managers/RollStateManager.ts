@@ -244,7 +244,6 @@ class RollStateManager {
 		const shapeData = validShape ? eAManager.getShapeData() : null;
 
 		// Prepare effects
-		console.log('here');
 		this.handleEffects(state.effects);
 
 		return { rolls, shapeData };

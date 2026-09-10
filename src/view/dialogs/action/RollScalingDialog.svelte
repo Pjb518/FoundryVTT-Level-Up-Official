@@ -16,7 +16,6 @@
 
     function getHint(): string {
         const hint = scalingMode ? `A5E.scaling.hints.${scalingMode}` : "";
-        // @ts-expect-error
         return _loc(hint);
     }
 

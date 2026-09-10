@@ -127,7 +127,6 @@ class D20Roll<D extends AnyObject = EmptyObject> extends BaseRoll {
 	preprocessFormula() {
 		// Convert expertise Die
 		this.terms.forEach((term, idx) => {
-			// @ts-expect-error
 			if (term.flavor === _loc('A5E.expertiseDie.title')) {
 				const t = term.toJSON();
 				t.class = 'ExpertiseDie';

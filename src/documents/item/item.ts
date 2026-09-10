@@ -166,16 +166,6 @@ class ItemA5e<
 		const { rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
 		console.log(rolls);
 
-		// const resourceConsumptionManager = new ResourceConsumptionManager(
-		// 	this.actor,
-		// 	this,
-		// 	actionId,
-		// 	activationData.consumptionData ?? {},
-		// 	activationData.selectedConsumers ?? [],
-		// );
-
-		// await resourceConsumptionManager.consumeResources();
-
 		const chatData = {
 			author: game.user?.id,
 			flavor: action.name ? `${this.name}: ${action.name}` : this.name,
@@ -210,8 +200,7 @@ class ItemA5e<
 						: null,
 				unidentifiedDescription:
 					(action?.descriptionOutputs?.includes('item') ?? true)
-						? // @ts-expect-error
-							await foundry.applications.ux.TextEditor.enrichHTML(
+						? await foundry.applications.ux.TextEditor.enrichHTML(
 								this.system.unidentifiedDescription,
 								{
 									secrets: this.isOwner,
