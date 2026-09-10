@@ -1,329 +1,316 @@
-import type { Action } from "#types/action.js";
-import type { Consumers } from "#types/consumers.js";
-import { getDeterministicBonus } from "../dice/getDeterministicBonus.ts";
+import type { ItemA5e } from '#documents/item/item.ts';
+import type { Action } from '#types/action.js';
+import type { Consumers } from '#types/consumers.js';
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
+import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
+import type { RollStateManager } from './RollStateManager.ts';
 
 class EffectAreaManager {
-  #action: Action;
+	#action: A5EActionData;
 
-  #actor: Actor;
+	#actor: Actor.OfType<'base'>;
 
-  #consumers: Consumers;
+	#consumers: RollStateManager.WorkflowState['consumptionData'];
 
-  #item: Item;
+	#item: ItemA5e;
 
-  constructor(
-    actor: Actor,
-    item: Item,
-    action: Actor,
-    consumers = {} as Consumers,
-  ) {
-    this.#action = action;
-    this.#actor = actor;
-    this.#consumers = consumers;
-    this.#item = item;
-  }
+	#state: RollStateManager.WorkflowState;
 
-  getShapeData() {
-    const { area } = this.#action;
-    let scaledArea = foundry.utils.duplicate(area);
-    scaledArea = this.#applyTemplateScaling(scaledArea);
+	constructor(state: RollStateManager.WorkflowState) {
+		this.#actor = state.actor;
+		this.#item = state.item;
+		this.#action = state.action;
+		this.#consumers = state.consumptionData;
+		this.#state = state;
+	}
 
-    return this.#getRegionData(scaledArea);
-  }
+	getShapeData() {
+		const { area } = this.#action;
+		let scaledArea = foundry.utils.duplicate(area);
+		scaledArea = this.#applyTemplateScaling(scaledArea);
 
-  validateBaseTemplateData(action = this.#action) {
-    const { area } = action ?? {};
-    if (foundry.utils.isEmpty(area)) return false;
-    area.quantity ??= 1;
+		return this.#getRegionData(scaledArea);
+	}
 
-    if (!area.shape) return false;
-    if (area.quantity <= 0) return false;
+	validateBaseTemplateData(action = this.#action) {
+		const { area } = action ?? {};
+		if (foundry.utils.isEmpty(area)) return false;
+		area.quantity ??= 1;
 
-    // Validate separately
-    if (area.shape === "cone") return this.#validateCone(area);
-    if (["cube", "square"].includes(area.shape))
-      return this.#validateQuadrilateral(area);
-    if (["circle", "emanation", "sphere"].includes(area.shape))
-      return this.#validateRadialObject(area);
-    if (area.shape === "cylinder") return this.#validateCylinder(area);
-    if (area.shape === "line") return this.#validateLine(area);
-    if (area.shape === "wall") return this.#validateWall(area);
-    return false;
-  }
+		if (!area.shape) return false;
+		if (area.quantity <= 0) return false;
 
-  // --------------------------------------------
-  // Internal Functions - Validators
-  // --------------------------------------------
-  #validateCone(area) {
-    const length = parseInt(area?.length, 10);
-    if (!length || length <= 0) return false;
+		// Validate separately
+		if (area.shape === 'cone') return this.#validateCone(area);
+		if (['cube', 'square'].includes(area.shape)) return this.#validateQuadrilateral(area);
+		if (['circle', 'emanation', 'sphere'].includes(area.shape))
+			return this.#validateRadialObject(area);
+		if (area.shape === 'cylinder') return this.#validateCylinder(area);
+		if (area.shape === 'line') return this.#validateLine(area);
+		if (area.shape === 'wall') return this.#validateWall(area);
+		return false;
+	}
 
-    return true;
-  }
+	// --------------------------------------------
+	// Internal Functions - Validators
+	// --------------------------------------------
+	#validateCone(area) {
+		const length = parseInt(area?.length, 10);
+		if (!length || length <= 0) return false;
 
-  #validateQuadrilateral(area) {
-    const size = parseInt(area?.width, 10);
-    if (!size || size <= 0) return false;
+		return true;
+	}
 
-    return true;
-  }
+	#validateQuadrilateral(area) {
+		const size = parseInt(area?.width, 10);
+		if (!size || size <= 0) return false;
 
-  #validateRadialObject(area) {
-    const radius = parseInt(area?.radius, 10);
-    if (!radius || radius <= 0) return false;
+		return true;
+	}
 
-    return true;
-  }
+	#validateRadialObject(area) {
+		const radius = parseInt(area?.radius, 10);
+		if (!radius || radius <= 0) return false;
 
-  #validateCylinder(area) {
-    const radius = parseInt(area?.radius, 10);
-    const height = parseInt(area?.radius, 10);
+		return true;
+	}
 
-    if (!radius || !height) return false;
-    if (radius <= 0 || height <= 0) return false;
+	#validateCylinder(area) {
+		const radius = parseInt(area?.radius, 10);
+		const height = parseInt(area?.radius, 10);
 
-    return true;
-  }
+		if (!radius || !height) return false;
+		if (radius <= 0 || height <= 0) return false;
 
-  #validateLine(area) {
-    const length = parseInt(area?.length, 10);
-    const width = parseInt(area?.width, 10);
+		return true;
+	}
 
-    if (!width || !length) return false;
-    if (width <= 0 || length <= 0) return false;
+	#validateLine(area) {
+		const length = parseInt(area?.length, 10);
+		const width = parseInt(area?.width, 10);
 
-    return true;
-  }
+		if (!width || !length) return false;
+		if (width <= 0 || length <= 0) return false;
 
-  #validateWall(area) {
-    const length = parseInt(area?.length, 10);
-    const width = parseInt(area?.width, 10);
-    const height = parseInt(area?.height, 10);
+		return true;
+	}
 
-    if (!width || !length || !height) return false;
-    if (width <= 0 || length <= 0 || height <= 0) return false;
+	#validateWall(area) {
+		const length = parseInt(area?.length, 10);
+		const width = parseInt(area?.width, 10);
+		const height = parseInt(area?.height, 10);
 
-    return true;
-  }
+		if (!width || !length || !height) return false;
+		if (width <= 0 || length <= 0 || height <= 0) return false;
 
-  // --------------------------------------------
-  // Internal Functions - Scaling
-  // --------------------------------------------
-  #getRegionData(area) {
-    const { shape, quantity } = area;
+		return true;
+	}
 
-    let regionData = {
-      name: this.#item.name,
-      shapes: [] as any[],
-      color: game.user.color.toString(),
-      highlightMode: "coverage",
-      displayMeasurements: true,
-      ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
-      visibility: CONST.REGION_VISIBILITY.ALWAYS,
-    };
+	// --------------------------------------------
+	// Internal Functions - Scaling
+	// --------------------------------------------
+	#getRegionData(area) {
+		const { shape, quantity } = area;
 
-    const { x, y } = canvas.mousePosition;
+		const regionData = {
+			name: this.#item.name,
+			shapes: [] as any[],
+			color: game.user.color.toString(),
+			highlightMode: 'coverage',
+			displayMeasurements: true,
+			ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
+			visibility: CONST.REGION_VISIBILITY.ALWAYS,
+		};
 
-    switch (shape) {
-      case "circle":
-      case "cylinder":
-      case "sphere": {
-        const radius = (area.radius / 5) * canvas.grid.size;
-        regionData.shapes = [{ type: "circle", radius, x, y }];
-        break;
-      }
-      case "cone": {
-        const radius = (area.length / 5) * canvas.grid.size;
-        regionData.shapes = [{ type: "cone", angle: 90, radius, x, y }];
-        break;
-      }
-      case "cube":
-      case "square": {
-        const width = (area.width / 5) * canvas.grid.size;
-        const height = width;
-        regionData.shapes = [{ type: "rectangle", width, height, x, y }];
-        break;
-      }
-      case "line":
-      case "wall": {
-        const length = (area.length / 5) * canvas.grid.size;
-        const width = (area.width / 5) * canvas.grid.size;
-        regionData.shapes = [{ type: "line", length, width, x, y }];
-        break;
-      }
-      case "emanation": {
-        const tokenSource = this.#actor
-          .getActiveTokens(true, true)
-          .at(0)?._source;
-        if (!tokenSource) return null;
-        const base = {
-          width: tokenSource.width,
-          height: tokenSource.height,
-          x: tokenSource.x,
-          y: tokenSource.y,
-          shape: tokenSource.shape,
-          type: "token",
-        };
-        const radius = (area.radius / 5) * canvas.grid.size;
-        regionData.shapes = [{ type: "emanation", radius, base, x, y }];
-        break;
-      }
-    }
+		const { x, y } = canvas.mousePosition;
 
-    return { value: regionData, quantity };
-  }
+		switch (shape) {
+			case 'circle':
+			case 'cylinder':
+			case 'sphere': {
+				const radius = (area.radius / 5) * canvas.grid.size;
+				regionData.shapes = [{ type: 'circle', radius, x, y }];
+				break;
+			}
+			case 'cone': {
+				const radius = (area.length / 5) * canvas.grid.size;
+				regionData.shapes = [{ type: 'cone', angle: 90, radius, x, y }];
+				break;
+			}
+			case 'cube':
+			case 'square': {
+				const width = (area.width / 5) * canvas.grid.size;
+				const height = width;
+				regionData.shapes = [{ type: 'rectangle', width, height, x, y }];
+				break;
+			}
+			case 'line':
+			case 'wall': {
+				const length = (area.length / 5) * canvas.grid.size;
+				const width = (area.width / 5) * canvas.grid.size;
+				regionData.shapes = [{ type: 'line', length, width, x, y }];
+				break;
+			}
+			case 'emanation': {
+				const tokenSource = this.#actor.getActiveTokens(true, true).at(0)?._source;
+				if (!tokenSource) return null;
+				const base = {
+					width: tokenSource.width,
+					height: tokenSource.height,
+					x: tokenSource.x,
+					y: tokenSource.y,
+					shape: tokenSource.shape,
+					type: 'token',
+				};
+				const radius = (area.radius / 5) * canvas.grid.size;
+				regionData.shapes = [{ type: 'emanation', radius, base, x, y }];
+				break;
+			}
+		}
 
-  #applyTemplateScaling(area) {
-    const scalingMode = area.scaling?.mode;
-    if (!scalingMode) return area;
+		return { value: regionData, quantity };
+	}
 
-    if (scalingMode === "cantrip") return this.#applyCantripScaling(area);
-    if (scalingMode === "spellLevel") return this.#applySpellLevelScaling(area);
-    if (scalingMode === "spellPoints")
-      return this.#applySpellPointScaling(area);
-    if (scalingMode === "artifactCharges")
-      return this.#applyArtifactChargesScaling(area);
-    if (scalingMode === "actionUses") return this.#applyActionUsesScaling(area);
-    if (scalingMode === "itemUses") return this.#applyItemUsesScaling(area);
+	#applyTemplateScaling(area) {
+		const scalingMode = area.scaling?.mode;
+		if (!scalingMode) return area;
 
-    return area;
-  }
+		if (scalingMode === 'cantrip') return this.#applyCantripScaling(area);
+		if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(area);
+		if (scalingMode === 'spellPoints') return this.#applySpellPointScaling(area);
+		if (scalingMode === 'artifactCharges') return this.#applyArtifactChargesScaling(area);
+		if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(area);
+		if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(area);
 
-  #applyCantripScaling(area) {
-    const actorData = this.#actor.system;
-    const casterLevel =
-      actorData.details.level ?? actorData.attributes.casterLevel;
-    if (casterLevel < 5) return area;
+		return area;
+	}
 
-    const properties = [
-      "quantity",
-      ...EffectAreaManager.getShapeProperties(area.shape),
-    ];
-    let multiplier = 0;
+	#applyCantripScaling(area) {
+		const actorData = this.#actor.system;
+		const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
+		if (casterLevel < 5) return area;
 
-    if (casterLevel >= 17) multiplier = 3;
-    else if (casterLevel >= 11) multiplier = 2;
-    else if (casterLevel >= 5) multiplier = 1;
+		const properties = ['quantity', ...EffectAreaManager.getShapeProperties(area.shape)];
+		let multiplier = 0;
 
-    // Apply scaling to properties
-    properties.forEach((property) => {
-      const scalingFormula =
-        getDeterministicBonus(
-          area.scaling?.formula?.[property] ?? 0,
-          this.#actor.getRollData(this.#item),
-        ) ?? 1;
+		if (casterLevel >= 17) multiplier = 3;
+		else if (casterLevel >= 11) multiplier = 2;
+		else if (casterLevel >= 5) multiplier = 1;
 
-      area[property] =
-        parseInt(area[property], 10) + scalingFormula * multiplier;
-    });
+		// Apply scaling to properties
+		properties.forEach((property) => {
+			const scalingFormula =
+				getDeterministicBonus(
+					area.scaling?.formula?.[property] ?? 0,
+					this.#actor.getRollData(this.#item),
+				) ?? 1;
 
-    return area;
-  }
+			area[property] = parseInt(area[property], 10) + scalingFormula * multiplier;
+		});
 
-  #applySpellLevelScaling(area) {
-    const baseSpellLevel = this.#item.system.level;
-    const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
-    const delta = castingLevel - baseSpellLevel;
+		return area;
+	}
 
-    return this.#applyResourceBasedScaling(area, delta);
-  }
+	#applySpellLevelScaling(area) {
+		const baseSpellLevel = this.#item.system.level;
+		const castingLevel = this.#consumers.spell?.level ?? baseSpellLevel;
+		const delta = castingLevel - baseSpellLevel;
 
-  #applySpellPointScaling(area) {
-    const spellConsumer = this.#consumers.spell;
-    if (foundry.utils.isEmpty(spellConsumer)) return area;
+		return this.#applyResourceBasedScaling(area, delta);
+	}
 
-    const { basePoints } = spellConsumer;
-    if (basePoints >= spellConsumer.points) return area;
+	#applySpellPointScaling(area) {
+		const spellConsumer = this.#consumers.spell;
+		if (foundry.utils.isEmpty(spellConsumer)) return area;
 
-    const delta = Math.max(0, spellConsumer.points - basePoints);
-    return this.#applyResourceBasedScaling(area, delta);
-  }
+		const { basePoints } = spellConsumer;
+		if (basePoints >= spellConsumer.points) return area;
 
-  #applyArtifactChargesScaling(area) {
-    const spellConsumer = this.#consumers.spell;
-    if (foundry.utils.isEmpty(spellConsumer)) return area;
+		const delta = Math.max(0, spellConsumer.points - basePoints);
+		return this.#applyResourceBasedScaling(area, delta);
+	}
 
-    const { baseCharges } = spellConsumer;
-    if (baseCharges >= spellConsumer.charges) return area;
+	#applyArtifactChargesScaling(area) {
+		const spellConsumer = this.#consumers.spell;
+		if (foundry.utils.isEmpty(spellConsumer)) return area;
 
-    const delta = Math.max(0, spellConsumer.charges - baseCharges);
-    return this.#applyResourceBasedScaling(area, delta);
-  }
+		const { baseCharges } = spellConsumer;
+		if (baseCharges >= spellConsumer.charges) return area;
 
-  #applyActionUsesScaling(area) {
-    const actionConsumer = this.#consumers.actionUses;
-    if (foundry.utils.isEmpty(actionConsumer)) return area;
+		const delta = Math.max(0, spellConsumer.charges - baseCharges);
+		return this.#applyResourceBasedScaling(area, delta);
+	}
 
-    const baseQuantity = actionConsumer.baseUses;
-    if (baseQuantity >= actionConsumer.quantity) return area;
+	#applyActionUsesScaling(area) {
+		const actionConsumer = this.#consumers.actionUses;
+		if (foundry.utils.isEmpty(actionConsumer)) return area;
 
-    const delta = actionConsumer.quantity - baseQuantity;
-    return this.#applyResourceBasedScaling(area, delta);
-  }
+		const baseQuantity = actionConsumer.baseUses;
+		if (baseQuantity >= actionConsumer.quantity) return area;
 
-  #applyItemUsesScaling(area) {
-    const itemConsumer = this.#consumers.itemUses;
-    if (foundry.utils.isEmpty(itemConsumer)) return area;
+		const delta = actionConsumer.quantity - baseQuantity;
+		return this.#applyResourceBasedScaling(area, delta);
+	}
 
-    const baseQuantity = itemConsumer.baseUses;
-    if (baseQuantity >= itemConsumer.quantity) return area;
+	#applyItemUsesScaling(area) {
+		const itemConsumer = this.#consumers.itemUses;
+		if (foundry.utils.isEmpty(itemConsumer)) return area;
 
-    const delta = itemConsumer.quantity - baseQuantity;
-    return this.#applyResourceBasedScaling(area, delta);
-  }
+		const baseQuantity = itemConsumer.baseUses;
+		if (baseQuantity >= itemConsumer.quantity) return area;
 
-  #applyResourceBasedScaling(area, delta) {
-    const { shape, scaling } = area;
-    if (!delta || foundry.utils.isEmpty(scaling)) return area;
+		const delta = itemConsumer.quantity - baseQuantity;
+		return this.#applyResourceBasedScaling(area, delta);
+	}
 
-    const properties = [
-      "quantity",
-      ...EffectAreaManager.getShapeProperties(shape),
-    ];
-    const step = area.scaling?.step || 1;
-    const multiplier = Math.floor(delta / step);
+	#applyResourceBasedScaling(area, delta) {
+		const { shape, scaling } = area;
+		if (!delta || foundry.utils.isEmpty(scaling)) return area;
 
-    if (multiplier === 0) return area;
+		const properties = ['quantity', ...EffectAreaManager.getShapeProperties(shape)];
+		const step = area.scaling?.step || 1;
+		const multiplier = Math.floor(delta / step);
 
-    // Apply scaling to properties
-    properties.forEach((property) => {
-      const scalingFormula =
-        getDeterministicBonus(
-          area.scaling?.formula?.[property] ?? 0,
-          this.#actor.getRollData(this.#item),
-        ) ?? 1;
+		if (multiplier === 0) return area;
 
-      area[property] =
-        parseInt(area[property], 10) + scalingFormula * multiplier;
-    });
+		// Apply scaling to properties
+		properties.forEach((property) => {
+			const scalingFormula =
+				getDeterministicBonus(
+					area.scaling?.formula?.[property] ?? 0,
+					this.#actor.getRollData(this.#item),
+				) ?? 1;
 
-    return area;
-  }
+			area[property] = parseInt(area[property], 10) + scalingFormula * multiplier;
+		});
 
-  // --------------------------------------------
-  // Static Functions
-  // --------------------------------------------
-  static getShapeProperties(shape) {
-    switch (shape) {
-      case "circle":
-      case "emanation":
-      case "sphere":
-        return ["radius"];
-      case "cone":
-        return ["length"];
-      case "cube":
-      case "square":
-        return ["width"];
-      case "cylinder":
-        return ["radius", "height"];
-      case "line":
-        return ["length", "width"];
-      case "wall":
-        return ["length", "height", "width"];
-      default:
-        return [];
-    }
-  }
+		return area;
+	}
+
+	// --------------------------------------------
+	// Static Functions
+	// --------------------------------------------
+	static getShapeProperties(shape) {
+		switch (shape) {
+			case 'circle':
+			case 'emanation':
+			case 'sphere':
+				return ['radius'];
+			case 'cone':
+				return ['length'];
+			case 'cube':
+			case 'square':
+				return ['width'];
+			case 'cylinder':
+				return ['radius', 'height'];
+			case 'line':
+				return ['length', 'width'];
+			case 'wall':
+				return ['length', 'height', 'width'];
+			default:
+				return [];
+		}
+	}
 }
 
 export { EffectAreaManager };

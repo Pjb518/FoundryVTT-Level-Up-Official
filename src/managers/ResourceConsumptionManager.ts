@@ -132,7 +132,6 @@ class ResourceConsumptionManager {
 		]);
 	}
 
-	// TODO
 	#consumeResource(consumer: ConsumerData.ResourceConsumerData) {
 		const { resource } = consumer;
 		let { classIdentifier } = consumer;

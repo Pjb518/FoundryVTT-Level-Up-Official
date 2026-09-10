@@ -163,17 +163,8 @@ class ItemA5e<
 
 		if (!activationData) return null;
 
-		const { rolls } = await rollStateManager.startWorkflow(activationData);
+		const { rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
 		console.log(rolls);
-
-		const effectAreaManager = new EffectAreaManager(
-			this.actor,
-			this,
-			action,
-			activationData.consumers ?? {},
-		);
-		const validShape = effectAreaManager.validateBaseTemplateData();
-		const shapeData = validShape ? effectAreaManager.getShapeData() : null;
 
 		// const resourceConsumptionManager = new ResourceConsumptionManager(
 		// 	this.actor,

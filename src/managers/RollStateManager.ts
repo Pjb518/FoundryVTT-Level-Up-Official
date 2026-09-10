@@ -6,6 +6,7 @@ import type { SpellConsumerData } from '../dataModels/item/actions/ActionConsume
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
+import { EffectAreaManager } from './EffectAreaManager.ts';
 import { ResourceConsumptionManager } from './ResourceConsumptionManager.ts';
 import { RollOverrideManager } from './RollOverrideManager.ts';
 import { RollPreparationManager } from './RollPreparationManager.ts';
@@ -237,8 +238,13 @@ class RollStateManager {
 		// Consumer resources
 		await new ResourceConsumptionManager(state).consumeResources();
 
+		// Get Region Data
+		const eAManager = new EffectAreaManager(state);
+		const validShape = eAManager.validateBaseTemplateData();
+		const shapeData = validShape ? eAManager.getShapeData() : null;
+
 		// Prepare effects
-		return { rolls };
+		return { rolls, shapeData };
 	}
 }
 
