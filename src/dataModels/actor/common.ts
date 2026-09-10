@@ -332,6 +332,7 @@ export const resources = () => ({
 	}, {}),
 });
 
+/** Used in system.rolls */
 const attackData = () => ({
 	incoming: new fields.SchemaField({
 		expertiseDice: new ExpertiseDieField(),
@@ -361,6 +362,10 @@ export const rolls = () => ({
 		},
 		{ persisted: false },
 	),
+	concentration: new fields.SchemaField({
+		expertiseDice: new ExpertiseDieField(),
+		...d20RollModification(),
+	}),
 	death: new fields.SchemaField(
 		{
 			expertiseDice: new ExpertiseDieField(),
