@@ -2,7 +2,10 @@ import type { ActionActivationOptions } from '#documents/item/data.ts';
 import { computeSaveDC } from '#utils/computeSaveDC.ts';
 import getAttackAbility from '#utils/getAttackAbility.ts';
 import { getRollFormula } from '#utils/getRollFormula.ts';
-import type { SpellConsumerData } from '../dataModels/item/actions/ActionConsumersDataModel.ts';
+import type {
+	AmmunitionConsumerData,
+	SpellConsumerData,
+} from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
@@ -47,33 +50,74 @@ class RollStateManager {
 	//  Pre Dialog State
 	/** ================================================ */
 	_prepareInitialState() {
+		// Get Base roll data
 		const consumers = this.#action.getConsumersByType();
-		const prompts = this.#action.getPromptsByType();
-		const rolls = this.#action.getRollsByType();
+		let prompts = this.#action.getPromptsByType() ?? {};
+		let rolls = this.#action.getRollsByType() ?? {};
 		const effects = [...this.#action._effects].map(([, effect]) => effect);
+
+		// Get base defaults
+		let defaultPrompts = this.#action.getDefaultIds('prompts');
+		let defaultRolls = this.#action.getDefaultIds('rolls');
+		const defaultEffects = this.#action.selectedEffects;
+
+		// Get Targets
+		const targets = [...game.user.targets];
+
+		// Prepare Attack roll data b4 ammo to preserve attack roll
+		const attackRoll = rolls.attack?.length ? rolls.attack.at(0) : null;
+		const attackRollConfig = this.#prepareAttackRollConfig(attackRoll, targets);
+
+		// Check if there is an ammunition consumer and add rolls, prompts, and effects
+		if (consumers.ammunition) {
+			const additional = this.#prepareAmmunitionData(consumers.ammunition);
+			//
+			// Add if type is bonus
+			if (additional !== null && additional.type === 'bonus') {
+				// Merge prompts
+				Object.entries(additional.prompts).forEach(([type, p]) => {
+					prompts[type] ??= [];
+					prompts[type].push(...p);
+				});
+				defaultPrompts.push(...additional.defaultPrompts);
+
+				// Merge Rolls
+				Object.entries(additional.rolls).forEach(([type, r]) => {
+					if (type === 'attack') return;
+					rolls[type] ??= [];
+					rolls[type].push(...r);
+				});
+				defaultRolls.push(...additional.defaultRolls);
+
+				// Merge Effects
+				effects.push(...additional.effects);
+				defaultEffects.push(...additional.defaultEffects);
+
+				// Override rolls and prompts if ammo is of type override
+			} else if (additional !== null && additional.type === 'override') {
+				prompts = additional.prompts;
+				defaultPrompts = additional.defaultPrompts;
+
+				rolls = additional.rolls;
+				defaultRolls = additional.defaultRolls;
+			}
+		}
 
 		const { BonusesManager } = this.#actor;
 		const damageBonuses = BonusesManager._prepareGlobalDamageBonuses(this.#item, rolls);
 		const healingBonuses = BonusesManager._prepareGlobalHealingBonuses(this.#item, rolls);
 
-		// Get Targets
-		const targets = [...game.user.targets];
-
-		// TODO:
-		const attackRoll = rolls.attack?.length ? rolls.attack.at(0) : null;
-		const attackRollConfig = this.#prepareAttackRollConfig(attackRoll, targets);
-
 		const config = {
 			attackRoll: attackRollConfig,
 			defaults: {
 				consumers: this.#action.getDefaultIds('consumers'),
-				prompts: this.#action.getDefaultIds('prompts'),
-				rolls: this.#action.getDefaultIds('rolls'),
+				prompts: defaultPrompts,
+				rolls: defaultRolls,
 				attackBonuses: BonusesManager.getDefaultSelections('attacks', {
 					item: this.#item,
 					attackType: attackRoll?.attackType,
 				}),
-				effects: this.#action.selectedEffects,
+				effects: defaultEffects,
 				damageBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ damageBonuses }),
 				healingBonuses: BonusesManager.getDefaultSelectionsFromBonuses({ healingBonuses }),
 			},
@@ -167,6 +211,28 @@ class RollStateManager {
 		};
 	}
 
+	#prepareAmmunitionData(consumer: AmmunitionConsumerData) {
+		const item = this.#actor.items.get(consumer?.itemId);
+		if (!item) return null;
+
+		// @ts-expect-error
+		const action = item.actions.first as A5EActionData;
+		if (!action) return null;
+
+		// Get rolls, prompts, and effects
+		const effects = [...action._effects].map(([, effect]) => effect);
+		const prompts = action.getPromptsByType() ?? {};
+		const rolls = action.getRollsByType() ?? {};
+		const type = item.system.ammunitionDamageMode;
+
+		// Get defaults
+		const defaultPrompts = action.getDefaultIds('prompts');
+		const defaultRolls = action.getDefaultIds('rolls');
+		const defaultEffects = action.selectedEffects;
+
+		return { defaultPrompts, defaultRolls, defaultEffects, prompts, rolls, effects, type };
+	}
+
 	/** ================================================ */
 	//  Post Dialog State
 	/** ================================================ */
@@ -179,33 +245,32 @@ class RollStateManager {
 			.filter(([key]) => data.selectedHealingBonuses.includes(key))
 			.map(([, bonus]) => bonus);
 
-		const consumers = Object.values(this.#action.consumers ?? {}).reduce(
-			(acc, consumer) => {
-				if (data.selectedConsumers.includes(consumer.id)) acc.push(consumer);
-				return acc;
-			},
-			[] as A5EActionData['consumers'][string][],
-		);
+		const consumers = Object.values(this.#state.consumers)
+			.flat()
+			.filter((consumer) => {
+				if (!consumer) return false;
+				if (data.selectedConsumers.includes(consumer.id)) return true;
+				return false;
+			});
 
-		const prompts = Object.values(this.#action.prompts ?? {}).reduce(
-			(acc, prompt) => {
+		const prompts = Object.values(this.#state.prompts)
+			.flat()
+			.filter((prompt) => {
+				if (!prompt) return false;
 				if (prompt.type === 'savingThrow') {
 					prompt.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC) ?? 0;
 				}
-				if (data.selectedPrompts.includes(prompt.id)) acc.push(prompt);
-				return acc;
-			},
-			[] as A5EActionData['prompts'][string][],
-		);
+				if (data.selectedPrompts.includes(prompt.id)) return true;
+				return false;
+			});
 
-		const rolls = Object.values(this.#action.rolls ?? {}).reduce(
-			(acc, roll) => {
-				if (roll.type === 'attack') return acc;
-				if (data.selectedRolls.includes(roll.id)) acc.push(roll);
-				return acc;
-			},
-			[] as A5EActionData['rolls'][string][],
-		);
+		const rolls = Object.values(this.#state.rolls)
+			.flat()
+			.filter((roll) => {
+				if (roll?.type === 'attack') return false;
+				if (data.selectedRolls.includes(roll?.id)) return true;
+				return false;
+			});
 
 		return {
 			// Self encapsulation for easy passing
@@ -232,6 +297,9 @@ class RollStateManager {
 	async startWorkflow(data: RollStateManager.ActionDialogData) {
 		const state = this._preparePostDialogState(data);
 
+		// Prepare Prompts
+		const prompts = state.prompts;
+
 		// Prepare rolls
 		const rolls = await new RollPreparationManager(state).prepareRolls();
 
@@ -246,12 +314,12 @@ class RollStateManager {
 		// Prepare effects
 		this.handleEffects(state.effects);
 
-		return { rolls, shapeData };
+		return { prompts, rolls, shapeData };
 	}
 
 	handleEffects(effectIds: string[]) {
-		effectIds.forEach((id) => {
-			const effect = this.#item.effects.get(id);
+		effectIds.forEach((uuid) => {
+			const effect = fromUuidSync(uuid) as ActiveEffect | undefined;
 			if (!effect) return;
 			if (!effect.system.applyToSelf) return;
 			// @ts-expect-error Will fix when effects are typed

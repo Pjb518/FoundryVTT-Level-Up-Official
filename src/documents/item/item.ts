@@ -163,7 +163,7 @@ class ItemA5e<
 
 		if (!activationData) return null;
 
-		const { rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
+		const { prompts, rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
 		console.log(rolls);
 
 		// TODO: Move the rest of this to workflow
@@ -211,7 +211,7 @@ class ItemA5e<
 							)
 						: null,
 				effects: activationData.effects ?? [],
-				prompts: activationData.prompts,
+				prompts: prompts,
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				shapeData: shapeData,
 				summaryData: getSummaryData(this, action, {

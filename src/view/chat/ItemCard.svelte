@@ -249,7 +249,7 @@
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls(message);
     const hasRolls = rolls.length;
-    const effects = system.effects.map((id) => item?.effects.get(id));
+    const effects = system.effects.map((uuid) => fromUuidSync(uuid));
     const hasEffects = !!effects.length;
     const hasRegionData = !!message.system?.shapeData.value;
 

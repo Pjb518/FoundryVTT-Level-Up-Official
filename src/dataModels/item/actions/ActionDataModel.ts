@@ -191,8 +191,8 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	}
 
 	get selectedEffects() {
-		return [...this._effects].reduce((acc, [id, effect]) => {
-			if (effect.system.default ?? true) acc.push(id);
+		return [...this._effects].reduce((acc, [, effect]) => {
+			if (effect.system.default ?? true) acc.push(effect.uuid);
 			return acc;
 		}, [] as string[]);
 	}
