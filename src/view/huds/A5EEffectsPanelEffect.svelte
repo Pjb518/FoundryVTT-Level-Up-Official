@@ -1,166 +1,170 @@
 <script>
-    import { localize } from "#utils/localization/localize.ts";
+	import getFormattedTimeFromSeconds from '#utils/getFormattedTimeFromSeconds';
+	import { localize } from '#utils/localization/localize.ts';
 
-    import getFormattedTimeFromSeconds from "#utils/getFormattedTimeFromSeconds";
+	let {
+		actor,
+		description,
+		conditionId,
+		linked = null,
+		img,
+		_id,
+		name,
+		onIncreaseCounter,
+		onDeleteEffect,
+	} = $props();
 
-    let {
-        actor,
-        description,
-        conditionId,
-        linked = null,
-        img,
-        _id,
-        name,
-        onIncreaseCounter,
-        onDeleteEffect,
-    } = $props();
+	function getEffectDuration() {
+		const effect = actor?.effects.get(_id);
+		const duration = effect?.duration ?? {};
 
-    function getEffectDuration() {
-        const effect = actor?.effects.get(_id);
-        const duration = effect?.duration ?? {};
+		let notes = '<p class="a5e-effect-duration-tag a5e-tag a5e-tag--active a5e-tag--tight">';
 
-        let notes =
-            '<p class="a5e-effect-duration-tag a5e-tag a5e-tag--active a5e-tag--tight">';
+		notes += '<i class="icon fa-regular fa-clock"></i>';
 
-        notes += '<i class="icon fa-regular fa-clock"></i>';
+		const { secondsRemaining } = duration;
 
-        const { secondsRemaining } = duration;
+		if (secondsRemaining === Infinity) {
+			notes += 'Infinite</p>';
+			return notes;
+		}
 
-        if (secondsRemaining === Infinity) {
-            notes += "Infinite</p>";
-            return notes;
-        }
+		if (secondsRemaining <= 0) {
+			return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
+		}
 
-        if (secondsRemaining <= 0) {
-            return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
-        }
+		notes += `${secondsRemaining ? 'Remaining' : ''} ${getFormattedTimeFromSeconds(secondsRemaining)}`;
+		notes += '</p>';
 
-        notes += `${secondsRemaining ? "Remaining" : ""} ${getFormattedTimeFromSeconds(secondsRemaining)}`;
-        notes += "</p>";
+		return notes;
+	}
 
-        return notes;
-    }
+	function getEffectNotes() {
+		const effect = actor?.effects.get(_id);
 
-    function getEffectNotes() {
-        let notes = '<div class="a5e-effect-notes">';
+		let notes = '<div class="a5e-effect-notes">';
 
-        notes += duration;
+		notes += duration;
 
-        if (conditionId) {
-            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+		if (conditionId) {
+			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Condition
                 </p>`;
-        } else {
-            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+		} else {
+			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Active Effect
                 </p>`;
-        }
+		}
 
-        if (linked) {
-            notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+		if (linked) {
+			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Applied by: ${conditions?.[linked]}
                 </p>`;
-        }
+		}
 
-        notes += "</div>";
-        return notes;
-    }
+		if (effect.origin) {
+			const itemName = fromUuidSync(effect.origin)?.name;
+			if (itemName) {
+				notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+                Applied by: ${itemName}
+                </p>`;
+			}
+		}
 
-    function getEffectDescription(actor) {
-        const localized = localize(description);
-        if (localized) return localize(description);
+		notes += '</div>';
+		return notes;
+	}
 
-        const { corruption, fatigue, inebriated, strife } =
-            actor.system.attributes;
+	function getEffectDescription(actor) {
+		const localized = localize(description);
+		if (localized) return localize(description);
 
-        if (conditionId === "corruption") {
-            return localize(`A5E.tracks.corruption.hints.${corruption}`);
-        }
+		const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
 
-        if (name === localize("A5E.Exhaustion")) {
-            return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
-        }
+		if (conditionId === 'corruption') {
+			return localize(`A5E.tracks.corruption.hints.${corruption}`);
+		}
 
-        if (conditionId === "fatigue") {
-            return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
-        }
+		if (name === localize('A5E.Exhaustion')) {
+			return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
+		}
 
-        if (conditionId === "inebriated") {
-            return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
-        }
+		if (conditionId === 'fatigue') {
+			return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
+		}
 
-        if (conditionId === "strife") {
-            return localize(`A5E.tracks.strife.hints.${strife}`);
-        }
+		if (conditionId === 'inebriated') {
+			return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
+		}
 
-        return "";
-    }
+		if (conditionId === 'strife') {
+			return localize(`A5E.tracks.strife.hints.${strife}`);
+		}
 
-    function getEffectName() {
-        const { corruption, fatigue, inebriated, strife } =
-            actorData.attributes;
+		return '';
+	}
 
-        if (conditionId === "corruption") return `${name} (${corruption}) `;
-        if (conditionId === "fatigue") return `${name} (${fatigue}) `;
-        if (conditionId === "inebriated") return `${name} (${inebriated}) `;
-        if (conditionId === "strife") return `${name} (${strife}) `;
+	function getEffectName() {
+		const { corruption, fatigue, inebriated, strife } = actorData.attributes;
 
-        return name;
-    }
+		if (conditionId === 'corruption') return `${name} (${corruption}) `;
+		if (conditionId === 'fatigue') return `${name} (${fatigue}) `;
+		if (conditionId === 'inebriated') return `${name} (${inebriated}) `;
+		if (conditionId === 'strife') return `${name} (${strife}) `;
 
-    function getEffectRemovalNote() {
-        if (linked) return "";
+		return name;
+	}
 
-        if (
-            conditionId === "corruption" ||
-            conditionId === "fatigue" ||
-            conditionId === "inebriated" ||
-            conditionId === "strife"
-        ) {
-            return `
+	function getEffectRemovalNote() {
+		if (linked) return '';
+
+		if (
+			conditionId === 'corruption' ||
+			conditionId === 'fatigue' ||
+			conditionId === 'inebriated' ||
+			conditionId === 'strife'
+		) {
+			return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
                 </small>
             `;
-        }
+		}
 
-        return `
+		return `
             <small class="a5e-tooltip__note">
-                Right click the icon to remove this ${conditionId ? "condition" : "effect"}.
+                Right click the icon to remove this ${conditionId ? 'condition' : 'effect'}.
             </small>
         `;
-    }
+	}
 
-    const colors = {
-        1: "#919f00",
-        2: "#a09200",
-        3: "#af8300",
-        4: "#bd7100",
-        5: "#cb5c00",
-        6: "#d63f00",
-        7: "#e00006",
-    };
+	const colors = {
+		1: '#919f00',
+		2: '#a09200',
+		3: '#af8300',
+		4: '#bd7100',
+		5: '#cb5c00',
+		6: '#d63f00',
+		7: '#e00006',
+	};
 
-    const { conditions } = CONFIG.A5E;
+	const { conditions } = CONFIG.A5E;
 
-    let duration = $state(getEffectDuration(actor));
+	let duration = $state(getEffectDuration(actor));
 
-    $effect(() => {
-        const durationHook = Hooks.on(
-            "updateWorldTime",
-            () => (duration = getEffectDuration(actor)),
-        );
+	$effect(() => {
+		const durationHook = Hooks.on('updateWorldTime', () => (duration = getEffectDuration(actor)));
 
-        return () => Hooks.off("updateWorldTime", durationHook);
-    });
+		return () => Hooks.off('updateWorldTime', durationHook);
+	});
 
-    let actorData = $derived(actor?.reactive?.system);
-    let corruption = $derived(actorData?.attributes.corruption ?? 0);
-    let fatigue = $derived(actorData?.attributes.fatigue ?? 0);
-    let inebriated = $derived(actorData?.attributes.inebriated ?? 0);
-    let strife = $derived(actorData?.attributes.strife ?? 0);
+	let actorData = $derived(actor?.reactive?.system);
+	let corruption = $derived(actorData?.attributes.corruption ?? 0);
+	let fatigue = $derived(actorData?.attributes.fatigue ?? 0);
+	let inebriated = $derived(actorData?.attributes.inebriated ?? 0);
+	let strife = $derived(actorData?.attributes.strife ?? 0);
 
-    let tooltip = $derived(`
+	let tooltip = $derived(`
         <h3 class="a5e-tooltip__heading">${getEffectName()}</h3>
         ${getEffectDescription(actor)}
         ${getEffectRemovalNote()}
@@ -169,12 +173,12 @@
 </script>
 
 <div
-    class:linked={!!linked}
-    class:corruption-counter={conditionId === "corruption"}
-    class:fatigue-counter={conditionId === "fatigue"}
-    class:inebriated-counter={conditionId === "inebriated"}
-    class:strife-counter={conditionId === "strife"}
-    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+	class:linked={!!linked}
+	class:corruption-counter={conditionId === "corruption"}
+	class:fatigue-counter={conditionId === "fatigue"}
+	class:inebriated-counter={conditionId === "inebriated"}
+	class:strife-counter={conditionId === "strife"}
+	style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
         fatigue
     ]}; --strife-col: {colors[
         strife
@@ -182,23 +186,23 @@
         corruption
     ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
 >
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-    <li
-        class="a5e-effect-item"
-        data-tooltip={tooltip}
-        data-tooltip-direction="LEFT"
-        data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
-        onclick={() => onIncreaseCounter?.(_id)}
-        onauxclick={() => linked ?? onDeleteEffect?.(_id)}
-    >
-        <img
-            class="a5e-effect-item__icon"
-            class:a5e-effect-item__icon--svg={img?.endsWith(".svg")}
-            src={img}
-            alt={name}
-        />
-    </li>
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<li
+		class="a5e-effect-item"
+		data-tooltip={tooltip}
+		data-tooltip-direction="LEFT"
+		data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
+		onclick={() => onIncreaseCounter?.(_id)}
+		onauxclick={() => linked ?? onDeleteEffect?.(_id)}
+	>
+		<img
+			class="a5e-effect-item__icon"
+			class:a5e-effect-item__icon--svg={img?.endsWith(".svg")}
+			src={img}
+			alt={name}
+		>
+	</li>
 </div>
 
 <style lang="scss">
