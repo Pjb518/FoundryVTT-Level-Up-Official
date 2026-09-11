@@ -63,7 +63,6 @@
     let item = itemDocument;
 
     const rollState = options.rollState!;
-    console.log(rollState);
 
     let action = $derived(item.reactive.actions.get(actionId)!);
     const { isEmpty } = foundry.utils;
@@ -199,7 +198,7 @@
 </script>
 
 <form>
-    <!-- {#if warnings.length}
+    {#if warnings.length}
         <section class="warning__wrapper">
             {#each warnings as warning}
                 <p class="warning" style="color: var(--a5e-color-warning);">
@@ -208,7 +207,7 @@
                 </p>
             {/each}
         </section>
-    {/if} -->
+    {/if}
 
     <Section --a5e-section-body-gap="0.5rem">
         <OutputVisibilitySection bind:visibilityMode />
