@@ -6,6 +6,29 @@ export class Migration023MigrateRoll extends MigrationBase {
 	/** ================================================= */
 	// Keys
 	/** ================================================= */
+	skills = [
+		'acr',
+		'ani',
+		'arc',
+		'ath',
+		'cul',
+		'dec',
+		'eng',
+		'his',
+		'ins',
+		'itm',
+		'inv',
+		'med',
+		'nat',
+		'prc',
+		'prf',
+		'per',
+		'rel',
+		'sci',
+		'slt',
+		'ste',
+		'sur',
+	];
 
 	KEY_MAP = {
 		// Attacks
@@ -22,7 +45,7 @@ export class Migration023MigrateRoll extends MigrationBase {
 			'system.rolls.attack.outgoing.rangedSpellAttack.rollMode',
 
 		// Abilities
-		...Object.keys(CONFIG.A5E.abilities).reduce(
+		...['str', 'dex', 'con', 'int', 'wis', 'cha'].reduce(
 			(acc, a) => {
 				acc[`flags.a5e.effects.rollMode.abilityCheck.${a}`] =
 					`system.abilities.${a}.check.rollMode`;
@@ -33,7 +56,7 @@ export class Migration023MigrateRoll extends MigrationBase {
 		),
 
 		// Skills
-		...Object.keys(CONFIG.A5E.skills).reduce(
+		...this.skills.reduce(
 			(acc, s) => {
 				acc[`flags.a5e.effects.rollMode.skillCheck.${s}`] = `system.skills.${s}.check.rollMode`;
 				return acc;
