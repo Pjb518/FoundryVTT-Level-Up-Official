@@ -75,7 +75,11 @@ export default function modifyBaseOptions(options: Object) {
 			'RADIO',
 		];
 
+		// Add options for ability roll mode
 		options[`system.abilities.${a}.check.rollMode`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+		options[`system.abilities.${a}.check.minRoll`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+		options[`system.abilities.${a}.check.maxRoll`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+		options[`system.abilities.${a}.save.rollMode`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
 	});
 
 	Object.keys(CONFIG.A5E.skills).forEach((s) => {
@@ -89,20 +93,34 @@ export default function modifyBaseOptions(options: Object) {
 			],
 			'RADIO',
 		];
+
 		options[`system.skills.${s}.ability`] = [
 			'',
 			MODES.OVERRIDE_ONLY,
 			[...Object.entries(CONFIG.A5E.abilities), ['@attributes.spellcasting', 'Spellcasting']],
 			'RADIO',
 		];
+
+		// Add options for skill roll mode
+		options[`system.skills.${s}.rollMode`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+		options[`system.skills.${s}.minRoll`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+		options[`system.skills.${s}.maxRoll`] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
 	});
 
+	// Initiative
 	options['system.attributes.initiative.ability'] = [
 		'',
 		MODES.OVERRIDE_ONLY,
 		Object.entries(CONFIG.A5E.abilities),
 		'RADIO',
 	];
+
+	options['system.attributes.initiative.rollMode'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+
+	options['system.attributes.initiative.expertiseDice'] = [0, MODES.DEFAULT_MODES];
+
+	options['system.attributes.initiative.minRoll'] = [0, MODES.DEFAULT_MODES];
+	options['system.attributes.initiative.maxRoll'] = [0, MODES.DEFAULT_MODES];
 
 	// Add options for details
 	options['system.details.creatureTypes'] = [
@@ -213,16 +231,6 @@ export default function modifyBaseOptions(options: Object) {
 		'RADIO',
 	];
 
-	options['system.rolls.attack.meleeWeaponAttack.incoming.expertiseDice'] = [
-		0,
-		MODES.DEFAULT_MODES,
-	];
-
-	options['system.rolls.attack.meleeWeaponAttack.outgoing.expertiseDice'] = [
-		0,
-		MODES.DEFAULT_MODES,
-	];
-
 	// Removes these when data model is fixes
 	delete options['system.attributes.initiative.bonus'];
 
@@ -240,9 +248,12 @@ export default function modifyBaseOptions(options: Object) {
 	});
 
 	delete options['system.attributes.initiative.bonus'];
-
 	delete options['system.attributes.ac.baseFormula'];
 	delete options['system.attributes.ac.value'];
+	delete options['system.attributes.keyKnowledge'];
+	delete options['system.attributes.projectName'];
+	delete options['system.attributes.projectTime'];
+	delete options['system.attributes.religiousFavors'];
 
 	delete options['system.classes.startingClass'];
 
@@ -330,6 +341,7 @@ export default function modifyBaseOptions(options: Object) {
 	delete options['system.migrationData.lastMigration.schema'];
 	delete options['system.migrationData.type'];
 	delete options['system.migrationData.version'];
+	delete options['system.migrationData.lastMigration'];
 
 	// Delete spell books
 	Object.keys(options).forEach((key) => {
