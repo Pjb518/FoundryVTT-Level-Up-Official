@@ -62,16 +62,20 @@ export class Migration023MigrateRoll extends MigrationBase {
 		const actions = Object.entries(source.system.actions ?? {});
 		actions.forEach(([actionId, action]) => {
 			// Update target scaling
-			const targetScaleValue = (action.target.scaling.formula as string) || '';
+			const targetScaleValue = (action.target?.scaling?.formula as string) || '';
 			if (targetScaleValue) {
-				source.system.actions![actionId].target.scaling.config.value = targetScaleValue;
+				foundry.utils.setProperty(
+					source.system,
+					`actions.${actionId}.target.scaling.config.value`,
+					targetScaleValue,
+				);
 			}
 
 			// Update rolls
 			const rolls = Object.entries(action.rolls ?? {});
 			rolls.forEach(([rollId, roll]) => {
 				if (roll.type === 'healing' || roll.type === 'damage' || roll.type === 'generic') {
-					const rollScaleValue = (roll.scaling.formula as string) || '';
+					const rollScaleValue = (roll?.scaling?.formula as string) || '';
 					if (rollScaleValue) {
 						foundry.utils.setProperty(
 							source.system,
