@@ -1379,7 +1379,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
 		options.saveType = 'death';
 		options.expertiseDice ??= 0;
-		options.visibilityMode ??= 'gm';
+		options.visibilityMode ??= 'gmroll';
 
 		if (game.settings.get('a5e', 'blindDeathSaves')) {
 			options.visibilityMode = 'blindroll';
@@ -1678,6 +1678,25 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const dialogData = await dialog.promise;
 
 		return dialogData;
+	}
+
+	async createConcentrationCheckCard(damage: number) {
+		const dc = Math.clamp(Math.floor(damage / 2), 10, 30);
+
+		let content = `${this.name} has taken ${damage} damage. `;
+		content += 'Please roll a concentration saving throw. <br />';
+		content += `[[/save ability="con" type="concentration" dc="${dc}"]]`;
+
+		const chatData = {
+			author: game.user?.id,
+			flavor: this.name,
+			speaker: ChatMessage.getSpeaker({ actor: this }),
+			style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+			sound: CONFIG.sounds.notification,
+			content,
+		};
+
+		await ChatMessage.create(chatData);
 	}
 
 	// -------------------------------------------------------------
@@ -2026,19 +2045,19 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		await super._preUpdate(changed, options, user);
 
 		// If hp drops below 0, set the value to 0.
-		if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
+		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) < 0) {
 			foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
 		}
 
 		// If temp hp drops to or below 0, set the value to 0.
-		if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
+		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.temp') as number) <= 0) {
 			foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
 		}
 
 		// Reset death save counters
 		const isUnconscious = this.system.attributes.hp.value === 0;
 		const willRegainConsciousness =
-			foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
+			(foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) > 0;
 
 		if (isUnconscious && willRegainConsciousness) {
 			foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
@@ -2070,6 +2089,14 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				}
 			}
 		}
+
+		// Concentration Check Automation
+		const isConcentrating = this.statuses.has('concentration');
+		const hp = foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number;
+		// TODO: Respect Limit
+		if (isConcentrating && this.system.attributes.hp.value > hp) {
+			this.createConcentrationCheckCard(this.system.attributes.hp.value - hp);
+		}
 	}
 
 	/** @inheritdoc */
@@ -2078,7 +2105,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
 		const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-
+		console.log(changed);
 		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
 		if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
 	}

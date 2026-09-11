@@ -95,14 +95,14 @@ class RollPreparationManager {
 		}
 	}
 
-	async #prepareAbilityCheckRoll(_roll: AbilityCheckRollData) {
+	async #prepareAbilityCheckRoll(_roll: AbilityCheckRollData & ExtraRollData) {
 		if (_roll.formulaInvalid) return null;
 
 		const defaultData = this.#actor.getDefaultAbilityCheckData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = defaultData.rollFormula as string;
+		const rollFormula = _roll.rollFormula ?? (defaultData.rollFormula as string);
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
@@ -110,11 +110,11 @@ class RollPreparationManager {
 		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
-			expertiseDice: defaultData.expertiseDie,
+			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: defaultData.rollMode,
+			rollMode: _roll.rollMode ?? defaultData.rollMode,
 			type: 'abilityCheck',
 		};
 	}
@@ -364,33 +364,38 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareSavingThrowRoll(_roll: SavingThrowRollData) {
+	async #prepareSavingThrowRoll(_roll: SavingThrowRollData & ExtraRollData) {
 		if (_roll.formulaInvalid) return null;
 
 		const defaultData = this.#actor.getDefaultSavingThrowData(_roll.ability, {
 			situationalMods: _roll.bonus,
 		});
 
-		const rollFormula = defaultData.rollFormula as string;
+		const rollFormula = _roll.rollFormula ?? (defaultData.rollFormula as string);
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
 		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
 
-		const label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
+		let label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
+		if (_roll.saveType === 'concentration') {
+			label = localize('A5E.rollLabels.concentrationCheck');
+		} else if (_roll.saveType === 'death') {
+			label = localize('A5E.deathSavingThrow.title');
+		}
 
 		return {
-			expertiseDice: defaultData.expertiseDie,
+			expertiseDice: _roll.expertiseDie ?? defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: defaultData.rollMode,
-			saveType: 'ability',
+			rollMode: _roll.rollMode ?? defaultData.rollMode,
+			saveType: _roll.saveType ?? 'ability',
 			type: 'savingThrow',
 		};
 	}
 
-	async #prepareSkillCheckRoll(_roll: SkillCheckRollData) {
+	async #prepareSkillCheckRoll(_roll: SkillCheckRollData & ExtraRollData) {
 		if (_roll.formulaInvalid) return null;
 
 		const skill = localize(CONFIG.A5E.skills[_roll?.skill]);
@@ -401,7 +406,7 @@ class RollPreparationManager {
 		});
 
 		const ability = _roll.ability ?? defaultData.abilityKey;
-		const rollFormula = defaultData.rollFormula as string;
+		const rollFormula = _roll?.rollFormula ?? (defaultData.rollFormula as string);
 		if (!rollFormula) return null;
 
 		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
@@ -415,11 +420,11 @@ class RollPreparationManager {
 				: localize('A5E.skillLabels.checks.skillSpecific', { skill });
 
 		return {
-			expertiseDice: defaultData.expertiseDie,
+			expertiseDice: _roll?.expertiseDie ?? defaultData.expertiseDie,
 			label,
 			userLabel: _roll.label,
 			roll,
-			rollMode: defaultData.rollMode,
+			rollMode: _roll?.rollMode ?? defaultData.rollMode,
 			skillKey: _roll?.skill,
 			type: 'skillCheck',
 		};
@@ -489,7 +494,7 @@ class RollPreparationManager {
 	/** ================================================ */
 	//  Scaling Adjustment Methods
 	/** ================================================ */
-	#applyScaling(roll: DamageRollData | HealingRollData | GenericRollData): string {
+	#applyScaling(roll: DamageRollData | HealingRollData): string {
 		const scalingMode = roll.scaling?.mode;
 
 		if (!scalingMode) return roll?.getFormula() ?? 0;
@@ -674,9 +679,10 @@ declare namespace RollPreparationManager {
 	} | null;
 
 	interface ExtraRollData {
-		rollFormula: string;
-		expertiseDie: number;
-		rollMode: number;
+		rollFormula?: string;
+		expertiseDie?: number;
+		rollMode?: number;
+		saveType?: 'ability' | 'concentration' | 'death';
 	}
 
 	interface DamageRollOptions {
@@ -684,6 +690,8 @@ declare namespace RollPreparationManager {
 		context?: RollStateManager.WorkflowState['damageBonuses'][number];
 	}
 }
+
+type ExtraRollData = RollPreparationManager.ExtraRollData;
 
 // biome-ignore lint/complexity/noBannedTypes: <explanation>
 type EvaluatedRoll = Awaited<ReturnType<InstanceType<typeof Roll<{}>>['evaluate']>>;

@@ -54,6 +54,7 @@ declare module 'fvtt-types/configuration' {
 		Actor: {
 			a5e: {
 				automaticallyExecuteAvailableMacros: boolean;
+				automatePrototypeTokenSize: boolean;
 				criticalHitThresholdWeapon: number;
 				criticalHitThresholdSpell: number;
 				jackOfAllTrades: boolean;
@@ -66,6 +67,9 @@ declare module 'fvtt-types/configuration' {
 	}
 
 	interface SettingConfig {
+		'a5e.automateBloodiedeApplication': boolean;
+		'a5e.automateUnconsciousApplication': boolean;
+		'a5e.hideExpertiseDice': boolean;
 		'a5e.showFavorPoints': boolean;
 	}
 }
