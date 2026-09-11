@@ -1,12 +1,12 @@
+import type { RollStateManager } from '#managers/RollStateManager.ts';
 import { localize } from '#utils/localization/localize.ts';
-import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel';
-import type { BaseActorA5e } from '../../documents/actor/base';
-import type { ItemA5e } from '../../documents/item/item';
+import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel.ts';
+import type { ItemA5e } from '../../documents/item/item.ts';
 
 export default class ConsumptionValidator {
 	#action: A5EActionData;
 
-	#actor: BaseActorA5e;
+	#actor: Actor.OfType<'base'>;
 
 	#item: ItemA5e;
 
@@ -14,13 +14,12 @@ export default class ConsumptionValidator {
 
 	warnings: string[];
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	constructor(actor: BaseActorA5e, item: ItemA5e, action: A5EActionData, ...args: any[]) {
-		this.#action = action;
-		this.#actor = actor;
-		this.#item = item;
+	constructor(state: RollStateManager.state) {
+		this.#action = state.action;
+		this.#actor = state.actor;
+		this.#item = state.item;
 
-		this.availableConsumers = Object.entries(action?.consumers ?? {});
+		this.availableConsumers = Object.entries(state.action.consumers ?? {});
 		this.warnings = [];
 	}
 
@@ -39,6 +38,13 @@ export default class ConsumptionValidator {
 	validateData(currentInputData, selectedConsumers: string[]): string[] {
 		// Reset Warnings
 		this.warnings.length = 0;
+
+		// Warn about concentration
+		const requiresConcentration = this.#action.requiresConcentration;
+		const alreadyConcentrating = this.#actor.statuses.has('concentration');
+		if (requiresConcentration && alreadyConcentrating) {
+			this.warnings.push('Breaking Concentration!');
+		}
 
 		this.availableConsumers.forEach(([consumerId, consumer]) => {
 			if (!selectedConsumers.includes(consumerId)) return;
@@ -91,7 +97,7 @@ export default class ConsumptionValidator {
 		if (consumer.type === 'ammunition') {
 			this.warnings.push(localize('A5E.validations.warnings.ammunition'));
 		} else {
-			this.warnings.push(localize('A5E.validations.warnings.quantity', { name: item?.name }));
+			this.warnings.push(localize('A5E.validations.warnings.quantity', { name: item.name || '' }));
 		}
 	}
 

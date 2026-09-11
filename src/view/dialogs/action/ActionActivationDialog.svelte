@@ -25,6 +25,13 @@
 		itemDocument: any;
 	};
 
+	function getDisabledState() {
+		if (!preventActionRollOnWarning) return false;
+		if (warnings.length === 0) return false;
+		if (warnings.length === 1 && warnings.includes('Breaking Concentration!')) return false;
+		return true;
+	}
+
 	function onSubmit() {
 		dialog.submit({
 			attack: attackRollData,
@@ -143,7 +150,7 @@
 	let targets = rollState.targets;
 
 	// Validator
-	const validator = $derived(new ConsumptionValidator(actor, item, action, consumers));
+	const validator = $derived(new ConsumptionValidator(rollState));
 
 	const preventActionRollOnWarning =
 		// @ts-expect-error
@@ -309,7 +316,7 @@
 	<Section>
 		<button
 			type="submit"
-			disabled={preventActionRollOnWarning && !!warnings.length}
+			disabled={getDisabledState()}
 			onclick={(e) => {
                 e.preventDefault();
                 onSubmit();

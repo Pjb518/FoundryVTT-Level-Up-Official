@@ -128,6 +128,11 @@ class RollStateManager {
 		};
 
 		return {
+			// Encapsulation
+			action: this.#action,
+			actor: this.#actor,
+			item: this.#item,
+
 			config,
 
 			// Props
