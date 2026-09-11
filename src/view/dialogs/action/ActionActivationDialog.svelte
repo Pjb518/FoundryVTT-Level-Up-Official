@@ -168,9 +168,9 @@
 
 <form>
 	{#if warnings.length}
-		<section class="warning__wrapper">
+		<section class="a5e-warning__wrapper">
 			{#each warnings as warning}
-				<p class="warning" style="color: var(--a5e-color-warning);">
+				<p class="a5e-warning">
 					<i class="fa-solid fa-circle-exclamation"></i>
 					{warning}
 				</p>
@@ -321,17 +321,20 @@
         overflow-y: auto;
     }
 
-    .warning__wrapper {
+    .a5e-warning__wrapper {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
         margin-block: 0.125rem;
         padding-inline: 0.25rem;
+    }
 
-        .warning {
-            font-family: var(--a5e-primary-font);
-            font-size: var(--a5e-xs-text);
-        }
+    .a5e-warning {
+        font-family: var(--a5e-primary-font);
+        font-size: var(--a5e-xs-text);
+        color: var(--a5e-color-warning);
+        padding:0;
+        margin:0;
     }
 
     .a5e-action-dialog-rule {
