@@ -64,7 +64,7 @@
             tooltip: "Configure Languages",
         },
         {
-            heading: localize("A5E.traits.conditions.immunities"),
+            heading: localize("A5E.traits.headings.conditions.immunities"),
             values: prepareConditionImmunities(actor.reactive),
             dialogMethod: "configureConditionImmunities",
             propertyKey: "system.traits.conditionImmunities",
