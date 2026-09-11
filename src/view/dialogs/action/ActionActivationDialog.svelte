@@ -140,8 +140,9 @@
 		game.settings.get('core', 'messageMode'),
 	) as string;
 
+	let targets = rollState.targets;
+
 	// Validator
-	// TODO: Update
 	const validator = $derived(new ConsumptionValidator(actor, item, action, consumers));
 
 	const preventActionRollOnWarning =
@@ -178,8 +179,21 @@
 		</section>
 	{/if}
 
-	<Section --a5e-section-body-gap="0.5rem">
-		<OutputVisibilitySection bind:visibilityMode />
+	<!-- Target Section -->
+	{#if targets.length}
+		<Section heading="Targets">
+			<div class="a5e-action-dialog-targets">
+				{#each targets as target}
+					<img class="a5e-action-dialog-target" src={target.document.texture.src} alt="">
+				{/each}
+			</div>
+
+			<hr class="a5e-rule a5e-action-dialog-rule">
+		</Section>
+	{/if}
+
+	<Section heading="Visibility Mode" --a5e-section-body-gap="0.5rem">
+		<OutputVisibilitySection bind:visibilityMode displayHeading={false} />
 	</Section>
 
 	{#if showAttackRoll}
@@ -339,5 +353,15 @@
 
     .a5e-action-dialog-rule {
         margin: 0.5rem;
+    }
+
+    .a5e-action-dialog-targets {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    .a5e-action-dialog-target {
+        width: 2rem;
+        aspect-ratio: 1 / 1;
     }
 </style>
