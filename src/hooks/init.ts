@@ -110,6 +110,8 @@ export default function init() {
 	// Layers
 	CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
 
+	CONFIG.ActiveEffect.expiryAction = 'delete';
+
 	// Initialize the game's A5E namespace
 	game.a5e = {
 		applications: {
