@@ -44,7 +44,10 @@
 					"type": "creature",
 					"scaling": {
 						"mode": "spellLevel",
-						"formula": "1"
+						"formula": "1",
+						"config": {
+							"value": "1"
+						}
 					}
 				},
 				"consumers": {
@@ -228,7 +231,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
 			"type": "base",
@@ -249,7 +260,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.senses.blindsight.distance",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"name": "Blindsight",
 			"img": "icons/creatures/slimes/slime-face-skull-green.webp",

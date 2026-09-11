@@ -224,7 +224,39 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"fire\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "@token.light.bright",
+						"value": "50",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "100",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.skills.ste.check.rollMode",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{

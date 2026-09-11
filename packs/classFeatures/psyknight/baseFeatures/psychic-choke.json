@@ -139,7 +139,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"paralyzed\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.movement.traits.hover",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -200,7 +214,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

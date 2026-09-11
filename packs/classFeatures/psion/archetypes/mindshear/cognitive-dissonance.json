@@ -81,7 +81,10 @@
 					"quantity": 1,
 					"scaling": {
 						"mode": "spellPoints",
-						"formula": "1"
+						"formula": "1",
+						"config": {
+							"value": "1"
+						}
 					},
 					"type": "creature"
 				},
@@ -209,7 +212,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"confused\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Confused",
 			"img": "icons/magic/control/fear-fright-mask-orange.webp",
@@ -272,7 +283,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"slowed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Slowed",
 			"img": "icons/magic/control/fear-fright-mask-orange.webp",

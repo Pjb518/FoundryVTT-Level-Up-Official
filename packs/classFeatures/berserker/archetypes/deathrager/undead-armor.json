@@ -224,7 +224,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -279,7 +287,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.attributes.fatigue",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -340,7 +362,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -394,7 +424,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,
@@ -435,7 +466,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "{\"comparisonOperator\":\">=\",\"comparisonValue\":\"@attributes.movement.walk.distance\",\"positiveValue\":\"@original\",\"negativeValue\":\"@attributes.movement.walk.distance\"}",
+						"priority": null,
+						"type": "conditional"
+					},
+					{
+						"key": "system.attributes.movement.fly.unit",
+						"value": "feet",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

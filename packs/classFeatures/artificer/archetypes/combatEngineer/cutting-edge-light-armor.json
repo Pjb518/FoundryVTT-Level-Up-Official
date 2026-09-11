@@ -105,7 +105,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "passive"
+				"effectType": "passive",
+				"changes": [
+					{
+						"key": "system.attributes.ac",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@movement.walk.distance",
+						"priority": null,
+						"type": "upgrade"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,

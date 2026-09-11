@@ -189,7 +189,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Rattled",
 			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
@@ -252,7 +260,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"slowed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Slowed",
 			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
@@ -315,7 +331,27 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "2",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.abilities.dex.save.rollMode",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"name": "Implode",
 			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
@@ -387,7 +423,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "0",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"name": "Implode After Effects",
 			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",

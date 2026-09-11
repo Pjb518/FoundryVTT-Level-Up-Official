@@ -19,7 +19,27 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "60",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.bright",
+						"value": "50",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "100",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -83,7 +103,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.value",
+						"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"17\",\"positiveValue\":\"17\",\"negativeValue\":\"@attributes.ac.value\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -136,7 +164,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"charmed\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -190,7 +226,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,
@@ -231,7 +268,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,
@@ -276,7 +314,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "2*@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -335,7 +387,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"frightened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -389,7 +449,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.senses.truesight.distance",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -437,7 +505,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.strife",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -485,7 +561,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,
@@ -530,7 +607,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"deafened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{

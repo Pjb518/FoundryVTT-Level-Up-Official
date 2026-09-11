@@ -124,7 +124,10 @@
 						"damageType": "poison",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "1d6"
+							"formula": "1d6",
+							"config": {
+								"value": "1d6"
+							}
 						}
 					}
 				},
@@ -204,7 +207,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{

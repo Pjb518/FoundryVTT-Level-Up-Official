@@ -97,7 +97,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "3 * @attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

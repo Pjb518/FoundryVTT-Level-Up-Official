@@ -51,7 +51,21 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.skills.prc.check.rollMode",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.skills",
+						"value": "{\"label\":\"Distraction\",\"formula\":\"-5\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":true,\"img\":\"icons/skills/trades/music-singing-voice-blue.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

@@ -36,7 +36,10 @@
 						"default": true,
 						"scaling": {
 							"mode": "actionUses",
-							"formula": "1d6"
+							"formula": "1d6",
+							"config": {
+								"value": "1d6"
+							}
 						},
 						"formula": "1d6",
 						"label": ""
@@ -136,7 +139,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Poisoned",
 			"img": "icons/consumables/potions/flask-corked-purple-glow.webp",

@@ -28,7 +28,10 @@
 						"default": true,
 						"scaling": {
 							"mode": "cantrip",
-							"formula": "1d8"
+							"formula": "1d8",
+							"config": {
+								"value": "1d8"
+							}
 						},
 						"formula": "2d8",
 						"damageType": "thunder"
@@ -121,7 +124,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"deafened\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{

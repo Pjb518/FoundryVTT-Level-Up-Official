@@ -36,7 +36,10 @@
 						"damageType": "fire",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "2d6"
+							"formula": "2d6",
+							"config": {
+								"value": "2d6"
+							}
 						},
 						"canCrit": false
 					},
@@ -47,7 +50,10 @@
 						"damageType": "bludgeoning",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "2d6"
+							"formula": "2d6",
+							"config": {
+								"value": "2d6"
+							}
 						},
 						"canCrit": false
 					}
@@ -106,7 +112,10 @@
 						"damageType": "fire",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "2d6"
+							"formula": "2d6",
+							"config": {
+								"value": "2d6"
+							}
 						},
 						"canCrit": false
 					}
@@ -195,7 +204,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -237,7 +254,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"prone\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

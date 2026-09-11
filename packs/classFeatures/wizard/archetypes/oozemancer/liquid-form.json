@@ -94,7 +94,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.climb.distance",
+						"value": "@attributes.movement.walk.distance",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -147,7 +155,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

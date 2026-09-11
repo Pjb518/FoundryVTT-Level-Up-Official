@@ -26,7 +26,10 @@
 						"damageType": "lightning",
 						"scaling": {
 							"mode": "cantrip",
-							"formula": "1d6"
+							"formula": "1d6",
+							"config": {
+								"value": "1d6"
+							}
 						}
 					}
 				},
@@ -152,13 +155,13 @@
 				"effectType": "onUse",
 				"changes": [
 					{
-						"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+						"key": "system.abilities.dex.check.rollMode",
 						"value": "-1",
 						"priority": null,
 						"type": "override"
 					},
 					{
-						"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+						"key": "system.abilities.dex.save.rollMode",
 						"value": "-1",
 						"priority": null,
 						"type": "override"

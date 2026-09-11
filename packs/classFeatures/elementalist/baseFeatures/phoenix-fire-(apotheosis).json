@@ -36,7 +36,10 @@
 						"formula": "11d6",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "2d6"
+							"formula": "2d6",
+							"config": {
+								"value": "2d6"
+							}
 						},
 						"damageType": "fire",
 						"canCrit": false
@@ -93,7 +96,10 @@
 						"formula": "11d6",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "2d6"
+							"formula": "2d6",
+							"config": {
+								"value": "2d6"
+							}
 						}
 					}
 				},
@@ -175,7 +181,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.hp.value",
+						"value": "9999",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		},
 		{
@@ -215,7 +229,15 @@
 			},
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.hp.value",
+						"value": "9999",
+						"priority": null,
+						"type": "subtract"
+					}
+				]
 			}
 		}
 	],

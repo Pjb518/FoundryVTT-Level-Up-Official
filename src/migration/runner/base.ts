@@ -250,7 +250,6 @@ class MigrationRunnerBase {
 
 		migration.lastMigration = {
 			version: fromVersion,
-			// @ts-expect-error
 			foundry: game.version,
 			system: game.system.version,
 		};

@@ -35,7 +35,10 @@
 						"default": true,
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "5"
+							"formula": "5",
+							"config": {
+								"value": "5"
+							}
 						},
 						"healingType": "temporaryHealing",
 						"formula": "0"
@@ -159,7 +162,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.baseFormula",
+						"value": "13 + @dex.mod[Dexterity Modifier]",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null
@@ -180,7 +191,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"value": "1",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{

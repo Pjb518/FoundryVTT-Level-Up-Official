@@ -90,7 +90,10 @@
 						"canCrit": false,
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "1d6"
+							"formula": "1d6",
+							"config": {
+								"value": "1d6"
+							}
 						},
 						"critBonus": "",
 						"label": ""
@@ -104,7 +107,10 @@
 						"damageType": "acid",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "1d6"
+							"formula": "1d6",
+							"config": {
+								"value": "1d6"
+							}
 						},
 						"critBonus": ""
 					}
@@ -241,7 +247,15 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"acid\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"name": "Arterial Acid",
 			"img": "icons/magic/acid/dissolve-bone-white.webp",

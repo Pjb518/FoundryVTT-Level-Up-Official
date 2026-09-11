@@ -15,7 +15,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"blinded\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -65,7 +73,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "floor(@attributes.movement.walk.distance/2)",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -113,7 +129,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"value": "floor(@attributes.movement.fly.distance/2)",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

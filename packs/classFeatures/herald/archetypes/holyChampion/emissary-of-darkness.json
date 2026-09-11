@@ -19,7 +19,27 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.negative",
+						"value": "true",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.bright",
+						"value": "30",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.attributes.senses.darkvision.distance",
+						"value": "{\"comparisonOperator\":\"<=\",\"comparisonValue\":\"30\",\"positiveValue\":\"30\",\"negativeValue\":\"@attributes.senses.darkvision.distance\"}",
+						"priority": null,
+						"type": "conditional"
+					}
+				]
 			},
 			"changes": [
 				{

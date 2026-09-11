@@ -19,7 +19,27 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"value": "100",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "200",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"stunned\",\"petrified\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -83,7 +103,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"stunned\",\"petrified\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{

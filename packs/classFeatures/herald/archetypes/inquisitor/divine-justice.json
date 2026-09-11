@@ -19,7 +19,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Mark of the Heretic\",\"formula\":\"@spellcasting.mod\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/targeting/crosshair-arrowhead-blue.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -67,7 +75,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.rolls.attack.outgoing.meleeWeaponAttack.rollMode",
+						"value": "-1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -119,7 +135,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"value": "[\"invisible\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"changes": [
 				{

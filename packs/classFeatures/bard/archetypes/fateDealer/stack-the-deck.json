@@ -96,7 +96,10 @@
 					"type": "creature",
 					"scaling": {
 						"mode": "spellLevel",
-						"formula": "1"
+						"formula": "1",
+						"config": {
+							"value": "1"
+						}
 					}
 				},
 				"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
@@ -165,7 +168,10 @@
 					"type": "creature",
 					"scaling": {
 						"mode": "spellLevel",
-						"formula": "1"
+						"formula": "1",
+						"config": {
+							"value": "1"
+						}
 					}
 				},
 				"img": "icons/magic/unholy/hand-light-green.webp"
@@ -247,7 +253,21 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null
@@ -319,7 +339,39 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.abilities",
+						"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"-1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.attacks",
+						"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"sort": 0,
 			"folder": null

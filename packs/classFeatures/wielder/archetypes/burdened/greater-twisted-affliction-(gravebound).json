@@ -38,7 +38,10 @@
 						"type": "damage",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "1d8"
+							"formula": "1d8",
+							"config": {
+								"value": "1d8"
+							}
 						}
 					}
 				},
@@ -155,7 +158,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"confused\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		},
 		{
@@ -202,7 +213,15 @@
 			},
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"rattled\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			}
 		}
 	],

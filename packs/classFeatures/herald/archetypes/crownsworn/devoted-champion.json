@@ -110,7 +110,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,
@@ -155,7 +156,27 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.rolls.attack.outgoing.meleeWeaponAttack.rollMode",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.rolls.attack.outgoing.rangedWeaponAttack.rollMode",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Devoted Champion\",\"formula\":\"1d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/holy/barrier-shield-winged-cross.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"changes": [
 				{

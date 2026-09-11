@@ -171,7 +171,27 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Elemental Weapon\",\"formula\":\"max(@cha.mod,1)\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/fire/flame-burning-fist-strike.webp\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "@token.light.bright",
+						"value": "20",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "@token.light.dim",
+						"value": "40",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{
@@ -235,7 +255,8 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": []
 			},
 			"changes": [],
 			"disabled": false,

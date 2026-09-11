@@ -136,7 +136,21 @@
 					"lastMigration": {
 						"schema": null
 					}
-				}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"value": "@attributes.movement.walk.distance * 0.5",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "system.traits.damageImmunities",
+						"value": "[\"acid\",\"bludgeoning\",\"cold\",\"fire\",\"lightning\",\"necrotic\",\"piercing\",\"poison\",\"psychic\",\"radiant\",\"slashing\",\"thunder\"]",
+						"priority": null,
+						"type": "add"
+					}
+				]
 			},
 			"name": "Resilient Forcefield",
 			"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",

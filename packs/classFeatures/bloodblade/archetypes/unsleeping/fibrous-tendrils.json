@@ -32,10 +32,6 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
 					"shape": "cone",
 					"quantity": 1,
 					"length": 15,
@@ -119,7 +115,12 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"price": {
+			"value": 0,
+			"denomination": "gp",
+			"special": ""
+		}
 	},
 	"effects": [
 		{
@@ -136,7 +137,14 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"poisoned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Poisoned",
 			"img": "icons/commodities/biological/tentacle-thorned-green.webp",
@@ -196,7 +204,14 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"value": "[\"stunned\"]",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"name": "Stunned",
 			"img": "icons/commodities/biological/tentacle-thorned-green.webp",

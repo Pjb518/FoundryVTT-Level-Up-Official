@@ -181,7 +181,33 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "system.traits.size",
+						"value": "huge",
+						"priority": null,
+						"type": "override"
+					},
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Lava Titan\",\"formula\":\"3d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/magical/construct-iron-stomping-yellow.webp\"}",
+						"priority": null,
+						"type": "custom"
+					},
+					{
+						"key": "system.traits.damageResistances",
+						"value": "[\"Non-magical bludgeoning, piercing, slashing\"]",
+						"priority": null,
+						"type": "add"
+					},
+					{
+						"key": "system.attributes.initiative.rollMode",
+						"value": "1",
+						"priority": null,
+						"type": "override"
+					}
+				]
 			},
 			"changes": [
 				{

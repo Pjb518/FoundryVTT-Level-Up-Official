@@ -40,7 +40,10 @@
 						"formula": "@prof",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "@prof"
+							"formula": "@prof",
+							"config": {
+								"value": "@prof"
+							}
 						}
 					}
 				},
@@ -138,7 +141,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"changes": [
+					{
+						"key": "flags.a5e.effects.bonuses.damage",
+						"value": "{\"label\":\"Unbound Heroism\",\"formula\":\"1d6\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[\"radiant\"],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/projectile-smoke-blue-light.webp\"}",
+						"priority": null,
+						"type": "custom"
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
