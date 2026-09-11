@@ -301,6 +301,11 @@ export default function registerEffectLocalizationConfig() {
 		'system.rolls.rangedWeaponAttack.incoming.rollMode':
 			'A5E.effects.keys.rolls.incoming.rangedWeaponAttack.rollMode',
 
+		'system.rolls.death.expertiseDice': 'A5E.effects.keys.rolls.death.expertise',
+		'system.rolls.death.maxRoll': 'A5E.effects.keys.rolls.death.maxRoll',
+		'system.rolls.death.minRoll': 'A5E.effects.keys.rolls.death.minRoll',
+		'system.rolls.death.rollMode': 'A5E.effects.keys.rolls.death.rollMode',
+
 		// Skills
 		'system.skills.acr.ability': 'A5E.effects.keys.skills.acr.defaultAbility',
 		'system.skills.acr.bonuses.check': 'A5E.effects.keys.skills.acr.checkBonus',

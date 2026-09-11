@@ -60,10 +60,10 @@ export default function modifySpecialOptions(options: object) {
 		ROLL_MODES,
 		'RADIO',
 	];
-	options['rolls.death.rollMode'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
-	options['rolls.death.expertiseDice'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
-	options['rolls.death.minRoll'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
-	options['rolls.death.maxRoll'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+	options['system.rolls.death.rollMode'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+	options['system.rolls.death.expertiseDice'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+	options['system.rolls.death.minRoll'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
+	options['system.rolls.death.maxRoll'] = [0, MODES.DEFAULT_MODES, ROLL_MODES, 'RADIO'];
 
 	options['flags.a5e.effects.expertiseDice.all'] = [0, MODES.DEFAULT_MODES];
 	options['flags.a5e.effects.expertiseDice.allChecks'] = [0, MODES.DEFAULT_MODES];
