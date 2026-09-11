@@ -37,6 +37,18 @@ declare module 'fvtt-types/configuration' {
 
 	interface CONFIG {
 		A5E: typeof A5E;
+		ActiveEffect: {
+			changeTypes: {
+				custom: 0;
+				multiply: 10;
+				add: 20;
+				subtract: 20;
+				downgrade: 30;
+				upgrade: 40;
+				override: 50;
+				conditional: 60;
+			};
+		};
 		Dice: CONFIG.Dice & {
 			BaseRoll: typeof BaseRoll;
 			BaseDie: typeof BaseDie;

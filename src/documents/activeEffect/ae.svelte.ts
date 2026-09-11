@@ -2,6 +2,11 @@ import { createSubscriber } from 'svelte/reactivity';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import evaluateConditional from './utils/evaluateConditional.ts';
 
+import fields = foundry.data.fields;
+
+// ===================================
+// Override some fields here
+// ===================================
 class ActiveEffectA5E extends ActiveEffect {
 	#subscribe: () => void;
 
@@ -31,7 +36,7 @@ class ActiveEffectA5E extends ActiveEffect {
 	// -------------------------------------------------------
 	static FALLBACK_IMG = 'icons/svg/hazard.svg';
 
-	static CHANGE_TYPES = {
+	static override CHANGE_TYPES = {
 		add: {
 			label: 'EFFECT.CHANGES.TYPES.add',
 			defaultPriority: 20,
@@ -42,11 +47,12 @@ class ActiveEffectA5E extends ActiveEffect {
 			label: 'EFFECT.CHANGES.TYPES.conditional',
 			defaultPriority: 50,
 			handler: (
-				targetDoc: any,
-				change: any,
-				changes: any,
-				{ field, replacementData, modifyTarget },
+				targetDoc: ActiveEffect.ChangeTarget,
+				change: ActiveEffect.ChangeData,
+				changes: ActiveEffect.ChangeData[],
+				{ field, replacementData, modifyTarget } = {} as ActiveEffect.ApplyChangeFieldOptions,
 			) => {
+				if (!change.key) return;
 				const operationData = change.value;
 				if (!foundry.utils.isPlainObject(operationData)) return null;
 
@@ -76,12 +82,13 @@ class ActiveEffectA5E extends ActiveEffect {
 			label: 'EFFECT.CHANGES.TYPES.add',
 			defaultPriority: 0,
 			handler: (
-				targetDoc: any,
-				change: any,
-				changes: any,
-				{ field, replacementData, modifyTarget },
+				targetDoc: ActiveEffect.ChangeTarget,
+				change: ActiveEffect.ChangeData,
+				changes: ActiveEffect.ChangeData[],
+				{ field, replacementData, modifyTarget } = {} as ActiveEffect.ApplyChangeFieldOptions,
 			) => {
-				if (!change.key.startsWith('flags.a5e.effects')) return null;
+				if (!change.key) return;
+				if (!change.key!.startsWith('flags.a5e.effects')) return;
 
 				let newKey = '';
 				let result: any;
@@ -191,8 +198,9 @@ class ActiveEffectA5E extends ActiveEffect {
 	// -------------------------------------------------------
 	//  Apply Methods
 	// -------------------------------------------------------
-	static applyChange(targetDoc, change, { replacementData = {}, modifyTarget = true }) {
+	static override applyChange(targetDoc, change, { replacementData = {}, modifyTarget = true }) {
 		let field;
+		console.log('here');
 		const changes = {};
 
 		// Sub @original for current value
@@ -234,10 +242,42 @@ class ActiveEffectA5E extends ActiveEffect {
 		return changes;
 	}
 
-	static applyChangeField(targetDoc, change, { field, replacementData = {}, modifyTarget = true }) {
+	static override applyChangeField<Field extends fields.DataField.Any | undefined = undefined>(
+		targetDoc: ActiveEffect.ChangeTarget,
+		change: ActiveEffect.ChangeData,
+		{
+			field,
+			replacementData = {},
+			modifyTarget = true,
+		} = {} as ActiveEffect.ApplyChangeFieldOptionsFor<Field>,
+	) {
 		field ??= targetDoc.getFieldForProperty(change.key);
+		const current = foundry.utils.getProperty(targetDoc, change.key!) as any;
+		const currentType = foundry.utils.getType(current);
+		const changeType = foundry.utils.getType(change.value);
 
-		const current = foundry.utils.getProperty(targetDoc, change.key);
+		if (!change.key) return current;
+		if (!field) return current;
+
+		// Custom Handling for arrays
+		if (field instanceof fields.ArrayField && currentType === 'Array' && changeType === 'Array') {
+			const newValues = change.value as any[];
+			if (change.type === 'override') return newValues;
+			newValues.forEach((value) => {
+				if (change.type === 'add') current.push(value);
+				if (change.type === 'subtract') current.findSplice((v) => v === 'value');
+			});
+			return current;
+		}
+
+		// Custom Handling for sets
+		if (
+			field instanceof fields.SetField &&
+			currentType === 'Set' && ['Array, Set'.includes(changeType)]
+		) {
+			const newValues = change.va;
+		}
+
 		const update = field.applyChange(current, targetDoc, change, {
 			replacementData,
 		});
@@ -249,7 +289,7 @@ class ActiveEffectA5E extends ActiveEffect {
 		return update;
 	}
 
-	static _applyChangeUnguided(
+	static override _applyChangeUnguided(
 		targetDoc,
 		change,
 		changes,

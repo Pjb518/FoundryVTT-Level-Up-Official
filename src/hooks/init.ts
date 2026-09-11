@@ -96,21 +96,21 @@ export default function init() {
 	CONFIG.ChatMessage.dataModels = chatDataModels;
 	CONFIG.Item.dataModels = itemDataModels;
 
+	// ActiveEffect Config
 	CONFIG.ActiveEffect.changeTypes = {
-		0: 'custom',
-		1: 'multiply',
-		2: 'add',
-		3: 'subtract',
-		4: 'downgrade',
-		5: 'upgrade',
-		6: 'override',
-		7: 'conditional',
+		custom: 0,
+		multiply: 10,
+		add: 20,
+		subtract: 20,
+		downgrade: 30,
+		upgrade: 40,
+		override: 50,
+		conditional: 60,
 	};
+	CONFIG.ActiveEffect.expiryAction = 'delete';
 
 	// Layers
 	CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
-
-	CONFIG.ActiveEffect.expiryAction = 'delete';
 
 	// Initialize the game's A5E namespace
 	game.a5e = {
