@@ -322,7 +322,7 @@ class RollStateManager {
 		return { prompts, rolls, shapeData };
 	}
 
-	handleEffects(effectIds: string[]) {
+	async handleEffects(effectIds: string[]) {
 		effectIds.forEach((uuid) => {
 			const effect = fromUuidSync(uuid) as ActiveEffect | undefined;
 			if (!effect) return;
@@ -330,6 +330,29 @@ class RollStateManager {
 			// @ts-expect-error Will fix when effects are typed
 			effect.transferEffect(this.#actor);
 		});
+
+		// Handle Concentration automation
+		if (this.#action.requiresConcentration) {
+			// Remove concentration if it alreay exists
+			if (this.#actor.statuses.has('concentration')) {
+				await this.#actor.toggleStatusEffect('concentration', { active: false });
+			}
+
+			// Construct Updates
+			const updates: Record<string, any> = {};
+			const duration = this.#action.duration;
+			// @ts-expect-error
+			const validUnit = CONST.ACTIVE_EFFECT_DURATION_UNITS.includes(`${duration.unit}s`);
+			if (duration.value && validUnit) {
+				updates['duration.value'] = duration.value;
+				updates['duration.units'] = `${duration.unit}s`;
+			}
+
+			updates.origin = this.#item.uuid;
+
+			// Add concentration condition
+			this.#actor.toggleStatusEffect('concentration', { active: true, updates });
+		}
 	}
 }
 

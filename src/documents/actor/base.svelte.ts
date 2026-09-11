@@ -2088,9 +2088,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	// -------------------------------------------------------------
 	async toggleStatusEffect(
 		statusId: string,
-		options: { active: boolean; overlay: boolean } = {
+		options: { active?: boolean; overlay?: boolean; updates?: any } = {
 			active: true,
 			overlay: false,
+			updates: {},
 		},
 	) {
 		const { active, overlay = false } = options;
@@ -2126,7 +2127,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(statusId)) {
 			const delta = active ? 1 : -1;
 			const currLevel = this.system.attributes[statusId];
-			// @ts-expect-error
 			const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
 			if (delta === 1 && currLevel >= maxLevel) return undefined;
 			if (delta === -1 && currLevel <= 0) return undefined;
@@ -2136,7 +2136,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 					? 'exhaustion'
 					: statusId;
 
-			// @ts-expect-error
 			const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {}).reduce(
 				(acc, [level, change]) => {
 					if (level > currLevel + delta) return acc;
@@ -2172,11 +2171,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 			// Create a new effect
 			if (active) {
-				// @ts-expect-error
 				const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
 				effect.updateSource({
 					'system.changes': changes,
 					'system.effectType': 'condition',
+					...options.updates,
 				});
 				return ActiveEffect.implementation.create(effect, {
 					parent: this,
@@ -2194,9 +2193,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		// Create a new effect unless the status effect is forced inactive
 		if (!active && active !== undefined) return undefined;
-		// @ts-expect-error
 		const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
-		effect.updateSource({ 'system.effectType': 'condition' });
+		effect.updateSource({ 'system.effectType': 'condition', ...options.updates });
 		if (overlay) effect.updateSource({ 'flags.core.overlay': true });
 		return ActiveEffect.implementation.create(effect, {
 			parent: this,
