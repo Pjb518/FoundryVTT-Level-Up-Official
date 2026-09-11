@@ -23,77 +23,17 @@ export default function registerEffectLocalizationConfig() {
 		'flags.a5e.effects.movement.allUnits': 'A5E.effects.keys.flags.movement.allUnits',
 		'flags.a5e.effects.expertiseDie': 'A5E.effects.keys.flags.expertiseDie',
 		'flags.a5e.effects.statusConditions': 'A5E.effects.keys.flags.statusConditions',
+		'flags.a5e.effects.expertiseDice.all': 'A5E.effects.keys.flags.expertiseDice.all',
+		'flags.a5e.effects.expertiseDice.allChecks': 'A5E.effects.keys.flags.expertiseDice.allChecks',
+		'flags.a5e.effects.expertiseDice.allSaves': 'A5E.effects.keys.flags.expertiseDice.allSaves',
 		'flags.a5e.effects.grants.rollMode.attack.all': 'A5E.effects.keys.flags.grantsRollMode.all',
-		'flags.a5e.effects.grants.rollMode.attack.meleeSpellAttack':
-			'A5E.effects.keys.flags.grantsRollMode.meleeSpellAttack',
-		'flags.a5e.effects.grants.rollMode.attack.meleeWeaponAttack':
-			'A5E.effects.keys.flags.grantsRollMode.meleeWeaponAttack',
-		'flags.a5e.effects.grants.rollMode.attack.rangedSpellAttack':
-			'A5E.effects.keys.flags.grantsRollMode.rangedSpellAttack',
-		'flags.a5e.effects.grants.rollMode.attack.rangedWeaponAttack':
-			'A5E.effects.keys.flags.grantsRollMode.rangedWeaponAttack',
 		'flags.a5e.effects.rollMode.abilityCheck.all':
 			'A5E.effects.keys.flags.rollMode.abilityChecks.all',
-		'flags.a5e.effects.rollMode.abilityCheck.cha':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.cha',
-		'flags.a5e.effects.rollMode.abilityCheck.con':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.con',
-		'flags.a5e.effects.rollMode.abilityCheck.dex':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.dex',
-		'flags.a5e.effects.rollMode.abilityCheck.int':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.int',
-		'flags.a5e.effects.rollMode.abilityCheck.str':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.str',
-		'flags.a5e.effects.rollMode.abilityCheck.wis':
-			'A5E.effects.keys.flags.rollMode.abilityChecks.wis',
 		'flags.a5e.effects.rollMode.abilitySave.all':
 			'A5E.effects.keys.flags.rollMode.savingThrows.all',
-		'flags.a5e.effects.rollMode.abilitySave.cha':
-			'A5E.effects.keys.flags.rollMode.savingThrows.cha',
-		'flags.a5e.effects.rollMode.abilitySave.con':
-			'A5E.effects.keys.flags.rollMode.savingThrows.con',
-		'flags.a5e.effects.rollMode.abilitySave.dex':
-			'A5E.effects.keys.flags.rollMode.savingThrows.dex',
-		'flags.a5e.effects.rollMode.abilitySave.int':
-			'A5E.effects.keys.flags.rollMode.savingThrows.int',
-		'flags.a5e.effects.rollMode.abilitySave.str':
-			'A5E.effects.keys.flags.rollMode.savingThrows.str',
-		'flags.a5e.effects.rollMode.abilitySave.wis':
-			'A5E.effects.keys.flags.rollMode.savingThrows.wis',
 		'flags.a5e.effects.rollMode.attack.all': 'A5E.effects.keys.flags.rollMode.attack.all',
-		'flags.a5e.effects.rollMode.attack.meleeSpellAttack':
-			'A5E.effects.keys.flags.rollMode.attack.meleeSpellAttack',
-		'flags.a5e.effects.rollMode.attack.meleeWeaponAttack':
-			'A5E.effects.keys.flags.rollMode.attack.meleeWeaponAttack',
-		'flags.a5e.effects.rollMode.attack.rangedSpellAttack':
-			'A5E.effects.keys.flags.rollMode.attack.rangedSpellAttack',
-		'flags.a5e.effects.rollMode.attack.rangedWeaponAttack':
-			'A5E.effects.keys.flags.rollMode.attack.rangedWeaponAttack',
 		'flags.a5e.effects.rollMode.concentration': 'A5E.effects.keys.flags.rollMode.concentration',
-		'flags.a5e.effects.rollMode.deathSave': 'A5E.effects.keys.flags.rollMode.deathSave',
-		'flags.a5e.effects.rollMode.initiative': 'A5E.effects.keys.flags.rollMode.initiative',
 		'flags.a5e.effects.rollMode.skillCheck.all': 'A5E.effects.keys.flags.rollMode.skillChecks.all',
-		'flags.a5e.effects.rollMode.skillCheck.acr': 'A5E.effects.keys.flags.rollMode.skillChecks.acr',
-		'flags.a5e.effects.rollMode.skillCheck.ani': 'A5E.effects.keys.flags.rollMode.skillChecks.ani',
-		'flags.a5e.effects.rollMode.skillCheck.arc': 'A5E.effects.keys.flags.rollMode.skillChecks.arc',
-		'flags.a5e.effects.rollMode.skillCheck.ath': 'A5E.effects.keys.flags.rollMode.skillChecks.ath',
-		'flags.a5e.effects.rollMode.skillCheck.cul': 'A5E.effects.keys.flags.rollMode.skillChecks.cul',
-		'flags.a5e.effects.rollMode.skillCheck.dec': 'A5E.effects.keys.flags.rollMode.skillChecks.dec',
-		'flags.a5e.effects.rollMode.skillCheck.eng': 'A5E.effects.keys.flags.rollMode.skillChecks.eng',
-		'flags.a5e.effects.rollMode.skillCheck.his': 'A5E.effects.keys.flags.rollMode.skillChecks.his',
-		'flags.a5e.effects.rollMode.skillCheck.ins': 'A5E.effects.keys.flags.rollMode.skillChecks.ins',
-		'flags.a5e.effects.rollMode.skillCheck.inv': 'A5E.effects.keys.flags.rollMode.skillChecks.inv',
-		'flags.a5e.effects.rollMode.skillCheck.itm': 'A5E.effects.keys.flags.rollMode.skillChecks.itm',
-		'flags.a5e.effects.rollMode.skillCheck.med': 'A5E.effects.keys.flags.rollMode.skillChecks.med',
-		'flags.a5e.effects.rollMode.skillCheck.nat': 'A5E.effects.keys.flags.rollMode.skillChecks.nat',
-		'flags.a5e.effects.rollMode.skillCheck.per': 'A5E.effects.keys.flags.rollMode.skillChecks.per',
-		'flags.a5e.effects.rollMode.skillCheck.prc': 'A5E.effects.keys.flags.rollMode.skillChecks.prc',
-		'flags.a5e.effects.rollMode.skillCheck.prf': 'A5E.effects.keys.flags.rollMode.skillChecks.prf',
-		'flags.a5e.effects.rollMode.skillCheck.rel': 'A5E.effects.keys.flags.rollMode.skillChecks.rel',
-		'flags.a5e.effects.rollMode.skillCheck.sci': 'A5E.effects.keys.flags.rollMode.skillChecks.sci',
-		'flags.a5e.effects.rollMode.skillCheck.slt': 'A5E.effects.keys.flags.rollMode.skillChecks.slt',
-		'flags.a5e.effects.rollMode.skillCheck.ste': 'A5E.effects.keys.flags.rollMode.skillChecks.ste',
-		'flags.a5e.effects.rollMode.skillCheck.sur': 'A5E.effects.keys.flags.rollMode.skillChecks.sur',
 		'flags.a5e.effects.senses.allDistances': 'A5E.effects.keys.flags.senses.allDistances',
 		'flags.a5e.effects.senses.allUnits': 'A5E.effects.keys.flags.senses.allUnits',
 
@@ -273,7 +213,7 @@ export default function registerEffectLocalizationConfig() {
 		'system.details.cr': 'A5E.effects.keys.details.cr',
 		'system.details.elite': 'A5E.effects.keys.details.elite',
 		'system.details.isSwarm': 'A5E.effects.keys.details.isSwarm',
-		'system.details.isShapeChanger': 'A5E.effects.keys.details.isShapeChanger',
+		'system.details.isShapechanger': 'A5E.effects.keys.details.isShapeChanger',
 		'system.proficiencies.armor': 'A5E.effects.keys.proficiencies.armor',
 		'system.proficiencies.languages': 'A5E.effects.keys.proficiencies.languages',
 		'system.proficiencies.tools': 'A5E.effects.keys.proficiencies.tools',
