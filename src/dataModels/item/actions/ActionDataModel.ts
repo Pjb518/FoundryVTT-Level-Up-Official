@@ -197,6 +197,10 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 		}, [] as string[]);
 	}
 
+	get requiresConcentration() {
+		return this.duration.concentration;
+	}
+
 	/** -------------Helpers---------------- */
 	getDefaultIds(property: 'consumers' | 'prompts' | 'rolls'): string[] {
 		const arr = Object.values(this[property] ?? {});
