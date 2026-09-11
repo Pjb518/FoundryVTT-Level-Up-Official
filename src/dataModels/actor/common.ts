@@ -50,6 +50,14 @@ export const attributes = () => ({
 		baseFormula: new fields.StringField({ required: true, initial: '10 + @dex.mod' }),
 		value: new fields.NumberField({ required: true, initial: 0, integer: true }),
 	}),
+	concentration: new fields.SchemaField({
+		limit: new fields.NumberField({ required: true, nullable: false, initial: 1, integer: true }),
+		sources: new fields.SetField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		...d20RollModification(),
+	}),
 	death: new fields.SchemaField({
 		success: new fields.NumberField({
 			required: true,
