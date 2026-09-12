@@ -200,7 +200,6 @@ class ActiveEffectA5E extends ActiveEffect {
 	// -------------------------------------------------------
 	static override applyChange(targetDoc, change, { replacementData = {}, modifyTarget = true }) {
 		let field;
-		console.log('here');
 		const changes = {};
 
 		// Sub @original for current value

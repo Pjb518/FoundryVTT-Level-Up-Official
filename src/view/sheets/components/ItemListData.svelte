@@ -1,750 +1,662 @@
 <script lang="ts">
-    import type { Action } from "types/action.d.ts";
-
-    import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
-
-    import { formulaIsClassResource } from "#utils/formulaIsClassResource.ts";
-    import { getDeterministicBonus } from "../../../dice/getDeterministicBonus.ts";
-    import { weightRequired } from "#utils/view/weightRequired.ts";
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-
-    type Props = {
-        item: Item;
-        action?: Action;
-        actionId?: string;
-        toggleActionList?: () => void;
-        toggleContainer?: () => void;
-    };
-
-    let { item, action, actionId, toggleActionList, toggleContainer }: Props =
-        $props();
-
-    function getActivationCost() {
-        let _action = action;
-
-        if (!item.reactive.actions) return "";
-        if (item.reactive.actions?.count === 0) return "";
-
-        if (item.reactive.actions?.count === 1) {
-            _action = item.reactive.actions.first!;
-        }
-
-        switch (_action?.activation?.type) {
-            case "action":
-                return "A";
-            case "bonusAction":
-                return "B";
-            case "legendaryAction": {
-                const cost = _action?.activation?.cost;
-
-                if (cost === 1 || cost === 0) return "L";
-                return `${cost}L`;
-            }
-            case "reaction":
-                return "R";
-            default:
-                return "";
-        }
-    }
-
-    // TODO: Cleanup - Fix up this gross mess
-    function getActivationCostLabel(cost: string) {
-        let _action = action;
-
-        if (item.reactive.actions?.count === 1) {
-            _action = item.reactive.actions.first!;
-        }
-
-        switch (cost) {
-            case "A":
-                return "Action";
-            case "B":
-                return "Bonus Action";
-            case "L":
-                return "Legendary Action";
-            case "R":
-                return _action?.activation?.reactionTrigger
-                    ? `Reaction (${_action.activation.reactionTrigger})`
-                    : "Reaction";
-            default:
-                return "";
-        }
-    }
-
-    function getSelectedAmmo(item: Item, action: Action) {
-        let _action = action;
-
-        if (!item.actions) return "";
-        if (item.actions?.count === 0) return "";
-
-        if (item.actions?.count === 1) {
-            _action = item.actions.first!;
-        }
-
-        const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
-            ([_, consumer]) => consumer?.type === "ammunition",
-        );
-
-        if (!ammoConsumer) return "";
-
-        return ammoConsumer[1].itemId;
-    }
-
-    function hasAmmunition(item: ItemA5e, action: Action) {
-        let _action = action;
-
-        if (!item.actions) return false;
-        if (item.actions.count === 0) return false;
-
-        if (item.actions.count === 1) {
-            _action = item.actions.first!;
-        }
-
-        return Object.entries(_action?.consumers ?? {}).filter(
-            ([_, consumer]) => consumer?.type === "ammunition",
-        ).length;
-    }
-
-    function updateAmmunition(event) {
-        let _actionId = actionId;
-        const selectedOption = event.target?.selectedOptions[0]?.value;
-
-        if (!item.actions) return;
-        if (item.actions.count === 0) return;
-
-        if (item.actions.count === 1) {
-            _actionId = item.actions.first.id;
-        }
-
-        const [consumerId] = Object.entries(
-            item.actions.get(_actionId || "")?.consumers ?? {},
-        ).find(([_, consumer]) => consumer?.type === "ammunition");
-
-        if (!consumerId) return;
-
-        updateDocumentDataFromField(
-            item,
-            `system.actions.${_actionId}.consumers.${consumerId}.itemId`,
-            selectedOption,
-        );
-    }
-
-    function hasRecharge(item: ItemA5e) {
-        if (actionId && action) return action.uses?.per === "recharge";
-        return item.reactive.system?.uses?.per === "recharge";
-    }
-
-    function updateField(event) {
-        event.preventDefault();
-
-        const { target } = event;
-        updateDocumentDataFromField(item, target.name, Number(target.value));
-    }
-
-    function updateUsesValue(event) {
-        event.preventDefault();
-
-        const { target } = event;
-        if (isClassResource) {
-            updateDocumentDataFromField(
-                actor,
-                target.name,
-                Number(target.value),
-            );
-        } else {
-            updateDocumentDataFromField(
-                item,
-                target.name,
-                Number(target.value),
-            );
-        }
-    }
-
-    function onConfigure() {
-        if (!rightClickConfigure) return;
-
-        if (actionId) {
-            item.actions?.configure(actionId);
-            return;
-        }
-
-        const id = [...(item.actions.keys() ?? [])].at(0);
-        if (!id) {
-            item.configureItem();
-            return;
-        }
-
-        item.actions?.configure(id);
-    }
-
-    /*
-    function getCapacity(item: Item): number {
-        if (!item.isType("object")) return 0;
-        if (item.system?.objectType !== "container") return 0;
-
-        const capacity = item.containerItems
-            ?.capacity()
-            .then((c) => (containerCapacity = c.value))
-            .catch((e) => console.error(e));
-
-        return capacity?.value ?? 0;
-    }
-    */
-
-    function generateUsesConfig() {
-        const usesData = {
-            action: {
-                value: action ? action.uses?.value : 0,
-                max: action
-                    ? getDeterministicBonus(
-                          action.uses?.max ?? 0,
-                          actor.getRollData(item),
-                      )
-                    : 0,
-                updatePath: `system.actions.${actionId}.uses`,
-            },
-            item: {
-                value: itemStore?.uses?.value ?? 0,
-                max: getDeterministicBonus(
-                    itemStore?.uses?.max ?? 0,
-                    actor.reactive.getRollData(item),
-                ),
-                updatePath: "system.uses",
-            },
-        };
-
-        const maxFormula =
-            usesType === "action" && action
-                ? (action.uses?.max ?? "")
-                : (item.system.uses?.max ?? "");
-
-        if (!maxFormula) return usesData;
-
-        if (isClassResource) {
-            const reg = new RegExp(/@classResources.(\S+)/gm);
-            const slug = reg.exec(maxFormula)?.[1];
-
-            if (!slug) return usesData;
-
-            const resource =
-                foundry.utils.getProperty(
-                    actor._source,
-                    `system.resources.classResources.${slug}`,
-                ) ?? getDeterministicBonus(maxFormula, actor.getRollData(item));
-
-            usesData[usesType].value = resource;
-            usesData[usesType].updatePath =
-                `system.resources.classResources.${slug}`;
-        }
-
-        return usesData;
-    }
-
-    let actor: any = getContext("actor");
-    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
-    let actorStore = $derived(actor.reactive.system);
-    let itemStore = $derived(item.reactive.system);
-
-    const {
-        damagedStates,
-        DAMAGED_STATES,
-        equippedStates,
-        EQUIPPED_STATES,
-        preparedStates,
-        PREPARED_STATES,
-    } = CONFIG.A5E;
-
-    let hideBrokenAndDamaged = game.settings.get(
-        "a5e",
-        "hideBrokenAndDamaged",
-    ) as boolean;
-
-    let usesType: "action" | "item" = actionId ? "action" : "item";
-
-    let rightClickConfigure = (game.settings.get(
-        "a5e",
-        "itemRightClickConfigure",
-    ) ?? false) as boolean;
-
-    let flags = $derived(actor.reactive.flags);
-    let isClassResource = $derived.by(() => {
-        const maxFormula =
-            usesType === "action" && action
-                ? (action.uses?.max ?? "")
-                : (item.system.uses?.max ?? "");
-
-        if (!maxFormula) return false;
-
-        return formulaIsClassResource(maxFormula);
-    });
-
-    let uses = $derived(generateUsesConfig());
-    let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? 0);
-    let showWeight = $derived(
-        weightRequired(actor.reactive.items, showWeightColumnFlag),
-    );
-
-    let ammunitionItems = $derived.by(() =>
-        actor.reactive.items
-            .filter(
-                (i: Item) =>
-                    i.reactive.type === "object" &&
-                    i.reactive.system.objectType === "ammunition",
-            )
-            .map((i) => ({ name: i.name, id: i.id }))
-            .sort((a, b) =>
-                a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-            ),
-    );
-
-    let rechargeState = $derived(
-        actionId
-            ? // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-              action.uses?.max == action.uses?.value
-            : // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-              item.reactive.system?.uses?.max ==
-                  item.reactive.system?.uses?.value,
-    );
-
-    let activationCost = $derived(getActivationCost());
-    let activationCostLabel = $derived(getActivationCostLabel(activationCost));
-    let containerCapacity = $state(0);
-    let selectedAmmo = $derived(getSelectedAmmo(item, action));
-
-    let containerCurrentWeight = $derived.by(() => {
-        if (itemStore?.objectType !== "container") return 0;
-        return actor.reactive.items
-            .filter((i) => i.system?.containerId === item.uuid)
-            .reduce(
-                (sum, i) =>
-                    sum + parseFloat(i.weight ?? 0) * (i.system?.quantity ?? 1),
-                0,
-            );
-    });
-
-    let isMagicalItem = $derived(
-        item.reactive.type === "object" &&
-            !["mundane", ""].includes(itemStore.rarity),
-    );
-
-    $effect(() => {
-        if (
-            !item.reactive.type === "object" ||
-            item.reactive.system?.objectType !== "container"
-        ) {
-            containerCapacity = 0;
-            return;
-        }
-
-        item.reactive.containerItems
-            ?.capacity()
-            .then((c) => (containerCapacity = c.value))
-            .catch((e) => console.error(e));
-    });
+	import { getContext } from 'svelte';
+	import type { Action } from 'types/action.d.ts';
+	import { formulaIsClassResource } from '#utils/formulaIsClassResource.ts';
+	import { localize } from '#utils/localization/localize.ts';
+	import updateDocumentDataFromField from '#utils/updateDocumentDataFromField.ts';
+	import { weightRequired } from '#utils/view/weightRequired.ts';
+	import { getDeterministicBonus } from '../../../dice/getDeterministicBonus.ts';
+
+	type Props = {
+		item: Item;
+		action?: Action;
+		actionId?: string;
+		toggleActionList?: () => void;
+		toggleContainer?: () => void;
+	};
+
+	let { item, action, actionId, toggleActionList, toggleContainer }: Props = $props();
+
+	function getActivationCost() {
+		let _action = action;
+
+		if (!item.reactive.actions) return '';
+		if (item.reactive.actions?.count === 0) return '';
+
+		if (item.reactive.actions?.count === 1) {
+			_action = item.reactive.actions.first!;
+		}
+
+		switch (_action?.activation?.type) {
+			case 'action':
+				return 'A';
+			case 'bonusAction':
+				return 'B';
+			case 'legendaryAction': {
+				const cost = _action?.activation?.cost;
+
+				if (cost === 1 || cost === 0) return 'L';
+				return `${cost}L`;
+			}
+			case 'reaction':
+				return 'R';
+			default:
+				return '';
+		}
+	}
+
+	// TODO: Cleanup - Fix up this gross mess
+	function getActivationCostLabel(cost: string) {
+		let _action = action;
+
+		if (item.reactive.actions?.count === 1) {
+			_action = item.reactive.actions.first!;
+		}
+
+		switch (cost) {
+			case 'A':
+				return 'Action';
+			case 'B':
+				return 'Bonus Action';
+			case 'L':
+				return 'Legendary Action';
+			case 'R':
+				return _action?.activation?.reactionTrigger
+					? `Reaction (${_action.activation.reactionTrigger})`
+					: 'Reaction';
+			default:
+				return '';
+		}
+	}
+
+	function getSelectedAmmo(item: Item, action: Action) {
+		let _action = action;
+
+		if (!item.actions) return '';
+		if (item.actions?.count === 0) return '';
+
+		if (item.actions?.count === 1) {
+			_action = item.actions.first!;
+		}
+
+		const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
+			([_, consumer]) => consumer?.type === 'ammunition',
+		);
+
+		if (!ammoConsumer) return '';
+
+		return ammoConsumer[1].itemId;
+	}
+
+	function hasAmmunition(item: ItemA5e, action: Action) {
+		let _action = action;
+
+		if (!item.actions) return false;
+		if (item.actions.count === 0) return false;
+
+		if (item.actions.count === 1) {
+			_action = item.actions.first!;
+		}
+
+		return Object.entries(_action?.consumers ?? {}).filter(
+			([_, consumer]) => consumer?.type === 'ammunition',
+		).length;
+	}
+
+	function updateAmmunition(event) {
+		let _actionId = actionId;
+		const selectedOption = event.target?.selectedOptions[0]?.value;
+
+		if (!item.actions) return;
+		if (item.actions.count === 0) return;
+
+		if (item.actions.count === 1) {
+			_actionId = item.actions.first.id;
+		}
+
+		const [consumerId] = Object.entries(item.actions.get(_actionId || '')?.consumers ?? {}).find(
+			([_, consumer]) => consumer?.type === 'ammunition',
+		);
+
+		if (!consumerId) return;
+
+		updateDocumentDataFromField(
+			item,
+			`system.actions.${_actionId}.consumers.${consumerId}.itemId`,
+			selectedOption,
+		);
+	}
+
+	function hasRecharge(item: ItemA5e) {
+		if (actionId && action) return action.uses?.per === 'recharge';
+		return item.reactive.system?.uses?.per === 'recharge';
+	}
+
+	function updateField(event) {
+		event.preventDefault();
+
+		const { target } = event;
+		updateDocumentDataFromField(item, target.name, Number(target.value));
+	}
+
+	function updateUsesValue(event) {
+		event.preventDefault();
+
+		const { target } = event;
+		if (isClassResource) {
+			updateDocumentDataFromField(actor, target.name, Number(target.value));
+		} else {
+			updateDocumentDataFromField(item, target.name, Number(target.value));
+		}
+	}
+
+	function onConfigure() {
+		if (!rightClickConfigure) return;
+
+		if (actionId) {
+			item.actions?.configure(actionId);
+			return;
+		}
+
+		const id = [...(item.actions.keys() ?? [])].at(0);
+		if (!id) {
+			item.configureItem();
+			return;
+		}
+
+		item.actions?.configure(id);
+	}
+
+	function getCapacity(): number {
+		if (item.type !== 'object') return 0;
+		if (item.system?.objectType !== 'container') return 0;
+
+		const capacity = item.reactive.containerItems.capacity();
+		return capacity?.value ?? 0;
+	}
+
+	function generateUsesConfig() {
+		const usesData = {
+			action: {
+				value: action ? action.uses?.value : 0,
+				max: action ? getDeterministicBonus(action.uses?.max ?? 0, actor.getRollData(item)) : 0,
+				updatePath: `system.actions.${actionId}.uses`,
+			},
+			item: {
+				value: itemStore?.uses?.value ?? 0,
+				max: getDeterministicBonus(itemStore?.uses?.max ?? 0, actor.reactive.getRollData(item)),
+				updatePath: 'system.uses',
+			},
+		};
+
+		const maxFormula =
+			usesType === 'action' && action ? (action.uses?.max ?? '') : (item.system.uses?.max ?? '');
+
+		if (!maxFormula) return usesData;
+
+		if (isClassResource) {
+			const reg = new RegExp(/@classResources.(\S+)/gm);
+			const slug = reg.exec(maxFormula)?.[1];
+
+			if (!slug) return usesData;
+
+			const resource =
+				foundry.utils.getProperty(actor._source, `system.resources.classResources.${slug}`) ??
+				getDeterministicBonus(maxFormula, actor.getRollData(item));
+
+			usesData[usesType].value = resource;
+			usesData[usesType].updatePath = `system.resources.classResources.${slug}`;
+		}
+
+		return usesData;
+	}
+
+	let actor: any = getContext('actor');
+	let sheetIsLocked: () => boolean = getContext('sheetIsLocked');
+	let actorStore = $derived(actor.reactive.system);
+	let itemStore = $derived(item.reactive.system);
+
+	const {
+		damagedStates,
+		DAMAGED_STATES,
+		equippedStates,
+		EQUIPPED_STATES,
+		preparedStates,
+		PREPARED_STATES,
+	} = CONFIG.A5E;
+
+	let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged') as boolean;
+
+	let usesType: 'action' | 'item' = actionId ? 'action' : 'item';
+
+	let rightClickConfigure = (game.settings.get('a5e', 'itemRightClickConfigure') ??
+		false) as boolean;
+
+	let flags = $derived(actor.reactive.flags);
+	let isClassResource = $derived.by(() => {
+		const maxFormula =
+			usesType === 'action' && action ? (action.uses?.max ?? '') : (item.system.uses?.max ?? '');
+
+		if (!maxFormula) return false;
+
+		return formulaIsClassResource(maxFormula);
+	});
+
+	let uses = $derived(generateUsesConfig());
+	let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? 0);
+	let showWeight = $derived(weightRequired(actor.reactive.items, showWeightColumnFlag));
+
+	let ammunitionItems = $derived.by(() =>
+		actor.reactive.items
+			.filter(
+				(i: Item) => i.reactive.type === 'object' && i.reactive.system.objectType === 'ammunition',
+			)
+			.map((i) => ({ name: i.name, id: i.id }))
+			.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())),
+	);
+
+	let rechargeState = $derived(
+		actionId
+			? // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+				action.uses?.max == action.uses?.value
+			: // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+				item.reactive.system?.uses?.max == item.reactive.system?.uses?.value,
+	);
+
+	let activationCost = $derived(getActivationCost());
+	let activationCostLabel = $derived(getActivationCostLabel(activationCost));
+	let containerCapacity = $derived(getCapacity());
+	let selectedAmmo = $derived(getSelectedAmmo(item, action));
+
+	let isMagicalItem = $derived(
+		item.reactive.type === 'object' && !['mundane', ''].includes(itemStore.rarity),
+	);
+
+	// $effect(() => {
+	// 	if (!item.reactive.type === 'object' || item.reactive.system?.objectType !== 'container') {
+	// 		containerCapacity = 0;
+	// 		return;
+	// 	}
+
+	// 	console.log(item.reactive.containerItems.capacity());
+
+	// 	// item.reactive.containerItems
+	// 	// 	?.capacity()
+	// 	// 	.then((c) => (containerCapacity = c.value))
+	// 	// 	.catch((e) => console.error(e));
+	// });
 </script>
 
-<div
-    class="name-wrapper"
-    class:name-wrapper--ammunition={hasAmmunition(item, action)}
->
-    <div class="name">
-        <span class="name__text">{action?.name ?? item.reactive.name}</span>
+<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
+	<div class="name">
+		<span class="name__text">{action?.name ?? item.reactive.name}</span>
 
-        {#if isMagicalItem}
-            <i
-                class="icon fa-solid fa-wand-magic-sparkles"
-                data-tooltip="A5E.objects.magical"
-                data-tooltip-direction="UP"
-            ></i>
-        {/if}
+		{#if isMagicalItem}
+			<i
+				class="icon fa-solid fa-wand-magic-sparkles"
+				data-tooltip="A5E.objects.magical"
+				data-tooltip-direction="UP"
+			></i>
+		{/if}
 
-        {#if activationCost && (item.reactive.actions?.count === 1 || action)}
-            <button
-                type="button"
-                class="action-button action-button--activation-cost"
-                data-tooltip={activationCostLabel}
-                data-tooltip-direction="UP"
-                onauxclick={(e) => {
+		{#if activationCost && (item.reactive.actions?.count === 1 || action)}
+			<button
+				type="button"
+				class="action-button action-button--activation-cost"
+				data-tooltip={activationCostLabel}
+				data-tooltip-direction="UP"
+				onauxclick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     onConfigure();
                 }}
-            >
-                {activationCost}
-            </button>
-        {/if}
+			>
+				{activationCost}
+			</button>
+		{/if}
 
-        {#if !action && itemStore.isStance}
-            <i
-                class="action-button action-button--stance icon fa-solid fa-street-view"
-                data-tooltip={"A5E.maneuvers.labels.isStance"}
-                data-tooltip-direction="UP"
-            ></i>
-        {/if}
+		{#if !action && itemStore.isStance}
+			<i
+				class="action-button action-button--stance icon fa-solid fa-street-view"
+				data-tooltip={"A5E.maneuvers.labels.isStance"}
+				data-tooltip-direction="UP"
+			></i>
+		{/if}
 
-        {#if !action && itemStore.requiresBloodied}
-            <i
-                class="action-button action-button--bloodied icon fa-solid fa-droplet"
-                data-tooltip={"A5E.items.requiresBloodied"}
-                data-tooltip-direction="UP"
-            ></i>
-        {/if}
+		{#if !action && itemStore.requiresBloodied}
+			<i
+				class="action-button action-button--bloodied icon fa-solid fa-droplet"
+				data-tooltip={"A5E.items.requiresBloodied"}
+				data-tooltip-direction="UP"
+			></i>
+		{/if}
 
-        {#if !action && item.reactive.actions?.count > 1}
-            <button
-                type="button"
-                class="action-button icon fas fa-chevron-down"
-                aria-label="Expand Action List"
-                onclick={(e) => {
+		{#if !action && item.reactive.actions?.count > 1}
+			<button
+				type="button"
+				class="action-button icon fas fa-chevron-down"
+				aria-label="Expand Action List"
+				onclick={(e) => {
                     e.stopPropagation();
                     toggleActionList?.();
                 }}
-            >
-            </button>
-        {/if}
+			></button>
+		{/if}
 
-        {#if itemStore?.objectType === "container"}
-            {#if itemStore.capacity.value}
-                <span data-tooltip="Capacity" data-tooltip-direction="UP">
-                    (
-                    {containerCurrentWeight}
+		{#if itemStore?.objectType === "container"}
+			{#if itemStore.capacity.value}
+				<span data-tooltip="Capacity" data-tooltip-direction="UP">
+					({containerCapacity}
+					/ {itemStore.capacity.value}
 
-                    /
+					{#if itemStore.capacity.type === "weight"}
+						lbs.
+					{/if}
+					)
+				</span>
+			{/if}
 
-                    {itemStore.capacity.value}
-
-                    {#if itemStore.capacity.type === "weight"}
-                        lbs.
-                    {/if}
-                    )
-                </span>
-            {/if}
-
-            <button
-                type="button"
-                class="action-button icon fas fa-chevron-down"
-                aria-label="Expand Container"
-                onclick={(e) => {
+			<button
+				type="button"
+				class="action-button icon fas fa-chevron-down"
+				aria-label="Expand Container"
+				onclick={(e) => {
                     e.stopPropagation();
                     toggleContainer?.();
                 }}
-            ></button>
-        {/if}
-    </div>
+			></button>
+		{/if}
+	</div>
 
-    {#if hasAmmunition(item, action)}
-        <select
-            id="{actor.id}-{item.id}-ammunition"
-            class="ammunition-selector a5e-input a5e-input--fit"
-            onclick={(e) => e.stopPropagation()}
-            onchange={updateAmmunition}
-        >
-            <option
-                value=""
-                onclick={(e) => e.stopPropagation()}
-                selected={selectedAmmo === ""}
-            ></option>
-            {#each ammunitionItems as { name, id } (id)}
-                <option
-                    value={id}
-                    onclick={(e) => e.stopPropagation()}
-                    selected={selectedAmmo === id}
-                >
-                    {name}
-                </option>
-            {/each}
-        </select>
-    {/if}
+	{#if hasAmmunition(item, action)}
+		<select
+			id="{actor.id}-{item.id}-ammunition"
+			class="ammunition-selector a5e-input a5e-input--fit"
+			onclick={(e) => e.stopPropagation()}
+			onchange={updateAmmunition}
+		>
+			<option value="" onclick={(e) => e.stopPropagation()} selected={selectedAmmo === ""}></option>
+			{#each ammunitionItems as { name, id } (id)}
+				<option value={id} onclick={(e) => e.stopPropagation()} selected={selectedAmmo === id}>
+					{name}
+				</option>
+			{/each}
+		</select>
+	{/if}
 </div>
 
 {#if !action}
-    <div class="indicator-wrapper">
-        {#if item.type === "spell"}
-            <div class="component-wrapper">
-                {#if itemStore.components.vocalized}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.spells.components.vocalized"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.components.vocalizedAbbr")}
-                    </span>
-                {/if}
+	<div class="indicator-wrapper">
+		{#if item.type === "spell"}
+			<div class="component-wrapper">
+				{#if itemStore.components.vocalized}
+					<span
+						class="component"
+						data-tooltip="A5E.spells.components.vocalized"
+						data-tooltip-direction="UP"
+					>
+						{localize("A5E.spells.components.vocalizedAbbr")}
+					</span>
+				{/if}
 
-                {#if itemStore.components.seen}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.spells.components.seen"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.components.seenAbbr")}
-                    </span>
-                {/if}
+				{#if itemStore.components.seen}
+					<span
+						class="component"
+						data-tooltip="A5E.spells.components.seen"
+						data-tooltip-direction="UP"
+					>
+						{localize("A5E.spells.components.seenAbbr")}
+					</span>
+				{/if}
 
-                {#if itemStore.components.material}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.spells.components.material"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.components.materialAbbr")}
-                    </span>
-                {/if}
+				{#if itemStore.components.material}
+					<span
+						class="component"
+						data-tooltip="A5E.spells.components.material"
+						data-tooltip-direction="UP"
+					>
+						{localize("A5E.spells.components.materialAbbr")}
+					</span>
+				{/if}
 
-                {#if itemStore.concentration}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.SpellConcentration"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.concentrationAbbr")}
-                    </span>
-                {/if}
+				{#if itemStore.concentration}
+					<span class="component" data-tooltip="A5E.SpellConcentration" data-tooltip-direction="UP">
+						{localize("A5E.spells.concentrationAbbr")}
+					</span>
+				{/if}
 
-                {#if itemStore.ritual}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.spells.ritual"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.ritualAbbr")}
-                    </span>
-                {/if}
-            </div>
-        {/if}
+				{#if itemStore.ritual}
+					<span class="component" data-tooltip="A5E.spells.ritual" data-tooltip-direction="UP">
+						{localize("A5E.spells.ritualAbbr")}
+					</span>
+				{/if}
+			</div>
+		{/if}
 
-        {#if item.type === "feature" || item.type === "maneuver"}
-            <div class="component-wrapper">
-                {#if itemStore.concentration}
-                    <span
-                        class="component"
-                        data-tooltip="A5E.SpellConcentration"
-                        data-tooltip-direction="UP"
-                    >
-                        {localize("A5E.spells.concentrationAbbr")}
-                    </span>
-                {/if}
-            </div>
-        {/if}
+		{#if item.type === "feature" || item.type === "maneuver"}
+			<div class="component-wrapper">
+				{#if itemStore.concentration}
+					<span class="component" data-tooltip="A5E.SpellConcentration" data-tooltip-direction="UP">
+						{localize("A5E.spells.concentrationAbbr")}
+					</span>
+				{/if}
+			</div>
+		{/if}
 
-        <div class="button-wrapper">
-            {#if item.type === "object"}
-                {#if itemStore.requiresAttunement}
-                    <button
-                        type="button"
-                        class="action-button icon fa-solid fa-link"
-                        class:active={itemStore?.attuned}
-                        data-tooltip={itemStore?.attuned
+		<div class="button-wrapper">
+			{#if item.type === "object"}
+				{#if itemStore.requiresAttunement}
+					<button
+						type="button"
+						class="action-button icon fa-solid fa-link"
+						class:active={itemStore?.attuned}
+						data-tooltip={itemStore?.attuned
                             ? localize("A5E.buttons.tooltips.breakAttunement", {
                                   item: item.name,
                               })
                             : localize("A5E.buttons.tooltips.attune", {
                                   item: item.name,
                               })}
-                        data-tooltip-direction="UP"
-                        aria-label="Toggle Attuned State"
-                        onclick={(e) => {
+						data-tooltip-direction="UP"
+						aria-label="Toggle Attuned State"
+						onclick={(e) => {
                             e.stopPropagation();
                             item.toggleAttunement();
                         }}
-                    ></button>
-                {/if}
+					></button>
+				{/if}
 
-                {#if !itemStore?.containerId}
-                    <button
-                        type="button"
-                        class="action-button icon fas"
-                        class:fa-shield-alt={itemStore.equippedState ===
+				{#if !itemStore?.containerId}
+					<button
+						type="button"
+						class="action-button icon fas"
+						class:fa-shield-alt={itemStore.equippedState ===
                             EQUIPPED_STATES.EQUIPPED}
-                        class:fa-person-carry-box={itemStore.equippedState ===
+						class:fa-person-carry-box={itemStore.equippedState ===
                             EQUIPPED_STATES.CARRIED}
-                        class:fa-tents={itemStore.equippedState ===
+						class:fa-tents={itemStore.equippedState ===
                             EQUIPPED_STATES.NOT_CARRIED}
-                        class:active={[
+						class:active={[
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(itemStore.equippedState)}
-                        data-tooltip={equippedStates[
+						data-tooltip={equippedStates[
                             itemStore.equippedState ?? 0
                         ]}
-                        data-tooltip-direction="UP"
-                        aria-label="Toggle Equipped State"
-                        onclick={(e) => {
+						data-tooltip-direction="UP"
+						aria-label="Toggle Equipped State"
+						onclick={(e) => {
                             e.stopPropagation();
                             item.toggleEquippedState();
                         }}
-                    >
-                    </button>
-                {/if}
+					></button>
+				{/if}
 
-                {#if !hideBrokenAndDamaged}
-                    <button
-                        type="button"
-                        class="action-button icon fas"
-                        class:fa-heart={itemStore.damagedState ===
+				{#if !hideBrokenAndDamaged}
+					<button
+						type="button"
+						class="action-button icon fas"
+						class:fa-heart={itemStore.damagedState ===
                             DAMAGED_STATES.INTACT}
-                        class:fa-heart-crack={itemStore.damagedState ===
+						class:fa-heart-crack={itemStore.damagedState ===
                             DAMAGED_STATES.DAMAGED}
-                        class:fa-heart-pulse={itemStore.damagedState ===
+						class:fa-heart-pulse={itemStore.damagedState ===
                             DAMAGED_STATES.BROKEN}
-                        class:active={[
+						class:active={[
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(itemStore.damagedState)}
-                        data-tooltip={damagedStates[
+						data-tooltip={damagedStates[
                             itemStore.damagedState ?? 0
                         ]}
-                        data-tooltip-direction="UP"
-                        aria-label="Toggle Damaged Dtate"
-                        onclick={(e) => {
+						data-tooltip-direction="UP"
+						aria-label="Toggle Damaged Dtate"
+						onclick={(e) => {
                             e.stopPropagation();
                             item.toggleDamagedState();
                         }}
-                    >
-                    </button>
-                {/if}
-            {/if}
+					></button>
+				{/if}
+			{/if}
 
-            {#if item.type === "spell"}
-                <button
-                    type="button"
-                    class="action-button icon fas"
-                    class:fa-book={[
+			{#if item.type === "spell"}
+				<button
+					type="button"
+					class="action-button icon fas"
+					class:fa-book={[
                         PREPARED_STATES.UNPREPARED,
                         PREPARED_STATES.PREPARED,
                     ].includes(Number(itemStore.prepared ?? 0))}
-                    class:fa-book-sparkles={Number(itemStore.prepared ?? 0) ===
+					class:fa-book-sparkles={Number(itemStore.prepared ?? 0) ===
                         PREPARED_STATES.ALWAYS_PREPARED}
-                    class:active={[
+					class:active={[
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(itemStore.prepared ?? 0))}
-                    data-tooltip={preparedStates[
+					data-tooltip={preparedStates[
                         Number(itemStore.prepared ?? 0)
                     ]}
-                    data-tooltip-direction="UP"
-                    aria-label="Toggle Prepared State"
-                    onclick={(e) => {
+					data-tooltip-direction="UP"
+					aria-label="Toggle Prepared State"
+					onclick={(e) => {
                         e.stopPropagation();
                         item.togglePrepared();
                     }}
-                ></button>
-            {/if}
+				></button>
+			{/if}
 
-            {#if hasRecharge(item)}
-                <button
-                    type="button"
-                    class="action-button icon fas fa-dice"
-                    class:active={rechargeState}
-                    data-tooltip={rechargeState
+			{#if hasRecharge(item)}
+				<button
+					type="button"
+					class="action-button icon fas fa-dice"
+					class:active={rechargeState}
+					data-tooltip={rechargeState
                         ? "A5E.buttons.tooltips.charged"
                         : "A5E.buttons.tooltips.recharge"}
-                    data-tooltip-direction="UP"
-                    aria-label="Toggle Recharge State"
-                    onclick={(e) => {
+					data-tooltip-direction="UP"
+					aria-label="Toggle Recharge State"
+					onclick={(e) => {
                         e.stopPropagation();
                         item.recharge(actionId, rechargeState);
                     }}
-                ></button>
-            {/if}
+				></button>
+			{/if}
 
-            {#if flags.a5e?.showFavoritesSection ?? true}
-                <button
-                    type="button"
-                    class="action-button icon fas fa-star"
-                    class:active={itemStore?.favorite ?? false}
-                    data-tooltip="A5E.buttons.tooltips.favorite"
-                    data-tooltip-direction="UP"
-                    aria-label="Toggle Favorite"
-                    onclick={(e) => {
+			{#if flags.a5e?.showFavoritesSection ?? true}
+				<button
+					type="button"
+					class="action-button icon fas fa-star"
+					class:active={itemStore?.favorite ?? false}
+					data-tooltip="A5E.buttons.tooltips.favorite"
+					data-tooltip-direction="UP"
+					aria-label="Toggle Favorite"
+					onclick={(e) => {
                         e.stopPropagation();
                         item.toggleFavorite();
                     }}
-                >
-                </button>
-            {/if}
-        </div>
-    </div>
+				></button>
+			{/if}
+		</div>
+	</div>
 {:else}
-    <div class="indicator-container">
-        <div class="button-wrapper">
-            {#if hasRecharge(item.reactive)}
-                <button
-                    type="button"
-                    class="action-button icon fas fa-dice"
-                    class:active={rechargeState}
-                    data-tooltip={rechargeState
+	<div class="indicator-container">
+		<div class="button-wrapper">
+			{#if hasRecharge(item.reactive)}
+				<button
+					type="button"
+					class="action-button icon fas fa-dice"
+					class:active={rechargeState}
+					data-tooltip={rechargeState
                         ? "A5E.buttons.tooltips.charged"
                         : "A5E.ButtonToolTipRecharge"}
-                    data-tooltip-direction="UP"
-                    aria-label="Toggle Recharge State"
-                    onclick={(e) => {
+					data-tooltip-direction="UP"
+					aria-label="Toggle Recharge State"
+					onclick={(e) => {
                         e.stopPropagation();
                         item.recharge(actionId, rechargeState);
                     }}
-                ></button>
-            {/if}
-        </div>
-    </div>
+				></button>
+			{/if}
+		</div>
+	</div>
 {/if}
 
 {#if !actionId && item?.type === "object"}
-    <div class="quantity-wrapper">
-        <input
-            class="number-input"
-            id="{actor.id}-{item.id}-quantity"
-            type="number"
-            name="system.quantity"
-            value={itemStore.quantity}
-            min="0"
-            onclick={(e) => e.stopPropagation()}
-            onchange={updateField}
-        />
-    </div>
+	<div class="quantity-wrapper">
+		<input
+			class="number-input"
+			id="{actor.id}-{item.id}-quantity"
+			type="number"
+			name="system.quantity"
+			value={itemStore.quantity}
+			min="0"
+			onclick={(e) => e.stopPropagation()}
+			onchange={updateField}
+		>
+	</div>
 {/if}
 
 {#if (!actionId && itemStore?.uses?.max) || (action && action.uses?.max)}
-    <div class="uses-wrapper">
-        <input
-            class="number-input"
-            id="{actor.id}-{item.id}-current-uses"
-            type="number"
-            name={isClassResource
+	<div class="uses-wrapper">
+		<input
+			class="number-input"
+			id="{actor.id}-{item.id}-current-uses"
+			type="number"
+			name={isClassResource
                 ? `${uses[usesType].updatePath}`
                 : `${uses[usesType].updatePath}.value`}
-            value={uses[usesType].value}
-            min="0"
-            max={uses[usesType].max}
-            onclick={(e) => e.stopPropagation()}
-            onchange={updateUsesValue}
-        />
+			value={uses[usesType].value}
+			min="0"
+			max={uses[usesType].max}
+			onclick={(e) => e.stopPropagation()}
+			onchange={updateUsesValue}
+		>
 
-        <span> / </span>
+		<span> / </span>
 
-        <input
-            class="number-input"
-            type="number"
-            name="{uses[usesType].updatePath}.max"
-            value={uses[usesType].max}
-            disabled={true}
-            onclick={(e) => e.stopPropagation()}
-        />
-    </div>
+		<input
+			class="number-input"
+			type="number"
+			name="{uses[usesType].updatePath}.max"
+			value={uses[usesType].max}
+			disabled={true}
+			onclick={(e) => e.stopPropagation()}
+		>
+	</div>
 {/if}
 
 {#if !actionId && item?.type === "object" && itemStore?.weight > 0 && showWeight}
-    <div class="weight-wrapper">
-        <input
-            class="number-input"
-            id="{actor.id}-{item.id}-weight"
-            type="number"
-            name="system.weight"
-            value={itemStore.weight}
-            disabled={true}
-            onclick={(e) => e.stopPropagation()}
-        />
-    </div>
+	<div class="weight-wrapper">
+		<input
+			class="number-input"
+			id="{actor.id}-{item.id}-weight"
+			type="number"
+			name="system.weight"
+			value={itemStore.weight}
+			disabled={true}
+			onclick={(e) => e.stopPropagation()}
+		>
+	</div>
 {/if}
 
 <style lang="scss">
