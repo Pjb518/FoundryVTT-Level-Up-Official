@@ -275,7 +275,15 @@ class ActiveEffectA5E extends ActiveEffect {
 			field instanceof fields.SetField &&
 			currentType === 'Set' && ['Array, Set'.includes(changeType)]
 		) {
-			const newValues = change.va;
+			const newValues = [...change.value] as any[];
+			if (change.type === 'override' && changeType === 'Array') return new Set(newValues);
+			if (change.type === 'override' && changeType === 'Set') return newValues;
+			newValues.forEach((value) => {
+				if (change.type === 'add') current.add(value);
+				if (change.type === 'subtract') current.delete(value);
+			});
+
+			return current;
 		}
 
 		const update = field.applyChange(current, targetDoc, change, {
