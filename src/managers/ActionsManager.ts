@@ -208,6 +208,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 				name: ActionsManager.getActionName(item) || 'New Action',
 			},
 			data,
+			{ inplace: false },
 		) as Action;
 
 		const id = foundry.utils.randomID();

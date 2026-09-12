@@ -81,7 +81,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
 		if (!action) return;
 
 		// Change image
-		action.img = document?.img;
+		action.img = action.img || document.img;
 
 		// Copy over effects from old item to new item
 		const effects = [...action.effects]
