@@ -96,7 +96,6 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 			) => {
 				if (!change.key) return;
 				if (!change.key!.startsWith('flags.a5e.effects')) return;
-				console.log('Here');
 
 				let newKey = '';
 				let result: any;

@@ -44,7 +44,7 @@
 
     let actorStore = $derived(actor.reactive.system);
     let spellResources = $derived(actorStore.spellResources);
-    let maxSpellSlots = getMaxSpellSlots();
+    let maxSpellSlots = $derived(getMaxSpellSlots());
 </script>
 
 {#if level && level !== 0}
