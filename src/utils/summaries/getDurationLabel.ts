@@ -1,9 +1,9 @@
-import type { Action } from 'types/action';
 import { localize } from '#utils/localization/localize.ts';
-import { getDeterministicBonus } from '../../dice/getDeterministicBonus';
-import type { ItemA5e } from '../../documents/item/item';
+import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel.ts';
+import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
+import type { ItemA5e } from '../../documents/item/item.ts';
 
-export default function getDurationLabel(item: ItemA5e, action: Action) {
+export default function getDurationLabel(item: ItemA5e, action: A5EActionData) {
 	const { duration } = action;
 
 	let durationLabel = '';
@@ -21,7 +21,7 @@ export default function getDurationLabel(item: ItemA5e, action: Action) {
 		durationLabel = `${(numericValue || duration.value) ?? 1} ${CONFIG.A5E.timePeriods[duration.unit]}`;
 	}
 
-	if (item.type === 'spell' && item?.system?.concentration) {
+	if (duration.concentration) {
 		durationLabel += ` (${localize('A5E.SpellConcentration')})`;
 	}
 

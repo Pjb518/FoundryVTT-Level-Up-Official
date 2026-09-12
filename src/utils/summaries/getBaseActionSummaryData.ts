@@ -1,15 +1,14 @@
-import type { Action } from 'types/action';
-import type { ItemA5e } from '../../documents/item/item';
+import type { ActionsData } from '../../dataModels/item/common.ts';
+import type { ItemA5e } from '../../documents/item/item.ts';
+import getActivationCostLabel from './getActivationCostLabel.ts';
+import getAreaLabel from './getAreaLabel.ts';
+import getDamageLabel from './getDamageLabel.ts';
+import getDurationLabel from './getDurationLabel.ts';
+import getRangeLabels from './getRangeLabels.ts';
+import getSavingThrowLabel from './getSavingThrowLabel.ts';
+import getTargetLabel from './getTargetLabel.ts';
 
-import getActivationCostLabel from './getActivationCostLabel';
-import getAreaLabel from './getAreaLabel';
-import getDamageLabel from './getDamageLabel';
-import getDurationLabel from './getDurationLabel';
-import getRangeLabels from './getRangeLabels';
-import getSavingThrowLabel from './getSavingThrowLabel';
-import getTargetLabel from './getTargetLabel';
-
-export default function getBaseActionSummaryData(item: ItemA5e, action: Action) {
+export default function getBaseActionSummaryData(item: ItemA5e, action: ActionsData) {
 	return {
 		activationCost: getActivationCostLabel(item, action),
 		area: getAreaLabel(action),
