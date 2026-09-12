@@ -1,110 +1,103 @@
 <script lang="ts">
-    import type { Action } from "#types/action.js";
+	import { getContext } from 'svelte';
+	import type { ItemA5e } from '#documents/item/item.ts';
+	import type { Action } from '#types/action.js';
 
-    import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
+	import { getOrdinalNumber } from '#utils/getOrdinalNumber.ts';
+	import { isStandardRange } from '#utils/isStandardRange.ts';
+	import { localize } from '#utils/localization/localize.ts';
+	import updateDocumentDataFromField from '#utils/updateDocumentDataFromField.ts';
+	import Checkbox from '#view/snippets/Checkbox.svelte';
+	import RadioGroup from '#view/snippets/RadioGroup.svelte';
+	import Section from '#view/snippets/Section.svelte';
+	import type { A5EActionData } from '../../../../dataModels/item/actions/ActionDataModel.ts';
 
-    import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
-    import { isStandardRange } from "#utils/isStandardRange.ts";
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+	type Props = {
+		index: number;
+		id: string;
+	};
 
-    import Checkbox from "#view/snippets/Checkbox.svelte";
-    import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import Section from "#view/snippets/Section.svelte";
+	function deleteRangeIncrement() {
+		item.update({
+			[`system.actions.${actionId}.ranges`]: {
+				[`${id}`]: _del,
+			},
+		});
+	}
 
-    type Props = {
-        index: number;
-        id: string;
-    };
+	function deleteRangeUnit(checked: boolean) {
+		if (checked === true) return;
 
-    function deleteRangeIncrement() {
-        item.update({
-            [`system.actions.${actionId}.ranges`]: {
-                [`${id}`]: _del,
-            },
-        });
-    }
+		item.update({
+			[`system.actions.${actionId}.ranges.${id}`]: {
+				unit: null,
+			},
+		});
+	}
 
-    function deleteRangeUnit(checked: boolean) {
-        if (checked === true) return;
+	function selectRangeUnit(selectedOption: string) {
+		if (selectedOption === 'null') {
+			item.update({
+				[`system.actions.${actionId}.ranges.${id}`]: {
+					unit: null,
+				},
+			});
+		} else {
+			item.update({
+				[`system.actions.${actionId}.ranges.${id}`]: {
+					unit: selectedOption,
+				},
+			});
+		}
+	}
 
-        item.update({
-            [`system.actions.${actionId}.ranges.${id}`]: {
-                unit: _del,
-            },
-        });
-    }
+	function updateRangeValue(option: string) {
+		const isStandard = isStandardRange(option);
 
-    function selectRangeUnit(selectedOption: string) {
-        if (selectedOption === "null") {
-            item.update({
-                [`system.actions.${actionId}.ranges.${id}`]: {
-                    unit: _del,
-                },
-            });
-        } else {
-            item.update({
-                [`system.actions.${actionId}.ranges.${id}`]: {
-                    unit: selectedOption,
-                },
-            });
-        }
-    }
+		if (isStandard) {
+			range = option;
+			customValue = '';
+		} else if (includeUnit) range = Number.parseInt(option, 10);
+		else range = customValue;
 
-    function updateRangeValue(option: string) {
-        const isStandard = isStandardRange(option);
+		updateDocumentDataFromField(item, `system.actions.${actionId}.ranges.${id}.range`, range);
+	}
 
-        if (isStandard) {
-            range = option;
-            customValue = "";
-        } else if (includeUnit) range = Number.parseInt(option, 10);
-        else range = customValue;
+	let { index, id }: Props = $props();
 
-        updateDocumentDataFromField(
-            item,
-            `system.actions.${actionId}.ranges.${id}.range`,
-            range,
-        );
-    }
+	let actor: Actor.OfType<'base'> = getContext('actor');
+	let item: ItemA5e = getContext('item');
+	let actionId: string = getContext('actionId');
+	let action: A5EActionData = $derived(item.reactive.actions.get(actionId)!);
 
-    let { index, id }: Props = $props();
+	let rangeObject = $derived(action.ranges[id]);
+	let range = $derived(rangeObject.range);
 
-    let actor: any = getContext("actor");
-    let item: any = getContext("item");
-    let actionId: string = getContext("actionId");
-    let action: Action = $derived(item.reactive.actions.get(actionId));
+	const { A5E } = CONFIG;
 
-    let rangeObject = $derived(action.ranges[id]);
-    let range = $derived(rangeObject.range);
+	let heading = $derived(
+		localize('A5E.actions.labels.rangeIncrement', {
+			increment: getOrdinalNumber(index + 1),
+		}),
+	);
 
-    const { A5E } = CONFIG;
+	const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
+		if (['short', 'medium', 'long'].includes(value)) {
+			const range = CONFIG.A5E.rangeValues[value];
+			return [value, `${localize(label as string)} (${range} ft.)`];
+		}
 
-    let heading = $derived(
-        localize("A5E.actions.labels.rangeIncrement", {
-            increment: getOrdinalNumber(index + 1),
-        }),
-    );
+		return [value, label];
+	}) as string[][];
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(
-        ([value, label]) => {
-            if (["short", "medium", "long"].includes(value)) {
-                const range = CONFIG.A5E.rangeValues[value];
-                return [value, `${localize(label as string)} (${range} ft.)`];
-            }
-
-            return [value, label];
-        },
-    ) as string[][];
-
-    let includeUnit = $derived(!!rangeObject.unit);
-    let customValue = $derived(
-        isStandardRange(range) ? (includeUnit ? "" : 0) : range,
-    );
-    let selected = $derived(isStandardRange(range) ? range : "other");
+	let includeUnitSelected = $state(false);
+	let includeUnit = $derived(!!rangeObject.unit || includeUnitSelected);
+	let customValue = $derived(isStandardRange(range) ? (includeUnit ? '' : 0) : range);
+	let selected = $derived(isStandardRange(range) ? range : 'other');
 </script>
 
 <RadioGroup
-    buttons={[
+	buttons={[
         {
             classes:
                 "icon fa-solid fa-trash a5e-field-wrapper__header-button--scale",
@@ -112,59 +105,59 @@
             tooltip: "Delete Range Increment",
         },
     ]}
-    {heading}
-    {options}
-    {selected}
-    onUpdateSelection={(value) => updateRangeValue(value)}
-    --a5e-field-wrapper-header-width="100%"
-    --a5e-field-wrapper-label-width="100%"
+	{heading}
+	{options}
+	{selected}
+	onUpdateSelection={(value) => updateRangeValue(value)}
+	--a5e-field-wrapper-header-width="100%"
+	--a5e-field-wrapper-label-width="100%"
 />
 
 {#if selected === "other"}
-    <Checkbox
-        label="A5E.actions.labels.includeUnit"
-        checked={includeUnit}
-        onUpdateSelection={(checked) => {
-            includeUnit = checked;
-            deleteRangeUnit(includeUnit);
+	<Checkbox
+		label="A5E.actions.labels.includeUnit"
+		checked={includeUnit}
+		onUpdateSelection={(checked) => {
+            includeUnitSelected = checked;
+            deleteRangeUnit(includeUnitSelected);
         }}
-    />
+	/>
 
-    <Section
-        hint={includeUnit
+	<Section
+		hint={includeUnit
             ? "When units are selected range must be a number."
             : ""}
-        --a5e-section-body-padding="0"
-        --a5e-section-body-direction="row"
-        --a5e-section-body-gap="0.5rem"
-        --a5e-section-body-hint-width="100%"
-    >
-        <input
-            class="a5e-input a5e-input--slim"
-            class:a5e-input--small={includeUnit}
-            type={includeUnit ? "number" : "text"}
-            value={customValue}
-            onchange={({ currentTarget }) => {
+		--a5e-section-body-padding="0"
+		--a5e-section-body-direction="row"
+		--a5e-section-body-gap="0.5rem"
+		--a5e-section-body-hint-width="100%"
+	>
+		<input
+			class="a5e-input a5e-input--slim"
+			class:a5e-input--small={includeUnit}
+			type={includeUnit ? "number" : "text"}
+			value={customValue}
+			onchange={({ currentTarget }) => {
                 customValue = currentTarget.value;
                 updateRangeValue(currentTarget.value);
             }}
-        />
+		>
 
-        {#if includeUnit}
-            <select
-                class="a5e-input a5e-input--slim a5e-input--fit"
-                name="system.actions.${actionId}.ranges.{id}.unit"
-                onchange={({ currentTarget }) => {
+		{#if includeUnit}
+			<select
+				class="a5e-input a5e-input--slim a5e-input--fit"
+				name="system.actions.${actionId}.ranges.{id}.unit"
+				onchange={({ currentTarget }) => {
                     selectRangeUnit(currentTarget.value);
                 }}
-            >
-                <option value={null}>{localize("A5E.None")}</option>
-                {#each Object.entries(A5E.distanceUnits) as [unit, label]}
-                    <option value={unit} selected={rangeObject.unit === unit}>
-                        {localize(label as string)}
-                    </option>
-                {/each}
-            </select>
-        {/if}
-    </Section>
+			>
+				<option value={null}>{localize("A5E.None")}</option>
+				{#each Object.entries(A5E.distanceUnits) as [unit, label]}
+					<option value={unit} selected={rangeObject.unit === unit}>
+						{localize(label as string)}
+					</option>
+				{/each}
+			</select>
+		{/if}
+	</Section>
 {/if}

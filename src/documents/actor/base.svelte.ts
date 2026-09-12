@@ -390,7 +390,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 			if (phase === 'initial') {
 				const statuses = effect.getStatuses();
-				console.log(statuses);
 				for (const statusId of statuses) this.statuses.add(statusId);
 				effect.statuses = statuses;
 			}
@@ -511,7 +510,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				this.getRollData(),
 			);
 		} catch {
-			// eslint-disable-next-line no-console
 			console.error(`Failed to calculate a spell DC for ${this.name}`);
 			// @ts-expect-error
 			actorData.attributes.spellDC = null;
@@ -775,7 +773,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 					this.getRollData(),
 				);
 			} catch {
-				// eslint-disable-next-line no-console
 				console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
 			}
 
@@ -786,7 +783,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				// @ts-expect-error
 				skill.passive = this._calculatePassiveScore(key, skill);
 			} catch (e) {
-				// eslint-disable-next-line no-console
 				console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
 				// @ts-expect-error
 				skill.passive = null;
@@ -2108,7 +2104,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
 		const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-		console.log(changed);
 		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
 		if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
 	}

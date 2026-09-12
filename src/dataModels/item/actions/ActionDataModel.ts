@@ -86,7 +86,15 @@ const actionSchema = () => ({
 
 	consumers: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_CONSUMER_DATA_TYPES)),
 	prompts: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_PROMPT_DATA_TYPES)),
-	ranges: new fields.ObjectField({ required: true, nullable: false }),
+	ranges: new fields.TypedObjectField(
+		new fields.SchemaField({
+			range: new fields.AnyField({ required: true, nullable: false, initial: 0 }),
+			unit: new fields.StringField({ required: true, nullable: true }),
+			value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		{ required: true, nullable: false },
+	),
+
 	rolls: new fields.TypedObjectField(new fields.TypedSchemaField(ACTION_ROLL_DATA_TYPES)),
 
 	target: new fields.SchemaField({
