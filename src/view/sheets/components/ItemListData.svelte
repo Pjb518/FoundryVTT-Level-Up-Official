@@ -579,6 +579,16 @@
 		</div>
 	</div>
 {:else}
+	<div class="indicator-wrapper">
+		{#if action.requiresConcentration}
+			<div class="component-wrapper">
+				<span class="component" data-tooltip="A5E.SpellConcentration" data-tooltip-direction="UP">
+					{localize("A5E.spells.concentrationAbbr")}
+				</span>
+			</div>
+		{/if}
+	</div>
+
 	<div class="indicator-container">
 		<div class="button-wrapper">
 			{#if hasRecharge(item.reactive)}
