@@ -8,7 +8,6 @@ export function computeSaveDC(
 	saveDC: { bonus: string; type: string },
 ): number | null {
 	if (!actor) return null;
-	console.log(actor);
 	const rollData: object = actor.getRollData(item);
 	const terms: (string | number)[] = [];
 

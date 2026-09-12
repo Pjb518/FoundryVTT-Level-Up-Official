@@ -262,11 +262,17 @@ class RollStateManager {
 			.flat()
 			.filter((prompt) => {
 				if (!prompt) return false;
-				if (prompt.type === 'savingThrow') {
-					prompt.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC) ?? 0;
-				}
 				if (data.selectedPrompts.includes(prompt.id)) return true;
 				return false;
+			})
+			// We do this to preserve dc for now
+			.map((prompt) => {
+				const p = prompt.toObject();
+				if (prompt.type === 'savingThrow') {
+					p.dc = computeSaveDC(this.#actor, this.#item, prompt.saveDC) ?? 0;
+				}
+
+				return p;
 			});
 
 		const rolls = Object.values(this.#state.rolls)
