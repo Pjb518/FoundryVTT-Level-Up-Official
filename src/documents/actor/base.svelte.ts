@@ -389,7 +389,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			}
 
 			if (phase === 'initial') {
-				for (const statusId of effect.statuses) this.statuses.add(statusId);
+				const statuses = effect.getStatuses();
+				console.log(statuses);
+				for (const statusId of statuses) this.statuses.add(statusId);
+				effect.statuses = statuses;
 			}
 		}
 

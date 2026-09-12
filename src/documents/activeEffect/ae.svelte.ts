@@ -4,10 +4,17 @@ import evaluateConditional from './utils/evaluateConditional.ts';
 
 import fields = foundry.data.fields;
 
-// ===================================
-// Override some fields here
-// ===================================
-class ActiveEffectA5E extends ActiveEffect {
+declare module 'fvtt-types/configuration' {
+	interface DocumentClassConfig {
+		ActiveEffect: typeof ActiveEffectA5E<ActiveEffect.SubType>;
+	}
+
+	interface ConfiguredActiveEffect<SubType extends ActiveEffect.SubType> {
+		document: ActiveEffectA5E<SubType>;
+	}
+}
+
+class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect<SubType> {
 	#subscribe: () => void;
 
 	constructor(data: any, context = {}) {
@@ -89,6 +96,7 @@ class ActiveEffectA5E extends ActiveEffect {
 			) => {
 				if (!change.key) return;
 				if (!change.key!.startsWith('flags.a5e.effects')) return;
+				console.log('Here');
 
 				let newKey = '';
 				let result: any;
@@ -159,7 +167,7 @@ class ActiveEffectA5E extends ActiveEffect {
 	// -------------------------------------------------------
 	//  Getters
 	// -------------------------------------------------------
-	get active() {
+	override get active() {
 		if (this.disabled) return false;
 		if (this.isSuppressed) return false;
 
@@ -193,6 +201,24 @@ class ActiveEffectA5E extends ActiveEffect {
 		if (!parentItem || parentItem?.type !== 'object') return false;
 
 		return parentItem?.system?.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED;
+	}
+
+	getStatuses(): Set<string> {
+		const statuses = new Set<string>();
+		const direct = this.statuses;
+
+		this.system.changes.forEach((change) => {
+			if (change.key !== 'flags.a5e.effects.statusConditions') return;
+			if (foundry.utils.getType(change.value) !== 'Array') return;
+			const values = (change.value as string[]) ?? [];
+			values.forEach((val) => {
+				const statusEffect = game.a5e.ConditionManager?.get(val);
+				if (!statusEffect) return;
+				statuses.add(statusEffect.id);
+			});
+		});
+
+		return statuses.union(direct);
 	}
 
 	// -------------------------------------------------------
