@@ -1,113 +1,111 @@
 <script lang="ts">
-    import { localize } from "#utils/localization/localize.ts";
+	import { localize } from '#utils/localization/localize.ts';
 
-    type Props = {
-        summaryData: Record<string, any>;
-    };
+	type Props = {
+		summaryData: Record<string, any>;
+	};
 
-    let { summaryData = {} } = $props();
+	let { summaryData = {} } = $props();
 
-    const fields = [
-        {
-            field: "craftingComponents",
-            label: "A5E.objects.craftingComponents",
-        },
-        {
-            field: "spellClasses",
-            label: "Classes",
-        },
-        {
-            field: "activationCost",
-            label: "A5E.actions.headings.activation.cost",
-        },
-        {
-            field: "ranges",
-            label: "A5E.actions.labels.range",
-        },
-        {
-            field: "targets",
-            label: "A5E.actions.labels.targetPlural",
-        },
-        {
-            field: "area",
-            label: "A5E.targets.area",
-        },
-        {
-            field: "spellComponents",
-            label: "A5E.spells.components.title",
-        },
-        {
-            field: "duration",
-            label: "A5E.actions.headings.duration",
-        },
-        {
-            field: "savingThrow",
-            label: "A5E.rollLabels.savingThrows.title",
-        },
-        {
-            field: "criticalFailure",
-            label: "A5E.interactions.journeyRolls.criticalFailure",
-        },
-        {
-            field: "failure",
-            label: "A5E.interactions.journeyRolls.failure",
-        },
-        {
-            field: "success",
-            label: "A5E.interactions.journeyRolls.success",
-        },
-        {
-            field: "criticalSuccess",
-            label: "A5E.interactions.journeyRolls.criticalSuccess",
-        },
-    ];
+	const fields = [
+		{
+			field: 'craftingComponents',
+			label: 'A5E.objects.craftingComponents',
+		},
+		{
+			field: 'spellClasses',
+			label: 'Classes',
+		},
+		{
+			field: 'activationCost',
+			label: 'A5E.actions.headings.activation.cost',
+		},
+		{
+			field: 'ranges',
+			label: 'A5E.actions.labels.range',
+		},
+		{
+			field: 'targets',
+			label: 'A5E.actions.labels.targetPlural',
+		},
+		{
+			field: 'area',
+			label: 'A5E.targets.area',
+		},
+		{
+			field: 'spellComponents',
+			label: 'A5E.spells.components.title',
+		},
+		{
+			field: 'duration',
+			label: 'A5E.actions.headings.duration',
+		},
+		{
+			field: 'damage',
+			label: 'Damage',
+		},
+		{
+			field: 'savingThrow',
+			label: 'A5E.rollLabels.savingThrows.title',
+		},
+		{
+			field: 'criticalFailure',
+			label: 'A5E.interactions.journeyRolls.criticalFailure',
+		},
+		{
+			field: 'failure',
+			label: 'A5E.interactions.journeyRolls.failure',
+		},
+		{
+			field: 'success',
+			label: 'A5E.interactions.journeyRolls.success',
+		},
+		{
+			field: 'criticalSuccess',
+			label: 'A5E.interactions.journeyRolls.criticalSuccess',
+		},
+	];
 
-    let listHeight = $state(0);
+	let listHeight = $state(0);
 </script>
 
 <div class="a5e-summary-wrapper">
-    {#if summaryData.objectMechanics}
-        <p class="a5e-summary__item-properties">
-            {summaryData.objectMechanics}
-        </p>
-    {/if}
+	{#if summaryData.objectMechanics}
+		<p class="a5e-summary__item-properties">
+			{summaryData.objectMechanics}
+		</p>
+	{/if}
 
-    {#if summaryData.objectProperties}
-        <p class="a5e-summary__item-properties">
-            {summaryData.objectProperties}
-        </p>
-    {/if}
+	{#if summaryData.objectProperties}
+		<p class="a5e-summary__item-properties">
+			{summaryData.objectProperties}
+		</p>
+	{/if}
 
-    {#if summaryData.maneuverProperties}
-        <p class="a5e-summary__item-properties">
-            {summaryData.maneuverProperties}
-        </p>
-    {/if}
+	{#if summaryData.maneuverProperties}
+		<p class="a5e-summary__item-properties">
+			{summaryData.maneuverProperties}
+		</p>
+	{/if}
 
-    {#if summaryData.spellProperties}
-        <p class="a5e-summary__item-properties">
-            {summaryData.spellProperties}
-        </p>
-    {/if}
+	{#if summaryData.spellProperties}
+		<p class="a5e-summary__item-properties">
+			{summaryData.spellProperties}
+		</p>
+	{/if}
 
-    {#if fields.some(({ field }) => summaryData[field])}
-        <ul
-            bind:clientHeight={listHeight}
-            class="a5e-summary__list"
-            class:hide={listHeight === 0}
-        >
-            {#each fields as { field, label }}
-                {#if summaryData[field]}
-                    <li>
-                        <span class="a5e-summary__field-header">
-                            {localize(label)}:
-                        </span>
-                        {summaryData[field]}
-                    </li>
-                {/if}
-            {/each}
-        </ul>
-    {/if}
+	{#if fields.some(({ field }) => summaryData[field])}
+		<ul bind:clientHeight={listHeight} class="a5e-summary__list" class:hide={listHeight === 0}>
+			{#each fields as { field, label }}
+				{#if summaryData[field]}
+					<li>
+						<span class="a5e-summary__field-header"> {localize(label)}: </span>
+						{summaryData[field]}
+					</li>
+				{/if}
+			{/each}
+		</ul>
+	{/if}
 </div>
 
 <style lang="scss">
