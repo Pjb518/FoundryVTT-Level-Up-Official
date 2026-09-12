@@ -1,101 +1,97 @@
 <script lang="ts">
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+	import FieldWrapper from '#view/snippets/FieldWrapper.svelte';
 
-    type Props = {
-        uuids?: string[];
-        embeddedData?: any[];
-        type: string;
-        onUpdateSelection: (values: any[]) => void;
-    };
+	type Props = {
+		uuids?: string[];
+		embeddedData?: any[];
+		type: string;
+		onUpdateSelection: (values: any[]) => void;
+	};
 
-    function onClick(idx: number) {
-        if (type === "feature") {
-            uuids = uuids.filter((_, i) => i !== idx);
-            onUpdateSelection(uuids);
-        }
+	function onClick(idx: number) {
+		if (type === 'feature') {
+			uuids = uuids.filter((_, i) => i !== idx);
+			onUpdateSelection(uuids);
+		}
 
-        if (type === "item") {
-            embeddedData = embeddedData.filter((_, i) => i !== idx);
-            onUpdateSelection(embeddedData);
-        }
-    }
+		if (type === 'item') {
+			embeddedData = embeddedData.filter((_, i) => i !== idx);
+			onUpdateSelection(embeddedData);
+		}
+	}
 
-    function onUpdateQuantity(idx: number, value: number | string) {
-        if (type === "item") {
-            embeddedData[idx].quantityOverride = value;
-            onUpdateSelection(embeddedData);
+	function onUpdateQuantity(idx: number, value: number | string) {
+		if (type === 'item') {
+			embeddedData[idx].quantityOverride = value;
+			onUpdateSelection(embeddedData);
 
-            embeddedData = embeddedData;
-        }
-    }
+			embeddedData = embeddedData;
+		}
+	}
 
-    function getDocuments(type: string) {
-        if (type === "feature") {
-            return uuids.map((uuid) => {
-                const i = fromUuidSync(uuid);
-                return [i.img, i.name];
-            });
-        }
+	function getDocuments(type: string) {
+		if (type === 'feature') {
+			return uuids
+				.map((uuid) => {
+					const i = fromUuidSync(uuid);
+					if (!i) return null;
+					return [i.img, i.name];
+				})
+				.filter(Boolean);
+		}
 
-        if (type === "item") {
-            return embeddedData.map(({ uuid, quantityOverride }) => {
-                const i = fromUuidSync(uuid);
+		if (type === 'item') {
+			return embeddedData
+				.map(({ uuid, quantityOverride }) => {
+					const i = fromUuidSync(uuid);
+					if (!i) return null;
+					console.log(uuid);
+					console.log(i);
+					return [i.img, i.name, quantityOverride || i.system.quantity || 1];
+				})
+				.filter(Boolean);
+		}
 
-                console.log(uuid);
-                console.log(i);
-                return [
-                    i.img,
-                    i.name,
-                    quantityOverride || i.system.quantity || 1,
-                ];
-            });
-        }
+		return [];
+	}
 
-        return [];
-    }
+	let { uuids = [], embeddedData = [], type = 'feature', onUpdateSelection }: Props = $props();
 
-    let {
-        uuids = [],
-        embeddedData = [],
-        type = "feature",
-        onUpdateSelection,
-    }: Props = $props();
-
-    let documents = $derived(getDocuments(type));
+	let documents = $derived(getDocuments(type));
 </script>
 
 <FieldWrapper --a5e-field-wrapper-direction="row">
-    {#each documents as [img, name, quantity], idx}
-        <div class="a5e-tag-wrapper">
-            <img src={img} alt={name} class="a5e-tag-img" />
+	{#each documents as [img, name, quantity], idx}
+		<div class="a5e-tag-wrapper">
+			<img src={img} alt={name} class="a5e-tag-img">
 
-            <span class="a5e-tag-name">{name}</span>
+			<span class="a5e-tag-name">{name}</span>
 
-            {#if type === "item"}
-                <input
-                    class="a5e-input a5e-input--slime a5e-input--small a5e-tag-count"
-                    type="number"
-                    value={quantity}
-                    onchange={({ currentTarget }) => {
+			{#if type === "item"}
+				<input
+					class="a5e-input a5e-input--slime a5e-input--small a5e-tag-count"
+					type="number"
+					value={quantity}
+					onchange={({ currentTarget }) => {
                         onUpdateQuantity(idx, currentTarget.value);
                     }}
-                />
-            {/if}
+				>
+			{/if}
 
-            <button
-                type="button"
-                class="a5e-button a5e-tag-delete-button"
-                aria-label="Delete Item"
-                onclick={(e) => {
+			<button
+				type="button"
+				class="a5e-button a5e-tag-delete-button"
+				aria-label="Delete Item"
+				onclick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     onClick(idx);
                 }}
-            >
-                <i class="icon fa-solid fa-x"></i>
-            </button>
-        </div>
-    {/each}
+			>
+				<i class="icon fa-solid fa-x"></i>
+			</button>
+		</div>
+	{/each}
 </FieldWrapper>
 
 <style lang="scss">
