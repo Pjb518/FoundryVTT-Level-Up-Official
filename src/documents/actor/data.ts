@@ -18,7 +18,7 @@ export interface ActorRollOptions {
 	rollMode?: number | undefined;
 	situationalMods?: string | undefined;
 	skipRollDialog?: boolean | undefined;
-	visibilityMode?: foundry.CONST.DICE_ROLL_MODES | undefined;
+	visibilityMode?: keyof CONFIG.ChatMessage.Modes | undefined;
 }
 
 export interface AbilityCheckRollOptions extends ActorRollOptions {}

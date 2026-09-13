@@ -82,6 +82,7 @@ declare module 'fvtt-types/configuration' {
 	interface SettingConfig {
 		'a5e.automateBloodiedeApplication': boolean;
 		'a5e.automateUnconsciousApplication': boolean;
+		'a5e.blindDeathSaves': boolean;
 		'a5e.hideExpertiseDice': boolean;
 		'a5e.showFavorPoints': boolean;
 	}

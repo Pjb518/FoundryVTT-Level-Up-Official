@@ -1378,10 +1378,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
 		options.saveType = 'death';
 		options.expertiseDice ??= 0;
-		options.visibilityMode ??= 'gmroll';
+		options.visibilityMode ??= 'gm';
 
 		if (game.settings.get('a5e', 'blindDeathSaves')) {
-			options.visibilityMode = 'blindroll';
+			options.visibilityMode = 'blind';
 		}
 
 		this.rollSavingThrow(undefined, options);
