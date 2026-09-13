@@ -127,7 +127,8 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		}
 
 		if (critical.powerfulCritical) {
-			const clone = terms.RollTerm.fromData(term.toJSON()).evaluate({
+			const termData = foundry.utils.deepClone(term.toJSON());
+			const clone = terms.RollTerm.fromData(termData).evaluate({
 				maximize: true,
 			}) as terms.RollTerm;
 
