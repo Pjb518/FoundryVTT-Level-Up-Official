@@ -44,7 +44,7 @@ class RestManager {
 	}
 
 	async rest() {
-		const { consumeSupply, haven } = this.#data;
+		const { consumeSupply } = this.#data;
 
 		// Start with restoration of long rest resources.
 		if (this.#restType === 'long') {
@@ -108,7 +108,7 @@ class RestManager {
 		const { fatigue, strife } = this.#actor.system.attributes;
 
 		// If supply is not consumed add one level of fatigue.
-		if ((!consumeSupply || !this.#actor.system.supply) && !ignoreSupply) {
+		if ((!consumeSupply || !this.#actor.totalSupply) && !ignoreSupply) {
 			this.#updates.actor['system.attributes.fatigue'] = Math.min(fatigue + 1, 7);
 			this.#summary.push('Gained 1 level of fatigue.');
 			return;
@@ -144,7 +144,9 @@ class RestManager {
 
 	#consumeSupply() {
 		if (this.#data.ignoreSupply) return;
-		if (!this.#actor.system.supply) return;
+
+		const availableSupply = this.#actor.totalSupply;
+		if (!availableSupply) return;
 
 		let toConsume = 0;
 
@@ -159,7 +161,26 @@ class RestManager {
 			if (this.#data.supplyAmount) toConsume = this.#data.supplyAmount;
 		}
 
-		this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply - toConsume, 0);
+		if (this.#actor.system.supply) {
+			this.#updates.actor['system.supply'] = Math.max(this.#actor.system.supply - toConsume, 0);
+		} else {
+			// Find the first item that is a supply and subtract quantity
+			const supplyItem = this.#actor.items.find(
+				(i) =>
+					i.type === 'object' && i.system.supply && i.system.equippedState && i.system.quantity > 0,
+			);
+
+			// If not found throw an error
+			if (!supplyItem) {
+				ui.notifications.warn('Unable to find item to consume supply');
+				return;
+			}
+
+			this.#updates.items.push({
+				_id: supplyItem.id,
+				'system.quantity': Math.max((supplyItem.system.quantity || 0) - toConsume, 0),
+			});
+		}
 
 		if (toConsume > 0) this.#summary.push(`Consumed ${toConsume} supply.`);
 	}

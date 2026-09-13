@@ -229,6 +229,21 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return this.system.migrationData.version;
 	}
 
+	/** Gets the total supply from items and supply field */
+	get totalSupply() {
+		const base = this.system.supply ?? 0;
+		const supplyCount = this.items.reduce((acc, item) => {
+			if (item.type !== 'object') return acc;
+			if (item.system.supply && item.system.equippedState) {
+				acc += item.system.quantity || 1;
+			}
+
+			return acc;
+		}, 0);
+
+		return base + supplyCount;
+	}
+
 	/**
 	 * An array of ActiveEffect instances which are present on the
 	 * Actor which have a limited duration.

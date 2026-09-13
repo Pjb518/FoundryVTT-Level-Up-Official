@@ -68,6 +68,7 @@ const schema = {
 	energyProperties: new fields.StringField({ required: true, initial: '' }),
 	equippedState: new fields.NumberField({
 		required: true,
+		nullable: false,
 		initial: 0,
 		integer: true,
 		min: 0,
@@ -124,7 +125,7 @@ const schema = {
 		required: true,
 		initial: [],
 	}),
-	supply: new fields.BooleanField({ required: true, initial: false }),
+	supply: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	techLevel: new fields.StringField({ required: true, initial: 'archaic' }),
 	unidentified: new fields.BooleanField({ required: true, initial: false }),
 	unidentifiedDescription: new fields.HTMLField({ required: true, initial: '' }),
