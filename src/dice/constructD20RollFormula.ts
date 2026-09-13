@@ -26,8 +26,12 @@ export function constructD20RollFormula(options: Options) {
 	const { rollMode, expertiseDie: expertise, minRoll: min, maxRoll: max } = options;
 	const rollData = options.actor.getRollData(options.item);
 
+	// TODO: Temp fix for halfling roll
+	let d20Term = '1d20';
+	if (options?.actor?.flags?.a5e?.halflingLuck) d20Term += 'r1';
+
 	const parts = [
-		'1d20',
+		d20Term,
 		...(options.modifiers ?? []).map((m) => {
 			if (!m) return null;
 			const { value, label } = m;

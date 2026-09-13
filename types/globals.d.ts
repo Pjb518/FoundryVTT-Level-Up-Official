@@ -69,6 +69,7 @@ declare module 'fvtt-types/configuration' {
 				automatePrototypeTokenSize: boolean;
 				criticalHitThresholdWeapon: number;
 				criticalHitThresholdSpell: number;
+				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
 			};
 		};
