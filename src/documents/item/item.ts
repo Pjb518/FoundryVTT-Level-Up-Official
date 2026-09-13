@@ -1,17 +1,12 @@
 import { ActionsManager } from '#managers/ActionsManager.ts';
-import { EffectAreaManager } from '#managers/EffectAreaManager.ts';
-import { ResourceConsumptionManager } from '#managers/ResourceConsumptionManager.ts';
-import { RollPreparationManager } from '#managers/RollPreparationManager.ts';
 import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
 import ActionSelectionDialog from '#view/dialogs/action/ActionSelectionDialog.svelte';
 import { ActionActivationDialog } from '#view/dialogs/initializers/ActionActivationDialog.svelte.ts';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
-import type { RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDataModel.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
-import { computeSaveDC } from '../../utils/computeSaveDC.ts';
 import { BaseItemA5e } from './base.svelte.ts';
 import type { ActionActivationOptions } from './data.ts';
 
@@ -164,7 +159,6 @@ class ItemA5e<
 		if (!activationData) return null;
 
 		const { prompts, rolls, shapeData } = await rollStateManager.startWorkflow(activationData);
-		console.log(rolls);
 
 		// TODO: Move the rest of this to workflow
 		const chatData = {
