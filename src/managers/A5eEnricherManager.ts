@@ -1,8 +1,8 @@
-import type { BaseActorA5e } from '../documents/actor/base';
-import type { BaseItemA5e } from '../documents/item/base';
+import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
+import type { BaseItemA5e } from '../documents/item/base.svelte.ts';
 
 declare namespace A5eEnricherManager {
-	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose';
+	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose' | 'ref';
 }
 
 class A5eEnricherManager {
@@ -13,7 +13,7 @@ class A5eEnricherManager {
 		CONFIG.TextEditor.enrichers.push(
 			{
 				// [[/check args=d|"d"|'d']]
-				pattern: /\[\[\/(?<enricherType>check|save|condition)(?<argString> [^\]]+)?]]/gi,
+				pattern: /\[\[\/(?<enricherType>check|save|condition|ref)(?<argString> [^\]]+)?]]/gi,
 				enricher: this.parseEnricherInput.bind(this),
 			},
 			// {
@@ -55,6 +55,7 @@ class A5eEnricherManager {
 		if (enricherType === 'check') return this.#enrichCheck(args, options);
 		if (enricherType === 'save') return this.#enrichSave(args, options);
 		if (enricherType === 'condition') return this.#enrichCondition(args, options);
+		if (enricherType === 'ref') return this.#enrichReference(argString, options);
 		return null;
 	}
 
@@ -261,6 +262,38 @@ class A5eEnricherManager {
 
 		if (!args.label) label = `${CONFIG.A5E.abilities[ability]} ${label}`;
 		return this.#createRollButton(args, options, label);
+	}
+
+	async #enrichReference(key: string, options?: TextEditor.EnrichmentOptions) {
+		if (!options) return null;
+		if (!key) return null;
+		key = key.trim();
+
+		const document = options.relativeTo;
+		if (!document) return null;
+
+		// Get documents
+		const item = document.documentName === 'Item' ? (document as Item.OfType<'base'>) : null;
+		let actor = document.documentName === 'Actor' ? (document as Actor.OfType<'base'>) : null;
+
+		if (!item && !actor) return null;
+		if (item?.isEmbedded && !actor) actor = item.actor!;
+
+		const propertyKey = key.slice(key.indexOf('.') + 1).trim();
+		if (!propertyKey) return null;
+
+		let prop: any | null = null;
+		if (key.startsWith('item') && item) prop = foundry.utils.getProperty(item, propertyKey) as any;
+		else if (key.startsWith('actor') && actor)
+			prop = foundry.utils.getProperty(actor, propertyKey) as any;
+
+		if (prop) {
+			const propType = foundry.utils.getType(prop);
+			if (!['number', 'string'].includes(propType)) return null;
+			return prop;
+		}
+
+		return null;
 	}
 
 	/* -------------------------------------------- */
