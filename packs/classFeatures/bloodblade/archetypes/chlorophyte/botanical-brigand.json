@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/nature/barrier-shield-wood-vines.webp",
 	"system": {
-		"description": "<p>At 18th level, you gain the following abilities:</p><h2>Immovable Taproot</h2><p>Your roots run deep and true. When you are under the effects of your @UUID[Compendium.out-of-the-wilds.features.Item.TtNQ6WUFNeJfLKOE]{Rooted in Earth} feature, you are immune to being shoved or knocked prone, and your movement Speed is no longer halved as a result of this feature.</p><h2>Photosynthesis</h2><p>So long as you are above ground and able to be in direct exposure to the sun for more than 4 hours, you do not need to consume Supply for that day.</p><h2>Piercing Barricade</h2><p>Your connection to the plants and the soil enables you to summon plants to your aid in battle. Once per long rest you may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.m68wvspmjjd2aaat]{Wall of Thorns} without expending a spell slot or requiring material components. Intelligence is your spellcasting modifier for this spell.</p>",
+		"description": "<p>At 18th level, you gain the following abilities:</p><h2>Immovable Taproot</h2><p>Your roots run deep and true. When you are under the effects of your @UUID[Compendium.a5e.a5e-class-features.Item.nbVWDg8biohDUzBS]{Rooted in Earth} feature, you are immune to being shoved or knocked prone, and your movement Speed is no longer halved as a result of this feature.</p><h2>Photosynthesis</h2><p>So long as you are above ground and able to be in direct exposure to the sun for more than 4 hours, you do not need to consume Supply for that day.</p><h2>Piercing Barricade</h2><p>Your connection to the plants and the soil enables you to summon plants to your aid in battle. Once per long rest you may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.m68wvspmjjd2aaat]{Wall of Thorns} without expending a spell slot or requiring material components. Intelligence is your spellcasting modifier for this spell.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -44,7 +44,8 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "@con.mod"
+					"value": "@con.mod",
+					"concentration": false
 				},
 				"effects": [
 					"OmYlvjLBKtpaTK6x"
@@ -67,7 +68,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -88,7 +90,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
@@ -106,7 +109,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.qFh0aG9cXF7OPFMM",
+			"origin": "Item.riKTZLDM9NDLEDpj",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -125,23 +128,12 @@
 			"img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
 			"_id": "OmYlvjLBKtpaTK6x",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"prone\",\"Shoved\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Immune to being shoved or knocked prone.</p>",
 			"tint": "#ffffff",
@@ -149,24 +141,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224772
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789414817381,
+				"createdTime": 1789414817353
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224696,
-		"modifiedTime": 1788788224696,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789414817353,
+		"modifiedTime": 1789414838728,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "riKTZLDM9NDLEDpj"
 }

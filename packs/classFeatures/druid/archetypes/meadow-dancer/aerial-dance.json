@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/commodities/biological/wing-insect-blue.webp",
 	"system": {
-		"description": "<p>When you use one of your @UUID[Compendium.out-of-the-wilds.features.Item.gH6N2JQCNv0jTmmd]{Pollinator’s Dance} features, a pair of wings that correspond to the pollinator you are calling upon sprouts from your back. You gain a fly speed equal to your Speed in addition to the benefits the specific dance grants. These wings persist for a number of rounds equal to your Wisdom modifier.</p><p>If you are still airborne when this feature ends, you are reduced to 0 hit points, or you are incapacitated, you fall at a rate of 30 feet per round.</p>",
+		"description": "<p>When you use one of your @UUID[Compendium.a5e.a5e-class-features.Item.Pl7PYMUxQS7LlokG]{Pollinator’s Dance} features, a pair of wings that correspond to the pollinator you are calling upon sprouts from your back. You gain a fly speed equal to your Speed in addition to the benefits the specific dance grants. These wings persist for a number of rounds equal to your Wisdom modifier.</p><p>If you are still airborne when this feature ends, you are reduced to 0 hit points, or you are incapacitated, you fall at a rate of 30 feet per round.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "@wis.mod"
+					"value": "@wis.mod",
+					"concentration": false
 				},
 				"effects": [
 					"E1oxU2g9sW9ytE53"
@@ -57,7 +58,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -78,7 +80,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
@@ -96,7 +99,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.vUaWoD4mR07aKOQ9",
+			"origin": "Item.KHTLtKzB9duFZBV3",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -115,23 +118,12 @@
 			"img": "icons/commodities/biological/wing-insect-blue.webp",
 			"_id": "E1oxU2g9sW9ytE53",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "@attributes.movement.walk.distance",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Gain a fly speed equal to your Speed.</p>",
 			"tint": "#ffffff",
@@ -139,24 +131,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224782
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789415021395,
+				"createdTime": 1789415021386
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224696,
-		"modifiedTime": 1788788224696,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789415021386,
+		"modifiedTime": 1789415058767,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "KHTLtKzB9duFZBV3"
 }

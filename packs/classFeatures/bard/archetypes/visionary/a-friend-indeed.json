@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
 	"system": {
-		"description": "<p>At 3rd level, your imagination quite literally comes alive in the form of an imaginary friend. What form or shape this imaginary friend takes must be size Medium or smaller, but what their exact physical features are and whether they are whimsical or frightening is determined by your experiences in life. They may be a benign confidante—or a terrifying guardian.</p><p>You may summon your imaginary friend as a bonus action, appearing in an unoccupied square adjacent to you. While your imaginary friend is summoned, you gain an expertise die to any Performance checks or checks made with the other skill chosen under your @UUID[Compendium.out-of-the-wilds.features.Item.4Lt0Hr1OYDIUrDZl]{Bonus Proficiency}.</p><p>As an action, you may expend a use of your Bardic Inspiration to command your imaginary friend to Attack or Defend. If given the Defend command, your imaginary friend remains in a square adjacent to you and uses its reaction to place itself between you and your attacker. The triggering creature rolls its attack against your imaginary friend instead of you, and it takes all relevant damage on a hit. If given the Attack command, your imaginary friend may move away from you up to its movement speed, and you may use it to cast bard spells with a range of touch through it so long as your imaginary friend remains within 30 feet of you and you can see it.</p><p>While summoned, your imaginary friend has an AC of 10 + your proficiency bonus and a movement speed of 30 feet. When you roll for initiative, your imaginary friend gains a number of temporary hit points equal to your level multiplied by your proficiency bonus. If your imaginary friend is reduced to 0 hit points, or you dismiss it as a bonus action, it disappears and cannot be summoned again until you complete a long rest.</p>",
+		"description": "<p>At 3rd level, your imagination quite literally comes alive in the form of an imaginary friend. What form or shape this imaginary friend takes must be size Medium or smaller, but what their exact physical features are and whether they are whimsical or frightening is determined by your experiences in life. They may be a benign confidante—or a terrifying guardian.</p><p>You may summon your imaginary friend as a bonus action, appearing in an unoccupied square adjacent to you. While your imaginary friend is summoned, you gain an expertise die to any Performance checks or checks made with the other skill chosen under your @UUID[Compendium.a5e.a5e-class-features.Item.I8juNNYnknR15F69]{Bonus Proficiency}.</p><p>As an action, you may expend a use of your Bardic Inspiration to command your imaginary friend to Attack or Defend. If given the Defend command, your imaginary friend remains in a square adjacent to you and uses its reaction to place itself between you and your attacker. The triggering creature rolls its attack against your imaginary friend instead of you, and it takes all relevant damage on a hit. If given the Attack command, your imaginary friend may move away from you up to its movement speed, and you may use it to cast bard spells with a range of touch through it so long as your imaginary friend remains within 30 feet of you and you can see it.</p><p>While summoned, your imaginary friend has an AC of 10 + your proficiency bonus and a movement speed of 30 feet. When you roll for initiative, your imaginary friend gains a number of temporary hit points equal to your level multiplied by your proficiency bonus. If your imaginary friend is reduced to 0 hit points, or you dismiss it as a bonus action, it disappears and cannot be summoned again until you complete a long rest.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"2kqlJ2LvzyoATnZe"
@@ -64,7 +65,8 @@
 					"per": "longRest",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			},
@@ -85,7 +87,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -117,7 +120,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -138,7 +142,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
@@ -156,7 +161,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.wv0zyUeMuJQb7yAC",
+			"origin": "Item.6kki538YXCPWp9HZ",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -175,16 +180,12 @@
 			"img": "icons/skills/social/diplomacy-handshake-yellow.webp",
 			"_id": "2kqlJ2LvzyoATnZe",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>While your imaginary friend is summoned, you gain an expertise die to any Performance checks or checks made with the other skill chosen under your Bonus Proficiency.</p>",
 			"tint": "#ffffff",
@@ -192,24 +193,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224786
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789414323371,
+				"createdTime": 1789414323336
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224696,
-		"modifiedTime": 1788788224696,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789414323336,
+		"modifiedTime": 1789414336322,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "6kki538YXCPWp9HZ"
 }
