@@ -625,6 +625,7 @@ const featureTypes = {
 	heritage: 'A5E.features.types.heritage',
 	knack: 'A5E.features.types.knack',
 	legendaryAction: 'A5E.features.types.legendaryAction',
+	monster: 'A5E.features.types.monster',
 	naturalWeapon: 'A5E.features.types.naturalWeapon',
 	paragon: 'A5E.features.types.paragon',
 	other: 'A5E.features.types.other',

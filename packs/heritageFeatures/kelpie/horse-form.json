@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/environment/creatures/horses.webp",
 	"system": {
-		"description": "<p>As a bonus action, you may shapeshift into your choice of a @UUID[Compendium.a5e.a5e-monsters.Actor.scecq7mxrzd425pz]{Pony} or a @UUID[Compendium.a5e.a5e-monsters.Actor.b8ea8murgijmefmu]{Draft Horse}. You make this choice at character creation and it cannot be changed at a later time.</p><p>While in your horse form, you retain your hit points, your mental statistics, and your @UUID[Compendium.out-of-the-wilds.features.Item.5MRgPI8Yo3TGCES7]{Alarming Allure} trait from your kelpie heritage. You may still use any features you have that grant you bonuses to your AC that do not require the use of armor (such as an adept’s @UUID[Compendium.a5e.a5e-class-features.Item.zh0pv154q6abroh6]{Agile Defense}), but otherwise you assume the statistics of your chosen horse form. Any equipment you are wearing or wielding merges into your new form and has no effect until you leave your horse form. You may remain in your horse form indefinitely, though if you are reduced to 0 hit points you revert back to your humanoid form. You may also dismiss your horse form as a bonus action.</p><p>As a horse you cannot speak, but you gain an expertise die to Persuasion checks made to encourage others to follow you. If you are near a deep body of water (such as a lake or ocean), you make your check at advantage.</p><p>If you selected draft horse, a Medium-sized creature or smaller (Small-sized or smaller if you selected pony) may sit astride you as a normal horse, though they cannot activate any combat maneuvers or class features that make use of a mount while on your back.</p><p>If you gain the @UUID[Compendium.a5e.a5e-class-features.Item.3jdfihvtbyhbv9ez]{Wild Shape} feature, this feature does not gain any of its benefits.</p>",
+		"description": "<p>As a bonus action, you may shapeshift into your choice of a @UUID[Compendium.a5e.a5e-monsters.Actor.scecq7mxrzd425pz]{Pony} or a @UUID[Compendium.a5e.a5e-monsters.Actor.b8ea8murgijmefmu]{Draft Horse}. You make this choice at character creation and it cannot be changed at a later time.</p><p>While in your horse form, you retain your hit points, your mental statistics, and your Alarming Allure trait from your kelpie heritage. You may still use any features you have that grant you bonuses to your AC that do not require the use of armor (such as an adept’s @UUID[Compendium.a5e.a5e-class-features.Item.zh0pv154q6abroh6]{Agile Defense}), but otherwise you assume the statistics of your chosen horse form. Any equipment you are wearing or wielding merges into your new form and has no effect until you leave your horse form. You may remain in your horse form indefinitely, though if you are reduced to 0 hit points you revert back to your humanoid form. You may also dismiss your horse form as a bonus action.</p><p>As a horse you cannot speak, but you gain an expertise die to Persuasion checks made to encourage others to follow you. If you are near a deep body of water (such as a lake or ocean), you make your check at advantage.</p><p>If you selected draft horse, a Medium-sized creature or smaller (Small-sized or smaller if you selected pony) may sit astride you as a normal horse, though they cannot activate any combat maneuvers or class features that make use of a mount while on your back.</p><p>If you gain the @UUID[Compendium.a5e.a5e-class-features.Item.3jdfihvtbyhbv9ez]{Wild Shape} feature, this feature does not gain any of its benefits.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"6T9ma4y6HwmNjSEh",
@@ -58,7 +59,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -79,7 +81,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
@@ -97,7 +100,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.Qtnb2A7Jam5E4k7s",
+			"origin": "Item.tAFCE9HP8lcgHFfJ",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -116,47 +119,12 @@
 			"img": "icons/environment/creatures/horses.webp",
 			"_id": "6T9ma4y6HwmNjSEh",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.abilities.str.value",
-					"value": "14",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.dex.value",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.con.value",
-					"value": "12",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -164,16 +132,19 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224692
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789385310554,
+				"createdTime": 1789385310539
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.Qtnb2A7Jam5E4k7s",
+			"origin": "Item.tAFCE9HP8lcgHFfJ",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -192,65 +163,12 @@
 			"img": "icons/environment/creatures/horses.webp",
 			"_id": "dRgAIFB0IewzM3N9",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.abilities.str.value",
-					"value": "18",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.dex.value",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.abilities.con.value",
-					"value": "14",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.skills.per.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.size",
-					"value": "lg",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.height",
-					"value": "2",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.width",
-					"value": "2",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -258,24 +176,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224692
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789385310554,
+				"createdTime": 1789385310539
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224393,
-		"modifiedTime": 1788788224393,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789385310539,
+		"modifiedTime": 1789385488268,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "tAFCE9HP8lcgHFfJ"
 }

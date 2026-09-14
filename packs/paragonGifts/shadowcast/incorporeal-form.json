@@ -41,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "@con.mod"
+					"value": "@con.mod",
+					"concentration": false
 				},
 				"effects": [
 					"OmijZG6s1qYMlEw2"
@@ -64,7 +65,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -85,13 +87,14 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
 		"classes": "",
 		"concentration": false,
-		"featureType": "heritage",
+		"featureType": "paragon",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
@@ -103,7 +106,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.o5YkbB08G2YbaGWN",
+			"origin": "Item.OHibG9bEzVCvPrs1",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -122,16 +125,12 @@
 			"img": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
 			"_id": "OmijZG6s1qYMlEw2",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>While in this form, you are still visible but semi-transparent, you cannot attack, and attacks from nonmagical weapons cannot harm you. You may pass through solid objects and interact with them. You may stay in this incorporeal state for a number of rounds equal to your Constitution modifier, until you choose to voluntarily end it as a bonus action, or until you take damage.</p>",
 			"tint": "#ffffff",
@@ -139,24 +138,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224770
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789386305751,
+				"createdTime": 1789386305739
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224696,
-		"modifiedTime": 1788788224696,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789386305739,
+		"modifiedTime": 1789386310618,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "OHibG9bEzVCvPrs1"
 }

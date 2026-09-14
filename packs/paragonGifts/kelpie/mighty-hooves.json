@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/commodities/bones/hooves-cloven-grey.webp",
 	"system": {
-		"description": "<p>While in your horse form, your attacks with your hooves count as magical for the purposes of overcoming damage resistances.</p><p>Additionally, while in @UUID[Compendium.out-of-the-wilds.features.Item.Qtnb2A7Jam5E4k7s]{Horse Form}, you gain the following ability:</p><p><em><strong>Trample.</strong></em> You trample enemies in your path. As a bonus action, you may move up to half your movement speed without provoking opportunity attacks. Creatures in your path that are at least one size category smaller than you just make a Dexterity saving throw versus your maneuver DC. On a failure, a creature takes 2d6 bludgeoning damage and is knocked [[/condition id=prone]].</p><p>You may use your Trample ability once per long rest.</p>",
+		"description": "<p>While in your horse form, your attacks with your hooves count as magical for the purposes of overcoming damage resistances.</p><p>Additionally, while in @UUID[Compendium.a5e.a5e-heritage-features.Item.tAFCE9HP8lcgHFfJ]{Horse Form}, you gain the following ability:</p><p><em><strong>Trample.</strong></em> You trample enemies in your path. As a bonus action, you may move up to half your movement speed without provoking opportunity attacks. Creatures in your path that are at least one size category smaller than you just make a Dexterity saving throw versus your maneuver DC. On a failure, a creature takes 2d6 bludgeoning damage and is knocked [[/condition id=prone]].</p><p>You may use your Trample ability once per long rest.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -41,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"z5oZ30CN4mVOdYB2"
@@ -87,7 +88,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -108,13 +110,14 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
 		"classes": "",
 		"concentration": false,
-		"featureType": "heritage",
+		"featureType": "paragon",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
@@ -126,7 +129,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.iEn0N6rwBERXKcEX",
+			"origin": "Item.dnM8eeN1LncmX1Yk",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -145,23 +148,12 @@
 			"img": "icons/commodities/bones/hooves-cloven-grey.webp",
 			"_id": "z5oZ30CN4mVOdYB2",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
 			"tint": "#ffffff",
@@ -171,24 +163,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224682
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789385447500,
+				"createdTime": 1789385447490
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224393,
-		"modifiedTime": 1788788224393,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789385447490,
+		"modifiedTime": 1789385488269,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "dnM8eeN1LncmX1Yk"
 }

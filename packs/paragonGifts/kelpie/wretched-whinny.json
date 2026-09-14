@@ -51,7 +51,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"TEMTzUJ59gCaDR8A"
@@ -90,7 +91,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
 					}
 				}
 			}
@@ -111,13 +113,14 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
 			}
 		},
 		"class": "",
 		"classes": "",
 		"concentration": false,
-		"featureType": "heritage",
+		"featureType": "paragon",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
@@ -129,7 +132,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.Mvy0uuQwuZkMSlW5",
+			"origin": "Item.3pQat2MLR4y6raNH",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -148,23 +151,12 @@
 			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
 			"_id": "TEMTzUJ59gCaDR8A",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
 			"tint": "#ffffff",
@@ -181,24 +173,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1788788224636
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789385488237,
+				"createdTime": 1789385488224
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1788788224393,
-		"modifiedTime": 1788788224393,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.2.8",
+		"createdTime": 1789385488224,
+		"modifiedTime": 1789385491529,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "3pQat2MLR4y6raNH"
 }
