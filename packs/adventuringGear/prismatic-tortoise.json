@@ -1,0 +1,240 @@
+{
+	"name": "Prismatic Tortoise",
+	"type": "object",
+	"img": "icons/creatures/reptiles/turtle-shell-glowing-green.webp",
+	"system": {
+		"description": "<p>Resembling a tortoise but with a multicolored crystalline shell, prismatic tortoises are slow-moving denizens of forests and caves whose diet consists entirely of rocks and other minerals. Its crystal shell can pose a problem if it is hit directly with light, as it refracts the light and creates a sudden, bright flash. Creatures who are within 15 feet of a prismatic tortoise in a source of direct light must succeed on a DC 15 Constitution saving throw or be dazzled by the bright lights for 1 minute.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"AzoKiDZ0vUaJMLTw": {
+				"name": "Prismatic Tortoise",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"nv1sJarOOsfmfFIa"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"uRQTpw5kNWQWEEe1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"dCBHADCp6INDq5wE": {
+						"range": "self",
+						"unit": "feet"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 15
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"ammunitionDamageMode": "bonus",
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "monstrosity",
+			"properties": [
+				"hazard",
+				"mundane"
+			],
+			"regions": [
+				"dungeon",
+				"tangledForest",
+				"underlandRealm"
+			],
+			"size": "tiny",
+			"type": "creature"
+		},
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "endemicLife",
+		"plotItem": false,
+		"price": {
+			"value": 0,
+			"denomination": "gp",
+			"special": ""
+		},
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"name": "Dazzled",
+			"img": "icons/creatures/reptiles/turtle-shell-glowing-green.webp",
+			"origin": "Item.KSiII6VtKu0jFmzm",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"dazzled"
+						],
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "nv1sJarOOsfmfFIa",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>A flash of brilliant light, sparkling spell effects, or sudden exposure to sunlight— all of these could result in a creature being dazzled.</p><ul><li><p>A dazzled creature has disadvantage on ability checks that require sight.</p></li><li><p>A dazzled creature cannot take reactions.</p></li><li><p>Creatures that are immune to being blinded are immune to being dazzled.</p></li><li><p>If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1789472315443,
+				"modifiedTime": 1789472337820,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1789472235914,
+		"modifiedTime": 1789472315459,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "rPvWUA1hztbrHFR6"
+}
