@@ -5,37 +5,9 @@ export default class NPCActorA5E extends BaseActorA5e<'npc'> {
 	// -------------------------------------------------------------
 	// Data Preparation Methods
 	// -------------------------------------------------------------
-	get hitPointFormula(): string {
-		const { hitDice } = this.system.attributes;
-		// @ts-expect-error
-		const { mod } = this.system.abilities.con;
-
-		let hitDiceCount = 0;
-		const parts: string[] = [];
-
-		// @ts-expect-error
-		Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
-			if (!diceQuantity) return;
-
-			parts.push(`${diceQuantity}${dieSize}`);
-			hitDiceCount += diceQuantity;
-		});
-
-		if (hitDiceCount === 0) return '';
-
-		return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
-	}
-
 	/**
 	 * Prepare base data for the actor.
 	 */
-	override prepareBaseData() {
-		super.prepareBaseData();
-
-		// Calculate the proficiency bonus for the character with a minimum value of 2.
-		// @ts-expect-error
-		this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-	}
 
 	/**
 	 * Prepares derived data for the actor.

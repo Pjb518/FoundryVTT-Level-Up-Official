@@ -51,31 +51,18 @@ import type {
 	SkillCheckRollOptions,
 } from './data.ts';
 
+import FDoc = foundry.abstract.Document;
+
 // *****************************************************************************************
-type ActorMap = {
-	character: CharacterActorA5E;
-	npc: NPCActorA5E;
-	base: BaseActorA5e;
-	[
-		K: foundry.abstract.Document.ModuleSubType
-	]: BaseItemA5e<foundry.abstract.Document.ModuleSubType>;
-};
 
 declare module 'fvtt-types/configuration' {
 	interface DocumentClassConfig {
-		Actor: ActorA5e;
+		Actor: typeof BaseActorA5e<Actor.SubType>;
 	}
 
 	interface ConfiguredActor<SubType extends Actor.SubType> {
-		document: ActorMap[SubType];
+		document: BaseActorA5e<SubType>;
 	}
-}
-
-declare interface ActorA5e extends Identity<typeof BaseActorA5e> {
-	new <SubType extends Actor.SubType>(
-		data: Actor.CreateData<SubType>,
-		context?: Actor.ConstructionContext,
-	): ActorMap[SubType];
 }
 
 // *****************************************************************************************
@@ -126,7 +113,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 	declare spellBooks: SpellBookManager;
 
-	declare initialized: boolean;
+	// Char props
+	automationAvailable = false;
+
+	declare classAutomationFlags: Record<string, boolean>;
+	declare levels: { character: number; classes: Record<string, number> };
 
 	// Custom
 	effectPhases: { beforeDerived: any[]; afterDerived: any[] };
@@ -195,22 +186,26 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.effectPhases = { beforeDerived: [], afterDerived: [] };
 	}
 
-	// *****************************************************************************************
+	/** Gets a reactive instance of the actor */
 	get reactive() {
 		this.#subscribe();
 
 		return this;
 	}
 
-	// *****************************************************************************************
-	//
-	// *****************************************************************************************
+	/** ================================================================= */
+	// Getters
+	/** ================================================================= */
 
+	/** Get effects available on the actor */
 	get actorEffects() {
 		return this.effects.map((e) => e);
 	}
 
+	/** Get available spellslots on an actor */
 	get availableSpellSlots() {
+		if (this.type === 'party') return [] as string[];
+
 		return Object.entries(this.system.spellResources.slots ?? {}).reduce(
 			(acc: string[], [level, slot]: [string, any]) => {
 				if (slot.max > 0 && slot.current > 0) acc.push(level);
@@ -220,28 +215,17 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		);
 	}
 
+	/** Check if an actor is bloodied */
 	get isBloodied(): boolean {
+		if (this.type === 'party') return false;
+
 		const { max, value } = this.system.attributes.hp;
 		return (value / max) * 100 <= 50;
 	}
 
+	/** Get current schema version of the actor */
 	get migrationVersion() {
 		return this.system.migrationData.version;
-	}
-
-	/** Gets the total supply from items and supply field */
-	get totalSupply() {
-		const base = this.system.supply ?? 0;
-		const supplyCount = this.items.reduce((acc, item) => {
-			if (item.type !== 'object') return acc;
-			if (item.system.supply && item.system.equippedState) {
-				acc += item.system.quantity || 1;
-			}
-
-			return acc;
-		}, 0);
-
-		return base + supplyCount;
 	}
 
 	/**
@@ -261,7 +245,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return effects.sort((a, b) => a.name.localeCompare(b.name));
 	}
 
+	/** Get vision data for token use */
 	get visionData() {
+		if (this.type === 'party') return undefined;
+
 		const { senses } = this.system.attributes;
 
 		return {
@@ -273,9 +260,77 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		};
 	}
 
-	// *****************************************************************************************
+	/** ---------------------------------- */
+	// Getters (Char)
+	/** ---------------------------------- */
+
+	/** Get classes on an actor */
+	get classes() {
+		if (this.type !== 'character') return undefined;
+
+		const classes = this.items.reduce((acc, item) => {
+			if (item.type !== 'class') return acc;
+			acc[item.slug] = item;
+			return acc;
+		}, {}) as Record<string, Item.OfType<'class'>>;
+
+		return classes;
+	}
+
+	/** Gets the total supply from items and supply field */
+	get totalSupply() {
+		if (this.type !== 'character') return 0;
+
+		const base = this.system.supply ?? 0;
+		const supplyCount = this.items.reduce((acc, item) => {
+			if (item.type !== 'object') return acc;
+			if (item.system.supply && item.system.equippedState) {
+				acc += item.system.quantity || 1;
+			}
+
+			return acc;
+		}, 0);
+
+		return base + supplyCount;
+	}
+
+	/** @deprecated  */
+	get supply() {
+		return this.totalSupply();
+	}
+
+	/** ---------------------------------- */
+	// Getters (NPC)
+	/** ---------------------------------- */
+	get hitPointFormula() {
+		if (this.type !== 'npc') return '';
+
+		const { hitDice } = this.systen.attributes;
+		const { mod } = this.system.abilities.con;
+
+		let hitDiceCount = 0;
+		const parts: string[] = [];
+
+		Object.entries(hitDice ?? {}).forEach(([dieSize, { total: diceQuantity }]) => {
+			if (!diceQuantity) return;
+
+			parts.push(`${diceQuantity}${dieSize}`);
+			hitDiceCount += diceQuantity;
+		});
+
+		if (hitDiceCount === 0) return '';
+		return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+	}
+
+	/** ---------------------------------- */
+	// Getters (Party)
+	/** ---------------------------------- */
+
+	/** ================================================================= */
 	// Generators
-	// *****************************************************************************************
+	/** ================================================================= */
+
+	/** Get Applicable effects on the actor */
 	override *allApplicableEffects() {
 		for (const effect of this.effects) yield effect;
 
@@ -286,17 +341,23 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		}
 	}
 
-	// -------------------------------------------------------------
-	// Data Preparation Methods
-	// -------------------------------------------------------------
-	protected override _initialize(options?: Record<string, unknown>) {
-		this.initialized = false;
+	/** ================================================================= */
+	// Data Preperation Methods
+	/** ================================================================= */
 
+	/**
+	 * @inheritdoc
+	 */
+	protected override _initialize(options?: FDoc.InitializeOptions) {
 		// Unset Managers
 		this.BonusesManager = null!;
 		this.HitDiceManager = null!;
 		this.grants = null!;
 		this.spellBooks = null!;
+
+		if (this.type === 'character') {
+			this.classAutomationFlags = {};
+		}
 
 		super._initialize(options);
 	}
@@ -305,32 +366,34 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	 * Sets the order of when to prepare data.
 	 */
 	override prepareData() {
-		if (this.initialized) return;
-
-		this.initialized = true;
-
 		// Identify which special statuses had been active
 		const specialStatuses = new Map();
 		for (const statusId of Object.values(CONFIG.specialStatusEffects)) {
 			specialStatuses.set(statusId, this.statuses.has(statusId));
 		}
 
+		const isTypeData = this.system instanceof foundry.abstract.TypeDataModel;
+
+		if (isTypeData) this.system?.prepareBaseData();
 		this.prepareBaseData();
+
 		super.prepareEmbeddedDocuments();
 
+		if (isTypeData) this.system?.prepareDerivedData();
 		this.prepareDerivedData();
-		// this.afterDerivedData();
 
 		// Initialize the SpellBooks
 		this.spellBooks = new SpellBookManager(this);
-		this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
+		this.spellBooks.forEach((spellBook) => {
+			spellBook.prepareBaseData();
+		});
 
 		// Apply Derived effects after armor class data
 		this.applyActiveEffects('final');
 		this.prepareArmorClass();
 
 		// Apply special statuses that changed to active tokens
-		let tokens;
+		let tokens: Token[];
 		for (const [statusId, wasActive] of specialStatuses) {
 			const isActive = this.statuses.has(statusId);
 			if (isActive === wasActive) continue;
@@ -341,11 +404,25 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		}
 	}
 
+	/** ================================================================= */
+	// Base Data Prep Methods
+	/** ================================================================= */
+
 	/**
 	 * Prepare base data for the actor.
 	 */
 	override prepareBaseData() {
+		super.prepareBaseData();
 		this._clearData();
+
+		// Call Sub Methods
+		this.prepareCreatureBaseData();
+		this.preparePartyBaseData();
+	}
+
+	/** Prepares common base data for creatures */
+	prepareCreatureBaseData() {
+		if (this.type === 'party') return;
 
 		// Register Managers
 		this.BonusesManager = new BonusesManager(this);
@@ -357,85 +434,87 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			override: null,
 			bonuses: { components: [], value: 0 },
 		};
+
+		// Call Sub Methods
+		if (this.type === 'character') this.prepareCharBaseData();
+		if (this.type === 'npc') this.prepareNPCBaseData();
 	}
+
+	prepareCharBaseData(this: Actor.OfType<'character'>) {
+		if (this.type !== 'character') return;
+
+		const automationAvailable = Object.keys(this.classes ?? {}).length > 0;
+		this.automationAvailable = automationAvailable;
+
+		this.classAutomationFlags = {
+			classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? false,
+			hitDice: this.getFlag('a5e', 'automateHitDice') ?? automationAvailable ?? false,
+			hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? automationAvailable ?? false,
+			spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? false,
+		};
+
+		this.prepareLevelData();
+
+		// Calculate the proficiency bonus for the character with a minimum value of 2.
+		this.system.attributes.prof = Math.max(2, Math.floor((this.levels.character + 7) / 4));
+	}
+
+	prepareNPCBaseData(this: Actor.OfType<'npc'>) {}
+	preparePartyBaseData() {}
+
+	/** ---------------------------------- */
+	//  Base Data Prep (Char)
+	/** ---------------------------------- */
 
 	/**
-	 * Apply activeEffects to the actor with the phase 'applyAEs'.
+	 * Prepares detailed level data for the actor.
 	 */
-	override applyActiveEffects(phase: 'initial' | 'final') {
-		const ActiveEffect = foundry.documents.ActiveEffect.implementation;
+	prepareLevelData() {
+		if (this.type !== 'character') return;
 
-		this._completedActiveEffectPhases.add(phase);
+		const classes = this.items.filter((item) => item.type === 'class');
 
-		const changes: any[] = [];
-		const tokenChanges: any[] = [];
+		if (!this.classAutomationFlags.classes) {
+			this.levels = {
+				character: this.system.details.level,
+				classes: {},
+			};
 
-		const effectOptions =
-			this.type === 'character'
-				? game.a5e.activeEffects.options.character.allOptions
-				: this.type === 'npc'
-					? game.a5e.activeEffects.options.npc.allOptions
-					: game.a5e.activeEffects.options.all.allOptions;
-
-		for (const effect of this.allApplicableEffects()) {
-			if (!effect.active) continue;
-
-			for (const change of effect.system.changes) {
-				if (change.key === '') continue;
-				// Phase check
-				const effectConfig = effectOptions[change.key];
-				let registeredPhase = change.phase;
-				if (effectConfig) {
-					registeredPhase = CONFIG.A5E.ACTIVE_EFFECT_PHASES[effectConfig.phase] ?? change.phase;
-				}
-
-				if (registeredPhase !== phase) continue;
-
-				const copy = foundry.utils.deepClone(change);
-				copy.effect = effect;
-
-				// Keep Token changes separate for later application
-				if (copy.key?.startsWith('@token.')) {
-					copy.key = copy.key.slice(7);
-					tokenChanges.push(copy);
-				} else {
-					changes.push(copy);
-				}
-			}
-
-			if (phase === 'initial') {
-				const statuses = effect.getStatuses();
-				for (const statusId of statuses) this.statuses.add(statusId);
-				effect.statuses = statuses;
-			}
+			return;
 		}
 
-		generateExpandedChanges(changes);
-		changes.sort((a, b) => a.priority - b.priority);
-		this.tokenActiveEffectChanges[phase] = tokenChanges;
+		const levelData = Object.values(classes ?? {}).reduce(
+			(acc, cls) => {
+				const level = cls.system.classLevels;
+				if (!level) return acc;
 
-		// Apply all changes
-		const overrides = {};
-		const replacementData = this.getRollData() ?? {};
+				acc.classes[cls.system.slug || cls.name.slugify({ strict: true })] = level;
+				acc.character += level;
+				return acc;
+			},
+			{ character: 0, classes: {} },
+		);
 
-		// TODO: Figure out why this fails on token npc
-		// this.overrides ??= {};
-
-		for (const change of changes) {
-			// TODO: Adds support for `@original`
-			const result = ActiveEffect.applyChange(this, change, {
-				replacementData,
-			});
-			if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
-		}
-
-		foundry.utils.mergeObject(this.overrides, foundry.utils.expandObject(overrides));
+		this.levels = levelData;
 	}
+
+	/** ================================================================= */
+	// Derived Data Prep Methods
+	/** ================================================================= */
 
 	/**
 	 * Prepares derived data for the actor.
 	 */
 	override prepareDerivedData() {
+		super.prepareDerivedData();
+
+		this.prepareCreatureDerivedData();
+	}
+
+	/** Prepares derived data for creatures */
+	prepareCreatureDerivedData(this: Actor.OfType<'character'> | Actor.OfType<'npc'>) {
+		if (this.type === 'party') return;
+
 		const actorData = this.system;
 
 		// Add base bonuses for abilities
@@ -473,7 +552,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		 */
 		Object.entries(actorData.abilities).forEach(([abilityKey, ability]) => {
 			['check', 'save'].forEach((key) => {
-				let deterministicBonus;
+				let deterministicBonus: number;
 
 				try {
 					deterministicBonus = getDeterministicBonus(
@@ -536,9 +615,16 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.prepareSenses();
 
 		foundry.utils.setProperty(this, 'system.attributes.ac.changes', this.prepareArmorChanges());
+
+		// Call Sub Methods
+		if (this.type === 'character') this.prepareCharDerivedData();
+		if (this.type === 'npc') this.prepareNPCDerivedData();
 	}
 
-	prepareArmorClass() {
+	prepareCharDerivedData(this: Actor.OfType<'character'>) {}
+	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {}
+
+	prepareArmorClass(this: Creature) {
 		// @ts-expect-error
 		const changes = this.system.attributes.ac.changes ?? {};
 
@@ -619,7 +705,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	determineDefenseConfiguration() {
+	determineDefenseConfiguration(this: Creature) {
 		// const currentStr = this.system.abilities.str.value;
 		return this.items.reduce(
 			(acc, item) => {
@@ -641,19 +727,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		);
 	}
 
-	prepareArmorChanges() {
+	prepareArmorChanges(this: Creature) {
 		// const currentStr = this.system.abilities.str.value;
 		const { hasArmor, hasShield } = this.determineDefenseConfiguration();
 
 		const changes = this.items.reduce(
 			(acc, item) => {
-				const {
-					formula,
-					mode,
-					requiresUnarmored,
-					requiresNoShield,
-					// @ts-expect-error
-				} = item.system.ac ?? {};
+				const { formula, mode, requiresUnarmored, requiresNoShield } = item.system.ac ?? {};
 				if (!formula) return acc;
 
 				if (item.type === 'feature' && mode === CONFIG.A5E.ARMOR_MODES.OVERRIDE && hasArmor)
@@ -662,14 +742,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 				if (
 					item.type === 'object' &&
-					// @ts-expect-error
 					item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
 				)
 					return acc;
 
-				// @ts-expect-error
 				if (item.system.objectType === 'armor') {
-					// @ts-expect-error
 					const isUnderArmor = item.system.materialProperties.includes('underarmor');
 					if (isUnderArmor && acc.override) return acc;
 				}
@@ -708,11 +785,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return changes;
 	}
 
-	/**
-	 * Prepare hit point bonuses for the actor.
-	 */
-	prepareHitPointBonuses() {
-		// @ts-expect-error
+	/** Prepare hit point bonuses for the actor. */
+	prepareHitPointBonuses(this: Creature) {
 		const { max } = this.system.attributes.hp;
 
 		const bonus = getDeterministicBonus(
@@ -723,10 +797,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		foundry.utils.setProperty(this, 'system.attributes.hp.max', (max || 0) + bonus);
 	}
 
-	/**
-	 * Prepare skill data for the actor.
-	 */
-	prepareSkills() {
+	/** Prepare skill data for the actor. */
+	prepareSkills(this: Creature) {
 		const actorData = this.system;
 		const proficiencyBonus = actorData.attributes.prof;
 		const jackOfAllTrades = this.flags?.a5e?.jackOfAllTrades;
@@ -805,12 +877,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	/**
-	 * Calculate passive score for this actor.
-	 * @param {String} skillKey - The key of the skill to calculate the passive score for.
-	 * @param {Object} skill    - The skill object to calculate the passive score for.
-	 */
-	_calculatePassiveScore(skillKey, skill) {
+	/**  Calculate passive score for this actor. */
+	_calculatePassiveScore(skillKey: string, skill) {
 		const rollData = this.getRollData();
 
 		return getDeterministicBonus(
@@ -829,7 +897,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	/**
 	 * Prepare movement data taking into account any bonuses.
 	 */
-	prepareMovement() {
+	prepareMovement(this: Creature) {
 		const { movement } = this.system.attributes;
 
 		const movementKeys = Object.keys(movement);
@@ -864,7 +932,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	/**
 	 * Prepare senses data taking into account any bonuses.
 	 */
-	prepareSenses() {
+	prepareSenses(this: Creature) {
 		const { senses } = this.system.attributes;
 
 		const sensesKeys = Object.keys(senses);
@@ -913,6 +981,79 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			(change) =>
 				game.a5e.activeEffects.options[this.type].allOptions[change.key]?.phase === 'afterDerived',
 		);
+	}
+
+	/**
+	 * Apply activeEffects to the actor with the phase 'applyAEs'.
+	 */
+	override applyActiveEffects(phase: 'initial' | 'final') {
+		const ActiveEffect = foundry.documents.ActiveEffect.implementation;
+
+		this._completedActiveEffectPhases.add(phase);
+
+		const changes: any[] = [];
+		const tokenChanges: any[] = [];
+
+		const effectOptions =
+			this.type === 'character'
+				? game.a5e.activeEffects.options.character.allOptions
+				: this.type === 'npc'
+					? game.a5e.activeEffects.options.npc.allOptions
+					: game.a5e.activeEffects.options.all.allOptions;
+
+		for (const effect of this.allApplicableEffects()) {
+			if (!effect.active) continue;
+
+			for (const change of effect.system.changes) {
+				if (change.key === '') continue;
+				// Phase check
+				const effectConfig = effectOptions[change.key];
+				let registeredPhase = change.phase;
+				if (effectConfig) {
+					registeredPhase = CONFIG.A5E.ACTIVE_EFFECT_PHASES[effectConfig.phase] ?? change.phase;
+				}
+
+				if (registeredPhase !== phase) continue;
+
+				const copy = foundry.utils.deepClone(change);
+				copy.effect = effect;
+
+				// Keep Token changes separate for later application
+				if (copy.key?.startsWith('@token.')) {
+					copy.key = copy.key.slice(7);
+					tokenChanges.push(copy);
+				} else {
+					changes.push(copy);
+				}
+			}
+
+			if (phase === 'initial') {
+				const statuses = effect.getStatuses();
+				for (const statusId of statuses) this.statuses.add(statusId);
+				effect.statuses = statuses;
+			}
+		}
+
+		generateExpandedChanges(changes);
+		changes.sort((a, b) => a.priority - b.priority);
+		this.tokenActiveEffectChanges[phase] = tokenChanges;
+
+		// Apply all changes
+		const overrides = {};
+		const replacementData = this.getRollData() ?? {};
+
+		// TODO: Figure out why this fails on token npc
+		// this.overrides ??= {};
+
+		for (const change of changes) {
+			// TODO: Adds support for `@original`
+			const result = ActiveEffect.applyChange(this, change, {
+				replacementData,
+			});
+			if (foundry.utils.isPlainObject(result)) Object.assign(overrides, result);
+		}
+
+		foundry.utils.mergeObject(this.overrides, foundry.utils.expandObject(overrides));
 	}
 
 	// -------------------------------------------------------------

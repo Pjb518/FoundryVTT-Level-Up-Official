@@ -1,5 +1,6 @@
 import { d20RollModification } from '../common.ts';
 import { ExpertiseDieField } from '../fields/ExpertiseDieField.ts';
+import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
 
 import {
@@ -92,6 +93,13 @@ export const attributes = () => ({
 			integer: true,
 		}),
 		bonus: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true,
+		}),
+		max: new fields.NumberField({
+			persisted: false,
 			required: true,
 			nullable: false,
 			initial: 0,
@@ -379,35 +387,39 @@ export const rolls = () => ({
 	),
 });
 
-export const skills = () => ({
-	skills: new fields.SchemaField(
-		Object.keys(CONFIG.A5E.skills ?? {}).reduce((acc, skill) => {
-			acc[skill] = new fields.SchemaField({
-				ability: new fields.StringField({
-					required: true,
-					initial: CONFIG.A5E.skillDefaultAbilities[skill] ?? 'int',
-				}),
-				proficient: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-					min: 0,
-					max: 2,
-				}),
-				specialties: new fields.ArrayField(
-					new fields.StringField({ required: true, initial: '' }),
-					{ required: true, initial: [] },
-				),
-				expertiseDice: new ExpertiseDieField(),
-				bonuses: new fields.SchemaField({
-					check: new fields.StringField({ required: true, initial: '' }),
-					passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
-				}),
-				...d20RollModification(),
-			});
+function initialSkillValue(key: string, initial: any) {
+	initial.ability = CONFIG.A5E.skillDefaultAbilities[key] ?? 'int';
+	return initial;
+}
 
-			return acc;
-		}, {}),
+export const skills = () => ({
+	skills: new MappingField(
+		new fields.SchemaField({
+			ability: new fields.StringField({ required: true, initial: '' }),
+			proficient: new fields.NumberField({
+				required: true,
+				initial: 0,
+				integer: true,
+				min: 0,
+				max: 2,
+			}),
+			specialties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+				required: true,
+				initial: [],
+			}),
+			expertiseDice: new ExpertiseDieField(),
+			bonuses: new fields.SchemaField({
+				check: new fields.StringField({ required: true, initial: '' }),
+				passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
+			}),
+			...d20RollModification(),
+		}),
+		{
+			required: true,
+			nullable: false,
+			initialKeys: Object.keys(CONFIG.A5E.skills),
+			initialValue: initialSkillValue,
+		},
 	),
 });
 

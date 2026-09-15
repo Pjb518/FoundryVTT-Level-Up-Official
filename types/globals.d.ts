@@ -11,6 +11,8 @@ import type A5eGame from '../src/interfaces/A5eGame.interface';
 declare global {
 	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
 	type DataSchema = foundry.data.fields.DataSchema;
+
+	type Creature = Actor.OfType<'character'> | Actor.OfType<'npc'>;
 }
 
 declare module 'fvtt-types/configuration' {
@@ -66,6 +68,10 @@ declare module 'fvtt-types/configuration' {
 		Actor: {
 			a5e: {
 				automaticallyExecuteAvailableMacros: boolean;
+				automateClasses: boolean;
+				automateHitDice: boolean;
+				automateHitPoints: boolean;
+				automateSpellResources: boolean;
 				automatePrototypeTokenSize: boolean;
 				carryCapacityAbility: string;
 				criticalHitThresholdWeapon: number;

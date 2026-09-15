@@ -11,69 +11,9 @@ export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 
 	declare classAutomationFlags: Record<string, boolean>;
 
-	get classes() {
-		if (this._classes !== undefined) return this._classes;
-
-		this._classes = this.items.reduce((acc, item) => {
-			if (item.type !== 'class') return acc;
-
-			// @ts-expect-error
-			acc[item.slug] = item;
-			return acc;
-		}, {});
-
-		return this._classes;
-	}
-
-	get supply(): number {
-		return this.items.reduce((count: number, item) => {
-			if (item.system.supply && item.system.equippedState) {
-				count += item.system.quantity || 1;
-			}
-
-			return count;
-		}, this.system.supply);
-	}
-
 	// -------------------------------------------------------------
 	// Data Preparation Methods
 	// -------------------------------------------------------------
-	protected override _initialize(options?: Record<string, unknown>) {
-		this._classes = undefined;
-		this.classAutomationFlags = {};
-
-		super._initialize(options);
-	}
-
-	/**
-	 * Sets the order of when to prepare data.
-	 */
-	override prepareData() {
-		super.prepareData();
-	}
-
-	/**
-	 * Prepare base data for the actor.
-	 */
-	override prepareBaseData() {
-		super.prepareBaseData();
-
-		// Setup automation flags
-		const automationAvailable = Object.keys(this.classes ?? {}).length > 0;
-		this.automationAvailable = automationAvailable;
-
-		this.classAutomationFlags = {
-			classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? false,
-			hitDice: this.getFlag('a5e', 'automateHitDice') ?? automationAvailable ?? false,
-			hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? automationAvailable ?? false,
-			spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? false,
-		};
-
-		this.prepareLevelData();
-
-		// Calculate the proficiency bonus for the character with a minimum value of 2.
-		this.system.attributes.prof = Math.max(2, Math.floor((this.levels.character + 7) / 4));
-	}
 
 	/**
 	 * Prepares derived data for the actor.
@@ -156,36 +96,6 @@ export default class CharacterActorA5E extends BaseActorA5e<'character'> {
 		// @ts-expect-error
 		this.system.attributes.hp.max = maxHP + conMod + bonusHP;
 		super.prepareHitPointBonuses();
-	}
-
-	/**
-	 * Prepares detailed level data for the actor.
-	 */
-	prepareLevelData() {
-		const classes = this.items.filter((item) => item.type === 'class');
-
-		if (!this.classAutomationFlags.classes) {
-			this.levels = {
-				character: this.system.details.level,
-				classes: {},
-			};
-
-			return;
-		}
-
-		const levelData = Object.values(classes ?? {}).reduce(
-			(acc, cls) => {
-				const level = cls.system.classLevels;
-				if (!level) return acc;
-
-				acc.classes[cls.system.slug || cls.name.slugify({ strict: true })] = level;
-				acc.character += level;
-				return acc;
-			},
-			{ character: 0, classes: {} },
-		);
-
-		this.levels = levelData;
 	}
 
 	prepareSpellResources() {
