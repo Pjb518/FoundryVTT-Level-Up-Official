@@ -3,8 +3,27 @@ import { migrationData } from '../common.ts';
 import fields = foundry.data.fields;
 
 const partySchema = () => ({
+	attributes: new fields.SchemaField({
+		movement: new fields.SchemaField({
+			travel: new fields.SchemaField({
+				distance: new fields.NumberField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 0,
+				}),
+				unit: new fields.StringField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 'feet',
+				}),
+			}),
+		}),
+	}),
 	details: new fields.SchemaField({
 		description: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+		level: new fields.NumberField({ persisted: false, required: true, nullable: false, intial: 0 }),
 		members: new fields.ArrayField(
 			new fields.SchemaField({
 				uuid: new fields.DocumentUUIDField({ required: true, nullable: false, initial: undefined }),
