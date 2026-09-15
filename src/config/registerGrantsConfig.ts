@@ -59,7 +59,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 			propertyKey: 'system.traits.alignment',
 		},
 		conditionImmunities: {
-			label: 'A5E.conditions.immunities',
+			label: 'A5E.traits.headings.conditions.immunities',
 			config: Object.entries(config.conditions),
 			propertyKey: 'system.traits.conditionImmunities',
 		},

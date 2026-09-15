@@ -55,27 +55,16 @@
                 options={Object.entries(A5E.itemTechLevels)}
                 selected={itemStore.techLevel}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.techLevel",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.techLevel", value)}
             />
         {/if}
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
                 label="A5E.attunement.headings.requiredPrompt"
                 checked={itemStore.requiresAttunement}
                 onUpdateSelection={(value) =>
-                    updateDocumentDataFromField(
-                        item,
-                        "system.requiresAttunement",
-                        value,
-                    )}
+                    updateDocumentDataFromField(item, "system.requiresAttunement", value)}
             />
 
             {#if item.actor && itemStore.requiresAttunement}
@@ -83,11 +72,7 @@
                     label="A5E.attunement.headings.prompt"
                     checked={itemStore.attuned}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.attuned",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.attuned", value)}
                 />
             {/if}
 
@@ -96,22 +81,14 @@
                     label="A5E.objects.plotItem"
                     checked={itemStore.plotItem}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.plotItem",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.plotItem", value)}
                 />
 
                 <Checkbox
                     label="A5E.objects.unidentified"
                     checked={itemStore.unidentified}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.unidentified",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.unidentified", value)}
                 />
             {/if}
 
@@ -120,11 +97,7 @@
                     label="A5E.supply.title"
                     checked={itemStore.supply}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.supply",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.supply", value)}
                 />
             {/if}
 
@@ -133,11 +106,7 @@
                     label="A5E.objects.implant"
                     checked={itemStore.implant}
                     onUpdateSelection={(value) =>
-                        updateDocumentDataFromField(
-                            item,
-                            "system.implant",
-                            value,
-                        )}
+                        updateDocumentDataFromField(item, "system.implant", value)}
                 />
             {/if}
         </Section>
@@ -250,10 +219,7 @@
                 }}
             >
                 {#each Object.entries(CONFIG.A5E.currencyDenominations) as [id, label]}
-                    <option
-                        value={id}
-                        selected={id === itemStore.price.denomination}
-                    >
+                    <option value={id} selected={id === itemStore.price.denomination}>
                         {label}
                     </option>
                 {/each}
@@ -310,8 +276,7 @@
                 </dt>
 
                 <dd class="a5e-dl-box__content">
-                    {A5E.objectTypes[itemStore.objectType] ??
-                        localize("A5E.None")}
+                    {A5E.objectTypes[itemStore.objectType] ?? localize("A5E.None")}
                 </dd>
             </div>
 
@@ -332,8 +297,7 @@
                     </dt>
 
                     <dd class="a5e-dl-box__content">
-                        {A5E.itemTechLevels[itemStore.techLevel] ??
-                            itemStore.techLevel}
+                        {A5E.itemTechLevels[itemStore.techLevel] ?? itemStore.techLevel}
                     </dd>
                 </div>
             {/if}
@@ -345,10 +309,10 @@
 
                 <dd class="a5e-dl-box__content">
                     {#if itemStore.requiresAttunement}
-                        {localize("A5E.AttunementRequired")}: ({localize(
+                        {localize("A5E.attunement.headings.required")}: ({localize(
                             itemStore.attuned
-                                ? "A5E.attunement.headings.attuned."
-                                : "A5E.attunement.not",
+                                ? "A5E.attunement.headings.attuned"
+                                : "A5E.attunement.headings.not",
                         )})
                     {:else}
                         {localize("A5E.attunement.headings.notRequired")}

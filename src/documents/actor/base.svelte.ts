@@ -797,7 +797,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			try {
 				// @ts-expect-error
 				skill.passive = this._calculatePassiveScore(key, skill);
-			} catch (e) {
+			} catch (_e) {
 				console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
 				// @ts-expect-error
 				skill.passive = null;
@@ -1338,7 +1338,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 	getDefaultAbilityCheckData(abilityKey: string, options: AbilityCheckRollOptions = {}) {
 		const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-		const defaultExpertiseDie =
+		const _defaultExpertiseDie =
 			options.expertiseDice ?? this.system.abilities[abilityKey].check.expertiseDice ?? 0;
 
 		const ability = this.system.abilities[abilityKey].check;
@@ -1479,7 +1479,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 	getDefaultSavingThrowData(abilityKey: string | undefined, options: SavingThrowRollOptions = {}) {
 		const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-		const defaultExpertiseDice =
+		const _defaultExpertiseDice =
 			options.expertiseDice ?? this.system.abilities[abilityKey || '']?.save.expertiseDice ?? 0;
 
 		const src = abilityKey ? this.system.abilities[abilityKey].save : this.system.rolls.death;
@@ -1797,11 +1797,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	configureConditionImmunities(data: Record<string, any> = {}, options = {}) {
-		const title = localize('A5E.conditions.immunitiesConfigurationPrompt', {
+		const title = localize('A5E.traits.headings.conditions.immunitiesConfigurationPrompt', {
 			name: this.name,
 		});
 
-		data.heading ??= 'A5E.conditions.immunities';
+		data.heading ??= 'A5E.traits.headings.conditions.immunities';
 		data.configObject ??= CONFIG.A5E.conditions;
 		data.propertyKey ??= 'system.traits.conditionImmunities';
 		data.type ??= 'conditionImmunities';
@@ -2146,7 +2146,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		// Find the effect with the static _id of the status effect
 		if (status._id) {
 			const effect = this.effects.get(status._id as string);
-			if (effect && effect.id) {
+			if (effect?.id) {
 				existing.push(effect.id);
 				existingEffects.push(effect);
 			}
