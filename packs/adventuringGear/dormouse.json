@@ -1,0 +1,249 @@
+{
+	"name": "Dormouse",
+	"type": "object",
+	"img": "icons/creatures/mammals/rodent-rat-green.webp",
+	"system": {
+		"description": "<p>This Tiny mouse perpetually looks as if it is about to fall asleep. It is often found curled up in the blossoms of flowers, and, curiously enough, the bottoms of teapots. When startled, a dormouse emits a pheromone that suddenly induces drowsiness to give it time to escape. Creatures who are within 10 feet of a startled dormouse must succeed on a DC 13 Constitution saving throw or suddenly be overcome with tiredness. Creatures who fail their saving throw have disadvantage on their next ability check, attack roll, or saving throw for the next minute.</p><p>If a dormouse is removed from its feywood habitat, it falls into a torpor that it cannot be roused from until it is returned to its home plane.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"Y55k3BcQskMs69kU": {
+				"name": "Dormouse",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"sTM1e9Wk3aEDvYBC"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"WYD8Q5MQEuLuUy6p": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"lczVDcJkeT6qcX2U": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"ammunitionDamageMode": "bonus",
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "fey",
+			"properties": [
+				"hazard",
+				"magical"
+			],
+			"regions": [
+				"feywood"
+			],
+			"size": "tiny",
+			"type": "creature"
+		},
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "endemicLife",
+		"plotItem": false,
+		"price": {
+			"value": 0,
+			"denomination": "gp",
+			"special": ""
+		},
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"name": "Tiredness",
+			"img": "icons/creatures/mammals/rodent-rat-green.webp",
+			"origin": "Item.J7Mlc5HJNDpKSa1n",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 20
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 20
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "sTM1e9Wk3aEDvYBC",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Disadvantage on their next ability check, attack roll, or saving throw for the next minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1789468976889,
+				"modifiedTime": 1789469024997,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1789468748413,
+		"modifiedTime": 1789468976906,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "NYjKpxHDwYD1CTwO"
+}

@@ -1,0 +1,238 @@
+{
+	"name": "Fungal Drake",
+	"type": "object",
+	"img": "icons/creatures/abilities/dragon-breath-purple.webp",
+	"system": {
+		"description": "<p>Though they may resemble dragons made miniature, fungal drakes lack a breath weapon, cannot speak, and are seldom larger than the average house cat. They sport a variety of brightly-colored fungal growths protruding from their bodies that can resemble mushrooms, lichens, and other fungi found both above and below ground. A tamed fungal drake is often a part of a noble’s menagerie for their talent of discerning which mushrooms are safe to eat. When startled, they emit a small cloud of mildly irritating spores before they try to flee. Adventurers who are within a 10-foot radius of a frightened fungal drake must succeed on a DC 12 Constitution saving throw or be incapacitated by a coughing fit for 1 minute.</p><p>Fungal drakes have a fast metabolism and a highly specialized diet comprised of mushrooms that are incredibly difficult to source on the road. Adventurers who wish to keep a tamed fungal drake as a pet must spend 5 gp per day to keep their pet fed. If a fungal drake goes more than 3 days without food, it starves.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"xX0KLa6bDvIGf8e2": {
+				"name": "Fungal Drake",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"QKylsXKjoNNNK0BU"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"U4fbY60fdVI7pDmv": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "12"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"2xYEwFGr0D0qPVty": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"ammunitionDamageMode": "bonus",
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "dragon",
+			"properties": [
+				"hazard",
+				"mundane"
+			],
+			"regions": [
+				"dungeon",
+				"underlandRealm"
+			],
+			"size": "tiny",
+			"type": "creature"
+		},
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "endemicLife",
+		"plotItem": false,
+		"price": {
+			"value": 0,
+			"denomination": "gp",
+			"special": ""
+		},
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0
+	},
+	"effects": [
+		{
+			"name": "Incapacitated",
+			"img": "icons/creatures/abilities/dragon-breath-purple.webp",
+			"origin": "Item.uCf8x0XVRxOQK7CZ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"incapacitated"
+						],
+						"phase": "initial",
+						"priority": 20
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "QKylsXKjoNNNK0BU",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>An incapacitated creature can’t take actions, bonus actions, or reactions.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"createdTime": 1789469552870,
+				"modifiedTime": 1789469622088,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1789469456853,
+		"modifiedTime": 1789469552884,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "D64gL44eHVWECos2"
+}

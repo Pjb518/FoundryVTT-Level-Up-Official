@@ -1,0 +1,192 @@
+{
+	"name": "Earth Shaker",
+	"type": "feature",
+	"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+	"system": {
+		"description": "<p>The damage dealt by your @UUID[Compendium.a5e.a5e-heritage-features.Item.WeWCiJ6GVbbISwmH]{Digger’s Claws} now counts as magical for the purposes of overcoming damage resistance.</p><p>Additionally, as an action, you may slam your fists into the ground, causing it to crack and erupt around you. Creatures within a 10-foot radius of you must succeed on a Dexterity saving throw versus your maneuver DC or be knocked [[/condition id=prone]]. This area becomes difficult terrain for all creatures other than you for a number of rounds equal to your Constitution modifier. You may use this ability a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"972tiVvZIYFGN8FF": {
+				"name": "Earth Shaker",
+				"consumers": {
+					"nYkyMPAqFpDxx11V": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@con.mod",
+					"concentration": false
+				},
+				"effects": [
+					"O3ll8s1pgaAy4JxL"
+				],
+				"macro": "",
+				"prompts": {
+					"euZsWkZMLeBd2rjW": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"hoDnvb1d1ob5Ar3v": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "paragon",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.cMHUuFcBHCN9HOpi",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Prone",
+			"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+			"_id": "O3ll8s1pgaAy4JxL",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789386174827,
+				"createdTime": 1789386174817
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1789386174817,
+		"modifiedTime": 1789386210429,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "cMHUuFcBHCN9HOpi"
+}

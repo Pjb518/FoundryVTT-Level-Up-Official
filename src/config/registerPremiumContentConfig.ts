@@ -22,12 +22,12 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
-    brokenSynapsePress: {
+		brokenSynapsePress: {
 			name: 'Broken Synapse Press',
 			releases: [
 				{
 					title: 'Corrosive Souls',
-					url: '(https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
+					url: 'https://www.drivethrurpg.com/en/product/511672/corrosive-souls?affiliate_id=1388381',
 				},
 			],
 		},
@@ -73,21 +73,20 @@ export default function registerPremiumContentConfig() {
 					title: 'Advanced Artificers',
 					url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381',
 				},
-        {
+				{
 					title: 'Wielder',
 					url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
-
 				},
 			],
 		},
-    owlSomeGames: {
+		owlSomeGames: {
 			name: 'Owl(some) Games',
 			releases: [
 				{
 					title: 'Fable of Flames',
 					url: 'https://www.drivethrurpg.com/en/product/525752/fable-of-flames?affiliate_id=1388381',
 				},
-        {
+				{
 					title: 'The Palette of Heroes',
 					url: 'https://www.drivethrurpg.com/en/product/524798/the-palette-of-heroes?affiliate_id=1388381',
 				},
@@ -107,6 +106,10 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Bloody Heretics',
 					url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
+				},
+				{
+					title: 'Out of the Wilds',
+					url: 'https://www.drivethrurpg.com/en/product/528982/out-of-the-wilds-a5e?affiliate_id=1388381',
 				},
 			],
 		},
@@ -137,11 +140,11 @@ export default function registerPremiumContentConfig() {
 					title: 'MoAR: Wilderness',
 					url: 'https://bit.ly/3xisyKN',
 				},
-        {
+				{
 					title: 'Single-Class Synergy, Volume 1: The Core Four',
 					url: 'https://www.drivethrurpg.com/en/product/521124/single-class-synergy-volume-1-the-core-four-a5e?affiliate_id=1388381',
 				},
-        {
+				{
 					title: 'Single-Class Synergy, Volume 2: Singular Specialists',
 					url: 'https://www.drivethrurpg.com/en/product/526798/single-class-synergy-volume-2-singular-specialists-a5e?affiliate_id=1388381',
 				},
@@ -199,24 +202,24 @@ export default function registerPremiumContentConfig() {
 				},
 			],
 		},
-    variantCodexPress: {
+		variantCodexPress: {
 			name: 'Variant Codex Press',
 			releases: [
 				{
 					title: 'Obscure Medicinials',
 					url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
 				},
-        {
+				{
 					title: 'Road Worthy Pursuits',
 					url: 'https://www.drivethrurpg.com/en/product/510738/road-worthy-pursuits-expanded-edition-a5e-explorations?affiliate_id=1388381',
 				},
-        {
+				{
 					title: 'The Pod Person Plague: An Ecology of Gravitas for A5E',
 					url: 'https://www.drivethrurpg.com/en/product/526974/the-pod-person-plague-an-ecology-of-gravitas-for-a5e?affiliate_id=1388381',
 				},
 			],
 		},
-    wizardsOfTheCoast: {
+		wizardsOfTheCoast: {
 			name: 'Wizards of the Coast',
 			releases: [
 				{
@@ -309,7 +312,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Confidence Mage',
 			url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381',
 		},
-    corrosiveSouls: {
+		corrosiveSouls: {
 			abbreviation: 'CS',
 			affiliate: true,
 			publisher: 'brokenSynapsePress',
@@ -357,7 +360,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Extra Credit and Deeper Mysteries',
 			url: 'https://bit.ly/47UnJaV',
 		},
-    fableOfFlames: {
+		fableOfFlames: {
 			abbreviation: 'FoF',
 			affiliate: true,
 			publisher: 'owlSomeGames',
@@ -661,7 +664,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Mysterious and Marvelous Miscellanea',
 			url: 'https://bit.ly/42fLLM8',
 		},
-    obscureMedicinals: {
+		obscureMedicinals: {
 			abbreviation: 'OM',
 			affiliate: true,
 			publisher: 'variantCodexPress',
@@ -669,7 +672,15 @@ export default function registerPremiumContentConfig() {
 			title: 'Obscure Medicinials',
 			url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals-for-level-up-a5e?affiliate_id=1388381',
 		},
-    paletteOfHeroes: {
+		outOfTheWilds: {
+			abbreviation: 'OotW',
+			affiliate: true,
+			publisher: 'plantWitchPress',
+			systems: ['a5e'],
+			title: 'Out of the Wilds',
+			url: 'https://www.drivethrurpg.com/en/product/528982/out-of-the-wilds-a5e?affiliate_id=1388381',
+		},
+		paletteOfHeroes: {
 			abbreviation: 'PoH',
 			affiliate: true,
 			publisher: 'owlSomeGames',
@@ -709,7 +720,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Riding Parsnip',
 			url: 'https://bit.ly/3xh28Nk',
 		},
-    roadWorthyPursuits: {
+		roadWorthyPursuits: {
 			abbreviation: 'RWP',
 			affiliate: true,
 			publisher: 'variantCodexPress',
@@ -725,7 +736,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Secrets of the Selkies',
 			url: 'https://bit.ly/3USEOix',
 		},
-    singleClassSynergyCoreFour: {
+		singleClassSynergyCoreFour: {
 			abbreviation: 'SCS:CF',
 			affiliate: true,
 			publisher: 'purpleMartinGames',
@@ -733,7 +744,7 @@ export default function registerPremiumContentConfig() {
 			title: 'Single-Class Synergy, Volume 1: The Core Four',
 			url: 'https://www.drivethrurpg.com/en/product/521124/single-class-synergy-volume-1-the-core-four-a5e?affiliate_id=1388381',
 		},
-     singleClassSynergySingularSpecialists: {
+		singleClassSynergySingularSpecialists: {
 			abbreviation: 'SCS:SS',
 			affiliate: true,
 			publisher: 'purpleMartinGames',
@@ -914,7 +925,7 @@ export default function registerPremiumContentConfig() {
 			title: 'The Errant Seer',
 			url: 'https://ravine.itch.io/a5e-subclass03-errant-seer',
 		},
-    thePodPersonPlague: {
+		thePodPersonPlague: {
 			abbreviation: 'PPP',
 			affiliate: true,
 			publisher: 'variantCodexPress',
@@ -978,12 +989,12 @@ export default function registerPremiumContentConfig() {
 			title: "Voidrunner's Codex",
 			url: '',
 		},
-    wielder: {
+		wielder: {
 			abbreviation: 'W',
 			affiliate: true,
 			publisher: 'loottheboss',
 			systems: ['a5e'],
-			title: "Wielder",
+			title: 'Wielder',
 			url: 'https://www.drivethrurpg.com/en/product/518648/wielder-class-a5e-pdf-and-foundry-vtt?affiliate_id=1388381',
 		},
 	};

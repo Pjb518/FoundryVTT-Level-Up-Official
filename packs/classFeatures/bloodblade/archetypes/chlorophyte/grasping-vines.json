@@ -1,0 +1,195 @@
+{
+	"name": "Grasping Vines",
+	"type": "feature",
+	"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+	"system": {
+		"description": "<p>You command the plant-like growths on your limbs to extend your reach. As a bonus action you may summon a length of vine to grapple a foe. Choose a creature within 10 feet of you. That creature must succeed on a Strength saving throw versus your maneuver DC or become [[/condition id=grappled]] by your vine until the end of your next turn. You may use this ability a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"2nlN7nBRO0XSsBCe": {
+				"name": "Grasping Vines",
+				"consumers": {
+					"0GEt0AEWmFgQou7J": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"QEwRz9nbGXLvmOkz"
+				],
+				"macro": "",
+				"prompts": {
+					"fAqqKIegs64QDy4n": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"1juut3980s0Z41or": {
+						"range": 10,
+						"unit": "feet"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.mOuRyhFTpty2eCWq",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Grappled",
+			"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+			"_id": "QEwRz9nbGXLvmOkz",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</p></li><li><p>If the grappler becomes incapacitated the condition ends.</p></li><li><p>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the @UUID[Compendium.a5e.a5e-maneuvers.Item.i5m1k81burf6n2t9]{Doubleteam} combat maneuver) the condition ends.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224766
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224696,
+		"modifiedTime": 1788788224696,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "CvIJ7gy076JccbNj"
+}

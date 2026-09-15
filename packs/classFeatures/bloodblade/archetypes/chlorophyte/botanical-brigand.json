@@ -1,0 +1,167 @@
+{
+	"name": "Botanical Brigand",
+	"type": "feature",
+	"img": "icons/magic/nature/barrier-shield-wood-vines.webp",
+	"system": {
+		"description": "<p>At 18th level, you gain the following abilities:</p><h2>Immovable Taproot</h2><p>Your roots run deep and true. When you are under the effects of your @UUID[Compendium.a5e.a5e-class-features.Item.nbVWDg8biohDUzBS]{Rooted in Earth} feature, you are immune to being shoved or knocked prone, and your movement Speed is no longer halved as a result of this feature.</p><h2>Photosynthesis</h2><p>So long as you are above ground and able to be in direct exposure to the sun for more than 4 hours, you do not need to consume Supply for that day.</p><h2>Piercing Barricade</h2><p>Your connection to the plants and the soil enables you to summon plants to your aid in battle. Once per long rest you may cast the spell @UUID[Compendium.a5e.a5e-spells.Item.m68wvspmjjd2aaat]{Wall of Thorns} without expending a spell slot or requiring material components. Intelligence is your spellcasting modifier for this spell.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"fBqrFUlaab5gkUnl": {
+				"name": "Rooted in Earth",
+				"consumers": {
+					"OUVW7EJEhHDz2Qpa": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "rooted-in-earth",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@con.mod",
+					"concentration": false
+				},
+				"effects": [
+					"OmYlvjLBKtpaTK6x"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.riKTZLDM9NDLEDpj",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Rooted in Earth",
+			"img": "icons/magic/nature/root-vine-entangle-foot-green.webp",
+			"_id": "OmYlvjLBKtpaTK6x",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Immune to being shoved or knocked prone.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1789414817381,
+				"createdTime": 1789414817353
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.8",
+		"createdTime": 1789414817353,
+		"modifiedTime": 1789414838728,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "riKTZLDM9NDLEDpj"
+}

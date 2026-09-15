@@ -1,0 +1,132 @@
+{
+	"name": "Fey Aspect",
+	"type": "feature",
+	"img": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+	"system": {
+		"description": "<p>At 6th level, you gain resistance to either fire or cold damage, as determined by the damage of your Sanguine Transference.</p><p>Additionally, when you are hit with a melee weapon attack, you may use your reaction to cause one illusory copy of you appear in your space, as in the spell @UUID[Compendium.a5e.a5e-spells.Item.05w9nzp0kvu94k3h]{Mirror Image}. This duplicate has the same statistics as in the spell, and a creature attempting to attack you must roll a [[/r 1d20]], hitting the copy on a roll of 11 or higher. This illusory copy persists for a number of rounds equal to your Constitution modifier, until it is destroyed, or until you dismiss it as a bonus action. Once you have used this ability, you may not do so again until you complete a short or a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"kB0HIK66sJ5rokNq": {
+				"name": "Fey Aspect",
+				"consumers": {
+					"MhlslQCeUxBA7CIS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Hit with a melee weapon attack"
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@con.mod"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "bloodblade",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"7WW0ggrAramI2CFw": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "7WW0ggrAramI2CFw",
+				"label": "Fey Aspect",
+				"traits": {
+					"base": [],
+					"options": [
+						"cold",
+						"fire"
+					],
+					"total": 1,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "KByNG4kgn49Uig8v"
+}

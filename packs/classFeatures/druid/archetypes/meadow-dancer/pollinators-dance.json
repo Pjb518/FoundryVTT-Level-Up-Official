@@ -1,0 +1,309 @@
+{
+	"name": "Pollinator’s Dance",
+	"type": "feature",
+	"img": "icons/creatures/invertebrates/bee-yellow.webp",
+	"system": {
+		"description": "<p>When you choose this archetype at 2nd level, you feel the buzzing life of the meadow flood through you. You gain proficiency in Performance, or an expertise die if you were already proficient. You may always choose to use Wisdom when making Performance checks.</p><p>As an action, you begin to dance, letting the liveliness of the meadow flood through you. Choose one of the following effects:</p><h2>Dance of the Butterflies</h2><p>You are temporarily cloaked in a cloud of swirling butterflies. You gain a +2 bonus to your AC. This effect lasts for a number of rounds equal to your Wisdom modifier.</p><h2>Dance of the Bees</h2><p>You are surrounded in a swarm of angry bees ready to defend their hive. Creatures who enter one of your threatened squares must succeed on a Constitution saving throw versus your spell save DC or take piercing damage equal to your Wisdom modifier. These bees persist for a number of rounds equal to your Wisdom modifier.</p><h2>Dance of the Hummingbirds</h2><p>The frenetic energy of the hummingbird fills you, giving you renewed vigor. For a number of rounds equal to your Wisdom modifier you may Dash as a bonus action.</p><p>You may use your Pollinator’s Dance ability a number of times equal to your proficiency bonus per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "outOfTheWilds",
+		"actions": {
+			"zzvwW7e5FzKN4Xzn": {
+				"name": "Dance of the Butterflies",
+				"consumers": {
+					"MOFFoqCJaR022ofU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "zzvwW7e5FzKN4Xzn",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/invertebrates/bee-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@wis.mod"
+				},
+				"effects": [
+					"5G9uEuCxVAn7lxEH"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"cHqYPdGCWMX0VQCA": {
+				"name": "Dance of the Bees",
+				"consumers": {
+					"zha9Ee1SKabfqHnd": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "cHqYPdGCWMX0VQCA",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/invertebrates/bee-yellow.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@wis.mod"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"t2jKMb8bQ2oEPQ6D": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"faAMhlrBrGbduF2D": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "@wis.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"5awox7j2Nyn0s1i5": {
+				"name": "Dance of the Hummingbirds",
+				"consumers": {
+					"jBkC4XPqHRU5nrny": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "@wis.mod"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "druid",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"Tpw9LNyhG39Z1ROG": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Tpw9LNyhG39Z1ROG",
+				"label": "Pollinator’s Dance",
+				"keys": {
+					"base": [
+						"prf"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.gH6N2JQCNv0jTmmd",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Dance of the Butterflies",
+			"img": "icons/creatures/invertebrates/bee-yellow.webp",
+			"_id": "5G9uEuCxVAn7lxEH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a +2 bonus to your AC.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1788788224679
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1788788224393,
+		"modifiedTime": 1788788224393,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "Pl7PYMUxQS7LlokG"
+}
