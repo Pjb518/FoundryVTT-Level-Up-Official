@@ -31,7 +31,7 @@ import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDia
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import ActorGrantsManager from '../../managers/ActorGrantsManager.ts';
 import { BonusesManager } from '../../managers/BonusesManager.ts';
-import type HitDiceManager from '../../managers/HitDiceManager.ts';
+import HitDiceManager from '../../managers/HitDiceManager.ts';
 import { RestManager } from '../../managers/RestManager.ts';
 import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
 import SpellBookManager from '../../managers/SpellBookManager.ts';
@@ -52,6 +52,8 @@ import type {
 } from './data.ts';
 
 import FDoc = foundry.abstract.Document;
+
+import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
 
 // *****************************************************************************************
 
@@ -362,6 +364,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		super._initialize(options);
 	}
 
+	// TODO: Break this down
 	/**
 	 * Sets the order of when to prepare data.
 	 */
@@ -421,7 +424,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	/** Prepares common base data for creatures */
-	prepareCreatureBaseData() {
+	prepareCreatureBaseData(this: Creature) {
 		if (this.type === 'party') return;
 
 		// Register Managers
@@ -508,11 +511,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	override prepareDerivedData() {
 		super.prepareDerivedData();
 
+		// @ts-expect-error
 		this.prepareCreatureDerivedData();
 	}
 
 	/** Prepares derived data for creatures */
 	prepareCreatureDerivedData(this: Actor.OfType<'character'> | Actor.OfType<'npc'>) {
+		// @ts-expect-error
 		if (this.type === 'party') return;
 
 		const actorData = this.system;
@@ -621,8 +626,49 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		if (this.type === 'npc') this.prepareNPCDerivedData();
 	}
 
-	prepareCharDerivedData(this: Actor.OfType<'character'>) {}
-	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {}
+	prepareCharDerivedData(this: Actor.OfType<'character'>) {
+		// @ts-expect-error
+		this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
+
+		const actorData = this.system;
+
+		actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
+			const { requiresAttunement, attuned } = curr.system;
+			return requiresAttunement && attuned ? acc + 1 : acc;
+		}, 0);
+
+		// Update Hit Dice based on manager
+		this.system.attributes.hitDice = foundry.utils.mergeObject(
+			this.system.attributes.hitDice,
+			this.HitDiceManager.bySize,
+		);
+
+		foundry.utils.setProperty(actorData, 'attributes.exertion.max', this.prepareMaxExertion());
+		foundry.utils.setProperty(
+			actorData,
+			'attributes.favorPoints.max',
+			// @ts-expect-error
+			this.system.abilities.cha.mod,
+		);
+
+		this.prepareHitPoints();
+		this.prepareSpellResources();
+		this.prepareResources();
+	}
+
+	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {
+		// @ts-expect-error
+		this.HitDiceManager = new HitDiceManager(this, false);
+
+		const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+		this.system.attributes.hp.max = baseHP + bonusHP;
+
+		this.prepareHitPointBonuses();
+	}
+
+	/** ---------------------------------- */
+	//  Derived Data Prep (Creature)
+	/** ---------------------------------- */
 
 	prepareArmorClass(this: Creature) {
 		// @ts-expect-error
@@ -804,18 +850,12 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const jackOfAllTrades = this.flags?.a5e?.jackOfAllTrades;
 
 		Object.values(actorData.skills).forEach((skill) => {
-			// @ts-expect-error
 			if (skill.proficient === 2) skill.mod = proficiencyBonus * 2;
-			// @ts-expect-error
 			else if (skill.proficient) skill.mod = proficiencyBonus;
-			// @ts-expect-error
 			else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
-			// @ts-expect-error
 			else skill.mod = 0;
 
-			// @ts-expect-error
 			if (skill.ability.startsWith('@attributes.spellcasting')) {
-				// @ts-expect-error
 				skill.ability = actorData.attributes.spellcasting;
 			}
 		});
@@ -827,7 +867,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			.filter((g) => g.expertiseDiceData?.expertiseType === 'skill');
 
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
-			// @ts-expect-error
 			const baseDie = skill.expertiseDice ?? 0;
 			const expertiseDice = grants?.reduce((acc, grant) => {
 				// @ts-expect-error
@@ -837,7 +876,6 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				return Math.clamp(acc + Number(expertiseCount), 0, 5);
 			}, baseDie);
 
-			// @ts-expect-error
 			skill.expertiseDice = expertiseDice;
 		});
 
@@ -845,14 +883,12 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
 			const skillName = localize(CONFIG.A5E.skills[key]);
 
-			let deterministicBonus;
+			let deterministicBonus: number;
 
 			try {
 				deterministicBonus = getDeterministicBonus(
 					[
-						// @ts-expect-error
 						skill.mod,
-						// @ts-expect-error
 						this.BonusesManager?.getSkillBonusesFormula(key, skill.ability, 'check', true),
 					]
 						.filter(Boolean)
@@ -863,11 +899,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				console.error(`Couldn't calculate a ${skillName} modifier for ${this.name}`);
 			}
 
-			// @ts-expect-error
 			skill.deterministicBonus = deterministicBonus ?? skill.mod;
 
 			try {
-				// @ts-expect-error
 				skill.passive = this._calculatePassiveScore(key, skill);
 			} catch (e) {
 				console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
@@ -894,9 +928,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		);
 	}
 
-	/**
-	 * Prepare movement data taking into account any bonuses.
-	 */
+	/** Prepare movement data taking into account any bonuses. */
 	prepareMovement(this: Creature) {
 		const { movement } = this.system.attributes;
 
@@ -929,8 +961,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	/**
-	 * Prepare senses data taking into account any bonuses.
+	/** Prepare senses data taking into account any bonuses.
 	 */
 	prepareSenses(this: Creature) {
 		const { senses } = this.system.attributes;
@@ -969,23 +1000,266 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	/**
-	 * Prepare active effects for the actor with the phase 'afterDerived'.
-	 */
-	afterDerivedData() {
-		ActiveEffectA5E.applyEffects(
-			this,
-			this.actorEffects,
-			'afterDerived',
-			null,
-			(change) =>
-				game.a5e.activeEffects.options[this.type].allOptions[change.key]?.phase === 'afterDerived',
-		);
+	/** ---------------------------------- */
+	//  Derived Data Prep (Char)
+	/** ---------------------------------- */
+
+	/** Prepare the maximum exertion available to a char */
+	prepareMaxExertion(this: Actor.OfType<'character'>) {
+		const { max: baseMax } = this.system.attributes.exertion;
+		if (!this.automationAvailable) return baseMax;
+
+		let max = 0;
+
+		// Get best pool type from actor grants
+		// @ts-expect-error
+		const pools = this.grants?.byType('exertion').reduce((acc, { exertionData }) => {
+			if (!exertionData) return acc;
+			if (exertionData.exertionType === 'pool') acc.push(exertionData.poolType);
+			return acc;
+		}, [] as string[]);
+
+		if (pools.length === 0) max = baseMax;
+		else if (pools.includes('doubleProf')) max = this.system.attributes.prof * 2;
+		else if (pools.includes('prof')) max = this.system.attributes.prof;
+		else max = baseMax;
+
+		// Add bonuses
+		const bonuses =
+			getDeterministicBonus(this.BonusesManager?.getExertionBonusFormula(), this.getRollData()) ??
+			0;
+
+		return max + bonuses;
 	}
 
-	/**
-	 * Apply activeEffects to the actor with the phase 'applyAEs'.
-	 */
+	/** Prepare Hit Points for a char */
+	prepareHitPoints(this: Actor.OfType<'character'>) {
+		if (!this.classAutomationFlags.hitPoints) {
+			const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+			this.system.attributes.hp.max = baseHP + bonusHP;
+			this.prepareHitPointBonuses();
+			return;
+		}
+
+		const { classes } = this;
+		const bonusHP = this.system.attributes.hp.bonus ?? 0;
+		const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
+		// @ts-expect-error
+		const conMod = (this.system.abilities.con.check.mod ?? 0) * this.levels.character;
+
+		this.system.attributes.hp.max = maxHP + conMod + bonusHP;
+		this.prepareHitPointBonuses();
+	}
+
+	/** Prepare Spell Resources for a char */
+	prepareSpellResources(this: Actor.OfType<'character'>) {
+		const actorData = this.system;
+		const { classes } = this;
+		const { spellResources } = actorData;
+
+		// Handle no automation option
+		if (!this.classAutomationFlags.spellResources) {
+			// @ts-expect-error
+			Object.entries(spellResources.slots).forEach(([level, { override }]) => {
+				actorData.spellResources.slots[level].max = override || 0;
+			});
+
+			actorData.spellResources.points.max = spellResources.points.override || 0;
+			// @ts-expect-error
+			actorData.spellResources.inventions.max = spellResources.inventions.override || 0;
+			// @ts-expect-error
+			actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.override || 0;
+
+			return;
+		}
+
+		// Reset max values
+		Object.entries(spellResources.slots).forEach(([level]) => {
+			actorData.spellResources.slots[level].max = 0;
+		});
+		actorData.spellResources.points.max = 0;
+		// @ts-expect-error
+		actorData.spellResources.inventions.max = 0;
+		// @ts-expect-error
+		actorData.spellResources.artifactCharges.max = 0;
+
+		const grantedResources = {
+			slots: [] as Item.OfType<'class'>[],
+			additionalSlots: [] as Item.OfType<'class'>[],
+			points: [] as Item.OfType<'class'>[],
+			inventions: [] as Item.OfType<'class'>[],
+			artifactCharges: [] as Item.OfType<'class'>[],
+		};
+
+		Object.values(classes ?? {}).forEach((cls) => {
+			const { progressionType, resource } = cls?.casting ?? {};
+			if (!progressionType) return;
+
+			if (progressionType === 'multiplier') grantedResources.slots.push(cls);
+			else if (resource === 'artifactCharges') grantedResources.artifactCharges.push(cls);
+			else if (resource === 'inventions') grantedResources.inventions.push(cls);
+			else if (resource === 'points') grantedResources.points.push(cls);
+			else if (resource === 'slots') grantedResources.additionalSlots.push(cls);
+		});
+
+		// Handle single typed classes
+		if (grantedResources.slots.length === 1) {
+			const cls = grantedResources.slots[0];
+			const { slots: classSlots } = cls.casting!;
+
+			Object.entries(classSlots ?? {}).forEach(([level, slotCount]) => {
+				const { max, override } = actorData.spellResources.slots[level];
+				actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
+			});
+		}
+
+		if (grantedResources.points.length === 1) {
+			const cls = grantedResources.points[0];
+			const { points } = cls.casting!;
+			const { max, override } = actorData.spellResources.points;
+
+			actorData.spellResources.points.max = override || (max || 0) + (points || 0);
+		}
+
+		if (grantedResources.inventions.length === 1) {
+			const cls = grantedResources.inventions[0];
+			const { inventions } = cls.casting!;
+			// @ts-expect-error
+			const { max, override } = actorData.spellResources.inventions;
+
+			// @ts-expect-error
+			actorData.spellResources.inventions.max = override || (max || 0) + (inventions || 0);
+		}
+
+		if (grantedResources.artifactCharges.length === 1) {
+			const cls = grantedResources.artifactCharges[0];
+			const { charges } = cls.casting!;
+			// @ts-expect-error
+			const { max, override } = actorData.spellResources.artifactCharges;
+			// @ts-expect-error
+			actorData.spellResources.artifactCharges.max = override || (max || 0) + (charges || 0);
+		}
+
+		// Handle multi classed spellcasting for slots
+		if (grantedResources.slots.length > 1) {
+			const total = grantedResources.slots.reduce((acc, cls) => {
+				const { classLevels } = cls;
+
+				const progressionConfig = CONFIG.A5E.casterProgression[cls.casting!.casterType];
+				if (!progressionConfig) return acc;
+
+				let roundFunc = Math.floor;
+				if (progressionConfig.roundUp && progressionConfig.roundUpMulti) roundFunc = Math.ceil;
+				return acc + roundFunc(classLevels * progressionConfig.multiplier);
+			}, 0);
+
+			CONFIG.A5E.SPELL_SLOT_TABLE[total].forEach((slotCount, idx) => {
+				const { max, override } = actorData.spellResources.slots[idx + 1];
+				actorData.spellResources.slots[idx + 1].max = override || (max || 0) + (slotCount || 0);
+			});
+		}
+
+		// Handle multi classed spellcasting for points
+		if (grantedResources.points.length > 1) {
+			// TODO: Class Documents - Based on Base reference table
+
+			// Add mode handling
+			grantedResources.points.forEach((cls) => {
+				// TODO: Class Documents - Update to remove warlockA5E in the future
+				const { points, multiclassMode } = cls.casting!;
+				if (multiclassMode !== 'ADD') return;
+
+				const { max, override } = actorData.spellResources.points;
+				actorData.spellResources.points.max = override || (max || 0) + (points || 0);
+			});
+		}
+
+		// Add additional spell slots
+		grantedResources.additionalSlots.forEach((cls) => {
+			const { slots } = cls.casting!;
+
+			Object.entries(slots ?? {}).forEach(([level, slotCount]) => {
+				const { max, override } = actorData.spellResources.slots[level];
+				actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
+			});
+		});
+
+		// Set max to 0 if not defined
+		Object.values(actorData.spellResources.slots).forEach((slot: any) => {
+			if (slot.max === undefined) slot.max = 0;
+		});
+
+		actorData.spellResources.points.max = spellResources.points.max ?? 0;
+		// @ts-expect-error
+		actorData.spellResources.inventions.max = spellResources.inventions.max ?? 0;
+		// @ts-expect-error
+		actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.max ?? 0;
+
+		// @ts-expect-error
+		actorData.spellResources.maxSpellLevel = Object.values(classes).reduce((acc, cls) => {
+			const { maxLevel } = cls?.casting ?? {};
+			if (!maxLevel) return acc;
+
+			acc[cls.slug] = maxLevel;
+			return acc;
+		}, {});
+	}
+
+	/** Prepare Resources for a char */
+	prepareResources(this: Actor.OfType<'character'>) {
+		const source = this._source.system.resources as any;
+
+		const genericResources = foundry.utils.deepClone(source);
+		delete genericResources.classResources;
+
+		const classResourceData = source.classResources;
+
+		const classResources = this.items.reduce((acc, i) => {
+			if (!['class', 'archetype'].includes(i.type)) return acc;
+
+			const resources = foundry.utils
+				// @ts-expect-error
+				.deepClone(i.resources.consumableResources)
+				.filter((r) => r.displayOnCore);
+
+			// @ts-expect-error
+			const clsLevel = i.resources.level;
+
+			resources.forEach((r) => {
+				acc[r.slug] = {
+					label: r.name,
+					value: classResourceData[r.slug] ?? r.reference[clsLevel] ?? 0,
+					max: r.reference[clsLevel] ?? 0,
+					per: r.recovery,
+					hideMax: false,
+					recharge: {
+						formula: '1d6',
+						threshold: 6,
+					},
+				};
+			});
+
+			return acc;
+		}, {});
+
+		const resources = { ...genericResources, ...classResources };
+
+		this.system.resources = resources;
+	}
+
+	/** ---------------------------------- */
+	//  Derived Data Prep (NPC)
+	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Derived Data Prep (Party)
+	/** ---------------------------------- */
+
+	/** ================================================================= */
+	// Apply Active Effects
+	/** ================================================================= */
+
+	/** Apply activeEffects to the actor with the phase 'applyAEs'. */
 	override applyActiveEffects(phase: 'initial' | 'final') {
 		const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
@@ -1056,14 +1330,17 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		foundry.utils.mergeObject(this.overrides, foundry.utils.expandObject(overrides));
 	}
 
-	// -------------------------------------------------------------
+	/** ================================================================= */
 	// Data Update Helpers
-	// -------------------------------------------------------------
+	/** ================================================================= */
+
+	/** Apply Multiple damages at ones */
 	async applyBulkDamage(damageRolls) {
 		const updates = {};
 		const { value, temp } = this.system.attributes.hp;
 
 		const totalDamage = damageRolls.reduce(
+			// @ts-expect-error
 			(cumulativeDamage, [damage]) => cumulativeDamage + Math.floor(damage),
 			0,
 		);
@@ -1100,16 +1377,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	/**
 	 * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
 	 * Negative damage values will have no effect.
-	 *
-	 * @param {number} damage  An amount of damage to apply to the actor.
-	 * @param {string} damageType A key indicating the type of damage the actor is taking.
-	 *
-	 * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
 	 */
-	async applyDamage(damage, damageType = null) {
-		const updates = {};
+	async applyDamage(damage: number, damageType: string | null = null) {
+		const updates: Record<string, any> = {};
 		const { value, temp } = this.system.attributes.hp;
-		// eslint-disable-next-line no-param-reassign
 		damage = Math.floor(damage);
 
 		if (temp) {
@@ -1133,8 +1404,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return this.update(updates);
 	}
 
+	/** Apply Multiple healing at ones */
 	async applyBulkHealing(healingRolls) {
-		const updates = {};
+		const updates: Record<string, any> = {};
 		// @ts-expect-error
 		const { value, max, temp } = this.system.attributes.hp;
 		let showCascadingTemp = true;
@@ -1161,7 +1433,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		updates['system.attributes.hp.value'] = Math.clamp(value + healingTotal, value, max);
 
 		if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-			const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay') as number;
+			const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay');
 			let delay = 0;
 
 			healingRolls.forEach(([healing, healingType]) => {
@@ -1190,14 +1462,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	 * trigger a warning and abort the update of the actor.
 	 *
 	 * Negative healing value are ignored.
-	 *
-	 * @param {number} healing        An amount of damage to apply to the actor.
-	 * @param {string} healingType    A flag for indicating whether the healing being applied is
-	 *                                temporary.
-	 *
-	 * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
 	 */
-	async applyHealing(healing, healingType?: string) {
+	async applyHealing(healing: number, healingType?: string) {
 		const updates = {};
 		// @ts-expect-error
 		const { value, max, temp } = this.system.attributes.hp;
@@ -1229,10 +1495,29 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return this.update(updates);
 	}
 
+	/** ================================================================= */
+	// Roll Data
+	/** ================================================================= */
+
 	/** @inheritdoc */
 	override getRollData(item: BaseItemA5e | null = null) {
-		// TODO: Types - Fix this type
-		const data: Record<string, any> = { ...super.getRollData() };
+		const data = { ...super.getRollData() };
+
+		// Call Sub Modules
+		// @ts-expect-error
+		this.getCreatureRollData(item, data);
+
+		return data;
+	}
+
+	/** ---------------------------------- */
+	//  Roll Data (Creature)
+	/** ---------------------------------- */
+
+	/** Get Creature Roll Data */
+	getCreatureRollData(this: Creature, data: Record<string, any>, item: BaseItemA5e | null = null) {
+		if (this.type === 'party') return data;
+
 		const { abilities, skills } = this.system;
 
 		data.prof = this.system.attributes.prof || 0;
@@ -1293,9 +1578,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		const target = targets[0]?.actor;
 		if (target && target.uuid !== this.uuid) data.target = target.getRollData();
 
+		// Call Sub Modules
+		if (this.type === 'character') this.getCharRollData(data, item);
+
 		return data;
 	}
 
+	/** Get Spellcasting modifier for char */
 	_calculateSpellcastingMod() {
 		const { abilities, attributes } = this.system;
 		const spellcastingAbility = attributes.spellcasting || 'int';
@@ -1303,26 +1592,52 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return abilities[spellcastingAbility].check.mod;
 	}
 
-	override async modifyTokenAttribute(attribute: string, value, isDelta: boolean, isBar: boolean) {
-		if (attribute === 'attributes.hp') {
-			const hp = foundry.utils.getProperty(this.system, attribute);
-			const hpPool = hp.value + hp.temp;
-			const delta = hpPool - value;
+	/** ---------------------------------- */
+	//  Roll Data (Char)
+	/** ---------------------------------- */
 
-			if (isDelta) {
-				return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
-			}
+	/** Get Char Roll Data */
+	getCharRollData(
+		this: Actor.OfType<'character'>,
+		data: Record<string, any>,
+		item: BaseItemA5e | null = null,
+	) {
+		data.level = this.levels?.character ?? data.level ?? this.system.details.level;
 
-			return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
-		}
+		const resources = {};
 
-		return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
+		data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
+			const classData = cls.getRollData()?.actorTransfer ?? {};
+			acc[slug] = classData;
+
+			Object.assign(resources, classData.resources);
+
+			return acc;
+		}, {});
+
+		data.classResources = resources;
+
+		return data;
 	}
 
-	// -------------------------------------------------------------
+	/** ---------------------------------- */
+	//  Roll Data (NPC)
+	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Roll Data (Party)
+	/** ---------------------------------- */
+
+	/** ================================================================= */
 	// Resources Reset Handlers
-	// -------------------------------------------------------------
-	async triggerRest(restOptions: ActorRestOptions = {}) {
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Resources Reset Handlers (Creature)
+	/** ---------------------------------- */
+
+	/** Trigger Rest for Creatures */
+	async triggerRest(this: Creature, restOptions = {} as RestManager.Data) {
 		let restData = restOptions;
 
 		if (foundry.utils.isEmpty(restOptions)) {
@@ -1340,12 +1655,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		await restManger.rest();
 	}
 
-	async updateDeathSavingThrowFigures(roll) {
+	/** Update Death Saving Data for Creatures */
+	async updateDeathSavingThrowFigures(this: Creature, roll: D20Roll) {
 		const { death, fatigue, strife } = this.system.attributes;
 		const { success, failure } = death;
-		const d20Result = roll.dice[0].total;
+		const d20Result = roll.dice[0].total!;
 
-		const updates = {
+		const updates: Record<string, any> = {
 			'system.attributes.death': { success, failure },
 		};
 
@@ -1366,7 +1682,8 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	// TODO: Types - Narrow resource type
-	async rechargeGenericResource(resource: string) {
+	/** Recharge a generic resource given it's id */
+	async rechargeGenericResource(this: Creature, resource: string) {
 		if (!this.system.resources[resource]) return;
 
 		// eslint-disable-next-line max-len
@@ -1400,21 +1717,134 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		}
 	}
 
-	// -------------------------------------------------------------
-	// Sheet Toggles
-	// -------------------------------------------------------------
+	/** ---------------------------------- */
+	// Resources Reset Handlers (Char)
+	/** ---------------------------------- */
 
-	// -------------------------------------------------------------
+	/** Recover exertion for chars using hitDice */
+	async recoverExertionUsingHitDice(this: Actor.OfType<'character'>) {
+		const { current, max } = this.system.attributes.exertion;
+
+		// @ts-expect-error
+		const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice ?? {}).find(
+			// @ts-expect-error
+			([, { current: c, total: t }]) => c > 0 && t > 0,
+		);
+
+		if (!lowestAvailableHitDie) {
+			ui.notifications.warn(`${this.name} has no hit dice remaining.`);
+			return;
+		}
+
+		const roll = new Roll('1d4');
+
+		// TODO: Chat Cards - Make the message prettier
+		await roll.toMessage();
+		const newExertion = Math.min((current ?? 0) + (roll.total ?? 0), max);
+		const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;
+
+		await this.update({
+			// @ts-expect-error
+			'system.attributes': {
+				'exertion.current': newExertion,
+				[`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount,
+			},
+		});
+	}
+
+	/** Recover psionic points for chars using hitDice */
+	async recoverPsionicPointsUsingHitDice(this: Actor.OfType<'character'>) {
+		const { current, max } = this.system.spellResources.points;
+
+		const dieData = Object.entries(this.system.attributes.hitDice ?? {}).find(
+			// @ts-expect-error
+			([, { current: c, total: t }]) => c > 0 && t > 0,
+		);
+
+		if (!dieData) {
+			ui.notifications.warn(`${this.name} has no hit dice remaining.`);
+			return;
+		}
+
+		const [die] = dieData;
+		const roll = new Roll(`1${die}`);
+
+		// TODO: Chat Cards - Make the message prettier
+		await roll.toMessage();
+
+		//@ts-expect-error
+		const newPsionicPoints = Math.min((current ?? 0) + (roll.total ?? 0), max);
+		this.HitDiceManager.consumeHitDice({ [die]: 1 });
+
+		this.update({
+			// @ts-expect-error
+			'system.spellResources.points.current': newPsionicPoints,
+		});
+	}
+
+	/** ---------------------------------- */
+	// Resources Reset Handlers (NPC)
+	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	// Resources Reset Handlers (Party)
+	/** ---------------------------------- */
+
+	/** ================================================================= */
+	// Sheet Toggles
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Sheet Toggles (Char)
+	/** ---------------------------------- */
+
+	/** Toggle Inspiration for a char */
+	toggleInspiration(this: Actor.OfType<'character'>) {
+		const currentState = this.system.attributes.inspiration;
+		// @ts-expect-error
+		this.update({ 'system.attributes.inspiration': !currentState });
+
+		if (currentState) {
+			// @ts-expect-error
+			Hooks.callAll('a5e.inspirationUsed', this);
+		} else {
+			// @ts-expect-error
+			Hooks.callAll('a5e.inspirationGained', this);
+		}
+	}
+
+	/** ---------------------------------- */
+	// Sheet Toggles (NPC)
+	/** ---------------------------------- */
+
+	/** Toggle Elite for a char */
+	toggleElite() {
+		// @ts-expect-error
+		this.update({ 'system.details.elite': !this.system.details.elite });
+	}
+
+	/** ---------------------------------- */
+	// Sheet Toggles (Party)
+	/** ---------------------------------- */
+
+	/** ================================================================= */
 	// Roll Handlers
-	// -------------------------------------------------------------
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Roll Handlers (Creature)
+	/** ---------------------------------- */
+
 	/**
 	 * Rolls an ability check for a given skill. A dialog is presented to the user so that they can
 	 * perform choose the size of the expertise die to use for the check.
-	 *
-	 * @param abilityKey - A key that can be used to reference a given ability score.
 	 */
-	async rollAbilityCheck(abilityKey: string, options: AbilityCheckRollOptions = {}) {
-		let dialogData;
+	async rollAbilityCheck(
+		this: Creature,
+		abilityKey: string,
+		options: AbilityCheckRollOptions = {},
+	) {
+		let dialogData: any;
 
 		if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
 		else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
@@ -1440,14 +1870,17 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 
 		const chatData = {
 			author: game.user?.id,
-			speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
+			speaker: ChatMessage.getSpeaker({ actor: this }),
 			sound: CONFIG.sounds.dice,
+			// @ts-expect-error
 			rolls: rolls.map(({ roll }) => roll),
+			// @ts-expect-error
 			rollMode: visibilityMode ?? game.settings.get('core', 'messageMode'),
 			system: {
 				actorId: this.uuid,
 				actorName: this.name,
 				img: this.token?.texture.src ?? this.img,
+				// @ts-expect-error
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				rollType: 'abilityCheck',
 			},
@@ -1461,8 +1894,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			rollMode,
 		};
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.rollAbilityCheck', this, hookData, rolls);
 
+		// @ts-expect-error
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -1477,10 +1912,12 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return chatCard;
 	}
 
-	getDefaultAbilityCheckData(abilityKey: string, options: AbilityCheckRollOptions = {}) {
+	getDefaultAbilityCheckData(
+		this: Creature,
+		abilityKey: string,
+		options: AbilityCheckRollOptions = {},
+	) {
 		const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-		const defaultExpertiseDie =
-			options.expertiseDice ?? this.system.abilities[abilityKey].check.expertiseDice ?? 0;
 
 		const ability = this.system.abilities[abilityKey].check;
 		const expertiseDie = RollOverrideManager.resolveExpertiseDie(ability).value;
@@ -1508,6 +1945,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	async #showAbilityCheckPrompt(
+		this: Creature,
 		abilityKey: string,
 		rollOptions: AbilityCheckRollOptions = {},
 		dialogOptions = {},
@@ -1531,7 +1969,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return dialogData;
 	}
 
-	async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
+	async rollDeathSavingThrow(this: Creature, options: SavingThrowRollOptions = {}) {
 		options.saveType = 'death';
 		options.expertiseDice ??= 0;
 		options.visibilityMode ??= 'gm';
@@ -1543,13 +1981,13 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.rollSavingThrow(undefined, options);
 	}
 
-	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true) {
+	async rollHitDice(this: Creature, dieSize: string | null = null, quantity = 1, heal = true) {
 		const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity, heal);
 		return chatCard;
 	}
 
-	async rollSavingThrow(abilityKey?: string, options: SavingThrowRollOptions = {}) {
-		let dialogData;
+	async rollSavingThrow(this: Creature, abilityKey?: string, options: SavingThrowRollOptions = {}) {
+		let dialogData: any;
 
 		if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
 		else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
@@ -1618,10 +2056,12 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return chatCard;
 	}
 
-	getDefaultSavingThrowData(abilityKey: string | undefined, options: SavingThrowRollOptions = {}) {
+	getDefaultSavingThrowData(
+		this: Creature,
+		abilityKey: string | undefined,
+		options: SavingThrowRollOptions = {},
+	) {
 		const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-		const defaultExpertiseDice =
-			options.expertiseDice ?? this.system.abilities[abilityKey || '']?.save.expertiseDice ?? 0;
 
 		const src = abilityKey ? this.system.abilities[abilityKey].save : this.system.rolls.death;
 
@@ -1650,6 +2090,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	async #showSavingThrowPrompt(
+		this: Creature,
 		abilityKey: string | undefined,
 		rollOptions: SavingThrowRollOptions = {},
 		dialogOptions: Record<string, any> = {},
@@ -1682,16 +2123,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	/**
 	 * Rolls a skill check for a given skill. A dialog is presented to the user so that they can
 	 * perform additional configuration, such as choosing an ability score for the check.
-	 *
-	 * @async
-	 * @method
-	 * @param {string} skillKey A key that can be used to reference a given skill.
-	 * @param {object}
-	 *
-	 * @returns {Promise<undefined>}
 	 */
-	async rollSkillCheck(skillKey: string, options: SkillCheckRollOptions = {}) {
-		let dialogData;
+	async rollSkillCheck(this: Creature, skillKey: string, options: SkillCheckRollOptions = {}) {
+		let dialogData: any;
 
 		options.expertiseDice ??= 0;
 
@@ -1758,7 +2192,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return chatCard;
 	}
 
-	getDefaultSkillCheckData(skillKey: string, options: SkillCheckRollOptions = {}) {
+	getDefaultSkillCheckData(this: Creature, skillKey: string, options: SkillCheckRollOptions = {}) {
 		const skill = this.system.skills[skillKey];
 		const abilityKey = options?.abilityKey ?? skill.ability;
 		const ability = this.system.abilities[abilityKey]?.check;
@@ -1812,6 +2246,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	}
 
 	async #showSkillCheckPrompt(
+		this: Creature,
 		skillKey: string,
 		rollOptions: SkillCheckRollOptions = {},
 		dialogOptions = {},
@@ -1835,7 +2270,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		return dialogData;
 	}
 
-	async createConcentrationCheckCard(damage: number) {
+	async createConcentrationCheckCard(this: Creature, damage: number) {
 		const dc = Math.clamp(Math.floor(damage / 2), 10, 30);
 
 		let content = `${this.name} has taken ${damage} damage. `;
@@ -1854,10 +2289,10 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		await ChatMessage.create(chatData);
 	}
 
-	// -------------------------------------------------------------
+	/** ================================================================= */
 	// Config Handlers
-	// -------------------------------------------------------------
-	addBonus(type = 'damage') {
+	/** ================================================================= */
+	addBonus(this: Creature, type = 'damage') {
 		const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
 		if (!Object.keys(CONFIG.A5E.bonusTypes)?.includes(type)) return;
@@ -1870,7 +2305,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	#configure(key, title, data, options) {
+	#configure(this: Creature, key, title, data, options) {
 		if (!this.isOwner) return;
 
 		const component = this.#configDialogMap[key];
@@ -1895,7 +2330,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		dialog?.render(true);
 	}
 
-	configureAbilityScore(data: Record<string, any> = {}, options = {}) {
+	configureAbilityScore(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.abilities.headings.checkPromptTitle', {
 			name: this.name,
 			ability: localize(CONFIG.A5E.abilities[data.abilityKey]),
@@ -1904,7 +2339,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('ability', title, data, options);
 	}
 
-	configureAlignment(data: Record<string, any> = {}, options = {}) {
+	configureAlignment(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.traits.headings.configurationPrompt', {
 			name: this.name,
 		});
@@ -1917,14 +2352,14 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('alignment', title, data, options);
 	}
 
-	configureArmorClass(data: Record<string, any> = {}, options = {}) {
+	configureArmorClass(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.armorClass.headings.acConfigurationPrompt', {
 			name: this.name,
 		});
 		this.#configure('armorClass', title, data, options);
 	}
 
-	configureArmorProficiencies(data: Record<string, any> = {}, options = {}) {
+	configureArmorProficiencies(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.armorClass.headings.proficienciesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -1937,7 +2372,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('armor', title, data, options);
 	}
 
-	configureConditionImmunities(data: Record<string, any> = {}, options = {}) {
+	configureConditionImmunities(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.conditions.immunitiesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -1950,7 +2385,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('conditionImmunities', title, data, options);
 	}
 
-	configureCreatureTypes(data: Record<string, any> = {}, options = {}) {
+	configureCreatureTypes(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.details.creature.headings.typesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -1963,7 +2398,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('types', title, data, options);
 	}
 
-	configureBonus(bonusID: string, type = 'damage') {
+	configureBonus(this: Creature, bonusID: string, type = 'damage') {
 		const dialogKey = CONFIG.A5E.bonusDialogKeys[type];
 		if (!dialogKey) return;
 
@@ -1971,7 +2406,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure(dialogKey, dialogName, { bonusID }, {});
 	}
 
-	configureCreatureTerrains(data: Record<string, any> = {}, options = {}) {
+	configureCreatureTerrains(this: Creature, data: Record<string, any> = {}, options = {}) {
 		data.heading ??= 'A5E.CreatureTerrainsLabel';
 		data.configObject ??= CONFIG.A5E.terrainTypes;
 		data.propertyKey ??= 'system.details.terrain';
@@ -1980,7 +2415,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('terrain', `${this.name}: Configure Creature Terrains`, data, options);
 	}
 
-	configureDamageImmunities(data: Record<string, any> = {}, options = {}) {
+	configureDamageImmunities(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.traits.headings.damage.immunitiesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -1993,7 +2428,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('damageImmunities', title, data, options);
 	}
 
-	configureDamageResistances(data: Record<string, any> = {}, options = {}) {
+	configureDamageResistances(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.traits.headings.damage.resistancesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2006,7 +2441,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('damageResistances', title, data, options);
 	}
 
-	configureDamageVulnerabilities(data: Record<string, any> = {}, options = {}) {
+	configureDamageVulnerabilities(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.traits.headings.damage.vulnerabilitiesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2019,7 +2454,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('damageVulnerabilities', title, data, options);
 	}
 
-	configureHealth(data: Record<string, any> = {}, options: Record<string, any> = {}) {
+	configureHealth(
+		this: Creature,
+		data: Record<string, any> = {},
+		options: Record<string, any> = {},
+	) {
 		const title = localize('A5E.hitPoints.configurationPrompt', {
 			name: this.name,
 		});
@@ -2027,7 +2466,11 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('health', title, data, options);
 	}
 
-	configureInitiative(data: Record<string, any> = {}, options: Record<string, any> = {}) {
+	configureInitiative(
+		this: Creature,
+		data: Record<string, any> = {},
+		options: Record<string, any> = {},
+	) {
 		const title = localize('A5E.initiative.configurationPrompt', {
 			name: this.name,
 		});
@@ -2037,7 +2480,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	configureLanguages(data: Record<string, any> = {}, options = {}) {
+	configureLanguages(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.details.languagesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2050,14 +2493,14 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('languages', title, data, options);
 	}
 
-	configureMovement(data: Record<string, any> = {}, options = {}) {
+	configureMovement(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.details.movement.configurationPrompt', {
 			name: this.name,
 		});
 		this.#configure('movement', title, data, options);
 	}
 
-	configureManeuverTraditions(data: Record<string, any> = {}, options = {}) {
+	configureManeuverTraditions(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.maneuvers.headings.configurationPrompt', {
 			name: this.name,
 		});
@@ -2070,14 +2513,14 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('maneuverTraditions', title, data, options);
 	}
 
-	configureSenses(data: Record<string, any> = {}, options = {}) {
+	configureSenses(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.senses.configurationPrompt', {
 			name: this.name,
 		});
 		this.#configure('senses', title, data, options);
 	}
 
-	configureSizeCategory(data: Record<string, any> = {}, options = {}) {
+	configureSizeCategory(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.traits.size.categoryConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2090,7 +2533,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('size', title, data, options);
 	}
 
-	configureSkill(data: Record<string, any> = {}, options = { width: 440 }) {
+	configureSkill(this: Creature, data: Record<string, any> = {}, options = { width: 440 }) {
 		const title = localize('A5E.bonuses.labels.skillConfigurationPrompt', {
 			name: this.name,
 			skill: localize(CONFIG.A5E.skills[data.skillKey]),
@@ -2099,7 +2542,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('skill', title, data, options);
 	}
 
-	configureToolProficiencies(data: Record<string, any> = {}, options = {}) {
+	configureToolProficiencies(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.tools.proficienciesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2112,7 +2555,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('tools', title, data, options);
 	}
 
-	configureWeaponProficiencies(data: Record<string, any> = {}, options = {}) {
+	configureWeaponProficiencies(this: Creature, data: Record<string, any> = {}, options = {}) {
 		const title = localize('A5E.weapons.proficienciesConfigurationPrompt', {
 			name: this.name,
 		});
@@ -2125,7 +2568,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.#configure('weapons', title, data, options);
 	}
 
-	async deleteBonus(id: string, type = 'damage') {
+	async deleteBonus(this: Creature, id: string, type = 'damage') {
 		// Close dialog
 		const dialog = this.dialogs.bonuses[id];
 		await dialog?.close();
@@ -2138,7 +2581,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		});
 	}
 
-	duplicateBonus(id: string, type = 'damage') {
+	duplicateBonus(this: Creature, id: string, type = 'damage') {
 		let defaultLabel;
 		const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
@@ -2158,6 +2601,78 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 				[foundry.utils.randomID()]: newBonus,
 			},
 		});
+	}
+
+	/** ================================================================= */
+	// Token Handlers
+	/** ================================================================= */
+	override async modifyTokenAttribute(attribute: string, value, isDelta: boolean, isBar: boolean) {
+		if (attribute === 'attributes.hp') {
+			const hp = foundry.utils.getProperty(this.system, attribute);
+			// @ts-expect-error
+			const hpPool = hp.value + hp.temp;
+			const delta = hpPool - value;
+
+			if (isDelta) {
+				return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
+			}
+
+			return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
+		}
+
+		return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
+	}
+
+	/** ================================================================= */
+	// Misc Handlers
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Misc Handlers (Char)
+	/** ---------------------------------- */
+
+	/** Fix nested uuids in a grant */
+	async _fixNestedUuids(this: Actor.OfType<'character'>) {
+		const actorData = this.toObject();
+		let modified = false;
+
+		function fixNestedUuids(obj) {
+			if (typeof obj !== 'object' || obj === null) return;
+
+			for (const key in obj) {
+				const value = obj[key];
+
+				// Check if this is the problematic structure: {uuid: {uuid: "...", ...}, ...}
+				if (key === 'uuid' && typeof value === 'object' && value !== null) {
+					if (value.uuid && typeof value.uuid === 'string') {
+						const innerUuid = value.uuid;
+						const limitedReselection = value.limitedReselection;
+						const selectionLimit = value.selectionLimit;
+
+						obj.uuid = innerUuid;
+
+						if (obj.limitedReselection === undefined && limitedReselection !== undefined) {
+							obj.limitedReselection = limitedReselection;
+						}
+						if (obj.selectionLimit === undefined && selectionLimit !== undefined) {
+							obj.selectionLimit = selectionLimit;
+						}
+
+						modified = true;
+					}
+				} else if (typeof value === 'object') {
+					// Recursively check nested objects
+					fixNestedUuids(value);
+				}
+			}
+		}
+
+		fixNestedUuids(actorData);
+
+		if (modified) {
+			await this.update(actorData);
+			console.log(`A5e | Fixed nested UUIDs for actor: ${this.name}`);
+		}
 	}
 
 	// -------------------------------------------------------------

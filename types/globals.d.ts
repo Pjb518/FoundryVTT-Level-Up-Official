@@ -76,6 +76,7 @@ declare module 'fvtt-types/configuration' {
 				carryCapacityAbility: string;
 				criticalHitThresholdWeapon: number;
 				criticalHitThresholdSpell: number;
+				deathSaveThreshold: number;
 				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
 			};
@@ -87,10 +88,13 @@ declare module 'fvtt-types/configuration' {
 	}
 
 	interface SettingConfig {
+		'a5e.5eStyleDeathSaves': boolean;
 		'a5e.automateBloodiedeApplication': boolean;
 		'a5e.automateUnconsciousApplication': boolean;
 		'a5e.blindDeathSaves': boolean;
+		'a5e.cascadingDamageAndHealingDelay': number;
 		'a5e.consumeSupplyByDefault': boolean;
+		'a5e.enableCascadingDamageAndHealing': boolean;
 		'a5e.hideExpertiseDice': boolean;
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;

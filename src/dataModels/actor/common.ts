@@ -412,6 +412,24 @@ export const skills = () => ({
 				check: new fields.StringField({ required: true, initial: '' }),
 				passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
 			}),
+			mod: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
+			deterministicBonus: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
+			passive: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
 			...d20RollModification(),
 		}),
 		{
