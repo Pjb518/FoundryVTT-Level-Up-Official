@@ -418,9 +418,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (isTypeData) this.system?.prepareBaseData();
 		this.prepareBaseData();
 
-		console.log('Items should initialize');
 		super.prepareEmbeddedDocuments();
-		console.log('Items should have been initialized');
 
 		// @ts-expect-error
 		if (isTypeData) this.system?.prepareDerivedData();
