@@ -2675,113 +2675,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		}
 	}
 
-	// -------------------------------------------------------------
-	// Document Update Hooks
-	// -------------------------------------------------------------
-	/** @inheritdoc */
-	override async _preCreate(data, options, user) {
-		await super._preCreate(data, options, user);
-
-		// Add schema version
-		const version: number = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
-		const docVersion = this.system.migrationData?.version;
-
-		if (!docVersion) {
-			this.updateSource({
-				// @ts-expect-error
-				'system.migrationData': {
-					version,
-					type: 'Actor',
-				},
-			});
-		} else if (docVersion < version) {
-			// Handle document migration
-			await handleDocumentImportMigration(this);
-		}
-
-		// Player character configuration
-		if (this.type === 'character') {
-			const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
-			this.updateSource({ prototypeToken });
-		}
-	}
-
-	/** @inheritdoc */
-	override async _preUpdate(changed, options, user) {
-		if (!options.fromCondition) {
-			automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
-		}
-
-		await super._preUpdate(changed, options, user);
-
-		// If hp drops below 0, set the value to 0.
-		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) < 0) {
-			foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
-		}
-
-		// If temp hp drops to or below 0, set the value to 0.
-		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.temp') as number) <= 0) {
-			foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
-		}
-
-		// Reset death save counters
-		const isUnconscious = this.system.attributes.hp.value === 0;
-		const willRegainConsciousness =
-			(foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) > 0;
-
-		if (isUnconscious && willRegainConsciousness) {
-			foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
-			foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
-		}
-
-		// Update prototype token sizes to reflect the actor's token size
-		const automateTokenSize =
-			this.flags?.a5e?.automatePrototypeTokenSize ??
-			// game.settings.get("a5e", "automatePrototypeTokenSize") ??
-			true;
-
-		if (automateTokenSize) {
-			if (foundry.utils.getProperty(changed, 'system.traits.size')) {
-				const newSize = changed.system.traits.size;
-
-				// If titanic token is already larger than 5, don't change it
-				if (newSize !== 'titan' || (this.prototypeToken.width ?? 1) < 5) {
-					foundry.utils.setProperty(
-						changed,
-						'prototypeToken.height',
-						CONFIG.A5E.tokenDimensions[newSize],
-					);
-					foundry.utils.setProperty(
-						changed,
-						'prototypeToken.width',
-						CONFIG.A5E.tokenDimensions[newSize],
-					);
-				}
-			}
-		}
-
-		// Concentration Check Automation
-		const isConcentrating = this.statuses.has('concentration');
-		const hp = foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number;
-		// TODO: Respect Limit
-		if (isConcentrating && this.system.attributes.hp.value > hp) {
-			this.createConcentrationCheckCard(this.system.attributes.hp.value - hp);
-		}
-	}
-
-	/** @inheritdoc */
-	override _onUpdate(changed, options, userId) {
-		super._onUpdate(changed, options, userId);
-
-		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
-		const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
-		if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
-	}
-
-	// -------------------------------------------------------------
+	/** ================================================================= */
 	// Functionality Patches
-	// -------------------------------------------------------------
+	/** ================================================================= */
 	async toggleStatusEffect(
 		statusId: string,
 		options: { active?: boolean; overlay?: boolean; updates?: any } = {
@@ -2897,6 +2793,292 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 			keepId: true,
 		});
 	}
+
+	/** ================================================================= */
+	// Document Update Hooks
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Pre Create
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override async _preCreate(...[data, options, user]: Parameters<Actor['_preCreate']>) {
+		await super._preCreate(data, options, user);
+
+		// Add schema version
+		const version: number = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const docVersion = this.system.migrationData?.version;
+
+		if (!docVersion) {
+			this.updateSource({
+				// @ts-expect-error
+				'system.migrationData': {
+					version,
+					type: 'Actor',
+				},
+			});
+		} else if (docVersion < version) {
+			// Handle document migration
+			await handleDocumentImportMigration(this);
+		}
+
+		// Call Sub Methods
+		this._preCreateCreature(data, options, user);
+		if (this.type === 'party') this._preCreateParty(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Creature)
+	/** ---------------------------------- */
+	async _preCreateCreature(
+		this: Creature,
+		...[data, options, user]: Parameters<Actor['_preCreate']>
+	) {
+		if (!['character', 'npc'].includes(this.type)) return;
+
+		// Call Sub Methods
+		if (this.type === 'character') this._preCreateChar(data, options, user);
+		if (this.type === 'npc') this._preCreateNPC(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Char)
+	/** ---------------------------------- */
+	async _preCreateChar(
+		this: Actor.OfType<'character'>,
+		...[data, options, user]: Parameters<Actor['_preCreate']>
+	) {
+		const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
+		// @ts-expect-error
+		this.updateSource({ prototypeToken });
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (NPC)
+	/** ---------------------------------- */
+	async _preCreateNPC(
+		this: Actor.OfType<'npc'>,
+		...[data, options, user]: Parameters<Actor['_preCreate']>
+	) {}
+
+	/** ---------------------------------- */
+	// Pre Create (Party)
+	/** ---------------------------------- */
+	async _preCreateParty(
+		this: Actor.OfType<'party'>,
+		...[data, options, user]: Parameters<Actor['_preCreate']>
+	) {}
+
+	/** ---------------------------------- */
+	// Pre Update
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override async _preUpdate(...[changed, options, user]: Parameters<Actor['_preUpdate']>) {
+		// This should happen before super takes place
+		if (['character', 'npc'].includes('this.type')) {
+			// @ts-expect-error
+			if (!options.fromCondition) {
+				automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
+			}
+		}
+
+		await super._preUpdate(changed, options, user);
+
+		// Call Sub Modules
+		this._preUpdateCreature(changed, options, user);
+		if (this.type === 'party') this._preUpdateParty(changed, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Creature)
+	/** ---------------------------------- */
+	async _preUpdateCreature(
+		this: Creature,
+		...[changed, options, user]: Parameters<Actor['_preUpdate']>
+	) {
+		if (!['character', 'npc'].includes(this.type)) return;
+
+		// If hp drops below 0, set the value to 0.
+		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) < 0) {
+			foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
+		}
+
+		// If temp hp drops to or below 0, set the value to 0.
+		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.temp') as number) <= 0) {
+			foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
+		}
+
+		// Reset death save counters
+		const isUnconscious = this.system.attributes.hp.value === 0;
+		const willRegainConsciousness =
+			(foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) > 0;
+
+		if (isUnconscious && willRegainConsciousness) {
+			foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
+			foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
+		}
+
+		// Update prototype token sizes to reflect the actor's token size
+		const automateTokenSize =
+			this.flags?.a5e?.automatePrototypeTokenSize ??
+			// game.settings.get("a5e", "automatePrototypeTokenSize") ??
+			true;
+
+		if (automateTokenSize) {
+			if (foundry.utils.getProperty(changed, 'system.traits.size')) {
+				const newSize = changed.system.traits.size;
+
+				// If titanic token is already larger than 5, don't change it
+				if (newSize !== 'titan' || (this.prototypeToken.width ?? 1) < 5) {
+					foundry.utils.setProperty(
+						changed,
+						'prototypeToken.height',
+						CONFIG.A5E.tokenDimensions[newSize],
+					);
+					foundry.utils.setProperty(
+						changed,
+						'prototypeToken.width',
+						CONFIG.A5E.tokenDimensions[newSize],
+					);
+				}
+			}
+		}
+
+		// Concentration Check Automation
+		const isConcentrating = this.statuses.has('concentration');
+		const hp = foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number;
+		// TODO: Respect Limit
+		if (isConcentrating && this.system.attributes.hp.value > hp) {
+			this.createConcentrationCheckCard(this.system.attributes.hp.value - hp);
+		}
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Char)
+	/** ---------------------------------- */
+	async _preUpdateChar(
+		this: Actor.OfType<'character'>,
+		...[changed, options, user]: Parameters<Actor['_preUpdate']>
+	) {}
+
+	/** ---------------------------------- */
+	// Pre Create (NPC)
+	/** ---------------------------------- */
+	async _preUpdateNPC(
+		this: Actor.OfType<'npc'>,
+		...[changed, options, user]: Parameters<Actor['_preUpdate']>
+	) {}
+
+	/** ---------------------------------- */
+	// Pre Create (Party)
+	/** ---------------------------------- */
+	async _preUpdateParty(
+		this: Actor.OfType<'party'>,
+		...[changed, options, user]: Parameters<Actor['_preUpdate']>
+	) {}
+
+	/** ---------------------------------- */
+	// On Create
+	/** ---------------------------------- */
+	override _onCreate(...[data, options, userId]: Parameters<Actor['_onCreate']>) {
+		super._onCreate(data, options, userId);
+
+		// Call Sub Methods
+		this._onCreateCreature(data, options, userId);
+		if (this.type === 'party') this._onCreateParty(data, options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Create (Creature)
+	/** ---------------------------------- */
+	_onCreateCreature(this: Creature, ...[data, options, userId]: Parameters<Actor['_onCreate']>) {
+		if (!['character', 'npc'].includes(this.type)) return;
+
+		// Call Sub Methods
+		if (this.type === 'character') this._onCreateChar(data, options, userId);
+		if (this.type === 'npc') this._onCreateNPC(data, options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Create (Char)
+	/** ---------------------------------- */
+	_onCreateChar(
+		this: Actor.OfType<'character'>,
+		...[data, options, userId]: Parameters<Actor['_onCreate']>
+	) {
+		if (game.user.id !== userId) return;
+		this._fixNestedUuids();
+	}
+
+	/** ---------------------------------- */
+	// On Create (NPC)
+	/** ---------------------------------- */
+	_onCreateNPC(
+		this: Actor.OfType<'npc'>,
+		...[data, options, userId]: Parameters<Actor['_onCreate']>
+	) {}
+
+	/** ---------------------------------- */
+	// On Create (Party)
+	/** ---------------------------------- */
+	_onCreateParty(
+		this: Actor.OfType<'party'>,
+		...[data, options, userId]: Parameters<Actor['_onCreate']>
+	) {}
+
+	/** ---------------------------------- */
+	// On Update
+	/** ---------------------------------- */
+	/** @inheritdoc */
+	override _onUpdate(...[changed, options, userId]: Parameters<Actor['_onUpdate']>) {
+		super._onUpdate(changed, options, userId);
+
+		// Call Sub Modules
+		this._onUpdateCreature(changed, options, userId);
+		if (this.type === 'party') this._onUpdateParty(changed, options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Update (Creature)
+	/** ---------------------------------- */
+	_onUpdateCreature(this: Creature, ...[changed, options, userId]: Parameters<Actor['_onUpdate']>) {
+		if (!['character', 'npc'].includes(this.type)) return;
+
+		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
+		const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
+		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
+		if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
+
+		// Call Sub Methods
+		if (this.type === 'character') this._onUpdateChar(changed, options, userId);
+		if (this.type === 'npc') this._onUpdateNPC(changed, options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Update (Char)
+	/** ---------------------------------- */
+	_onUpdateChar(
+		this: Actor.OfType<'character'>,
+		...[changed, options, userId]: Parameters<Actor['_onUpdate']>
+	) {}
+
+	/** ---------------------------------- */
+	// On Update (NPC)
+	/** ---------------------------------- */
+	_onUpdateNPC(
+		this: Actor.OfType<'npc'>,
+		...[changed, options, userId]: Parameters<Actor['_onUpdate']>
+	) {}
+
+	/** ---------------------------------- */
+	// On Update (Party)
+	/** ---------------------------------- */
+	_onUpdateParty(
+		this: Actor.OfType<'party'>,
+		...[changed, options, userId]: Parameters<Actor['_onUpdate']>
+	) {}
 }
 
 export { BaseActorA5e };
