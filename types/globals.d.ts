@@ -96,6 +96,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.consumeSupplyByDefault': boolean;
 		'a5e.enableCascadingDamageAndHealing': boolean;
 		'a5e.hideExpertiseDice': boolean;
+		'a5e.replaceFatigueAndStrife': boolean;
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
 		'a5e.useCredits': boolean;

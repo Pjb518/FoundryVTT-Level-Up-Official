@@ -16,7 +16,7 @@ import type { ItemA5e } from '../documents/item/item.ts';
 import type { RollStateManager } from './RollStateManager.ts';
 
 class RollPreparationManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#item: ItemA5e;
 

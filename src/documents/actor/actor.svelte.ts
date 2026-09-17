@@ -152,6 +152,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 			const embeddedItemHooks = ['create', 'delete', 'update'].reduce(
 				(hooks, hookType) => {
+					// @ts-expect-error
 					hooks[hookType] = Hooks.on(`${hookType}Item`, (triggeringDocument: any, _, { diff }) => {
 						if (diff === false) return;
 
@@ -166,6 +167,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			const embeddedEffectHooks = ['create', 'delete', 'update'].reduce(
 				(hooks, hookType) => {
 					hooks[hookType] = Hooks.on(
+						// @ts-expect-error
 						`${hookType}ActiveEffect`,
 						(triggeringDocument: any, _, { diff }) => {
 							if (diff === false) return;
@@ -209,6 +211,18 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return this.type === 'character' || this.type === 'npc';
 	}
 
+	isChar(): this is Actor.OfType<'character'> {
+		return this.type === 'character';
+	}
+
+	isNPC(): this is Actor.OfType<'npc'> {
+		return this.type === 'npc';
+	}
+
+	isParty(): this is Actor.OfType<'party'> {
+		return this.type === 'party';
+	}
+
 	/** ================================================================= */
 	// Getters
 	/** ================================================================= */
@@ -219,8 +233,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** Get available spellslots on an actor */
-	get availableSpellSlots() {
-		if (this.type === 'party') return [] as string[];
+	get availableSpellSlots(): string[] {
+		if (!this.isCreature()) return [];
 
 		return Object.entries(this.system.spellResources.slots ?? {}).reduce(
 			(acc: string[], [level, slot]: [string, any]) => {
@@ -233,7 +247,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Check if an actor is bloodied */
 	get isBloodied(): boolean {
-		if (this.type === 'party') return false;
+		if (!this.isCreature()) return false;
 
 		const { max, value } = this.system.attributes.hp;
 		return (value / max) * 100 <= 50;
@@ -254,6 +268,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		for (const effect of this.allApplicableEffects()) {
 			if (effect.active && (effect.isTemporary || effect?.system?.effectType === 'onUse')) {
+				// @ts-expect-error
 				effects.push(effect);
 			}
 		}
@@ -263,9 +278,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Get vision data for token use */
 	get visionData() {
-		if (this.type === 'party') return undefined;
+		if (!this.isCreature()) return undefined;
+		const actor = this as Creature;
 
-		const { senses } = this.system.attributes;
+		const { senses } = actor.system.attributes;
 
 		return {
 			hasBlindsight: senses.blindsight.distance > 0,
@@ -294,10 +310,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Gets the total supply from items and supply field */
 	get totalSupply() {
-		if (this.type !== 'character') return 0;
+		if (!this.isChar()) return 0;
+		const actor = this as Actor.OfType<'character'>;
 
-		const base = this.system.supply ?? 0;
-		const supplyCount = this.items.reduce((acc, item) => {
+		const base = actor.system.supply ?? 0;
+		const supplyCount = actor.items.reduce((acc, item) => {
 			if (item.type !== 'object') return acc;
 			if (item.system.supply && item.system.equippedState) {
 				acc += item.system.quantity || 1;
@@ -311,7 +328,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** @deprecated  */
 	get supply() {
-		return this.totalSupply();
+		return this.totalSupply;
 	}
 
 	/** ---------------------------------- */
@@ -319,13 +336,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	get hitPointFormula() {
 		if (this.type !== 'npc') return '';
+		const actor = this as Actor.OfType<'npc'>;
 
-		const { hitDice } = this.systen.attributes;
-		const { mod } = this.system.abilities.con;
+		const { hitDice } = actor.system.attributes;
+		// @ts-expect-error
+		const { mod } = actor.system.abilities.con;
 
 		let hitDiceCount = 0;
 		const parts: string[] = [];
 
+		// @ts-expect-error
 		Object.entries(hitDice ?? {}).forEach(([dieSize, { total: diceQuantity }]) => {
 			if (!diceQuantity) return;
 
@@ -394,6 +414,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		const isTypeData = this.system instanceof foundry.abstract.TypeDataModel;
 
+		// @ts-expect-error
 		if (isTypeData) this.system?.prepareBaseData();
 		this.prepareBaseData();
 
@@ -401,6 +422,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		super.prepareEmbeddedDocuments();
 		console.log('Items should have been initialized');
 
+		// @ts-expect-error
 		if (isTypeData) this.system?.prepareDerivedData();
 		this.prepareDerivedData();
 
@@ -421,9 +443,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		for (const [statusId, wasActive] of specialStatuses) {
 			const isActive = this.statuses.has(statusId);
 			if (isActive === wasActive) continue;
+			// @ts-expect-error
 			tokens ??= this.getDependentTokens({ scenes: canvas.scene })
 				.filter((t) => t.rendered)
 				.map((t) => t.object);
+
+			// @ts-expect-error
 			for (const token of tokens) token._onApplyStatusEffect(statusId, isActive);
 		}
 	}
@@ -440,16 +465,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this._clearData();
 
 		// Call Sub Methods
-		this.prepareCreatureBaseData();
-		this.preparePartyBaseData();
+		if (this.isCreature()) this.prepareCreatureBaseData();
+		if (this.isParty()) this.preparePartyBaseData();
 	}
 
 	/** Prepares common base data for creatures */
 	prepareCreatureBaseData(this: Creature) {
-		if (this.type === 'party') return;
-
 		// Register Managers
 		this.BonusesManager = new BonusesManager(this);
+		// @ts-expect-error
 		this.grants = new ActorGrantsManager(this);
 
 		// Add AC data to the actor.
@@ -493,9 +517,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/**
 	 * Prepares detailed level data for the actor.
 	 */
-	prepareLevelData() {
-		if (this.type !== 'character') return;
-
+	prepareLevelData(this: Actor.OfType<'character'>) {
 		const classes = this.items.filter((item) => item.type === 'class');
 
 		if (!this.classAutomationFlags.classes) {
@@ -532,15 +554,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	override prepareDerivedData() {
 		super.prepareDerivedData();
 
-		// @ts-expect-error
-		this.prepareCreatureDerivedData();
+		if (this.isCreature()) this.prepareCreatureDerivedData();
 	}
 
 	/** Prepares derived data for creatures */
-	prepareCreatureDerivedData(this: Actor.OfType<'character'> | Actor.OfType<'npc'>) {
-		// @ts-expect-error
-		if (this.type === 'party') return;
-
+	prepareCreatureDerivedData(this: Creature) {
 		const actorData = this.system;
 
 		// Add base bonuses for abilities
@@ -707,7 +725,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (valueOverride !== null && valueOverride !== undefined) {
 			const effectOverride = [...this.allApplicableEffects()].findLast(
 				(effect) =>
-					effect.changes.some((change) => change.key.includes('ac.value')) && !effect.isSuppressed,
+					effect.system.changes.some((change) => change.key.includes('ac.value')) &&
+					!effect.isSuppressed,
 			);
 
 			const tempFinalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
@@ -744,7 +763,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (overrideProperty && !valueOverride) {
 			const effectOverride = this.actorEffects.findLast(
 				(effect) =>
-					effect.changes.some((change) => change.key.includes('ac.baseFormula')) &&
+					effect.system.changes.some((change) => change.key.includes('ac.baseFormula')) &&
 					!effect.isSuppressed,
 			);
 
@@ -776,16 +795,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// const currentStr = this.system.abilities.str.value;
 		return this.items.reduce(
 			(acc, item) => {
-				// @ts-expect-error
 				if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED) return acc;
 
-				// @ts-expect-error
 				const { formula } = item.system.ac ?? {};
 				if (!formula) return acc;
 
-				// @ts-expect-error
 				if (item.system.objectType === 'armor') acc.hasArmor = true;
-				// @ts-expect-error
 				else if (item.system.objectType === 'shield') acc.hasShield = true;
 
 				return acc;
@@ -904,7 +919,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
 			const skillName = localize(CONFIG.A5E.skills[key]);
 
-			let deterministicBonus: number;
+			let deterministicBonus = 0;
 
 			try {
 				deterministicBonus = getDeterministicBonus(
@@ -940,6 +955,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			[
 				10,
 				skill.mod,
+				// @ts-expect-error
 				rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
 				this.BonusesManager?.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false),
 			]
@@ -1281,7 +1297,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ================================================================= */
 
 	/** Apply activeEffects to the actor with the phase 'applyAEs'. */
-	override applyActiveEffects(phase: 'initial' | 'final') {
+	override applyActiveEffects(phase: ActiveEffect.ChangePhase) {
 		const ActiveEffect = foundry.documents.ActiveEffect.implementation;
 
 		this._completedActiveEffectPhases.add(phase);
@@ -1311,6 +1327,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 				if (registeredPhase !== phase) continue;
 
 				const copy = foundry.utils.deepClone(change);
+				// @ts-expect-error
 				copy.effect = effect;
 
 				// Keep Token changes separate for later application
@@ -1356,12 +1373,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ================================================================= */
 
 	/** Apply Multiple damages at ones */
-	async applyBulkDamage(damageRolls) {
+	async applyBulkDamage(this: Creature, damageRolls) {
 		const updates = {};
 		const { value, temp } = this.system.attributes.hp;
 
 		const totalDamage = damageRolls.reduce(
-			// @ts-expect-error
 			(cumulativeDamage, [damage]) => cumulativeDamage + Math.floor(damage),
 			0,
 		);
@@ -1388,6 +1404,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			});
 		}
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.actorDamaged', this, {
 			prevHp: { value, temp },
 			damageRolls,
@@ -1399,7 +1416,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	 * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
 	 * Negative damage values will have no effect.
 	 */
-	async applyDamage(damage: number, damageType: string | null = null) {
+	async applyDamage(this: Creature, damage: number, damageType: string | null = null) {
 		const updates: Record<string, any> = {};
 		const { value, temp } = this.system.attributes.hp;
 		damage = Math.floor(damage);
@@ -1417,6 +1434,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			displayCascadingNumbers(this, 'damage', `-${damage}`, damageType);
 		}
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.actorDamaged', this, {
 			prevHp: { value, temp },
 			damage,
@@ -1426,9 +1444,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** Apply Multiple healing at ones */
-	async applyBulkHealing(healingRolls) {
+	async applyBulkHealing(this: Creature, healingRolls) {
 		const updates: Record<string, any> = {};
-		// @ts-expect-error
 		const { value, max, temp } = this.system.attributes.hp;
 		let showCascadingTemp = true;
 
@@ -1468,6 +1485,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			});
 		}
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.actorHealed', this, {
 			prevHp: { value, temp },
 			healingRolls,
@@ -1484,9 +1502,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	 *
 	 * Negative healing value are ignored.
 	 */
-	async applyHealing(healing: number, healingType?: string) {
+	async applyHealing(this: Creature, healing: number, healingType?: string) {
 		const updates = {};
-		// @ts-expect-error
 		const { value, max, temp } = this.system.attributes.hp;
 		// eslint-disable-next-line no-param-reassign
 		healing = Math.floor(healing);
@@ -1508,6 +1525,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			displayCascadingNumbers(this, 'healing', `+${healing}`, healingType);
 		}
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.actorHealed', this, {
 			prevHp: { value, temp },
 			healing,
@@ -1525,8 +1543,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const data = { ...super.getRollData() };
 
 		// Call Sub Modules
-		// @ts-expect-error
-		this.getCreatureRollData(data, item);
+		if (this.isCreature()) this.getCreatureRollData(data, item);
 
 		return data;
 	}
@@ -1537,8 +1554,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Get Creature Roll Data */
 	getCreatureRollData(this: Creature, data: Record<string, any>, item: BaseItemA5e | null = null) {
-		if (this.type === 'party') return data;
-
 		const { abilities, skills } = this.system;
 
 		data.prof = this.system.attributes.prof || 0;
@@ -1577,7 +1592,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		}
 
 		if (item && item.type === 'spell') {
-			const spellBook = this.spellBooks?.get(item.system.spellBook);
+			const spellBook = this.spellBooks?.get(item.system.spellBook!);
 			if (spellBook) {
 				data.spell = { mod: spellBook.stats.mod };
 				data.spellcasting = { mod: spellBook.stats.mod };
@@ -1606,7 +1621,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** Get Spellcasting modifier for char */
-	_calculateSpellcastingMod() {
+	_calculateSpellcastingMod(this: Creature) {
 		const { abilities, attributes } = this.system;
 		const spellcastingAbility = attributes.spellcasting || 'int';
 
@@ -1879,6 +1894,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			rolls: [
 				{
 					ability: abilityKey,
+					// @ts-expect-error
 					expertiseDie,
 					rollFormula,
 					rollMode,
@@ -1891,6 +1907,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		const chatData = {
 			author: game.user?.id,
+			// @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this }),
 			sound: CONFIG.sounds.dice,
 			// @ts-expect-error
@@ -2021,6 +2038,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			actor: this,
 			rolls: [
 				{
+					// @ts-expect-error
 					ability: abilityKey,
 					expertiseDie,
 					rollFormula,
@@ -2035,14 +2053,18 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		const chatData = {
 			author: game.user?.id,
-			speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
+			// @ts-expect-error
+			speaker: ChatMessage.getSpeaker({ actor }),
 			sound: CONFIG.sounds.dice,
+			// @ts-expect-error
 			rolls: rolls.map(({ roll }) => roll),
+			// @ts-expect-error
 			rollMode: visibilityMode ?? game.settings.get('core', 'messageMode'),
 			system: {
 				actorId: this.uuid,
 				actorName: this.name,
 				img: this.token?.texture.src ?? this.img,
+				// @ts-expect-error
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				rollType: 'savingThrow',
 			},
@@ -2057,12 +2079,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		};
 
 		if (options?.saveType === 'death') {
+			// @ts-expect-error
 			Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, rolls);
+			// @ts-expect-error
 			this.updateDeathSavingThrowFigures(rolls.map(({ roll }) => roll)[0]);
 		} else {
+			// @ts-expect-error
 			Hooks.callAll('a5e.rollSavingThrow', this, hookData, rolls);
 		}
 
+		// @ts-expect-error
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -2123,7 +2149,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		} else {
 			title = localize('A5E.rollLabels.prompts.savingThrowPromptTitle', {
 				name: this.name,
-				ability: localize(CONFIG.A5E.abilities[abilityKey]),
+				ability: localize(CONFIG.A5E.abilities[abilityKey!]),
 			});
 		}
 
@@ -2162,6 +2188,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			rolls: [
 				{
 					ability: abilityKey,
+					// @ts-expect-error
 					expertiseDie,
 					rollFormula,
 					rollMode,
@@ -2175,14 +2202,18 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		const chatData = {
 			author: game.user?.id,
+			// @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this }),
 			sound: CONFIG.sounds.dice,
+			// @ts-expect-error
 			rolls: rolls.map(({ roll }) => roll),
+			// @ts-expect-error
 			rollMode: visibilityMode ?? game.settings.get('core', 'messageMode'),
 			system: {
 				actorId: this.uuid,
 				actorName: this.name,
 				img: this.token?.texture.src ?? this.img,
+				// @ts-expect-error
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				rollType: 'skillCheck',
 			},
@@ -2197,8 +2228,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			skillKey,
 		};
 
+		// @ts-expect-error
 		Hooks.callAll('a5e.rollSkillCheck', this, hookData, rolls);
 
+		// @ts-expect-error
 		const finalRollMode = visibilityMode ?? game.settings.get('core', 'messageMode');
 		if (finalRollMode === 'gm') {
 			const gmUsers = game.users.filter((u) => u.isGM).map((u) => u.id);
@@ -2242,6 +2275,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			ability: abilityKey,
 			expertiseDie,
 			minRoll: options.minRoll ?? skill.minRoll,
+			// @ts-expect-error
 			proficient: skill.proficient,
 			type: 'skillCheck',
 			rollMode,
@@ -2301,6 +2335,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const chatData = {
 			author: game.user?.id,
 			flavor: this.name,
+			// @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this }),
 			style: CONST.CHAT_MESSAGE_STYLES.OTHER,
 			sound: CONFIG.sounds.notification,
@@ -2603,7 +2638,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	duplicateBonus(this: Creature, id: string, type = 'damage') {
-		let defaultLabel;
+		let defaultLabel: string;
 		const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
 		if (foundry.utils.isEmpty(bonuses)) return;
@@ -2627,7 +2662,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ================================================================= */
 	// Token Handlers
 	/** ================================================================= */
-	override async modifyTokenAttribute(attribute: string, value, isDelta: boolean, isBar: boolean) {
+	override async modifyTokenAttribute(
+		attribute: string,
+		value: number,
+		isDelta: boolean,
+		isBar: boolean,
+	): Promise<this | undefined> {
 		if (attribute === 'attributes.hp') {
 			const hp = foundry.utils.getProperty(this.system, attribute);
 			// @ts-expect-error
@@ -2635,9 +2675,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			const delta = hpPool - value;
 
 			if (isDelta) {
+				// @ts-expect-error
 				return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
 			}
 
+			// @ts-expect-error
 			return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
 		}
 
@@ -2699,6 +2741,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ================================================================= */
 	// Functionality Patches
 	/** ================================================================= */
+	// @ts-expect-error
 	async toggleStatusEffect(
 		statusId: string,
 		options: { active?: boolean; overlay?: boolean; updates?: any } = {
@@ -2721,6 +2764,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			const effect = this.effects.get(status._id as string);
 			if (effect && effect.id) {
 				existing.push(effect.id);
+				// @ts-expect-error
 				existingEffects.push(effect);
 			}
 		}
@@ -2730,6 +2774,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			for (const effect of this.effects) {
 				const { statuses } = effect;
 				if (statuses.size === 1 && statuses.has(status.id) && effect.id) {
+					// @ts-expect-error
 					existingEffects.push(effect);
 					existing.push(effect.id);
 				}
@@ -2766,6 +2811,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 				{
 					[`system.attributes.${statusId}`]: actorValue,
 				},
+				// @ts-expect-error
 				{ fromCondition: true },
 			);
 
@@ -2778,7 +2824,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			// Update the existing effect
 			if (existing.length && currLevel > 0) {
 				const effect = existingEffects[0];
-				const doc = await effect.update({ changes });
+				// @ts-expect-error
+				const doc = await effect.update({ 'system.changes': changes });
 				return doc;
 			}
 
@@ -2808,6 +2855,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (!active && active !== undefined) return undefined;
 		const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
 		effect.updateSource({ 'system.effectType': 'condition', ...options.updates });
+		// @ts-expect-error
 		if (overlay) effect.updateSource({ 'flags.core.overlay': true });
 		return ActiveEffect.implementation.create(effect, {
 			parent: this,
@@ -2845,8 +2893,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		}
 
 		// Call Sub Methods
-		this._preCreateCreature(data, options, user);
-		if (this.type === 'party') this._preCreateParty(data, options, user);
+		if (this.isCreature()) this._preCreateCreature(data, options, user);
+		if (this.isParty()) this._preCreateParty(data, options, user);
 	}
 
 	/** ---------------------------------- */
@@ -2859,8 +2907,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (!['character', 'npc'].includes(this.type)) return;
 
 		// Call Sub Methods
-		if (this.type === 'character') this._preCreateChar(data, options, user);
-		if (this.type === 'npc') this._preCreateNPC(data, options, user);
+		if (this.isChar()) this._preCreateChar(data, options, user);
+		if (this.isNPC()) this._preCreateNPC(data, options, user);
 	}
 
 	/** ---------------------------------- */
@@ -2908,8 +2956,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		await super._preUpdate(changed, options, user);
 
 		// Call Sub Modules
-		this._preUpdateCreature(changed, options, user);
-		if (this.type === 'party') this._preUpdateParty(changed, options, user);
+		if (this.isCreature()) this._preUpdateCreature(changed, options, user);
+		if (this.isParty()) this._preUpdateParty(changed, options, user);
 	}
 
 	/** ---------------------------------- */
@@ -2919,8 +2967,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this: Creature,
 		...[changed, options, user]: Parameters<Actor['_preUpdate']>
 	) {
-		if (!['character', 'npc'].includes(this.type)) return;
-
 		// If hp drops below 0, set the value to 0.
 		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) < 0) {
 			foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
@@ -2949,7 +2995,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		if (automateTokenSize) {
 			if (foundry.utils.getProperty(changed, 'system.traits.size')) {
-				const newSize = changed.system.traits.size;
+				// @ts-expect-error
+				const newSize = changed?.system?.traits?.size;
 
 				// If titanic token is already larger than 5, don't change it
 				if (newSize !== 'titan' || (this.prototypeToken.width ?? 1) < 5) {
@@ -3007,8 +3054,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		super._onCreate(data, options, userId);
 
 		// Call Sub Methods
-		this._onCreateCreature(data, options, userId);
-		if (this.type === 'party') this._onCreateParty(data, options, userId);
+		if (this.isCreature()) this._onCreateCreature(data, options, userId);
+		if (this.isParty()) this._onCreateParty(data, options, userId);
 	}
 
 	/** ---------------------------------- */
@@ -3018,8 +3065,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (!['character', 'npc'].includes(this.type)) return;
 
 		// Call Sub Methods
-		if (this.type === 'character') this._onCreateChar(data, options, userId);
-		if (this.type === 'npc') this._onCreateNPC(data, options, userId);
+		if (this.isChar()) this._onCreateChar(data, options, userId);
+		if (this.isNPC()) this._onCreateNPC(data, options, userId);
 	}
 
 	/** ---------------------------------- */
@@ -3057,24 +3104,22 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		super._onUpdate(changed, options, userId);
 
 		// Call Sub Modules
-		this._onUpdateCreature(changed, options, userId);
-		if (this.type === 'party') this._onUpdateParty(changed, options, userId);
+		if (this.isCreature()) this._onUpdateCreature(changed, options, userId);
+		if (this.isParty()) this._onUpdateParty(changed, options, userId);
 	}
 
 	/** ---------------------------------- */
 	// On Update (Creature)
 	/** ---------------------------------- */
 	_onUpdateCreature(this: Creature, ...[changed, options, userId]: Parameters<Actor['_onUpdate']>) {
-		if (!['character', 'npc'].includes(this.type)) return;
-
 		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
 		const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
 		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
 		if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
 
 		// Call Sub Methods
-		if (this.type === 'character') this._onUpdateChar(changed, options, userId);
-		if (this.type === 'npc') this._onUpdateNPC(changed, options, userId);
+		if (this.isChar()) this._onUpdateChar(changed, options, userId);
+		if (this.isNPC()) this._onUpdateNPC(changed, options, userId);
 	}
 
 	/** ---------------------------------- */
@@ -3101,5 +3146,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		...[changed, options, userId]: Parameters<Actor['_onUpdate']>
 	) {}
 }
+
+export type A5EChar = ActorA5E<'character'>;
+export type A5ENPC = ActorA5E<'npc'>;
+export type A5EParty = ActorA5E<'party'>;
 
 export { ActorA5E };

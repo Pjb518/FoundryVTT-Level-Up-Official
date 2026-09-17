@@ -15,7 +15,7 @@ import { RollOverrideManager } from './RollOverrideManager.ts';
 import { RollPreparationManager } from './RollPreparationManager.ts';
 
 class RollStateManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#item: ItemA5e;
 
