@@ -78,6 +78,7 @@ export default class ClassItemA5e extends OriginItemA5e<'class'> {
 		super.prepareBaseData();
 
 		// Set up class resource manager
+		console.log("I've intialized");
 		this.resources = new ClassResourceManager(this);
 
 		// this.maxHP = this.prepareMaxHitPoints();

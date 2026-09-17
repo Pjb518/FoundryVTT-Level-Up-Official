@@ -1,6 +1,5 @@
 // *****************************************************************************************
 
-import type { Identity } from 'fvtt-types/utils';
 import { createSubscriber } from 'svelte/reactivity';
 import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
 import { getRollFormula } from '#utils/getRollFormula.ts';
@@ -29,6 +28,7 @@ import SkillCheckRollDialog from '#view/dialogs/actor/SkillCheckRollDialog.svelt
 import SkillConfigDialog from '#view/dialogs/actor/SkillConfigDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
+import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
 import ActorGrantsManager from '../../managers/ActorGrantsManager.ts';
 import { BonusesManager } from '../../managers/BonusesManager.ts';
 import HitDiceManager from '../../managers/HitDiceManager.ts';
@@ -46,14 +46,12 @@ import type { BaseItemA5e } from '../item/base.svelte.ts';
 import type {
 	AbilityCheckRollOptions,
 	ActorDialogs,
-	ActorRestOptions,
+	LazyActorRefs,
 	SavingThrowRollOptions,
 	SkillCheckRollOptions,
 } from './data.ts';
 
 import FDoc = foundry.abstract.Document;
-
-import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
 
 // *****************************************************************************************
 
@@ -115,7 +113,14 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	declare spellBooks: SpellBookManager;
 
-	// Char props
+	// Props
+	/**
+	 * Stores a lazy instaces of origin items
+	 */
+	_lazy: LazyActorRefs = {
+		classes: undefined,
+	};
+
 	automationAvailable = false;
 
 	declare classAutomationFlags: Record<string, boolean>;
@@ -196,6 +201,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ================================================================= */
+	// Type Helpers
+	/** ================================================================= */
+
+	/** Returns if the actor is a creature */
+	isCreature(): this is Creature {
+		return this.type === 'character' || this.type === 'npc';
+	}
+
+	/** ================================================================= */
 	// Getters
 	/** ================================================================= */
 
@@ -270,11 +284,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	get classes() {
 		if (this.type !== 'character') return undefined;
 
-		const classes = this.items.reduce((acc, item) => {
-			if (item.type !== 'class') return acc;
-			acc[item.slug] = item;
-			return acc;
-		}, {}) as Record<string, Item.OfType<'class'>>;
+		if (this._lazy?.classes !== undefined) return this._lazy.classes;
+		const classes = Object.fromEntries(
+			this.itemTypes.class.map((cls) => [cls.slug, cls]),
+		) as Record<string, Item.OfType<'class'>>;
 
 		return classes;
 	}
@@ -364,11 +377,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		super._initialize(options);
 	}
 
-	// TODO: Break this down
 	/**
 	 * Sets the order of when to prepare data.
 	 */
 	override prepareData() {
+		// Clear cached values
+		this._lazy = {
+			classes: undefined,
+		};
+
 		// Identify which special statuses had been active
 		const specialStatuses = new Map();
 		for (const statusId of Object.values(CONFIG.specialStatusEffects)) {
@@ -380,20 +397,24 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		if (isTypeData) this.system?.prepareBaseData();
 		this.prepareBaseData();
 
+		console.log('Items should initialize');
 		super.prepareEmbeddedDocuments();
+		console.log('Items should have been initialized');
 
 		if (isTypeData) this.system?.prepareDerivedData();
 		this.prepareDerivedData();
 
 		// Initialize the SpellBooks
-		this.spellBooks = new SpellBookManager(this);
-		this.spellBooks.forEach((spellBook) => {
-			spellBook.prepareBaseData();
-		});
+		if (this.isCreature()) {
+			this.spellBooks = new SpellBookManager(this);
+			this.spellBooks.forEach((spellBook) => {
+				spellBook.prepareBaseData();
+			});
+		}
 
 		// Apply Derived effects after armor class data
 		this.applyActiveEffects('final');
-		this.prepareArmorClass();
+		if (this.isCreature()) this.prepareArmorClass();
 
 		// Apply special statuses that changed to active tokens
 		let tokens: Token[];
@@ -1505,7 +1526,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Call Sub Modules
 		// @ts-expect-error
-		this.getCreatureRollData(item, data);
+		this.getCreatureRollData(data, item);
 
 		return data;
 	}
