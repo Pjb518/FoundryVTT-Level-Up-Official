@@ -59,17 +59,17 @@ import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
 
 declare module 'fvtt-types/configuration' {
 	interface DocumentClassConfig {
-		Actor: typeof BaseActorA5e<Actor.SubType>;
+		Actor: typeof ActorA5E<Actor.SubType>;
 	}
 
 	interface ConfiguredActor<SubType extends Actor.SubType> {
-		document: BaseActorA5e<SubType>;
+		document: ActorA5E<SubType>;
 	}
 }
 
 // *****************************************************************************************
 
-class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubType> {
+class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubType> {
 	// Defaults
 	#configDialogMap = {
 		ability: AbilityConfigDialog,
@@ -3081,4 +3081,4 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 	) {}
 }
 
-export { BaseActorA5e };
+export { ActorA5E };

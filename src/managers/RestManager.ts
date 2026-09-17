@@ -1,12 +1,12 @@
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
+import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
 
 const SHORT_REST_TRIGGERS = ['shortRest', 'recharge', 'round', 'turn', 'minute', 'hour'];
 
 const LONG_REST_TRIGGERS = [...SHORT_REST_TRIGGERS, 'longRest', 'day'];
 
 class RestManager {
-	#actor: BaseActorA5e;
+	#actor: ActorA5E;
 
 	#data: RestManager.Data;
 
@@ -19,7 +19,7 @@ class RestManager {
 		items: Record<string, unknown>[];
 	};
 
-	constructor(actor: BaseActorA5e, data: RestManager.Data) {
+	constructor(actor: ActorA5E, data: RestManager.Data) {
 		this.#actor = actor;
 		this.#summary = [];
 		this.#restType = data.restType || 'short';
@@ -378,7 +378,7 @@ class RestManager {
 	// Recovery Methods for smaller increments
 	// -----------------------------------------------------------
 	// TODO: Optimize to not recharge if already full
-	static async recharge(actor: BaseActorA5e, options = {} as RestManager.RechargeData) {
+	static async recharge(actor: ActorA5E, options = {} as RestManager.RechargeData) {
 		if (!actor) return;
 		const { duration } = options;
 

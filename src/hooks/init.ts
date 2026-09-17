@@ -1,3 +1,4 @@
+import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
@@ -23,7 +24,6 @@ import { ExpertiseDie } from '../dice/terms/ExpertiseDie.ts';
 import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
 import EffectOption from '../documents/activeEffect/EffectOption.ts';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
-import ActorProxy from '../documents/actor/actorProxy.ts';
 import trackableAttributes from '../documents/actor/trackableAttributes.js';
 import { ChatMessageA5e } from '../documents/chatMessage.ts';
 import ItemProxy from '../documents/item/itemProxy.ts';
@@ -63,8 +63,7 @@ export default function init() {
 	CONFIG.A5E = A5E;
 	// CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
 	CONFIG.ActiveEffect.documentClass = ActiveEffectA5E;
-	// @ts-expect-error
-	CONFIG.Actor.documentClass = ActorProxy;
+	CONFIG.Actor.documentClass = ActorA5E;
 	CONFIG.Actor.trackableAttributes = trackableAttributes;
 	CONFIG.ChatMessage.documentClass = ChatMessageA5e;
 	CONFIG.Combat.documentClass = EncounterA5e;
