@@ -3,7 +3,7 @@ import { type PartySheetStoreData, partySheetStore } from '#stores/PartySheetSto
 import PartySheetComponent from '#view/sheets/PartySheet.svelte';
 
 class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
-	public actor: Actor.OfType<'party'>;
+	public party: Actor.OfType<'party'>;
 
 	public tempSettings: PartySheetStoreData = $derived({});
 
@@ -21,10 +21,10 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 		);
 
 		// @ts-expect-error
-		this.actor = actor.document.isToken ? actor.document.parent?.actor : actor.document;
+		this.party = actor.document.isToken ? actor.document.parent?.actor : actor.document;
 
-		partySheetStore[this.actor.uuid!] ??= {};
-		this.tempSettings = partySheetStore[this.actor.uuid!];
+		partySheetStore[this.party.uuid!] ??= {};
+		this.tempSettings = partySheetStore[this.party.uuid!];
 	}
 
 	static override DEFAULT_OPTIONS = {
@@ -36,9 +36,24 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 
 	protected async _prepareContext() {
 		return {
-			party: this.actor,
+			party: this.party,
 			sheet: this,
 		};
+	}
+
+	async _onDropActor(event: DragEvent, actor: Creature) {
+		console.log('here');
+		if (!actor.isCreature()) return null;
+
+		// Update member list
+		const currentMembers = this.party.system.details.members;
+		currentMembers.add(actor.uuid!);
+		await this.party.update({
+			// @ts-expect-error
+			'system.details.members': currentMembers,
+		});
+
+		return actor;
 	}
 }
 

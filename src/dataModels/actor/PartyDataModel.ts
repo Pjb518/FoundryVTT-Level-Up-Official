@@ -24,10 +24,8 @@ const partySchema = () => ({
 	details: new fields.SchemaField({
 		description: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
 		level: new fields.NumberField({ persisted: false, required: true, nullable: false, intial: 0 }),
-		members: new fields.ArrayField(
-			new fields.SchemaField({
-				uuid: new fields.DocumentUUIDField({ required: true, nullable: false, initial: undefined }),
-			}),
+		members: new fields.SetField(
+			new fields.DocumentUUIDField({ required: true, nullable: false, initial: undefined }),
 		),
 	}),
 });

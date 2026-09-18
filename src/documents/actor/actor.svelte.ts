@@ -123,6 +123,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	automationAvailable = false;
 
+	/** A list of members in a party. Only available on parties */
+	members: Creature[] = [];
+
 	declare classAutomationFlags: Record<string, boolean>;
 	declare levels: { character: number; classes: Record<string, number> };
 
@@ -506,7 +509,13 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	prepareNPCBaseData(this: Actor.OfType<'npc'>) {}
-	preparePartyBaseData() {}
+
+	preparePartyBaseData(this: Actor.OfType<'party'>) {
+		this.members = [...this.system.details.members]
+			.map((m) => fromUuidSync(m))
+			.filter((m) => m instanceof ActorA5E && m.isCreature())
+			.sort((a, b) => a.name.localeCompare(b.name));
+	}
 
 	/** ---------------------------------- */
 	//  Base Data Prep (Char)
@@ -2735,6 +2744,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			console.log(`A5e | Fixed nested UUIDs for actor: ${this.name}`);
 		}
 	}
+
+	/** ---------------------------------- */
+	// Misc Handlers (Party)
+	/** ---------------------------------- */
 
 	/** ================================================================= */
 	// Functionality Patches
