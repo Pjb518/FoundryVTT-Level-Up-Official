@@ -30,6 +30,7 @@ import ItemProxy from '../documents/item/itemProxy.ts';
 import ActiveEffectSheetA5e from '../documents/sheets/ActiveEffectSheet.svelte.ts';
 import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
 import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
+import { PartySheetA5E } from '../documents/sheets/PartySheet.svelte.ts';
 import TokenA5e from '../documents/token/token.js';
 import TokenDocumentA5e from '../documents/tokenDocument.ts';
 import { CombatantA5e } from '../encounter/Combatant.ts';
@@ -187,14 +188,20 @@ export default function init() {
 	foundry.documents.collections.Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['character'],
 		makeDefault: true,
-		label: 'A5E.SheetClassCharacter',
+		label: 'A5E.sheetClasses.character',
 	});
 
 	// @ts-expect-error
 	foundry.documents.collections.Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['npc'],
 		makeDefault: true,
-		label: 'A5E.SheetClassNPC',
+		label: 'A5E.sheetClasses.npc',
+	});
+
+	foundry.documents.collections.Actors.registerSheet('a5e', PartySheetA5E, {
+		types: ['party'],
+		makeDefault: true,
+		label: 'A5E.sheetClasses.party',
 	});
 
 	foundry.documents.collections.Items.unregisterSheet(
@@ -204,7 +211,7 @@ export default function init() {
 	// @ts-expect-error
 	foundry.documents.collections.Items.registerSheet('a5e', ItemSheetA5e, {
 		makeDefault: true,
-		label: 'A5E.SheetClassItem',
+		label: 'A5E.sheetClasses.item',
 	});
 
 	foundry.applications.apps.DocumentSheetConfig.unregisterSheet(
