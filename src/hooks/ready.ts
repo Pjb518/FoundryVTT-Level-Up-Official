@@ -1,59 +1,69 @@
-import { mount } from "svelte";
+import { mount } from 'svelte';
 
-import hotbarDrop from "./hotBarDrop.ts";
-import { handleMigration } from "../migration/handlers/handleMigration.ts";
-import { collectSynergies } from "#utils/db/indexCompendiaFields.ts";
+import hotbarDrop from './hotBarDrop.ts';
+import { handleMigration } from '../migration/handlers/handleMigration.ts';
+import { collectSynergies } from '#utils/db/indexCompendiaFields.ts';
 
-// import AnnouncementDialog from "../apps/dialogs/initializers/AnnouncementDialog.js";
-import KeyPressHandler from "#view/globals/KeyPressHandler.svelte";
+import KeyPressHandler from '#view/globals/KeyPressHandler.svelte';
 // import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
 
-// async function handleAnnouncement() {
-//   const LATEST_ANNOUNCEMENT_VERSION = "0.18.14";
-//   const lastAnnouncementShown = game.user?.getFlag("a5e", "latestAnnouncement");
+const CHANGELOG_PACK_ID = 'a5e.a5e-journals';
+const CHANGELOG_JOURNAL_NAME = 'A5E Changelog';
 
-//   // NOTE: The date comparison below is to ensure that this announcement isn't shown after
-//   // the product bundles expire. It should be removed for future announcements.
-//   const showAnnouncement =
-//     (!lastAnnouncementShown ||
-//       foundry.utils.isNewerVersion(
-//         LATEST_ANNOUNCEMENT_VERSION,
-//         lastAnnouncementShown,
-//       )) &&
-//     Date.now() < 1718600413000;
+async function handleChangelog() {
+	if (!game.user?.isGM) return;
 
-//   if (!showAnnouncement) return;
+	const lastSeenVersion = game.settings.get('a5e', 'lastSeenChangelogVersion');
 
-//   const announcementDialog = new AnnouncementDialog("3PP Content Bundles");
-//   announcementDialog.render(true);
+	if (!lastSeenVersion) {
+		await game.settings.set('a5e', 'lastSeenChangelogVersion', game.system.version);
+		return;
+	}
 
-//   game.user?.setFlag("a5e", "latestAnnouncement", game.system.version);
-// }
+	if (!foundry.utils.isNewerVersion(game.system.version, lastSeenVersion)) return;
 
-async function handleIncompatibilityWarning() {
-  if (!game.user?.isGM) return;
+	const pack = game.packs.get(CHANGELOG_PACK_ID);
+	if (!pack) return;
 
-  const activeIncompatibleModules = Object.entries(
-    CONFIG.A5E.moduleIncompatibilities,
-  ).filter(([module]) => game.modules.get(module)?.active);
+	const indexEntry = pack.index.find((entry) => entry.name === CHANGELOG_JOURNAL_NAME);
+	if (!indexEntry) return;
 
-  if (!activeIncompatibleModules.length) return;
+	const journal = await pack.getDocument(indexEntry._id);
+	const latestPage = journal?.pages.contents.reduce(
+		(latest, page) => (!latest || page.sort > latest.sort ? page : latest),
+		null,
+	);
+	if (!latestPage) return;
 
-  const dialog = new ModuleIncompatibilityDialog(activeIncompatibleModules);
-  dialog.render(true);
+	journal.sheet.render(true, { pageId: latestPage._id });
+
+	await game.settings.set('a5e', 'lastSeenChangelogVersion', game.system.version);
+}
+
+async function _handleIncompatibilityWarning() {
+	if (!game.user?.isGM) return;
+
+	const activeIncompatibleModules = Object.entries(CONFIG.A5E.moduleIncompatibilities).filter(
+		([module]) => game.modules.get(module)?.active,
+	);
+
+	if (!activeIncompatibleModules.length) return;
+
+	const dialog = new ModuleIncompatibilityDialog(activeIncompatibleModules);
+	dialog.render(true);
 }
 
 async function addKeyPressLogger() {
-  // eslint-disable-next-line no-new
-  mount(KeyPressHandler, { target: document.body });
+	// eslint-disable-next-line no-new
+	mount(KeyPressHandler, { target: document.body });
 }
 
 export default async function ready() {
-  Hooks.on("hotbarDrop", hotbarDrop);
+	Hooks.on('hotbarDrop', hotbarDrop);
 
-  collectSynergies();
-  handleMigration();
-  // handleAnnouncement();
-  // handleIncompatibilityWarning();
-  addKeyPressLogger();
+	collectSynergies();
+	handleMigration();
+	handleChangelog();
+	// handleIncompatibilityWarning();
+	addKeyPressLogger();
 }
