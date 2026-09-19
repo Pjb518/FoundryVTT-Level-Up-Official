@@ -1,22 +1,84 @@
-/**
- * Extend the base TokenDocument class to implement system-specific HP bar logic.
- * @extends {TokenDocument}
- */
-export default class TokenDocumentA5e extends TokenDocument {
+declare module 'fvtt-types/configuration' {
+	interface DocumentClassConfig {
+		Token: typeof TokenDocumentA5e;
+	}
+}
+
+class TokenDocumentA5e extends TokenDocument {
 	declare automateVision: boolean;
 
 	declare charOnlyVisionAutomation: boolean;
 
-	get scene() {
-		return this.parent;
+	/** ================================================================= */
+	// Getters
+	/** ================================================================= */
+
+	/** Returns if the token is in combat, though some actors have different conditions */
+	override get inCombat() {
+		return this.actorLink && this.actor?.isParty()
+			? // @ts-expect-error
+				this.actor.members.every((a) => game.combat?.getCombatantsByActor(a).length)
+			: super.inCombat;
 	}
+
+	/** The pixel-coordinate definition of this token's space */
+	get bounds(): PIXI.Rectange {
+		const gridSize = this.scene?.grid.size ?? 100;
+
+		return new PIXI.Rectangle(
+			this._source.x,
+			this._source.y,
+			this.width * gridSize,
+			this.height * gridSize,
+		);
+	}
+
+	/** Bounds used for mechanics, such as flanking and drawing auras */
+	get mechanicalBounds(): PIXI.Rectangle {
+		const bounds = this.bounds;
+		if (this.width < 1) {
+			const position = canvas.grid.getTopLeftPoint({
+				x: bounds.x + bounds.width / 2,
+				y: bounds.y + bounds.height / 2,
+			});
+
+			return new PIXI.Rectangle(
+				position.x,
+				position.y,
+				Math.max(canvas.grid.size, bounds.width),
+				Math.max(canvas.grid.size, bounds.height),
+			);
+		}
+
+		return bounds;
+	}
+
+	/** The pixel-coordinate pair constituting this token's center */
+	get center(): Point {
+		const bounds = this.bounds;
+		return {
+			x: bounds.x + bounds.width / 2,
+			y: bounds.y + bounds.height / 2,
+		};
+	}
+
+	/** Is this token's actor present and constructed? Synthetic actors are done so lazily. */
+	get hasConstructedActor(): boolean {
+		return this.actorLink
+			? !!this.baseActor
+			: !!(Object.getOwnPropertyDescriptor(this, 'delta')?.value && this.delta?.syntheticActor);
+	}
+
+	/** ================================================================= */
+	// Data Prep Methods
+	/** ================================================================= */
 
 	override prepareBaseData() {
 		this.updateTokenSize();
 		super.prepareBaseData();
 	}
 
-	_renderActiveEffectChanges(priorOverrides) {
+	override _renderActiveEffectChanges(priorOverrides: Record<string, unknown>) {
 		if (foundry.utils.equals(priorOverrides, this.overrides)) return;
 		if (canvas.ready && canvas.scene === this.scene) {
 			const {
@@ -24,11 +86,14 @@ export default class TokenDocumentA5e extends TokenDocument {
 				height: _h,
 				depth: _d,
 				shape: _s,
+				// @ts-expect-error
 				...changes
 			} = foundry.utils.mergeObject(
 				foundry.utils.mergeObject(priorOverrides, this, { insertKeys: false, insertValues: false }),
 				this.overrides,
 			);
+
+			// @ts-expect-error
 			this.object?._onUpdate(changes, {}, game.user.id);
 		}
 
@@ -43,7 +108,7 @@ export default class TokenDocumentA5e extends TokenDocument {
 	}
 
 	// TODO: Fix this
-	async _onOverrideSize(changes) {
+	override async _onOverrideSize(changes) {
 		const { actor } = this;
 
 		const { size } = actor.system.traits;
@@ -62,12 +127,23 @@ export default class TokenDocumentA5e extends TokenDocument {
   ------------------------------------------- */
 	override _prepareDetectionModes() {
 		this.automateVision ??=
-			game.settings.storage.get('world').getItem('a5e.automateVisionRules') ?? false;
+			(game.settings.storage
+				.get('world')
+				?.getItem('a5e.automateVisionRules') as unknown as boolean) ?? false;
 
 		this.charOnlyVisionAutomation ??=
-			game.settings.storage.get('world').getItem('a5e.visionRulesApplyToCharactersOnly') ?? true;
+			(game.settings.storage
+				.get('world')
+				?.getItem('a5e.visionRulesApplyToCharactersOnly') as unknown as boolean) ?? true;
 
-		const { actor, scene } = this;
+		const { scene } = this;
+		let { actor } = this;
+
+		if (actor.isParty()) {
+			super._prepareDetectionModes();
+			return;
+		}
+
 		if (!this.automateVision || !scene || !actor) {
 			super._prepareDetectionModes();
 			return;
@@ -78,7 +154,9 @@ export default class TokenDocumentA5e extends TokenDocument {
 			return;
 		}
 
-		const { visionData } = actor;
+		actor = actor as Creature;
+
+		const visionData = actor.visionData!;
 		const lightPerception = { enabled: true, range: Infinity };
 		const basicSight = { enabled: true, range: 0 };
 		this.detectionModes = { lightPerception, basicSight };
@@ -143,7 +221,7 @@ export default class TokenDocumentA5e extends TokenDocument {
 	 * Overrides base functionality and doesn't update unlinked tokens.
 	 * @override
 	 * */
-	_onUpdateBaseActor(update = {}, options = {}) {
+	override _onUpdateBaseActor(update = {}, options = {}) {
 		// Update synthetic Actor data
 		if (!this.isLinked && this.delta) {
 			this.delta.updateSyntheticActor();
@@ -170,7 +248,7 @@ export default class TokenDocumentA5e extends TokenDocument {
 	}
 
 	/** @inheritdoc */
-	getBarAttribute(barName, { alternative } = {}) {
+	override getBarAttribute(barName, { alternative } = {}) {
 		const data = super.getBarAttribute(barName, { alternative });
 
 		if (data && data.attribute === 'attributes.hp') {
@@ -187,3 +265,5 @@ export default class TokenDocumentA5e extends TokenDocument {
 		return data;
 	}
 }
+
+export { TokenDocumentA5e };

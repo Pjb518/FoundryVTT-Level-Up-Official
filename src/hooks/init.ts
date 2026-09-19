@@ -32,7 +32,7 @@ import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
 import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
 import { PartySheetA5E } from '../documents/sheets/PartySheet.svelte.ts';
 import TokenA5e from '../documents/token/token.js';
-import TokenDocumentA5e from '../documents/tokenDocument.ts';
+import { TokenDocumentA5e } from '../documents/tokenDocument.ts';
 import { CombatantA5e } from '../encounter/Combatant.ts';
 import { EncounterA5e } from '../encounter/Encounter.ts';
 import { registerKeybindings } from '../keybindings.ts';

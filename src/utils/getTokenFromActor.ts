@@ -1,4 +1,4 @@
-import TokenDocumentA5e from '../documents/tokenDocument';
+import { TokenDocumentA5e } from '../documents/tokenDocument.ts';
 
 export default function getTokenFromActor(actor: any): TokenDocumentA5e | null {
 	// Check parent

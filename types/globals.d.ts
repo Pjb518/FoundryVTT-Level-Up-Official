@@ -91,6 +91,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.5eStyleDeathSaves': boolean;
 		'a5e.automateBloodiedApplication': boolean;
 		'a5e.automateUnconsciousApplication': boolean;
+		'a5e.automateVisionRules': boolean;
 		'a5e.blindDeathSaves': boolean;
 		'a5e.cascadingDamageAndHealingDelay': number;
 		'a5e.consumeSupplyByDefault': boolean;
@@ -100,6 +101,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
 		'a5e.useCredits': boolean;
+		'a5e.a5e.visionRulesApplyToCharactersOnly': boolean;
 	}
 }
 
