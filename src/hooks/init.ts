@@ -54,6 +54,7 @@ import { handlePackMigration } from '../migration/handlers/handlePackMigration.t
 import { MigrationList } from '../migration/MigrationList.ts';
 import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner.ts';
 import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes.js';
+import { SceneA5E } from '../scene/scene.ts';
 import { TokenDocumentA5E } from '../scene/token/tokenDocument.ts';
 import preloadHandlebarsTemplates from '../templates.js';
 import performPreLocalization from '../utils/localization/performLocalization.js';
@@ -72,6 +73,7 @@ export default function init() {
 	CONFIG.Item.documentClass = ItemProxy;
 	CONFIG.Token.documentClass = TokenDocumentA5E;
 	CONFIG.Token.objectClass = TokenA5E;
+	CONFIG.Scene.documentClass = SceneA5E;
 
 	CONFIG.Dice.BaseRoll = BaseRoll;
 	CONFIG.Dice.D20Roll = D20Roll;

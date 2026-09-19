@@ -1634,13 +1634,13 @@ const timePeriodsPlural = {
 
 const tokenDimensions = {
 	tiny: 0.5,
-	sm: 1,
+	sm: 0.8,
 	med: 1,
 	lg: 2,
 	huge: 3,
 	grg: 4,
 	titan: 5,
-};
+} as const;
 
 /**
  * Colors used to visualize temporary and temporary maximum HP in token health bars.

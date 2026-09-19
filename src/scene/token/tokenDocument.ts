@@ -1,3 +1,5 @@
+import { SceneA5E } from '../scene.ts';
+
 declare module 'fvtt-types/configuration' {
 	interface DocumentClassConfig {
 		Token: typeof TokenDocumentA5E;
@@ -99,54 +101,18 @@ class TokenDocumentA5E extends TokenDocument {
 		if (!actor.isCreature()) return;
 
 		const { size } = actor.system.traits;
-		const numericalSize = CONFIG.A5E.tokenDimensions[size];
+		const absoluteScale = size === 'tiny' ? 0.5 : size === 'small' ? 0.8 : 1;
 
-		this.width = numericalSize ?? this.width ?? 1;
-		this.height = numericalSize ?? this.height ?? 1;
-	}
-
-	override _renderActiveEffectChanges(priorOverrides: Record<string, unknown>) {
-		if (foundry.utils.equals(priorOverrides, this.overrides)) return;
-		if (canvas.ready && canvas.scene === this.scene) {
-			const {
-				width: _w,
-				height: _h,
-				depth: _d,
-				shape: _s,
-				// @ts-expect-error
-				...changes
-			} = foundry.utils.mergeObject(
-				foundry.utils.mergeObject(priorOverrides, this, { insertKeys: false, insertValues: false }),
-				this.overrides,
-			);
-
-			// @ts-expect-error
-			this.object?._onUpdate(changes, {}, game.user.id);
-		}
-
-		// Hand off size changes to a secondary handler requiring downstream implementation.
-		const { width, height, depth, shape } = { ...priorOverrides, ...this.overrides };
-
-		const sizeChanges = foundry.utils.deepClone(
-			foundry.utils.diffObject(this._source, { width, height, depth, shape }),
-			{ prune: true },
-		);
-		if (!foundry.utils.isEmpty(sizeChanges)) this._onOverrideSize(sizeChanges);
+		const mirrorX = this.texture.scaleX < 0 ? -1 : 1;
+		this.texture.scaleX = mirrorX * absoluteScale;
+		const mirrorY = this.texture.scaleY < 0 ? -1 : 1;
+		this.texture.scaleY = mirrorY * absoluteScale;
 	}
 
 	// TODO: Fix this
 	override async _onOverrideSize(changes) {
-		const { actor } = this;
-
-		const { size } = actor.system.traits;
-		const numericalSize = CONFIG.A5E.tokenDimensions[size];
-		console.log(numericalSize);
-
-		console.log(changes);
-
-		const width = (changes.width || this.overrides.width) ?? numericalSize;
-		const height = (changes.height || this.overrides.height) ?? numericalSize;
-		this.update({ width, height });
+		if (!this.persisted || this.object?.isPreview) this.updateSource(changes);
+		else if (game.user.isActiveGM) this.update(changes);
 	}
 
 	/* ----------------------------------------
@@ -233,9 +199,29 @@ class TokenDocumentA5E extends TokenDocument {
 		}
 	}
 
+	override _onRelatedUpdate(
+		update?: TokenDocument.OnRelatedUpdateData,
+		operation?: TokenDocument.OnRelatedUpdateOperation,
+	): void {
+		super._onRelatedUpdate(update, operation);
+		if (!(this.scene instanceof SceneA5E)) return;
+
+		// Size sync Goes last
+		const actor = this.actor;
+		if (!actor?.isOwner) return;
+		const activeGM = game.users.activeGM;
+
+		const size = actor.system?.traits?.size;
+		if ((!activeGM || game.user === activeGM) && this.autoScale && size) {
+			const dim = CONFIG.A5E.tokenDimensions[size];
+			if (this.width !== dim || this.height !== dim) {
+				this.scene.syncTokenDimensions(this, { width: dim, height: dim });
+			}
+		}
+	}
+
 	/**
 	 * Overrides base functionality and doesn't update unlinked tokens.
-	 * @override
 	 * */
 	override _onUpdateBaseActor(update = {}, options = {}) {
 		// Update synthetic Actor data
