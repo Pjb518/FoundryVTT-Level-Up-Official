@@ -311,6 +311,21 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return classes;
 	}
 
+	/** Get what culture the actor has */
+	get culture() {
+		const cultures = this.itemTypes.culture;
+		if (!cultures?.length) return null;
+
+		return cultures[0] as Item.OfType<'culture'>;
+	}
+
+	get heritage() {
+		const heritages = this.itemTypes.heritage;
+		if (!hertiages?.length) return null;
+
+		return hertigaes[0] as Item.OfType<'heritage'>;
+	}
+
 	/** Gets the total supply from items and supply field */
 	get totalSupply() {
 		if (!this.isChar()) return 0;
@@ -2061,7 +2076,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const chatData = {
 			author: game.user?.id,
 			// @ts-expect-error
-			speaker: ChatMessage.getSpeaker({ actor }),
+			speaker: ChatMessage.getSpeaker({ actor: this }),
 			sound: CONFIG.sounds.dice,
 			// @ts-expect-error
 			rolls: rolls.map(({ roll }) => roll),
