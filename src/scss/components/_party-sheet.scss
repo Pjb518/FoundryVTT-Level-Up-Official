@@ -9,6 +9,15 @@
   }
 
   &__core {
+    &-overview {
+      font-size: var(--a5e-sm-text);
+    }
+
+    &-members {
+      display: grid;
+      gap: 0.75rem;
+    }
+
     &-member {
       display: grid;
       grid-template-areas:
@@ -24,6 +33,28 @@
 
       &__intro {
         grid-area: intro;
+
+        display: grid;
+        grid-template-areas:
+          "name inspiration"
+          "details inspiration";
+        grid-template-columns: 1fr 3rem;
+        column-gap: 0.25rem;
+        margin-inline-start: 0.25rem;
+      }
+
+      &__name {
+        grid-area: name;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: var(--a5e-md-text);
+      }
+
+      &__details {
+        grid-area: details;
+        font-size: var(--a5e-sm-text);
       }
 
       &__inspiration {
@@ -32,22 +63,88 @@
 
       &__defense {
         grid-area: defense;
+
+        display: grid;
+        grid-template-areas: "ac saves traits";
+        grid-template-columns: 2rem max-content 1fr;
+        gap: 0.5rem;
+        align-items: center;
+        justify-items: center;
       }
 
       &__ac {
         grid-area: ac;
+
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 2rem;
+        height: 2rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+
+          background: var(--a5e-border-color);
+
+          clip-path: polygon(
+            50% 0%,
+            90% 15%,
+            85% 65%,
+            72% 82%,
+            50% 100%,
+            28% 82%,
+            15% 65%,
+            10% 15%
+          );
+
+          z-index: -1;
+        }
       }
 
       &__saves {
         grid-area: saves;
+
+        display: flex;
+        gap: 1rem;
+        padding-inline: 0.5rem;
+        padding-block: 0.25rem;
+
+        border: 1px solid var(--a5e-border-color);
       }
 
-      &__senses {
-        grid-area: senses;
+      &__save {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: var(--a5e-sm-text);
+
+        & > span:first-child {
+          font-weight: bold;
+        }
+      }
+
+      &__traits {
+        grid-area: traits;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid var(--a5e-border-color);
+        padding: 0.5rem;
+        width: 100%;
+        height: 100%;
+        font-size: var(--a5e-xs-text);
       }
 
       &__skills {
         grid-area: skills;
+
+        font-size: var(--a5e-xs-text);
       }
     }
   }

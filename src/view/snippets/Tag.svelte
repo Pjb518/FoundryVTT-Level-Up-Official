@@ -1,170 +1,174 @@
 <script lang="ts">
-	import { localize } from '#utils/localization/localize.ts';
+  import { localize } from "#utils/localization/localize.ts";
 
-	type Props = {
-		active?: boolean;
-		disabled?: boolean;
-		displayOnly?: boolean;
-		optionStyles?: string;
-		orange?: boolean;
-		red?: boolean;
-		label?: string;
-		icon?: string;
-		preferColor?: boolean;
-		showIcon?: boolean;
-		tight?: boolean;
-		tooltipDirection?: string;
-		tooltipText?: string;
-		value?: string;
+  type Props = {
+    active?: boolean;
+    disabled?: boolean;
+    displayOnly?: boolean;
+    optionStyles?: string;
+    orange?: boolean;
+    red?: boolean;
+    label?: string;
+    icon?: string;
+    preferColor?: boolean;
+    showIcon?: boolean;
+    tight?: boolean;
+    tooltipDirection?: string;
+    tooltipText?: string;
+    value?: string;
 
-		onTagToggle?: (value: string) => void;
-		onTagToggleAux?: (value: string) => void;
-	};
+    onTagToggle?: (value: string) => void;
+    onTagToggleAux?: (value: string) => void;
+  };
 
-	let {
-		active = false,
-		disabled = false,
-		displayOnly = false,
-		optionStyles = '',
-		orange = false,
-		red = false,
-		label = '',
-		icon = '',
-		preferColor = false,
-		showIcon = false,
-		tight = false,
-		tooltipDirection = 'UP',
-		tooltipText = '',
-		value = '',
-		onTagToggle = () => {},
-		onTagToggleAux = () => {},
-	}: Props = $props();
+  let {
+    active = false,
+    disabled = false,
+    displayOnly = false,
+    optionStyles = "",
+    orange = false,
+    red = false,
+    label = "",
+    icon = "",
+    preferColor = false,
+    showIcon = false,
+    tight = false,
+    tooltipDirection = "UP",
+    tooltipText = "",
+    value = "",
+    onTagToggle = () => {},
+    onTagToggleAux = () => {},
+  }: Props = $props();
 
-	function getColorData(color: string): string {
-		if (color === 'red') {
-			return `
+  function getColorData(color: string): string {
+    if (color === "red") {
+      return `
                 --a5e-tag-color: hsl(0, 58%, 100%);
                 --a5e-tag-background-color: var(--a5e-color-error);
                 --a5e-tag-border-color: hsl(0, 58%, 28%);
                 --a5e-tag-background-color-hover: var(--a5e-color-error);
                 --a5e-tag-color-hover: var(--color-hover, hsl(0, 58%, 100%));
             `;
-		}
+    }
 
-		if (color === 'orange') {
-			return `
+    if (color === "orange") {
+      return `
                 --a5e-tag-color: hsl(36, 58%, 100%);
                 --a5e-tag-background-color: var(--a5e-color-warning);
                 --a5e-tag-border-color: hsl(36, 58%, 28%);
                 --a5e-tag-background-color-hover: var(--a5e-color-warning);
                 --a5e-tag-color-hover: var(--color-hover, hsl(36, 58%, 100%));
             `;
-		}
+    }
 
-		if (color === 'green') {
-			return `
+    if (color === "green") {
+      return `
                 --a5e-tag-color: hsl(190, 21%, 100%);
                 --a5e-tag-background-color: var(--a5e-color-primary);
                 --a5e-tag-border-color: hsl(190, 21%, 28%);
                 --a5e-tag-background-color-hover: var(--a5e-color-primary);
                 --a5e-tag-color-hover: var(--color-hover, hsl(190, 21%, 100%));
             `;
-		}
+    }
 
-		if (color === 'disabled') {
-			return `
+    if (color === "disabled") {
+      return `
                 --a5e-tag-color: hsl(0, 0%, 5%);
                 --a5e-tag-background-color: var(--a5e-color-disabled);
                 --a5e-tag-border-color: hsl(0, 0%, 60%);
                 --a5e-tag-background-color-hover: var(--a5e-color-disabled);
                 --a5e-tag-color-hover: var(--color-hover, hsl(0, 0%, 5%));
             `;
-		}
+    }
 
-		return '';
-	}
+    return "";
+  }
 
-	function getColor(
-		green: boolean,
-		red: boolean,
-		orange: boolean,
-		disabled: boolean,
-	): string {
-		if (disabled && !preferColor) return 'disabled';
-		if (green) return 'green';
-		if (red) return 'red';
-		if (orange) return 'orange';
-		return 'default';
-	}
+  function getColor(
+    green: boolean,
+    red: boolean,
+    orange: boolean,
+    disabled: boolean,
+  ): string {
+    if (disabled && !preferColor) return "disabled";
+    if (green) return "green";
+    if (red) return "red";
+    if (orange) return "orange";
+    return "default";
+  }
 
-	let color = $derived(getColor(active, red, orange, disabled));
-	let colorStyles = $derived(getColorData(color));
-	let style = $derived(`${colorStyles} ${optionStyles}`);
+  let color = $derived(getColor(active, red, orange, disabled));
+  let colorStyles = $derived(getColorData(color));
+  let style = $derived(`${colorStyles} ${optionStyles}`);
 </script>
 
-<li>
-	<button
-		class="tag"
-		type="button"
-		{style}
-		class:tag--tight={tight}
-		class:tag--display-only={displayOnly}
-		{disabled}
-		{value}
-		data-tooltip={tooltipText}
-		data-tooltip-direction={tooltipDirection}
-		onpointerdown={(e) => {
-            e.preventDefault();
-            if (disabled) return;
-            if (e.button === 0) {
-                onTagToggle(value);
-            }
-        }}
-		onauxclick={(e) => {
-            e.preventDefault();
-            if (disabled) return;
-            onTagToggleAux(value);
-        }}
-	>
-		{localize(label)}
+<li style="margin: 0;">
+  <button
+    class="tag"
+    type="button"
+    {style}
+    class:tag--tight={tight}
+    class:tag--display-only={displayOnly}
+    {disabled}
+    {value}
+    data-tooltip={tooltipText}
+    data-tooltip-direction={tooltipDirection}
+    onpointerdown={(e) => {
+      e.preventDefault();
+      if (disabled) return;
+      if (e.button === 0) {
+        onTagToggle(value);
+      }
+    }}
+    onauxclick={(e) => {
+      e.preventDefault();
+      if (disabled) return;
+      onTagToggleAux(value);
+    }}
+  >
+    {localize(label)}
 
-		{#if showIcon}
-			<i class="{icon} tag__icon" aria-hidden="true"></i>
-		{/if}
-	</button>
+    {#if showIcon}
+      <i class="{icon} tag__icon" aria-hidden="true"></i>
+    {/if}
+  </button>
 </li>
 
 <style lang="scss">
-    .tag {
-        all: unset;
-        background: var(--a5e-tag-background-color, transparent);
-        display: inline;
-        padding: 0.15rem 0.4rem;
-        border: 1px solid var(--a5e-tag-border-color);
-        border-radius: var(--a5e-border-radius-standard);
-        color: var(--a5e-tag-color, inherit);
-        transition: var(--a5e-transition-standard);
-        white-space: normal;
-        cursor: pointer;
+  .tag {
+    all: unset;
+    background: var(--a5e-tag-background-color, transparent);
+    display: inline;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--a5e-tag-border-color);
+    border-radius: var(--a5e-border-radius-standard);
+    color: var(--a5e-tag-color, inherit);
+    transition: var(--a5e-transition-standard);
+    white-space: normal;
+    cursor: pointer;
 
-        &:hover,
-        &:focus {
-            background: var(--a5e-tag-background-color-hover);
-            color: var(--a5e-tag-color-hover);
-        }
-
-        &:disabled,
-        &[disabled] {
-            cursor: auto;
-        }
-
-        &--tight {
-            padding: 0.1rem 0.375rem;
-        }
-
-        &__icon {
-            margin-right: 0.15rem;
-            font-size: 0.85em;
-        }
+    &:hover,
+    &:focus {
+      background: var(--a5e-tag-background-color-hover);
+      color: var(--a5e-tag-color-hover);
     }
+
+    &:disabled,
+    &[disabled] {
+      cursor: auto;
+    }
+
+    &--tight {
+      padding: 0.1rem 0.375rem;
+    }
+
+    &__icon {
+      margin-right: 0.15rem;
+      font-size: 0.85em;
+    }
+
+    &--display-only {
+      pointer-events: none;
+    }
+  }
 </style>

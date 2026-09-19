@@ -29,28 +29,63 @@
     );
   }
 
-  function getActorSenses(actor: Creature) {
-    return Object.entries(actor.reactive.system.attributes.senses ?? {}).reduce(
-      (acc, [key, sense]) => {
-        if (!sense.distance) return acc;
-        let label = CONFIG.A5E.senses[key] || key;
-        label += ` (${sense.distance} ${CONFIG.A5E.distanceUnits[sense.unit]})`;
-
-        acc.push(label);
+  function getActorSkills(actor: Creature) {
+    const skills = Object.entries(actor.reactive.system.skills ?? {}).reduce(
+      (acc, [key, s]) => {
+        if (!s.proficient) {
+          if (!["prc", "ins", "inv"].includes(key)) return acc;
+        }
+        let label = `${s.deterministicBonus}`;
+        if (["prc", "ins", "inv"].includes(key)) label += ` (${s.passive})`;
+        acc[key] = label;
         return acc;
       },
-      [] as string[],
+      {} as Record<string, string>,
     );
+
+    const priority = ["prc", "ins", "inv"];
+
+    return Object.entries(skills).sort(([a], [b]) => {
+      const ai = priority.indexOf(a);
+      const bi = priority.indexOf(b);
+
+      if (ai !== -1 || bi !== -1) {
+        if (ai === -1) return 1;
+        if (bi === -1) return -1;
+        return ai - bi;
+      }
+
+      return a.localeCompare(b);
+    });
   }
 
-  function getActorSkills(actor: Creature) {
-    return Object.entries(actor.reactive.system.skills ?? {}).reduce(
-      (acc, [key, s]) => {
-        if (!s.proficient || ["prc, ins, inv"].includes(key)) return acc;
-        acc[key] = { mod: s.deterministicBonus, passive: s.passive };
-        return acc;
-      },
-      {},
+  function getActorTraits(actor: Creature) {
+    const actorData = actor.reactive.system;
+    const damageTraits: Record<
+      string,
+      { res?: boolean; imm?: boolean; vul?: boolean }
+    > = {};
+
+    actorData.traits.damageImmunities.forEach((d) => {
+      d = CONFIG.A5E.damageTypes[d] || d;
+      damageTraits[d] ??= {};
+      damageTraits[d].imm = true;
+    });
+
+    actorData.traits.damageResistances.forEach((d) => {
+      d = CONFIG.A5E.damageTypes[d] || d;
+      damageTraits[d] ??= {};
+      damageTraits[d].res = true;
+    });
+
+    actorData.traits.damageVulnerabilities.forEach((d) => {
+      d = CONFIG.A5E.damageTypes[d] || d;
+      damageTraits[d] ??= {};
+      damageTraits[d].vul = true;
+    });
+
+    return Object.entries(damageTraits).sort((a, b) =>
+      a[0].localeCompare(b[0]),
     );
   }
 
@@ -101,7 +136,7 @@
 </script>
 
 <!-- Overview Section -->
-<section>
+<section class="a5e-party-sheet__core-overview">
   <RadioGroup
     options={overviewSections}
     selected={overviewSection}
@@ -114,7 +149,6 @@
       {#each Object.entries(partyLanguages) as [lang, actors]}
         <Tag
           label={CONFIG.A5E.languages[lang] || lang}
-          displayOnly={true}
           tooltipText={actors.join(", ")}
           tight={true}
           tooltipDirection="UP"
@@ -142,8 +176,11 @@
 <section class="a5e-party-sheet__core-members">
   {#each members as actor}
     {const actorData = $derived(actor.reactive.system)}
+
+    <!-- ----------------------------- -->
+    <!-- Image & HP -->
+    <!-- ----------------------------- -->
     <div class="a5e-party-sheet__core-member">
-      <!-- Image & HP -->
       <div class="a5e-party-sheet__core-member__img">
         <img
           class="a5e-party-sheet__actor-img"
@@ -158,13 +195,23 @@
         </span>
       </div>
 
+      <!-- ----------------------------- -->
       <!-- Name and Details -->
+      <!-- ----------------------------- -->
       <div class="a5e-party-sheet__core-member__intro">
-        <span>
-          {actor.reactive.name}
-        </span>
+        <div class="a5e-party-sheet__core-member__name">
+          <span>
+            {actor.reactive.name}
+          </span>
 
-        <span>{getActorDetails(actor)}</span>
+          <button class="a5e-button a5e-button--transparent">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+
+        <span class="a5e-party-sheet__core-member__details">
+          {getActorDetails(actor)}
+        </span>
 
         <button class="a5e-party-sheet__core-member__inspiration">
           <!-- Inspiration -->
@@ -172,7 +219,9 @@
         </button>
       </div>
 
+      <!-- ----------------------------- -->
       <!-- AC, SAVES & SENSES -->
+      <!-- ----------------------------- -->
       <div class="a5e-party-sheet__core-member__defense">
         <div class="a5e-party-sheet__core-member__ac">
           {actorData.attributes.ac.value}
@@ -181,28 +230,47 @@
         <div class="a5e-party-sheet__core-member__saves">
           {const saves = $derived(getActorSaves(actor))}
           {#each Object.entries(saves) as [abl, save]}
-            <div>
-              <span>{CONFIG.A5E.abilityAbbreviations[abl] || abl}</span>
-              <span>+{save.deterministicBonus}</span>
+            <div class="a5e-party-sheet__core-member__save">
+              <span>
+                {CONFIG.A5E.abilityAbbreviations[abl] || abl}
+              </span>
+
+              <span>
+                +{save.deterministicBonus}
+              </span>
             </div>
           {/each}
         </div>
 
-        <!-- Senses -->
-        <div class="a5e-party-sheet__core-member__senses">
-          {const senses = $derived(getActorSenses(actor))}
-          {#each senses as sense}
-            <span>{sense}</span>
-          {/each}
+        <!-- Traits -->
+        <div class="a5e-party-sheet__core-member__traits">
+          {const traits = $derived(getActorTraits(actor))}
+          {#if traits.length}
+            <ul class="a5e-party-sheet__tag-list">
+              {#each traits as [damage, { res, imm, vul }]}
+                <Tag
+                  label={damage}
+                  displayOnly={true}
+                  red={vul}
+                  active={res}
+                  disabled={imm}
+                />
+              {/each}
+            </ul>
+          {:else}
+            <span>No Damage Traits</span>
+          {/if}
         </div>
       </div>
 
+      <!-- ----------------------------- -->
       <!-- Skills -->
+      <!-- ----------------------------- -->
       <div class="a5e-party-sheet__core-member__skills">
         {const skills = $derived(getActorSkills(actor))}
         <ul class="a5e-party-sheet__tag-list">
-          {#each Object.entries(skills) as [skl, { mod, passive }]}
-            <Tag label="{CONFIG.A5E.skills[skl] || skl} +{mod} ({passive})" />
+          {#each skills as [skl, label]}
+            <Tag label="{CONFIG.A5E.skills[skl] || skl} +{label}" />
           {/each}
         </ul>
       </div>
@@ -215,11 +283,12 @@
     &__tag-list {
       display: flex;
       flex-wrap: wrap;
+      align-content: center;
       gap: 0.25rem;
 
       padding: 0;
+      margin: 0;
       list-style-type: none;
-      font-size: var(--a5e-sm-text);
     }
   }
 </style>
