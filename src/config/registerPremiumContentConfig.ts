@@ -149,6 +149,10 @@ export default function registerPremiumContentConfig() {
 					url: 'https://www.drivethrurpg.com/en/product/526798/single-class-synergy-volume-2-singular-specialists-a5e?affiliate_id=1388381',
 				},
 				{
+					title: 'Single-Class Synergy, Volume 3: Higher Callings',
+					url: 'https://www.drivethrurpg.com/en/product/530315/single-class-synergy-volume-3-higher-callings-a5e?affiliate_id=1388381',
+				},
+				{
 					title: 'Thematic Toolkit: Folk of the Court',
 					url: 'https://bit.ly/48SVn1R',
 				},
@@ -751,6 +755,14 @@ export default function registerPremiumContentConfig() {
 			systems: ['a5e'],
 			title: 'Single-Class Synergy, Volume 2: Singular Specialists',
 			url: 'https://www.drivethrurpg.com/en/product/526798/single-class-synergy-volume-2-singular-specialists-a5e?affiliate_id=1388381',
+		},
+		singleClassSynergyHigherCallings: {
+			abbreviation: 'SCS:HC',
+			affiliate: true,
+			publisher: 'purpleMartinGames',
+			systems: ['a5e'],
+			title: 'Single-Class Synergy, Volume 3: Higher Callings',
+			url: 'https://www.drivethrurpg.com/en/product/530315/single-class-synergy-volume-3-higher-callings-a5e?affiliate_id=1388381',
 		},
 		sinuousSentinels: {
 			abbreviation: 'SinSen',

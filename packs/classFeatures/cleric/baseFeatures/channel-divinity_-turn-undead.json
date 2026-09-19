@@ -4,7 +4,7 @@
 	"img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
 	"effects": [
 		{
-			"origin": "Item.qCdoROR3scKUjTAq",
+			"origin": "Item.zhuf06durl8bnmh3",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -15,39 +15,44 @@
 			"transfer": false,
 			"name": "Turned",
 			"_id": "9qeFbtvS8RlsMNVj",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
 			"statuses": [],
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.329",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.18",
-				"createdTime": null,
-				"modifiedTime": 1721850689508,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.2.14",
+				"createdTime": 1789844338809,
+				"modifiedTime": 1789844338821,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"exportSource": null
 			},
 			"img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
 				"effectType": "onUse",
-				"changes": []
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
@@ -72,7 +77,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"area": {
 					"shape": "emanation",
@@ -82,8 +88,17 @@
 					"radius": 30
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 0,
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"prompts": {
 					"CoNb7jN9dnj2MgvS": {
@@ -93,7 +108,9 @@
 							"type": "spellcasting",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {
@@ -102,20 +119,43 @@
 						"default": true,
 						"classIdentifier": "@classResources.channel-divinity",
 						"resource": "classResource",
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"ranges": {
 					"5uMxRlmbezL4JL0F": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"effects": [
 					"9qeFbtvS8RlsMNVj"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
-		"description": "<h4>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</h4><h4>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</h4>",
+		"description": "<p>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</p><p>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -125,7 +165,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
@@ -135,20 +176,35 @@
 		"requiresBloodied": false,
 		"classes": "cleric",
 		"class": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.329",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.18",
-		"createdTime": 1721850689476,
-		"modifiedTime": 1721850735578,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.2.14",
+		"createdTime": 1789844338809,
+		"modifiedTime": 1789844359406,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"compendiumSource": "Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5ev14",
+			"uuid": "Item.zhuf06durl8bnmh3",
+			"coreVersion": "14.367",
+			"systemId": "a5e",
+			"systemVersion": "1.2.14"
+		}
 	},
 	"_id": "zhuf06durl8bnmh3"
 }
