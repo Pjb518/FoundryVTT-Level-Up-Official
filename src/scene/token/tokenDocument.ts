@@ -1,10 +1,10 @@
 declare module 'fvtt-types/configuration' {
 	interface DocumentClassConfig {
-		Token: typeof TokenDocumentA5e;
+		Token: typeof TokenDocumentA5E;
 	}
 }
 
-class TokenDocumentA5e extends TokenDocument {
+class TokenDocumentA5E extends TokenDocument {
 	declare automateVision: boolean;
 
 	declare charOnlyVisionAutomation: boolean;
@@ -282,4 +282,4 @@ class TokenDocumentA5e extends TokenDocument {
 	}
 }
 
-export { TokenDocumentA5e };
+export { TokenDocumentA5E };
