@@ -8,7 +8,6 @@
   import PartyAttributesPage from "./pages/party/PartyAttributesPage.svelte";
   import PartyCorePage from "./pages/party/PartyCorePage.svelte";
   import PartyInventoryPage from "./pages/party/PartyInventoryPage.svelte";
-  import PartyLanguagesPage from "./pages/party/PartyLanguagesPage.svelte";
   import PartyResourcesPage from "./pages/party/PartyResourcesPage.svelte";
 
   type Props = {
@@ -23,8 +22,6 @@
   function updateCurrentTab(name: string) {
     currentTab = tabs.find((t) => t.name === name) ?? tabs[0];
   }
-
-  console.log("hi");
 
   let { party, sheet }: Props = $props();
 
@@ -41,12 +38,12 @@
       icon: "fa-solid fa-khanda",
       component: PartyAttributesPage,
     },
-    {
-      name: "resources",
-      label: "A5E.tabs.resources",
-      icon: "fa-solid fa-cogs",
-      component: PartyResourcesPage,
-    },
+    // {
+    //   name: "resources",
+    //   label: "A5E.tabs.resources",
+    //   icon: "fa-solid fa-cogs",
+    //   component: PartyResourcesPage,
+    // },
     {
       name: "inventory",
       label: "A5E.tabs.inventory",
