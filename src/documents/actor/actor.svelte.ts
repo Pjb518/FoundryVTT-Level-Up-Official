@@ -3025,7 +3025,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Update prototype token sizes to reflect the actor's token size
 		const automateTokenSize =
 			this.flags?.a5e?.automatePrototypeTokenSize ??
-			// game.settings.get("a5e", "automatePrototypeTokenSize") ??
+			game.settings.get('a5e', 'automatePrototypeTokenSize') ??
 			true;
 
 		if (automateTokenSize) {

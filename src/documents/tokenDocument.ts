@@ -13,16 +13,17 @@ class TokenDocumentA5e extends TokenDocument {
 	// Getters
 	/** ================================================================= */
 
-	/** Returns if the token is in combat, though some actors have different conditions */
-	override get inCombat() {
-		return this.actorLink && this.actor?.isParty()
-			? // @ts-expect-error
-				this.actor.members.every((a) => game.combat?.getCombatantsByActor(a).length)
-			: super.inCombat;
+	/** Autoscale this token? */
+	get autoScale() {
+		return this.actor?.isCreature()
+			? (this.actor?.flags?.a5e?.automatePrototypeTokenSize ??
+					game.settings.get('a5e', 'automatePrototypeTokenSize') ??
+					true)
+			: false;
 	}
 
 	/** The pixel-coordinate definition of this token's space */
-	get bounds(): PIXI.Rectange {
+	get bounds(): PIXI.Rectangle {
 		const gridSize = this.scene?.grid.size ?? 100;
 
 		return new PIXI.Rectangle(
@@ -33,11 +34,24 @@ class TokenDocumentA5e extends TokenDocument {
 		);
 	}
 
+	/** Returns if the token is in combat, though some actors have different conditions */
+	override get inCombat() {
+		return this.actorLink && this.actor?.isParty()
+			? // @ts-expect-error
+				this.actor.members.every((a) => game.combat?.getCombatantsByActor(a).length)
+			: super.inCombat;
+	}
+
+	/** Check if the token is smaller than 1 grid */
+	get isTiny() {
+		return this.height < 1 || this.width < 1;
+	}
+
 	/** Bounds used for mechanics, such as flanking and drawing auras */
 	get mechanicalBounds(): PIXI.Rectangle {
 		const bounds = this.bounds;
 		if (this.width < 1) {
-			const position = canvas.grid.getTopLeftPoint({
+			const position = canvas.grid!.getTopLeftPoint({
 				x: bounds.x + bounds.width / 2,
 				y: bounds.y + bounds.height / 2,
 			});
@@ -45,8 +59,8 @@ class TokenDocumentA5e extends TokenDocument {
 			return new PIXI.Rectangle(
 				position.x,
 				position.y,
-				Math.max(canvas.grid.size, bounds.width),
-				Math.max(canvas.grid.size, bounds.height),
+				Math.max(canvas.grid!.size, bounds.width),
+				Math.max(canvas.grid!.size, bounds.height),
 			);
 		}
 
@@ -54,7 +68,7 @@ class TokenDocumentA5e extends TokenDocument {
 	}
 
 	/** The pixel-coordinate pair constituting this token's center */
-	get center(): Point {
+	get center(): Canvas.Point {
 		const bounds = this.bounds;
 		return {
 			x: bounds.x + bounds.width / 2,
@@ -76,6 +90,19 @@ class TokenDocumentA5e extends TokenDocument {
 	override prepareBaseData() {
 		this.updateTokenSize();
 		super.prepareBaseData();
+	}
+
+	/** Updates the size of the token */
+	updateTokenSize() {
+		const actor = this.actor as Creature | undefined;
+		if (!actor) return;
+		if (!actor.isCreature()) return;
+
+		const { size } = actor.system.traits;
+		const numericalSize = CONFIG.A5E.tokenDimensions[size];
+
+		this.width = numericalSize ?? this.width ?? 1;
+		this.height = numericalSize ?? this.height ?? 1;
 	}
 
 	override _renderActiveEffectChanges(priorOverrides: Record<string, unknown>) {
@@ -204,17 +231,6 @@ class TokenDocumentA5e extends TokenDocument {
 		if (!actor.statuses.has('deafened')) {
 			this.detectionModes.hearing = { enabled: true, range: Infinity };
 		}
-	}
-
-	updateTokenSize() {
-		const { actor } = this;
-		if (!actor) return;
-
-		const { size } = actor.system.traits;
-		const numericalSize = CONFIG.A5E.tokenDimensions[size];
-
-		this.width = numericalSize ?? this.width ?? 1;
-		this.height = numericalSize ?? this.height ?? 1;
 	}
 
 	/**
