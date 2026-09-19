@@ -42,12 +42,6 @@
       component: PartyAttributesPage,
     },
     {
-      name: "languages",
-      label: "A5E.tabs.languages",
-      icon: "fa-solid fa-comment-dots",
-      component: PartyLanguagesPage,
-    },
-    {
       name: "resources",
       label: "A5E.tabs.resources",
       icon: "fa-solid fa-cogs",
