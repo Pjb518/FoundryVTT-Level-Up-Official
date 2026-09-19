@@ -3,6 +3,20 @@
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Tag from "#view/snippets/Tag.svelte";
 
+  function calcPrimaryHpColor(hp) {
+    const hpPercentage = Math.min((hp.value / hp.max) * 100, 100);
+    return `hsl(${Math.round(hpPercentage)}, 50%, 35%)`;
+  }
+
+  function calcTotalHpPerc(hp) {
+    const tempHP = hp.temp || 0;
+
+    return Math.min(
+      ((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100,
+      100,
+    );
+  }
+
   function getActorDetails(actor: Creature) {
     if (actor.type !== "character") return "";
     let label = "";
@@ -123,8 +137,6 @@
   const overviewSections = [
     ["languages", "Languages"],
     ["skills", "Skills"],
-    ["damages", "Damage Traits"],
-    ["conditions", "Condition Immunities"],
   ];
 
   let party: Actor.OfType<"party"> = getContext("party");
@@ -151,6 +163,7 @@
           label={CONFIG.A5E.languages[lang] || lang}
           tooltipText={actors.join(", ")}
           tight={true}
+          displayOnly={true}
           tooltipDirection="UP"
         />
       {/each}
@@ -182,17 +195,29 @@
     <!-- ----------------------------- -->
     <div class="a5e-party-sheet__core-member">
       <div class="a5e-party-sheet__core-member__img">
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <img
           class="a5e-party-sheet__actor-img"
           src={actor.reactive.img}
           alt={actor.reactive.img}
+          onclick={() => actor.sheet?.render(true)}
         />
 
-        <span>
+        {const hp = $derived(actorData.attributes.hp)}
+        {const primaryColor = $derived(calcPrimaryHpColor(hp))}
+        {const totalHpPercentage = $derived(`${calcTotalHpPerc(hp)}%`)}
+        <div
+          class="a5e-party-sheet__core-member__hp"
+          style="
+                --color-primary-hp-bar: {primaryColor};
+                --total-hp-percentage: {totalHpPercentage};
+                "
+        >
           {actorData.attributes.hp.value}
           /
           {actorData.attributes.hp.max}
-        </span>
+        </div>
       </div>
 
       <!-- ----------------------------- -->
@@ -204,17 +229,35 @@
             {actor.reactive.name}
           </span>
 
-          <button class="a5e-button a5e-button--transparent">
-            <i class="fa-solid fa-trash"></i>
-          </button>
+          {#if game.user.isGM}
+            <button
+              type="button"
+              class="a5e-button a5e-button--transparent"
+              aria-label="Delete"
+              data-tooltip="Remove Actor"
+              data-tooltip-direction="UP"
+              onclick={() => party.removeMember(actor.uuid!)}
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          {/if}
         </div>
 
         <span class="a5e-party-sheet__core-member__details">
           {getActorDetails(actor)}
         </span>
 
-        <button class="a5e-party-sheet__core-member__inspiration">
-          <!-- Inspiration -->
+        <!-- Inspiration -->
+        <button
+          type="button"
+          class="a5e-button a5e-button--transparent a5e-party-sheet__core-member__inspiration"
+          class:a5e-party-sheet__core-member__inspiration--active={actorData
+            .attributes.inspiration}
+          aria-label="Inspiration"
+          data-tooltip="Inspiration"
+          data-tooltip-direction="UP"
+          onclick={() => actor.toggleInspiration?.()}
+        >
           <i class="fa-solid fa-dice-d20"></i>
         </button>
       </div>
@@ -246,17 +289,15 @@
         <div class="a5e-party-sheet__core-member__traits">
           {const traits = $derived(getActorTraits(actor))}
           {#if traits.length}
-            <ul class="a5e-party-sheet__tag-list">
-              {#each traits as [damage, { res, imm, vul }]}
-                <Tag
-                  label={damage}
-                  displayOnly={true}
-                  red={vul}
-                  active={res}
-                  disabled={imm}
-                />
-              {/each}
-            </ul>
+            {#each traits as [damage, { res, imm, vul }]}
+              <Tag
+                label={damage}
+                displayOnly={true}
+                red={vul}
+                active={res}
+                disabled={imm}
+              />
+            {/each}
           {:else}
             <span>No Damage Traits</span>
           {/if}
@@ -270,7 +311,10 @@
         {const skills = $derived(getActorSkills(actor))}
         <ul class="a5e-party-sheet__tag-list">
           {#each skills as [skl, label]}
-            <Tag label="{CONFIG.A5E.skills[skl] || skl} +{label}" />
+            <Tag
+              label="{CONFIG.A5E.skills[skl] || skl} +{label}"
+              onTagToggle={() => actor.rollSkillCheck(skl)}
+            />
           {/each}
         </ul>
       </div>

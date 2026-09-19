@@ -2763,6 +2763,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	// Misc Handlers (Party)
 	/** ---------------------------------- */
+	async removeMember(this: Actor.OfType<'party'>, uuid: string) {
+		if (!this.isParty()) return;
+
+		const members = this.system.details.members;
+		members.delete(uuid);
+
+		// @ts-expect-error
+		await this.update({ 'system.details.members': [...members] });
+	}
 
 	/** ================================================================= */
 	// Functionality Patches

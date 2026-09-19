@@ -42,7 +42,7 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 	}
 
 	async _onDropActor(event: DragEvent, actor: Creature) {
-		console.log('here');
+		if (!game.user.isGM) return null;
 		if (!actor.isCreature()) return null;
 
 		// Update member list

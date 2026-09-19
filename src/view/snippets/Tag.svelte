@@ -168,7 +168,13 @@
     }
 
     &--display-only {
-      pointer-events: none;
+      cursor: auto;
+
+      &:hover,
+      &:focus {
+        background: var(--a5e-tag-background-color, transparent);
+        color: var(--a5e-tag-color, inherit);
+      }
     }
   }
 </style>
