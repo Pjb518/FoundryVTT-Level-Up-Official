@@ -1,0 +1,435 @@
+{
+	"name": "Torch Mace",
+	"type": "object",
+	"img": "icons/sundries/lights/lantern-steel.webp",
+	"system": {
+		"description": "<p>This morningstar-like weapon has a reinforced and spiked torch cage as its head. When you finish a long or short rest, you can spend 5 points from your @UUID[Compendium.a5e.a5e-class-features.Item.my42mip0qc35rcp2]{Lay on Hands} pool or a 1st-level spell slot to imbue it with sacred energy. If you do, it deals an additional 1d4 points of fire damage on a hit and it sheds bright light in a 10’ radius and dim light in a 20’ radius. Both effects last until you begin a rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyHigherCallings",
+		"actions": {
+			"54mJyVrI9OE2C401": {
+				"name": "Attack",
+				"id": "54mJyVrI9OE2C401",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/lights/lantern-steel.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"KiwNMVcWqal3DcAZ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"FHgCzZVfQPfXSmgW": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "1d8 + @str.mod",
+						"scaling": {},
+						"label": "One-Handed"
+					},
+					"nDI3BBkUTBL8I4ro": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod",
+						"scaling": {},
+						"label": "Two-Handed"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"7FwPmjTrqCDTct3r": {
+				"name": "Sacred Energy (Lay on Hands)",
+				"consumers": {
+					"TYSj5VwTIcBq3oTR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"XlMG8UEa9eaL77Zb": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "lay-on-hands",
+						"resource": "classResource",
+						"quantity": 5,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "7FwPmjTrqCDTct3r",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/lights/lantern-steel.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"LDISCa8zQ3Kewzrd"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"qt43OcdqjyoUnpWU": {
+				"name": "Sacred Energy (Spell Slot)",
+				"consumers": {
+					"TYSj5VwTIcBq3oTR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"Y5koImRU0ljwSZqv": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"feLrSPoBHQfaOlIL"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "350 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "d10",
+		"weaponAugments": [],
+		"weaponProperties": [
+			"versatile",
+			"defensive"
+		],
+		"weight": 5,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.2NApC8ZTgBeYi9rx",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Sacred Energy",
+			"img": "icons/sundries/lights/lantern-steel.webp",
+			"_id": "LDISCa8zQ3Kewzrd",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Sacred Energy\",\"formula\":\"1d4\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/sundries/lights/lantern-steel.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>It deals an additional 1d4 points of fire damage on a hit and it sheds bright light in a 10’ radius and dim light in a 20’ radius. Both effects last until you begin a rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1789841688152
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.2NApC8ZTgBeYi9rx",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Sacred Energy",
+			"img": "icons/sundries/lights/lantern-steel.webp",
+			"_id": "feLrSPoBHQfaOlIL",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Sacred Energy\",\"formula\":\"1d4\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/sundries/lights/lantern-steel.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>It deals an additional 1d4 points of fire damage on a hit and it sheds bright light in a 10’ radius and dim light in a 20’ radius. Both effects last until you begin a rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1789841688152
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1789841688103,
+		"modifiedTime": 1789841688103,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "EDZFV2qrp3SyYALJ"
+}

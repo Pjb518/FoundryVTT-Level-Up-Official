@@ -12,8 +12,6 @@ const changelogPath = path.resolve(dirName, '../../packs/journals/a5e-changelog.
 
 const CORE_VERSION = '14.367';
 
-// Same conversion Foundry's own markdown journal pages perform when saved through the editor,
-// applied here since we're authoring the page JSON directly rather than going through the UI.
 const markdownConverter = new Converter({
 	tables: true,
 	strikethrough: true,

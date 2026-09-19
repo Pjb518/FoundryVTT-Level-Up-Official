@@ -1,0 +1,171 @@
+{
+	"name": "Thaumaturgic Hierophant",
+	"type": "feature",
+	"img": "icons/magic/symbols/rune-sigil-green-purple.webp",
+	"system": {
+		"description": "<p>You have learned one of the great witch traditions of the flying broom, but you have also continued to fill your mind with additional mystical knowledge and are known as an authority on matter magical. You gain the following benefits:</p><ul><li><p>Your Intelligence, Wisdom, or Charisma score increases by 1, to a maximum of 20.</p></li><li><p>You learn a spell of up to 6th level that is not part of the multiclass school from any spell list. It counts as a witch spell for you and is prepared as normal.</p></li><li><p>When wielding your @UUID[Compendium.a5e.a5e-adventuring-gear.Item.BySY77drzXa17ATW]{Athame}, you have access to the @UUID[Compendium.a5e.a5e-maneuvers.Item.zj2kp2v57pwfq2u7]{Anticipate Spell} maneuver and can use it a number of times equal to half your proficiency bonus per short rest without spending exertion. In addition, you can channel spell slots through your athame for extra damage an equal number of times per short rest.</p></li><li><p>You can spend a spell slot of 2nd-level or higher as an action to summon a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.sro5suwmrea5c6y3]{Broom of Flying}. The broom lasts until you begin a long rest or until you dismiss it. It only functions for you and vanishes if you attempt to give it to another creature.</p></li></ul><p>Once you have taken this feat, you can no longer gain levels in non-witch classes.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyHigherCallings",
+		"actions": {
+			"riI5KhGfNfRPQaQu": {
+				"name": "Anticipate Spell",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1",
+					"concentration": false
+				},
+				"ranges": {
+					"b9P2mEaCEo6KeVPP": {
+						"range": "touch",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"Na28BqbNEM74itjg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "floor(@prof/2)",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"8g5THCxVVuW2nebt": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8g5THCxVVuW2nebt",
+				"label": "Thaumaturgic Hierophant",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"int",
+						"wis",
+						"cha"
+					]
+				}
+			}
+		},
+		"prerequisite": "Magical Traditionalist feat, Keeper of the Old Ways feat, 12 levels in witch, no levels in non-witch classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"int",
+			"wis",
+			"cha"
+		],
+		"featClasses": [
+			"witch"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Magical Traditionalist"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.14",
+		"createdTime": 1789843757010,
+		"modifiedTime": 1789843774658,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+		"compendiumSource": "Compendium.a5e.a5e-feats.Item.BsQpS1H5uGp83Vtd",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5ev14",
+			"uuid": "Item.BsQpS1H5uGp83Vtd",
+			"coreVersion": "14.367",
+			"systemId": "a5e",
+			"systemVersion": "1.2.14"
+		}
+	},
+	"_id": "BsQpS1H5uGp83Vtd"
+}

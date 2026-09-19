@@ -1,0 +1,218 @@
+{
+	"name": "Upholder",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-white.webp",
+	"system": {
+		"description": "<p>You no longer are merely good at what you do, you are so good that it has become known. Your personal standard is a terror to your foes and a rallying point for your allies. You gain the following benefits:</p><ul><li><p>Your Strength, Dexterity, or Wisdom score increases by 1, to a maximum of 20.</p></li><li><p>You gain proficiency with your choice of the following: smith’s tools, sewing kits, herbalist’s kits, alchemist’s tools, or a musical instrument.</p></li><li><p>You gain a personal standard. This is a banner with your personal insignia or coat of arms on it. It can be worn as a back banner, attached to a polearm with a reach of 10 feet or greater, or emblazoned on a shield. As long as they can see your standard, your offensive targets suffer a -1d4 penalty to saves against effects that would cause them to be rattled or frightened and on any roll opposed by an Intimidation roll. Your defensive targets similarly gain an expertise die on saves against effects that would cause the rattled or frightened conditions and on checks that oppose an Intimidation roll.</p></li><li><p>When you drop one of your offensive targets with a CR equal to or greater than half your character level to 0 hit points, you can choose to either regain a point of exertion or recover hit points equal to 1d8 + your proficiency modifier.</p></li><li><p>When you successfully complete a Quest, your next long rest benefits you as if it took place in a haven. If it is already in a haven, you can recover an additional level of fatigue or strife.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyHigherCallings",
+		"actions": {
+			"yw01M46hSJSF5X6v": {
+				"name": "Drop Target",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"85NsBcuVGCEDAr1y": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": -1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"NoG7pBTmFfG1OiPA": {
+						"type": "healing",
+						"default": false,
+						"formula": "1d8 + @prof",
+						"healingType": "healing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"BjmlwShMta4D3piK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "BjmlwShMta4D3piK",
+				"label": "Upholder",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"dex",
+						"wis"
+					],
+					"base": []
+				},
+				"img": ""
+			},
+			"4hsCda8cUe87eqsd": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "4hsCda8cUe87eqsd",
+				"label": "Upholder",
+				"keys": {
+					"base": [],
+					"options": [
+						"alchemistsSupplies",
+						"acousticGuitar",
+						"bagpipes",
+						"casaba",
+						"castanet",
+						"drum",
+						"dulcimer",
+						"electricGuitar",
+						"flute",
+						"harmonica",
+						"harp",
+						"horn",
+						"keytar",
+						"lute",
+						"lyre",
+						"maraca",
+						"ocarina",
+						"panFlute",
+						"saxophone",
+						"shawm",
+						"theremin",
+						"trombone",
+						"viol",
+						"violin",
+						"smithsTools",
+						"sewingKit",
+						"herbalismKit"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"prerequisite": "Advocate feat, 8 levels in champion, no levels in non-champion classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"str",
+			"dex",
+			"wis"
+		],
+		"featClasses": [
+			"champion"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Advocate"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.14",
+		"createdTime": 1789843291388,
+		"modifiedTime": 1789844011343,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "cxOlT6gLBZDWxiob"
+}

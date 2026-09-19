@@ -1946,12 +1946,15 @@ const weapons = {
 		swordPistol: 'A5E.weapons.singular.swordPistol',
 	},
 	exotic: {
+		battleCenser: 'A5E.weapons.singular.battleCenser',
 		butchersBlade: 'A5E.weapons.singular.butchersBlade',
 		direBow: 'A5E.weapons.singular.direBow',
 		flashingSkewer: 'A5E.weapons.singular.flashingSkewer',
 		helmCleaver: 'A5E.weapons.singular.helmCleaver',
+		rampartShield: 'A5E.weapons.singular.rampartShield',
 		siegeArbalest: 'A5E.weapons.singular.siegeArbalest',
 		skullCrusher: 'A5E.weapons.singular.skullCrusher',
+		torchMace: 'A5E.weapons.singular.torchMace',
 	},
 	miscellaneous: {
 		improvised: 'A5E.weapons.singular.improvised',
@@ -2064,12 +2067,15 @@ const weaponsPlural = {
 		swordPistol: 'A5E.weapons.plural.swordPistol',
 	},
 	exotic: {
+		battleCenser: 'A5E.weapons.plural.battleCenser',
 		butchersBlade: 'A5E.weapons.plural.butchersBlade',
 		direBow: 'A5E.weapons.plural.direBow',
 		flashingSkewer: 'A5E.weapons.plural.flashingSkewer',
 		helmCleaver: 'A5E.weapons.plural.helmCleaver',
+		rampartShield: 'A5E.weapons.plural.rampartShield',
 		siegeArbalest: 'A5E.weapons.plural.siegeArbalest',
 		skullCrusher: 'A5E.weapons.plural.skullCrusher',
+		torchMace: 'A5E.weapons.plural.torchMace',
 	},
 	miscellaneous: {
 		improvised: 'A5E.weapons.plural.improvised',

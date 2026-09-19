@@ -1,0 +1,341 @@
+{
+	"name": "Athame",
+	"type": "object",
+	"img": "icons/weapons/daggers/dagger-bone-engraved-black.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CYURkv9sK45wkGZn": {
+				"name": "Dagger",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"prompts": {},
+				"id": "CYURkv9sK45wkGZn",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/daggers/dagger-bone-engraved-black.webp",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"911iDf2vrTJjuO4V": {
+				"name": "Dagger (Off-Hand)",
+				"activation": {
+					"cost": 0,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default",
+						"proficient": true,
+						"default": true,
+						"label": ""
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"prompts": {},
+				"id": "911iDf2vrTJjuO4V",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/daggers/dagger-bone-engraved-black.webp",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"yuLh725yTBbFSvma": {
+				"name": "Spell Slot",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"FANe4ePz4uKUBp42": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"gRJ6pjUiPsSwj91D": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "radiant",
+						"formula": "1d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"label": "White Magic"
+					},
+					"WO4Etsp7dP2IFRqT": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "1d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"label": "Gray Magic"
+					},
+					"D3LzNihwh1gapCzM": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "necrotic",
+						"formula": "1d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"label": "Black Magic"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "singleClassSynergyHigherCallings",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "2 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"finesse",
+			"simple"
+		],
+		"weight": 1,
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": [],
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"armorMods": [],
+		"attunementHint": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"weaponAugments": [],
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1789841688103,
+		"modifiedTime": 1789841688103,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "BySY77drzXa17ATW"
+}
