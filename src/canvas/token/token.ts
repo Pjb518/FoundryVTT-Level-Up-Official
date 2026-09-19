@@ -4,96 +4,60 @@ import sizeScales from './utils/sizeScales.ts';
 
 let circularMask = null;
 
+declare module 'fvtt-types/configuration' {
+	interface PlaceableObjectConfig {
+		Token: typeof TokenA5E;
+	}
+}
+
 class TokenA5E extends foundry.canvas.placeables.Token {
-	/**
-	 * Get an array of icon paths which represent valid status effect choices
-	 * @private
-	 */
-	_getStatusEffectChoices() {
-		// Include all HUD-enabled status effects
-		const choices = {};
-		for (const status of CONFIG.statusEffects) {
-			if (status.hud === false) continue;
-			choices[status.id] = {
-				_id: status._id,
-				id: status.id,
-				title: game.i18n.localize(status.name),
-				src: status.img,
-				isActive: false,
-				isOverlay: false,
-			};
-		}
-
-		// Update the status of effects which are active for the token actor
-		const activeEffects = this.actor?.effects || [];
-		for (const effect of activeEffects) {
-			for (const statusId of effect.statuses) {
-				const status = choices[statusId];
-				if (!status) continue;
-				if (status._id) {
-					if (status._id !== effect.id) continue;
-				} else if (effect.statuses.size !== 1) continue;
-				status.isActive = true;
-				if (effect.getFlag('core', 'overlay')) status.isOverlay = true;
-				break;
-			}
-		}
-
-		// Flag status CSS class
-		for (const status of Object.values(choices)) {
-			status.cssClass = [
-				status.isActive ? 'active' : null,
-				status.isOverlay ? 'overlay' : null,
-			].filterJoin(' ');
-		}
-
-		return choices;
-	}
-
+	/** ================================================================= */
+	// Status Effect Methods
+	/** ================================================================= */
 	_getActiveConditions() {
-		return Object.values(this._getStatusEffectChoices()).reduce((arr, e) => {
-			if (e.isActive) arr.push(e.id);
-			return arr;
-		}, []);
+		return [...(this.actor?.statuses ?? [])];
 	}
 
+	// @ts-expect-error
 	_addStatusEffect({ id, src }, { overlay } = {}) {
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(id)) {
-			return this.actor.toggleStatusEffect(id, { active: true, overlay });
+			return this.actor?.toggleStatusEffect(id, { active: true, overlay });
 		}
 
 		const activeConditions = this._getActiveConditions();
 		if (activeConditions.includes(id)) return this._removeStatusEffect({ id, src }, { overlay });
-		return this.actor.toggleStatusEffect(id, { active: true, overlay });
+		return this.actor?.toggleStatusEffect(id, { active: true, overlay });
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	// @ts-expect-error
 	_removeStatusEffect({ id, src }, { overlay } = {}) {
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(id)) {
-			return this.actor.toggleStatusEffect(id, { active: false, overlay });
+			return this.actor?.toggleStatusEffect(id, { active: false, overlay });
 		}
 
-		return this.actor.toggleStatusEffect(id, { active: false, overlay });
+		return this.actor?.toggleStatusEffect(id, { active: false, overlay });
 	}
 
+	/** ================================================================= */
+	// Bar Methods
+	/** ================================================================= */
 	/** @inheritdoc */
-	_drawBar(number, bar, data) {
-		if (data.attribute === 'attributes.hp') return this._drawHPBar(number, bar, data);
-		return super._drawBar(number, bar, data);
+	override _drawBar(
+		index: number,
+		bar: PIXI.Graphics,
+		data: NonNullable<TokenDocument.GetBarAttributeReturn>,
+	) {
+		if (data.attribute === 'attributes.hp') return this._drawHPBar(index, bar);
+		return super._drawBar(index, bar, data);
 	}
 
 	/* -------------------------------------------- */
 
-	/**
-	 * Specialized drawing function for HP bars.
-	 *
-	 * @param {number} number      The Bar number
-	 * @param {PIXI.Graphics} bar  The Bar container
-	 * @private
-	 */
-	_drawHPBar(number, bar) {
+	/** Specialized drawing function for HP bars. */
+	_drawHPBar(index: number, bar: PIXI.Graphics) {
 		// Extract health data
-		const { value, max, temp } = this.document.actor.system.attributes.hp;
+		const { value, max, temp } = this.document.actor?.system?.attributes?.hp;
+		if (!value || !max || !temp) return;
 
 		// Allocate percentages of the total
 		const tempPct = Math.clamp(temp, 0, max) / max;
@@ -102,12 +66,13 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 
 		// Determine colors to use
 		const blk = 0x000000;
-		const hpColor = PIXI.utils.rgb2hex([1 - colorPct / 2, colorPct, 0]);
+		// const hpColor = PIXI.utils.rgb2hex([1 - colorPct / 2, colorPct, 0]);
+		const hpColor = PIXI.Color.shared.setValue([1 - colorPct / 2, colorPct, 0]).toNumber();
 		const c = CONFIG.A5E.tokenHPColors;
 
 		// Determine the container size (logic borrowed from core)
 		const { w } = this;
-		let h = Math.max(canvas.dimensions.size / 12, 8);
+		let h = Math.max(canvas.dimensions!.size / 12, 8);
 		if (this.document.height >= 2) h *= 1.6;
 		const bs = Math.clamp(h / 8, 1, 2);
 		const bs1 = bs + 1;
@@ -132,7 +97,7 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		}
 
 		// Set position
-		const posY = number === 0 ? this.h - h : 0;
+		const posY = index === 0 ? this.h - h : 0;
 		bar.position.set(0, posY);
 	}
 

@@ -109,15 +109,15 @@ class TokenDocumentA5E extends TokenDocument {
 		this.texture.scaleY = mirrorY * absoluteScale;
 	}
 
-	// TODO: Fix this
+	/** Handle changes in size from effects */
 	override async _onOverrideSize(changes) {
 		if (!this.persisted || this.object?.isPreview) this.updateSource(changes);
 		else if (game.user.isActiveGM) this.update(changes);
 	}
 
-	/* ----------------------------------------
-    Detection Mode
-  ------------------------------------------- */
+	/** ================================================================= */
+	//  Detection Modes
+	/** ================================================================= */
 	override _prepareDetectionModes() {
 		this.automateVision ??=
 			(game.settings.storage
@@ -132,7 +132,7 @@ class TokenDocumentA5E extends TokenDocument {
 		const { scene } = this;
 		let { actor } = this;
 
-		if (actor.isParty()) {
+		if (actor?.isParty()) {
 			super._prepareDetectionModes();
 			return;
 		}
