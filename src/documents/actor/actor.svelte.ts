@@ -314,16 +314,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** Get what culture the actor has */
 	get culture() {
 		const cultures = this.itemTypes.culture;
-		if (!cultures?.length) return null;
+		if (!cultures) return null;
 
 		return cultures[0] as Item.OfType<'culture'>;
 	}
 
 	get heritage() {
 		const heritages = this.itemTypes.heritage;
-		if (!hertiages?.length) return null;
+		if (!heritages) return null;
 
-		return hertigaes[0] as Item.OfType<'heritage'>;
+		return heritages[0] as Item.OfType<'heritage'>;
 	}
 
 	/** Gets the total supply from items and supply field */

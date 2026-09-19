@@ -1,23 +1,61 @@
 .a5e-party-sheet {
-    &__actor-img {
-        width: 1.75rem;
-        aspect-ratio: 1 / 1;
-        margin: 0;
-        padding: 0;
-        object-fit: cover;
-        object-position: 50% 0;
-    }
+  &__actor-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    object-position: 50% 0;
+  }
 
-    &__core {
-        display: grid;
-        grid-template-columns: 1.75rem 1fr 4rem repeat(6, 3rem) 4rem 2rem;
-        grid-template-areas: "img name hp ac maneuverDC spellDC per ins inv xp delete";
-    }
+  &__core {
+    &-member {
+      display: grid;
+      grid-template-areas:
+        "img intro"
+        "img defense"
+        "img skills";
+      grid-template-columns: 6rem 1fr;
+      gap: 0.5rem;
 
-    &__tab-header {
-        &__elem {
-            font-size: var(--a5e-sm-text);
-            text-align: center;
-        }
+      &__img {
+        grid-area: img;
+      }
+
+      &__intro {
+        grid-area: intro;
+      }
+
+      &__inspiration {
+        grid-area: inspiration;
+      }
+
+      &__defense {
+        grid-area: defense;
+      }
+
+      &__ac {
+        grid-area: ac;
+      }
+
+      &__saves {
+        grid-area: saves;
+      }
+
+      &__senses {
+        grid-area: senses;
+      }
+
+      &__skills {
+        grid-area: skills;
+      }
     }
+  }
+
+  &__tab-header {
+    &__elem {
+      font-size: var(--a5e-sm-text);
+      text-align: center;
+    }
+  }
 }
