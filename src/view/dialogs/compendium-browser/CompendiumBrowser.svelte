@@ -81,6 +81,12 @@
             icon: "fa-solid fa-dragon",
         },
         {
+            name: "monsterFeature",
+            label: "Monster Features",
+            icon: "fa-solid fa-paw",
+        },
+
+        {
             name: "object",
             label: "Objects",
             icon: "fa-solid fa-cubes-stacked",
@@ -92,7 +98,7 @@
         },
     ];
 
-    const types = {
+    const _types = {
         archetype: "Archetypes",
         background: "Backgrounds",
         class: "Classes",
@@ -103,6 +109,7 @@
         interaction: "Interactions",
         maneuver: "Maneuvers",
         npc: "Monsters",
+        monsterFeature: "Monster Features",
         object: "Objects",
         spell: "Spells",
     };

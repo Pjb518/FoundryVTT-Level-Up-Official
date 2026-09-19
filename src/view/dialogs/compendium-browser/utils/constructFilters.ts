@@ -1,322 +1,331 @@
 const archetypesFilterConfig = {
-  class: {
-    key: "system.class",
-    type: "value",
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	class: {
+		key: 'system.class',
+		type: 'value',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const spellsFilterConfig = {
-  spellLists: {
-    key: "system.classes",
-    type: "array",
-  },
-  spellLevels: {
-    key: "system.level",
-    type: "value",
-  },
-  primarySpellSchools: {
-    key: "system.schools.primary",
-    type: "value",
-  },
-  secondarySpellSchools: {
-    key: "system.schools.secondary",
-    type: "array",
-  },
-  components: {
-    subFilters: {
-      material: {
-        key: "system.components.material",
-        type: "boolean",
-      },
-      seen: {
-        key: "system.components.seen",
-        type: "boolean",
-      },
-      vocalized: {
-        key: "system.components.vocalized",
-        type: "boolean",
-      },
-    },
-  },
-  miscellaneous: {
-    subFilters: {
-      concentration: {
-        key: "system.concentration",
-        type: "boolean",
-      },
-      ritual: {
-        key: "system.ritual",
-        type: "boolean",
-      },
-      rare: {
-        key: "system.rare",
-        type: "boolean",
-      },
-    },
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	spellLists: {
+		key: 'system.classes',
+		type: 'array',
+	},
+	spellLevels: {
+		key: 'system.level',
+		type: 'value',
+	},
+	primarySpellSchools: {
+		key: 'system.schools.primary',
+		type: 'value',
+	},
+	secondarySpellSchools: {
+		key: 'system.schools.secondary',
+		type: 'array',
+	},
+	components: {
+		subFilters: {
+			material: {
+				key: 'system.components.material',
+				type: 'boolean',
+			},
+			seen: {
+				key: 'system.components.seen',
+				type: 'boolean',
+			},
+			vocalized: {
+				key: 'system.components.vocalized',
+				type: 'boolean',
+			},
+		},
+	},
+	miscellaneous: {
+		subFilters: {
+			concentration: {
+				key: 'system.concentration',
+				type: 'boolean',
+			},
+			ritual: {
+				key: 'system.ritual',
+				type: 'boolean',
+			},
+			rare: {
+				key: 'system.rare',
+				type: 'boolean',
+			},
+		},
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const maneuverFilterConfig = {
-  exertion: {
-    key: "system.exertionCost",
-    type: "range",
-  },
-  maneuverDegrees: {
-    key: "system.degree",
-    type: "value",
-  },
-  maneuverTraditions: {
-    key: "system.tradition",
-    type: "value",
-  },
-  miscellaneous: {
-    subFilters: {
-      concentration: {
-        key: "system.concentration",
-        type: "boolean",
-      },
-      stance: {
-        key: "system.isStance",
-        type: "boolean",
-      },
-    },
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	exertion: {
+		key: 'system.exertionCost',
+		type: 'range',
+	},
+	maneuverDegrees: {
+		key: 'system.degree',
+		type: 'value',
+	},
+	maneuverTraditions: {
+		key: 'system.tradition',
+		type: 'value',
+	},
+	miscellaneous: {
+		subFilters: {
+			concentration: {
+				key: 'system.concentration',
+				type: 'boolean',
+			},
+			stance: {
+				key: 'system.isStance',
+				type: 'boolean',
+			},
+		},
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const monstersFilterConfig = {
-  cr: {
-    key: "system.details.cr",
-    type: "range",
-  },
-  creatureSize: {
-    key: "system.traits.size",
-    type: "value",
-  },
-  creatureTypes: {
-    key: "system.details.creatureTypes",
-    type: "array",
-  },
-  miscellaneous: {
-    subFilters: {
-      elite: {
-        key: "system.details.elite",
-        type: "boolean",
-      },
-      swarm: {
-        key: "system.details.isSwarm",
-        type: "boolean",
-      },
-    },
-  },
-  terrain: {
-    key: "system.details.terrain",
-    type: "array",
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	cr: {
+		key: 'system.details.cr',
+		type: 'range',
+	},
+	creatureSize: {
+		key: 'system.traits.size',
+		type: 'value',
+	},
+	creatureTypes: {
+		key: 'system.details.creatureTypes',
+		type: 'array',
+	},
+	miscellaneous: {
+		subFilters: {
+			elite: {
+				key: 'system.details.elite',
+				type: 'boolean',
+			},
+			swarm: {
+				key: 'system.details.isSwarm',
+				type: 'boolean',
+			},
+		},
+	},
+	terrain: {
+		key: 'system.details.terrain',
+		type: 'array',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const objectFilterConfig = {
-  objectType: {
-    key: "system.objectType",
-    type: "value",
-  },
-  rarity: {
-    key: "system.rarity",
-    type: "value",
-  },
-  miscellaneous: {
-    subFilters: {
-      bulky: {
-        key: "system.bulky",
-        type: "boolean",
-      },
-      requiresAttunement: {
-        key: "system.requiresAttunement",
-        type: "boolean",
-      },
-    },
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	objectType: {
+		key: 'system.objectType',
+		type: 'value',
+	},
+	rarity: {
+		key: 'system.rarity',
+		type: 'value',
+	},
+	miscellaneous: {
+		subFilters: {
+			bulky: {
+				key: 'system.bulky',
+				type: 'boolean',
+			},
+			requiresAttunement: {
+				key: 'system.requiresAttunement',
+				type: 'boolean',
+			},
+		},
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const featureConfig = {
-  featureType: {
-    key: "system.featureType",
-    type: "value",
-  },
-  asi: {
-    key: "system.asi",
-    type: "array",
-  },
-  featClasses: {
-    key: "system.featClasses",
-    type: "array",
-  },
-  featType: {
-    key: "system.featType",
-    type: "value",
-  },
-  synergy: {
-    key: "system.synergy",
-    type: "value",
-  },
-  classes: {
-    key: "system.classes",
-    type: "value",
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	featureType: {
+		key: 'system.featureType',
+		type: 'value',
+	},
+	asi: {
+		key: 'system.asi',
+		type: 'array',
+	},
+	featClasses: {
+		key: 'system.featClasses',
+		type: 'array',
+	},
+	featType: {
+		key: 'system.featType',
+		type: 'value',
+	},
+	synergy: {
+		key: 'system.synergy',
+		type: 'value',
+	},
+	classes: {
+		key: 'system.classes',
+		type: 'value',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const interactionConfig = {
-  interactionType: {
-    key: "system.interactionType",
-    type: "value",
-  },
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	interactionType: {
+		key: 'system.interactionType',
+		type: 'value',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
+};
+
+const monsterFeatureConfig = {
+	featureType: {
+		key: 'system.featureType',
+		type: 'value',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const genericConfig = {
-  source: {
-    key: "system.source",
-    type: "value",
-  },
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
 };
 
 const typeMap = {
-  archetype: archetypesFilterConfig,
-  feature: featureConfig,
-  interaction: interactionConfig,
-  maneuver: maneuverFilterConfig,
-  npc: monstersFilterConfig,
-  object: objectFilterConfig,
-  spell: spellsFilterConfig,
+	archetype: archetypesFilterConfig,
+	feature: featureConfig,
+	interaction: interactionConfig,
+	maneuver: maneuverFilterConfig,
+	npc: monstersFilterConfig,
+	monsterFeature: monsterFeatureConfig,
+	object: objectFilterConfig,
+	spell: spellsFilterConfig,
 };
 
 function arrayFilter(key, value, mode) {
-  if (mode) {
-    return (doc) => foundry.utils.getProperty(doc, key)?.includes(value);
-  }
+	if (mode) {
+		return (doc) => foundry.utils.getProperty(doc, key)?.includes(value);
+	}
 
-  return (doc) => !foundry.utils.getProperty(doc, key)?.includes(value);
+	return (doc) => !foundry.utils.getProperty(doc, key)?.includes(value);
 }
 
 function booleanFilter(key, mode) {
-  if (mode) {
-    return (doc) => foundry.utils.getProperty(doc, key);
-  }
+	if (mode) {
+		return (doc) => foundry.utils.getProperty(doc, key);
+	}
 
-  return (doc) => !foundry.utils.getProperty(doc, key);
+	return (doc) => !foundry.utils.getProperty(doc, key);
 }
 
 function rangeFilter(key, { min, max }) {
-  return (doc) => {
-    const value = foundry.utils.getProperty(doc, key);
-    return value >= min && value <= max;
-  };
+	return (doc) => {
+		const value = foundry.utils.getProperty(doc, key);
+		return value >= min && value <= max;
+	};
 }
 
 function valueFilter(key, value, mode) {
-  if (mode) {
-    // Intentionally using == instead of ===
-    return (doc) => foundry.utils.getProperty(doc, key) == value;
-  }
+	if (mode) {
+		// Intentionally using == instead of ===
+		return (doc) => foundry.utils.getProperty(doc, key) === value;
+	}
 
-  // Intentionally using == instead of ===
-  return (doc) => foundry.utils.getProperty(doc, key) != value;
+	// Intentionally using == instead of ===
+	return (doc) => foundry.utils.getProperty(doc, key) !== value;
 }
 
-export function constructFilters(
-  filtersSelections: Record<string, any>,
-  compendiumType: string,
-) {
-  const filters = [] as ((doc: any) => boolean)[];
+export function constructFilters(filtersSelections: Record<string, any>, compendiumType: string) {
+	const filters = [] as ((doc: any) => boolean)[];
 
-  const filterConfig = typeMap[compendiumType] ?? genericConfig;
-  const filterCount = { and: 0, or: 0 };
+	const filterConfig = typeMap[compendiumType] ?? genericConfig;
+	const filterCount = { and: 0, or: 0 };
 
-  for (const [filterKey, filterData] of Object.entries(filtersSelections)) {
-    if (filterData == null) continue;
+	for (const [filterKey, filterData] of Object.entries(filtersSelections)) {
+		if (filterData == null) continue;
 
-    const andFilters = [];
-    const orFilters = [];
+		const andFilters = [];
+		const orFilters = [];
 
-    const { key, type, subFilters } = filterConfig?.[filterKey] ?? {};
-    if ((!key || !type) && !subFilters) continue;
+		const { key, type, subFilters } = filterConfig?.[filterKey] ?? {};
+		if ((!key || !type) && !subFilters) continue;
 
-    if (type === "range") {
-      const { min, max } = filterData;
-      const filter = rangeFilter(key, { min, max });
+		if (type === 'range') {
+			const { min, max } = filterData;
+			const filter = rangeFilter(key, { min, max });
 
-      andFilters.push(filter);
-      filterCount.and += 1;
-    } else {
-      const { inclusive, inclusiveMode, exclusive, exclusiveMode } = filterData;
-      // Start with the inclusive filters
-      inclusive.forEach((value) => {
-        let filter;
+			andFilters.push(filter);
+			filterCount.and += 1;
+		} else {
+			const { inclusive, inclusiveMode, exclusive, exclusiveMode } = filterData;
+			// Start with the inclusive filters
+			inclusive.forEach((value) => {
+				let filter;
 
-        if (type === "array") filter = arrayFilter(key, value, true);
-        else if (subFilters?.[value]?.type === "boolean") {
-          filter = booleanFilter(subFilters[value].key, true);
-        } else if (type === "boolean") filter = booleanFilter(key, true);
-        else if (type === "value") filter = valueFilter(key, value, true);
-        else return;
+				if (type === 'array') filter = arrayFilter(key, value, true);
+				else if (subFilters?.[value]?.type === 'boolean') {
+					filter = booleanFilter(subFilters[value].key, true);
+				} else if (type === 'boolean') filter = booleanFilter(key, true);
+				else if (type === 'value') filter = valueFilter(key, value, true);
+				else return;
 
-        if (inclusiveMode) andFilters.push(filter);
-        else orFilters.push(filter);
-      });
+				if (inclusiveMode) andFilters.push(filter);
+				else orFilters.push(filter);
+			});
 
-      // Then do the exclusive filters
-      exclusive.forEach((value) => {
-        let filter;
+			// Then do the exclusive filters
+			exclusive.forEach((value) => {
+				let filter;
 
-        if (type === "array") filter = arrayFilter(key, value, false);
-        else if (subFilters?.[value]?.type === "boolean") {
-          filter = booleanFilter(subFilters[value].key, false);
-        } else if (type === "boolean") filter = booleanFilter(key, false);
-        else if (type === "value") filter = valueFilter(key, value, false);
-        else return;
+				if (type === 'array') filter = arrayFilter(key, value, false);
+				else if (subFilters?.[value]?.type === 'boolean') {
+					filter = booleanFilter(subFilters[value].key, false);
+				} else if (type === 'boolean') filter = booleanFilter(key, false);
+				else if (type === 'value') filter = valueFilter(key, value, false);
+				else return;
 
-        if (exclusiveMode) andFilters.push(filter);
-        else orFilters.push(filter);
-      });
-    }
+				if (exclusiveMode) andFilters.push(filter);
+				else orFilters.push(filter);
+			});
+		}
 
-    if (andFilters.length) {
-      filters.push(...andFilters);
-      filterCount.and += andFilters.length;
-    }
+		if (andFilters.length) {
+			filters.push(...andFilters);
+			filterCount.and += andFilters.length;
+		}
 
-    if (orFilters.length) {
-      filters.push((doc) => orFilters.some((filterFn) => filterFn(doc)));
+		if (orFilters.length) {
+			filters.push((doc) => orFilters.some((filterFn) => filterFn(doc)));
 
-      filterCount.or += 1;
-    }
-  }
+			filterCount.or += 1;
+		}
+	}
 
-  return { filters, filterCount };
+	return { filters, filterCount };
 }

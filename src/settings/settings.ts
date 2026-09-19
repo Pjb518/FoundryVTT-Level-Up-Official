@@ -12,6 +12,16 @@ const scope = {
 export const settings = [
 	{
 		namespace,
+		key: 'lastSeenChangelogVersion',
+		options: {
+			scope: scope.client,
+			config: false,
+			default: '',
+			type: String,
+		},
+	},
+	{
+		namespace,
 		key: 'automatePrototypeTokenSize',
 		options: {
 			name: 'A5E.settings.automatePrototypeTokenSize',

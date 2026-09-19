@@ -25,11 +25,14 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"KJKYeJCYGfnbpFob": {
-						"range": "fiveFeet"
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
@@ -38,50 +41,131 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"uyhFkSLSBCZ5yUHq": {
 						"bonus": "",
-						"critThreshold": "20",
+						"critThreshold": 20,
 						"type": "attack",
-						"ability": "str"
+						"ability": "str",
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"Wp7C6weaX0wuE0Qn": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"defaultSelection": true,
 						"formula": "1d6 + @str.mod",
-						"name": "Fang and Claw",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"default": true,
+						"label": ""
 					},
 					"WtxLpEYEUabTuiUb": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"defaultSelection": false,
 						"formula": "1d8 + @str.mod",
-						"name": "Frenzied Bite",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"default": true,
+						"label": ""
 					},
 					"RxYmI8ZCNAbSGsz2": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"defaultSelection": false,
 						"formula": "1d10 + @str.mod",
-						"name": "Deadly Implements (Bite)",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"default": true,
+						"label": ""
 					},
 					"ENTbEGgRpb7EqxJq": {
 						"canCrit": true,
 						"damageType": "piercing",
-						"defaultSelection": false,
 						"formula": "1d8 + @str.mod",
-						"name": "Deadly Implements (Claws)",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
 			}
 		},
 		"description": "<p>You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
@@ -94,25 +178,37 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
-		"featureType": "naturalWeapon",
+		"featureType": "other",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
-	"_id": "7unyrtbtrhuxay4f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.14",
+		"createdTime": 1789579226910,
+		"modifiedTime": 1789579256869,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "7unyrtbtrhuxay4f"
 }

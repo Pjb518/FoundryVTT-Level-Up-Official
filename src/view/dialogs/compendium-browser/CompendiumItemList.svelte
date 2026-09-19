@@ -15,6 +15,24 @@
         shownDocuments: number;
     };
 
+    function matchesCompendiumType(doc: any): boolean {
+        if (compendiumType === "feature") {
+            return (
+                doc.type === "feature" &&
+                !CONFIG.A5E.MONSTER_FEATURE_LIST.includes(doc.system?.featureType)
+            );
+        }
+
+        if (compendiumType === "monsterFeature") {
+            return (
+                doc.type === "feature" &&
+                CONFIG.A5E.MONSTER_FEATURE_LIST.includes(doc.system?.featureType)
+            );
+        }
+
+        return doc.type === compendiumType;
+    }
+
     function getDocuments() {
         const docs: any[] = packs
             .reduce((docs, pack) => {
@@ -23,7 +41,7 @@
 
                 // Get docs
                 const filtered = pack.index.filter((doc) => {
-                    if (doc.type !== compendiumType) return false;
+                    if (!matchesCompendiumType(doc)) return false;
 
                     const searchTerm = filterOptions.searchTerm.toLowerCase();
 
@@ -55,7 +73,7 @@
 
     function getTotalDocuments() {
         return packs.reduce((total, pack) => {
-            const count = pack.index.filter((doc) => doc.type === compendiumType).length;
+            const count = pack.index.filter((doc) => matchesCompendiumType(doc)).length;
             return total + count;
         }, 0);
     }

@@ -86,6 +86,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.blindDeathSaves': boolean;
 		'a5e.consumeSupplyByDefault': boolean;
 		'a5e.hideExpertiseDice': boolean;
+		'a5e.lastSeenChangelogVersion': string;
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
 		'a5e.useCredits': boolean;

@@ -106,6 +106,7 @@ const EQUIPPED_STATES = {
 };
 
 const FEATURES_LIST = ['background', 'class', 'culture', 'destiny', 'heritage'] as const;
+const MONSTER_FEATURE_LIST = ['monster', 'naturalWeapon'] as const;
 
 /**
  * Enum for object prepared state
@@ -2232,6 +2233,7 @@ const A5E = {
 	DICE_ROLL_MODES,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
+	MONSTER_FEATURE_LIST,
 	PREPARED_STATES,
 	ROLL_MODE,
 
