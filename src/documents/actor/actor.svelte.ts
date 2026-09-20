@@ -2905,6 +2905,37 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		});
 	}
 
+	async distributeXP(this: Actor.OfType<'party'>, xp: number) {
+		if (!this.isParty()) return;
+
+		const members = this.members;
+		const count = members.length;
+
+		const awarded = Math.floor(xp / count);
+
+		await Promise.all(
+			members.map(async (a) => {
+				// @ts-expect-error
+				return a.update({ 'system.details.xp': awarded + a.system.details.xp });
+			}),
+		);
+
+		const distributedTo = members
+			.map((a) => a.name)
+			.join(', ')
+			.trim();
+
+		let message = '<strong>Distributed XP:</strong> <br />';
+		message += `<strong>Amount:</strong> ${awarded} <br />`;
+		message += `<strong>To:</strong> ${distributedTo} <br />`;
+
+		ChatMessage.create({
+			author: game.user.id,
+			style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+			content: message,
+		});
+	}
+
 	/** Remove a member from the party */
 	async removeMember(this: Actor.OfType<'party'>, uuid: string) {
 		if (!this.isParty()) return;

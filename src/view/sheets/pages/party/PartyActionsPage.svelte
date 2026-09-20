@@ -52,7 +52,7 @@
       {
         htmlString: '<i class="fa-solid fa-share"</i>',
         tooltip: "Distribute XP",
-        handler: () => party.distributeXP(),
+        handler: () => party.distributeXP(xpValue),
       },
     ]}
   >
