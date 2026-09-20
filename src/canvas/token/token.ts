@@ -1,6 +1,9 @@
-import TokenPreviewManger from '#managers/TokenPreviewManager';
-
+import TokenPreviewManger from '#managers/TokenPreviewManager.ts';
 import sizeScales from './utils/sizeScales.ts';
+
+import BaseGrid = foundry.grid.BaseGrid;
+
+import { measureDistanceCuboid, squareAtPoint } from '../utils.ts';
 
 let circularMask = null;
 
@@ -11,6 +14,175 @@ declare module 'fvtt-types/configuration' {
 }
 
 class TokenA5E extends foundry.canvas.placeables.Token {
+	// static override RENDER_FLAGS: TokenA5E.RENDER_FLAGS = () => {
+	// 	const flags = Object.assign(super.RENDER_FLAGS, { refreshDistanceLabel: {} });
+	// 	flags.refreshState.propagate?.push('refreshDistanceLabel');
+	// 	return flags;
+	// };
+
+	/** ================================================================= */
+	// Getters
+	/** ================================================================= */
+	get dims() {
+		return this.document.dims;
+	}
+
+	/** This token's shape at its canvas position */
+	get localShape() {
+		switch (this.shape!.type) {
+			case PIXI.SHAPES.RECT:
+				return this.bounds;
+			case PIXI.SHAPES.POLY: {
+				const shape = this.shape!.clone();
+				const bounds = this.bounds;
+				shape.points = shape.points.map((c, i) => (i % 2 === 0 ? c + bounds.x : c + bounds.y));
+				return shape;
+			}
+			case PIXI.SHAPES.ELIP:
+			case PIXI.SHAPES.CIRC: {
+				const shape = this.shape!.clone();
+				const center = this.center;
+				shape.x = center.x;
+				shape.y = center.y;
+				return shape;
+			}
+		}
+
+		return this.shape;
+	}
+
+	/** The grid offsets representing this token's shape */
+	get footprint(): BaseGrid.Offset2D[] {
+		const shape = this.document.isTiny ? this.mechanicalBounds : this.localShape;
+		const seen = new Set<number>();
+		const offsets: BaseGrid.Offset2D[] = [];
+		const [i0, j0, i1, j1] = canvas.grid!.getOffsetRange(this.mechanicalBounds);
+		for (let i = i0; i < i1; i++) {
+			for (let j = j0; j < j1; j++) {
+				const offset = { i, j };
+				const packed = (offset.i << 16) + offset.j;
+				if (seen.has(packed)) continue;
+				seen.add(packed);
+				const point = canvas.grid!.getCenterPoint(offset);
+				if (shape!.contains(point.x, point.y)) {
+					offsets.push(offset);
+				}
+			}
+		}
+		return offsets.sort((a, b) => a.j - b.j).sort((a, b) => a.i - b.i);
+	}
+
+	/** A reference to an animation that is currently in progress for this Token, if any */
+	get animation(): Promise<void> | null {
+		return (
+			this.animationContexts.get(this.animationName)?.promise ??
+			this.animationContexts.get(this.movementAnimationName)?.promise ??
+			null
+		);
+	}
+
+	/** Is this token currently animating? */
+	get isAnimating(): boolean {
+		return !!this.animation;
+	}
+
+	/** The ID of the highlight layer for this token */
+	get highlightId(): string {
+		return `Token.${this.id}`;
+	}
+
+	/** Bounds used for mechanics, such as flanking and drawing auras */
+	get mechanicalBounds(): PIXI.Rectangle {
+		const bounds = this.bounds;
+		if (this.document.isTiny) {
+			const position = canvas.grid!.getTopLeftPoint(bounds);
+			return new PIXI.Rectangle(
+				position.x,
+				position.y,
+				Math.max(canvas.grid!.size, bounds.width),
+				Math.max(canvas.grid!.size, bounds.height),
+			);
+		}
+
+		return bounds;
+	}
+
+	/** Can the current user see the distance of this token from a controlled token? */
+	get #canSeeDistance(): boolean {
+		if (
+			!this.visible ||
+			this.isPreview ||
+			this.document.isSecret ||
+			this.controlled ||
+			this.animation
+		) {
+			return false;
+		}
+		return (
+			this.hover &&
+			(this.layer.controlled.length === 1 || !!game.user.character?.getActiveTokens().length)
+		);
+	}
+
+	/** ================================================================= */
+	// Distance and Mechanical Methods
+	/** ================================================================= */
+
+	/** Publicly expose `Token#_canControl` for use in `TokenLayerPF2e`. */
+	canControl(user: User, event: PIXI.FederatedPointerEvent): boolean {
+		return this._canControl(user, event);
+	}
+
+	/**
+	 * Measure the distance between this token and another object or point, in grid distance. We measure between the
+	 * centre of squares, and if either covers more than one square, we want the minimum distance between
+	 * any two of the squares.
+	 */
+	distanceTo(
+		target: TokenA5E.TokenOrPoint,
+		{ reach = null }: { reach?: number | null } = {},
+	): number {
+		if (!canvas.ready) return NaN;
+		if (this === target) return 0;
+
+		const selfElevation = this.document.elevation;
+		const targetElevation = target.document?.elevation ?? selfElevation;
+		if (canvas.grid!.type !== CONST.GRID_TYPES.SQUARE) {
+			const waypoints = [
+				{ x: this.x, y: this.y, elevation: selfElevation },
+				{ x: target.x, y: target.y, elevation: targetElevation },
+			];
+			// @ts-expect-error
+			return Math.round(canvas.grid!.measurePath(waypoints).distance);
+		}
+
+		const targetBounds = target.mechanicalBounds ?? squareAtPoint(target);
+		if (
+			selfElevation === targetElevation ||
+			!this.actor ||
+			!target.mechanicalBounds ||
+			!target.actor
+		) {
+			return measureDistanceCuboid(this.mechanicalBounds, targetBounds, { reach });
+		}
+		return measureDistanceCuboid(this.mechanicalBounds, targetBounds, {
+			reach,
+			token: this,
+			target,
+		});
+	}
+
+	/** ================================================================= */
+	// Render / Refresh Methods
+	/** ================================================================= */
+	override _refreshState(): void {
+		super._refreshState();
+		const distanceLabelEl = document.getElementById('token-hover-distance');
+		if (distanceLabelEl) distanceLabelEl.hidden = !this.#canSeeDistance;
+	}
+
+	#refreshDistanceLabel(): void {}
+
 	/** ================================================================= */
 	// Status Effect Methods
 	/** ================================================================= */
@@ -56,7 +228,7 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 	/** Specialized drawing function for HP bars. */
 	_drawHPBar(index: number, bar: PIXI.Graphics) {
 		// Extract health data
-		const { value, max, temp } = this.document.actor?.system?.attributes?.hp;
+		const { value, max, temp } = this.document.actor?.system?.attributes?.hp ?? {};
 		if (!value || !max || !temp) return;
 
 		// Allocate percentages of the total
@@ -101,29 +273,13 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		bar.position.set(0, posY);
 	}
 
-	// ********************************************************************
-	//                            Radial Effects
-	// ********************************************************************
-	_refreshEffects() {
+	/** ================================================================= */
+	// Radial Effects
+	/** ================================================================= */
+	override _refreshEffects() {
 		super._refreshEffects();
 		if (!game.settings.get('a5e', 'enableRadialEffects')) return;
-
-		// Update effect sizes
-		// const effectsCount = this.actor?.effects?.filter((e) => {
-		//   const isOverlay = e.getFlag('core', 'overlay') ?? false;
-		//   if (isOverlay) return false;
-
-		//   const isActive = e.isSuppressed ?? false;
-		//   if (isActive) return false;
-
-		//   const isTemporary = e.isTemporary ?? false;
-		//   const isOnUse = e.getFlag('a5e', 'transferType') === 'onUse';
-		//   if (!isTemporary && !isOnUse) return false;
-
-		//   return true;
-		// })?.length ?? 0;
-
-		// if (!effectsCount || !this.effects.children.length) return;
+		if (!this.effects) return;
 
 		const background = this.effects.children[0];
 		if (!(background instanceof PIXI.Graphics)) return;
@@ -131,8 +287,8 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 
 		// const icons = this.effects.children.slice(1, 1 + effectsCount);
 		const icons = this.effects.children.filter((e) => {
-			if (e === this.effects.overlay) return false;
-			if (e === this.effects.bg) return false;
+			if (e === this.effects?.overlay) return false;
+			if (e === this.effects?.bg) return false;
 
 			return true;
 		});
@@ -186,14 +342,18 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 	/**
 	 * @override
 	 */
-	async _drawEffect(src, tint, isOverlay = false) {
+	// @ts-expect-error
+	override async _drawEffect(src: string, tint: PIXI.ColorSource | null, isOverlay = false) {
 		if (!game.settings.get('a5e', 'enableRadialEffects')) return super._drawEffect(src, tint);
+		if (!this.effects) return super._drawEffect(src, tint);
 
 		if (!src) return null;
 
 		const texture = await foundry.canvas.loadTexture(src, {
 			fallback: 'icons/svg/hazard.svg',
 		});
+
+		// @ts-expect-error
 		const icon = new PIXI.Sprite(texture);
 
 		if (isOverlay) {
@@ -225,11 +385,11 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		return this.effects.addChild(icon);
 	}
 
-	/**
-	 * @override
-	 */
-	async _drawOverlay(src, tint) {
+	/** Override _drawOverlay to add isOverlay */
+	// @ts-expect-error
+	override async _drawOverlay(src: string, tint: number | null) {
 		if (!game.settings.get('a5e', 'enableRadialEffects')) return super._drawOverlay(src, tint);
+		if (!this.effects) return super._drawOverlay(src, tint);
 
 		const icon = await this._drawEffect(src, tint, true);
 		if (icon) icon.alpha = 0.8;
@@ -244,6 +404,16 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		const PreviewManager = new TokenPreviewManger(this);
 		return PreviewManager.preview();
 	}
+}
+
+declare namespace TokenA5E {
+	interface RENDER_FLAGS extends Token.RENDER_FLAGS {
+		refreshDistanceLabel: any;
+	}
+
+	type TokenOrPoint =
+		| TokenA5E
+		| (Canvas.Point & { actor?: never; document?: never; mechanicalBounds?: never });
 }
 
 export { TokenA5E };

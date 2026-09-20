@@ -36,6 +36,14 @@ class TokenDocumentA5E extends TokenDocument {
 		);
 	}
 
+	get dims() {
+		return {
+			length: this.height,
+			width: this.width,
+			height: this.height,
+		};
+	}
+
 	/** Returns if the token is in combat, though some actors have different conditions */
 	override get inCombat() {
 		return this.actorLink && this.actor?.isParty()

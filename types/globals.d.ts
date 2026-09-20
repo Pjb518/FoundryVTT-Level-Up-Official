@@ -97,6 +97,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.cascadingDamageAndHealingDelay': number;
 		'a5e.consumeSupplyByDefault': boolean;
 		'a5e.enableCascadingDamageAndHealing': boolean;
+		'a5e.enableRadialEffects': boolean;
 		'a5e.hideExpertiseDice': boolean;
 		'a5e.replaceFatigueAndStrife': boolean;
 		'a5e.showFavorPoints': boolean;
