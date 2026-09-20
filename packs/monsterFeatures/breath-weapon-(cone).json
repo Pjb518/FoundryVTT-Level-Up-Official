@@ -1,0 +1,171 @@
+{
+	"name": "Breath Weapon (Cone)",
+	"type": "feature",
+	"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {
+		"core": {}
+	},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"cvBAzJ00kq6dqlB1": {
+				"name": "Breath Weapon (Cone)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "1",
+					"concentration": false
+				},
+				"area": {
+					"shape": "cone",
+					"size": "90",
+					"placeTemplate": false,
+					"length": 30
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"Iz0twFLBawvSOLoN": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "",
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"default": true,
+						"label": "",
+						"die": {
+							"modifiers": [],
+							"number": 28,
+							"denom": 6
+						}
+					}
+				},
+				"prompts": {
+					"3CTmvSKst6A47F1k": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": "25"
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"oX09IO1MKRIYjEEg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {
+					"l9IhZS8D0qI87lun": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"description": "<p>The [[/ref actor.name]] exhales a blast of fire in a 30-foot cone. Each creature in that area makes a DC [[/ref actor.system.attributes.maneuverDC]] Dexterity saving throw, taking 98 (28d6) fire damage on a failed save or half damage on a success.</p>",
+		"favorite": true,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "recharge",
+			"recharge": {
+				"formula": "",
+				"threshold": 5,
+				"type": "recoverAll"
+			}
+		},
+		"concentration": false,
+		"featureType": "naturalWeapon",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"classes": "",
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.15",
+		"createdTime": 1789914058364,
+		"modifiedTime": 1789914287555,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "mxA3NYSXZe0Nhwdx"
+}

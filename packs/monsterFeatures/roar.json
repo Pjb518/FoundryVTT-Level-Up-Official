@@ -1,0 +1,191 @@
+{
+	"name": "Roar",
+	"type": "feature",
+	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+	"system": {
+		"description": "<p>Each creature of the [[/ref actor.name]]’s choice within 120 feet that can hear it makes a DC [[/ref actor.system.attributes.maneuverDC]] Charisma saving throw. On a failure, it is frightened for 1 minute. A creature repeats the saving throw at the end of its turns, ending the effect on itself on a success. When it succeeds on a saving throw or the effect ends for it, it is immune to Roar for 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "",
+		"actions": {
+			"SzIMF2sVHoed5x75": {
+				"name": "Roar",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"jDx7fFA1VESDVMLZ"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"XDHRG1eAm8uOX5pv": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"aVDG7jhLo95cFAHt": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 120
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featClasses": [],
+		"featType": "",
+		"featureType": "legendaryAction",
+		"grants": {},
+		"hidden": false,
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"name": "Frightened",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"origin": "Item.NL1Fo4lVFsBdYu5v",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "jDx7fFA1VESDVMLZ",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "minutes",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1789917146585,
+				"modifiedTime": 1789917165110,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.15",
+		"createdTime": 1789916960349,
+		"modifiedTime": 1789917146603,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "4vFSetISFZvyF4k4"
+}

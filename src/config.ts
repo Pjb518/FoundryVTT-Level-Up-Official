@@ -106,7 +106,7 @@ const EQUIPPED_STATES = {
 };
 
 const FEATURES_LIST = ['background', 'class', 'culture', 'destiny', 'heritage'] as const;
-const MONSTER_FEATURE_LIST = ['monster', 'naturalWeapon'] as const;
+const MONSTER_FEATURE_LIST = ['legendaryAction', 'monster', 'naturalWeapon'] as const;
 
 /**
  * Enum for object prepared state
