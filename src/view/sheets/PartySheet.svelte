@@ -5,6 +5,7 @@
   import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
   import NavigationBar from "#view/navigation/NavigationBar.svelte";
   import type { Tab } from "../navigation/data.ts";
+  import PartyActionsPage from "./pages/party/PartyActionsPage.svelte";
   import PartyAttributesPage from "./pages/party/PartyAttributesPage.svelte";
   import PartyCorePage from "./pages/party/PartyCorePage.svelte";
   import PartyInventoryPage from "./pages/party/PartyInventoryPage.svelte";
@@ -49,6 +50,13 @@
       label: "A5E.tabs.inventory",
       icon: "fa-solid fa-box-open",
       component: PartyInventoryPage,
+    },
+    {
+      name: "actions",
+      label: "Party Actions",
+      icon: "fa-solid fa-crosshairs",
+      component: PartyActionsPage,
+      display: game.user.isGM,
     },
   ] as const;
 
