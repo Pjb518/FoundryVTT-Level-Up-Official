@@ -190,7 +190,6 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 	}
 
 	#refreshDistanceLabel(): void {
-		console.log('here');
 		this.layer.refreshDistanceLine();
 
 		const labelEl = document.getElementById('token-hover-distance');

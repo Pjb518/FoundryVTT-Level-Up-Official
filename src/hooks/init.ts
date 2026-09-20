@@ -116,6 +116,8 @@ export default function init() {
 	CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
 	CONFIG.Canvas.layers.tokens.layerClass = TokenLayerA5E;
 
+	TokenDocumentA5E.registerMovementActions();
+
 	// Initialize the game's A5E namespace
 	game.a5e = {
 		applications: {

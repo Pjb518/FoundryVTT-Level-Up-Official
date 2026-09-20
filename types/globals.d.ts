@@ -90,6 +90,7 @@ declare module 'fvtt-types/configuration' {
 	interface SettingConfig {
 		'a5e.5eStyleDeathSaves': boolean;
 		'a5e.automateBloodiedApplication': boolean;
+		'a5e.automateMovement': boolean;
 		'a5e.automatePrototypeTokenSize': boolean;
 		'a5e.automateUnconsciousApplication': boolean;
 		'a5e.automateVisionRules': boolean;
