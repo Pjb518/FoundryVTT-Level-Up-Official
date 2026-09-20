@@ -469,6 +469,15 @@ const currencyDenominations = {
 	cr: 'A5E.currency.credits',
 };
 
+const currencyToGold = {
+	cp: (v) => v * 0.01,
+	sp: (v) => v * 0.1,
+	ep: (v) => v * 0.2,
+	gp: (v) => v,
+	pp: (v) => v * 10,
+	cr: (v) => v,
+};
+
 const damagedStates = {
 	0: 'A5E.damagedState.intact',
 	1: 'A5E.damagedState.damaged',
@@ -2263,6 +2272,7 @@ const A5E = {
 	containerSortMethods,
 	creatureTypes,
 	currencyDenominations,
+	currencyToGold,
 	damagedStates,
 	scalingModes,
 	baseScalingModes,

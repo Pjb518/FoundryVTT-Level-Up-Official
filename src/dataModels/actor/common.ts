@@ -283,10 +283,10 @@ export const currency = () => ({
 	currency: new fields.SchemaField({
 		cp: new fields.NumberField({ required: true, initial: 0, integer: true }),
 		sp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		ep: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		gp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		pp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		cr: new fields.NumberField({ required: true, initial: 0, integer: true }),
+		ep: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		gp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		pp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		cr: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
 	}),
 });
 

@@ -296,6 +296,52 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ---------------------------------- */
+	// Getters (Creature)
+	/** ---------------------------------- */
+
+	/** Get coin data of a creature */
+	get coins(): Record<string, number> {
+		const actor = this as Creature;
+		if (actor.isParty()) return {};
+
+		// @ts-expect-error
+		return actor.system.currency;
+	}
+
+	/** Get total wealth of Creature/ Party */
+	get wealth(): { coins: number; wealth: number } {
+		// Get Wealth for party
+		if (this.isParty()) {
+			const total = { coins: 0, wealth: 0 };
+			this.members.forEach((a) => {
+				const actorWealth = a.wealth;
+				total.coins += actorWealth.coins;
+				total.wealth += actorWealth.wealth;
+			});
+
+			return total;
+		}
+
+		const actor = this as Creature;
+
+		const config = CONFIG.A5E.currencyToGold;
+
+		const coins = Object.entries(actor.coins ?? {}).reduce((acc, [curr, val]) => {
+			return acc + (config[curr]?.(val ?? 0) ?? 0);
+		}, 0);
+
+		const wealth = actor.itemTypes.object.reduce((acc, obj) => {
+			if (obj.system.price.special) return acc;
+
+			const denom = obj.system.price.denomination;
+			const goldValue = config[denom]?.(obj.system.price.value ?? 0) ?? 0;
+			return acc + goldValue;
+		}, 0);
+
+		return { coins, wealth };
+	}
+
+	/** ---------------------------------- */
 	// Getters (Char)
 	/** ---------------------------------- */
 

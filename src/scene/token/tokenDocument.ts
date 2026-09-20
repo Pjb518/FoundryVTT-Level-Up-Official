@@ -102,14 +102,6 @@ class TokenDocumentA5E extends TokenDocument {
 		super.prepareBaseData();
 	}
 
-	override prepareDerivedData() {
-		super.prepareDerivedData();
-
-		// Do this again to re-evaluate
-		// @ts-expect-error
-		// this.movementAction = this._inferMovementAction();
-	}
-
 	/** Updates the size of the token */
 	updateTokenSize() {
 		const actor = this.actor as Creature | undefined;
@@ -233,7 +225,7 @@ class TokenDocumentA5E extends TokenDocument {
 	}
 
 	/** Get movement cost of a specific type  */
-	static getMovementCostFunction(type: string, token: Token, options?: any) {
+	static getMovementCostFunction(type: string, token: TokenDocument, options?: any) {
 		const automate = game.settings.get('a5e', 'automateMovement');
 		const { actor } = token;
 		const movement = actor?.system?.attributes?.movement;

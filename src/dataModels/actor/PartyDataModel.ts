@@ -1,4 +1,5 @@
 import { migrationData } from '../common.ts';
+import { currency } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -31,7 +32,10 @@ const partySchema = () => ({
 });
 
 declare namespace A5EPartyData {
-	type Schema = DataSchema & ReturnType<typeof partySchema> & ReturnType<typeof migrationData>;
+	type Schema = DataSchema &
+		ReturnType<typeof currency> &
+		ReturnType<typeof partySchema> &
+		ReturnType<typeof migrationData>;
 
 	interface BaseData extends Record<string, any> {}
 	interface DerivedData extends Record<string, any> {}
@@ -46,6 +50,7 @@ class A5EPartyData extends foundry.abstract.TypeDataModel<
 	static override defineSchema(): A5EPartyData.Schema {
 		return {
 			...migrationData(),
+			...currency(),
 			...partySchema(),
 		};
 	}
