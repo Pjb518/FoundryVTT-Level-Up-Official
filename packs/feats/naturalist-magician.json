@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Magic isn&rsquo;t just something found in dusty libraries of arcane tomes, hallowed temples, or alien far off planes. &nbsp;It permeates the very earth you stand on, the air you breathe. Nature has a magic all it&rsquo;s own, and some immerse themselves in this magic body and spirt, blurring the line between witch and druid. &nbsp;You gain the following benefits:</p><ul><li>You gain a +1 bonus to your Wisdom score, to a maximum value of 20.</li><li>If your witch spellcasting ability modifier is not Wisdom, you may change it to Wisdom.</li><li>You may add half your witch level to your druid level for the purpose of your wildshape feature.</li><li>You gain the Scholar of Old Ways Natural Demeanor option if you do not already have it, or a different option if you do.</li><li>You may freely take any druid secret of nature whenever you would gain a magical mystery, or a magical mystery anytime you would gain a secret of nature, and add half your druid level to your witch level for the purpose of magical mysteries.</li></ul>",
+		"description": "<p>Magic isn’t just something found in dusty libraries of arcane tomes, hallowed temples, or alien far off planes.  It permeates the very earth you stand on, the air you breathe. Nature has a magic all it’s own, and some immerse themselves in this magic body and spirt, blurring the line between witch and druid.  You gain the following benefits:</p><ul><li><p>You gain a +1 bonus to your Wisdom score, to a maximum value of 20.</p></li><li><p>If your witch spellcasting ability modifier is not Wisdom, you may change it to Wisdom.</p></li><li><p>You may add half your witch level to your druid level for the purpose of your wildshape feature.</p></li><li><p>You gain the @UUID[Compendium.a5e.a5e-class-features.Item.xj8kt56dwiduj5as]{Scholar of Old Ways} Natural Demeanor option if you do not already have it, or a different option if you do.</p></li><li><p>You may freely take any druid secret of nature whenever you would gain a magical mystery, or a magical mystery anytime you would gain a secret of nature, and add half your druid level to your witch level for the purpose of magical mysteries.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -25,27 +25,87 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"JXh9vPjDy8tM1QPU": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "JXh9vPjDy8tM1QPU",
+				"label": "Naturalist Magician",
+				"abilities": {
+					"base": [
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"img": ""
+			},
+			"MB6K4wNtTc6tTUVs": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "MB6K4wNtTc6tTUVs",
+				"label": "Naturalist Magician",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.xj8kt56dwiduj5as",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "3 witch (green witch archetype) and 3 druid",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis"
+		],
+		"featClasses": [
+			"witch",
+			"druid"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Naturalist Magician"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "wyke1surx9krlzek",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685276,
+		"modifiedTime": 1789935804778,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "wyke1surx9krlzek"
 }

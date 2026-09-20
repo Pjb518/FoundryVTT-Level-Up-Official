@@ -19,7 +19,8 @@
 				"name": "Use Feature",
 				"activation": {
 					"type": "reaction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -27,7 +28,9 @@
 						"type": "skillCheck",
 						"default": true,
 						"skill": "rel",
-						"ability": "none"
+						"ability": "none",
+						"bonus": "",
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -37,10 +40,38 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
 				}
 			}
 		},
@@ -54,27 +85,106 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"7f4BC0jLozBWTPB0": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Student of Dogma",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.dtjtka3c3t73pycs",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.wwk94syro18y9892",
+							"limitedReselection": true,
+							"selectionLimit": 5
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.jj5fxfwpl0rqayvy",
+							"limitedReselection": true,
+							"selectionLimit": 4
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.1il31a6es33x2grt",
+							"limitedReselection": true,
+							"selectionLimit": 4
+						}
+					],
+					"base": []
+				},
+				"_id": "7f4BC0jLozBWTPB0",
+				"img": ""
+			},
+			"4MOGC5nSLDJf80rF": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "4MOGC5nSLDJf80rF",
+				"label": "Student of Dogma",
+				"specialties": {
+					"base": [],
+					"options": [
+						"alignment",
+						"celestials",
+						"cults",
+						"fiends",
+						"gods",
+						"holySymbols",
+						"morality",
+						"prophecy",
+						"relics",
+						"undead"
+					],
+					"total": 1
+				},
+				"skill": "rel"
+			}
+		},
 		"prerequisite": "Theologian feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [
+			"cleric",
+			"scholar"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Theologian"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "kk5ndr37hcnh2xkn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685282,
+		"modifiedTime": 1789934781724,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "kk5ndr37hcnh2xkn"
 }

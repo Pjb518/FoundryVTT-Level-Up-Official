@@ -14,33 +14,7 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {
-			"2KQbahNCPDxbknHF": {
-				"name": "Use Feature",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"Dp6XCeSyolMHLia7": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "rel",
-						"ability": "none"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
+		"actions": {},
 		"description": "<p>Your studies have allowed you to catch a glimpse, however brief, of the deeper cosmic truths your faith has to offer, broadening your awareness and granting the following benefits:</p><ul><li>You gain a +1 bonus to your choice of your Intelligence or Wisdom score, to a maximum value of 20.</li><li>You gain an additional specialty with religion, and the maximum size for an expertise die on religion checks for you is 1d12.</li><li>You may spend a hit die or a use of channel divinity to replicate the effects of an @UUID[Compendium.a5e.a5e-spells.Item.qsa7b22n3y1pbzf6]{Augury} or @UUID[Compendium.a5e.a5e-spells.Item.bs3wnsid88tbup6c]{Divination} spell. &nbsp;Alternatively you may expend a hit die and a use of channel divinity or either one and inspiration to replicate the effects of a @UUID[Compendium.a5e.a5e-spells.Item.h5ssew7apf5ofbhc]{Commune} spell. &nbsp;Similar to scholar abilities, this does not count as actually casting a spell. &nbsp;After replicating any of the above spells, you may make a DC 25 religion check. &nbsp;On a success, this replication does not count towards the daily failure chance of the spell in question. &nbsp;This only applies to replicating a spell through this feat, not if you cast it through any other means.</li></ul>",
 		"favorite": false,
 		"secretDescription": "",
@@ -51,27 +25,97 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"kfmmYszWZWVnFoxK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "kfmmYszWZWVnFoxK",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"label": "Divine Revelation",
+				"img": ""
+			},
+			"jKBZd7jpDifB5xx5": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jKBZd7jpDifB5xx5",
+				"specialties": {
+					"base": [],
+					"options": [
+						"alignment",
+						"celestials",
+						"cults",
+						"fiends",
+						"gods",
+						"holySymbols",
+						"morality",
+						"prophecy",
+						"relics",
+						"undead"
+					],
+					"total": 1
+				},
+				"skill": "rel",
+				"label": "Divine Revelation"
+			}
+		},
 		"prerequisite": "Student of Dogma  feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"int",
+			"wis"
+		],
+		"featClasses": [
+			"cleric",
+			"scholar"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Theologian"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "tqfilfpw9nosclw4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685267,
+		"modifiedTime": 1789934895578,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "tqfilfpw9nosclw4"
 }

@@ -25,25 +25,69 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"IKTOX0sgOUPo2hIp": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "IKTOX0sgOUPo2hIp",
+				"label": "Master of the Mind",
+				"keys": {
+					"base": [
+						"cha",
+						"int",
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "abilitySave",
+				"img": "",
+				"expertiseCount": 1
+			},
+			"jmlJ1UzgJFMnBGmy": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jmlJ1UzgJFMnBGmy",
+				"label": "Master of the Mind",
+				"bonus": "@int.mod"
+			}
+		},
 		"prerequisite": "Expanded Mind feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [
+			"scholar",
+			"esper"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Psionic Expert"
 	},
 	"effects": [
 		{
-			"icon": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
-			"origin": "Item.jqqn0pp8xhsuysf9",
+			"origin": "Item.PdfYnrC0iky9pWtW",
 			"flags": {
 				"a5e": {}
 			},
@@ -52,53 +96,73 @@
 			"_id": "KwBFarNTVvLMcpbc",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.15",
+				"createdTime": 1789929685273,
+				"modifiedTime": 1789929685363,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			},
 			"system": {
 				"applyToSelf": false,
 				"effectType": "permanent",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
 				"changes": [
 					{
 						"key": "system.abilities.int.save.expertiseDice",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					},
 					{
 						"key": "system.abilities.wis.save.expertiseDice",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					},
 					{
 						"key": "system.abilities.cha.save.expertiseDice",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					}
 				]
-			}
+			},
+			"img": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"start": null,
+			"showIcon": 1,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "jqqn0pp8xhsuysf9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685273,
+		"modifiedTime": 1789935068111,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "jqqn0pp8xhsuysf9"
 }

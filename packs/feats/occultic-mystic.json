@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Psionics are, in many ways, the magic of the mind. &nbsp;Some witches, particularly those with an interest in dreams and the realms conjured within them, take to honing these abilities within themselves along with more traditional spellcasting, while some espers turn to magical practice in order to deepen their understanding of their abilities, and such mystics often find witches most welcoming. &nbsp;You gain the following benefits:</p><ul><li>You gain a +1 bonus to your Intelligence score, to a maximum value of 20.</li><li>If your witch spellcasting ability modifier is not Intelligence, you may change it to Intelligence.</li><li>You add all spells from the psychic and telepathy spell schools to your witch spell list.</li><li>You may expend a psi die as a bonus action to regain a spell slot of 3rd level or lower. Such a die is automatically expended and not rolled. &nbsp;Once you have done so, you may not do so again until you finish a short or long rest.</li><li>You gain the Dreamwalker noetic if you do not already have it, or a different noetic if you do.</li></ul>",
+		"description": "<p>Psionics are, in many ways, the magic of the mind.  Some witches, particularly those with an interest in dreams and the realms conjured within them, take to honing these abilities within themselves along with more traditional spellcasting, while some espers turn to magical practice in order to deepen their understanding of their abilities, and such mystics often find witches most welcoming.  You gain the following benefits:</p><ul><li><p>You gain a +1 bonus to your Intelligence score, to a maximum value of 20.</p></li><li><p>If your witch spellcasting ability modifier is not Intelligence, you may change it to Intelligence.</p></li><li><p>You add all spells from the psychic and telepathy spell schools to your witch spell list.</p></li><li><p>You may expend a psi die as a bonus action to regain a spell slot of 3rd level or lower. Such a die is automatically expended and not rolled.  Once you have done so, you may not do so again until you finish a short or long rest.</p></li><li><p>You gain the @UUID[Compendium.a5e.a5e-class-features.Item.thhrufTZ4jPNNQ3Z]{Dreamwalker} noetic if you do not already have it, or a different noetic if you do.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -25,27 +25,87 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"TFfG7AT8dGPuzZ2e": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "TFfG7AT8dGPuzZ2e",
+				"label": "Occultic Mystic",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"base": [
+						"int"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "1",
+				"img": ""
+			},
+			"R6OaHqAn6BKYefWo": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "R6OaHqAn6BKYefWo",
+				"label": "Occultic Mystic",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.thhrufTZ4jPNNQ3Z",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "3 witch and 3 esper",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"int"
+		],
+		"featClasses": [
+			"witch",
+			"esper"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Occultic Mystic"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "pgm2jwdp0tvs7b12",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685280,
+		"modifiedTime": 1789935856332,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "pgm2jwdp0tvs7b12"
 }
