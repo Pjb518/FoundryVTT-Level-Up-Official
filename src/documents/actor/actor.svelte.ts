@@ -301,11 +301,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Get coin data of a creature */
 	get coins(): Record<string, number> {
-		const actor = this as Creature;
-		if (actor.isParty()) return {};
-
 		// @ts-expect-error
-		return actor.system.currency;
+		return this.system.currency;
 	}
 
 	/** Get total wealth of Creature/ Party */

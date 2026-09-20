@@ -349,12 +349,69 @@
 
     &-inventory {
       grid-area: inventory;
+
+      display: flex;
+      flex-direction: column;
+
       height: 100%;
       min-height: 0;
 
       &__items {
         height: 100%;
         min-height: 0;
+      }
+    }
+
+    &__coins {
+      margin-bottom: 1rem;
+      font-size: var(--a5e-sm-text);
+      min-height: 0;
+
+      & > header {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        background-color: var(--a5e-color-primary);
+        padding-inline: 0.25rem;
+        padding-block: 0.125rem;
+      }
+
+      &__currency {
+        display: flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__coin {
+        text-align: center;
+        display: grid;
+        gap: 0.125rem;
+
+        & > span {
+          text-transform: uppercase;
+        }
+      }
+
+      &__distribute {
+        font-size: var(--a5e-lg-text);
+      }
+
+      &__wealth {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        background-color: var(--a5e-background-box);
+        border-radius: var(--a5e-border-radius-standard);
+        padding-inline-start: 0.55rem;
+        padding-block: 0.275rem;
+
+        & > * {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+        }
       }
     }
   }
