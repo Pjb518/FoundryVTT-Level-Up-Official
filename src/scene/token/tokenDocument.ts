@@ -102,6 +102,14 @@ class TokenDocumentA5E extends TokenDocument {
 		super.prepareBaseData();
 	}
 
+	override prepareDerivedData() {
+		super.prepareDerivedData();
+
+		// Do this again to re-evaluate
+		// @ts-expect-error
+		// this.movementAction = this._inferMovementAction();
+	}
+
 	/** Updates the size of the token */
 	updateTokenSize() {
 		const actor = this.actor as Creature | undefined;
@@ -225,7 +233,7 @@ class TokenDocumentA5E extends TokenDocument {
 	}
 
 	/** Get movement cost of a specific type  */
-	static getMovementCostFunction(type: string, token: Token) {
+	static getMovementCostFunction(type: string, token: Token, options?: any) {
 		const automate = game.settings.get('a5e', 'automateMovement');
 		const { actor } = token;
 		const movement = actor?.system?.attributes?.movement;
@@ -236,8 +244,8 @@ class TokenDocumentA5E extends TokenDocument {
 		// Improve this to factor in speed
 
 		return !automate || !actor?.isCreature() || !canMove || speed || (!speed && !fallBack)
-			? (cost) => cost
-			: (cost, _from, _to, distance) => cost + distance;
+			? (cost: number) => cost
+			: (cost: number, _from, _to, distance: number) => cost + distance;
 	}
 
 	static registerMovementActions() {
@@ -327,6 +335,8 @@ class TokenDocumentA5E extends TokenDocument {
 	): void {
 		super._onRelatedUpdate(update, operation);
 		if (!(this.scene instanceof SceneA5E)) return;
+
+		if (this.scene.isInFocus && this.scene.isView) this.reset();
 
 		// Size sync Goes last
 		const actor = this.actor;
