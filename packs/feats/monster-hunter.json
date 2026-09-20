@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You are a peerless slayer of beasts most foul. You gain the following benefits:</p><ul><li><p>You gain an expertise die on checks made to learn information about the Legends and Lore of a creature you can see.</p></li><li><p>You learn the <em>altered strike </em>cantrip.</p></li><li><p>You gain proficiency with the Douse maneuver and do not have to spend exertion to activate it.</p></li><li><p>You gain the tracking skill specialty in Survival.</p></li></ul>",
+		"description": "<p>You are a peerless slayer of beasts most foul. You gain the following benefits:</p><ul><li><p>You gain an expertise die on checks made to learn information about the Legends and Lore of a creature you can see.</p></li><li><p>You learn the @UUID[Compendium.a5e.a5e-spells.Item.7mwrwjjj3mn4yzxr]{Altered Strike}<em> </em>cantrip.</p></li><li><p>You gain proficiency with the @UUID[Compendium.a5e.a5e-maneuvers.Item.l0rplo3oc9hp25gb]{Douse} maneuver and do not have to spend exertion to activate it.</p></li><li><p>You gain the tracking skill specialty in Survival.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -26,26 +26,74 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"haieLGMQbLySOrMg": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "haieLGMQbLySOrMg",
+				"specialties": {
+					"base": [
+						"tracking"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "sur",
+				"label": "Monster Hunter",
+				"img": ""
+			},
+			"ONZLrcyHSyFTONtS": {
+				"grantType": "item",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ONZLrcyHSyFTONtS",
+				"label": "Monster Hunter",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-maneuvers.Item.l0rplo3oc9hp25gb"
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "Proficiency with Survival, 8th level or higher",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
-	"_id": "xm4pu81pr3rdm5ah",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685275,
+		"modifiedTime": 1789932755116,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "xm4pu81pr3rdm5ah"
 }

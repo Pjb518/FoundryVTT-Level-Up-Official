@@ -2,7 +2,58 @@
 	"name": "Dual-Wielding Expert",
 	"type": "feature",
 	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"name": "Dual-Wielding Expert",
+			"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+			"origin": "Item.NVtX7RhIj7BfnsVe",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "t93SSVhEFpHOPkml",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Gain a +1 bonus to Armor Class while you are wielding a separate melee weapon in each hand.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1789929929855,
+				"modifiedTime": 1789929946313,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +66,60 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"8tlSUAdpG44UgjrK": {
+				"name": "Dual-Wielding Expert",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"t93SSVhEFpHOPkml"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>You’re a master at wielding two weapons at once, gaining the following benefits:</p><ul><li><p>You gain a +1 bonus to Armor Class while you are wielding a separate melee weapon in each hand.</p></li><li><p>You can use two-weapon fighting with any two one-handed melee weapons&nbsp;so long as neither has the heavy property.</p></li><li><p>When you would normally draw or sheathe a one-handed weapon, you can instead draw or sheathe two one-handed weapons.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,7 +130,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
@@ -35,17 +140,31 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
-	"_id": "2g33hbsf4ddjqjdt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685265,
+		"modifiedTime": 1789929957951,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "2g33hbsf4ddjqjdt"
 }
