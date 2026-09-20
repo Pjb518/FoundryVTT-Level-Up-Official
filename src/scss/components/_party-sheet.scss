@@ -282,6 +282,10 @@
     display: grid;
     grid-template-areas: "aside inventory";
     grid-template-columns: 12rem 1fr;
+    gap: 0.5rem;
+    height: 100%;
+    min-height: 0;
+    flex: 1;
 
     &-aside {
       grid-area: aside;
@@ -290,6 +294,7 @@
       flex-direction: column;
       gap: 0.5rem;
       font-size: var(--a5e-sm-text);
+      height: 100%;
     }
 
     &__party-total {
@@ -339,6 +344,17 @@
         grid-template-areas: "img wealth";
         grid-template-columns: 2rem 1fr;
         gap: 0.5rem;
+      }
+    }
+
+    &-inventory {
+      grid-area: inventory;
+      height: 100%;
+      min-height: 0;
+
+      &__items {
+        height: 100%;
+        min-height: 0;
       }
     }
   }

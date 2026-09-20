@@ -57,6 +57,10 @@
   let members = $derived(party.reactive.members);
 
   setContext("party", party);
+
+  // We add these for inventory
+  setContext("actor", party);
+  setContext("sheetIsLocked", () => false);
 </script>
 
 <main class="a5e-party">
