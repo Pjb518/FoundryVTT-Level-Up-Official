@@ -2,6 +2,7 @@ import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
+import { TokenLayerA5E } from '../canvas/layers/token.ts';
 import { TokenA5E } from '../canvas/token/token.ts';
 import _onCombatantControl from '../combat/_onCombatantControl.js';
 import _onCombatControl from '../combat/_onCombatControl.js';
@@ -113,6 +114,7 @@ export default function init() {
 
 	// Layers
 	CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
+	CONFIG.Canvas.layers.tokens.layerClass = TokenLayerA5E;
 
 	// Initialize the game's A5E namespace
 	game.a5e = {

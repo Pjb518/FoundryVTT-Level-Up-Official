@@ -8,23 +8,82 @@ import { measureDistanceCuboid, squareAtPoint } from '../utils.ts';
 let circularMask = null;
 
 declare module 'fvtt-types/configuration' {
-	interface PlaceableObjectConfig {
+	interface PlaceableObjectClassConfig {
 		Token: typeof TokenA5E;
 	}
 }
 
 class TokenA5E extends foundry.canvas.placeables.Token {
-	// static override RENDER_FLAGS: TokenA5E.RENDER_FLAGS = () => {
-	// 	const flags = Object.assign(super.RENDER_FLAGS, { refreshDistanceLabel: {} });
-	// 	flags.refreshState.propagate?.push('refreshDistanceLabel');
-	// 	return flags;
-	// };
+	static override RENDER_FLAGS: TokenA5E.RENDER_FLAGS = (() => {
+		const flags = Object.assign(super.RENDER_FLAGS, { refreshDistanceLabel: {} });
+		flags.refreshState.propagate?.push('refreshDistanceLabel');
+		return flags;
+	})();
 
 	/** ================================================================= */
 	// Getters
 	/** ================================================================= */
+
+	/** Can the current user see the distance of this token from a controlled token? */
+	get #canSeeDistance(): boolean {
+		if (
+			!this.visible ||
+			this.isPreview ||
+			this.document.isSecret ||
+			this.controlled ||
+			this.animation
+		) {
+			return false;
+		}
+		return (
+			this.hover &&
+			(this.layer.controlled.length === 1 || !!game.user.character?.getActiveTokens().length)
+		);
+	}
+
+	/** A reference to an animation that is currently in progress for this Token, if any */
+	get animation(): Promise<void> | null {
+		return (
+			this.animationContexts.get(this.animationName)?.promise ??
+			this.animationContexts.get(this.movementAnimationName)?.promise ??
+			null
+		);
+	}
+
+	/** Gets dims of a token */
 	get dims() {
 		return this.document.dims;
+	}
+
+	/** The grid offsets representing this token's shape */
+	get footprint(): BaseGrid.Offset2D[] {
+		const shape = this.document.isTiny ? this.mechanicalBounds : this.localShape;
+		const seen = new Set<number>();
+		const offsets: BaseGrid.Offset2D[] = [];
+		const [i0, j0, i1, j1] = canvas.grid!.getOffsetRange(this.mechanicalBounds);
+		for (let i = i0; i < i1; i++) {
+			for (let j = j0; j < j1; j++) {
+				const offset = { i, j };
+				const packed = (offset.i << 16) + offset.j;
+				if (seen.has(packed)) continue;
+				seen.add(packed);
+				const point = canvas.grid!.getCenterPoint(offset);
+				if (shape!.contains(point.x, point.y)) {
+					offsets.push(offset);
+				}
+			}
+		}
+		return offsets.sort((a, b) => a.j - b.j).sort((a, b) => a.i - b.i);
+	}
+
+	/** The ID of the highlight layer for this token */
+	get highlightId(): string {
+		return `Token.${this.id}`;
+	}
+
+	/** Is this token currently animating? */
+	get isAnimating(): boolean {
+		return !!this.animation;
 	}
 
 	/** This token's shape at its canvas position */
@@ -51,46 +110,6 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		return this.shape;
 	}
 
-	/** The grid offsets representing this token's shape */
-	get footprint(): BaseGrid.Offset2D[] {
-		const shape = this.document.isTiny ? this.mechanicalBounds : this.localShape;
-		const seen = new Set<number>();
-		const offsets: BaseGrid.Offset2D[] = [];
-		const [i0, j0, i1, j1] = canvas.grid!.getOffsetRange(this.mechanicalBounds);
-		for (let i = i0; i < i1; i++) {
-			for (let j = j0; j < j1; j++) {
-				const offset = { i, j };
-				const packed = (offset.i << 16) + offset.j;
-				if (seen.has(packed)) continue;
-				seen.add(packed);
-				const point = canvas.grid!.getCenterPoint(offset);
-				if (shape!.contains(point.x, point.y)) {
-					offsets.push(offset);
-				}
-			}
-		}
-		return offsets.sort((a, b) => a.j - b.j).sort((a, b) => a.i - b.i);
-	}
-
-	/** A reference to an animation that is currently in progress for this Token, if any */
-	get animation(): Promise<void> | null {
-		return (
-			this.animationContexts.get(this.animationName)?.promise ??
-			this.animationContexts.get(this.movementAnimationName)?.promise ??
-			null
-		);
-	}
-
-	/** Is this token currently animating? */
-	get isAnimating(): boolean {
-		return !!this.animation;
-	}
-
-	/** The ID of the highlight layer for this token */
-	get highlightId(): string {
-		return `Token.${this.id}`;
-	}
-
 	/** Bounds used for mechanics, such as flanking and drawing auras */
 	get mechanicalBounds(): PIXI.Rectangle {
 		const bounds = this.bounds;
@@ -107,29 +126,13 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 		return bounds;
 	}
 
-	/** Can the current user see the distance of this token from a controlled token? */
-	get #canSeeDistance(): boolean {
-		if (
-			!this.visible ||
-			this.isPreview ||
-			this.document.isSecret ||
-			this.controlled ||
-			this.animation
-		) {
-			return false;
-		}
-		return (
-			this.hover &&
-			(this.layer.controlled.length === 1 || !!game.user.character?.getActiveTokens().length)
-		);
-	}
-
 	/** ================================================================= */
 	// Distance and Mechanical Methods
 	/** ================================================================= */
 
 	/** Publicly expose `Token#_canControl` for use in `TokenLayerPF2e`. */
 	canControl(user: User, event: PIXI.FederatedPointerEvent): boolean {
+		// @ts-expect-error
 		return this._canControl(user, event);
 	}
 
@@ -175,13 +178,51 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 	/** ================================================================= */
 	// Render / Refresh Methods
 	/** ================================================================= */
+	override _applyRenderFlags(flags: Record<string, boolean>) {
+		super._applyRenderFlags(flags);
+		if (flags.refreshDistanceLabel) this.#refreshDistanceLabel();
+	}
+
 	override _refreshState(): void {
 		super._refreshState();
 		const distanceLabelEl = document.getElementById('token-hover-distance');
 		if (distanceLabelEl) distanceLabelEl.hidden = !this.#canSeeDistance;
 	}
 
-	#refreshDistanceLabel(): void {}
+	#refreshDistanceLabel(): void {
+		console.log('here');
+		this.layer.refreshDistanceLine();
+
+		const labelEl = document.getElementById('token-hover-distance');
+		if (!this.#canSeeDistance || !labelEl) {
+			if (labelEl) labelEl.hidden = true;
+			return;
+		}
+
+		const controlledToken = this.layer.controlled[0] ?? game.user.character?.getActiveTokens()[0];
+		if (!controlledToken || controlledToken.isPreview || controlledToken.animation) return;
+
+		const totalEl = labelEl.querySelector('.total-measurement');
+		if (!totalEl) {
+			console.error('Failed to retrieve measument element');
+			return;
+		}
+
+		const distance = controlledToken.distanceTo(this);
+		if (distance < canvas.grid!.distance) {
+			labelEl.hidden = true;
+			return;
+		}
+
+		const label = [distance, canvas.scene?.grid.units ?? ''].join(' ').trim();
+		totalEl.textContent = label;
+		labelEl.dataset.tokenId = this.document.id!;
+		labelEl.style.setProperty('--position-y', `${this.y}px`);
+		labelEl.style.setProperty('--ui-scale', canvas.dimensions!.uiScale.toString());
+		labelEl.hidden = false;
+		const square = this.layer.refreshDistanceLine(controlledToken, this);
+		labelEl.style.setProperty('--position-x', `${square.x}px`);
+	}
 
 	/** ================================================================= */
 	// Status Effect Methods
