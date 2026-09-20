@@ -70,7 +70,7 @@
 
   // Base vars
   let members = $derived(party.reactive.members);
-  let coins = getCoins();
+  let coins = $derived(getCoins());
   let partyWealth = $derived(party.reactive.wealth);
   let partyInventoryWealth = $derived(getPartyInventoryWealth());
 </script>
@@ -152,7 +152,7 @@
               class="a5e-input a5e-input--slim a5e-input--small"
               type="number"
               value={party.reactive.system.currency[denom] ?? 0}
-              onfocus={({ currentTarget }) => (currentTarget.value = "0")}
+              onfocus={({ currentTarget }) => (currentTarget.value = "")}
               onblur={({ currentTarget }) => (currentTarget.value = `${value}`)}
               onchange={({ currentTarget }) =>
                 updateCurrency(denom, currentTarget.value)}

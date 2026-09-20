@@ -2806,6 +2806,106 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	// Misc Handlers (Party)
 	/** ---------------------------------- */
+
+	/** Distribute coins on a party */
+	async distributeCoins(this: Actor.OfType<'party'>) {
+		if (!this.isParty()) return;
+
+		const config = CONFIG.A5E.currencyToCopper;
+		const coins = this.system.currency;
+		const members = this.members;
+		const count = members.length;
+		const totalCopper = Object.entries(coins ?? {}).reduce((acc, [curr, value]) => {
+			if (curr === 'cr') return acc;
+			return acc + (config[curr]?.(value ?? 0) ?? 0);
+		}, 0);
+
+		const share: Record<string, number> = {
+			cr: coins.cr ? Math.trunc(coins.cr / count) : 0,
+		};
+
+		let remaining = Math.floor(totalCopper / count);
+
+		if (remaining === 0 && share.cr === 0) {
+			ui.notifications.warn('Nothing to Share');
+			return;
+		}
+
+		const remainder = totalCopper % count;
+
+		Object.keys(CONFIG.A5E.currencyDenominations ?? {})
+			.reverse()
+			.forEach((denom) => {
+				// Don't share credits and electrum
+				if (['cr', 'ep'].includes(denom)) return;
+
+				const amount = Math.floor(remaining / config[denom](1));
+				remaining %= config[denom](1);
+
+				share[denom] = amount;
+			});
+
+		remaining += remainder;
+
+		console.log(share, remaining);
+
+		// Update actors
+		const partyUpdates = Object.entries(this.system.currency ?? {}).reduce(
+			(acc, [denom, val]) => {
+				if (denom === 'cp') {
+					acc[denom] = remaining;
+					return acc;
+				}
+
+				acc[denom] = 0;
+				return acc;
+			},
+			{} as Record<string, number>,
+		);
+
+		await Promise.all([
+			// @ts-expect-error
+			this.update({ 'system.currency': partyUpdates }),
+			...members.map(async (a) => {
+				const owns = a.system.currency;
+				Object.entries(share ?? {}).forEach(([denom, val]) => {
+					if (!val) return;
+					owns[denom] ??= 0;
+					owns[denom] += val;
+				});
+
+				// @ts-expect-error
+				return a.update({ 'system.currency': owns });
+			}),
+		]);
+
+		// Create Chat Message
+		const distributedTo = members
+			.map((a) => a.name)
+			.join(', ')
+			.trim();
+
+		const coinString = Object.entries(share)
+			.reduce((acc, [denom, val]) => {
+				if (!val) return acc;
+				acc.push(`${val.toLocaleString()}${denom}`);
+				return acc;
+			}, [] as string[])
+			.join(', ')
+			.trim();
+
+		let message = '<strong>Distributed Coins:</strong> <br />';
+		message += `<strong>Amount:</strong> ${coinString} <br />`;
+		message += `<strong>To:</strong> ${distributedTo} <br />`;
+
+		ChatMessage.create({
+			author: game.user.id,
+			style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+			content: message,
+		});
+	}
+
+	/** Remove a member from the party */
 	async removeMember(this: Actor.OfType<'party'>, uuid: string) {
 		if (!this.isParty()) return;
 

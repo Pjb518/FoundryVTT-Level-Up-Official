@@ -469,13 +469,22 @@ const currencyDenominations = {
 	cr: 'A5E.currency.credits',
 };
 
+const currencyToCopper = {
+	cp: (v: number) => v,
+	sp: (v: number) => v * 10,
+	ep: (v: number) => v * 50,
+	gp: (v: number) => v * 100,
+	pp: (v: number) => v * 1000,
+	cr: (v: number) => v * 100,
+};
+
 const currencyToGold = {
-	cp: (v) => v * 0.01,
-	sp: (v) => v * 0.1,
-	ep: (v) => v * 0.2,
-	gp: (v) => v,
-	pp: (v) => v * 10,
-	cr: (v) => v,
+	cp: (v: number) => v * 0.01,
+	sp: (v: number) => v * 0.1,
+	ep: (v: number) => v * 0.2,
+	gp: (v: number) => v,
+	pp: (v: number) => v * 10,
+	cr: (v: number) => v,
 };
 
 const damagedStates = {
@@ -2272,6 +2281,7 @@ const A5E = {
 	containerSortMethods,
 	creatureTypes,
 	currencyDenominations,
+	currencyToCopper,
 	currencyToGold,
 	damagedStates,
 	scalingModes,
