@@ -8,6 +8,22 @@
     object-position: 50% 0;
   }
 
+  &__header {
+    display: grid;
+    grid-template-columns: 5rem 1fr 5rem min-content;
+    align-items: center;
+
+    &__img {
+      width: 4rem;
+      aspect-ratio: 1/ 1;
+    }
+
+    &__level,
+    &__rest {
+      font-size: var(--a5e-lg-text);
+    }
+  }
+
   &__actions {
     display: flex;
     flex-direction: column;

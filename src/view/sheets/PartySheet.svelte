@@ -72,11 +72,11 @@
 </script>
 
 <main class="a5e-party">
-  <header class="a5e-party__header">
+  <header class="a5e-party-sheet__header">
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <img
-      class="a5e-party__header__img"
+      class="a5e-party-sheet__header__img"
       src={party.reactive.img}
       alt={party.reactive.name}
       onclick={onEditImage}
@@ -94,9 +94,20 @@
       />
     </div>
 
-    <div class="a5e-party__header__level">
-      {partyData.details.level ?? 1}
+    <div class="a5e-party-sheet__header__level">
+      Level {partyData.details.level ?? 1}
     </div>
+
+    <button
+      type="button"
+      class="a5e-button a5e-button--transparent a5e-party-sheet__header__rest"
+      aria-label="Long Rest Party"
+      data-tooltip="Long Rest Party"
+      data-tooltip-direction="UP"
+      onclick={() => party.triggerLongRest()}
+    >
+      <i class="fa-solid fa-campfire"></i>
+    </button>
   </header>
 
   <!-- <hr class="a5e-party__seperator"> -->
@@ -123,20 +134,6 @@
     flex-direction: column;
     gap: 0.75rem;
     max-height: 80vh;
-
-    &__header {
-      display: grid;
-      grid-template-columns: 5rem 1fr 5rem;
-
-      &__img {
-        width: 4rem;
-        aspect-ratio: 1/ 1;
-      }
-
-      &__level {
-        font-size: 1.75rem;
-      }
-    }
 
     &__instructions {
       display: flex;

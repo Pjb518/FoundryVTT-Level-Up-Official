@@ -103,6 +103,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.replaceFatigueAndStrife': boolean;
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
+		'a5e.simpleRests': boolean;
 		'a5e.useCredits': boolean;
 		'a5e.a5e.visionRulesApplyToCharactersOnly': boolean;
 	}

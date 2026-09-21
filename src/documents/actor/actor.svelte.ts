@@ -1890,6 +1890,26 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	// Resources Reset Handlers (Party)
 	/** ---------------------------------- */
+	async triggerLongRest(this: Actor.OfType<'party'>, restOptions = {} as RestManager.Data) {
+		if (!this.isParty()) return;
+
+		let restData = restOptions;
+		if (foundry.utils.isEmpty(restOptions)) {
+			const title = localize('A5E.rest.configurationPrompt', {
+				name: this.name,
+			});
+			const dialog = new GenericConfigDialog(this, title, RestDialog);
+			await dialog.render(true);
+			restData = await dialog?.promise;
+		}
+
+		const members = this.members;
+		await Promise.all(
+			members.map(async (a) => {
+				a.triggerRest(restData);
+			}),
+		);
+	}
 
 	/** ================================================================= */
 	// Sheet Toggles
