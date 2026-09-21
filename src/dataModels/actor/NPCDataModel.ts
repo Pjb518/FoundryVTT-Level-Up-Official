@@ -178,6 +178,12 @@ class A5ENPCData extends foundry.abstract.TypeDataModel<
 			...npcSchema(),
 		};
 	}
+
+	override prepareBaseData() {
+		super.prepareBaseData();
+
+		this.attributes.prof = Math.max(2, Math.floor((this.details.cr + 7) / 4));
+	}
 }
 
 export { A5ENPCData };

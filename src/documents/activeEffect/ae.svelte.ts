@@ -416,6 +416,18 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 	// -------------------------------------------------------
 	//  CRUD Methods
 	// -------------------------------------------------------
+	override async _preCreate(data, options, user) {
+		if (this.parent?.documentName === 'Actor' && this.parent?.isParty()) {
+			const members = this.parent.members;
+			members.forEach((m) => {
+				m.createEmbeddedDocuments('ActiveEffect', [this.toObject()]);
+			});
+			return false;
+		}
+
+		super._preCreate(data, options, user);
+	}
+
 	override _onCreate(data, options, userId) {
 		super._onCreate(data, options, userId);
 		this.#handleSubConditions(data, userId, true);
@@ -506,7 +518,14 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 			}
 		}
 
-		document.createEmbeddedDocuments('ActiveEffect', [effectData]);
+		if (document.isParty() || document.actor?.isParty()) {
+			const members = document.members ?? document.actor.members ?? [];
+			members.forEach((a) => {
+				a.createEmbeddedDocuments('ActiveEffect', [effectData]);
+			});
+		} else {
+			document.createEmbeddedDocuments('ActiveEffect', [effectData]);
+		}
 	}
 
 	equals(other) {

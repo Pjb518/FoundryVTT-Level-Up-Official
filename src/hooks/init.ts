@@ -1,6 +1,9 @@
+import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
+import { TokenLayerA5E } from '../canvas/layers/token.ts';
+import { TokenA5E } from '../canvas/token/token.ts';
 import _onCombatantControl from '../combat/_onCombatantControl.js';
 import _onCombatControl from '../combat/_onCombatControl.js';
 import getInitiativeFormula from '../combat/getInitiativeFormula.js';
@@ -23,15 +26,13 @@ import { ExpertiseDie } from '../dice/terms/ExpertiseDie.ts';
 import { ActiveEffectA5E } from '../documents/activeEffect/ae.svelte.ts';
 import EffectOption from '../documents/activeEffect/EffectOption.ts';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
-import ActorProxy from '../documents/actor/actorProxy.ts';
 import trackableAttributes from '../documents/actor/trackableAttributes.js';
 import { ChatMessageA5e } from '../documents/chatMessage.ts';
 import ItemProxy from '../documents/item/itemProxy.ts';
 import ActiveEffectSheetA5e from '../documents/sheets/ActiveEffectSheet.svelte.ts';
 import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
 import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
-import TokenA5e from '../documents/token/token.js';
-import TokenDocumentA5e from '../documents/tokenDocument.ts';
+import { PartySheetA5E } from '../documents/sheets/PartySheet.svelte.ts';
 import { CombatantA5e } from '../encounter/Combatant.ts';
 import { EncounterA5e } from '../encounter/Encounter.ts';
 import { registerKeybindings } from '../keybindings.ts';
@@ -54,6 +55,8 @@ import { handlePackMigration } from '../migration/handlers/handlePackMigration.t
 import { MigrationList } from '../migration/MigrationList.ts';
 import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner.ts';
 import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes.js';
+import { SceneA5E } from '../scene/scene.ts';
+import { TokenDocumentA5E } from '../scene/token/tokenDocument.ts';
 import preloadHandlebarsTemplates from '../templates.js';
 import performPreLocalization from '../utils/localization/performLocalization.js';
 
@@ -63,15 +66,15 @@ export default function init() {
 	CONFIG.A5E = A5E;
 	// CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
 	CONFIG.ActiveEffect.documentClass = ActiveEffectA5E;
-	// @ts-expect-error
-	CONFIG.Actor.documentClass = ActorProxy;
+	CONFIG.Actor.documentClass = ActorA5E;
 	CONFIG.Actor.trackableAttributes = trackableAttributes;
 	CONFIG.ChatMessage.documentClass = ChatMessageA5e;
 	CONFIG.Combat.documentClass = EncounterA5e;
 	CONFIG.Combatant.documentClass = CombatantA5e;
 	CONFIG.Item.documentClass = ItemProxy;
-	CONFIG.Token.documentClass = TokenDocumentA5e;
-	CONFIG.Token.objectClass = TokenA5e;
+	CONFIG.Token.documentClass = TokenDocumentA5E;
+	CONFIG.Token.objectClass = TokenA5E;
+	CONFIG.Scene.documentClass = SceneA5E;
 
 	CONFIG.Dice.BaseRoll = BaseRoll;
 	CONFIG.Dice.D20Roll = D20Roll;
@@ -111,6 +114,9 @@ export default function init() {
 
 	// Layers
 	CONFIG.Canvas.layers.regions.layerClass = RegionLayerA5E;
+	CONFIG.Canvas.layers.tokens.layerClass = TokenLayerA5E;
+
+	TokenDocumentA5E.registerMovementActions();
 
 	// Initialize the game's A5E namespace
 	game.a5e = {
@@ -134,8 +140,8 @@ export default function init() {
 		documentClasses: {
 			...A5E.Actor.documentClasses,
 			...A5E.Item.documentClasses,
-			TokenDocumentA5e,
-			TokenA5e,
+			TokenDocumentA5E,
+			TokenA5E,
 		},
 		dialogs: {
 			bonuses: {
@@ -188,14 +194,20 @@ export default function init() {
 	foundry.documents.collections.Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['character'],
 		makeDefault: true,
-		label: 'A5E.SheetClassCharacter',
+		label: 'A5E.sheetClasses.character',
 	});
 
 	// @ts-expect-error
 	foundry.documents.collections.Actors.registerSheet('a5e', ActorSheetA5e, {
 		types: ['npc'],
 		makeDefault: true,
-		label: 'A5E.SheetClassNPC',
+		label: 'A5E.sheetClasses.npc',
+	});
+
+	foundry.documents.collections.Actors.registerSheet('a5e', PartySheetA5E, {
+		types: ['party'],
+		makeDefault: true,
+		label: 'A5E.sheetClasses.party',
 	});
 
 	foundry.documents.collections.Items.unregisterSheet(
@@ -205,7 +217,7 @@ export default function init() {
 	// @ts-expect-error
 	foundry.documents.collections.Items.registerSheet('a5e', ItemSheetA5e, {
 		makeDefault: true,
-		label: 'A5E.SheetClassItem',
+		label: 'A5E.sheetClasses.item',
 	});
 
 	foundry.applications.apps.DocumentSheetConfig.unregisterSheet(

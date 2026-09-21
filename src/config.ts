@@ -96,6 +96,19 @@ const DICE_ROLL_MODES = {
 	ic: 'In Character',
 };
 
+const DICE_SIDES = [0, 4, 6, 8, 10, 12, 20, 100] as const;
+
+const DICE_SIDES_MAP = {
+	0: 0,
+	1: 4,
+	2: 6,
+	3: 8,
+	4: 10,
+	5: 12,
+	6: 20,
+	7: 100,
+} as const;
+
 /**
  * Enum for object equipped state
  */
@@ -468,6 +481,24 @@ const currencyDenominations = {
 	gp: 'A5E.currency.gold',
 	pp: 'A5E.currency.platinum',
 	cr: 'A5E.currency.credits',
+};
+
+const currencyToCopper = {
+	cp: (v: number) => v,
+	sp: (v: number) => v * 10,
+	ep: (v: number) => v * 50,
+	gp: (v: number) => v * 100,
+	pp: (v: number) => v * 1000,
+	cr: (v: number) => v * 100,
+};
+
+const currencyToGold = {
+	cp: (v: number) => v * 0.01,
+	sp: (v: number) => v * 0.1,
+	ep: (v: number) => v * 0.2,
+	gp: (v: number) => v,
+	pp: (v: number) => v * 10,
+	cr: (v: number) => v,
 };
 
 const damagedStates = {
@@ -1636,13 +1667,13 @@ const timePeriodsPlural = {
 
 const tokenDimensions = {
 	tiny: 0.5,
-	sm: 1,
+	sm: 0.8,
 	med: 1,
 	lg: 2,
 	huge: 3,
 	grg: 4,
 	titan: 5,
-};
+} as const;
 
 /**
  * Colors used to visualize temporary and temporary maximum HP in token health bars.
@@ -2239,6 +2270,8 @@ const A5E = {
 	CR_EXP_LEVELS,
 	DAMAGED_STATES,
 	DICE_ROLL_MODES,
+	DICE_SIDES,
+	DICE_SIDES_MAP,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
 	MONSTER_FEATURE_LIST,
@@ -2274,6 +2307,8 @@ const A5E = {
 	containerSortMethods,
 	creatureTypes,
 	currencyDenominations,
+	currencyToCopper,
+	currencyToGold,
 	damagedStates,
 	scalingModes,
 	baseScalingModes,

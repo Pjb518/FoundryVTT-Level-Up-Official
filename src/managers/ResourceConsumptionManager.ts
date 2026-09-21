@@ -104,6 +104,7 @@ class ResourceConsumptionManager {
 		}
 
 		await this.#actor.updateEmbeddedDocuments('Item', [
+			// @ts-expect-error
 			{ _id: item.id, 'system.damagedState': newQuality },
 		]);
 	}

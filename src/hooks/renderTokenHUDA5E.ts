@@ -2,7 +2,7 @@ import { mount } from 'svelte';
 
 import A5eTokenHUD from '#view/huds/A5ETokenHUD.svelte';
 
-export default function renderNimbleTokenHUD(HUD, html, token) {
+export default function renderTokenHUDA5E(HUD, html, token) {
 	const target = html.querySelector('.palette.status-effects');
 	if (!target) return;
 
