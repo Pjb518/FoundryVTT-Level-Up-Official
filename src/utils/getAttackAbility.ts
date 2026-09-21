@@ -7,7 +7,7 @@ import getSpellBookAbility from './getSpellBookAbility.ts';
  * A utility function for determining the correct attribute to use for a given attack roll.
  */
 export default function getAttackAbility(
-	actor: Actor.OfType<'base'>,
+	actor: Creature,
 	item: ItemA5e,
 	attackData: AttackRollData | undefined | null,
 ): string {

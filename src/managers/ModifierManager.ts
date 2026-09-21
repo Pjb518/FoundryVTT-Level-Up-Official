@@ -2,11 +2,11 @@ import type { ItemA5e } from '#documents/item/item.ts';
 import { localize } from '#utils/localization/localize.ts';
 
 class ModifierManager {
-	actor: Actor.OfType<'base'>;
+	actor: Creature;
 
 	rollData: ModifierManager.RollData;
 
-	constructor(actor: Actor.OfType<'base'>, rollData: ModifierManager.RollData) {
+	constructor(actor: Creature, rollData: ModifierManager.RollData) {
 		this.actor = actor;
 		this.rollData = rollData;
 	}

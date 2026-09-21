@@ -274,7 +274,7 @@ class A5eEnricherManager {
 
 		// Get documents
 		const item = document.documentName === 'Item' ? (document as Item.OfType<'base'>) : null;
-		let actor = document.documentName === 'Actor' ? (document as Actor.OfType<'base'>) : null;
+		let actor = document.documentName === 'Actor' ? (document as Creature) : null;
 
 		if (!item && !actor) return null;
 		if (item?.isEmbedded && !actor) actor = item.actor!;

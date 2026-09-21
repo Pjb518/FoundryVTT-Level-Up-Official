@@ -1,7 +1,7 @@
 import { localize } from '#utils/localization/localize.ts';
 
 export default class HitDiceManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#automate: boolean;
 
@@ -11,7 +11,7 @@ export default class HitDiceManager {
 
 	dieSizes = new Set<number>();
 
-	constructor(actor: Actor.OfType<'base'>, automate = true) {
+	constructor(actor: Creature, automate = true) {
 		this.#actor = actor;
 		this.#automate = automate;
 
