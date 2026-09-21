@@ -104,7 +104,11 @@
       aria-label="Long Rest Party"
       data-tooltip="Long Rest Party"
       data-tooltip-direction="UP"
-      onclick={() => party.triggerLongRest()}
+      disabled={!game.user.isGM}
+      onclick={() => {
+        if (!game.user.isGM) return;
+        party.triggerLongRest();
+      }}
     >
       <i class="fa-solid fa-campfire"></i>
     </button>

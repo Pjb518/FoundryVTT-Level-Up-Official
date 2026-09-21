@@ -3166,7 +3166,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	async _preCreateParty(
 		this: Actor.OfType<'party'>,
 		...[data, options, user]: Parameters<Actor['_preCreate']>
-	) {}
+	) {
+		// Update prototype token
+		const prototypeToken = { actorLink: true, disposition: 1 };
+		// @ts-expect-error
+		this.updateSource({ prototypeToken });
+
+		// Update ownership
+		// @ts-expect-error
+		this.updateSource({ 'ownership.default': 2 });
+	}
 
 	/** ---------------------------------- */
 	// Pre Update
