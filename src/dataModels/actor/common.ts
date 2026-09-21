@@ -20,29 +20,39 @@ const { fields } = foundry.data;
 
 // TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
-	abilities: new fields.SchemaField(
-		Object.keys(CONFIG.A5E.abilities ?? {}).reduce((acc, abl) => {
-			acc[abl] = new fields.SchemaField({
-				value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-				check: new fields.SchemaField({
-					expertiseDice: new ExpertiseDieField(),
-					// bonus: new fields.StringField({ required: true, initial: '' }),
-					...d20RollModification(),
+	abilities: new MappingField(
+		new fields.SchemaField({
+			value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+			check: new fields.SchemaField({
+				expertiseDice: new ExpertiseDieField(),
+				mod: new fields.NumberField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 0,
 				}),
-				save: new fields.SchemaField({
-					proficient: new fields.BooleanField({ required: true, initial: false }),
-					expertiseDice: new ExpertiseDieField(),
-
-					// bonus: new fields.StringField({ required: true, initial: '' }),
-					...d20RollModification(),
-					...(abl === 'con'
-						? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) }
-						: {}),
+				// bonus: new fields.StringField({ required: true, initial: '' }),
+				...d20RollModification(),
+			}),
+			save: new fields.SchemaField({
+				proficient: new fields.BooleanField({ required: true, initial: false }),
+				expertiseDice: new ExpertiseDieField(),
+				mod: new fields.NumberField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 0,
 				}),
-			});
 
-			return acc;
-		}, {}),
+				// bonus: new fields.StringField({ required: true, initial: '' }),
+				...d20RollModification(),
+			}),
+		}),
+		{
+			required: true,
+			nullable: false,
+			initialKeys: Object.keys(CONFIG.A5E.abilities),
+		},
 	),
 });
 

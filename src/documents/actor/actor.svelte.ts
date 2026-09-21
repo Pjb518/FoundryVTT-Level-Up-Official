@@ -629,16 +629,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Add base bonuses for abilities
 		Object.entries(actorData.abilities).forEach(([abilityKey, ability]) => {
 			const value = getDeterministicBonus(
-				[
-					// @ts-expect-error
-					ability.value,
-					this.BonusesManager?.getAbilityBonusesFormula(abilityKey, 'base').trim(),
-				]
+				[ability.value, this.BonusesManager?.getAbilityBonusesFormula(abilityKey, 'base').trim()]
 					.filter(Boolean)
 					.join(' + '),
 			);
 
-			// @ts-expect-error
 			ability.value = value ?? ability.value;
 		});
 
@@ -647,9 +642,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			// @ts-expect-error
 			const baseMod = Math.floor((ability.value - 10) / 2);
 
-			// @ts-expect-error
 			ability.check.mod = baseMod;
-			// @ts-expect-error
 			ability.save.mod = baseMod + (ability.save.proficient ? actorData.attributes.prof : 0);
 		});
 
@@ -666,7 +659,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 				try {
 					deterministicBonus = getDeterministicBonus(
 						[
-							// @ts-expect-error
 							ability[key].mod,
 							// @ts-expect-error
 							this.BonusesManager?.getAbilityBonusesFormula(abilityKey, key).trim(),
@@ -689,7 +681,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 					8,
 					actorData.attributes.prof,
 					actorData.bonuses.maneuverDC,
-					// @ts-expect-error
 					Math.max(actorData.abilities.str.check.mod, actorData.abilities.dex.check.mod),
 				].join(' + '),
 				this.getRollData(),
@@ -731,7 +722,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	prepareCharDerivedData(this: Actor.OfType<'character'>) {
-		// @ts-expect-error
 		this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
 
 		const actorData = this.system;
@@ -761,7 +751,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {
-		// @ts-expect-error
 		this.HitDiceManager = new HitDiceManager(this, false);
 
 		const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
@@ -1146,7 +1135,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const { classes } = this;
 		const bonusHP = this.system.attributes.hp.bonus ?? 0;
 		const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
-		// @ts-expect-error
 		const conMod = (this.system.abilities.con.check.mod ?? 0) * this.levels.character;
 
 		this.system.attributes.hp.max = maxHP + conMod + bonusHP;
@@ -1626,9 +1614,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Add a shortcut for abilities.<ability>.check.mod, abilities.<ability>.mod, and <ability>.mod
 		Object.entries(abilities).reduce((acc, [key, ability]) => {
 			acc.abilities ??= {};
-			// @ts-expect-error
 			acc.abilities[key] = { ...ability, mod: ability.check.mod };
-			// @ts-expect-error
 			acc[key] = { ...ability, mod: ability.check.mod };
 
 			return acc;
