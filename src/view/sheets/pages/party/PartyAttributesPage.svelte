@@ -54,6 +54,13 @@
   <div class="a5e-party-sheet__attributes__members">
     {#each members as actor}
       {const abilities = getActorAbilities(actor)}
+      {const displayOnly = !(
+        game.user.isGM ||
+        actor.testUserPermission(
+          game.user,
+          CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER,
+        )
+      )}
 
       <div class="a5e-party-sheet__attributes__row">
         <img
@@ -71,7 +78,10 @@
           <div class="a5e-party-sheet__attribute" style="grid-area: {abl}">
             <div
               class="a5e-party-sheet__attribute__check"
-              onclick={() => actor.rollAbilityCheck(abl)}
+              onclick={() => {
+                if (displayOnly) return;
+                actor.rollAbilityCheck(abl);
+              }}
             >
               <span>{check}</span>
             </div>
@@ -79,7 +89,10 @@
             <div
               class="a5e-party-sheet__attribute__save"
               class:a5e-party-sheet__attribute__save--prof={prof}
-              onclick={() => actor.rollSavingThrow(abl)}
+              onclick={() => {
+                if (displayOnly) return;
+                actor.rollSavingThrow(abl);
+              }}
             >
               <span>{save}</span>
             </div>

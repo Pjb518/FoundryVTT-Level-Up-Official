@@ -57,6 +57,7 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 	}
 
 	async _onDropItem(event: DragEvent, item: Item) {
+		if (!game.user.isGM) return null;
 		if (!['object', 'spell'].includes(item.type)) return null;
 
 		if (item.type === 'spell') {
@@ -155,6 +156,7 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 	}
 
 	async _onDropActiveEffect(event: DragEvent, effect: ActiveEffect) {
+		if (!game.user.isGM) return null;
 		const members = this.party.members;
 
 		// @ts-expect-error

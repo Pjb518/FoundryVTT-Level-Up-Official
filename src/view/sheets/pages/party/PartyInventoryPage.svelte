@@ -152,6 +152,7 @@
               class="a5e-input a5e-input--slim a5e-input--small"
               type="number"
               value={party.reactive.system.currency[denom] ?? 0}
+              disabled={!game.user.isGM}
               onfocus={({ currentTarget }) => (currentTarget.value = "")}
               onblur={({ currentTarget }) => (currentTarget.value = `${value}`)}
               onchange={({ currentTarget }) =>
@@ -166,6 +167,7 @@
           aria-label="Distribute Coins"
           data-tooltip="Distribute Coins"
           data-tooltip-direction="UP"
+          disabled={!game.user.isGM}
           onclick={() => party.distributeCoins()}
         >
           <i class="fa-solid fa-share"></i>
@@ -194,7 +196,7 @@
     <div class="a5e-party-sheet__stash-inventory__items">
       <UtilityBar
         bind:filterOptions
-        showAddIcon={true}
+        showAddIcon={game.user.isGM}
         addIconOptions={objectTypes}
         showDescriptionButton={true}
         bind:showDescription

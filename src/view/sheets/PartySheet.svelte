@@ -68,7 +68,7 @@
 
   // We add these for inventory
   setContext("actor", party);
-  setContext("sheetIsLocked", () => false);
+  setContext("sheetIsLocked", () => !game.user.isGM);
 </script>
 
 <main class="a5e-party">

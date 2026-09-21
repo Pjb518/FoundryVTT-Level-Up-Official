@@ -189,6 +189,10 @@
 <section class="a5e-party-sheet__core-members">
   {#each members as actor}
     {const actorData = $derived(actor.reactive.system)}
+    {const displayOnly = !(
+      game.user.isGM ||
+      actor.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER)
+    )}
 
     <!-- ----------------------------- -->
     <!-- Image & HP -->
@@ -256,6 +260,7 @@
           aria-label="Inspiration"
           data-tooltip="Inspiration"
           data-tooltip-direction="UP"
+          disabled={!game.user.isGM}
           onclick={() => actor.toggleInspiration?.()}
         >
           <i class="fa-solid fa-dice-d20"></i>
@@ -313,7 +318,11 @@
           {#each skills as [skl, label]}
             <Tag
               label="{CONFIG.A5E.skills[skl] || skl} +{label}"
-              onTagToggle={() => actor.rollSkillCheck(skl)}
+              {displayOnly}
+              onTagToggle={() => {
+                if (displayOnly) return;
+                actor.rollSkillCheck(skl);
+              }}
             />
           {/each}
         </ul>
