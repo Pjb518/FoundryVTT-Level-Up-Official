@@ -140,7 +140,7 @@
     background: var(--a5e-tag-background-color, transparent);
     display: inline;
     padding: 0.15rem 0.4rem;
-    border: 1px solid var(--a5e-tag-border-color);
+    border: 1px solid var(--a5e-tag-border-color) !important;
     border-radius: var(--a5e-border-radius-standard);
     color: var(--a5e-tag-color, inherit);
     transition: var(--a5e-transition-standard);
