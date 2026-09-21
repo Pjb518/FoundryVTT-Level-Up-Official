@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You have learned the tales of the natural world and can shout them from the proverbial&mdash;or actual&mdash;mountaintops even when out of your humanoid form. You gain the following benefits:</p><ul><li><p>Your Wisdom score improves by 1, to a maximum of 20.</p></li><li><p>You can maintain a Battle Hymn or impart Bardic Inspiration while wild shaped.</p></li><li><p>You learn the following special Battle Hymn, which does not count against your battle hymns known</p><ul><li><p><strong>Chorus of Nature. </strong>The creature gains immunity to poison and disease</p></li></ul></li><li><p>You are proficient with the Performance skill. If you are already proficient, you gain an expertise die. You also gain a Performance skill specialty with Speaking.</p></li></ul>",
+		"description": "<p>You have learned the tales of the natural world and can shout them from the proverbial—or actual—mountaintops even when out of your humanoid form. You gain the following benefits:</p><ul><li><p>Your Wisdom score improves by 1, to a maximum of 20.</p></li><li><p>You can maintain a @UUID[Compendium.a5e.a5e-class-features.Item.3qc1rqk8rwvl8van]{Battle Hymn} or impart @UUID[Compendium.a5e.a5e-class-features.Item.m7siz0z3rlng8h20]{Bardic Inspiration }while wild shaped.</p></li><li><p>You are proficient with the Performance skill. If you are already proficient, you gain an expertise die. You also gain a Performance skill specialty with Speaking.</p></li><li><p>You learn the following special Battle Hymn, which does not count against your battle hymns known</p><ul><li><p><strong>Chorus of Nature. </strong>The creature gains immunity to poison and disease.</p></li></ul></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitStoryteller",
@@ -24,28 +24,106 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"jOT3cFN9lxFCpU5o": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jOT3cFN9lxFCpU5o",
+				"label": "Storyteller",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"base": [
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "1",
+				"img": ""
+			},
+			"QREzX4lv4s5NPURD": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "QREzX4lv4s5NPURD",
+				"keys": {
+					"base": [
+						"per",
+						"prf"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"label": "Storyteller",
+				"img": "",
+				"isExpertise": false
+			},
+			"0WEtyH44vIFMNaR0": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0WEtyH44vIFMNaR0",
+				"specialties": {
+					"base": [
+						"speaking"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "prf",
+				"label": "Storyteller"
+			}
+		},
 		"prerequisite": "3 levels in bard, 3 levels in druid",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis"
+		],
+		"featClasses": [
+			"bard",
+			"druid"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Storyteller"
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "swdndn70sw9722x1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685281,
+		"modifiedTime": 1790010180283,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "swdndn70sw9722x1"
 }

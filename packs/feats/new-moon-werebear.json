@@ -15,7 +15,97 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"5drsIG5cBY0Nw9vW": {
+				"name": "Fang and Claw",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"kxyEMcDcQYWTDil9": {
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"x2M8Vgndv7cJ9Ak5": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"0nzuw2OtdHVnMDSj": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "slashing",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 6
+						},
+						"formula": "@finesse.mod",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>You have learned to tame the bear raging within you since contracting lycanthropy. On full moon nights you involuntarily change into a bear or bear-humanoid hybrid. While you are transformed, you gain the following features.</p><p><strong><em>Fang and Claw.</em></strong> You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals slashing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p><p><strong><em>Keen Smell.</em></strong> You gain advantage on Perception checks that rely on smell.</p><p><strong><em>Tree Climber.</em></strong> You gain a climb speed of 30 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +116,76 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"SGTXMpCUzch79fZ2": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "SGTXMpCUzch79fZ2",
+				"label": "New Moon Werebear",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-feats.Item.jr4bns8qgxezhy6r",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"RJr0hBhVeKjCXTH5": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "RJr0hBhVeKjCXTH5",
+				"label": "Tree Climber",
+				"movementTypes": {
+					"base": [
+						"climb"
+					]
+				},
+				"bonus": "30"
+			}
+		},
 		"prerequisite": "Must have been bitten by a werebear",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "New Moon Werebear"
 	},
 	"folder": null,
-	"_id": "dx4pbstgqvdca6b1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1790010324182,
+		"modifiedTime": 1790023799499,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "dx4pbstgqvdca6b1"
 }

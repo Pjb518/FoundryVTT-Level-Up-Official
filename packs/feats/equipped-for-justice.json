@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>A vigilante is prepared for anything, and in your hands common pieces of equipment become tools of your unique brand of justice. </p><p>You gain the following benefits. </p><ul><li><p>You gain proficiency with all types of artisan’s tools and miscellaneous tools. If you already have proficiency with any of these tools, you instead gain an expertise die with those tools. </p></li><li><p>You gain proficiency with Engineering and a 1d8 expertise die on Engineering checks. In addition, you build a nonmagical grappling gun (Chapter 9: Enchanted Gear in Trials &amp; Treasures) that only functions in your hands. Replacing your grappling gun requires 3 days of crafting and 500 gold. </p></li><li><p>You may add your Wisdom modifier to the DC of any saving throws used for miscellaneous adventuring gear items (page 331) and to attack rolls made using miscellaneous adventuring gear items.</p></li></ul>",
+		"description": "<p>A vigilante is prepared for anything, and in your hands common pieces of equipment become tools of your unique brand of justice.</p><p>You gain the following benefits.</p><ul><li><p>You gain proficiency with all types of artisan’s tools and miscellaneous tools. If you already have proficiency with any of these tools, you instead gain an expertise die with those tools.</p></li><li><p>You gain proficiency with Engineering and a 1d8 expertise die on Engineering checks. In addition, you build a nonmagical @UUID[Compendium.a5e.a5e-adventuring-gear.Item.308dp2x486zwv36h]{Grappling Gun} that only functions in your hands. Replacing your grappling gun requires 3 days of crafting and 500 gold.</p></li><li><p>You may add your Wisdom modifier to the DC of any saving throws used for miscellaneous adventuring gear items and to attack rolls made using miscellaneous adventuring gear items.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -26,26 +26,123 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"SpmEkj1GzRPVhsdP": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "SpmEkj1GzRPVhsdP",
+				"keys": {
+					"base": [
+						"alchemistsSupplies",
+						"bookbindersKit",
+						"brewersSupplies",
+						"calligraphersSupplies",
+						"carpentersTools",
+						"cartographersTools",
+						"cobblersTools",
+						"cooksUtensils",
+						"glassblowersTools",
+						"jewelersTools",
+						"leatherworkersTools",
+						"masonsTools",
+						"paintersSupplies",
+						"pottersTools",
+						"teaMastersSet",
+						"tinkersTools",
+						"weaversTools",
+						"woodcarversTools",
+						"disguiseKit",
+						"forgeryKit",
+						"herbalismKit",
+						"navigatorsTools",
+						"poisonersKit",
+						"sewingKit",
+						"smithsTools",
+						"thievesTools"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool",
+				"label": "Tool Proficiencies",
+				"img": "",
+				"isExpertise": false
+			},
+			"EwbufJO95b1fYLiv": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "EwbufJO95b1fYLiv",
+				"img": "",
+				"label": "Skill Proficiency",
+				"keys": {
+					"base": [
+						"eng"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"isExpertise": false
+			},
+			"1R91AStQOAXd1GUo": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "1R91AStQOAXd1GUo",
+				"label": "Equipped for Justice",
+				"keys": {
+					"base": [
+						"eng"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"expertiseCount": 3
+			}
+		},
 		"prerequisite": "Vigilante feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [
+			"adept",
+			"ranger"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Vigilante"
 	},
 	"folder": null,
-	"_id": "6vxa5j01rbtiiov2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685268,
+		"modifiedTime": 1790008236010,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "6vxa5j01rbtiiov2"
 }

@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Your inborn psychic ability and the power granted by your divine patron have become like two sides of the same coin. You gain the following benefits:</p><ul><li>Your Wisdom score or your Intelligence score increases by +1, to a maximum of 20.</li><li>Your <em>Esper</em> levels count as cleric levels for the purpose of acquiring and using the <em>Providence</em> feature.</li><li>You may spend any number of dice from your <em>Psychic Reservoir</em> as if you had rolled a 1 on them to regain <em>Cleric</em> spell slots with total levels equal to the dice spent. For example, if you spent 3 psionic dice this way, you could recover a third level spell slot, three first level spell slots, or a second level spell slot and a first level spell slot. You cannot exceed your normal number of spell slots available at once for a level this way, and once you have used this benefit, you can&rsquo;t do so again until you finish a long rest.</li><li>While your <em>Psychic Focus</em> is active you gain an additional benefit based on your discipline:<ul><li><strong>Empathic</strong>: You have advantage on saves to disbelieve illusions.</li><li><strong>Kinesthetic</strong>: Your speed increases by 10 feet.</li><li><strong>Telepathic</strong>: Creatures attempting to read your mind must save against your spell save DC or take 2d8 radiant or necrotic damage (selected when you take this feat).</li><li><strong>Telekinetic</strong>: You may wield a spellcasting focus without needing a hand free.</li></ul></li></ul>",
+		"description": "<p>Your inborn psychic ability and the power granted by your divine patron have become like two sides of the same coin. You gain the following benefits:</p><ul><li><p>Your Wisdom score or your Intelligence score increases by +1, to a maximum of 20.</p></li><li><p>Your Esper levels count as cleric levels for the purpose of acquiring and using the @UUID[Compendium.a5e.a5e-class-features.Item.2jlxytgjvgjnafvr]{Providence} feature.</p></li><li><p>You may spend any number of dice from your Psychic Reservoir as if you had rolled a 1 on them to regain Cleric spell slots with total levels equal to the dice spent. For example, if you spent 3 psionic dice this way, you could recover a third level spell slot, three first level spell slots, or a second level spell slot and a first level spell slot. You cannot exceed your normal number of spell slots available at once for a level this way, and once you have used this benefit, you can’t do so again until you finish a long rest.</p></li><li><p>While your @UUID[Compendium.a5e.a5e-class-features.Item.rKYtSucPFAtDqTpj]{Psychic Focus} is active you gain an additional benefit based on your discipline:</p><ul><li><p><strong>Empathic</strong>: You have advantage on saves to disbelieve illusions.</p></li><li><p><strong>Kinesthetic</strong>: Your speed increases by 10 feet.</p></li><li><p><strong>Telepathic</strong>: Creatures attempting to read your mind must save against your spell save DC or take 2d8 radiant or necrotic damage (selected when you take this feat).</p></li><li><p><strong>Telekinetic</strong>: You may wield a spellcasting focus without needing a hand free.</p></li></ul></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
@@ -24,28 +24,70 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"RNdu3yHvRyNB8FWK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "RNdu3yHvRyNB8FWK",
+				"label": "Godmind",
+				"abilities": {
+					"base": [],
+					"options": [
+						"wis",
+						"int"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"bonus": "1"
+			}
+		},
 		"prerequisite": "Faithful Intellect feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis",
+			"int"
+		],
+		"featClasses": [
+			"cleric",
+			"esper"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Psychic Philosopher"
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "od8p0xtk6lhyptma",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685272,
+		"modifiedTime": 1790009108129,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "od8p0xtk6lhyptma"
 }

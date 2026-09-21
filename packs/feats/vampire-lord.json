@@ -15,7 +15,58 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"xkEsnoMADgZu1Ggp": {
+				"name": "Vampiric Shapechange",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>It is uncertain where the darkness ends and you begin as you fully embrace vampirism—everything it offers and all that it takes away. You gain the following benefits:</p><ul><li><p>Your Speed increases by 10 feet.</p></li><li><p>You gain an expertise die on Stealth checks.</p></li><li><p>The range of your darkvision increases to 120 feet.</p></li><li><p>Your bite damage increases to 1d10.</p></li><li><p>You can use Charming Gaze twice between rests.</p></li><li><p>When using Charming Gaze, a target with at least one level of strife makes its saving throw with disadvantage.</p></li></ul><p>You also gain the Vampiric Shapechange feature.</p><p><strong><em>Vampiric Shapechange.</em></strong> You can use an action to transform into the shape of a Medium or smaller beast of CR 3 or less, a mist, or back into your true form.</p><p>While transformed into a beast, you have the beast’s size and movement modes. You can’t use reactions or speak. Otherwise, you use your statistics. Any items you are carrying transform with you.</p><p>While transformed into a mist, you have a flying speed of 30 feet, can’t speak, can’t take actions or manipulate objects, are immune to nonmagical damage from weapons, and have advantage on saving throws and Stealth checks. You can pass through a space as narrow as 1 inch without squeezing but can’t pass through water. Any items you are carrying transform with you.</p><p>All of these changes to your body have utterly deprived you of your mortality. You gain the undead type in addition to being a humanoid, and you take 20 radiant damage when you end your turn in contact with sunlight.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +77,120 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"eepGzrVBHk26B5fq": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "eepGzrVBHk26B5fq",
+				"label": "Vampire Lord",
+				"movementTypes": {
+					"base": [
+						"walk"
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": "",
+				"bonus": "10",
+				"unit": "feet",
+				"context": {
+					"isHover": false,
+					"default": true
+				}
+			},
+			"eS4OpFrhR6u99TVH": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "eS4OpFrhR6u99TVH",
+				"label": "Vampire Lord",
+				"keys": {
+					"base": [
+						"ste"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1
+			},
+			"qZaJoOovb8TbGfYC": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "qZaJoOovb8TbGfYC",
+				"bonus": "90",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"label": "Vampire Lord",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false,
+					"default": true
+				}
+			},
+			"ulPt681x2f7B56Qn": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ulPt681x2f7B56Qn",
+				"traits": {
+					"base": [
+						"undead"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "creatureTypes"
+				},
+				"label": "Vampire Lord"
+			}
+		},
 		"prerequisite": "Vampire Spawn feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Newblood"
 	},
 	"folder": null,
-	"_id": "7j8x3mk3xhoy8aym",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685286,
+		"modifiedTime": 1790008967306,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "7j8x3mk3xhoy8aym"
 }

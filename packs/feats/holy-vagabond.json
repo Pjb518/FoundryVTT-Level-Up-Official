@@ -13,8 +13,74 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You are so at home in the wilds and with the gifts of your divine patron that you have come to think of all the world as a temple. You gain the following benefits:</p><ul><li>Your Wisdom score increases by +1, to a maximum of 20.</li><li>You ignore the speed penalty from all forms of difficult terrain. If there is an additional effect such as damage or requiring a save to avoid falling prone, it affects you as normal.</li><li>When you acquire this feat, choose a creature type from the following list: <em>Aberrations</em>, <em>Celestials</em>, <em>Fey</em>, <em>Fiends</em>, or <em>Undead</em>. The chosen creature type always counts as your studied adversary in addition to your normal choice.</li><li>When you cast a cleric spell, if you have no spell slots remaining, you immediately gain 4 points of exertion and 2 uses of Trained Accuracy. Once you have used this benefit, you can&rsquo;t do so again until you finish a long rest.</li></ul>",
+		"actions": {
+			"IYw4IQ8Iun4NkCj7": {
+				"name": "Holy Vagabond",
+				"consumers": {
+					"Z0vwELi71SlY1ZHw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					},
+					"90HuRtboTINAZ9NN": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": -4,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"description": "<p>You are so at home in the wilds and with the gifts of your divine patron that you have come to think of all the world as a temple. You gain the following benefits:</p><ul><li><p>Your Wisdom score increases by +1, to a maximum of 20.</p></li><li><p>You ignore the speed penalty from all forms of difficult terrain. If there is an additional effect such as damage or requiring a save to avoid falling prone, it affects you as normal.</p></li><li><p>When you acquire this feat, choose a creature type from the following list: Aberrations, Celestials, Fey, Fiends, or Undead. The chosen creature type always counts as your studied adversary in addition to your normal choice.</p></li><li><p>When you cast a cleric spell, if you have no spell slots remaining, you immediately gain 4 points of exertion and 2 uses of @UUID[Compendium.a5e.a5e-class-features.Item.8qhg7efkuie3fwh2]{Trained Accuracy}. Once you have used this benefit, you can’t do so again until you finish a long rest.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
@@ -24,28 +90,72 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"5F2pr6JLggzaVFaK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "5F2pr6JLggzaVFaK",
+				"label": "Holy Vagabond",
+				"abilities": {
+					"base": [
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "1",
+				"img": "",
+				"context": {
+					"types": [
+						"check",
+						"save"
+					],
+					"requiresProficiency": false,
+					"default": true
+				}
+			}
+		},
 		"prerequisite": "Faithful Wanderer feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis"
+		],
+		"featClasses": [
+			"cleric",
+			"ranger"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Circuit Rider"
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "9ephpz6v1mecv5dk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685272,
+		"modifiedTime": 1790009234613,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "9ephpz6v1mecv5dk"
 }

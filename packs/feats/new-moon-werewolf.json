@@ -15,7 +15,97 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"l8u9OjilulxDSHaY": {
+				"name": "Fang and Claw",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"Ry3kA209ZP0kQFeW": {
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"DLHWdbmHplelTjoM": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"TVRmYD1CQXNYbOXQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "piercing",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 6
+						},
+						"formula": "@finesse.mod",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>You have learned to tame the wolf within and gained some control over the curse of lycanthropy. On full moon nights you involuntarily change into a wolf or wolf-humanoid hybrid. While you are transformed, you gain the following features.</p><p><strong><em>Darkvision.</em></strong> You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray. If you already have darkvision, its range increases by 30 feet.</p><p><strong><em>Fang and Claw.</em></strong> You gain a bite natural weapon and claw natural weapons which you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite or claw. On a hit your bite or claw deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p><p><strong><em>Keen Hearing and Smell.</em></strong> You have advantage on Perception checks that rely on hearing or smell.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +116,107 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"7tJgWGhBRlUlyyKX": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "7tJgWGhBRlUlyyKX",
+				"label": "New Moon Werewolf",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-feats.Item.lxc9ukdmhmpvvj6w",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"suSTQNT27qjE22DW": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "suSTQNT27qjE22DW",
+				"label": "No Darkvision",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "60",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false,
+					"default": true
+				}
+			},
+			"gZzg3RbsCZ3vFAf5": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "suSTQNT27qjE22DW",
+				"label": "Darkvision",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "30",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false,
+					"default": true
+				},
+				"name": "undefined (Copy)"
+			}
+		},
 		"prerequisite": "Must have been bitten by a werewolf",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "New Moon Werewolf"
 	},
 	"folder": null,
-	"_id": "j9dt7unvk9jyxfrx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1790010324184,
+		"modifiedTime": 1790024870657,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "j9dt7unvk9jyxfrx"
 }

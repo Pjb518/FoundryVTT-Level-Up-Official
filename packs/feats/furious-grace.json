@@ -1,5 +1,5 @@
 {
-	"name": "Furious grace",
+	"name": "Furious Grace",
 	"type": "feature",
 	"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
 	"system": {
@@ -13,7 +13,128 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"uzt0uTJvPFxWlgC4": {
+				"name": "Furious Grace",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"1955cj4yVGklkZNA"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"QxY4Ya1LGipp5nH2": {
+				"name": "Failed Strength or Dexterity",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Fail a Strength or Dexterity based ability check or saving throw while raging"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"F1ZuGyuIQEQ0TRGU": {
+						"type": "generic",
+						"default": true,
+						"formula": "classResources.martial-arts",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>While raging and wearing light or no armor, you have advantage on Dexterity ability checks and saving throws. If you fail a Strength or Dexterity based ability check or saving throw while raging, you can use your reaction to roll your martial arts die and add it to the total, potentially turning it into a success.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -24,7 +145,8 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
@@ -33,19 +155,94 @@
 		"prerequisite": "Pugilist feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [
+			"adept",
+			"berserker"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Pugilist"
 	},
-	"effects": [],
+	"effects": [
+		{
+			"name": "Furious Grace",
+			"img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+			"origin": "Item.T5C7pirWPjZF1raF",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.abilities.dex.check.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.abilities.dex.save.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "1955cj4yVGklkZNA",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>While raging and wearing light or no armor, you have advantage on Dexterity ability checks and saving throws.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1790008274112,
+				"modifiedTime": 1790008314503,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "nwwtbgf27v9gtatc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685270,
+		"modifiedTime": 1790008387934,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "nwwtbgf27v9gtatc"
 }
