@@ -153,6 +153,13 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 		createdItem.update(updateData);
 		return;
 	}
+
+	async _onDropActiveEffect(event: DragEvent, effect: ActiveEffect) {
+		const members = this.party.members;
+
+		// @ts-expect-error
+		return Promise.all(members.map((a) => effect.transferEffect(a)));
+	}
 }
 
 declare namespace PartySheetA5E {}

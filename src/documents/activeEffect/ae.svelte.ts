@@ -506,7 +506,14 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 			}
 		}
 
-		document.createEmbeddedDocuments('ActiveEffect', [effectData]);
+		if (document.isParty() || document.actor?.isParty()) {
+			const members = document.members ?? document.actor.members ?? [];
+			members.forEach((a) => {
+				a.createEmbeddedDocuments('ActiveEffect', [effectData]);
+			});
+		} else {
+			document.createEmbeddedDocuments('ActiveEffect', [effectData]);
+		}
 	}
 
 	equals(other) {
