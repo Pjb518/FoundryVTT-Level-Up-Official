@@ -400,7 +400,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const actor = this as Actor.OfType<'npc'>;
 
 		const { hitDice } = actor.system.attributes;
-		// @ts-expect-error
 		const { mod } = actor.system.abilities.con;
 
 		let hitDiceCount = 0;
@@ -741,7 +740,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		foundry.utils.setProperty(
 			actorData,
 			'attributes.favorPoints.max',
-			// @ts-expect-error
 			this.system.abilities.cha.mod,
 		);
 

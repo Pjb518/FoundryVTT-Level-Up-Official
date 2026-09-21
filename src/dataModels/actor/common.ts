@@ -23,6 +23,13 @@ export const abilities = () => ({
 	abilities: new MappingField(
 		new fields.SchemaField({
 			value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+			mod: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				integer: true,
+				initial: 0,
+			}),
 			check: new fields.SchemaField({
 				expertiseDice: new ExpertiseDieField(),
 				mod: new fields.NumberField({

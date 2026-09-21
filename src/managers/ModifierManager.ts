@@ -176,8 +176,7 @@ class ModifierManager {
 
 		return {
 			label: localize('A5E.ConcentrationBonus'),
-			// @ts-expect-error
-			value: this.actor.system.abilities.con.save.concentrationBonus as string,
+			value: this.actor.system.attributes.concentration.bonus as string,
 		};
 	}
 
