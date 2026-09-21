@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>The urge to fight runs hot in your veins and you take to battle naturally. You gain the following benefits:</p><ul><li><p>Your Speed increases by 5 feet.</p></li><li><p>When making an Acrobatics or Athletics check during combat, you can choose to use your Strength or Dexterity modifier for either skill.</p></li><li><p>You gain proficiency with the Bounding Strike maneuver and do not have to spend exertion to activate it.</p></li><li><p>You can roll 1d4 in place of your normal damage for unarmed strikes. When rolling damage for your unarmed strikes, you can choose to deal bludgeoning, piercing, or slashing damage.</p></li></ul>",
+		"description": "<p>The urge to fight runs hot in your veins and you take to battle naturally. You gain the following benefits:</p><ul><li><p>Your Speed increases by 5 feet.</p></li><li><p>When making an Acrobatics or Athletics check during combat, you can choose to use your Strength or Dexterity modifier for either skill.</p></li><li><p>You gain proficiency with the @UUID[Compendium.a5e.a5e-maneuvers.Item.ad0iup2ueg5p4fui]{Bounding Strike} maneuver and do not have to spend exertion to activate it.</p></li><li><p>You can roll 1d4 in place of your normal damage for unarmed strikes. When rolling damage for your unarmed strikes, you can choose to deal bludgeoning, piercing, or slashing damage.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -26,26 +26,79 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"EW3smqA5IWztnsZU": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "EW3smqA5IWztnsZU",
+				"movementTypes": {
+					"base": [
+						"walk"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "5",
+				"label": "Natural Warrior",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false,
+					"default": true
+				}
+			},
+			"Jv0Qyt0BSZOxsAf3": {
+				"grantType": "item",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Jv0Qyt0BSZOxsAf3",
+				"label": "Natural Warrior",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-maneuvers.Item.ad0iup2ueg5p4fui"
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"folder": null,
-	"_id": "2yd2vw5r3iwv04nq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685277,
+		"modifiedTime": 1789933052419,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "2yd2vw5r3iwv04nq"
 }

@@ -1,0 +1,159 @@
+{
+	"name": "Psionic Wave",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"description": "<p>The [[/ref actor.name]] psionically emits a wave of crushing mental pressure. Each creature within 20 feet makes a DC [[/ref actor.system.attributes.maneuverDC]] Wisdom saving throw, taking 22 (4d10) psychic damage on a failed save or half damage on a success. Creatures charmed by the [[/ref actor.name]] make this saving throw with disadvantage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "",
+		"actions": {
+			"9uHtlRZpxta80kf7": {
+				"name": "Psionic Wave",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"yaARZJ9l4hYMQPur": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"C3nouthx6prmICzY": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"8PWOtfJ1ZrtLJuNe": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"die": {
+							"modifiers": [],
+							"number": 4,
+							"denom": 10
+						},
+						"formula": "",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featClasses": [],
+		"featType": "",
+		"featureType": "naturalWeapon",
+		"grants": {},
+		"hidden": false,
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.15",
+		"createdTime": 1789928854826,
+		"modifiedTime": 1789928970811,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "KSB7iV3c9CqJDYw6"
+}

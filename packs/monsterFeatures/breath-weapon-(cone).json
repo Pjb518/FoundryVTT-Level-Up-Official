@@ -1,9 +1,12 @@
 {
-	"name": "Bite (New Moon Wererat)",
+	"name": "Breath Weapon (Cone)",
 	"type": "feature",
-	"img": "icons/creatures/mammals/rodent-rat-green.webp",
+	"img": "icons/creatures/abilities/dragon-fire-breath-orange.webp",
 	"effects": [],
-	"flags": {},
+	"folder": null,
+	"flags": {
+		"core": {}
+	},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -11,13 +14,13 @@
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
-			"mode": 2,
+			"mode": 1,
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"RHURQ0KZl3YZHZBj": {
-				"name": "Bite (New Moon Wererat)",
+			"cvBAzJ00kq6dqlB1": {
+				"name": "Breath Weapon (Cone)",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -25,53 +28,35 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "",
+					"value": "1",
 					"concentration": false
 				},
-				"ranges": {
-					"OIKYQwHo8Z8lEByF": {
-						"range": "fiveFeet",
-						"unit": "",
-						"value": 0
-					}
-				},
 				"area": {
-					"shape": "",
-					"placeTemplate": false
+					"shape": "cone",
+					"size": "90",
+					"placeTemplate": false,
+					"length": 30
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature",
-					"heard": false,
-					"otherText": "",
+					"type": "",
 					"scaling": {
 						"config": {
 							"value": ""
 						},
 						"mode": ""
 					},
+					"heard": false,
+					"otherText": "",
 					"seen": false
 				},
 				"rolls": {
-					"gnSxSHosxZcXEtqZ": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"ability": "str",
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"default": true,
-						"label": ""
-					},
-					"SWG620vTgLNEymHl": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d4 + @str.mod",
+					"Iz0twFLBawvSOLoN": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "",
 						"type": "damage",
 						"critBonus": "",
-						"die": {
-							"modifiers": []
-						},
 						"scaling": {
 							"config": {
 								"value": "",
@@ -81,11 +66,35 @@
 							"mode": ""
 						},
 						"default": true,
+						"label": "",
+						"die": {
+							"modifiers": [],
+							"number": 28,
+							"denom": 6
+						}
+					}
+				},
+				"prompts": {
+					"3CTmvSKst6A47F1k": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": "25"
+						},
+						"type": "savingThrow",
+						"default": true,
 						"label": ""
 					}
 				},
-				"consumers": {},
-				"prompts": {},
+				"consumers": {
+					"oX09IO1MKRIYjEEg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
 				"id": "",
 				"default": false,
 				"description": "",
@@ -96,6 +105,13 @@
 				"img": "",
 				"effects": [],
 				"macro": "",
+				"ranges": {
+					"l9IhZS8D0qI87lun": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,17 +124,17 @@
 				}
 			}
 		},
-		"description": "<p>You gain a bite natural weapon you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your bite. On a hit your bite deals piercing damage equal to 1d4 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
-		"favorite": false,
+		"description": "<p>The [[/ref actor.name]] exhales a blast of fire in a 30-foot cone. Each creature in that area makes a DC [[/ref actor.system.attributes.maneuverDC]] Dexterity saving throw, taking 98 (28d6) fire damage on a failed save or half damage on a success.</p>",
+		"favorite": true,
 		"secretDescription": "",
-		"source": "gpg0",
+		"source": "",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "recharge",
 			"recharge": {
-				"formula": "1d6",
-				"threshold": 6,
+				"formula": "",
+				"threshold": 5,
 				"type": "recoverAll"
 			}
 		},
@@ -131,24 +147,25 @@
 		"migrationData": {
 			"version": null,
 			"type": "",
-			"lastMigration": {}
+			"lastMigration": {
+				"schema": null
+			}
 		},
-		"asi": [],
 		"class": "",
 		"classes": "",
+		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
 		"synergy": ""
 	},
-	"folder": null,
 	"_stats": {
 		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "1.2.14",
-		"createdTime": 1789579225322,
-		"modifiedTime": 1789579225322,
+		"systemVersion": "1.2.15",
+		"createdTime": 1789914058364,
+		"modifiedTime": 1789914287555,
 		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
-	"_id": "leljh52su3s9ekvv"
+	"_id": "mxA3NYSXZe0Nhwdx"
 }

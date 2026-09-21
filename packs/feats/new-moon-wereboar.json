@@ -15,7 +15,173 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"iHr0U7Pl90J1f9EC": {
+				"name": "Relentless",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"CmahnGboTcnj2EX6": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"rwfeLfLuEp4Hud1n": {
+						"type": "healing",
+						"default": true,
+						"die": {
+							"modifiers": []
+						},
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"VCNbuLdWsfvceHdy": {
+				"name": "Tusks",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"WazvrJ0jr4zallzj": {
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"5Rcf3p0mVoTz9mEg": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"mpfj3rqeQvQaRyWZ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "slashing",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 6
+						},
+						"formula": "@finesse.mod",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>You have learned to tame the boar rampaging within you since contracting lycanthropy. On full moon nights you involuntarily change into a boar or boar-humanoid hybrid. While you are transformed, you gain the following features.</p><p><strong><em>Fleet of Foot.</em></strong> Your Speed increases by 10 feet.</p><p><strong><em>Relentless.</em></strong> Once between long rests when you take damage that would reduce you to 0 hit points, you are instead reduced to 1 hit point.</p><p><strong><em>Tusks.</em></strong> You gain tusk natural weapons you are proficient with. You can use Dexterity instead of Strength for the attack rolls of your tusks. On a hit, your tusks deal slashing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest).</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +192,56 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"w85JSl27qXJX5z9q": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "w85JSl27qXJX5z9q",
+				"label": "Fleet of Foot",
+				"movementTypes": {
+					"base": [
+						"walk"
+					]
+				},
+				"bonus": "10"
+			}
+		},
 		"prerequisite": "Must have been bitten by a wereboar",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "New Moon Wereboar"
 	},
 	"folder": null,
-	"_id": "jmbwt8ywfykzyiqv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1790010324183,
+		"modifiedTime": 1790024070684,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "jmbwt8ywfykzyiqv"
 }

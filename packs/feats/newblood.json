@@ -2,7 +2,60 @@
 	"name": "Newblood",
 	"type": "feature",
 	"img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
-	"effects": [],
+	"effects": [
+		{
+			"name": "Charmed",
+			"img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
+			"origin": "Item.6V9JGg0DvwECZBkQ",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"charmed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "jzz6fa8IeUEgwSuH",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A charmed creature can't take any hostile action against the charmer.</p></li><li><p>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1790023203865,
+				"modifiedTime": 1790023222680,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +68,245 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1AfEFzdSgtTJIqKm": {
+				"name": "Bite",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"049PJ2eZEVqYapR8": {
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"GVXO64XDplOSUeNb": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"klbLpyeuHDlYBeFn": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "piercing",
+						"die": {
+							"modifiers": [],
+							"number": 1,
+							"denom": 6
+						},
+						"formula": "@finnese.mod",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"6JTn3zxiy7L7XUSO": {
+				"name": "Necrotic Bite",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"MwHiWbs76kqqg1IH": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "necrotic",
+						"die": {
+							"modifiers": []
+						},
+						"formula": "1d6 * prof",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": ""
+					}
+				},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"WLqfHanE020tvuOs": {
+				"name": "Charming Gaze",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"jzz6fa8IeUEgwSuH"
+				],
+				"macro": "",
+				"consumers": {
+					"Qtg5lX3svVIznaIb": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"VAkmerHSUOtxX5xY": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"4mqBB1Wo0c2k4tXS": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": "creature"
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>You gain resistance to necrotic damage (or if you already have it, immunity to necrotic damage) and darkvision to a range of 30 feet (or if you already have it, the range of your darkvision increases by 30 feet). You also gain a bite natural weapon and the Charming Gaze feature.</p><p><strong><em>Bite.</em></strong> You gain a bite natural weapon you are proficient with. You are only able to bite grappled, incapacitated, restrained, or willing creatures. On a hit your bite deals piercing damage equal to 1d6 plus your Strength modifier or Dexterity modifier (whichever is highest). You can use Dexterity instead of Strength for the attack rolls of your bite. In addition, once per turn you can choose for your bite to also deal 1d6 necrotic damage × your proficiency bonus. You regain hit points equal to the amount of necrotic damage dealt to your target. This necrotic damage can only be increased by a critical hit.</p><p><strong><em>Charming Gaze.</em></strong> You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can’t do so again until you finish a long rest.</p><p>This dark gift comes with a price however, making you averse to sunlight. You have disadvantage on attack rolls and on Perception checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight. In addition, you cannot use your Charming Gaze while you are in direct sunlight.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +317,80 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"mScj9RASppFTiLfr": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "mScj9RASppFTiLfr",
+				"label": "Newblood",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"bonus": "30",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false
+				}
+			},
+			"hLI6zxQsTPHlylf9": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "hLI6zxQsTPHlylf9",
+				"label": "Newblood",
+				"traits": {
+					"base": [
+						"necrotic"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"img": ""
+			}
+		},
 		"prerequisite": "Must have been bitten by a vampire or taken necrotic damage equal to quadruple your level from a single attack or spell. You have been corrupted with vampirism from exposure to dark forces that unlocked an ancient and unknown power within your blood, or because a vampire has bitten you. In either case your affliction makes you more than mortal, and yet somehow less.",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Newblood"
 	},
 	"folder": null,
-	"_id": "zbnketvz0zntc4ki",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1790010324182,
+		"modifiedTime": 1790023303765,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "zbnketvz0zntc4ki"
 }

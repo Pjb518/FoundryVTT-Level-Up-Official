@@ -15,7 +15,70 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"rWEyRQtjAjUiF8bV": {
+				"name": "Curse Bearer",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"mZZd62Z5aaVfjocG": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
 		"description": "<p>Your Strength, Dexterity, or Constitution score increases by 1, to a maximum of 20.</p><p>You can transfer your curse to others. When you damage a living creature with your bite attack, it makes a Constitution saving throw (DC 8 + your proficiency bonus + your Constitution modifier) or becomes afflicted with lycanthropy.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -26,26 +89,66 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"DDEQlrKPoKRUVJk3": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "DDEQlrKPoKRUVJk3",
+				"label": "Curse Bearer",
+				"bonus": "1",
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"dex",
+						"con"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
 		"prerequisite": "Alpha Wereboar, Eye of the Tiger, Moonhowler, Rodent Embraced, or Werebear Emerged",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"str",
+			"dex",
+			"con"
+		],
+		"featClasses": [],
+		"featType": "fourth",
+		"hidden": false,
+		"synergy": "Alpha Wereboar; Eye of the Tiger; Moonhowler; Rodent Embraced; Werebear Emerged"
 	},
 	"folder": null,
-	"_id": "l2daqid2d09ij20v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685282,
+		"modifiedTime": 1789933985162,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "l2daqid2d09ij20v"
 }

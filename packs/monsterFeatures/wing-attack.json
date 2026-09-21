@@ -1,0 +1,195 @@
+{
+	"name": "Wing Attack",
+	"type": "feature",
+	"img": "icons/creatures/abilities/wing-batlike-white-blue.webp",
+	"effects": [
+		{
+			"name": "Prone",
+			"img": "icons/creatures/abilities/wing-batlike-white-blue.webp",
+			"origin": "Item.i0913GN4ZBX1gJgl",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"prone"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "hsNg7QJiv11SLGoJ",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1789916460110,
+				"modifiedTime": 1789916519177,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {
+		"core": {}
+	},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"HCfpH77lHkfFgYUq": {
+				"name": "Wing Attack",
+				"activation": {
+					"cost": 1,
+					"type": "legendaryAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "1",
+					"concentration": false
+				},
+				"area": {
+					"shape": "emanation",
+					"size": "15",
+					"placeTemplate": false,
+					"quantity": 1,
+					"radius": 15
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
+				},
+				"prompts": {
+					"ouulacFSoWYjVQlM": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": "20"
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"hsNg7QJiv11SLGoJ"
+				],
+				"macro": "",
+				"ranges": {
+					"Eyzt4O9rM7VvUham": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"description": "<p>The [[/ref actor.name]] beats its wings. Each creature within 15 feet makes a DC [[/ref actor.system.attributes.maneuverDC]] Dexterity saving throw. On a failure, it is pushed 10 feet away and knocked prone. The [[/ref actor.name]] can then fly up to half its fly speed.</p>",
+		"favorite": true,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			}
+		},
+		"concentration": false,
+		"featureType": "legendaryAction",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"_stats": {
+		"coreVersion": "14.367",
+		"systemId": "a5e",
+		"systemVersion": "1.2.15",
+		"createdTime": 1789913656542,
+		"modifiedTime": 1789917139049,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "cEUy7gxJPkLiTgFO"
+}

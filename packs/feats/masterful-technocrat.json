@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Your brilliance is undeniable and widely known.&nbsp;You gain the following benefits:</p><ul><li>Your Intelligence increases by +1, to a maximum of 20.</li><li>You immediately learn the schematic for a Rare magic item of your choice.</li><li>Your Savant levels count as Artificer levels for the purpose of gaining access to the Advanced Tactical Chemistry feature.</li><li>Your Artificer levels count as Savant levels for the purpose of gaining access to the Clockwork Mind feature.</li><li>Treat your prestige score as 1 higher than it is (or 5, whichever is greater) when dealing with those who appreciate intelligence, inventiveness, or problem-solving.</li></ul>",
+		"description": "<p>Your brilliance is undeniable and widely known. You gain the following benefits:</p><ul><li><p>Your Intelligence increases by +1, to a maximum of 20.</p></li><li><p>You immediately learn the schematic for a Rare magic item of your choice.</p></li><li><p>Your Savant levels count as Artificer levels for the purpose of gaining access to the @UUID[Compendium.a5e.a5e-class-features.Item.pckq0dgz9f1i3ic8]{Advanced Tactical Chemistry} feature.</p></li><li><p>Your Artificer levels count as Savant levels for the purpose of gaining access to the @UUID[Compendium.a5e.a5e-class-features.Item.x6lhfpalcln2p2jr]{Clockwork Mind} feature.</p></li><li><p>Treat your prestige score as 1 higher than it is (or 5, whichever is greater) when dealing with those who appreciate intelligence, inventiveness, or problem-solving.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitHazardousKnowledge",
@@ -25,25 +25,59 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"0msMofz5WvEz9fJK": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0msMofz5WvEz9fJK",
+				"bonus": "1",
+				"abilities": {
+					"base": [
+						"int"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"label": "Masterful Technocrat"
+			}
+		},
 		"prerequisite": "Intuitive Engineer feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"int"
+		],
+		"featClasses": [
+			"artificer",
+			"savant"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Genius Inventor"
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/life/cross-yellow-green.webp",
-			"origin": "Item.xx44tsj1czjhkpag",
+			"origin": "Item.MS48tDOvGXaxKlhn",
 			"flags": {
 				"a5e": {}
 			},
@@ -52,41 +86,59 @@
 			"_id": "twhvwX7eYb70cs1P",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.367",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.2.15",
+				"createdTime": 1789929685274,
+				"modifiedTime": 1789929685365,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 			},
 			"system": {
 				"applyToSelf": false,
 				"effectType": "passive",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
 				"changes": [
 					{
 						"key": "system.abilities.int.value",
-						"value": "1",
+						"value": 1,
 						"priority": null,
-						"type": "add"
+						"type": "add",
+						"phase": "initial"
 					}
 				]
-			}
+			},
+			"img": "icons/magic/life/cross-yellow-green.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"start": null,
+			"showIcon": 1,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "xx44tsj1czjhkpag",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685274,
+		"modifiedTime": 1790009738765,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "xx44tsj1czjhkpag"
 }

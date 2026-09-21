@@ -2,7 +2,61 @@
 	"name": "Mystic Warden",
 	"type": "feature",
 	"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"name": "Mystic Warden",
+			"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-purple.webp",
+			"origin": "Item.8Vb7XHl7P0dYwZNk",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"changes": [
+					{
+						"key": "system.traits.damageResistances",
+						"type": "add",
+						"value": [
+							"necrotic",
+							"psychic"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "sZBXn5gIBGoM3Tz9",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>While you have any of these temporary hit points remaining, you have resistance to necrotic and psychic damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.367",
+				"systemId": "a5e",
+				"systemVersion": "1.2.15",
+				"createdTime": 1790009848581,
+				"modifiedTime": 1790009868815,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +69,154 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Your fusion of innate and ideological power deepens, allowing you to guard yourself against more powerful threats, manipulate pockets of reality, and dazzle enemies with righteous luminescence.</p><p>You gain the following benefits:</p><ul><li><p>You can spend 3 sorcery points as an action to create a protective barrier around yourself. You gain temporary hit points equal to your proficiency bonus times your Charisma modifier. While you have any of these temporary hit points remaining, you have resistance to necrotic and psychic damage.</p></li><li><p>As an action, you can spend 1 sorcery point to create an extradimensional space that can hold a single object the size of a greatsword or smaller. You may retrieve the item as a bonus action. You may only have once such space created at a time.</p></li><li><p>You learn the <em>sacred flame</em> cantrip and the <em>guiding bolt</em> spell. They count as herald spells for you.</p></li><li><p>You gain the following Empowered Smite option: Binding Smite</p></li></ul>",
+		"actions": {
+			"iodHaQSyUH9tgq6k": {
+				"name": "Protective Barrier",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"sZBXn5gIBGoM3Tz9"
+				],
+				"macro": "",
+				"consumers": {
+					"Qxu2ihq2Q86VgveM": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "sorcery-points",
+						"resource": "classResource",
+						"quantity": 3,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"hKsXurPqSIFHiwud": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"jxa4IBhKYpRq0Mj1": {
+						"type": "healing",
+						"default": true,
+						"formula": "@prof * @Cha.mod",
+						"healingType": "temporaryHealing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			},
+			"w76n0w9q9DNNi3H6": {
+				"name": "Extradimensional Space",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"xqgDzF7T4fEQDrus": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "sorcery-points",
+						"resource": "classResource",
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
+				}
+			}
+		},
+		"description": "<p>Your fusion of innate and ideological power deepens, allowing you to guard yourself against more powerful threats, manipulate pockets of reality, and dazzle enemies with righteous luminescence.</p><p>You gain the following benefits:</p><ul><li><p>You can spend 3 sorcery points as an action to create a protective barrier around yourself. You gain temporary hit points equal to your proficiency bonus times your Charisma modifier. While you have any of these temporary hit points remaining, you have resistance to necrotic and psychic damage.</p></li><li><p>As an action, you can spend 1 sorcery point to create an extradimensional space that can hold a single object the size of a greatsword or smaller. You may retrieve the item as a bonus action. You may only have once such space created at a time.</p></li><li><p>You learn the @UUID[Compendium.a5e.a5e-spells.Item.tvtm60k5wxyki9qc]{Sacred Flame} cantrip and the @UUID[Compendium.a5e.a5e-spells.Item.h4cib7rjhd5jqfff]{Guiding Bolt} spell. They count as herald spells for you.</p></li><li><p>You gain the following @UUID[Compendium.a5e.a5e-class-features.Item.u220f22b3cpphtgb]{Empowered Smite} option: @UUID[Compendium.a5e.a5e-class-features.Item.cvo56wza7ouztfq6]{Binding Smite}</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitArcaneAvenger",
@@ -26,26 +226,62 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"0qh1EYnTAhE1pudc": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0qh1EYnTAhE1pudc",
+				"label": "Mystic Warden",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.cvo56wza7ouztfq6",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "Arcane Sentinel feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"none"
+		],
+		"featClasses": [
+			"herald",
+			"sorcerer"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Arcane Sentinel"
 	},
 	"folder": null,
-	"_id": "oy5textk7negnxdx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685278,
+		"modifiedTime": 1790010003879,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "oy5textk7negnxdx"
 }

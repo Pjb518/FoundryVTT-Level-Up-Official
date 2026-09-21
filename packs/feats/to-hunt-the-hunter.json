@@ -25,27 +25,92 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"sh3U3LAm9y4nVMiN": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "sh3U3LAm9y4nVMiN",
+				"label": "To Hunt the Hunter",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"img": ""
+			},
+			"QUpcrnu1A8aiZCR0": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "QUpcrnu1A8aiZCR0",
+				"label": "To Hunt the Hunter",
+				"bonus": "max(@int.mod,@wis.mod)",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack"
+					],
+					"spellLevels": [],
+					"damageTypes": [
+						"radiant"
+					],
+					"isCritBonus": false
+				},
+				"damageType": ""
+			}
+		},
 		"prerequisite": "Student of Science, Not Without Faith feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"int",
+			"wis"
+		],
+		"featClasses": [
+			"scholar",
+			"ranger"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Monster Slayer"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "twyv4gfeazc9jdm0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685283,
+		"modifiedTime": 1789935419735,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "twyv4gfeazc9jdm0"
 }

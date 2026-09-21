@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>When you turn your unflinching gaze upon a foe, you can smite them with the cold implacable grasp of Death itself. You gain the following benefits:</p><ul><li>You gain a +1 bonus to your choice of your Strength or Charisma score, to a maximum value of 20.</li><li>When you use Divine Smite, you may expend 2 or more spell points to increase the damage dealt by 1d8 per 2 spell points expended to a maximum of the maximum amount of damage that a Divine Smite would deal for a herald of your herald+warlock level.</li><li>You may spend 2 spell points to apply an Empowered Smite effect to a Divine Smite, even if you do not have that ability. &nbsp;If you have the Greater Empowered Smite ability, you may also apply one of those effects by spending 2 spell points.</li><li>You gain access to the following additional empowered smite options:</li><li>Enervating Smite: The target has their hit point maximum reduced by an amount equal to the damage of the smite and must make a constitution saving throw against your spell save DC. &nbsp;On a failure, the target also gains 1 level of fatigue or strife, your choice. &nbsp;They may not gain more than 4 levels of either from this ability in one 24 hour period.</li><li>Vampiric Smite: You regain hit points equal to the damage dealt by the smite.</li></ul>",
+		"description": "<p>When you turn your unflinching gaze upon a foe, you can smite them with the cold implacable grasp of Death itself. You gain the following benefits:</p><ul><li><p>You gain a +1 bonus to your choice of your Strength or Charisma score, to a maximum value of 20.</p></li><li><p>When you use @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite}, you may expend 2 or more spell points to increase the damage dealt by 1d8 per 2 spell points expended to a maximum of the maximum amount of damage that a Divine Smite would deal for a herald of your herald+warlock level.</p></li><li><p>You may spend 2 spell points to apply an @UUID[Compendium.a5e.a5e-class-features.Item.u220f22b3cpphtgb]{Empowered Smite} effect to a Divine Smite, even if you do not have that ability.  If you have the @UUID[Compendium.a5e.a5e-class-features.Item.p9gkawegqqbxb821]{Greater Empowered Smite} ability, you may also apply one of those effects by spending 2 spell points.</p></li><li><p>You gain access to the following additional empowered smite options:</p><ul><li><p><strong>Enervating Smite:</strong> The target has their hit point maximum reduced by an amount equal to the damage of the smite and must make a constitution saving throw against your spell save DC.  On a failure, the target also gains 1 level of fatigue or strife, your choice.  They may not gain more than 4 levels of either from this ability in one 24 hour period.</p></li><li><p><strong>Vampiric Smite:</strong> You regain hit points equal to the damage dealt by the smite.</p></li></ul></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -25,27 +25,69 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"9wWiArVgKfus0XTc": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "9wWiArVgKfus0XTc",
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"abilities": {
+					"base": [],
+					"options": [
+						"str",
+						"cha"
+					],
+					"total": 1
+				},
+				"bonus": "1",
+				"label": "Deathly Smite"
+			}
+		},
 		"prerequisite": "On a Pale Horse feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"str",
+			"cha"
+		],
+		"featClasses": [
+			"herald",
+			"warlock"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Death Knight"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "1gwktkgyd84bp9n5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685264,
+		"modifiedTime": 1789935599029,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "1gwktkgyd84bp9n5"
 }

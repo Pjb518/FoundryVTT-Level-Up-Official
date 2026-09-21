@@ -16,25 +16,36 @@
 		},
 		"actions": {
 			"eTUj77NqUTMdiQvp": {
-				"name": "Use Feature",
+				"name": "Theologian",
 				"activation": {
 					"type": "minute",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"9nxPs44VHv9voSfq": {
 						"type": "hitDice",
 						"default": true,
 						"quantity": 1,
-						"defaultDie": ""
+						"label": ""
 					}
 				},
 				"rolls": {
 					"3i2yveqsFe3z59Fo": {
 						"type": "skillCheck",
-						"default": true,
+						"default": false,
 						"skill": "rel",
-						"ability": "none"
+						"ability": "int",
+						"bonus": "",
+						"label": "Religion Check (Intelligence)"
+					},
+					"AzN0kMl5ceIdGvVr": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "rel",
+						"ability": "wis",
+						"bonus": "",
+						"label": "Religion Check (Wisdom)"
 					}
 				},
 				"prompts": {},
@@ -44,10 +55,38 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
 				}
 			}
 		},
@@ -61,27 +100,115 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"4GPp7VYZtAQqQozT": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "4GPp7VYZtAQqQozT",
+				"label": "Theologian",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"img": ""
+			},
+			"jv91hveP36Nku2Zw": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jv91hveP36Nku2Zw",
+				"label": "Theologian",
+				"keys": {
+					"base": [
+						"rel"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"WPfvXK19rjenDCKa": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "WPfvXK19rjenDCKa",
+				"label": "Theologian",
+				"specialties": {
+					"base": [],
+					"options": [
+						"alignment",
+						"celestials",
+						"cults",
+						"fiends",
+						"gods",
+						"holySymbols",
+						"morality",
+						"prophecy",
+						"relics",
+						"undead"
+					],
+					"total": 1
+				},
+				"skill": "rel"
+			}
+		},
 		"prerequisite": "3 Levels in Cleric, 3 Levels in Scholar",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"int",
+			"wis"
+		],
+		"featClasses": [
+			"cleric",
+			"scholar"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Theologian"
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "thbtmnfhrs96weu8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685283,
+		"modifiedTime": 1789934717242,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "thbtmnfhrs96weu8"
 }

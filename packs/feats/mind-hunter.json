@@ -16,7 +16,11 @@
 		"actions": {
 			"LyTjgQ5B0HEEZoo4": {
 				"name": "Psychic Poison",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {
 					"OAea3KtIzQpGUI7h": {
@@ -24,7 +28,20 @@
 						"default": true,
 						"formula": "1d4",
 						"damageType": "poison",
-						"canCrit": false
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"prompts": {
@@ -33,7 +50,8 @@
 						"default": true,
 						"ability": "con",
 						"saveDC": {
-							"type": "maneuver"
+							"type": "maneuver",
+							"bonus": ""
 						},
 						"label": "Psychic Poison",
 						"onSave": "negates effect or ends effect if already affected"
@@ -45,7 +63,8 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 6,
+						"type": "recoverAll"
 					}
 				},
 				"description": "<p>Creatures that take psychic damage from your weapon attacks must make a Constitution saving throw against your maneuver DC or be psychically poisoned for one minute. While a creature is poisoned this way, it suffers the <em>poisoned</em> condition and takes 1d4 ongoing <em>poison</em> damage at the beginning of each of its turns. A creature may attempt this save again at the end of each of its turns, ending the effect on a success.</p>",
@@ -54,11 +73,96 @@
 				],
 				"target": {
 					"type": "",
-					"quantity": 1
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {}
+			},
+			"XYsUhgEHPQKr2irs": {
+				"name": "Teleport",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"eOEMo8azhtIEzx56": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {
+					"ATinnmOpZCFgYaiw": {
+						"range": 50,
+						"unit": "feet",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					}
 				}
 			}
 		},
-		"description": "<p>Your psionic capabilities and wilderness skills have combined to make you into a fearsome apex predator. You gain the following benefits:</p><ul><li>Your Wisdom score or your Intelligence score increases by +1, to a maximum of 20.</li><li>While your <em>Psychic Focus</em> is active, you may spend an exertion point to teleport up to 50 feet instead of moving as normal.</li><li>Creatures that take psychic damage from your weapon attacks must make a Constitution saving throw against your maneuver DC or be psychically poisoned for one minute. While a creature is poisoned this way, it suffers the poisoned condition and takes 1d4 ongoing poison damage at the beginning of each of its turns. A creature may attempt this save again at the end of each of its turns, ending the effect on a success.</li></ul>",
+		"description": "<p>Your psionic capabilities and wilderness skills have combined to make you into a fearsome apex predator. You gain the following benefits:</p><ul><li><p>Your Wisdom score or your Intelligence score increases by +1, to a maximum of 20.</p></li><li><p>While your @UUID[Compendium.a5e.a5e-class-features.Item.rKYtSucPFAtDqTpj]{Psychic Focus} is active, you may spend an exertion point to teleport up to 50 feet instead of moving as normal.</p></li><li><p>Creatures that take psychic damage from your weapon attacks must make a Constitution saving throw against your maneuver DC or be psychically poisoned for one minute. While a creature is poisoned this way, it suffers the poisoned condition and takes 1d4 ongoing poison damage at the beginning of each of its turns. A creature may attempt this save again at the end of each of its turns, ending the effect on a success.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
@@ -68,28 +172,69 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"nVNtw4tKDi0xOEfB": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "nVNtw4tKDi0xOEfB",
+				"label": "Mind Hunter",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"bonus": "1"
+			}
+		},
 		"prerequisite": "Vigilant Scout feat",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis",
+			"int"
+		],
+		"featClasses": [
+			"esper",
+			"ranger"
+		],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Hinterland Consciousness"
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "kllrf257b4sowzxd",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685272,
+		"modifiedTime": 1790009440966,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "kllrf257b4sowzxd"
 }

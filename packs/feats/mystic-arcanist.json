@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>The arcane and the divine are but two aspects of the same power seen through different lenses, and those with arcane blood running through their veins and divine words chanted in their ears can access magic in its purest form. You gain the following benefits:</p><ul><li>Your Wisdom or Charisma score increases by 1, to a maximum of 20.</li><li>When you cast a spell that restores hit points, you restore an additional number of hit points equal to your Charisma modifier.</li><li>You can spend sorcery points to temporarily gain a spell from the cleric or sorcerer spell lists. Temporarily gaining a spell in this way costs a number of sorcery points equal to the spell&rsquo;s level. You cannot gain a spell in this way that has a level higher than your highest level spell slot. When you gain a cleric spell in this way, it is considered prepared for the day. When you gain a sorcerer spell in this way, it is considered a spell you know for the day. You lose all spells gained in this way whenever you finish a long rest .</li></ul>",
+		"description": "<p>The arcane and the divine are but two aspects of the same power seen through different lenses, and those with arcane blood running through their veins and divine words chanted in their ears can access magic in its purest form. You gain the following benefits:</p><ul><li><p>Your Wisdom or Charisma score increases by 1, to a maximum of 20.</p></li><li><p>When you cast a spell that restores hit points, you restore an additional number of hit points equal to your Charisma modifier.</p></li><li><p>You can spend sorcery points to temporarily gain a spell from the cleric or sorcerer spell lists. Temporarily gaining a spell in this way costs a number of sorcery points equal to the spell’s level. You cannot gain a spell in this way that has a level higher than your highest level spell slot. When you gain a cleric spell in this way, it is considered prepared for the day. When you gain a sorcerer spell in this way, it is considered a spell you know for the day. You lose all spells gained in this way whenever you finish a long rest.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -24,28 +24,96 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": 6
+				"threshold": 6,
+				"type": "recoverAll"
 			}
 		},
 		"concentration": false,
 		"featureType": "feat",
-		"grants": {},
+		"grants": {
+			"5ntENGX3eaTffkuC": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "5ntENGX3eaTffkuC",
+				"label": "Mystic Arcanist",
+				"abilities": {
+					"base": [],
+					"options": [
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"img": ""
+			},
+			"R5W7fsrgGdUFCZNq": {
+				"grantType": "healing",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "R5W7fsrgGdUFCZNq",
+				"label": "Mystic Arcanist",
+				"bonus": "@cha.mod",
+				"context": {
+					"spellLevels": [
+						"0",
+						"1",
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7",
+						"8",
+						"9"
+					]
+				}
+			}
+		},
 		"prerequisite": "3 levels in cleric, 3 levels in sorcerer",
 		"requiresBloodied": false,
 		"classes": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [
+			"wis",
+			"cha"
+		],
+		"featClasses": [
+			"cleric",
+			"sorcerer"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Mystic Arcanist"
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "cngl6xax5xz97ok1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.367",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.2.15",
+		"createdTime": 1789929685275,
+		"modifiedTime": 1789932949237,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "cngl6xax5xz97ok1"
 }
