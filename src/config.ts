@@ -96,6 +96,19 @@ const DICE_ROLL_MODES = {
 	ic: 'In Character',
 };
 
+const DICE_SIDES = [0, 4, 6, 8, 10, 12, 20, 100] as const;
+
+const DICE_SIDES_MAP = {
+	0: 0,
+	1: 4,
+	2: 6,
+	3: 8,
+	4: 10,
+	5: 12,
+	6: 20,
+	7: 100,
+};
+
 /**
  * Enum for object equipped state
  */
@@ -2247,6 +2260,8 @@ const A5E = {
 	CR_EXP_LEVELS,
 	DAMAGED_STATES,
 	DICE_ROLL_MODES,
+	DICE_SIDES,
+	DICE_SIDES_MAP,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
 	PREPARED_STATES,
