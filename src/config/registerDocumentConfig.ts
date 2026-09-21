@@ -1,7 +1,3 @@
-import { PartyA5E } from '#documents/actor/party.svelte.ts';
-import CharacterActorA5E from '../documents/actor/character.ts';
-import NPCActorA5E from '../documents/actor/npc.ts';
-
 import ArchetypeItemA5e from '../documents/item/archetype.ts';
 import ClassItemA5e from '../documents/item/class.ts';
 import FeatureItemA5e from '../documents/item/feature.ts';
@@ -12,11 +8,7 @@ import SpellItemA5e from '../documents/item/spell.ts';
 export default function registerDocumentConfig() {
 	return {
 		Actor: {
-			documentClasses: {
-				character: CharacterActorA5E,
-				npc: NPCActorA5E,
-				party: PartyA5E,
-			},
+			documentClasses: {},
 		},
 
 		Item: {
