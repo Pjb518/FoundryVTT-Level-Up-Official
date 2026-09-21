@@ -514,7 +514,6 @@ class RollPreparationManager {
 		const actorData = this.#actor.system;
 
 		const casterLevel: number =
-			// @ts-expect-error
 			this.#actor?.levels?.character ??
 			// @ts-expect-error
 			actorData.details.level ??
@@ -539,9 +538,14 @@ class RollPreparationManager {
 		else if (casterLevel >= 5) multiplier = 1;
 
 		// Apply die scaling
+		// @ts-expect-error
+		const faceIdx = CONFIG.A5E.DICE_SIDES.indexOf(die.denom || 0);
 		const scaledDie = new foundry.dice.terms.Die({
 			number: (die.number ?? 0) + multiplier * scalingDie.number,
-			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			faces:
+				CONFIG.A5E.DICE_SIDES_MAP[
+					Math.clamp(multiplier * scalingDie.faces + faceIdx, 1, scalingDie.cap ?? 5)
+				] ?? 0,
 			modifiers: [...die.modifiers],
 		}).formula;
 
@@ -634,7 +638,7 @@ class RollPreparationManager {
 
 		// Get Scaling Info
 		const config = roll.scaling.config;
-		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingDie = { number: config.number, faces: config.denom, cap: config.cap };
 		const scalingBonus = new Roll(config.value || '');
 
 		// Get Multiplier
@@ -643,9 +647,14 @@ class RollPreparationManager {
 		if (multiplier === 0) return roll.getFormula();
 
 		// Apply die scaling
+		// @ts-expect-error
+		const faceIdx = CONFIG.A5E.DICE_SIDES.indexOf(die.denom || 0);
 		const scaledDie = new foundry.dice.terms.Die({
 			number: (die.number ?? 0) + multiplier * scalingDie.number,
-			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			faces:
+				CONFIG.A5E.DICE_SIDES_MAP[
+					Math.clamp(multiplier * scalingDie.faces + faceIdx, 1, scalingDie.cap ?? 5)
+				] ?? 0,
 			modifiers: [...die.modifiers],
 		}).formula;
 

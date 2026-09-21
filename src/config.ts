@@ -107,7 +107,7 @@ const DICE_SIDES_MAP = {
 	5: 12,
 	6: 20,
 	7: 100,
-};
+} as const;
 
 /**
  * Enum for object equipped state
