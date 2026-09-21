@@ -54,6 +54,13 @@ class A5EPartyData extends foundry.abstract.TypeDataModel<
 			...partySchema(),
 		};
 	}
+
+	get level(): number {
+		const members = this.parent.members;
+		const levels = members.filter((m) => m.isChar()).map((m) => m.levels.character);
+		const total = levels.reduce((sum, val) => sum + val, 0);
+		return Math.round(total / levels.length);
+	}
 }
 
 export { A5EPartyData };

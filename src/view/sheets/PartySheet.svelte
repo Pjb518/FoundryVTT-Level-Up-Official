@@ -95,7 +95,7 @@
     </div>
 
     <div class="a5e-party-sheet__header__level">
-      Level {partyData.details.level ?? 1}
+      Level {partyData.level ?? 1}
     </div>
 
     <button
