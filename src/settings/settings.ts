@@ -583,18 +583,6 @@ export const settings = [
 	// Misc Settings
 	{
 		namespace,
-		key: 'autoApplyFancySheets',
-		options: {
-			name: 'A5E.settings.autoApplyFancySheets',
-			hint: 'A5E.settings.hints.autoApplyFancySheets',
-			scope: scope.world,
-			config: false,
-			default: false,
-			type: Boolean,
-		},
-	},
-	{
-		namespace,
 		key: 'enableCascadingDamageAndHealing',
 		options: {
 			name: 'A5E.settings.enableCascadingDamageAndHealing',
