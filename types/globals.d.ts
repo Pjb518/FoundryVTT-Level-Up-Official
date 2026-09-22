@@ -100,6 +100,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.enableCascadingDamageAndHealing': boolean;
 		'a5e.enableRadialEffects': boolean;
 		'a5e.hideExpertiseDice': boolean;
+		'a5e.itemRightClickConfigure': boolean;
 		'a5e.lastSeenChangelogVersion': string;
 		'a5e.replaceFatigueAndStrife': boolean;
 		'a5e.showFavorPoints': boolean;
