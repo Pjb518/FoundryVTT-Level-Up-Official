@@ -7,7 +7,7 @@ import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import actorGrants from '../dataModels/actor/grants';
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
+import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
 
 interface DefaultApplyOptions {
 	item: Item;

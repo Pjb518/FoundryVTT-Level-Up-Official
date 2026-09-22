@@ -131,7 +131,7 @@ class ActionUsesConsumerData extends DataModel<ActionUsesConsumerData.Schema> {
 		};
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+	getActivationData(actor: Creature, item: ItemA5e) {
 		// @ts-expect-error
 		const actionUses = this.parent?.uses ?? {};
 
@@ -165,7 +165,7 @@ class HitDiceConsumerData extends DataModel<HitDiceConsumerData.Schema> {
 		};
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
+	getActivationData(actor: Creature, item?: ItemA5e) {
 		const availableHitDice = actor.HitDiceManager.availableList;
 
 		const hitDiceData = {
@@ -188,7 +188,7 @@ class ItemUsesConsumerData extends DataModel<ItemUsesConsumerData.Schema> {
 		};
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+	getActivationData(actor: Creature, item: ItemA5e) {
 		const itemUses = item.system.uses;
 
 		return {
@@ -227,7 +227,7 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		return { ...resourceSchema() };
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item?: ItemA5e) {
+	getActivationData(actor: Creature, item?: ItemA5e) {
 		const config = CONFIG.A5E.resourceConsumerConfig[this.resource] ?? {};
 		const label = localize(config?.label);
 
@@ -275,7 +275,7 @@ class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
 		};
 	}
 
-	getActivationData(actor: Actor.OfType<'base'>, item: ItemA5e) {
+	getActivationData(actor: Creature, item: ItemA5e) {
 		const { A5E } = CONFIG;
 		const spellLevels = Object.entries(A5E.spellLevels).slice(1);
 		const spellBook = actor.spellBooks.get(item.system.spellBook || '');

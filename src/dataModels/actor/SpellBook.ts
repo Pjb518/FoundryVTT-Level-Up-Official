@@ -1,6 +1,6 @@
 import type { SpellBookStats } from 'types/spellBook';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus';
-import type { BaseActorA5e } from '../../documents/actor/base';
+import type { ActorA5E } from '../../documents/actor/actor';
 import type SpellItemA5e from '../../documents/item/spell';
 
 const { fields } = foundry.data;
@@ -79,7 +79,7 @@ export default class SpellBook extends foundry.abstract.DataModel<
 	// Data Preparation
 	// ======================================
 	prepareBaseData(): void {
-		const actor = this.parent as BaseActorA5e;
+		const actor = this.parent as ActorA5E;
 		this.spells = new foundry.utils.Collection();
 		if (!actor) return;
 
@@ -95,7 +95,7 @@ export default class SpellBook extends foundry.abstract.DataModel<
 	}
 
 	prepareSpellBookStats(): void {
-		const actor = this.parent as BaseActorA5e;
+		const actor = this.parent as ActorA5E;
 		if (!actor) return;
 
 		let { ability } = this;

@@ -18,7 +18,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 	protected root;
 
 	constructor(actor: { document: any }, options: any = {}) {
-		let root;
+		let root: any;
 
 		if (
 			[CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE, CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED].includes(

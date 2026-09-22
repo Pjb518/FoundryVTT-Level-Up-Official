@@ -37,3 +37,7 @@ export interface SkillCheckRollOptions extends ActorRollOptions {
 	minRoll?: number | undefined;
 	speciality?: string;
 }
+
+export type LazyActorRefs = {
+	classes: Record<string, Item.OfType<'class'>> | undefined;
+};

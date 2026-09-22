@@ -87,21 +87,17 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 		if (!this.actor) return;
 
 		const currentState = this.system.equippedState;
-		// @ts-expect-error
 		let newState = (currentState + 1) % 3;
 
 		// Check if armor is already equipped
 		if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
 			const { hasArmor, hasUnderArmor } = this.actor.items.reduce(
 				(acc, item) => {
-					// @ts-expect-error
 					if (
 						item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED ||
-						// @ts-expect-error
 						item.system.objectType !== 'armor'
 					)
 						return acc;
-					// @ts-expect-error
 					const isUnderarmor = item.system.materialProperties.includes('underarmor');
 					if (isUnderarmor) acc.hasUnderArmor = true;
 					else acc.hasArmor = true;
@@ -116,7 +112,6 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 
 			// Warn user
 			if (newState === 0) {
-				// @ts-expect-error
 				ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
 			}
 		}
@@ -125,14 +120,11 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 		if (newState === 2 && this.system.objectType === 'shield') {
 			const shields = this.actor.items.filter(
 				(i) =>
-					// @ts-expect-error
 					i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED &&
-					// @ts-expect-error
 					i.system.objectType === 'shield',
 			);
 			if (shields.length >= 2) newState = 0;
 			if (newState === 0) {
-				// @ts-expect-error
 				ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
 			}
 		}

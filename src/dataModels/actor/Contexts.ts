@@ -72,7 +72,7 @@ const damageBonusSchema = () => ({
 });
 
 export const damageBonusContext = () => ({ ...damageBonusSchema() });
-export const damageBonusContextGrant = () => ({ ...damageBonusSchema, ...grantContextCommon });
+export const damageBonusContextGrant = () => ({ ...damageBonusSchema(), ...grantContextCommon() });
 
 // -------------------------------------
 // Healing Bonus Contexts
