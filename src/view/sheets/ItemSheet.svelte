@@ -146,12 +146,12 @@
     grid-template-rows: min-content min-content min-content minmax(0, 1fr);
     gap: 0.5rem;
 
-    padding-inline: 0.5rem;
     padding-block: 0.5rem;
 
     &__page {
       grid-area: page;
       overflow-y: auto;
+      padding-inline: 0.5rem;
     }
   }
 </style>
