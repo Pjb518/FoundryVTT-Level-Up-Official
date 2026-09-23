@@ -246,19 +246,21 @@ function booleanFilter(key, mode) {
 
 function rangeFilter(key, { min, max }) {
 	return (doc) => {
-		const value = foundry.utils.getProperty(doc, key);
-		return value >= min && value <= max;
+		const value = foundry.utils.getProperty(doc, key) as number;
+		return value >= Number.parseInt(min, 10) && value <= Number.parseInt(max, 10);
 	};
 }
 
 function valueFilter(key, value, mode) {
 	if (mode) {
 		// Intentionally using == instead of ===
-		return (doc) => foundry.utils.getProperty(doc, key) === value;
+		// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+		return (doc) => foundry.utils.getProperty(doc, key) == value;
 	}
 
 	// Intentionally using == instead of ===
-	return (doc) => foundry.utils.getProperty(doc, key) !== value;
+	// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+	return (doc) => foundry.utils.getProperty(doc, key) != value;
 }
 
 export function constructFilters(filtersSelections: Record<string, any>, compendiumType: string) {
