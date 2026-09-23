@@ -742,10 +742,6 @@
       outline: none;
     }
 
-    &--fav {
-      color: var(--a5e-item-list-item-icon-color-fav);
-    }
-
     &--activation-cost {
       display: flex;
       align-items: center;
@@ -770,6 +766,10 @@
         color: var(--icon-color-active, inherit);
         transform: scale(1);
       }
+    }
+
+    &--fav {
+      color: var(--icon-color-fav, var(--a5e-item-list-item-icon-color-fav));
     }
 
     &--stance:hover {
