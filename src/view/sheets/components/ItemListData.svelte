@@ -606,7 +606,7 @@
       {#if flags.a5e?.showFavoritesSection ?? actor.isCreature()}
         <button
           type="button"
-          class="action-button icon fas fa-star"
+          class="action-button action-button--fav icon fas fa-star"
           class:active={itemStore?.favorite ?? false}
           data-tooltip="A5E.buttons.tooltips.favorite"
           data-tooltip-direction="UP"
@@ -740,6 +740,10 @@
     &:focus {
       box-shadow: none;
       outline: none;
+    }
+
+    &--fav {
+      color: var(--a5e-item-list-item-icon-color-fav);
     }
 
     &--activation-cost {
