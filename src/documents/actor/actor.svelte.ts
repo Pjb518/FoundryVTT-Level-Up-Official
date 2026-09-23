@@ -1687,7 +1687,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		data: Record<string, any>,
 		_item: BaseItemA5e | null = null,
 	) {
-		console.log('Im a char rollData');
 		data.level = this.levels?.character ?? data.level ?? this.system.details.level;
 
 		const resources = {};
