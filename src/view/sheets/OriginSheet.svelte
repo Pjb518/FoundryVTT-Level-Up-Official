@@ -115,11 +115,11 @@
     gap: 0.5rem;
 
     padding-block: 0.5rem;
+    padding-inline: 0.5rem;
 
     &__page {
       grid-area: page;
       overflow-y: auto;
-      padding-inline: 0.5rem;
       padding-block: 0.75rem;
     }
   }

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { determineIfPropertyModifiedByEffect } from "#utils/determineIfPropertyModifiedByEffect .ts";
+  import { determineIfPropertyModifiedByEffect } from "#utils/determineIfPropertyModifiedByEffect.ts";
   import { localize } from "#utils/localization/localize.ts";
 
   import { prepareAlignment } from "#utils/view/helpers/prepareAlignment.ts";
@@ -35,7 +35,8 @@
 
   function openConfig(dialogMethod: string, propertyKey: string) {
     if (!determineIfPropertyModifiedByEffect(actor, propertyKey)) {
-      return actor[dialogMethod]?.({ propertyKey });
+      console.log(dialogMethod);
+      return actor.reactive[dialogMethod]?.({ propertyKey });
     }
 
     ui.notifications.warn(
