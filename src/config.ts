@@ -11,10 +11,13 @@ import registerEffectLocalizationConfig from './config/registerEffectLocalizatio
 import registerEncounterElements from './config/registerEncounterElements.ts';
 import registerFilterConfig from './config/registerFilterConfig.ts';
 import registerGrantsConfig from './config/registerGrantsConfig.ts';
-import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
+// import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
+import registerModuleIncompatibilities from './config/premiumContent/moduleIncompatibilities.ts';
 import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties.ts';
-import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
-import registerPublisherConfig from './config/registerPublisherConfig.ts';
+// import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
+import registerPremiumContentConfig from './config/premiumContent/products.ts';
+// import registerPublisherConfig from './config/registerPublisherConfig.ts';
+import registerPublisherConfig from './config/premiumContent/publishers.ts';
 import registerReducerConfig from './config/registerReducerConfig.ts';
 import registerSettingsConfig from './config/registerSettingsConfig.ts';
 
