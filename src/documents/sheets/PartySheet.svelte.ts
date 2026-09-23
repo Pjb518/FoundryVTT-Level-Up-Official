@@ -10,6 +10,10 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 	protected root = PartySheetComponent;
 
 	constructor(actor: { document: Actor.OfType<'party'> }, options: any = {}) {
+		options.position ??= {};
+		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+		options.position.width = PartySheetA5E.DEFAULT_OPTIONS.position.width * scale;
+
 		super(
 			// @ts-expect-error
 			foundry.utils.mergeObject(options, {

@@ -31,6 +31,9 @@ export default class ActorSheet extends SvelteApplicationMixin(
 			root = null;
 		} else {
 			root = ActorSheetComponent;
+			options.position ??= {};
+			const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+			options.position.width = ActorSheet.DEFAULT_OPTIONS.position.width * scale;
 		}
 
 		super(
