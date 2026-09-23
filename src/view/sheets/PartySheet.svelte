@@ -138,6 +138,7 @@
     flex-direction: column;
     gap: 0.75rem;
     max-height: 80vh;
+    padding-block-end: 0.75rem;
 
     &__instructions {
       display: flex;
