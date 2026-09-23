@@ -1,63 +1,62 @@
-import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
+import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
 
-import Component from "../DeletionConfirmationDialog.svelte";
+import Component from '../DeletionConfirmationDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export class DeletionConfirmationDialog extends SvelteApplicationMixin(
-  foundry.applications.api.ApplicationV2,
+	foundry.applications.api.ApplicationV2,
 ) {
-  data;
+	data;
 
-  root = Component;
+	root = Component;
 
-  constructor(
-    itemDocument: any = undefined,
-    hideDeleteSection = false,
-    type = "",
-  ) {
-    //@ts-expect-error
-    super({
-      classes: ["a5e-sheet", "a5e-sheet--dialog"],
-      position: { width: 420, height: "auto" },
-      window: {
-        title: `${itemDocument?.name ?? type}: Confirm Deletion`,
-      },
-    });
+	constructor(itemDocument: any = undefined, hideDeleteSection = false, type = '') {
+		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+		const width = 420 * scale;
 
-    this.data = { itemDocument, hideDeleteSection, type };
+		//@ts-expect-error
+		super({
+			classes: ['a5e-sheet', 'a5e-sheet--dialog'],
+			position: { width, height: 'auto' },
+			window: {
+				title: `${itemDocument?.name ?? type}: Confirm Deletion`,
+			},
+		});
 
-    this.promise = new Promise((resolve) => {
-      this.resolve = resolve;
-    });
-  }
+		this.data = { itemDocument, hideDeleteSection, type };
 
-  async _prepareContext() {
-    return {
-      ...this.data,
-      dialog: this,
-    };
-  }
+		this.promise = new Promise((resolve) => {
+			this.resolve = resolve;
+		});
+	}
 
-  /** @inheritdoc */
-  close(options) {
-    this.#resolvePromise(null);
-    return super.close(options);
-  }
+	async _prepareContext() {
+		return {
+			...this.data,
+			dialog: this,
+		};
+	}
 
-  /**
-   * Resolves the dialog's promise and closes it.
-   * @returns
-   */
-  submit(results: any) {
-    this.#resolvePromise(results);
-    return super.close();
-  }
+	/** @inheritdoc */
+	close(options) {
+		this.#resolvePromise(null);
+		return super.close(options);
+	}
 
-  #resolvePromise(data: any) {
-    if (this.resolve) {
-      this.resolve(data);
-    }
-  }
+	/**
+	 * Resolves the dialog's promise and closes it.
+	 * @returns
+	 */
+	submit(results: any) {
+		this.#resolvePromise(results);
+		return super.close();
+	}
+
+	#resolvePromise(data: any) {
+		if (this.resolve) {
+			this.resolve(data);
+		}
+	}
 }

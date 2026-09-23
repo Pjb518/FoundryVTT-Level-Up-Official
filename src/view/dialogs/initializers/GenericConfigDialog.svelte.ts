@@ -1,74 +1,79 @@
-import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
+import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not resizable.
  */
 export class GenericConfigDialog extends SvelteApplicationMixin(
-  foundry.applications.api.ApplicationV2,
+	foundry.applications.api.ApplicationV2,
 ) {
-  data: Record<string, any>;
+	data: Record<string, any>;
 
-  protected root: any;
+	protected root: any;
 
-  constructor(
-    document: any,
-    title: string,
-    component: any,
-    data: Record<string, any> = {},
-    options: Record<string, any> = {},
-  ) {
-    // @ts-expect-error
-    super({
-      classes: ["a5e-sheet"],
-      position: {
-        width: options.width ?? 420,
-        height: options.height ?? "auto",
-      },
-      window: { title },
-    });
+	constructor(
+		document: any,
+		title: string,
+		component: any,
+		data: Record<string, any> = {},
+		options: Record<string, any> = {},
+	) {
+		options.position ??= {};
+		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+		const width =
+			(options.position.width ?? GenericConfigDialog.DEFAULT_OPTIONS.position.width) * scale;
 
-    this.data = data;
-    this.document = document;
-    this.root = component;
+		// @ts-expect-error
+		super({
+			classes: ['a5e-sheet'],
+			position: {
+				width,
+				height: options.height ?? 'auto',
+			},
+			window: { title },
+		});
 
-    this.promise = new Promise((resolve) => {
-      this.resolve = resolve;
-    });
-  }
+		this.data = data;
+		this.document = document;
+		this.root = component;
 
-  static override DEFAULT_OPTIONS = {
-    classes: ["a5e-sheet a5e-sheet--dialog"],
-    position: { width: 420, height: "auto" },
-  };
+		this.promise = new Promise((resolve) => {
+			this.resolve = resolve;
+		});
+	}
 
-  override async _prepareContext() {
-    return {
-      ...this.data,
-      document: this.document,
-      dialog: this,
-    };
-  }
+	static override DEFAULT_OPTIONS = {
+		classes: ['a5e-sheet a5e-sheet--dialog'],
+		position: { width: 420, height: 'auto' },
+	};
 
-  /** @inheritdoc */
-  close(options) {
-    this.#resolvePromise(null);
-    return super.close(options);
-  }
+	override async _prepareContext() {
+		return {
+			...this.data,
+			document: this.document,
+			dialog: this,
+		};
+	}
 
-  /**
-   * Resolves the dialog's promise and closes it.
-   *
-   * @param {object} results
-   * @returns
-   */
-  submit(results) {
-    this.#resolvePromise(results);
-    return super.close();
-  }
+	/** @inheritdoc */
+	close(options) {
+		this.#resolvePromise(null);
+		return super.close(options);
+	}
 
-  #resolvePromise(data) {
-    if (this.resolve) {
-      this.resolve(data);
-    }
-  }
+	/**
+	 * Resolves the dialog's promise and closes it.
+	 *
+	 * @param {object} results
+	 * @returns
+	 */
+	submit(results) {
+		this.#resolvePromise(results);
+		return super.close();
+	}
+
+	#resolvePromise(data) {
+		if (this.resolve) {
+			this.resolve(data);
+		}
+	}
 }
