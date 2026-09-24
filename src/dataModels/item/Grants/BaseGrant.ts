@@ -6,7 +6,7 @@ import DataModel = foundry.abstract.DataModel;
 // ======================================================
 // Schema
 // ======================================================
-export const baseSchema = () => ({
+const baseSchema = () => ({
 	_id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
 	/** @deprecated */
 	label: new fields.StringField({ requied: true, nullable: false, initial: '' }),
@@ -18,6 +18,7 @@ export const baseSchema = () => ({
 		nullable: false,
 		initial: '',
 	}),
+	flags: new fields.DocumentFlagsField({ required: true, nullable: false }),
 	level: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 1 }),
 	levelType: new fields.StringField({
 		required: true,

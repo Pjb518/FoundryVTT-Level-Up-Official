@@ -1,43 +1,93 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { sensesBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
 
-export default class SensesGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		senses: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+		context: new fields.SchemaField(sensesBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	senses: new fields.SchemaField({
+		/** @deprecated */
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		/** @deprecated */
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		/** @deprecated */
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(sensesBonusContextGrant()),
+	/** @deprecated */
+	unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Senses Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'senses',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace SensesGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'senses';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'senses';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'senses' }),
-			senses: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			unit: new fields.StringField({ required: true, initial: 'feet' }),
-			context: new fields.SchemaField(sensesBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Senses Grant',
-			}),
-		});
+	static override defineSchema(): SensesGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
 	override getApplyData(actor: any, data: any) {
@@ -105,3 +155,5 @@ export default class SensesGrant extends BaseGrant {
 		});
 	}
 }
+
+export { SensesGrant };

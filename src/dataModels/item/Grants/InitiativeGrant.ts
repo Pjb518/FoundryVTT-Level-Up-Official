@@ -1,27 +1,61 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
-import { initiativeBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { initiativeBonusContext, initiativeBonusContextGrant } from '../../actor/Contexts.ts';
+import { BaseGrant } from './BaseGrant.ts';
 
-export default class InitiativeGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(initiativeBonusContext()),
+	}),
+	// Applied
+	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(initiativeBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Initiative Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'initiative',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace InitiativeGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'initiative';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'initiative';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'initiative',
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(initiativeBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Initiative Grant',
-			}),
-		});
+	static override defineSchema(): InitiativeGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
 	override getApplyData(actor: any): any {
@@ -81,3 +115,5 @@ export default class InitiativeGrant extends BaseGrant {
 		});
 	}
 }
+
+export { InitiativeGrant };
