@@ -1,4 +1,5 @@
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
@@ -51,82 +52,96 @@ const schema = {
 			}, {}),
 		),
 	}),
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					proficiencyType: 'armor',
 				},
-				proficiencyType: 'armor',
 				label: 'Armor Proficiencies',
 				levelType: 'class',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					proficiencyType: 'weapon',
 				},
-				proficiencyType: 'weapon',
 				label: 'Weapon Proficiencies',
 				levelType: 'class',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					proficiencyType: 'tool',
 				},
-				proficiencyType: 'tool',
 				label: 'Tool Proficiencies',
 				levelType: 'character',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					proficiencyType: 'savingThrow',
+					isExpertise: false,
 				},
-				proficiencyType: 'savingThrow',
-				isExpertise: false,
 				label: 'Saving Throw Proficiencies',
 				levelType: 'character',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					proficiencyType: 'skill',
+					isExpertise: false,
 				},
-				proficiencyType: 'skill',
-				isExpertise: false,
 				label: 'Skill Proficiencies',
 				levelType: 'character',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'feature',
-				features: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					features: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
 				label: '1st Level Class Features',
 				levelType: 'class',
 			},
 			[foundry.utils.randomID()]: {
 				grantType: 'item',
-				items: {
-					base: [],
-					options: [],
-					total: 0,
+				config: {
+					items: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
 				label: 'Starting Equipment',
 				levelType: 'character',

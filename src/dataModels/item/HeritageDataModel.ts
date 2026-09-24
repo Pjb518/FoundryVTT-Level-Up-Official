@@ -1,16 +1,19 @@
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
 const schema = {
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
 			[foundry.utils.randomID()]: {
 				grantType: 'movement',
-				movementTypes: { base: ['walk'] },
-				bonus: '30',
-				unit: 'feet',
+				config: {
+					movementTypes: { base: ['walk'] },
+					bonus: '30',
+					unit: 'feet',
+				},
 				label: 'Base Movement',
 			},
 		}),
