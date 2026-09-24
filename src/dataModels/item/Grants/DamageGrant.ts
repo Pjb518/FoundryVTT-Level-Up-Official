@@ -117,6 +117,19 @@ class DamageGrant extends BaseGrant<DamageGrant.Schema> {
 			width: 500,
 		});
 	}
+
+	static override migrateData(source: any, options: any) {
+		options ??= {};
+		source = super.migrateData(source, options);
+
+		if (source.config) return source;
+		source.config ??= {};
+		source.config.damageType = source.damageType;
+		source.config.bonus = source.bonus;
+		source.config.context = source.context;
+
+		return source;
+	}
 }
 
 export { DamageGrant };

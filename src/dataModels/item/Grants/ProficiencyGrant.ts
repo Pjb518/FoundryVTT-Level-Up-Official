@@ -171,6 +171,20 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			width: 400,
 		});
 	}
+
+	static override migrateData(source: any, options: any) {
+		options ??= {};
+		source = super.migrateData(source, options);
+
+		if (source.config) return source;
+		source.config ??= {};
+		source.config.keys = source.keys;
+		source.config.bonus = source.bonus;
+		source.config.isExpertise = source.isExpertise;
+		source.config.proficiencyType = source.proficiencyType;
+
+		return source;
+	}
 }
 
 export { ProficiencyGrant };

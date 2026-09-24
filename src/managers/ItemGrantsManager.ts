@@ -8,7 +8,7 @@ export class ItemGrantsManager extends Map<string, Grant> {
 
 		this.#item = item;
 		Object.entries(this.#item.system.grants ?? {}).forEach(([id, grant]: Array<any>) => {
-			// grant._id = id;
+			grant.id = id;
 
 			this.set(id, grant);
 		});

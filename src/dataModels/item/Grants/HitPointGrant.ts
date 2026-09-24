@@ -111,6 +111,18 @@ class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 			width: 400,
 		});
 	}
+
+	static override migrateData(source: any, options: any) {
+		options ??= {};
+		source = super.migrateData(source, options);
+
+		if (source.config) return source;
+		source.config ??= {};
+		source.config.bonus = source.bonus;
+		source.config.context = source.context;
+
+		return source;
+	}
 }
 
 export { HitPointGrant };
