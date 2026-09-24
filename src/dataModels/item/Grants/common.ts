@@ -34,7 +34,7 @@ export const exertionGrantSchema = () => ({
 	poolType: new fields.StringField({
 		required: true,
 		nullable: false,
-		initial: '',
+		initial: 'none',
 		choices: ['none', 'prof', 'doubleProf'],
 	}),
 	type: new fields.StringField({ required: true, nullable: false, initial: '' }),

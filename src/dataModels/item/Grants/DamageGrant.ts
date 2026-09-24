@@ -62,15 +62,15 @@ class DamageGrant extends BaseGrant<DamageGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Damage Grant',
-			default: this.context.default ?? true,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Damage Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 

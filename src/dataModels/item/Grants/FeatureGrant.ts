@@ -135,15 +135,15 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.features.base,
-			choices: this.features.options,
-			count: this.features.total,
+			base: this.config.features.base,
+			choices: this.config.features.options,
+			count: this.config.features.total,
 			selected: data?.uuids ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return !!this.features.options.length;
+		return !!this.config.features.options.length;
 	}
 
 	override async configureGrant() {

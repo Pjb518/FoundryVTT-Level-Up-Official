@@ -89,18 +89,18 @@ class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
-				movementTypes: data?.selected ?? this.movementTypes.base ?? [],
-				...this.context,
+				movementTypes: data?.selected ?? this.config.movementTypes.base ?? [],
+				...this.config.context,
 			},
-			formula: this.bonus,
-			unit: this.unit || 'feet',
-			label: this.label || this.parent?.name || 'Movement Grant',
+			formula: this.config.bonus,
+			unit: this.config.unit || 'feet',
+			label: this.name || this.parent?.name || 'Movement Grant',
 			img: this.img || this?.parent?.img,
 		};
 
@@ -128,19 +128,19 @@ class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 
 	override getSelectionComponentProps(data: Record<string, any>) {
 		return {
-			base: this.movementTypes.base ?? [],
-			bonus: this.bonus,
-			choices: this.movementTypes.options ?? [],
+			base: this.config.movementTypes.base ?? [],
+			bonus: this.config.bonus,
+			choices: this.config.movementTypes.options ?? [],
 			configObject: CONFIG.A5E.movementAbbreviations,
-			count: this.movementTypes.total,
-			unit: this.unit,
+			count: this.config.movementTypes.total,
+			unit: this.config.unit,
 			heading: 'Movement Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.movementTypes.options.length;
+		return this.config.movementTypes.options.length;
 	}
 
 	override async configureGrant() {

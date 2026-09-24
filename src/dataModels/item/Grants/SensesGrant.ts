@@ -92,18 +92,18 @@ class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
-				senses: data?.selected ?? this.senses.base ?? [],
-				...this.context,
+				senses: data?.selected ?? this.config.senses.base ?? [],
+				...this.config.context,
 			},
-			formula: this.bonus,
-			unit: this.unit || 'feet',
-			label: this.label || this.parent?.name || 'Senses Grant',
+			formula: this.config.bonus,
+			unit: this.config.unit || 'feet',
+			label: this.name || this.parent?.name || 'Senses Grant',
 			img: this.img || this?.parent?.img,
 		};
 
@@ -131,19 +131,19 @@ class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 
 	override getSelectionComponentProps(data: Record<string, any>) {
 		return {
-			base: this.senses.base ?? [],
-			bonus: this.bonus,
-			choices: this.senses.options ?? [],
+			base: this.config.senses.base ?? [],
+			bonus: this.config.bonus,
+			choices: this.config.senses.options ?? [],
 			configObject: CONFIG.A5E.senses,
-			count: this.senses.total,
-			unit: this.unit,
+			count: this.config.senses.total,
+			unit: this.config.unit,
 			heading: 'Senses Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.senses.options.length;
+		return !!this.config.senses.options.length;
 	}
 
 	override async configureGrant() {

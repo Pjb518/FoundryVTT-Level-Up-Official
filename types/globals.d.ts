@@ -13,6 +13,7 @@ declare global {
 	type DataSchema = foundry.data.fields.DataSchema;
 
 	type Creature = Actor.OfType<'character'> | Actor.OfType<'npc'>;
+	type Character = Actor.OfType<'character'>;
 }
 
 declare module 'fvtt-types/configuration' {

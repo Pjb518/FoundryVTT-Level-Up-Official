@@ -89,24 +89,25 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any): any {
+	override getApplyData(actor: Character, data: any): any {
 		if (!actor) return {};
-		const selected = data?.selected ?? this.abilities.base ?? [];
+		const selected = data?.selected ?? this.config.abilities.base ?? [];
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
 				abilities: selected,
-				...this.context,
+				...this.config.context,
 			},
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Ability Grant',
-			default: this.context.default ?? true,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Ability Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 
-		delete bonus.context.default;
+		// Why is this here?
+		// delete bonus.context.default;
 
 		const grantData = {
 			itemUuid: this.parent.uuid,
@@ -132,18 +133,18 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.abilities.base,
-			bonus: this.bonus,
-			choices: this.abilities.options,
+			base: this.config.abilities.base,
+			bonus: this.config.bonus,
+			choices: this.config.abilities.options,
 			configObject: CONFIG.A5E.abilities,
-			count: this.abilities.total,
+			count: this.config.abilities.total,
 			heading: 'Ability Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.abilities.options.length;
+		return !!this.config.abilities.options.length;
 	}
 
 	override async configureGrant() {

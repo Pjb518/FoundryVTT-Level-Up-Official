@@ -59,15 +59,14 @@ class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 		};
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	override getApplyData(actor: any, _data: any = {}) {
+	override getApplyData(actor: Character, _data: any = {}) {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: { ...this.context },
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'HitPoint Grant',
+			context: { ...this.config.context },
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'HitPoint Grant',
 			img: this.img || this?.parent?.img,
 		};
 
