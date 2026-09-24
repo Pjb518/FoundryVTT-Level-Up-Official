@@ -1,136 +1,123 @@
-import type { Grant } from "#types/itemGrants.d.ts";
-import GrantCls from "../dataModels/item/Grants/index.ts";
+import type { Grant } from '#types/itemGrants.d.ts';
 
 export class ItemGrantsManager extends Map<string, Grant> {
-  #item: any;
+	#item: any;
 
-  constructor(item: any) {
-    super();
+	constructor(item: any) {
+		super();
 
-    this.#item = item;
-    Object.entries(this.#item.system.grants ?? {}).forEach(
-      ([id, data]: Array<any>) => {
-        data._id = id;
+		this.#item = item;
+		Object.entries(this.#item.system.grants ?? {}).forEach(([id, grant]: Array<any>) => {
+			// grant._id = id;
 
-        let Cls = GrantCls[data.grantType];
+			this.set(id, grant);
+		});
+	}
 
-        // eslint-disable-next-line no-console
-        if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
+	get optionalGrants(): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.optional);
+	}
 
-        Cls ??= GrantCls.base;
-        const grant = new Cls(data, { parent: item });
+	/**
+	 * @param {String} type
+	 * @returns
+	 */
+	byType(type: string): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.grantType === type);
+	}
 
-        this.set(id, grant);
-      },
-    );
-  }
+	byLevel(level: number): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.level === level);
+	}
 
-  get optionalGrants(): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.optional);
-  }
+	byLevelType(levelType: string): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.levelType === levelType);
+	}
 
-  /**
-   * @param {String} type
-   * @returns
-   */
-  byType(type: string): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.grantType === type);
-  }
+	byLevelAndType(level: number, grantType: string): Array<Grant> {
+		return [...this.values()].filter(
+			(grant) => grant.level === level && grant.grantType === grantType,
+		);
+	}
 
-  byLevel(level: number): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.level === level);
-  }
+	/** ************************************************
+	 *               External methods
+	 * ************************************************ */
+	async add(data = {}) {
+		await ItemGrantsManager.addGrant(this.#item, data);
+	}
 
-  byLevelType(levelType: string): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.levelType === levelType);
-  }
+	// configure(id: string): void {
+	//   const grant = this.get(id);
+	//   if (!grant) return;
 
-  byLevelAndType(level: number, grantType: string): Array<Grant> {
-    return [...this.values()].filter(
-      (grant) => grant.level === level && grant.grantType === grantType,
-    );
-  }
+	//   grant.configureDialog();
+	// }
 
-  /** ************************************************
-   *               External methods
-   * ************************************************ */
-  async add(data = {}) {
-    await ItemGrantsManager.addGrant(this.#item, data);
-  }
+	override async clear() {
+		await this.#item.update({
+			'system.grants': _del,
+		});
 
-  // configure(id: string): void {
-  //   const grant = this.get(id);
-  //   if (!grant) return;
+		await this.#item.update({ 'system.grants': {} });
+	}
 
-  //   grant.configureDialog();
-  // }
+	async duplicate(id: string) {
+		const newGrant = foundry.utils.duplicate(this.#item.system.grants[id]);
+		newGrant.name = `${newGrant.name} (Copy)`;
 
-  override async clear() {
-    await this.#item.update({
-      "system.grants": _del,
-    });
+		await this.#item.update({
+			'system.grants': {
+				...this.#item.system.grants,
+				// @ts-expect-error
+				[foundry.utils.randomID()]: newGrant,
+			},
+		});
+	}
 
-    await this.#item.update({ "system.grants": {} });
-  }
+	// @ts-expect-error
+	override async delete(id: string): Promise<void> {
+		super.delete(id);
 
-  async duplicate(id: string) {
-    const newGrant = foundry.utils.duplicate(this.#item.system.grants[id]);
-    newGrant.name = `${newGrant.name} (Copy)`;
+		await this.#item.update({
+			'system.grants': {
+				[`${id}`]: _del,
+			},
+		});
 
-    await this.#item.update({
-      "system.grants": {
-        ...this.#item.system.grants,
-        // @ts-ignore
-        [foundry.utils.randomID()]: newGrant,
-      },
-    });
-  }
+		const actor = this.#item.parent;
+		if (!actor || actor.documentName !== 'Actor') return;
 
-  // @ts-ignore
-  override async delete(id: string): Promise<void> {
-    super.delete(id);
+		actor.grants.removeGrant(id);
+	}
 
-    await this.#item.update({
-      "system.grants": {
-        [`${id}`]: _del,
-      },
-    });
+	/** ************************************************
+	 *                Static methods
+	 * ************************************************ */
+	static async addGrant(item: any, data = {}, update = true, returnId = false) {
+		// @ts-expect-error
+		const newGrant: Grant = foundry.utils.mergeObject(
+			{
+				grantType: 'skill',
+				level: 1,
+				levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character',
+			},
+			data,
+		);
 
-    const actor = this.#item.parent;
-    if (!actor || actor.documentName !== "Actor") return;
+		const id = foundry.utils.randomID();
+		newGrant._id = id;
 
-    actor.grants.removeGrant(id);
-  }
+		const updateData = {
+			'system.grants': {
+				...item.system.grants,
+				// @ts-expect-error
+				[id]: newGrant,
+			},
+		};
 
-  /** ************************************************
-   *                Static methods
-   * ************************************************ */
-  static async addGrant(item: any, data = {}, update = true, returnId = false) {
-    // @ts-ignore
-    const newGrant: Grant = foundry.utils.mergeObject(
-      {
-        grantType: "skill",
-        level: 1,
-        levelType: ["class", "archetype"].includes(item.type)
-          ? "class"
-          : "character",
-      },
-      data,
-    );
-
-    const id = foundry.utils.randomID();
-    newGrant._id = id;
-
-    const updateData = {
-      "system.grants": {
-        ...item.system.grants,
-        // @ts-ignore
-        [id]: newGrant,
-      },
-    };
-
-    if (update) await item.update(updateData);
-    if (returnId) return [id, updateData];
-    return updateData;
-  }
+		if (update) await item.update(updateData);
+		if (returnId) return [id, updateData];
+		return updateData;
+	}
 }

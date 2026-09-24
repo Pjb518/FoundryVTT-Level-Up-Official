@@ -89,6 +89,15 @@ class BaseGrant<
 		if (!document || document.documentName !== 'Actor') return;
 		document.grants.removeGrant(this._id);
 	}
+
+	static override migrateData(source) {
+		super.migrateData(source);
+		if (!source) return source;
+
+		source.type = source.grantType;
+		console.log(source.grantType);
+		return source;
+	}
 }
 
 export { BaseGrant };
