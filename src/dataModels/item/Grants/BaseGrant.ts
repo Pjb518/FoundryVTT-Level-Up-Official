@@ -7,7 +7,9 @@ import DataModel = foundry.abstract.DataModel;
 // Schema
 // ======================================================
 const baseSchema = () => ({
+	/** @deprecated */
 	_id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
+	id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
 	/** @deprecated */
 	label: new fields.StringField({ requied: true, nullable: false, initial: '' }),
 	name: new fields.StringField({ requied: true, nullable: false, initial: '' }),
@@ -95,7 +97,6 @@ class BaseGrant<
 		if (!source) return source;
 
 		source.type = source.grantType;
-		console.log(source.grantType);
 		return source;
 	}
 }

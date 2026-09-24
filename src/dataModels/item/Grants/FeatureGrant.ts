@@ -157,6 +157,18 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 			width: 550,
 		});
 	}
+
+	static override migrateData(source: any, options: any) {
+		options ??= {};
+		console.log(source, options);
+		source = super.migrateData(source, options);
+
+		if (source.config) return source;
+		source.config ??= {};
+		source.config.features = source.features;
+
+		return source;
+	}
 }
 
 export { FeatureGrant };
