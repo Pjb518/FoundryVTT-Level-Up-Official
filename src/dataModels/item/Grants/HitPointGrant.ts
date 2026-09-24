@@ -2,26 +2,60 @@ import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.s
 import { hitPointsBonusContextGrant } from '../../actor/Contexts.ts';
 import BaseGrant from './BaseGrant.ts';
 
-export default class HitPointGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(hitPointsBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(hitPointsBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Hit Points Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'hitPoint',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace HitPointGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'hitPoint';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'hitPoint';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'hitPoint',
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(hitPointsBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Hit Point Grant',
-			}),
-		});
+	static override defineSchema(): HitPointGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -78,3 +112,5 @@ export default class HitPointGrant extends BaseGrant {
 		});
 	}
 }
+
+export { HitPointGrant };

@@ -1,10 +1,9 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { abilitiesBonusContextGrant } from '../../actor/Contexts.ts';
-import { BaseGrant, type baseSchema } from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
 
 import fields = foundry.data.fields;
-import DataModel = foundry.abstract.DataModel;
 
 // ======================================================
 // Schema
@@ -21,7 +20,7 @@ const schema = () => ({
 				new fields.StringField({ required: true, nullable: false, initial: '' }),
 				{ required: true, initial: [] },
 			),
-			total: new fields.NumberField({ requored: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 		}),
 		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		context: new fields.SchemaField(abilitiesBonusContextGrant()),
@@ -32,15 +31,18 @@ const schema = () => ({
 	// Deprecations
 	/** @deprecated */
 	abilities: new fields.SchemaField({
+		/** @deprecated */
 		base: new fields.ArrayField(
 			new fields.StringField({ required: true, nullable: false, initial: '' }),
 			{ required: true, nullable: false },
 		),
+		/** @deprecated */
 		options: new fields.ArrayField(
 			new fields.StringField({ required: true, nullable: false, initial: '' }),
 			{ required: true, initial: [] },
 		),
-		total: new fields.NumberField({ requored: true, nullable: false, initial: 0 }),
+		/** @deprecated */
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	}),
 	/** @deprecated */
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -75,7 +77,10 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 
 	#type = 'ability';
 
+	static override type = 'ability';
+
 	static override defineSchema(): AbilityGrant.Schema {
+		// @ts-expect-error
 		return {
 			...super.defineSchema(),
 			...schema(),

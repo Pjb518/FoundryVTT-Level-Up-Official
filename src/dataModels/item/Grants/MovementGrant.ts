@@ -1,46 +1,90 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { movementBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
 
-export default class MovementGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		movementTypes: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+		context: new fields.SchemaField(movementBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	movementTypes: new fields.SchemaField({
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(movementBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Movement Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'movement',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace MovementGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'movement';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'movement';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'movement',
-			}),
-			movementTypes: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			unit: new fields.StringField({ required: true, initial: 'feet' }),
-			context: new fields.SchemaField(movementBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Movement Grant',
-			}),
-		});
+	static override defineSchema(): MovementGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
 	override getApplyData(actor: any, data: any) {
@@ -109,3 +153,5 @@ export default class MovementGrant extends BaseGrant {
 		});
 	}
 }
+
+export { MovementGrant };
