@@ -2,6 +2,7 @@ import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.s
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { sensesBonusContextGrant } from '../../actor/Contexts.ts';
 import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -26,8 +27,9 @@ const schema = () => ({
 		unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
 		context: new fields.SchemaField(sensesBonusContextGrant()),
 	}),
+
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

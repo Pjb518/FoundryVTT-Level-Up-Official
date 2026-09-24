@@ -1,6 +1,7 @@
 import SkillSpecialtyConfig from '#view/components/grants/SkillSpecialtyConfig.svelte';
 import SkillSpecialtyGrantSelectionDialog from '#view/components/grants/SkillSpecialtyGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { skillSpecialtyGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -24,7 +25,7 @@ const schema = () => ({
 		skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
 	}),
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(skillSpecialtyGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

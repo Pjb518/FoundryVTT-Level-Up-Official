@@ -1,6 +1,7 @@
 import RollOverrideGrantConfig from '#view/components/grants/RollOverrideGrantConfig.svelte';
 import RollOverrideGrantSelectionDialog from '#view/components/grants/RollOverrideGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { rollOverrideGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -28,8 +29,9 @@ const schema = () => ({
 			initial: 'abilityCheck',
 		}),
 	}),
+
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(rollOverrideGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

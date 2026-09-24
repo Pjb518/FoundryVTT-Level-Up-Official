@@ -1,8 +1,8 @@
 import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObject.ts';
-
 import ProficiencyGrantConfig from '#view/components/grants/ProficiencyGrantConfig.svelte';
 import ProficiencyGrantSelection from '#view/components/grants/ProficiencyGrantSelection.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { proficiencyGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -27,8 +27,9 @@ const schema = () => ({
 		proficiencyType: new fields.StringField({ required: true, nullable: false, initial: 'armor' }),
 		isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 	}),
+
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(proficiencyGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

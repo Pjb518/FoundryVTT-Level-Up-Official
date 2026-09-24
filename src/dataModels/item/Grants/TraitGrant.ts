@@ -1,8 +1,8 @@
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
-
 import TraitGrantConfig from '#view/components/grants/TraitGrantConfig.svelte';
 import TraitGrantSelectionDialog from '#view/components/grants/TraitGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { traitGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -29,8 +29,9 @@ const schema = () => ({
 			}),
 		}),
 	}),
+
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(traitGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

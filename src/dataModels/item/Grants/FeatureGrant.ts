@@ -1,6 +1,7 @@
 import FeatureGrantConfig from '#view/components/grants/FeatureGrantConfig.svelte';
 import FeatureGrantSelectionDialog from '#view/components/grants/FeatureGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { documentGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -38,7 +39,7 @@ const schema = () => ({
 	}),
 
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(documentGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

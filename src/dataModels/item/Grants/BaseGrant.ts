@@ -11,9 +11,7 @@ const baseSchema = () => ({
 	/** @deprecated */
 	label: new fields.StringField({ requied: true, nullable: false, initial: '' }),
 	name: new fields.StringField({ requied: true, nullable: false, initial: '' }),
-	img: new fields.FilePathField({
-		categories: ['IMAGE'],
-		base64: true,
+	img: new fields.StringField({
 		required: true,
 		nullable: false,
 		initial: '',
