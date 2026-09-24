@@ -1,42 +1,85 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { abilitiesBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant, type baseSchema } from './BaseGrant.ts';
 
-export default class AbilityGrant extends BaseGrant {
+import fields = foundry.data.fields;
+import DataModel = foundry.abstract.DataModel;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		abilities: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ requored: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(abilitiesBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	abilities: new fields.SchemaField({
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		total: new fields.NumberField({ requored: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(abilitiesBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Ability Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'ability',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace AbilityGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'ability';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
-
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'ability' }),
-			abilities: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(abilitiesBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Ability Grant',
-			}),
-		});
+	static override defineSchema(): AbilityGrant.Schema {
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
 	override getApplyData(actor: any, data: any): any {
@@ -108,3 +151,5 @@ export default class AbilityGrant extends BaseGrant {
 		});
 	}
 }
+
+export { AbilityGrant };
