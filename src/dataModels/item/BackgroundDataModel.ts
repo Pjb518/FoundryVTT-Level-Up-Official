@@ -1,24 +1,29 @@
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
 const schema = {
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
 			// Default ASI
 			[foundry.utils.randomID()]: {
 				grantType: 'ability',
-				abilities: { options: Object.keys(CONFIG.A5E.abilities), total: 1 },
-				context: { types: ['base'] },
-				bonus: '1',
+				config: {
+					abilities: { options: Object.keys(CONFIG.A5E.abilities), total: 1 },
+					context: { types: ['base'] },
+					bonus: '1',
+				},
 				label: 'Default ASI',
 			},
 			// Skill Proficiency
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				keys: { total: 1 },
-				proficiencyType: 'skill',
+				config: {
+					keys: { total: 1 },
+					proficiencyType: 'skill',
+				},
 				label: 'Skill Proficiencies',
 			},
 			// Feature
@@ -35,7 +40,9 @@ const schema = {
 			// Trait Proficiency
 			[foundry.utils.randomID()]: {
 				grantType: 'proficiency',
-				proficiencyType: 'tool',
+				config: {
+					proficiencyType: 'tool',
+				},
 				label: 'Tool Proficiencies',
 			},
 		}),

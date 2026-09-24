@@ -1,9 +1,10 @@
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
 const schema = {
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
 			// Feature Grant
@@ -14,7 +15,9 @@ const schema = {
 			// Languages
 			[foundry.utils.randomID()]: {
 				grantType: 'trait',
-				traits: { traitType: 'languages' },
+				config: {
+					traits: { traitType: 'languages' },
+				},
 				label: 'Languages',
 			},
 		}),
