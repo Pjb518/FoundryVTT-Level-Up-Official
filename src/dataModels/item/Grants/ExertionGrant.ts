@@ -1,5 +1,6 @@
 import ExertionGrantConfig from '#view/components/grants/ExertionGrantConfig.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { exertionGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -24,7 +25,7 @@ const schema = () => ({
 		}),
 	}),
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(exertionGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

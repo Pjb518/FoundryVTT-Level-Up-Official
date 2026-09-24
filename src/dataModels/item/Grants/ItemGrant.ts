@@ -1,6 +1,7 @@
 import ItemGrantConfig from '#view/components/grants/ItemGrantConfig.svelte';
 import ItemGrantSelectionDialog from '#view/components/grants/ItemGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { documentGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -40,7 +41,7 @@ const schema = () => ({
 		}),
 	}),
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(documentGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

@@ -1,6 +1,7 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { damageBonusContextGrant } from '../../actor/Contexts.ts';
 import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -15,7 +16,7 @@ const schema = () => ({
 		context: new fields.SchemaField(damageBonusContextGrant()),
 	}),
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */

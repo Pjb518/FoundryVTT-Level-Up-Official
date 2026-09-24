@@ -4,6 +4,8 @@ import { BaseGrant } from './BaseGrant.ts';
 
 import fields = foundry.data.fields;
 
+import { expertiseDiceGrantSchema } from './common.ts';
+
 // ======================================================
 // Schema
 // ======================================================
@@ -28,8 +30,9 @@ const schema = () => ({
 			initial: 'abilityCheck',
 		}),
 	}),
+
 	// Applied
-	applied: new fields.SchemaField({}, { required: true, nullable: false }),
+	applied: new fields.SchemaField(expertiseDiceGrantSchema(), { required: true, nullable: false }),
 
 	// Deprecations
 	/** @deprecated */
