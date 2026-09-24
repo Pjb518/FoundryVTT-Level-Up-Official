@@ -2,9 +2,11 @@
     import { getContext } from "svelte";
 
     import Checkbox from "#view/snippets/Checkbox.svelte";
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import GroupedCheckboxGroup from "#view/snippets/GroupedCheckboxGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
+
+    import { buildProductSourceTree } from "#utils/prepareProductSourceTree.ts";
 
     type Props = {
         reload?: boolean;
@@ -16,8 +18,10 @@
         getContext("settings");
     let updates: Map<string, any> = getContext("updates");
 
-    const sources = Object.entries(CONFIG.A5E.products).map(
-        ([key, details]) => [key, details.title],
+    const sourceTree = buildProductSourceTree(
+        CONFIG.A5E.products,
+        CONFIG.A5E.publishers,
+        CONFIG.A5E.productLines,
     );
 
     let compendiaSources = $derived(settings["disabledCompendiaSources"].value);
@@ -35,10 +39,9 @@
     heading="A5E.settings.sectionHeader.compendia"
     --a5e-section-body-gap="0.5rem"
 >
-    <FieldWrapper heading="Hidden Compendia Sources">
-        <CheckboxGroup
-            hint="A5E.settings.hints.disabledCompendiaSources"
-            options={sources}
+    <FieldWrapper heading="Hidden Compendia Sources" hint="A5E.settings.hints.disabledCompendiaSources">
+        <GroupedCheckboxGroup
+            tree={sourceTree}
             selected={updates.get("disabledCompendiaSources") ??
                 compendiaSources ??
                 []}

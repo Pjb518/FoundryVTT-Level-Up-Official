@@ -9,6 +9,12 @@ import {
 	publishers,
 } from '../src/config/premiumContent/data.ts';
 
+import {
+	compareText,
+	groupByKey,
+	sortByDisplayName,
+} from '../src/utils/prepareProductSourceTree.ts';
+
 // ---------------------------------------------------
 //             Validate references
 // ---------------------------------------------------
@@ -44,22 +50,11 @@ function renderBullet(product: ProductEntry): string {
 	return product.salesPitch ? `- ${label} - ${product.salesPitch}` : `- ${label}`;
 }
 
-function compareText(a: string, b: string): number {
-	return a.localeCompare(b, undefined, { numeric: true });
-}
-
 function renderBullets(entries: ProductEntry[]): string {
 	return [...entries]
 		.sort((a, b) => compareText(a.title, b.title))
 		.map(renderBullet)
 		.join('\n');
-}
-
-function sortByDisplayName<T>(
-	map: Map<string, T[]>,
-	displayNames: Record<string, string>,
-): [string, T[]][] {
-	return [...map.entries()].sort(([a], [b]) => compareText(displayNames[a], displayNames[b]));
 }
 
 function renderGroup(heading: string, entries: ProductEntry[], headingLevel = '##'): string {
@@ -71,25 +66,6 @@ type WikiCategory = ProductEntry['category'] | 'included';
 
 function getWikiCategory(product: ProductEntry): WikiCategory {
 	return product.moduleDeprecated ? 'included' : product.category;
-}
-
-function groupByKey<T>(
-	entries: T[],
-	keyFn: (entry: T) => string | undefined,
-): { ungrouped: T[]; byKey: Map<string, T[]> } {
-	const ungrouped: T[] = [];
-	const byKey = new Map<string, T[]>();
-	for (const entry of entries) {
-		const key = keyFn(entry);
-		if (!key) {
-			ungrouped.push(entry);
-			continue;
-		}
-		const group = byKey.get(key) ?? [];
-		group.push(entry);
-		byKey.set(key, group);
-	}
-	return { ungrouped, byKey };
 }
 
 function renderCategorySections(

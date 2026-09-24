@@ -254,11 +254,13 @@ function rangeFilter(key, { min, max }) {
 function valueFilter(key, value, mode) {
 	if (mode) {
 		// Intentionally using == instead of ===
-		return (doc) => foundry.utils.getProperty(doc, key) === value;
+		// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+		return (doc) => foundry.utils.getProperty(doc, key) == value;
 	}
 
 	// Intentionally using == instead of ===
-	return (doc) => foundry.utils.getProperty(doc, key) !== value;
+	// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+	return (doc) => foundry.utils.getProperty(doc, key) != value;
 }
 
 export function constructFilters(filtersSelections: Record<string, any>, compendiumType: string) {

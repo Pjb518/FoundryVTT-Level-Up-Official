@@ -1,5 +1,6 @@
 <script lang="ts">
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+    import GroupedMultiStateCheckBoxGroup from "#view/snippets/GroupedMultiStateCheckBoxGroup.svelte";
     import MultiStateCheckBoxGroup from "#view/snippets/MultiStateCheckBoxGroup.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
@@ -50,6 +51,14 @@
                 ? Object.fromEntries(FEAT_ONLY_FILTERS.map((k) => [k, undefined]))
                 : {};
 
+        // "source" holds exactly one value per document, so OR-combining multiple `!==` exclusions
+        // (the default exclusiveMode) is a no-op - at most one of them can ever be false for a given
+        // doc, so `.some()` is true for virtually everything. AND is the only combinator that
+        // actually excludes every selected source, and it's correct even when 0 or 1 are excluded,
+        // so it's forced here rather than left to the (otherwise general-purpose) AND/OR toggle.
+        const exclusiveMode =
+            filterKey === "source" ? 1 : (filterSelections[filterKey]?.exclusiveMode ?? 0);
+
         filterOptions.selections = {
             ...filterOptions.selections,
             ...clearedFeatFilters,
@@ -57,7 +66,7 @@
                 inclusive: detail[0],
                 inclusiveMode: filterSelections[filterKey]?.inclusiveMode ?? 0,
                 exclusive: detail[1],
-                exclusiveMode: filterSelections[filterKey]?.exclusiveMode ?? 0,
+                exclusiveMode,
             },
         };
     }
@@ -74,6 +83,7 @@
     options: Record<string, string>,
     filterKey: string,
     display: boolean,
+    type: string | undefined,
 )}
     <FieldWrapper>
         <header class="a5e-cb-filter-header">
@@ -111,15 +121,27 @@
         </header>
     </FieldWrapper>
 
-    <MultiStateCheckBoxGroup
-        color="red"
-        options={Object.entries(options)}
-        selected={[
-            filterSelections[filterKey]?.inclusive ?? [],
-            filterSelections[filterKey]?.exclusive ?? [],
-        ]}
-        onUpdateSelection={(e) => onUpdateFilterSelection(e, filterKey)}
-    />
+    {#if type === "sourceTree"}
+        <GroupedMultiStateCheckBoxGroup
+            color="red"
+            tree={options}
+            selected={[
+                filterSelections[filterKey]?.inclusive ?? [],
+                filterSelections[filterKey]?.exclusive ?? [],
+            ]}
+            onUpdateSelection={(e) => onUpdateFilterSelection(e, filterKey)}
+        />
+    {:else}
+        <MultiStateCheckBoxGroup
+            color="red"
+            options={Object.entries(options)}
+            selected={[
+                filterSelections[filterKey]?.inclusive ?? [],
+                filterSelections[filterKey]?.exclusive ?? [],
+            ]}
+            onUpdateSelection={(e) => onUpdateFilterSelection(e, filterKey)}
+        />
+    {/if}
 {/snippet}
 
 <div class="a5e-cb-filter-tab">
@@ -159,7 +181,7 @@
                 ></RangeSlider>
             </FieldWrapper>
         {:else if display ?? true}
-            {@render FilterCategory(heading, options, filterKey, display)}
+            {@render FilterCategory(heading, options, filterKey, display, type)}
         {/if}
     {/each}
 </div>

@@ -12,6 +12,7 @@ export interface ProductEntry {
 	productLine?: string;
 	moduleName?: string;
 	moduleDeprecated?: boolean;
+	excludeFromFilters?: boolean;
 }
 
 export const DEPRECATED_MODULE_REASON =
@@ -185,6 +186,7 @@ export const products: Record<string, ProductEntry> = {
 		url: 'https://github.com/NekroDarkmoon/does-it-hit-a5e',
 		salesPitch: 'A module to help with hit detection and limited damage automation.',
 		moduleName: 'does-it-hit-a5e',
+		excludeFromFilters: true,
 	},
 	doseOfDungeonpunk: {
 		abbreviation: 'DOD:TH',
@@ -196,6 +198,7 @@ export const products: Record<string, ProductEntry> = {
 		url: 'https://bit.ly/4bo5FsM',
 		salesPitch:
 			'New construct heritage, new items, and a new spell for magically creating talos constructs.',
+		excludeFromFilters: true,
 	},
 	dungeonDelversGuide: {
 		abbreviation: 'DDG',
@@ -216,6 +219,7 @@ export const products: Record<string, ProductEntry> = {
 		title: 'Ecology of Gravitas: Halloween Edition',
 		url: 'https://foundryvtt.com/packages/a5e-ecology-of-gravitas-halloween',
 		moduleName: 'a5e-ecology-of-gravitas-halloween',
+		excludeFromFilters: true,
 	},
 	extraCreditAndDeeperMysteries: {
 		abbreviation: 'ECaDM',
