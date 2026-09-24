@@ -48,12 +48,13 @@ const schema = () => ({
 		),
 		/** @deprecated */
 		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-	}),
-	/** @deprecated */
-	traitType: new fields.StringField({
-		required: true,
-		nullable: false,
-		initial: 'conditionImmunities',
+
+		/** @deprecated */
+		traitType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'conditionImmunities',
+		}),
 	}),
 
 	// Overrides
@@ -94,17 +95,17 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
-		const selected: string[] = data?.selected ?? this.traits.base ?? [];
-		const count: number = this.traits.total;
+		const selected: string[] = data?.selected ?? this.config.traits.base ?? [];
+		const count: number = this.config.traits.total;
 
 		// Construct grant
 		const grantData = {
 			traitData: {
 				traits: selected,
 				total: count,
-				traitType: this.traits.traitType,
+				traitType: this.config.traits.traitType,
 			},
 			itemUuid: this.parent.uuid,
 			grantId: this._id,
@@ -114,13 +115,13 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 
 		// Construct trait update
 		const configObject = prepareTraitGrantConfigObject();
-		const { propertyKey } = configObject[this.traits.traitType] ?? {};
+		const { propertyKey } = configObject[this.config.traits.traitType] ?? {};
 		if (!propertyKey) return {};
 		if (!selected.length) return {};
 
 		let traits: Set<string>;
 
-		if (this.traits.traitType === 'size') {
+		if (this.config.traits.traitType === 'size') {
 			traits = new Set([selected[0]]);
 		} else {
 			traits = new Set([
@@ -144,16 +145,16 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.traits.base ?? [],
-			choices: this.traits.options,
-			count: this.traits.total,
-			traitType: this.traits.traitType,
+			base: this.config.traits.base ?? [],
+			choices: this.config.traits.options,
+			count: this.config.traits.total,
+			traitType: this.config.traits.traitType,
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return this.traits.options.length;
+		return !!this.config.traits.options.length;
 	}
 
 	override async configureGrant() {

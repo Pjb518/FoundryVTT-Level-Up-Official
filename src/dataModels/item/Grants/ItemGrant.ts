@@ -112,8 +112,7 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 		};
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	override getApplyData(actor: any, data: any): any {
+	override getApplyData(actor: Character, data: any): any {
 		if (!actor) return {};
 
 		const grantData = {
@@ -137,15 +136,15 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.items.base.map(({ uuid }) => uuid) ?? [],
-			choices: this.items.options.map(({ uuid }) => uuid) ?? [],
-			count: this.items.total,
+			base: this.config.items.base.map(({ uuid }) => uuid) ?? [],
+			choices: this.config.items.options.map(({ uuid }) => uuid) ?? [],
+			count: this.config.items.total,
 			selected: data?.uuids ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return !!this.items.options.length;
+		return !!this.config.items.options.length;
 	}
 
 	override async configureGrant() {

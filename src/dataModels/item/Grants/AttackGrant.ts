@@ -89,25 +89,25 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
 
-		const selected = data?.selected ?? this.attackTypes.base ?? [];
+		const selected = data?.selected ?? this.config.attackTypes.base ?? [];
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
 				attackTypes: selected,
-				...this.context,
+				...this.config.context,
 			},
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Attack Grant',
-			default: this.context.default ?? true,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Attack Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 
-		delete bonus.context.default;
+		// delete bonus.context.default;
 
 		const grantData = {
 			itemUuid: this.parent.uuid,
@@ -133,18 +133,18 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.attackTypes.base ?? [],
-			bonus: this.bonus,
-			choices: this.attackTypes.options,
+			base: this.config.attackTypes.base ?? [],
+			bonus: this.config.bonus,
+			choices: this.config.attackTypes.options,
 			configObject: CONFIG.A5E.attackTypes,
-			count: this.attackTypes.total,
+			count: this.config.attackTypes.total,
 			heading: 'Attack Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return this.attackTypes.options.length;
+		return !!this.config.attackTypes.options.length;
 	}
 
 	override async configureGrant() {

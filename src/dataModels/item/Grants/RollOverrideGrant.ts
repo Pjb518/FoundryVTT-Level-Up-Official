@@ -96,10 +96,10 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
-		const selected: string[] = data?.selected ?? this.keys.base ?? [];
-		const count: number = this.keys.total;
+		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
+		const count: number = this.config.keys.total;
 
 		const updates: Record<string, any> = {};
 
@@ -108,8 +108,8 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 			rollOverrideData: {
 				keys: selected,
 				total: count,
-				rollOverrideType: this.rollOverrideType,
-				rollMode: this.rollMode,
+				rollOverrideType: this.config.rollOverrideType,
+				rollMode: this.config.rollMode,
 			},
 			itemUuid: this.parent.uuid,
 			grantId: this._id,
@@ -131,16 +131,16 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.keys.base ?? [],
-			choices: this.keys.options ?? [],
-			count: this.keys.total,
-			rollOverrideType: this.rollOverrideType,
+			base: this.config.keys.base ?? [],
+			choices: this.config.keys.options ?? [],
+			count: this.config.keys.total,
+			rollOverrideType: this.config.rollOverrideType,
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return !!this.keys.options.length;
+		return !!this.config.keys.options.length;
 	}
 
 	override async configureGrant() {

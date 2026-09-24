@@ -99,8 +99,8 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 
 	override getApplyData(actor: any, data: any) {
 		if (!actor) return {};
-		const selected: string[] = data?.selected ?? this.keys.base ?? [];
-		const count: number = this.keys.total;
+		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
+		const count: number = this.config.keys.total;
 
 		const updates: Record<string, any> = {};
 
@@ -109,8 +109,8 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 			expertiseDiceData: {
 				keys: selected,
 				total: count,
-				expertiseType: this.expertiseType,
-				expertiseCount: this.expertiseCount,
+				expertiseType: this.config.expertiseType,
+				expertiseCount: this.config.expertiseCount,
 			},
 			itemUuid: this.parent.uuid,
 			grantId: this._id,
@@ -132,16 +132,16 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.keys.base ?? [],
-			choices: this.keys.options,
-			count: this.keys.total,
-			expertiseType: this.expertiseType,
+			base: this.config.keys.base ?? [],
+			choices: this.config.keys.options,
+			count: this.config.keys.total,
+			expertiseType: this.config.expertiseType,
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return !!this.keys.options.length;
+		return !!this.config.keys.options.length;
 	}
 
 	override async configureGrant() {

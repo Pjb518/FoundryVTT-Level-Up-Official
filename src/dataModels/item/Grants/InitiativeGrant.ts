@@ -59,16 +59,16 @@ class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Initiative Grant',
-			default: this.context.default ?? true,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Initiative Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 

@@ -94,8 +94,8 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 	override getApplyData(actor: any, data: any) {
 		if (!actor) return {};
-		const selected: string[] = data?.selected ?? this.keys.base ?? [];
-		const count: number = this.keys.total;
+		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
+		const count: number = this.config.keys.total;
 
 		const updates: Record<string, any> = {};
 
@@ -104,7 +104,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			proficiencyData: {
 				keys: selected,
 				total: count,
-				proficiencyType: this.proficiencyType,
+				proficiencyType: this.config.proficiencyType,
 			},
 			itemUuid: this.parent.uuid,
 			grantId: this._id,
@@ -118,17 +118,17 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		};
 
 		// Construct proficiency update
-		if (this.proficiencyType === 'savingThrow') {
+		if (this.config.proficiencyType === 'savingThrow') {
 			selected.forEach((key: string) => {
 				updates[`system.abilities.${key}.save.proficient`] = true;
 			});
-		} else if (this.proficiencyType === 'skill') {
+		} else if (this.config.proficiencyType === 'skill') {
 			selected.forEach((key: string) => {
-				updates[`system.skills.${key}.proficient`] = this.isExpertise ? 2 : 1;
+				updates[`system.skills.${key}.proficient`] = this.config.isExpertise ? 2 : 1;
 			});
 		} else {
 			const configObject = prepareProficiencyConfigObject();
-			const { propertyKey } = configObject[this.proficiencyType] ?? {};
+			const { propertyKey } = configObject[this.config.proficiencyType] ?? {};
 			if (!propertyKey) return {};
 			if (!selected.length) return {};
 
@@ -149,16 +149,16 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.keys.base ?? [],
-			choices: this.keys.options,
-			count: this.keys.total,
-			proficiencyType: this.proficiencyType,
+			base: this.config.keys.base ?? [],
+			choices: this.config.keys.options,
+			count: this.config.keys.total,
+			proficiencyType: this.config.proficiencyType,
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return !!this.keys.options.length;
+		return !!this.config.keys.options.length;
 	}
 
 	override async configureGrant() {

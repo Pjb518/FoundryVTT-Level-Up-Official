@@ -62,19 +62,19 @@ class HealingGrant extends BaseGrant<HealingGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: typeof Actor): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Healing Grant',
-			default: this.context.default ?? true,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Healing Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 
-		delete bonus.context.default;
+		// delete bonus.context.default;
 
 		const grantData = {
 			itemUuid: this.parent.uuid,

@@ -32,7 +32,7 @@ const schema = () => ({
 
 	// Deprecations
 	/** @deprecated */
-	abilities: new fields.SchemaField({
+	skills: new fields.SchemaField({
 		/** @deprecated */
 		base: new fields.ArrayField(
 			new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -89,24 +89,24 @@ class SkillGrant extends BaseGrant<SkillGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: typeof Actor, data: any = {}): any {
+	override getApplyData(actor: Character, data: any = {}): any {
 		if (!actor) return {};
-		const selected = data?.selected ?? this.skills.base ?? [];
+		const selected = data?.selected ?? this.config.skills.base ?? [];
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
 				skills: selected,
-				...this.context,
+				...this.config.context,
 			},
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Skill Grant',
-			default: this.context.default ?? true,
+			formula: this.config.bonus,
+			label: this.name || this.parent?.name || 'Skill Grant',
+			default: this.config.context.default ?? true,
 			img: this.img || this?.parent?.img,
 		};
 
-		delete bonus.context.default;
+		// delete bonus.context.default;
 
 		const grantData = {
 			itemUuid: this.parent.uuid,
@@ -132,18 +132,18 @@ class SkillGrant extends BaseGrant<SkillGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.skills.base,
-			bonus: this.bonus,
-			choices: this.skills.options,
+			base: this.config.skills.base,
+			bonus: this.config.bonus,
+			choices: this.config.skills.options,
 			configObject: CONFIG.A5E.skills,
-			count: this.skills.total,
+			count: this.config.skills.total,
 			heading: 'Skill Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.skills.options.length;
+		return !!this.config.skills.options.length;
 	}
 
 	override async configureGrant() {

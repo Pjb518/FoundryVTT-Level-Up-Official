@@ -84,11 +84,11 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
-		const selected: string[] = data?.selected ?? this.specialties.base ?? [];
-		const skill: string = data?.skill ?? this.skill ?? 'acr';
-		const count: number = this.specialties.total;
+		const selected: string[] = data?.selected ?? this.config.specialties.base ?? [];
+		const skill: string = data?.skill ?? this.config.skill ?? 'acr';
+		const count: number = this.config.specialties.total;
 
 		if (!skill) return {};
 
@@ -125,16 +125,16 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.specialties.base ?? [],
-			choices: this.specialties.options,
-			count: this.specialties.total,
-			skill: this.skill,
+			base: this.config.specialties.base ?? [],
+			choices: this.config.specialties.options,
+			count: this.config.specialties.total,
+			skill: this.config.skill,
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return this.specialties.options.length;
+		return !!this.config.specialties.options.length;
 	}
 
 	override async configureGrant(): Promise<any> {

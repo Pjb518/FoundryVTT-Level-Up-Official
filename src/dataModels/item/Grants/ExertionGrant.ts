@@ -83,7 +83,7 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		const updates: Record<string, any> = {};
@@ -91,10 +91,10 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 
-		if (this.exertionType === 'bonus') {
+		if (this.config.exertionType === 'bonus') {
 			const bonus = {
-				formula: this.bonus,
-				label: this.label || this.parent?.name || 'Exertion Grant',
+				formula: this.config.bonus,
+				label: this.name || this.parent?.name || 'Exertion Grant',
 				img: this.img || this?.parent?.img,
 			};
 
@@ -106,9 +106,9 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 			itemUuid: this.parent.uuid,
 			grantId: this._id,
 			exertionData: {
-				exertionType: this.exertionType,
-				bonusId: this.exertionType === 'bonus' ? bonusId : undefined,
-				poolType: this.poolType,
+				exertionType: this.config.exertionType,
+				bonusId: this.config.exertionType === 'bonus' ? bonusId : undefined,
+				poolType: this.config.poolType,
 			},
 			grantType: this.#type,
 			level: this.level,
