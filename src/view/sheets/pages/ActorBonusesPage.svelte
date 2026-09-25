@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { determineIfPropertyModifiedByEffect } from "#utils/determineIfPropertyModifiedByEffect .ts";
+  import { determineIfPropertyModifiedByEffect } from "#utils/determineIfPropertyModifiedByEffect.ts";
   import { localize } from "#utils/localization/localize.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 

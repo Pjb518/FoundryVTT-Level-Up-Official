@@ -117,17 +117,17 @@ function getMonsterDetailsLabel(monster) {
 }
 
 function getObjectDetailsLabel(object: Item): string {
-	const attunement = object.system.requiresAttunement ? 'Requires Attunement' : '';
+	const attunement = object.system?.requiresAttunement ? 'Requires Attunement' : '';
 
 	const { price } = object.system;
 
 	const rarity = (() => {
 		const itemRarity = CONFIG.A5E.itemRarity;
-		if (!object.system.rarity || object.system.rarity === 'mundane') return null;
+		if (!object.system?.rarity || object.system?.rarity === 'mundane') return null;
 		return itemRarity[object.system.rarity] ?? object.system.rarity;
 	})();
 
-	const priceValue = price.value ? `${price.value} ${price.denominaiton}` : `${price.special}`;
+	const priceValue = price?.value ? `${price.value} ${price.denomination}` : `${price?.special}`;
 
 	if (rarity) {
 		if (priceValue && attunement) return `${rarity} (${attunement}; Cost ${priceValue})`;

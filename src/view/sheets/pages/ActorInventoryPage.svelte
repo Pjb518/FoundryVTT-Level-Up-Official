@@ -1,15 +1,13 @@
 <script lang="ts">
   import { getContext } from "svelte";
-
+  import createItem from "#utils/createItem.ts";
   import { filterItems } from "#utils/view/filterItems.ts";
   import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
-  import { usesRequired } from "#utils/view/usesRequired.ts";
   import { quantityRequired } from "#utils/view/quantityRequired.ts";
+  import { usesRequired } from "#utils/view/usesRequired.ts";
   import { weightRequired } from "#utils/view/weightRequired.ts";
-
   import UtilityBar from "../../snippets/UtilityBar.svelte";
   import ItemCategory from "../components/ItemCategory.svelte";
-  import createItem from "#utils/createItem.ts";
 
   function sortHandler(reverse: boolean) {
     sheet._sortEmbeddedAlphabetically(items, "Item", reverse);

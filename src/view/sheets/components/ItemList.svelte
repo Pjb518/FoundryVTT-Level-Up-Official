@@ -27,6 +27,7 @@
     if (action) return false;
 
     if (actor.isParty()) return false;
+    if (!item.reactive.actions) return false;
 
     // @ts-expect-error
     if (item.reactive.actions?.count < 2) {

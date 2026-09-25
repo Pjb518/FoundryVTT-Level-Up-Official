@@ -1,5 +1,6 @@
 import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
+import { managers } from '#managers/index.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
 import { TokenLayerA5E } from '../canvas/layers/token.ts';
@@ -157,18 +158,7 @@ export default function init() {
 			activateItemMacro,
 			createMacro,
 		},
-		managers: {
-			ActionsManager,
-			ContainerManager,
-			ForeignDocumentManager,
-			HitDiceManager,
-			ItemGrantsManager,
-			ModifierManager,
-			ResourceConsumptionManager,
-			RestManager,
-			RollPreparationManager,
-			TemplatePreparationManager,
-		},
+		managers: managers,
 		migrations: {
 			MigrationList,
 			MigrationRunner: MigrationRunnerFoundry,

@@ -1656,15 +1656,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			data.spellDC = this.system.attributes.spellDC;
 		}
 
+		// Call Sub Modules Here becuase target needs to go last
+		if (this.type === 'character') this.getCharRollData(data, item);
+
 		// Inject target data
 		const targets = [...game.user.targets];
 		if (targets.length !== 1) return data;
 
 		const target = targets[0]?.actor;
 		if (target && target.uuid !== this.uuid) data.target = target.getRollData();
-
-		// Call Sub Modules
-		if (this.type === 'character') this.getCharRollData(data, item);
 
 		return data;
 	}

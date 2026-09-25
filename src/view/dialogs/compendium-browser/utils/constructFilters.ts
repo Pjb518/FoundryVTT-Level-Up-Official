@@ -246,8 +246,8 @@ function booleanFilter(key, mode) {
 
 function rangeFilter(key, { min, max }) {
 	return (doc) => {
-		const value = foundry.utils.getProperty(doc, key);
-		return value >= min && value <= max;
+		const value = foundry.utils.getProperty(doc, key) as number;
+		return value >= Number.parseInt(min, 10) && value <= Number.parseInt(max, 10);
 	};
 }
 

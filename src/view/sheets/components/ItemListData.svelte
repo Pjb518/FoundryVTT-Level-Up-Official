@@ -606,7 +606,7 @@
       {#if flags.a5e?.showFavoritesSection ?? actor.isCreature()}
         <button
           type="button"
-          class="action-button icon fas fa-star"
+          class="action-button action-button--fav icon fas fa-star"
           class:active={itemStore?.favorite ?? false}
           data-tooltip="A5E.buttons.tooltips.favorite"
           data-tooltip-direction="UP"
@@ -766,6 +766,10 @@
         color: var(--icon-color-active, inherit);
         transform: scale(1);
       }
+    }
+
+    &--fav {
+      color: var(--icon-color-fav, var(--a5e-item-list-item-icon-color-fav));
     }
 
     &--stance:hover {
