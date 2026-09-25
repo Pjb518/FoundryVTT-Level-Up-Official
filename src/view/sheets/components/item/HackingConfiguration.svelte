@@ -21,7 +21,7 @@
             class="a5e-input a5e-input--slim a5e-input--small"
             type="number"
             name="system.diceCost"
-            value={itemStore.diceCost}
+            value={itemStore.diceCost ?? 0}
             min="0"
             id="{item.uuid}-dice-cost"
             onchange={({ currentTarget }) =>

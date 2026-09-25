@@ -72,6 +72,7 @@ declare module 'fvtt-types/configuration' {
 				criticalHitThresholdSpell: number;
 				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
+        showHackingTab: boolean;
 			};
 		};
 	}

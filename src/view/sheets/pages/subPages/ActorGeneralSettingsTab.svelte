@@ -87,7 +87,7 @@
     <FieldWrapper>
         <Checkbox
             label="A5E.settings.showHackingTab"
-            checked={flags?.showHackingTab ?? true}
+            checked={flags?.showHackingTab ?? false}
             onUpdateSelection={(checked) => {
                 updateDocumentDataFromField(actor, "flags.a5e.showHackingTab", checked);
             }}
