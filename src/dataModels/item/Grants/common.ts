@@ -1,7 +1,7 @@
 import fields = foundry.data.fields;
 
 const baseSchema = () => ({
-	itemUUID: new fields.StringField({
+	itemUuid: new fields.StringField({
 		required: true,
 		nullable: false,
 		initial: undefined,
@@ -59,8 +59,7 @@ export const proficiencyGrantSchema = () => ({
 		new fields.StringField({ required: true, nullable: false, initial: '' }),
 		{ required: true, nullable: false, initial: [] },
 	),
-	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-	proficiencyType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	upgraded: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 });
 
 export const rollOverrideGrantSchema = () => ({

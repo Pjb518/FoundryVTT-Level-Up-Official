@@ -1,7 +1,7 @@
 import type { Grant } from '#types/itemGrants.d.ts';
 
 export default function prepareApplyData(
-	actor: Actor.OfType<'character'>,
+	actor: Character,
 	grants: any[],
 	applyData: Map<string, any>,
 ): Record<string, any> {

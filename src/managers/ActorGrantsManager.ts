@@ -7,7 +7,6 @@ import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import actorGrants from '../dataModels/actor/grants';
-import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
 
 interface DefaultApplyOptions {
 	item: Item;
@@ -23,6 +22,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 	private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 
 	grantedFeatureDocuments = new Map<string, string[]>();
+
+	#batchItemUpdates: Record<string, any>[] = [];
 
 	constructor(actor: Actor) {
 		super();
@@ -60,6 +61,14 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
 	byType(type: string): ActorGrant[] {
 		return [...this.values()].filter((grant) => grant.grantType === type);
+	}
+
+	// *************************************************************
+	// Helpers
+	// *************************************************************
+	addToBatch(update: Record<string, any>) {
+		this.#batchItemUpdates.push(update);
+		return this.#batchItemUpdates;
 	}
 
 	// *************************************************************
@@ -475,6 +484,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
 		// Update actor with grants data
 		if (dialogData.updateData) await this.actor.update(dialogData.updateData);
+
+		// Update applied data to grants
+		if (this.#batchItemUpdates.length) {
+			await this.actor.updateEmbeddedDocuments('Item', this.#batchItemUpdates);
+			this.#batchItemUpdates.length = 0;
+		}
 
 		// Update class data if available
 		if (options.cls && options.item?.type === 'class') {
