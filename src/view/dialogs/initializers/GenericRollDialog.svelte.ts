@@ -18,16 +18,16 @@ export default class GenericRollDialog extends SvelteApplicationMixin(
 		rollOptions: Record<string, any> = {},
 		dialogOptions: Record<string, any> = {},
 	) {
-		options.position ??= {};
+		dialogOptions.position ??= {};
 		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
 		const width =
-			(options.position.width ?? GenericRollDialog.DEFAULT_OPTIONS.position.width) * scale;
+			(dialogOptions.position.width ?? GenericRollDialog.DEFAULT_OPTIONS.position.width) * scale;
 
 		// @ts-expect-error
 		super({
 			classes: ['a5e-sheet'],
 			position: {
-				width,
+				width: width,
 				height: dialogOptions.height ?? 'auto',
 			},
 			window: { title, resizable: dialogOptions.resizable ?? false },

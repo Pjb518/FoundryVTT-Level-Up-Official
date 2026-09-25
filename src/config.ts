@@ -1,3 +1,10 @@
+// import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
+import registerModuleIncompatibilities from './config/premiumContent/moduleIncompatibilities.ts';
+import registerProductLineConfig from './config/premiumContent/productLines.ts';
+// import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
+import registerPremiumContentConfig from './config/premiumContent/products.ts';
+// import registerPublisherConfig from './config/registerPublisherConfig.ts';
+import registerPublisherConfig from './config/premiumContent/publishers.ts';
 import registerActionsConfig from './config/registerActionsConfig.ts';
 import registerActiveEffectConfig from './config/registerActiveEffectConfig.ts';
 import registerBonusesConfig from './config/registerBonusesConfig.ts';
@@ -11,10 +18,7 @@ import registerEffectLocalizationConfig from './config/registerEffectLocalizatio
 import registerEncounterElements from './config/registerEncounterElements.ts';
 import registerFilterConfig from './config/registerFilterConfig.ts';
 import registerGrantsConfig from './config/registerGrantsConfig.ts';
-import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
 import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties.ts';
-import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
-import registerPublisherConfig from './config/registerPublisherConfig.ts';
 import registerReducerConfig from './config/registerReducerConfig.ts';
 import registerSettingsConfig from './config/registerSettingsConfig.ts';
 
@@ -2256,6 +2260,7 @@ const effectLocalizationConfig = registerEffectLocalizationConfig();
 const moduleIncompatibilitiesConfig = registerModuleIncompatibilities();
 const premiumContentConfig = registerPremiumContentConfig();
 const publisherConfig = registerPublisherConfig();
+const productLineConfig = registerProductLineConfig();
 const reducerConfig = registerReducerConfig();
 const settingsConfig = registerSettingsConfig();
 
@@ -2412,6 +2417,7 @@ const A5E = {
 	...moduleIncompatibilitiesConfig,
 	...premiumContentConfig,
 	...publisherConfig,
+	...productLineConfig,
 	...reducerConfig,
 	...settingsConfig,
 	PRELOCALIZED_KEYS,

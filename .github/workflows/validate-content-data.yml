@@ -1,0 +1,31 @@
+---
+name: validate-content-data
+
+on: # yamllint disable-line rule:truthy
+  - pull_request
+
+env:
+  node_version: 22
+
+jobs:
+  validate:
+    name: Validate Premium Content Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node_version }}
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: .npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - run: npm ci
+      - name: validate publisher/product line references
+        run: npx tsx build/generateWikiContent.ts
