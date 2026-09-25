@@ -160,7 +160,6 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 
 	static override migrateData(source: any, options: any) {
 		options ??= {};
-		console.log(source, options);
 		source = super.migrateData(source, options);
 
 		if (source.config) return source;

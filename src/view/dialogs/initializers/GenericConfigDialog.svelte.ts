@@ -19,8 +19,7 @@ export class GenericConfigDialog extends SvelteApplicationMixin(
 	) {
 		options.position ??= {};
 		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
-		const width =
-			(options.position.width ?? GenericConfigDialog.DEFAULT_OPTIONS.position.width) * scale;
+		const width = (options.width ?? GenericConfigDialog.DEFAULT_OPTIONS.position.width) * scale;
 
 		// @ts-expect-error
 		super({
