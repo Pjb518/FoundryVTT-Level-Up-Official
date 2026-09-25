@@ -102,7 +102,7 @@
         </heading>
     {/if}
 
-    {#key actorStore.details[currentTab.name]}
+    {#key `${currentTab.name}::${actorStore.details[currentTab.name]}`}
         <Editor
             content={actorStore.details[currentTab.name] ?? ""}
             document={actor}
