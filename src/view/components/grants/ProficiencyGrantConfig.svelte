@@ -40,7 +40,7 @@
 
   function getDisabled() {
     if (selectedMode === "base") return [];
-    return [...grant.config.keys.base];
+    return [...convertValues(grant.config.keys.base)];
   }
 
   function getModes() {
@@ -54,13 +54,29 @@
     return modes.map((m) => [m.slugify(), m]);
   }
 
+  function convertValues(values: string[]) {
+    return values.reduce((acc, val) => {
+      if (!val.includes(":")) return acc;
+      const parts = val.split(":");
+      if (parts.length < 2) return acc;
+
+      // Filter out prof type
+      if (proficiencyType !== parts[0]) return acc;
+      acc.push(parts[1]);
+
+      return acc;
+    }, [] as string[]);
+  }
+
   function getSelectedOpts() {
     if (selectedMode === "base") {
-      return [...grant.config.keys.base];
+      return [...convertValues(grant.config.keys.base)];
     }
 
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    return [...grant.config.keys.options[idx ?? 0].candidates];
+    return [
+      ...convertValues(grant.config.keys.options[idx ?? 0].candidates ?? []),
+    ];
   }
 
   function updateImage() {
@@ -78,20 +94,31 @@
   }
 
   function onUpdateOptCount(idx: number, value: number) {
-    console.log(idx, value);
     const opts = foundry.utils.deepClone(grant.config.keys.options);
     opts[idx].count = value;
     onUpdateValue("config.keys.options", opts);
   }
 
-  function onUpdateSelections(value: string[]) {
+  function onUpdateSelections(values: string[], toggled?: boolean | string) {
+    // Convert base values
+    const converted = values.map((val) => {
+      return `${proficiencyType}:${val}`;
+    });
+
     if (selectedMode === "base") {
-      onUpdateValue(`config.keys.base`, value);
+      const toKeep = grant.config.keys.base.filter(
+        (val) => !val.startsWith(proficiencyType),
+      );
+      onUpdateValue(`config.keys.base`, [...toKeep, ...converted]);
+      return;
     }
 
     const opts = foundry.utils.deepClone(grant.config.keys.options);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    opts[idx].candidates = value;
+    const toKeep = opts[idx].candidates.filter(
+      (val) => !val.startsWith(proficiencyType),
+    );
+    opts[idx].candidates = [...toKeep, ...converted];
     onUpdateValue("config.keys.options", opts);
   }
 
@@ -167,8 +194,9 @@
       <hr />
 
       <!-- Render Options -->
-      {#if ["tool", "weapon"].includes(proficiencyType)}
-        {#key proficiencyType}
+      <!-- Needed for complex logic re-render -->
+      {#key proficiencyType}
+        {#if ["tool", "weapon"].includes(proficiencyType)}
           <ComplexDetailEmbed
             heading="Selections"
             configObject={options}
@@ -181,30 +209,30 @@
               onUpdateSelections(value);
             }}
           />
-        {/key}
-      {:else if ["skill", "savingThrow"].includes(proficiencyType)}
-        <CheckboxGroup
-          heading="Selections"
-          {options}
-          selected={selectedOpts}
-          disabledOptions={disabled}
-          showToggleAllButton={true}
-          onUpdateSelection={(value) => {
-            onUpdateSelections(value);
-          }}
-        />
-      {:else}
-        <CustomTagGroup
-          heading="Selections"
-          {options}
-          selected={selectedOpts}
-          showToggleAllButton={true}
-          disabledOptions={disabled}
-          onUpdateSelection={(value) => {
-            onUpdateSelections(value);
-          }}
-        />
-      {/if}
+        {:else if ["skill", "savingThrow"].includes(proficiencyType)}
+          <CheckboxGroup
+            heading="Selections"
+            {options}
+            selected={selectedOpts}
+            disabledOptions={disabled}
+            showToggleAllButton={true}
+            onUpdateSelection={(value) => {
+              onUpdateSelections(value);
+            }}
+          />
+        {:else}
+          <CustomTagGroup
+            heading="Selections"
+            {options}
+            selected={selectedOpts}
+            showToggleAllButton={true}
+            disabledOptions={disabled}
+            onUpdateSelection={(value) => {
+              onUpdateSelections(value);
+            }}
+          />
+        {/if}
+      {/key}
     </aside>
 
     <!-- Render Config -->
@@ -308,6 +336,13 @@
       <hr />
 
       {#if proficiencyType === "skill"}
+        <Checkbox
+          label="Upgrade to expertise dice if already proficient"
+          checked={grant.config.upgradeToExpertise ?? true}
+          onUpdateSelection={(value) =>
+            onUpdateValue("config.upgradeToExpertise", value)}
+        />
+
         <Checkbox
           label="Grant 5e expertise in these instead of proficiency"
           checked={grant.config.isExpertise ?? false}

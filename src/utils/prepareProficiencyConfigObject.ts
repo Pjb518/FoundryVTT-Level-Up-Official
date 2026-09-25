@@ -10,6 +10,11 @@ export default function prepareProficiencyConfigObject() {
 			config: Object.entries(CONFIG.A5E.maneuverTraditions),
 			propertyKey: 'system.proficiencies.traditions',
 		},
+		languages: {
+			label: 'A5E.details.languages',
+			config: Object.entries(CONFIG.A5E.languages),
+			propertyKey: 'system.proficiencies.languages',
+		},
 		skill: {
 			label: 'A5E.skillLabels.titlePlural',
 			config: Object.entries(CONFIG.A5E.skills),

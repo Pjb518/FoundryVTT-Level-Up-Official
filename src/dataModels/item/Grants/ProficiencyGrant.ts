@@ -19,7 +19,7 @@ const schema = () => ({
 			),
 			options: new fields.ArrayField(
 				new fields.SchemaField({
-					count: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+					count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 					candidates: new fields.SetField(
 						new fields.StringField({ required: true, nullable: false, initial: '' }),
 					),
@@ -28,6 +28,11 @@ const schema = () => ({
 			),
 		}),
 		isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+		upgradeToExpertise: new fields.BooleanField({
+			required: true,
+			nullable: false,
+			initial: true,
+		}),
 	}),
 
 	// Applied
@@ -194,5 +199,9 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		return source;
 	}
 }
+
+/**
+ * value = propType:subType:value/*
+ */
 
 export { ProficiencyGrant };
