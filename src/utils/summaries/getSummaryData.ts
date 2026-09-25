@@ -2,6 +2,7 @@ import type { Action } from '#types/action.d.ts';
 
 import getBaseActionSummaryData from './getBaseActionSummaryData.ts';
 import getFeatureSummaryData from './getFeatureSummaryData.ts';
+import getHackingSummaryData from './getHackingSummaryData.ts';
 import getJourneyActivitySummaryData from './getJourneyActivitySummaryData.ts';
 import getManeuverSummaryData from './getManeuverSummaryData.ts';
 import getObjectSummaryData from './getObjectSummaryData.ts';
@@ -29,6 +30,8 @@ export function getSummaryData(
 		else if (item.type === 'spell') mergeObject(summaryData, getSpellSummaryData(item, options));
 		else if (item.type === 'interaction')
 			mergeObject(summaryData, getJourneyActivitySummaryData(item, options));
+		else if (item.type === 'hacking')
+			mergeObject(summaryData, getHackingSummaryData(item, options));
 	}
 
 	return summaryData;

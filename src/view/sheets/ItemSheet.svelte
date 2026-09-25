@@ -96,6 +96,7 @@
                 component: ItemMacroPage,
                 display: [
                     "feature",
+                    "hacking",
                     "interaction",
                     "maneuver",
                     "object",

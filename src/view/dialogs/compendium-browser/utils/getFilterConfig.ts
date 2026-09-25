@@ -88,6 +88,25 @@ function getFeatureFilterConfig(filterSelections?: Record<string, any>) {
 	return config;
 }
 
+function getHackingFilterConfig() {
+	return [
+		{
+			filterKey: 'diceCost',
+			heading: 'Dice Cost Range',
+			options: {
+				min: 0,
+				max: 5,
+			},
+			type: 'range',
+		},
+		{
+			filterKey: 'source',
+			heading: 'Source',
+			options: PRODUCTS,
+		},
+	];
+}
+
 function getInteractionFilterConfig() {
 	return [
 		{
@@ -278,6 +297,7 @@ function getSpellFilterConfig() {
 export function getFilterConfig(documentType: string, filterSelections?: Record<string, any>) {
 	if (documentType === 'archetype') return getArchetypeFilterConfig();
 	if (documentType === 'feature') return getFeatureFilterConfig(filterSelections);
+	if (documentType === 'hacking') return getHackingFilterConfig();
 	if (documentType === 'interaction') return getInteractionFilterConfig();
 	if (documentType === 'maneuver') return getManeuverFilterConfig();
 	if (documentType === 'npc') return getMonsterFilterConfig();

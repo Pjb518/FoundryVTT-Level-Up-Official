@@ -86,6 +86,16 @@
 
     <FieldWrapper>
         <Checkbox
+            label="A5E.settings.showHackingTab"
+            checked={flags?.showHackingTab ?? true}
+            onUpdateSelection={(checked) => {
+                updateDocumentDataFromField(actor, "flags.a5e.showHackingTab", checked);
+            }}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper>
+        <Checkbox
             label="A5E.settings.showPassiveScores"
             checked={flags?.showPassiveScores ?? true}
             onUpdateSelection={(checked) => {
