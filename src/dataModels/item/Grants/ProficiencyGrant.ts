@@ -78,6 +78,8 @@ const schema = () => ({
 // ======================================================
 declare namespace ProficiencyGrant {
 	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+
+	type SelectionProps = ReturnType<ProficiencyGrant['getSelectionComponentProps']>;
 }
 
 class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
@@ -98,6 +100,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 	}
 
 	override getApplyData(actor: any, data: any) {
+		console.log('Here');
 		if (!actor) return {};
 		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
 		const count: number = this.config.keys.total;
@@ -156,9 +159,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		return {
 			base: this.config.keys.base ?? [],
 			choices: this.config.keys.options,
-			count: this.config.keys.total,
-			proficiencyType: this.config.proficiencyType,
-			selected: data?.selected ?? [],
+			selected: (data?.selected as string[]) ?? ([] as string[]),
 		};
 	}
 
