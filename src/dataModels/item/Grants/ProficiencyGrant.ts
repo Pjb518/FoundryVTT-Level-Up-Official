@@ -13,19 +13,21 @@ const schema = () => ({
 	// Config
 	config: new fields.SchemaField({
 		keys: new fields.SchemaField({
-			base: new fields.ArrayField(
+			base: new fields.SetField(
 				new fields.StringField({ required: true, nullable: false, initial: '' }),
 				{ required: true, nullable: false },
 			),
 			options: new fields.ArrayField(
-				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				new fields.SchemaField({
+					count: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+					candidates: new fields.SetField(
+						new fields.StringField({ required: true, nullable: false, initial: '' }),
+					),
+				}),
 				{ required: true, initial: [] },
 			),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 		}),
-		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		proficiencyType: new fields.StringField({ required: true, nullable: false, initial: 'armor' }),
-		isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+		isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	}),
 
 	// Applied
@@ -48,11 +50,9 @@ const schema = () => ({
 		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	}),
 	/** @deprecated */
-	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	/** @deprecated */
 	proficiencyType: new fields.StringField({ required: true, nullable: false, initial: 'armor' }),
 	/** @deprecated */
-	isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+	isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 
 	// Overrides
 	name: new fields.StringField({
@@ -106,7 +106,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 				total: count,
 				proficiencyType: this.config.proficiencyType,
 			},
-			itemUuid: this.parent.uuid,
+			itemUuid: this.item?.uuid,
 			grantId: this._id,
 			grantType: this.#type,
 			level: this.level,
@@ -163,12 +163,12 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item ?? this.parent?.parent,
+			grantId: this.id,
 		};
 
 		super.configureGrant('Configure Proficiency Grant', dialogData, this.#configComponent, {
-			width: 400,
+			width: 800,
 		});
 	}
 
@@ -178,8 +178,16 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 		if (source.config) return source;
 		source.config ??= {};
-		source.config.keys = source.keys;
-		source.config.bonus = source.bonus;
+		source.config.keys = { base: source.keys?.base };
+		if (source.options?.length) {
+			source.config.keys.options = [
+				{
+					count: source.total,
+					candidates: source.options,
+				},
+			];
+		}
+
 		source.config.isExpertise = source.isExpertise;
 		source.config.proficiencyType = source.proficiencyType;
 

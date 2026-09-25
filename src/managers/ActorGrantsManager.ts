@@ -130,7 +130,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 					// eslint-disable-next-line no-constant-condition
 					while (true) {
 						// eslint-disable-next-line @typescript-eslint/no-loop-func
-						parentGrant = allGrants.find((g) => g._id === parentGrant?.grantedBy?.id);
+						parentGrant = allGrants.find((g) => g.id === parentGrant?.grantedBy?.id);
 						if (!parentGrant || parentGrant.levelType === 'class') break;
 					}
 
@@ -216,7 +216,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 				if (grant.grantedBy?.id) {
 					const parentGrant =
 						item.grants.get(grant.grantedBy.id) ??
-						applicableGrants.find((g) => g._id === grant.grantedBy?.id);
+						applicableGrants.find((g) => g.id === grant.grantedBy?.id);
 
 					reSelectable = this.#isReSelectable(parentGrant);
 				}
@@ -236,7 +236,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 						while (true) {
 							classParentGrant = allGrants
 								// eslint-disable-next-line @typescript-eslint/no-loop-func
-								.find((g) => g._id === classParentGrant?.grantedBy?.id);
+								.find((g) => g.id === classParentGrant?.grantedBy?.id);
 
 							if (!classParentGrant || classParentGrant.levelType === 'class') break;
 						}
@@ -251,7 +251,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 				// if (applicableGrants.find((g) => g._id === grant._id)) return;
 				if (applicableGrants.find((g) => this.#getFullId(g) === this.#getFullId(grant))) return;
 
-				const hasGrantedGrant = applicableGrants.find((g) => g._id === grant.grantedBy?.id);
+				const hasGrantedGrant = applicableGrants.find((g) => g.id === grant.grantedBy?.id);
 				if (grant.grantedBy?.id && !hasGrantedGrant) return;
 
 				if (grant.optional) {
@@ -280,7 +280,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 	}
 
 	#getFullId(grant: Grant): string {
-		return `${grant.parent?.id || ''}.${grant._id}`;
+		return `${grant.parent?.id || ''}.${grant.id}`;
 	}
 
 	#isReSelectable(grant: Grant | null): boolean {
@@ -327,7 +327,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 				const hasSelectionId = !!grant.features.options.length;
 
 				g.grantedBy = {
-					id: grant._id,
+					id: grant.id,
 					selectionId: hasSelectionId ? doc._stats.compendiumSource : '',
 				};
 
@@ -365,7 +365,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 		};
 
 		if (!requiresDialog) {
-			const grants = allGrants.map((grant) => ({ id: grant._id, grant }));
+			const grants = allGrants.map((grant) => ({ id: grant.id, grant }));
 			const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
 			dialogData = {
 				success: true,

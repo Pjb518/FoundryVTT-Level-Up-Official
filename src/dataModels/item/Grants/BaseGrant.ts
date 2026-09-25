@@ -53,6 +53,13 @@ class BaseGrant<
 		};
 	}
 
+	get item() {
+		const doc = this.getNearestDocument();
+		console.log(doc);
+		if (doc?.documentName === 'Item') return doc;
+		return null;
+	}
+
 	getApplyData(actor: any, data: any): any {
 		return {};
 	}
@@ -70,7 +77,7 @@ class BaseGrant<
 	}
 
 	async configureGrant(title: string, data: any, component: any, options: any = {}): Promise<any> {
-		const dialog = new GenericConfigDialog(this.parent, title, component, data, options);
+		const dialog = new GenericConfigDialog(this.item, title, component, data, options);
 
 		await dialog.render(true);
 		const promise = await dialog.promise;
@@ -92,8 +99,8 @@ class BaseGrant<
 		document.grants.removeGrant(this._id);
 	}
 
-	static override migrateData(source) {
-		super.migrateData(source);
+	static override migrateData(source, options) {
+		super.migrateData(source, options);
 		if (!source) return source;
 
 		source.type = source.grantType;
