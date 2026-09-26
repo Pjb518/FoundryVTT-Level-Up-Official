@@ -157,7 +157,6 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 		source.config ??= {};
 		source.config.specialties = source.specialties;
 		source.config.skill = source.skill;
-		source.config.context = source.context;
 
 		return source;
 	}

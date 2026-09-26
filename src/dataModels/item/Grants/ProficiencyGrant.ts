@@ -200,8 +200,8 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		if (source.options?.length) {
 			source.config.keys.options = [
 				{
-					count: source.total,
-					candidates: source.options.map((v) => `${source.proficiencyType}${v}}`),
+					count: source.keys.total,
+					candidates: source.keys.options.map((v) => `${source.proficiencyType}${v}}`),
 				},
 			];
 		}

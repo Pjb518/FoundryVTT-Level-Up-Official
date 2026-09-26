@@ -161,7 +161,6 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 
 	static override migrateData(source: any, options: any) {
 		options ??= {};
-		console.log(source, options);
 		source = super.migrateData(source, options);
 
 		source.config ??= {};
