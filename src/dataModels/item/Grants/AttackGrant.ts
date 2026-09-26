@@ -102,28 +102,25 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 				...this.config.context,
 			},
 			formula: this.config.bonus,
-			label: this.name || this.parent?.name || 'Attack Grant',
+			label: this.name || this.item?.name || 'Attack Grant',
 			default: this.config.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			img: this.img || this?.item?.img,
 		};
 
-		// delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'attacks',
+			bonusType: 'attacks',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
+
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
 		return {
 			[`system.bonuses.attacks.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
 		};
 	}
 
@@ -149,8 +146,8 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'attacks',
 		};
 
@@ -164,9 +161,9 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 		source = super.migrateData(source, options);
 
 		source.config ??= {};
-		source.config.attackTypes = source.attackTypes;
-		source.config.bonus = source.bonus;
-		source.config.context = source.context;
+		source.config.attackTypes ??= source.attackTypes;
+		source.config.bonus ||= source.bonus;
+		source.config.context ??= source.context;
 
 		return source;
 	}

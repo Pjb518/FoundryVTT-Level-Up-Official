@@ -1,12 +1,13 @@
 <script lang="ts">
   import { setContext } from "svelte";
-  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+
   import { localize } from "#utils/localization/localize.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
-  import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
   import GrantConfig from "./GrantConfig.svelte";
+  import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
 
   type Props = {
     document: any;
@@ -36,32 +37,41 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
 
   const configObject = {
-    abilities: {},
+    abilities: {
+      selectHeading: "",
+      selectTypes: {},
+      selectProperty: "",
+    },
     damage: {
       selectHeading: "A5E.damage.headings.type",
       selectTypes: CONFIG.A5E.damageTypes,
-      selectProperty: "damageType",
+      selectProperty: "config.damageType",
     },
     healing: {
       selectHeading: "A5E.healing.type",
       selectTypes: CONFIG.A5E.healingTypes,
-      selectProperty: "healingType",
+      selectProperty: "config.healingType",
     },
     movement: {
       selectHeading: "A5E.Unit",
       selectTypes: CONFIG.A5E.distanceUnits,
-      selectProperty: "unit",
+      selectProperty: "config.unit",
     },
     senses: {
       selectHeading: "A5E.Unit",
       selectTypes: CONFIG.A5E.visionUnits,
-      selectProperty: "unit",
+      selectProperty: "config.unit",
     },
-    skills: {},
+    skills: {
+      selectHeading: "",
+      selectTypes: {},
+      selectProperty: "",
+    },
   };
+
   const hasSelectDialog = ["damage", "healing", "movement", "senses"].includes(
     grantType,
   );
@@ -93,7 +103,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -109,9 +119,9 @@
       <input
         class="a5e-input"
         type="text"
-        value={grant.bonus ?? ""}
+        value={grant.config.bonus ?? ""}
         onchange={({ currentTarget }) =>
-          onUpdateValue("bonus", currentTarget.value)}
+          onUpdateValue("config.bonus", currentTarget.value)}
       />
     </FieldWrapper>
 
@@ -126,11 +136,10 @@
           class="a5e-input a5e-input--slim a5e-input--fit"
           onchange={({ currentTarget }) =>
             onUpdateValue(
-              configObject[grantType]?.selectProperty,
+              `config.${configObject[grantType]?.selectProperty}`,
               currentTarget.value,
             )}
         >
-          {console.log(selectProperty)}
           {#if selectProperty === "damageType"}
             <option
               value={null}
@@ -152,7 +161,6 @@
   </Section>
 
   <NumericalGrantContexts />
-
   <GrantConfig />
 </form>
 

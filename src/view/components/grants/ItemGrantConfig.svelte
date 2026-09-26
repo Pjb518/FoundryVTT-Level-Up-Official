@@ -1,15 +1,14 @@
 <script lang="ts">
   import { setContext } from "svelte";
 
+  import type { ItemGrant } from "#data/item/Grants/ItemGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-
-  import GrantConfig from "./GrantConfig.svelte";
 
   import DropArea from "#view/snippets/DropArea.svelte";
   import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
-  import type { ItemGrant } from "#data/item/Grants/ItemGrant.ts";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -44,7 +43,7 @@
       const doc = fromUuidSync(value) as Item.OfType<"object"> | null;
       updateArray.push({
         uuid: value,
-        quantityOverride: doc.system?.quantity ?? 0,
+        quantityOverride: doc?.system?.quantity ?? 0,
       });
       onUpdateValue(key, updateArray);
     }
@@ -56,7 +55,7 @@
       const doc = fromUuidSync(value) as Item.OfType<"object"> | null;
       updateArray.push({
         uuid: value,
-        quantityOverride: doc.system?.quantity ?? 0,
+        quantityOverride: doc?.system?.quantity ?? 0,
       });
       onUpdateValue(key, updateArray);
     }

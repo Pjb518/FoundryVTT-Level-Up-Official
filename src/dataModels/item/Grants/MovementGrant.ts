@@ -100,25 +100,24 @@ class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 			},
 			formula: this.config.bonus,
 			unit: this.config.unit || 'feet',
-			label: this.name || this.parent?.name || 'Movement Grant',
-			img: this.img || this?.parent?.img,
+			label: this.name || this.item?.name || 'Movement Grant',
+			img: this.img || this?.item?.img,
 		};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: this.#type,
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
 		return {
-			[`system.bonuses.movement.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
+			[`system.bonuses.abilities.${bonusId}`]: bonus,
 		};
 	}
 
@@ -140,13 +139,13 @@ class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 	}
 
 	override requiresConfig() {
-		return this.config.movementTypes.options.length;
+		return !!this.config.movementTypes.options.length;
 	}
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'movement',
 		};
 

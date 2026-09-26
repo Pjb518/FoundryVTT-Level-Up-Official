@@ -1,5 +1,5 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
-import { initiativeBonusContext, initiativeBonusContextGrant } from '../../actor/Contexts.ts';
+import { initiativeBonusContextGrant } from '../../actor/Contexts.ts';
 import { BaseGrant } from './BaseGrant.ts';
 import { bonusGrantSchema } from './common.ts';
 
@@ -12,7 +12,7 @@ const schema = () => ({
 	// Config
 	config: new fields.SchemaField({
 		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		context: new fields.SchemaField(initiativeBonusContext()),
+		context: new fields.SchemaField(initiativeBonusContextGrant()),
 	}),
 	// Applied
 	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
@@ -67,28 +67,25 @@ class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 		const bonus = {
 			context: this.config.context,
 			formula: this.config.bonus,
-			label: this.name || this.parent?.name || 'Initiative Grant',
+			label: this.name || this.item?.name || 'Initiative Grant',
 			default: this.config.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'initiative',
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
 		return {
-			[`system.bonuses.initiative.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
+			[`system.bonuses.abilities.${bonusId}`]: bonus,
 		};
 	}
 
@@ -106,8 +103,8 @@ class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
