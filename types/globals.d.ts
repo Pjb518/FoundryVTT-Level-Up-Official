@@ -14,6 +14,13 @@ declare global {
 
 	type Creature = Actor.OfType<'character'> | Actor.OfType<'npc'>;
 	type Character = Actor.OfType<'character'>;
+	type OriginItems =
+		| Item.OfType<'archetype'>
+		| Item.OfType<'background'>
+		| Item.OfType<'class'>
+		| Item.OfType<'culture'>
+		| Item.OfType<'destiny'>
+		| Item.OfType<'heritage'>;
 }
 
 declare module 'fvtt-types/configuration' {

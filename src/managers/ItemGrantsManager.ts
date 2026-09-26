@@ -1,7 +1,7 @@
-import type { Grant } from '#types/itemGrants.d.ts';
+import type { Grant, GrantTypes } from '#data/item/Grants/GrantsField.ts';
 
 export class ItemGrantsManager extends Map<string, Grant> {
-	#item: any;
+	#item: Item.OfType<'feature'> | OriginItems;
 
 	constructor(item: any) {
 		super();
@@ -9,7 +9,6 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		this.#item = item;
 		Object.entries(this.#item.system.grants ?? {}).forEach(([id, grant]: Array<any>) => {
 			grant.id = id;
-
 			this.set(id, grant);
 		});
 	}
@@ -18,12 +17,8 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		return [...this.values()].filter((grant) => grant.optional);
 	}
 
-	/**
-	 * @param {String} type
-	 * @returns
-	 */
-	byType(type: string): Array<Grant> {
-		return [...this.values()].filter((grant) => grant.grantType === type);
+	byType(type: GrantTypes): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.type === type);
 	}
 
 	byLevel(level: number): Array<Grant> {
@@ -34,10 +29,8 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		return [...this.values()].filter((grant) => grant.levelType === levelType);
 	}
 
-	byLevelAndType(level: number, grantType: string): Array<Grant> {
-		return [...this.values()].filter(
-			(grant) => grant.level === level && grant.grantType === grantType,
-		);
+	byLevelAndType(level: number, grantType: GrantTypes): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.level === level && grant.type === grantType);
 	}
 
 	/** ************************************************
@@ -56,17 +49,21 @@ export class ItemGrantsManager extends Map<string, Grant> {
 
 	override async clear() {
 		await this.#item.update({
+			// @ts-expect-error
 			'system.grants': _del,
 		});
 
+		// @ts-expect-error
 		await this.#item.update({ 'system.grants': {} });
 	}
 
 	async duplicate(id: string) {
-		const newGrant = foundry.utils.duplicate(this.#item.system.grants[id]);
+		const newGrant = foundry.utils.deepClone(this.#item.system.grants?.[id] ?? {});
+		// @ts-expect-error
 		newGrant.name = `${newGrant.name} (Copy)`;
 
 		await this.#item.update({
+			// @ts-expect-error
 			'system.grants': {
 				...this.#item.system.grants,
 				[foundry.utils.randomID()]: newGrant,
@@ -79,13 +76,14 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		super.delete(id);
 
 		await this.#item.update({
+			// @ts-expect-error
 			'system.grants': {
 				[`${id}`]: _del,
 			},
 		});
 
 		const actor = this.#item.parent;
-		if (!actor || actor.documentName !== 'Actor') return;
+		if (actor?.documentName !== 'Actor') return;
 
 		actor.grants.removeGrant(id);
 	}
@@ -97,7 +95,7 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		// @ts-expect-error
 		const newGrant: Grant = foundry.utils.mergeObject(
 			{
-				grantType: 'skill',
+				type: 'skill',
 				level: 1,
 				levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character',
 			},
@@ -105,12 +103,11 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		);
 
 		const id = foundry.utils.randomID();
-		newGrant._id = id;
+		newGrant.id = id;
 
 		const updateData = {
 			'system.grants': {
 				...item.system.grants,
-				// @ts-expect-error
 				[id]: newGrant,
 			},
 		};
