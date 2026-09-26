@@ -112,7 +112,7 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 				expertiseType: this.config.expertiseType,
 				expertiseCount: this.config.expertiseCount,
 			},
-			itemUuid: this.parent.uuid,
+			itemUuid: this.item.uuid,
 			grantId: this._id,
 			grantType: this.#type,
 			level: this.level,
@@ -146,8 +146,8 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'expertiseDice',
 		};
 

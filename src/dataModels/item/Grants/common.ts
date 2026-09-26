@@ -1,12 +1,6 @@
 import fields = foundry.data.fields;
 
 const baseSchema = () => ({
-	itemUuid: new fields.StringField({
-		required: true,
-		nullable: false,
-		initial: undefined,
-	}),
-	grantId: new fields.StringField({ required: true, nullable: false, initial: undefined }),
 	level: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 1 }),
 	isApplied: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 });
@@ -31,14 +25,7 @@ export const exertionGrantSchema = () => ({
 	...baseSchema(),
 	grantType: new fields.StringField({ required: true, nullable: false, initial: 'exertion' }),
 	exertionType: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	bonusId: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	poolType: new fields.StringField({
-		required: true,
-		nullable: false,
-		initial: 'none',
-		choices: ['none', 'prof', 'doubleProf'],
-	}),
-	type: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	bonusId: new fields.StringField({ required: true, nullable: true, initial: '' }),
 });
 
 export const expertiseDiceGrantSchema = () => ({

@@ -1,5 +1,4 @@
 import type { ActorGrant, TraitGrant } from '#types/actorGrants.d.ts';
-import type { Grant } from '#types/itemGrants.d.ts';
 import fromUuidMulti from '#utils/fromUuidMulti.ts';
 import prepareGrantsApplyData from '#utils/prepareGrantsApplyData.ts';
 import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObject.ts';
@@ -7,6 +6,7 @@ import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import actorGrants from '../dataModels/actor/grants';
+import type { Grant } from '../dataModels/item/Grants/GrantsField.ts';
 
 interface DefaultApplyOptions {
 	item: Item;
@@ -16,7 +16,7 @@ interface DefaultApplyOptions {
 	useUpdateSource?: boolean;
 }
 
-export default class ActorGrantsManger extends Map<string, ActorGrant> {
+export default class ActorGrantsManger extends Map<string, Grant> {
 	private actor: Actor.OfType<'character'>;
 
 	private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
@@ -25,7 +25,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
 	#batchItemUpdates: Record<string, any>[] = [];
 
-	constructor(actor: Actor) {
+	constructor(actor: Character) {
 		super();
 
 		this.actor = actor;
@@ -62,6 +62,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 	byType(type: string): ActorGrant[] {
 		return [...this.values()].filter((grant) => grant.grantType === type);
 	}
+
+	/** ================================================================= */
+	// New Methods
+	/** ================================================================= */
 
 	// *************************************************************
 	// Helpers

@@ -115,4 +115,5 @@ class GrantsField<
 	}
 }
 
+export type Grant = InstanceType<typeof fields.TypedSchemaField<typeof ITEM_GRANT_TYPES>>;
 export { GrantsField };

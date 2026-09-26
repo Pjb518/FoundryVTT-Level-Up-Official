@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Grant } from "#types/itemGrants.d.ts";
   import { getContext } from "svelte";
+  import type { Grant } from "#types/itemGrants.d.ts";
 
   type Props = {
     grant: Grant;

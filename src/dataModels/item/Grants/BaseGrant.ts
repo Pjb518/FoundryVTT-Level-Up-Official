@@ -87,16 +87,16 @@ class BaseGrant<
 	}
 
 	async deleteGrant(): Promise<void> {
-		const item = this.parent;
+		const item = this.item;
 		if (!item) return;
 
 		await item.update({
-			[`system.grants.${this._id}`]: _del,
+			[`system.grants.${this.id}`]: _del,
 		});
 
-		const document = this.parent?.parent;
-		if (!document || document.documentName !== 'Actor') return;
-		document.grants.removeGrant(this._id);
+		const document = item.parent;
+		if (document?.documentName !== 'Actor') return;
+		document.grants.removeGrant(this.id);
 	}
 
 	static override migrateData(source, options) {
