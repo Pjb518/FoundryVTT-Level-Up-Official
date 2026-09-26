@@ -55,7 +55,6 @@ class BaseGrant<
 
 	get item() {
 		const doc = this.getNearestDocument();
-		console.log(doc);
 		if (doc?.documentName === 'Item') return doc;
 		return null;
 	}
@@ -103,7 +102,7 @@ class BaseGrant<
 		super.migrateData(source, options);
 		if (!source) return source;
 
-		source.type = source.grantType;
+		source.type ??= source.grantType;
 		return source;
 	}
 }

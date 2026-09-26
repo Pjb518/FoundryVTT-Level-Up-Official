@@ -101,29 +101,25 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 				...this.config.context,
 			},
 			formula: this.config.bonus,
-			label: this.name || this.parent?.name || 'Ability Grant',
+			label: this.name || this.item?.name || 'Ability Grant',
 			default: this.config.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			img: this.img || this?.item?.img,
 		};
 
-		// Why is this here?
-		// delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'abilities',
+			bonusType: 'abilities',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
+
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
 		return {
 			[`system.bonuses.abilities.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
 		};
 	}
 
@@ -149,8 +145,8 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'abilities',
 		};
 

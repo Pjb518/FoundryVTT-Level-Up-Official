@@ -103,25 +103,24 @@ class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 			},
 			formula: this.config.bonus,
 			unit: this.config.unit || 'feet',
-			label: this.name || this.parent?.name || 'Senses Grant',
-			img: this.img || this?.parent?.img,
+			label: this.name || this.item?.name || 'Senses Grant',
+			img: this.img || this?.item?.img,
 		};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: this.#type,
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
 		return {
-			[`system.bonuses.senses.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
+			[`system.bonuses.abilities.${bonusId}`]: bonus,
 		};
 	}
 
@@ -148,7 +147,8 @@ class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			grantId: this._id,
+			documnet: this.item,
+			grantId: this.id,
 			grantType: 'senses',
 		};
 

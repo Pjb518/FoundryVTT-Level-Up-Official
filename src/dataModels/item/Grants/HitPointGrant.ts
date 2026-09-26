@@ -66,25 +66,24 @@ class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 		const bonus = {
 			context: { ...this.config.context },
 			formula: this.config.bonus,
-			label: this.name || this.parent?.name || 'HitPoint Grant',
-			img: this.img || this?.parent?.img,
+			label: this.name || this.item?.name || 'HitPoint Grant',
+			img: this.img || this?.item?.img,
 		};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: this.#type,
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
 		return {
-			[`system.bonuses.hitPoint.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
+			[`system.bonuses.abilities.${bonusId}`]: bonus,
 		};
 	}
 
@@ -102,8 +101,8 @@ class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 
 	override async configureGrant(): Promise<any> {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 

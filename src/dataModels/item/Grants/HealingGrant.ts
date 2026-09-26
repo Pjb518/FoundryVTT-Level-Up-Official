@@ -69,28 +69,25 @@ class HealingGrant extends BaseGrant<HealingGrant.Schema> {
 		const bonus = {
 			context: this.config.context,
 			formula: this.config.bonus,
-			label: this.name || this.parent?.name || 'Healing Grant',
+			label: this.name || this.item?.name || 'Healing Grant',
 			default: this.config.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			img: this.img || this?.item?.img,
 		};
 
-		// delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'healing',
+			bonusType: 'healing',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
 		return {
-			[`system.bonuses.healing.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
+			[`system.bonuses.abilities.${bonusId}`]: bonus,
 		};
 	}
 
@@ -108,8 +105,8 @@ class HealingGrant extends BaseGrant<HealingGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
