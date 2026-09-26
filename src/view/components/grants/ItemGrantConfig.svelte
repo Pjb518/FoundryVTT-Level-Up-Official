@@ -9,6 +9,7 @@
   import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
+  import type { ItemGrant } from "#data/item/Grants/ItemGrant.ts";
 
   type Props = {
     document: any;
@@ -36,32 +37,40 @@
   }
 
   function onDropUpdate(key: string, value: any) {
-    if (key === "items.base") {
+    if (key === "config.items.base") {
       if (baseUuids.includes(value)) return;
 
-      const updateArray = [...(grant.items.base ?? [])];
-      const doc = fromUuidSync(value);
-      updateArray.push({ uuid: value, quantity: doc.system.quantity });
+      const updateArray = [...(grant.config.items.base ?? [])];
+      const doc = fromUuidSync(value) as Item.OfType<"object"> | null;
+      updateArray.push({
+        uuid: value,
+        quantityOverride: doc.system?.quantity ?? 0,
+      });
       onUpdateValue(key, updateArray);
     }
 
-    if (key === "items.options") {
+    if (key === "config.items.options") {
       if (optionalUuids.includes(value)) return;
 
-      const updateArray = [...(grant.items.options ?? [])];
-      const doc = fromUuidSync(value);
-      updateArray.push({ uuid: value, quantity: doc.system.quantity });
+      const updateArray = [...(grant.config.items.options ?? [])];
+      const doc = fromUuidSync(value) as Item.OfType<"object"> | null;
+      updateArray.push({
+        uuid: value,
+        quantityOverride: doc.system?.quantity ?? 0,
+      });
       onUpdateValue(key, updateArray);
     }
   }
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let baseUuids = $derived(grant.items.base.map((i) => i.uuid) ?? []);
-  let optionalUuids = $derived(grant.items.options.map((i) => i.uuid) ?? []);
+  let grant = $derived(item.reactive.system.grants[grantId]) as ItemGrant;
+  let baseUuids = $derived(grant.config.items.base.map((i) => i.uuid) ?? []);
+  let optionalUuids = $derived(
+    grant.config.items.options.map((i) => i.uuid) ?? [],
+  );
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -87,7 +96,7 @@
         class="a5e-grant-name"
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -96,13 +105,14 @@
     <DropArea
       type="uuid"
       documentType="Item"
-      onDocumentDropped={(value) => onDropUpdate("items.base", value.uuid)}
+      onDocumentDropped={(value) =>
+        onDropUpdate("config.items.base", value.uuid)}
     />
 
     <DropTag
-      embeddedData={grant.items.base}
+      embeddedData={grant.config.items.base}
       type="item"
-      onUpdateSelection={(value) => onUpdateValue("items.base", value)}
+      onUpdateSelection={(value) => onUpdateValue("config.items.base", value)}
     />
   </Section>
 
@@ -110,13 +120,15 @@
     <DropArea
       type="uuid"
       documentType="Item"
-      onDocumentDropped={(value) => onDropUpdate("items.options", value.uuid)}
+      onDocumentDropped={(value) =>
+        onDropUpdate("config.items.options", value.uuid)}
     />
 
     <DropTag
-      embeddedData={grant.items.options}
+      embeddedData={grant.config.items.options}
       type="item"
-      onUpdateSelection={(value) => onUpdateValue("items.options", value)}
+      onUpdateSelection={(value) =>
+        onUpdateValue("config.items.options", value)}
     />
   </Section>
 
@@ -125,9 +137,9 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant.items.total ?? 0}
+        value={grant.config.items.total ?? 0}
         onchange={({ currentTarget }) =>
-          onUpdateValue("items.total", Number(currentTarget.value))}
+          onUpdateValue("config.items.total", Number(currentTarget.value))}
       />
     </FieldWrapper>
   </GrantConfig>

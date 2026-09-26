@@ -114,7 +114,7 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 		if (!actor) return {};
 
 		const appliedData: typeof this.applied = {
-			grantType: 'feature',
+			grantType: 'document',
 			level: this.level,
 			documentIds: [] as unknown as Set<string>, // This should be applied later
 			isApplied: true,
