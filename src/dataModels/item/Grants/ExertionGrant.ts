@@ -105,9 +105,9 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 		}
 
 		// Construct applied data
-		const appliedData = {
+		const appliedData: typeof this.applied = {
 			exertionType: this.config.exertionType,
-			bonusId: this.config.exertionType === 'bonus' ? bonusId : undefined,
+			bonusId: this.config.exertionType === 'bonus' ? bonusId : null,
 			poolType: this.config.poolType,
 			grantType: this.#type,
 			level: this.level,

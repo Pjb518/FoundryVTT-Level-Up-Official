@@ -66,7 +66,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -83,7 +83,7 @@
       ]}
       selected={exertionType}
       allowDeselect={false}
-      onUpdateSelection={(value) => onUpdateValue("exertionType", value)}
+      onUpdateSelection={(value) => onUpdateValue("config.exertionType", value)}
     />
 
     {#if exertionType === "pool"}
@@ -92,7 +92,7 @@
         options={Object.entries(exertionPoolTypes)}
         selected={grant.config.poolType}
         allowDeselect={false}
-        onUpdateSelection={(value) => onUpdateValue("poolType", value)}
+        onUpdateSelection={(value) => onUpdateValue("config.poolType", value)}
       />
     {:else}
       <FieldWrapper heading="A5E.rollLabels.formula">
@@ -100,7 +100,7 @@
           type="text"
           value={grant.config.bonus ?? ""}
           onchange={({ currentTarget }) =>
-            onUpdateValue("bonus", currentTarget.value)}
+            onUpdateValue("config.bonus", currentTarget.value)}
         />
       </FieldWrapper>
     {/if}

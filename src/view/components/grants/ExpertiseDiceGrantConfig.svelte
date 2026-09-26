@@ -1,15 +1,15 @@
 <script lang="ts">
   import { setContext } from "svelte";
 
+  import type { ExpertiseDiceGrant } from "#data/item/Grants/ExpertiseDiceGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { prepareExpertiseDiceOptions } from "#utils/view/helpers/prepareExpertiseDiceOptions.ts";
 
-  import GrantConfig from "./GrantConfig.svelte";
-
-  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-  import Section from "#view/snippets/Section.svelte";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -32,12 +32,16 @@
   }
 
   function onUpdateValue(key: string, value: any) {
-    if (key === "expertiseType") {
-      updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
-        base: [],
-        options: [],
-        total: 0,
-      });
+    if (key === "config.expertiseType") {
+      updateDocumentDataFromField(
+        item,
+        `system.grants.${grantId}.config.keys`,
+        {
+          base: [],
+          options: [],
+          total: 0,
+        },
+      );
     }
 
     key = `system.grants.${grantId}.${key}`;
@@ -46,7 +50,7 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
   const configObject = {
     abilityCheck: {
       label: "A5E.abilities.headings.check",
@@ -72,8 +76,10 @@
 
   const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let expertiseType = $derived(grant?.expertiseType || "abilityCheck");
+  let grant = $derived(
+    item.reactive.system.grants[grantId],
+  ) as ExpertiseDiceGrant;
+  let expertiseType = $derived(grant?.config.expertiseType || "abilityCheck");
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -99,7 +105,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -113,7 +119,7 @@
       ])}
       selected={expertiseType}
       onUpdateSelection={(value) => {
-        onUpdateValue("expertiseType", value);
+        onUpdateValue("config.expertiseType", value);
       }}
     />
 
@@ -121,31 +127,31 @@
       <CheckboxGroup
         heading="Base Options"
         options={configObject[expertiseType]?.options}
-        selected={grant?.keys?.base}
+        selected={grant?.config.keys?.base}
         showToggleAllButton={true}
-        disabledOptions={grant?.keys?.options}
+        disabledOptions={grant?.config.keys?.options}
         onUpdateSelection={(value) => {
-          onUpdateValue("keys.base", value);
+          onUpdateValue("config.keys.base", value);
         }}
       />
 
       <CheckboxGroup
         heading="Optional Choices"
         options={configObject[expertiseType]?.options}
-        selected={grant?.keys?.options}
-        disabledOptions={grant?.keys?.base}
+        selected={grant?.config?.keys?.options}
+        disabledOptions={grant?.config?.keys?.base}
         showToggleAllButton={true}
         onUpdateSelection={(value) => {
-          onUpdateValue("keys.options", value);
+          onUpdateValue("config.keys.options", value);
         }}
       />
 
       <FieldWrapper heading="Selectable Options Count">
         <input
           type="number"
-          value={grant?.keys?.total ?? 0}
+          value={grant?.config?.keys?.total ?? 0}
           onchange={({ currentTarget }) =>
-            onUpdateValue("keys.total", Number(currentTarget.value))}
+            onUpdateValue("config.keys.total", Number(currentTarget.value))}
         />
       </FieldWrapper>
     {/if}
@@ -153,9 +159,9 @@
     <RadioGroup
       heading="Expertise Die Size"
       options={expertiseDiceOptions}
-      selected={grant?.expertiseCount ?? 1}
+      selected={grant?.config?.expertiseCount ?? 1}
       onUpdateSelection={(value) => {
-        onUpdateValue("expertiseCount", value);
+        onUpdateValue("config.expertiseCount", value);
       }}
     />
   </Section>

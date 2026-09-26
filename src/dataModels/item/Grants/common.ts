@@ -16,7 +16,7 @@ export const documentGrantSchema = () => ({
 	...baseSchema(),
 	grantType: new fields.StringField({ required: true, nullable: false, initial: 'document' }),
 	documentIds: new fields.SetField(
-		new fields.StringField({ required: true, nullable: false, initial: undefined }),
+		new fields.StringField({ required: true, nullable: true, initial: null }),
 	),
 });
 
