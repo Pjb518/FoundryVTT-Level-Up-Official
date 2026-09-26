@@ -2,7 +2,6 @@
   import { setContext } from "svelte";
   import { localize } from "#utils/localization/localize.ts";
 
-  import { prepareExpertiseDiceOptions } from "#utils/view/helpers/prepareExpertiseDiceOptions.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import GrantConfig from "./GrantConfig.svelte";
@@ -11,6 +10,7 @@
   import Section from "#view/snippets/Section.svelte";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import type { RollOverrideGrant } from "#data/item/Grants/RollOverrideGrant.ts";
 
   type Props = {
     document: any;
@@ -33,7 +33,7 @@
   }
 
   function onUpdateValue(key: string, value: any) {
-    if (key === "expertiseType") {
+    if (key === "config.rollOverrideType") {
       updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
         base: [],
         options: [],
@@ -47,7 +47,7 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.TypeOf<"feature"> = document;
   const configObject = {
     abilityCheck: {
       label: "A5E.abilities.headings.check",
@@ -86,8 +86,10 @@
     ],
   );
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let rollOverrideType = $derived(grant?.rollOverrideType || "ability");
+  let grant = $derived(
+    item.reactive.system.grants[grantId],
+  ) as RollOverrideGrant;
+  let rollOverrideType = $derived(grant?.config?.rollOverrideType || "ability");
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -113,7 +115,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -130,7 +132,7 @@
       ])}
       selected={rollOverrideType}
       onUpdateSelection={(value) => {
-        onUpdateValue("rollOverrideType", value);
+        onUpdateValue("config.rollOverrideType", value);
       }}
     />
 
@@ -138,31 +140,31 @@
       <CheckboxGroup
         heading="Base Options"
         options={configObject[rollOverrideType]?.options}
-        selected={grant?.keys?.base}
+        selected={grant?.config?.keys?.base}
         showToggleAllButton={true}
-        disabledOptions={grant?.keys?.options}
+        disabledOptions={grant?.config?.keys?.options}
         onUpdateSelection={(value) => {
-          onUpdateValue("keys.base", value);
+          onUpdateValue("config.keys.base", value);
         }}
       />
 
       <CheckboxGroup
         heading="Optional Choices"
         options={configObject[rollOverrideType]?.options}
-        selected={grant?.keys?.options}
-        disabledOptions={grant?.keys?.base}
+        selected={grant?.config?.keys?.options}
+        disabledOptions={grant?.config?.keys?.base}
         showToggleAllButton={true}
         onUpdateSelection={(value) => {
-          onUpdateValue("keys.options", value);
+          onUpdateValue("config.keys.options", value);
         }}
       />
 
       <FieldWrapper heading="Selectable Options Count">
         <input
           type="number"
-          value={grant?.keys?.total ?? 0}
+          value={grant?.config?.keys?.total ?? 0}
           onchange={({ currentTarget }) =>
-            onUpdateValue("keys.total", Number(currentTarget.value))}
+            onUpdateValue("config.keys.total", Number(currentTarget.value))}
         />
       </FieldWrapper>
     {/if}
@@ -170,9 +172,9 @@
     <RadioGroup
       heading="Roll Mode"
       options={rollModes}
-      selected={grant?.rollMode ?? 0}
+      selected={grant?.config?.rollMode ?? 0}
       onUpdateSelection={(value) => {
-        onUpdateValue("rollMode", value);
+        onUpdateValue("config.rollMode", value);
       }}
     />
   </Section>
