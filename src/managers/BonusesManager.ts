@@ -29,11 +29,11 @@ interface SelectionData {
 }
 
 class BonusesManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
-	#bonuses: Actor.OfType<'base'>['system']['bonuses'];
+	#bonuses: Creature['system']['bonuses'];
 
-	constructor(actor: Actor.OfType<'base'>) {
+	constructor(actor: Creature) {
 		this.#actor = actor;
 		this.#bonuses = this.#actor.system.bonuses ?? {};
 	}

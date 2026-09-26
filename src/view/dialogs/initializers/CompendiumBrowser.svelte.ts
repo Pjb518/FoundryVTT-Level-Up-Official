@@ -32,11 +32,16 @@ export class CompendiumBrowser extends SvelteApplicationMixin(
 	protected root: any;
 
 	constructor(data: Record<string, any> = {}, options: Record<string, any> = {}) {
+		options.position ??= {};
+		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+		const width =
+			(options.position.width ?? CompendiumBrowser.DEFAULT_OPTIONS.position.width) * scale;
+
 		// @ts-expect-error
 		super({
 			classes: ['a5e-sheet', 'a5e-sheet--compendium-browser'],
 			position: {
-				width: options.width ?? 700,
+				width,
 				height: options.height ?? 'auto',
 			},
 			window: { title: 'Compendium Browser' },

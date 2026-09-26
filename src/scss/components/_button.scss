@@ -1,101 +1,101 @@
 .a5e-button {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  width: 100%;
+  cursor: pointer;
+  background: var(--a5e-button-regular);
+  color: var(--a5e-text-color-dark);
+  transition: var(--a5e-transition-standard);
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--a5e-button-regular-hover);
+    box-shadow: none;
+    outline: none;
+  }
+
+  &--transparent {
+    background: transparent;
+    width: fit-content;
+    border: 0;
+    padding: 0;
+    color: var(--a5e-button-gray);
+
+    &:focus,
+    &:hover {
+      background: transparent;
+      transform: scale(1.2);
+      color: var(--a5e-button-gray-hover);
+      box-shadow: none;
+    }
+  }
+
+  &--action-wrapper {
     display: flex;
-    flex-direction: row;
-    gap: 0.25rem;
-    width: 100%;
-    cursor: pointer;
-    background: var(--a5e-button-regular);
-    color: var(--a5e-text-color-dark);
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--a5e-button-gray);
+    margin-left: auto;
+  }
+
+  &--action {
+    padding: 0.25rem;
+    color: var(--icon-color, var(--a5e-button-gray));
+    border: none;
+    background: transparent;
+
+    // 17.5 pixels: the width of the largest icon we have
+    min-width: 1.09375rem;
+
     transition: var(--a5e-transition-standard);
 
-    &:disabled {
-        cursor: not-allowed;
+    &:hover {
+      color: var(--icon-color-active, #555);
+      transform: scale(1.2);
     }
 
     &:hover,
     &:focus {
-        background: var(--a5e-button-regular-hover);
-        box-shadow: none;
-        outline: none;
+      box-shadow: none;
     }
+  }
 
-    &--transparent {
-        background: transparent;
-        width: fit-content;
-        border: 0;
-        padding: 0;
-        color: var(--a5e-button-gray);
+  &--config {
+    background: transparent;
+    width: fit-content;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: var(--a5e-text-size-sm);
+    color: var(--a5e-button-gray);
 
-        &:focus,
-        &:hover {
-            background: transparent;
-            transform: scale(1.2);
-            color: var(--a5e-button-gray-hover);
-            box-shadow: none;
-        }
+    &:focus,
+    &:hover {
+      background: transparent;
+      transform: scale(1.2);
+      color: var(--a5e-button-gray-hover);
+      box-shadow: none;
     }
+  }
 
-    &--action-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--a5e-button-gray);
-        margin-left: auto;
+  &--scaling {
+    width: min-content;
+    border: 1px solid var(--a5e-button-gray-border);
+
+    i {
+      margin: 0;
     }
+  }
 
-    &--action {
-        padding: 0.25rem;
-        color: var(--icon-color, var(--a5e-button-gray));
-        border: none;
-        background: transparent;
-
-        // 17.5 pixels: the width of the largest icon we have
-        min-width: 1.09375rem;
-
-        transition: var(--a5e-transition-standard);
-
-        &:hover {
-            color: var(--icon-color-active, #555);
-            transform: scale(1.2);
-        }
-
-        &:hover,
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
-    &--config {
-        background: transparent;
-        width: fit-content;
-        border: 0;
-        padding: 0;
-        margin: 0;
-        font-size: var(--a5e-text-size-sm);
-        color: var(--a5e-button-gray);
-
-        &:focus,
-        &:hover {
-            background: transparent;
-            transform: scale(1.2);
-            color: var(--a5e-button-gray-hover);
-            box-shadow: none;
-        }
-    }
-
-    &--scaling {
-        width: min-content;
-        border: 1px solid var(--a5e-button-gray-border);
-
-        i {
-            margin: 0;
-        }
-    }
-
-    &__sticky-bottom__container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        color: var(--a5e-button-gray);
-    }
+  &__sticky-bottom__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--a5e-button-gray);
+  }
 }

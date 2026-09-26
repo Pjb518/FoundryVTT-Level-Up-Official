@@ -1,3 +1,10 @@
+// import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
+import registerModuleIncompatibilities from './config/premiumContent/moduleIncompatibilities.ts';
+import registerProductLineConfig from './config/premiumContent/productLines.ts';
+// import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
+import registerPremiumContentConfig from './config/premiumContent/products.ts';
+// import registerPublisherConfig from './config/registerPublisherConfig.ts';
+import registerPublisherConfig from './config/premiumContent/publishers.ts';
 import registerActionsConfig from './config/registerActionsConfig.ts';
 import registerActiveEffectConfig from './config/registerActiveEffectConfig.ts';
 import registerBonusesConfig from './config/registerBonusesConfig.ts';
@@ -11,10 +18,7 @@ import registerEffectLocalizationConfig from './config/registerEffectLocalizatio
 import registerEncounterElements from './config/registerEncounterElements.ts';
 import registerFilterConfig from './config/registerFilterConfig.ts';
 import registerGrantsConfig from './config/registerGrantsConfig.ts';
-import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
 import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties.ts';
-import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
-import registerPublisherConfig from './config/registerPublisherConfig.ts';
 import registerReducerConfig from './config/registerReducerConfig.ts';
 import registerSettingsConfig from './config/registerSettingsConfig.ts';
 
@@ -95,6 +99,19 @@ const DICE_ROLL_MODES = {
 	self: 'A5E.diceRollModes.self',
 	ic: 'In Character',
 };
+
+const DICE_SIDES = [0, 4, 6, 8, 10, 12, 20, 100] as const;
+
+const DICE_SIDES_MAP = {
+	0: 0,
+	1: 4,
+	2: 6,
+	3: 8,
+	4: 10,
+	5: 12,
+	6: 20,
+	7: 100,
+} as const;
 
 /**
  * Enum for object equipped state
@@ -468,6 +485,24 @@ const currencyDenominations = {
 	gp: 'A5E.currency.gold',
 	pp: 'A5E.currency.platinum',
 	cr: 'A5E.currency.credits',
+};
+
+const currencyToCopper = {
+	cp: (v: number) => v,
+	sp: (v: number) => v * 10,
+	ep: (v: number) => v * 50,
+	gp: (v: number) => v * 100,
+	pp: (v: number) => v * 1000,
+	cr: (v: number) => v * 100,
+};
+
+const currencyToGold = {
+	cp: (v: number) => v * 0.01,
+	sp: (v: number) => v * 0.1,
+	ep: (v: number) => v * 0.2,
+	gp: (v: number) => v,
+	pp: (v: number) => v * 10,
+	cr: (v: number) => v,
 };
 
 const damagedStates = {
@@ -1637,13 +1672,13 @@ const timePeriodsPlural = {
 
 const tokenDimensions = {
 	tiny: 0.5,
-	sm: 1,
+	sm: 0.8,
 	med: 1,
 	lg: 2,
 	huge: 3,
 	grg: 4,
 	titan: 5,
-};
+} as const;
 
 /**
  * Colors used to visualize temporary and temporary maximum HP in token health bars.
@@ -1944,7 +1979,7 @@ const weapons = {
 		ratchetingCrossbow: 'A5E.weapons.singular.ratchetingCrossbow',
 		revolver: 'A5E.weapons.singular.revolver',
 		ringBlade: 'A5E.weapons.singular.ringBlade',
-		shotgun: 'A5E.weapons.singular.shotgun',
+		shotgunRare: 'A5E.weapons.singular.shotgun',
 		spikedChain: 'A5E.weapons.singular.spikedChain',
 		swordPistol: 'A5E.weapons.singular.swordPistol',
 	},
@@ -2065,7 +2100,7 @@ const weaponsPlural = {
 		ratchetingCrossbow: 'A5E.weapons.plural.ratchetingCrossbow',
 		revolver: 'A5E.weapons.plural.revolver',
 		ringBlade: 'A5E.weapons.plural.ringBlade',
-		shotgun: 'A5E.weapons.plural.shotgun',
+		shotgunRare: 'A5E.weapons.plural.shotgun',
 		spikedChain: 'A5E.weapons.plural.spikedChain',
 		swordPistol: 'A5E.weapons.plural.swordPistol',
 	},
@@ -2226,6 +2261,7 @@ const effectLocalizationConfig = registerEffectLocalizationConfig();
 const moduleIncompatibilitiesConfig = registerModuleIncompatibilities();
 const premiumContentConfig = registerPremiumContentConfig();
 const publisherConfig = registerPublisherConfig();
+const productLineConfig = registerProductLineConfig();
 const reducerConfig = registerReducerConfig();
 const settingsConfig = registerSettingsConfig();
 
@@ -2240,6 +2276,8 @@ const A5E = {
 	CR_EXP_LEVELS,
 	DAMAGED_STATES,
 	DICE_ROLL_MODES,
+	DICE_SIDES,
+	DICE_SIDES_MAP,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
 	MONSTER_FEATURE_LIST,
@@ -2275,6 +2313,8 @@ const A5E = {
 	containerSortMethods,
 	creatureTypes,
 	currencyDenominations,
+	currencyToCopper,
+	currencyToGold,
 	damagedStates,
 	scalingModes,
 	baseScalingModes,
@@ -2378,6 +2418,7 @@ const A5E = {
 	...moduleIncompatibilitiesConfig,
 	...premiumContentConfig,
 	...publisherConfig,
+	...productLineConfig,
 	...reducerConfig,
 	...settingsConfig,
 	PRELOCALIZED_KEYS,

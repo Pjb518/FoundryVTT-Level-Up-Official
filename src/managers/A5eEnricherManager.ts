@@ -1,4 +1,4 @@
-import type { BaseActorA5e } from '../documents/actor/base.svelte.ts';
+import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
 import type { BaseItemA5e } from '../documents/item/base.svelte.ts';
 
 declare namespace A5eEnricherManager {
@@ -274,7 +274,7 @@ class A5eEnricherManager {
 
 		// Get documents
 		const item = document.documentName === 'Item' ? (document as Item.OfType<'base'>) : null;
-		let actor = document.documentName === 'Actor' ? (document as Actor.OfType<'base'>) : null;
+		let actor = document.documentName === 'Actor' ? (document as Creature) : null;
 
 		if (!item && !actor) return null;
 		if (item?.isEmbedded && !actor) actor = item.actor!;
@@ -418,7 +418,7 @@ class A5eEnricherManager {
 
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: ActorA5E | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -432,7 +432,7 @@ class A5eEnricherManager {
 				const rollOptions = this.#getOptions(target, universalOptions);
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: ActorA5E | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -455,7 +455,7 @@ class A5eEnricherManager {
 			if (dataset.type === 'death') {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: ActorA5E | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -469,7 +469,7 @@ class A5eEnricherManager {
 			if (dataset.type === 'concentration') {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: ActorA5E | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -483,7 +483,7 @@ class A5eEnricherManager {
 			if (dataset.ability) {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: ActorA5E | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -523,7 +523,7 @@ class A5eEnricherManager {
 
 		for (const selectedToken of selectedTokens) {
 			// @ts-expect-error
-			const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+			const { actor }: { actor: ActorA5E | null } = selectedToken;
 			if (!actor) {
 				ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 				continue;

@@ -11,6 +11,8 @@ import type A5eGame from '../src/interfaces/A5eGame.interface';
 declare global {
 	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
 	type DataSchema = foundry.data.fields.DataSchema;
+
+	type Creature = Actor.OfType<'character'> | Actor.OfType<'npc'>;
 }
 
 declare module 'fvtt-types/configuration' {
@@ -66,10 +68,15 @@ declare module 'fvtt-types/configuration' {
 		Actor: {
 			a5e: {
 				automaticallyExecuteAvailableMacros: boolean;
+				automateClasses: boolean;
+				automateHitDice: boolean;
+				automateHitPoints: boolean;
+				automateSpellResources: boolean;
 				automatePrototypeTokenSize: boolean;
 				carryCapacityAbility: string;
 				criticalHitThresholdWeapon: number;
 				criticalHitThresholdSpell: number;
+				deathSaveThreshold: number;
 				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
         showHackingTab: boolean;
@@ -82,15 +89,26 @@ declare module 'fvtt-types/configuration' {
 	}
 
 	interface SettingConfig {
-		'a5e.automateBloodiedeApplication': boolean;
+		'a5e.5eStyleDeathSaves': boolean;
+		'a5e.automateBloodiedApplication': boolean;
+		'a5e.automateMovement': boolean;
+		'a5e.automatePrototypeTokenSize': boolean;
 		'a5e.automateUnconsciousApplication': boolean;
+		'a5e.automateVisionRules': boolean;
 		'a5e.blindDeathSaves': boolean;
+		'a5e.cascadingDamageAndHealingDelay': number;
 		'a5e.consumeSupplyByDefault': boolean;
+		'a5e.enableCascadingDamageAndHealing': boolean;
+		'a5e.enableRadialEffects': boolean;
 		'a5e.hideExpertiseDice': boolean;
+		'a5e.itemRightClickConfigure': boolean;
 		'a5e.lastSeenChangelogVersion': string;
+		'a5e.replaceFatigueAndStrife': boolean;
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
+		'a5e.simpleRests': boolean;
 		'a5e.useCredits': boolean;
+		'a5e.a5e.visionRulesApplyToCharactersOnly': boolean;
 	}
 }
 

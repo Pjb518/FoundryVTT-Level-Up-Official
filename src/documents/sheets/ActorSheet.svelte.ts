@@ -3,6 +3,7 @@ import {
 	type ActorSheetTempSetting,
 	actorSheetTempSettings,
 } from '#stores/ActorSheetTempSettingsStore.svelte.ts';
+import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
 
 import ActorSheetComponent from '#view/sheets/ActorSheet.svelte';
 
@@ -18,7 +19,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 	protected root;
 
 	constructor(actor: { document: any }, options: any = {}) {
-		let root;
+		let root: any;
 
 		if (
 			[CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE, CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED].includes(
@@ -31,6 +32,9 @@ export default class ActorSheet extends SvelteApplicationMixin(
 			root = null;
 		} else {
 			root = ActorSheetComponent;
+			options.position ??= {};
+			const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+			options.position.width = ActorSheet.DEFAULT_OPTIONS.position.width * scale;
 		}
 
 		super(
@@ -52,6 +56,9 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		baseApplication: 'ActorSheet',
 		classes: ['a5e-sheet', 'a5e-sheet--actor'],
 		position: { width: 755, height: 706 },
+		actions: {
+			openSourceLink: ActorSheet.#onSourceLinkClick,
+		},
 		window: {
 			resizable: true,
 			minimizable: true,
@@ -326,6 +333,36 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		options.spellBookId = currentSpellBook;
 		options.actionId = dragData.actionId;
 		return options;
+	}
+
+	async _renderFrame(options) {
+		const frame = await super._renderFrame(options);
+		if (!this.hasFrame) return frame;
+
+		const docSource = CONFIG.A5E.products?.[this.actor?.system.source];
+		if (docSource) {
+			const sourceLink = document.createElement('button');
+			sourceLink.type = 'button';
+			sourceLink.classList.add('header-control');
+			sourceLink.classList.add('a5e-document-source-link');
+			sourceLink.dataset.action = 'openSourceLink';
+			sourceLink.dataset.tooltip = getDocumentSourceTooltip(docSource);
+			sourceLink.dataset.tooltipClass =
+				'a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source';
+			sourceLink.dataset.tooltipDirection = 'DOWN';
+			sourceLink.dataset.url = docSource.url;
+			sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${docSource?.abbreviation}`;
+
+			this.window.title.insertAdjacentElement('afterend', sourceLink);
+		}
+
+		return frame;
+	}
+
+	static #onSourceLinkClick(event, target) {
+		const url = target.dataset.url;
+		if (!url) return;
+		window.open(url, '_blank')?.focus();
 	}
 }
 

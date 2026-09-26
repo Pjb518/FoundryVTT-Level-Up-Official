@@ -2,7 +2,8 @@
 	"TYPES": {
 		"Actor": {
 			"character": "Player Character",
-			"npc": "Non-Player Character"
+			"npc": "Non-Player Character",
+			"party": "Party"
 		},
 		"Item": {
 			"archetype": "Archetype",
@@ -672,7 +673,7 @@
 			"action": "Action Uses Consumer",
 			"current": "Current",
 			"item": "Item Uses Consumer",
-			"max": "Max",
+			"max": "Max Formula",
 			"per": "Recovery",
 			"remaining": "Uses Remaining",
 			"title": "Uses"
@@ -1174,7 +1175,7 @@
 				"primary": {
 					"hideMax": "Resource 1 Hide Max Uses",
 					"label": "Resource 1 Label",
-					"max": "Resource 1 Max Uses",
+					"max": "Resource 1 Max Uses Formula",
 					"per": "Resource 1 Recovery",
 					"rechargeFormula": "Resource 1 Recharge Formula",
 					"rechargeThreshold": "Resource 1 Recharge Threshold",
@@ -1183,7 +1184,7 @@
 				"secondary": {
 					"hideMax": "Resource 2 Hide Max Uses",
 					"label": "Resource 2 Label",
-					"max": "Resource 2 Max Uses",
+					"max": "Resource 2 Max Uses Formula",
 					"per": "Resource 2 Recovery",
 					"rechargeFormula": "Resource 2 Recharge Formula",
 					"rechargeThreshold": "Resource 2 Recharge Threshold",
@@ -1192,7 +1193,7 @@
 				"tertiary": {
 					"hideMax": "Resource 3 Hide Max Uses",
 					"label": "Resource 3 Label",
-					"max": "Resource 3 Max Uses",
+					"max": "Resource 3 Max Uses Formula",
 					"per": "Resource 3 Recovery",
 					"rechargeFormula": "Resource 3 Recharge Formula",
 					"rechargeThreshold": "Resource 3 Recharge Threshold",
@@ -1201,7 +1202,7 @@
 				"quaternary": {
 					"hideMax": "Resource 4 Hide Max Uses",
 					"label": "Resource 4 Label",
-					"max": "Resource 4 Max Uses",
+					"max": "Resource 4 Max Uses Formula",
 					"per": "Resource 4 Recovery",
 					"rechargeFormula": "Resource 4 Recharge Formula",
 					"rechargeThreshold": "Resource 4 Recharge Threshold",
@@ -2327,7 +2328,6 @@
 			"5eStyleExpertise": "When enabled, players will be able to select a two different tiers of proficiency for skills, as per the various 5e Expertise features.",
 			"5eStyleJackOfAllTrades": "When enabled, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.",
 			"alwaysShowActionDescription": "Always show the description of an action in the chat card regardless of the setting defined on the action.",
-			"autoApplyFancySheets": "When enabled, the system will automatically apply the fancy sheet to all possible compendiums. This requires all documents in the compendium to be of the same type.",
 			"automateConditions": "Automatically apply related effects for the selected conditions.",
 			"automateBloodiedApplication": "Enable automated application of the bloodied condition.",
 			"automatePrototypeTokenSize": "Enable the automatic setting of prototype token width and height on actor size change.",
@@ -2413,7 +2413,6 @@
 		"5eStyleExpertise": "Enable 5e-style Expertise",
 		"5eStyleJackOfAllTrades": "Enable 5e-style Jack of All Trades",
 		"alwaysShowActionDescription": "Always show action description",
-		"autoApplyFancySheets": "Automatically Apply Fancy Sheets to Compendia",
 		"automateBloodiedApplication": "Automatically apply Bloodied condition",
 		"automateHitDice": "Automatically calculate Hit Dice",
 		"automateSpellResources": "Automatically calculate Spell Resources",
@@ -2814,6 +2813,7 @@
 		"actions": "Actions",
 		"activation": "Activation",
 		"armorClassProperties": "Armor Class Properties",
+		"attributes": "Attributes",
 		"biography": "Bio",
 		"containerProperties": "Container Properties",
 		"core": "Core",
@@ -2826,6 +2826,7 @@
 		"hacking": "Hacking",
 		"hackingProperties": "Hacking Maneuver Properties",
 		"inventory": "Inventory",
+		"languages": "Languages",
 		"macro": "Macro",
 		"maneuvers": "Maneuvers",
 		"maneuverProperties": "Maneuver Properties",

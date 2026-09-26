@@ -195,6 +195,18 @@ export const settings = [
 	},
 	{
 		namespace,
+		key: 'automateMovement',
+		options: {
+			name: 'A5E.settings.automateMovement',
+			hint: 'A5E.settings.hints.automateMovement',
+			scope: scope.world,
+			config: false,
+			default: true,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
 		key: 'visionRulesApplyToCharactersOnly',
 		options: {
 			name: 'A5E.settings.visionRulesApplyToCharactersOnly',
@@ -569,18 +581,6 @@ export const settings = [
 		},
 	},
 	// Misc Settings
-	{
-		namespace,
-		key: 'autoApplyFancySheets',
-		options: {
-			name: 'A5E.settings.autoApplyFancySheets',
-			hint: 'A5E.settings.hints.autoApplyFancySheets',
-			scope: scope.world,
-			config: false,
-			default: false,
-			type: Boolean,
-		},
-	},
 	{
 		namespace,
 		key: 'enableCascadingDamageAndHealing',

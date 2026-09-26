@@ -1,18 +1,17 @@
+import { buildProductSourceTree } from '#utils/prepareProductSourceTree.ts';
 import { A5E } from '../../../../config.ts';
 
-const PRODUCTS = Object.entries(A5E.products).reduce((acc, [k, v]) => {
-	acc[k] = v.title;
-	return acc;
-}, {});
+function getSourceFilterSection() {
+	return {
+		filterKey: 'source',
+		heading: 'Source',
+		type: 'sourceTree' as const,
+		options: buildProductSourceTree(A5E.products, A5E.publishers, A5E.productLines),
+	};
+}
 
 function getGenericConfig() {
-	return [
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
-	];
+	return [getSourceFilterSection()];
 }
 
 function getArchetypeFilterConfig() {
@@ -22,11 +21,7 @@ function getArchetypeFilterConfig() {
 			heading: 'Class',
 			options: CONFIG.A5E.classes,
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -78,11 +73,7 @@ function getFeatureFilterConfig(filterSelections?: Record<string, any>) {
 			heading: 'Class',
 			options: CONFIG.A5E.classes,
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	);
 
 	return config;
@@ -114,11 +105,7 @@ function getInteractionFilterConfig() {
 			heading: 'Interaction Type',
 			options: CONFIG.A5E.interactionTypes,
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -151,11 +138,7 @@ function getManeuverFilterConfig() {
 				stance: 'Stance',
 			},
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -193,11 +176,7 @@ function getMonsterFilterConfig() {
 				swarm: 'Swarm',
 			},
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -214,11 +193,7 @@ function getMonsterFeatureFilterConfig() {
 			heading: 'Feature Type',
 			options: featureTypeOptions,
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -242,11 +217,7 @@ function getObjectFilterConfig() {
 				requiresAttunement: 'Requires Attunement',
 			},
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
@@ -286,11 +257,7 @@ function getSpellFilterConfig() {
 				ritual: 'Ritual',
 			},
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
