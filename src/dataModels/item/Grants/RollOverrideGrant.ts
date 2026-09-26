@@ -101,28 +101,22 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
 		const count: number = this.config.keys.total;
 
-		const updates: Record<string, any> = {};
-
-		// Construct grant
-		const grantData = {
-			rollOverrideData: {
-				keys: selected,
-				total: count,
-				rollOverrideType: this.config.rollOverrideType,
-				rollMode: this.config.rollMode,
-			},
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		// Construct appliedData
+		const appliedData: typeof this.applied = {
+			selected,
+			total: count,
+			overrideType: this.config.rollOverrideType,
+			rollMode: this.config.rollMode,
 			grantType: this.#type,
 			level: this.level,
+			isApplied: true,
 		};
 
-		updates['system.grants'] = {
-			...actor.system.grants,
-			[this._id]: grantData,
-		};
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
-		return updates;
+		return {};
 	}
 
 	override getSelectionComponent() {
@@ -145,8 +139,8 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
