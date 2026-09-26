@@ -123,8 +123,6 @@ export type Grant<T extends GrantTypes = GrantTypes> = Extract<
 	{ type: T }
 >;
 
-type A = Grant<'damage'>;
-
 export type AppliedGrantTypes = keyof typeof appliedGrantsData;
 
 export { GrantsField };

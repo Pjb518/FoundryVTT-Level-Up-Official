@@ -5,16 +5,18 @@ import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObjec
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
-import actorGrants from '../dataModels/actor/grants.ts';
+import actorGrants from '../dataModels/actor/grants';
 import type {
 	AppliedGrantTypes,
 	Grant,
 	GrantTypes,
 } from '../dataModels/item/Grants/GrantsField.ts';
 
+type GRANT_ITEM = Item.OfType<'feature'> | OriginItems;
+
 interface DefaultApplyOptions {
-	item: Item;
-	cls: Item;
+	item: GRANT_ITEM;
+	cls: Item.OfType<'class'> | Item.OfType<'archetype'> | null;
 	charLevel?: number;
 	clsLevel?: number;
 	useUpdateSource?: boolean;
@@ -93,6 +95,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	// *************************************************************
 	// Data Retrieval Methods
 	// *************************************************************
+	/** TODO - Needs fixing */
 	getGrantedTraits(type: string): Record<string, any> {
 		const grants = this.byAppliedType('trait');
 
@@ -115,7 +118,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	// *************************************************************
 	// Update Methods
 	// *************************************************************
-	async createInitialGrants(item: Item, isPreCreate = false): Promise<void> {
+	async createInitialGrants(item: GRANT_ITEM, isPreCreate = false): Promise<void> {
 		if (!item) return;
 		if (!this.#allowedTypes.has(item.type)) return;
 
@@ -129,8 +132,8 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 
 		let itemSlug: string;
 
-		if (item.type === 'class') itemSlug = item.slug;
-		else if (item.type === 'archetype') itemSlug = item.system.class;
+		if (item.isType('class')) itemSlug = item.slug;
+		else if (item.isType('archetype')) itemSlug = item.system.class;
 		else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
 
 		const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 0) + 1;
@@ -150,7 +153,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		const allGrants = grants.concat(subGrants);
 
 		allGrants.forEach((grant) => {
-			if (this.has(this.#getFullId(grant))) return;
+			if (this.has(grant.fullId)) return;
 
 			const { levelType } = grant;
 
@@ -159,9 +162,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 				if (item.type === 'class') {
 					let parentGrant: Grant | undefined = grant;
 
-					// eslint-disable-next-line no-constant-condition
 					while (true) {
-						// eslint-disable-next-line @typescript-eslint/no-loop-func
 						parentGrant = allGrants.find((g) => g.id === parentGrant?.grantedBy?.id);
 						if (!parentGrant || parentGrant.levelType === 'class') break;
 					}
@@ -176,9 +177,9 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 			applicableGrants.push(grant);
 		});
 
-		let cls = null;
-		if (item.type === 'class') cls = item;
-		else if (item.type === 'archetype') cls = this.actor.classes[item.system.class];
+		let cls: DefaultApplyOptions['cls'] = null;
+		if (item.isType('class')) cls = item;
+		else if (item.isType('archetype')) cls = this.actor?.classes?.[item.system.class] ?? null;
 
 		await this.#applyGrants(applicableGrants, optionalGrants, {
 			item,
@@ -324,17 +325,19 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	}
 
 	async #getSubGrants(grant: Grant, characterLevel: number): Promise<Grant[]> {
-		if (grant.grantType !== 'feature') return [];
+		if (grant.type !== 'feature') return [];
 		if (grant.level > characterLevel) return [];
+		grant = grant as Grant<'feature'>;
 
-		const docIds: string[] = [...grant.features.base, ...grant.features.options].map((f) => f.uuid);
-		let docs;
+		const docIds: string[] = [...grant.config.features.base, ...grant.config.features.options].map(
+			(f) => f.uuid,
+		);
+
+		let docs: any;
 		try {
 			docs = await fromUuidMulti(docIds, { parent: this.actor });
 		} catch (e: any) {
-			// eslint-disable-next-line no-console
 			console.error(e);
-			// eslint-disable-next-line no-console
 			console.warn(`Possible causes: ${docIds.join(', ')}`);
 			ui.notifications?.error(`Grant ${grant.name} has an invalid document reference.`);
 			throw new Error(e);
@@ -342,9 +345,10 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 
 		docs = docs.filter((d: any) => {
 			if (!d) {
-				ui.notifications?.error(`Grant ${grant.name} has an invalid document reference.`);
+				ui.notifications?.error(
+					`Grant ${grant.name} on item ${d.name} has an invalid document reference.`,
+				);
 
-				// eslint-disable-next-line no-console
 				console.warn(`Possible causes: ${docIds.join(', ')}`);
 				return false;
 			}
@@ -354,7 +358,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 
 		const grants: Grant[] = docs.flatMap((doc) =>
 			[...doc.grants.values()].map((g) => {
-				const hasSelectionId = !!grant.features.options.length;
+				const hasSelectionId = !!grant.config.features.options.length;
 
 				g.grantedBy = {
 					id: grant.id,

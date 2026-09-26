@@ -19,6 +19,15 @@ const baseSchema = () => ({
 		initial: '',
 	}),
 	flags: new fields.DocumentFlagsField({ required: true, nullable: false }),
+	grantedBy: new fields.SchemaField(
+		{
+			/** The id of the grant that grants this grant */
+			id: new fields.StringField({ required: true, nullable: false, initial: '' }),
+			/** The id from _stats.compendiumSource */
+			selectionId: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		},
+		{ persisted: false, required: true, nullable: false },
+	),
 	level: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 1 }),
 	levelType: new fields.StringField({
 		required: true,

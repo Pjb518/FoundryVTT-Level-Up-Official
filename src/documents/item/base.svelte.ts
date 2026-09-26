@@ -112,6 +112,10 @@ class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubT
 
 	// *****************************************************************************************
 
+	isType<SubType extends Item.SubType = Item.SubType>(type: SubType): this is Item.OfType<SubType> {
+		return this.type === type;
+	}
+
 	get reactive() {
 		this.#subscribe();
 
