@@ -91,7 +91,7 @@
 </script>
 
 <Section
-  heading="Proficiency Grant - {grant.label}"
+  heading="Proficiency Grant - {grant.name}"
   headerButtons={["tools", "weapons"].includes(proficiencyType)
     ? []
     : [

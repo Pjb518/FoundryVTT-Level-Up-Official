@@ -1,173 +1,181 @@
 <script lang="ts">
-    import { setContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
+  import { setContext } from "svelte";
+  import { localize } from "#utils/localization/localize.ts";
 
-    import { prepareExpertiseDiceOptions } from "#utils/view/helpers/prepareExpertiseDiceOptions.ts";
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import { prepareExpertiseDiceOptions } from "#utils/view/helpers/prepareExpertiseDiceOptions.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import GrantConfig from "./GrantConfig.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import Section from "#view/snippets/Section.svelte";
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import RadioGroup from "#view/snippets/RadioGroup.svelte";
 
-    type Props = {
-        document: any;
-        grantId: string;
-        grantType: string;
-    };
+  type Props = {
+    document: any;
+    grantId: string;
+    grantType: string;
+  };
 
-    function updateImage() {
-        const current = grant?.img;
+  function updateImage() {
+    const current = grant?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+    const filePicker = new FilePicker({
+      type: "image",
+      current,
+      callback: (path) => {
+        onUpdateValue("img", path);
+      },
+    });
 
-        return filePicker.browse();
+    return filePicker.browse();
+  }
+
+  function onUpdateValue(key: string, value: any) {
+    if (key === "expertiseType") {
+      updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
+        base: [],
+        options: [],
+        total: 0,
+      });
     }
 
-    function onUpdateValue(key: string, value: any) {
-        if (key === "expertiseType") {
-            updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
-                base: [],
-                options: [],
-                total: 0,
-            });
-        }
+    key = `system.grants.${grantId}.${key}`;
+    updateDocumentDataFromField(item, key, value);
+  }
 
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField(item, key, value);
-    }
+  let { document, grantId, grantType }: Props = $props();
 
-    let { document, grantId, grantType }: Props = $props();
+  let item = document;
+  const configObject = {
+    abilityCheck: {
+      label: "A5E.abilities.headings.check",
+      options: Object.entries(CONFIG.A5E.abilities),
+    },
+    abilitySave: {
+      label: "A5E.rollLabels.savingThrows.title",
+      options: Object.entries(CONFIG.A5E.abilities),
+    },
+    attack: {
+      label: "A5E.actions.headings.options.attack",
+      options: Object.entries(CONFIG.A5E.attackTypes),
+    },
+    initiative: {
+      label: "A5E.initiative.title",
+      options: [],
+    },
+    concentration: {
+      label: "A5E.SpellConcentration",
+      options: [],
+    },
+    deathSave: {
+      label: "Death Save",
+      options: [],
+    },
+    skill: {
+      label: "A5E.skillLabels.title",
+      options: Object.entries(CONFIG.A5E.skills),
+    },
+  };
 
-    let item = document;
-    const configObject = {
-        abilityCheck: {
-            label: "A5E.abilities.headings.check",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        abilitySave: {
-            label: "A5E.rollLabels.savingThrows.title",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        attack: {
-            label: "A5E.actions.headings.options.attack",
-            options: Object.entries(CONFIG.A5E.attackTypes),
-        },
-        initiative: {
-            label: "A5E.initiative.title",
-            options: [],
-        },
-        concentration: {
-            label: "A5E.SpellConcentration",
-            options: [],
-        },
-        deathSave: {
-            label: "Death Save",
-            options: [],
-        },
-        skill: {
-            label: "A5E.skillLabels.title",
-            options: Object.entries(CONFIG.A5E.skills),
-        },
-    };
+  const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
+    ([key, value]) => [
+      CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+      localize(value as string),
+    ],
+  );
 
-    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
-        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        localize(value as string),
-    ]);
+  let grant = $derived(item.reactive.system.grants[grantId]);
+  let rollOverrideType = $derived(grant?.rollOverrideType || "ability");
 
-    let grant = $derived(item.reactive.system.grants[grantId]);
-    let rollOverrideType = $derived(grant?.rollOverrideType || "ability");
-
-    setContext("item", item);
-    setContext("grantId", grantId);
-    setContext("grantType", grantType);
+  setContext("item", item);
+  setContext("grantId", grantId);
+  setContext("grantType", grantType);
 </script>
 
 <form class="a5e-grant">
-    <header class="a5e-grant__header">
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <img
-            class="a5e-grant-image"
-            src={grant.img || item.img || "icons/svg/upgrade.svg"}
-            alt={grant.label}
-            onclick={updateImage}
+  <header class="a5e-grant__header">
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <img
+      class="a5e-grant-image"
+      src={grant.img || item.img || "icons/svg/upgrade.svg"}
+      alt={grant.name}
+      onclick={updateImage}
+    />
+
+    <div class="a5e-grant-name-wrapper">
+      <input
+        class="a5e-input a5e-grant-name"
+        type="text"
+        name="name"
+        value={grant.name ?? ""}
+        placeholder="Bonus Name"
+        onchange={({ currentTarget }) =>
+          onUpdateValue("label", currentTarget.value)}
+      />
+    </div>
+  </header>
+
+  <Section
+    heading="Roll Override Configuration"
+    --a5e-section-body-gap="0.75rem"
+  >
+    <RadioGroup
+      heading="Override Type"
+      options={Object.entries(configObject).map(([key, { label }]) => [
+        key,
+        label,
+      ])}
+      selected={rollOverrideType}
+      onUpdateSelection={(value) => {
+        onUpdateValue("rollOverrideType", value);
+      }}
+    />
+
+    {#if configObject[rollOverrideType]?.options?.length}
+      <CheckboxGroup
+        heading="Base Options"
+        options={configObject[rollOverrideType]?.options}
+        selected={grant?.keys?.base}
+        showToggleAllButton={true}
+        disabledOptions={grant?.keys?.options}
+        onUpdateSelection={(value) => {
+          onUpdateValue("keys.base", value);
+        }}
+      />
+
+      <CheckboxGroup
+        heading="Optional Choices"
+        options={configObject[rollOverrideType]?.options}
+        selected={grant?.keys?.options}
+        disabledOptions={grant?.keys?.base}
+        showToggleAllButton={true}
+        onUpdateSelection={(value) => {
+          onUpdateValue("keys.options", value);
+        }}
+      />
+
+      <FieldWrapper heading="Selectable Options Count">
+        <input
+          type="number"
+          value={grant?.keys?.total ?? 0}
+          onchange={({ currentTarget }) =>
+            onUpdateValue("keys.total", Number(currentTarget.value))}
         />
+      </FieldWrapper>
+    {/if}
 
-        <div class="a5e-grant-name-wrapper">
-            <input
-                class="a5e-input a5e-grant-name"
-                type="text"
-                name="name"
-                value={grant.label ?? ""}
-                placeholder="Bonus Name"
-                onchange={({ currentTarget }) =>
-                    onUpdateValue("label", currentTarget.value)}
-            />
-        </div>
-    </header>
+    <RadioGroup
+      heading="Roll Mode"
+      options={rollModes}
+      selected={grant?.rollMode ?? 0}
+      onUpdateSelection={(value) => {
+        onUpdateValue("rollMode", value);
+      }}
+    />
+  </Section>
 
-    <Section heading="Roll Override Configuration" --a5e-section-body-gap="0.75rem">
-        <RadioGroup
-            heading="Override Type"
-            options={Object.entries(configObject).map(([key, { label }]) => [key, label])}
-            selected={rollOverrideType}
-            onUpdateSelection={(value) => {
-                onUpdateValue("rollOverrideType", value);
-            }}
-        />
-
-        {#if configObject[rollOverrideType]?.options?.length}
-            <CheckboxGroup
-                heading="Base Options"
-                options={configObject[rollOverrideType]?.options}
-                selected={grant?.keys?.base}
-                showToggleAllButton={true}
-                disabledOptions={grant?.keys?.options}
-                onUpdateSelection={(value) => {
-                    onUpdateValue("keys.base", value);
-                }}
-            />
-
-            <CheckboxGroup
-                heading="Optional Choices"
-                options={configObject[rollOverrideType]?.options}
-                selected={grant?.keys?.options}
-                disabledOptions={grant?.keys?.base}
-                showToggleAllButton={true}
-                onUpdateSelection={(value) => {
-                    onUpdateValue("keys.options", value);
-                }}
-            />
-
-            <FieldWrapper heading="Selectable Options Count">
-                <input
-                    type="number"
-                    value={grant?.keys?.total ?? 0}
-                    onchange={({ currentTarget }) =>
-                        onUpdateValue("keys.total", Number(currentTarget.value))}
-                />
-            </FieldWrapper>
-        {/if}
-
-        <RadioGroup
-            heading="Roll Mode"
-            options={rollModes}
-            selected={grant?.rollMode ?? 0}
-            onUpdateSelection={(value) => {
-                onUpdateValue("rollMode", value);
-            }}
-        />
-    </Section>
-
-    <GrantConfig></GrantConfig>
+  <GrantConfig></GrantConfig>
 </form>

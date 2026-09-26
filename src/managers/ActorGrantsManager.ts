@@ -315,13 +315,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 			console.error(e);
 			// eslint-disable-next-line no-console
 			console.warn(`Possible causes: ${docIds.join(', ')}`);
-			ui.notifications?.error(`Grant ${grant.label} has an invalid document reference.`);
+			ui.notifications?.error(`Grant ${grant.name} has an invalid document reference.`);
 			throw new Error(e);
 		}
 
 		docs = docs.filter((d: any) => {
 			if (!d) {
-				ui.notifications?.error(`Grant ${grant.label} has an invalid document reference.`);
+				ui.notifications?.error(`Grant ${grant.name} has an invalid document reference.`);
 
 				// eslint-disable-next-line no-console
 				console.warn(`Possible causes: ${docIds.join(', ')}`);

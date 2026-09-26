@@ -156,7 +156,7 @@
     <img
       class="a5e-grant-image"
       src={grant.img || item.img || "icons/svg/upgrade.svg"}
-      alt={grant.label}
+      alt={grant.name}
       onclick={updateImage}
     />
 
