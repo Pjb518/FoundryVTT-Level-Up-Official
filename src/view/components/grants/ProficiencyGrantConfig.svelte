@@ -82,7 +82,7 @@
   function updateImage() {
     const current = grant?.img;
 
-    const filePicker = new FilePicker({
+    const filePicker = new foundry.applications.apps.FilePicker({
       type: "image",
       current,
       callback: (path) => {
