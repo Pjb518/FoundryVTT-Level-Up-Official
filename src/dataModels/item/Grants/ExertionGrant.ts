@@ -11,12 +11,14 @@ const schema = () => ({
 	// Config
 	config: new fields.SchemaField({
 		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		/** If the exertion grants a simple bonus or targets the base calculation of the pool */
 		exertionType: new fields.StringField({
 			required: true,
 			nullable: false,
 			initial: 'bonus',
 			choices: ['bonus', 'pool'],
 		}),
+		/** How is the base pool being calculated - This does not go to applied */
 		poolType: new fields.StringField({
 			required: true,
 			nullable: false,
@@ -24,6 +26,7 @@ const schema = () => ({
 			choices: ['none', 'prof', 'doubleProf'],
 		}),
 	}),
+
 	// Applied
 	applied: new fields.SchemaField(exertionGrantSchema(), { required: true, nullable: false }),
 
@@ -94,30 +97,25 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 		if (this.config.exertionType === 'bonus') {
 			const bonus = {
 				formula: this.config.bonus,
-				label: this.name || this.parent?.name || 'Exertion Grant',
-				img: this.img || this?.parent?.img,
+				label: this.name || this.item?.name || 'Exertion Grant',
+				img: this.img || this?.item?.img,
 			};
 
 			updates[`system.bonuses.exertion.${bonusId}`] = bonus;
 		}
 
-		// Construct grant data
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
-			exertionData: {
-				exertionType: this.config.exertionType,
-				bonusId: this.config.exertionType === 'bonus' ? bonusId : undefined,
-				poolType: this.config.poolType,
-			},
+		// Construct applied data
+		const appliedData = {
+			exertionType: this.config.exertionType,
+			bonusId: this.config.exertionType === 'bonus' ? bonusId : undefined,
+			poolType: this.config.poolType,
 			grantType: this.#type,
 			level: this.level,
 		};
 
-		updates['system.grants'] = {
-			...actor.system.grants,
-			[this._id]: grantData,
-		};
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
 		return updates;
 	}
@@ -136,8 +134,8 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 
 	override async configureGrant(): Promise<any> {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 

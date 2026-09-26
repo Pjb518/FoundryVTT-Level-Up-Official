@@ -69,7 +69,6 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		await this.#item.update({
 			'system.grants': {
 				...this.#item.system.grants,
-				// @ts-expect-error
 				[foundry.utils.randomID()]: newGrant,
 			},
 		});

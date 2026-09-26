@@ -110,8 +110,6 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			grantType: this.#type,
 			selected,
 			level: this.level,
-			itemUuid: this.item?.uuid,
-			grantId: this.id,
 			upgraded: this.config.upgradeToExpertise,
 			isApplied: true,
 

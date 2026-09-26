@@ -40,7 +40,7 @@
   const { exertionPoolTypes } = CONFIG.A5E;
 
   let grant = $derived(item.reactive.system.grants[grantId]) as ExertionGrant;
-  let exertionType = $derived(grant?.exertionType);
+  let exertionType = $derived(grant?.config.exertionType);
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -90,7 +90,7 @@
       <RadioGroup
         heading="Exertion Pool Type"
         options={Object.entries(exertionPoolTypes)}
-        selected={grant.poolType}
+        selected={grant.config.poolType}
         allowDeselect={false}
         onUpdateSelection={(value) => onUpdateValue("poolType", value)}
       />
@@ -98,7 +98,7 @@
       <FieldWrapper heading="A5E.rollLabels.formula">
         <input
           type="text"
-          value={grant.bonus ?? ""}
+          value={grant.config.bonus ?? ""}
           onchange={({ currentTarget }) =>
             onUpdateValue("bonus", currentTarget.value)}
         />
