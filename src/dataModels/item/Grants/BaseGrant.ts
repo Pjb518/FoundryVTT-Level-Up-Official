@@ -53,10 +53,23 @@ class BaseGrant<
 		};
 	}
 
+	/** Returns Itemid.grantId */
+	get fullId() {
+		if (this.item) return `${this.item.id!}.${this.id}`;
+		return this.id;
+	}
+
+	/** Returns the Parent Item */
 	get item() {
 		const doc = this.getNearestDocument();
 		if (doc?.documentName === 'Item') return doc;
 		return null;
+	}
+
+	/** Returns the UUID */
+	get uuid() {
+		if (this.item) return `${this.item.uuid}.Grant.${this.id}`;
+		return this.id;
 	}
 
 	getApplyData(actor: any, data: any): any {

@@ -16,7 +16,7 @@ export const documentGrantSchema = () => ({
 	...baseSchema(),
 	grantType: new fields.StringField({ required: true, nullable: false, initial: 'document' }),
 	documentIds: new fields.SetField(
-		new fields.StringField({ required: true, nullable: true, initial: null }),
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
 	),
 });
 
@@ -83,3 +83,14 @@ export const traitGrantSchema = () => ({
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	traitType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
+
+export const appliedGrantsData = {
+	bonus: bonusGrantSchema,
+	document: documentGrantSchema,
+	exertion: exertionGrantSchema,
+	expertiseDice: expertiseDiceGrantSchema,
+	proficiency: proficiencyGrantSchema,
+	rollOverride: rollOverrideGrantSchema,
+	skillSpecialty: skillSpecialtyGrantSchema,
+	trait: traitGrantSchema,
+};

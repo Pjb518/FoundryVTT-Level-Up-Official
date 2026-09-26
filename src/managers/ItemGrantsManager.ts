@@ -13,22 +13,34 @@ export class ItemGrantsManager extends Map<string, Grant> {
 		});
 	}
 
+	/** Gets the first grant */
+	get first(): Grant | undefined {
+		const grant = this.values().next();
+		if (!grant) return undefined;
+		return grant.value;
+	}
+
+	/** Returns all the optional grants on this item */
 	get optionalGrants(): Array<Grant> {
 		return [...this.values()].filter((grant) => grant.optional);
 	}
 
+	/** Returns all grants of a certain type */
 	byType(type: GrantTypes): Array<Grant> {
 		return [...this.values()].filter((grant) => grant.type === type);
 	}
 
+	/** Returns all grants of a level */
 	byLevel(level: number): Array<Grant> {
 		return [...this.values()].filter((grant) => grant.level === level);
 	}
 
-	byLevelType(levelType: string): Array<Grant> {
+	/** Returns filtered grants based on levelType being class or character */
+	byLevelType(levelType: 'character' | 'class'): Array<Grant> {
 		return [...this.values()].filter((grant) => grant.levelType === levelType);
 	}
 
+	/** Returns all grants of a certain type and level*/
 	byLevelAndType(level: number, grantType: GrantTypes): Array<Grant> {
 		return [...this.values()].filter((grant) => grant.level === level && grant.type === grantType);
 	}
