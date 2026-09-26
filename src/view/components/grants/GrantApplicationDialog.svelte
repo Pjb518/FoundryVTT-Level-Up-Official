@@ -1,31 +1,35 @@
 <script lang="ts">
+  import { setContext } from "svelte";
+  import { SvelteMap, SvelteSet } from "svelte/reactivity";
+
+  import type { Grant } from "#data/item/Grants/GrantsField.ts";
+
   import { localize } from "#utils/localization/localize.ts";
-  import type { Grant } from "#types/itemGrants.d.ts";
-
-  import { getContext, setContext } from "svelte";
-
   import prepareGrantsApplyData from "#utils/prepareGrantsApplyData.ts";
 
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
   import ClassHitPointsSelection from "./ClassHitPointSelection.svelte";
-  import { SvelteMap, SvelteSet } from "svelte/reactivity";
 
   type Props = {
     allGrants: Grant[];
     dialog: any;
     optionalGrantsProp: Grant[];
-    actor: Actor;
-    item: Item | null;
-    cls: Item | null;
+    actor: Character;
+    item:
+      | Item.OfType<"feature">
+      | Item.OfType<"class">
+      | Item.OfType<"archetype">
+      | null;
+    cls: Item.OfType<"class"> | Item.OfType<"archetype"> | null;
     charLevel: number;
     clsLevel: number;
   };
 
   function getStartingSelectedGrants(): Set<string> {
     return allGrants.reduce((acc: Set<string>, grant: Grant) => {
-      if (!grant.grantedBy?.id) acc.add(grant._id);
+      if (!grant.grantedBy?.id) acc.add(grant.id);
       return acc;
     }, new Set<string>());
   }
@@ -42,8 +46,8 @@
 
     // Get selected feature grants
     allGrants.forEach((grant: Grant) => {
-      if (grant.grantType !== "feature") return;
-      if (applyData.has(grant._id)) updatedList.add(grant._id);
+      if (grant.type !== "feature") return;
+      if (applyData.has(grant.id)) updatedList.add(grant.id);
     });
 
     // Update optional grants
@@ -100,8 +104,8 @@
       let requiresConfig = false;
       if (grant.requiresConfig()) requiresConfig = true;
 
-      grantsList.push({ grant, requiresConfig, id: grant._id });
-      activeGrants.add(grant._id);
+      grantsList.push({ grant, requiresConfig, id: grant.id });
+      activeGrants.add(grant.id);
     });
 
     // Add all optional grants that are selected
@@ -117,13 +121,13 @@
         : true;
 
       if (grantedBy?.id && !hasSelectionId) return;
-      if (!selectedOptionalGrants.includes(grant._id)) return;
+      if (!selectedOptionalGrants.includes(grant.id)) return;
 
       let requiresConfig = false;
       if (grant.requiresConfig()) requiresConfig = true;
 
-      grantsList.push({ grant, requiresConfig, id: grant._id });
-      activeGrants.add(grant._id);
+      grantsList.push({ grant, requiresConfig, id: grant.id });
+      activeGrants.add(grant.id);
     });
 
     return grantsList;
@@ -158,7 +162,8 @@
 
   async function openDocument(uuid: string) {
     const doc = await fromUuid(uuid);
-    doc.sheet.render(true);
+    // @ts-expect-error
+    doc?.sheet?.render(true);
   }
 
   function showSpellAbilitySelection() {
@@ -283,7 +288,7 @@
     {#if optionalGrants.length}
       <Section heading="Optional Grants Selection">
         <CheckboxGroup
-          options={optionalGrants.map((grant) => [grant._id, grant.name])}
+          options={optionalGrants.map((grant) => [grant.id, grant.name])}
           selected={selectedOptionalGrants}
           onUpdateSelection={(detail) => {
             selectedOptionalGrants = detail;
@@ -302,7 +307,7 @@
       <Comp
         {...compProps}
         {grant}
-        updateSelectionFunc={(detail) => {
+        updateSelectionFunc={(detail: any) => {
           applyData.set(id, detail);
           updateActiveGrants();
         }}
