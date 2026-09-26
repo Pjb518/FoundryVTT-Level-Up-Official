@@ -102,28 +102,22 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 		const selected: string[] = data?.selected ?? this.config.keys.base ?? [];
 		const count: number = this.config.keys.total;
 
-		const updates: Record<string, any> = {};
-
-		// Construct grant
-		const grantData = {
-			expertiseDiceData: {
-				keys: selected,
-				total: count,
-				expertiseType: this.config.expertiseType,
-				expertiseCount: this.config.expertiseCount,
-			},
-			itemUuid: this.item.uuid,
-			grantId: this._id,
+		// Construct applied
+		const appliedData: typeof this.applied = {
+			selected,
+			total: count,
+			expertiseType: this.config.expertiseType,
+			expertiseCount: this.config.expertiseCount,
 			grantType: this.#type,
 			level: this.level,
+			isApplied: true,
 		};
 
-		updates['system.grants'] = {
-			...actor.system.grants,
-			[this._id]: grantData,
-		};
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
-		return updates;
+		return {};
 	}
 
 	override getSelectionComponent() {
