@@ -26,6 +26,7 @@ export const documentGrantSchema = () => ({
 	),
 });
 
+// Convert to Bonus Grant
 export const exertionGrantSchema = () => ({
 	...baseSchema(),
 	grantType: new fields.StringField({ required: true, nullable: false, initial: 'exertion' }),
@@ -70,7 +71,7 @@ export const rollOverrideGrantSchema = () => ({
 		{ required: true, nullable: false, initial: [] },
 	),
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-	rollOverrideType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	overrideType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	rollMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 });
 
