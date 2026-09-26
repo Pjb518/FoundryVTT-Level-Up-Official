@@ -11,6 +11,7 @@
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import type { TraitGrant } from "#data/item/Grants/TraitGrant.ts";
 
   type Props = {
     document: any;
@@ -32,8 +33,8 @@
     return filePicker.browse();
   }
 
-  function onUpdateValue(key, value) {
-    if (key === "traits.traitType") {
+  function onUpdateValue(key: string, value: any) {
+    if (key === "config.traits.traitType") {
       updateDocumentDataFromField(item, `system.grants.${grantId}.traits`, {
         base: [],
         options: [],
@@ -47,11 +48,11 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
   const configObject = prepareTraitGrantConfigObject();
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let traitType = $derived(grant?.traits?.traitType || "armorTypes");
+  let grant = $derived(item.reactive.system.grants[grantId]) as TraitGrant;
+  let traitType = $derived(grant?.config.traits?.traitType || "armorTypes");
   let options = $derived(configObject[traitType]?.config ?? []);
 
   setContext("item", item);
@@ -78,7 +79,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -93,7 +94,7 @@
       selected={traitType}
       allowDeselect={false}
       onUpdateSelection={(value) => {
-        onUpdateValue("traits.traitType", value);
+        onUpdateValue("config.traits.traitType", value);
       }}
     />
 
@@ -101,22 +102,22 @@
       <CustomTagGroup
         heading="Base Options"
         {options}
-        selected={grant?.traits?.base}
-        disabledOptions={grant?.traits?.options}
+        selected={grant?.config.traits?.base}
+        disabledOptions={grant?.config.traits?.options}
         showToggleAllButton={true}
         onUpdateSelection={(value) => {
-          onUpdateValue("traits.base", value);
+          onUpdateValue("config.traits.base", value);
         }}
       />
 
       <CustomTagGroup
         heading="Optional Choices"
         {options}
-        selected={grant?.traits?.options}
-        disabledOptions={grant?.traits?.base}
+        selected={grant?.config.traits?.options}
+        disabledOptions={grant?.config.traits?.base}
         showToggleAllButton={true}
         onUpdateSelection={(value) => {
-          onUpdateValue("traits.options", value);
+          onUpdateValue("config.traits.options", value);
         }}
       />
     {/key}
@@ -125,9 +126,9 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant?.traits?.total ?? 0}
+        value={grant?.config.traits?.total ?? 0}
         onchange={({ currentTarget }) =>
-          onUpdateValue("traits.total", Number(currentTarget.value))}
+          onUpdateValue("config.traits.total", Number(currentTarget.value))}
       />
     </FieldWrapper>
   </Section>

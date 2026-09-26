@@ -100,18 +100,19 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 		const selected: string[] = data?.selected ?? this.config.traits.base ?? [];
 		const count: number = this.config.traits.total;
 
-		// Construct grant
-		const grantData = {
-			traitData: {
-				traits: selected,
-				total: count,
-				traitType: this.config.traits.traitType,
-			},
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		// Construct applied data
+		const appliedData: typeof this.applied = {
+			selected,
+			total: count,
+			traitType: this.config.traits.traitType,
 			grantType: this.#type,
 			level: this.level,
+			isApplied: true,
 		};
+
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
 		// Construct trait update
 		const configObject = prepareTraitGrantConfigObject();
@@ -130,13 +131,7 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			]);
 		}
 
-		return {
-			[propertyKey]: [...traits],
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
+		return { [propertyKey]: [...traits] };
 	}
 
 	override getSelectionComponent() {
@@ -159,8 +154,8 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 		};
 
 		super.configureGrant('Configure Trait Grant', dialogData, this.#configComponent, {
