@@ -1,13 +1,13 @@
 <script lang="ts">
   import { setContext } from "svelte";
 
+  import type { FeatureGrant } from "#data/item/Grants/FeatureGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-
-  import GrantConfig from "./GrantConfig.svelte";
 
   import DropArea from "#view/snippets/DropArea.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -30,8 +30,8 @@
   }
 
   async function openDocument(uuid: string) {
-    const doc = await fromUuid(uuid);
-    doc.sheet.render(true);
+    const doc = (await fromUuid(uuid)) as Item.OfType<"feature"> | null;
+    doc?.sheet?.render(true);
   }
 
   function onUpdateValue(key: string, value: any) {
@@ -44,11 +44,11 @@
     const feature = features[idx];
     feature[key] = value;
 
-    onUpdateValue(`features.${type}`, features);
+    onUpdateValue(`config.features.${type}`, features);
   }
 
   function onDropUpdate(key: string, value: string) {
-    const feature = fromUuidSync(value);
+    const feature = fromUuidSync(value) as Item.OfType<"feature"> | null;
     if (!feature) return;
 
     if (feature.type !== "feature") {
@@ -61,18 +61,18 @@
       selectionLimit: 1,
     };
 
-    if (key === "features.base") {
+    if (key === "config.features.base") {
       onUpdateValue(key, [...baseFeatures, entry]);
     }
 
-    if (key === "features.options") {
+    if (key === "config.features.options") {
       onUpdateValue(key, [...optionalFeatures, entry]);
     }
   }
 
   function getFeatureData(data: any) {
     return data.map((e) => {
-      const feature = fromUuidSync(e.uuid);
+      const feature = fromUuidSync(e.uuid) as Item.OfType<"feature"> | null;
       return {
         uuid: e.uuid,
         name: feature?.name || "Unknown Feature",
@@ -85,11 +85,13 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let baseFeatures = $derived(getFeatureData(grant.features.base ?? []));
-  let optionalFeatures = $derived(getFeatureData(grant.features.options ?? []));
+  let grant = $derived(item.reactive.system.grants[grantId]) as FeatureGrant;
+  let baseFeatures = $derived(getFeatureData(grant.config.features.base ?? []));
+  let optionalFeatures = $derived(
+    getFeatureData(grant.config.features.options ?? []),
+  );
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -115,7 +117,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -124,7 +126,8 @@
     <DropArea
       type="uuid"
       documentType="Item"
-      onDocumentDropped={(data) => onDropUpdate("features.base", data.uuid)}
+      onDocumentDropped={(data) =>
+        onDropUpdate("config.features.base", data.uuid)}
     />
 
     {#if baseFeatures.length > 0}
@@ -195,7 +198,7 @@
               e.preventDefault();
               e.stopPropagation();
               onUpdateValue(
-                "features.base",
+                "config.features.base",
                 baseFeatures.filter((_, i) => i !== idx),
               );
             }}
@@ -211,7 +214,8 @@
     <DropArea
       type="uuid"
       documentType="Item"
-      onDocumentDropped={(data) => onDropUpdate("features.options", data.uuid)}
+      onDocumentDropped={(data) =>
+        onDropUpdate("config.features.options", data.uuid)}
     />
 
     {#if optionalFeatures.length > 0}
@@ -283,7 +287,7 @@
               e.stopPropagation();
 
               onUpdateValue(
-                "features.options",
+                "config.features.options",
                 optionalFeatures.filter((_, i) => i !== idx),
               );
             }}
@@ -299,9 +303,9 @@
     <FieldWrapper heading="Selectable Options Count">
       <input
         type="number"
-        value={grant.features.total ?? 0}
+        value={grant.config.features.total ?? 0}
         onchange={({ currentTarget }) =>
-          onUpdateValue("features.total", Number(currentTarget.value))}
+          onUpdateValue("config.features.total", Number(currentTarget.value))}
       />
     </FieldWrapper>
   </GrantConfig>

@@ -110,23 +110,21 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 		};
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	override getApplyData(actor: any, data: any): any {
 		if (!actor) return {};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			grantType: 'feature',
 			level: this.level,
+			documentIds: [] as unknown as Set<string>, // This should be applied later
+			isApplied: true,
 		};
 
-		return {
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
+		return {};
 	}
 
 	override getSelectionComponent() {
@@ -148,8 +146,8 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 

@@ -13,7 +13,8 @@ export default function prepareApplyData(
 
 		if (grant.grantType === 'feature') {
 			const data = grant.getApplyData(actor, inputData);
-			const uuids: string[] = inputData?.uuids ?? grant.features.base.map(({ uuid }) => uuid) ?? [];
+			const uuids: string[] =
+				inputData?.uuids ?? grant.config.features.base.map(({ uuid }) => uuid) ?? [];
 
 			const temp = uuids.map((uuid: string) => ({ uuid, type: 'feature' }));
 			documentData.set(id, temp);
