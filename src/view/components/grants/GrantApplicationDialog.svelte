@@ -135,8 +135,10 @@
 
   function getArchetypeChoices() {
     if (!cls) return [];
-    if (clsLevel !== cls.system.archetypeLevel) return [];
     if (item?.type === "archetype") return [];
+    if (clsLevel !== (cls as Item.OfType<"class">).system.archetypeLevel) {
+      return [];
+    }
 
     const classIdentifier = cls?.slug;
 
@@ -145,7 +147,9 @@
         if (pack.metadata.type !== "Item") return acc;
 
         const uuids = pack.index.reduce((acc2: string[][], i) => {
+          // @ts-expect-error
           if (i.type !== "archetype") return acc2;
+          // @ts-expect-error
           if (i.system?.class !== classIdentifier) return acc2;
 
           acc2.push([i.uuid, i.name || ""]);
@@ -190,13 +194,13 @@
     if (clsLevel === 1) {
       return cls?.system?.spellcasting?.ability?.options?.map(
         (option: string) => [option, CONFIG.A5E.abilities[option]],
-      );
+      ) as string[][];
     }
 
     if (item?.type !== "archetype") return [];
     return item?.system?.spellcasting?.ability?.options?.map(
       (option: string) => [option, CONFIG.A5E.abilities[option]],
-    );
+    ) as string[][];
   }
 
   function onSubmit() {

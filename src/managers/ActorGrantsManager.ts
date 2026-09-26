@@ -5,8 +5,12 @@ import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObjec
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
-import actorGrants from '../dataModels/actor/grants';
-import type { Grant } from '../dataModels/item/Grants/GrantsField.ts';
+import actorGrants from '../dataModels/actor/grants.ts';
+import type {
+	AppliedGrantTypes,
+	Grant,
+	GrantTypes,
+} from '../dataModels/item/Grants/GrantsField.ts';
 
 interface DefaultApplyOptions {
 	item: Item;
@@ -17,50 +21,61 @@ interface DefaultApplyOptions {
 }
 
 export default class ActorGrantsManger extends Map<string, Grant> {
-	private actor: Actor.OfType<'character'>;
+	private actor: Character;
 
-	private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
+	#allowedTypes = new Set(['feature', 'archetype', 'background', 'class', 'culture', 'heritage']);
 
 	grantedFeatureDocuments = new Map<string, string[]>();
 
+	/** Requires Implementation */
 	#batchItemUpdates: Record<string, any>[] = [];
 
 	constructor(actor: Character) {
 		super();
-
 		this.actor = actor;
 
-		const grantsData: Record<string, ActorGrant> = this.actor.system.grants ?? {};
-		Object.entries(grantsData).forEach(([id, data]) => {
-			data.grantId ??= id;
-			let Cls = actorGrants[data.grantType];
+		[...this.actor.items].forEach((item) => {
+			if (!this.#allowedTypes.has(item.type)) return;
+			if (!item.system.grants) return;
 
-			// eslint-disable-next-line no-console
-			if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
-			Cls ??= actorGrants.base;
-			const grant: any = new Cls(data, { parent: actor });
-			const grantFullId = `${grant.itemUuid.split('.').at(-1)}.${id}`;
-
-			this.set(grantFullId, grant);
+			Object.values(item.system.grants ?? {}).forEach((grant) => {
+				// Only add applied grants
+				if (!grant.applied.isApplied) return;
+				this.set(grant.fullId, grant);
+			});
 		});
 
-		// Aggregate granted documents
+		// Aggregate granted feature documents
 		[...this.values()].forEach((grant) => {
-			if (!(grant instanceof actorGrants.feature)) return;
+			if (grant.type !== 'feature') return;
 
-			const { documentIds } = grant;
+			const { documentIds } = grant.applied;
 			documentIds.forEach((id) => {
 				if (!this.grantedFeatureDocuments.has(id)) {
 					this.grantedFeatureDocuments.set(id, []);
 				}
 
-				this.grantedFeatureDocuments.get(id)?.push(grant.grantId);
+				this.grantedFeatureDocuments.get(id)?.push(grant.fullId);
 			});
 		});
 	}
 
-	byType(type: string): ActorGrant[] {
-		return [...this.values()].filter((grant) => grant.grantType === type);
+	/** ================================================================= */
+	// Getters
+	/** ================================================================= */
+
+	/** ================================================================= */
+	// Helpers
+	/** ================================================================= */
+
+	/** Returns all grants filtered by their applied type */
+	byAppliedType(type: AppliedGrantTypes): Grant[] {
+		return [...this.values()].filter((grant) => grant.applied.grantType === type);
+	}
+
+	/** Returns all grants filtered by type */
+	byType<T extends GrantTypes>(type: T): Grant<T>[] {
+		return [...this.values()].filter((grant): grant is Grant<T> => grant.type === type);
 	}
 
 	/** ================================================================= */
@@ -79,13 +94,17 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	// Data Retrieval Methods
 	// *************************************************************
 	getGrantedTraits(type: string): Record<string, any> {
-		const grants = this.byType('trait') as TraitGrant[];
+		const grants = this.byAppliedType('trait');
 
 		return grants.reduce((acc, grant) => {
+			// @ts-expect-error
 			if (grant.traitData.traitType !== type) return acc;
 
+			// @ts-expect-error
 			acc[grant.grantId] = {
+				// @ts-expect-error
 				itemId: grant.itemUuid,
+				// @ts-expect-error
 				traits: grant.traitData.traits,
 			};
 
@@ -96,9 +115,9 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	// *************************************************************
 	// Update Methods
 	// *************************************************************
-	async createInitialGrants(item: typeof Item, isPreCreate = false): Promise<void> {
+	async createInitialGrants(item: Item, isPreCreate = false): Promise<void> {
 		if (!item) return;
-		if (!this.allowedTypes.includes(item.type)) return;
+		if (!this.#allowedTypes.has(item.type)) return;
 
 		const applicableGrants: Grant[] = [];
 		const optionalGrants: Grant[] = [];
@@ -196,9 +215,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		const applicableGrants: Grant[] = [];
 		const optionalGrants: Grant[] = [];
 
-		const items = this.actor.items.filter((item: typeof Item) =>
-			this.allowedTypes.includes(item.type),
-		);
+		const items = this.actor.items.filter((item: typeof Item) => this.#allowedTypes.has(item.type));
 
 		for await (const item of items) {
 			let itemSlug: string;

@@ -480,6 +480,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		super.prepareEmbeddedDocuments();
 
+		// Initialize Grants
+		if (this.isChar()) this.grants = new ActorGrantsManager(this);
+
 		// @ts-expect-error
 		if (isTypeData) this.system?.prepareDerivedData();
 		this.prepareDerivedData();
@@ -531,8 +534,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	prepareCreatureBaseData(this: Creature) {
 		// Register Managers
 		this.BonusesManager = new BonusesManager(this);
-		// @ts-expect-error
-		this.grants = new ActorGrantsManager(this);
 
 		// Add AC data to the actor.
 		// @ts-expect-error

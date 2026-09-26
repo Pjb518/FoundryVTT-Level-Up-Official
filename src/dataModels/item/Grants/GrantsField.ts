@@ -3,6 +3,8 @@ import { ITEM_GRANT_TYPES } from './index.ts';
 
 import fields = foundry.data.fields;
 
+import type { appliedGrantsData } from './common.ts';
+
 // ======================================================
 //                   Grant Typed Element
 // ======================================================
@@ -115,6 +117,14 @@ class GrantsField<
 	}
 }
 
-export type Grant = Item.OfType<'feature'>['system']['grants'][string];
 export type GrantTypes = keyof typeof ITEM_GRANT_TYPES;
+export type Grant<T extends GrantTypes = GrantTypes> = Extract<
+	Item.OfType<'feature'>['system']['grants'][string],
+	{ type: T }
+>;
+
+type A = Grant<'damage'>;
+
+export type AppliedGrantTypes = keyof typeof appliedGrantsData;
+
 export { GrantsField };
