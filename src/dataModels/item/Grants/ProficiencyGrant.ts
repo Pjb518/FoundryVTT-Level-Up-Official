@@ -197,7 +197,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		if (source.config) return source;
 		source.config ??= {};
 		source.config.keys = { base: source.keys?.base?.map?.((v) => `${source.proficiencyType}${v}`) };
-		if (source.options?.length) {
+		if (source.keys.options?.length) {
 			source.config.keys.options = [
 				{
 					count: source.keys.total,
