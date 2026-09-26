@@ -13,6 +13,7 @@
   import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
   import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
   import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
+  import ActorHackingPage from "./pages/ActorhackingPage.svelte";
   import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
   import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
   import ActorNotesPage from "./pages/ActorNotesPage.svelte";
@@ -72,6 +73,13 @@
         icon: "fa-solid fa-table-list",
         component: ActorFeaturesPage,
         footerComponent: ActorFeaturesFooter,
+      },
+      {
+        name: "hacking",
+        label: "A5e.tabs.hacking",
+        icon: "fa-solid fa-laptop-code",
+        component: ActorHackingPage,
+        display: flags?.a5e?.showHackingTab,
       },
       {
         name: "maneuvers",

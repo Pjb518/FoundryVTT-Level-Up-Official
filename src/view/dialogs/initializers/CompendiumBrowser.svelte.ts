@@ -9,6 +9,7 @@ export type CompendiumBrowserTab =
 	| 'culture'
 	| 'destiny'
 	| 'feature'
+	| 'hacking'
 	| 'heritage'
 	| 'interaction'
 	| 'maneuver'

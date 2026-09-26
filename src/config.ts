@@ -719,6 +719,7 @@ const itemTypes = {
 	culture: 'TYPES.Item.culture',
 	destiny: 'TYPES.Item.destiny',
 	feature: 'TYPES.Item.feature',
+	hacking: 'TYPES.Item.hacking',
 	interaction: 'TYPES.Item.interaction',
 	maneuver: 'TYPES.Item.maneuver',
 	object: 'TYPES.Item.object',

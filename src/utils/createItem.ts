@@ -54,6 +54,10 @@ function createManuever(type) {
   return system;
 }
 
+function createHacking() {
+  return {};
+}
+
 function createObject(type) {
   return {
     objectType: type,
@@ -95,6 +99,7 @@ function createSpell(type, options = {}) {
 
 const itemMappings = {
   feature: createFeature,
+  hacking: createHacking,
   interaction: createInteraction,
   maneuver: createManuever,
   object: createObject,

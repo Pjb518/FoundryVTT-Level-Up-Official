@@ -81,6 +81,10 @@
         <p class="item-properties">{summaryData.maneuverProperties}</p>
     {/if}
 
+    {#if summaryData.hackingProperties}
+      <p class="item-properties">{summaryData.hackingProperties}</p>
+    {/if}
+
     {#if summaryData.spellProperties}
         <p class="item-properties">{summaryData.spellProperties}</p>
     {/if}

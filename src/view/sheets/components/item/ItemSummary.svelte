@@ -92,6 +92,12 @@
         </p>
     {/if}
 
+    {#if summaryData.hackingProperties}
+        <p class="a5e-summary__item-properties">
+        {summaryData.hackingProperties}
+        </p>
+    {/if}
+
     {#if summaryData.spellProperties}
         <p class="a5e-summary__item-properties">
             {summaryData.spellProperties}

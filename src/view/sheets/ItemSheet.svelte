@@ -97,6 +97,7 @@
         display: [
           "feature",
           "interaction",
+          "hacking",
           "maneuver",
           "object",
           "spell",
