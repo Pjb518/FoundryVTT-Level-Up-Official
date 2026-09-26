@@ -8,7 +8,7 @@
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
 
-  function onUpdateValue(key: string, value: string | number) {
+  function onUpdateValue(key: string, value: any) {
     key = `system.grants.${grantId}.${key}`;
     updateDocumentDataFromField(item, key, value);
   }
