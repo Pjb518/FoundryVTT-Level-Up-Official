@@ -115,19 +115,18 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 	override getApplyData(actor: Character, data: any): any {
 		if (!actor) return {};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
-			grantType: this.#type,
+		const appliedData: typeof this.applied = {
+			grantType: 'document',
 			level: this.level,
+			documentIds: [] as unknown as Set<string>, // This should be applied later
+			isApplied: true,
 		};
 
-		return {
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
+
+		return {};
 	}
 
 	override getSelectionComponent() {
@@ -149,8 +148,8 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
