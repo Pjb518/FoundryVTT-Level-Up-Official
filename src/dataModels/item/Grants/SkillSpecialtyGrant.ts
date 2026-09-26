@@ -92,31 +92,26 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 
 		if (!skill) return {};
 
-		// Construct grant
-		const grantData = {
-			specialtyData: {
-				specialties: selected,
-				skill,
-				total: count,
-			},
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		// Construct applied data
+		const appliedData: typeof this.applied = {
+			selected,
+			skill,
+			total: count,
 			grantType: this.#type,
 			level: this.level,
+			isApplied: true,
 		};
+
+		this.item.update({
+			[`system.grants.${this.id}.applied`]: appliedData,
+		});
 
 		// Construct specialty update
 		const key = `system.skills.${skill}.specialties`;
 		const existing = (foundry.utils.getProperty(actor, key) as string[]) ?? [];
 		const specialties = new Set([...selected, ...existing]);
 
-		return {
-			[key]: [...specialties],
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
+		return { [key]: [...specialties] };
 	}
 
 	override getSelectionComponent() {
@@ -139,8 +134,8 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 
 	override async configureGrant(): Promise<any> {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 

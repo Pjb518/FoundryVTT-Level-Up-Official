@@ -1,14 +1,14 @@
 <script lang="ts">
   import { setContext } from "svelte";
 
+  import type { SkillSpecialtyGrant } from "#data/item/Grants/SkillSpecialtyGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-  import GrantConfig from "./GrantConfig.svelte";
-
-  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-  import Section from "#view/snippets/Section.svelte";
   import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -31,10 +31,10 @@
   }
 
   function onUpdateValue(key: string, value: any) {
-    if (key === "skill") {
+    if (key === "config.skill") {
       updateDocumentDataFromField(
         item,
-        `system.grants.${grantId}.specialties`,
+        `system.grants.${grantId}.config.specialties`,
         {
           base: [],
           options: [],
@@ -49,11 +49,13 @@
 
   let { document, grantId, grantType }: Props = $props();
 
-  let item = document;
+  let item: Item.OfType<"feature"> = document;
   const { skills, skillSpecialties } = CONFIG.A5E;
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  let skill = $derived(grant?.skill || "acr");
+  let grant = $derived(
+    item.reactive.system.grants[grantId],
+  ) as SkillSpecialtyGrant;
+  let skill = $derived(grant?.config.skill || "acr");
   let specialties = $derived(skillSpecialties[skill]);
 
   setContext("item", item);
@@ -80,7 +82,7 @@
         value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+          onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -94,7 +96,7 @@
       options={Object.entries(skills)}
       selected={skill}
       onUpdateSelection={(value) => {
-        onUpdateValue("skill", value);
+        onUpdateValue("config.skill", value);
       }}
     />
   </Section>
@@ -104,22 +106,22 @@
     <CustomTagGroup
       heading="Base Options"
       options={Object.entries(specialties)}
-      selected={grant?.specialties?.base}
-      disabledOptions={grant?.specialties?.options}
+      selected={grant?.config.specialties?.base}
+      disabledOptions={grant?.config.specialties?.options}
       showToggleAllButton={true}
       onUpdateSelection={(value) => {
-        onUpdateValue("specialties.base", value);
+        onUpdateValue("config.specialties.base", value);
       }}
     />
 
     <CustomTagGroup
       heading="Optional Choices"
       options={Object.entries(specialties)}
-      selected={grant?.specialties?.options}
-      disabledOptions={grant?.specialties?.base}
+      selected={grant?.config.specialties?.options}
+      disabledOptions={grant?.config.specialties?.base}
       showToggleAllButton={true}
       onUpdateSelection={(value) => {
-        onUpdateValue("specialties.options", value);
+        onUpdateValue("config.specialties.options", value);
       }}
     />
 
@@ -127,9 +129,12 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant?.specialties?.total ?? 0}
+        value={grant?.config.specialties?.total ?? 0}
         onchange={({ currentTarget }) =>
-          onUpdateValue("specialties.total", Number(currentTarget.value))}
+          onUpdateValue(
+            "config.specialties.total",
+            Number(currentTarget.value),
+          )}
       />
     </FieldWrapper>
   {/key}

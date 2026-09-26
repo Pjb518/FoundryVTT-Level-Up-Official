@@ -34,11 +34,15 @@
 
   function onUpdateValue(key: string, value: any) {
     if (key === "config.rollOverrideType") {
-      updateDocumentDataFromField(item, `system.grants.${grantId}.keys`, {
-        base: [],
-        options: [],
-        total: 0,
-      });
+      updateDocumentDataFromField(
+        item,
+        `system.grants.${grantId}.config.keys`,
+        {
+          base: [],
+          options: [],
+          total: 0,
+        },
+      );
     }
 
     key = `system.grants.${grantId}.${key}`;
