@@ -15,7 +15,7 @@ const schema = () => ({
 			base: new fields.ArrayField(
 				new fields.SchemaField({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
-					limitedReselction: new fields.BooleanField({
+					limitedReselection: new fields.BooleanField({
 						required: true,
 						nullable: false,
 						initial: true,
@@ -26,7 +26,7 @@ const schema = () => ({
 			options: new fields.ArrayField(
 				new fields.SchemaField({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
-					limitedReselction: new fields.BooleanField({
+					limitedReselection: new fields.BooleanField({
 						required: true,
 						nullable: false,
 						initial: true,

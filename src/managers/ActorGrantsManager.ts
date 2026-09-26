@@ -193,7 +193,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 	async createLeveledGrants(
 		currentLevel: number = 0,
 		newLevel: number = 0,
-		cls: typeof Item | null = null,
+		cls: Item.OfType<'class'> | null = null,
 	): Promise<boolean> {
 		const difference = newLevel - currentLevel;
 		const sign = Math.sign(difference);
@@ -216,7 +216,9 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		const applicableGrants: Grant[] = [];
 		const optionalGrants: Grant[] = [];
 
-		const items = this.actor.items.filter((item: typeof Item) => this.#allowedTypes.has(item.type));
+		const items = this.actor.items.filter((item) =>
+			this.#allowedTypes.has(item.type),
+		) as GRANT_ITEM[];
 
 		for await (const item of items) {
 			let itemSlug: string;
@@ -252,8 +254,8 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 					reSelectable = this.#isReSelectable(parentGrant);
 				}
 
-				if (this.has(this.#getFullId(grant)) && !reSelectable) return;
-				const parentGrant = [...this.values()].find((g) => g.grantId === grant.grantedBy?.id);
+				if (this.has(grant.fullId) && !reSelectable) return;
+				const parentGrant = [...this.values()].find((g) => g.id === grant.grantedBy?.id);
 				if (parentGrant && !reSelectable) return;
 
 				const { levelType } = grant;
@@ -263,24 +265,19 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 					if (item.type === 'class') {
 						let classParentGrant: Grant | undefined = grant;
 
-						// eslint-disable-next-line no-constant-condition
 						while (true) {
-							classParentGrant = allGrants
-								// eslint-disable-next-line @typescript-eslint/no-loop-func
-								.find((g) => g.id === classParentGrant?.grantedBy?.id);
+							classParentGrant = allGrants.find((g) => g.id === classParentGrant?.grantedBy?.id);
 
 							if (!classParentGrant || classParentGrant.levelType === 'class') break;
 						}
 
-						// const classParentGrant = item.grants.get(grant?.grantedBy?.id);
 						if (!classParentGrant && grant.level !== characterLevel) return;
 					}
 				}
 
 				if (levelType === 'class' && grant.level > classLevel) return;
 
-				// if (applicableGrants.find((g) => g._id === grant._id)) return;
-				if (applicableGrants.find((g) => this.#getFullId(g) === this.#getFullId(grant))) return;
+				if (applicableGrants.find((g) => g.fullId === grant.fullId)) return;
 
 				const hasGrantedGrant = applicableGrants.find((g) => g.id === grant.grantedBy?.id);
 				if (grant.grantedBy?.id && !hasGrantedGrant) return;
@@ -310,15 +307,12 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		return result;
 	}
 
-	#getFullId(grant: Grant): string {
-		return `${grant.parent?.id || ''}.${grant.id}`;
-	}
-
-	#isReSelectable(grant: Grant | null): boolean {
+	#isReSelectable(grant?: Grant): boolean {
 		if (!grant) return false;
-		if (grant.grantType !== 'feature') return false;
+		if (grant.type !== 'feature') return false;
+		grant = grant as Grant<'feature'>;
 
-		const { features } = grant;
+		const { features } = grant.config;
 		return features.base
 			.concat(features.options)
 			.some((f) => !f.limitedReselection || f.selectionLimit > 1);
