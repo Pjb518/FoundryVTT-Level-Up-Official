@@ -55,12 +55,12 @@
     <img
       class="grant-image"
       src={grant?.img || item?.img || "icons/svg/upgrade.svg"}
-      alt={grant.label || "New Grant"}
+      alt={grant.name || "New Grant"}
     />
   </button>
 
   <div class="name-wrapper">
-    <div class="name">{grant.label || "New Grant"}</div>
+    <div class="name">{grant.name || "New Grant"}</div>
   </div>
 
   <div class="indicator-wrapper">

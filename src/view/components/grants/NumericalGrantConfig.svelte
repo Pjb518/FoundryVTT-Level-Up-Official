@@ -81,7 +81,7 @@
     <img
       class="a5e-grant-image"
       src={grant.img || item.img || "icons/svg/upgrade.svg"}
-      alt={grant.label}
+      alt={grant.name}
       onclick={updateImage}
     />
 
@@ -90,7 +90,7 @@
         class="a5e-grant-name"
         type="text"
         name="name"
-        value={grant.label ?? ""}
+        value={grant.name ?? ""}
         placeholder="Bonus Name"
         onchange={({ currentTarget }) =>
           onUpdateValue("label", currentTarget.value)}

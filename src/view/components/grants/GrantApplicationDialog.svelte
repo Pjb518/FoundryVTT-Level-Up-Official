@@ -1,326 +1,316 @@
 <script lang="ts">
-    import { localize } from "#utils/localization/localize.ts";
-    import type { Grant } from "#types/itemGrants.d.ts";
+  import { localize } from "#utils/localization/localize.ts";
+  import type { Grant } from "#types/itemGrants.d.ts";
 
-    import { getContext, setContext } from "svelte";
+  import { getContext, setContext } from "svelte";
 
-    import prepareGrantsApplyData from "#utils/prepareGrantsApplyData.ts";
+  import prepareGrantsApplyData from "#utils/prepareGrantsApplyData.ts";
 
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import RadioGroup from "#view/snippets/RadioGroup.svelte";
-    import Section from "#view/snippets/Section.svelte";
-    import ClassHitPointsSelection from "./ClassHitPointSelection.svelte";
-    import { SvelteMap, SvelteSet } from "svelte/reactivity";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import ClassHitPointsSelection from "./ClassHitPointSelection.svelte";
+  import { SvelteMap, SvelteSet } from "svelte/reactivity";
 
-    type Props = {
-        allGrants: Grant[];
-        dialog: any;
-        optionalGrantsProp: Grant[];
-        actor: Actor;
-        item: Item | null;
-        cls: Item | null;
-        charLevel: number;
-        clsLevel: number;
-    };
+  type Props = {
+    allGrants: Grant[];
+    dialog: any;
+    optionalGrantsProp: Grant[];
+    actor: Actor;
+    item: Item | null;
+    cls: Item | null;
+    charLevel: number;
+    clsLevel: number;
+  };
 
-    function getStartingSelectedGrants(): Set<string> {
-        return allGrants.reduce((acc: Set<string>, grant: Grant) => {
-            if (!grant.grantedBy?.id) acc.add(grant._id);
-            return acc;
-        }, new Set<string>());
+  function getStartingSelectedGrants(): Set<string> {
+    return allGrants.reduce((acc: Set<string>, grant: Grant) => {
+      if (!grant.grantedBy?.id) acc.add(grant._id);
+      return acc;
+    }, new Set<string>());
+  }
+
+  function getStartingOptionalGrants() {
+    return optionalGrantsProp.filter((grant: Grant) => {
+      if (!grant.grantedBy?.id) return true;
+      return false;
+    });
+  }
+
+  function updateActiveGrants() {
+    const updatedList = getStartingSelectedGrants();
+
+    // Get selected feature grants
+    allGrants.forEach((grant: Grant) => {
+      if (grant.grantType !== "feature") return;
+      if (applyData.has(grant._id)) updatedList.add(grant._id);
+    });
+
+    // Update optional grants
+    optionalGrants = optionalGrantsProp.filter((grant: Grant) => {
+      if (!grant.grantedBy?.id) return true;
+      if (!updatedList.has(grant.grantedBy.id)) return false;
+
+      const uuids = applyData.get(grant.grantedBy.id)?.uuids ?? [];
+      const hasSelectionId = grant.grantedBy.selectionId
+        ? uuids.includes(grant.grantedBy.selectionId)
+        : false;
+
+      if (hasSelectionId) return true;
+
+      return false;
+    });
+
+    // // Update active grants
+    activeGrants = new SvelteSet<string>([
+      ...updatedList,
+      ...selectedOptionalGrants,
+    ]);
+
+    // // Update grants
+    grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
+    configurableGrants = grants.filter((grant) => grant.requiresConfig);
+  }
+
+  // Create a list of grants to show based on selected optional
+  // grants and those grants that have configurable properties
+  function getApplicableGrants(
+    activeGrants: Set<string>,
+    selectedOptionalGrants: string[],
+  ) {
+    const grantsList: {
+      grant: Grant;
+      requiresConfig: boolean;
+      id: string;
+    }[] = [];
+
+    // Add all non-optional grants and set config mode
+    allGrants.forEach((grant: Grant) => {
+      const { grantedBy } = grant;
+      if (grantedBy?.id && !activeGrants.has(grantedBy.id)) return;
+
+      const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+      const hasSelectionId = grantedBy?.selectionId
+        ? uuids.includes(grantedBy.selectionId)
+        : true;
+
+      if (grantedBy?.id && uuids && !hasSelectionId) return;
+      if (grant.optional) return;
+
+      let requiresConfig = false;
+      if (grant.requiresConfig()) requiresConfig = true;
+
+      grantsList.push({ grant, requiresConfig, id: grant._id });
+      activeGrants.add(grant._id);
+    });
+
+    // Add all optional grants that are selected
+    optionalGrants.forEach((grant: Grant) => {
+      const { grantedBy } = grant;
+      if (grantedBy?.id && !activeGrants.has(grantedBy.id)) {
+        return;
+      }
+
+      const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+      const hasSelectionId = grantedBy?.selectionId
+        ? uuids.includes(grantedBy.selectionId)
+        : true;
+
+      if (grantedBy?.id && !hasSelectionId) return;
+      if (!selectedOptionalGrants.includes(grant._id)) return;
+
+      let requiresConfig = false;
+      if (grant.requiresConfig()) requiresConfig = true;
+
+      grantsList.push({ grant, requiresConfig, id: grant._id });
+      activeGrants.add(grant._id);
+    });
+
+    return grantsList;
+  }
+
+  function getArchetypeChoices() {
+    if (!cls) return [];
+    if (clsLevel !== cls.system.archetypeLevel) return [];
+    if (item?.type === "archetype") return [];
+
+    const classIdentifier = cls?.slug;
+
+    const options = (game as Game).packs
+      .reduce((acc: string[][], pack) => {
+        if (pack.metadata.type !== "Item") return acc;
+
+        const uuids = pack.index.reduce((acc2: string[][], i) => {
+          if (i.type !== "archetype") return acc2;
+          if (i.system?.class !== classIdentifier) return acc2;
+
+          acc2.push([i.uuid, i.name || ""]);
+          return acc2;
+        }, []);
+
+        acc.push(...uuids);
+        return acc;
+      }, [])
+      .sort((a, b) => a[1].localeCompare(b[1]));
+
+    return options;
+  }
+
+  async function openDocument(uuid: string) {
+    const doc = await fromUuid(uuid);
+    doc.sheet.render(true);
+  }
+
+  function showSpellAbilitySelection() {
+    if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
+      return true;
     }
 
-    function getStartingOptionalGrants() {
-        return optionalGrantsProp.filter((grant: Grant) => {
-            if (!grant.grantedBy?.id) return true;
-            return false;
-        });
+    if (item?.type !== "archetype") return false;
+    if (!item?.system?.spellcasting?.ability?.options.length) return false;
+
+    return true;
+  }
+
+  function getSpellCastingAbility(): string {
+    if (clsLevel === 1) {
+      return cls?.system?.spellcasting?.ability?.options?.[0] ?? "";
     }
 
-    function updateActiveGrants() {
-        const updatedList = getStartingSelectedGrants();
+    if (item?.type !== "archetype") return "";
+    return item?.system?.spellcasting?.ability?.options?.[0] ?? "";
+  }
 
-        // Get selected feature grants
-        allGrants.forEach((grant: Grant) => {
-            if (grant.grantType !== "feature") return;
-            if (applyData.has(grant._id)) updatedList.add(grant._id);
-        });
-
-        // Update optional grants
-        optionalGrants = optionalGrantsProp.filter((grant: Grant) => {
-            if (!grant.grantedBy?.id) return true;
-            if (!updatedList.has(grant.grantedBy.id)) return false;
-
-            const uuids = applyData.get(grant.grantedBy.id)?.uuids ?? [];
-            const hasSelectionId = grant.grantedBy.selectionId
-                ? uuids.includes(grant.grantedBy.selectionId)
-                : false;
-
-            if (hasSelectionId) return true;
-
-            return false;
-        });
-
-        // // Update active grants
-        activeGrants = new SvelteSet<string>([
-            ...updatedList,
-            ...selectedOptionalGrants,
-        ]);
-
-        // // Update grants
-        grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
-        configurableGrants = grants.filter((grant) => grant.requiresConfig);
+  function getSpellCastingOptions(): string[][] {
+    if (clsLevel === 1) {
+      return cls?.system?.spellcasting?.ability?.options?.map(
+        (option: string) => [option, CONFIG.A5E.abilities[option]],
+      );
     }
 
-    // Create a list of grants to show based on selected optional
-    // grants and those grants that have configurable properties
-    function getApplicableGrants(
-        activeGrants: Set<string>,
-        selectedOptionalGrants: string[],
-    ) {
-        const grantsList: {
-            grant: Grant;
-            requiresConfig: boolean;
-            id: string;
-        }[] = [];
-
-        // Add all non-optional grants and set config mode
-        allGrants.forEach((grant: Grant) => {
-            const { grantedBy } = grant;
-            if (grantedBy?.id && !activeGrants.has(grantedBy.id)) return;
-
-            const uuids: string[] =
-                applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
-            const hasSelectionId = grantedBy?.selectionId
-                ? uuids.includes(grantedBy.selectionId)
-                : true;
-
-            if (grantedBy?.id && uuids && !hasSelectionId) return;
-            if (grant.optional) return;
-
-            let requiresConfig = false;
-            if (grant.requiresConfig()) requiresConfig = true;
-
-            grantsList.push({ grant, requiresConfig, id: grant._id });
-            activeGrants.add(grant._id);
-        });
-
-        // Add all optional grants that are selected
-        optionalGrants.forEach((grant: Grant) => {
-            const { grantedBy } = grant;
-            if (grantedBy?.id && !activeGrants.has(grantedBy.id)) {
-                return;
-            }
-
-            const uuids: string[] =
-                applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
-            const hasSelectionId = grantedBy?.selectionId
-                ? uuids.includes(grantedBy.selectionId)
-                : true;
-
-            if (grantedBy?.id && !hasSelectionId) return;
-            if (!selectedOptionalGrants.includes(grant._id)) return;
-
-            let requiresConfig = false;
-            if (grant.requiresConfig()) requiresConfig = true;
-
-            grantsList.push({ grant, requiresConfig, id: grant._id });
-            activeGrants.add(grant._id);
-        });
-
-        return grantsList;
-    }
-
-    function getArchetypeChoices() {
-        if (!cls) return [];
-        if (clsLevel !== cls.system.archetypeLevel) return [];
-        if (item?.type === "archetype") return [];
-
-        const classIdentifier = cls?.slug;
-
-        const options = (game as Game).packs
-            .reduce((acc: string[][], pack) => {
-                if (pack.metadata.type !== "Item") return acc;
-
-                const uuids = pack.index.reduce((acc2: string[][], i) => {
-                    if (i.type !== "archetype") return acc2;
-                    if (i.system?.class !== classIdentifier) return acc2;
-
-                    acc2.push([i.uuid, i.name || ""]);
-                    return acc2;
-                }, []);
-
-                acc.push(...uuids);
-                return acc;
-            }, [])
-            .sort((a, b) => a[1].localeCompare(b[1]));
-
-        return options;
-    }
-
-    async function openDocument(uuid: string) {
-        const doc = await fromUuid(uuid);
-        doc.sheet.render(true);
-    }
-
-    function showSpellAbilitySelection() {
-        if (
-            clsLevel === 1 &&
-            cls?.system?.spellcasting?.ability?.options.length
-        ) {
-            return true;
-        }
-
-        if (item?.type !== "archetype") return false;
-        if (!item?.system?.spellcasting?.ability?.options.length) return false;
-
-        return true;
-    }
-
-    function getSpellCastingAbility(): string {
-        if (clsLevel === 1) {
-            return cls?.system?.spellcasting?.ability?.options?.[0] ?? "";
-        }
-
-        if (item?.type !== "archetype") return "";
-        return item?.system?.spellcasting?.ability?.options?.[0] ?? "";
-    }
-
-    function getSpellCastingOptions(): string[][] {
-        if (clsLevel === 1) {
-            return cls?.system?.spellcasting?.ability?.options?.map(
-                (option: string) => [option, CONFIG.A5E.abilities[option]],
-            );
-        }
-
-        if (item?.type !== "archetype") return [];
-        return item?.system?.spellcasting?.ability?.options?.map(
-            (option: string) => [option, CONFIG.A5E.abilities[option]],
-        );
-    }
-
-    function onSubmit() {
-        const { updateData, documentData } =
-            prepareGrantsApplyData(actor, grants, applyData) ?? {};
-
-        clsReturnData.spellcastingAbility = spellcastingAbility || "";
-
-        dialog.submit({
-            success: true,
-            updateData,
-            documentData,
-            clsReturnData,
-        });
-    }
-
-    let {
-        allGrants,
-        dialog,
-        optionalGrantsProp,
-        actor,
-        item,
-        cls,
-        charLevel,
-        clsLevel,
-    }: Props = $props();
-
-    let activeGrants: Set<string> = $state(
-        new SvelteSet(getStartingSelectedGrants()),
+    if (item?.type !== "archetype") return [];
+    return item?.system?.spellcasting?.ability?.options?.map(
+      (option: string) => [option, CONFIG.A5E.abilities[option]],
     );
-    let selectedOptionalGrants: string[] = $state([]);
-    let clsReturnData: Record<string, any> = $state({});
-    let spellcastingAbility: string = $state(getSpellCastingAbility());
+  }
 
-    let archetypeChoices = getArchetypeChoices();
+  function onSubmit() {
+    const { updateData, documentData } =
+      prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
-    // let applyData = $state(new Map<string, any>());
-    let applyData = $state(new SvelteMap<string, any>());
-    let optionalGrants = $state(getStartingOptionalGrants());
-    let grants = $state(
-        getApplicableGrants(activeGrants, selectedOptionalGrants),
-    );
-    let configurableGrants = $derived(
-        grants.filter((grant) => grant.requiresConfig),
-    );
+    clsReturnData.spellcastingAbility = spellcastingAbility || "";
 
-    let spellCastingOptions = $derived(getSpellCastingOptions());
+    dialog.submit({
+      success: true,
+      updateData,
+      documentData,
+      clsReturnData,
+    });
+  }
 
-    // Set contexts
-    setContext("actor", actor);
-    setContext("item", item);
+  let {
+    allGrants,
+    dialog,
+    optionalGrantsProp,
+    actor,
+    item,
+    cls,
+    charLevel,
+    clsLevel,
+  }: Props = $props();
+
+  let activeGrants: Set<string> = $state(
+    new SvelteSet(getStartingSelectedGrants()),
+  );
+  let selectedOptionalGrants: string[] = $state([]);
+  let clsReturnData: Record<string, any> = $state({});
+  let spellcastingAbility: string = $state(getSpellCastingAbility());
+
+  let archetypeChoices = getArchetypeChoices();
+
+  // let applyData = $state(new Map<string, any>());
+  let applyData = $state(new SvelteMap<string, any>());
+  let optionalGrants = $state(getStartingOptionalGrants());
+  let grants = $state(
+    getApplicableGrants(activeGrants, selectedOptionalGrants),
+  );
+  let configurableGrants = $derived(
+    grants.filter((grant) => grant.requiresConfig),
+  );
+
+  let spellCastingOptions = $derived(getSpellCastingOptions());
+
+  // Set contexts
+  setContext("actor", actor);
+  setContext("item", item);
 </script>
 
 <article>
-    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-        {#if cls && cls?.type === "class"}
-            {#if clsLevel > 1 && item?.type === "class"}
-                <ClassHitPointsSelection
-                    {cls}
-                    classLevel={clsLevel}
-                    bind:clsReturnData
-                />
-            {/if}
+  <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    {#if cls && cls?.type === "class"}
+      {#if clsLevel > 1 && item?.type === "class"}
+        <ClassHitPointsSelection
+          {cls}
+          classLevel={clsLevel}
+          bind:clsReturnData
+        />
+      {/if}
 
-            {#if showSpellAbilitySelection()}
-                <Section heading="Spellcasting Config">
-                    <RadioGroup
-                        options={spellCastingOptions}
-                        allowDeselect={false}
-                        selected={spellcastingAbility || ""}
-                        onUpdateSelection={(detail) =>
-                            (spellcastingAbility = detail)}
-                    />
-                </Section>
-            {/if}
+      {#if showSpellAbilitySelection()}
+        <Section heading="Spellcasting Config">
+          <RadioGroup
+            options={spellCastingOptions}
+            allowDeselect={false}
+            selected={spellcastingAbility || ""}
+            onUpdateSelection={(detail) => (spellcastingAbility = detail)}
+          />
+        </Section>
+      {/if}
 
-            {#if archetypeChoices.length}
-                <Section heading="Archetype Selection">
-                    <RadioGroup
-                        options={archetypeChoices}
-                        allowDeselect={false}
-                        selected={clsReturnData.archetype || ""}
-                        onUpdateSelection={(detail) =>
-                            (clsReturnData.archetype = detail)}
-                        onTagToggleAux={openDocument}
-                    />
-                </Section>
-            {/if}
-        {/if}
+      {#if archetypeChoices.length}
+        <Section heading="Archetype Selection">
+          <RadioGroup
+            options={archetypeChoices}
+            allowDeselect={false}
+            selected={clsReturnData.archetype || ""}
+            onUpdateSelection={(detail) => (clsReturnData.archetype = detail)}
+            onTagToggleAux={openDocument}
+          />
+        </Section>
+      {/if}
+    {/if}
 
-        {#if optionalGrants.length}
-            <Section heading="Optional Grants Selection">
-                <CheckboxGroup
-                    options={optionalGrants.map((grant) => [
-                        grant._id,
-                        grant.label,
-                    ])}
-                    selected={selectedOptionalGrants}
-                    onUpdateSelection={(detail) => {
-                        selectedOptionalGrants = detail;
-                        updateActiveGrants();
-                    }}
-                />
-            </Section>
-        {/if}
+    {#if optionalGrants.length}
+      <Section heading="Optional Grants Selection">
+        <CheckboxGroup
+          options={optionalGrants.map((grant) => [grant._id, grant.name])}
+          selected={selectedOptionalGrants}
+          onUpdateSelection={(detail) => {
+            selectedOptionalGrants = detail;
+            updateActiveGrants();
+          }}
+        />
+      </Section>
+    {/if}
 
-        {#each configurableGrants as { grant, id }}
-            {@const Comp = grant.getSelectionComponent?.()}
-            {@const compProps = grant.getSelectionComponentProps?.(
-                applyData.get(id) ?? {},
-            )}
+    {#each configurableGrants as { grant, id }}
+      {@const Comp = grant.getSelectionComponent?.()}
+      {@const compProps = grant.getSelectionComponentProps?.(
+        applyData.get(id) ?? {},
+      )}
 
-            <Comp
-                {...compProps}
-                {grant}
-                updateSelectionFunc={(detail) => {
-                    applyData.set(id, detail);
-                    updateActiveGrants();
-                }}
-            />
-        {/each}
+      <Comp
+        {...compProps}
+        {grant}
+        updateSelectionFunc={(detail) => {
+          applyData.set(id, detail);
+          updateActiveGrants();
+        }}
+      />
+    {/each}
 
-        <!-- TODO: Character Builder - Add a proper summary for the various grants -->
-        <!-- <Section heading="Summary">
+    <!-- TODO: Character Builder - Add a proper summary for the various grants -->
+    <!-- <Section heading="Summary">
             <ul>
                 {#each applyData.entries() as [id, { summary }]}
                     <li>
@@ -333,29 +323,29 @@
             </ul>
         </Section> -->
 
-        <small class="a5e-field-wrapper__hint">
-            <i class="icon fa-solid fa-circle-info"> </i>
-            {localize("A5E.HintGrants")}
-        </small>
+    <small class="a5e-field-wrapper__hint">
+      <i class="icon fa-solid fa-circle-info"> </i>
+      {localize("A5E.HintGrants")}
+    </small>
 
-        <button
-            type="button"
-            onclick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                onSubmit();
-            }}
-        >
-            Submit
-        </button>
-    </section>
+    <button
+      type="button"
+      onclick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onSubmit();
+      }}
+    >
+      Submit
+    </button>
+  </section>
 </article>
 
 <style lang="scss">
-    article {
-        display: flex;
-        padding: 0.75rem;
-        max-height: 70vh;
-        overflow-y: auto;
-    }
+  article {
+    display: flex;
+    padding: 0.75rem;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
 </style>
