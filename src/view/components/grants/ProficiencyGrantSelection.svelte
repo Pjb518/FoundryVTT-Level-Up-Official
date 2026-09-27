@@ -61,24 +61,26 @@
   heading="Proficiency Grant - {grant.name}"
   --a5e-section-body-gap="0.75rem"
 >
-  <FieldWrapper heading="Default Granted Options">
-    <div class="a5e-default-selection">
-      {#each base as value}
-        <Tag
-          label={getValueLabel(value)}
-          {value}
-          tight={true}
-          displayOnly={true}
-          optionStyles="
+  {#if base.length}
+    <FieldWrapper heading="Default Granted Options">
+      <div class="a5e-default-selection">
+        {#each base as value}
+          <Tag
+            label={getValueLabel(value)}
+            {value}
+            tight={true}
+            displayOnly={true}
+            optionStyles="
             max-width: 98%;
             border: 1px solid var(--a5e-border-color);
         "
-          --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
-          --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"
-        />
-      {/each}
-    </div>
-  </FieldWrapper>
+            --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
+            --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"
+          />
+        {/each}
+      </div>
+    </FieldWrapper>
+  {/if}
 
   <!-- Choices -->
   {#each choices as opt, idx (idx)}

@@ -771,7 +771,6 @@ class ActorGrantsManager extends Map<string, Grant> {
 			grant = grant as Grant<'feature'>;
 
 			const ids = [...grant.applied.documentIds];
-
 			if (!ids?.length) return updates;
 
 			// Validate ids to ensure they are not already deleted

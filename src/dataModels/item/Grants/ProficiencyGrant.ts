@@ -161,7 +161,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.config.keys.base ?? [],
+			base: [...(this.config.keys.base ?? [])],
 			choices: this.config.keys.options,
 			selected: (data?.selected as string[]) ?? ([] as string[]),
 		};
