@@ -1,40 +1,44 @@
-import type { Grant } from '#types/itemGrants.d.ts';
+import type { Grant } from '#data/item/Grants/GrantsField.ts';
+import type { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
 
 export default function prepareApplyData(
 	actor: Character,
-	grants: any[],
+	grants: { id: string; grant: Grant }[],
 	applyData: Map<string, any>,
 ): Record<string, any> {
 	const updateData: Record<string, any> = {};
-	const documentData: Map<string, any[]> = new Map();
+	const documentData: Map<string, ActorGrantsManager.DocumentData> = new Map();
 
-	grants.forEach(({ id, grant }: { id: string; grant: Grant }) => {
+	grants.forEach(({ id, grant }) => {
 		const inputData = applyData.get(id);
 
-		if (grant.grantType === 'feature') {
+		// Get granted features
+		if (grant.type === 'feature') {
 			const data = grant.getApplyData(actor, inputData);
 			const uuids: string[] =
 				inputData?.uuids ?? grant.config.features.base.map(({ uuid }) => uuid) ?? [];
 
-			const temp = uuids.map((uuid: string) => ({ uuid, type: 'feature' }));
+			const temp = uuids.map((uuid) => ({ uuid, type: 'feature' as const }));
 			documentData.set(id, temp);
 
 			foundry.utils.mergeObject(updateData, data ?? {});
 			return;
 		}
 
-		if (grant.grantType === 'item') {
+		// Get granted items
+		if (grant.type === 'item') {
 			const data = grant.getApplyData(actor, inputData);
-			const uuids: string[] = inputData?.uuids ?? grant.items.base.map(({ uuid }) => uuid) ?? [];
+			const uuids: string[] =
+				inputData?.uuids ?? grant.config.items.base.map(({ uuid }) => uuid) ?? [];
 
 			// Get quantity overrides from the grant
-			const allOptions = [...grant.items.base, ...grant.items.options];
+			const allOptions = [...grant.config.items.base, ...grant.config.items.options];
 			const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
 				if (!uuids.includes(uuid)) return acc;
 
-				acc.push({ uuid, type: 'object', quantity: quantityOverride });
+				acc.push({ uuid, type: 'object' as const, quantity: quantityOverride });
 				return acc;
-			}, []);
+			}, []) as ActorGrantsManager.DocumentData;
 
 			documentData.set(id, temp);
 			foundry.utils.mergeObject(updateData, data ?? {});
@@ -42,11 +46,11 @@ export default function prepareApplyData(
 			return;
 		}
 
-		let grantUpdates;
+		let grantUpdates: any;
 		if (inputData) {
 			grantUpdates = grant.getApplyData(actor, inputData);
 		} else {
-			grantUpdates = grant.getApplyData(actor);
+			grantUpdates = grant.getApplyData(actor, {});
 		}
 
 		// Manually merge arrays from updateData

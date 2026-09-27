@@ -22,7 +22,7 @@ interface DefaultApplyOptions {
 	useUpdateSource?: boolean;
 }
 
-export default class ActorGrantsManger extends Map<string, Grant> {
+class ActorGrantsManager extends Map<string, Grant> {
 	private actor: Character;
 
 	#allowedTypes = new Set(['feature', 'archetype', 'background', 'class', 'culture', 'heritage']);
@@ -223,8 +223,8 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		for await (const item of items) {
 			let itemSlug: string;
 
-			if (item.type === 'class') itemSlug = item.slug;
-			else if (item.type === 'archetype') itemSlug = item.system.class;
+			if (item.isType('class')) itemSlug = item.slug;
+			else if (item.isType('archetype')) itemSlug = item.system.class;
 			else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
 
 			let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
@@ -298,7 +298,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 
 		const result = await this.#applyGrants(applicableGrants, optionalGrants, {
 			cls,
-			item: cls,
+			item: cls!,
 			charLevel: characterLevel,
 			clsLevel,
 			useUpdateSource: false,
@@ -381,6 +381,7 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 
 		const requiresConfig = [...allGrants].some((grant) => grant.requiresConfig());
 		const isClass = options.cls && options.item.type === 'class';
+		// @ts-expect-error Checking class and archetype data
 		const hasSpellCasting = options.item?.system?.spellcasting?.ability?.options?.length;
 
 		const requiresDialog = requiresConfig || !!optionalGrants.length || isClass || hasSpellCasting;
@@ -816,3 +817,9 @@ export default class ActorGrantsManger extends Map<string, Grant> {
 		return updates;
 	}
 }
+
+declare namespace ActorGrantsManager {
+	type DocumentData = { uuid: string; type: 'feature' | 'object'; quantity?: number }[];
+}
+
+export type { ActorGrantsManager };
