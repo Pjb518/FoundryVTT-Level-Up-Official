@@ -181,32 +181,6 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			width: 800,
 		});
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.keys = {
-			base: source.keys?.base?.map?.((v) => `${source.proficiencyType || 'armor'}:${v}`),
-		};
-		if (source.keys?.options?.length) {
-			source.config.keys.options = [
-				{
-					count: source.keys.total,
-					candidates: source.keys.options.map((v) => `${source.proficiencyType || 'armor'}:${v}`),
-				},
-			];
-		}
-		source.config.isExpertise = source.isExpertise;
-
-		return source;
-	}
 }
-
-/**
- * value = propType:subType:value/*
- */
 
 export { ProficiencyGrant };

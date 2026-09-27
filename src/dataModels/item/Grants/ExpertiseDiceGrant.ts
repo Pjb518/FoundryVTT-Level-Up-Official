@@ -145,19 +145,6 @@ class ExpertiseDiceGrant extends BaseGrant<ExpertiseDiceGrant.Schema> {
 			width: 400,
 		});
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.keys = source.keys;
-		source.config.expertiseCount = source.expertiseCount;
-		source.config.expertiseType = source.expertiseType;
-
-		return source;
-	}
 }
 
 export { ExpertiseDiceGrant };

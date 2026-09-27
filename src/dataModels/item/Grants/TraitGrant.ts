@@ -161,17 +161,6 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			width: 400,
 		});
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.traits = source.traits;
-
-		return source;
-	}
 }
 
 export { TraitGrant };

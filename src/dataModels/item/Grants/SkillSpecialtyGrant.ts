@@ -144,18 +144,6 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 			width: 400,
 		});
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.specialties = source.specialties;
-		source.config.skill = source.skill;
-
-		return source;
-	}
 }
 
 export { SkillSpecialtyGrant };

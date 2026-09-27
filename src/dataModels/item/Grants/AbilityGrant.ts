@@ -34,20 +34,20 @@ const schema = () => ({
 	/** @deprecated */
 	abilities: new fields.SchemaField({
 		/** @deprecated */
-		base: new fields.ArrayField(
-			new fields.StringField({ required: true, nullable: false, initial: '' }),
-			{ required: true, nullable: false },
-		),
+		base: new fields.ArrayField(new fields.StringField({ initial: '' }), {
+			required: true,
+			nullable: false,
+		}),
 		/** @deprecated */
-		options: new fields.ArrayField(
-			new fields.StringField({ required: true, nullable: false, initial: '' }),
-			{ required: true, initial: [] },
-		),
+		options: new fields.ArrayField(new fields.StringField({ initial: '' }), {
+			required: true,
+			initial: [],
+		}),
 		/** @deprecated */
-		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		total: new fields.NumberField({ initial: 0 }),
 	}),
 	/** @deprecated */
-	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	bonus: new fields.StringField({ initial: '' }),
 	/** @deprecated */
 	context: new fields.SchemaField(abilitiesBonusContextGrant()),
 
@@ -152,19 +152,6 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 		super.configureGrant('Configure Ability Grant', dialogData, this.#configComponent, {
 			width: 400,
 		});
-	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.abilities = source.abilities;
-		source.config.bonus = source.bonus;
-		source.config.context = source.context;
-
-		return source;
 	}
 }
 

@@ -9,7 +9,7 @@ import DataModel = foundry.abstract.DataModel;
 const baseSchema = () => ({
 	/** @deprecated */
 	_id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
-	id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
+	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	/** @deprecated */
 	label: new fields.StringField({ requied: true, nullable: false, initial: '' }),
 	name: new fields.StringField({ requied: true, nullable: false, initial: '' }),
@@ -123,15 +123,6 @@ class BaseGrant<
 		const document = item.parent;
 		if (document?.documentName !== 'Actor') return;
 		document.grants.removeGrant(this.id);
-	}
-
-	static override migrateData(source, options) {
-		super.migrateData(source, options);
-		if (!source) return source;
-
-		source.type ??= source.grantType;
-		source.name = source.label;
-		return source;
 	}
 }
 

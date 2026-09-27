@@ -154,18 +154,6 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 			width: 400,
 		});
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		source.config ??= {};
-		source.config.attackTypes ??= source.attackTypes;
-		source.config.bonus ||= source.bonus;
-		source.config.context ??= source.context;
-
-		return source;
-	}
 }
 
 export { AttackGrant };

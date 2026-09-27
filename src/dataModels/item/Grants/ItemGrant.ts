@@ -152,17 +152,6 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 
 		super.configureGrant('Configure Item Grant', dialogData, this.#configComponent, { width: 400 });
 	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.items = source.items;
-
-		return source;
-	}
 }
 
 export { ItemGrant };

@@ -17,7 +17,7 @@ const schema = () => ({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
 					limitedReselection: new fields.BooleanField({
 						required: true,
-						// nullable: false,
+						nullable: false,
 						initial: true,
 					}),
 					selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
@@ -28,7 +28,7 @@ const schema = () => ({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
 					limitedReselection: new fields.BooleanField({
 						required: true,
-						// nullable: false,
+						nullable: false,
 						initial: true,
 					}),
 					selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
@@ -48,7 +48,7 @@ const schema = () => ({
 		base: new fields.ArrayField(
 			new fields.SchemaField({
 				uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
-				limitedReselction: new fields.BooleanField({
+				limitedReselection: new fields.BooleanField({
 					required: true,
 					nullable: false,
 					initial: true,
@@ -60,7 +60,7 @@ const schema = () => ({
 		options: new fields.ArrayField(
 			new fields.SchemaField({
 				uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
-				limitedReselction: new fields.BooleanField({
+				limitedReselection: new fields.BooleanField({
 					required: true,
 					nullable: false,
 					initial: true,
@@ -151,31 +151,6 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 		super.configureGrant('Configure Feature Grant', dialogData, this.#configComponent, {
 			width: 550,
 		});
-	}
-
-	static override migrateData(source: any, options: any) {
-		options ??= {};
-		source = super.migrateData(source, options);
-
-		if (source.config) return source;
-		source.config ??= {};
-		source.config.features = {
-			base: source.features.base?.map((f) => {
-				return {
-					...f,
-					limitedReselection: f.limitedReselection || true,
-				};
-			}),
-			options: source.features.options?.map((f) => {
-				return {
-					...f,
-					limitedReselection: f.limitedReselection || true,
-				};
-			}),
-			total: source.features.total,
-		};
-
-		return source;
 	}
 }
 
