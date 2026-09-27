@@ -16,7 +16,7 @@ type GRANT_ITEM = Item.OfType<'feature'> | OriginItems;
 
 interface DefaultApplyOptions {
 	item: GRANT_ITEM;
-	cls: Item.OfType<'class'> | Item.OfType<'archetype'> | null;
+	cls: Item.OfType<'class'> | null;
 	charLevel?: number;
 	clsLevel?: number;
 	useUpdateSource?: boolean;
@@ -389,7 +389,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		let dialogData: {
 			updateData: any;
 			success: boolean;
-			documentData: Map<string, any[]>;
+			documentData: Map<string, ActorGrantsManager.DocumentData[]>;
 			clsReturnData: Record<string, any>;
 		};
 
@@ -431,35 +431,28 @@ class ActorGrantsManager extends Map<string, Grant> {
 			for await (const [grantId, docData] of dialogData.documentData) {
 				const docs = (
 					await Promise.all(
-						docData.map(
-							async ({
-								uuid,
-								type,
-								quantity,
-							}: {
-								uuid: string;
-								type: string;
-								quantity: number | null;
-							}) => {
-								const doc = (await fromUuid(uuid))?.toObject();
-								if (!doc) return null;
+						docData.map(async ({ uuid, type, quantity }) => {
+							// TODO - Make this a proper type
+							const doc = (await fromUuid(uuid))?.toObject() as Record<string, any> | undefined;
+							if (!doc) return null;
 
-								// Update compendium source
-								doc._stats.compendiumSource = uuid;
+							// Update compendium source
+							doc._stats.compendiumSource = uuid;
 
-								if (type === 'feature') return doc;
-								if (!quantity) return doc;
+							if (type === 'feature') return doc;
+							if (!quantity) return doc;
 
-								doc.system.quantity = quantity;
-								return doc;
-							},
-						),
+							doc.system.quantity = quantity;
+							return doc;
+						}),
 					)
 				).filter((d) => !!d);
 
 				try {
+					// We're checking 0 here becuase we know all similar types are grouped
 					if (docData[0]?.type === 'object') {
-						const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map(
+						const objects = docs as Item.OfType<'object'>[];
+						const ids = (await this.actor.createEmbeddedDocuments('Item', objects)).map(
 							(i: any) => i.id,
 						);
 
@@ -471,19 +464,24 @@ class ActorGrantsManager extends Map<string, Grant> {
 						const existing = this.actor.items.filter((i: any) => preCreateIds.includes(i.id));
 						const existingIds = existing.map((i: any) => i.id);
 
-						const filtered = docs.filter((d) => !existingIds.includes(d._id));
+						const filtered = docs.filter(
+							(d) => !existingIds.includes(d._id),
+						) as Item.OfType<'feature'>[];
 
 						const ids = (
 							await this.actor.createEmbeddedDocuments('Item', filtered, {
+								// @ts-expect-error
 								noGrant: true,
 								keepId: true,
 							})
 						).map((i: any) => i.id);
 
+						// TODO - We need to update this to update all the items instead
 						updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
+
+						// Update all grants applied data
 					}
 				} catch (err) {
-					// eslint-disable-next-line no-console
 					console.error(err);
 					return false;
 				}
@@ -543,14 +541,17 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 			await updateMethod({
 				[`system.hp.levels.${options.charLevel}`]: hp,
+				// @ts-expect-error
 				'system.spellcasting.ability.value': spellCastingAbility,
 			});
 
 			// Update actor spell data and spellbook
 			if (spellCastingAbility !== 'none' && options.clsLevel === 1) {
 				// Update default spellcasting
+				// @ts-expect-error
 				if (this.actor.system.classes.startingClass === options.item.slug) {
 					this.actor.update({
+						// @ts-expect-error
 						'system.attributes.spellcasting': spellCastingAbility,
 					});
 				}
@@ -569,7 +570,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 				else if (resourceType === 'artifactCharges') spellBook.showArtifactCharges = true;
 				else spellBook.showSpellSlots = true;
 
-				if (Object.keys(this.actor.classes).length > 1) {
+				if (Object.keys(this.actor?.classes ?? {}).length > 1) {
 					// Create New SpellBook
 					this.actor.spellBooks.add(spellBook);
 				} else {
@@ -583,7 +584,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		}
 
 		// Update archetype data if available
-		if (options.item && options.item?.type === 'archetype') {
+		if (options.item && options.item?.isType('archetype')) {
 			const archetype = options.item;
 
 			const spellCastingAbility =
@@ -596,6 +597,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 				: archetype.update.bind(archetype);
 
 			await updateMethod({
+				// @ts-expect-error
 				'system.spellcasting.ability.value': spellCastingAbility,
 			});
 		}
@@ -603,23 +605,25 @@ class ActorGrantsManager extends Map<string, Grant> {
 		return true;
 	}
 
-	#createRolledHpCard(cls: typeof Item, roll: any) {
+	#createRolledHpCard(cls: Item.OfType<'class'>, roll: any) {
 		const title = `Hit Dice Roll - ${cls.name}`;
 		const chatData = {
 			author: game.user?.id,
+			// @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 			sound: CONFIG.sounds.dice,
 			rolls: [roll],
 			flags: {
 				a5e: {
 					actorId: this.actor.uuid,
-					img: this.actor.token?.img ?? this.actor.img,
+					img: this.actor.img,
 					name: this.actor.name,
 					title,
 				},
 			},
 		};
 
+		// @ts-expect-error
 		ChatMessage.create(chatData);
 	}
 
@@ -819,7 +823,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 }
 
 declare namespace ActorGrantsManager {
-	type DocumentData = { uuid: string; type: 'feature' | 'object'; quantity?: number }[];
+	type DocumentData = { uuid: string; type: 'feature' | 'object'; quantity?: number };
 }
 
 export type { ActorGrantsManager };

@@ -5,9 +5,9 @@ export default function prepareApplyData(
 	actor: Character,
 	grants: { id: string; grant: Grant }[],
 	applyData: Map<string, any>,
-): Record<string, any> {
+) {
 	const updateData: Record<string, any> = {};
-	const documentData: Map<string, ActorGrantsManager.DocumentData> = new Map();
+	const documentData: Map<string, ActorGrantsManager.DocumentData[]> = new Map();
 
 	grants.forEach(({ id, grant }) => {
 		const inputData = applyData.get(id);
@@ -33,12 +33,12 @@ export default function prepareApplyData(
 
 			// Get quantity overrides from the grant
 			const allOptions = [...grant.config.items.base, ...grant.config.items.options];
-			const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
+			const temp = allOptions.reduce((acc, { uuid, quantityOverride }) => {
 				if (!uuids.includes(uuid)) return acc;
 
 				acc.push({ uuid, type: 'object' as const, quantity: quantityOverride });
 				return acc;
-			}, []) as ActorGrantsManager.DocumentData;
+			}, [] as ActorGrantsManager.DocumentData[]);
 
 			documentData.set(id, temp);
 			foundry.utils.mergeObject(updateData, data ?? {});
