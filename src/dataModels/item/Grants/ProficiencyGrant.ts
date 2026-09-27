@@ -135,8 +135,9 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			if (profType === 'savingThrow') {
 				updates[`system.abilities.${val}.save.proficient`] = true;
 			} else if (profType === 'skill') {
-				if (actor.system.skills[val].proficient) {
-					updates[`system.skills.${val}.expertiseDice`] = actor.system.skils[val].expertiseDice + 1;
+				if (actor.system.skills[val].proficient && this.config.upgradeToExpertise) {
+					updates[`system.skills.${val}.expertiseDice`] =
+						(actor.system.skills[val]?.expertiseDice ?? 0) + 1;
 				} else {
 					updates[`system.skills.${val}.proficient`] = this.config.isExpertise ? 2 : 1;
 				}
@@ -179,7 +180,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.item ?? this.parent?.parent,
+			document: this.item,
 			grantId: this.id,
 		};
 
@@ -194,12 +195,14 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 		if (source.config) return source;
 		source.config ??= {};
-		source.config.keys = { base: source.keys?.base?.map?.((v) => `${source.proficiencyType}${v}`) };
-		if (source.keys.options?.length) {
+		source.config.keys = {
+			base: source.keys?.base?.map?.((v) => `${source.proficiencyType}:${v}`),
+		};
+		if (source.keys?.options?.length) {
 			source.config.keys.options = [
 				{
 					count: source.keys.total,
-					candidates: source.keys.options.map((v) => `${source.proficiencyType}${v}}`),
+					candidates: source.keys.options.map((v) => `${source.proficiencyType}:${v}`),
 				},
 			];
 		}

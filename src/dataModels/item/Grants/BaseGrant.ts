@@ -125,6 +125,7 @@ class BaseGrant<
 		if (!source) return source;
 
 		source.type ??= source.grantType;
+		source.name = source.label;
 		return source;
 	}
 }

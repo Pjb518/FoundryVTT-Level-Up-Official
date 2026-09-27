@@ -17,7 +17,7 @@ const schema = () => ({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
 					limitedReselection: new fields.BooleanField({
 						required: true,
-						nullable: false,
+						// nullable: false,
 						initial: true,
 					}),
 					selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
@@ -28,7 +28,7 @@ const schema = () => ({
 					uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
 					limitedReselection: new fields.BooleanField({
 						required: true,
-						nullable: false,
+						// nullable: false,
 						initial: true,
 					}),
 					selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
@@ -53,7 +53,7 @@ const schema = () => ({
 					nullable: false,
 					initial: true,
 				}),
-				selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
+				selectionLimit: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 			}),
 		),
 		/** @deprecated */
@@ -65,7 +65,7 @@ const schema = () => ({
 					nullable: false,
 					initial: true,
 				}),
-				selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
+				selectionLimit: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 			}),
 		),
 		/** @deprecated */
@@ -162,7 +162,21 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 
 		if (source.config) return source;
 		source.config ??= {};
-		source.config.features = source.features;
+		source.config.features = {
+			base: source.features.base?.map((f) => {
+				return {
+					...f,
+					limitedReselection: f.limitedReselction || true,
+				};
+			}),
+			options: source.features.options?.map((f) => {
+				return {
+					...f,
+					limitedReselection: f.limitedReselction || true,
+				};
+			}),
+			total: source.total,
+		};
 
 		return source;
 	}

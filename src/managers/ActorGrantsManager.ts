@@ -426,7 +426,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		// Create sub items
 		if (dialogData.documentData.size) {
-			const updateData: Record<string, any> = {};
+			const updateData: any[] = [];
 
 			for await (const [grantId, docData] of dialogData.documentData) {
 				const docs = (
@@ -449,14 +449,18 @@ class ActorGrantsManager extends Map<string, Grant> {
 				).filter((d) => !!d);
 
 				try {
-					// We're checking 0 here becuase we know all similar types are grouped
+					// We're checking 0 here because we know all similar types are grouped
 					if (docData[0]?.type === 'object') {
 						const objects = docs as Item.OfType<'object'>[];
 						const ids = (await this.actor.createEmbeddedDocuments('Item', objects)).map(
 							(i: any) => i.id,
 						);
 
-						updateData[`system.grants.${grantId}.documentIds`] = ids;
+						const g = this.get(grantId);
+						updateData.push({
+							_id: g.item.id,
+							[`system.grants.${g.id}.applied.documentIds`]: ids,
+						});
 					} else if (docData[0]?.type === 'feature') {
 						const preCreateIds = docs.map((d: any) => d._id);
 
@@ -476,10 +480,12 @@ class ActorGrantsManager extends Map<string, Grant> {
 							})
 						).map((i: any) => i.id);
 
-						// TODO - We need to update this to update all the items instead
-						updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
-
-						// Update all grants applied data
+						// updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
+						const g = this.get(grantId);
+						updateData.push({
+							_id: g.item.id,
+							[`system.grants.${g.id}.applied.documentIds`]: [...ids, ...existingIds],
+						});
 					}
 				} catch (err) {
 					console.error(err);
@@ -487,7 +493,8 @@ class ActorGrantsManager extends Map<string, Grant> {
 				}
 			}
 
-			foundry.utils.mergeObject(dialogData.updateData, updateData);
+			// Update applied documents with data
+			this.actor.updateEmbeddedDocuments('Item', updateData);
 		}
 
 		// Add archetype
@@ -627,13 +634,9 @@ class ActorGrantsManager extends Map<string, Grant> {
 		ChatMessage.create(chatData);
 	}
 
-	async removeGrantsByItem(itemUuid: string): Promise<void> {
+	async removeGrantsByItem(item: Item): Promise<void> {
 		const updates: Record<string, any> = {};
-
-		for (const [, grant] of this) {
-			if (grant.itemUuid !== itemUuid) continue;
-
-			updates[`system.grants.${grant.grantId}`] = _del;
+		for (const [id, grant] of Object.entries(item.system.grants)) {
 			foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
 		}
 
@@ -642,33 +645,39 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 	async removeGrantsByClassLevel(classLevel: number, slug: string): Promise<boolean> {
 		const updates: Record<string, any> = {};
+		const itemUpdates: any[] = [];
 
 		for (const [, grant] of this) {
-			const originItem = fromUuidSync(grant.itemUuid);
+			const originItem = grant.item as Item.OfType<'feature'> | Item.OfType<'class'>;
 
 			if (!originItem) continue;
 			if (!['class', 'feature'].includes(originItem.type)) continue;
 
 			// Skip if the grant is not from the origin class
-			if (originItem.type === 'class' && originItem.slug !== slug) continue;
-			if (originItem.type === 'feature' && originItem.system.classes !== slug) continue;
+			if (originItem.isType('class') && originItem.slug !== slug) continue;
+			if (originItem.isType('feature') && originItem.system.classes !== slug) continue;
 
 			if (grant.level > classLevel) {
-				updates[`system.grants.${grant.grantId}`] = _del;
+				const initialValue = grant.schema.getInitialValue().applied;
+				itemUpdates.push({
+					_id: originItem.id,
+					[`system.grants.${grant.id}.applied`]: initialValue,
+				});
+
 				foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
 			}
 		}
 
 		try {
 			await this.actor.update(updates);
+			await this.actor.updateEmbeddedDocuments('Item', itemUpdates);
 		} catch (err) {
-			// eslint-disable-next-line no-console
 			console.error(err);
 			return false;
 		}
 
 		// Remove archetype
-		const cls = this.actor.classes[slug];
+		const cls = this.actor.classes?.[slug];
 		if (!cls) return true;
 
 		if (classLevel > cls.system.archetypeLevel) return true;
@@ -682,18 +691,24 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 	async removeGrantsByLevel(level: number): Promise<boolean> {
 		const updates: Record<string, any> = {};
+		const itemUpdates: any[] = [];
 
 		for (const [, grant] of this) {
 			if (grant.level > level) {
-				updates[`system.grants.${grant.grantId}`] = _del;
+				const initialValue = grant.schema.getInitialValue().applied;
+				itemUpdates.push({
+					_id: grant.item!.id,
+					[`system.grants.${grant.id}.applied`]: initialValue,
+				});
+
 				foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
 			}
 		}
 
 		try {
 			await this.actor.update(updates);
+			await this.actor.updateEmbeddedDocuments('Item', itemUpdates);
 		} catch (err) {
-			// eslint-disable-next-line no-console
 			console.error(err);
 			return false;
 		}
@@ -702,11 +717,10 @@ class ActorGrantsManager extends Map<string, Grant> {
 	}
 
 	async removeGrant(grantId: string): Promise<void> {
-		const grant = [...this.values()].find((g) => g.grantId === grantId) as ActorGrant;
+		const grant = [...this.values()].find((g) => g.id === grantId);
 		if (!grant) return;
 
 		const updates: Record<string, any> = {
-			[`system.grants.${grantId}`]: _del,
 			...this.#getRemoveUpdates(grant),
 		};
 
@@ -715,36 +729,52 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 	async removeAll(): Promise<void> {
 		const updates: Record<string, any> = {};
+		const itemUpdates: any[] = [];
 
 		for (const [, grant] of this) {
-			updates[`system.grants.${grant.grantId}`] = _del;
+			const initialValue = grant.schema.getInitialValue().applied;
+			itemUpdates.push({
+				_id: grant.item!.id,
+				[`system.grants.${grant.id}.applied`]: initialValue,
+			});
+
 			foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
 		}
 
 		await this.actor.update(updates);
+		await this.actor.updateEmbeddedDocuments('Item', itemUpdates);
 	}
 
-	#getRemoveUpdates(grant: ActorGrant): Record<string, any> {
+	#getRemoveUpdates(grant: Grant): Record<string, any> {
 		const updates: Record<string, any> = {};
 
-		if (grant instanceof actorGrants.bonus) {
-			if (grant.bonusId) updates[`system.bonuses.${grant.type}.${grant.bonusId}`] = _del;
-		}
-
-		if (grant instanceof actorGrants.exertion) {
-			if (grant.exertionData.exertionType === 'bonus') {
-				updates[`system.bonuses.exertion.${grant.exertionData.bonusId}`] = _del;
+		if (grant.applied.grantType === 'bonus') {
+			grant = grant as Grant<'ability'>; // Using this as a stub for bonus
+			if (grant.applied.bonusId) {
+				updates[`system.bonuses.${grant.applied.bonusType}.${grant.applied.bonusId}`] = _del;
 			}
+
+			return updates;
 		}
 
-		if (grant instanceof actorGrants.feature || grant instanceof actorGrants.item) {
+		if (grant.applied.grantType === 'exertion') {
+			grant = grant as Grant<'exertion'>;
+			if (grant.applied.exertionType === 'bonus') {
+				updates[`system.bonuses.exertion.${grant.applied.bonusId}`] = _del;
+			}
+
+			return updates;
+		}
+
+		if (grant.applied.grantType === 'document') {
+			grant = grant as Grant<'feature'>;
 			let ids: string[];
 
-			if (grant instanceof actorGrants.feature) {
+			if (grant.applied.documentType === 'feature') {
 				const { grantedFeatureDocuments } = this;
-				const { documentIds } = grant;
+				const { documentIds } = grant.applied;
 
-				ids = documentIds.reduce((acc: string[], id: string) => {
+				ids = [...documentIds].reduce((acc: string[], id: string) => {
 					if (grantedFeatureDocuments.has(id)) {
 						if (grantedFeatureDocuments.get(id)?.length === 1) acc.push(id);
 					}
@@ -752,70 +782,100 @@ class ActorGrantsManager extends Map<string, Grant> {
 					return acc;
 				}, []);
 			} else {
-				ids = grant.documentIds;
+				ids = [...grant.applied.documentIds];
 			}
 
 			if (!ids?.length) return updates;
 
 			// Validate ids to ensure they are not already deleted
-			const deleteIds = this.actor.items.reduce((acc: string[], i: typeof Item) => {
+			const deleteIds = this.actor.items.reduce((acc: string[], i) => {
 				if (ids.includes(i.id)) acc.push(i.id);
 				return acc;
 			}, []);
 
 			this.actor.deleteEmbeddedDocuments('Item', deleteIds);
+
+			return updates;
 		}
 
-		if (grant instanceof actorGrants.proficiency) {
-			const { keys, proficiencyType } = grant.proficiencyData;
+		if (grant.applied.grantType === 'proficiency') {
+			grant = grant as Grant<'proficiency'>;
+			const { selected } = grant.applied;
 
-			if (proficiencyType === 'savingThrow') {
-				keys.forEach((key: string) => {
-					updates[`system.abilities.${key}.save.proficient`] = false;
-				});
-			} else if (proficiencyType === 'skill') {
-				keys.forEach((key: string) => {
-					updates[`system.skills.${key}.proficient`] = 0;
-				});
-			} else {
-				const configObject = prepareProficiencyConfigObject();
-				const { propertyKey } = configObject[proficiencyType] ?? {};
-				if (!propertyKey) return {};
+			const configObject = prepareProficiencyConfigObject();
+			const updateProps: Record<string, string[]> = {};
 
-				const removals: Set<string> = new Set(keys);
-				const proficiencies = new Set(
-					(foundry.utils.getProperty(this.actor, propertyKey) as string[]) ?? [],
-				);
+			selected.forEach((value) => {
+				if (!value.includes(':')) return;
+				const parts = value.split(':');
+				if (parts.length < 2) return;
 
-				updates[propertyKey] = [...proficiencies.difference(removals)];
-			}
+				const [profType, val] = parts;
+				if (profType === 'savingThrow') {
+					updates[`system.abilities.${val}.save.proficient`] = false;
+				} else if (profType === 'skill') {
+					// @ts-expect-error
+					if (grant.config.upgradeToExpertise) {
+						updates[`system.skills.${val}.proficient`] = Math.max(
+							(this.actor.system.skills[val]?.proficient ?? 0) - 1,
+							0,
+						);
+					} else updates[`system.skills.${val}.proficient`] = 0;
+				} else {
+					updateProps[profType] ??= [];
+					updateProps[profType].push(val);
+				}
+			});
+
+			Object.entries(updateProps).forEach(([profType, values]) => {
+				const propKey = configObject[profType].propertyKey;
+				if (!propKey) return;
+
+				const removals = new Set(values);
+				const profs = new Set((foundry.utils.getProperty(this.actor, propKey) as string[]) ?? []);
+
+				// @ts-expect-error
+				updates[propKey] = [...profs.difference(removals)];
+			});
+
+			return updates;
 		}
 
-		if (grant instanceof actorGrants.skillSpecialty) {
-			const { skill } = grant.specialtyData;
+		if (grant.applied.grantType === 'skillSpecialty') {
+			grant = grant as Grant<'skillSpecialty'>;
+			const { skill } = grant.applied;
 
 			const existing: Set<string> = new Set(
 				(foundry.utils.getProperty(this.actor, `system.skills.${skill}.specialties`) as string[]) ??
 					[],
 			);
 
-			const removals: Set<string> = new Set(grant.specialtyData.specialties);
+			const removals: Set<string> = new Set(grant.applied.selected);
 
+			// @ts-expect-error
 			updates[`system.skills.${skill}.specialties`] = [...existing.difference(removals)];
+
+			return updates;
 		}
 
-		if (grant instanceof actorGrants.trait) {
+		if (grant.applied.grantType === 'trait') {
+			grant = grant as Grant<'trait'>;
+			const appliedData = grant.applied;
+
 			const configObject = prepareTraitGrantConfigObject();
-			const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
+			const { propertyKey } = configObject[appliedData.traitType] ?? {};
 			if (!propertyKey) return {};
 
-			const removals: Set<string> = new Set(grant.traitData.traits);
+			const removals: Set<string> = new Set(appliedData.selected);
 			const traits = new Set(
 				(foundry.utils.getProperty(this.actor, propertyKey) as string[]) ?? [],
 			);
 
-			if (grant.traitData.traitType === 'size') updates[propertyKey] = '';
+			if (appliedData.traitType === 'size') updates[propertyKey] = '';
+			// @ts-expect-error
 			else updates[propertyKey] = [...traits.difference(removals)];
+
+			return updates;
 		}
 
 		return updates;
@@ -826,4 +886,4 @@ declare namespace ActorGrantsManager {
 	type DocumentData = { uuid: string; type: 'feature' | 'object'; quantity?: number };
 }
 
-export type { ActorGrantsManager };
+export { ActorGrantsManager };

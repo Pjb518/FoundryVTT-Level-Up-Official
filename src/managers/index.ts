@@ -21,7 +21,7 @@ import TokenPreviewManager from './TokenPreviewManager.ts';
 const managers = {
 	A5eEnricherManager,
 	ActionsManager,
-	ActorGrantsManger,
+	ActorGrantsManager,
 	BonusesManager,
 	ClassResourceManager,
 	ContainerManager,

@@ -73,6 +73,7 @@
       return [...convertValues(grant.config.keys.base)];
     }
 
+    console.log(selectedMode);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
     return [
       ...convertValues(grant.config.keys.options[idx ?? 0].candidates ?? []),
@@ -251,6 +252,7 @@
         <RadioGroup
           options={addModes}
           selected={selectedMode}
+          allowDeselect={false}
           onUpdateSelection={(value) => (selectedMode = value)}
         />
       </Section>

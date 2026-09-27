@@ -1,7 +1,13 @@
 // *****************************************************************************************
 
 import { createSubscriber } from 'svelte/reactivity';
+import { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
+import { BonusesManager } from '#managers/BonusesManager.ts';
+import HitDiceManager from '#managers/HitDiceManager.ts';
+import { RestManager } from '#managers/RestManager.ts';
 import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
+import { RollPreparationManager } from '#managers/RollPreparationManager.ts';
+import SpellBookManager from '#managers/SpellBookManager.ts';
 import { getRollFormula } from '#utils/getRollFormula.ts';
 import { localize } from '#utils/localization/localize.ts';
 import AbilityBonusConfigDialog from '#view/components/bonuses/AbilityBonusConfigDialog.svelte';
@@ -29,12 +35,6 @@ import SkillConfigDialog from '#view/dialogs/actor/SkillConfigDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
-import { ActorGrantsManager } from '../../managers/ActorGrantsManager.ts';
-import { BonusesManager } from '../../managers/BonusesManager.ts';
-import HitDiceManager from '../../managers/HitDiceManager.ts';
-import { RestManager } from '../../managers/RestManager.ts';
-import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
-import SpellBookManager from '../../managers/SpellBookManager.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers.js';

@@ -18,6 +18,7 @@ export const documentGrantSchema = () => ({
 	documentIds: new fields.SetField(
 		new fields.StringField({ required: true, nullable: false, initial: '' }),
 	),
+	documentType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 // Convert to Bonus Grant

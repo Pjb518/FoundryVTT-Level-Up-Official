@@ -19,7 +19,7 @@ export default function prepareApplyData(
 				inputData?.uuids ?? grant.config.features.base.map(({ uuid }) => uuid) ?? [];
 
 			const temp = uuids.map((uuid) => ({ uuid, type: 'feature' as const }));
-			documentData.set(id, temp);
+			documentData.set(grant.fullId, temp);
 
 			foundry.utils.mergeObject(updateData, data ?? {});
 			return;
@@ -40,7 +40,7 @@ export default function prepareApplyData(
 				return acc;
 			}, [] as ActorGrantsManager.DocumentData[]);
 
-			documentData.set(id, temp);
+			documentData.set(grant.fullId, temp);
 			foundry.utils.mergeObject(updateData, data ?? {});
 
 			return;
