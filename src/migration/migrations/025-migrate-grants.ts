@@ -20,15 +20,15 @@ export class Migration025MigrateGrants extends MigrationBase {
 				type: grant.grantType,
 			} as typeof grant;
 
-			if (actor) {
+			const actorGrant = this.getActorGrant(itemId, grantId, actor) as
+				| Record<string, any>
+				| undefined;
+
+			if (actor && actorGrant) {
 				// @ts-expect-error
 				newGrant.applied ??= {};
 				newGrant.applied.isApplied = true;
 			}
-
-			const actorGrant = this.getActorGrant(itemId, grantId, actor) as
-				| Record<string, any>
-				| undefined;
 
 			if (grant.type === 'ability' && newGrant.type === 'ability') {
 				// @ts-expect-error
@@ -198,20 +198,20 @@ export class Migration025MigrateGrants extends MigrationBase {
 				newGrant.config ??= {};
 				newGrant.config.items = {
 					base:
-						grant.items.base?.map((i) => {
+						grant.items?.base?.map((i) => {
 							return {
 								uuid: i.uuid || '',
 								quantityOverride: i.quantityOverride || 0,
 							};
 						}) ?? [],
 					options:
-						grant.items.options?.map((i) => {
+						grant.items?.options?.map((i) => {
 							return {
 								uuid: i.uuid || '',
 								quantityOverride: i.quantityOverride || 0,
 							};
 						}) ?? [],
-					total: grant.items.total || 0,
+					total: grant.items?.total || 0,
 				};
 
 				// Actor part

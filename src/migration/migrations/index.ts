@@ -9,3 +9,4 @@ export { Migration021MigrateEffects } from './021-migrate-effects.ts';
 export { Migration022MigratePrice } from './022-migrate-price.ts';
 export { Migration023MigrateRoll } from './023-migrate-roll.ts';
 export { Migration024MigrateConcentration } from './024-migrate-concentration.ts';
+export { Migration025MigrateGrants } from './025-migrate-grants.ts';
