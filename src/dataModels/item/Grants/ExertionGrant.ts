@@ -89,7 +89,7 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
-		const updates: Record<string, any> = {};
+		const updateData: Record<string, any> = {};
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
@@ -101,7 +101,7 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 				img: this.img || this?.item?.img,
 			};
 
-			updates[`system.bonuses.exertion.${bonusId}`] = bonus;
+			updateData[`system.bonuses.exertion.${bonusId}`] = bonus;
 		}
 
 		// Construct applied data
@@ -113,11 +113,7 @@ class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
-		return updates;
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData };
 	}
 
 	override getSelectionComponent() {

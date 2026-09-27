@@ -112,11 +112,7 @@ class RollOverrideGrant extends BaseGrant<RollOverrideGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
-		return {};
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData: {} };
 	}
 
 	override getSelectionComponent() {

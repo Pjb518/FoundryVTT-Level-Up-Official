@@ -29,9 +29,6 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 	grantedFeatureDocuments = new Map<string, string[]>();
 
-	/** Requires Implementation */
-	#batchItemUpdates: Record<string, any>[] = [];
-
 	constructor(actor: Character) {
 		super();
 		this.actor = actor;
@@ -78,18 +75,6 @@ class ActorGrantsManager extends Map<string, Grant> {
 	/** Returns all grants filtered by type */
 	byType<T extends GrantTypes>(type: T): Grant<T>[] {
 		return [...this.values()].filter((grant): grant is Grant<T> => grant.type === type);
-	}
-
-	/** ================================================================= */
-	// New Methods
-	/** ================================================================= */
-
-	// *************************************************************
-	// Helpers
-	// *************************************************************
-	addToBatch(update: Record<string, any>) {
-		this.#batchItemUpdates.push(update);
-		return this.#batchItemUpdates;
 	}
 
 	// *************************************************************
@@ -390,16 +375,23 @@ class ActorGrantsManager extends Map<string, Grant> {
 			updateData: any;
 			success: boolean;
 			documentData: Map<string, ActorGrantsManager.DocumentData[]>;
+			itemUpdateData: any[];
 			clsReturnData: Record<string, any>;
 		};
 
 		if (!requiresDialog) {
 			const grants = allGrants.map((grant) => ({ id: grant.id, grant }));
-			const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
+			const { updateData, documentData, itemUpdateData } = prepareGrantsApplyData(
+				this.actor,
+				grants,
+				new Map(),
+			);
+
 			dialogData = {
 				success: true,
 				updateData,
 				documentData,
+				itemUpdateData,
 				clsReturnData: {},
 			};
 		} else {
@@ -426,8 +418,6 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		// Create sub items
 		if (dialogData.documentData.size) {
-			const updateData: any[] = [];
-
 			for await (const [grantId, docData] of dialogData.documentData) {
 				const docs = (
 					await Promise.all(
@@ -456,10 +446,10 @@ class ActorGrantsManager extends Map<string, Grant> {
 							(i: any) => i.id,
 						);
 
-						const g = this.get(grantId);
-						updateData.push({
-							_id: g.item.id,
-							[`system.grants.${g.id}.applied.documentIds`]: ids,
+						const [itemId, gId] = grantId.split('.');
+						dialogData.itemUpdateData.push({
+							_id: itemId,
+							[`system.grants.${gId}.applied.documentIds`]: ids,
 						});
 					} else if (docData[0]?.type === 'feature') {
 						const preCreateIds = docs.map((d: any) => d._id);
@@ -481,10 +471,10 @@ class ActorGrantsManager extends Map<string, Grant> {
 						).map((i: any) => i.id);
 
 						// updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
-						const g = this.get(grantId);
-						updateData.push({
-							_id: g.item.id,
-							[`system.grants.${g.id}.applied.documentIds`]: [...ids, ...existingIds],
+						const [itemId, gId] = grantId.split('.');
+						dialogData.itemUpdateData.push({
+							_id: itemId,
+							[`system.grants.${gId}.applied.documentIds`]: [...ids, ...existingIds],
 						});
 					}
 				} catch (err) {
@@ -492,9 +482,6 @@ class ActorGrantsManager extends Map<string, Grant> {
 					return false;
 				}
 			}
-
-			// Update applied documents with data
-			this.actor.updateEmbeddedDocuments('Item', updateData);
 		}
 
 		// Add archetype
@@ -510,10 +497,24 @@ class ActorGrantsManager extends Map<string, Grant> {
 		// Update actor with grants data
 		if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
-		// Update applied data to grants
-		if (this.#batchItemUpdates.length) {
-			await this.actor.updateEmbeddedDocuments('Item', this.#batchItemUpdates);
-			this.#batchItemUpdates.length = 0;
+		// Update applied data
+		if (dialogData.itemUpdateData?.length) {
+			// We need to merge all updates pertaining to an item into one update object
+			const uniqueUpdates: Record<string, any> = {};
+
+			dialogData.itemUpdateData.forEach(({ _id, ...u }) => {
+				if (!_id) return;
+				uniqueUpdates[_id] ??= {};
+				uniqueUpdates[_id] = foundry.utils.mergeObject(uniqueUpdates[_id], u, {
+					inplace: false,
+				});
+			});
+
+			const itemUpdateData = Object.entries(uniqueUpdates).map(([id, u]) => {
+				return { _id: id, ...u };
+			});
+
+			await this.actor.updateEmbeddedDocuments('Item', itemUpdateData);
 		}
 
 		// Update class data if available
@@ -591,7 +592,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		}
 
 		// Update archetype data if available
-		if (options.item && options.item?.isType('archetype')) {
+		if (options.item?.isType('archetype')) {
 			const archetype = options.item;
 
 			const spellCastingAbility =
@@ -768,22 +769,8 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		if (grant.applied.grantType === 'document') {
 			grant = grant as Grant<'feature'>;
-			let ids: string[];
 
-			if (grant.applied.documentType === 'feature') {
-				const { grantedFeatureDocuments } = this;
-				const { documentIds } = grant.applied;
-
-				ids = [...documentIds].reduce((acc: string[], id: string) => {
-					if (grantedFeatureDocuments.has(id)) {
-						if (grantedFeatureDocuments.get(id)?.length === 1) acc.push(id);
-					}
-
-					return acc;
-				}, []);
-			} else {
-				ids = [...grant.applied.documentIds];
-			}
+			const ids = [...grant.applied.documentIds];
 
 			if (!ids?.length) return updates;
 

@@ -204,7 +204,7 @@
   }
 
   function onSubmit() {
-    const { updateData, documentData } =
+    const { updateData, documentData, itemUpdateData } =
       prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
     clsReturnData.spellcastingAbility = spellcastingAbility || "";
@@ -213,6 +213,7 @@
       success: true,
       updateData,
       documentData,
+      itemUpdateData,
       clsReturnData,
     });
   }

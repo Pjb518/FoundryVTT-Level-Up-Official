@@ -85,6 +85,11 @@ class BaseGrant<
 		return {};
 	}
 
+	/** Gets a formatted update for applied data */
+	_getAppliedUpdate(data: any) {
+		return { _id: this.item.id, [`system.grants.${this.id}.applied`]: data };
+	}
+
 	getSelectionComponent(): any {
 		return this.#component;
 	}

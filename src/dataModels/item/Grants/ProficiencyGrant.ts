@@ -103,7 +103,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		if (!actor) return {};
 		const selected: string[] = data.selected ?? [...this.config.keys.base] ?? [];
 
-		const updates: Record<string, any> = {};
+		const updateData: Record<string, any> = {};
 
 		// Construct applied Data
 		const appliedData = {
@@ -112,15 +112,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 			level: this.level,
 			upgraded: this.config.upgradeToExpertise,
 			isApplied: true,
-
-			_id: this.item.id,
 		};
-
-		// TODO: Somehow batch these
-		// Add to batch Update
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
 
 		// Construct proficiency updates
 		const configObject = prepareProficiencyConfigObject();
@@ -133,13 +125,13 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 			const [profType, val] = parts;
 			if (profType === 'savingThrow') {
-				updates[`system.abilities.${val}.save.proficient`] = true;
+				updateData[`system.abilities.${val}.save.proficient`] = true;
 			} else if (profType === 'skill') {
 				if (actor.system.skills[val].proficient && this.config.upgradeToExpertise) {
-					updates[`system.skills.${val}.expertiseDice`] =
+					updateData[`system.skills.${val}.expertiseDice`] =
 						(actor.system.skills[val]?.expertiseDice ?? 0) + 1;
 				} else {
-					updates[`system.skills.${val}.proficient`] = this.config.isExpertise ? 2 : 1;
+					updateData[`system.skills.${val}.proficient`] = this.config.isExpertise ? 2 : 1;
 				}
 			} else {
 				updateProps[profType] ??= [];
@@ -148,6 +140,7 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		});
 
 		Object.entries(updateProps).forEach(([profType, values]) => {
+			console.log(profType, values);
 			const propKey = configObject[profType].propertyKey;
 			if (!propKey) return;
 
@@ -156,10 +149,10 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 				...((foundry.utils.getProperty(actor, propKey) as string[]) ?? []),
 			]);
 
-			updates[propKey] = [...proficiencies];
+			updateData[propKey] = [...proficiencies];
 		});
 
-		return updates;
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData };
 	}
 
 	override getSelectionComponent() {
@@ -196,13 +189,13 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		if (source.config) return source;
 		source.config ??= {};
 		source.config.keys = {
-			base: source.keys?.base?.map?.((v) => `${source.proficiencyType}:${v}`),
+			base: source.keys?.base?.map?.((v) => `${source.proficiencyType || 'armor'}:${v}`),
 		};
 		if (source.keys?.options?.length) {
 			source.config.keys.options = [
 				{
 					count: source.keys.total,
-					candidates: source.keys.options.map((v) => `${source.proficiencyType}:${v}`),
+					candidates: source.keys.options.map((v) => `${source.proficiencyType || 'armor'}:${v}`),
 				},
 			];
 		}

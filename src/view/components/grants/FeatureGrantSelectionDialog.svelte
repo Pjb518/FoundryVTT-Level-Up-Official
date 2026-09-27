@@ -1,25 +1,24 @@
 <script lang="ts">
-  import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant.ts";
-
   import { getContext } from "svelte";
+  import type { Grant } from "#data/item/Grants/GrantsField.ts";
 
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
 
+  type FeatureOption = {
+    uuid: string;
+    limitedReselection: boolean;
+    selectionLimit: number;
+  };
+
   type Props = {
-    grant: FeatureGrant;
+    grant: Grant<"feature">;
     base: FeatureOption[];
     choices: FeatureOption[];
     count: number;
     selected: string[];
     updateSelectionFunc?: (value: any) => void;
-  };
-
-  type FeatureOption = {
-    uuid: string;
-    limitedReselection: boolean;
-    selectionLimit: number;
   };
 
   function getGrantSummary(selected: string[]) {
@@ -40,7 +39,10 @@
     [...actor.reactive.grants.grantedFeatureDocuments.entries()].forEach(
       ([docId, grantIds]: [string, string[]]) => {
         const data = featureDataMap.get(docId);
-        if (!data) return selections.push(docId);
+        if (!data) {
+          selections.push(docId);
+          return;
+        }
 
         const takenCount = grantIds.length;
         if (!data.limitedReselection || data.selectionLimit > takenCount)
@@ -88,7 +90,7 @@
     const prereqs: Record<string, string> = {};
 
     for (const [value] of allOptions) {
-      const doc = fromUuidSync(value);
+      const doc = fromUuidSync(value) as any;
       if (doc?.system.prerequisite) {
         prereqs[value] = "<b>Prerequisite:</b> " + doc.system.prerequisite;
       }
@@ -111,9 +113,9 @@
     updateSelectionFunc = undefined,
   }: Props = $props();
 
-  let allOptions: string[][] = [...base, ...choices].map((o) => {
-    const doc = fromUuidSync(o.uuid);
-    return [o.uuid, doc.name];
+  let allOptions = [...base, ...choices].map((o) => {
+    const doc = fromUuidSync(o.uuid) as Item.OfType<"feature">;
+    return [o.uuid, doc?.name || "Invalid DOcument"];
   });
 
   let featureDataMap = base.concat(choices).reduce((acc, f) => {
@@ -124,7 +126,7 @@
     return acc;
   }, new Map<string, FeatureOption>());
 
-  let actor: Actor = getContext("actor");
+  let actor: Character = getContext("actor");
 
   let choicesUuids = choices.map((o) => o.uuid);
   let choicesLocked = $state(true);

@@ -119,14 +119,11 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 			grantType: 'document',
 			level: this.level,
 			documentIds: [] as unknown as Set<string>, // This should be applied later
+			documentType: 'object',
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
-		return {};
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData: {} };
 	}
 
 	override getSelectionComponent() {

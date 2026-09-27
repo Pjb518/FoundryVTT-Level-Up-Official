@@ -117,14 +117,11 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 			grantType: 'document',
 			level: this.level,
 			documentIds: [] as unknown as Set<string>, // This should be applied later
+			documentType: 'feature',
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
-		return {};
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData: {} };
 	}
 
 	override getSelectionComponent() {
@@ -166,16 +163,16 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 			base: source.features.base?.map((f) => {
 				return {
 					...f,
-					limitedReselection: f.limitedReselction || true,
+					limitedReselection: f.limitedReselection || true,
 				};
 			}),
 			options: source.features.options?.map((f) => {
 				return {
 					...f,
-					limitedReselection: f.limitedReselction || true,
+					limitedReselection: f.limitedReselection || true,
 				};
 			}),
-			total: source.total,
+			total: source.features.total,
 		};
 
 		return source;

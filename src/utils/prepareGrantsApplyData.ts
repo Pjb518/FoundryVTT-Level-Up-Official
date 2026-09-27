@@ -7,6 +7,7 @@ export default function prepareApplyData(
 	applyData: Map<string, any>,
 ) {
 	const updateData: Record<string, any> = {};
+	const itemUpdateData: any[] = [];
 	const documentData: Map<string, ActorGrantsManager.DocumentData[]> = new Map();
 
 	grants.forEach(({ id, grant }) => {
@@ -14,7 +15,7 @@ export default function prepareApplyData(
 
 		// Get granted features
 		if (grant.type === 'feature') {
-			const data = grant.getApplyData(actor, inputData);
+			const { appliedData, updateData: data } = grant.getApplyData(actor, inputData);
 			const uuids: string[] =
 				inputData?.uuids ?? grant.config.features.base.map(({ uuid }) => uuid) ?? [];
 
@@ -22,12 +23,13 @@ export default function prepareApplyData(
 			documentData.set(grant.fullId, temp);
 
 			foundry.utils.mergeObject(updateData, data ?? {});
+			itemUpdateData.push(appliedData);
 			return;
 		}
 
 		// Get granted items
 		if (grant.type === 'item') {
-			const data = grant.getApplyData(actor, inputData);
+			const { appliedData, updateData: data } = grant.getApplyData(actor, inputData);
 			const uuids: string[] =
 				inputData?.uuids ?? grant.config.items.base.map(({ uuid }) => uuid) ?? [];
 
@@ -42,16 +44,12 @@ export default function prepareApplyData(
 
 			documentData.set(grant.fullId, temp);
 			foundry.utils.mergeObject(updateData, data ?? {});
+			itemUpdateData.push(appliedData);
 
 			return;
 		}
 
-		let grantUpdates: any;
-		if (inputData) {
-			grantUpdates = grant.getApplyData(actor, inputData);
-		} else {
-			grantUpdates = grant.getApplyData(actor, {});
-		}
+		const { appliedData, updateData: grantUpdates } = grant.getApplyData(actor, inputData ?? {});
 
 		// Manually merge arrays from updateData
 		Object.entries(grantUpdates ?? {}).forEach(([key, value]) => {
@@ -63,7 +61,8 @@ export default function prepareApplyData(
 		});
 
 		foundry.utils.mergeObject(updateData, grantUpdates);
+		itemUpdateData.push(appliedData);
 	});
 
-	return { updateData, documentData };
+	return { updateData, documentData, itemUpdateData };
 }

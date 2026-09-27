@@ -102,16 +102,17 @@ class SkillSpecialtyGrant extends BaseGrant<SkillSpecialtyGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
 		// Construct specialty update
 		const key = `system.skills.${skill}.specialties`;
 		const existing = (foundry.utils.getProperty(actor, key) as string[]) ?? [];
 		const specialties = new Set([...selected, ...existing]);
 
-		return { [key]: [...specialties] };
+		return {
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[key]: [...specialties],
+			},
+		};
 	}
 
 	override getSelectionComponent() {

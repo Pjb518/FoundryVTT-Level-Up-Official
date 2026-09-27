@@ -114,12 +114,11 @@ class AbilityGrant extends BaseGrant<AbilityGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
 		return {
-			[`system.bonuses.abilities.${bonusId}`]: bonus,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.abilities.${bonusId}`]: bonus,
+			},
 		};
 	}
 

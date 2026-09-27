@@ -115,12 +115,11 @@ class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
 		return {
-			[`system.bonuses.attacks.${bonusId}`]: bonus,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.attacks.${bonusId}`]: bonus,
+			},
 		};
 	}
 

@@ -110,10 +110,6 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			isApplied: true,
 		};
 
-		this.item.update({
-			[`system.grants.${this.id}.applied`]: appliedData,
-		});
-
 		// Construct trait update
 		const configObject = prepareTraitGrantConfigObject();
 		const { propertyKey } = configObject[this.config.traits.traitType] ?? {};
@@ -131,7 +127,10 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			]);
 		}
 
-		return { [propertyKey]: [...traits] };
+		return {
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: { [propertyKey]: [...traits] },
+		};
 	}
 
 	override getSelectionComponent() {

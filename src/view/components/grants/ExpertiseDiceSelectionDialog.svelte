@@ -1,18 +1,18 @@
 <script lang="ts">
-  import type { ExpertiseDiceGrant } from "#types/itemGrants.d.ts";
+  import type { Grant } from "#data/item/Grants/GrantsField.ts";
 
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
 
   type Props = {
-    grant: ExpertiseDiceGrant;
+    grant: Grant<"expertiseDice">;
     base: string[];
     choices: string[];
     count: number;
     expertiseType: string;
     selected: string[];
-    updateSelectionFunc?: (value: any) => voido;
+    updateSelectionFunc?: (value: any) => void;
   };
 
   function getGrantSummary(selected) {
@@ -22,7 +22,7 @@
     return "";
   }
 
-  function onUpdateSelection(value) {
+  function onUpdateSelection(value: string[]) {
     selected = value;
     updateSelectionFunc?.({ selected, summary });
   }
