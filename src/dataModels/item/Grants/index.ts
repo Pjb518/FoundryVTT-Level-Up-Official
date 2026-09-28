@@ -15,6 +15,7 @@ import { RollOverrideGrant } from './RollOverrideGrant.ts';
 import { SensesGrant } from './SensesGrant.ts';
 import { SkillGrant } from './SkillGrant.ts';
 import { SkillSpecialtyGrant } from './SkillSpecialtyGrant.ts';
+import { SpellGrant } from './SpellGrant.ts';
 import { TraitGrant } from './TraitGrant.ts';
 
 export default {
@@ -35,6 +36,7 @@ export default {
 	senses: SensesGrant,
 	skill: SkillGrant,
 	skillSpecialty: SkillSpecialtyGrant,
+	spell: SpellGrant,
 	trait: TraitGrant,
 };
 
@@ -55,5 +57,6 @@ export const ITEM_GRANT_TYPES = {
 	senses: SensesGrant,
 	skill: SkillGrant,
 	skillSpecialty: SkillSpecialtyGrant,
+	spell: SpellGrant,
 	trait: TraitGrant,
 };

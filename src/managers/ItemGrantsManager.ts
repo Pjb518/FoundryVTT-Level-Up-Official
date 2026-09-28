@@ -1,4 +1,5 @@
 import type { Grant, GrantTypes } from '#data/item/Grants/GrantsField.ts';
+import { ITEM_GRANT_TYPES } from '#data/item/Grants/index.ts';
 
 export class ItemGrantsManager extends Map<string, Grant> {
 	#item: Item.OfType<'feature'> | OriginItems;
@@ -103,24 +104,17 @@ export class ItemGrantsManager extends Map<string, Grant> {
 	 *                Static methods
 	 * ************************************************ */
 	static async addGrant(item: any, data = {}, update = true, returnId = false) {
-		// @ts-expect-error
-		const newGrant: Grant = foundry.utils.mergeObject(
-			{
-				type: 'skill',
-				level: 1,
-				levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character',
-			},
-			data,
-		);
+		const model = ITEM_GRANT_TYPES[data.type || 'skill'];
+		const initial = model.schema.getInitialValue();
+		initial.levelType = ['class', 'archetype'].includes(item.type) ? 'class' : 'character';
+
+		const newGrant: Grant = foundry.utils.mergeObject(initial, data);
 
 		const id = foundry.utils.randomID();
 		newGrant.id = id;
 
 		const updateData = {
-			'system.grants': {
-				...item.system.grants,
-				[id]: newGrant,
-			},
+			[`system.grants.${id}`]: newGrant,
 		};
 
 		if (update) await item.update(updateData);

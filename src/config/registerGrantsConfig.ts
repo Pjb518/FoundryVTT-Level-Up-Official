@@ -16,6 +16,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		senses: 'A5E.grants.headings.senses',
 		skill: 'A5E.grants.headings.skill',
 		skillSpecialty: 'A5E.grants.headings.skillSpecialty',
+		spell: 'A5E.grants.headings.spell',
 		trait: 'A5E.grants.headings.trait',
 	};
 

@@ -12,16 +12,17 @@
     if (type === "feature") {
       uuids = uuids.filter((_, i) => i !== idx);
       onUpdateSelection(uuids);
-    }
-
-    if (type === "item") {
+    } else if (type === "object") {
+      embeddedData = embeddedData.filter((_, i) => i !== idx);
+      onUpdateSelection(embeddedData);
+    } else {
       embeddedData = embeddedData.filter((_, i) => i !== idx);
       onUpdateSelection(embeddedData);
     }
   }
 
   function onUpdateQuantity(idx: number, value: number | string) {
-    if (type === "item") {
+    if (type === "object") {
       embeddedData[idx].quantityOverride = value;
       onUpdateSelection(embeddedData);
 
@@ -40,19 +41,23 @@
         .filter(Boolean);
     }
 
-    if (type === "item") {
+    if (type === "object") {
       return embeddedData
         .map(({ uuid, quantityOverride }) => {
           const i = fromUuidSync(uuid);
           if (!i) return null;
-          console.log(uuid);
-          console.log(i);
           return [i.img, i.name, quantityOverride || i.system?.quantity || 1];
         })
         .filter(Boolean);
     }
 
-    return [];
+    return embeddedData
+      .map((uuid) => {
+        const i = fromUuidSync(uuid);
+        if (!i) return null;
+        return [i.img, i.name];
+      })
+      .filter(Boolean);
   }
 
   let {
@@ -72,7 +77,7 @@
 
       <span class="a5e-tag-name">{name}</span>
 
-      {#if type === "item"}
+      {#if type === "object"}
         <input
           class="a5e-input a5e-input--slime a5e-input--small a5e-tag-count"
           type="number"

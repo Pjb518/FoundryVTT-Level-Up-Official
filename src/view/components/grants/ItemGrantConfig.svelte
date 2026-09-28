@@ -110,7 +110,7 @@
 
     <DropTag
       embeddedData={grant.config.items.base}
-      type="item"
+      type="object"
       onUpdateSelection={(value) => onUpdateValue("config.items.base", value)}
     />
   </Section>
@@ -125,7 +125,7 @@
 
     <DropTag
       embeddedData={grant.config.items.options}
-      type="item"
+      type="object"
       onUpdateSelection={(value) =>
         onUpdateValue("config.items.options", value)}
     />

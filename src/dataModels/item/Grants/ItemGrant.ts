@@ -78,7 +78,7 @@ const schema = () => ({
 	name: new fields.StringField({
 		required: true,
 		nullable: false,
-		initial: 'New Item Bonus Grant',
+		initial: 'New Item Grant',
 	}),
 	type: new fields.StringField({
 		required: true,
