@@ -747,6 +747,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this.prepareHitPoints();
 		this.prepareSpellResources();
 		this.prepareResources();
+		this.prepareRollOverrides();
 	}
 
 	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {
@@ -1332,6 +1333,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const resources = { ...genericResources, ...classResources };
 
 		this.system.resources = resources;
+	}
+
+	prepareRollOverrides(this: Character) {
+		// TODO: Prep roll mode override and expertise dice grants here
 	}
 
 	/** ---------------------------------- */

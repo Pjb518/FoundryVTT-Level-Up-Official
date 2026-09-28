@@ -57,7 +57,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 	};
 
 	const traitGrantConfigObject = {
-		lignment: {
+		alignment: {
 			label: 'A5E.traits.headings.alignment',
 			config: Object.entries(config.alignments),
 			propertyKey: 'system.traits.alignment',

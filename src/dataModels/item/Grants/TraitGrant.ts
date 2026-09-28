@@ -25,9 +25,10 @@ const schema = () => ({
 			traitType: new fields.StringField({
 				required: true,
 				nullable: false,
-				intitial: 'conditionImmunities',
+				initial: 'conditionImmunities',
 			}),
 		}),
+		upgradeResist: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	}),
 
 	// Applied
@@ -105,6 +106,7 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			selected,
 			total: count,
 			traitType: this.config.traits.traitType,
+			upgraded: [],
 			grantType: this.#type,
 			level: this.level,
 			isApplied: true,
@@ -116,12 +118,36 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 		if (!propertyKey) return {};
 		if (!selected.length) return {};
 
-		let traits: Set<string>;
+		const updates: Record<string, any> = {};
 
 		if (this.config.traits.traitType === 'size') {
-			traits = new Set([selected[0]]);
+			updates[propertyKey] = [...new Set([selected[0]])];
+		} else if (this.config.traits.traitType === 'damageResistances') {
+			const resistances = new Set(
+				(foundry.utils.getProperty(actor, propertyKey) ?? []) as string[],
+			);
+			const toAdd = new Set(selected);
+
+			if (this.config.upgradeResist) {
+				const immunities = new Set(
+					(foundry.utils.getProperty(actor, 'system.traits.damageImmunities') ?? []) as string[],
+				);
+				const upgraded = new Set<string>();
+
+				selected.forEach((val) => {
+					if (!resistances.has(val)) return;
+
+					upgraded.add(val);
+					toAdd.delete(val);
+				});
+
+				appliedData.upgraded = [...upgraded];
+				updates['system.traits.damageImmunities'] = [...upgraded, ...immunities];
+			}
+
+			updates[propertyKey] = new Set([...toAdd, ...resistances]);
 		} else {
-			traits = new Set([
+			updates[propertyKey] = new Set([
 				...selected,
 				...((foundry.utils.getProperty(actor, propertyKey) as string[]) ?? []),
 			]);
@@ -129,7 +155,7 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
-			updateData: { [propertyKey]: [...traits] },
+			updateData: updates,
 		};
 	}
 

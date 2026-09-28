@@ -1,11 +1,9 @@
-import type { ActorGrant, TraitGrant } from '#types/actorGrants.d.ts';
 import fromUuidMulti from '#utils/fromUuidMulti.ts';
 import prepareGrantsApplyData from '#utils/prepareGrantsApplyData.ts';
 import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObject.ts';
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
 import GrantApplicationDialog from '#view/components/grants/GrantApplicationDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
-import actorGrants from '../dataModels/actor/grants';
 import type {
 	AppliedGrantTypes,
 	Grant,
@@ -861,8 +859,33 @@ class ActorGrantsManager extends Map<string, Grant> {
 			);
 
 			if (appliedData.traitType === 'size') updates[propertyKey] = '';
-			// @ts-expect-error
-			else updates[propertyKey] = [...traits.difference(removals)];
+			else if (appliedData.traitType === 'damageResistances') {
+				const removals: Set<string> = new Set(appliedData.selected);
+
+				if (grant.config.upgradeResist) {
+					const immunities = new Set(
+						(foundry.utils.getProperty(this.actor, 'system.traits.damageImmunities') as string[]) ??
+							[],
+					);
+					const upgraded = new Set(grant.applied.upgraded);
+
+					[...removals].forEach((val) => {
+						if (!upgraded.has(val)) return;
+						removals.delete(val);
+						immunities.delete(val);
+					});
+
+					updates['system.traits.damageImmunities'] = [...immunities];
+				}
+
+				// @ts-expect-error
+				updates[propertyKey] = [...traits.difference(removals)];
+
+				// Other
+			} else {
+				// @ts-expect-error
+				updates[propertyKey] = [...traits.difference(removals)];
+			}
 
 			return updates;
 		}

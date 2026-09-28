@@ -1,17 +1,17 @@
 <script lang="ts">
   import { setContext } from "svelte";
+  import type { TraitGrant } from "#data/item/Grants/TraitGrant.ts";
   import { localize } from "#utils/localization/localize.ts";
 
   import prepareTraitGrantConfigObject from "#utils/prepareTraitGrantConfigObject.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-  import GrantConfig from "./GrantConfig.svelte";
-
+  import Checkbox from "#view/snippets/Checkbox.svelte";
   import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-  import Section from "#view/snippets/Section.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
-  import type { TraitGrant } from "#data/item/Grants/TraitGrant.ts";
+  import Section from "#view/snippets/Section.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -133,5 +133,14 @@
     </FieldWrapper>
   </Section>
 
-  <GrantConfig />
+  <GrantConfig>
+    {#if traitType === "damageResistances"}
+      <Checkbox
+        label="Upgrade to immunity if already resistant"
+        checked={grant.config.upgradeResist ?? true}
+        onUpdateSelection={(value: boolean) =>
+          onUpdateValue("config.upgradeResist", value)}
+      />
+    {/if}
+  </GrantConfig>
 </form>

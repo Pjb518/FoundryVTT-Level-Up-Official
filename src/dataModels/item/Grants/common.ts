@@ -81,6 +81,10 @@ export const traitGrantSchema = () => ({
 		new fields.StringField({ required: true, nullable: false, initial: '' }),
 		{ required: true, nullable: false, initial: [] },
 	),
+	upgraded: new fields.ArrayField(
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
+		{ required: true, nullable: false, initial: [] },
+	),
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	traitType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
