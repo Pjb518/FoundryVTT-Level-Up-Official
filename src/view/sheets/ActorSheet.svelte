@@ -79,7 +79,7 @@
         label: "A5E.tabs.hacking",
         icon: "fa-solid fa-laptop-code",
         component: ActorHackingPage,
-        display: flags?.a5e?.showHackingTab,
+        display: flags?.a5e?.showHackingTab ?? false,
       },
       {
         name: "maneuvers",
@@ -199,6 +199,10 @@
 
     &__page {
       grid-area: page;
+
+      display: flex;
+      flex-direction: column;
+
       padding-inline: 0.5rem;
       padding-block: 0.75rem;
       overflow-y: hidden;
