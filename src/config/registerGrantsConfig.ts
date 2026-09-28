@@ -37,7 +37,11 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		},
 		savingThrow: {
 			label: 'A5E.rollLabels.savingThrows.titlePlural',
-			config: Object.entries(config.abilities),
+			config: [
+				...Object.entries(config.abilities),
+				['concentration', 'Concentration'],
+				['death', 'Death'],
+			],
 			propertyKey: '',
 		},
 		tool: {

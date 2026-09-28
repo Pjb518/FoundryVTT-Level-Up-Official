@@ -11,6 +11,7 @@
   function addGrant(detail: string) {
     const data = {
       grantType: detail,
+      type: detail,
       optional: false,
     };
 

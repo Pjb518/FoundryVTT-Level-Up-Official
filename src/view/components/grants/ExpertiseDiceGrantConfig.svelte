@@ -64,6 +64,14 @@
       label: "A5E.actions.headings.options.attack",
       options: Object.entries(CONFIG.A5E.attackTypes),
     },
+    concentration: {
+      label: "A5E.conditions.concentration.name",
+      options: [],
+    },
+    death: {
+      label: "Death",
+      options: [],
+    },
     initiative: {
       label: "A5E.initiative.title",
       options: [],

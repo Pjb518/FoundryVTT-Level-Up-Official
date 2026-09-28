@@ -1103,7 +1103,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Get best pool type from actor grants
 		const pools = this.grants?.byType('exertion').reduce((acc, grant) => {
-			if (grant.applied.exertionType === 'pool') acc.push(grant.poolType);
+			if (grant.applied.exertionType === 'pool') acc.push(grant.config.poolType);
 			return acc;
 		}, [] as string[]);
 

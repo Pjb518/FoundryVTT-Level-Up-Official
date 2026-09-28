@@ -61,7 +61,6 @@ export class ItemGrantsManager extends Map<string, Grant> {
 
 	override async clear() {
 		await this.#item.update({
-			// @ts-expect-error
 			'system.grants': _del,
 		});
 

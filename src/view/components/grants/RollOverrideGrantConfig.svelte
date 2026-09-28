@@ -1,16 +1,15 @@
 <script lang="ts">
   import { setContext } from "svelte";
+  import type { RollOverrideGrant } from "#data/item/Grants/RollOverrideGrant.ts";
   import { localize } from "#utils/localization/localize.ts";
 
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-  import GrantConfig from "./GrantConfig.svelte";
-
-  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-  import Section from "#view/snippets/Section.svelte";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
-  import type { RollOverrideGrant } from "#data/item/Grants/RollOverrideGrant.ts";
+  import Section from "#view/snippets/Section.svelte";
+  import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
     document: any;
@@ -135,6 +134,7 @@
         label,
       ])}
       selected={rollOverrideType}
+      allowDeselect={false}
       onUpdateSelection={(value) => {
         onUpdateValue("config.rollOverrideType", value);
       }}
