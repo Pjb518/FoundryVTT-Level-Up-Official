@@ -13,7 +13,7 @@
   import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
   import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
   import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
-  import ActorHackingPage from "./pages/ActorhackingPage.svelte";
+  import ActorHackingPage from "./pages/ActorHackingPage.svelte";
   import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
   import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
   import ActorNotesPage from "./pages/ActorNotesPage.svelte";
