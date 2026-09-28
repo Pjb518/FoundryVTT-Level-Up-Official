@@ -85,7 +85,7 @@ class HealingGrant extends BaseGrant<HealingGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.healing.${bonusId}`]: bonus,
 			},
 		};
 	}

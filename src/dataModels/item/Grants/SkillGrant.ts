@@ -117,7 +117,7 @@ class SkillGrant extends BaseGrant<SkillGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.skills.${bonusId}`]: bonus,
 			},
 		};
 	}

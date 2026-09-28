@@ -1,4 +1,5 @@
 import { localize } from '#utils/localization/localize.ts';
+import { constructRollFormula } from '../dice/constructRollFormula.ts';
 
 export default class HitDiceManager {
 	#actor: Creature;
@@ -135,7 +136,7 @@ export default class HitDiceManager {
 			if (!dieSize) return null;
 			if (attributes.hitDice[dieSize].current - quantity < 0) return null;
 
-			const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
+			const formula = `${quantity}${dieSize} + ${quantity * conMod}[Constitution Mod]`;
 
 			const { hookData, chatData } = await this.#rollHitDice(
 				dieSize,
@@ -209,7 +210,32 @@ export default class HitDiceManager {
 	): Promise<{ hookData: any; chatData: any }> {
 		const { attributes } = this.#actor.system;
 
-		const roll = await new Roll(formula).roll();
+		let roll: Roll.Evaluated<Roll>;
+
+		if (heal) {
+			// Get healing bonuses
+			const rollData = {
+				healing: [
+					{
+						type: 'healing',
+						formula,
+						healingType: 'hitDice',
+					},
+				],
+			};
+
+			const healingBonuses = this.#actor.BonusesManager._prepareGlobalHealingBonuses({}, rollData);
+
+			let healFormula = formula;
+			healingBonuses.forEach(([, bonus]) => {
+				healFormula += ` + ${bonus.formula}[${bonus.label}]`;
+			});
+
+			// @ts-expect-error
+			healFormula = constructRollFormula({ formula: healFormula, actor: this.#actor }).rollFormula;
+
+			roll = await new CONFIG.Dice.BaseRoll(healFormula).roll();
+		} else roll = await new Roll(formula).roll();
 
 		const title = localize('A5E.HitDiceChatHeader', {
 			dieSize: dieSize.toUpperCase(),

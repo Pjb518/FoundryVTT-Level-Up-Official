@@ -85,7 +85,7 @@ class DamageGrant extends BaseGrant<DamageGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.damage.${bonusId}`]: bonus,
 			},
 		};
 	}

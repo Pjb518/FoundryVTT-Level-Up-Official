@@ -118,7 +118,7 @@ class SensesGrant extends BaseGrant<SensesGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.senses.${bonusId}`]: bonus,
 			},
 		};
 	}

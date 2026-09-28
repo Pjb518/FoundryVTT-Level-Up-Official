@@ -81,7 +81,7 @@ class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.hitPoint.${bonusId}`]: bonus,
 			},
 		};
 	}

@@ -83,7 +83,7 @@ class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.initiative.${bonusId}`]: bonus,
 			},
 		};
 	}

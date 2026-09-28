@@ -552,7 +552,7 @@ class BonusesManager {
 		const counts = {};
 
 		const healingRolls = rolls.healing ?? [];
-		const spellLevel = item.type === 'spell' ? item.system.level || 1 : null;
+		const spellLevel = item?.type === 'spell' ? item.system.level || 1 : null;
 
 		if (!healingRolls.length) return [];
 

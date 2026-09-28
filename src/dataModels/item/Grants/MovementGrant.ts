@@ -115,7 +115,7 @@ class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),
 			updateData: {
-				[`system.bonuses.abilities.${bonusId}`]: bonus,
+				[`system.bonuses.movement.${bonusId}`]: bonus,
 			},
 		};
 	}
