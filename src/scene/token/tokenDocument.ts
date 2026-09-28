@@ -381,14 +381,12 @@ class TokenDocumentA5E extends TokenDocument {
 		const data = super.getBarAttribute(barName, { alternative });
 
 		if (data && data.attribute === 'attributes.hp') {
-			data.value += parseInt(
+			const temp = parseInt(
 				foundry.utils.getProperty(this.actor.system, 'attributes.hp.temp') || 0,
 				10,
 			);
-			data.max += parseInt(
-				foundry.utils.getProperty(this.actor.system, 'attributes.hp.temp') || 0,
-				10,
-			);
+
+			return { ...data, value: data.value + temp, max: data.max + temp };
 		}
 
 		return data;
