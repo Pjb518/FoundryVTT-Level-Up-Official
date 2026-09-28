@@ -4,6 +4,7 @@ import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
 import getAttackAbility from '#utils/getAttackAbility.ts';
+import { getNearestDocument } from '#utils/getNearestDocument.ts';
 import { getRollFormula } from '#utils/getRollFormula.ts';
 import { scalingFieldBase, scalingFieldRoll } from '../../fields/ScalingField.ts';
 
@@ -228,7 +229,8 @@ export class AttackRollData extends DataModel<AttackRollData.Schema> {
 
 	getFormula() {
 		const { attackType } = this;
-		const item = this.getNearestDocument();
+		// const item = this.getNearestDocument();
+		const item = getNearestDocument(this);
 		const actor = item?.actor;
 		if (!actor) return null;
 
