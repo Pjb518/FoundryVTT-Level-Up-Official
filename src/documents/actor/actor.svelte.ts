@@ -1102,10 +1102,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		let max = 0;
 
 		// Get best pool type from actor grants
-		// @ts-expect-error
-		const pools = this.grants?.byType('exertion').reduce((acc, { exertionData }) => {
-			if (!exertionData) return acc;
-			if (exertionData.exertionType === 'pool') acc.push(exertionData.poolType);
+		const pools = this.grants?.byType('exertion').reduce((acc, grant) => {
+			if (grant.applied.exertionType === 'pool') acc.push(grant.poolType);
 			return acc;
 		}, [] as string[]);
 
