@@ -269,8 +269,8 @@ class TokenA5E extends foundry.canvas.placeables.Token {
 	/** Specialized drawing function for HP bars. */
 	_drawHPBar(index: number, bar: PIXI.Graphics) {
 		// Extract health data
-		const { value, max, temp } = this.document.actor?.system?.attributes?.hp ?? {};
-		if (!value || !max || !temp) return;
+		const { value, max, temp = 0 } = this.document.actor?.system?.attributes?.hp ?? {};
+		if (value === undefined || !max) return;
 
 		// Allocate percentages of the total
 		const tempPct = Math.clamp(temp, 0, max) / max;
