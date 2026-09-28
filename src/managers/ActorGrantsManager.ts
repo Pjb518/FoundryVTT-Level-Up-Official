@@ -798,7 +798,10 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 				const [profType, val] = parts;
 				if (profType === 'savingThrow') {
-					updates[`system.abilities.${val}.save.proficient`] = false;
+					if (val === 'death') updates['system.attributes.death.proficient'] = false;
+					else if (val === 'concentration') {
+						updates['system.attributes.concentration.proficient'] = false;
+					} else updates[`system.abilities.${val}.save.proficient`] = false;
 				} else if (profType === 'skill') {
 					// @ts-expect-error
 					if (grant.config.upgradeToExpertise) {

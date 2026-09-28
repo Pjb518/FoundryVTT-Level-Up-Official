@@ -22,7 +22,11 @@ export default function prepareProficiencyConfigObject() {
 		},
 		savingThrow: {
 			label: 'A5E.rollLabels.savingThrows.titlePlural',
-			config: Object.entries(CONFIG.A5E.abilities),
+			config: [
+				...Object.entries(CONFIG.A5E.abilities),
+				['concentration', 'Concentration'],
+				['death', 'Death'],
+			],
 			propertyKey: '',
 		},
 		tool: {

@@ -125,7 +125,10 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 
 			const [profType, val] = parts;
 			if (profType === 'savingThrow') {
-				updateData[`system.abilities.${val}.save.proficient`] = true;
+				if (val === 'death') updateData['system.attributes.death.proficient'] = true;
+				else if (val === 'concentration')
+					updateData['system.attributes.concentration.proficient'] = true;
+				else updateData[`system.abilities.${val}.save.proficient`] = true;
 			} else if (profType === 'skill') {
 				if (actor.system.skills[val].proficient && this.config.upgradeToExpertise) {
 					updateData[`system.skills.${val}.expertiseDice`] =

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { setContext } from "svelte";
-  import { localize } from "#utils/localization/localize.ts";
+  import type { Grant } from "#data/item/Grants/GrantsField.ts";
   import prepareProficiencyConfigObject from "#utils/prepareProficiencyConfigObject.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
@@ -8,14 +8,13 @@
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
   import ComplexDetailEmbed from "#view/snippets/ComplexDetailEmbed.svelte";
   import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
-  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
   import Tag from "#view/snippets/Tag.svelte";
   import GrantConfig from "./GrantConfig.svelte";
 
   type Props = {
-    document: Item.ofType<"feature">;
+    document: Item.OfType<"feature">;
     grantId: string;
     grantType: string;
   };
@@ -40,7 +39,7 @@
 
   function getDisabled() {
     if (selectedMode === "base") return [];
-    return [...convertValues(grant.config.keys.base)];
+    return convertValues([...grant.config.keys.base]);
   }
 
   function getModes() {
@@ -70,14 +69,14 @@
 
   function getSelectedOpts() {
     if (selectedMode === "base") {
-      return [...convertValues(grant.config.keys.base)];
+      return convertValues([...grant.config.keys.base]);
     }
 
     console.log(selectedMode);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    return [
-      ...convertValues(grant.config.keys.options[idx ?? 0].candidates ?? []),
-    ];
+    return convertValues([
+      ...(grant.config.keys.options[idx ?? 0].candidates ?? []),
+    ]);
   }
 
   function updateImage() {
@@ -107,7 +106,7 @@
     });
 
     if (selectedMode === "base") {
-      const toKeep = grant.config.keys.base.filter(
+      const toKeep = [...grant.config.keys.base].filter(
         (val) => !val.startsWith(proficiencyType),
       );
       onUpdateValue(`config.keys.base`, [...toKeep, ...converted]);
@@ -119,6 +118,7 @@
     const toKeep = opts[idx].candidates.filter(
       (val) => !val.startsWith(proficiencyType),
     );
+    // @ts-expect-error
     opts[idx].candidates = [...toKeep, ...converted];
     onUpdateValue("config.keys.options", opts);
   }
@@ -134,8 +134,9 @@
   const configObject = prepareProficiencyConfigObject();
   const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-  let grant = $derived(item.reactive.system.grants[grantId]);
-  $inspect(grant);
+  let grant = $derived(
+    item.reactive.system.grants[grantId],
+  ) as Grant<"proficiency">;
 
   // View vars
   let addModes = $derived(getModes());

@@ -72,9 +72,11 @@ export const attributes = () => ({
 			new fields.StringField({ required: true, nullable: false, initial: '' }),
 			{ required: true, nullable: false },
 		),
+		proficient: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 		...d20RollModification(),
 	}),
 	death: new fields.SchemaField({
+		proficient: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 		success: new fields.NumberField({
 			required: true,
 			nullable: false,
