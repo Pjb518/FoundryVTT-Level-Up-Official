@@ -66,6 +66,11 @@
             icon: "fa-solid fa-dna",
         },
         {
+            name: "hacking",
+            label: "Hacking Maneuvers",
+            icon: "fa-solid fa-laptop-code",
+        },
+        {
             name: "interaction",
             label: "Interactions",
             icon: "fa-solid fa-star-of-life",
@@ -106,6 +111,7 @@
         destiny: "Destinies",
         feature: "Features",
         heritage: "Heritages",
+        hacking: "Hacking Maneuvers",
         interaction: "Interactions",
         maneuver: "Maneuvers",
         npc: "Monsters",

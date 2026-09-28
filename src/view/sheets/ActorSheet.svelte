@@ -13,6 +13,7 @@
   import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
   import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
   import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
+  import ActorHackingPage from "./pages/ActorHackingPage.svelte";
   import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
   import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
   import ActorNotesPage from "./pages/ActorNotesPage.svelte";
@@ -74,6 +75,13 @@
         footerComponent: ActorFeaturesFooter,
       },
       {
+        name: "hacking",
+        label: "A5E.tabs.hacking",
+        icon: "fa-solid fa-laptop-code",
+        component: ActorHackingPage,
+        display: flags?.a5e?.showHackingTab ?? false,
+      },
+      {
         name: "maneuvers",
         label: "A5E.tabs.maneuvers",
         icon: "fa-solid fa-hand-fist",
@@ -89,12 +97,6 @@
         footerComponent: ActorSpellsFooter,
         display: flags?.a5e?.showSpellTab,
       },
-      // {
-      //     name: "biography",
-      //     label: "A5E.tabs.biography",
-      //     component: ActorBioPage,
-      //     display: actor.type === "character",
-      // },
       {
         name: "interactions",
         label: "A5E.interactions.tab",
@@ -178,6 +180,7 @@
 
 <style lang="scss">
   .a5e-actor-sheet {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 100%;
@@ -196,6 +199,10 @@
 
     &__page {
       grid-area: page;
+
+      display: flex;
+      flex-direction: column;
+
       padding-inline: 0.5rem;
       padding-block: 0.75rem;
       overflow-y: hidden;

@@ -9,6 +9,7 @@ export function getDetailsLabel(doc) {
 
 	if (type === 'archetype') return getArchetypeDetailsLabel(doc);
 	if (type === 'feature') return getFeatureDetailsLabel(doc);
+	if (type === 'hacking') return getHackingDetailsLabel(doc);
 	if (type === 'interaction') return getInteractionDetailsLabel(doc);
 	if (type === 'maneuver') return getManeuverDetailsLabel(doc);
 	if (type === 'npc') return getMonsterDetailsLabel(doc);
@@ -42,6 +43,16 @@ function getFeatureDetailsLabel(feature: Item): string {
 	}
 
 	return featureProperties.filter(Boolean).join(' | ');
+}
+
+function getHackingDetailsLabel(hacking: Item): string {
+	const diceCost = hacking.system.diceCost
+		? `(${hacking.system.diceCost} ${localize(
+				hacking.system.diceCost > 1 ? 'A5E.hacking.diePlural' : 'A5E.hacking.die',
+			)})`
+		: '';
+
+	return diceCost;
 }
 
 function getInteractionDetailsLabel(interaction: Item): string {

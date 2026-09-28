@@ -79,6 +79,7 @@ declare module 'fvtt-types/configuration' {
 				deathSaveThreshold: number;
 				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
+        showHackingTab: boolean;
 			};
 		};
 	}

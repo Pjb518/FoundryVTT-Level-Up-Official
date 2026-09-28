@@ -7,6 +7,7 @@
     import ContainerConfiguration from "../../components/item/ContainerConfiguration.svelte";
     import EndemicLifeConfiguration from "../../components/item/EndemicLifeConfiguration.svelte";
     import FeatureConfiguration from "../../components/item/FeatureConfiguration.svelte";
+    import HackingConfiguration from "../../components/item/HackingConfiguration.svelte";
     import InteractionConfiguration from "../../components/item/InteractionConfiguration.svelte";
     import ManeuverConfiguration from "../../components/item/ManeuverConfiguration.svelte";
     import MaterialConfiguration from "../../components/item/MaterialConfiguration.svelte";
@@ -25,6 +26,8 @@
     {#if item.type === "feature"}
         <FeatureConfiguration />
         <ArmorClassConfiguration />
+    {:else if item.type === "hacking"}
+        <HackingConfiguration />
     {:else if item.type === "interaction"}
         <InteractionConfiguration />
     {:else if item.type === "maneuver"}

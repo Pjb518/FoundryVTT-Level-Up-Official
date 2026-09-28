@@ -188,6 +188,17 @@ const featureConfig = {
 	},
 };
 
+const hackingFilterConfig = {
+	diceCost: {
+		key: 'system.diceCost',
+		type: 'range',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
+};
+
 const interactionConfig = {
 	interactionType: {
 		key: 'system.interactionType',
@@ -220,6 +231,7 @@ const genericConfig = {
 const typeMap = {
 	archetype: archetypesFilterConfig,
 	feature: featureConfig,
+	hacking: hackingFilterConfig,
 	interaction: interactionConfig,
 	maneuver: maneuverFilterConfig,
 	npc: monstersFilterConfig,

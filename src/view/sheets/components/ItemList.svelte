@@ -262,7 +262,7 @@
   </ul>
 {/if}
 
-{#if showContainerItems}
+{#if showContainerItems && containerItems.length > 0}
   <ul class="a5e-item-list a5e-item-list--sub-items">
     {#each containerItems as [id, child] (id)}
       <svelte:self item={child} />
