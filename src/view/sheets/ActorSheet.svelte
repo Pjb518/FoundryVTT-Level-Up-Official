@@ -76,7 +76,7 @@
       },
       {
         name: "hacking",
-        label: "A5e.tabs.hacking",
+        label: "A5E.tabs.hacking",
         icon: "fa-solid fa-laptop-code",
         component: ActorHackingPage,
         display: flags?.a5e?.showHackingTab,
@@ -97,12 +97,6 @@
         footerComponent: ActorSpellsFooter,
         display: flags?.a5e?.showSpellTab,
       },
-      // {
-      //     name: "biography",
-      //     label: "A5E.tabs.biography",
-      //     component: ActorBioPage,
-      //     display: actor.type === "character",
-      // },
       {
         name: "interactions",
         label: "A5E.interactions.tab",
@@ -186,6 +180,7 @@
 
 <style lang="scss">
   .a5e-actor-sheet {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 100%;
