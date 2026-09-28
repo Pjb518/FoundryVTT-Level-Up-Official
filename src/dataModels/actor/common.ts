@@ -31,7 +31,6 @@ export const abilities = () => ({
 				initial: 0,
 			}),
 			check: new fields.SchemaField({
-				expertiseDice: new ExpertiseDieField(),
 				mod: new fields.NumberField({
 					persisted: false,
 					required: true,
@@ -43,7 +42,6 @@ export const abilities = () => ({
 			}),
 			save: new fields.SchemaField({
 				proficient: new fields.BooleanField({ required: true, initial: false }),
-				expertiseDice: new ExpertiseDieField(),
 				mod: new fields.NumberField({
 					persisted: false,
 					required: true,
@@ -125,7 +123,6 @@ export const attributes = () => ({
 	}),
 	initiative: new fields.SchemaField({
 		ability: new fields.StringField({ required: true, initial: 'dex' }),
-		expertiseDice: new ExpertiseDieField(),
 		// TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
 		// bonus: new fields.StringField({ required: true, initial: '' }),
 		...d20RollModification(),
@@ -368,11 +365,9 @@ export const resources = () => ({
 /** Used in system.rolls */
 const attackData = () => ({
 	incoming: new fields.SchemaField({
-		expertiseDice: new ExpertiseDieField(),
 		...d20RollModification(),
 	}),
 	outgoing: new fields.SchemaField({
-		expertiseDice: new ExpertiseDieField(),
 		...d20RollModification(),
 	}),
 });
@@ -397,7 +392,6 @@ export const rolls = () => ({
 	),
 	death: new fields.SchemaField(
 		{
-			expertiseDice: new ExpertiseDieField(),
 			...d20RollModification(),
 		},
 		{ persisted: false },
@@ -424,7 +418,6 @@ export const skills = () => ({
 				required: true,
 				initial: [],
 			}),
-			expertiseDice: new ExpertiseDieField(),
 			bonuses: new fields.SchemaField({
 				check: new fields.StringField({ required: true, initial: '' }),
 				passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
