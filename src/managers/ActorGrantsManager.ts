@@ -110,7 +110,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		const classes = Object.keys(this.actor.levels.classes);
 		const characterLevel: number = classes.length
-			? this.actor.levels.character + 1
+			? this.actor.levels.character
 			: this.actor.levels.character;
 
 		let itemSlug: string;
@@ -119,7 +119,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		else if (item.isType('archetype')) itemSlug = item.system.class;
 		else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
 
-		const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 0) + 1;
+		const classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 0;
 
 		const grants: Grant[] = [...item.grants.values()];
 		grants.forEach((grant) => {
