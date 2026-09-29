@@ -121,19 +121,7 @@
     />
   </Section>
 
-  <GrantConfig>
-    <FieldWrapper heading="Total Count">
-      <input
-        class="a5e-input a5e-input--slim a5e-input--small"
-        type="number"
-        value={grant.config.spells.total ?? 0}
-        onchange={({ currentTarget }) =>
-          onUpdateValue("config.spells.total", Number(currentTarget.value))}
-      />
-    </FieldWrapper>
-
-    <hr />
-
+  <Section heading="Spell Config" --a5e-section-body-gap="0.75rem">
     <Checkbox
       label="Spell is always prepared"
       checked={grant.config.alwaysPrepared ?? false}
@@ -188,8 +176,18 @@
         />
       {/key}
     </div>
+  </Section>
 
-    <hr />
+  <GrantConfig>
+    <FieldWrapper heading="Total Count">
+      <input
+        class="a5e-input a5e-input--slim a5e-input--small"
+        type="number"
+        value={grant.config.spells.total ?? 0}
+        onchange={({ currentTarget }) =>
+          onUpdateValue("config.spells.total", Number(currentTarget.value))}
+      />
+    </FieldWrapper>
   </GrantConfig>
 </form>
 

@@ -81,7 +81,7 @@ class BaseGrant<
 		return this.id;
 	}
 
-	getApplyData(actor: any, data: any): any {
+	async getApplyData(actor: any, data: any): any {
 		return {};
 	}
 

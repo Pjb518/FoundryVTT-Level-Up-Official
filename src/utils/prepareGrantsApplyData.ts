@@ -64,5 +64,5 @@ export default function prepareApplyData(
 		itemUpdateData.push(appliedData);
 	});
 
-	return { updateData, documentData, itemUpdateData };
+	return { updateData, documentData, itemUpdateData: itemUpdateData.filter(Boolean) };
 }

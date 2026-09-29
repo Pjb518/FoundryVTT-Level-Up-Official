@@ -142,6 +142,13 @@
   {#if heading}
     <header class="a5e-code-editor__heading">
       <span>{heading}</span>
+
+      <i
+        class="a5e-button a5e-button--transparent fa-solid fa-info-circle"
+        data-tooltip="Language: {mergedConfig.language}"
+        data-tooltip-direction="UP"
+      ></i>
+
       {#if canPopOut}
         <button
           type="button"
