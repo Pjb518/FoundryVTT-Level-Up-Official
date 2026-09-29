@@ -177,14 +177,16 @@
     {/if}
 
     <!-- Changes  -->
-    Changes
     <div class="a5e-grant__code-editor">
-      <CodeEditor
-        document={item}
-        field="grants.{grantId}.config.changes"
-        content={grant.config.changes ?? "{}"}
-        config={{ language: "json" }}
-      />
+      {#key grant.config.changes}
+        <CodeEditor
+          document={item}
+          field="grants.{grantId}.config.changes"
+          content={grant.config.changes ?? "{}"}
+          config={{ language: "json" }}
+          heading="Changes"
+        />
+      {/key}
     </div>
 
     <hr />
