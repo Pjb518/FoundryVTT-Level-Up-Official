@@ -3,6 +3,8 @@
   import type { SpellGrant } from "#data/item/Grants/SpellGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
+  import CodeEditor from "#view/components/CodeEditor.svelte";
+  import Checkbox from "#view/snippets/Checkbox.svelte";
   import DropArea from "#view/snippets/DropArea.svelte";
   import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
@@ -56,7 +58,7 @@
   let consumerType = $derived(grant.config.consumerData.type ?? []);
 
   let consumerOptions = $derived(
-    grant.schema.getField("config.consumerData.type").choices,
+    grant.schema.getField("config.consumerData.type")?.choices ?? {},
   );
 
   setContext("item", item);
@@ -132,6 +134,13 @@
 
     <hr />
 
+    <Checkbox
+      label="Spell is always prepared"
+      checked={grant.config.alwaysPrepared ?? false}
+      onUpdateSelection={(value) =>
+        onUpdateValue("config.alwaysPrepared", value)}
+    />
+
     <!-- Consumer Type -->
     <FieldWrapper heading="Consumer Type">
       <RadioGroup
@@ -169,8 +178,14 @@
 
     <!-- Changes  -->
     Changes
-    <!-- TODO: Change this into an instance of code-mirror -->
-    <input type="text" />
+    <div class="a5e-grant__code-editor">
+      <CodeEditor
+        document={item}
+        field="grants.{grantId}.config.changes"
+        content={grant.config.changes ?? "{}"}
+        config={{ language: "json" }}
+      />
+    </div>
 
     <hr />
   </GrantConfig>

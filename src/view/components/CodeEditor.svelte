@@ -5,6 +5,7 @@
     applicationType?: string;
     content: string;
     config?: {
+      name?: string;
       language?: "javascript" | "json";
       indent?: number;
     };
@@ -16,6 +17,7 @@
 
   function getConfig() {
     const c = {
+      name: `editor-${foundry.utils.randomID()}` || config.name,
       language: config.language || "javascript",
       indent: config.indent ?? 2,
       value: content,
@@ -36,13 +38,22 @@
     const currentContent = codeMirrorElement?.value ?? content;
 
     try {
-      new Function(`return (async function() { ${currentContent} })`)();
+      let updatedContent: string;
+
+      if (mergedConfig.language === "json") {
+        updatedContent = JSON.stringify(currentContent, null, config.indent);
+      } else {
+        new Function(`return (async function() { ${currentContent} })`)();
+      }
       document.update({ [`system.${field}`]: currentContent });
       onSave?.();
 
-      ui.notifications?.info("Macro saved successfully");
+      ui.notifications?.info("Saved successfully");
     } catch (error) {
-      ui.notifications?.error(`Invalid JavaScript: ${error.message}`);
+      console.log(error);
+      ui.notifications?.error(
+        `Invalid ${mergedConfig.language}: ${error.message}`,
+      );
 
       return;
     }
@@ -74,11 +85,10 @@
   });
 </script>
 
-<section class="a5e-macro-page">
-  <div class="a5e-code-editor">
+<section class="a5e-code-editor">
+  <div class="a5e-code-editor__wrapper">
     <div
-      id="a5e-code-mirror-macro"
-      style="display: contents;"
+      id="a5e-code-mirror-{mergedConfig.name}"
       class={rest.class ?? ""}
       bind:this={codeMirrorContainerEl}
     ></div>
@@ -96,14 +106,27 @@
 </section>
 
 <style lang="scss">
-  .a5e-macro-page {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) min-content;
+  .a5e-code-editor {
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
-    overflow: hidden;
+    height: var(--a5e-code-editor-height, 25rem);
+    min-height: 0;
   }
 
-  .a5e-code-editor {
-    height: 25rem;
+  .a5e-code-editor__wrapper {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+
+    & > div {
+      height: 100%;
+      min-height: 0;
+
+      :global(code-mirror) {
+        height: 100%;
+        min-height: 0;
+      }
+    }
   }
 </style>
