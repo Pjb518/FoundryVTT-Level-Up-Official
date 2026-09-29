@@ -15,6 +15,7 @@
     [key: string]: any;
   };
 
+  /** Merge config with defaults */
   function getConfig() {
     const c = {
       name: `editor-${foundry.utils.randomID()}` || config.name,
@@ -32,6 +33,7 @@
     return c;
   }
 
+  /** Handle Saving */
   function handleSave() {
     const codeMirrorElement =
       codeMirrorContainerEl?.querySelector("code-mirror");
@@ -57,6 +59,21 @@
 
       return;
     }
+  }
+
+  /** Add support for Ctrl+S */
+  function onEditorActivation(node: HTMLElement) {
+    node.addEventListener("keydown", (e) => {
+      if (
+        game.keyboard.isModifierActive(
+          // @ts-expect-error
+          foundry.helpers.interaction.KeyboardManager.MODIFIER_KEYS.CONTROL,
+        ) &&
+        e.key === "s"
+      ) {
+        handleSave();
+      }
+    });
   }
 
   let {
@@ -91,6 +108,7 @@
       id="a5e-code-mirror-{mergedConfig.name}"
       class={rest.class ?? ""}
       bind:this={codeMirrorContainerEl}
+      use:onEditorActivation
     ></div>
   </div>
 
