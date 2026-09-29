@@ -110,9 +110,10 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: any, data: any): any {
+	override async getApplyData(actor: any, data: any): any {
 		if (!actor) return {};
 
+		// Construct applied data
 		const appliedData: typeof this.applied = {
 			grantType: 'document',
 			level: this.level,
@@ -121,7 +122,27 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 			isApplied: true,
 		};
 
-		return { appliedData: this._getAppliedUpdate(appliedData), updateData: {} };
+		// Construct documents
+		const uuids = data?.uuids ?? this.config.features.base.map(({ uuid }) => uuid) ?? [];
+
+		const documents = (
+			await Promise.all(
+				uuids.map(async (uuid: string) => {
+					const d = (await fromUuid(uuid)) as Item.OfType<'feature'>;
+					if (d?.type !== 'feature') return null;
+
+					const doc = d.toObject();
+
+					return doc;
+				}),
+			)
+		).filter(Boolean);
+
+		return {
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {},
+			documents,
+		};
 	}
 
 	override getSelectionComponent() {

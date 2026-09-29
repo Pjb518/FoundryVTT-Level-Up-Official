@@ -372,14 +372,14 @@ class ActorGrantsManager extends Map<string, Grant> {
 		let dialogData: {
 			updateData: any;
 			success: boolean;
-			documentData: Map<string, ActorGrantsManager.DocumentData[]>;
+			documentData: Map<string, ActorGrantsManager.DocumentData>;
 			itemUpdateData: any[];
 			clsReturnData: Record<string, any>;
 		};
 
 		if (!requiresDialog) {
 			const grants = allGrants.map((grant) => ({ id: grant.id, grant }));
-			const { updateData, documentData, itemUpdateData } = prepareGrantsApplyData(
+			const { updateData, documentData, itemUpdateData } = await prepareGrantsApplyData(
 				this.actor,
 				grants,
 				new Map(),
@@ -417,64 +417,35 @@ class ActorGrantsManager extends Map<string, Grant> {
 		// Create sub items
 		if (dialogData.documentData.size) {
 			for await (const [grantId, docData] of dialogData.documentData) {
-				const docs = (
-					await Promise.all(
-						docData.map(async ({ uuid, type, quantity }) => {
-							// TODO - Make this a proper type
-							const doc = (await fromUuid(uuid))?.toObject() as Record<string, any> | undefined;
-							if (!doc) return null;
+				let docs = docData.docs ?? [];
+				const itemType = docData.type;
 
-							// Update compendium source
-							doc._stats.compendiumSource = uuid;
+				// Check if a feature has already been created
+				let existingIds = new Set<string>();
+				if (itemType === 'feature') {
+					const preCreateIds = new Set<string>(docs.map((d) => d._id));
+					const existing = this.actor.items.filter((i) => preCreateIds.has(i.id));
+					existingIds = new Set<string>(existing.map((i) => i.id));
 
-							if (type === 'feature') return doc;
-							if (!quantity) return doc;
+					docs = docs.filter((d) => !existingIds.has(d._id));
+				}
 
-							doc.system.quantity = quantity;
-							return doc;
-						}),
-					)
-				).filter((d) => !!d);
-
+				// Create documents for this grant
 				try {
-					// We're checking 0 here because we know all similar types are grouped
-					if (docData[0]?.type === 'object') {
-						const objects = docs as Item.OfType<'object'>[];
-						const ids = (await this.actor.createEmbeddedDocuments('Item', objects)).map(
-							(i: any) => i.id,
-						);
+					const ids = (
+						await this.actor.createEmbeddedDocuments('Item', docs, {
+							keepId: itemType === 'feature',
+							// @ts-expect-error
+							noGrant: itemType === 'feature',
+						})
+					).map((i) => i.id);
 
-						const [itemId, gId] = grantId.split('.');
-						dialogData.itemUpdateData.push({
-							_id: itemId,
-							[`system.grants.${gId}.applied.documentIds`]: ids,
-						});
-					} else if (docData[0]?.type === 'feature') {
-						const preCreateIds = docs.map((d: any) => d._id);
-
-						// Check if the feature is already created
-						const existing = this.actor.items.filter((i: any) => preCreateIds.includes(i.id));
-						const existingIds = existing.map((i: any) => i.id);
-
-						const filtered = docs.filter(
-							(d) => !existingIds.includes(d._id),
-						) as Item.OfType<'feature'>[];
-
-						const ids = (
-							await this.actor.createEmbeddedDocuments('Item', filtered, {
-								// @ts-expect-error
-								noGrant: true,
-								keepId: true,
-							})
-						).map((i: any) => i.id);
-
-						// updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
-						const [itemId, gId] = grantId.split('.');
-						dialogData.itemUpdateData.push({
-							_id: itemId,
-							[`system.grants.${gId}.applied.documentIds`]: [...ids, ...existingIds],
-						});
-					}
+					// Update items with document ids
+					const [itemId, gId] = grantId.split('.');
+					dialogData.itemUpdateData.push({
+						_id: itemId,
+						[`system.grants.${gId}.applied.documentIds`]: [...ids, ...existingIds],
+					});
 				} catch (err) {
 					console.error(err);
 					return false;
@@ -488,7 +459,8 @@ class ActorGrantsManager extends Map<string, Grant> {
 			const archetype = await Item.fromDropData({ uuid: archetypeUuid });
 			if (archetype) {
 				const archetypeData = archetype.toObject();
-				this.actor.createEmbeddedDocuments('Item', [archetypeData]);
+				// This is being awaited because we need it when applied data is set
+				await this.actor.createEmbeddedDocuments('Item', [archetypeData]);
 			}
 		}
 
@@ -895,7 +867,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 }
 
 declare namespace ActorGrantsManager {
-	type DocumentData = { uuid: string; type: 'feature' | 'object'; quantity?: number };
+	type DocumentData = { docs: any[]; type: string };
 }
 
 export { ActorGrantsManager };

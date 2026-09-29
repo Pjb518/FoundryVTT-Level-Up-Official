@@ -81,7 +81,14 @@ class BaseGrant<
 		return this.id;
 	}
 
-	async getApplyData(actor: any, data: any): any {
+	async getApplyData(
+		actor: any,
+		data: any,
+	): Promise<{
+		appliedData?: Record<string, any>;
+		documents?: any[];
+		updateData?: Record<string, any>;
+	}> {
 		return {};
 	}
 

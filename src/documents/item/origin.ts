@@ -15,20 +15,21 @@ export default class OriginItemA5e<
 
 	override async _preCreate(data, options, user): Promise<boolean | void> {
 		if (user._id !== game.userId) {
-			super._preCreate(data, options, user);
-			return;
+			return super._preCreate(data, options, user);
 		}
+
+		// TODO - Move to on create
+		const res = await super._preCreate(data, options, user);
 
 		// Apply grants if any
 		if (this.parent && this.parent.documentName === 'Actor') {
 			const actor = this.parent;
 			// Keep id of the original document
 			options.keepId = true;
-			// @ts-expect-error
 			if (!options.noGrant) actor.grants.createInitialGrants(this, false);
 		}
 
-		await super._preCreate(data, options, user);
+		return res;
 	}
 
 	override async _onCreate(data, options, userId) {

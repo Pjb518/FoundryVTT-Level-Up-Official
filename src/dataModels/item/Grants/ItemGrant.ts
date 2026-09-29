@@ -112,9 +112,10 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 		};
 	}
 
-	override getApplyData(actor: Character, data: any): any {
+	override async getApplyData(actor: Character, data: any): any {
 		if (!actor) return {};
 
+		// Construct applied data
 		const appliedData: typeof this.applied = {
 			grantType: 'document',
 			level: this.level,
@@ -123,7 +124,43 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 			isApplied: true,
 		};
 
-		return { appliedData: this._getAppliedUpdate(appliedData), updateData: {} };
+		// Construct documents
+		const allOptions = [...this.config.items.base, ...this.config.items.options];
+		const uuids = new Set<string>(
+			data?.uuids ?? this.config.items.base.map(({ uuid }) => uuid) ?? [],
+		);
+
+		const documents = (
+			await Promise.all(
+				allOptions.map(async ({ uuid, quantityOverride }) => {
+					if (!uuids.has(uuid)) return null;
+					const d = (await fromUuid(uuid)) as Item.OfType<'object'>;
+					if (d?.type !== 'object') return null;
+
+					const doc = d.toObject();
+
+					// Update quantity
+					if (quantityOverride) {
+						foundry.utils.setProperty(doc, 'system.quantity', quantityOverride);
+					}
+
+					// Update container id
+					foundry.utils.setProperty(doc, 'system.containerId', '');
+
+					// Delete Id
+					// @ts-expect-error
+					delete doc._id;
+
+					return doc;
+				}),
+			)
+		).filter(Boolean);
+
+		return {
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {},
+			documents,
+		};
 	}
 
 	override getSelectionComponent() {

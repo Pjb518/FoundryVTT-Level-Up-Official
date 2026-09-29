@@ -104,68 +104,74 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 		}
 
 		// Construct documents
-		const documents = await Promise.all(
-			data?.uuids?.reduce(async (acc, uuid: string) => {
-				// TODO - Might need async version
-				const d = (await fromUuid(uuid)) as Item.OfType<'spell'>;
-				if (d?.type !== 'spell') return acc;
+		const uuids = data?.uuids ?? this.config.spells.base ?? [];
 
-				const doc = d.toObject();
+		const documents = (
+			await Promise.all(
+				uuids.map(async (uuid: string) => {
+					const d = (await fromUuid(uuid)) as Item.OfType<'spell'>;
+					if (d?.type !== 'spell') return null;
 
-				// Add always prepared
-				if (this.config.alwaysPrepared) foundry.utils.setProperty(doc, 'system.prepared', 2);
+					const doc = d.toObject();
 
-				// Update SpellBook Data
-				foundry.utils.setProperty(doc, 'system.spellBook', selectedBook);
+					// Add always prepared
+					if (this.config.alwaysPrepared) foundry.utils.setProperty(doc, 'system.prepared', 2);
 
-				// Update Consumer Data
-				const action = d.actions?.default;
-				if (action && this.config.consumerData.type !== 'spell') {
-					const actionId = action.id;
-					const consumers = Object.entries(doc.system.actions[actionId]?.consumers ?? {});
+					// Update SpellBook Data
+					foundry.utils.setProperty(doc, 'system.spellBook', selectedBook);
 
-					// Delete spell consumer
-					const spellConsumer = consumers.find(([, consumer]) => consumer.type === 'spell');
-					if (spellConsumer) {
-						delete doc.system.actions[actionId].consumers[spellConsumer[0]];
+					// Update Consumer Data
+					const action = d.actions?.default;
+					if (action && this.config.consumerData.type !== 'spell') {
+						const actionId = action.id;
+						const consumers = Object.entries(doc.system.actions[actionId]?.consumers ?? {});
+
+						// Delete spell consumer
+						const spellConsumer = consumers.find(([, consumer]) => consumer.type === 'spell');
+						if (spellConsumer) {
+							delete doc.system.actions[actionId].consumers[spellConsumer[0]];
+						}
+
+						// Add uses consumer
+						const consumerId = foundry.utils.randomID();
+						foundry.utils.setProperty(doc, `system.actions.${actionId}.consumers.${consumerId}`, {
+							id: consumerId,
+							quantity: 1,
+							type: this.config.consumerData.type || 'itemUses',
+						});
+
+						// Add action uses
+						if (this.config.consumerData.type === 'actionUses') {
+							foundry.utils.setProperty(doc, `system.actions.${actionId}.uses`, {
+								value: 0,
+								max: this.config.consumerData.value || '',
+								per: this.config.consumerData.recover || 'longRest',
+							});
+						}
 					}
 
-					// Add uses consumer
-					const consumerId = foundry.utils.randomID();
-					foundry.utils.setProperty(doc, `system.actions.${actionId}.consumers.${consumerId}`, {
-						id: consumerId,
-						quantity: 1,
-						type: this.config.consumerData.type || 'itemUses',
-					});
-
-					// Add action uses
-					if (this.config.consumerData.type === 'actionUses') {
-						foundry.utils.setProperty(doc, `system.actions.${actionId}.uses`, {
+					// Add Item Uses
+					if (this.config.consumerData.type === 'itemUses') {
+						foundry.utils.setProperty(doc, `system.uses`, {
 							value: 0,
 							max: this.config.consumerData.value || '',
 							per: this.config.consumerData.recover || 'longRest',
 						});
 					}
-				}
 
-				// Add Item Uses
-				if (this.config.consumerData.type === 'actionUses') {
-					foundry.utils.setProperty(doc, `system.uses`, {
-						value: 0,
-						max: this.config.consumerData.value || '',
-						per: this.config.consumerData.recover || 'longRest',
-					});
-				}
+					// Update Changes
+					if (this.config.changes && typeof this.config.changes !== 'string') {
+						foundry.utils.mergeObject(doc, this.config.changes);
+					}
 
-				// Update Changes
-				if (this.config.changes && typeof this.config.changes !== 'string') {
-					foundry.utils.mergeObject(doc, this.config.changes);
-				}
+					// Delete id
+					// @ts-expect-error
+					delete doc._id;
 
-				acc.push(doc);
-				return acc;
-			}, [] as Item.OfType<'spell'>[]) ?? [],
-		);
+					return doc;
+				}),
+			)
+		).filter(Boolean);
 
 		return {
 			appliedData: this._getAppliedUpdate(appliedData),

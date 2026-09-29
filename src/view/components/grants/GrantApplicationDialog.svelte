@@ -203,9 +203,9 @@
     ) as string[][];
   }
 
-  function onSubmit() {
+  async function onSubmit() {
     const { updateData, documentData, itemUpdateData } =
-      prepareGrantsApplyData(actor, grants, applyData) ?? {};
+      (await prepareGrantsApplyData(actor, grants, applyData)) ?? {};
 
     clsReturnData.spellcastingAbility = spellcastingAbility || "";
 
