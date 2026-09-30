@@ -7,6 +7,9 @@
     import Section from "#view/snippets/Section.svelte";
 
     import { buildProductSourceTree } from "#utils/prepareProductSourceTree.ts";
+    import { localize } from "#utils/localization/localize.ts";
+
+    import { HomebrewContent } from "../../settings/HomebrewContent.svelte.ts";
 
     type Props = {
         reload?: boolean;
@@ -50,6 +53,25 @@
                 reload = true;
             }}
         />
+    </FieldWrapper>
+</Section>
+
+<Section
+    heading="A5E.settings.sectionHeader.homebrew"
+    --a5e-section-body-gap="0.5rem"
+>
+    <FieldWrapper hint="A5E.settings.hints.homebrewContent">
+        <button
+            class="a5e-button"
+            type="button"
+            onclick={(e) => {
+                e.preventDefault();
+                HomebrewContent.show();
+            }}
+        >
+            <i class="fa-solid fa-flask"></i>
+            {localize("A5E.settings.homebrewContent")}
+        </button>
     </FieldWrapper>
 </Section>
 
