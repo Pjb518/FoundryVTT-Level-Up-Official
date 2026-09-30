@@ -3,6 +3,7 @@ import { indexCompendiaFields } from '#utils/db/indexCompendiaFields.ts';
 // import registerConditionsConfig from "../config/registerConditionsConfig.ts";
 import registerCustomCanvasLayers from '../config/registerCustomCanvasLayers.ts';
 import registerExtraContentConfig from '../config/registerExtraContentConfig.ts';
+import registerHomebrewContentConfig from '../config/registerHomebrewContentConfig.ts';
 import registerLogicRollFunctions from '../config/registerLogicRollFunctions.ts';
 import registerSystemSettings from '../settings.ts';
 import updateGMTitle from './updateGMTitle.ts';
@@ -14,6 +15,7 @@ export default async function setup() {
 
 	registerCustomCanvasLayers();
 	registerExtraContentConfig();
+	registerHomebrewContentConfig();
 	indexCompendiaFields();
 	updateGMTitle();
 
