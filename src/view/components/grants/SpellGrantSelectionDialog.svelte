@@ -153,11 +153,14 @@
         onTagToggleAux={openDocument}
       />
     {:else}
-      <DropArea
-        type="uuid"
-        documentType="Item"
-        onDocumentDropped={(value) => onDropDocument(value.uuid)}
-      />
+      {#if remainingSelections}
+        <DropArea
+          type="uuid"
+          documentType="Item"
+          onDocumentDropped={(value) => onDropDocument(value.uuid)}
+          onclick={() => openBrowser()}
+        />
+      {/if}
 
       <DropTag
         embeddedData={selected}
