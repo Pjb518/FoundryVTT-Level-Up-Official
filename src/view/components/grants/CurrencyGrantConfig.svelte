@@ -1,7 +1,6 @@
 <script lang="ts">
   import { setContext } from "svelte";
-
-  import type { ExertionGrant } from "#data/item/Grants/ExertionGrant.ts";
+  import type { CurrencyGrant } from "#data/item/Grants/CurrencyGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
@@ -35,13 +34,11 @@
   }
 
   let { document, grantId, grantType }: Props = $props();
+  const { currencyDenominations } = CONFIG.A5E;
 
   let item: Item.OfType<"feature"> = document;
-  const { exertionPoolTypes } = CONFIG.A5E;
 
-  let grant = $derived(item.reactive.system.grants[grantId]) as ExertionGrant;
-  let exertionType = $derived(grant?.config.exertionType);
-
+  let grant = $derived(item.reactive.system.grants[grantId]) as CurrencyGrant;
   setContext("item", item);
   setContext("grantId", grantId);
   setContext("grantType", grantType);
@@ -75,77 +72,31 @@
     heading="Exertion Bonus Configuration"
     --a5e-section-body-gap="0.75rem"
   >
-    <RadioGroup
-      heading="Exertion Bonus Mode"
-      options={[
-        ["bonus", "Bonus"],
-        ["pool", "Pool"],
-      ]}
-      selected={exertionType}
-      allowDeselect={false}
-      onUpdateSelection={(value) => onUpdateValue("config.exertionType", value)}
-    />
-
-    {#if exertionType === "pool"}
-      <RadioGroup
-        heading="Exertion Pool Type"
-        options={Object.entries(exertionPoolTypes)}
-        selected={grant.config.poolType}
-        allowDeselect={false}
-        onUpdateSelection={(value) => onUpdateValue("config.poolType", value)}
+    <FieldWrapper heading="Currency Amount">
+      <input
+        class="a5e-input a5e-input--slim a5e-input--small"
+        type="number"
+        value={grant.config.currency.value ?? 0}
+        onchange={({ currentTarget }) =>
+          onUpdateValue(
+            "config.currency.value",
+            Number.parseInt(currentTarget.value, 10),
+          )}
       />
-    {:else}
-      <FieldWrapper heading="A5E.rollLabels.formula">
-        <input
-          type="text"
-          value={grant.config.bonus ?? ""}
-          onchange={({ currentTarget }) =>
-            onUpdateValue("config.bonus", currentTarget.value)}
-        />
-      </FieldWrapper>
-    {/if}
+    </FieldWrapper>
+
+    <FieldWrapper heading="Currency Denomination">
+      <RadioGroup
+        options={Object.entries(currencyDenominations)}
+        selected={grant.config.currency.denom || "gp"}
+        allowDeselect={false}
+        onUpdateSelection={(value) =>
+          onUpdateValue("config.currency.denom", value)}
+      />
+    </FieldWrapper>
   </Section>
 
   <GrantConfig />
 </form>
 
-<style lang="scss">
-  form {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: var(--padding, 0.75rem);
-    gap: 0.75rem;
-    background: var(--background, var(--a5e-color-background-sheet));
-  }
-
-  .grant-name,
-  .grant-name[type="text"] {
-    font-family: var(--a5e-font-primary);
-    font-size: var(--a5e-text-size-xxl);
-    border: 0;
-    background: transparent;
-    text-overflow: ellipsis;
-
-    &:active,
-    &:focus {
-      box-shadow: none;
-    }
-  }
-
-  .grant-image {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .name-wrapper {
-    width: 100%;
-  }
-
-  .sheet-header {
-    display: flex;
-    align-items: center;
-  }
-</style>
+<style lang="scss"></style>

@@ -2,6 +2,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 	const itemGrants = {
 		ability: 'A5E.grants.headings.ability',
 		attack: 'A5E.grants.headings.attack',
+		currency: 'A5E.grants.headings.currency',
 		damage: 'A5E.grants.headings.damage',
 		exertion: 'A5E.grants.headings.exertion',
 		expertiseDice: 'A5E.grants.headings.expertiseDice',

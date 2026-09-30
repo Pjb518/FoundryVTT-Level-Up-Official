@@ -1,6 +1,7 @@
 import { AbilityGrant } from './AbilityGrant.ts';
 import { AttackGrant } from './AttackGrant.ts';
 import { BaseGrant } from './BaseGrant.ts';
+import { CurrencyGrant } from './CurrencyGrant.ts';
 import { DamageGrant } from './DamageGrant.ts';
 import { ExertionGrant } from './ExertionGrant.ts';
 import { ExpertiseDiceGrant } from './ExpertiseDiceGrant.ts';
@@ -23,6 +24,7 @@ export default {
 	ability: AbilityGrant,
 	attack: AttackGrant,
 	damage: DamageGrant,
+	currency: CurrencyGrant,
 	exertion: ExertionGrant,
 	expertiseDice: ExpertiseDiceGrant,
 	feature: FeatureGrant,
@@ -43,6 +45,7 @@ export default {
 export const ITEM_GRANT_TYPES = {
 	ability: AbilityGrant,
 	attack: AttackGrant,
+	currency: CurrencyGrant,
 	damage: DamageGrant,
 	exertion: ExertionGrant,
 	expertiseDice: ExpertiseDiceGrant,

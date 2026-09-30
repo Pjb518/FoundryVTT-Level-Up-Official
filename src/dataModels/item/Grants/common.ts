@@ -1,6 +1,6 @@
 import fields = foundry.data.fields;
 
-const baseSchema = () => ({
+export const baseSchema = () => ({
 	level: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 1 }),
 	isApplied: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 });
