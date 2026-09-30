@@ -9,6 +9,7 @@ import { HealingGrant } from './HealingGrant.ts';
 import { HitPointGrant } from './HitPointGrant.ts';
 import { InitiativeGrant } from './InitiativeGrant.ts';
 import { ItemGrant } from './ItemGrant.ts';
+import { ManeuverGrant } from './ManeuverGrant.ts';
 import { MovementGrant } from './MovementGrant.ts';
 import { ProficiencyGrant } from './ProficiencyGrant.ts';
 import { RollOverrideGrant } from './RollOverrideGrant.ts';
@@ -30,6 +31,7 @@ export default {
 	hitPoint: HitPointGrant,
 	initiative: InitiativeGrant,
 	item: ItemGrant,
+	maneuver: ManeuverGrant,
 	movement: MovementGrant,
 	proficiency: ProficiencyGrant,
 	rollOverride: RollOverrideGrant,
@@ -51,6 +53,7 @@ export const ITEM_GRANT_TYPES = {
 	hitPoint: HitPointGrant,
 	initiative: InitiativeGrant,
 	item: ItemGrant,
+	maneuver: ManeuverGrant,
 	movement: MovementGrant,
 	proficiency: ProficiencyGrant,
 	rollOverride: RollOverrideGrant,
