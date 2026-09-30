@@ -89,6 +89,15 @@ export const traitGrantSchema = () => ({
 	traitType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
+// Filter Schema
+export const filterSchema = () =>
+	new fields.SchemaField({
+		inclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
+		inclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		exclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
+		exclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	});
+
 export const appliedGrantsData = {
 	bonus: bonusGrantSchema,
 	document: documentGrantSchema,

@@ -2,7 +2,11 @@
   import { getContext } from "svelte";
   import type { Grant } from "#data/item/Grants/GrantsField.ts";
 
+  import { constructFilters } from "#view/dialogs/compendium-browser/utils/constructFilters.ts";
+  import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import DropArea from "#view/snippets/DropArea.svelte";
+  import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
 
@@ -99,6 +103,33 @@
     return prereqs;
   }
 
+  function onDropDocument(uuid: string) {
+    if (remainingSelections === 0) {
+      ui.notifications.warn("Max Selection Count Reached.");
+      return;
+    }
+
+    // Validate
+    const doc = fromUuidSync(uuid);
+    if (doc?.type !== "feature") {
+      ui.notifications.error("Dropped document needs to be a feature.");
+      return;
+    }
+
+    if (!filters.every((filter) => filter(doc))) {
+      ui.notifications.error("Dropped document doesn't satisfy filters.");
+      return;
+    }
+
+    onUpdateSelection([...selectedOptions, uuid]);
+  }
+
+  async function openBrowser() {
+    CompendiumBrowser.openWithFilters("feature", {
+      selections: filtersSelections,
+    });
+  }
+
   async function openDocument(uuid: string) {
     const doc = await fromUuid(uuid);
     doc.sheet.render(true);
@@ -134,10 +165,16 @@
   let disabledOptions = getDisabledOptions();
   let prereqs = getPrerequisites();
 
+  const selectionType = grant.config.selectionType;
+  const filtersSelections = grant.config.pool.filters;
+  const { filters } = constructFilters(filtersSelections, "spell");
+
   let selectedOptions = $derived([
     ...new Set(base.map((o) => o.uuid).concat(preSelected)),
   ]);
-  let totalCount = $derived(base.length + count);
+  let totalCount = $derived(
+    selectionType === "limited" ? base.length + count : count,
+  );
   let remainingSelections = $derived(totalCount - selectedOptions.length);
   let summary = $derived(getGrantSummary(selectedOptions));
 </script>
@@ -165,18 +202,36 @@
     showWarning={selectedOptions.length < totalCount}
     --direction="column"
   >
-    <CheckboxGroup
-      options={getOptions(choicesLocked)}
-      selected={selectedOptions}
-      orange={choices.map((o) => o.uuid)}
-      disabled={selectedOptions.length >= totalCount}
-      {disabledOptions}
-      {onUpdateSelection}
-      icon="fa-solid fa-key"
-      iconList={Object.keys(prereqs)}
-      tooltipData={prereqs}
-      onTagToggleAux={openDocument}
-    />
+    {#if selectionType === "limited"}
+      <CheckboxGroup
+        options={getOptions(choicesLocked)}
+        selected={selectedOptions}
+        orange={choices.map((o) => o.uuid)}
+        disabled={selectedOptions.length >= totalCount}
+        {disabledOptions}
+        {onUpdateSelection}
+        icon="fa-solid fa-key"
+        iconList={Object.keys(prereqs)}
+        tooltipData={prereqs}
+        onTagToggleAux={openDocument}
+      />
+    {:else}
+      {#if remainingSelections}
+        <DropArea
+          type="uuid"
+          documentType="Item"
+          onDocumentDropped={(value) => onDropDocument(value.uuid)}
+          onclick={() => openBrowser()}
+        />
+      {/if}
+
+      <DropTag
+        embeddedData={selectedOptions}
+        type="item"
+        onUpdateSelection={(value) => onUpdateSelection(value)}
+        --a5e-drop-tag-font-size="var(--a5e-sm-text)"
+      />
+    {/if}
   </FieldWrapper>
 
   <FieldWrapper>

@@ -1,20 +1,13 @@
 import SpellGrantConfig from '#view/components/grants/SpellGrantConfig.svelte';
 import SpellGrantSelectionDialog from '#view/components/grants/SpellGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
-import { documentGrantSchema } from './common.ts';
+import { documentGrantSchema, filterSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
 // ======================================================
 // Schema
 // ======================================================
-const filterSchema = () =>
-	new fields.SchemaField({
-		inclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
-		inclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-		exclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
-		exclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-	});
 
 const schema = () => ({
 	config: new fields.SchemaField({

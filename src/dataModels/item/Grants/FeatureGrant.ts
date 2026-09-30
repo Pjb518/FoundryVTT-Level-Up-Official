@@ -1,7 +1,7 @@
 import FeatureGrantConfig from '#view/components/grants/FeatureGrantConfig.svelte';
 import FeatureGrantSelectionDialog from '#view/components/grants/FeatureGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
-import { documentGrantSchema } from './common.ts';
+import { documentGrantSchema, filterSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -11,6 +11,14 @@ import fields = foundry.data.fields;
 const schema = () => ({
 	// Config
 	config: new fields.SchemaField({
+		selectionType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'limited',
+			choices: { limited: 'Limited', pool: 'Pool' },
+		}),
+
+		// Options Config
 		features: new fields.SchemaField({
 			base: new fields.ArrayField(
 				new fields.SchemaField({
@@ -36,6 +44,15 @@ const schema = () => ({
 			),
 			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 		}),
+
+		// List config
+		pool: new fields.SchemaField({
+			count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			filters: new fields.TypedObjectField(filterSchema(), { required: true, nullable: false }),
+		}),
+
+		// Changes Config
+		changes: new fields.JSONField({ required: true, nullable: true, initial: null }),
 	}),
 
 	// Applied
@@ -133,6 +150,11 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 
 					const doc = d.toObject();
 
+					// Update Changes
+					if (this.config.changes && typeof this.config.changes !== 'string') {
+						foundry.utils.mergeObject(doc, this.config.changes);
+					}
+
 					return doc;
 				}),
 			)
@@ -159,7 +181,7 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 	}
 
 	override requiresConfig(): boolean {
-		return !!this.config.features.options.length;
+		return this.config.selectionType === 'limited' ? !this.config.features.options.length : true;
 	}
 
 	override async configureGrant() {

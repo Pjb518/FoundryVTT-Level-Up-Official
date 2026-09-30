@@ -112,6 +112,7 @@
     gap: 0.5rem;
     padding: 0.25rem;
     border-radius: 4px;
+    font-size: var(--a5e-drop-tag-font-size, inherit);
   }
 
   .a5e-tag-img {

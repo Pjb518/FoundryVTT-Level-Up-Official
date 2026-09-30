@@ -1,11 +1,15 @@
 <script lang="ts">
   import { setContext } from "svelte";
-
   import type { FeatureGrant } from "#data/item/Grants/FeatureGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import { getFiltersText } from "#utils/view/getFiltersText.ts";
 
+  import CodeEditor from "#view/components/CodeEditor.svelte";
+  import FiltersDialog from "#view/dialogs/compendium-browser/CompendiumFiltersTab.svelte";
+  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
   import DropArea from "#view/snippets/DropArea.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
   import GrantConfig from "./GrantConfig.svelte";
 
@@ -83,6 +87,35 @@
     });
   }
 
+  async function updateFilters() {
+    const filters = foundry.utils.deepClone(grant.config.pool.filters);
+    const title = `Feature Filters - ${grant.name}`;
+
+    const dialogData = {
+      compendiumType: "feature",
+      filterOptions: { selections: filters },
+    };
+
+    const options = {
+      width: 500,
+      resizable: true,
+    };
+
+    const dialog = new GenericConfigDialog(
+      document,
+      title,
+      FiltersDialog,
+      dialogData,
+      options,
+    );
+
+    dialog.render(true);
+    const data = await dialog.promise;
+    if (!data) return;
+
+    onUpdateValue("config.pool.filters", data.selections);
+  }
+
   let { document, grantId, grantType }: Props = $props();
 
   let item: Item.OfType<"feature"> = document;
@@ -91,6 +124,13 @@
   let baseFeatures = $derived(getFeatureData(grant.config.features.base ?? []));
   let optionalFeatures = $derived(
     getFeatureData(grant.config.features.options ?? []),
+  );
+
+  let selectionType = $derived(grant.config.selectionType || "pool");
+  let filtersText = $derived(getFiltersText(grant));
+  let selectionTypeOpts = $derived(
+    // @ts-expect-error
+    grant.schema.getField("config.selectionType")?.choices ?? {},
   );
 
   setContext("item", item);
@@ -122,190 +162,237 @@
     </div>
   </header>
 
-  <Section heading="Base Features" --a5e-section-margin="0.25rem 0">
-    <DropArea
-      type="uuid"
-      documentType="Item"
-      onDocumentDropped={(data) =>
-        onDropUpdate("config.features.base", data.uuid)}
+  <Section heading="Selection Type" --a5e-section-margin="0.25rem 0">
+    <RadioGroup
+      options={Object.entries(selectionTypeOpts)}
+      selected={selectionType}
+      allowDeselect={false}
+      onUpdateSelection={(value) =>
+        onUpdateValue("config.selectionType", value)}
     />
-
-    {#if baseFeatures.length > 0}
-      <div class="feature-table">
-        <header class="feature-table__header">
-          <span class="feature-table__heading"></span>
-          <span class="feature-table__heading"></span>
-          <span class="feature-table__heading"> Limited Reselection </span>
-          <span class="feature-table__heading">Selection Limit</span>
-          <span class="feature-table__heading"></span>
-        </header>
-
-        <hr class="feature-table__rule" />
-
-        {#each baseFeatures as feature, idx}
-          <img
-            class="feature-table__img"
-            src={feature.img}
-            alt={feature.name}
-          />
-
-          <!-- svelte-ignore a11y_no_static_element_interactions -->
-          <!-- svelte-ignore a11y_click_events_have_key_events -->
-          <span
-            class="feature-table__name"
-            onclick={() => openDocument(feature.uuid)}
-          >
-            {feature.name}
-          </span>
-
-          <input
-            class="feature-table__limited-reselection"
-            type="checkbox"
-            checked={feature.limitedReselection ?? true}
-            onchange={({ currentTarget }) =>
-              updateFeature(
-                "base",
-                idx,
-                "limitedReselection",
-                currentTarget.checked,
-              )}
-          />
-
-          <span class="feature-table__selection-limit">
-            {#if feature.limitedReselection}
-              <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={feature.selectionLimit ?? 1}
-                onchange={({ currentTarget }) =>
-                  updateFeature(
-                    "base",
-                    idx,
-                    "selectionLimit",
-                    Number(currentTarget.value),
-                  )}
-              />
-            {:else}
-              <i class="icon fa-solid fa-infinity"></i>
-            {/if}
-          </span>
-
-          <button
-            type="button"
-            class="feature-table__delete-button"
-            aria-label="Delete Feature"
-            onclick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onUpdateValue(
-                "config.features.base",
-                baseFeatures.filter((_, i) => i !== idx),
-              );
-            }}
-          >
-            <i class="icon fa-solid fa-trash"></i>
-          </button>
-        {/each}
-      </div>
-    {/if}
   </Section>
 
-  <Section heading="Optional Features" --a5e-section-margin="0.25rem 0">
-    <DropArea
-      type="uuid"
-      documentType="Item"
-      onDocumentDropped={(data) =>
-        onDropUpdate("config.features.options", data.uuid)}
-    />
+  {#if selectionType === "limited"}
+    <Section heading="Base Features" --a5e-section-margin="0.25rem 0">
+      <DropArea
+        type="uuid"
+        documentType="Item"
+        onDocumentDropped={(data) =>
+          onDropUpdate("config.features.base", data.uuid)}
+      />
 
-    {#if optionalFeatures.length > 0}
-      <div class="feature-table">
-        <header class="feature-table__header">
-          <span class="feature-table__heading"></span>
-          <span class="feature-table__heading"></span>
-          <span class="feature-table__heading"> Limited Reselection </span>
-          <span class="feature-table__heading">Selection Limit</span>
-          <span class="feature-table__heading"></span>
-        </header>
+      {#if baseFeatures.length > 0}
+        <div class="feature-table">
+          <header class="feature-table__header">
+            <span class="feature-table__heading"></span>
+            <span class="feature-table__heading"></span>
+            <span class="feature-table__heading"> Limited Reselection </span>
+            <span class="feature-table__heading">Selection Limit</span>
+            <span class="feature-table__heading"></span>
+          </header>
 
-        <hr class="feature-table__rule" />
+          <hr class="feature-table__rule" />
 
-        {#each optionalFeatures as feature, idx}
-          <img
-            class="feature-table__img"
-            src={feature.img}
-            alt={feature.name}
-          />
+          {#each baseFeatures as feature, idx}
+            <img
+              class="feature-table__img"
+              src={feature.img}
+              alt={feature.name}
+            />
 
-          <!-- svelte-ignore a11y_click_events_have_key_events -->
-          <!-- svelte-ignore a11y_no_static_element_interactions -->
-          <span
-            class="feature-table__name"
-            onclick={() => openDocument(feature.uuid)}
-          >
-            {feature.name}
-          </span>
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <span
+              class="feature-table__name"
+              onclick={() => openDocument(feature.uuid)}
+            >
+              {feature.name}
+            </span>
 
-          <input
-            class="feature-table__limited-reselection"
-            type="checkbox"
-            checked={feature.limitedReselection ?? true}
-            onchange={({ currentTarget }) =>
-              updateFeature(
-                "options",
-                idx,
-                "limitedReselection",
-                currentTarget.checked,
-              )}
-          />
+            <input
+              class="feature-table__limited-reselection"
+              type="checkbox"
+              checked={feature.limitedReselection ?? true}
+              onchange={({ currentTarget }) =>
+                updateFeature(
+                  "base",
+                  idx,
+                  "limitedReselection",
+                  currentTarget.checked,
+                )}
+            />
 
-          <span class="feature-table__selection-limit">
-            {#if feature.limitedReselection}
-              <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={feature.selectionLimit ?? 1}
-                onchange={({ currentTarget }) =>
-                  updateFeature(
-                    "options",
-                    idx,
-                    "selectionLimit",
-                    Number(currentTarget.value),
-                  )}
-              />
-            {:else}
-              <i class="icon fa-solid fa-infinity"></i>
-            {/if}
-          </span>
+            <span class="feature-table__selection-limit">
+              {#if feature.limitedReselection}
+                <input
+                  class="a5e-input a5e-input--slim a5e-input--small"
+                  type="number"
+                  value={feature.selectionLimit ?? 1}
+                  onchange={({ currentTarget }) =>
+                    updateFeature(
+                      "base",
+                      idx,
+                      "selectionLimit",
+                      Number(currentTarget.value),
+                    )}
+                />
+              {:else}
+                <i class="icon fa-solid fa-infinity"></i>
+              {/if}
+            </span>
 
-          <button
-            type="button"
-            class="feature-table__delete-button"
-            aria-label="Delete Feature"
-            onclick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
+            <button
+              type="button"
+              class="feature-table__delete-button"
+              aria-label="Delete Feature"
+              onclick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onUpdateValue(
+                  "config.features.base",
+                  baseFeatures.filter((_, i) => i !== idx),
+                );
+              }}
+            >
+              <i class="icon fa-solid fa-trash"></i>
+            </button>
+          {/each}
+        </div>
+      {/if}
+    </Section>
 
-              onUpdateValue(
-                "config.features.options",
-                optionalFeatures.filter((_, i) => i !== idx),
-              );
-            }}
-          >
-            <i class="icon fa-solid fa-trash"></i>
-          </button>
-        {/each}
-      </div>
-    {/if}
+    <Section heading="Optional Features" --a5e-section-margin="0.25rem 0">
+      <DropArea
+        type="uuid"
+        documentType="Item"
+        onDocumentDropped={(data) =>
+          onDropUpdate("config.features.options", data.uuid)}
+      />
+
+      {#if optionalFeatures.length > 0}
+        <div class="feature-table">
+          <header class="feature-table__header">
+            <span class="feature-table__heading"></span>
+            <span class="feature-table__heading"></span>
+            <span class="feature-table__heading"> Limited Reselection </span>
+            <span class="feature-table__heading">Selection Limit</span>
+            <span class="feature-table__heading"></span>
+          </header>
+
+          <hr class="feature-table__rule" />
+
+          {#each optionalFeatures as feature, idx}
+            <img
+              class="feature-table__img"
+              src={feature.img}
+              alt={feature.name}
+            />
+
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <span
+              class="feature-table__name"
+              onclick={() => openDocument(feature.uuid)}
+            >
+              {feature.name}
+            </span>
+
+            <input
+              class="feature-table__limited-reselection"
+              type="checkbox"
+              checked={feature.limitedReselection ?? true}
+              onchange={({ currentTarget }) =>
+                updateFeature(
+                  "options",
+                  idx,
+                  "limitedReselection",
+                  currentTarget.checked,
+                )}
+            />
+
+            <span class="feature-table__selection-limit">
+              {#if feature.limitedReselection}
+                <input
+                  class="a5e-input a5e-input--slim a5e-input--small"
+                  type="number"
+                  value={feature.selectionLimit ?? 1}
+                  onchange={({ currentTarget }) =>
+                    updateFeature(
+                      "options",
+                      idx,
+                      "selectionLimit",
+                      Number(currentTarget.value),
+                    )}
+                />
+              {:else}
+                <i class="icon fa-solid fa-infinity"></i>
+              {/if}
+            </span>
+
+            <button
+              type="button"
+              class="feature-table__delete-button"
+              aria-label="Delete Feature"
+              onclick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                onUpdateValue(
+                  "config.features.options",
+                  optionalFeatures.filter((_, i) => i !== idx),
+                );
+              }}
+            >
+              <i class="icon fa-solid fa-trash"></i>
+            </button>
+          {/each}
+        </div>
+      {/if}
+    </Section>
+  {:else}
+    <Section
+      heading="Pool Filters"
+      headerButtons={[
+        {
+          htmlString: '<i class="fa-solid fa-filter"></i>',
+          tooltip: "Select Filters",
+          handler: () => updateFilters(),
+        },
+      ]}
+      --a5e-section-margin="0.25rem 0"
+    >
+      {filtersText}
+    </Section>
+  {/if}
+
+  <Section heading="Feature Config" --a5e-section-body-gap="0.75rem">
+    <div class="a5e-grant__code-editor">
+      {#key grant.config.changes}
+        <CodeEditor
+          document={item}
+          field="grants.{grantId}.config.changes"
+          content={grant.config.changes ?? "{}"}
+          config={{ language: "json" }}
+          heading="Changes"
+        />
+      {/key}
+    </div>
   </Section>
 
   <GrantConfig>
     <FieldWrapper heading="Selectable Options Count">
       <input
         type="number"
-        value={grant.config.features.total ?? 0}
-        onchange={({ currentTarget }) =>
-          onUpdateValue("config.features.total", Number(currentTarget.value))}
+        value={selectionType === "limited"
+          ? (grant.config.features.total ?? 0)
+          : (grant.config.pool.count ?? 1)}
+        onchange={({ currentTarget }) => {
+          const key =
+            selectionType === "limited"
+              ? "config.features.total"
+              : "config.pool.count";
+          onUpdateValue(key, Number(currentTarget.value));
+        }}
       />
     </FieldWrapper>
   </GrantConfig>

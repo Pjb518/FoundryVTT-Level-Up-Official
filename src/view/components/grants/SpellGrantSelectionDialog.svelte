@@ -166,6 +166,7 @@
         embeddedData={selected}
         type="item"
         onUpdateSelection={(value) => onUpdateSelection("selected", value)}
+        --a5e-drop-tag-font-size="var(--a5e-sm-text)"
       />
     {/if}
   </FieldWrapper>
