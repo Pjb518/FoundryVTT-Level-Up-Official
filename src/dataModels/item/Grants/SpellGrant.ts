@@ -209,10 +209,12 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 	}
 
 	override getSelectionComponentProps(data: any) {
+		const selectionType = this.config.selectionType || 'limited';
+
 		return {
 			base: this.config.spells.base ?? [],
 			choices: this.config.spells.options ?? [],
-			count: this.config.spells.total,
+			count: selectionType === 'limited' ? this.config.spells.total : this.config.pool.count,
 			selected: data?.uuids ?? [],
 			selectedBook: data?.spellBook ?? '',
 			actor: this.item!.actor,
@@ -220,7 +222,7 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 	}
 
 	override requiresConfig() {
-		return !!this.config.spells.options.length;
+		return this.config.selectionType === 'limited' ? !this.config.spells.options.length : true;
 	}
 
 	override async configureGrant() {

@@ -1,7 +1,11 @@
 <script lang="ts">
   import { SpellGrant } from "#data/item/Grants/SpellGrant.ts";
 
+  import { constructFilters } from "#view/dialogs/compendium-browser/utils/constructFilters.ts";
+  import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import DropArea from "#view/snippets/DropArea.svelte";
+  import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
@@ -42,6 +46,27 @@
     return spellBooks as string[][];
   }
 
+  function onDropDocument(uuid: string) {
+    if (remainingSelections === 0) {
+      ui.notifications.warn("Max Selection Count Reached.");
+      return;
+    }
+
+    // Validate
+    const doc = fromUuidSync(uuid);
+    if (doc?.type !== "spell") {
+      ui.notifications.error("Dropped document needs to be a spell.");
+      return;
+    }
+
+    if (!filters.every((filter) => filter(doc))) {
+      ui.notifications.error("Dropped document doesn't satisfy filters.");
+      return;
+    }
+
+    onUpdateSelection("selected", [...selected, uuid]);
+  }
+
   function onUpdateSelection(key: string, value: any) {
     if (key === "selected") selected = value;
     else if (key === "selectedBook") selectedBook = value;
@@ -49,6 +74,12 @@
       spellBook: selectedBook,
       uuids: selected,
       summary,
+    });
+  }
+
+  async function openBrowser() {
+    CompendiumBrowser.openWithFilters("spell", {
+      selections: filtersSelections,
     });
   }
 
@@ -85,8 +116,14 @@
   const spellBookOpts = getSpellBookOptions();
   let selectedBook = $state(getDefaultBook());
 
+  const selectionType = grant.config.selectionType;
+  const filtersSelections = grant.config.pool.filters;
+  const { filters } = constructFilters(filtersSelections, "spell");
+
   let selected = $derived([...new Set(base.concat(preSelected))]);
-  let totalCount = $derived(base.length + count);
+  let totalCount = $derived(
+    selectionType === "limited" ? base.length + count : count,
+  );
   let remainingSelections = $derived(totalCount - selected.length);
   let summary = $derived(getGrantSummary(selected));
 </script>
@@ -94,19 +131,40 @@
 <Section heading="Spell Grant - {grant.name}" --a5e-section-body-gap="0.75rem">
   <FieldWrapper
     heading="Spell Selection"
+    buttons={[
+      {
+        htmlString: '<i class="fa-solid fa-books"></i>',
+        tooltip: "Open Compendium Browser",
+        handler: () => openBrowser(),
+      },
+    ]}
     warning={remainingSelections === 1
       ? "1 choice remaining"
       : `${remainingSelections} choices remaining.`}
     showWarning={selected.length < totalCount}
   >
-    <CheckboxGroup
-      {options}
-      {selected}
-      orange={choices}
-      disabled={selected.length >= totalCount}
-      onUpdateSelection={(values) => onUpdateSelection("selected", values)}
-      onTagToggleAux={openDocument}
-    />
+    {#if selectionType === "limited"}
+      <CheckboxGroup
+        {options}
+        {selected}
+        orange={choices}
+        disabled={selected.length >= totalCount}
+        onUpdateSelection={(values) => onUpdateSelection("selected", values)}
+        onTagToggleAux={openDocument}
+      />
+    {:else}
+      <DropArea
+        type="uuid"
+        documentType="Item"
+        onDocumentDropped={(value) => onDropDocument(value.uuid)}
+      />
+
+      <DropTag
+        embeddedData={selected}
+        type="item"
+        onUpdateSelection={(value) => onUpdateSelection("selected", value)}
+      />
+    {/if}
   </FieldWrapper>
 
   <FieldWrapper heading="Spell Book Selection">

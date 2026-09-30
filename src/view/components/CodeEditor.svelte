@@ -207,6 +207,8 @@
       display: flex;
       gap: 0.5rem;
       align-items: center;
+      font-weight: bold;
+      font-family: var(--a5e-secondary-font);
     }
 
     &__wrapper {

@@ -2,6 +2,7 @@
   import { setContext } from "svelte";
   import type { SpellGrant } from "#data/item/Grants/SpellGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import { getFiltersText } from "#utils/view/getFiltersText.ts";
 
   import CodeEditor from "#view/components/CodeEditor.svelte";
   import FiltersDialog from "#view/dialogs/compendium-browser/CompendiumFiltersTab.svelte";
@@ -88,6 +89,7 @@
   let optionalUuids = $derived(grant.config.spells.options ?? []);
   let consumerType = $derived(grant.config.consumerData.type ?? []);
   let selectionType = $derived(grant.config.selectionType || "pool");
+  let filtersText = $derived(getFiltersText(grant));
 
   let consumerOptions = $derived(
     // @ts-expect-error
@@ -181,7 +183,7 @@
       ]}
       --a5e-section-margin="0.25rem 0"
     >
-      Display Filters Here
+      {filtersText}
     </Section>
   {/if}
 
@@ -243,16 +245,21 @@
   </Section>
 
   <GrantConfig>
-    <FieldWrapper heading="Total Count">
+    <FieldWrapper heading="Selectable Options Count">
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant.config.spells.total ?? 0}
-        onchange={({ currentTarget }) =>
-          onUpdateValue("config.spells.total", Number(currentTarget.value))}
+        value={selectionType === "limited"
+          ? (grant.config.spells.total ?? 0)
+          : (grant.config.pool.count ?? 1)}
+        onchange={({ currentTarget }) => {
+          const key =
+            selectionType === "limited"
+              ? "config.spells.total"
+              : "config.pool.count";
+          onUpdateValue(key, Number(currentTarget.value));
+        }}
       />
     </FieldWrapper>
   </GrantConfig>
 </form>
-
-<style lang="scss"></style>
