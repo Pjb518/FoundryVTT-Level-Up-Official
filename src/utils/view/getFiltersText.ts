@@ -1,6 +1,7 @@
+import type { ManeuverGrant } from '#data/item/Grants/ManeuverGrant.ts';
 import type { SpellGrant } from '#data/item/Grants/SpellGrant.ts';
 
-export function getFiltersText(grant: SpellGrant) {
+export function getFiltersText(grant: SpellGrant | ManeuverGrant) {
 	const filters = Object.values(grant.config.pool.filters ?? {});
 	let count = 0;
 

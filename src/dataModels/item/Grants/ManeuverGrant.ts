@@ -1,7 +1,7 @@
 import ManeuverGrantConfig from '#view/components/grants/ManeuverGrantConfig.svelte';
 import ManeuverGrantSelectionDialog from '#view/components/grants/ManeuverGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
-import { documentGrantSchema } from './common.ts';
+import { documentGrantSchema, filterSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -16,11 +16,26 @@ const maneuverEntrySchema = () =>
 
 const schema = () => ({
 	config: new fields.SchemaField({
+		selectionType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'limited',
+			choices: { limited: 'Limited', pool: 'Pool' },
+		}),
+
+		// Options Config
 		maneuvers: new fields.SchemaField({
 			base: new fields.ArrayField(maneuverEntrySchema()),
 			options: new fields.ArrayField(maneuverEntrySchema()),
 			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 		}),
+		// List config
+		pool: new fields.SchemaField({
+			count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			filters: new fields.TypedObjectField(filterSchema(), { required: true, nullable: false }),
+		}),
+
+		// Changes Config
 		changes: new fields.JSONField({ required: true, nullable: true, initial: null }),
 		consumerData: new fields.SchemaField({
 			type: new fields.StringField({
@@ -196,16 +211,18 @@ class ManeuverGrant extends BaseGrant<ManeuverGrant.Schema> {
 	}
 
 	override getSelectionComponentProps(data: any) {
+		const selectionType = this.config.selectionType || 'limited';
+
 		return {
 			base: this.config.maneuvers.base ?? [],
 			choices: this.config.maneuvers.options ?? [],
-			count: this.config.maneuvers.total,
+			count: selectionType === 'limited' ? this.config.maneuvers.total : this.config.pool.count,
 			selected: data?.uuids ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return !!this.config.maneuvers.options.length;
+		return this.config.selectionType === 'limited' ? !!this.config.maneuvers.options.length : true;
 	}
 
 	override async configureGrant() {

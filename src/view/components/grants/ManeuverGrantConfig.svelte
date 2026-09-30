@@ -5,7 +5,11 @@
   import { localize } from "#utils/localization/localize.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
+  import { getFiltersText } from "#utils/view/getFiltersText.ts";
+
   import CodeEditor from "#view/components/CodeEditor.svelte";
+  import FiltersDialog from "#view/dialogs/compendium-browser/CompendiumFiltersTab.svelte";
+  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
   import DropArea from "#view/snippets/DropArea.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
@@ -86,6 +90,35 @@
     ]);
   }
 
+  async function updateFilters() {
+    const filters = foundry.utils.deepClone(grant.config.pool.filters);
+    const title = `Maneuver Filters - ${grant.name}`;
+
+    const dialogData = {
+      compendiumType: "maneuver",
+      filterOptions: { selections: filters },
+    };
+
+    const options = {
+      width: 500,
+      resizable: true,
+    };
+
+    const dialog = new GenericConfigDialog(
+      document,
+      title,
+      FiltersDialog,
+      dialogData,
+      options,
+    );
+
+    dialog.render(true);
+    const data = await dialog.promise;
+    if (!data) return;
+
+    onUpdateValue("config.pool.filters", data.selections);
+  }
+
   function getManeuverData(data: any[]) {
     return data.map((e) => {
       const maneuver = fromUuidSync(e.uuid) as Item.OfType<"maneuver"> | null;
@@ -111,6 +144,12 @@
     getManeuverData(grant.config.maneuvers.options ?? []),
   );
   let consumerType = $derived(grant.config.consumerData.type ?? "exertion");
+  let selectionType = $derived(grant.config.selectionType || "pool");
+  let filtersText = $derived(getFiltersText(grant));
+  let selectionTypeOpts = $derived(
+    // @ts-expect-error
+    grant.schema.getField("config.selectionType")?.choices ?? {},
+  );
 
   let consumerOptions = $derived(
     grant.schema.getField("config.consumerData.type")?.choices ?? {},
@@ -150,6 +189,20 @@
     </div>
   </header>
 
+  <Section
+    heading="A5E.grants.maneuver.selectionType"
+    --a5e-section-margin="0.25rem 0"
+  >
+    <RadioGroup
+      options={Object.entries(selectionTypeOpts)}
+      selected={selectionType}
+      allowDeselect={false}
+      onUpdateSelection={(value) =>
+        onUpdateValue("config.selectionType", value)}
+    />
+  </Section>
+
+  {#if selectionType === "limited"}
   {#each sections as { type, heading } (type)}
     {@const maneuvers = type === "base" ? baseManeuvers : optionalManeuvers}
 
@@ -221,6 +274,21 @@
       {/if}
     </Section>
   {/each}
+  {:else if selectionType === "pool"}
+    <Section
+      heading="A5E.grants.maneuver.poolFilters"
+      headerButtons={[
+        {
+          htmlString: '<i class="fa-solid fa-filter"></i>',
+          tooltip: "Select Filters",
+          handler: () => updateFilters(),
+        },
+      ]}
+      --a5e-section-margin="0.25rem 0"
+    >
+      {filtersText}
+    </Section>
+  {/if}
 
   <Section
     heading="A5E.grants.maneuver.maneuverConfig"
@@ -280,9 +348,16 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant.config.maneuvers.total ?? 0}
-        onchange={({ currentTarget }) =>
-          onUpdateValue("config.maneuvers.total", Number(currentTarget.value))}
+        value={selectionType === "limited"
+          ? (grant.config.maneuvers.total ?? 0)
+          : (grant.config.pool.count ?? 1)}
+        onchange={({ currentTarget }) => {
+          const key =
+            selectionType === "limited"
+              ? "config.maneuvers.total"
+              : "config.pool.count";
+          onUpdateValue(key, Number(currentTarget.value));
+        }}
       />
     </FieldWrapper>
   </GrantConfig>
