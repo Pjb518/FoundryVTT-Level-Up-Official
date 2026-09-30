@@ -1,7 +1,7 @@
 import ItemGrantConfig from '#view/components/grants/ItemGrantConfig.svelte';
 import ItemGrantSelectionDialog from '#view/components/grants/ItemGrantSelectionDialog.svelte';
 import { BaseGrant } from './BaseGrant.ts';
-import { documentGrantSchema } from './common.ts';
+import { documentGrantSchema, filterSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -11,6 +11,14 @@ import fields = foundry.data.fields;
 const schema = () => ({
 	// Config
 	config: new fields.SchemaField({
+		selectionType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'limited',
+			choices: { limited: 'Limited', pool: 'Pool' },
+		}),
+
+		// Options Config
 		items: new fields.SchemaField({
 			base: new fields.ArrayField(
 				new fields.SchemaField({
@@ -39,7 +47,17 @@ const schema = () => ({
 				initial: 0,
 			}),
 		}),
+
+		// List config
+		pool: new fields.SchemaField({
+			count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			filters: new fields.TypedObjectField(filterSchema(), { required: true, nullable: false }),
+		}),
+
+		// Changes Config
+		changes: new fields.JSONField({ required: true, nullable: true, initial: null }),
 	}),
+
 	// Applied
 	applied: new fields.SchemaField(documentGrantSchema(), { required: true, nullable: false }),
 
@@ -125,7 +143,11 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 		};
 
 		// Construct documents
-		const allOptions = [...this.config.items.base, ...this.config.items.options];
+		const allOptions =
+			this.config.selectionType === 'limited'
+				? [...this.config.items.base, ...this.config.items.options]
+				: (data?.uuids.map((uuid) => ({ uuid, quantityOverride: 0 })) ?? []);
+
 		const uuids = new Set<string>(
 			data?.uuids ?? this.config.items.base.map(({ uuid }) => uuid) ?? [],
 		);
@@ -146,6 +168,11 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 
 					// Update container id
 					foundry.utils.setProperty(doc, 'system.containerId', '');
+
+					// Update Changes
+					if (this.config.changes && typeof this.config.changes !== 'string') {
+						foundry.utils.mergeObject(doc, this.config.changes);
+					}
 
 					// Delete Id
 					// @ts-expect-error
@@ -171,13 +198,13 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 		return {
 			base: this.config.items.base.map(({ uuid }) => uuid) ?? [],
 			choices: this.config.items.options.map(({ uuid }) => uuid) ?? [],
-			count: this.config.items.total,
+			count: this.selectionType === 'limited' ? this.config.items.total : this.config.pool.count,
 			selected: data?.uuids ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return !!this.config.items.options.length;
+		return this.config.selectionType === 'limited' ? !this.config.items.options.length : true;
 	}
 
 	override async configureGrant() {

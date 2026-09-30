@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { ItemGrant } from "#types/itemGrants.d.ts";
 
+  import { constructFilters } from "#view/dialogs/compendium-browser/utils/constructFilters.ts";
+  import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import DropArea from "#view/snippets/DropArea.svelte";
+  import DropTag from "#view/snippets/DropTag.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import Section from "#view/snippets/Section.svelte";
 
@@ -21,9 +25,36 @@
     return "";
   }
 
+  function onDropDocument(uuid: string) {
+    if (remainingSelections === 0) {
+      ui.notifications.warn("Max Selection Count Reached.");
+      return;
+    }
+
+    // Validate
+    const doc = fromUuidSync(uuid);
+    if (doc?.type !== "object") {
+      ui.notifications.error("Dropped document needs to be an object.");
+      return;
+    }
+
+    if (!filters.every((filter) => filter(doc))) {
+      ui.notifications.error("Dropped document doesn't satisfy filters.");
+      return;
+    }
+
+    onUpdateSelection([...selected, uuid]);
+  }
+
   function onUpdateSelection(value: string[]) {
     selected = value;
     updateSelectionFunc?.({ uuids: selected, summary });
+  }
+
+  async function openBrowser() {
+    CompendiumBrowser.openWithFilters("object", {
+      selections: filtersSelections,
+    });
   }
 
   async function openDocument(uuid: string) {
@@ -54,8 +85,14 @@
     })
     .filter(Boolean) as [string, string][];
 
+  const selectionType = grant.config.selectionType;
+  const filtersSelections = grant.config.pool.filters;
+  const { filters } = constructFilters(filtersSelections, "spell");
+
   let selected = $derived([...new Set(base.concat(preSelected))]);
-  let totalCount = $derived(base.length + count);
+  let totalCount = $derived(
+    selectionType === "limited" ? base.length + count : count,
+  );
   let remainingSelections = $derived(totalCount - selected.length);
   let summary = $derived(getGrantSummary(selected));
 </script>
@@ -67,14 +104,32 @@
       : `${remainingSelections} choices remaining.`}
     showWarning={selected.length < totalCount}
   >
-    <CheckboxGroup
-      {options}
-      {selected}
-      orange={choices}
-      disabled={selected.length >= totalCount}
-      {onUpdateSelection}
-      onTagToggleAux={openDocument}
-    />
+    {#if selectionType === "limited"}
+      <CheckboxGroup
+        {options}
+        {selected}
+        orange={choices}
+        disabled={selected.length >= totalCount}
+        {onUpdateSelection}
+        onTagToggleAux={openDocument}
+      />
+    {:else}
+      {#if remainingSelections}
+        <DropArea
+          type="uuid"
+          documentType="Item"
+          onDocumentDropped={(value) => onDropDocument(value.uuid)}
+          onclick={() => openBrowser()}
+        />
+      {/if}
+
+      <DropTag
+        embeddedData={selected}
+        type="item"
+        onUpdateSelection={(value) => onUpdateSelection(value)}
+        --a5e-drop-tag-font-size="var(--a5e-sm-text)"
+      />
+    {/if}
   </FieldWrapper>
 
   <FieldWrapper>

@@ -175,7 +175,7 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 		return {
 			base: this.config.features.base,
 			choices: this.config.features.options,
-			count: this.config.features.total,
+			count: this.selectionType === 'limited' ? this.config.features.total : this.config.pool.count,
 			selected: data?.uuids ?? [],
 		};
 	}
