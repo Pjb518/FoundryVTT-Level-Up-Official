@@ -8,17 +8,41 @@ import fields = foundry.data.fields;
 // ======================================================
 // Schema
 // ======================================================
+const filterSchema = () =>
+	new fields.SchemaField({
+		inclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
+		inclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		exclusive: new fields.ArrayField(new fields.StringField({ required: true, nullable: false })),
+		exclusiveMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	});
+
 const schema = () => ({
 	config: new fields.SchemaField({
+		selectionType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'limited',
+			choices: { limited: 'Limited', pool: 'Pool' },
+		}),
+
+		// Options Config
 		spells: new fields.SchemaField({
 			base: new fields.ArrayField(
-				new fields.StringField({ required: true, nullable: false, intiial: '' }),
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
 			),
 			options: new fields.ArrayField(
-				new fields.StringField({ required: true, nullable: false, intiial: '' }),
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
 			),
 			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 		}),
+
+		// List config
+		pool: new fields.SchemaField({
+			count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			filters: new fields.TypedObjectField(filterSchema(), { required: true, nullable: false }),
+		}),
+
+		// Changes Config
 		alwaysPrepared: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 		changes: new fields.JSONField({ required: true, nullable: true, initial: null }),
 		consumerData: new fields.SchemaField({

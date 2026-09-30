@@ -1,12 +1,17 @@
+// NOTE DO NOT IMPORT A5E INTO THIS FILE
+
 import { buildProductSourceTree } from '#utils/prepareProductSourceTree.ts';
-import { A5E } from '../../../../config.ts';
 
 function getSourceFilterSection() {
 	return {
 		filterKey: 'source',
 		heading: 'Source',
 		type: 'sourceTree' as const,
-		options: buildProductSourceTree(A5E.products, A5E.publishers, A5E.productLines),
+		options: buildProductSourceTree(
+			CONFIG.A5E.products,
+			CONFIG.A5E.publishers,
+			CONFIG.A5E.productLines,
+		),
 	};
 }
 

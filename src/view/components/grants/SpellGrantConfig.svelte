@@ -4,6 +4,8 @@
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import CodeEditor from "#view/components/CodeEditor.svelte";
+  import FiltersDialog from "#view/dialogs/compendium-browser/CompendiumFiltersTab.svelte";
+  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
   import Checkbox from "#view/snippets/Checkbox.svelte";
   import DropArea from "#view/snippets/DropArea.svelte";
   import DropTag from "#view/snippets/DropTag.svelte";
@@ -48,6 +50,35 @@
     onUpdateValue(key, [...optionalUuids, value]);
   }
 
+  async function updateFilters() {
+    const filters = foundry.utils.deepClone(grant.config.pool.filters);
+    const title = `Spell Filters - ${grant.name}`;
+
+    const dialogData = {
+      compendiumType: "spell",
+      filterOptions: { selections: filters },
+    };
+
+    const options = {
+      width: 500,
+      resizable: true,
+    };
+
+    const dialog = new GenericConfigDialog(
+      document,
+      title,
+      FiltersDialog,
+      dialogData,
+      options,
+    );
+
+    dialog.render(true);
+    const data = await dialog.promise;
+    if (!data) return;
+
+    onUpdateValue("config.pool.filters", data.selections);
+  }
+
   let { document, grantId, grantType }: Props = $props();
   let item: Item.OfType<"feature"> = document;
   const { A5E } = CONFIG;
@@ -56,9 +87,15 @@
   let baseUuids = $derived(grant.config.spells.base ?? []);
   let optionalUuids = $derived(grant.config.spells.options ?? []);
   let consumerType = $derived(grant.config.consumerData.type ?? []);
+  let selectionType = $derived(grant.config.selectionType || "pool");
 
   let consumerOptions = $derived(
+    // @ts-expect-error
     grant.schema.getField("config.consumerData.type")?.choices ?? {},
+  );
+  let selectionTypeOpts = $derived(
+    // @ts-expect-error
+    grant.schema.getField("config.selectionType")?.choices ?? {},
   );
 
   setContext("item", item);
@@ -90,36 +127,63 @@
     </div>
   </header>
 
-  <Section heading="Base Spells" --a5e-section-margin="0.25rem 0">
-    <DropArea
-      type="uuid"
-      documentType="Item"
-      onDocumentDropped={(value) =>
-        onDropUpdate("config.spells.base", value.uuid)}
-    />
-
-    <DropTag
-      embeddedData={grant.config.spells.base}
-      type="item"
-      onUpdateSelection={(value) => onUpdateValue("config.spells.base", value)}
-    />
-  </Section>
-
-  <Section heading="Optional Spells" --a5e-section-margin="0.25rem 0">
-    <DropArea
-      type="uuid"
-      documentType="Item"
-      onDocumentDropped={(value) =>
-        onDropUpdate("config.spells.options", value.uuid)}
-    />
-
-    <DropTag
-      embeddedData={grant.config.spells.options}
-      type="item"
+  <Section heading="Selection Type" --a5e-section-margin="0.25rem 0">
+    <RadioGroup
+      options={Object.entries(selectionTypeOpts)}
+      selected={selectionType}
+      allowDeselect={false}
       onUpdateSelection={(value) =>
-        onUpdateValue("config.spells.options", value)}
+        onUpdateValue("config.selectionType", value)}
     />
   </Section>
+
+  {#if selectionType === "limited"}
+    <Section heading="Base Spells" --a5e-section-margin="0.25rem 0">
+      <DropArea
+        type="uuid"
+        documentType="Item"
+        onDocumentDropped={(value) =>
+          onDropUpdate("config.spells.base", value.uuid)}
+      />
+
+      <DropTag
+        embeddedData={grant.config.spells.base}
+        type="item"
+        onUpdateSelection={(value) =>
+          onUpdateValue("config.spells.base", value)}
+      />
+    </Section>
+
+    <Section heading="Optional Spells" --a5e-section-margin="0.25rem 0">
+      <DropArea
+        type="uuid"
+        documentType="Item"
+        onDocumentDropped={(value) =>
+          onDropUpdate("config.spells.options", value.uuid)}
+      />
+
+      <DropTag
+        embeddedData={grant.config.spells.options}
+        type="item"
+        onUpdateSelection={(value) =>
+          onUpdateValue("config.spells.options", value)}
+      />
+    </Section>
+  {:else if selectionType === "pool"}
+    <Section
+      heading="Pool Filters"
+      headerButtons={[
+        {
+          htmlString: '<i class="fa-solid fa-filter"></i>',
+          tooltip: "Select Filters",
+          handler: () => updateFilters(),
+        },
+      ]}
+      --a5e-section-margin="0.25rem 0"
+    >
+      Display Filters Here
+    </Section>
+  {/if}
 
   <Section heading="Spell Config" --a5e-section-body-gap="0.75rem">
     <Checkbox

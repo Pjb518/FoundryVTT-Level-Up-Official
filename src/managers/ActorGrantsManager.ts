@@ -512,7 +512,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 				options.cls.system.spellcasting.ability.options[0] ||
 				options.cls.system.spellcasting.ability.base;
 
-			// TODO: Remove updateSource method
+			// TODO: Remove updateSource method / Can be removed I think
 			const updateMethod = options.useUpdateSource
 				? options.cls.updateSource.bind(options.cls)
 				: options.cls.update.bind(options.cls);
