@@ -43,7 +43,12 @@ const schema = () => ({
 				required: true,
 				nullable: false,
 				initial: 'spell',
-				choices: { actionUses: 'Action Uses', itemUses: 'Item Uses', spell: 'Spell' },
+				choices: {
+					actionUses: 'Action Uses',
+					atWill: 'At Will',
+					itemUses: 'Item Uses',
+					spell: 'Spell',
+				},
 			}),
 			recover: new fields.StringField({ required: true, nullable: false, initial: '' }),
 			value: new fields.StringField({
@@ -132,7 +137,9 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 					const doc = d.toObject();
 
 					// Add always prepared
-					if (this.config.alwaysPrepared) foundry.utils.setProperty(doc, 'system.prepared', 2);
+					if (this.config.alwaysPrepared || this.config.consumerData.type === 'atWill') {
+						foundry.utils.setProperty(doc, 'system.prepared', 2);
+					}
 
 					// Update SpellBook Data
 					foundry.utils.setProperty(doc, 'system.spellBook', selectedBook);
