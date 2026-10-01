@@ -37,7 +37,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "Y9NpUQV1rzj9WELd",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"con"
+						],
+						"options": [
+							"str",
+							"dex",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"YueoXnKXY8Ulxfyo": {
 				"grantType": "proficiency",
@@ -58,7 +84,27 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "YueoXnKXY8Ulxfyo",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:cul"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:nat",
+									"skill:med"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"VlSEWhnvF42wvypv": {
 				"grantType": "feature",
@@ -78,7 +124,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "VlSEWhnvF42wvypv",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.RXlrJy1h0S168Orv",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"Wvpt9pJMXUAzM4jB": {
 				"grantType": "proficiency",
@@ -97,7 +159,25 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "Wvpt9pJMXUAzM4jB",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:brewersSupplies",
+									"tool:teaMastersSet"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"EzCMrq83Zo1I8PgA": {
 				"grantType": "item",
@@ -128,6 +208,35 @@
 							"quantityOverride": "5"
 						}
 					]
+				},
+				"id": "EzCMrq83Zo1I8PgA",
+				"name": "Suggested Equipment",
+				"img": "",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.pwgkdtzl4t3n9xrr",
+								"quantityOverride": "5"
+							}
+						],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ruq1b4eccxrfve48",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.9HEriYhS10X9sTvA",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
 				}
 			}
 		},

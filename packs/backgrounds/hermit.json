@@ -7,7 +7,7 @@
 		"grants": {
 			"ICqSskAJclIn00Zd": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "ICqSskAJclIn00Zd",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "ICqSskAJclIn00Zd",
+				"name": "Ability Score Increase",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"wis"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"C8I5Zm0SheCSiKE8": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "C8I5Zm0SheCSiKE8",
 				"default": true,
@@ -53,11 +80,32 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "C8I5Zm0SheCSiKE8",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:rel"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:med",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"rkRr5SgopBp4uyzd": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "rkRr5SgopBp4uyzd",
 				"default": true,
@@ -78,11 +126,24 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "rkRr5SgopBp4uyzd",
+				"name": "Tool Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:herbalismKit"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"diNG3ZScrfVPMQwP": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "diNG3ZScrfVPMQwP",
 				"default": true,
@@ -109,11 +170,39 @@
 						}
 					],
 					"total": 1
+				},
+				"id": "diNG3ZScrfVPMQwP",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.067o6hjosd8nrjs8",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.3muu012tsfb455sa",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.pwgkdtzl4t3n9xrr",
+								"quantityOverride": 7
+							}
+						],
+						"total": 1
+					}
 				}
 			},
 			"JfFGq5MO3RlBaZp1": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Feature",
 				"features": {
@@ -129,11 +218,28 @@
 				},
 				"_id": "JfFGq5MO3RlBaZp1",
 				"default": true,
-				"img": ""
+				"img": "",
+				"id": "JfFGq5MO3RlBaZp1",
+				"name": "Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.692p85tb8j61azhk",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"gCX3xCv4FNAb4JqL": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"label": "Suggested Equipment",
 				"items": {
@@ -152,6 +258,31 @@
 							"quantity": 1
 						}
 					]
+				},
+				"id": "gCX3xCv4FNAb4JqL",
+				"name": "Suggested Equipment",
+				"img": "",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.d67im7zjmtmqd4h5",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.0k8clpc2qm846qem",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ccgdkixgdedfxeb0",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
 				}
 			}
 		},

@@ -176,7 +176,31 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "xSpun7pYbCwrkBWd",
+				"name": "Executor",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"m4YJJCcKvSRFpwOh": {
 				"grantType": "skill",
@@ -199,6 +223,25 @@
 					"passiveOnly": false,
 					"requiresProficiency": false,
 					"default": true
+				},
+				"id": "m4YJJCcKvSRFpwOh",
+				"name": "Executor",
+				"type": "skill",
+				"config": {
+					"skills": {
+						"base": [],
+						"options": [
+							"arc",
+							"his"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"passiveOnly": false,
+						"requiresProficiency": false,
+						"default": true
+					}
 				}
 			},
 			"PKrEPTQn3eZb2GXp": {
@@ -218,7 +261,22 @@
 				},
 				"expertiseType": "skill",
 				"img": "",
-				"expertiseCount": 1
+				"expertiseCount": 1,
+				"id": "PKrEPTQn3eZb2GXp",
+				"name": "Executor",
+				"type": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							"arc",
+							"his"
+						],
+						"total": 1
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				}
 			},
 			"SvqYh2DsgIUb1NXk": {
 				"grantType": "proficiency",
@@ -237,7 +295,28 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "tradition"
+				"proficiencyType": "tradition",
+				"id": "SvqYh2DsgIUb1NXk",
+				"name": "Executor",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tradition:arcaneArtillery",
+									"tradition:arcaneKnight",
+									"tradition:cuttingOmen",
+									"tradition:eldritchBlackguard"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "12 levels in wielder, Carrier feat, Keeper feat, no levels in non-wielder classes at the time of feat acquisition",

@@ -45,7 +45,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "HUJM0mzRdLFq05Pm",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"wzJlDr6qXDxBHOvN": {
 				"grantType": "proficiency",
@@ -67,7 +93,28 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "wzJlDr6qXDxBHOvN",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:eng",
+									"skill:his",
+									"skill:med",
+									"skill:nat",
+									"skill:per"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"dNHLOGXrFko2AiwF": {
 				"grantType": "feature",
@@ -87,6 +134,22 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "dNHLOGXrFko2AiwF",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.J6BdsW28V3rxYJ0L",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"ouVyl9v57i0QWx9o": {
@@ -114,6 +177,29 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "ouVyl9v57i0QWx9o",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.PxidLPk3h4qnIN40",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.WJ2Y1MmlR5XJDzft",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.F64osdwSOvI2W0LM",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"9nYtvxBVPXbET9Yd": {
@@ -134,7 +220,26 @@
 					],
 					"total": 2
 				},
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "9nYtvxBVPXbET9Yd",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tool:computers",
+									"tool:multiScanner",
+									"tool:spaceVehicles"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"cGHkLaRVmmcM8lYd": {
 				"grantType": "proficiency",
@@ -152,7 +257,19 @@
 				},
 				"proficiencyType": "weapon",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "cGHkLaRVmmcM8lYd",
+				"name": "Weapon Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:starship"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"237ambGbBF3uq6yV": {
 				"grantType": "proficiency",
@@ -229,7 +346,81 @@
 					"total": 1
 				},
 				"isExpertise": false,
-				"name": "undefined (Copy)"
+				"name": "Tool Proficiencies",
+				"id": "237ambGbBF3uq6yV",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:bookbindersKit",
+									"tool:brewersSupplies",
+									"tool:calligraphersSupplies",
+									"tool:carpentersTools",
+									"tool:cartographersTools",
+									"tool:cobblersTools",
+									"tool:cooksUtensils",
+									"tool:glassblowersTools",
+									"tool:jewelersTools",
+									"tool:leatherworkersTools",
+									"tool:masonsTools",
+									"tool:paintersSupplies",
+									"tool:pottersTools",
+									"tool:tinkersTools",
+									"tool:weaversTools",
+									"tool:woodcarversTools",
+									"tool:diceSet",
+									"tool:boardGameSet",
+									"tool:playingCardSet",
+									"tool:acousticGuitar",
+									"tool:bagpipes",
+									"tool:casaba",
+									"tool:castanet",
+									"tool:drum",
+									"tool:dulcimer",
+									"tool:electricGuitar",
+									"tool:flute",
+									"tool:harmonica",
+									"tool:harp",
+									"tool:horn",
+									"tool:keytar",
+									"tool:lute",
+									"tool:lyre",
+									"tool:maraca",
+									"tool:ocarina",
+									"tool:panFlute",
+									"tool:saxophone",
+									"tool:shawm",
+									"tool:theremin",
+									"tool:trombone",
+									"tool:viol",
+									"tool:violin",
+									"tool:disguiseKit",
+									"tool:forgeryKit",
+									"tool:herbalismKit",
+									"tool:navigatorsTools",
+									"tool:poisonersKit",
+									"tool:sewingKit",
+									"tool:smithsTools",
+									"tool:thievesTools",
+									"tool:computers",
+									"tool:computerTechnicianKit",
+									"tool:cyberneticsKit",
+									"tool:engineersToolbox",
+									"tool:fieldLaboratory",
+									"tool:hackingTool",
+									"tool:medicalPouch",
+									"tool:multiScanner"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"yoycIvDmLtr4809B": {
 				"grantType": "trait",
@@ -271,6 +462,46 @@
 					],
 					"total": 2,
 					"traitType": "languages"
+				},
+				"id": "yoycIvDmLtr4809B",
+				"name": "Languages",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"boggard",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"grippli",
+							"halfling",
+							"ignan",
+							"infernal",
+							"machine",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"undercommon"
+						],
+						"total": 2,
+						"traitType": "languages"
+					}
 				}
 			}
 		},

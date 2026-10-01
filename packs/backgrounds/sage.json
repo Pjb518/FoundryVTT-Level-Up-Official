@@ -7,7 +7,7 @@
 		"grants": {
 			"wo3JBOxrkNzRtGf2": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "wo3JBOxrkNzRtGf2",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "wo3JBOxrkNzRtGf2",
+				"name": "Ability Score Increase",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"CtpMbWbcH7ww5hHg": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "CtpMbWbcH7ww5hHg",
 				"default": true,
@@ -55,11 +82,34 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "CtpMbWbcH7ww5hHg",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:his"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:arc",
+									"skill:cul",
+									"skill:eng",
+									"skill:rel"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"98CfpFWZfOW862lo": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "98CfpFWZfOW862lo",
 				"default": true,
@@ -97,11 +147,50 @@
 					],
 					"total": 2,
 					"traitType": "languages"
+				},
+				"id": "98CfpFWZfOW862lo",
+				"name": "Languages",
+				"levelType": "character",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"druidic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"cant",
+							"undercommon"
+						],
+						"total": 2,
+						"traitType": "languages"
+					}
 				}
 			},
 			"IAyaF0Py4rfDa33i": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "IAyaF0Py4rfDa33i",
 				"default": true,
@@ -128,11 +217,39 @@
 						}
 					],
 					"total": 1
+				},
+				"id": "IAyaF0Py4rfDa33i",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.32eyx6xvcv2xuqvo",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.82kz4htg65yqk0rq",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.tmqlddzoeu97207s",
+								"quantityOverride": 50
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
 				}
 			},
 			"pICgvRYWM39yWDP1": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Feature",
 				"features": {
@@ -145,6 +262,24 @@
 						}
 					],
 					"total": 0
+				},
+				"id": "pICgvRYWM39yWDP1",
+				"name": "Feature",
+				"img": "",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.92xafazfk58herh6",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			}
 		},

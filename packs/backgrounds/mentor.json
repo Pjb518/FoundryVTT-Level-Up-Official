@@ -35,7 +35,33 @@
 				"img": "",
 				"optional": false,
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "s1EbrMoodGjBngeZ",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"WFytT8mIUbyzgWN5": {
 				"grantType": "proficiency",
@@ -57,7 +83,27 @@
 				"optional": false,
 				"level": 1,
 				"levelType": "character",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "WFytT8mIUbyzgWN5",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:cul",
+									"skill:eng",
+									"skill:his",
+									"skill:prf"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"tHtJPagiwU4n7JsR": {
 				"grantType": "feature",
@@ -78,7 +124,23 @@
 					"total": 0
 				},
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "tHtJPagiwU4n7JsR",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.7fDmvwo28CW0KGHw",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"Brb1yErN3cuJovQO": {
 				"grantType": "item",
@@ -110,7 +172,34 @@
 					"total": 0
 				},
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "Brb1yErN3cuJovQO",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.14bjydsg9yfp4vwk",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ito6po17oo0fjtag",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.32eyx6xvcv2xuqvo",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.82kz4htg65yqk0rq",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"RluG1BlpjCanuQnL": {
 				"grantType": "proficiency",
@@ -144,7 +233,40 @@
 				},
 				"proficiencyType": "tool",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "RluG1BlpjCanuQnL",
+				"name": "Artisan Tool Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:bookbindersKit",
+									"tool:brewersSupplies",
+									"tool:calligraphersSupplies",
+									"tool:carpentersTools",
+									"tool:cartographersTools",
+									"tool:cobblersTools",
+									"tool:cooksUtensils",
+									"tool:glassblowersTools",
+									"tool:jewelersTools",
+									"tool:leatherworkersTools",
+									"tool:masonsTools",
+									"tool:paintersSupplies",
+									"tool:pottersTools",
+									"tool:tinkersTools",
+									"tool:weaversTools",
+									"tool:woodcarversTools"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"QSQ6wi9Qtl4BFAUa": {
 				"grantType": "proficiency",
@@ -179,7 +301,39 @@
 				"proficiencyType": "tool",
 				"img": "",
 				"isExpertise": false,
-				"name": "undefined (Copy)"
+				"name": "Musical Instrument Proficiency",
+				"id": "QSQ6wi9Qtl4BFAUa",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:bagpipes",
+									"tool:casaba",
+									"tool:castanet",
+									"tool:drum",
+									"tool:dulcimer",
+									"tool:flute",
+									"tool:harp",
+									"tool:horn",
+									"tool:lute",
+									"tool:lyre",
+									"tool:maraca",
+									"tool:ocarina",
+									"tool:panFlute",
+									"tool:shawm",
+									"tool:trombone",
+									"tool:viol",
+									"tool:violin"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "sinuousSentinels",

@@ -65,7 +65,29 @@
 					"base": [],
 					"total": 0
 				},
-				"img": ""
+				"img": "",
+				"id": "mke7hL7gE0d6L0hT",
+				"name": "Ability Score Increase",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con"
+						],
+						"total": 0
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"qVNEjA7YWPvN2TfN": {
 				"grantType": "proficiency",
@@ -88,7 +110,29 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "qVNEjA7YWPvN2TfN",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:acr",
+									"skill:ath",
+									"skill:itm",
+									"skill:prc",
+									"skill:ste",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"nrS2AThqmZIylvGU": {
 				"grantType": "proficiency",
@@ -106,7 +150,19 @@
 				},
 				"proficiencyType": "tool",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "nrS2AThqmZIylvGU",
+				"name": "Tool Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:smithsTools"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"ChJKty92o6LqWiuv": {
 				"grantType": "proficiency",
@@ -127,7 +183,30 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "ChJKty92o6LqWiuv",
+				"name": "Exotic Weapon Proficiency",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"weapon:butchersBlade",
+									"weapon:direBow",
+									"weapon:flashingSkewer",
+									"weapon:helmCleaver",
+									"weapon:siegeArbalest",
+									"weapon:skullCrusher"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "Battle Master feat, 8 levels in fighter, no levels in non-fighter classes at the time of feat acquisition",

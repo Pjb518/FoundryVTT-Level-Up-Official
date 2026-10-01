@@ -7,7 +7,7 @@
 		"grants": {
 			"7TOqo2GTjWSi6TUf": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "7TOqo2GTjWSi6TUf",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "7TOqo2GTjWSi6TUf",
+				"name": "Default ASI",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"wis"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"ZYwuUjTQNgIkSrLS": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "ZYwuUjTQNgIkSrLS",
 				"default": true,
@@ -60,11 +87,35 @@
 						}
 					],
 					"total": 3
+				},
+				"id": "ZYwuUjTQNgIkSrLS",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.dnd5e-items.le22tnpcahrphad0",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.vqseoqiptkqkux3k",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.pwgkdtzl4t3n9xrr",
+								"quantityOverride": "5"
+							}
+						],
+						"total": 3
+					}
 				}
 			},
 			"9cZh8HBJoU4lQS4U": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "9cZh8HBJoU4lQS4U",
 				"default": true,
@@ -80,11 +131,28 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "9cZh8HBJoU4lQS4U",
+				"name": "Background Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.kk14gn9yc8rkc2u5",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"Qmf8Sd0WPy2zI0PO": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "Qmf8Sd0WPy2zI0PO",
 				"default": true,
@@ -100,11 +168,32 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "Qmf8Sd0WPy2zI0PO",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:nat"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:ani",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"LUGBGA1LLdAAoyh5": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"traits": {
 					"base": [
@@ -122,7 +211,21 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "LUGBGA1LLdAAoyh5",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:landVehicles"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "adventurersGuide",

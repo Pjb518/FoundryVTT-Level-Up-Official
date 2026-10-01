@@ -65,7 +65,29 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "cS3yt3MWTQlRa6EU",
+				"name": "Escroc",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"int",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"DZVDcXufTwKWvomb": {
 				"grantType": "proficiency",
@@ -85,7 +107,26 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "DZVDcXufTwKWvomb",
+				"name": "Escroc (Skill)",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:dec",
+									"skill:slt",
+									"skill:ste"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"lBjeyednQFZUWlJv": {
 				"grantType": "proficiency",
@@ -105,7 +146,29 @@
 					],
 					"total": 0
 				},
-				"proficiencyType": "tradition"
+				"proficiencyType": "tradition",
+				"id": "lBjeyednQFZUWlJv",
+				"name": "Escroc (Tradition)",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tradition:mistAndShade",
+									"tradition:mirrorsGlint",
+									"tradition:vipersFangs",
+									"tradition:grindingCog",
+									"tradition:1"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "4 levels in rogue, no levels in non-rogue classes at the time of feat acquisition",

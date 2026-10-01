@@ -33,7 +33,32 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "lxPMq8Md8Hz0wAVw",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 2
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"6PJo0qP0F5wfpQEs": {
 				"grantType": "proficiency",
@@ -55,7 +80,28 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "6PJo0qP0F5wfpQEs",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:ins"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:cul",
+									"skill:prc",
+									"skill:per"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"nNHP1YVnOfK2syy5": {
 				"grantType": "feature",
@@ -75,7 +121,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "nNHP1YVnOfK2syy5",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.0wrzx1w1jazlmn1w",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"9xUqeNavzP54ZaiO": {
 				"grantType": "item",
@@ -102,7 +164,30 @@
 				"_id": "9xUqeNavzP54ZaiO",
 				"img": "",
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "9xUqeNavzP54ZaiO",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ruq1b4eccxrfve48",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.1zqyltv6xs3hqrqk",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"oJsPvNJ5h23uFzAZ": {
 				"grantType": "proficiency",
@@ -121,7 +206,20 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "oJsPvNJ5h23uFzAZ",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:brewersSupplies",
+							"tool:cooksUtensils"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"1PStvrhyobBGsSjV": {
 				"grantType": "trait",
@@ -163,6 +261,46 @@
 					],
 					"total": 1,
 					"traitType": "languages"
+				},
+				"id": "1PStvrhyobBGsSjV",
+				"name": "Language",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"boggard",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"grippli",
+							"halfling",
+							"ignan",
+							"infernal",
+							"machine",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
 				}
 			}
 		},

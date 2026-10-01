@@ -64,7 +64,29 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "thN4R6dedRGsjhEY",
+				"name": "Dedicated Guardian",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"con",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"TYP8DqfjJMIBGI3p": {
 				"grantType": "proficiency",
@@ -86,7 +108,28 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "TYP8DqfjJMIBGI3p",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:ins",
+									"skill:itm",
+									"skill:inv",
+									"skill:med",
+									"skill:rel"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"SQeXYgD4Otap8V8T": {
 				"grantType": "proficiency",
@@ -127,7 +170,47 @@
 				},
 				"proficiencyType": "tool",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "SQeXYgD4Otap8V8T",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tool:acousticGuitar",
+									"tool:bagpipes",
+									"tool:casaba",
+									"tool:castanet",
+									"tool:drum",
+									"tool:dulcimer",
+									"tool:electricGuitar",
+									"tool:flute",
+									"tool:harmonica",
+									"tool:harp",
+									"tool:horn",
+									"tool:keytar",
+									"tool:lute",
+									"tool:lyre",
+									"tool:maraca",
+									"tool:ocarina",
+									"tool:panFlute",
+									"tool:saxophone",
+									"tool:shawm",
+									"tool:theremin",
+									"tool:trombone",
+									"tool:viol",
+									"tool:violin",
+									"tool:herbalismKit"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"fE0YDIBCaMIC5Qo0": {
 				"grantType": "proficiency",
@@ -143,7 +226,20 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tradition"
+				"proficiencyType": "tradition",
+				"id": "fE0YDIBCaMIC5Qo0",
+				"name": "Combat Tradition",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tradition:sanctifiedSteel"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "4 levels in herald, no levels in non-herald classes at time of feat acquisition",

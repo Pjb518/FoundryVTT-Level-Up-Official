@@ -32,7 +32,34 @@
 				"_id": "mibR2Bh5oc7S8knV",
 				"default": true,
 				"img": "",
-				"optional": false
+				"optional": false,
+				"id": "mibR2Bh5oc7S8knV",
+				"name": "Default ASI",
+				"level": 1,
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
+				}
 			},
 			"W7rrBTBBiW4hSaBR": {
 				"grantType": "proficiency",
@@ -51,7 +78,29 @@
 				"_id": "W7rrBTBBiW4hSaBR",
 				"default": true,
 				"img": "",
-				"optional": false
+				"optional": false,
+				"id": "W7rrBTBBiW4hSaBR",
+				"name": "Skill Proficiencies",
+				"level": 1,
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:his"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:inv",
+									"skill:rel"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"kvlZoz1HdH1qCTYi": {
 				"grantType": "feature",
@@ -70,6 +119,24 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "kvlZoz1HdH1qCTYi",
+				"name": "Background Feature",
+				"level": 1,
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.x37wyvuivxtl9u4v",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"6dA0Ds5RSYa6hSdu": {
@@ -100,6 +167,35 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "6dA0Ds5RSYa6hSdu",
+				"name": "Suggested Equipment",
+				"level": 1,
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.sohtdauxox9im0vr",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.4mvvj8bsvzn33b28",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.vqseoqiptkqkux3k",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"xkJiY9Eys8Dif15v": {
@@ -124,11 +220,25 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "xkJiY9Eys8Dif15v",
+				"name": "Tool Proficiencies",
+				"level": 1,
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:cartographersTools"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"K4JDiB9lAbyXcQhr": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Language Proficiencies",
 				"traits": {
@@ -161,6 +271,44 @@
 					],
 					"total": 6,
 					"traitType": "languages"
+				},
+				"id": "K4JDiB9lAbyXcQhr",
+				"name": "Language Proficiencies",
+				"img": "",
+				"levelType": "character",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"undercommon"
+						],
+						"total": 6,
+						"traitType": "languages"
+					}
 				}
 			}
 		},

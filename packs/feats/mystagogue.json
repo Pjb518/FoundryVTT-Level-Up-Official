@@ -64,7 +64,28 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "Xui9NqYzTFFCEjRy",
+				"name": "Mystagogue",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"wis"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"iP8ojf93NTuvc0ip": {
 				"grantType": "expertiseDice",
@@ -82,7 +103,21 @@
 				},
 				"expertiseType": "skill",
 				"img": "",
-				"expertiseCount": 1
+				"expertiseCount": 1,
+				"id": "iP8ojf93NTuvc0ip",
+				"name": "Mystagogue",
+				"type": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [
+							"rel"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				}
 			},
 			"fIwYd2qVhqbdY9dN": {
 				"grantType": "healing",
@@ -111,7 +146,32 @@
 					]
 				},
 				"img": "",
-				"healingType": "healing"
+				"healingType": "healing",
+				"id": "fIwYd2qVhqbdY9dN",
+				"name": "Mystagogue",
+				"type": "healing",
+				"config": {
+					"healingType": "healing",
+					"bonus": "(@prof/2)",
+					"context": {
+						"spellLevels": [
+							"0",
+							"1",
+							"2",
+							"3",
+							"4",
+							"5",
+							"6",
+							"7",
+							"8",
+							"9"
+						],
+						"default": false,
+						"healingTypes": [
+							"healing"
+						]
+					}
+				}
 			},
 			"s1dKdxPKA4iWjjsD": {
 				"grantType": "feature",
@@ -128,7 +188,24 @@
 						}
 					]
 				},
-				"label": "Mystagogue"
+				"label": "Mystagogue",
+				"id": "s1dKdxPKA4iWjjsD",
+				"name": "Mystagogue",
+				"img": "",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.h9wmhmum9efcfjjn",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			}
 		},
 		"prerequisite": "Vicar feat, Hierophant feat, 12 levels in cleric, no levels in non-cleric classes at the time of feat acquisition",

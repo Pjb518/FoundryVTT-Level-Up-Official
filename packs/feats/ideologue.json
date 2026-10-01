@@ -113,7 +113,29 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "UQ4pssiOHqrpltNQ",
+				"name": "Ideologue",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"GUzvfwxFDs8NsJfI": {
 				"grantType": "damage",
@@ -134,7 +156,24 @@
 					"isCritBonus": false,
 					"spellLevels": []
 				},
-				"img": ""
+				"img": "",
+				"id": "GUzvfwxFDs8NsJfI",
+				"name": "Ideologue Sneak Attack",
+				"type": "damage",
+				"config": {
+					"damageType": "radiant",
+					"bonus": "((@classResources.sneak-attack)d8)",
+					"context": {
+						"attackTypes": [
+							"meleeWeaponAttack",
+							"rangedWeaponAttack"
+						],
+						"default": false,
+						"damageTypes": [],
+						"isCritBonus": false,
+						"spellLevels": []
+					}
+				}
 			},
 			"2zCa3WbqVUPX9CgK": {
 				"grantType": "expertiseDice",
@@ -150,7 +189,22 @@
 					"options": [],
 					"total": 0
 				},
-				"expertiseType": "skill"
+				"expertiseType": "skill",
+				"id": "2zCa3WbqVUPX9CgK",
+				"name": "Ideologue",
+				"img": "",
+				"type": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [
+							"ins"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				}
 			}
 		},
 		"prerequisite": "Radical feat",
