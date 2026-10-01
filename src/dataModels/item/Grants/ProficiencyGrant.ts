@@ -143,7 +143,6 @@ class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
 		});
 
 		Object.entries(updateProps).forEach(([profType, values]) => {
-			console.log(profType, values);
 			const propKey = configObject[profType].propertyKey;
 			if (!propKey) return;
 
