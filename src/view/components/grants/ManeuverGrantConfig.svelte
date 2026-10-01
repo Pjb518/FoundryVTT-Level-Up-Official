@@ -2,7 +2,6 @@
   import { setContext } from "svelte";
 
   import type { ManeuverGrant } from "#data/item/Grants/ManeuverGrant.ts";
-  import { localize } from "#utils/localization/localize.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import { getFiltersText } from "#utils/view/getFiltersText.ts";
@@ -46,22 +45,6 @@
     updateDocumentDataFromField(item, key, value);
   }
 
-  function updateManeuver(
-    type: "base" | "options",
-    idx: number,
-    key: string,
-    value: any,
-  ) {
-    const maneuvers = type === "base" ? baseManeuvers : optionalManeuvers;
-    const maneuver = maneuvers[idx];
-    maneuver[key] = value;
-
-    onUpdateValue(
-      `config.maneuvers.${type}`,
-      maneuvers.map(({ uuid, exertionCost }) => ({ uuid, exertionCost })),
-    );
-  }
-
   function removeManeuver(type: "base" | "options", idx: number) {
     const maneuvers = type === "base" ? baseManeuvers : optionalManeuvers;
 
@@ -69,7 +52,7 @@
       `config.maneuvers.${type}`,
       maneuvers
         .filter((_, i) => i !== idx)
-        .map(({ uuid, exertionCost }) => ({ uuid, exertionCost })),
+        .map(({ uuid }) => ({ uuid })),
     );
   }
 
@@ -85,8 +68,8 @@
     if (maneuvers.some((m) => m.uuid === uuid)) return;
 
     onUpdateValue(`config.maneuvers.${type}`, [
-      ...maneuvers.map(({ uuid, exertionCost }) => ({ uuid, exertionCost })),
-      { uuid, exertionCost: maneuver.system.exertionCost ?? 0 },
+      ...maneuvers.map(({ uuid }) => ({ uuid })),
+      { uuid },
     ]);
   }
 
@@ -126,7 +109,6 @@
         uuid: e.uuid,
         name: maneuver?.name || "Unknown Maneuver",
         img: maneuver?.img || "",
-        exertionCost: e.exertionCost ?? 0,
       };
     });
   }
@@ -143,7 +125,7 @@
   let optionalManeuvers = $derived(
     getManeuverData(grant.config.maneuvers.options ?? []),
   );
-  let consumerType = $derived(grant.config.consumerData.type ?? "exertion");
+  let consumerType = $derived(grant.config.consumerData.type ?? "exertionDefault");
   let selectionType = $derived(grant.config.selectionType || "pool");
   let filtersText = $derived(getFiltersText(grant));
   let selectionTypeOpts = $derived(
@@ -218,9 +200,6 @@
           <header class="maneuver-table__header">
             <span class="maneuver-table__heading"></span>
             <span class="maneuver-table__heading"></span>
-            <span class="maneuver-table__heading">
-              {localize("A5E.consumers.exertionCost")}
-            </span>
             <span class="maneuver-table__heading"></span>
           </header>
 
@@ -240,21 +219,6 @@
               onclick={() => openDocument(maneuver.uuid)}
             >
               {maneuver.name}
-            </span>
-
-            <span class="maneuver-table__exertion-cost">
-              <input
-                class="a5e-input a5e-input--slim a5e-input--small"
-                type="number"
-                value={maneuver.exertionCost}
-                onchange={({ currentTarget }) =>
-                  updateManeuver(
-                    type,
-                    idx,
-                    "exertionCost",
-                    Number(currentTarget.value),
-                  )}
-              />
             </span>
 
             <button
@@ -306,8 +270,27 @@
       />
     </FieldWrapper>
 
+    {#if consumerType === "exertionFixed" || consumerType === "exertionReduce"}
+      <FieldWrapper heading="A5E.grants.maneuver.exertionAmount">
+        <input
+          class="a5e-input a5e-input--slim a5e-input--small"
+          type="number"
+          min="0"
+          step="1"
+          value={grant.config.consumerData.exertionAmount ?? ""}
+          onchange={({ currentTarget }) => {
+            const raw = currentTarget.value;
+            const num = raw === "" ? NaN : Math.max(0, Math.trunc(Number(raw)));
+            const value = Number.isFinite(num) ? num : null;
+            currentTarget.value = value === null ? "" : String(value);
+            onUpdateValue("config.consumerData.exertionAmount", value);
+          }}
+        />
+      </FieldWrapper>
+    {/if}
+
     <!-- Consumer Value -->
-    {#if consumerType !== "exertion"}
+    {#if consumerType === "actionUses" || consumerType === "itemUses"}
       <FieldWrapper heading="A5E.grants.maneuver.usesFormula">
         <input
           class="a5e-input a5e-input--slim"
@@ -366,7 +349,7 @@
 <style lang="scss">
   .maneuver-table {
     display: grid;
-    grid-template-columns: 2rem 1fr max-content 2rem;
+    grid-template-columns: 2rem 1fr 2rem;
     align-items: center;
     column-gap: 0.75rem;
     row-gap: 0.25rem;
@@ -386,7 +369,7 @@
 
     &__rule {
       width: 100%;
-      grid-column: span 4;
+      grid-column: span 3;
       margin-block: 0.25rem;
       border: 0.5px solid var(--a5e-border-color);
     }
@@ -404,13 +387,6 @@
       text-overflow: ellipsis;
     }
 
-    &__exertion-cost {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      text-align: center;
-    }
-
     &__delete-button {
       all: unset;
       display: flex;
@@ -418,7 +394,7 @@
 
       cursor: pointer;
       font-size: var(--a5e-sm-text);
-      grid-column: 4;
+      grid-column: 3;
     }
   }
 </style>

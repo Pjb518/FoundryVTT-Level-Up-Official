@@ -11,7 +11,6 @@ import fields = foundry.data.fields;
 const maneuverEntrySchema = () =>
 	new fields.SchemaField({
 		uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		exertionCost: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	});
 
 const schema = () => ({
@@ -41,8 +40,21 @@ const schema = () => ({
 			type: new fields.StringField({
 				required: true,
 				nullable: false,
-				initial: 'exertion',
-				choices: { actionUses: 'Action Uses', itemUses: 'Item Uses', exertion: 'Exertion' },
+				initial: 'exertionDefault',
+				choices: {
+					actionUses: 'Action Uses',
+					itemUses: 'Item Uses',
+					exertionDefault: 'Default Exertion Cost',
+					exertionFixed: 'Fixed Exertion Cost',
+					exertionReduce: 'Reduce Exertion Cost',
+				},
+			}),
+			exertionAmount: new fields.NumberField({
+				required: true,
+				nullable: true,
+				integer: true,
+				min: 0,
+				initial: null,
 			}),
 			recover: new fields.StringField({ required: true, nullable: false, initial: 'longRest' }),
 			value: new fields.StringField({ required: true, nullable: false, initial: '' }),
@@ -102,12 +114,13 @@ class ManeuverGrant extends BaseGrant<ManeuverGrant.Schema> {
 		};
 
 		// Construct documents
-		const entries = [...this.config.maneuvers.base, ...this.config.maneuvers.options];
-		const costs = new Map<string, number>(entries.map((e) => [e.uuid, e.exertionCost]));
 		const uuids: string[] =
 			data?.uuids ?? this.config.maneuvers.base.map(({ uuid }) => uuid) ?? [];
 
 		const consumerData = this.config.consumerData;
+		const isExertion = ['exertionDefault', 'exertionFixed', 'exertionReduce'].includes(
+			consumerData.type,
+		);
 
 		const documents = (
 			await Promise.all(
@@ -118,7 +131,14 @@ class ManeuverGrant extends BaseGrant<ManeuverGrant.Schema> {
 					const doc = d.toObject();
 
 					// Update exertion cost
-					const exertionCost = costs.get(uuid) ?? doc.system.exertionCost ?? 0;
+					const baseCost = doc.system.exertionCost ?? 0;
+					const amount = consumerData.exertionAmount;
+					let exertionCost = baseCost;
+					if (amount !== null && amount !== undefined) {
+						if (consumerData.type === 'exertionFixed') exertionCost = Math.max(0, amount);
+						else if (consumerData.type === 'exertionReduce')
+							exertionCost = Math.max(0, baseCost - amount);
+					}
 					foundry.utils.setProperty(doc, 'system.exertionCost', exertionCost);
 
 					// Update Consumer Data
@@ -131,7 +151,7 @@ class ManeuverGrant extends BaseGrant<ManeuverGrant.Schema> {
 								consumer.type === 'resource' && consumer.resource === 'exertion',
 						);
 
-						if (consumerData.type === 'exertion') {
+						if (isExertion) {
 							if (exertionConsumer) {
 								exertionConsumer[1].quantity = exertionCost;
 							} else {

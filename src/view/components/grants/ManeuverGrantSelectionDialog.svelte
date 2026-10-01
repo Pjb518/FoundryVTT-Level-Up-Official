@@ -11,7 +11,6 @@
 
   type ManeuverOption = {
     uuid: string;
-    exertionCost: number;
   };
 
   type Props = {
