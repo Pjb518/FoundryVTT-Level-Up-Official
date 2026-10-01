@@ -95,11 +95,7 @@ function getHackingFilterConfig() {
 			},
 			type: 'range',
 		},
-		{
-			filterKey: 'source',
-			heading: 'Source',
-			options: PRODUCTS,
-		},
+		getSourceFilterSection(),
 	];
 }
 
