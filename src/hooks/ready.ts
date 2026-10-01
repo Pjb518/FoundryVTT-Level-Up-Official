@@ -56,7 +56,7 @@ async function addKeyPressLogger() {
 }
 
 function updateTheme() {
-	const primaryColor = game.settings.get('a5e', 'primaryColor')?.toString();
+	const primaryColor = game.settings.get('a5e', 'expertimentalprimaryColor')?.toString();
 	if (primaryColor && primaryColor !== '#426066') {
 		document.documentElement.style.setProperty('--a5e-color-primary', primaryColor);
 		const theme = document.querySelector('.theme-dark');

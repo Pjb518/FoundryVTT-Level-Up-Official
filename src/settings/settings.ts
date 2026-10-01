@@ -827,9 +827,9 @@ export const settings = [
 	// Temp Theme Settings
 	{
 		namespace,
-		key: 'primaryColor',
+		key: 'expertimentalprimaryColor',
 		options: {
-			name: 'Primary Color',
+			name: '[ Experimental ] Primary Color',
 			scope: scope.world,
 			config: true,
 			default: '#426066',
