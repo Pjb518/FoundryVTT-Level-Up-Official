@@ -1,55 +1,91 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { damageBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class DamageGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(damageBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	damageType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(damageBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Damage Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'damage',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace DamageGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class DamageGrant extends BaseGrant<DamageGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'damage';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'damage';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'damage' }),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			damageType: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(damageBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Damage Grant',
-			}),
-		});
+	static override defineSchema(): DamageGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: any): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Damage Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'Damage Grant',
+			default: this.config.context.default ?? true,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'damage',
+			bonusType: 'damage',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.damage.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.damage.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -68,8 +104,8 @@ export default class DamageGrant extends BaseGrant {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
@@ -78,3 +114,5 @@ export default class DamageGrant extends BaseGrant {
 		});
 	}
 }
+
+export { DamageGrant };

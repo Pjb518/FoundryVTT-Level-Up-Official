@@ -1,5 +1,5 @@
+import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
 import type { Action } from '#types/action.d.ts';
-import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 
 import { ActionSheet } from '../documents/sheets/ActionSheet.svelte.ts';
@@ -7,7 +7,7 @@ import { ActionSheet } from '../documents/sheets/ActionSheet.svelte.ts';
 class ActionsManager extends Map<string, A5EActionData> {
 	#item: ItemA5e;
 
-	default: Action | null;
+	default: A5EActionData | null;
 
 	constructor(item: ItemA5e) {
 		super();

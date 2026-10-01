@@ -1,77 +1,123 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { skillBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class SkillGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		skills: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(skillBonusContextGrant()),
+	}),
+
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	skills: new fields.SchemaField({
+		/** @deprecated */
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		/** @deprecated */
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		/** @deprecated */
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(skillBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Skill Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'skill',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace SkillGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class SkillGrant extends BaseGrant<SkillGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'skill';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'skill';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'skill' }),
-			skills: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(skillBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Skill Grant',
-			}),
-		});
+	static override defineSchema(): SkillGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: typeof Actor, data: any = {}): any {
+	override getApplyData(actor: Character, data: any = {}): any {
 		if (!actor) return {};
-		const selected = data?.selected ?? this.skills.base ?? [];
+		const selected = data?.selected ?? this.config.skills.base ?? [];
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
 				skills: selected,
-				...this.context,
+				...this.config.context,
 			},
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Skill Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'Skill Grant',
+			default: this.config.context.default ?? true,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'skills',
+			bonusType: 'skills',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.skills.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.skills.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -82,24 +128,24 @@ export default class SkillGrant extends BaseGrant {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.skills.base,
-			bonus: this.bonus,
-			choices: this.skills.options,
+			base: this.config.skills.base,
+			bonus: this.config.bonus,
+			choices: this.config.skills.options,
 			configObject: CONFIG.A5E.skills,
-			count: this.skills.total,
+			count: this.config.skills.total,
 			heading: 'Skill Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.skills.options.length;
+		return !!this.config.skills.options.length;
 	}
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'skills',
 		};
 
@@ -108,3 +154,5 @@ export default class SkillGrant extends BaseGrant {
 		});
 	}
 }
+
+export { SkillGrant };

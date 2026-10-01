@@ -1,6 +1,6 @@
 import { A5eEnricherManager } from './A5eEnricherManager.ts';
 import { ActionsManager } from './ActionsManager.ts';
-import ActorGrantsManger from './ActorGrantsManager.ts';
+import { ActorGrantsManager } from './ActorGrantsManager.ts';
 import { BonusesManager } from './BonusesManager.ts';
 import ClassResourceManager from './ClassResourceManager.ts';
 import ContainerManager from './ContainerManager.ts';
@@ -21,7 +21,7 @@ import TokenPreviewManager from './TokenPreviewManager.ts';
 const managers = {
 	A5eEnricherManager,
 	ActionsManager,
-	ActorGrantsManger,
+	ActorGrantsManager,
 	BonusesManager,
 	ClassResourceManager,
 	ContainerManager,

@@ -1,110 +1,110 @@
 <script lang="ts">
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import Section from "#view/snippets/Section.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import Section from "#view/snippets/Section.svelte";
 
-    type Props = {
-        document?: any;
-        bonusID?: string;
-        data?: Record<string, any>;
-        onchange?: (value: Record<string, any>) => void;
-    };
+  type Props = {
+    document?: any;
+    bonusID?: string;
+    data?: Record<string, any>;
+    onchange?: (value: Record<string, any>) => void;
+  };
 
-    function updateImage() {
-        const current = exertionBonus?.img;
+  function updateImage() {
+    const current = exertionBonus?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+    const filePicker = new foundry.applications.apps.FilePicker({
+      type: "image",
+      current,
+      callback: (path) => {
+        onUpdateValue("img", path);
+      },
+    });
 
-        return filePicker.browse();
+    return filePicker.browse();
+  }
+
+  function onUpdateValue(key, value) {
+    if (data === undefined) {
+      key = `system.bonuses.exertion.${bonusID}.${key}`;
+      updateDocumentDataFromField(actor, key, value);
+      return;
     }
 
-    function onUpdateValue(key, value) {
-        if (data === undefined) {
-            key = `system.bonuses.exertion.${bonusID}.${key}`;
-            updateDocumentDataFromField(actor, key, value);
-            return;
-        }
+    const newObj = foundry.utils.expandObject({
+      ...exertionBonus,
+      [key]: value,
+    });
 
-        const newObj = foundry.utils.expandObject({
-            ...exertionBonus,
-            [key]: value,
-        });
+    onchange?.(newObj);
+  }
 
-        onchange?.(newObj);
+  function getExertionBonus() {
+    if (data === undefined)
+      return actor.reactive.system.bonuses.exertion[bonusID];
+
+    try {
+      const obj = data ?? {};
+      if (typeof obj !== "object") throw new Error();
+      obj.label = obj.label ?? "";
+      obj.formula = obj.formula ?? "";
+      obj.img = obj.img || "icons/svg/upgrade.svg";
+      return obj;
+    } catch (error) {
+      return {
+        label: "",
+        formula: "",
+        img: "icons/svg/upgrade.svg",
+      };
     }
+  }
 
-    function getExertionBonus() {
-        if (data === undefined)
-            return actor.reactive.system.bonuses.exertion[bonusID];
+  let {
+    document,
+    bonusID = "",
+    data = undefined,
+    onchange = undefined,
+  }: Props = $props();
 
-        try {
-            const obj = data ?? {};
-            if (typeof obj !== "object") throw new Error();
-            obj.label = obj.label ?? "";
-            obj.formula = obj.formula ?? "";
-            obj.img = obj.img || "icons/svg/upgrade.svg";
-            return obj;
-        } catch (error) {
-            return {
-                label: "",
-                formula: "",
-                img: "icons/svg/upgrade.svg",
-            };
-        }
-    }
+  let actor = document;
 
-    let {
-        document,
-        bonusID = "",
-        data = undefined,
-        onchange = undefined,
-    }: Props = $props();
-
-    let actor = document;
-
-    let exertionBonus = $derived(getExertionBonus() ?? {});
+  let exertionBonus = $derived(getExertionBonus() ?? {});
 </script>
 
 <form class="a5e-bonus">
-    <header class="a5e-bonus__header">
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <img
-            class="a5e-bonus-image"
-            src={exertionBonus.img}
-            alt={exertionBonus.label}
-            onclick={() => updateImage()}
-        />
+  <header class="a5e-bonus__header">
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <img
+      class="a5e-bonus-image"
+      src={exertionBonus.img}
+      alt={exertionBonus.label}
+      onclick={() => updateImage()}
+    />
 
-        <div class="a5e-bonus-name-wrapper">
-            <input
-                class="a5e-input a5e-bonus-name"
-                type="text"
-                name="name"
-                value={exertionBonus.label ?? ""}
-                placeholder="Bonus Name"
-                onchange={({ currentTarget }) =>
-                    onUpdateValue("label", currentTarget.value)}
-            />
-        </div>
-    </header>
+    <div class="a5e-bonus-name-wrapper">
+      <input
+        class="a5e-input a5e-bonus-name"
+        type="text"
+        name="name"
+        value={exertionBonus.label ?? ""}
+        placeholder="Bonus Name"
+        onchange={({ currentTarget }) =>
+          onUpdateValue("label", currentTarget.value)}
+      />
+    </div>
+  </header>
 
-    <Section --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.rollLabels.formula">
-            <input
-                class="a5e-input a5e-input--slim"
-                type="text"
-                value={exertionBonus.formula ?? ""}
-                onchange={({ currentTarget }) =>
-                    onUpdateValue("formula", currentTarget.value)}
-            />
-        </FieldWrapper>
-    </Section>
+  <Section --a5e-section-margin="0.25rem 0">
+    <FieldWrapper heading="A5E.rollLabels.formula">
+      <input
+        class="a5e-input a5e-input--slim"
+        type="text"
+        value={exertionBonus.formula ?? ""}
+        onchange={({ currentTarget }) =>
+          onUpdateValue("formula", currentTarget.value)}
+      />
+    </FieldWrapper>
+  </Section>
 </form>

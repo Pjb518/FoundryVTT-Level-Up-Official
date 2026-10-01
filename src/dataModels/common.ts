@@ -1,3 +1,4 @@
+import { ExpertiseDieField } from './fields/ExpertiseDieField.ts';
 import { RollModeField } from './fields/RollModeField.ts';
 
 const { fields } = foundry.data;
@@ -26,6 +27,16 @@ export type MigrationData = ReturnType<typeof migrationData>;
 // -----------------------------------------
 export const d20RollModification = () => ({
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '', persisted: false }),
+	expertiseDice: new ExpertiseDieField(),
+	expertieDiceSources: new fields.SchemaField(
+		{
+			override: new fields.NumberField({ required: true, nullable: true, initial: null }),
+			sources: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+			),
+		},
+		{ persisted: false, required: true, nullable: false },
+	),
 	maxRoll: new fields.NumberField({
 		required: true,
 		nullable: false,
@@ -43,6 +54,29 @@ export const d20RollModification = () => ({
 		max: 20,
 	}),
 	rollMode: new RollModeField(),
+	rollModeCounts: new fields.SchemaField(
+		{
+			override: new fields.SchemaField({
+				value: new fields.NumberField({ required: true, nullable: true, initial: null }),
+				source: new fields.StringField({ required: true, nullable: true, initial: null }),
+			}),
+			advantages: new fields.SchemaField({
+				count: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+				suppressed: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+				sources: new fields.ArrayField(
+					new fields.StringField({ required: true, nullable: false, initial: '' }),
+				),
+			}),
+			disadvantages: new fields.SchemaField({
+				count: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+				suppressed: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+				sources: new fields.ArrayField(
+					new fields.StringField({ required: true, nullable: false, initial: '' }),
+				),
+			}),
+		},
+		{ persisted: false, required: true, nullable: false },
+	),
 });
 
 export type D20RollModification = ReturnType<typeof d20RollModification>;

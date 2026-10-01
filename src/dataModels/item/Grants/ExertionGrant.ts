@@ -1,116 +1,144 @@
-import BaseGrant from "./BaseGrant.ts";
+import ExertionGrantConfig from '#view/components/grants/ExertionGrantConfig.svelte';
+import { BaseGrant } from './BaseGrant.ts';
+import { exertionGrantSchema } from './common.ts';
 
-import ExertionGrantConfig from "#view/components/grants/ExertionGrantConfig.svelte";
+import fields = foundry.data.fields;
 
-export default class ExertionGrant extends BaseGrant {
-  #component = null;
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		/** If the exertion grants a simple bonus or targets the base calculation of the pool */
+		exertionType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'bonus',
+			choices: ['bonus', 'pool'],
+		}),
+		/** How is the base pool being calculated - This does not go to applied */
+		poolType: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'none',
+			choices: ['none', 'prof', 'doubleProf'],
+		}),
+	}),
 
-  #configComponent = ExertionGrantConfig;
+	// Applied
+	applied: new fields.SchemaField(exertionGrantSchema(), { required: true, nullable: false }),
 
-  #type = "exertion";
+	// Deprecations
+	/** @deprecated */
+	exertionType: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'bonus',
+		choices: ['bonus', 'pool'],
+	}),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	poolType: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'none',
+		choices: ['none', 'prof', 'doubleProf'],
+	}),
 
-  // Schema values
-  declare grantType: string;
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Exertion Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'exertion',
+	}),
+});
 
-  declare exertionType: "bonus" | "pool";
-
-  declare bonus: string;
-
-  declare poolType: "none" | "prof" | "doubleProf";
-
-  declare label: string;
-
-  static override defineSchema() {
-    const { fields } = foundry.data;
-
-    return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({
-        required: true,
-        initial: "exertion",
-      }),
-      exertionType: new fields.StringField({
-        required: true,
-        initial: "bonus",
-        choices: ["bonus", "pool"],
-      }),
-      bonus: new fields.StringField({ required: true, initial: "" }),
-      poolType: new fields.StringField({
-        required: true,
-        initial: "none",
-        choices: ["none", "prof", "doubleProf"],
-      }),
-      label: new fields.StringField({
-        required: true,
-        initial: "New Exertion Grant",
-      }),
-    });
-  }
-
-  override getApplyData(actor: any): any {
-    if (!actor) return {};
-
-    const updates: Record<string, any> = {};
-
-    // Construct bonus
-    const bonusId = foundry.utils.randomID();
-
-    if (this.exertionType === "bonus") {
-      const bonus = {
-        formula: this.bonus,
-        label: this.label || this.parent?.name || "Exertion Grant",
-        img: this.img || this?.parent?.img,
-      };
-
-      updates[`system.bonuses.exertion.${bonusId}`] = bonus;
-    }
-
-    // Construct grant data
-    const grantData = {
-      itemUuid: this.parent.uuid,
-      grantId: this._id,
-      exertionData: {
-        exertionType: this.exertionType,
-        bonusId: this.exertionType === "bonus" ? bonusId : undefined,
-        poolType: this.poolType,
-      },
-      grantType: this.#type,
-      level: this.level,
-    };
-
-    updates["system.grants"] = {
-      ...actor.system.grants,
-      [this._id]: grantData,
-    };
-
-    return updates;
-  }
-
-  override getSelectionComponent() {
-    return null;
-  }
-
-  override getSelectionComponentProps() {
-    return null;
-  }
-
-  override requiresConfig() {
-    return false;
-  }
-
-  override async configureGrant(): Promise<any> {
-    const dialogData = {
-      document: this?.parent,
-      grantId: this._id,
-      grantType: this.#type,
-    };
-
-    super.configureGrant(
-      "Configure Exertion Grant",
-      dialogData,
-      this.#configComponent,
-      {
-        width: 400,
-      },
-    );
-  }
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace ExertionGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
 }
+
+class ExertionGrant extends BaseGrant<ExertionGrant.Schema> {
+	#component = null;
+
+	#configComponent = ExertionGrantConfig;
+
+	#type = 'exertion';
+
+	static override type = 'ability';
+
+	static override defineSchema(): ExertionGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
+	}
+
+	override getApplyData(actor: Character): any {
+		if (!actor) return {};
+
+		const updateData: Record<string, any> = {};
+
+		// Construct bonus
+		const bonusId = foundry.utils.randomID();
+
+		if (this.config.exertionType === 'bonus') {
+			const bonus = {
+				formula: this.config.bonus,
+				label: this.name || this.item?.name || 'Exertion Grant',
+				img: this.img || this?.item?.img,
+			};
+
+			updateData[`system.bonuses.exertion.${bonusId}`] = bonus;
+		}
+
+		// Construct applied data
+		const appliedData: typeof this.applied = {
+			exertionType: this.config.exertionType,
+			bonusId: this.config.exertionType === 'bonus' ? bonusId : null,
+			grantType: this.#type,
+			level: this.level,
+			isApplied: true,
+		};
+
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData };
+	}
+
+	override getSelectionComponent() {
+		return null;
+	}
+
+	override getSelectionComponentProps() {
+		return null;
+	}
+
+	override requiresConfig() {
+		return false;
+	}
+
+	override async configureGrant(): Promise<any> {
+		const dialogData = {
+			document: this.item,
+			grantId: this.id,
+			grantType: this.#type,
+		};
+
+		super.configureGrant('Configure Exertion Grant', dialogData, this.#configComponent, {
+			width: 400,
+		});
+	}
+}
+
+export { ExertionGrant };

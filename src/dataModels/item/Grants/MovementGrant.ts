@@ -1,77 +1,121 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { movementBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class MovementGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		movementTypes: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+		context: new fields.SchemaField(movementBonusContextGrant()),
+	}),
+
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	movementTypes: new fields.SchemaField({
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	unit: new fields.StringField({ required: true, nullable: false, initial: 'feet' }),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(movementBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Movement Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'movement',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace MovementGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class MovementGrant extends BaseGrant<MovementGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'movement';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'movement';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'movement',
-			}),
-			movementTypes: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			unit: new fields.StringField({ required: true, initial: 'feet' }),
-			context: new fields.SchemaField(movementBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Movement Grant',
-			}),
-		});
+	static override defineSchema(): MovementGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
-				movementTypes: data?.selected ?? this.movementTypes.base ?? [],
-				...this.context,
+				movementTypes: data?.selected ?? this.config.movementTypes.base ?? [],
+				...this.config.context,
 			},
-			formula: this.bonus,
-			unit: this.unit || 'feet',
-			label: this.label || this.parent?.name || 'Movement Grant',
-			img: this.img || this?.parent?.img,
+			formula: this.config.bonus,
+			unit: this.config.unit || 'feet',
+			label: this.name || this.item?.name || 'Movement Grant',
+			img: this.img || this?.item?.img,
 		};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: this.#type,
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.movement.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.movement.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -82,25 +126,25 @@ export default class MovementGrant extends BaseGrant {
 
 	override getSelectionComponentProps(data: Record<string, any>) {
 		return {
-			base: this.movementTypes.base ?? [],
-			bonus: this.bonus,
-			choices: this.movementTypes.options ?? [],
+			base: this.config.movementTypes.base ?? [],
+			bonus: this.config.bonus,
+			choices: this.config.movementTypes.options ?? [],
 			configObject: CONFIG.A5E.movementAbbreviations,
-			count: this.movementTypes.total,
-			unit: this.unit,
+			count: this.config.movementTypes.total,
+			unit: this.config.unit,
 			heading: 'Movement Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig() {
-		return this.movementTypes.options.length;
+		return !!this.config.movementTypes.options.length;
 	}
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'movement',
 		};
 
@@ -109,3 +153,5 @@ export default class MovementGrant extends BaseGrant {
 		});
 	}
 }
+
+export { MovementGrant };

@@ -19,8 +19,7 @@ export class GenericConfigDialog extends SvelteApplicationMixin(
 	) {
 		options.position ??= {};
 		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
-		const width =
-			(options.position.width ?? GenericConfigDialog.DEFAULT_OPTIONS.position.width) * scale;
+		const width = (options.width ?? GenericConfigDialog.DEFAULT_OPTIONS.position.width) * scale;
 
 		// @ts-expect-error
 		super({
@@ -29,7 +28,7 @@ export class GenericConfigDialog extends SvelteApplicationMixin(
 				width,
 				height: options.height ?? 'auto',
 			},
-			window: { title },
+			window: { title, resizable: options.resizable ?? false },
 		});
 
 		this.data = data;
@@ -62,9 +61,6 @@ export class GenericConfigDialog extends SvelteApplicationMixin(
 
 	/**
 	 * Resolves the dialog's promise and closes it.
-	 *
-	 * @param {object} results
-	 * @returns
 	 */
 	submit(results) {
 		this.#resolvePromise(results);

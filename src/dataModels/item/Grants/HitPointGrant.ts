@@ -1,55 +1,87 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { hitPointsBonusContextGrant } from '../../actor/Contexts.ts';
 import BaseGrant from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class HitPointGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(hitPointsBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(hitPointsBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Hit Points Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'hitPoint',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace HitPointGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class HitPointGrant extends BaseGrant<HitPointGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'hitPoint';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'hitPoint';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'hitPoint',
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(hitPointsBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Hit Point Grant',
-			}),
-		});
+	static override defineSchema(): HitPointGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	override getApplyData(actor: any, _data: any = {}) {
+	override getApplyData(actor: Character, _data: any = {}) {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: { ...this.context },
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'HitPoint Grant',
-			img: this.img || this?.parent?.img,
+			context: { ...this.config.context },
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'HitPoint Grant',
+			img: this.img || this?.item?.img,
 		};
 
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: this.#type,
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.hitPoint.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.hitPoint.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -68,8 +100,8 @@ export default class HitPointGrant extends BaseGrant {
 
 	override async configureGrant(): Promise<any> {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
@@ -78,3 +110,5 @@ export default class HitPointGrant extends BaseGrant {
 		});
 	}
 }
+
+export { HitPointGrant };

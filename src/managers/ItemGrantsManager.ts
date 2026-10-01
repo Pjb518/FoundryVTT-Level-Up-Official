@@ -1,136 +1,124 @@
-import type { Grant } from "#types/itemGrants.d.ts";
-import GrantCls from "../dataModels/item/Grants/index.ts";
+import type { Grant, GrantTypes } from '#data/item/Grants/GrantsField.ts';
+import { ITEM_GRANT_TYPES } from '#data/item/Grants/index.ts';
 
 export class ItemGrantsManager extends Map<string, Grant> {
-  #item: any;
+	#item: Item.OfType<'feature'> | OriginItems;
 
-  constructor(item: any) {
-    super();
+	constructor(item: any) {
+		super();
 
-    this.#item = item;
-    Object.entries(this.#item.system.grants ?? {}).forEach(
-      ([id, data]: Array<any>) => {
-        data._id = id;
+		this.#item = item;
+		Object.entries(this.#item.system.grants ?? {}).forEach(([id, grant]: Array<any>) => {
+			grant.id = id;
+			this.set(id, grant);
+		});
+	}
 
-        let Cls = GrantCls[data.grantType];
+	/** Gets the first grant */
+	get first(): Grant | undefined {
+		const grant = this.values().next();
+		if (!grant) return undefined;
+		return grant.value;
+	}
 
-        // eslint-disable-next-line no-console
-        if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
+	/** Returns all the optional grants on this item */
+	get optionalGrants(): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.optional);
+	}
 
-        Cls ??= GrantCls.base;
-        const grant = new Cls(data, { parent: item });
+	/** Returns all grants of a certain type */
+	byType(type: GrantTypes): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.type === type);
+	}
 
-        this.set(id, grant);
-      },
-    );
-  }
+	/** Returns all grants of a level */
+	byLevel(level: number): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.level === level);
+	}
 
-  get optionalGrants(): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.optional);
-  }
+	/** Returns filtered grants based on levelType being class or character */
+	byLevelType(levelType: 'character' | 'class'): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.levelType === levelType);
+	}
 
-  /**
-   * @param {String} type
-   * @returns
-   */
-  byType(type: string): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.grantType === type);
-  }
+	/** Returns all grants of a certain type and level*/
+	byLevelAndType(level: number, grantType: GrantTypes): Array<Grant> {
+		return [...this.values()].filter((grant) => grant.level === level && grant.type === grantType);
+	}
 
-  byLevel(level: number): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.level === level);
-  }
+	/** ************************************************
+	 *               External methods
+	 * ************************************************ */
+	async add(data = {}) {
+		await ItemGrantsManager.addGrant(this.#item, data);
+	}
 
-  byLevelType(levelType: string): Array<Grant> {
-    return [...this.values()].filter((grant) => grant.levelType === levelType);
-  }
+	// configure(id: string): void {
+	//   const grant = this.get(id);
+	//   if (!grant) return;
 
-  byLevelAndType(level: number, grantType: string): Array<Grant> {
-    return [...this.values()].filter(
-      (grant) => grant.level === level && grant.grantType === grantType,
-    );
-  }
+	//   grant.configureDialog();
+	// }
 
-  /** ************************************************
-   *               External methods
-   * ************************************************ */
-  async add(data = {}) {
-    await ItemGrantsManager.addGrant(this.#item, data);
-  }
+	override async clear() {
+		await this.#item.update({
+			'system.grants': _del,
+		});
 
-  // configure(id: string): void {
-  //   const grant = this.get(id);
-  //   if (!grant) return;
+		// @ts-expect-error
+		await this.#item.update({ 'system.grants': {} });
+	}
 
-  //   grant.configureDialog();
-  // }
+	async duplicate(id: string) {
+		const newGrant = foundry.utils.deepClone(this.#item.system.grants?.[id] ?? {});
+		// @ts-expect-error
+		newGrant.name = `${newGrant.name} (Copy)`;
 
-  override async clear() {
-    await this.#item.update({
-      "system.grants": _del,
-    });
+		await this.#item.update({
+			// @ts-expect-error
+			'system.grants': {
+				...this.#item.system.grants,
+				[foundry.utils.randomID()]: newGrant,
+			},
+		});
+	}
 
-    await this.#item.update({ "system.grants": {} });
-  }
+	// @ts-expect-error
+	override async delete(id: string): Promise<void> {
+		super.delete(id);
 
-  async duplicate(id: string) {
-    const newGrant = foundry.utils.duplicate(this.#item.system.grants[id]);
-    newGrant.name = `${newGrant.name} (Copy)`;
+		await this.#item.update({
+			// @ts-expect-error
+			'system.grants': {
+				[`${id}`]: _del,
+			},
+		});
 
-    await this.#item.update({
-      "system.grants": {
-        ...this.#item.system.grants,
-        // @ts-ignore
-        [foundry.utils.randomID()]: newGrant,
-      },
-    });
-  }
+		const actor = this.#item.parent;
+		if (actor?.documentName !== 'Actor') return;
 
-  // @ts-ignore
-  override async delete(id: string): Promise<void> {
-    super.delete(id);
+		actor.grants.removeGrant(id);
+	}
 
-    await this.#item.update({
-      "system.grants": {
-        [`${id}`]: _del,
-      },
-    });
+	/** ************************************************
+	 *                Static methods
+	 * ************************************************ */
+	static async addGrant(item: any, data = {}, update = true, returnId = false) {
+		const model = ITEM_GRANT_TYPES[data.type || 'skill'];
+		const initial = model.schema.getInitialValue();
+		initial.levelType = ['class', 'archetype'].includes(item.type) ? 'class' : 'character';
 
-    const actor = this.#item.parent;
-    if (!actor || actor.documentName !== "Actor") return;
+		const newGrant: Grant = foundry.utils.mergeObject(initial, data);
 
-    actor.grants.removeGrant(id);
-  }
+		const id = foundry.utils.randomID();
+		newGrant.id = id;
 
-  /** ************************************************
-   *                Static methods
-   * ************************************************ */
-  static async addGrant(item: any, data = {}, update = true, returnId = false) {
-    // @ts-ignore
-    const newGrant: Grant = foundry.utils.mergeObject(
-      {
-        grantType: "skill",
-        level: 1,
-        levelType: ["class", "archetype"].includes(item.type)
-          ? "class"
-          : "character",
-      },
-      data,
-    );
+		const updateData = {
+			[`system.grants.${id}`]: newGrant,
+		};
 
-    const id = foundry.utils.randomID();
-    newGrant._id = id;
-
-    const updateData = {
-      "system.grants": {
-        ...item.system.grants,
-        // @ts-ignore
-        [id]: newGrant,
-      },
-    };
-
-    if (update) await item.update(updateData);
-    if (returnId) return [id, updateData];
-    return updateData;
-  }
+		if (update) await item.update(updateData);
+		if (returnId) return [id, updateData];
+		return updateData;
+	}
 }

@@ -2,6 +2,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 	const itemGrants = {
 		ability: 'A5E.grants.headings.ability',
 		attack: 'A5E.grants.headings.attack',
+		currency: 'A5E.grants.headings.currency',
 		damage: 'A5E.grants.headings.damage',
 		exertion: 'A5E.grants.headings.exertion',
 		expertiseDice: 'A5E.grants.headings.expertiseDice',
@@ -10,12 +11,15 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		hitPoint: 'A5E.grants.headings.hitPoint',
 		item: 'A5E.grants.headings.item',
 		initiative: 'A5E.grants.headings.initiative',
+		maneuver: 'A5E.grants.headings.maneuver',
 		movement: 'A5E.grants.headings.movement',
 		proficiency: 'A5E.grants.headings.proficiency',
 		rollOverride: 'A5E.grants.headings.rollOverride',
 		senses: 'A5E.grants.headings.senses',
+		settings: 'A5E.grants.headings.settings',
 		skill: 'A5E.grants.headings.skill',
 		skillSpecialty: 'A5E.grants.headings.skillSpecialty',
+		spell: 'A5E.grants.headings.spell',
 		trait: 'A5E.grants.headings.trait',
 	};
 
@@ -37,7 +41,11 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		},
 		savingThrow: {
 			label: 'A5E.rollLabels.savingThrows.titlePlural',
-			config: Object.entries(config.abilities),
+			config: [
+				...Object.entries(config.abilities),
+				['concentration', 'Concentration'],
+				['death', 'Death'],
+			],
 			propertyKey: '',
 		},
 		tool: {
@@ -53,7 +61,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 	};
 
 	const traitGrantConfigObject = {
-		lignment: {
+		alignment: {
 			label: 'A5E.traits.headings.alignment',
 			config: Object.entries(config.alignments),
 			propertyKey: 'system.traits.alignment',
@@ -95,9 +103,35 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		},
 	};
 
+	const settingsGrantConfig = {
+		carryCapacityAbility: {
+			type: 'radio',
+			label: 'Carry Capacity Ability',
+			config: config.abilities,
+			default: 'str',
+		},
+		criticalHitThresholdSpell: { type: 'number', label: 'Spell Crit Hit Threshold', default: 20 },
+		criticalHitThresholdWeapon: { type: 'number', label: 'Weapon Crit Hit Threshold', default: 20 },
+		deathSaveThreshold: { type: 'number', label: 'Death Save Threshold', default: 10 },
+		doubleCarryCapacity: { type: 'boolean', label: 'Double Carry Capacity', default: false },
+		halflingLuck: { type: 'boolean', label: 'Enable Halfling Luck', default: false },
+		jackOfAllTrades: { type: 'boolean', label: 'Enable Jack of All Trades', default: false },
+		restoreSpellPointsOnShortRest: {
+			type: 'boolean',
+			label: 'Restore Spell Points on Short Rest',
+			default: true,
+		},
+		restoreSpellSlotsOnShortRest: {
+			type: 'boolean',
+			label: 'Restore Spell Slots on Short Rest',
+			default: false,
+		},
+	};
+
 	return {
 		itemGrants,
 		proficiencyGrantConfigObject,
 		traitGrantConfigObject,
+		settingsGrantConfig,
 	};
 }

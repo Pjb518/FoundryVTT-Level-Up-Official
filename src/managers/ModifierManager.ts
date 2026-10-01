@@ -151,11 +151,18 @@ class ModifierManager {
 	}
 
 	#getAbilitySaveModifier() {
-		const { ability } = this.rollData;
+		const { ability, saveType } = this.rollData;
 
-		if (!ability) return null;
+		let proficient = false;
 
-		const proficient = this.actor.system.abilities[ability]?.save?.proficient;
+		if (saveType === 'concentration') {
+			proficient = this.actor.system.attributes.concentration.proficient ?? false;
+		} else if (saveType === 'death') {
+			proficient = this.actor.system.attributes.death.proficient ?? false;
+		} else if (ability) {
+			proficient = this.actor.system.abilities[ability]?.save?.proficient;
+		}
+
 		const proficiencyBonus = this.actor.system.attributes.prof;
 
 		return {

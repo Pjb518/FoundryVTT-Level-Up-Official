@@ -53,11 +53,11 @@
 
     if (color === "orange") {
       return `
-                --a5e-tag-color: hsl(36, 58%, 100%);
+                --a5e-tag-color: hsl(0, 0%, 0%);
                 --a5e-tag-background-color: var(--a5e-color-warning);
                 --a5e-tag-border-color: hsl(36, 58%, 28%);
                 --a5e-tag-background-color-hover: var(--a5e-color-warning);
-                --a5e-tag-color-hover: var(--color-hover, hsl(36, 58%, 100%));
+                --a5e-tag-color-hover: var(--color-hover, hsl(0, 0%, 0%));
             `;
     }
 

@@ -1,7 +1,13 @@
 // *****************************************************************************************
 
 import { createSubscriber } from 'svelte/reactivity';
+import { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
+import { BonusesManager } from '#managers/BonusesManager.ts';
+import HitDiceManager from '#managers/HitDiceManager.ts';
+import { RestManager } from '#managers/RestManager.ts';
 import { RollOverrideManager } from '#managers/RollOverrideManager.ts';
+import { RollPreparationManager } from '#managers/RollPreparationManager.ts';
+import SpellBookManager from '#managers/SpellBookManager.ts';
 import { getRollFormula } from '#utils/getRollFormula.ts';
 import { localize } from '#utils/localization/localize.ts';
 import AbilityBonusConfigDialog from '#view/components/bonuses/AbilityBonusConfigDialog.svelte';
@@ -29,12 +35,6 @@ import SkillConfigDialog from '#view/dialogs/actor/SkillConfigDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
-import ActorGrantsManager from '../../managers/ActorGrantsManager.ts';
-import { BonusesManager } from '../../managers/BonusesManager.ts';
-import HitDiceManager from '../../managers/HitDiceManager.ts';
-import { RestManager } from '../../managers/RestManager.ts';
-import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
-import SpellBookManager from '../../managers/SpellBookManager.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers.js';
@@ -480,6 +480,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		super.prepareEmbeddedDocuments();
 
+		// Initialize Grants
+		if (this.isChar()) this.grants = new ActorGrantsManager(this);
+
 		// @ts-expect-error
 		if (isTypeData) this.system?.prepareDerivedData();
 		this.prepareDerivedData();
@@ -531,8 +534,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	prepareCreatureBaseData(this: Creature) {
 		// Register Managers
 		this.BonusesManager = new BonusesManager(this);
-		// @ts-expect-error
-		this.grants = new ActorGrantsManager(this);
 
 		// Add AC data to the actor.
 		// @ts-expect-error
@@ -746,6 +747,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this.prepareHitPoints();
 		this.prepareSpellResources();
 		this.prepareResources();
+		this.prepareRollOverrides();
 	}
 
 	prepareNPCDerivedData(this: Actor.OfType<'npc'>) {
@@ -1101,10 +1103,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		let max = 0;
 
 		// Get best pool type from actor grants
-		// @ts-expect-error
-		const pools = this.grants?.byType('exertion').reduce((acc, { exertionData }) => {
-			if (!exertionData) return acc;
-			if (exertionData.exertionType === 'pool') acc.push(exertionData.poolType);
+		const pools = this.grants?.byType('exertion').reduce((acc, grant) => {
+			if (grant.applied.exertionType === 'pool') acc.push(grant.config.poolType);
 			return acc;
 		}, [] as string[]);
 
@@ -1333,6 +1333,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const resources = { ...genericResources, ...classResources };
 
 		this.system.resources = resources;
+	}
+
+	prepareRollOverrides(this: Character) {
+		// TODO: Prep roll mode override and expertise dice grants here
 	}
 
 	/** ---------------------------------- */

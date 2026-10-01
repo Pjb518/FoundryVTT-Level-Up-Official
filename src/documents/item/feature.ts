@@ -39,6 +39,6 @@ export default class FeatureItemA5e extends ItemA5e<'feature'> {
 		if (!this.parent || this.parent?.documentName !== 'Actor') return;
 
 		const actor = this.parent;
-		await actor.grants.removeGrantsByItem(this.uuid);
+		await actor.grants.removeGrantsByItem(this);
 	}
 }

@@ -1,6 +1,6 @@
-import type { MigrationBase } from './MigrationBase';
-import { MigrationRunnerFoundry } from './runner/foundryRunner';
-import * as Migrations from './migrations/index';
+import type { MigrationBase } from './MigrationBase.ts';
+import * as Migrations from './migrations/index.ts';
+import { MigrationRunnerFoundry } from './runner/foundryRunner.ts';
 
 // biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 class MigrationList {

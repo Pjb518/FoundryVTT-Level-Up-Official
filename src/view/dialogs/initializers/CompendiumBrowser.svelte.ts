@@ -74,6 +74,7 @@ export class CompendiumBrowser extends SvelteApplicationMixin(
 		browser.render(true);
 		return browser;
 	}
+
 	static openWithFilters(
 		tab: CompendiumBrowserTab,
 		filters: CompendiumBrowserFilters,

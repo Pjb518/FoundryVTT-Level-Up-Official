@@ -1,157 +1,189 @@
-import BaseGrant from "./BaseGrant.ts";
+import prepareProficiencyConfigObject from '#utils/prepareProficiencyConfigObject.ts';
+import ProficiencyGrantConfig from '#view/components/grants/ProficiencyGrantConfig.svelte';
+import ProficiencyGrantSelection from '#view/components/grants/ProficiencyGrantSelection.svelte';
+import { BaseGrant } from './BaseGrant.ts';
+import { proficiencyGrantSchema } from './common.ts';
 
-import ProficiencyGrantConfig from "#view/components/grants/ProficiencyGrantConfig.svelte";
-import ProficiencyGrantSelection from "#view/components/grants/ProficiencyGrantSelection.svelte";
+import fields = foundry.data.fields;
 
-import prepareProficiencyConfigObject from "#utils/prepareProficiencyConfigObject.ts";
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		keys: new fields.SchemaField({
+			base: new fields.SetField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, nullable: false },
+			),
+			options: new fields.ArrayField(
+				new fields.SchemaField({
+					count: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+					candidates: new fields.SetField(
+						new fields.StringField({ required: true, nullable: false, initial: '' }),
+					),
+				}),
+				{ required: true, initial: [] },
+			),
+		}),
+		isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+		upgradeToExpertise: new fields.BooleanField({
+			required: true,
+			nullable: false,
+			initial: true,
+		}),
+	}),
 
-export default class ProficiencyGrant extends BaseGrant {
-  #component = ProficiencyGrantSelection;
+	// Applied
+	applied: new fields.SchemaField(proficiencyGrantSchema(), { required: true, nullable: false }),
 
-  #configComponent = ProficiencyGrantConfig;
+	// Deprecations
+	/** @deprecated */
+	keys: new fields.SchemaField({
+		/** @deprecated */
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, nullable: false },
+		),
+		/** @deprecated */
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		/** @deprecated */
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	proficiencyType: new fields.StringField({ required: true, nullable: false, initial: 'armor' }),
+	/** @deprecated */
+	isExpertise: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 
-  #type = "proficiency";
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Proficiency Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'proficiency',
+	}),
+});
 
-  // Define schema variables
-  declare keys: {
-    base: string[];
-    options: string[];
-    total: number;
-  };
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace ProficiencyGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
 
-  declare proficiencyType:
-    | "armor"
-    | "savingThrow"
-    | "skill"
-    | "tradition"
-    | "tool"
-    | "weapon";
-
-  declare isExpertise: boolean;
-
-  static override defineSchema() {
-    const { fields } = foundry.data;
-
-    return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({
-        required: true,
-        initial: "proficiency",
-      }),
-      keys: new fields.SchemaField({
-        base: new fields.ArrayField(
-          new fields.StringField({ nullable: false, initial: "" }),
-          {
-            required: true,
-            initial: [],
-          },
-        ),
-        options: new fields.ArrayField(
-          new fields.StringField({ nullable: false, initial: "" }),
-          {
-            required: true,
-            initial: [],
-          },
-        ),
-        total: new fields.NumberField({
-          required: true,
-          initial: 0,
-          integer: true,
-        }),
-      }),
-      proficiencyType: new fields.StringField({
-        required: false,
-        initial: "armor",
-      }),
-      isExpertise: new fields.BooleanField({ required: false, initial: false }),
-      label: new fields.StringField({
-        required: true,
-        initial: "New Proficiency Grant",
-      }),
-    });
-  }
-
-  override getApplyData(actor: any, data: any) {
-    if (!actor) return {};
-    const selected: string[] = data?.selected ?? this.keys.base ?? [];
-    const count: number = this.keys.total;
-
-    const updates: Record<string, any> = {};
-
-    // Construct grant
-    const grantData = {
-      proficiencyData: {
-        keys: selected,
-        total: count,
-        proficiencyType: this.proficiencyType,
-      },
-      itemUuid: this.parent.uuid,
-      grantId: this._id,
-      grantType: this.#type,
-      level: this.level,
-    };
-
-    updates["system.grants"] = {
-      ...actor.system.grants,
-      [this._id]: grantData,
-    };
-
-    // Construct proficiency update
-    if (this.proficiencyType === "savingThrow") {
-      selected.forEach((key: string) => {
-        updates[`system.abilities.${key}.save.proficient`] = true;
-      });
-    } else if (this.proficiencyType === "skill") {
-      selected.forEach((key: string) => {
-        updates[`system.skills.${key}.proficient`] = this.isExpertise ? 2 : 1;
-      });
-    } else {
-      const configObject = prepareProficiencyConfigObject();
-      const { propertyKey } = configObject[this.proficiencyType] ?? {};
-      if (!propertyKey) return {};
-      if (!selected.length) return {};
-
-      const proficiencies = new Set([
-        ...selected,
-        ...((foundry.utils.getProperty(actor, propertyKey) as string[]) ?? []),
-      ]);
-
-      updates[propertyKey] = [...proficiencies];
-    }
-
-    return updates;
-  }
-
-  override getSelectionComponent() {
-    return this.#component;
-  }
-
-  override getSelectionComponentProps(data: any) {
-    return {
-      base: this.keys.base ?? [],
-      choices: this.keys.options,
-      count: this.keys.total,
-      proficiencyType: this.proficiencyType,
-      selected: data?.selected ?? [],
-    };
-  }
-
-  override requiresConfig(): boolean {
-    return !!this.keys.options.length;
-  }
-
-  override async configureGrant() {
-    const dialogData = {
-      document: this.parent,
-      grantId: this._id,
-    };
-
-    super.configureGrant(
-      "Configure Proficiency Grant",
-      dialogData,
-      this.#configComponent,
-      {
-        width: 400,
-      },
-    );
-  }
+	type SelectionProps = ReturnType<ProficiencyGrant['getSelectionComponentProps']>;
 }
+
+class ProficiencyGrant extends BaseGrant<ProficiencyGrant.Schema> {
+	#component = ProficiencyGrantSelection;
+
+	#configComponent = ProficiencyGrantConfig;
+
+	#type = 'proficiency';
+
+	static override type = 'proficiency';
+
+	static override defineSchema(): ProficiencyGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
+	}
+
+	override getApplyData(actor: Character, data: { selected?: string[] }) {
+		if (!actor) return {};
+		const selected: string[] = data.selected ?? [...this.config.keys.base] ?? [];
+
+		const updateData: Record<string, any> = {};
+
+		// Construct applied Data
+		const appliedData = {
+			grantType: this.#type,
+			selected,
+			level: this.level,
+			upgraded: this.config.upgradeToExpertise,
+			isApplied: true,
+		};
+
+		// Construct proficiency updates
+		const configObject = prepareProficiencyConfigObject();
+		const updateProps: Record<string, string[]> = {};
+
+		selected.forEach((value) => {
+			if (!value.includes(':')) return;
+			const parts = value.split(':');
+			if (parts.length < 2) return;
+
+			const [profType, val] = parts;
+			if (profType === 'savingThrow') {
+				if (val === 'death') updateData['system.attributes.death.proficient'] = true;
+				else if (val === 'concentration')
+					updateData['system.attributes.concentration.proficient'] = true;
+				else updateData[`system.abilities.${val}.save.proficient`] = true;
+			} else if (profType === 'skill') {
+				if (actor.system.skills[val].proficient && this.config.upgradeToExpertise) {
+					updateData[`system.skills.${val}.expertiseDice`] =
+						(actor.system.skills[val]?.expertiseDice ?? 0) + 1;
+				} else {
+					updateData[`system.skills.${val}.proficient`] = this.config.isExpertise ? 2 : 1;
+				}
+			} else {
+				updateProps[profType] ??= [];
+				updateProps[profType].push(val);
+			}
+		});
+
+		Object.entries(updateProps).forEach(([profType, values]) => {
+			console.log(profType, values);
+			const propKey = configObject[profType].propertyKey;
+			if (!propKey) return;
+
+			const proficiencies = new Set([
+				...values,
+				...((foundry.utils.getProperty(actor, propKey) as string[]) ?? []),
+			]);
+
+			updateData[propKey] = [...proficiencies];
+		});
+
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData };
+	}
+
+	override getSelectionComponent() {
+		return this.#component;
+	}
+
+	override getSelectionComponentProps(data: any) {
+		return {
+			base: [...(this.config.keys.base ?? [])],
+			choices: this.config.keys.options,
+			selected: (data?.selected as string[]) ?? ([] as string[]),
+		};
+	}
+
+	override requiresConfig(): boolean {
+		return !!this.config.keys.options.length;
+	}
+
+	override async configureGrant() {
+		const dialogData = {
+			document: this.item,
+			grantId: this.id,
+		};
+
+		super.configureGrant('Configure Proficiency Grant', dialogData, this.#configComponent, {
+			width: 800,
+		});
+	}
+}
+
+export { ProficiencyGrant };

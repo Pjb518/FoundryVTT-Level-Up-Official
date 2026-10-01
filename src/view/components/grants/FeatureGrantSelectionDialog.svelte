@@ -1,180 +1,240 @@
 <script lang="ts">
-    import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant.ts";
+  import { getContext } from "svelte";
+  import type { Grant } from "#data/item/Grants/GrantsField.ts";
 
-    import { getContext } from "svelte";
+  import { constructFilters } from "#view/dialogs/compendium-browser/utils/constructFilters.ts";
+  import { CompendiumBrowser } from "#view/dialogs/initializers/CompendiumBrowser.svelte.ts";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import DropArea from "#view/snippets/DropArea.svelte";
+  import DropTag from "#view/snippets/DropTag.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import Section from "#view/snippets/Section.svelte";
 
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import Section from "#view/snippets/Section.svelte";
+  type FeatureOption = {
+    uuid: string;
+    limitedReselection: boolean;
+    selectionLimit: number;
+  };
 
-    type Props = {
-        grant: FeatureGrant;
-        base: FeatureOption[];
-        choices: FeatureOption[];
-        count: number;
-        selected: string[];
-        updateSelectionFunc?: (value: any) => void;
-    };
+  type Props = {
+    grant: Grant<"feature">;
+    base: FeatureOption[];
+    choices: FeatureOption[];
+    count: number;
+    selected: string[];
+    updateSelectionFunc?: (value: any) => void;
+  };
 
-    type FeatureOption = {
-        uuid: string;
-        limitedReselection: boolean;
-        selectionLimit: number;
-    };
+  function getGrantSummary(selected: string[]) {
+    // return ` This grant provides a bonus of ${bonus} to ${selected
+    //     .map((s) => configObject[s])
+    //     .join(", ")}.`;
+    return "";
+  }
 
-    function getGrantSummary(selected: string[]) {
-        // return ` This grant provides a bonus of ${bonus} to ${selected
-        //     .map((s) => configObject[s])
-        //     .join(", ")}.`;
-        return "";
-    }
+  function onUpdateSelection(value: string[]) {
+    selectedOptions = value;
+    updateSelectionFunc?.({ uuids: selectedOptions, summary });
+  }
 
-    function onUpdateSelection(value: string[]) {
-        selectedOptions = value;
-        updateSelectionFunc?.({ uuids: selectedOptions, summary });
-    }
+  function getExistingSelections(): Set<string> {
+    const selections: string[] = [];
 
-    function getExistingSelections(): Set<string> {
-        const selections: string[] = [];
-
-        [...actor.reactive.grants.grantedFeatureDocuments.entries()].forEach(
-            ([docId, grantIds]: [string, string[]]) => {
-                const data = featureDataMap.get(docId);
-                if (!data) return selections.push(docId);
-
-                const takenCount = grantIds.length;
-                if (!data.limitedReselection || data.selectionLimit > takenCount) return;
-
-                selections.push(docId);
-            },
-        );
-
-        return new Set(selections);
-    }
-
-    function getDisabledOptions() {
-        const disabled: string[] = [];
-
-        for (const [value] of allOptions) {
-            const strippedId = value.split(".").pop();
-            const alreadyTaken = existingSelections.has(strippedId || "");
-            if (alreadyTaken) {
-                disabled.push(value);
-            }
+    [...actor.reactive.grants.grantedFeatureDocuments.entries()].forEach(
+      ([docId, grantIds]: [string, string[]]) => {
+        const data = featureDataMap.get(docId);
+        if (!data) {
+          selections.push(docId);
+          return;
         }
 
-        return disabled;
+        const takenCount = grantIds.length;
+        if (!data.limitedReselection || data.selectionLimit > takenCount)
+          return;
+
+        selections.push(docId);
+      },
+    );
+
+    return new Set(selections);
+  }
+
+  function getDisabledOptions() {
+    const disabled: string[] = [];
+
+    for (const [value] of allOptions) {
+      const strippedId = value.split(".").pop();
+      const alreadyTaken = existingSelections.has(strippedId || "");
+      if (alreadyTaken) {
+        disabled.push(value);
+      }
     }
 
-    function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked) return allOptions;
+    return disabled;
+  }
 
-        const options: string[][] = [];
+  function getOptions(choicesLocked: boolean): string[][] {
+    if (!choicesLocked) return allOptions;
 
-        for (const [value, label] of allOptions) {
-            const strippedId = value.split(".").pop();
-            const alreadyTaken = existingSelections.has(strippedId || "");
+    const options: string[][] = [];
 
-            if (choicesUuids.includes(value) && !alreadyTaken) {
-                options.push([value, label]);
-            }
-        }
+    for (const [value, label] of allOptions) {
+      const strippedId = value.split(".").pop();
+      const alreadyTaken = existingSelections.has(strippedId || "");
 
-        return options;
+      if (choicesUuids.includes(value) && !alreadyTaken) {
+        options.push([value, label]);
+      }
     }
 
-    function getPrerequisites(): Record<string, string> {
-        const prereqs: Record<string, string> = {};
+    return options;
+  }
 
-        for (const [value] of allOptions) {
-            const doc = fromUuidSync(value);
-            if (doc?.system.prerequisite) {
-                prereqs[value] = "<b>Prerequisite:</b> " + doc.system.prerequisite;
-            }
-        }
+  function getPrerequisites(): Record<string, string> {
+    const prereqs: Record<string, string> = {};
 
-        return prereqs;
+    for (const [value] of allOptions) {
+      const doc = fromUuidSync(value) as any;
+      if (doc?.system.prerequisite) {
+        prereqs[value] = "<b>Prerequisite:</b> " + doc.system.prerequisite;
+      }
     }
 
-    async function openDocument(uuid: string) {
-        const doc = await fromUuid(uuid);
-        doc.sheet.render(true);
+    return prereqs;
+  }
+
+  function onDropDocument(uuid: string) {
+    if (remainingSelections === 0) {
+      ui.notifications.warn("Max Selection Count Reached.");
+      return;
     }
 
-    let {
-        grant,
-        base,
-        choices,
-        count,
-        selected: preSelected,
-        updateSelectionFunc = undefined,
-    }: Props = $props();
+    // Validate
+    const doc = fromUuidSync(uuid);
+    if (doc?.type !== "feature") {
+      ui.notifications.error("Dropped document needs to be a feature.");
+      return;
+    }
 
-    let allOptions: string[][] = [...base, ...choices].map((o) => {
-        const doc = fromUuidSync(o.uuid);
-        return [o.uuid, doc.name];
+    if (!filters.every((filter) => filter(doc))) {
+      ui.notifications.error("Dropped document doesn't satisfy filters.");
+      return;
+    }
+
+    onUpdateSelection([...selectedOptions, uuid]);
+  }
+
+  async function openBrowser() {
+    CompendiumBrowser.openWithFilters("feature", {
+      selections: filtersSelections,
     });
+  }
 
-    let featureDataMap = base.concat(choices).reduce((acc, f) => {
-        const docId = f.uuid.split(".").pop();
-        if (!docId) return acc;
+  async function openDocument(uuid: string) {
+    const doc = await fromUuid(uuid);
+    doc.sheet.render(true);
+  }
 
-        acc.set(docId, f);
-        return acc;
-    }, new Map<string, FeatureOption>());
+  let {
+    grant,
+    base,
+    choices,
+    count,
+    selected: preSelected,
+    updateSelectionFunc = undefined,
+  }: Props = $props();
 
-    let actor: Actor = getContext("actor");
+  let allOptions = [...base, ...choices].map((o) => {
+    const doc = fromUuidSync(o.uuid) as Item.OfType<"feature">;
+    return [o.uuid, doc?.name || "Invalid DOcument"];
+  });
 
-    let choicesUuids = choices.map((o) => o.uuid);
-    let choicesLocked = $state(true);
-    let existingSelections = getExistingSelections();
-    let disabledOptions = getDisabledOptions();
-    let prereqs = getPrerequisites();
+  let featureDataMap = base.concat(choices).reduce((acc, f) => {
+    const docId = f.uuid.split(".").pop();
+    if (!docId) return acc;
 
-    let selectedOptions = $derived([
-        ...new Set(base.map((o) => o.uuid).concat(preSelected)),
-    ]);
-    let totalCount = $derived(base.length + count);
-    let remainingSelections = $derived(totalCount - selectedOptions.length);
-    let summary = $derived(getGrantSummary(selectedOptions));
+    acc.set(docId, f);
+    return acc;
+  }, new Map<string, FeatureOption>());
+
+  let actor: Character = getContext("actor");
+
+  let choicesUuids = choices.map((o) => o.uuid);
+  let choicesLocked = $state(true);
+  let existingSelections = getExistingSelections();
+  let disabledOptions = getDisabledOptions();
+  let prereqs = getPrerequisites();
+
+  const selectionType = grant.config.selectionType;
+  const filtersSelections = grant.config.pool.filters;
+  const { filters } = constructFilters(filtersSelections, "spell");
+
+  let selectedOptions = $derived([
+    ...new Set(base.map((o) => o.uuid).concat(preSelected)),
+  ]);
+  let totalCount = $derived(
+    selectionType === "limited" ? base.length + count : count,
+  );
+  let remainingSelections = $derived(totalCount - selectedOptions.length);
+  let summary = $derived(getGrantSummary(selectedOptions));
 </script>
 
 <Section
-    heading="Feature Grant - {grant.label}"
-    headerButtons={[
-        {
-            classes: "add-button",
-            handler: () => (choicesLocked = !choicesLocked),
-            htmlString: `<i class="icon fa-solid ${
-                choicesLocked ? "fa-plus" : "fa-minus"
-            }" />`,
-            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
-        },
-    ]}
-    --a5e-section-body-gap="0.75rem"
+  heading="Feature Grant - {grant.name}"
+  headerButtons={[
+    {
+      classes: "add-button",
+      handler: () => (choicesLocked = !choicesLocked),
+      htmlString: `<i class="icon fa-solid ${
+        choicesLocked ? "fa-plus" : "fa-minus"
+      }" />`,
+      tooltip: choicesLocked
+        ? "Locked to Grant Options"
+        : "Free Selection Mode",
+    },
+  ]}
+  --a5e-section-body-gap="0.75rem"
 >
-    <FieldWrapper
-        warning={remainingSelections === 1
-            ? `1 choice remaining`
-            : `${remainingSelections} choices remaining.`}
-        showWarning={selectedOptions.length < totalCount}
-        --direction="column"
-    >
-        <CheckboxGroup
-            options={getOptions(choicesLocked)}
-            selected={selectedOptions}
-            orange={choices.map((o) => o.uuid)}
-            disabled={selectedOptions.length >= totalCount}
-            {disabledOptions}
-            {onUpdateSelection}
-            icon="fa-solid fa-key"
-            iconList={Object.keys(prereqs)}
-            tooltipData={prereqs}
-            onTagToggleAux={openDocument}
+  <FieldWrapper
+    warning={remainingSelections === 1
+      ? `1 choice remaining`
+      : `${remainingSelections} choices remaining.`}
+    showWarning={selectedOptions.length < totalCount}
+    --direction="column"
+  >
+    {#if selectionType === "limited"}
+      <CheckboxGroup
+        options={getOptions(choicesLocked)}
+        selected={selectedOptions}
+        orange={choices.map((o) => o.uuid)}
+        disabled={selectedOptions.length >= totalCount}
+        {disabledOptions}
+        {onUpdateSelection}
+        icon="fa-solid fa-key"
+        iconList={Object.keys(prereqs)}
+        tooltipData={prereqs}
+        onTagToggleAux={openDocument}
+      />
+    {:else}
+      {#if remainingSelections}
+        <DropArea
+          type="uuid"
+          documentType="Item"
+          onDocumentDropped={(value) => onDropDocument(value.uuid)}
+          onclick={() => openBrowser()}
         />
-    </FieldWrapper>
+      {/if}
 
-    <FieldWrapper>
-        {summary}
-    </FieldWrapper>
+      <DropTag
+        embeddedData={selectedOptions}
+        type="item"
+        onUpdateSelection={(value) => onUpdateSelection(value)}
+        --a5e-drop-tag-font-size="var(--a5e-sm-text)"
+      />
+    {/if}
+  </FieldWrapper>
+
+  <FieldWrapper>
+    {summary}
+  </FieldWrapper>
 </Section>
