@@ -222,7 +222,7 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 	}
 
 	override requiresConfig() {
-		return this.config.selectionType === 'limited' ? !this.config.spells.options.length : true;
+		return this.config.selectionType === 'limited' ? !!this.config.spells.options.length : true;
 	}
 
 	override async configureGrant() {

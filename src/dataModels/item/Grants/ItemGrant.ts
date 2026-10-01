@@ -204,7 +204,7 @@ class ItemGrant extends BaseGrant<ItemGrant.Schema> {
 	}
 
 	override requiresConfig() {
-		return this.config.selectionType === 'limited' ? !this.config.items.options.length : true;
+		return this.config.selectionType === 'limited' ? !!this.config.items.options.length : true;
 	}
 
 	override async configureGrant() {

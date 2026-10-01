@@ -7,7 +7,7 @@ export default async function fromUuidMulti(uuids: string[], options: Record<str
 	const collections = new Map<any, Record<string, any>>();
 
 	for (const { collection, documentId, documentType, doc } of parsedData) {
-		if (collection instanceof CompendiumCollection) {
+		if (collection instanceof foundry.documents.collections.CompendiumCollection) {
 			if (documentType === 'Folder') {
 				folders.push(collection.folders.get(documentId!));
 			} else {

@@ -181,7 +181,7 @@ class FeatureGrant extends BaseGrant<FeatureGrant.Schema> {
 	}
 
 	override requiresConfig(): boolean {
-		return this.config.selectionType === 'limited' ? !this.config.features.options.length : true;
+		return this.config.selectionType === 'limited' ? !!this.config.features.options.length : true;
 	}
 
 	override async configureGrant() {
