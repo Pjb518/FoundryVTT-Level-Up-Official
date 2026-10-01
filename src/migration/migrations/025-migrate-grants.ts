@@ -9,6 +9,10 @@ export class Migration025MigrateGrants extends MigrationBase {
 		const itemId = source._id!;
 
 		Object.entries(source.system.grants ?? {}).forEach(([grantId, grant]) => {
+			// Update grant
+			// @ts-expect-error
+			grant.type = grant.grantType;
+
 			// Base migrations
 			const newGrant = {
 				id: grantId,
@@ -133,7 +137,7 @@ export class Migration025MigrateGrants extends MigrationBase {
 							};
 						}) ?? [],
 					options:
-						grant.features.options?.map((f) => {
+						grant.features?.options?.map((f) => {
 							return {
 								uuid: f.uuid || '',
 								limitedReselection: f.limitedReselection ?? true,
@@ -248,7 +252,8 @@ export class Migration025MigrateGrants extends MigrationBase {
 
 				const profType = grant.proficiencyType || 'armor';
 				newGrant.config.keys = {
-					base: (grant.keys.base?.map?.((v) => `${profType}:${v}`) ?? []) as unknown as Set<string>,
+					base: (grant.keys?.base?.map?.((v) => `${profType}:${v}`) ??
+						[]) as unknown as Set<string>,
 					options: grant.keys?.options?.length
 						? [
 								{
