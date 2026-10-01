@@ -830,7 +830,7 @@ export const settings = [
 		key: 'expertimentalprimaryColor',
 		options: {
 			name: '[ Experimental ] Primary Color',
-			scope: scope.world,
+			scope: scope.client,
 			config: true,
 			default: '#426066',
 			type: new foundry.data.fields.ColorField(),

@@ -482,7 +482,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 			// We do a reduce here to pull out the originating item and apply update source to it
 			// Because it doesn't exist on the actor yet
-			const exists = this.actor.items.get(options.item.id);
+			const exists = this.actor.items.get(options.item.id!);
 			const itemUpdateData = Object.entries(uniqueUpdates ?? {}).reduce((acc, [id, u]) => {
 				if (id === options.item._id && !exists) {
 					// Get Update Method

@@ -87,7 +87,7 @@
   <div class="sticky-add-button">
     <Menu
       {menuItems}
-      menuPosition={{ x: -235, y: -280 }}
+      menuPosition={{ x: -235, y: -320 }}
       --a5e-context-menu-width="auto"
       --a5e-context-menu-button-padding-inline="1rem"
     />
