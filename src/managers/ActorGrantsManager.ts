@@ -800,6 +800,18 @@ class ActorGrantsManager extends Map<string, Grant> {
 			return updates;
 		}
 
+		if (grant.applied.grantType === 'settings') {
+			grant = grant as Grant<'settings'>;
+
+			const prevSettings = Object.entries(grant.applied.previous ?? {});
+
+			prevSettings.forEach(([id, val]) => {
+				if (val) updates[`flags.a5e.${id}`] = val;
+			});
+
+			return updates;
+		}
+
 		if (grant.applied.grantType === 'skillSpecialty') {
 			grant = grant as Grant<'skillSpecialty'>;
 			const { skill } = grant.applied;

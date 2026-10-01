@@ -14,6 +14,7 @@ import { MovementGrant } from './MovementGrant.ts';
 import { ProficiencyGrant } from './ProficiencyGrant.ts';
 import { RollOverrideGrant } from './RollOverrideGrant.ts';
 import { SensesGrant } from './SensesGrant.ts';
+import { SettingsGrant } from './SettingsGrant.ts';
 import { SkillGrant } from './SkillGrant.ts';
 import { SkillSpecialtyGrant } from './SkillSpecialtyGrant.ts';
 import { SpellGrant } from './SpellGrant.ts';
@@ -36,6 +37,7 @@ export default {
 	proficiency: ProficiencyGrant,
 	rollOverride: RollOverrideGrant,
 	senses: SensesGrant,
+	settings: SettingsGrant,
 	skill: SkillGrant,
 	skillSpecialty: SkillSpecialtyGrant,
 	spell: SpellGrant,
@@ -58,6 +60,7 @@ export const ITEM_GRANT_TYPES = {
 	proficiency: ProficiencyGrant,
 	rollOverride: RollOverrideGrant,
 	senses: SensesGrant,
+	settings: SettingsGrant,
 	skill: SkillGrant,
 	skillSpecialty: SkillSpecialtyGrant,
 	spell: SpellGrant,

@@ -3,6 +3,7 @@ import fields = foundry.data.fields;
 export const baseSchema = () => ({
 	level: new fields.NumberField({ required: true, nullable: false, initial: 1, min: 1 }),
 	isApplied: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	grantType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 export const bonusGrantSchema = () => ({
@@ -61,6 +62,12 @@ export const rollOverrideGrantSchema = () => ({
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	overrideType: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	rollMode: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+});
+
+export const settingsGrantSchema = () => ({
+	...baseSchema(),
+	grantType: new fields.StringField({ required: true, nullable: false, initial: 'settings' }),
+	previous: new fields.ObjectField({ required: true, nullable: false }),
 });
 
 export const skillSpecialtyGrantSchema = () => ({

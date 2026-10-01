@@ -1,8 +1,9 @@
 <script lang="ts">
   import { setContext } from "svelte";
-  import type { CurrencyGrant } from "#data/item/Grants/CurrencyGrant.ts";
+  import type { SettingsGrant } from "#data/item/Grants/SettingsGrant.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
+  import Checkbox from "#view/snippets/Checkbox.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
@@ -34,11 +35,11 @@
   }
 
   let { document, grantId, grantType }: Props = $props();
-  const { currencyDenominations } = CONFIG.A5E;
+  const { settingsGrantConfig } = CONFIG.A5E;
 
   let item: Item.OfType<"feature"> = document;
 
-  let grant = $derived(item.reactive.system.grants[grantId]) as CurrencyGrant;
+  let grant = $derived(item.reactive.system.grants[grantId]) as SettingsGrant;
   setContext("item", item);
   setContext("grantId", grantId);
   setContext("grantType", grantType);
@@ -72,28 +73,36 @@
     heading="Settings Bonus Configuration"
     --a5e-section-body-gap="0.75rem"
   >
-    <FieldWrapper heading="Currency Amount">
-      <input
-        class="a5e-input a5e-input--slim a5e-input--small"
-        type="number"
-        value={grant.config.currency.value ?? 0}
-        onchange={({ currentTarget }) =>
-          onUpdateValue(
-            "config.currency.value",
-            Number.parseInt(currentTarget.value, 10),
-          )}
-      />
-    </FieldWrapper>
-
-    <FieldWrapper heading="Currency Denomination">
-      <RadioGroup
-        options={Object.entries(currencyDenominations)}
-        selected={grant.config.currency.denom || "gp"}
-        allowDeselect={false}
-        onUpdateSelection={(value) =>
-          onUpdateValue("config.currency.denom", value)}
-      />
-    </FieldWrapper>
+    {#each Object.entries(settingsGrantConfig) as [id, conf]}
+      <FieldWrapper heading={conf.type === "boolean" ? "" : conf.label}>
+        {#if conf.type === "radio"}
+          <RadioGroup
+            options={Object.entries(conf.config ?? {})}
+            selected={(grant.config.settings[id] || conf.default) as string}
+            onUpdateSelection={(value) =>
+              onUpdateValue(`config.settings.${id}`, value)}
+          />
+        {:else if conf.type === "boolean"}
+          <Checkbox
+            label={conf.label}
+            checked={(grant.config.settings[id] || conf.default) as boolean}
+            onUpdateSelection={(value) =>
+              onUpdateValue(`config.settings.${id}`, value)}
+          />
+        {:else if conf.type === "number"}
+          <input
+            class="a5e-input a5e-input--small a5e-input--slim"
+            type="number"
+            value={(grant.config.settings[id] || conf.default) as number}
+            onchange={({ currentTarget }) =>
+              onUpdateValue(
+                `config.settings.${id}`,
+                Number.parseInt(currentTarget.value, 10),
+              )}
+          />
+        {/if}
+      </FieldWrapper>
+    {/each}
   </Section>
 
   <GrantConfig />
