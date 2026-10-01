@@ -110,7 +110,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		const classes = Object.keys(this.actor.levels.classes);
 		const characterLevel: number = classes.length
-			? this.actor.levels.character
+			? this.actor.levels.character + 1
 			: this.actor.levels.character;
 
 		let itemSlug: string;
@@ -119,7 +119,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		else if (item.isType('archetype')) itemSlug = item.system.class;
 		else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
 
-		const classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 0;
+		const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 0) + 1;
 
 		const grants: Grant[] = [...item.grants.values()];
 		grants.forEach((grant) => {
@@ -456,7 +456,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 		// Add archetype
 		const archetypeUuid = dialogData.clsReturnData.archetype;
 		if (archetypeUuid) {
-			const archetype = await Item.fromDropData({ uuid: archetypeUuid });
+			const archetype = (await Item.fromDropData({ uuid: archetypeUuid })) as Item<'archetype'>;
 			if (archetype) {
 				const archetypeData = archetype.toObject();
 				// This is being awaited because we need it when applied data is set
@@ -480,9 +480,22 @@ class ActorGrantsManager extends Map<string, Grant> {
 				});
 			});
 
-			const itemUpdateData = Object.entries(uniqueUpdates).map(([id, u]) => {
-				return { _id: id, ...u };
-			});
+			// We do a reduce here to pull out the originating item and apply update source to it
+			// Because it doesn't exist on the actor yet
+			const itemUpdateData = Object.entries(uniqueUpdates ?? {}).reduce((acc, [id, u]) => {
+				if (id === options.item._id) {
+					// Get Update Method
+					const updateMethod = options.useUpdateSource
+						? options.item.updateSource.bind(options.item)
+						: options.item.update.bind(options.item);
+
+					updateMethod(u);
+					return acc;
+				}
+
+				acc.push({ _id: id, ...u });
+				return acc;
+			}, [] as any[]);
 
 			await this.actor.updateEmbeddedDocuments('Item', itemUpdateData);
 		}
@@ -512,7 +525,7 @@ class ActorGrantsManager extends Map<string, Grant> {
 				options.cls.system.spellcasting.ability.options[0] ||
 				options.cls.system.spellcasting.ability.base;
 
-			// TODO: Remove updateSource method / Can be removed I think
+			// TODO: Remove updateSource method
 			const updateMethod = options.useUpdateSource
 				? options.cls.updateSource.bind(options.cls)
 				: options.cls.update.bind(options.cls);
