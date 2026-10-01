@@ -824,4 +824,16 @@ export const settings = [
 			type: Object,
 		},
 	},
+	// Temp Theme Settings
+	{
+		namespace,
+		key: 'primaryColor',
+		options: {
+			name: 'Primary Color',
+			scope: scope.world,
+			config: true,
+			default: '#426066',
+			type: new foundry.data.fields.ColorField(),
+		},
+	},
 ];

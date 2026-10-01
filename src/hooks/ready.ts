@@ -33,7 +33,7 @@ async function handleChangelog() {
 	);
 	if (!latestPage) return;
 
-	journal.sheet.render(true, { pageId: latestPage._id });
+	journal?.sheet?.render(true, { pageId: latestPage._id });
 
 	await game.settings.set('a5e', 'lastSeenChangelogVersion', game.system.version);
 }
@@ -52,8 +52,16 @@ async function handleIncompatibilityWarning() {
 }
 
 async function addKeyPressLogger() {
-	// eslint-disable-next-line no-new
 	mount(KeyPressHandler, { target: document.body });
+}
+
+function updateTheme() {
+	const primaryColor = game.settings.get('a5e', 'primaryColor')?.toString();
+	if (primaryColor && primaryColor !== '#426066') {
+		document.documentElement.style.setProperty('--a5e-color-primary', primaryColor);
+		const theme = document.querySelector('.theme-dark');
+		theme?.style.setProperty('--a5e-color-primary', primaryColor);
+	}
 }
 
 export default async function ready() {
@@ -64,4 +72,5 @@ export default async function ready() {
 	handleChangelog();
 	handleIncompatibilityWarning();
 	addKeyPressLogger();
+	updateTheme();
 }
