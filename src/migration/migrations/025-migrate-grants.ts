@@ -129,7 +129,7 @@ export class Migration025MigrateGrants extends MigrationBase {
 				newGrant.config ??= {};
 				newGrant.config.features = {
 					base:
-						grant.features.base?.map((f) => {
+						grant.features?.base?.map((f) => {
 							return {
 								uuid: f.uuid || '',
 								limitedReselection: f.limitedReselection ?? true,
