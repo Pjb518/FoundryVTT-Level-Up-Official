@@ -144,7 +144,7 @@ export class Migration025MigrateGrants extends MigrationBase {
 								selectionLimit: f.selectionLimit || 1,
 							};
 						}) ?? [],
-					total: grant.features.total || 0,
+					total: grant.features?.total || 0,
 				};
 
 				// Actor part
@@ -257,7 +257,7 @@ export class Migration025MigrateGrants extends MigrationBase {
 					options: grant.keys?.options?.length
 						? [
 								{
-									count: grant.keys.total || 1,
+									count: grant.keys?.total || 1,
 									candidates: (grant.keys?.options?.map((v) => `${profType}:${v}`) ??
 										[]) as unknown as Set<string>,
 								},
