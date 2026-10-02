@@ -2,17 +2,31 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Svelte",
   "_version": "4.0.0",
-
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "lib/**/*",
+    "build/**/*"
+  ],
   "compilerOptions": {
     "module": "Node16",
     "moduleResolution": "Node16",
     "moduleDetection": "force",
     "isolatedModules": true,
-    "lib": ["DOM", "DOM.Iterable", "ES2024"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2024"
+    ],
     "target": "ES2024",
-    "types": ["fvtt-types", "svelte"],
+    "types": [
+      "fvtt-types",
+      "svelte"
+    ],
     "paths": {
-      "types/*": ["./types/*"],
+      "types/*": [
+        "./types/*"
+      ],
     },
     /**
       Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
@@ -24,7 +38,6 @@
       enable source maps by default.
      */
     "sourceMap": true,
-
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "strict": true,
