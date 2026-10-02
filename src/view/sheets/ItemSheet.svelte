@@ -2,6 +2,7 @@
   import { setContext } from "svelte";
   import { type ItemA5e } from "#documents/item/item.ts";
 
+  import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
   import ItemSideBar from "./components/item/ItemSideBar.svelte";
 
   type Props = {
@@ -20,12 +21,10 @@
 </script>
 
 <div class="a5e-item-sheet">
-  <aside class="a5e-item-sheet__aside">
-    <ItemSideBar />
-  </aside>
+  <ItemSideBar />
 
   <main class="a5e-item-sheet__main">
-    <header></header>
+    <ItemSheetHeader />
 
     <nav></nav>
 
@@ -39,13 +38,6 @@
     grid-template-columns: 2fr 4fr;
     gap: 0.5rem;
     height: 100%;
-
-    &__aside {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      padding-inline: 0.5rem;
-    }
 
     &__main {
       position: relative;
