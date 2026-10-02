@@ -8,6 +8,11 @@
     "lib/**/*",
     "build/**/*"
   ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".vite",
+  ],
   "compilerOptions": {
     "module": "Node16",
     "moduleResolution": "Node16",
@@ -24,9 +29,30 @@
       "svelte"
     ],
     "paths": {
-      "types/*": [
+      "#lib/*": [
+        "./lib/*"
+      ],
+      "#data/*": [
+        "./src/dataModels/*"
+      ],
+      "#documents/*": [
+        "./src/documents/*"
+      ],
+      "#managers/*": [
+        "./src/managers/*"
+      ],
+      "#stores/*": [
+        "./src/stores/*"
+      ],
+      "#types/*": [
         "./types/*"
       ],
+      "#utils/*": [
+        "./src/utils/*"
+      ],
+      "#view/*": [
+        "./src/view/*"
+      ]
     },
     /**
       Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
