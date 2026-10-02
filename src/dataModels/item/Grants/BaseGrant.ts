@@ -1,3 +1,4 @@
+import { getNearestDocument } from '#utils/getNearestDocument.ts';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 
 import fields = foundry.data.fields;
@@ -70,7 +71,8 @@ class BaseGrant<
 
 	/** Returns the Parent Item */
 	get item() {
-		const doc = this.getNearestDocument();
+		// const doc = this.getNearestDocument();
+		const doc = getNearestDocument(this);
 		if (doc?.documentName === 'Item') return doc;
 		return null;
 	}
