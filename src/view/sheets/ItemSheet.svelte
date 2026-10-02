@@ -24,7 +24,13 @@
     <ItemSideBar />
   </aside>
 
-  <main class="a5e-item-sheet__main"></main>
+  <main class="a5e-item-sheet__main">
+    <header></header>
+
+    <nav></nav>
+
+    <section class="a5e-item-sheet__page"></section>
+  </main>
 </div>
 
 <style lang="scss">
@@ -42,6 +48,24 @@
     }
 
     &__main {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      display: grid;
+      grid-template-areas:
+        "header"
+        "primaryNavigation"
+        "secondaryNavigation"
+        "page";
+      grid-template-rows: min-content min-content min-content minmax(0, 1fr);
+      gap: 0.5rem;
+
+      &__page {
+        grid-area: page;
+        overflow-y: auto;
+        padding-inline: 0.5rem;
+      }
     }
   }
 </style>
