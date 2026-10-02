@@ -4,7 +4,7 @@
   import type { Tab } from "#view/navigation/data.ts";
 
   import NavigationBar from "../navigation/NavigationBar.svelte";
-  import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
+  import ItemSheetHeader from "./components/item/ItemSheetHeaderOld.svelte";
 
   import ItemActionsPage from "./pages/item/ItemActionsPage.svelte";
   import ItemCorePage from "./pages/item/ItemCorePage.svelte";
@@ -64,9 +64,7 @@
         icon: "fa-solid fa-box-open",
         component: ItemEquipmentPage,
         display:
-          item.type === "object" &&
-          itemStore.objectType === "container" &&
-          canEdit,
+          item.type === "object" && itemStore.objectType === "container" && canEdit,
       },
       {
         name: "actions",
@@ -120,12 +118,7 @@
 <main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
   <ItemSheetHeader />
 
-  <NavigationBar
-    {currentTab}
-    {tabs}
-    showLock={false}
-    onTabChange={updateCurrentTab}
-  />
+  <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
   <section class="a5e-item-sheet__page">
     <currentTab.component />
