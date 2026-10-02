@@ -55,6 +55,7 @@ class A5ESpellData extends A5EBaseItemData<
 > {
 	/** @inheritDoc */
 	static override defineSchema(): A5ESpellData.Schema {
+		// @ts-expect-error
 		return {
 			...super.defineSchema(),
 			...actions(),

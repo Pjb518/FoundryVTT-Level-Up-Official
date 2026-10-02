@@ -1,5 +1,4 @@
 import { d20RollModification } from '../common.ts';
-import { ExpertiseDieField } from '../fields/ExpertiseDieField.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
 
