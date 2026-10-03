@@ -24,60 +24,6 @@ class ItemA5e<
 	/** ------------------------------------------------------ */
 	/**                      Getters                           */
 	/** ------------------------------------------------------ */
-	// TODO: Move to base prep
-	get properties(): string[] {
-		const properties: string[] = [];
-
-		// Object
-		if (this.isType('object')) {
-			// Proficiency
-			if (this.system.proficient) properties.push('Proficient');
-			else properties.push('Not Proficient');
-
-			if (this.system.plotItem) properties.push('Plot Item');
-			if (this.system.requiresAttunement) properties.push('Requires Attunement');
-			if (this.system.supply) properties.push('Supply');
-
-			// Damaged State
-			if (this.system.damagedState) {
-				const damagedState = CONFIG.A5E.damagedStates[this.system.damagedState];
-				if (damagedState) properties.push(damagedState);
-			}
-
-			// Properties
-			if (this.system.ammunitionProperties?.length) {
-				this.system.ammunitionProperties.forEach((prop) => {
-					properties.push(CONFIG.A5E.ammunitionProperties[prop] ?? prop);
-				});
-			}
-
-			if (this.system.armorProperties?.length) {
-				this.system.armorProperties.forEach((prop) => {
-					properties.push(CONFIG.A5E.armorProperties[prop] ?? prop);
-				});
-			}
-
-			if (this.system.energyProperties?.length) {
-				this.system.energyProperties.forEach((prop) => {
-					properties.push(CONFIG.A5E.energyProperties[prop] ?? prop);
-				});
-			}
-
-			if (this.system.shieldProperties?.length) {
-				this.system.shieldProperties.forEach((prop) => {
-					properties.push(CONFIG.A5E.shieldProperties[prop] ?? prop);
-				});
-			}
-
-			if (this.system.weaponProperties?.length) {
-				this.system.weaponProperties.forEach((prop) => {
-					properties.push(CONFIG.A5E.weaponProperties[prop] ?? prop);
-				});
-			}
-		}
-
-		return properties;
-	}
 
 	/** ------------------------------------------------------ */
 	/**                      Data Prep                         */
