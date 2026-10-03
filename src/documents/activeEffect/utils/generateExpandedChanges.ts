@@ -15,6 +15,7 @@ export function generateExpandedChanges(changes) {
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.abilities.${abl}.check.expertiseDice`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -22,6 +23,7 @@ export function generateExpandedChanges(changes) {
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.abilities.${abl}.save.expertiseDice`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -34,6 +36,7 @@ export function generateExpandedChanges(changes) {
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.abilities.${abl}.check.expertiseDice`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -46,6 +49,7 @@ export function generateExpandedChanges(changes) {
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.abilities.${abl}.save.expertiseDice`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -60,6 +64,7 @@ export function generateExpandedChanges(changes) {
 			movementTypes.forEach((movementType) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.attributes.movement.${movementType}.distance`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -71,6 +76,7 @@ export function generateExpandedChanges(changes) {
 			movementTypes.forEach((movementType) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.attributes.movement.${movementType}.unit`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -85,6 +91,7 @@ export function generateExpandedChanges(changes) {
 			senses.forEach((sense) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.attributes.senses.${sense}.value`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -96,6 +103,7 @@ export function generateExpandedChanges(changes) {
 			senses.forEach((sense) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.attributes.senses.${sense}.unit`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -110,6 +118,7 @@ export function generateExpandedChanges(changes) {
 			attackTypes.forEach((type) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.rolls.attack.${type}.outgoing.rollMode`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -120,7 +129,8 @@ export function generateExpandedChanges(changes) {
 			const abilities = Object.keys(CONFIG.A5E.abilities);
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
-				expandedChange.key = `system.abilities.check.${abl}.rollMode`;
+				expandedChange.key = `system.abilities.${abl}.check.rollMode`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -131,7 +141,8 @@ export function generateExpandedChanges(changes) {
 			const abilities = Object.keys(CONFIG.A5E.abilities);
 			abilities.forEach((abl) => {
 				const expandedChange = foundry.utils.deepClone(change);
-				expandedChange.key = `system.abilities.save.${abl}.rollMode`;
+				expandedChange.key = `system.abilities.${abl}.save.rollMode`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -143,6 +154,7 @@ export function generateExpandedChanges(changes) {
 			skills.forEach((skl) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.skills.${skl}.rollMode`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 
@@ -157,6 +169,7 @@ export function generateExpandedChanges(changes) {
 			spellBookIds.forEach((spellBookId) => {
 				const expandedChange = foundry.utils.deepClone(change);
 				expandedChange.key = `system.spellBooks.${spellBookId}.stats.dc`;
+				expandedChange.effect = change.effect;
 				additionalChanges.push(expandedChange);
 			});
 		}
