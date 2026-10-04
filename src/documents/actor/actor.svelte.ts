@@ -939,7 +939,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const proficiencyBonus = actorData.attributes.prof;
 		const jackOfAllTrades = this.flags?.a5e?.jackOfAllTrades;
 
-		Object.values(actorData.skills).forEach((skill) => {
+		Object.entries(actorData.skills).forEach(([skillKey, skill]) => {
 			if (skill.proficient === 2) skill.mod = proficiencyBonus * 2;
 			else if (skill.proficient) skill.mod = proficiencyBonus;
 			else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
@@ -947,6 +947,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 			if (skill.ability.startsWith('@attributes.spellcasting')) {
 				skill.ability = actorData.attributes.spellcasting;
+			}
+
+			// Set Default Skill Ability if not set
+			if (!skill.ability) {
+				skill.ability = CONFIG.A5E.skillDefaultAbilities[skillKey];
 			}
 		});
 
