@@ -3,6 +3,8 @@
 
     import { RollPreparationManager } from "#managers/RollPreparationManager.ts";
 
+    import { getDamageRollLabel } from "#utils/summaries/getDamageLabel.ts";
+
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
     import type { RollStateManager } from "#managers/RollStateManager.ts";
@@ -51,6 +53,14 @@
                     red={disabledRolls}
                     disabledOptions={disabledRolls}
                     preferColor={true}
+                    tooltipData={rollType === "damage"
+                        ? Object.fromEntries(
+                              _rolls.map((roll) => [
+                                  roll.id,
+                                  getDamageRollLabel(roll),
+                              ]),
+                          )
+                        : undefined}
                     selected={selectedRolls}
                     onUpdateSelection={(detail) => (selectedRolls = detail)}
                 />
