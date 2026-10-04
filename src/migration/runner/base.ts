@@ -10,7 +10,7 @@ interface MigrationRecord {
 	version: number | null;
 	type: string; // TODO: Update this to be better
 	lastMigration: {
-		version: number | null;
+		schema: number | null;
 		system: string;
 		foundry: string;
 	} | null;
@@ -104,7 +104,7 @@ class MigrationRunnerBase {
 		if ('game' in globalThis) {
 			const latestMigration = migrations.at(-1)!;
 			actorData.system.migrationData ??= { version: null, lastMigration: null };
-			this.#updateMigrationRecord(actorData.system.migration, latestMigration);
+			this.#updateMigrationRecord(actorData.system.migrationData, latestMigration);
 
 			for (const itemData of actorData.items) {
 				itemData.system.migrationData ??= { version: null, previous: null };
@@ -236,13 +236,14 @@ class MigrationRunnerBase {
 		migration = {} as MigrationRecord,
 		latestMigration: MigrationBase | null = null,
 	) {
+		console.log(migration, latestMigration);
 		if (!('game' in globalThis && latestMigration)) return;
 
 		const fromVersion = typeof migration?.version === 'number' ? migration.version : null;
 		migration.version = latestMigration?.version;
 
 		migration.lastMigration = {
-			version: fromVersion,
+			schema: fromVersion,
 			foundry: game.version,
 			system: game.system.version,
 		};
