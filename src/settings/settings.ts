@@ -268,6 +268,23 @@ export const settings = [
 	},
 	{
 		namespace,
+		key: 'homebrewContent',
+		options: {
+			name: 'A5E.settings.homebrewContent',
+			scope: scope.world,
+			config: false,
+			type: Object,
+			default: {
+				damageTypes: {},
+				languages: {},
+				objectTypes: {},
+				spellSchools: { primary: {}, secondary: {} },
+				proficiencies: { armor: {}, tradition: {}, tool: {}, weapon: {} },
+			},
+		},
+	},
+	{
+		namespace,
 		key: 'customConditionIcons',
 		options: {
 			name: 'A5E.settings.customConditionIcons',
