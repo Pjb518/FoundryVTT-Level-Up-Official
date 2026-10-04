@@ -7,10 +7,19 @@
   import FieldWrapper from "../../snippets/FieldWrapper.svelte";
   import Section from "../../snippets/Section.svelte";
 
+  function getGrantBonusData(type: string, id: string) {
+    console.log(type, id);
+    const category = grantBonuses[type];
+    if (!category) return { granted: false, source: "" };
+
+    const bonus = category.find((b) => b.id === id);
+    if (!bonus) return { granted: false, source: "" };
+
+    return { granted: true, source: bonus.source };
+  }
+
   function getBonusSectionHeader(bonusType: string) {
-    return localize(
-      CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
-    );
+    return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
   }
 
   function getAddButtonLabelForBonus(bonusType: string) {
@@ -18,9 +27,7 @@
   }
 
   function getDefaultBonusName(bonusType: string) {
-    return localize(
-      CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
-    );
+    return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
   }
 
   let actor: any = getContext("actor");
@@ -29,8 +36,9 @@
 
   const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
-  let rightClickConfigure =
-    game.settings?.get("a5e", "itemRightClickConfigure") ?? true;
+  let grantBonuses = $derived(actor.reactive.BonusesManager.grantBonuses);
+
+  let rightClickConfigure = game.settings?.get("a5e", "itemRightClickConfigure") ?? true;
 
   let disableManeuverDC = $derived(
     determineIfPropertyModifiedByEffect(actorStore, "bonuses.maneuverDC"),
@@ -60,11 +68,7 @@
           value={actorStore.bonuses.maneuverDC}
           disabled={disableManeuverDC}
           onchange={({ currentTarget }) =>
-            updateDocumentDataFromField(
-              actor,
-              currentTarget.name,
-              currentTarget.value,
-            )}
+            updateDocumentDataFromField(actor, currentTarget.name, currentTarget.value)}
         />
       </FieldWrapper>
 
@@ -80,11 +84,7 @@
           value={actorStore.bonuses.spellDC}
           disabled={disableSpellDC}
           onchange={({ currentTarget }) =>
-            updateDocumentDataFromField(
-              actor,
-              currentTarget.name,
-              currentTarget.value,
-            )}
+            updateDocumentDataFromField(actor, currentTarget.name, currentTarget.value)}
         />
       </FieldWrapper>
     </div>
@@ -105,7 +105,10 @@
       --a5e-section-gap="0"
     >
       <ul class="a5e-item-list">
+
         {#each Object.entries(actorStore.bonuses[bonusType] ?? {}) as [id, bonus] (id)}
+        {const { granted, source: gSource} = getGrantBonusData(bonusType, id)}
+
           <li
             class="a5e-item a5e-item--bonus"
             onauxclick={() => {
@@ -157,17 +160,28 @@
                 </li>
 
                 <li>
-                  <button
-                    type="button"
-                    class="action-button delete-button icon fas fa-trash"
-                    data-tooltip="A5E.buttons.tooltips.delete"
-                    data-tooltip-direction="UP"
-                    aria-label="Delete"
-                    onclick={(e) => {
-                      e.stopPropagation();
-                      actor.deleteBonus(id, bonusType);
-                    }}
-                  ></button>
+                  {#if granted}
+                    <button
+                      type="button"
+                      class="action-button icon fa-solid fa-info-circle"
+                      disabled={true}
+                      data-tooltip="Granted By: {gSource}"
+                      data-tooltip-direction="UP"
+                      aria-label="Granted By {gSource}"
+                    ></button>
+                  {:else}
+                    <button
+                      type="button"
+                      class="action-button delete-button icon fas fa-trash"
+                      data-tooltip="A5E.buttons.tooltips.delete"
+                      data-tooltip-direction="UP"
+                      aria-label="Delete"
+                      onclick={(e) => {
+                        e.stopPropagation();
+                        actor.deleteBonus(id, bonusType);
+                      }}
+                    ></button>
+                  {/if}
                 </li>
                 <!-- {/if} -->
               </ul>
@@ -185,6 +199,9 @@
   }
 
   .action-button {
+    display: flex;
+    align-items: center;
+
     padding: 0.25rem;
     color: #999;
     border: 0;
@@ -206,8 +223,10 @@
     }
   }
 
-  .delete-button:hover {
-    color: var(--a5e-color-error);
+  .delete-button {
+    &:hover {
+      color: var(--a5e-color-error);
+    }
   }
 
   .bonus-buttons {
@@ -217,6 +236,10 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    & > li {
+      margin: 0;
+    }
   }
 
   // .divider {

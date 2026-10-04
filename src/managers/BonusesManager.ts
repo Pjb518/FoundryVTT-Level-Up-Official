@@ -38,6 +38,23 @@ class BonusesManager {
 		this.#bonuses = this.#actor.system.bonuses ?? {};
 	}
 
+	get grantBonuses() {
+		const bonuses: Record<string, { id: string; source: string }[]> = {};
+
+		[...this.#actor.grants.values()].forEach((g) => {
+			// @ts-expect-error
+			if (!g.applied.bonusId) return;
+			// @ts-expect-error
+			let bonusType: string = g.applied.bonusType;
+			if (g.type === 'exertion') bonusType = 'exertion';
+
+			bonuses[bonusType] ??= [];
+			bonuses[bonusType].push({ id: g.applied.bonusId, source: g.item?.name || g.name });
+		});
+
+		return bonuses;
+	}
+
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//  Utility Helpers
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
