@@ -92,6 +92,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 
 				newTerms.push(new terms.OperatorTerm({ operator: '+' }), bonusTerm);
 
+				// @ts-expect-error - This is not undefined because we're evaluated
 				this._total += bonusTerm.total;
 			}
 
@@ -133,6 +134,15 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			}) as terms.RollTerm;
 
 			clone.options.flavor = term.flavor?.toLocaleLowerCase() ?? 'Powerful Critical';
+
+			// Update initial term with base term if available
+			const baseTermResults = critical.baseTerms?.at(index);
+			if (baseTermResults && term instanceof terms.DiceTerm) {
+				// @ts-expect-error
+				term._evaluated = true;
+				term.results = baseTermResults;
+			}
+
 			return this.#placeCritical(term, [clone], index);
 		}
 
@@ -145,6 +155,13 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 			// Maximize term
 			if (critical.maximizeDice) return [term.evaluate({ maximize: true }) as terms.RollTerm];
 
+			// Update initial term with base term if available
+			const baseTermResults = critical.baseTerms?.at(index);
+			if (baseTermResults && term instanceof terms.DiceTerm) {
+				// @ts-expect-error
+				term._evaluated = true;
+				term.results = baseTermResults;
+			}
 			return [term];
 		}
 
@@ -154,6 +171,13 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 				terms.RollTerm.fromData(foundry.utils.deepClone(term.toJSON())),
 			);
 
+			// Update initial term with base term if available
+			const baseTermResults = critical.baseTerms?.at(index);
+			if (baseTermResults && term instanceof terms.DiceTerm) {
+				// @ts-expect-error
+				term._evaluated = true;
+				term.results = baseTermResults;
+			}
 			return this.#placeCritical(term, clones, index);
 		}
 
@@ -185,7 +209,7 @@ class DamageRoll<D extends AnyObject = EmptyObject> extends BaseRoll {
 		const sign = prev instanceof terms.OperatorTerm ? prev.operator : '+';
 		const placed = [term];
 		extras.forEach((extra) => {
-			placed.push(new terms.OperatorTerm({ operator: '+' }), extra);
+			placed.push(new terms.OperatorTerm({ operator: sign }), extra);
 		});
 		return placed;
 	}
@@ -231,12 +255,13 @@ declare namespace DamageRoll {
 	interface CritConfiguration {
 		multiplier?: number;
 		bonusDice?: number;
-		bonusDamage?: string; // Not Implemented
+		bonusDamage?: string;
 		maximizeDice?: boolean;
 		multiplyDice?: boolean;
 		multiplyDiceTotal?: boolean;
 		multiplyNumeric?: boolean;
 		powerfulCritical?: boolean;
+		baseTerms?: ({ result: number; active: boolean }[] | undefined)[];
 	}
 }
 

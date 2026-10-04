@@ -22,11 +22,14 @@ class RollPreparationManager {
 
 	#state: RollStateManager.WorkflowState;
 
+	#isCrit: boolean | undefined;
+
 	constructor(state: RollStateManager.WorkflowState) {
 		this.#actor = state.actor;
 		this.#item = state.item;
 
 		this.#state = state;
+		this.#isCrit = undefined;
 	}
 
 	/** ================================================ */
@@ -47,7 +50,7 @@ class RollPreparationManager {
 
 				if (roll.type === 'damage') {
 					hasDamageRoll = true;
-					return await this.#prepareDamageRoll(roll, attackRoll, { applyGenericBonus: true });
+					return await this.#prepareDamageRoll(roll, { applyGenericBonus: true });
 				}
 
 				if (roll.type === 'healing') {
@@ -64,7 +67,7 @@ class RollPreparationManager {
 		);
 
 		if (hasDamageRoll) {
-			prepared.push(...(await this.#prepareBonusDamageRolls(attackRoll)));
+			prepared.push(...(await this.#prepareBonusDamageRolls()));
 		}
 
 		if (hasHealingRoll) {
@@ -143,6 +146,7 @@ class RollPreparationManager {
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
 		const isCrit = ((roll.dice[0].total as number) ?? 0) >= critThreshold;
+		this.#isCrit = isCrit;
 
 		return {
 			attackType: _roll.attackType,
@@ -156,7 +160,7 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareBonusDamageRolls(attackRoll: RollStateManager.WorkflowState['attack']) {
+	async #prepareBonusDamageRolls() {
 		const damageBonuses = this.#state.damageBonuses;
 
 		const bonusDamage = Object.values(damageBonuses).filter(
@@ -174,7 +178,6 @@ class RollPreparationManager {
 						damageType,
 						getFormula: () => formula,
 					} as DamageRollData,
-					attackRoll,
 					{ context },
 				),
 			),
@@ -217,10 +220,9 @@ class RollPreparationManager {
 
 	async #prepareDamageRoll(
 		_roll: DamageRollData,
-		attackRoll: RollStateManager.WorkflowState['attack'],
 		{ applyGenericBonus = false, context = {} }: RollPreparationManager.DamageRollOptions = {},
 	): Promise<PreparedDamageData | null> {
-		const { isCrit } = attackRoll ?? {};
+		const isCrit = this.#isCrit;
 		const { canCrit, critBonus, damageType } = _roll ?? {};
 
 		// Apply Generic Bonuses to all damage rolls that aren't bonuses
@@ -250,42 +252,28 @@ class RollPreparationManager {
 		});
 		if (!rollFormula) return null;
 
+		// Get crit config here to determine manual rolls
+		const critConfig = constructCriticalConfig();
+		const isPowerful = critConfig.powerfulCritical;
+		let allowInteractive = !isCrit;
+		if (isPowerful) allowInteractive = true;
+
 		// Construct Rolls
-		const roll = new DamageRoll(rollFormula, this.#actor.getRollData(this.#item));
+		const roll = await new DamageRoll(rollFormula, this.#actor.getRollData(this.#item)).evaluate({
+			allowInteractive,
+		});
 
 		// Construct Critical roll
 		const critFormula = rollFormula;
-		const critConfig = constructCriticalConfig();
-		const critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+		const critRoll = await new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
 			isCrit: canCrit ?? true,
 			critical: {
 				...critConfig,
+				// @ts-expect-error
+				baseTerms: roll.terms.map((t) => t.results),
 				bonusDamage: critBonusFormula,
 			},
-		});
-
-		// TODO: Update the terms to reflect roll
-
-		// const r = await new Roll(rollFormula).evaluate();
-		// let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		// let roll = baseRoll;
-		// let critRoll = baseRoll;
-
-		// if (canCrit ?? true) {
-		// 	if (context?.isCritBonus) {
-		//    Left
-		//    critRoll = roll;
-		// 		baseRoll = await new Roll('0').evaluate();
-		// 		roll = baseRoll;
-		// 	} else {
-		//    Done ------
-		// 		let bonus = critBonus || '';
-		// 		bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
-		// 		critRoll = await constructCritDamageRoll(roll, bonus);
-		// 	}
-		// }
-
-		// if (isCrit) roll = critRoll;
+		}).evaluate({ allowInteractive: !allowInteractive });
 
 		const label = damageType
 			? localize('A5E.damage.labels.specific', {
@@ -296,11 +284,11 @@ class RollPreparationManager {
 		return {
 			// baseRoll: baseRoll as EvaluatedRoll,
 			canCrit: canCrit ?? true,
-			critRoll: await critRoll.evaluate(),
+			critRoll,
 			damageType,
 			label,
 			userLabel: _roll.label,
-			roll: await roll.evaluate({ allowInteractive: true }),
+			roll,
 			type: 'damage',
 		};
 	}
