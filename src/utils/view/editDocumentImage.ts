@@ -17,8 +17,9 @@ export async function editDocumentImage(document: any, options = {} as DocumentI
 	const current =
 		foundry.utils.getProperty(document, `system.actions.${options?.actionId}.img`) ?? document.img;
 
-	const filePicker = new foundry.applications.apps.FilePicker({
+	const filePicker = new foundry.applications.apps.FilePicker.implementation({
 		type: 'image',
+		allowUpload: true,
 		current,
 		callback: async (path) => {
 			if (options?.actionId) {

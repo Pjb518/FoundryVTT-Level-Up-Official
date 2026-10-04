@@ -183,6 +183,7 @@
 
   <section>
     <button
+      type="button"
       class="a5e-button"
       onclick={(e) => {
         e.preventDefault();
