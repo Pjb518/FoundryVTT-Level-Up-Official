@@ -223,7 +223,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 				item,
 				[id, newAction],
 				'resource',
-				{ resource: 'exertion' },
+				{ resource: 'exertion', quantity: item.system.exertionCost || 1 },
 				false,
 			);
 		}
