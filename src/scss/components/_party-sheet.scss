@@ -103,12 +103,12 @@
     }
 
     &__check::before {
-      content: "\f111";
+      content: '\f111';
     }
 
     &__save {
       &::before {
-        content: "\f132";
+        content: '\f132';
       }
 
       &--prof {
@@ -151,9 +151,9 @@
     &-member {
       display: grid;
       grid-template-areas:
-        "img intro"
-        "img defense"
-        "img skills";
+        'img intro'
+        'img defense'
+        'img skills';
       grid-template-columns: 6rem 1fr;
       gap: 0.5rem;
 
@@ -178,8 +178,8 @@
 
         display: grid;
         grid-template-areas:
-          "name inspiration"
-          "details inspiration";
+          'name inspiration'
+          'details inspiration';
         grid-template-columns: 1fr 3rem;
         column-gap: 0.25rem;
         margin-inline-start: 0.25rem;
@@ -221,7 +221,7 @@
         grid-area: defense;
 
         display: grid;
-        grid-template-areas: "ac saves traits";
+        grid-template-areas: 'ac saves traits';
         grid-template-columns: 2rem max-content 1fr;
         gap: 0.5rem;
         align-items: center;
@@ -238,7 +238,7 @@
         height: 2rem;
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           inset: 0;
 
@@ -312,7 +312,7 @@
 
   &__stash {
     display: grid;
-    grid-template-areas: "aside inventory";
+    grid-template-areas: 'aside inventory';
     grid-template-columns: 12rem 1fr;
     gap: 0.5rem;
     height: 100%;
@@ -375,7 +375,7 @@
 
       &__data {
         display: grid;
-        grid-template-areas: "img wealth";
+        grid-template-areas: 'img wealth';
         grid-template-columns: 2rem 1fr;
         gap: 0.5rem;
       }
@@ -406,6 +406,7 @@
         align-items: center;
         gap: 0.25rem;
         background-color: var(--a5e-color-primary);
+        color: var(--a5e-text-color-white);
         padding-inline: 0.25rem;
         padding-block: 0.125rem;
       }
