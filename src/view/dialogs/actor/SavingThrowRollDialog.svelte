@@ -35,9 +35,8 @@
 
   function getSaveSrc(saveType: string, abilityKey: string) {
     if (!abilityKey) return actor.reactive.system.rolls.death;
-    // TODO: Update this to concentration when in place
     if (saveType === "concentration")
-      return actor.reactive.system.abilities.con.save;
+      return actor.reactive.system.attributes.concentration;
     return actor.reactive.system.abilities[abilityKey].save;
   }
 
@@ -83,16 +82,10 @@
 
   let actor = document;
 
-  const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(
-    abilityKey,
-    "save",
-  );
+  const abilityBonuses = actor.BonusesManager.prepareAbilityBonuses(abilityKey, "save");
 
   const appId = dialog.id;
-  const hideExpertiseDice = game.settings.get(
-    "a5e",
-    "hideExpertiseDice",
-  ) as boolean;
+  const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
   const localizeSave = localize(CONFIG.A5E.abilities[abilityKey]);
 
   let visibilityMode = $state(
@@ -112,9 +105,7 @@
 
   let rollModeKey = $derived(getRollModeKey(saveType, abilityKey));
   let saveSrc = $derived(getSaveSrc(saveType, abilityKey));
-  let { expertiseDie, expertiseDieSource } = $derived(
-    getInitialExpertiseDieSelection(),
-  );
+  let { expertiseDie, expertiseDieSource } = $derived(getInitialExpertiseDieSelection());
 
   let rollModeData = $derived(
     RollOverrideManager.resolveRollMode(saveSrc, initialRollMode),

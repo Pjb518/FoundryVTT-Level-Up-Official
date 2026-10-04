@@ -1387,9 +1387,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 			abl.check.rollMode = resolveRollMode(abl.check.rollMode || 0, abl.check.rollModeCounts);
 
-			// @ts-expect-error
 			abl.check.expertiseDice = expertiseGrants.reduce((acc, g) => {
-				if (g.applied?.expertiseType !== 'abilityCheck') return g;
+				if (g.applied?.expertiseType !== 'abilityCheck') return acc;
 				const { expertiseCount, selected } = g.applied;
 				if (!selected.includes(ablKey)) return acc;
 
@@ -1418,9 +1417,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 			abl.save.rollMode = resolveRollMode(abl.save.rollMode || 0, abl.save.rollModeCounts);
 
-			// @ts-expect-error
 			abl.save.expertiseDice = expertiseGrants.reduce((acc, g) => {
-				if (g.applied?.expertiseType !== 'abilitySave') return g;
+				if (g.applied?.expertiseType !== 'abilitySave') return acc;
 				const { expertiseCount, selected } = g.applied;
 				if (!selected.includes(ablKey)) return acc;
 
@@ -1451,6 +1449,112 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 			skill.rollMode = resolveRollMode(skill.rollMode || 0, skill.rollModeCounts);
 		});
+
+		// Attack Rolls
+		Object.entries(this.system.rolls?.attack ?? {}).forEach(([type, attack]) => {
+			// Roll Mode
+			rollGrants
+				.filter((g) => g.applied.overrideType === 'attack')
+				.forEach((g) => {
+					const counts = attack.outgoing.rollModeCounts;
+					const rollMode = g.applied.rollMode;
+
+					if (rollMode === 1) {
+						counts.advantages.count += 1;
+						counts.advantages.sources.push(g.item?.name || g.name);
+					} else if (rollMode === -1) {
+						counts.disadvantages.count += 1;
+						counts.disadvantages.sources.push(g.item?.name || g.name);
+					}
+				});
+
+			attack.outgoing.rollMode = resolveRollMode(
+				attack.outgoing.rollMode || 0,
+				attack.outgoing.rollModeCounts,
+			);
+
+			// Expertise Dice
+			attack.outgoing.expertiseDice = expertiseGrants.reduce((acc, g) => {
+				if (g.applied?.expertiseType !== 'attack') return acc;
+				const { expertiseCount, selected } = g.applied;
+				if (!selected.includes(type)) return acc;
+
+				// Update Expertise Source
+				const source = g.item?.name || g.name;
+				attack.outgoing.expertiseDieSources?.sources.push(source);
+
+				return Math.clamp(acc + Number(expertiseCount), 0, 5);
+			}, attack.outgoing.expertiseDice || 0);
+		});
+
+		// Concentration
+		const concentration = this.system.attributes.concentration;
+
+		// Roll Mode
+		rollGrants
+			.filter((g) => g.applied.overrideType === 'concentration')
+			.forEach((g) => {
+				const counts = concentration.rollModeCounts;
+				const rollMode = g.applied.rollMode;
+
+				if (rollMode === 1) {
+					counts.advantages.count += 1;
+					counts.advantages.sources.push(g.item?.name || g.name);
+				} else if (rollMode === -1) {
+					counts.disadvantages.count += 1;
+					counts.disadvantages.sources.push(g.item?.name || g.name);
+				}
+			});
+
+		concentration.rollMode = resolveRollMode(
+			concentration.rollMode || 0,
+			concentration.rollModeCounts,
+		);
+
+		// Expertise Dice
+		concentration.expertiseDice = expertiseGrants.reduce((acc, g) => {
+			if (g.applied?.expertiseType !== 'concentration') return acc;
+			const { expertiseCount } = g.applied;
+
+			// Update Expertise Source
+			const source = g.item?.name || g.name;
+			concentration.expertiseDieSources?.sources.push(source);
+
+			return Math.clamp(acc + Number(expertiseCount), 0, 5);
+		}, concentration.expertiseDice || 0);
+
+		// Death
+		const death = this.system.rolls.death;
+
+		// Roll Mode
+		rollGrants
+			.filter((g) => g.applied.overrideType === 'death')
+			.forEach((g) => {
+				const counts = death.rollModeCounts;
+				const rollMode = g.applied.rollMode;
+
+				if (rollMode === 1) {
+					counts.advantages.count += 1;
+					counts.advantages.sources.push(g.item?.name || g.name);
+				} else if (rollMode === -1) {
+					counts.disadvantages.count += 1;
+					counts.disadvantages.sources.push(g.item?.name || g.name);
+				}
+			});
+
+		death.rollMode = resolveRollMode(death.rollMode || 0, death.rollModeCounts);
+
+		// Expertise Dice
+		death.expertiseDice = expertiseGrants.reduce((acc, g) => {
+			if (g.applied?.expertiseType !== 'death') return acc;
+			const { expertiseCount } = g.applied;
+
+			// Update Expertise Source
+			const source = g.item?.name || g.name;
+			death.expertiseDieSources?.sources.push(source);
+
+			return Math.clamp(acc + Number(expertiseCount), 0, 5);
+		}, death.expertiseDice || 0);
 	}
 
 	/** ---------------------------------- */
