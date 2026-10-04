@@ -129,6 +129,7 @@
     gap: 0.5rem;
     height: 100%;
     padding-right: 0.25rem;
+    overflow: auto;
 
     &__main {
       position: relative;
