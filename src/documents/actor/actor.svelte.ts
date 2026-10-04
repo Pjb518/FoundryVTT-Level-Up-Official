@@ -53,6 +53,8 @@ import type {
 
 import FDoc = foundry.abstract.Document;
 
+import type { RollModeData } from '#data/fields/RollModeField.ts';
+
 // *****************************************************************************************
 
 declare module 'fvtt-types/configuration' {
@@ -967,7 +969,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 				if (!selected.includes(key)) return acc;
 
 				// Update Expertise Source
-				const source = grant.item.name || grant.name;
+				const source = grant.item?.name || grant.name;
 				skill.expertiseDieSources?.sources.push(source);
 
 				return Math.clamp(acc + Number(expertiseCount), 0, 5);
@@ -1342,8 +1344,93 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this.system.resources = resources;
 	}
 
+	/** Prepares data for roll mode and expertise dice that are not skills */
 	prepareRollOverrides(this: Character) {
-		// TODO: Prep roll mode override and expertise dice grants here
+		const rollGrants = this.grants.byType('rollOverride');
+		const expertiseGrants = this.grants.byType('expertiseDice');
+
+		const resolveRollMode = (rollMode: number, counts: RollModeData) => {
+			const { override, advantages, disadvantages } = counts ?? {};
+
+			if (override.value !== null) return override.value;
+
+			const advCount = advantages.suppressed
+				? 0
+				: Math.max(0, advantages.count + Number(rollMode === 1));
+
+			const disCount = disadvantages.suppressed
+				? 0
+				: Math.max(0, disadvantages.count + Number(rollMode === -1));
+
+			return Math.sign(advCount) - Math.sign(disCount);
+		};
+
+		if (!rollGrants.length && !expertiseGrants.length) return;
+
+		// Abilities
+		Object.entries(this.system.abilities ?? {}).forEach(([ablKey, abl]) => {
+			// Checks
+			rollGrants
+				.filter((g) => g.applied.overrideType === 'abilityCheck')
+				.forEach((g) => {
+					const counts = abl.check.rollModeCounts;
+					const rollMode = g.applied.rollMode;
+
+					if (rollMode === 1) {
+						counts.advantages.count += 1;
+						counts.advantages.sources.push(g.item?.name || g.name);
+					} else if (rollMode === -1) {
+						counts.disadvantages.count += 1;
+						counts.disadvantages.sources.push(g.item?.name || g.name);
+					}
+				});
+
+			abl.check.rollMode = resolveRollMode(abl.check.rollMode || 0, abl.check.rollModeCounts);
+
+			// @ts-expect-error
+			abl.check.expertiseDice = expertiseGrants.reduce((acc, g) => {
+				if (g.applied?.expertiseType !== 'abilityCheck') return g;
+				const { expertiseCount, selected } = g.applied;
+				if (!selected.includes(ablKey)) return acc;
+
+				// Update Expertise Source
+				const source = g.item?.name || g.name;
+				abl.check.expertiseDieSources?.sources.push(source);
+
+				return Math.clamp(acc + Number(expertiseCount), 0, 5);
+			}, abl.check.expertiseDice || 0);
+
+			// Saves
+			rollGrants
+				.filter((g) => g.applied.overrideType === 'abilitySave')
+				.forEach((g) => {
+					const counts = abl.save.rollModeCounts;
+					const rollMode = g.applied.rollMode;
+
+					if (rollMode === 1) {
+						counts.advantages.count += 1;
+						counts.advantages.sources.push(g.item?.name || g.name);
+					} else if (rollMode === -1) {
+						counts.disadvantages.count += 1;
+						counts.disadvantages.sources.push(g.item?.name || g.name);
+					}
+				});
+
+			abl.save.rollMode = resolveRollMode(abl.save.rollMode || 0, abl.save.rollModeCounts);
+
+			// @ts-expect-error
+			abl.save.expertiseDice = expertiseGrants.reduce((acc, g) => {
+				if (g.applied?.expertiseType !== 'abilitySave') return g;
+				const { expertiseCount, selected } = g.applied;
+				if (!selected.includes(ablKey)) return acc;
+
+				// Update Expertise Source
+				const source = g.item?.name || g.name;
+				abl.save.expertiseDieSources?.sources.push(source);
+
+				return Math.clamp(acc + Number(expertiseCount), 0, 5);
+			}, abl.save.expertiseDice || 0);
+		});
 	}
 
 	/** ---------------------------------- */
