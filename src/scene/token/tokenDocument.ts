@@ -98,7 +98,7 @@ class TokenDocumentA5E extends TokenDocument {
 	/** ================================================================= */
 
 	override prepareBaseData() {
-		this.updateTokenSize();
+		// this.updateTokenSize();
 		super.prepareBaseData();
 	}
 
