@@ -106,7 +106,7 @@ class RollPreparationManager {
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new Roll(rollFormula).evaluate({ allowInteractive: true });
 		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
@@ -137,7 +137,9 @@ class RollPreparationManager {
 
 		const critThreshold = Math.min(globalCritThreshold, _roll.critThreshold ?? 20);
 
-		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate();
+		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate({
+			allowInteractive: true,
+		});
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
 		const isCrit = ((roll.dice[0].total as number) ?? 0) >= critThreshold;
@@ -298,7 +300,7 @@ class RollPreparationManager {
 			damageType,
 			label,
 			userLabel: _roll.label,
-			roll: await roll.evaluate(),
+			roll: await roll.evaluate({ allowInteractive: true }),
 			type: 'damage',
 		};
 	}
@@ -359,7 +361,7 @@ class RollPreparationManager {
 			label,
 			userLabel: _roll.label,
 			healingType: _roll.healingType,
-			roll: await roll.evaluate(),
+			roll: await roll.evaluate({ allowInteractive: true }),
 			type: 'healing',
 		};
 	}
@@ -375,7 +377,7 @@ class RollPreparationManager {
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		let label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 		if (_roll.saveType === 'concentration') {
@@ -409,7 +411,7 @@ class RollPreparationManager {
 		const rollFormula = _roll?.rollFormula ?? (defaultData.rollFormula as string);
 		if (!rollFormula) return null;
 
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		const label =
 			ability && ability !== 'none'
@@ -481,7 +483,7 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		return {
 			label,

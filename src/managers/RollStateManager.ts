@@ -29,7 +29,7 @@ class RollStateManager {
 
 	constructor(item: ItemA5e, actionId: string, options: ActionActivationOptions) {
 		this.#item = item;
-		this.#actor = item.actor;
+		this.#actor = item.actor as unknown as Creature;
 		this.#actionId = actionId;
 		this.#options = options;
 
@@ -288,6 +288,7 @@ class RollStateManager {
 			actor: this.#actor,
 			item: this.#item,
 			action: this.#action,
+			options: this.#options,
 
 			// State Data
 			attack: data.attack,

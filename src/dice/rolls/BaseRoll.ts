@@ -24,12 +24,16 @@ class BaseRoll extends Roll {
 	//  Evaluation
 	/** ===================================== */
 	override async evaluate(options?: BaseRoll.Options): Promise<Roll.Evaluated<this>> {
+		options ??= {};
+		options.allowInteractive ??= false;
 		this.modifyDiceTerms(options);
 		this.simplifyOperatorTerms();
 		return super.evaluate(options);
 	}
 
 	override evaluateSync(options?: BaseRoll.Options): Roll.Evaluated<this> {
+		options ??= {};
+		options.allowInteractive ??= false;
 		this.modifyDiceTerms(options);
 		this.simplifyOperatorTerms();
 		return super.evaluateSync(options);
