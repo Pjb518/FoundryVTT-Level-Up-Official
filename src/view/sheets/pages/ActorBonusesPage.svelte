@@ -8,7 +8,6 @@
   import Section from "../../snippets/Section.svelte";
 
   function getGrantBonusData(type: string, id: string) {
-    console.log(type, id);
     const category = grantBonuses[type];
     if (!category) return { granted: false, source: "" };
 
