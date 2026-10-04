@@ -1431,6 +1431,26 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 				return Math.clamp(acc + Number(expertiseCount), 0, 5);
 			}, abl.save.expertiseDice || 0);
 		});
+
+		// Roll Mode Override for skills
+		Object.values(this.system.skills ?? {}).forEach((skill) => {
+			rollGrants
+				.filter((g) => g.applied.overrideType === 'skill')
+				.forEach((g) => {
+					const counts = skill.rollModeCounts;
+					const rollMode = g.applied.rollMode;
+
+					if (rollMode === 1) {
+						counts.advantages.count += 1;
+						counts.advantages.sources.push(g.item?.name || g.name);
+					} else if (rollMode === -1) {
+						counts.disadvantages.count += 1;
+						counts.disadvantages.sources.push(g.item?.name || g.name);
+					}
+				});
+
+			skill.rollMode = resolveRollMode(skill.rollMode || 0, skill.rollModeCounts);
+		});
 	}
 
 	/** ---------------------------------- */
