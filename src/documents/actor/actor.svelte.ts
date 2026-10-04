@@ -958,15 +958,17 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Prepare skill expertise die
 		const grants = this.grants
 			?.byType('expertiseDice')
-			// @ts-expect-error
-			.filter((g) => g.expertiseDiceData?.expertiseType === 'skill');
+			.filter((g) => g.applied?.expertiseType === 'skill');
 
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
 			const baseDie = skill.expertiseDice ?? 0;
 			const expertiseDice = grants?.reduce((acc, grant) => {
-				// @ts-expect-error
-				const { expertiseCount, keys } = grant.expertiseDiceData;
-				if (!keys.includes(key)) return acc;
+				const { expertiseCount, selected } = grant.applied;
+				if (!selected.includes(key)) return acc;
+
+				// Update Expertise Source
+				const source = grant.item.name || grant.name;
+				skill.expertiseDieSources?.sources.push(source);
 
 				return Math.clamp(acc + Number(expertiseCount), 0, 5);
 			}, baseDie);

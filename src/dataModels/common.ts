@@ -28,7 +28,7 @@ export type MigrationData = ReturnType<typeof migrationData>;
 export const d20RollModification = () => ({
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '', persisted: false }),
 	expertiseDice: new ExpertiseDieField(),
-	expertieDiceSources: new fields.SchemaField(
+	expertiseDieSources: new fields.SchemaField(
 		{
 			override: new fields.NumberField({ required: true, nullable: true, initial: null }),
 			sources: new fields.ArrayField(

@@ -1,7 +1,7 @@
 import { MigrationBase } from '../MigrationBase.ts';
 
 export class Migration026MigrateGrants extends MigrationBase {
-	static override version = 0.26;
+	static override version = 0.026;
 
 	override async updateItem(source: Item, actor?: Character): Promise<void> {
 		if (!source.system.grants) return;
@@ -21,6 +21,18 @@ export class Migration026MigrateGrants extends MigrationBase {
 				grant.applied.exertionType = actorGrant.exertionData.exertionType as string;
 
 				foundry.utils.setProperty(source.system, `grants.${grantId}.applied`, grant.applied);
+			}
+
+			if (grant.type === 'expertiseDice' && actorGrant) {
+				// @ts-expect-error
+				grant.applied ??= {};
+
+				grant.applied.isApplied = true;
+				grant.applied.grantType = 'expertiseDice';
+				grant.applied.selected = (actorGrant.expertiseDiceData.keys as string[]) ?? [];
+				grant.applied.expertiseCount =
+					(actorGrant.expertiseDiceData?.expertiseCount as number) || 1;
+				grant.applied.expertiseType = (actorGrant.expertiseDiceData?.expertiseType as string) || '';
 			}
 		});
 	}

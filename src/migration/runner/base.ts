@@ -236,7 +236,6 @@ class MigrationRunnerBase {
 		migration = {} as MigrationRecord,
 		latestMigration: MigrationBase | null = null,
 	) {
-		console.log(migration, latestMigration);
 		if (!('game' in globalThis && latestMigration)) return;
 
 		const fromVersion = typeof migration?.version === 'number' ? migration.version : null;
