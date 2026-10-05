@@ -211,6 +211,11 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 
 		if (this.system.objectType === 'container') {
 			if (this.parent?.documentName === 'Actor') {
+				if (this.system.contentsOnly) {
+					await ContainerManager.unpackContainerOnActor(this.parent, this);
+					return;
+				}
+
 				await ContainerManager.createContainerOnActor(this.parent, this);
 			} else if (this.pack) {
 				// Do nothing
@@ -245,7 +250,7 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 			// eslint-disable-next-line no-undef
 			const items = Object.values(this.system.items).map(({ uuid }) => fromUuidSync(uuid));
 			const updates = items
-				.filter((i) => i != null)
+				.filter((i) => i != null && i.parent?.id === this.parent?.id)
 				.map((i) => ({ _id: i?.id, 'system.containerId': '' }));
 
 			if (updates.length > 0) {

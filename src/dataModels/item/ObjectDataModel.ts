@@ -78,6 +78,7 @@ const schema = {
 		required: true,
 		initial: [],
 	}),
+	contentsOnly: new fields.BooleanField({ required: true, initial: false }),
 	items: new fields.ObjectField({ required: true, initial: {} }),
 	implant: new fields.BooleanField({ required: true, initial: false }),
 	materialProperties: new fields.ArrayField(

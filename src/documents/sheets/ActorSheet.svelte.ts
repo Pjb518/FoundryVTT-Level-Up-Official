@@ -188,9 +188,11 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 		const i = item.toObject() as any;
 		i.system.containerId = options.containerUuid ?? '';
-		(await this.actor.createEmbeddedDocuments('Item', [i]))?.[0]?.updateContainer(
-			options.containerUuid ?? '',
-		);
+		const created = (await this.actor.createEmbeddedDocuments('Item', [i]))?.[0];
+
+		// Contents-only containers delete themselves on creation
+		if (!created || created.system.contentsOnly) return;
+		await created.updateContainer(options.containerUuid ?? '');
 	}
 
 	async #onDropSpell(item: Item, options: DragDropOptions) {

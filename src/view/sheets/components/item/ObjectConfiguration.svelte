@@ -101,6 +101,15 @@
                 />
             {/if}
 
+            {#if itemStore.objectType === "container"}
+                <Checkbox
+                    label="A5E.objects.contentsOnly"
+                    checked={itemStore.contentsOnly}
+                    onUpdateSelection={(value) =>
+                        updateDocumentDataFromField(item, "system.contentsOnly", value)}
+                />
+            {/if}
+
             {#if showVRCImplants}
                 <Checkbox
                     label="A5E.objects.implant"
