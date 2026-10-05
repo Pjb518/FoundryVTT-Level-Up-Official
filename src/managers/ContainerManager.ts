@@ -293,6 +293,30 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 		return item;
 	}
 
+	static async unpackContainerOnActor(actor: any, item: any): Promise<void> {
+		const multiplier = Math.max(1, item.system.quantity ?? 1);
+		const containerData: Array<any> = Object.values(item.system.items ?? {});
+
+		const items: any[] = [];
+		await Promise.all(
+			containerData.map(async ({ quantityOverride, uuid }) => {
+				const doc = await fromUuid(uuid);
+				if (!doc) return;
+
+				const data = doc.toObject();
+				delete data._id;
+				data.system.containerId = '';
+				data.system.quantity = (quantityOverride || data.system.quantity) * multiplier;
+
+				if (uuid.startsWith('Compendium')) data._stats.compendiumSource = uuid;
+				items.push(data);
+			}),
+		);
+
+		if (items.length > 0) await actor.createEmbeddedDocuments('Item', items);
+		await item.delete();
+	}
+
 	static async createContainerOnSidebar(item: any, folderId: string | null = null): Promise<any> {
 		folderId = folderId || item.folder._id || null;
 
