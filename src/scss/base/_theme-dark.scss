@@ -30,6 +30,7 @@
 
   /* Text Colors */
   --a5e-color-primary: hsl(190, 21%, 33%);
+  // --a5e-color-primary: hsl(150, 65%, 33%);
   --a5e-color-primary-lighter: hsl(190, 21%, 55%);
   --a5e-color-error: hsl(0, 58%, 35%);
   --a5e-color-error-lighter: hsl(0, 58%, 45%);
@@ -55,7 +56,7 @@
 
   /* Borders */
   --a5e-border-color: hsl(180, 2%, 38%);
-  --a5e-border-radius-standard: 4px;
+  --a5e-border-radius-standard: 2px;
   --a5e-shadow-color: transparent;
   --a5e-rule-color: hsl(180, 2%, 38%);
 
@@ -116,17 +117,35 @@
   --a5e-track-icon-background: #474c4c;
   --a5e-track-icon-border: #575757;
 
-  /** Primary Navigation **/
-  --a5e-primary-nav-background: var(--a5e-color-primary);
-  --a5e-primary-nav-color: var(--a5e-text-color-dark);
-  --a5e-primary-nav-border: var(--a5e-border-color);
+  /** Navigation **/
+
+  /** PrimaryNavigation **/
+  --a5e-primary-nav-background: radial-gradient(
+    circle at 50% 50%,
+    hsla(from var(--a5e-color-primary) h s calc(l + 5) / 1),
+    hsla(from var(--a5e-color-primary) h s calc(l - 5) / 1)
+  );
+  --a5e-primary-nav-color: contrast-color(var(--a5e-color-primary));
+  --a5e-primary-nav-border: hsla(
+    from var(--a5e-color-primary) h 25% 75% / 0.25
+  );
   --a5e-primary-nav-box-shadow-start: functions.darken-color(
     var(--a5e-color-primary),
     10
   );
   --a5e-primary-nav-box-shadow-end: rgba(0 0 0 / 0.1);
-  --a5e-primary-nav-item-color: hsl(39, 98%, 81%);
+  --a5e-primary-nav-item-background: hsl(150 3 25);
+  --a5e-primary-nav-item-color: white;
   --a5e-primary-nav-item-active-color: #842c2b;
+
+  /** Secondary Navigation **/
+  --a5e-secondary-nav-background: rgba(255 255 255 / 0.1);
+  --a5e-secondary-nav-background: hsla(
+    from var(--a5e-color-primary) h s l / 0.3
+  );
+  --a5e-secondary-nav-color: white;
+  --a5e-secondary-nav-separator: rgba(120 100 82 / 0.5);
+  --a5e-secondary-nav-separator: hsla(from var(--a5e-color-primary) h s l / 1);
 
   /** Section **/
   --a5e-section-color: var(--a5e-text-color-dark);
