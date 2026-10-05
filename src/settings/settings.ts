@@ -391,6 +391,30 @@ export const settings = [
 	},
 	{
 		namespace,
+		key: 'showCombatRoundCards',
+		options: {
+			name: 'A5E.settings.showCombatRoundCards',
+			hint: 'A5E.settings.hints.showCombatRoundCards',
+			scope: scope.world,
+			config: false,
+			default: true,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'showCombatRoundCardsToPlayers',
+		options: {
+			name: 'A5E.settings.showCombatRoundCardsToPlayers',
+			hint: 'A5E.settings.hints.showCombatRoundCardsToPlayers',
+			scope: scope.world,
+			config: false,
+			default: false,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
 		key: 'hideRandomizedHPRolls',
 		options: {
 			name: 'A5E.settings.hideRandomizedHPRolls',

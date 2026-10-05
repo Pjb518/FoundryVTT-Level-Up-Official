@@ -26,6 +26,13 @@
     let hideHpRolls = $derived(settings["hideRandomizedHPRolls"].value);
     let protectRolls = $derived(settings["protectRolls"].value);
     let terseRolls = $derived(settings["terseRollFormulae"].value);
+    let showCombatCards = $derived(settings["showCombatRoundCards"].value);
+    let showCombatCardsToPlayers = $derived(
+        settings["showCombatRoundCardsToPlayers"].value,
+    );
+    let combatCardsOn = $derived(
+        updates.get("showCombatRoundCards") ?? showCombatCards ?? true,
+    );
 </script>
 
 <Section heading="Chat Card Display Settings" --a5e-section-body-gap="0.5rem">
@@ -92,4 +99,30 @@
             }}
         />
     </FieldWrapper>
+    {#if isGM}
+        <FieldWrapper hint="A5E.settings.hints.showCombatRoundCards">
+            <Checkbox
+                label="A5E.settings.showCombatRoundCards"
+                checked={combatCardsOn}
+                onUpdateSelection={(detail) => {
+                    updates.set("showCombatRoundCards", detail);
+                    combatCardsOn = detail;
+                }}
+            />
+        </FieldWrapper>
+
+        {#if combatCardsOn}
+            <FieldWrapper hint="A5E.settings.hints.showCombatRoundCardsToPlayers">
+                <Checkbox
+                    label="A5E.settings.showCombatRoundCardsToPlayers"
+                    checked={updates.get("showCombatRoundCardsToPlayers") ??
+                        showCombatCardsToPlayers ??
+                        false}
+                    onUpdateSelection={(detail) => {
+                        updates.set("showCombatRoundCardsToPlayers", detail);
+                    }}
+                />
+            </FieldWrapper>
+        {/if}
+    {/if}
 </Section>
