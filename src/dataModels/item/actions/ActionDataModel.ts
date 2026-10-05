@@ -155,6 +155,20 @@ const actionSchema = () => ({
 				choices: ['formula', 'recoverAll', 'loseAll'],
 			}),
 		}),
+		countdown: new fields.SchemaField({
+			size: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 6,
+				integer: true,
+			}),
+			threshold: new fields.NumberField({
+				required: true,
+				nullable: false,
+				initial: 6,
+				integer: true,
+			}),
+		}),
 	}),
 });
 

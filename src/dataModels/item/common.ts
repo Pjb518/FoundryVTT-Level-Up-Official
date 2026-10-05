@@ -94,6 +94,10 @@ export const uses = () => ({
 				choices: CONFIG.A5E.usesRecoveryTypeOptions,
 			}),
 		}),
+		countdown: new fields.SchemaField({
+			size: new fields.NumberField({ required: true, initial: 6, integer: true }),
+			threshold: new fields.NumberField({ required: true, initial: 6, integer: true }),
+		}),
 	}),
 });
 

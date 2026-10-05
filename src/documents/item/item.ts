@@ -433,6 +433,33 @@ class ItemA5e<
 		}
 	}
 
+	async rollCountdown(actionId?: string) {
+		if (!this.actor) return;
+
+		const uses = actionId ? this.actions.get(actionId)?.uses : (this.system as any).uses;
+		const current = uses?.value ?? 0;
+		if (current <= 0) return;
+
+		const size = uses?.countdown?.size ?? 6;
+		const threshold = uses?.countdown?.threshold ?? 6;
+		const updatePath = actionId ? `system.actions.${actionId}.uses.value` : 'system.uses.value';
+
+		const countdownRoll = await new Roll(
+			`${current}d${size}`,
+			this.actor.getRollData(this),
+		).evaluate();
+
+		countdownRoll.toMessage();
+
+		const removed = countdownRoll.dice
+			.flatMap((die) => die.results)
+			.filter((result) => result.active && result.result >= threshold).length;
+
+		if (!removed) return;
+
+		await this.update({ [updatePath]: Math.max(0, current - removed) });
+	}
+
 	// biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
 	override async _preCreate(data, options, user): Promise<boolean | void> {
 		await super._preCreate(data, options, user);
