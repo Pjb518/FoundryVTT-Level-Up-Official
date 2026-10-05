@@ -35,6 +35,9 @@
             uses.recharge.type === "formula"
         ) {
             summary = `${summary} (Recharges by ${uses.recharge.formula})`;
+        } else if (uses.per === "countdown") {
+            const { size, threshold } = uses.countdown;
+            summary = `${summary} (Countdown d${size} ≥ ${threshold})`;
         } else if (uses.per) {
             summary = `${summary} (Per ${resourceRecoveryOptions[uses.per]})`;
         }
@@ -194,6 +197,33 @@
                         {/each}
                     </select>
                 </FieldWrapper>
+            </Section>
+        {/if}
+
+        {#if itemStore.uses.per === "countdown"}
+            <Section
+                heading="A5E.actions.headings.countdown.configuration"
+                --a5e-section-body-direction="row"
+                --a5e-section-body-gap="0.5rem"
+            >
+                {#each ["size", "threshold"] as field}
+                    <FieldWrapper
+                        heading="A5E.actions.headings.countdown.{field}"
+                    >
+                        <input
+                            class="a5e-input a5e-input--slim"
+                            type="number"
+                            min="1"
+                            value={itemStore.uses.countdown[field]}
+                            onchange={({ currentTarget }) =>
+                                updateDocumentDataFromField(
+                                    item,
+                                    `system.uses.countdown.${field}`,
+                                    Number(currentTarget.value),
+                                )}
+                        />
+                    </FieldWrapper>
+                {/each}
             </Section>
         {/if}
     {:else}

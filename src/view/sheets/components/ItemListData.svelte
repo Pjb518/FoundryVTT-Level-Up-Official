@@ -133,6 +133,15 @@
     return item.reactive.system?.uses?.per === "recharge";
   }
 
+  function hasCountdown(item: ItemA5e) {
+    if (actionId && action) {
+      return action.uses?.per === "countdown" && (action.uses?.value ?? 0) > 0;
+    }
+
+    const uses = item.reactive.system?.uses;
+    return uses?.per === "countdown" && (uses?.value ?? 0) > 0;
+  }
+
   function updateField(event) {
     event.preventDefault();
 
@@ -603,6 +612,20 @@
         ></button>
       {/if}
 
+      {#if actor.isCreature() && hasCountdown(item)}
+        <button
+          type="button"
+          class="action-button icon fas fa-dice"
+          data-tooltip="A5E.buttons.tooltips.countdown"
+          data-tooltip-direction="UP"
+          aria-label="Roll Countdown"
+          onclick={(e) => {
+            e.stopPropagation();
+            item.rollCountdown(actionId);
+          }}
+        ></button>
+      {/if}
+
       {#if flags.a5e?.showFavoritesSection ?? actor.isCreature()}
         <button
           type="button"
@@ -649,6 +672,20 @@
           onclick={(e) => {
             e.stopPropagation();
             item.recharge(actionId, rechargeState);
+          }}
+        ></button>
+      {/if}
+
+      {#if actor.isCreature() && hasCountdown(item.reactive)}
+        <button
+          type="button"
+          class="action-button icon fas fa-dice"
+          data-tooltip="A5E.buttons.tooltips.countdown"
+          data-tooltip-direction="UP"
+          aria-label="Roll Countdown"
+          onclick={(e) => {
+            e.stopPropagation();
+            item.rollCountdown(actionId);
           }}
         ></button>
       {/if}

@@ -33,6 +33,11 @@ interface RechargeProperties {
   threshold: number;
 }
 
+interface CountdownProperties {
+  size: number;
+  threshold: number;
+}
+
 interface ScalingProperties {
   formula: string;
   mode: string;
@@ -49,7 +54,8 @@ interface UsesProperties {
   value: number;
   max: string;
   per: string;
-  recharge?: RechargeProperties
+  recharge?: RechargeProperties;
+  countdown?: CountdownProperties;
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
