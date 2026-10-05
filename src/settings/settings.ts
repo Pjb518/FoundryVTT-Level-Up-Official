@@ -180,6 +180,23 @@ export const settings = [
 			type: Boolean,
 		},
 	},
+	{
+		namespace,
+		key: 'droppedObjectEquippedState',
+		options: {
+			name: 'A5E.settings.droppedObjectEquippedState',
+			scope: scope.world,
+			config: false,
+			type: String,
+			choices: {
+				itemDefined: 'A5E.settings.droppedObjectEquippedStateItemDefined',
+				notCarried: 'A5E.equippedState.notCarried',
+				carried: 'A5E.equippedState.carried',
+				equipped: 'A5E.equippedState.equipped',
+			},
+			default: 'itemDefined',
+		},
+	},
 	// Canvas Settings
 	{
 		namespace,

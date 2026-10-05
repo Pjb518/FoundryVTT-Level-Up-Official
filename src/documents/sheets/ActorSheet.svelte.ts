@@ -188,6 +188,35 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 		const i = item.toObject() as any;
 		i.system.containerId = options.containerUuid ?? '';
+
+		const equippedStates = {
+			notCarried: CONFIG.A5E.EQUIPPED_STATES.NOT_CARRIED,
+			carried: CONFIG.A5E.EQUIPPED_STATES.CARRIED,
+			equipped: CONFIG.A5E.EQUIPPED_STATES.EQUIPPED,
+		};
+		const droppedState = game.settings.get('a5e', 'droppedObjectEquippedState') as string;
+		if (droppedState in equippedStates) {
+			i.system.equippedState = equippedStates[droppedState as keyof typeof equippedStates];
+		}
+
+		const { EQUIPPED, CARRIED } = CONFIG.A5E.EQUIPPED_STATES;
+		if (i.system.equippedState === EQUIPPED) {
+			const equippedOfType = (type: string) =>
+				this.actor.items.filter(
+					(o: Item) => o.system.equippedState === EQUIPPED && o.system.objectType === type,
+				);
+
+			if (i.system.objectType === 'armor') {
+				const isUnderarmor = i.system.materialProperties?.includes('underarmor');
+				const slotTaken = equippedOfType('armor').some(
+					(o: Item) => !!o.system.materialProperties?.includes('underarmor') === !!isUnderarmor,
+				);
+				if (slotTaken) i.system.equippedState = CARRIED;
+			} else if (i.system.objectType === 'shield') {
+				if (equippedOfType('shield').length >= 2) i.system.equippedState = CARRIED;
+			}
+		}
+
 		const created = (await this.actor.createEmbeddedDocuments('Item', [i]))?.[0];
 
 		// Contents-only containers delete themselves on creation
