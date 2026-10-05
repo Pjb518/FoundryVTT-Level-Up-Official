@@ -1,3 +1,5 @@
+import { createInitialGrant } from '#utils/createInitialGrant.ts';
+
 import { A5EBaseItemData } from './base.ts';
 import { GrantsField } from './Grants/GrantsField.ts';
 
@@ -7,15 +9,14 @@ const schema = {
 	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
-			[foundry.utils.randomID()]: {
-				grantType: 'movement',
+			...createInitialGrant('movement', {
 				config: {
 					movementTypes: { base: ['walk'] },
 					bonus: '30',
 					unit: 'feet',
 				},
-				label: 'Base Movement',
-			},
+				name: 'Base Movement',
+			}),
 		}),
 	}),
 };

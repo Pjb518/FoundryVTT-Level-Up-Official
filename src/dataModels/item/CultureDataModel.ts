@@ -1,3 +1,5 @@
+import { createInitialGrant } from '#utils/createInitialGrant.ts';
+
 import { A5EBaseItemData } from './base.ts';
 import { GrantsField } from './Grants/GrantsField.ts';
 
@@ -8,18 +10,16 @@ const schema = {
 		nullable: false,
 		initial: () => ({
 			// Feature Grant
-			[foundry.utils.randomID()]: {
-				grantType: 'feature',
-				label: 'Culture Features',
-			},
+			...createInitialGrant('feature', {
+				name: 'Culture Features',
+			}),
 			// Languages
-			[foundry.utils.randomID()]: {
-				grantType: 'trait',
+			...createInitialGrant('trait', {
 				config: {
 					traits: { traitType: 'languages' },
 				},
-				label: 'Languages',
-			},
+				name: 'Languages',
+			}),
 		}),
 	}),
 };
