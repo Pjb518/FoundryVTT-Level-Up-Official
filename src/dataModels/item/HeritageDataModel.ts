@@ -17,6 +17,32 @@ const schema = {
 				},
 				name: 'Base Movement',
 			}),
+			// Traits
+			...createInitialGrant('feature', {
+				level: 1,
+				levelType: 'character',
+				name: 'Traits',
+			}),
+			// Heritage Gifts
+			...createInitialGrant('feature', {
+				config: {
+					features: { total: 1 },
+					selectionType: 'limited',
+				},
+				level: 1,
+				levelType: 'character',
+				name: 'Heritage Gifts',
+			}),
+			// Paragon Gifts
+			...createInitialGrant('feature', {
+				config: {
+					features: { total: 1 },
+					selectionType: 'limited',
+				},
+				level: 10,
+				levelType: 'character',
+				name: 'Paragon Gifts',
+			}),
 		}),
 	}),
 };
