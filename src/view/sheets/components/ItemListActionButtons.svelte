@@ -2,6 +2,7 @@
     import type { Action } from "#types/action.d.ts";
 
     import { getContext } from "svelte";
+    import { itemControls } from "../../../stores/itemControlsStore.svelte.ts";
     import { DeletionConfirmationDialog } from "../../dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
 
     type Props = {
@@ -81,7 +82,11 @@
 {#if !sheetIsLocked()}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class="track" onclick={(e) => e.stopPropagation()}>
+    <div
+        class="track"
+        class:open={itemControls.open}
+        onclick={(e) => e.stopPropagation()}
+    >
         <i class="track-icon icon fa-solid fa-ellipsis-vertical"></i>
 
         <ul class="track-items">
@@ -205,7 +210,8 @@
             transition: var(--a5e-transition-standard);
         }
 
-        &:hover {
+        &:hover,
+        &.open {
             overflow: initial;
 
             .track-items {
