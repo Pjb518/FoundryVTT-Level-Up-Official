@@ -67,6 +67,7 @@
 
 <style lang="scss">
   .a5e-item-sheet__header {
+    grid-area: header;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;

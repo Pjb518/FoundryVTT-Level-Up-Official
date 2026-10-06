@@ -22,7 +22,7 @@
       },
       {
         name: "unidentifiedDescription",
-        label: "A5E.objects.unidentifiedDescriptionTab",
+        label: "Unidentified",
         display:
           item.type === "object" && (itemStore.unidentified || game.user?.isGM),
       },
@@ -55,6 +55,7 @@
   });
 
   let property = $derived(getProperty());
+  let isGM = game.user.isGM;
 </script>
 
 <SecondaryNavigationBar
@@ -64,11 +65,34 @@
 />
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-  {#if currentTab.name === "description" && Object.values(summaryData ?? {}).some(Boolean)}
+  {#if Object.values(summaryData ?? {}).some(Boolean)}
     <ItemSummary {summaryData} --inline-padding="0.25rem" />
 
     <hr class="a5e-rule a5e-rule--card" />
   {/if}
+
+  <!-- Description -->
+  <!-- {#if !itemStore.unidentified || isGM}
+    <div class="a5e-item-sheet__editor">
+      <Editor
+        content={itemStore.description}
+        document={item}
+        documentUuid={item.uuid}
+        field="system.description"
+        manageSecrets={item.isOwner}
+      />
+    </div>
+  {/if} -->
+
+  <!-- Unidentified Description -->
+  <!-- {#if (item.isType("object") && item.unidentified) || isGM}
+
+  {/if} -->
+
+  <!-- GM Notes -->
+  <!-- {#if isGM}
+
+  {/if} -->
 
   {#key `${property}::${itemStore[property]}`}
     <Editor
@@ -80,3 +104,9 @@
     />
   {/key}
 </section>
+
+<style lang="scss">
+  .a5e-item-sheet__editor {
+    // height: 100%;
+  }
+</style>

@@ -44,7 +44,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
 	static override DEFAULT_OPTIONS = {
 		baseApplication: 'ItemSheet',
 		classes: ['a5e-sheet', 'a5e-sheet--item'],
-		position: { width: 555, height: 592 },
+		position: { width: 565, height: 592 },
 		actions: {
 			openSourceLink: ItemSheet.#onSourceLinkClick,
 		},

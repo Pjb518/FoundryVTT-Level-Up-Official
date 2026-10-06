@@ -156,7 +156,17 @@
 
 <div
   style="display: contents;"
-  class={rest.class ?? ""}
+  class="a5e-editor-wrapper {rest.class ?? ''}"
   bind:this={proseMirrorContainerEl}
   use:onEditorActivation
 ></div>
+
+<style lang="scss">
+  .a5e-editor-wrapper {
+    height: 100%;
+
+    :global(prose-mirror) {
+      height: 100%;
+    }
+  }
+</style>

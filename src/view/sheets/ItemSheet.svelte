@@ -140,15 +140,16 @@
       grid-template-areas:
         "header"
         "primaryNavigation"
-        "secondaryNavigation"
         "page";
-      grid-template-rows: min-content min-content min-content minmax(0, 1fr);
+      grid-template-rows: min-content min-content minmax(0, 1fr);
       gap: 0.5rem;
 
       &__page {
         grid-area: page;
         overflow-y: auto;
         padding-inline: 0.5rem;
+        height: 100%;
+        min-height: 0;
       }
     }
   }
