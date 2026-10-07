@@ -59,8 +59,6 @@
   );
 
   let coins = $derived(Object.entries(itemStore.currency ?? {}));
-
-  $inspect(coins);
 </script>
 
 <article>
@@ -86,7 +84,7 @@
             value={itemStore.currency[denom] ?? 0}
             onfocus={({ currentTarget }) => (currentTarget.value = "")}
             onblur={({ currentTarget }) => (currentTarget.value = `${value}`)}
-            onchange={({ currentTarget }) => updateCurrency(denom, currenTarget.value)}
+            onchange={({ currentTarget }) => updateCurrency(denom, currentTarget.value)}
           />
         </div>
       {/each}
