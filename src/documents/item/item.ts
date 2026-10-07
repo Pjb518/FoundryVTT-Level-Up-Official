@@ -36,6 +36,49 @@ class ItemA5e<
 	//  Getters (Object)
 	/** ---------------------------------- */
 
+	/** Get the container of this object */
+	get container(): Item.OfType<'object'> | null {
+		if (this.isType('object')) {
+			if (!this.system.containerId) return null;
+			if (this.actor) return this.actor.items.get(this.system.containerId) ?? null;
+			if (this.pack) return game.packs.get(this.pack)?.getDocument(this.system.containerId) ?? null;
+			return (game.items.get(this.system.containerId) as Item.OfType<'object'>) ?? null;
+		}
+
+		return null;
+	}
+
+	/** Get names of the items in a container as a string. This is a helper for our sheet reducer */
+	get containerItemNames() {
+		if (!this.containerItems) return '';
+
+		const names = this.containerItems.allItems.map((i) => i.name);
+		return names.join(', ');
+	}
+
+	/** Get direct children of this container */
+	get contents(): Item.OfType<'object'>[] {
+		if (this.isType('object')) {
+			if (this.system.objectType !== 'container') return [] as Item.OfType<'object'>[];
+
+			return (this.containerItems?.items ?? []) as Item.OfType<'object'>[];
+		}
+
+		return [] as Item.OfType<'object'>[];
+	}
+
+	/** Gets weight of object */
+	get weight(): number {
+		if (this.isType('object')) {
+			if (this.system.objectType === 'container') {
+				const w = this.containerItems?.weight ?? 0;
+				return w + this.system.weight;
+			} else return this.system.weight;
+		}
+
+		return 0;
+	}
+
 	/** ---------------------------------- */
 	//  Getters (Spell)
 	/** ---------------------------------- */
@@ -127,6 +170,33 @@ class ItemA5e<
 
 		foundry.utils.setProperty(this, 'system.ac.formula', formula);
 	}
+
+	/** ================================================================= */
+	// Prepare Duplicate Data
+	/** ================================================================= */
+
+	/** @inheritdoc */
+	override async duplicateItem() {
+		if (this.isType('object')) {
+			// This is done here because we don't want to call super
+			if (this.system.objectType === 'container') {
+				if (!this.actor) return null;
+
+				const container = await ContainerManager.createContainerOnActor(this.actor, this);
+				return container;
+			}
+
+			this.duplicateObject();
+		}
+
+		super.duplicateItem();
+	}
+
+	/** ---------------------------------- */
+	// Object
+	/** ---------------------------------- */
+	/** Duplicate data for objects */
+	async duplicateObject(this: Item.OfType<'object'>) {}
 
 	// *****************************************************************************************
 
