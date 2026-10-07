@@ -435,6 +435,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 
 	/** A helper to help with updating container items */
 	static async updateContainer(item: ObjectA5E, containerUuid: string) {
+		console.log(containerUuid);
 		if (containerUuid === item.uuid) return;
 
 		// Clear out container
@@ -446,9 +447,6 @@ class ContainerManager extends Map<string, ContainerItemData> {
 			await container.containerItems?.remove(item.uuid!);
 			return;
 		}
-
-		// Don't do anything if new is same as old
-		if (item.system.containerId === containerUuid) return;
 
 		// Remove from old container
 		const old = await fromUuid<ObjectA5E>(item.system.containerId);

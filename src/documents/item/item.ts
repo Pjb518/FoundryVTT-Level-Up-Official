@@ -740,7 +740,7 @@ class ItemA5e<
 
 		// Clean container Id on object creation
 		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
-		console.log(container, data.system.containerId);
+		console.log(container, this.system.containerId);
 		if (!container) updates['system.containerId'] = '';
 
 		// Update quality and quantity consumers to set themselves as target

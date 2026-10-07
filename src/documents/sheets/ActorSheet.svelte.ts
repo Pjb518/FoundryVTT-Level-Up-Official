@@ -181,12 +181,13 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 	// TODO: Fix this
 	async #onDropObject(item: Item, options: DragDropOptions) {
+		console.log('Here');
 		if (item?.parent?.id === this.actor.id) {
 			ContainerManager.updateContainer(item, options.containerUuid ?? '');
 			return;
 		}
 
-		const i = item.toObject() as any;
+		const i = item.toObject() as unknown as Item.OfType<'object'>;
 		i.system.containerId = options.containerUuid ?? '';
 
 		const equippedStates = {
@@ -219,9 +220,9 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		}
 
 		const created = (await this.actor.createEmbeddedDocuments('Item', [i]))?.[0];
-
 		// Contents-only containers delete themselves on creation
-		if (!created || created.system.contentsOnly) return;
+		if (!created) return;
+		if (created?.system?.contentsOnly) return;
 
 		await ContainerManager.updateContainer(created, options.containerUuid ?? '');
 	}
