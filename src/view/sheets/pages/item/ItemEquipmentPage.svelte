@@ -84,7 +84,24 @@
                 }}
               />
             </div>
-          {:else}{/if}
+          {:else}
+            <div class="a5e-quantity-wrapper">
+              <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                id="{doc.uuid}-quantityOverride"
+                value={quantity || doc.system.quantity || 1}
+                min="1"
+                onchange={({ currentTarget }) => {
+                  updateDocumentDataFromField(
+                    item,
+                    `system.items.${docId}.quantity`,
+                    parseInt(currentTarget?.value ?? 1, 10),
+                  );
+                }}
+              />
+            </div>
+          {/if}
 
           <button
             type="button"
