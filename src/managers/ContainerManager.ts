@@ -1,5 +1,3 @@
-import type SubObjectField from '../dataModels/fields/SubObjectField.ts';
-
 type ObjectA5E = Item.OfType<'object'>;
 type ContainerItemData = ObjectA5E['system']['items'][string];
 
@@ -207,15 +205,22 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		return data;
 	}
 
-	/** ************************************************
-	 *               Data Helper methods
-	 * ************************************************ */
-	async add(uuid: string, data: SubObjectField) {
-		if (!data) data = {} as SubObjectField;
+	/** ---------------------------------- */
+	//  Data Helper Methods
+	/** ---------------------------------- */
 
-		const obj = fromUuidSync(uuid);
+	/** Adds a single instance of an object into the container */
+	async add(uuid: string, data: ContainerItemData) {
+		if (!data) data = {} as ContainerItemData;
+
+		const obj = await fromUuid<Item.OfType<'object'>>(uuid);
 		if (!obj) {
 			ui.notifications.error(`Could not find object with uuid: ${uuid}`);
+			return;
+		}
+
+		if (obj.type !== 'object') {
+			ui.notifications.error(`Dropped Item is not an object.`);
 			return;
 		}
 
@@ -223,51 +228,39 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		data.quantity = obj.system?.quantity ?? 1;
 
 		const key = foundry.utils.randomID();
+		data._id = key;
+
 		await this.#item.update({ [`system.items.${key}`]: data });
 	}
 
+	/** Adds multiple instances of an object into a container */
 	async addMulti(uuids: string[]) {
 		const updates = {};
 
-		uuids.forEach(async (uuid) => {
-			const obj = fromUuidSync(uuid);
+		for await (const uuid of uuids) {
+			const obj = await fromUuid<Item.OfType<'object'>>(uuid);
 			if (!obj) {
 				ui.notifications.error(`Could not find object with uuid: ${uuid}`);
-				return;
+				continue;
+			}
+
+			if (obj.type !== 'object') {
+				ui.notifications.error(`Item with uuid: ${uuid} is not of type object`);
+				continue;
 			}
 
 			const key = foundry.utils.randomID();
 			updates[`system.items.${key}`] = {
-				uuid,
+				_id: key,
 				quantity: obj.system?.quantity ?? 1,
+				uuid,
 			};
-		});
+		}
 
 		await this.#item.update(updates);
 	}
 
-	async clean() {
-		const updates = {};
-
-		[...this.values()].forEach((i) => {
-			const child = fromUuidSync(i.uuid);
-			if (!child) updates[`system.items.${i._id}`] = _del;
-		});
-
-		await this.#item.update(updates);
-	}
-
-	cleanSync() {
-		const updates = {};
-
-		[...this.values()].forEach((i) => {
-			const child = fromUuidSync(i.uuid);
-			if (!child) updates[`system.items.${i._id}`] = _del;
-		});
-
-		this.#item.update(updates);
-	}
-
+	/** Removes an object from the container */
 	async remove(uuid: string) {
 		const key = [...this.values()].find((i) => i.uuid === uuid)?._id;
 		if (!key) return;
@@ -275,6 +268,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		await this.#item.update({ [`system.items.${key}`]: _del });
 	}
 
+	/** Remove multiple objects from a container */
 	async removeMulti(uuids: string[]) {
 		const keys = [...this.values()].reduce((acc: string[], i) => {
 			if (uuids.includes(i.uuid)) acc.push(i._id);
@@ -291,6 +285,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		await this.#item.update(updates);
 	}
 
+	/** Remove all objects from a container */
 	async removeAll() {
 		const keys = [...this.keys()];
 		if (!keys.length) return;
@@ -303,10 +298,12 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		await this.#item.update(updates);
 	}
 
-	/** ************************************************
-	 *               Static methods
-	 * ************************************************ */
-	static async createContainerOnActor(actor: any, item: any): Promise<any> {
+	/** ---------------------------------- */
+	//  Static Methods
+	/** ---------------------------------- */
+
+	/** Create a container on an actor */
+	static async createContainerOnActor(actor: Actor, item: Item.OfType<'object'>): Promise<any> {
 		await item.containerItems?.clean();
 
 		const containerData: Array<any> = foundry.utils.duplicate(Object.values(item.system.items));

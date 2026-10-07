@@ -686,7 +686,7 @@ class ItemA5e<
 		this: Item.OfType<'spell'>,
 		...[data, options, user]: Parameters<Item['_preCreate']>
 	) {
-		if (!data.system.spellBook && this.parent?.documentName === 'Actor') {
+		if (!data?.system.spellBook && this.parent?.documentName === 'Actor') {
 			ui.notifications.error('You must select a spell book to create a spell.');
 			return false;
 		}
@@ -743,7 +743,7 @@ class ItemA5e<
 		super._onCreate(data, options, userId);
 
 		// Call sub methods
-		if (this.isType('object')) this._onCreate(data, options, userId);
+		if (this.isType('object')) this._onCreateObject(data, options, userId);
 	}
 
 	/** ---------------------------------- */
