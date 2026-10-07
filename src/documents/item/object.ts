@@ -1,4 +1,4 @@
-import ContainerManager from '../../managers/ContainerManager.ts';
+import { ContainerManager } from '../../managers/ContainerManager.ts';
 import { ItemA5e } from './item.ts';
 
 export default class ObjectItemA5e extends ItemA5e<'object'> {

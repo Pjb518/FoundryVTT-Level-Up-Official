@@ -4,7 +4,7 @@ import type ObjectItemA5e from '../documents/item/object.ts';
 type ObjectA5E = Item.OfType<'object'>;
 type ContainerItemData = ObjectA5E['system']['items'][string];
 
-export default class ContainerManager extends Map<string, ContainerItemData> {
+class ContainerManager extends Map<string, ContainerItemData> {
 	#item: ObjectA5E;
 
 	constructor(item: ObjectA5E) {
@@ -37,7 +37,10 @@ export default class ContainerManager extends Map<string, ContainerItemData> {
 			this.set(id, data);
 		});
 
-		this.#item.update(updates);
+		if (Object.entries(updates).length) {
+			ui.notifications.warn(`Cleaning up deleted items from ${this.#item.name}`);
+			this.#item.update(updates);
+		}
 	}
 
 	get items() {
@@ -362,3 +365,9 @@ export default class ContainerManager extends Map<string, ContainerItemData> {
 		return item;
 	}
 }
+
+declare namespace ContainerManager {
+	type ContainerItemManager = ContainerItemManager;
+}
+
+export { ContainerManager };

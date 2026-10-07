@@ -42,7 +42,7 @@ import activateItemMacro from '../macros/activateItemMacro.js';
 import createMacro from '../macros/createMacro.js';
 import { A5eEnricherManager } from '../managers/A5eEnricherManager.ts';
 import { ActionsManager } from '../managers/ActionsManager.ts';
-import ContainerManager from '../managers/ContainerManager.ts';
+import { ContainerManager } from '../managers/ContainerManager.ts';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager.ts';
 import HitDiceManager from '../managers/HitDiceManager.ts';
 import { ItemGrantsManager } from '../managers/ItemGrantsManager.ts';

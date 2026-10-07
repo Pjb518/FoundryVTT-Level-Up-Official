@@ -1,5 +1,5 @@
 import { ActionsManager } from '#managers/ActionsManager.ts';
-import ContainerManager from '#managers/ContainerManager.ts';
+import { ContainerManager } from '#managers/ContainerManager.ts';
 import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
