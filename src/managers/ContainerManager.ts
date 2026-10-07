@@ -19,6 +19,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		const containerData = Object.entries(this.#item.system.items ?? {});
 
 		const updates: Record<string, any> = {};
+		let isInPack = !!this.#item.pack || !!this.#item.parent?.pack;
 
 		containerData.forEach(([id, data]) => {
 			// Clean up
@@ -30,11 +31,14 @@ class ContainerManager extends Map<string, ContainerItemData> {
 				updates[`system.items.${id}._id`] = id;
 			}
 
+			// Check if any item is still in a compendium
+			if (doc?.pack) isInPack = true;
+
 			data._id = id;
 			this.set(id, data);
 		});
 
-		if (Object.entries(updates).length) {
+		if (Object.entries(updates).length && !isInPack) {
 			ui.notifications.warn(`Cleaning up deleted items from ${this.#item.name}`);
 			this.#item.update(updates);
 		}
@@ -260,6 +264,18 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		await this.#item.update(updates);
 	}
 
+	/** Clean the container  */
+	async clean() {
+		const updates = {};
+
+		[...this.values()].forEach((i) => {
+			const child = fromUuidSync(i.uuid);
+			if (!child) updates[`system.items.${i._id}`] = _del;
+		});
+
+		await this.#item.update(updates);
+	}
+
 	/** Removes an object from the container */
 	async remove(uuid: string) {
 		const key = [...this.values()].find((i) => i.uuid === uuid)?._id;
@@ -306,35 +322,29 @@ class ContainerManager extends Map<string, ContainerItemData> {
 	static async createContainerOnActor(actor: Actor, item: Item.OfType<'object'>): Promise<any> {
 		await item.containerItems?.clean();
 
-		const containerData: Array<any> = foundry.utils.duplicate(Object.values(item.system.items));
+		const containerData = foundry.utils.duplicate(Object.values(item.system.items));
 
 		// Empty container
-		await item.containerItems.removeAll();
+		await item.containerItems?.removeAll();
 
-		const items: (typeof Item)[] = [];
-		const existingItemUuids: string[] = [];
+		const items: ObjectA5E[] = [];
 
 		await Promise.all(
-			containerData.map(async ({ quantityOverride, uuid }) => {
-				let doc = await fromUuid(uuid);
-				if (!doc) return;
+			containerData.map(async ({ quantity, uuid }) => {
+				const d = await fromUuid<Item.OfType<'object'>>(uuid);
+				if (!d) return;
 
-				if (doc.parent && doc.parent._id === actor._id) {
-					await doc.update({
-						'system.containerId': item.uuid,
-						...(quantityOverride && { 'system.quantity': quantityOverride }),
-					});
-					existingItemUuids.push(doc.uuid);
-				} else {
-					doc = doc.toObject();
-					doc.system.containerId = item.uuid;
+				const doc = d.toObject() as unknown as ObjectA5E;
+				// @ts-expect-error
+				delete doc._id;
 
-					if (quantityOverride) {
-						doc.system.quantity = quantityOverride ?? doc.system.quantity;
-					}
-					if (uuid.startsWith('Compendium')) doc._stats.compendiumSource = uuid;
-					items.push(doc);
-				}
+				doc.system.containerId = item.uuid!;
+				doc.system.quantity = quantity || doc.system.quantity;
+
+				// Update compendium source
+				if (uuid.startsWith('Compendium')) doc._stats.compendiumSource = uuid;
+
+				items.push(doc);
 			}),
 		);
 
@@ -343,58 +353,73 @@ class ContainerManager extends Map<string, ContainerItemData> {
 				? (await actor.createEmbeddedDocuments('Item', items)).map((i: any) => i.uuid)
 				: [];
 
-		const ids = [...existingItemUuids, ...newItemUuids];
-
-		await item.containerItems.addMulti(ids);
+		await item.containerItems?.addMulti(newItemUuids);
 		return item;
 	}
 
-	static async unpackContainerOnActor(actor: any, item: any): Promise<void> {
-		const multiplier = Math.max(1, item.system.quantity ?? 1);
-		const containerData: Array<any> = Object.values(item.system.items ?? {});
+	/** Creates items from a container onto an Actor */
+	static async unpackContainerOnActor(actor: Actor, item: ObjectA5E): Promise<void> {
+		const containerData: ContainerItemData[] = Object.values(item.system.items ?? {});
 
-		const items: any[] = [];
+		const items: ObjectA5E[] = [];
+
 		await Promise.all(
-			containerData.map(async ({ quantityOverride, uuid }) => {
-				const doc = await fromUuid(uuid);
-				if (!doc) return;
+			containerData.map(async ({ quantity, uuid }) => {
+				const d = await fromUuid<Item.OfType<'object'>>(uuid);
+				if (!d) return;
 
-				const data = doc.toObject();
-				delete data._id;
-				data.system.containerId = '';
-				data.system.quantity = (quantityOverride || data.system.quantity) * multiplier;
+				const doc = d.toObject() as unknown as ObjectA5E;
+				// @ts-expect-error
+				delete doc._id;
 
-				if (uuid.startsWith('Compendium')) data._stats.compendiumSource = uuid;
-				items.push(data);
+				doc.system.containerId = '';
+				doc.system.quantity = quantity || doc.system.quantity;
+
+				// Update compendium source
+				if (uuid.startsWith('Compendium')) doc._stats.compendiumSource = uuid;
+
+				items.push(doc);
 			}),
 		);
 
 		if (items.length > 0) await actor.createEmbeddedDocuments('Item', items);
+
 		await item.delete();
 	}
 
-	static async createContainerOnSidebar(item: any, folderId: string | null = null): Promise<any> {
-		folderId = folderId || item.folder._id || null;
+	/** Creates a container on the sidebar */
+	static async createContainerOnSidebar(
+		item: ObjectA5E,
+		folderId: string | null = null,
+	): Promise<any> {
+		folderId = folderId || item.folder?._id || null;
 
 		await item.containerItems?.clean();
-		const containerData: Array<any> = foundry.utils.duplicate(Object.values(item.system.items));
+		const containerData: ContainerItemData[] = foundry.utils.duplicate(
+			Object.values(item.system.items),
+		);
 
 		// Empty container
-		await item.containerItems.removeAll();
+		await item.containerItems?.removeAll();
 
-		const items: (typeof Item)[] = [];
+		const items: ObjectA5E[] = [];
+
 		await Promise.all(
-			containerData.map(async ({ quantityOverride, uuid }) => {
-				let doc = await fromUuid(uuid);
-				if (!doc) return;
+			containerData.map(async ({ quantity, uuid }) => {
+				const d = await fromUuid<Item.OfType<'object'>>(uuid);
+				if (!d) return;
 
-				doc = doc.toObject();
-				doc.system.containerId = item.uuid;
-				if (quantityOverride) {
-					doc.system.quantity = quantityOverride ?? doc.system.quantityOverride;
-				}
+				const doc = d.toObject() as unknown as ObjectA5E;
+				// @ts-expect-error
+				delete doc._id;
 
+				doc.system.containerId = item.uuid!;
+				doc.system.quantity = quantity || doc.system.quantity;
+
+				// Update compendium source
 				if (uuid.startsWith('Compendium')) doc._stats.compendiumSource = uuid;
+
+				// @ts-expect-error
 				if (folderId) doc.folder = folderId;
 
 				items.push(doc);
@@ -402,7 +427,8 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		);
 
 		const ids = (await Item.createDocuments(items)).map((i: any) => i.uuid);
-		await item.containerItems.addMulti(ids);
+		await item.containerItems?.addMulti(ids);
+
 		if (folderId) await item.update({ folder: folderId });
 		return item;
 	}
