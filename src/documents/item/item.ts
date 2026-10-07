@@ -1,4 +1,5 @@
 import { ActionsManager } from '#managers/ActionsManager.ts';
+import ContainerManager from '#managers/ContainerManager.ts';
 import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
@@ -21,22 +22,56 @@ class ItemA5e<
 > extends BaseItemA5e<SubType> {
 	declare actions: ActionsManager;
 
-	/** ------------------------------------------------------ */
-	/**                      Data Prep                         */
-	/** ------------------------------------------------------ */
+	declare containerItems: ContainerManager | null;
+
+	/** ================================================================= */
+	// Type Helpers
+	/** ================================================================= */
+
+	/** ================================================================= */
+	// Getters
+	/** ================================================================= */
+
+	/** ================================================================= */
+	// Initialize
+	/** ================================================================= */
 	protected override _initialize(options?: Record<string, unknown>) {
 		this.actions = null!;
+		this.containerItems = null;
 
 		super._initialize(options);
 	}
 
+	/** ================================================================= */
+	// Prepare Base Data
+	/** ================================================================= */
+
+	/** @inheritdoc */
 	override prepareBaseData() {
 		super.prepareBaseData();
 
 		// Set up managers
 		this.actions = new ActionsManager(this);
+
+		// Call Sub Methods
+		this.prepareObjectBaseData();
 	}
 
+	/** ---------------------------------- */
+	//  Base Data Prep (Object)
+	/** ---------------------------------- */
+	/** Prepares base data for objects */
+	prepareObjectBaseData(this: Item.OfType<'object'>) {
+		if (this.system.objectType === 'container') {
+			this.containerItems = new ContainerManager(this);
+		}
+	}
+
+	/** ================================================================= */
+	// Prepare Derived Data
+	/** ================================================================= */
+
+	/** @inheritdoc */
 	override prepareDerivedData() {
 		super.prepareDerivedData();
 
@@ -44,13 +79,15 @@ class ItemA5e<
 		this.actions.prepareDerivedData();
 
 		if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
+
+		// Call Sub Methods
 	}
 
-	prepareArmorData() {
+	/** Prepare Armor Data for this item */
+	prepareArmorData(this: Item.OfType<'object'> | Item.OfType<'feature'>) {
 		const itemData = this.system;
 
 		// Calculate AC formula
-		// @ts-expect-error
 		const { baseFormula, maxDex } = itemData.ac ?? {};
 		if (!baseFormula) return;
 
@@ -62,12 +99,12 @@ class ItemA5e<
 			);
 		}
 
-		// @ts-expect-error
-		if (itemData?.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
-			// @ts-expect-error
-			if (itemData.objectType === 'armor') {
-				formula = `10 + max(floor((${formula} - 10) / 2), 1)`;
-			} else formula = `max(floor((${formula}) / 2), 1)`;
+		if (this.isType('object')) {
+			if (this.system?.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
+				if (this.system?.objectType === 'armor') {
+					formula = `10 + max(floor((${formula} - 10) / 2), 1)`;
+				} else formula = `max(floor((${formula}) / 2), 1)`;
+			}
 		}
 
 		foundry.utils.setProperty(this, 'system.ac.formula', formula);
@@ -89,7 +126,7 @@ class ItemA5e<
 	override async activate(actionId: string | null, options: ActionActivationOptions = {}) {
 		// Do not allow an item to activate if it not attached to an actor or if the user does
 		// not have owner permissions for the actor.
-		if (!this.actor || !this?.actor.isOwner) return;
+		if (!this.actor?.isOwner) return;
 
 		if (this.actor?.getFlag('a5e', 'automaticallyExecuteAvailableMacros') ?? true) {
 			// @ts-expect-error
@@ -382,6 +419,9 @@ class ItemA5e<
 		};
 	}
 
+	/** ================================================================= */
+	// Helper Methods
+	/** ================================================================= */
 	async recharge(actionId: string, state = false) {
 		if (state || !this.actor) return;
 		let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
@@ -460,21 +500,134 @@ class ItemA5e<
 		await this.update({ [updatePath]: Math.max(0, current - removed) });
 	}
 
-	// biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
-	override async _preCreate(data, options, user): Promise<boolean | void> {
+	/** ================================================================= */
+	//  Toggles
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	//  Toggles (Object)
+	/** ---------------------------------- */
+
+	/** Toggles Attunement on an object */
+	async toggleAttunement(this: Item.OfType<'object'>) {
+		await this.update({
+			'system.attuned': !this.system.attuned,
+		});
+	}
+
+	/** Toggles Damaged State on an object */
+	async toggleDamagedState(this: Item.OfType<'object'>) {
+		const currentState = this.system.damagedState;
+		const newState = (currentState + 1) % 3;
+
+		await this.update({
+			'system.damagedState': newState,
+		});
+	}
+
+	/** Toggles Equipped State on an object, Only works if the item is on an actor*/
+	async toggleEquippedState(this: Item.OfType<'object'>) {
+		if (!this.actor) return;
+
+		const EQUIPPED_STATES = CONFIG.A5E.EQUIPPED_STATES;
+		const objectType = this.system.objectType;
+
+		const currentState = this.system.equippedState;
+		let newState = (currentState + 1) % 3;
+
+		// Prevent multiple armors being equipped
+		if (newState === EQUIPPED_STATES.EQUIPPED && objectType === 'armor') {
+			const { hasArmor, hasUnderArmor } = this.actor.itemTypes.object.reduce(
+				(acc, item) => {
+					if (item.system.objectType !== 'armor') return acc;
+					if (item.system.equippedState !== EQUIPPED_STATES.EQUIPPED) return acc;
+
+					const isUnderArmor = item.system.materialProperties.includes('underarmor');
+
+					if (isUnderArmor) acc.hasUnderArmor = true;
+					else acc.hasArmor = true;
+
+					return acc;
+				},
+				{
+					hasArmor: false,
+					hasUnderArmor: false,
+				},
+			);
+
+			const isUnderArmor = this.system.materialProperties.includes('underarmor');
+			if (isUnderArmor && hasUnderArmor) newState = EQUIPPED_STATES.NOT_CARRIED;
+			else if (!isUnderArmor && hasArmor) newState = EQUIPPED_STATES.NOT_CARRIED;
+
+			// Warn User
+			if (newState === EQUIPPED_STATES.NOT_CARRIED) {
+				ui.notifications.warn(_loc('A5E.armorClass.armorAlreadyEquipped'));
+			}
+		}
+
+		if (newState === EQUIPPED_STATES.EQUIPPED && objectType === 'shield') {
+			const shields = this.actor.itemTypes.object.filter(
+				(i) =>
+					i.system.equippedState === EQUIPPED_STATES.EQUIPPED && i.system.objectType === 'shield',
+			);
+
+			if (shields.length >= 2) newState = EQUIPPED_STATES.EQUIPPED;
+			if (newState === EQUIPPED_STATES.EQUIPPED) {
+				ui.notifications.warn(_loc('A5E.armorClass.shieldAlreadyEquipped'));
+			}
+		}
+
+		await this.update({
+			'system.equippedState': newState,
+		});
+	}
+
+	/** Toggles identified state of an object */
+	async toggleUnidentified(this: Item.OfType<'object'>) {
+		await this.update({
+			'system.unidentified': !this.system.unidentified,
+		});
+	}
+
+	/** ================================================================= */
+	// Document Update Hooks
+	/** ================================================================= */
+
+	/** ---------------------------------- */
+	// Pre Create
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override async _preCreate(...[data, options, user]: Parameters<Item['_preCreate']>) {
 		await super._preCreate(data, options, user);
+
+		// Call sub methods
 	}
 
-	override async _preUpdate(data, options, user) {
+	/** @inheritdoc */
+	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
 		super._preUpdate(data, options, user);
+		// Call sub methods
 	}
 
-	override _onCreate(data, options, userId) {
+	/** ---------------------------------- */
+	// Pre Create
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override _onCreate(...[data, options, userId]: Parameters<Item['_onCreate']>) {
 		super._onCreate(data, options, userId);
+		// Call sub methods
 	}
 
-	override _onDelete(options, user) {
+	/** ---------------------------------- */
+	// Pre Create
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override _onDelete(...[options, user]: Parameters<Item['_onDelete']>) {
 		super._onDelete(options, user);
+		// Call sub methods
 	}
 }
 

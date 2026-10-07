@@ -39,99 +39,12 @@ export default class ObjectItemA5e extends ItemA5e<'object'> {
 	/** ------------------------------------------------------ */
 	/**                      Data Prep                         */
 	/** ------------------------------------------------------ */
-	protected override _initialize(options?: Record<string, unknown>) {
-		if (this.system?.objectType === 'container') {
-			this.containerItems = null!;
-		}
-
-		super._initialize(options);
-	}
-
-	override prepareBaseData() {
-		super.prepareBaseData();
-
-		if (this.system.objectType === 'container') {
-			this.containerItems = new ContainerManager(this);
-		}
-	}
-
-	override prepareDerivedData() {
-		super.prepareDerivedData();
-	}
-
 	override async duplicateItem() {
 		if (this.system.objectType !== 'container') return super.duplicateItem();
 
 		if (!this.actor) return null;
 		const container = await ContainerManager.createContainerOnActor(this.parent, this);
 		return container;
-	}
-
-	async toggleAttunement() {
-		await this.update({
-			'system.attuned': !this.system.attuned,
-		});
-	}
-
-	async toggleDamagedState() {
-		const currentState = this.system.damagedState;
-		// @ts-expect-error
-		const newState = (currentState + 1) % 3;
-
-		await this.update({
-			'system.damagedState': newState,
-		});
-	}
-
-	async toggleEquippedState() {
-		if (!this.actor) return;
-
-		const currentState = this.system.equippedState;
-		let newState = (currentState + 1) % 3;
-
-		// Check if armor is already equipped
-		if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
-			const { hasArmor, hasUnderArmor } = this.actor.items.reduce(
-				(acc, item) => {
-					if (
-						item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED ||
-						item.system.objectType !== 'armor'
-					)
-						return acc;
-					const isUnderarmor = item.system.materialProperties.includes('underarmor');
-					if (isUnderarmor) acc.hasUnderArmor = true;
-					else acc.hasArmor = true;
-					return acc;
-				},
-				{ hasArmor: false, hasUnderArmor: false },
-			);
-
-			const isUnderarmor = this.system.materialProperties.includes('underarmor');
-			if (isUnderarmor && hasUnderArmor) newState = 0;
-			else if (!isUnderarmor && hasArmor) newState = 0;
-
-			// Warn user
-			if (newState === 0) {
-				ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
-			}
-		}
-
-		// Check if 2 shields are already equipped
-		if (newState === 2 && this.system.objectType === 'shield') {
-			const shields = this.actor.items.filter(
-				(i) =>
-					i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED &&
-					i.system.objectType === 'shield',
-			);
-			if (shields.length >= 2) newState = 0;
-			if (newState === 0) {
-				ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
-			}
-		}
-
-		await this.update({
-			'system.equippedState': newState,
-		});
 	}
 
 	async toggleUnidentified() {
