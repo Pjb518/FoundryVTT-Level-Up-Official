@@ -1,5 +1,4 @@
 import type SubObjectField from '../dataModels/fields/SubObjectField.ts';
-import type ObjectItemA5e from '../documents/item/object.ts';
 
 type ObjectA5E = Item.OfType<'object'>;
 type ContainerItemData = ObjectA5E['system']['items'][string];
@@ -43,68 +42,88 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		}
 	}
 
-	get items() {
-		const parent = this.#item;
+	/** ---------------------------------- */
+	//  Getters
+	/** ---------------------------------- */
+
+	/** Gets the items of the container. */
+	get items(): ObjectA5E[] {
+		const item = this.#item;
+		const parent = item.parent;
+
+		if (!parent) return [];
+		if (parent.pack) return [];
+
 		const docUuids = [...this.values()].map((e) => e.uuid);
 
 		if (parent.isEmbedded) {
-			const docs: unknown[] = docUuids.map((uuid) => fromUuidSync(uuid));
-			return docs as (InstanceType<typeof ObjectItemA5e> | null)[];
+			const docs = docUuids.map((uuid) => fromUuidSync<ObjectA5E>(uuid));
+			return docs.filter(Boolean) as ObjectA5E[];
 		}
 
-		if (parent.pack) {
-			const p: Promise<(unknown | null)[]> = Promise.all(docUuids.map((uuid) => fromUuid(uuid)));
-			return p as Promise<(InstanceType<typeof ObjectItemA5e> | null)[]>;
-		}
+		// if (parent.pack) {
+		// return Promise.all(docUuids.map((uuid) => fromUuid<ObjectA5E>(uuid))).then((docs) => {
+		// return docs.filter(Boolean) as ObjectA5E[];
+		// });
+		// }
 
-		const docs: unknown[] = docUuids.map((uuid) => fromUuidSync(uuid));
-		return docs as (InstanceType<typeof ObjectItemA5e> | null)[];
+		const docs = docUuids.map((uuid) => fromUuidSync<ObjectA5E>(uuid));
+		return docs.filter(Boolean) as ObjectA5E[];
 	}
 
-	/** ************************************************
-	 *               Functionality
-	 * ************************************************ */
-	get allItems(): any[] | Promise<any[]> {
-		const all: any[] = [];
-		const { items } = this;
+	/** Gets all the items of the container including sub containers.  */
+	get allItems(): ObjectA5E[] {
+		const item = this.#item;
+		const parent = item.parent;
 
-		if (items instanceof Promise) {
-			items.then((promisedItems) => {
-				all.push(...promisedItems);
+		if (!parent) return [];
+		if (parent.pack) return [];
 
-				promisedItems.forEach((i) => {
-					if (i?.system?.objectType === 'container') {
-						all.push(...(i?.containerItems?.allItems ?? []));
-					}
-				});
-			});
+		const items = this.items as ObjectA5E[];
 
-			return all.filter((i) => !!i);
-		}
+		return items.reduce((docs, i) => {
+			docs.push(i);
 
-		items.forEach((i) => {
-			all.push(i);
-
-			if (i?.system?.objectType === 'container') {
-				const subItems = i.containerItems?.allItems;
-				if (subItems instanceof Promise) subItems.then((si) => all.push(...(si ?? [])));
-				else all.push(...(subItems ?? []));
+			if (i.system?.objectType === 'container') {
+				docs.push(...((i.containerItems!.allItems ?? []) as ObjectA5E[]));
 			}
-		});
 
-		return all.filter((i) => !!i);
+			return docs;
+		}, [] as ObjectA5E[]);
 	}
 
-	get bulkyCount(): number | Promise<number> {
-		const contents = this.allItems;
-		if (contents instanceof Promise) {
-			return contents.then((items) =>
-				items.reduce((acc, i) => {
-					if (i.system?.bulky) return acc + 1;
-					return acc;
-				}, 0),
-			);
-		}
+	// /** Async helper for {@link allItems} */
+	// async _allItems(): Promise<ObjectA5E[]> {
+	// const items = await this.items;
+	//
+	// return items.reduce(
+	// async (prom, i) => {
+	// const docs = await prom;
+	// docs.push(i);
+	//
+	// if (i.system?.objectType === 'container') {
+	// const subDocs = await i.containerItems!.allItems;
+	// docs.push(...subDocs);
+	// }
+	//
+	// return docs;
+	// },
+	// [] as unknown as Promise<ObjectA5E[]>,
+	// );
+	// }
+
+	/** Gets the bulk count for each item in the container */
+	get bulkyCount(): number {
+		const contents = this.allItems as ObjectA5E[];
+
+		// if (contents instanceof Promise) {
+		// return contents.then((items) =>
+		// items.reduce((acc, i) => {
+		// if (i.system?.bulky) return acc + 1;
+		// return acc;
+		// }, 0),
+		// );
+		// }
 
 		return contents.reduce((acc, i) => {
 			if (i.system?.bulky) return acc + 1;
@@ -112,29 +131,55 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		}, 0);
 	}
 
-	get count(): number | Promise<number> {
-		const contents = this.allItems;
-		if (contents instanceof Promise) {
-			return contents.then((items) => items.reduce((acc, i) => acc + i.system.quantity, 0));
-		}
+	/** Gets the number of items in the container */
+	get count(): number {
+		const contents = this.allItems as ObjectA5E[];
+
+		// if (contents instanceof Promise) {
+		// return contents.then((items) => items.reduce((acc, i) => acc + i.system.quantity, 0));
+		// }
 
 		return contents.reduce((acc, i) => acc + i.system.quantity, 0);
 	}
 
-	get weight(): number | Promise<number> {
+	/** Gets the total weight of the container. Can be a promise if in pack  */
+	get weight(): number {
 		const hasWeightlessContents = this.#item.system?.capacity?.weightlessContents ?? false;
-		if (hasWeightlessContents) return 0;
+		if (hasWeightlessContents) return this.#item.system.weight;
 
-		const contents = this.allItems;
-		if (contents instanceof Promise) {
-			return contents.then((items) =>
-				items.reduce((acc, i) => acc + i.system.quantity * i.system.weight, 0),
-			);
-		}
+		const contents = this.allItems as ObjectA5E[];
 
-		return contents.reduce((acc, i) => acc + i.system.quantity * i.system.weight, 0);
+		// NOTE: We don't do recursive weight for compendiums
+		// if (contents instanceof Promise) {
+		// return contents.then((items) =>
+		// items.reduce((acc, i) => acc + i.system.quantity * i.system.weight, 0),
+		// );
+		// }
+
+		const includeCurrency =
+			this.#item.actor?.getFlag('a5e', 'trackCurrencyWeight') ??
+			game.settings.get('a5e', 'currencyWeight');
+
+		const coinWeight = Object.values(this.#item.system.currency ?? {}).reduce(
+			(acc, curr) => acc + Number(curr),
+		);
+
+		const itemWeight = contents.reduce((acc, i) => {
+			let weight = 0;
+
+			if (i.system?.objectType === 'container') {
+				weight = (i.containerItems!.weight as number) ?? 0;
+			} else {
+				weight = (i.system.quantity ?? 1) * (i.system.weight ?? 0);
+			}
+
+			return acc + weight;
+		}, 0);
+
+		return includeCurrency ? itemWeight + coinWeight * 0.02 : itemWeight;
 	}
 
+	/** Get Capacity data for a container */
 	capacity() {
 		const { value, type } = this.#item.system.capacity;
 
@@ -367,7 +412,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 }
 
 declare namespace ContainerManager {
-	type ContainerItemManager = ContainerItemManager;
+	type ContainerItemData = ObjectA5E['system']['items'][string];
 }
 
 export { ContainerManager };
