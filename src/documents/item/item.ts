@@ -689,7 +689,7 @@ class ItemA5e<
 			for await (const [key, item] of children) {
 				updates[`system.items.${key}`] = _del;
 
-				const child = await fromUuid(item.uuid);
+				const child = await fromUuid<Item.OfType<'object'>>(item.uuid);
 				if (!child) continue;
 
 				await child.update({ 'system.containerId': '' });
@@ -740,6 +740,7 @@ class ItemA5e<
 
 		// Clean container Id on object creation
 		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
+		console.log(container, data.system.containerId);
 		if (!container) updates['system.containerId'] = '';
 
 		// Update quality and quantity consumers to set themselves as target
