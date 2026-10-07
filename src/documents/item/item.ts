@@ -522,41 +522,6 @@ class ItemA5e<
 	/** ---------------------------------- */
 	//  Helper Methods (Object)
 	/** ---------------------------------- */
-	// TODO: Container Rework - Move to manager
-	async updateContainer(this: Item.OfType<'object'>, containerUuid: string) {
-		if (containerUuid === this.uuid) return;
-
-		if (!containerUuid) {
-			const container = (await fromUuid(this.system.containerId)) as InstanceType<
-				typeof ObjectItemA5e
-			> | null;
-			if (!container) return;
-
-			await this.update({ 'system.containerId': '' });
-			await container.containerItems?.remove(this.uuid);
-			return;
-		}
-
-		// Remove from old container
-		const oldContainer = (await fromUuid(this.system.containerId)) as InstanceType<
-			typeof ObjectItemA5e
-		> | null;
-
-		if (oldContainer) await oldContainer.containerItems?.remove(this.uuid);
-
-		const container = (await fromUuid(containerUuid)) as InstanceType<typeof ObjectItemA5e> | null;
-		if (
-			!container ||
-			container?.system?.objectType !== 'container' ||
-			container?.parent?.id !== this.parent?.id
-		)
-			return;
-
-		await this.update({ 'system.containerId': containerUuid });
-		// TODO: Types - Fix this
-		// @ts-expect-error
-		await container.containerItems?.add(this.uuid);
-	}
 
 	/** ================================================================= */
 	//  Toggles
@@ -686,7 +651,7 @@ class ItemA5e<
 		this: Item.OfType<'spell'>,
 		...[data, options, user]: Parameters<Item['_preCreate']>
 	) {
-		if (!data?.system.spellBook && this.parent?.documentName === 'Actor') {
+		if (!this.system?.spellBook && this.parent?.documentName === 'Actor') {
 			ui.notifications.error('You must select a spell book to create a spell.');
 			return false;
 		}
@@ -830,7 +795,7 @@ class ItemA5e<
 
 		// Clean up container if item is deleted
 		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
-		if (container) await container?.containerItems.delete(this.uuid!);
+		if (container) await container?.containerItems?.delete(this.uuid!);
 	}
 }
 

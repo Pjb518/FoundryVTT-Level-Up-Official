@@ -1,10 +1,10 @@
 import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
+import { ContainerManager } from '#managers/ContainerManager.ts';
 import {
 	type ActorSheetTempSetting,
 	actorSheetTempSettings,
 } from '#stores/ActorSheetTempSettingsStore.svelte.ts';
 import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
-
 import ActorSheetComponent from '#view/sheets/ActorSheet.svelte';
 
 export default class ActorSheet extends SvelteApplicationMixin(
@@ -141,7 +141,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 		// Set data transfer
 		if (!dragData) return;
-		return event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+		return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
 	}
 
 	override async _onDropItem(event: DragEvent, item: Item) {
@@ -182,7 +182,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 	// TODO: Fix this
 	async #onDropObject(item: Item, options: DragDropOptions) {
 		if (item?.parent?.id === this.actor.id) {
-			item.updateContainer(options.containerUuid ?? '');
+			ContainerManager.updateContainer(item, options.containerUuid ?? '');
 			return;
 		}
 
@@ -194,6 +194,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 			carried: CONFIG.A5E.EQUIPPED_STATES.CARRIED,
 			equipped: CONFIG.A5E.EQUIPPED_STATES.EQUIPPED,
 		};
+
 		const droppedState = game.settings.get('a5e', 'droppedObjectEquippedState') as string;
 		if (droppedState in equippedStates) {
 			i.system.equippedState = equippedStates[droppedState as keyof typeof equippedStates];
@@ -221,7 +222,8 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 		// Contents-only containers delete themselves on creation
 		if (!created || created.system.contentsOnly) return;
-		await created.updateContainer(options.containerUuid ?? '');
+
+		await ContainerManager.updateContainer(created, options.containerUuid ?? '');
 	}
 
 	async #onDropSpell(item: Item, options: DragDropOptions) {

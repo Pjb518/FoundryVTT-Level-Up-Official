@@ -214,7 +214,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 	/** ---------------------------------- */
 
 	/** Adds a single instance of an object into the container */
-	async add(uuid: string, data: ContainerItemData) {
+	async add(uuid: string, data?: ContainerItemData) {
 		if (!data) data = {} as ContainerItemData;
 
 		const obj = await fromUuid<Item.OfType<'object'>>(uuid);
@@ -431,6 +431,41 @@ class ContainerManager extends Map<string, ContainerItemData> {
 
 		if (folderId) await item.update({ folder: folderId });
 		return item;
+	}
+
+	/** A helper to help with updating container items */
+	static async updateContainer(item: ObjectA5E, containerUuid: string) {
+		if (containerUuid === item.uuid) return;
+
+		// Clear out container
+		if (!containerUuid) {
+			const container = await fromUuid<ObjectA5E>(item.system.containerId);
+			await item.update({ 'system.containerId': '' });
+
+			if (!container) return;
+			await container.containerItems?.remove(item.uuid!);
+			return;
+		}
+
+		// Don't do anything if new is same as old
+		if (item.system.containerId === containerUuid) return;
+
+		// Remove from old container
+		const old = await fromUuid<ObjectA5E>(item.system.containerId);
+		if (old) await old.containerItems?.remove(item.uuid!);
+
+		const container = await fromUuid<ObjectA5E>(containerUuid);
+
+		if (
+			container?.system?.objectType !== 'container' ||
+			container?.parent?.id !== item.parent?.id
+		) {
+			await item.update({ 'system.containerId': '' });
+			return;
+		}
+
+		await item.update({ 'system.containerId': containerUuid });
+		await container.containerItems?.add(item.uuid!);
 	}
 }
 
