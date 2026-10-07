@@ -10,6 +10,11 @@ export default function prepareTraitGrantConfigObject() {
 			config: Object.entries(CONFIG.A5E.conditions),
 			propertyKey: 'system.traits.conditionImmunities',
 		},
+		conditionResistances: {
+			label: 'A5E.traits.headings.conditions.resistances',
+			config: Object.entries(CONFIG.A5E.conditions).filter(([id]) => !/^generic\d+$/.test(id)),
+			propertyKey: 'system.traits.conditionResistances',
+		},
 		creatureTypes: {
 			label: 'A5E.details.creature.labels.types',
 			config: Object.entries(CONFIG.A5E.creatureTypes),

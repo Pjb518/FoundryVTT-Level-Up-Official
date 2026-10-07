@@ -94,6 +94,10 @@ export const traitGrantSchema = () => ({
 	),
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	traitType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	resistanceIds: new fields.ArrayField(
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
+		{ required: true, nullable: false, initial: [] },
+	),
 });
 
 // Filter Schema

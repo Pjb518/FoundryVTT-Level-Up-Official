@@ -851,6 +851,14 @@ class ActorGrantsManager extends Map<string, Grant> {
 			const { propertyKey } = configObject[appliedData.traitType] ?? {};
 			if (!propertyKey) return {};
 
+			if (appliedData.traitType === 'conditionResistances') {
+				appliedData.resistanceIds.forEach((id) => {
+					updates[`${propertyKey}.${id}`] = _del;
+				});
+
+				return updates;
+			}
+
 			const removals: Set<string> = new Set(appliedData.selected);
 			const traits = new Set(
 				(foundry.utils.getProperty(this.actor, propertyKey) as string[]) ?? [],

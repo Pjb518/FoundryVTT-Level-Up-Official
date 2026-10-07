@@ -1,6 +1,7 @@
 import { d20RollModification } from '../common.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
+import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
 
 import {
 	getAbilitiesBonusData,
@@ -473,6 +474,14 @@ export const traits = () => ({
 		conditionImmunities: new fields.ArrayField(
 			new fields.StringField({ required: true, initial: '' }),
 			{ required: true, initial: [] },
+		),
+		conditionResistances: new fields.TypedObjectField(
+			new fields.SchemaField({
+				condition: new fields.StringField({ required: true, initial: '' }),
+				custom: new fields.BooleanField({ required: true, initial: false }),
+				...conditionResistanceValueFields(),
+			}),
+			{ required: true, initial: {} },
 		),
 		damageImmunities: new fields.ArrayField(
 			new fields.StringField({ required: true, initial: '' }),

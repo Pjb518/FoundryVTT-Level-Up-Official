@@ -1,3 +1,4 @@
+import { conditionResistanceValueFields } from '#data/fields/ConditionResistanceFields.ts';
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
 import TraitGrantConfig from '#view/components/grants/TraitGrantConfig.svelte';
 import TraitGrantSelectionDialog from '#view/components/grants/TraitGrantSelectionDialog.svelte';
@@ -29,6 +30,10 @@ const schema = () => ({
 			}),
 		}),
 		upgradeResist: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+		resistance: new fields.SchemaField(conditionResistanceValueFields(), {
+			required: true,
+			nullable: false,
+		}),
 	}),
 
 	// Applied
@@ -107,6 +112,7 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 			total: count,
 			traitType: this.config.traits.traitType,
 			upgraded: [],
+			resistanceIds: [],
 			grantType: this.#type,
 			level: this.level,
 			isApplied: true,
@@ -120,7 +126,25 @@ class TraitGrant extends BaseGrant<TraitGrant.Schema> {
 
 		const updates: Record<string, any> = {};
 
-		if (this.config.traits.traitType === 'size') {
+		if (this.config.traits.traitType === 'conditionResistances') {
+			const { rollMode, expertiseDice, bonus } = this.config.resistance;
+			const resistanceIds: string[] = [];
+
+			selected.forEach((condition) => {
+				const id = foundry.utils.randomID();
+				resistanceIds.push(id);
+
+				updates[`${propertyKey}.${id}`] = {
+					condition,
+					custom: !(condition in CONFIG.A5E.conditions),
+					rollMode,
+					expertiseDice,
+					bonus,
+				};
+			});
+
+			appliedData.resistanceIds = resistanceIds;
+		} else if (this.config.traits.traitType === 'size') {
 			updates[propertyKey] = [...new Set([selected[0]])];
 		} else if (this.config.traits.traitType === 'damageResistances') {
 			const resistances = new Set(
