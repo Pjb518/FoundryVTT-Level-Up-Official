@@ -86,7 +86,15 @@ const schema = () => ({
 		initial: [],
 	}),
 	contentsOnly: new fields.BooleanField({ required: true, initial: false }),
-	items: new fields.ObjectField({ required: true, initial: {} }),
+	items: new fields.TypedObjectField(
+		new fields.SchemaField({
+			_id: new fields.StringField({ required: true, nullable: false, initial: '' }),
+			quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			/** @deprecated */
+			quantityOverride: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		}),
+	),
 	implant: new fields.BooleanField({ required: true, initial: false }),
 	materialProperties: new fields.ArrayField(
 		new fields.StringField({ required: true, initial: '' }),

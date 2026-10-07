@@ -1,10 +1,13 @@
-import SubObjectField from '../dataModels/fields/SubObjectField.ts';
+import type SubObjectField from '../dataModels/fields/SubObjectField.ts';
 import type ObjectItemA5e from '../documents/item/object.ts';
 
-export default class ContainerManager extends Map<string, SubObjectField> {
-	#item: InstanceType<typeof ObjectItemA5e>;
+type ObjectA5E = Item.OfType<'object'>;
+type ContainerItemData = ObjectA5E['system']['items'][string];
 
-	constructor(item: InstanceType<typeof ObjectItemA5e>) {
+export default class ContainerManager extends Map<string, ContainerItemData> {
+	#item: ObjectA5E;
+
+	constructor(item: ObjectA5E) {
 		if (!item) {
 			throw Error('Item is required to create a ContainerManager');
 		}
@@ -16,17 +19,25 @@ export default class ContainerManager extends Map<string, SubObjectField> {
 		super();
 		this.#item = item;
 
-		const containerData: [string, SubObjectField][] = Object.entries(this.#item.system.items ?? {});
+		const containerData = Object.entries(this.#item.system.items ?? {});
+
+		const updates: Record<string, any> = {};
 
 		containerData.forEach(([id, data]) => {
+			// Clean up
+			const doc = fromUuidSync(data.uuid);
+			if (!doc) updates[`system.items.${id}`] = _del;
+
+			// Set id permanently if not available
+			if (data._id === '' && doc) {
+				updates[`system.items.${id}._id`] = id;
+			}
+
 			data._id = id;
-
-			// @ts-expect-error
-			const doc = new SubObjectField(data, { parent: item });
-			if (!doc) return;
-
-			this.set(id, doc);
+			this.set(id, data);
 		});
+
+		this.#item.update(updates);
 	}
 
 	get items() {
