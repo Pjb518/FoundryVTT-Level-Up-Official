@@ -5,6 +5,17 @@
 
   import DropArea from "#view/snippets/DropArea.svelte";
 
+  async function deleteEquipment(uuid: string) {
+    const child = await fromUuid(uuid);
+    await item.containerItems.remove(uuid);
+
+    const actor = item?.parent?.documentName === "Actor" ? item.parent : null;
+
+    if (!actor || !child) return;
+    if (actor.uuid !== item.parent?.uuid) return;
+    await child.update({ "system.containerId": "" });
+  }
+
   async function updateEquipment({ uuid }: { uuid: string }) {
     let child: any;
 
@@ -28,20 +39,7 @@
       return;
     }
 
-    console.log(child);
     await item.containerItems.add(child.uuid);
-  }
-
-  async function deleteEquipment(uuid: string) {
-    console.log(uuid);
-    const child = await fromUuid(uuid);
-    await item.containerItems.remove(uuid);
-
-    const actor = item?.parent?.documentName === "Actor" ? item.parent : null;
-
-    if (!actor || !child) return;
-    if (actor.uuid !== item.parent?.uuid) return;
-    await child.update({ "system.containerId": "" });
   }
 
   let item: Item.OfType<"object"> = getContext("item");
@@ -49,7 +47,7 @@
 
   let docs = $derived(
     Object.entries(itemStore.items ?? {})
-      .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantityOverride])
+      .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantity])
       .filter(([, d]: any) => !!d),
   );
 </script>
@@ -63,7 +61,7 @@
     />
 
     <ul class="a5e-document-list">
-      {#each docs as [docId, doc, quantityOverride]}
+      {#each docs as [docId, doc, quantity]}
         <li class="a5e-document-wrapper">
           <img class="a5e-document-img" src={doc.img} alt={doc.name} />
 
@@ -75,18 +73,18 @@
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
                 id="{doc.uuid}-quantityOverride"
-                value={quantityOverride || doc.system.quantity || 1}
+                value={doc.system.quantity || 1}
                 min="1"
                 onchange={({ currentTarget }) => {
                   updateDocumentDataFromField(
-                    item,
-                    `system.items.${docId}.quantityOverride`,
+                    doc,
+                    `system.quantity`,
                     parseInt(currentTarget?.value ?? 1, 10),
                   );
                 }}
               />
             </div>
-          {/if}
+          {:else}{/if}
 
           <button
             type="button"
