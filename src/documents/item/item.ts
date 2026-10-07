@@ -32,6 +32,23 @@ class ItemA5e<
 	// Getters
 	/** ================================================================= */
 
+	/** ---------------------------------- */
+	//  Getters (Object)
+	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Getters (Spell)
+	/** ---------------------------------- */
+
+	/** Get the spellbook associated with this spell */
+	get spellBook() {
+		if (this.isType('spell')) {
+			return this.system.spellBook;
+		}
+
+		return '';
+	}
+
 	/** ================================================================= */
 	// Initialize
 	/** ================================================================= */
@@ -60,6 +77,7 @@ class ItemA5e<
 	/** ---------------------------------- */
 	//  Base Data Prep (Object)
 	/** ---------------------------------- */
+
 	/** Prepares base data for objects */
 	prepareObjectBaseData(this: Item.OfType<'object'>) {
 		if (this.system.objectType === 'container') {
@@ -422,6 +440,7 @@ class ItemA5e<
 	/** ================================================================= */
 	// Helper Methods
 	/** ================================================================= */
+
 	async recharge(actionId: string, state = false) {
 		if (state || !this.actor) return;
 		let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
@@ -498,6 +517,45 @@ class ItemA5e<
 		if (!removed) return;
 
 		await this.update({ [updatePath]: Math.max(0, current - removed) });
+	}
+
+	/** ---------------------------------- */
+	//  Helper Methods (Object)
+	/** ---------------------------------- */
+	// TODO: Container Rework - Move to manager
+	async updateContainer(this: Item.OfType<'object'>, containerUuid: string) {
+		if (containerUuid === this.uuid) return;
+
+		if (!containerUuid) {
+			const container = (await fromUuid(this.system.containerId)) as InstanceType<
+				typeof ObjectItemA5e
+			> | null;
+			if (!container) return;
+
+			await this.update({ 'system.containerId': '' });
+			await container.containerItems?.remove(this.uuid);
+			return;
+		}
+
+		// Remove from old container
+		const oldContainer = (await fromUuid(this.system.containerId)) as InstanceType<
+			typeof ObjectItemA5e
+		> | null;
+
+		if (oldContainer) await oldContainer.containerItems?.remove(this.uuid);
+
+		const container = (await fromUuid(containerUuid)) as InstanceType<typeof ObjectItemA5e> | null;
+		if (
+			!container ||
+			container?.system?.objectType !== 'container' ||
+			container?.parent?.id !== this.parent?.id
+		)
+			return;
+
+		await this.update({ 'system.containerId': containerUuid });
+		// TODO: Types - Fix this
+		// @ts-expect-error
+		await container.containerItems?.add(this.uuid);
 	}
 
 	/** ================================================================= */
@@ -589,6 +647,22 @@ class ItemA5e<
 		});
 	}
 
+	/** ---------------------------------- */
+	//  Toggles (Spell)
+	/** ---------------------------------- */
+
+	/** Toggles Prepared status on a spell */
+	async togglePrepared(this: Item.OfType<'spell'>) {
+		if (!this.isType('spell') || !this.actor) return;
+
+		const currentState = this.system.prepared;
+		const newState = (currentState + 1) % 3;
+
+		await this.update({
+			'system.prepared': newState,
+		});
+	}
+
 	/** ================================================================= */
 	// Document Update Hooks
 	/** ================================================================= */
@@ -602,32 +676,161 @@ class ItemA5e<
 		await super._preCreate(data, options, user);
 
 		// Call sub methods
-	}
-
-	/** @inheritdoc */
-	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
-		super._preUpdate(data, options, user);
-		// Call sub methods
+		if (this.isType('spell')) await this._preCreateSpell(data, options, user);
 	}
 
 	/** ---------------------------------- */
-	// Pre Create
+	// Pre Create (Spell)
+	/** ---------------------------------- */
+	async _preCreateSpell(
+		this: Item.OfType<'spell'>,
+		...[data, options, user]: Parameters<Item['_preCreate']>
+	) {
+		if (!data.system.spellBook && this.parent?.documentName === 'Actor') {
+			ui.notifications.error('You must select a spell book to create a spell.');
+			return false;
+		}
+	}
+
+	/** ---------------------------------- */
+	// Pre Update
+	/** ---------------------------------- */
+
+	/** @inheritdoc */
+	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
+		await super._preUpdate(data, options, user);
+
+		// Call sub methods
+		if (this.isType('object')) await this._preUpdateObject(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Update (Object)
+	/** ---------------------------------- */
+
+	/** Pre Update for objects */
+	async _preUpdateObject(
+		this: Item.OfType<'object'>,
+		...[data, options, user]: Parameters<Item['_preUpdate']>
+	) {
+		// Containers
+		if (
+			foundry.utils.getProperty(data, 'system.objectType') &&
+			this.system.objectType === 'container'
+		) {
+			const updates: Record<string, any> = {};
+			const children = Object.entries(this.system.items ?? {});
+
+			for await (const [key, item] of children) {
+				updates[`system.items.${key}`] = _del;
+
+				const child = await fromUuid(item.uuid);
+				if (!child) continue;
+
+				await child.update({ 'system.containerId': '' });
+			}
+
+			await this.update(updates);
+		}
+	}
+
+	/** ---------------------------------- */
+	// On Create
 	/** ---------------------------------- */
 
 	/** @inheritdoc */
 	override _onCreate(...[data, options, userId]: Parameters<Item['_onCreate']>) {
 		super._onCreate(data, options, userId);
+
 		// Call sub methods
+		if (this.isType('object')) this._onCreate(data, options, userId);
 	}
 
 	/** ---------------------------------- */
-	// Pre Create
+	// On Create (Object)
+	/** ---------------------------------- */
+
+	/** On Create for objects */
+	async _onCreateObject(
+		this: Item.OfType<'object'>,
+		...[data, options, userId]: Parameters<Item['_onCreate']>
+	) {
+		if (userId !== game.userId) return;
+
+		if (this.system.objectType === 'container') {
+			if (this.parent?.documentName === 'Actor') {
+				if (this.system.contentsOnly) {
+					await ContainerManager.unpackContainerOnActor(this.parent, this);
+				} else {
+					await ContainerManager.createContainerOnActor(this.parent, this);
+				}
+			} else if (this.pack) {
+				// Do Nothing
+			} else {
+				await ContainerManager.createContainerOnSidebar(this);
+			}
+		}
+
+		const updates: Record<string, any> = {};
+
+		// Clean container Id on object creation
+		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
+		if (!container) updates['system.containerId'] = '';
+
+		// Update quality and quantity consumers to set themselves as target
+		const actions = Object.entries(this.system.actions ?? {});
+		actions.forEach(([actionId, action]) => {
+			const consumers = Object.entries(action.consumers ?? {});
+			consumers.forEach(([consumerId, consumer]) => {
+				if (consumer.type !== 'quality' && consumer.type !== 'quantity') return;
+				updates[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = this._id;
+			});
+		});
+
+		await this.update(updates);
+	}
+
+	/** ---------------------------------- */
+	// On Delete
 	/** ---------------------------------- */
 
 	/** @inheritdoc */
-	override _onDelete(...[options, user]: Parameters<Item['_onDelete']>) {
-		super._onDelete(options, user);
+	override _onDelete(...[options, userId]: Parameters<Item['_onDelete']>) {
+		super._onDelete(options, userId);
+
 		// Call sub methods
+		if (this.isType('object')) this._onDeleteObject(options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Delete (Object)
+	/** ---------------------------------- */
+
+	/** On Delete for objects */
+	async _onDeleteObject(
+		this: Item.OfType<'object'>,
+		...[options, userId]: Parameters<Item['_onDelete']>
+	) {
+		if (userId !== game.userId) return;
+
+		// Clean up items if container is deleted
+		if (this.parent?.documentName === 'Actor' && this.system.objectType === 'container') {
+			const items = Object.values(this.system.items ?? {}).map(({ uuid }) =>
+				fromUuidSync<Item.OfType<'object'>>(uuid),
+			);
+
+			const updates = items
+				.filter((i) => !!i && i.parent?.id === this.parent.id)
+				.map((i) => ({ _id: i?.id, 'system.containerId': '' }));
+
+			if (updates.length > 0) {
+				await this.parent?.updateEmbeddedDocuments('Item', updates);
+			}
+		}
+
+		// Clean up container if item is deleted
+		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
+		if (container) await container?.containerItems.delete(this.uuid!);
 	}
 }
 

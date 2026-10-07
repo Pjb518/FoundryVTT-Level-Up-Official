@@ -11,7 +11,6 @@ import type FeatureItemA5e from './feature.ts';
 import type { ItemA5e } from './item.ts';
 import type ObjectItemA5e from './object.ts';
 import type OriginItemA5e from './origin.ts';
-import type SpellItemA5e from './spell.ts';
 
 // *****************************************************************************************
 type ItemMap = {
@@ -28,7 +27,7 @@ type ItemMap = {
 	interaction: ItemA5e;
 	maneuver: ItemA5e;
 	object: ObjectItemA5e;
-	spell: SpellItemA5e;
+	spell: ItemA5e;
 
 	[
 		K: foundry.abstract.Document.ModuleSubType

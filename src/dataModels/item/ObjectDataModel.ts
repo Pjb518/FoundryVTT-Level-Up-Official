@@ -48,6 +48,7 @@ const schema = () => ({
 	),
 	damagedState: new fields.NumberField({
 		required: true,
+		nullable: false,
 		initial: 0,
 		integer: true,
 		min: 0,
