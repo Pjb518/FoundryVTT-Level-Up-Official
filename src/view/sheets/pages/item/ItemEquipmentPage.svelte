@@ -16,6 +16,13 @@
     await child.update({ "system.containerId": "" });
   }
 
+  function updateCurrency(denom: string, v: string) {
+    const value = Number.parseInt(v, 10);
+    const current = itemStore.currency[denom] ?? 0;
+    const updated = Math.max(current + value, 0);
+    updateDocumentDataFromField(item, `system.currency.${denom}`, updated);
+  }
+
   async function updateEquipment({ uuid }: { uuid: string }) {
     let child: any;
 
@@ -50,9 +57,44 @@
       .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantity])
       .filter(([, d]: any) => !!d),
   );
+
+  let coins = $derived(Object.entries(itemStore.currency ?? {}));
+
+  $inspect(coins);
 </script>
 
 <article>
+  <!-- Currency -->
+  <section class="currency__wrapper">
+    <header class="currency__header">
+      <span>Coins</span>
+      <i
+        class="fa-solid fa-info-circle"
+        data-tooltip="Currency can only be increased or decreased, not directly set."
+        data-tooltip-direction="UP"
+      ></i>
+    </header>
+
+    <div class="currency__coins">
+      {#each coins as [denom, value]}
+        <div class="currency__coins__coin">
+          <span>{denom}</span>
+
+          <input
+            class="a5e-input a5e-input--slim a5e-input--small"
+            type="number"
+            value={itemStore.currency[denom] ?? 0}
+            onfocus={({ currentTarget }) => (currentTarget.value = "")}
+            onblur={({ currentTarget }) => (currentTarget.value = `${value}`)}
+            onchange={({ currentTarget }) => updateCurrency(denom, currenTarget.value)}
+          />
+        </div>
+      {/each}
+    </div>
+  </section>
+
+  <hr />
+
   <section class="section-wrapper">
     <DropArea
       type="uuid"
@@ -125,6 +167,40 @@
     flex-direction: column;
     gap: 1rem;
     overflow-y: auto;
+  }
+
+  .currency {
+    &__wrapper {
+      font-size: var(--a5e-sm-text);
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background-color: var(--a5e-color-primary);
+      color: var(--a5e-text-color-white);
+      padding-inline: 0.25rem;
+      padding-block: 0.125rem;
+    }
+
+    &__coins {
+      display: flex;
+      gap: 0.25rem;
+      padding: 0.25rem;
+      align-items: center;
+      justify-content: space-between;
+
+      &__coin {
+        text-align: center;
+        display: grid;
+        gap: 0.125rem;
+
+        & > span {
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 
   .section-wrapper {

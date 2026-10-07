@@ -435,7 +435,6 @@ class ContainerManager extends Map<string, ContainerItemData> {
 
 	/** A helper to help with updating container items */
 	static async updateContainer(item: ObjectA5E, containerUuid: string) {
-		console.log(containerUuid);
 		if (containerUuid === item.uuid) return;
 
 		// Clear out container
