@@ -78,20 +78,15 @@ class ActorGrantsManager extends Map<string, Grant> {
 	// *************************************************************
 	// Data Retrieval Methods
 	// *************************************************************
-	/** TODO - Needs fixing */
-	getGrantedTraits(type: string): Record<string, any> {
-		const grants = this.byAppliedType('trait');
+	getGrantedTraits(type: string): Record<string, { itemId?: string; traits: string[] }> {
+		const grants = this.byAppliedType('trait') as Grant<'trait'>[];
 
-		return grants.reduce((acc, grant) => {
-			// @ts-expect-error
-			if (grant.traitData.traitType !== type) return acc;
+		return grants.reduce<Record<string, { itemId?: string; traits: string[] }>>((acc, grant) => {
+			if (grant.applied.traitType !== type) return acc;
 
-			// @ts-expect-error
-			acc[grant.grantId] = {
-				// @ts-expect-error
-				itemId: grant.itemUuid,
-				// @ts-expect-error
-				traits: grant.traitData.traits,
+			acc[grant.fullId] = {
+				itemId: grant.item?.uuid,
+				traits: grant.applied.selected,
 			};
 
 			return acc;
