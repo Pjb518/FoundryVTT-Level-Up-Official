@@ -6,6 +6,7 @@
   import { prepareAlignment } from "#utils/view/helpers/prepareAlignment.ts";
   import { prepareArmorProficiencies } from "#utils/view/helpers/prepareArmorProficiencies.ts";
   import { prepareConditionImmunities } from "#utils/view/helpers/prepareConditionImmunities.ts";
+  import { prepareConditionResistances } from "#utils/view/helpers/prepareConditionResistances.ts";
   import { prepareCreatureSize } from "#utils/view/helpers/prepareCreatureSize.ts";
   import { prepareCreatureTerrains } from "#utils/view/helpers/prepareCreatureTerrains.ts";
   import { prepareCreatureTypes } from "#utils/view/helpers/prepareCreatureTypes.ts";
@@ -72,6 +73,13 @@
       dialogMethod: "configureConditionImmunities",
       propertyKey: "system.traits.conditionImmunities",
       tooltip: "Configure Condition Immunities",
+    },
+    {
+      heading: localize("A5E.traits.headings.conditions.resistances"),
+      values: prepareConditionResistances(actor.reactive),
+      dialogMethod: "configureConditionResistances",
+      propertyKey: "system.traits.conditionResistances",
+      tooltip: "Configure Condition Resistances",
     },
     {
       heading: localize("A5E.traits.headings.damage.immunities"),

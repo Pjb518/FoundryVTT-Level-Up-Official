@@ -101,6 +101,10 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 				let result: any;
 
 				switch (change.key) {
+					case 'flags.a5e.effects.conditionResistances':
+						newKey = `system.traits.conditionResistances.${foundry.utils.randomID()}`;
+						result = change.value;
+						break;
 					case 'flags.a5e.effects.damageResistances.all':
 					case 'flags.a5e.effects.damageVulnerabilities.all':
 					case 'flags.a5e.effects.damageImmunities.all':

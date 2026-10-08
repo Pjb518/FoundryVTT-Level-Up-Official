@@ -8,6 +8,8 @@
     import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
     import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
 
+    import ConditionResistanceValue from "./ConditionResistanceValue.svelte";
+
     import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
     import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
@@ -148,6 +150,11 @@
         data={value}
         --padding="0"
         --background="none"
+        onchange={(value) => onchange(value)}
+    />
+{:else if componentType === "CONDITION_RESISTANCE"}
+    <ConditionResistanceValue
+        data={value}
         onchange={(value) => onchange(value)}
     />
 {:else if componentType === "NONE"}

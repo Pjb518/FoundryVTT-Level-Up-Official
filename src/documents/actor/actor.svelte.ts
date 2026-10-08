@@ -26,6 +26,7 @@ import ArmorClassConfigDialog from '#view/dialogs/actor/ArmorClassConfigDialog.s
 import DetailsConfigDialog from '#view/dialogs/actor/DetailsConfigDialog.svelte';
 import HitPointsConfigDialog from '#view/dialogs/actor/HitPointsConfigDialog.svelte';
 import InitiativeConfigDialog from '#view/dialogs/actor/InitiativeConfigDialog.svelte';
+import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import MovementConfigDialog from '#view/dialogs/actor/MovementConfigDialog.svelte';
 import RestDialog from '#view/dialogs/actor/RestDialog.svelte';
 import SavingThrowRollDialog from '#view/dialogs/actor/SavingThrowRollDialog.svelte';
@@ -79,6 +80,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		armorClass: ArmorClassConfigDialog,
 		attackBonus: AttackBonusConfigDialog,
 		conditionImmunities: DetailsConfigDialog,
+		conditionResistances: ConditionResistanceConfigDialog,
 		damageBonus: DamageBonusConfigDialog,
 		damageImmunities: DetailsConfigDialog,
 		damageResistances: DetailsConfigDialog,
@@ -2730,6 +2732,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		data.type ??= 'conditionImmunities';
 
 		this.#configure('conditionImmunities', title, data, options);
+	}
+
+	configureConditionResistances(this: Creature, data: Record<string, any> = {}, options = {}) {
+		const title = localize('A5E.traits.headings.conditions.resistancesConfigurationPrompt', {
+			name: this.name,
+		});
+
+		data.propertyKey ??= 'system.traits.conditionResistances';
+
+		this.#configure('conditionResistances', title, data, { width: 520, ...options });
 	}
 
 	configureCreatureTypes(this: Creature, data: Record<string, any> = {}, options = {}) {
