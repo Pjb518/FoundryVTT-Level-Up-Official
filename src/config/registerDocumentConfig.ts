@@ -1,6 +1,5 @@
 import ArchetypeItemA5e from '../documents/item/archetype.ts';
 import ClassItemA5e from '../documents/item/class.ts';
-import FeatureItemA5e from '../documents/item/feature.ts';
 import OriginItemA5e from '../documents/item/origin.ts';
 
 export default function registerDocumentConfig() {
@@ -11,8 +10,6 @@ export default function registerDocumentConfig() {
 
 		Item: {
 			documentClasses: {
-				feature: FeatureItemA5e,
-
 				archetype: ArchetypeItemA5e,
 				background: OriginItemA5e,
 				class: ClassItemA5e,

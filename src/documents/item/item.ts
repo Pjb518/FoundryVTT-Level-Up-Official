@@ -1,5 +1,6 @@
 import { ActionsManager } from '#managers/ActionsManager.ts';
 import { ContainerManager } from '#managers/ContainerManager.ts';
+import { ItemGrantsManager } from '#managers/ItemGrantsManager.ts';
 import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
@@ -20,9 +21,14 @@ import type { ActionActivationOptions } from './data.ts';
 class ItemA5e<
 	SubType extends Item.SubType = 'interaction' | 'feature' | 'object' | 'spell',
 > extends BaseItemA5e<SubType> {
+	/** Manager in charge of actions on the item */
 	declare actions: ActionsManager;
 
+	/** Manager in charge of container items on a container */
 	declare containerItems: ContainerManager | null;
+
+	/** Manager in charge of grants on an item */
+	declare grants: SubType extends 'feature' ? ItemGrantsManager : null;
 
 	/** ================================================================= */
 	// Type Helpers
@@ -72,8 +78,8 @@ class ItemA5e<
 		if (this.isType('object')) {
 			if (this.system.objectType === 'container') {
 				const w = this.containerItems?.weight ?? 0;
-				return w + this.system.weight;
-			} else return this.system.weight;
+				return w + (this.system.weight ?? 0);
+			} else return this.system.weight ?? 0;
 		}
 
 		return 0;
@@ -98,6 +104,7 @@ class ItemA5e<
 	protected override _initialize(options?: Record<string, unknown>) {
 		this.actions = null!;
 		this.containerItems = null;
+		this.grants = null as this['grants'];
 
 		super._initialize(options);
 	}
@@ -112,9 +119,10 @@ class ItemA5e<
 
 		// Set up managers
 		this.actions = new ActionsManager(this);
+		if (this.isType('feature')) this.grants = new ItemGrantsManager(this) as this['grants'];
 
 		// Call Sub Methods
-		this.prepareObjectBaseData();
+		if (this.isType('object')) this.prepareObjectBaseData();
 	}
 
 	/** ---------------------------------- */
@@ -708,10 +716,30 @@ class ItemA5e<
 
 	/** @inheritdoc */
 	override async _preCreate(...[data, options, user]: Parameters<Item['_preCreate']>) {
+		if (this.isType('feature')) await this._preCreateFeature(data, options, user);
+
 		await super._preCreate(data, options, user);
 
 		// Call sub methods
 		if (this.isType('spell')) await this._preCreateSpell(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Feature)
+	/** ---------------------------------- */
+	async _preCreateFeature(
+		this: Item.OfType<'feature'>,
+		...[data, options, user]: Parameters<Item['_preCreate']>
+	) {
+		if (user.id !== game.userId) return;
+
+		// Apply grants if any
+		if (this.parent?.documentName === 'Actor') {
+			const actor = this.parent;
+			options.keepId = true;
+			// @ts-expect-error
+			if (!options.noGrant) actor.grants.createInitialGrants(this, true);
+		}
 	}
 
 	/** ---------------------------------- */
@@ -834,7 +862,23 @@ class ItemA5e<
 		super._onDelete(options, userId);
 
 		// Call sub methods
+		if (this.isType('feature')) this._onDeleteFeature(options, userId);
 		if (this.isType('object')) this._onDeleteObject(options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Delete (Feature)
+	/** ---------------------------------- */
+
+	/** On Delete for objects */
+	async _onDeleteFeature(
+		this: Item.OfType<'object'>,
+		...[options, userId]: Parameters<Item['_onDelete']>
+	) {
+		if (this.parent?.documentName === 'Actor') {
+			const actor = this.parent;
+			await actor.grants.removeGrantsByItem(this);
+		}
 	}
 
 	/** ---------------------------------- */
