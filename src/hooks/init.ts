@@ -1,3 +1,4 @@
+import { TerrainDataA5E } from '#data/terrainDataA5E.ts';
 import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { managers } from '#managers/index.ts';
@@ -75,6 +76,7 @@ export default function init() {
 	CONFIG.Item.documentClass = ItemProxy;
 	CONFIG.Token.documentClass = TokenDocumentA5E;
 	CONFIG.Token.objectClass = TokenA5E;
+	CONFIG.Token.movement.TerrainData = TerrainDataA5E;
 	CONFIG.Scene.documentClass = SceneA5E;
 
 	CONFIG.Dice.BaseRoll = BaseRoll;
