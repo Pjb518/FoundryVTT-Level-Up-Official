@@ -1,6 +1,8 @@
 import TokenRuler = foundry.canvas.placeables.tokens.TokenRuler;
 import BaseGrid = foundry.grid.BaseGrid;
 
+// TODO: Add custom context for label
+
 class TokenRulerA5E extends TokenRuler {
 	#getSpeedBasedStyle(waypoint: TokenRuler.Waypoint, style: TokenRulerA5E.Style) {
 		const token = this.token;
