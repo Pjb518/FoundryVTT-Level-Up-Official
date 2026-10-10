@@ -39,7 +39,7 @@ class ContainerManager extends Map<string, ContainerItemData> {
 		});
 
 		if (Object.entries(updates).length && !isInPack) {
-			ui.notifications.warn(`Cleaning up deleted items from ${this.#item.name}`);
+			ui?.notifications?.warn(`Cleaning up deleted items from ${this.#item.name}`);
 			this.#item.update(updates);
 		}
 	}
