@@ -4,7 +4,9 @@ import { actions, armor, uses } from './common.ts';
 
 import fields = foundry.data.fields;
 
-const schema = {
+import { MappingField } from '#data/fields/MappingField.ts';
+
+const schema = () => ({
 	ammunitionDamageMode: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -40,8 +42,13 @@ const schema = {
 	containerSortDirection: new fields.StringField({ required: true, initial: 'ascending' }),
 	containerSortMethod: new fields.StringField({ required: true, initial: 'none' }),
 	craftingComponents: new fields.StringField({ required: true, initial: '' }),
+	currency: new MappingField(
+		new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		{ required: true, nullable: false, initialKeys: Object.keys(CONFIG.A5E.currencyDenominations) },
+	),
 	damagedState: new fields.NumberField({
 		required: true,
+		nullable: false,
 		initial: 0,
 		integer: true,
 		min: 0,
@@ -79,7 +86,15 @@ const schema = {
 		initial: [],
 	}),
 	contentsOnly: new fields.BooleanField({ required: true, initial: false }),
-	items: new fields.ObjectField({ required: true, initial: {} }),
+	items: new fields.TypedObjectField(
+		new fields.SchemaField({
+			_id: new fields.StringField({ required: true, nullable: false, initial: '' }),
+			quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+			/** @deprecated */
+			quantityOverride: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			uuid: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		}),
+	),
 	implant: new fields.BooleanField({ required: true, initial: false }),
 	materialProperties: new fields.ArrayField(
 		new fields.StringField({ required: true, initial: '' }),
@@ -146,10 +161,14 @@ const schema = {
 		min: 0,
 		nullable: false,
 	}),
-};
+});
 
 declare namespace A5EObjectData {
-	type Schema = A5EBaseItemData.Schema & ActionsData & ArmorData & UsesData & typeof schema;
+	type Schema = A5EBaseItemData.Schema &
+		ActionsData &
+		ArmorData &
+		UsesData &
+		ReturnType<typeof schema>;
 	type BaseData = A5EBaseItemData.BaseData;
 	type DerivedData = A5EBaseItemData.DerivedData;
 }
@@ -166,7 +185,7 @@ class A5EObjectData extends A5EBaseItemData<
 			...actions(),
 			...armor(),
 			...uses(),
-			...schema,
+			...schema(),
 		};
 	}
 

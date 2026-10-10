@@ -224,6 +224,14 @@ export default function modifyBaseOptions(options: Object) {
 	];
 	options['flags.a5e.effects.bonuses.skills'] = [{}, MODES.CUSTOM_ONLY, null, 'SKILL_BONUS'];
 
+	// Condition Resistances
+	options['flags.a5e.effects.conditionResistances'] = [
+		{},
+		MODES.CUSTOM_ONLY,
+		null,
+		'CONDITION_RESISTANCE',
+	];
+
 	options['flags.a5e.carryCapacityAbility'] = [
 		'',
 		MODES.OVERRIDE_ONLY,

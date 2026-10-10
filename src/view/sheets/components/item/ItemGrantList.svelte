@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import type { Grant } from "#types/itemGrants.d.ts";
+  import { itemControls } from "../../../../stores/itemControlsStore.svelte.ts";
 
   type Props = {
     grant: Grant;
@@ -71,7 +72,11 @@
     {#if !sheetIsLocked}
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <!-- svelte-ignore a11y_no_static_element_interactions -->
-      <div class="track" onclick={(e) => e.stopPropagation()}>
+      <div
+        class="track"
+        class:open={itemControls.open}
+        onclick={(e) => e.stopPropagation()}
+      >
         <i class="track-icon icon fa-solid fa-ellipsis-vertical"></i>
 
         <ul class="track-items">
@@ -255,7 +260,8 @@
       transition: var(--a5e-transition-standard);
     }
 
-    &:hover {
+    &:hover,
+    &.open {
       overflow: initial;
 
       .track-items {

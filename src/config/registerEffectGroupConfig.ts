@@ -221,6 +221,7 @@ export default function registerEffectGroupConfig() {
 			label: 'A5E.effects.groups.resistancesVulnerabilitiesImmunities',
 			items: [
 				'flags.a5e.effects.conditionImmunities.all',
+				'flags.a5e.effects.conditionResistances',
 				'flags.a5e.effects.damageImmunities.all',
 				'flags.a5e.effects.damageResistances.all',
 				'flags.a5e.effects.damageVulnerabilities.all',

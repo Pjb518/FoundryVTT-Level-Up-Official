@@ -85,6 +85,12 @@
 				"healing": "Healing",
 				"savingThrow": "Saving Throw"
 			},
+			"countdown": {
+				"configuration": "Countdown Configuration",
+				"size": "Die Size",
+				"threshold": "Removal Threshold",
+				"title": "Countdown"
+			},
 			"recharge": {
 				"configuration": "Recharge Configuration",
 				"formula": "Recharge Formula",
@@ -418,6 +424,7 @@
 			"breakAttunement": "Break Attunement to {item}",
 			"charged": "Charged",
 			"configure": "Configure",
+			"countdown": "Roll Countdown",
 			"delete": "Delete",
 			"duplicate": "Duplicate",
 			"favorite": "Toggle Favorite",
@@ -503,6 +510,13 @@
 		"levelTypes": {
 			"character": "Character Level",
 			"class": "Class Level"
+		}
+	},
+	"A5E.combat": {
+		"chatCard": {
+			"ended": "Combat Ended",
+			"round": " Combat Round {round}",
+			"started": "Combat Started"
 		}
 	},
 	"A5E.conditions": {
@@ -1093,6 +1107,7 @@
 			"flags": {
 				"carryCapacityAbility": "Carry Capacity Ability",
 				"conditionImmunities.all": "All Condition Immunities ",
+				"conditionResistances": "Condition Resistances",
 				"criticalHitThresholdSpell": "Spell Crit Hit Threshold",
 				"criticalHitThresholdWeapon": "Weapon Crit Hit Threshold",
 				"damageImmunities.all": "All Damage Immunities ",
@@ -2381,6 +2396,8 @@
 			"hideChatDescriptionsByDefault": "When this setting is enabled, the description sections of Item chat cards will be hidden by default. You can still reveal the description sections by clicking on the header of the chat card.",
 			"hideDeletionConfirmationDialog": "When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.",
 			"hideExpertiseDice": "When enabled, expertise dice will no longer be selectable in configuration windows and roll dialogs, and they will not be included in any roll formulae.",
+			"showCombatRoundCards": "Post a chat card when combat starts, a new round begins, and combat ends.",
+			"showCombatRoundCardsToPlayers": "When enabled, combat round chat cards are visible to players.",
 			"hideRandomizedHPRolls": "Hide the roll chat card for generating random NPC hit points.",
 			"hideSkillCriticalPrompt": "Hide the prompt button to roll on skill critical failure or success table.",
 			"hideSkillSpecialties": "When enabled, this will remove the ability to select skill specialties and will hide the skill specialties interface on the Actor skills tab.",
@@ -2488,6 +2505,8 @@
 		"doubleCarryingCapacity": "Double carrying capacity",
 		"enableCascadingDamageAndHealing": "Enable Cascading Damage And Healing",
 		"enableDamageRollColors": "Enable Damage Roll Colors",
+		"droppedObjectEquippedState": "Default Equipped State for Dropped Objects",
+		"droppedObjectEquippedStateItemDefined": "Item-Defined",
 		"effectsPanelIconSize": "Effect Panel Icon Size",
 		"effectsPanelIconSizeSmall": "Small",
 		"effectsPanelIconSizeMedium": "Medium",
@@ -2500,6 +2519,8 @@
 		"hideBrokenAndDamaged": "Hide Broken and Damaged Properties",
 		"hideChatDescriptionsByDefault": "Hide descriptions in chat cards",
 		"hideExpertiseDice": "Hide Expertise Dice",
+		"showCombatRoundCards": "Post combat round chat cards",
+		"showCombatRoundCardsToPlayers": "Show combat round chat cards to players",
 		"hideRandomizedHPRolls": "Hide NPC randomized hit point rolls",
 		"hideSkillCriticalPrompt": "Hide Skill Critical Prompt",
 		"hideSkillSpecialties": "Hide Skill Specialties",
@@ -3063,7 +3084,20 @@
 			"configurationPrompt": "{name}: Configure Alignment",
 			"conditions": {
 				"immunities": "Condition Immunities",
-				"immunitiesConfigurationPrompt": "{name}: Configure Condition Immunities"
+				"immunitiesConfigurationPrompt": "{name}: Configure Condition Immunities",
+				"resistances": "Condition Resistances",
+				"resistancesConfigurationPrompt": "{name}: Configure Condition Resistances",
+				"resistanceColumns": {
+					"add": "Add Condition Resistance",
+					"advDis": "Adv/Dis",
+					"advantage": "Adv",
+					"bonus": "Bonus",
+					"condition": "Condition",
+					"custom": "Custom",
+					"delete": "Delete",
+					"disadvantage": "Dis",
+					"expertise": "Expertise"
+				}
 			},
 			"damage": {
 				"immunities": "Damage Immunities",

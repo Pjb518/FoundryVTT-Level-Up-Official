@@ -7,11 +7,8 @@ import { getSummaryData } from '../../utils/summaries/getSummaryData.ts';
 import type ArchetypeItemA5e from './archetype.ts';
 import type ClassItemA5e from './class.ts';
 import type { RevitalizeOptions } from './data.ts';
-import type FeatureItemA5e from './feature.ts';
 import type { ItemA5e } from './item.ts';
-import type ObjectItemA5e from './object.ts';
 import type OriginItemA5e from './origin.ts';
-import type SpellItemA5e from './spell.ts';
 
 // *****************************************************************************************
 type ItemMap = {
@@ -24,11 +21,11 @@ type ItemMap = {
 	destiny: OriginItemA5e;
 	heritage: OriginItemA5e;
 
-	feature: FeatureItemA5e;
+	feature: ItemA5e;
 	interaction: ItemA5e;
 	maneuver: ItemA5e;
-	object: ObjectItemA5e;
-	spell: SpellItemA5e;
+	object: ItemA5e;
+	spell: ItemA5e;
 
 	[
 		K: foundry.abstract.Document.ModuleSubType

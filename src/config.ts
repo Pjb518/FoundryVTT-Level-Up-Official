@@ -1040,6 +1040,7 @@ const resourceRecoveryOptions = {
 	shortRest: 'A5E.rest.short',
 	longRest: 'A5E.rest.long',
 	recharge: 'A5E.actions.headings.recharge.title',
+	countdown: 'A5E.actions.headings.countdown.title',
 	round: 'A5E.durations.round',
 	turn: 'A5E.durations.turn',
 	minute: 'A5E.durations.minute',

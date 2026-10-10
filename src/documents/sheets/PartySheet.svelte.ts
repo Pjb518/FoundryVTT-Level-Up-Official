@@ -93,8 +93,19 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 			},
 		};
 
+		const scrollEffects: any[] = [];
+
 		scroll.system.actions = [...item.actions.values()].reduce((actions, _action) => {
 			const action = { ..._action };
+
+			action.effects = [...(_action.effects ?? [])].flatMap((id: string) => {
+				const effect = item.effects.get(id)?.toObject();
+				if (!effect) return [];
+
+				effect._id = foundry.utils.randomID();
+				scrollEffects.push(effect);
+				return [effect._id];
+			});
 
 			action.prompts = Object.entries(action?.prompts ?? {}).reduce(
 				(prompts, [key, _prompt]: [string, any]): object => {
@@ -143,6 +154,8 @@ class PartySheetA5E extends SvelteApplicationMixin(foundry.applications.sheets.A
 			actions[foundry.utils.randomID()] = action;
 			return actions;
 		}, {});
+
+		scroll.effects = scrollEffects;
 
 		const createdItem = (await this.actor.createEmbeddedDocuments('Item', [scroll]))?.[0];
 		if (!createdItem) return;

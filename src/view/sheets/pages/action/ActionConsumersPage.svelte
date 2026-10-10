@@ -281,6 +281,34 @@
         </Section>
     {/if}
 
+    {#if action.uses?.per === "countdown"}
+        <Section
+            heading="A5E.actions.headings.countdown.configuration"
+            --a5e-section-body-direction="row"
+            --a5e-section-body-gap="0.5rem"
+        >
+            {#each [["size", 6], ["threshold", 6]] as [field, fallback]}
+                <FieldWrapper
+                    heading="A5E.actions.headings.countdown.{field}"
+                >
+                    <input
+                        class="a5e-input a5e-input--slim"
+                        id="{actionId}-countdown-{field}"
+                        type="number"
+                        min="1"
+                        value={action.uses?.countdown?.[field] ?? fallback}
+                        onchange={({ currentTarget }) =>
+                            updateDocumentDataFromField(
+                                item,
+                                `system.actions.${actionId}.uses.countdown.${field}`,
+                                Number(currentTarget.value),
+                            )}
+                    />
+                </FieldWrapper>
+            {/each}
+        </Section>
+    {/if}
+
     <ul class="a5e-action-config__list">
         {#each Object.entries(consumerTypes) as [consumerType, consumerConfig] (consumerType)}
             <!-- {#if consumers.filter(([, consumer]) => consumer.type === consumerType).length} -->

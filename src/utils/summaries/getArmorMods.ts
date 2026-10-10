@@ -1,8 +1,6 @@
-import type ObjectItemA5e from '../../documents/item/object.ts';
+import { localize } from '#utils/localization/localize.ts';
 
-import { localize } from "#utils/localization/localize.ts";
-
-export default function getArmorMods(item: ObjectItemA5e) {
+export default function getArmorMods(item: Item.OfType<'object'>) {
 	const { armorMods } = CONFIG.A5E;
 
 	return item.system.armorMods.map(

@@ -40,6 +40,12 @@
         options: [],
         total: 0,
       });
+
+      updateDocumentDataFromField(
+        item,
+        `system.grants.${grantId}.config.resistance`,
+        { rollMode: 0, expertiseDice: 0, bonus: 0 },
+      );
     }
 
     key = `system.grants.${grantId}.${key}`;
@@ -54,6 +60,20 @@
   let grant = $derived(item.reactive.system.grants[grantId]) as TraitGrant;
   let traitType = $derived(grant?.config.traits?.traitType || "armorTypes");
   let options = $derived(configObject[traitType]?.config ?? []);
+  let resistance = $derived(grant?.config.resistance ?? {}) as Record<
+    string,
+    number
+  >;
+
+  const resistanceColumns = "A5E.traits.headings.conditions.resistanceColumns";
+  const expertiseOptions = [
+    [1, "d4"],
+    [2, "d6"],
+    [3, "d8"],
+    [4, "d10"],
+    [5, "d12"],
+    [6, "d20"],
+  ];
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -131,6 +151,65 @@
           onUpdateValue("config.traits.total", Number(currentTarget.value))}
       />
     </FieldWrapper>
+
+    {#if traitType === "conditionResistances"}
+      <FieldWrapper
+        heading="A5E.traits.headings.conditions.resistanceColumns.advDis"
+      >
+        <select
+          class="a5e-input a5e-input--slim"
+          onchange={({ currentTarget }) =>
+            onUpdateValue(
+              "config.resistance.rollMode",
+              Number(currentTarget.value),
+            )}
+        >
+          <option value="0" selected={!resistance.rollMode}></option>
+          <option value="1" selected={resistance.rollMode === 1}>
+            {localize(`${resistanceColumns}.advantage`)}
+          </option>
+          <option value="-1" selected={resistance.rollMode === -1}>
+            {localize(`${resistanceColumns}.disadvantage`)}
+          </option>
+        </select>
+      </FieldWrapper>
+
+      <FieldWrapper
+        heading="A5E.traits.headings.conditions.resistanceColumns.expertise"
+      >
+        <select
+          class="a5e-input a5e-input--slim"
+          onchange={({ currentTarget }) =>
+            onUpdateValue(
+              "config.resistance.expertiseDice",
+              Number(currentTarget.value),
+            )}
+        >
+          <option value="0" selected={!resistance.expertiseDice}></option>
+          {#each expertiseOptions as [die, label]}
+            <option value={die} selected={resistance.expertiseDice === die}>
+              {label}
+            </option>
+          {/each}
+        </select>
+      </FieldWrapper>
+
+      <FieldWrapper
+        heading="A5E.traits.headings.conditions.resistanceColumns.bonus"
+      >
+        <input
+          class="a5e-input a5e-input--slim a5e-input--small"
+          type="number"
+          step="1"
+          value={resistance.bonus || ""}
+          onchange={({ currentTarget }) =>
+            onUpdateValue(
+              "config.resistance.bonus",
+              Math.trunc(Number(currentTarget.value) || 0),
+            )}
+        />
+      </FieldWrapper>
+    {/if}
   </Section>
 
   <GrantConfig>

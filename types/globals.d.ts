@@ -87,7 +87,8 @@ declare module 'fvtt-types/configuration' {
 				deathSaveThreshold: number;
 				halflingLuck: boolean;
 				jackOfAllTrades: boolean;
-        showHackingTab: boolean;
+				showHackingTab: boolean;
+				trackCurrencyWeight: boolean;
 			};
 		};
 	}
@@ -106,6 +107,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.blindDeathSaves': boolean;
 		'a5e.cascadingDamageAndHealingDelay': number;
 		'a5e.consumeSupplyByDefault': boolean;
+		'a5e.currencyWeight': boolean;
 		'a5e.enableCascadingDamageAndHealing': boolean;
 		'a5e.enableRadialEffects': boolean;
 		'a5e.hideExpertiseDice': boolean;

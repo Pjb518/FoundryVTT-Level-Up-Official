@@ -3,7 +3,7 @@ import { ActionsManager } from './ActionsManager.ts';
 import { ActorGrantsManager } from './ActorGrantsManager.ts';
 import { BonusesManager } from './BonusesManager.ts';
 import ClassResourceManager from './ClassResourceManager.ts';
-import ContainerManager from './ContainerManager.ts';
+import { ContainerManager } from './ContainerManager.ts';
 import { EffectAreaManager } from './EffectAreaManager.ts';
 import ForeignDocumentManager from './ForeignDocumentManager.ts';
 import HitDiceManager from './HitDiceManager.ts';

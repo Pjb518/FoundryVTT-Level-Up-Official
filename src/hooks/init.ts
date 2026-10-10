@@ -1,3 +1,4 @@
+import { TerrainDataA5E } from '#data/terrainDataA5E.ts';
 import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { managers } from '#managers/index.ts';
@@ -5,6 +6,7 @@ import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.
 import { RegionLayerA5E } from '../canvas/layers/region.ts';
 import { TokenLayerA5E } from '../canvas/layers/token.ts';
 import { TokenA5E } from '../canvas/token/token.ts';
+import { TokenRulerA5E } from '../canvas/tokenRulerA5E.ts';
 import _onCombatantControl from '../combat/_onCombatantControl.js';
 import _onCombatControl from '../combat/_onCombatControl.js';
 import getInitiativeFormula from '../combat/getInitiativeFormula.js';
@@ -42,7 +44,7 @@ import activateItemMacro from '../macros/activateItemMacro.js';
 import createMacro from '../macros/createMacro.js';
 import { A5eEnricherManager } from '../managers/A5eEnricherManager.ts';
 import { ActionsManager } from '../managers/ActionsManager.ts';
-import ContainerManager from '../managers/ContainerManager.ts';
+import { ContainerManager } from '../managers/ContainerManager.ts';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager.ts';
 import HitDiceManager from '../managers/HitDiceManager.ts';
 import { ItemGrantsManager } from '../managers/ItemGrantsManager.ts';
@@ -75,6 +77,8 @@ export default function init() {
 	CONFIG.Item.documentClass = ItemProxy;
 	CONFIG.Token.documentClass = TokenDocumentA5E;
 	CONFIG.Token.objectClass = TokenA5E;
+	CONFIG.Token.rulerClass = TokenRulerA5E;
+	CONFIG.Token.movement.TerrainData = TerrainDataA5E;
 	CONFIG.Scene.documentClass = SceneA5E;
 
 	CONFIG.Dice.BaseRoll = BaseRoll;

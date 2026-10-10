@@ -180,6 +180,23 @@ export const settings = [
 			type: Boolean,
 		},
 	},
+	{
+		namespace,
+		key: 'droppedObjectEquippedState',
+		options: {
+			name: 'A5E.settings.droppedObjectEquippedState',
+			scope: scope.world,
+			config: false,
+			type: String,
+			choices: {
+				itemDefined: 'A5E.settings.droppedObjectEquippedStateItemDefined',
+				notCarried: 'A5E.equippedState.notCarried',
+				carried: 'A5E.equippedState.carried',
+				equipped: 'A5E.equippedState.equipped',
+			},
+			default: 'itemDefined',
+		},
+	},
 	// Canvas Settings
 	{
 		namespace,
@@ -367,6 +384,30 @@ export const settings = [
 			name: 'A5E.settings.hideChatDescriptionsByDefault',
 			hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
 			scope: scope.client,
+			config: false,
+			default: false,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'showCombatRoundCards',
+		options: {
+			name: 'A5E.settings.showCombatRoundCards',
+			hint: 'A5E.settings.hints.showCombatRoundCards',
+			scope: scope.world,
+			config: false,
+			default: true,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'showCombatRoundCardsToPlayers',
+		options: {
+			name: 'A5E.settings.showCombatRoundCardsToPlayers',
+			hint: 'A5E.settings.hints.showCombatRoundCardsToPlayers',
+			scope: scope.world,
 			config: false,
 			default: false,
 			type: Boolean,

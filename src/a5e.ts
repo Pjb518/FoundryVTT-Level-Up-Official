@@ -3,6 +3,11 @@ import './scss/main.scss';
 
 import canvasInit from './hooks/canvasInit.ts';
 import canvasReady from './hooks/canvasReady.ts';
+import {
+	combatRound,
+	combatStart,
+	deleteCombat,
+} from './hooks/combatRoundCard.ts';
 import createActor from './hooks/createActor.ts';
 import createToken from './hooks/createToken.ts';
 import getDocumentDirectoryContext from './hooks/getDocumentDirectoryContext.ts';
@@ -40,6 +45,10 @@ Hooks.on('createActor', createActor);
 Hooks.on('createToken', createToken);
 
 Hooks.on('updateActor', updateActor);
+
+Hooks.on('combatStart', combatStart);
+Hooks.on('combatRound', combatRound);
+Hooks.on('deleteCombat', deleteCombat);
 
 Hooks.on('renderAbstractSidebarTab', renderAbstractSideBarTab);
 Hooks.on('renderApplicationV2', renderApplication);

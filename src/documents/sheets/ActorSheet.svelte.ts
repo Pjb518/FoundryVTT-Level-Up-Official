@@ -1,10 +1,10 @@
 import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
+import { ContainerManager } from '#managers/ContainerManager.ts';
 import {
 	type ActorSheetTempSetting,
 	actorSheetTempSettings,
 } from '#stores/ActorSheetTempSettingsStore.svelte.ts';
 import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
-
 import ActorSheetComponent from '#view/sheets/ActorSheet.svelte';
 
 export default class ActorSheet extends SvelteApplicationMixin(
@@ -141,7 +141,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 		// Set data transfer
 		if (!dragData) return;
-		return event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+		return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
 	}
 
 	override async _onDropItem(event: DragEvent, item: Item) {
@@ -181,18 +181,50 @@ export default class ActorSheet extends SvelteApplicationMixin(
 
 	// TODO: Fix this
 	async #onDropObject(item: Item, options: DragDropOptions) {
+		console.log('Here');
 		if (item?.parent?.id === this.actor.id) {
-			item.updateContainer(options.containerUuid ?? '');
+			ContainerManager.updateContainer(item, options.containerUuid ?? '');
 			return;
 		}
 
-		const i = item.toObject() as any;
+		const i = item.toObject() as unknown as Item.OfType<'object'>;
 		i.system.containerId = options.containerUuid ?? '';
-		const created = (await this.actor.createEmbeddedDocuments('Item', [i]))?.[0];
 
+		const equippedStates = {
+			notCarried: CONFIG.A5E.EQUIPPED_STATES.NOT_CARRIED,
+			carried: CONFIG.A5E.EQUIPPED_STATES.CARRIED,
+			equipped: CONFIG.A5E.EQUIPPED_STATES.EQUIPPED,
+		};
+
+		const droppedState = game.settings.get('a5e', 'droppedObjectEquippedState') as string;
+		if (droppedState in equippedStates) {
+			i.system.equippedState = equippedStates[droppedState as keyof typeof equippedStates];
+		}
+
+		const { EQUIPPED, CARRIED } = CONFIG.A5E.EQUIPPED_STATES;
+		if (i.system.equippedState === EQUIPPED) {
+			const equippedOfType = (type: string) =>
+				this.actor.items.filter(
+					(o: Item) => o.system.equippedState === EQUIPPED && o.system.objectType === type,
+				);
+
+			if (i.system.objectType === 'armor') {
+				const isUnderarmor = i.system.materialProperties?.includes('underarmor');
+				const slotTaken = equippedOfType('armor').some(
+					(o: Item) => !!o.system.materialProperties?.includes('underarmor') === !!isUnderarmor,
+				);
+				if (slotTaken) i.system.equippedState = CARRIED;
+			} else if (i.system.objectType === 'shield') {
+				if (equippedOfType('shield').length >= 2) i.system.equippedState = CARRIED;
+			}
+		}
+
+		const created = (await this.actor.createEmbeddedDocuments('Item', [i]))?.[0];
 		// Contents-only containers delete themselves on creation
-		if (!created || created.system.contentsOnly) return;
-		await created.updateContainer(options.containerUuid ?? '');
+		if (!created) return;
+		if (created?.system?.contentsOnly) return;
+
+		await ContainerManager.updateContainer(created, options.containerUuid ?? '');
 	}
 
 	async #onDropSpell(item: Item, options: DragDropOptions) {
@@ -219,8 +251,19 @@ export default class ActorSheet extends SvelteApplicationMixin(
 				},
 			};
 
+			const scrollEffects: any[] = [];
+
 			scroll.system.actions = [...item.actions.values()].reduce((actions, _action) => {
 				const action = { ..._action };
+
+				action.effects = [...(_action.effects ?? [])].flatMap((id: string) => {
+					const effect = item.effects.get(id)?.toObject();
+					if (!effect) return [];
+
+					effect._id = foundry.utils.randomID();
+					scrollEffects.push(effect);
+					return [effect._id];
+				});
 
 				action.prompts = Object.entries(action?.prompts ?? {}).reduce(
 					(prompts, [key, _prompt]: [string, any]): object => {
@@ -269,6 +312,8 @@ export default class ActorSheet extends SvelteApplicationMixin(
 				actions[foundry.utils.randomID()] = action;
 				return actions;
 			}, {});
+
+			scroll.effects = scrollEffects;
 
 			const createdItem = (await this.actor.createEmbeddedDocuments('Item', [scroll]))?.[0];
 			if (!createdItem) return;
