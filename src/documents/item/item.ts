@@ -734,7 +734,7 @@ class ItemA5e<
 		if (user.id !== game.userId) return;
 
 		// Apply grants if any
-		if (this.parent?.documentName === 'Actor') {
+		if (this.parent?.documentName === 'Actor' && this.parent.isChar()) {
 			const actor = this.parent;
 			options.keepId = true;
 			// @ts-expect-error
