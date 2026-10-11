@@ -1,0 +1,41 @@
+:root {
+  /* ----------------------------------
+      Durations
+  ------------------------------------ */
+  --a5e-duration-instant: 0ms;
+  --a5e-duration-fast: 100ms;
+  --a5e-duration-normal: 180ms;
+  --a5e-duration-moderate: 250ms;
+  --a5e-duration-slow: 350ms;
+  --a5e-duration-slower: 500ms;
+
+  /* ----------------------------------
+      Easing
+  ------------------------------------ */
+  --a5e-easing-linear: linear;
+  --a5e-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --a5e-easing-enter: cubic-bezier(0, 0, 0.2, 1);
+  --a5e-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --a5e-easing-emphasized: cubic-bezier(0.2, 0, 0, 1.2);
+
+  /* ----------------------------------
+      Common Transitions
+  ------------------------------------ */
+  --a5e-transition-colors:
+    color var(--a5e-duration-fast) var(--a5e-easing-standard),
+    background-color var(--a5e-duration-fast) var(--a5e-easing-standard),
+    border-color var(--a5e-duration-fast) var(--a5e-easing-standard);
+
+  --a5e-transition-opacity: opacity var(--a5e-duration-normal) var(--a5e-easing-standard);
+
+  --a5e-transition-transform: transform var(--a5e-duration-normal) var(--a5e-easing-standard);
+
+  --a5e-transition-shadow: box-shadow var(--a5e-duration-normal) var(--a5e-easing-standard);
+
+  --a5e-transition-interactive:
+    color var(--a5e-duration-fast) var(--a5e-easing-standard),
+    background-color var(--a5e-duration-fast) var(--a5e-easing-standard),
+    border-color var(--a5e-duration-fast) var(--a5e-easing-standard),
+    box-shadow var(--a5e-duration-fast) var(--a5e-easing-standard),
+    opacity var(--a5e-duration-fast) var(--a5e-easing-standard);
+}
