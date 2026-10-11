@@ -1,0 +1,82 @@
+:root {
+  /* ----------------------------------
+      Primary Color
+  ------------------------------------ */
+  --a5e-color-primary: hsl(190, 21%, 33%);
+
+  /* Primary Color Scale */
+  --a5e-color-primary-50: color-mix(in srgb, var(--a5e-color-primary), white 95%);
+  --a5e-color-primary-100: color-mix(in srgb, var(--a5e-color-primary), white 90%);
+  --a5e-color-primary-200: color-mix(in srgb, var(--a5e-color-primary), white 75%);
+  --a5e-color-primary-300: color-mix(in srgb, var(--a5e-color-primary), white 55%);
+  --a5e-color-primary-400: color-mix(in srgb, var(--a5e-color-primary), white 25%);
+
+  --a5e-color-primary-500: var(--a5e-color-primary);
+
+  --a5e-color-primary-600: color-mix(in srgb, var(--a5e-color-primary), black 12%);
+  --a5e-color-primary-700: color-mix(in srgb, var(--a5e-color-primary), black 25%);
+  --a5e-color-primary-800: color-mix(in srgb, var(--a5e-color-primary), black 40%);
+  --a5e-color-primary-900: color-mix(in srgb, var(--a5e-color-primary), black 55%);
+
+  /* ----------------------------------
+      Neutrals
+  ------------------------------------ */
+  /*  --a5e-color-neutral-50: #f7f8f8;
+  --a5e-color-neutral-100: #eef0f1;
+  --a5e-color-neutral-200: #dde1e3;
+  --a5e-color-neutral-300: #c1c9cc;
+  --a5e-color-neutral-400: #9aa6ab;
+  --a5e-color-neutral-500: #75848a;
+  --a5e-color-neutral-600: #5b696f;
+  --a5e-color-neutral-700: #445157;
+  --a5e-color-neutral-800: #303b40;
+  --a5e-color-neutral-900: #20292d;
+  --a5e-color-neutral-950: #141b1e */;
+
+  /* Light neutrals: subtle primary tint */
+  --a5e-color-neutral-50: color-mix(in srgb, white 97%, var(--a5e-color-primary));
+  --a5e-color-neutral-100: color-mix(in srgb, white 94%, var(--a5e-color-primary));
+  --a5e-color-neutral-200: color-mix(in srgb, white 88%, var(--a5e-color-primary));
+  --a5e-color-neutral-300: color-mix(in srgb, white 75%, var(--a5e-color-primary));
+
+  /* Mid neutrals */
+  --a5e-color-neutral-400: color-mix(in srgb, #a0a0a0 90%, var(--a5e-color-primary));
+  --a5e-color-neutral-500: color-mix(in srgb, #777 90%, var(--a5e-color-primary));
+
+  /* Dark neutrals: subtle primary tint */
+  --a5e-color-neutral-600: color-mix(in srgb, #5e5e5e 90%, var(--a5e-color-primary));
+  --a5e-color-neutral-700: color-mix(in srgb, #454545 90%, var(--a5e-color-primary));
+  --a5e-color-neutral-800: color-mix(in srgb, black 80%, var(--a5e-color-primary));
+  --a5e-color-neutral-900: color-mix(in srgb, black 90%, var(--a5e-color-primary));
+  --a5e-color-neutral-950: color-mix(in srgb, black 95%, var(--a5e-color-primary));
+
+  /* ----------------------------------
+      Status Color Tokens
+  ------------------------------------ */
+  --a5e-color-danger: #c83f49;
+  --a5e-color-danger-emphasis: #a92d38;
+
+  --a5e-color-warning: #c78a22;
+  --a5e-color-warning-emphasis: #986615;
+
+  --a5e-color-success: #27845b;
+  --a5e-color-success-emphasis: #1c6846;
+
+  --a5e-color-info: #3478c5;
+  --a5e-color-info-emphasis: #245da0;
+
+  /* ----------------------------------
+      Gameplay Color Tokens
+  ------------------------------------ */
+  --a5e-color-advantage: hsl(188, 36%, 44%);
+  --a5e-color-disadvantage: hsl(38, 100%, 62%);
+
+
+  /* ----------------------------------
+      Semantic Color Tokens
+  ------------------------------------ */
+  /* This is fallback*/
+  --a5e-color-primary-text: white;
+  --a5e-color-primary-text: color-contrast(var(--a5e-color-primary) vs white, black);
+
+}

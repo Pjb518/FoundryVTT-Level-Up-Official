@@ -72,5 +72,5 @@ export default async function ready() {
 	handleChangelog();
 	handleIncompatibilityWarning();
 	addKeyPressLogger();
-	updateTheme();
+	// updateTheme();
 }
