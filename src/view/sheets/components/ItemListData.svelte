@@ -732,7 +732,7 @@
     padding: var(--a5e-spacing-none);
     margin: var(--a5e-spacing-none);
     color: var(--icon-color, #999);
-    border: 0;
+    border: var(--a5e-border-width-none);
     background: none;
     box-shadow: none;
     outline: none;

@@ -282,7 +282,7 @@
     font-size: var(--a5e-text-size-sm);
     line-height: 1;
     font-weight: bold;
-    border: 0;
+    border: var(--a5e-border-width-none);
   }
 
   .roll-mode-button {

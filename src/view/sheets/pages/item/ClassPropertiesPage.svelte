@@ -316,7 +316,7 @@
     &__field,
     &__field[type] {
       background: transparent;
-      border: 0;
+      border: var(--a5e-border-width-none);
       text-align: center;
       width: 100%;
 
@@ -368,7 +368,7 @@
 
   .slug-reset-button {
     background: none;
-    border: 0;
+    border: var(--a5e-border-width-none);
     padding: var(--a5e-spacing-none);
     width: fit-content;
     height: fit-content;

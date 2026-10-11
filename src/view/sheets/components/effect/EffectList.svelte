@@ -303,7 +303,7 @@
     padding: var(--a5e-spacing-none);
     margin: var(--a5e-spacing-none);
     color: var(--a5e-button-gray);
-    border: 0;
+    border: var(--a5e-border-width-none);
     font-size: var(--a5e-lg-text);
     transition: var(--a5e-transition-standard);
 
@@ -336,7 +336,7 @@
   .action-button {
     padding: var(--a5e-spacing-xs);
     color: var(--a5e-button-gray);
-    border: 0;
+    border: var(--a5e-border-width-none);
     background: none;
 
     // 17.5 pixels: the width of the largest icon we have

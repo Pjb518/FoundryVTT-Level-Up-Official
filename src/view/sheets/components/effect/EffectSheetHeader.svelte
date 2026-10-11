@@ -53,7 +53,7 @@
       font-family: var(--a5e-secondary-font);
       font-size: var(--a5e-xxl-text);
       color: var(--a5e-text-color-dark);
-      border: 0;
+      border: var(--a5e-border-width-none);
       background: transparent;
       text-overflow: ellipsis;
       margin: var(--a5e-spacing-none);

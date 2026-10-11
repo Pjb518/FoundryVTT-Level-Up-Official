@@ -312,7 +312,7 @@
     padding: var(--a5e-spacing-xs);
     color: var(--a5e-button-gray);
     background: transparent;
-    border: 0;
+    border: var(--a5e-border-width-none);
     transition: var(--a5e-transition-standard);
 
     &:hover {

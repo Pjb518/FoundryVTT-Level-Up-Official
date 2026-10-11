@@ -179,7 +179,7 @@
 
   .a5e-class-resource-delete-button {
     background: none;
-    border: 0;
+    border: var(--a5e-border-width-none);
     padding: var(--a5e-spacing-none);
     position: absolute;
     right: 0.5rem;
@@ -200,7 +200,7 @@
 
   .a5e-class-resource-name {
     font-size: 1.5rem;
-    border: 0;
+    border: var(--a5e-border-width-none);
     background: none;
     padding-left: 0;
     width: 90%;
@@ -217,7 +217,7 @@
 
   .slug-reset-button {
     background: none;
-    border: 0;
+    border: var(--a5e-border-width-none);
     padding: var(--a5e-spacing-none);
     width: fit-content;
     height: fit-content;

@@ -203,7 +203,7 @@
 
     padding: var(--a5e-spacing-xs);
     color: #999;
-    border: 0;
+    border: var(--a5e-border-width-none);
     background: none;
 
     // 17.5 pixels: the width of the largest icon we have
@@ -242,7 +242,7 @@
   }
 
   // .divider {
-  //     border: 0;
+  //     border: var(--a5e-border-width-none);
   //     border-bottom: 0.5px solid #ccc;
   //     margin: var(--a5e-spacing-none);
   // }

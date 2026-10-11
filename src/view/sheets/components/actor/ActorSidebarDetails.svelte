@@ -232,7 +232,7 @@
 
     &-value {
       margin: var(--a5e-spacing-none);
-      padding-inline: 0.125rem;
+      padding-inline: var(--a5e-spacing-2xs);
     }
   }
 </style>

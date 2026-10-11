@@ -129,7 +129,7 @@
       margin: var(--a5e-spacing-none);
       background: transparent;
       color: inherit;
-      border: 0;
+      border: var(--a5e-border-width-none);
 
       &:hover,
       &:focus {
@@ -138,7 +138,7 @@
     }
 
     &__input {
-      border: 0;
+      border: var(--a5e-border-width-none);
       background: transparent;
       color: inherit;
       font-size: var(--a5e-md-text);

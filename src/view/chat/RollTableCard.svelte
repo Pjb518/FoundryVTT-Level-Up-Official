@@ -50,7 +50,7 @@
 
   .description-block {
     display: flex;
-    padding-inline: 0.125rem;
+    padding-inline: var(--a5e-spacing-2xs);
     flex-direction: column;
     gap: var(--a5e-spacing-sm);
     margin-block: 0.5rem;

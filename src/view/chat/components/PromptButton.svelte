@@ -45,7 +45,7 @@
     padding: var(--a5e-spacing-none);
     margin: var(--a5e-spacing-none);
     color: var(--a5e-chat-card-color-medium);
-    border: 0;
+    border: var(--a5e-border-width-none);
     transition: var(--a5e-transition-standard);
   }
 
@@ -79,7 +79,7 @@
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
     background: transparent;
-    border: 0;
+    border: var(--a5e-border-width-none);
     box-shadow: none;
 
     &:hover .die {

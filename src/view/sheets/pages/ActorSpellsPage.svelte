@@ -324,7 +324,7 @@
     margin-left: 0.25rem;
     background: none;
     color: #999;
-    border: 0;
+    border: var(--a5e-border-width-none);
 
     transition: var(--a5e-transition-standard);
 

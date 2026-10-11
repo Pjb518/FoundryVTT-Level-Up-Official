@@ -137,7 +137,7 @@
   .bonus-name[type="text"] {
     font-family: var(--a5e-font-primary);
     font-size: var(--a5e-text-size-xxl);
-    border: 0;
+    border: var(--a5e-border-width-none);
     background: transparent;
     text-overflow: ellipsis;
 

@@ -63,7 +63,7 @@
       height: 2.5rem;
       width: 2.5rem;
       margin: auto;
-      border: 0;
+      border: var(--a5e-border-width-none);
       background: none;
       font-weight: inherit;
       text-align: center;
