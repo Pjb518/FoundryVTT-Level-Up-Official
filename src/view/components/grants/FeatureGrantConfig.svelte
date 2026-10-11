@@ -395,7 +395,7 @@
     &__rule {
       width: 100%;
       grid-column: span 5;
-      margin-block: 0.25rem;
+      margin-block: var(--a5e-spacing-xs);
       border: 0.5px solid var(--a5e-border-color);
     }
 

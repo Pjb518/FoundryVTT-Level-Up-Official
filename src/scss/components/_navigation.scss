@@ -10,17 +10,17 @@
   // height: 1.3125rem; // 21px
   width: 100%;
   min-width: 0;
-  margin-block: 0.25rem;
+  margin-block: var(--a5e-spacing-xs);
   padding-inline: var(--a5e-spacing-sm);
   color: var(--a5e-primary-nav-color);
-  font-family: var(--a5e-font-primary);
+  font-family: var(--a5e-font-family-condensed);
   font-size: var(--a5e-text-md);
   background: var(--a5e-primary-nav-background);
-  border: 1px solid var(--a5e-primary-nav-border);
+  border: var(--a5e-border-width-thin) solid var(--a5e-primary-nav-border);
   box-shadow:
     0 0 10px var(--a5e-primary-nav-box-shadow-start) inset,
     0 3px 5px var(--a5e-primary-nav-box-shadow-end);
-  border-radius: var(--a5e-border-radius-standard);
+  border-radius: var(--a5e-border-radius-sm);
 
   &--flat-bottom {
     border-radius: 2px 2px 0 0;
@@ -29,7 +29,8 @@
   &__current-tab-label {
     grid-area: current;
     opacity: 0;
-    font-size: var(--a5e-text-sm);
+    font-family: var(--a5e-font-family-primary);
+    font-size: var(--a5e-text-md);
 
     &--active {
       opacity: 1;
@@ -64,7 +65,7 @@
   backdrop-filter: blur(5px);
   cursor: pointer;
 
-  transition: transform 0.15s ease-in-out;
+  transition: transform var(--a5e-duration-moderate) var(--a5e-easing-standard);
 
   &--active {
     background-color: var(--a5e-primary-nav-item-active-color);
@@ -86,7 +87,7 @@
   margin: -1rem 1px 0.25rem;
   padding-inline: 1rem;
   padding-top: 0.125rem;
-  font-family: var(--a5e-font-primary);
+  font-family: var(--a5e-font-family-primary);
   color: var(--color-heading-2);
   border-bottom: 1px solid var(--a5e-color-primary);
   background: var(--a5e-secondary-nav-background);
