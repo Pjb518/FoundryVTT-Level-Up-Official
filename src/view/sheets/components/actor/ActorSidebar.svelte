@@ -43,7 +43,7 @@
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
 
     height: 100%;
     padding: var(--a5e-spacing-sm);
@@ -81,7 +81,7 @@
 
     &__footer {
       display: flex;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
     }
   }
 </style>

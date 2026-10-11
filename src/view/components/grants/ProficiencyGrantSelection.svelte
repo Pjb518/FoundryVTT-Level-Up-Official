@@ -119,7 +119,7 @@
     padding-block-end: 0.25rem;
 
     display: flex;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     flex-wrap: wrap;
 
     list-style: none;

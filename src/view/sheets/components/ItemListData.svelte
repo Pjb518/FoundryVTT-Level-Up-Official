@@ -816,7 +816,7 @@
   }
 
   .component-wrapper {
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     font-family: var(--a5e-primary-font);
   }
 
@@ -902,7 +902,7 @@
   }
 
   .uses-wrapper {
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     grid-area: uses;
   }
 

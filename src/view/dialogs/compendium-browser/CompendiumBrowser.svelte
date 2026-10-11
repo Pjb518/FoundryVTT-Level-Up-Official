@@ -212,7 +212,7 @@
 
       &-buttons {
         display: flex;
-        gap: 0.25rem;
+        gap: var(--a5e-spacing-sm);
       }
 
       &-button {

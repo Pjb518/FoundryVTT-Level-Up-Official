@@ -199,7 +199,7 @@
   .supply-amount-wrapper {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     font-size: var(--a5e-sm-text);
   }
 

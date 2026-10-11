@@ -79,7 +79,7 @@
     list-style: none;
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
   }
 
   .component {

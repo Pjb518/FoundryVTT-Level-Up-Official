@@ -119,7 +119,7 @@
       padding: var(--a5e-spacing-none);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
 
       &-item {
         color: white;

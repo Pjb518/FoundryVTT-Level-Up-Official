@@ -139,7 +139,7 @@
 
       display: flex;
       flex-wrap: wrap;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
     }
   }
 </style>

@@ -99,7 +99,7 @@
   .a5e-actor-death-saves {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
 
     position: absolute;
     top: 50%;

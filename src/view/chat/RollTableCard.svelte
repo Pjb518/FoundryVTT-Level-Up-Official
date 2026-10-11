@@ -52,7 +52,7 @@
     display: flex;
     padding-inline: 0.125rem;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     margin-block: 0.5rem;
   }
 

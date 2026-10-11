@@ -336,7 +336,7 @@
   .component-wrapper {
     display: flex;
     justify-content: flex-end;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     grid-area: components;
     margin: 0 0.25rem;
     padding: var(--a5e-spacing-none);

@@ -11,8 +11,7 @@
 
     const supply = actorStore.supply;
 
-    if (supply)
-      bulkyLimit = Math.max(1 + actorStore.abilities[carryAbility].mod, 1);
+    if (supply) bulkyLimit = Math.max(1 + actorStore.abilities[carryAbility].mod, 1);
     else bulkyLimit = Math.max(2 + actorStore.abilities[carryAbility].mod, 2);
 
     return `Bulky Limit: ${bulkyLimit}`;
@@ -59,16 +58,12 @@
   const showVRCImplants =
     (game.settings.get("a5e", "showVRCImplants") as boolean) ?? false;
 
-  const useCredits =
-    (game.settings.get("a5e", "useCredits") as boolean) ?? false;
+  const useCredits = (game.settings.get("a5e", "useCredits") as boolean) ?? false;
 
   let bulkyItems = $derived(
     actor.reactive.items.reduce((bulkyCount: number, item: Item) => {
       if (item.system.bulky && item.system.equippedState) {
-        if (
-          item.system.objectType === "armor" &&
-          item.system.equippedState === 2
-        ) {
+        if (item.system.objectType === "armor" && item.system.equippedState === 2) {
         } else bulkyCount += 1;
       }
       return bulkyCount;
@@ -283,7 +278,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
 
     &__label {
       text-transform: uppercase;

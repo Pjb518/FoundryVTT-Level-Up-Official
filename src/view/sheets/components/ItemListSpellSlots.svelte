@@ -155,7 +155,7 @@
 
   .a5e-spell-slot-wrapper {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     color: var(--a5e-color-text-light);
 
     &--locked {

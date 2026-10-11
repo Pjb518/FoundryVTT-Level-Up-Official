@@ -190,7 +190,7 @@
       z-index: 0;
       display: none;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       height: 1.375rem;
       padding: 0 1rem 0 0.5rem;
       border: 1px solid var(--track-border-color, #ccc);

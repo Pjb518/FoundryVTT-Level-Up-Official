@@ -236,7 +236,7 @@
     &__container {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       border-radius: 4px;
       height: 100%;
       font-family: var(--a5e-condensed-font);

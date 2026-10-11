@@ -81,7 +81,7 @@
 <style lang="scss">
   .quantity__wrapper {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     align-items: center;
   }
 

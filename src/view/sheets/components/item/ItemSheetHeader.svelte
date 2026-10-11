@@ -70,7 +70,7 @@
     grid-area: header;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     margin-bottom: 0.75rem;
 
     &__item-name {
@@ -102,7 +102,7 @@
     &__summary {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
     }
   }
 

@@ -356,7 +356,7 @@
   .a5e-warning__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     margin-block: 0.125rem;
     padding-inline: var(--a5e-spacing-xs);
   }
@@ -375,7 +375,7 @@
 
   .a5e-action-dialog-targets {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
   }
 
   .a5e-action-dialog-target {

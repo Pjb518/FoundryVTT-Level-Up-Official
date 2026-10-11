@@ -58,7 +58,7 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     overflow-y: scroll;
   }
 </style>

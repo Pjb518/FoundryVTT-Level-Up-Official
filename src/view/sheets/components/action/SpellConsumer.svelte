@@ -183,7 +183,7 @@
     grid-template-columns: max-content 1fr;
 
     column-gap: var(--a5e-spacing-md);
-    row-gap: 0.25rem;
+    row-gap: var(--a5e-spacing-sm);
     font-size: var(--a5e-xs-text);
     padding: var(--a5e-spacing-sm);
     margin-top: 0.25rem;

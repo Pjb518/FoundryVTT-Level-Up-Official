@@ -175,7 +175,7 @@
     &__header {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       background-color: var(--a5e-color-primary);
       color: var(--a5e-text-color-white);
       padding-inline: var(--a5e-spacing-xs);
@@ -184,7 +184,7 @@
 
     &__coins {
       display: flex;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       padding: var(--a5e-spacing-xs);
       align-items: center;
       justify-content: space-between;
@@ -210,7 +210,7 @@
   .a5e-document-list {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     padding: var(--a5e-spacing-none);
     margin: var(--a5e-spacing-none);
     list-style: none;

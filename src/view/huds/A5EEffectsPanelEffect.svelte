@@ -302,7 +302,7 @@
   /* Tooltip styles - these apply to dynamically generated HTML */
   :global(.a5e-effect-duration-tag) {
     display: flex;
-    gap: 0.25rem; /* u-gap-xs */
+    gap: var(--a5e-spacing-sm); /* u-gap-xs */
     align-items: center; /* u-align-center */
   }
 

@@ -118,7 +118,7 @@
   .summary-list {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     list-style: none;
     margin: 0 0 0 0;
     padding: 0 var(--inline-padding, 0);

@@ -83,7 +83,7 @@
     :global(ul) {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       list-style: none;
       padding: var(--a5e-spacing-none);
       margin: 0 0 0.5rem;

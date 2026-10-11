@@ -332,7 +332,7 @@
     grid-template-columns: 2rem 1fr 2rem;
     align-items: center;
     column-gap: var(--a5e-spacing-md);
-    row-gap: 0.25rem;
+    row-gap: var(--a5e-spacing-sm);
     margin-top: 0.5rem;
     padding: var(--a5e-spacing-xs);
 

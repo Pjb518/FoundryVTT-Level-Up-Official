@@ -201,7 +201,7 @@
       grid-area: footer;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       align-items: center;
       justify-content: space-between;
       font-size: var(--a5e-sm-text);

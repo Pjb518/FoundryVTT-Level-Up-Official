@@ -183,7 +183,7 @@
   .resistance-table {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     margin: 0.5rem 0 0;
     padding: var(--a5e-spacing-none);
     list-style: none;

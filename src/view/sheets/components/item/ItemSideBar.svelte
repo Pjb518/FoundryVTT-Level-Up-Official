@@ -91,7 +91,7 @@
 
       &__properties {
         display: flex;
-        gap: 0.25rem;
+        gap: var(--a5e-spacing-sm);
         flex-wrap: wrap;
         font-size: var(--a5e-sm-text);
 
@@ -122,7 +122,7 @@
       &__summary {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: var(--a5e-spacing-sm);
 
         &__header {
           text-align: center;
@@ -130,7 +130,7 @@
 
         &__details {
           display: flex;
-          gap: 0.25rem;
+          gap: var(--a5e-spacing-sm);
           flex-wrap: wrap;
 
           > :not(:last-child)::after {

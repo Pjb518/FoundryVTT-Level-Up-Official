@@ -231,7 +231,7 @@
   .bonus-buttons {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
     list-style: none;

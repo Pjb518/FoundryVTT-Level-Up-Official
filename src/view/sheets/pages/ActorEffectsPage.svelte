@@ -111,7 +111,7 @@
   .a5e-actor-conditions-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
   }
 
   .a5e-condition-item {

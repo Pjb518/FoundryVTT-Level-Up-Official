@@ -337,7 +337,7 @@
       display: flex;
       flex-wrap: wrap;
       align-content: center;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
 
       padding: var(--a5e-spacing-none);
       margin: var(--a5e-spacing-none);

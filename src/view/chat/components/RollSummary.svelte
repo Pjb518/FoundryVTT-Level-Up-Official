@@ -269,7 +269,7 @@
   .roll-header {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     text-align: left;
   }
 
@@ -377,6 +377,6 @@
   .subtitle-wrapper {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
   }
 </style>

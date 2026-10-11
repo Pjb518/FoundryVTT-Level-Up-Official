@@ -60,7 +60,7 @@
   :global(.tooltip-list) {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--a5e-spacing-sm);
     font-size: var(--a5e-sm-text);
     text-align: left;
   }

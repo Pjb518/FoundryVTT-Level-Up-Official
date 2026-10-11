@@ -210,7 +210,7 @@
       &-header {
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        gap: var(--a5e-spacing-sm);
       }
 
       &-heading {
@@ -223,7 +223,7 @@
       padding: var(--a5e-spacing-none);
 
       display: flex;
-      gap: 0.25rem;
+      gap: var(--a5e-spacing-sm);
       flex-wrap: wrap;
 
       list-style: none;
