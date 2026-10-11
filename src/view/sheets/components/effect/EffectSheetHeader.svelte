@@ -51,7 +51,7 @@
 
     &__effect-name {
       font-family: var(--a5e-secondary-font);
-      font-size: var(--a5e-xxl-text);
+      font-size: var(--a5e-text-2xl);
       color: var(--a5e-text-color-dark);
       border: var(--a5e-border-width-none);
       background: transparent;

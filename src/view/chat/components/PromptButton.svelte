@@ -93,14 +93,14 @@
 
   .subtitle {
     width: 100%;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     line-height: 1;
     color: var(--a5e-chat-card-color-medium);
   }
 
   .title {
     color: var(--a5e-chat-card-color);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     line-height: 1;
     font-weight: bold;
   }

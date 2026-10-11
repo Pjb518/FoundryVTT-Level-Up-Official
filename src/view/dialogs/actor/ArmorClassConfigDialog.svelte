@@ -41,7 +41,7 @@
 <style lang="scss">
   .ac-formula-preview {
     padding: var(--a5e-spacing-sm);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     border: 1px solid var(--a5e-border-color);
     border-radius: 4px;
   }

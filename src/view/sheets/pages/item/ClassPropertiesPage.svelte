@@ -340,7 +340,7 @@
     &__footer,
     &__header {
       display: contents;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__header {

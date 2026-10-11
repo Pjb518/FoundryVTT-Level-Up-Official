@@ -184,7 +184,7 @@
 
     column-gap: var(--a5e-spacing-md);
     row-gap: var(--a5e-spacing-sm);
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     padding: var(--a5e-spacing-sm);
     margin-top: 0.25rem;
   }

@@ -121,7 +121,7 @@
 <style lang="scss">
   .a5e-skill-specialties-heading {
     font-family: var(--a5e-font-secondary);
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     font-weight: 700;
     margin: var(--a5e-spacing-none);
   }

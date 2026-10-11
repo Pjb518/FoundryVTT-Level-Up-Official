@@ -74,7 +74,7 @@
         align-items: center;
         gap: var(--a5e-spacing-md);
         text-align: center;
-        font-size: var(--a5e-md-text);
+        font-size: var(--a5e-text-md);
 
         &::before,
         &::after {
@@ -93,7 +93,7 @@
         display: flex;
         gap: var(--a5e-spacing-sm);
         flex-wrap: wrap;
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
 
         padding: var(--a5e-spacing-none);
         margin: var(--a5e-spacing-none);
@@ -110,7 +110,7 @@
         display: flex;
         flex-direction: column;
         gap: var(--a5e-spacing-sm);
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
 
         &__wrapper {
           display: flex;

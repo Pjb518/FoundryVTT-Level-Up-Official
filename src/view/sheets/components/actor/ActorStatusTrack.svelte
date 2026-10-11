@@ -61,7 +61,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--a5e-spacing-sm);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     text-align: left;
   }
 
@@ -105,7 +105,7 @@
       box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;
       color: var(--a5e-status-track-icon-color);
       cursor: pointer;
-      font-size: var(--a5e-lg-text);
+      font-size: var(--a5e-text-lg);
       transform: translateX(-1px);
 
       transition: var(--a5e-transition-standard);

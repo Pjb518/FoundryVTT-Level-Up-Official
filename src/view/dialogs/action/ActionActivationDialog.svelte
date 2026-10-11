@@ -363,7 +363,7 @@
 
   .a5e-warning {
     font-family: var(--a5e-primary-font);
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     color: var(--a5e-color-warning);
     padding: 0;
     margin: 0;

@@ -112,6 +112,6 @@
   .a5e-hint {
     margin-top: 0.25rem;
     color: #555;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
   }
 </style>

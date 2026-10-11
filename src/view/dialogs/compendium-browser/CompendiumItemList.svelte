@@ -329,7 +329,7 @@
     height: 1rem;
     width: 1rem;
     border-radius: var(--a5e-border-radius-standard);
-    font-size: var(--a5e-xxs-text);
+    font-size: var(--a5e-text-2xs);
     background: var(--a5e-border-color);
   }
 

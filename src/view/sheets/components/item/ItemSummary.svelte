@@ -131,7 +131,7 @@
       flex-direction: column;
       padding-block: 0.5rem;
       gap: var(--a5e-spacing-sm);
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__item-properties {

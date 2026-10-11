@@ -43,7 +43,7 @@
 <style lang="scss">
   h3 {
     font-weight: bold;
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     border-bottom: 0;
     margin-bottom: 0;
   }

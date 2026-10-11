@@ -126,7 +126,7 @@
     height: 1.25rem;
     padding-inline: var(--a5e-spacing-xs);
     padding-block: 0rem;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     text-align: center;
   }
 

@@ -255,7 +255,7 @@
   }
 
   .name {
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -294,7 +294,7 @@
     height: 1rem;
     width: 1rem;
     border-radius: var(--a5e-border-radius-standard);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     color: #808080;
   }
 
@@ -304,7 +304,7 @@
     margin: var(--a5e-spacing-none);
     color: var(--a5e-button-gray);
     border: var(--a5e-border-width-none);
-    font-size: var(--a5e-lg-text);
+    font-size: var(--a5e-text-lg);
     transition: var(--a5e-transition-standard);
 
     &--active-toggle {
@@ -385,7 +385,7 @@
       background: var(--a5e-track-icon-background);
       border-radius: 50%;
       cursor: pointer;
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
       transform: translateX(-1px);
 
       transition: var(--a5e-transition-standard);

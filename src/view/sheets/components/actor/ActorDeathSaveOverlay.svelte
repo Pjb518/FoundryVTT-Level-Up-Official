@@ -116,7 +116,7 @@
 
     &__icon {
       cursor: pointer;
-      font-size: var(--a5e-lg-text);
+      font-size: var(--a5e-text-lg);
       transition: var(--a5e-transition-standard);
 
       &:hover {
@@ -141,7 +141,7 @@
       border: var(--a5e-border-width-none);
       background: transparent;
       color: inherit;
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
       text-align: center;
       padding: var(--a5e-spacing-none);
 

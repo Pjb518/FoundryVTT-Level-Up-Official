@@ -87,7 +87,7 @@
 
   .a5e-hit-die-container {
     display: flex;
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     gap: var(--a5e-spacing-sm);
   }
 </style>

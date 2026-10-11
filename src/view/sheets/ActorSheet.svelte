@@ -204,7 +204,7 @@
       gap: var(--a5e-spacing-sm);
       align-items: center;
       justify-content: space-between;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       padding-right: var(--a5e-actor-footer-padding-right, 0);
       padding-block: 0.5rem;
       padding-inline: var(--a5e-spacing-sm);

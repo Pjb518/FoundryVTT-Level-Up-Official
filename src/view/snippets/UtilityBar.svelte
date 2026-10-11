@@ -168,12 +168,12 @@
     gap: var(--a5e-spacing-md);
     padding-right: 0.25rem;
     margin-block: 0 0.5rem;
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     color: var(--a5e-button-gray);
 
     &__search-container {
       flex-grow: 1;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__search-bar {

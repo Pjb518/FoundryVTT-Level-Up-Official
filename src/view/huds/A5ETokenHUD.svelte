@@ -164,7 +164,7 @@
     gap: var(--a5e-spacing-md);
     padding: var(--a5e-spacing-md);
     padding-bottom: 0.5rem;
-    font-size: var(--a5e-lg-text);
+    font-size: var(--a5e-text-lg);
     line-height: 1.2rem;
     text-align: left;
     width: max-content;
@@ -188,7 +188,7 @@
     position: relative;
     background-color: transparent;
     gap: var(--a5e-spacing-sm);
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     align-items: center;
     justify-content: flex-start;
     margin-block: 0.125rem;
@@ -242,7 +242,7 @@
         width: 1.25rem;
         aspect-ratio: 1/1;
         color: white;
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
 
         position: absolute;
         top: -0.75rem;
@@ -260,7 +260,7 @@
       h3::before {
         content: var(--corruption);
         font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-md-text);
+        font-size: var(--a5e-text-md);
         background-color: var(--corruption-col);
       }
     }
@@ -269,7 +269,7 @@
       h3::before {
         content: var(--fatigue);
         font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-md-text);
+        font-size: var(--a5e-text-md);
         background-color: var(--fatigue-col);
       }
     }
@@ -278,7 +278,7 @@
       h3::before {
         content: var(--inebriated);
         font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-md-text);
+        font-size: var(--a5e-text-md);
         background-color: var(--inebriated-col);
       }
     }
@@ -287,7 +287,7 @@
       h3::before {
         content: var(--strife);
         font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-md-text);
+        font-size: var(--a5e-text-md);
         background-color: var(--strife-col);
       }
     }
@@ -346,7 +346,7 @@
     border: none;
     border-radius: 5px 5px 0 0;
     background-color: rgba(11 10 19 / 0.85);
-    font-size: var(--a5e-xl-text);
+    font-size: var(--a5e-text-xl);
     cursor: pointer;
     transition: var(--a5e-transition-standard);
 

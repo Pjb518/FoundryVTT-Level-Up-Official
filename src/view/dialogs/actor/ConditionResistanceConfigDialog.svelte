@@ -201,7 +201,7 @@
       display: flex;
       justify-content: center;
       cursor: pointer;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       color: var(--a5e-button-gray);
     }
   }

@@ -67,7 +67,7 @@
       background: none;
       font-weight: inherit;
       text-align: center;
-      font-size: var(--a5e-xl-text);
+      font-size: var(--a5e-text-xl);
       z-index: 1;
 
       &:disabled {
@@ -78,7 +78,7 @@
     &__label {
       padding-bottom: 0.125rem;
       font-family: var(--a5e-condensed-font);
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       font-weight: 700;
       text-align: center;
       margin: 0.1rem;

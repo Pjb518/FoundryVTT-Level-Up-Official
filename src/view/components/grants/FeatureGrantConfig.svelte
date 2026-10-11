@@ -383,7 +383,7 @@
 
     &__header {
       display: contents;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       text-align: center;
     }
 
@@ -406,7 +406,7 @@
     }
 
     &__name {
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       text-align: left;
       width: 100%;
       text-overflow: ellipsis;
@@ -436,7 +436,7 @@
       justify-content: center;
 
       cursor: pointer;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       grid-column: 5;
     }
   }

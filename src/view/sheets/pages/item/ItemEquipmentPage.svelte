@@ -169,7 +169,7 @@
 
   .currency {
     &__wrapper {
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__header {
@@ -224,7 +224,7 @@
     gap: var(--a5e-spacing-sm);
     padding: var(--a5e-spacing-xs);
     padding-right: 0.5rem;
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     background: var(--a5e-background-light);
     border-radius: var(--a5e-border-radius-standard);
     border: 1px solid var(--a5e-color-border);
@@ -232,7 +232,7 @@
     h3 {
       margin: var(--a5e-spacing-none);
       flex: 1;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
   }
 
@@ -258,7 +258,7 @@
     border: 1px solid var(--input-border-color, var(--a5e-color-border));
     height: 1.125rem;
     width: 7ch;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     text-align: center;
 
     &:hover {

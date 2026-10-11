@@ -207,7 +207,7 @@
     }
 
     &__class-level {
-      font-size: var(--a5e-xxl-text);
+      font-size: var(--a5e-text-2xl);
       width: 5rem;
       height: 2rem;
       color: var(--a5e-text-color-dark);
@@ -235,7 +235,7 @@
 
     &__item-name {
       font-family: var(--a5e-secondary-font);
-      font-size: var(--a5e-xl-text);
+      font-size: var(--a5e-text-xl);
       color: var(--a5e-text-color-dark);
       border: var(--a5e-border-width-none);
       background: transparent;
@@ -251,14 +251,14 @@
       &-label {
         padding-inline: 0.5rem 0rem;
         font-family: var(--a5e-secondary-font);
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
       }
 
       &-input {
         border: var(--a5e-border-width-none);
         background: transparent;
         font-family: var(--a5e-secondary-font);
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
         color: var(--a5e-text-color-dark);
         height: var(--a5e-sm-text);
       }

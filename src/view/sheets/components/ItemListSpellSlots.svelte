@@ -105,7 +105,7 @@
     aspect-ratio: 1 / 1;
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
-    font-size: var(--a5e-xxs-text);
+    font-size: var(--a5e-text-2xs);
     line-height: unset;
     color: white;
     background: #842c2b;
@@ -144,7 +144,7 @@
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     color: var(--a5e-color-text-white);
 
     &:active,

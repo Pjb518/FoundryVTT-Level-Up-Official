@@ -172,7 +172,7 @@
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       color: var(--icon-color, inherit);
       border: 1px solid var(--track-border-color, #ccc);
       background: var(--track-background, #ebe9e0);
@@ -182,7 +182,7 @@
       transition: var(--a5e-transition-standard);
 
       &--description-button {
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
       }
     }
 

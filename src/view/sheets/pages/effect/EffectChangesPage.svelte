@@ -109,7 +109,7 @@
     top: 1.35rem;
     right: 0.5rem;
     color: var(--a5e-button-gray);
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
   }
 
   .a5e-row {

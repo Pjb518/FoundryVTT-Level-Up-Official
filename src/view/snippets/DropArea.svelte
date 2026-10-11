@@ -30,12 +30,7 @@
     }
   }
 
-  let {
-    type,
-    documentType,
-    onDocumentDropped,
-    onclick = null,
-  }: Props = $props();
+  let { type, documentType, onDocumentDropped, onclick = null }: Props = $props();
 </script>
 
 <FieldWrapper>
@@ -60,7 +55,7 @@
 
   .a5e-drop-icon {
     color: var(--a5e-border-color);
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     font-style: normal;
   }
 </style>

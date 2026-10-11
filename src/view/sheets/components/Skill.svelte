@@ -180,7 +180,7 @@
     border: 1px solid var(--a5e-border-color);
     border-top: 0;
     font-family: var(--a5e-font-primary);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
 
     &:nth-child(even) {
       border-left: 0;

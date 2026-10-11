@@ -167,7 +167,7 @@
   }
 
   .name {
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -234,7 +234,7 @@
       background: var(--a5e-track-icon-background);
       border-radius: 50%;
       cursor: pointer;
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
       transform: translateX(-1px);
 
       transition: var(--a5e-transition-standard);

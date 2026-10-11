@@ -69,13 +69,13 @@
     list-style: none;
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     width: 100%;
   }
 
   .a5e-hint {
     margin-top: 0.25rem;
     color: #555;
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
   }
 </style>

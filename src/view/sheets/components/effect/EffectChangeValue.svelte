@@ -182,7 +182,7 @@
     &-input {
       width: 8rem;
       height: 27px;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
   }
 
@@ -193,7 +193,7 @@
 
     &__heading {
       margin: var(--a5e-spacing-none);
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       font-weight: bold;
     }
   }

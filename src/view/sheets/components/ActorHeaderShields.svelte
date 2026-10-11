@@ -255,7 +255,7 @@
     border-radius: 4px;
 
     &__label {
-      font-size: var(--a5e-xs-text);
+      font-size: var(--a5e-text-xs);
     }
 
     &__input {
@@ -263,7 +263,7 @@
       border: none;
       background: transparent;
       padding-inline: var(--a5e-spacing-xs);
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
 
       &:active,
       &:focus {
@@ -276,7 +276,7 @@
       text-align: center;
       border: none;
       padding: 0.125rem 0.25rem;
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
       background-color: transparent;
       cursor: pointer;
       color: var(--a5e-text-color-medium);

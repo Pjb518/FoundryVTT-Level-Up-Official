@@ -147,7 +147,7 @@
       height: 5rem;
       padding: 1rem;
       margin: 1rem;
-      font-size: var(--a5e-md-text);
+      font-size: var(--a5e-text-md);
       border: 2px dashed var(--a5e-border-color);
       border-radius: var(--a5e-border-radius-standard);
     }

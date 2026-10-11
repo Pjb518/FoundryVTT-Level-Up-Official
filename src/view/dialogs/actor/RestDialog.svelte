@@ -192,7 +192,7 @@
 
   .a5e-hit-die-container {
     display: flex;
-    font-size: var(--a5e-md-text);
+    font-size: var(--a5e-text-md);
     gap: var(--a5e-spacing-sm);
   }
 
@@ -200,11 +200,11 @@
     display: flex;
     align-items: center;
     gap: var(--a5e-spacing-sm);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
   }
 
   .supply-warning {
     color: var(--a5e-color-disadvantage);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
   }
 </style>

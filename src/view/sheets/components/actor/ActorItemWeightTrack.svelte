@@ -73,6 +73,6 @@
     transform: translate(-50%, -50%);
 
     color: var(--a5e-inventory-track-color);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
   }
 </style>

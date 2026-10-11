@@ -82,7 +82,7 @@
     gap: 0.375rem;
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
-    font-size: var(--a5e-xs-text);
+    font-size: var(--a5e-text-xs);
     list-style: none;
   }
 </style>

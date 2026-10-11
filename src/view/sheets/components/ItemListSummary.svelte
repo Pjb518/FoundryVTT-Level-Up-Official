@@ -128,6 +128,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--a5e-spacing-sm);
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
   }
 </style>

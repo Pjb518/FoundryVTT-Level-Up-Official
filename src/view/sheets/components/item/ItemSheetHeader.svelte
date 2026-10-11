@@ -75,7 +75,7 @@
 
     &__item-name {
       font-family: var(--a5e-secondary-font);
-      font-size: var(--a5e-xl-text);
+      font-size: var(--a5e-text-xl);
       border: var(--a5e-border-width-none);
       background: transparent;
       text-overflow: ellipses;
@@ -85,13 +85,13 @@
 
     &__details-wrapper {
       font-style: italic;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__summary-wrapper {
       display: flex;
       // gap: var(--a5e-spacing-sm);
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
 
       > :not(:last-child)::after {
         content: "|";

@@ -263,7 +263,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 0.375rem;
-    font-size: var(--a5e-sm-text);
+    font-size: var(--a5e-text-sm);
     font-family: var(--a5e-secondary-font);
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
@@ -299,7 +299,7 @@
 
       &--add {
         min-width: 2rem;
-        font-size: var(--a5e-sm-text);
+        font-size: var(--a5e-text-sm);
         font-family: "Font Awesome Pro 6";
       }
     }

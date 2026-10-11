@@ -1,7 +1,10 @@
 <script lang="ts">
   import { localize } from "#utils/localization/localize.ts";
 
-  import type { GroupSelectionState, GroupTriState } from "#utils/prepareProductSourceTree.ts";
+  import type {
+    GroupSelectionState,
+    GroupTriState,
+  } from "#utils/prepareProductSourceTree.ts";
 
   type Props = {
     label: string;
@@ -69,11 +72,11 @@
     }
 
     &--publisher {
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &--productLine {
-      font-size: var(--a5e-xs-text);
+      font-size: var(--a5e-text-xs);
       margin-left: 0.5rem;
     }
   }

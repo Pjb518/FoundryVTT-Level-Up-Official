@@ -247,7 +247,7 @@
     &-heading {
       flex-shrink: 0;
       margin: var(--a5e-spacing-none);
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
       font-weight: bold;
       border-bottom: 0;
     }
@@ -257,7 +257,7 @@
       width: fit-content;
       margin: var(--a5e-spacing-none);
       padding: 0.125rem 0.5rem;
-      font-size: var(--a5e-xs-text);
+      font-size: var(--a5e-text-xs);
       font-weight: bold;
       line-height: 1;
       background: transparent;
