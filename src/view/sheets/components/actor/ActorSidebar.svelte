@@ -55,7 +55,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--a5e-spacing-sm);
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--a5e-spacing-sm);
     }
 
     &__glance-trackers {
@@ -76,7 +76,7 @@
       flex-grow: 1;
       overflow-y: auto;
       overflow-x: clip;
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--a5e-spacing-sm);
     }
 
     &__footer {
