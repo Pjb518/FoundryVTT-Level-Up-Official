@@ -26,11 +26,7 @@
 </script>
 
 <aside class="a5e-item-sheet__aside">
-  <img
-    class="a5e-item-sheet__image"
-    src={item.reactive.img}
-    alt={item.reactive.name}
-  />
+  <img class="a5e-item-sheet__image" src={item.reactive.img} alt={item.reactive.name} />
 
   <div class="a5e-item-sheet__aside__toggles"></div>
 
@@ -70,13 +66,13 @@
     &__aside {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: var(--a5e-spacing-md);
       padding-inline: 0.5rem;
 
       &__header {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: var(--a5e-spacing-md);
         text-align: center;
         font-size: var(--a5e-md-text);
 
@@ -85,19 +81,11 @@
           content: "";
           flex: 1;
           height: 3px;
-          background: linear-gradient(
-            to right,
-            transparent,
-            var(--a5e-color-primary)
-          );
+          background: linear-gradient(to right, transparent, var(--a5e-color-primary));
         }
 
         &::after {
-          background: linear-gradient(
-            to left,
-            transparent,
-            var(--a5e-color-primary)
-          );
+          background: linear-gradient(to left, transparent, var(--a5e-color-primary));
         }
       }
 
@@ -107,27 +95,27 @@
         flex-wrap: wrap;
         font-size: var(--a5e-sm-text);
 
-        padding: 0;
-        margin: 0;
+        padding: var(--a5e-spacing-none);
+        margin: var(--a5e-spacing-none);
         list-style: none;
 
         &__wrapper {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: var(--a5e-spacing-sm);
         }
       }
 
       &__summaries {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: var(--a5e-spacing-sm);
         font-size: var(--a5e-sm-text);
 
         &__wrapper {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: var(--a5e-spacing-sm);
         }
       }
 

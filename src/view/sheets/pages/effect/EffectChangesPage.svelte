@@ -1,141 +1,135 @@
 <script lang="ts">
-    import type ActiveEffectSheet from "../../../../documents/sheets/ActiveEffectSheet.svelte.ts";
+  import { getContext } from "svelte";
+  import type ActiveEffectSheet from "../../../../documents/sheets/ActiveEffectSheet.svelte.ts";
 
-    import { getContext } from "svelte";
+  import EffectChangeConfig from "../../components/effect/EffectChangeConfig.svelte";
+  import EffectChangeValue from "../../components/effect/EffectChangeValue.svelte";
 
-    import EffectChangeConfig from "../../components/effect/EffectChangeConfig.svelte";
-    import EffectChangeValue from "../../components/effect/EffectChangeValue.svelte";
+  function addChange() {
+    const change = {
+      key: "",
+      type: null,
+      value: "",
+      priority: null,
+    };
 
-    function addChange() {
-        const change = {
-            key: "",
-            type: null,
-            value: "",
-            priority: null,
-        };
+    changes = [...changes, change];
 
-        changes = [...changes, change];
+    effect.update({ "system.changes": changes });
+  }
 
-        effect.update({ "system.changes": changes });
+  function deleteChange(id) {
+    changes = changes.filter((_, idx) => idx !== id);
+    effect.update({ "system.changes": changes });
+  }
+
+  function updateChange(idx, key, value) {
+    changes[idx] ??= {};
+    changes[idx][key] = value;
+
+    // Change type and reset value if key has changed
+    if (key === "key") {
+      changes[idx]["value"] = "";
+      changes[idx]["type"] = optionsList[changes[idx]?.key]?.modes?.[0] ?? null;
     }
 
-    function deleteChange(id) {
-        changes = changes.filter((_, idx) => idx !== id);
-        effect.update({ "system.changes": changes });
-    }
+    // Update Document
+    effect.update({ "system.changes": changes });
+  }
 
-    function updateChange(idx, key, value) {
-        changes[idx] ??= {};
-        changes[idx][key] = value;
+  let effect: ActiveEffect = getContext("effect");
+  let sheet: ActiveEffectSheet = getContext("sheet");
 
-        // Change type and reset value if key has changed
-        if (key === "key") {
-            changes[idx]["value"] = "";
-            changes[idx]["type"] =
-                optionsList[changes[idx]?.key]?.modes?.[0] ?? null;
-        }
+  const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
+  const optionsList = sheet.optionsList;
 
-        // Update Document
-        effect.update({ "system.changes": changes });
-    }
-
-    let effect: ActiveEffect = getContext("effect");
-    let sheet: ActiveEffectSheet = getContext("sheet");
-
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_TYPES;
-    const optionsList = sheet.optionsList;
-
-    let changes = $derived(effect.reactive.system.changes);
+  let changes = $derived(effect.reactive.system.changes);
 </script>
 
 <div class="a5e-sticky-page">
-    <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-        <ul class="a5e-item-list a5e-item-list--effect-changes">
-            {#each changes as { key, value, type }, idx (idx)}
-                <li class="a5e-item a5e-item--effect-config">
-                    <div class="a5e-button-wrapper">
-                        <button
-                            type="button"
-                            class="a5e-button a5e-button--transparent"
-                            style="font-size: var(--a5e-md-sm);"
-                            aria-label="Delete Change"
-                            onclick={() => deleteChange(idx)}
-                        >
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
+  <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    <ul class="a5e-item-list a5e-item-list--effect-changes">
+      {#each changes as { key, value, type }, idx (idx)}
+        <li class="a5e-item a5e-item--effect-config">
+          <div class="a5e-button-wrapper">
+            <button
+              type="button"
+              class="a5e-button a5e-button--transparent"
+              style="font-size: var(--a5e-md-sm);"
+              aria-label="Delete Change"
+              onclick={() => deleteChange(idx)}
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
 
-                    <div class="a5e-row">
-                        <EffectChangeConfig
-                            {idx}
-                            {key}
-                            {optionsList}
-                            onchangeKey={(value) =>
-                                updateChange(idx, "key", value)}
-                            onchangePriority={(value) =>
-                                updateChange(idx, "priority", value)}
-                            onchangeType={(value) =>
-                                updateChange(idx, "type", value)}
-                        />
-                    </div>
+          <div class="a5e-row">
+            <EffectChangeConfig
+              {idx}
+              {key}
+              {optionsList}
+              onchangeKey={(value) => updateChange(idx, "key", value)}
+              onchangePriority={(value) => updateChange(idx, "priority", value)}
+              onchangeType={(value) => updateChange(idx, "type", value)}
+            />
+          </div>
 
-                    {#key key}
-                        <EffectChangeValue
-                            {key}
-                            {value}
-                            {type}
-                            {optionsList}
-                            onchange={(value) =>
-                                updateChange(idx, "value", value)}
-                        />
-                    {/key}
-                </li>
-            {/each}
-        </ul>
-    </section>
+          {#key key}
+            <EffectChangeValue
+              {key}
+              {value}
+              {type}
+              {optionsList}
+              onchange={(value) => updateChange(idx, "value", value)}
+            />
+          {/key}
+        </li>
+      {/each}
+    </ul>
+  </section>
 
-    <div class="a5e-sticky-add-button">
-        <button
-            type="button"
-            class="a5e-button a5e-button--transparent"
-            aria-label="Add Change"
-            onclick={addChange}
-        >
-            <i class="fa-solid fa-plus"></i>
-        </button>
-    </div>
+  <div class="a5e-sticky-add-button">
+    <button
+      type="button"
+      class="a5e-button a5e-button--transparent"
+      aria-label="Add Change"
+      onclick={addChange}
+    >
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
 </div>
 
 <style lang="scss">
-    .a5e-button-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: absolute;
-        top: 1.35rem;
-        right: 0.5rem;
-        color: var(--a5e-button-gray);
-        font-size: var(--a5e-md-text);
-    }
+  .a5e-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--a5e-spacing-sm);
+    position: absolute;
+    top: 1.35rem;
+    right: 0.5rem;
+    color: var(--a5e-button-gray);
+    font-size: var(--a5e-md-text);
+  }
 
-    .a5e-row {
-        display: grid;
-        grid-template-columns: 1fr min-content min-content;
-        gap: 0.75rem;
-        padding-right: 2rem;
-        overflow-y: visible;
-    }
+  .a5e-row {
+    display: grid;
+    grid-template-columns: 1fr min-content min-content;
+    gap: var(--a5e-spacing-md);
+    padding-right: 2rem;
+    overflow-y: visible;
+  }
 
-    .a5e-sticky-page {
-        display: flex;
-        flex-direction: column;
-        height: 99%;
-    }
+  .a5e-sticky-page {
+    display: flex;
+    flex-direction: column;
+    height: 99%;
+  }
 
-    .a5e-sticky-add-button {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        color: var(--a5e-button-gray);
-    }
+  .a5e-sticky-add-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--a5e-button-gray);
+  }
 </style>

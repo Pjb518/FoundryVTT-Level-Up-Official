@@ -136,7 +136,7 @@
   .a5e-party {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     max-height: 80vh;
     padding-block-end: 0.75rem;
 

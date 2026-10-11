@@ -31,8 +31,7 @@
   let { grant }: Props = $props();
   let item: any = getContext("item");
 
-  let rightClickConfigure =
-    game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+  let rightClickConfigure = game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
   let sheetIsLocked = !item.isOwner;
 </script>
@@ -141,8 +140,8 @@
   .grant-activate-button {
     width: 1.5rem;
     height: 1.5rem;
-    padding: 0;
-    margin: 0;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
     background: transparent;
     border-radius: var(--a5e-border-radius-standard);
     grid-area: icon;
@@ -162,7 +161,7 @@
     display: flex;
     align-items: center;
     flex-grow: 0;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     overflow: hidden;
     grid-area: name;
   }
@@ -178,7 +177,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     margin-inline: 0.25rem;
     grid-area: indicators;
   }
@@ -250,7 +249,7 @@
       padding: 0 1rem 0 0.5rem;
       border: 1px solid var(--a5e-track-icon-border);
       border-left: 0;
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       background: var(--a5e-track-icon-background);
       border-radius: 0.75rem 0 0 0.75rem;
       list-style: none;

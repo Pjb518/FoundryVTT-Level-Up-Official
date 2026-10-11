@@ -79,8 +79,8 @@
       border: 0;
       background: transparent;
       text-overflow: ellipses;
-      padding: 0;
-      margin: 0;
+      padding: var(--a5e-spacing-none);
+      margin: var(--a5e-spacing-none);
     }
 
     &__details-wrapper {
@@ -90,7 +90,7 @@
 
     &__summary-wrapper {
       display: flex;
-      // gap: 0.5rem;
+      // gap: var(--a5e-spacing-sm);
       font-size: var(--a5e-sm-text);
 
       > :not(:last-child)::after {

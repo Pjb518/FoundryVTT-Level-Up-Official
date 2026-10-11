@@ -54,8 +54,7 @@
       data-tooltip="A5E.deathSavingThrow.roll"
       data-tooltip-direction="UP"
       aria-label="Roll Death Saving Throw"
-      onclick={() =>
-        actor.rollDeathSavingThrow(getKeyPressAsOptions(pressedKeys))}
+      onclick={() => actor.rollDeathSavingThrow(getKeyPressAsOptions(pressedKeys))}
     >
       <i class="fas fa-skull a5e-js-roll-death-saving-throw"></i>
     </button>
@@ -126,8 +125,8 @@
     }
 
     &__button {
-      padding: 0;
-      margin: 0;
+      padding: var(--a5e-spacing-none);
+      margin: var(--a5e-spacing-none);
       background: transparent;
       color: inherit;
       border: 0;
@@ -144,7 +143,7 @@
       color: inherit;
       font-size: var(--a5e-md-text);
       text-align: center;
-      padding: 0;
+      padding: var(--a5e-spacing-none);
 
       &:active,
       &:focus {

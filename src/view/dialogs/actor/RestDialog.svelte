@@ -186,14 +186,14 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 0.75rem;
+    gap: var(--a5e-spacing-md);
+    padding: var(--a5e-spacing-md);
   }
 
   .a5e-hit-die-container {
     display: flex;
     font-size: var(--a5e-md-text);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
   }
 
   .supply-amount-wrapper {

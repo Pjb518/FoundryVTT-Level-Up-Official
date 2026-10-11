@@ -1,51 +1,51 @@
 .a5e-skill-specialties {
-    display: grid;
-    align-items: flex-start;
-    grid-template-columns: min-content 1fr;
-    width: 100%;
-    gap: 0.275rem 0.75rem;
-    margin: 0;
-    font-family: var(--a5e-primary-font);
-    font-size: var(--a5e-sm-text);
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: min-content 1fr;
+  width: 100%;
+  gap: 0.275rem 0.75rem;
+  margin: var(--a5e-spacing-none);
+  font-family: var(--a5e-primary-font);
+  font-size: var(--a5e-sm-text);
 
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.125rem 1ch;
-        margin: 0;
-        padding: 0;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.125rem 1ch;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
+  }
+
+  &__list-item {
+    display: inline;
+    width: fit-content;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
+    color: var(--a5e-text-color-dark);
+    height: var(--a5e-sm-text); /* Override Foundry default*/
+    min-height: auto; /* Override Foundry default*/
+    line-height: 1;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      outline: none;
     }
 
-    &__list-item {
-        display: inline;
-        width: fit-content;
-        padding: 0;
-        margin: 0;
-        color: var(--a5e-text-color-dark);
-        height: var(--a5e-sm-text); /* Override Foundry default*/
-        min-height: auto; /* Override Foundry default*/
-        line-height: 1;
-        white-space: nowrap;
-        background: transparent;
-        border: none;
-
-        &:focus,
-        &:hover {
-            box-shadow: none;
-            outline: none;
-        }
-
-        &:not(:last-child)::after {
-            content: ",";
-        }
+    &:not(:last-child)::after {
+      content: ',';
     }
+  }
 
-    &__skill {
-        color: var(--a5e-text-color-dark);
-        font-weight: 700;
-        margin-block: auto;
-        text-shadow: none;
-        line-height: 1;
-        white-space: nowrap;
-    }
+  &__skill {
+    color: var(--a5e-text-color-dark);
+    font-weight: 700;
+    margin-block: auto;
+    text-shadow: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
 }

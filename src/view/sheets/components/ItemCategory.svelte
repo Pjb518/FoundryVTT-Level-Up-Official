@@ -1,252 +1,244 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
+  import { getContext } from "svelte";
+  import { localize } from "#utils/localization/localize.ts";
 
-    import ItemList from "./ItemList.svelte";
-    import ItemListSpellSlots from "./ItemListSpellSlots.svelte";
+  import ItemList from "./ItemList.svelte";
+  import ItemListSpellSlots from "./ItemListSpellSlots.svelte";
 
-    type Props = {
-        icon?: string | null;
-        label: string;
-        level?: number;
-        items: Item[];
-        showArtifactCharges?: boolean;
-        showDescription?: boolean;
-        showQuantity?: boolean;
-        showSpellPoints?: boolean;
-        showSpellSlots?: boolean;
-        showUses?: boolean;
-        showWeight?: boolean;
-        type: string;
-    };
+  type Props = {
+    icon?: string | null;
+    label: string;
+    level?: number;
+    items: Item[];
+    showArtifactCharges?: boolean;
+    showDescription?: boolean;
+    showQuantity?: boolean;
+    showSpellPoints?: boolean;
+    showSpellSlots?: boolean;
+    showUses?: boolean;
+    showWeight?: boolean;
+    type: string;
+  };
 
-    let {
-        icon = null,
-        label,
-        level = 0,
-        items,
-        showArtifactCharges = false,
-        showDescription = false,
-        showQuantity = false,
-        showSpellPoints = false,
-        showSpellSlots = false,
-        showUses = false,
-        showWeight = false,
-        type,
-    }: Props = $props();
+  let {
+    icon = null,
+    label,
+    level = 0,
+    items,
+    showArtifactCharges = false,
+    showDescription = false,
+    showQuantity = false,
+    showSpellPoints = false,
+    showSpellSlots = false,
+    showUses = false,
+    showWeight = false,
+    type,
+  }: Props = $props();
 
-    function getHeadingTemplateConfiguration() {
-        let areas = "name";
-        let columns = "1fr";
+  function getHeadingTemplateConfiguration() {
+    let areas = "name";
+    let columns = "1fr";
 
-        if (showWeight) {
-            if (showUses) {
-                if (showQuantity) {
-                    areas = "name quantity uses weight";
-                    columns = "1fr 4rem 6.25rem 2rem";
-                } else {
-                    areas = "name uses weight";
-                    columns = "1fr 6.25rem 2rem";
-                }
-            } else if (showQuantity) {
-                areas = "name quantity weight";
-                columns = "1fr 4rem 2rem";
-            } else {
-                areas = "name weight";
-                columns = "1fr 2rem";
-            }
-        } else if (showUses) {
-            if (showQuantity) {
-                areas = "name quantity uses";
-                columns = "1fr 4rem 6.25rem";
-            } else {
-                areas = "name uses";
-                columns = "1fr 6.25rem";
-            }
-        } else if (showQuantity) {
-            areas = "name quantity";
-            columns = "1fr 4rem";
+    if (showWeight) {
+      if (showUses) {
+        if (showQuantity) {
+          areas = "name quantity uses weight";
+          columns = "1fr 4rem 6.25rem 2rem";
+        } else {
+          areas = "name uses weight";
+          columns = "1fr 6.25rem 2rem";
         }
-
-        areas += " menu";
-        columns += " 2rem";
-
-        return { areas: `"${areas}"`, columns };
+      } else if (showQuantity) {
+        areas = "name quantity weight";
+        columns = "1fr 4rem 2rem";
+      } else {
+        areas = "name weight";
+        columns = "1fr 2rem";
+      }
+    } else if (showUses) {
+      if (showQuantity) {
+        areas = "name quantity uses";
+        columns = "1fr 4rem 6.25rem";
+      } else {
+        areas = "name uses";
+        columns = "1fr 6.25rem";
+      }
+    } else if (showQuantity) {
+      areas = "name quantity";
+      columns = "1fr 4rem";
     }
 
-    function getItemTemplateConfiguration() {
-        let areas = "icon name indicators";
-        let columns = "min-content 1fr min-content";
+    areas += " menu";
+    columns += " 2rem";
 
-        if (showWeight) {
-            if (showUses) {
-                if (showQuantity) {
-                    areas = "icon name indicators quantity uses weight";
-                    columns = "min-content 1fr min-content 4rem 6.25rem 2rem";
-                } else {
-                    areas = "icon name indicators uses weight";
-                    columns = "min-content 1fr min-content 6.25rem 2rem";
-                }
-            } else if (showQuantity) {
-                areas = "icon name indicators quantity weight";
-                columns = "min-content 1fr min-content 4rem 2rem";
-            } else {
-                areas = "icon name indicators weight";
-                columns = "min-content 1fr min-content 2rem";
-            }
-        } else if (showUses) {
-            if (showQuantity) {
-                areas = "icon name indicators quantity uses";
-                columns = "min-content 1fr min-content 4rem 6.25rem";
-            } else {
-                areas = "icon name indicators uses";
-                columns = "min-content 1fr min-content 6.25rem";
-            }
-        } else if (showQuantity) {
-            areas = "icon name indicators quantity";
-            columns = "min-content 1fr min-content 4rem";
+    return { areas: `"${areas}"`, columns };
+  }
+
+  function getItemTemplateConfiguration() {
+    let areas = "icon name indicators";
+    let columns = "min-content 1fr min-content";
+
+    if (showWeight) {
+      if (showUses) {
+        if (showQuantity) {
+          areas = "icon name indicators quantity uses weight";
+          columns = "min-content 1fr min-content 4rem 6.25rem 2rem";
+        } else {
+          areas = "icon name indicators uses weight";
+          columns = "min-content 1fr min-content 6.25rem 2rem";
         }
-
-        areas += " menu";
-        columns += " 2rem";
-
-        return { areas: `"${areas}"`, columns };
+      } else if (showQuantity) {
+        areas = "icon name indicators quantity weight";
+        columns = "min-content 1fr min-content 4rem 2rem";
+      } else {
+        areas = "icon name indicators weight";
+        columns = "min-content 1fr min-content 2rem";
+      }
+    } else if (showUses) {
+      if (showQuantity) {
+        areas = "icon name indicators quantity uses";
+        columns = "min-content 1fr min-content 4rem 6.25rem";
+      } else {
+        areas = "icon name indicators uses";
+        columns = "min-content 1fr min-content 6.25rem";
+      }
+    } else if (showQuantity) {
+      areas = "icon name indicators quantity";
+      columns = "min-content 1fr min-content 4rem";
     }
 
-    let actor: any = getContext("actor");
-    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
+    areas += " menu";
+    columns += " 2rem";
 
-    const { A5E } = CONFIG;
+    return { areas: `"${areas}"`, columns };
+  }
 
-    let actorStore = $derived(actor.reactive.system);
+  let actor: any = getContext("actor");
+  let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-    let headingTemplateConfiguration = $derived(
-        getHeadingTemplateConfiguration(),
-    );
-    let itemTemplateConfiguration = $derived(getItemTemplateConfiguration());
-    let visibleItems = $derived(
-        [...items].filter((item) => !item?.system?.hidden || !sheetIsLocked()),
-    );
+  const { A5E } = CONFIG;
+
+  let actorStore = $derived(actor.reactive.system);
+
+  let headingTemplateConfiguration = $derived(getHeadingTemplateConfiguration());
+  let itemTemplateConfiguration = $derived(getItemTemplateConfiguration());
+  let visibleItems = $derived(
+    [...items].filter((item) => !item?.system?.hidden || !sheetIsLocked()),
+  );
 </script>
 
 {#if visibleItems.length || type === "spellLevels"}
-    <section class="category-container">
-        {#if !(type === "featureTypes" && actor.type === "npc")}
-            <header
-                class="a5e-section-header a5e-section-header--item-list"
-                class:a5e-section-header--flat-bottom={visibleItems.length}
-                style="
+  <section class="category-container">
+    {#if !(type === "featureTypes" && actor.type === "npc")}
+      <header
+        class="a5e-section-header a5e-section-header--item-list"
+        class:a5e-section-header--flat-bottom={visibleItems.length}
+        style="
                     --a5e-section-heading-template-areas: {headingTemplateConfiguration.areas};
                     --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
                 "
-            >
-                <h3
-                    class="a5e-section-header__heading a5e-section-header__heading--name"
-                >
-                    <div>
-                        {#if icon}
-                            <i class={icon}></i>
-                        {/if}
+      >
+        <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
+          <div>
+            {#if icon}
+              <i class={icon}></i>
+            {/if}
 
-                        {#if type === "favorites"}
-                            {localize(label)}
-                        {:else}
-                            {localize(
-                                (A5E[type] ?? {})[label] ??
-                                    (label === "uncategorized"
-                                        ? "A5E.Uncategorized"
-                                        : label),
-                            )}
-                        {/if}
-                    </div>
+            {#if type === "favorites"}
+              {localize(label)}
+            {:else}
+              {localize(
+                (A5E[type] ?? {})[label] ??
+                  (label === "uncategorized" ? "A5E.Uncategorized" : label),
+              )}
+            {/if}
+          </div>
 
-                    {#if type === "spellLevels" && showSpellSlots}
-                        <ItemListSpellSlots {level} />
-                    {/if}
+          {#if type === "spellLevels" && showSpellSlots}
+            <ItemListSpellSlots {level} />
+          {/if}
 
-                    {#if type === "spellLevels" && showArtifactCharges}
-                        {localize("A5E.ArtifactChargesCost", {
-                            cost:
-                                A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ??
-                                0,
-                        })}
-                    {/if}
+          {#if type === "spellLevels" && showArtifactCharges}
+            {localize("A5E.ArtifactChargesCost", {
+              cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
+            })}
+          {/if}
 
-                    <!-- {#if type === "spellLevels" && showSpellInventions}
+          <!-- {#if type === "spellLevels" && showSpellInventions}
                         {localize("A5E.SpellInventionsCost", {
                             cost: 1,
                         })}
                     {/if} -->
 
-                    {#if type === "spellLevels" && showSpellPoints}
-                        {localize("A5E.spells.spellcasting.pointsCost", {
-                            cost: A5E.spellLevelCost[level],
-                        })}
-                    {/if}
-                </h3>
+          {#if type === "spellLevels" && showSpellPoints}
+            {localize("A5E.spells.spellcasting.pointsCost", {
+              cost: A5E.spellLevelCost[level],
+            })}
+          {/if}
+        </h3>
 
-                {#if showQuantity}
-                    <h3
-                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
-                    >
-                        Quantity
-                    </h3>
-                {/if}
-
-                {#if showUses}
-                    <h3
-                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
-                    >
-                        Uses
-                    </h3>
-                {/if}
-
-                {#if showWeight}
-                    <h3
-                        class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--weight"
-                    >
-                        Weight
-                    </h3>
-                {/if}
-            </header>
+        {#if showQuantity}
+          <h3
+            class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--quantity"
+          >
+            Quantity
+          </h3>
         {/if}
 
-        <ul class="a5e-item-list">
-            {#each visibleItems as item (item?.id)}
-                <ItemList
-                    {item}
-                    {showDescription}
-                    --itemTemplateAreas={itemTemplateConfiguration.areas}
-                    --itemTemplateColumns={itemTemplateConfiguration.columns}
-                />
-            {/each}
-        </ul>
-    </section>
+        {#if showUses}
+          <h3
+            class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--uses"
+          >
+            Uses
+          </h3>
+        {/if}
+
+        {#if showWeight}
+          <h3
+            class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--weight"
+          >
+            Weight
+          </h3>
+        {/if}
+      </header>
+    {/if}
+
+    <ul class="a5e-item-list">
+      {#each visibleItems as item (item?.id)}
+        <ItemList
+          {item}
+          {showDescription}
+          --itemTemplateAreas={itemTemplateConfiguration.areas}
+          --itemTemplateColumns={itemTemplateConfiguration.columns}
+        />
+      {/each}
+    </ul>
+  </section>
 {/if}
 
 <style lang="scss">
-    .a5e-section-header__heading {
-        &--name {
-            display: grid;
-            align-items: center;
-            grid-template-columns:
-                minmax(3.5rem, max-content)
-                max-content max-content;
-            gap: 0.75rem;
-            grid-area: name;
-            text-align: left;
-        }
-
-        &--quantity {
-            grid-area: quantity;
-        }
-
-        &--uses {
-            grid-area: uses;
-        }
-
-        &--weight {
-            grid-area: weight;
-        }
+  .a5e-section-header__heading {
+    &--name {
+      display: grid;
+      align-items: center;
+      grid-template-columns:
+        minmax(3.5rem, max-content)
+        max-content max-content;
+      gap: var(--a5e-spacing-md);
+      grid-area: name;
+      text-align: left;
     }
+
+    &--quantity {
+      grid-area: quantity;
+    }
+
+    &--uses {
+      grid-area: uses;
+    }
+
+    &--weight {
+      grid-area: weight;
+    }
+  }
 </style>

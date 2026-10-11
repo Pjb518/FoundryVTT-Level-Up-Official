@@ -199,8 +199,8 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    gap: var(--a5e-spacing-sm);
+    padding: var(--a5e-spacing-md);
   }
 
   .roll-formula-preview {

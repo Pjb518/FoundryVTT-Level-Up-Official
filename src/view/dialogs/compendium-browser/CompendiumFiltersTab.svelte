@@ -62,9 +62,7 @@
     // actually excludes every selected source, and it's correct even when 0 or 1 are excluded,
     // so it's forced here rather than left to the (otherwise general-purpose) AND/OR toggle.
     const exclusiveMode =
-      filterKey === "source"
-        ? 1
-        : (filterSelections[filterKey]?.exclusiveMode ?? 0);
+      filterKey === "source" ? 1 : (filterSelections[filterKey]?.exclusiveMode ?? 0);
 
     filterOptions.selections = {
       ...filterOptions.selections,
@@ -91,18 +89,12 @@
     });
   }
 
-  let {
-    compendiumType,
-    filterOptions = $bindable(),
-    dialog = null,
-  }: Props = $props();
+  let { compendiumType, filterOptions = $bindable(), dialog = null }: Props = $props();
 
   let filterSelections = $derived(filterOptions.selections);
   let padding = dialog ? "0rem 1rem" : "0";
 
-  let formSections = $derived(
-    getFilterConfig(compendiumType, filterSelections),
-  );
+  let formSections = $derived(getFilterConfig(compendiumType, filterSelections));
 </script>
 
 {#snippet FilterCategory(
@@ -215,11 +207,7 @@
   </div>
 
   {#if dialog}
-    <button
-      type="button"
-      class="a5e-cb-filter--submit"
-      onclick={() => onSubmit()}
-    >
+    <button type="button" class="a5e-cb-filter--submit" onclick={() => onSubmit()}>
       Submit
     </button>
   {/if}
@@ -231,7 +219,7 @@
       margin-block: 0.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       max-height: 70vh;
       padding: var(--a5e-cb-filter-tab-padding);
     }
@@ -240,7 +228,7 @@
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       min-height: 0;
       overflow-y: auto;
     }
@@ -252,13 +240,13 @@
     &-header {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       margin-bottom: 0.125rem;
     }
 
     &-heading {
       flex-shrink: 0;
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       font-size: var(--a5e-sm-text);
       font-weight: bold;
       border-bottom: 0;
@@ -267,7 +255,7 @@
     &-mode-button {
       justify-self: flex-end;
       width: fit-content;
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       padding: 0.125rem 0.5rem;
       font-size: var(--a5e-xs-text);
       font-weight: bold;

@@ -1,32 +1,32 @@
-@use "../base/functions";
+@use '../base/functions';
 
 .a5e-party-viewer {
   &__actor-image {
-      height: 1.75rem;
-      width: 1.75rem;
-      margin: 0;
-      padding: 0;
-      object-fit: cover;
-      object-position: 50% 0;
-      grid-area: img;
+    height: 1.75rem;
+    width: 1.75rem;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
+    object-fit: cover;
+    object-position: 50% 0;
+    grid-area: img;
   }
 
   &__actor-name {
-      grid-area: name;
-      padding-left: 0.25rem;
-      text-overflow: ellipsis;
+    grid-area: name;
+    padding-left: 0.25rem;
+    text-overflow: ellipsis;
   }
 
   &__article {
-      min-height: 14rem;
-      min-width: 40rem;
-      padding: 0;
+    min-height: 14rem;
+    min-width: 40rem;
+    padding: var(--a5e-spacing-none);
   }
 
   &__attribute {
     @each $attr in str, dex, con, int, wis, cha {
       &--#{$attr} {
-          grid-area: $attr;
+        grid-area: $attr;
       }
     }
   }
@@ -65,19 +65,19 @@
     }
 
     &__check::before {
-        content: "\f111";
+      content: '\f111';
     }
 
     &__save {
       &::before {
-          content: "\f132";
+        content: '\f132';
       }
 
       &--proficient {
         color: var(--a5e-text-color-white);
 
         &::before {
-            color: var(--a5e-color-primary);
+          color: var(--a5e-color-primary);
         }
       }
     }
@@ -101,14 +101,14 @@
       padding-block: 1px;
       color: white;
       text-shadow:
-          -1px -1px 0 rgba(34, 34, 34, 0.5),
-          1px -1px 0 rgba(34, 34, 34, 0.5),
-          -1px 1px 0 rgba(34, 34, 34, 0.5),
-          1px 1px 0 rgba(34, 34, 34, 0.5);
+        -1px -1px 0 rgba(34, 34, 34, 0.5),
+        1px -1px 0 rgba(34, 34, 34, 0.5),
+        -1px 1px 0 rgba(34, 34, 34, 0.5),
+        1px 1px 0 rgba(34, 34, 34, 0.5);
       background: linear-gradient(
-          90deg,
-          var(--color-primary-hp-bar) var(--total-hp-percentage),
-          transparent var(--total-hp-percentage)
+        90deg,
+        var(--color-primary-hp-bar) var(--total-hp-percentage),
+        transparent var(--total-hp-percentage)
       );
     }
 
@@ -131,24 +131,24 @@
   }
 
   &__delete-button {
-      padding: 0.25rem;
-      grid-area: delete;
+    padding: 0.25rem;
+    grid-area: delete;
   }
 
   &__delete-wrapper {
-      text-align: center;
+    text-align: center;
   }
 
   &__instructions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 5rem;
-      padding: 1rem;
-      margin: 1rem;
-      font-size: var(--a5e-text-size-md);
-      border: 2px solid #ccc;
-      border-radius: var(--a5e-border-radius-standard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: var(--a5e-text-size-md);
+    border: 2px solid #ccc;
+    border-radius: var(--a5e-border-radius-standard);
   }
 
   &__languages {
@@ -191,9 +191,9 @@
     &__spell-levels {
       grid-area: spellSlots;
       display: flex;
-      gap: 0.5rem;
-      padding: 0;
-      margin: 0;
+      gap: var(--a5e-spacing-sm);
+      padding: var(--a5e-spacing-none);
+      margin: var(--a5e-spacing-none);
       list-style: none;
     }
 
@@ -203,28 +203,28 @@
       text-align: center;
       line-height: 1;
 
-      &:before {
-        content: "\e2ca";
+      &::before {
+        content: '\e2ca';
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-family: "Font Awesome 6 Pro";
+        font-family: 'Font Awesome 6 Pro';
         font-size: var(--a5e-text-size-md);
         color: rgba(255, 255, 255, 0.22);
       }
 
       &--narrow {
-          width: 1.5rem;
+        width: 1.5rem;
       }
     }
 
     &__spell-slots {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0;
-      margin: 0;
+      gap: var(--a5e-spacing-sm);
+      padding: var(--a5e-spacing-none);
+      margin: var(--a5e-spacing-none);
       list-style: none;
     }
 
@@ -243,43 +243,43 @@
 
       &--spell-slot {
         width: 1.75rem;
-        margin: 0;
+        margin: var(--a5e-spacing-none);
       }
 
       &--narrow-spell-slot {
         width: 1.5rem;
       }
     }
-}
+  }
 
   &__sheet-lock {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      width: fit-content;
-      padding: 0 0.125rem;
-      margin-bottom: 0.25rem;
-      margin-right: auto;
-      font-size: var(--a5e-text-size-md);
-      color: #999;
-      opacity: 0.85;
-      background: transparent;
-      border: none;
-      cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    padding: 0 0.125rem;
+    margin-bottom: 0.25rem;
+    margin-right: auto;
+    font-size: var(--a5e-text-size-md);
+    color: #999;
+    opacity: 0.85;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 
-      transition: var(--a5e-transition-standard);
+    transition: var(--a5e-transition-standard);
 
-      &--locked {
-          color: var(--a5e-color-primary);
-      }
+    &--locked {
+      color: var(--a5e-color-primary);
+    }
 
-      &:focus,
-      &:hover {
-          transform: scale(1.1);
-          box-shadow: none;
-          outline: none;
-      }
+    &:focus,
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: none;
+      outline: none;
+    }
   }
 
   &__skills {
@@ -309,17 +309,17 @@
       grid-template-areas: var(--grid-areas);
       grid-template-columns: var(--grid-template);
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       height: 2rem;
       padding: 0 0.125rem;
       border: solid transparent;
       border-width: 0 0 1px;
       border-image: linear-gradient(
-          90deg,
-          var(--item-border-color-start, transparent) 0%,
-          var(--item-border-color-end, #d5cac1) 55%
+        90deg,
+        var(--item-border-color-start, transparent) 0%,
+        var(--item-border-color-end, #d5cac1) 55%
       )
-      1 repeat;
+        1 repeat;
       border-radius: 0;
 
       &__header {
@@ -330,7 +330,7 @@
         font-weight: bold;
         text-align: right;
         line-height: 1;
-        margin: 0;
+        margin: var(--a5e-spacing-none);
         font-family: var(--a5e-font-serif);
 
         &--no-actor-image {
@@ -351,7 +351,7 @@
       text-align: center;
       text-transform: uppercase;
       color: inherit;
-      margin: 0;
+      margin: var(--a5e-spacing-none);
     }
 
     &__value {

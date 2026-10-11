@@ -232,24 +232,24 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
     list-style: none;
 
     & > li {
-      margin: 0;
+      margin: var(--a5e-spacing-none);
     }
   }
 
   // .divider {
   //     border: 0;
   //     border-bottom: 0.5px solid #ccc;
-  //     margin: 0;
+  //     margin: var(--a5e-spacing-none);
   // }
 
   .global-bonus-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
   }
 </style>

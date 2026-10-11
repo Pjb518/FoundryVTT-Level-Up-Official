@@ -2,12 +2,11 @@
   import { setContext } from "svelte";
 
   import type { Tab } from "#view/navigation/data.ts";
-
-  import EffectDescriptionPage from "./pages/effect/EffectDescriptionPage.svelte";
-  import EffectChangesPage from "./pages/effect/EffectChangesPage.svelte";
-  import EffectPropertiesPage from "./pages/effect/EffectPropertiesPage.svelte";
-  import EffectSheetHeader from "./components/effect/EffectSheetHeader.svelte";
   import NavigationBar from "#view/navigation/NavigationBar.svelte";
+  import EffectSheetHeader from "./components/effect/EffectSheetHeader.svelte";
+  import EffectChangesPage from "./pages/effect/EffectChangesPage.svelte";
+  import EffectDescriptionPage from "./pages/effect/EffectDescriptionPage.svelte";
+  import EffectPropertiesPage from "./pages/effect/EffectPropertiesPage.svelte";
 
   type Props = {
     document: ActiveEffect;
@@ -54,12 +53,7 @@
 <main class="a5e-effect-sheet">
   <EffectSheetHeader />
 
-  <NavigationBar
-    {currentTab}
-    {tabs}
-    showLock={false}
-    onTabChange={updateCurrentTab}
-  />
+  <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
   <section class="a5e-effect-sheet__page">
     <currentTab.component />
@@ -79,7 +73,7 @@
       "page";
 
     grid-template-rows: min-content min-content minmax(0, 1fr);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
 
     padding: 0.5rem;
 

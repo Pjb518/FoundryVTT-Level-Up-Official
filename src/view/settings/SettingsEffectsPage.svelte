@@ -1,13 +1,12 @@
 <script lang="ts">
   import { getContext } from "svelte";
-
-  import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
+  import Checkbox from "#view/snippets/Checkbox.svelte";
 
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-  import Checkbox from "#view/snippets/Checkbox.svelte";
-  import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
+  import SettingsCustomIcon from "./SettingsCustomIcon.svelte";
 
   type Props = {
     reload?: boolean;
@@ -58,35 +57,24 @@
 
   let { reload = $bindable() }: Props = $props();
 
-  let settings: Record<string, { data: any; value: any }> =
-    getContext("settings");
+  let settings: Record<string, { data: any; value: any }> = getContext("settings");
   let updates: Map<string, any> = getContext("updates");
 
   let { conditions, conditionIconsDefault } = CONFIG.A5E;
 
   // Conditions Automation
-  const automatableConditions = Object.entries(conditions).reduce(
-    (acc, curr) => {
-      if (!["frightened"].includes(curr)) acc.push(curr);
-      return acc;
-    },
-    [],
-  );
+  const automatableConditions = Object.entries(conditions).reduce((acc, curr) => {
+    if (!["frightened"].includes(curr)) acc.push(curr);
+    return acc;
+  }, []);
 
   const iconSizeChoices = settings.effectsPanelIconSize.data.choices;
-  const conditionFlowDirectionChoices =
-    settings.conditionFlowDirection.data.choices;
+  const conditionFlowDirectionChoices = settings.conditionFlowDirection.data.choices;
 
-  let automateUnconscious = $derived(
-    settings["automateUnconsciousApplication"].value,
-  );
+  let automateUnconscious = $derived(settings["automateUnconsciousApplication"].value);
   let automatedConditions = $derived(settings["automatedConditions"].value);
-  let automateBloodied = $derived(
-    settings["automateBloodiedApplication"].value,
-  );
-  let conditionFlowDirection = $derived(
-    settings["conditionFlowDirection"].value,
-  );
+  let automateBloodied = $derived(settings["automateBloodiedApplication"].value);
+  let conditionFlowDirection = $derived(settings["conditionFlowDirection"].value);
   let showEffectsPanel = $derived(settings["showEffectsPanel"].value);
   let panelIconSize = $derived(settings["effectsPanelIconSize"].value);
   let panelOffset = $derived(settings["effectsPanelOffset"].value);
@@ -108,15 +96,10 @@
     updates.get("effectsPanelIconSize") ?? panelIconSize ?? "medium",
   );
 
-  let selectedOffset = $derived(
-    updates.get("effectsPanelOffset") ?? panelOffset,
-  );
+  let selectedOffset = $derived(updates.get("effectsPanelOffset") ?? panelOffset);
 </script>
 
-<Section
-  heading="A5E.settings.automateConditions"
-  --a5e-section-body-gap="0.5rem"
->
+<Section heading="A5E.settings.automateConditions" --a5e-section-body-gap="0.5rem">
   <!-- Condition Automation -->
   <CheckboxGroup
     hint="A5E.settings.hints.automateConditions"
@@ -132,9 +115,7 @@
   <FieldWrapper hint="A5E.settings.hints.automateBloodiedApplication">
     <Checkbox
       label="A5E.settings.automateBloodiedApplication"
-      checked={updates.get("automateBloodiedApplication") ??
-        automateBloodied ??
-        false}
+      checked={updates.get("automateBloodiedApplication") ?? automateBloodied ?? false}
       onUpdateSelection={(detail) => {
         updates.set("automateBloodiedApplication", detail);
         reload = true;
@@ -169,9 +150,7 @@
   <FieldWrapper hint="A5E.settings.hints.removeActiveEffectsOnLongRest">
     <Checkbox
       label="A5E.settings.removeActiveEffectsOnLongRest"
-      checked={updates.get("removeActiveEffectsOnLongRest") ??
-        removeEffects ??
-        false}
+      checked={updates.get("removeActiveEffectsOnLongRest") ?? removeEffects ?? false}
       onUpdateSelection={(detail) => {
         updates.set("removeActiveEffectsOnLongRest", detail);
       }}
@@ -293,8 +272,8 @@
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.25rem;
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
     list-style: none;
   }
 </style>

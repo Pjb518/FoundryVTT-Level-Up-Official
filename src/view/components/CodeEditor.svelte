@@ -44,8 +44,7 @@
 
   /** Handle Saving */
   function handleSave() {
-    const codeMirrorElement =
-      codeMirrorContainerEl?.querySelector("code-mirror");
+    const codeMirrorElement = codeMirrorContainerEl?.querySelector("code-mirror");
     const currentContent = codeMirrorElement?.value ?? content;
 
     try {
@@ -62,9 +61,7 @@
       ui.notifications?.info("Saved successfully");
     } catch (error) {
       console.log(error);
-      ui.notifications?.error(
-        `Invalid ${mergedConfig.language}: ${error.message}`,
-      );
+      ui.notifications?.error(`Invalid ${mergedConfig.language}: ${error.message}`);
 
       return;
     }
@@ -199,13 +196,13 @@
   .a5e-code-editor {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     height: var(--a5e-code-editor-height, 25rem);
     min-height: 0;
 
     &__heading {
       display: flex;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       align-items: center;
       font-weight: bold;
       font-family: var(--a5e-secondary-font);

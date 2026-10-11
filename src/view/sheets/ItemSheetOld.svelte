@@ -138,7 +138,7 @@
       "secondaryNavigation"
       "page";
     grid-template-rows: min-content min-content min-content minmax(0, 1fr);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
 
     padding-block: 0.5rem;
 

@@ -1,108 +1,108 @@
 <script lang="ts">
-    import ActorFilter from "#view/components/ActorFilter.svelte";
-    import Menu from "./Menu.svelte";
+  import ActorFilter from "#view/components/ActorFilter.svelte";
+  import Menu from "./Menu.svelte";
 
-    type Props = {
-        filterOptions: {
-            searchTerm: string;
-            searchDescription: boolean;
-            page?: string;
-        };
-        filters?: Record<string, (item: any) => boolean>;
-        searchBar?: boolean;
-        showAddIcon?: boolean;
-        addIconOptions?: string[][];
-        onAddIconClick?: (value: string) => void;
-        showDescription?: boolean;
-        showDescriptionButton?: boolean;
-        showSearchDescriptionButton?: boolean;
-        showFilters?: boolean;
-        showSortButton?: boolean;
-        sortHandler?: (reverse: boolean) => void;
-        subPage?: string;
-        children?: () => any;
+  type Props = {
+    filterOptions: {
+      searchTerm: string;
+      searchDescription: boolean;
+      page?: string;
     };
+    filters?: Record<string, (item: any) => boolean>;
+    searchBar?: boolean;
+    showAddIcon?: boolean;
+    addIconOptions?: string[][];
+    onAddIconClick?: (value: string) => void;
+    showDescription?: boolean;
+    showDescriptionButton?: boolean;
+    showSearchDescriptionButton?: boolean;
+    showFilters?: boolean;
+    showSortButton?: boolean;
+    sortHandler?: (reverse: boolean) => void;
+    subPage?: string;
+    children?: () => any;
+  };
 
-    let {
-        filterOptions = $bindable(),
-        searchBar = true,
-        showAddIcon = false,
-        onAddIconClick = () => {},
-        addIconOptions = [],
-        showDescription = $bindable(),
-        showDescriptionButton = false,
-        showSearchDescriptionButton = false,
-        showFilters = false,
-        showSortButton = false,
-        sortHandler = () => {},
-        subPage = "",
-        children,
-    }: Props = $props();
+  let {
+    filterOptions = $bindable(),
+    searchBar = true,
+    showAddIcon = false,
+    onAddIconClick = () => {},
+    addIconOptions = [],
+    showDescription = $bindable(),
+    showDescriptionButton = false,
+    showSearchDescriptionButton = false,
+    showFilters = false,
+    showSortButton = false,
+    sortHandler = () => {},
+    subPage = "",
+    children,
+  }: Props = $props();
 
-    let showMenu = $state(false);
+  let showMenu = $state(false);
 </script>
 
 <section class="a5e-utility-bar">
-    <!-- Search Bar -->
-    {#if searchBar}
-        <div class="a5e-utility-bar__search-container">
-            <input
-                class="a5e-input a5e-input--slim a5e-utility-bar__search-bar"
-                type="text"
-                bind:value={filterOptions.searchTerm}
-                placeholder={game.i18n.localize("Search ...")}
-            />
-        </div>
-    {/if}
+  <!-- Search Bar -->
+  {#if searchBar}
+    <div class="a5e-utility-bar__search-container">
+      <input
+        class="a5e-input a5e-input--slim a5e-utility-bar__search-bar"
+        type="text"
+        bind:value={filterOptions.searchTerm}
+        placeholder={game.i18n.localize("Search ...")}
+      />
+    </div>
+  {/if}
 
-    <!-- Show Description Button -->
-    {#if showDescriptionButton}
-        <button
-            type="button"
-            class="a5e-button a5e-button--transparent"
-            onclick={() => (showDescription = !showDescription)}
-            data-tooltip={showDescription
-                ? game.i18n.localize("Hide All Descriptions")
-                : game.i18n.localize("Show All Descriptions")}
-            data-tooltip-direction="UP"
-            aria-label="Toggle Show Description"
-        >
-            <i class="fa-solid fa-info-circle"></i>
-        </button>
-    {/if}
+  <!-- Show Description Button -->
+  {#if showDescriptionButton}
+    <button
+      type="button"
+      class="a5e-button a5e-button--transparent"
+      onclick={() => (showDescription = !showDescription)}
+      data-tooltip={showDescription
+        ? game.i18n.localize("Hide All Descriptions")
+        : game.i18n.localize("Show All Descriptions")}
+      data-tooltip-direction="UP"
+      aria-label="Toggle Show Description"
+    >
+      <i class="fa-solid fa-info-circle"></i>
+    </button>
+  {/if}
 
-    <!-- Sort -->
-    {#if showSortButton}
-        <button
-            type="button"
-            class="a5e-button a5e-button--transparent"
-            data-tooltip="Sort Alphabetically Ascending"
-            data-tooltip-direction="UP"
-            aria-label="Sort Alphabetically Ascending"
-            onclick={() => sortHandler(false)}
-        >
-            <i class="fa-solid fa-arrow-down-a-z"></i>
-        </button>
+  <!-- Sort -->
+  {#if showSortButton}
+    <button
+      type="button"
+      class="a5e-button a5e-button--transparent"
+      data-tooltip="Sort Alphabetically Ascending"
+      data-tooltip-direction="UP"
+      aria-label="Sort Alphabetically Ascending"
+      onclick={() => sortHandler(false)}
+    >
+      <i class="fa-solid fa-arrow-down-a-z"></i>
+    </button>
 
-        <button
-            type="button"
-            class="a5e-button a5e-button--transparent"
-            data-tooltip="Sort Alphabetically Descending"
-            data-tooltip-direction="UP"
-            aria-label="Sort Alphabetically Descending"
-            onclick={() => sortHandler(true)}
-        >
-            <i class="fa-solid fa-arrow-down-z-a"></i>
-        </button>
-    {/if}
+    <button
+      type="button"
+      class="a5e-button a5e-button--transparent"
+      data-tooltip="Sort Alphabetically Descending"
+      data-tooltip-direction="UP"
+      aria-label="Sort Alphabetically Descending"
+      onclick={() => sortHandler(true)}
+    >
+      <i class="fa-solid fa-arrow-down-z-a"></i>
+    </button>
+  {/if}
 
-    <!-- Filters -->
-    {#if showFilters}
-        <ActorFilter page={filterOptions.page!} {subPage} />
-    {/if}
+  <!-- Filters -->
+  {#if showFilters}
+    <ActorFilter page={filterOptions.page!} {subPage} />
+  {/if}
 
-    <!-- Add Menu -->
-    <!-- {#if showAddIcon}
+  <!-- Add Menu -->
+  <!-- {#if showAddIcon}
         <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Add Document"
@@ -128,56 +128,56 @@
         </button>
     {/if} -->
 
-    {#if showAddIcon}
-        {#if addIconOptions.length}
-            <Menu
-                menuItems={addIconOptions.map(([value, label]) => ({
-                    name: value,
-                    label: game.i18n.localize(label),
-                    onClick: () => {
-                        onAddIconClick(value);
-                    },
-                }))}
-                menuPosition={{ x: -265, y: 32 }}
-                --a5e-context-menu-font-size="var(--a5e-xs-text)"
-            />
-        {:else}
-            <button
-                type="button"
-                class="a5e-button a5e-button--transparent"
-                data-tooltip="Add Document"
-                data-tooltip-direction="UP"
-                aria-label="Add Document"
-                onclick={() => onAddIconClick?.()}
-            >
-                <i class="fa-solid fa-plus"></i>
-            </button>
-        {/if}
+  {#if showAddIcon}
+    {#if addIconOptions.length}
+      <Menu
+        menuItems={addIconOptions.map(([value, label]) => ({
+          name: value,
+          label: game.i18n.localize(label),
+          onClick: () => {
+            onAddIconClick(value);
+          },
+        }))}
+        menuPosition={{ x: -265, y: 32 }}
+        --a5e-context-menu-font-size="var(--a5e-xs-text)"
+      />
+    {:else}
+      <button
+        type="button"
+        class="a5e-button a5e-button--transparent"
+        data-tooltip="Add Document"
+        data-tooltip-direction="UP"
+        aria-label="Add Document"
+        onclick={() => onAddIconClick?.()}
+      >
+        <i class="fa-solid fa-plus"></i>
+      </button>
     {/if}
+  {/if}
 
-    <!-- Other -->
-    {@render children?.()}
+  <!-- Other -->
+  {@render children?.()}
 </section>
 
 <style lang="scss">
-    .a5e-utility-bar {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.75rem;
-        padding-right: 0.25rem;
-        margin-block: 0 0.5rem;
-        font-size: var(--a5e-md-text);
-        color: var(--a5e-button-gray);
+  .a5e-utility-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--a5e-spacing-md);
+    padding-right: 0.25rem;
+    margin-block: 0 0.5rem;
+    font-size: var(--a5e-md-text);
+    color: var(--a5e-button-gray);
 
-        &__search-container {
-            flex-grow: 1;
-            font-size: var(--a5e-sm-text);
-        }
-
-        &__search-bar {
-            border-radius: var(--a5e-border-radius-standard);
-        }
+    &__search-container {
+      flex-grow: 1;
+      font-size: var(--a5e-sm-text);
     }
+
+    &__search-bar {
+      border-radius: var(--a5e-border-radius-standard);
+    }
+  }
 </style>

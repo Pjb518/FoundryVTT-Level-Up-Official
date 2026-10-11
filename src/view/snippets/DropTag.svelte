@@ -109,7 +109,7 @@
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     padding: 0.25rem;
     border-radius: 4px;
     font-size: var(--a5e-drop-tag-font-size, inherit);

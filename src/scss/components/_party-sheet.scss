@@ -2,8 +2,8 @@
   &__actor-img {
     width: 100%;
     aspect-ratio: 1 / 1;
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
     object-fit: cover;
     object-position: 50% 0;
   }
@@ -27,7 +27,7 @@
   &__actions {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
 
     &__dc {
       display: flex;
@@ -61,7 +61,7 @@
     &__members {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: var(--a5e-spacing-md);
     }
 
     &__img {
@@ -130,7 +130,7 @@
     &-overview {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: var(--a5e-spacing-md);
       padding-inline: 0.25rem;
       padding-block: 0.5rem;
       border: 1px solid var(--a5e-border-color);
@@ -140,7 +140,7 @@
 
     &-members {
       display: grid;
-      gap: 0.75rem;
+      gap: var(--a5e-spacing-md);
       flex: 1;
       min-height: 0;
 
@@ -155,7 +155,7 @@
         'img defense'
         'img skills';
       grid-template-columns: 6rem 1fr;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
 
       &__img {
         grid-area: img;
@@ -190,7 +190,7 @@
 
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--a5e-spacing-sm);
         font-size: var(--a5e-md-text);
       }
 
@@ -223,7 +223,7 @@
         display: grid;
         grid-template-areas: 'ac saves traits';
         grid-template-columns: 2rem max-content 1fr;
-        gap: 0.5rem;
+        gap: var(--a5e-spacing-sm);
         align-items: center;
         justify-items: center;
       }
@@ -314,7 +314,7 @@
     display: grid;
     grid-template-areas: 'aside inventory';
     grid-template-columns: 12rem 1fr;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     height: 100%;
     min-height: 0;
     flex: 1;
@@ -325,7 +325,7 @@
 
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       font-size: var(--a5e-sm-text);
       min-height: 0;
       overflow-y: auto;
@@ -377,7 +377,7 @@
         display: grid;
         grid-template-areas: 'img wealth';
         grid-template-columns: 2rem 1fr;
-        gap: 0.5rem;
+        gap: var(--a5e-spacing-sm);
       }
     }
 

@@ -13,10 +13,7 @@
   let { document, abilityKey }: Props = $props();
 
   let actor = document;
-  const hideExpertiseDice = game.settings.get(
-    "a5e",
-    "hideExpertiseDice",
-  ) as boolean;
+  const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
 
   let ability = $derived(actor.reactive.system.abilities[abilityKey]);
 </script>
@@ -39,10 +36,7 @@
     </Section>
   {/if}
 
-  <Section
-    heading="Saving Throw Configuration"
-    --a5e-section-body-gap="0.75rem"
-  >
+  <Section heading="Saving Throw Configuration" --a5e-section-body-gap="0.75rem">
     <FieldWrapper
       hint="Determines whether to add this actor's proficiency bonus to its saving throws"
     >
@@ -99,7 +93,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 0.75rem;
+    padding: var(--a5e-spacing-md);
     gap: 1rem;
     overflow: auto;
   }

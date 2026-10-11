@@ -42,10 +42,7 @@
         label: "A5E.objects.equipment",
         icon: "fa-solid fa-box-open",
         component: ItemEquipmentPage,
-        display:
-          item.type === "object" &&
-          itemData.objectType === "container" &&
-          canEdit,
+        display: item.type === "object" && itemData.objectType === "container" && canEdit,
       },
       {
         name: "actions",
@@ -109,12 +106,7 @@
   <main class="a5e-item-sheet__main">
     <ItemSheetHeader />
 
-    <NavigationBar
-      {currentTab}
-      {tabs}
-      showLock={false}
-      onTabChange={updateCurrentTab}
-    />
+    <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
     <section class="a5e-item-sheet__page">
       <currentTab.component />
@@ -126,7 +118,7 @@
   .a5e-item-sheet {
     display: grid;
     grid-template-columns: 2fr 4fr;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     height: 100%;
     padding-right: 0.25rem;
     overflow: auto;
@@ -142,7 +134,7 @@
         "primaryNavigation"
         "page";
       grid-template-rows: min-content min-content minmax(0, 1fr);
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
 
       &__page {
         grid-area: page;

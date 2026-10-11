@@ -1,100 +1,99 @@
 <script>
-    import { localize } from "#utils/localization/localize.ts";
+  import { localize } from "#utils/localization/localize.ts";
 
-    function getSpellComponents(item) {
-        if (!item?.system?.components) return [];
+  function getSpellComponents(item) {
+    if (!item?.system?.components) return [];
 
-        const { spellComponents, spellComponentAbbreviations } = CONFIG.A5E;
+    const { spellComponents, spellComponentAbbreviations } = CONFIG.A5E;
 
-        const components = Object.entries(item.system.components)
-            .filter(([, hasComponent]) => hasComponent)
-            .map(([component]) => ({
-                label: spellComponentAbbreviations[component] ?? component,
-                tooltip: spellComponents[component] ?? component,
-            }));
+    const components = Object.entries(item.system.components)
+      .filter(([, hasComponent]) => hasComponent)
+      .map(([component]) => ({
+        label: spellComponentAbbreviations[component] ?? component,
+        tooltip: spellComponents[component] ?? component,
+      }));
 
-        if (item.system.concentration) {
-            components.push({
-                label: localize("A5E.spells.concentrationAbbr"),
-                tooltip: localize("A5E.SpellConcentration"),
-            });
-        }
-
-        if (item.system.ritual) {
-            components.push({
-                label: localize("A5E.spells.ritualAbbr"),
-                tooltip: localize("A5E.spells.ritual"),
-            });
-        }
-
-        return components;
+    if (item.system.concentration) {
+      components.push({
+        label: localize("A5E.spells.concentrationAbbr"),
+        tooltip: localize("A5E.SpellConcentration"),
+      });
     }
 
-    export let message;
+    if (item.system.ritual) {
+      components.push({
+        label: localize("A5E.spells.ritualAbbr"),
+        tooltip: localize("A5E.spells.ritual"),
+      });
+    }
 
-    const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
-    const spellComponents = getSpellComponents(item);
-    const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
+    return components;
+  }
 
-    const castingLevel =
-        CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
+  export let message;
+
+  const item = fromUuidSync($message?.flags?.a5e?.itemId ?? "");
+  const spellComponents = getSpellComponents(item);
+  const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
+
+  const castingLevel = CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
 </script>
 
 {#if item?.type === "spell"}
-    <hr class="a5e-rule a5e-rule--card" style="margin-block: 0.5rem;" />
+  <hr class="a5e-rule a5e-rule--card" style="margin-block: 0.5rem;" />
 
-    <footer class="card-footer">
-        <span class="spell-level">
-            {spellLevel}
+  <footer class="card-footer">
+    <span class="spell-level">
+      {spellLevel}
 
-            {#if castingLevel && spellLevel !== castingLevel}
-                (Cast at {castingLevel})
-            {/if}
-        </span>
+      {#if castingLevel && spellLevel !== castingLevel}
+        (Cast at {castingLevel})
+      {/if}
+    </span>
 
-        {#if spellComponents.length}
-            <ul class="component-wrapper">
-                {#each spellComponents as component}
-                    <li
-                        class="component"
-                        data-tooltip={component.tooltip}
-                        data-tooltip-direction="UP"
-                    >
-                        {component.label}
-                    </li>
-                {/each}
-            </ul>
-        {/if}
-    </footer>
+    {#if spellComponents.length}
+      <ul class="component-wrapper">
+        {#each spellComponents as component}
+          <li
+            class="component"
+            data-tooltip={component.tooltip}
+            data-tooltip-direction="UP"
+          >
+            {component.label}
+          </li>
+        {/each}
+      </ul>
+    {/if}
+  </footer>
 {/if}
 
 <style lang="scss">
-    .card-footer {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--a5e-spacing-md);
+  }
 
-    .component-wrapper {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        gap: 0.25rem;
-    }
+  .component-wrapper {
+    display: flex;
+    list-style: none;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
+    gap: 0.25rem;
+  }
 
-    .component {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1rem;
-        width: 1rem;
-        border-radius: var(--a5e-border-radius-standard);
-        font-size: var(--a5e-text-size-xxs);
-        background: var(--indicator-background, #c6c5bc);
-    }
+  .component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    width: 1rem;
+    border-radius: var(--a5e-border-radius-standard);
+    font-size: var(--a5e-text-size-xxs);
+    background: var(--indicator-background, #c6c5bc);
+  }
 
-    .spell-level {
-        font-size: var(--a5e-text-size-xs);
-    }
+  .spell-level {
+    font-size: var(--a5e-text-size-xs);
+  }
 </style>

@@ -122,9 +122,7 @@
 
   let grant = $derived(item.reactive.system.grants[grantId]) as FeatureGrant;
   let baseFeatures = $derived(getFeatureData(grant.config.features.base ?? []));
-  let optionalFeatures = $derived(
-    getFeatureData(grant.config.features.options ?? []),
-  );
+  let optionalFeatures = $derived(getFeatureData(grant.config.features.options ?? []));
 
   let selectionType = $derived(grant.config.selectionType || "pool");
   let filtersText = $derived(getFiltersText(grant));
@@ -156,8 +154,7 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) =>
-          onUpdateValue("name", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
@@ -167,8 +164,7 @@
       options={Object.entries(selectionTypeOpts)}
       selected={selectionType}
       allowDeselect={false}
-      onUpdateSelection={(value) =>
-        onUpdateValue("config.selectionType", value)}
+      onUpdateSelection={(value) => onUpdateValue("config.selectionType", value)}
     />
   </Section>
 
@@ -177,8 +173,7 @@
       <DropArea
         type="uuid"
         documentType="Item"
-        onDocumentDropped={(data) =>
-          onDropUpdate("config.features.base", data.uuid)}
+        onDocumentDropped={(data) => onDropUpdate("config.features.base", data.uuid)}
       />
 
       {#if baseFeatures.length > 0}
@@ -194,18 +189,11 @@
           <hr class="feature-table__rule" />
 
           {#each baseFeatures as feature, idx}
-            <img
-              class="feature-table__img"
-              src={feature.img}
-              alt={feature.name}
-            />
+            <img class="feature-table__img" src={feature.img} alt={feature.name} />
 
             <!-- svelte-ignore a11y_no_static_element_interactions -->
             <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <span
-              class="feature-table__name"
-              onclick={() => openDocument(feature.uuid)}
-            >
+            <span class="feature-table__name" onclick={() => openDocument(feature.uuid)}>
               {feature.name}
             </span>
 
@@ -214,12 +202,7 @@
               type="checkbox"
               checked={feature.limitedReselection ?? true}
               onchange={({ currentTarget }) =>
-                updateFeature(
-                  "base",
-                  idx,
-                  "limitedReselection",
-                  currentTarget.checked,
-                )}
+                updateFeature("base", idx, "limitedReselection", currentTarget.checked)}
             />
 
             <span class="feature-table__selection-limit">
@@ -265,8 +248,7 @@
       <DropArea
         type="uuid"
         documentType="Item"
-        onDocumentDropped={(data) =>
-          onDropUpdate("config.features.options", data.uuid)}
+        onDocumentDropped={(data) => onDropUpdate("config.features.options", data.uuid)}
       />
 
       {#if optionalFeatures.length > 0}
@@ -282,18 +264,11 @@
           <hr class="feature-table__rule" />
 
           {#each optionalFeatures as feature, idx}
-            <img
-              class="feature-table__img"
-              src={feature.img}
-              alt={feature.name}
-            />
+            <img class="feature-table__img" src={feature.img} alt={feature.name} />
 
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <span
-              class="feature-table__name"
-              onclick={() => openDocument(feature.uuid)}
-            >
+            <span class="feature-table__name" onclick={() => openDocument(feature.uuid)}>
               {feature.name}
             </span>
 
@@ -388,9 +363,7 @@
           : (grant.config.pool.count ?? 1)}
         onchange={({ currentTarget }) => {
           const key =
-            selectionType === "limited"
-              ? "config.features.total"
-              : "config.pool.count";
+            selectionType === "limited" ? "config.features.total" : "config.pool.count";
           onUpdateValue(key, Number(currentTarget.value));
         }}
       />
@@ -403,7 +376,7 @@
     display: grid;
     grid-template-columns: 2rem 1fr max-content max-content 2rem;
     align-items: center;
-    column-gap: 0.75rem;
+    column-gap: var(--a5e-spacing-md);
     row-gap: 0.25rem;
     margin-top: 0.5rem;
     padding: 0.25rem;

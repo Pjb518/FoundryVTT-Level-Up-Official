@@ -102,7 +102,7 @@
   let style = $derived(`${colorStyles} ${optionStyles}`);
 </script>
 
-<li style="margin: 0;">
+<li style="margin: var(--a5e-spacing-none);">
   <button
     class="tag"
     type="button"

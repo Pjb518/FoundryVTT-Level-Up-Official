@@ -50,9 +50,7 @@
 
     onUpdateValue(
       `config.maneuvers.${type}`,
-      maneuvers
-        .filter((_, i) => i !== idx)
-        .map(({ uuid }) => ({ uuid })),
+      maneuvers.filter((_, i) => i !== idx).map(({ uuid }) => ({ uuid })),
     );
   }
 
@@ -119,12 +117,8 @@
   const { A5E } = CONFIG;
 
   let grant = $derived(item.reactive.system.grants[grantId]) as ManeuverGrant;
-  let baseManeuvers = $derived(
-    getManeuverData(grant.config.maneuvers.base ?? []),
-  );
-  let optionalManeuvers = $derived(
-    getManeuverData(grant.config.maneuvers.options ?? []),
-  );
+  let baseManeuvers = $derived(getManeuverData(grant.config.maneuvers.base ?? []));
+  let optionalManeuvers = $derived(getManeuverData(grant.config.maneuvers.options ?? []));
   let consumerType = $derived(grant.config.consumerData.type ?? "exertionDefault");
   let selectionType = $derived(grant.config.selectionType || "pool");
   let filtersText = $derived(getFiltersText(grant));
@@ -165,79 +159,70 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) =>
-          onUpdateValue("name", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
 
-  <Section
-    heading="A5E.grants.maneuver.selectionType"
-    --a5e-section-margin="0.25rem 0"
-  >
+  <Section heading="A5E.grants.maneuver.selectionType" --a5e-section-margin="0.25rem 0">
     <RadioGroup
       options={Object.entries(selectionTypeOpts)}
       selected={selectionType}
       allowDeselect={false}
-      onUpdateSelection={(value) =>
-        onUpdateValue("config.selectionType", value)}
+      onUpdateSelection={(value) => onUpdateValue("config.selectionType", value)}
     />
   </Section>
 
   {#if selectionType === "limited"}
-  {#each sections as { type, heading } (type)}
-    {@const maneuvers = type === "base" ? baseManeuvers : optionalManeuvers}
+    {#each sections as { type, heading } (type)}
+      {@const maneuvers = type === "base" ? baseManeuvers : optionalManeuvers}
 
-    <Section {heading} --a5e-section-margin="0.25rem 0">
-      <DropArea
-        type="uuid"
-        documentType="Item"
-        onDocumentDropped={(data) => onDropUpdate(type, data.uuid)}
-      />
+      <Section {heading} --a5e-section-margin="0.25rem 0">
+        <DropArea
+          type="uuid"
+          documentType="Item"
+          onDocumentDropped={(data) => onDropUpdate(type, data.uuid)}
+        />
 
-      {#if maneuvers.length > 0}
-        <div class="maneuver-table">
-          <header class="maneuver-table__header">
-            <span class="maneuver-table__heading"></span>
-            <span class="maneuver-table__heading"></span>
-            <span class="maneuver-table__heading"></span>
-          </header>
+        {#if maneuvers.length > 0}
+          <div class="maneuver-table">
+            <header class="maneuver-table__header">
+              <span class="maneuver-table__heading"></span>
+              <span class="maneuver-table__heading"></span>
+              <span class="maneuver-table__heading"></span>
+            </header>
 
-          <hr class="maneuver-table__rule" />
+            <hr class="maneuver-table__rule" />
 
-          {#each maneuvers as maneuver, idx (maneuver.uuid)}
-            <img
-              class="maneuver-table__img"
-              src={maneuver.img}
-              alt={maneuver.name}
-            />
+            {#each maneuvers as maneuver, idx (maneuver.uuid)}
+              <img class="maneuver-table__img" src={maneuver.img} alt={maneuver.name} />
 
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <span
-              class="maneuver-table__name"
-              onclick={() => openDocument(maneuver.uuid)}
-            >
-              {maneuver.name}
-            </span>
+              <!-- svelte-ignore a11y_no_static_element_interactions -->
+              <!-- svelte-ignore a11y_click_events_have_key_events -->
+              <span
+                class="maneuver-table__name"
+                onclick={() => openDocument(maneuver.uuid)}
+              >
+                {maneuver.name}
+              </span>
 
-            <button
-              type="button"
-              class="maneuver-table__delete-button"
-              aria-label="Delete Maneuver"
-              onclick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                removeManeuver(type, idx);
-              }}
-            >
-              <i class="icon fa-solid fa-trash"></i>
-            </button>
-          {/each}
-        </div>
-      {/if}
-    </Section>
-  {/each}
+              <button
+                type="button"
+                class="maneuver-table__delete-button"
+                aria-label="Delete Maneuver"
+                onclick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  removeManeuver(type, idx);
+                }}
+              >
+                <i class="icon fa-solid fa-trash"></i>
+              </button>
+            {/each}
+          </div>
+        {/if}
+      </Section>
+    {/each}
   {:else if selectionType === "pool"}
     <Section
       heading="A5E.grants.maneuver.poolFilters"
@@ -254,10 +239,7 @@
     </Section>
   {/if}
 
-  <Section
-    heading="A5E.grants.maneuver.maneuverConfig"
-    --a5e-section-body-gap="0.75rem"
-  >
+  <Section heading="A5E.grants.maneuver.maneuverConfig" --a5e-section-body-gap="0.75rem">
     <!-- Consumer Type -->
     <FieldWrapper heading="A5E.grants.maneuver.consumerType">
       <RadioGroup
@@ -336,9 +318,7 @@
           : (grant.config.pool.count ?? 1)}
         onchange={({ currentTarget }) => {
           const key =
-            selectionType === "limited"
-              ? "config.maneuvers.total"
-              : "config.pool.count";
+            selectionType === "limited" ? "config.maneuvers.total" : "config.pool.count";
           onUpdateValue(key, Number(currentTarget.value));
         }}
       />
@@ -351,7 +331,7 @@
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
     align-items: center;
-    column-gap: 0.75rem;
+    column-gap: var(--a5e-spacing-md);
     row-gap: 0.25rem;
     margin-top: 0.5rem;
     padding: 0.25rem;

@@ -1,105 +1,105 @@
 .a5e-field-wrapper {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: var(--a5e-field-wrapper-direction, column);
+  flex-wrap: var(--a5e-field-wrapper-wrap, wrap);
+  flex-grow: var(--a5e-field-wrapper-grow, 0);
+  align-items: var(--a5e-field-wrapper-item-alignment, initial);
+  justify-content: var(--a5e-field-wrapper-item-justification, initial);
+  gap: var(--a5e-field-wrapper-gap, 0.375rem);
+  width: var(--a5e-field-wrapper-width, initial);
+  margin: var(--a5e-field-wrapper-margin, 0);
+  padding: var(--a5e-field-wrapper-padding, 0);
+  background: var(--a5e-field-wrapper-background, transparent);
+  border: var(--a5e-field-wrapper-border, none);
+  border-color: var(--a5e-field-wrapper-border-color);
+  border-radius: var(
+    --a5e-field-wrapper-border-radius,
+    var(--a5e-border-radius-standard),
+    initial
+  );
+
+  &__header {
     display: flex;
-    flex-direction: var(--a5e-field-wrapper-direction, column);
-    flex-wrap: var(--a5e-field-wrapper-wrap, wrap);
-    flex-grow: var(--a5e-field-wrapper-grow, 0);
-    align-items: var(--a5e-field-wrapper-item-alignment, initial);
-    justify-content: var(--a5e-field-wrapper-item-justification, initial);
-    gap: var(--a5e-field-wrapper-gap, 0.375rem);
-    width: var(--a5e-field-wrapper-width, initial);
-    margin: var(--a5e-field-wrapper-margin, 0);
-    padding: var(--a5e-field-wrapper-padding, 0);
-    background: var(--a5e-field-wrapper-background, transparent);
-    border: var(--a5e-field-wrapper-border, none);
-    border-color: var(--a5e-field-wrapper-border-color);
-    border-radius: var(
-        --a5e-field-wrapper-border-radius,
-        var(--a5e-border-radius-standard),
-        initial
+    align-items: center;
+    justify-content: var(
+      --a5e-field-wrapper-header-item-justification,
+      space-between
     );
+    gap: var(--a5e-field-wrapper-header-gap, 0);
+    width: var(--a5e-field-wrapper-header-width, auto);
+  }
 
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: var(
-            --a5e-field-wrapper-header-item-justification,
-            space-between
-        );
-        gap: var(--a5e-field-wrapper-header-gap, 0);
-        width: var(--a5e-field-wrapper-header-width, auto);
+  &__header-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--a5e-field-wrapper-button-wrapper-gap, 0.25rem);
+    justify-content: flex-end;
+  }
+
+  &__header-button {
+    background: transparent;
+    line-height: 1;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
+    border: 0;
+    font-size: var(--a5e-xs-text);
+    margin-inline: 0.25rem;
+    color: var(
+      --a5e-header-button-color,
+      var(--a5e-field-wrapper-header-button-color, inherit)
+    );
+    transition: var(--a5e-transition-standard);
+
+    &--scale:hover {
+      transform: scale(1.2);
     }
 
-    &__header-button-wrapper {
-        display: flex;
-        align-items: center;
-        gap: var(--a5e-field-wrapper-button-wrapper-gap, 0.25rem);
-        justify-content: flex-end;
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      outline: none;
+      border: 0;
+      background: transparent;
+      color: var(
+        --a5e-header-button-color-hover,
+        var(--a5e-field-wrapper-header-button-color-hover, initial)
+      );
     }
+  }
 
-    &__header-button {
-        background: transparent;
-        line-height: 1;
-        padding: 0;
-        margin: 0;
-        border: 0;
-        font-size: var(--a5e-xs-text);
-        margin-inline: 0.25rem;
-        color: var(
-            --a5e-header-button-color,
-            var(--a5e-field-wrapper-header-button-color, inherit)
-        );
-        transition: var(--a5e-transition-standard);
+  &__heading {
+    font-family: var(
+      --a5e-field-wrapper-heading-font,
+      var(--a5e-secondary-font)
+    );
+    font-size: var(--a5e-field-wrapper-heading-size, var(--a5e-sm-text));
+    font-weight: var(--a5e-field-wrapper-heading-weight, 700);
+    flex-shrink: 1;
+    width: var(--a5e-field-wrapper-label-width, auto);
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
 
-        &--scale:hover {
-            transform: scale(1.2);
-        }
+  &__hint {
+    flex-shrink: var(--a5e-field-wrapper-hint-shrink, 1);
+  }
 
-        &:focus,
-        &:hover {
-            box-shadow: none;
-            outline: none;
-            border: 0;
-            background: transparent;
-            color: var(
-                --a5e-header-button-color-hover,
-                var(--a5e-field-wrapper-header-button-color-hover, initial)
-            );
-        }
-    }
+  &__hint,
+  &__warning {
+    display: block;
+    width: 100%;
+    margin: var(--a5e-spacing-none);
+    padding-right: 0.25rem;
+    font-family: var(
+      --a5e-field-wrapper-info-font,
+      var(--a5e-secondary-font)
+    );
+    font-size: var(--a5e-field-wrapper-info-text-size, var(--a5e-xs-text));
+  }
 
-    &__heading {
-        font-family: var(
-            --a5e-field-wrapper-heading-font,
-            var(--a5e-secondary-font)
-        );
-        font-size: var(--a5e-field-wrapper-heading-size, var(--a5e-sm-text));
-        font-weight: var(--a5e-field-wrapper-heading-weight, 700);
-        flex-shrink: 1;
-        width: var(--a5e-field-wrapper-label-width, auto);
-        border-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    &__hint {
-        flex-shrink: var(--a5e-field-wrapper-hint-shrink, 1);
-    }
-
-    &__hint,
-    &__warning {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding-right: 0.25rem;
-        font-family: var(
-            --a5e-field-wrapper-info-font,
-            var(--a5e-secondary-font)
-        );
-        font-size: var(--a5e-field-wrapper-info-text-size, var(--a5e-xs-text));
-    }
-
-    &__warning {
-        flex-shrink: var(--a5e-field-wrapper-warning-shrink, 1);
-        color: var(--a5e-field-wrapper-color-warning, var(--a5e-color-warning));
-    }
+  &__warning {
+    flex-shrink: var(--a5e-field-wrapper-warning-shrink, 1);
+    color: var(--a5e-field-wrapper-color-warning, var(--a5e-color-warning));
+  }
 }

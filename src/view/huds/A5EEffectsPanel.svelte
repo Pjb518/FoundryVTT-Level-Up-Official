@@ -6,11 +6,7 @@
     const statuses = effect?.statuses;
 
     if (statuses?.size === 1) {
-      if (
-        subConditions[statuses.first()]?.some((c) =>
-          activeConditions.includes(c),
-        )
-      )
+      if (subConditions[statuses.first()]?.some((c) => activeConditions.includes(c)))
         return;
       const id = statuses.first();
       const src = effect.img;
@@ -26,9 +22,7 @@
 
     if (
       statuses?.size === 1 &&
-      ["corruption", "fatigue", "inebriated", "strife"].includes(
-        statuses.first(),
-      )
+      ["corruption", "fatigue", "inebriated", "strife"].includes(statuses.first())
     ) {
       const id = statuses.first();
       const src = effect.img;
@@ -50,9 +44,7 @@
   }
 
   function convertRemToPixels(rem) {
-    return (
-      rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
-    );
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   }
 
   function getIconSize(size) {
@@ -67,9 +59,7 @@
   let panelLeft = $derived(299 - (panelOffset.right ?? 0));
   let panelBottom = $derived(69 + 5 + (panelOffset.bottom ?? 0));
 
-  let panelIconSize = $derived(
-    game.settings.get("a5e", "effectsPanelIconSize"),
-  );
+  let panelIconSize = $derived(game.settings.get("a5e", "effectsPanelIconSize"));
   let iconSize = $derived(getIconSize(panelIconSize));
 
   let token = $state(canvas.tokens.controlled.at(0)?.document ?? null);
@@ -175,9 +165,7 @@
           {name}
           conditionId={statuses.first()}
           linked={flags?.a5e?.source ?? null}
-          --icon-size={effects.length > maxIconsPerColumn
-            ? iconSize[0]
-            : iconSize[1]}
+          --icon-size={effects.length > maxIconsPerColumn ? iconSize[0] : iconSize[1]}
           onDeleteEffect={() => removeEffect(_id)}
           onIncreaseCounter={() => increaseCounter(_id)}
         />
@@ -200,10 +188,10 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     max-height: calc(100vh - var(--bottom));
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
     list-style: none;
     direction: rtl;
   }

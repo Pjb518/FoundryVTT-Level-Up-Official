@@ -15,8 +15,7 @@
     toggleContainer?: () => void;
   };
 
-  let { item, action, actionId, toggleActionList, toggleContainer }: Props =
-    $props();
+  let { item, action, actionId, toggleActionList, toggleContainer }: Props = $props();
 
   function getActivationCost() {
     let _action = action;
@@ -190,10 +189,7 @@
       action: {
         value: action ? action.uses?.value : 0,
         max: action
-          ? getDeterministicBonus(
-              action.uses?.max ?? 0,
-              actor.getRollData(item),
-            )
+          ? getDeterministicBonus(action.uses?.max ?? 0, actor.getRollData(item))
           : 0,
         updatePath: `system.actions.${actionId}.uses`,
       },
@@ -247,17 +243,12 @@
     PREPARED_STATES,
   } = CONFIG.A5E;
 
-  let hideBrokenAndDamaged = game.settings.get(
-    "a5e",
-    "hideBrokenAndDamaged",
-  ) as boolean;
+  let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged") as boolean;
 
   let usesType: "action" | "item" = actionId ? "action" : "item";
 
-  let rightClickConfigure = (game.settings.get(
-    "a5e",
-    "itemRightClickConfigure",
-  ) ?? false) as boolean;
+  let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
+    false) as boolean;
 
   let flags = $derived(actor.reactive.flags);
   let isClassResource = $derived.by(() => {
@@ -273,16 +264,13 @@
 
   let uses = $derived(generateUsesConfig());
   let showWeightColumnFlag = $derived(flags.a5e?.showWeightColumn ?? 0);
-  let showWeight = $derived(
-    weightRequired(actor.reactive.items, showWeightColumnFlag),
-  );
+  let showWeight = $derived(weightRequired(actor.reactive.items, showWeightColumnFlag));
 
   let ammunitionItems = $derived.by(() =>
     actor.reactive.items
       .filter(
         (i: Item) =>
-          i.reactive.type === "object" &&
-          i.reactive.system.objectType === "ammunition",
+          i.reactive.type === "object" && i.reactive.system.objectType === "ammunition",
       )
       .map((i) => ({ name: i.name, id: i.id }))
       .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())),
@@ -302,8 +290,7 @@
   let selectedAmmo = $derived(getSelectedAmmo(item, action));
 
   let isMagicalItem = $derived(
-    item.reactive.type === "object" &&
-      !["mundane", ""].includes(itemStore.rarity),
+    item.reactive.type === "object" && !["mundane", ""].includes(itemStore.rarity),
   );
 
   // $effect(() => {
@@ -321,10 +308,7 @@
   // });
 </script>
 
-<div
-  class="name-wrapper"
-  class:name-wrapper--ammunition={hasAmmunition(item, action)}
->
+<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
   <div class="name">
     <span class="name__text">{action?.name ?? item.reactive.name}</span>
 
@@ -412,10 +396,7 @@
       onclick={(e) => e.stopPropagation()}
       onchange={updateAmmunition}
     >
-      <option
-        value=""
-        onclick={(e) => e.stopPropagation()}
-        selected={selectedAmmo === ""}
+      <option value="" onclick={(e) => e.stopPropagation()} selected={selectedAmmo === ""}
       ></option>
       {#each ammunitionItems as { name, id } (id)}
         <option
@@ -527,16 +508,13 @@
           <button
             type="button"
             class="action-button icon fas"
-            class:fa-shield-alt={itemStore.equippedState ===
-              EQUIPPED_STATES.EQUIPPED}
+            class:fa-shield-alt={itemStore.equippedState === EQUIPPED_STATES.EQUIPPED}
             class:fa-person-carry-box={itemStore.equippedState ===
               EQUIPPED_STATES.CARRIED}
-            class:fa-tents={itemStore.equippedState ===
-              EQUIPPED_STATES.NOT_CARRIED}
-            class:active={[
-              EQUIPPED_STATES.EQUIPPED,
-              EQUIPPED_STATES.CARRIED,
-            ].includes(itemStore.equippedState)}
+            class:fa-tents={itemStore.equippedState === EQUIPPED_STATES.NOT_CARRIED}
+            class:active={[EQUIPPED_STATES.EQUIPPED, EQUIPPED_STATES.CARRIED].includes(
+              itemStore.equippedState,
+            )}
             data-tooltip={equippedStates[itemStore.equippedState ?? 0]}
             data-tooltip-direction="UP"
             aria-label="Toggle Equipped State"
@@ -552,14 +530,11 @@
             type="button"
             class="action-button icon fas"
             class:fa-heart={itemStore.damagedState === DAMAGED_STATES.INTACT}
-            class:fa-heart-crack={itemStore.damagedState ===
-              DAMAGED_STATES.DAMAGED}
-            class:fa-heart-pulse={itemStore.damagedState ===
-              DAMAGED_STATES.BROKEN}
-            class:active={[
-              DAMAGED_STATES.DAMAGED,
-              DAMAGED_STATES.BROKEN,
-            ].includes(itemStore.damagedState)}
+            class:fa-heart-crack={itemStore.damagedState === DAMAGED_STATES.DAMAGED}
+            class:fa-heart-pulse={itemStore.damagedState === DAMAGED_STATES.BROKEN}
+            class:active={[DAMAGED_STATES.DAMAGED, DAMAGED_STATES.BROKEN].includes(
+              itemStore.damagedState,
+            )}
             data-tooltip={damagedStates[itemStore.damagedState ?? 0]}
             data-tooltip-direction="UP"
             aria-label="Toggle Damaged Dtate"
@@ -575,10 +550,9 @@
         <button
           type="button"
           class="action-button icon fas"
-          class:fa-book={[
-            PREPARED_STATES.UNPREPARED,
-            PREPARED_STATES.PREPARED,
-          ].includes(Number(itemStore.prepared ?? 0))}
+          class:fa-book={[PREPARED_STATES.UNPREPARED, PREPARED_STATES.PREPARED].includes(
+            Number(itemStore.prepared ?? 0),
+          )}
           class:fa-book-sparkles={Number(itemStore.prepared ?? 0) ===
             PREPARED_STATES.ALWAYS_PREPARED}
           class:active={[
@@ -755,8 +729,8 @@
   .action-button {
     flex-grow: 0;
     width: fit-content;
-    padding: 0;
-    margin: 0;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
     color: var(--icon-color, #999);
     border: 0;
     background: none;
@@ -848,7 +822,7 @@
 
   .button-wrapper {
     margin-inline: 0.25rem;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
   }
 
   .component {
@@ -866,7 +840,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     margin-inline: 0.25rem;
     grid-area: indicators;
     color: var(--indicator-text-color, inherit);
@@ -890,7 +864,7 @@
   .name-wrapper {
     display: grid;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     overflow: hidden;
     grid-area: name;
 

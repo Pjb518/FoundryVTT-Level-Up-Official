@@ -1,12 +1,11 @@
 <script lang="ts">
-  import CheckboxGroup from "./CheckboxGroup.svelte";
-  import GroupToggleHeading from "./GroupToggleHeading.svelte";
-
   import {
     getGroupSelectionState,
-    toggleGroupInList,
     type ProductSourceTree,
+    toggleGroupInList,
   } from "#utils/prepareProductSourceTree.ts";
+  import CheckboxGroup from "./CheckboxGroup.svelte";
+  import GroupToggleHeading from "./GroupToggleHeading.svelte";
 
   type Props = {
     hint?: string;
@@ -64,7 +63,7 @@
   .a5e-grouped-source-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     width: 100%;
 
     &__publisher {

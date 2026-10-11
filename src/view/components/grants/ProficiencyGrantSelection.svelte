@@ -114,8 +114,8 @@
 
 <style lang="scss">
   .a5e-default-selection {
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
     padding-block-end: 0.25rem;
 
     display: flex;

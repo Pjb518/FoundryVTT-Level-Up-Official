@@ -13,16 +13,14 @@
 
   function getConditionName() {
     if (conditionKey === "dead") return localize("A5E.conditions.dead.name");
-    if (conditionKey === "concentration")
-      return localize("A5E.SpellConcentration");
+    if (conditionKey === "concentration") return localize("A5E.SpellConcentration");
 
     return conditions[conditionKey] ?? conditionKey;
   }
 
   const { conditions, conditionIconsDefault } = CONFIG.A5E;
 
-  let settings: Record<string, { data: any; value: any }> =
-    getContext("settings");
+  let settings: Record<string, { data: any; value: any }> = getContext("settings");
 
   const conditionName = getConditionName();
   const iconStore = settings["customConditionIcons"].value;
@@ -51,7 +49,7 @@
   .condition-grid__item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     padding: 0.125rem;
     background: rgba(0, 0, 0, 0.05);
     border-radius: var(--a5e-border-radius-standard);

@@ -117,7 +117,7 @@
     }
 
     &__wrapper {
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       list-style: none;
     }
   }

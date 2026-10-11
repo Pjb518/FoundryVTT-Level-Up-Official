@@ -1,126 +1,122 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import { localize } from "#utils/localization/localize.ts";
+  import { getContext } from "svelte";
+  import Select from "svelte-select";
+  import { localize } from "#utils/localization/localize.ts";
+  import { getEffectOptionGroups } from "#utils/view/helpers/getEffectOptionGroups.ts";
 
-    import { getEffectOptionGroups } from "#utils/view/helpers/getEffectOptionGroups.ts";
+  type Props = {
+    idx: number;
+    key: string;
+    optionsList: Record<string, any>;
+    clearable?: boolean;
+    onchangeType?: (type: string) => void;
+    onchangeKey?: (key: string) => void;
+    onchangePriority?: (priority: number) => void;
+  };
 
-    import Select from "svelte-select";
+  let {
+    idx,
+    key,
+    optionsList,
+    clearable = true,
+    onchangeKey,
+    onchangeType,
+    onchangePriority,
+  }: Props = $props();
 
-    type Props = {
-        idx: number;
-        key: string;
-        optionsList: Record<string, any>;
-        clearable?: boolean;
-        onchangeType?: (type: string) => void;
-        onchangeKey?: (key: string) => void;
-        onchangePriority?: (priority: number) => void;
-    };
+  let effect: ActiveEffect = getContext("effect");
+  let changes = $derived(effect.reactive.system.changes);
 
-    let {
-        idx,
-        key,
-        optionsList,
-        clearable = true,
-        onchangeKey,
-        onchangeType,
-        onchangePriority,
-    }: Props = $props();
+  const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
+  const CHANGE_TYPES = CONFIG.A5E.ACTIVE_EFFECT_CHANGE_TYPES;
+  const items = getEffectOptionGroups(optionsList);
 
-    let effect: ActiveEffect = getContext("effect");
-    let changes = $derived(effect.reactive.system.changes);
-
-    const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-    const CHANGE_TYPES = CONFIG.A5E.ACTIVE_EFFECT_CHANGE_TYPES;
-    const items = getEffectOptionGroups(optionsList);
-
-    const groupBy = (item) => item.group;
+  const groupBy = (item) => item.group;
 </script>
 
 <div class="a5e-effect-change-section">
-    <h3 class="a5e-effect-change-section__heading">
-        {localize("A5E.effects.key")}
-    </h3>
+  <h3 class="a5e-effect-change-section__heading">
+    {localize("A5E.effects.key")}
+  </h3>
 
-    <Select
-        {clearable}
-        {items}
-        value={effectKeyLocalizations[key]}
-        {groupBy}
-        on:change={({ detail }) => onchangeKey?.(detail.key)}
-        on:clear={() => onchangeKey?.("")}
-        --border="1px solid var(--a5e-border-color)"
-        --border-focused="1px solid var(--a5e-border-color)"
-        --border-hover="1px solid var(--a5e-border-color)"
-        --height="calc(var(--a5e-sm-text) + 15px)"
-        --padding="0 0.25rem"
-        --item-padding="0.25rem"
-        --group-item-padding-left="1rem"
-        --border-radius="var(--a5e-border-radius-standard)"
-        --font-size="var(--a5e-sm-text)"
-        --font-family="inherit"
-        --input-color="var(--a5e-text-color-dark)"
-        --group-title-font-size="var(--a5e-sm-text)"
-        --group-title-font-weight="bold"
-        --text-overflow="ellipsis"
-        --list-background="var(--a5e-svelte-select-list-background)"
-        --group-title="var(--a5e-svelte-select-list-group-title-color)"
-        --item-color="var(--a5e-svelte-select-list-item-color)"
-        --item--active-background="var(--a5e-svelte-select-list-item-active-background-color)"
-        --item-active-color="var(--a5e-svelte-select-list-item-active-color)"
-        --item-hover-bg="var(--a5e-svelte-select-list-item-hover-background)"
-        --item-hover-color="var(--a5e-svelte-select-list-item-hover-color)"
-    />
+  <Select
+    {clearable}
+    {items}
+    value={effectKeyLocalizations[key]}
+    {groupBy}
+    on:change={({ detail }) => onchangeKey?.(detail.key)}
+    on:clear={() => onchangeKey?.("")}
+    --border="1px solid var(--a5e-border-color)"
+    --border-focused="1px solid var(--a5e-border-color)"
+    --border-hover="1px solid var(--a5e-border-color)"
+    --height="calc(var(--a5e-sm-text) + 15px)"
+    --padding="0 0.25rem"
+    --item-padding="0.25rem"
+    --group-item-padding-left="1rem"
+    --border-radius="var(--a5e-border-radius-standard)"
+    --font-size="var(--a5e-sm-text)"
+    --font-family="inherit"
+    --input-color="var(--a5e-text-color-dark)"
+    --group-title-font-size="var(--a5e-sm-text)"
+    --group-title-font-weight="bold"
+    --text-overflow="ellipsis"
+    --list-background="var(--a5e-svelte-select-list-background)"
+    --group-title="var(--a5e-svelte-select-list-group-title-color)"
+    --item-color="var(--a5e-svelte-select-list-item-color)"
+    --item--active-background="var(--a5e-svelte-select-list-item-active-background-color)"
+    --item-active-color="var(--a5e-svelte-select-list-item-active-color)"
+    --item-hover-bg="var(--a5e-svelte-select-list-item-hover-background)"
+    --item-hover-color="var(--a5e-svelte-select-list-item-hover-color)"
+  />
 </div>
 
 <!-- Priority -->
 <div class="a5e-effect-change-section">
-    <h3 class="a5e-effect-change-section__heading">
-        {localize("A5E.effects.priority")}
-    </h3>
+  <h3 class="a5e-effect-change-section__heading">
+    {localize("A5E.effects.priority")}
+  </h3>
 
-    <input
-        class="a5e-input a5e-input--slim a5e-input--small"
-        type="number"
-        name=""
-        value={changes[idx]?.priority ?? 0}
-        onchange={({ currentTarget }) =>
-            onchangePriority?.(Number(currentTarget.value))}
-    />
+  <input
+    class="a5e-input a5e-input--slim a5e-input--small"
+    type="number"
+    name=""
+    value={changes[idx]?.priority ?? 0}
+    onchange={({ currentTarget }) => onchangePriority?.(Number(currentTarget.value))}
+  />
 </div>
 
 <!-- Type - Show only if available -->
 {#if optionsList[key]?.modes?.length > 1}
-    <div class="a5e-effect-change-section">
-        <h3 class="a5e-effect-change-section__heading">
-            {localize("A5E.effects.mode")}
-        </h3>
+  <div class="a5e-effect-change-section">
+    <h3 class="a5e-effect-change-section__heading">
+      {localize("A5E.effects.mode")}
+    </h3>
 
-        <select
-            class="a5e-input a5e-input--slim a5e-input--fit"
-            id=""
-            value={changes[idx]?.type}
-            onchange={({ currentTarget }) =>
-                onchangeType?.(currentTarget.value)}
-        >
-            {#each optionsList[key]?.modes ?? [] as changeType}
-                <option value={changeType}>
-                    {CHANGE_TYPES[changeType]}
-                </option>
-            {/each}
-        </select>
-    </div>
+    <select
+      class="a5e-input a5e-input--slim a5e-input--fit"
+      id=""
+      value={changes[idx]?.type}
+      onchange={({ currentTarget }) => onchangeType?.(currentTarget.value)}
+    >
+      {#each optionsList[key]?.modes ?? [] as changeType}
+        <option value={changeType}>
+          {CHANGE_TYPES[changeType]}
+        </option>
+      {/each}
+    </select>
+  </div>
 {/if}
 
 <style lang="scss">
-    .a5e-effect-change-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
+  .a5e-effect-change-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.275rem;
 
-        &__heading {
-            margin: 0;
-            font-size: var(--a5e-sm-text);
-            font-weight: bold;
-        }
+    &__heading {
+      margin: var(--a5e-spacing-none);
+      font-size: var(--a5e-sm-text);
+      font-weight: bold;
     }
+  }
 </style>

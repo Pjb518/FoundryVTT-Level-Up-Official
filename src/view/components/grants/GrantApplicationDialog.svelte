@@ -17,11 +17,7 @@
     dialog: any;
     optionalGrantsProp: Grant[];
     actor: Character;
-    item:
-      | Item.OfType<"feature">
-      | Item.OfType<"class">
-      | Item.OfType<"archetype">
-      | null;
+    item: Item.OfType<"feature"> | Item.OfType<"class"> | Item.OfType<"archetype"> | null;
     cls: Item.OfType<"class"> | Item.OfType<"archetype"> | null;
     charLevel: number;
     clsLevel: number;
@@ -66,10 +62,7 @@
     });
 
     // // Update active grants
-    activeGrants = new SvelteSet<string>([
-      ...updatedList,
-      ...selectedOptionalGrants,
-    ]);
+    activeGrants = new SvelteSet<string>([...updatedList, ...selectedOptionalGrants]);
 
     // // Update grants
     grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
@@ -192,15 +185,17 @@
 
   function getSpellCastingOptions(): string[][] {
     if (clsLevel === 1) {
-      return cls?.system?.spellcasting?.ability?.options?.map(
-        (option: string) => [option, CONFIG.A5E.abilities[option]],
-      ) as string[][];
+      return cls?.system?.spellcasting?.ability?.options?.map((option: string) => [
+        option,
+        CONFIG.A5E.abilities[option],
+      ]) as string[][];
     }
 
     if (item?.type !== "archetype") return [];
-    return item?.system?.spellcasting?.ability?.options?.map(
-      (option: string) => [option, CONFIG.A5E.abilities[option]],
-    ) as string[][];
+    return item?.system?.spellcasting?.ability?.options?.map((option: string) => [
+      option,
+      CONFIG.A5E.abilities[option],
+    ]) as string[][];
   }
 
   async function onSubmit() {
@@ -229,9 +224,7 @@
     clsLevel,
   }: Props = $props();
 
-  let activeGrants: Set<string> = $state(
-    new SvelteSet(getStartingSelectedGrants()),
-  );
+  let activeGrants: Set<string> = $state(new SvelteSet(getStartingSelectedGrants()));
   let selectedOptionalGrants: string[] = $state([]);
   let clsReturnData: Record<string, any> = $state({});
   let spellcastingAbility: string = $state(getSpellCastingAbility());
@@ -241,12 +234,8 @@
   // let applyData = $state(new Map<string, any>());
   let applyData = $state(new SvelteMap<string, any>());
   let optionalGrants = $state(getStartingOptionalGrants());
-  let grants = $state(
-    getApplicableGrants(activeGrants, selectedOptionalGrants),
-  );
-  let configurableGrants = $derived(
-    grants.filter((grant) => grant.requiresConfig),
-  );
+  let grants = $state(getApplicableGrants(activeGrants, selectedOptionalGrants));
+  let configurableGrants = $derived(grants.filter((grant) => grant.requiresConfig));
 
   let spellCastingOptions = $derived(getSpellCastingOptions());
 
@@ -259,11 +248,7 @@
   <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#if cls && cls?.type === "class"}
       {#if clsLevel > 1 && item?.type === "class"}
-        <ClassHitPointsSelection
-          {cls}
-          classLevel={clsLevel}
-          bind:clsReturnData
-        />
+        <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
       {/if}
 
       {#if showSpellAbilitySelection()}
@@ -305,9 +290,7 @@
 
     {#each configurableGrants as { grant, id }}
       {@const Comp = grant.getSelectionComponent?.()}
-      {@const compProps = grant.getSelectionComponentProps?.(
-        applyData.get(id) ?? {},
-      )}
+      {@const compProps = grant.getSelectionComponentProps?.(applyData.get(id) ?? {})}
 
       <Comp
         {...compProps}
@@ -354,7 +337,7 @@
 <style lang="scss">
   article {
     display: flex;
-    padding: 0.75rem;
+    padding: var(--a5e-spacing-md);
     max-height: 70vh;
     overflow-y: auto;
   }

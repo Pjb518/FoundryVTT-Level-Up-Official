@@ -211,8 +211,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    padding: 0;
-    margin: 0;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
     list-style: none;
     overflow-y: auto;
   }
@@ -221,7 +221,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     padding: 0.25rem;
     padding-right: 0.5rem;
     font-size: var(--a5e-sm-text);
@@ -230,7 +230,7 @@
     border: 1px solid var(--a5e-color-border);
 
     h3 {
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       flex: 1;
       font-size: var(--a5e-sm-text);
     }

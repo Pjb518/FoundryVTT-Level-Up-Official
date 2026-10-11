@@ -3,47 +3,48 @@
   flex-direction: column;
   height: 100%;
   overflow-y: auto;
-  padding: var(--a5e-grant-container-padding, 0.75rem);
-  margin: 0;
-  gap: 0.75rem;
+  padding: var(--a5e-grant-container-padding, var(--a5e-spacing-md));
+  margin: var(--a5e-spacing-none);
+  gap: var(--a5e-spacing-md);
   background: var(
     --a5e-grant-container-background,
-    var(--a5e-sheet-background)
+    var(--a5e-color-background)
   );
-  font-size: var(--a5e-sm-text);
+  color: var(--a5e-color-text-primary);
+  font-size: var(--a5e-text-sm);
 
   &--proficiency {
     display: grid;
-    grid-template-areas: "opts config";
+    grid-template-areas: 'opts config';
     grid-template-columns: 1fr 0.75fr;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
 
     &__config {
       grid-area: config;
 
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      padding-left: 0.5rem;
-      border-left: 1px groove var(--a5e-color-primary);
+      gap: var(--a5e-spacing-sm);
+      padding-left: var(--a5e-spacing-sm);
+      border-left: var(--a5e-border-width-thin) groove var(--a5e-color-primary);
     }
 
     &__opts {
       grid-area: opts;
 
-      padding-right: 0.25rem;
+      padding-right: var(--a5e-spacing-xs);
     }
 
     &__count {
       display: flex;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
       align-items: center;
-      font-size: var(--a5e-sm-text);
+      font-size: var(--a5e-text-sm);
     }
 
     &__selected {
-      margin: 0;
-      padding: 0;
+      margin: var(--a5e-spacing-none);
+      padding: var(--a5e-spacing-none);
       padding-block-end: 0.25rem;
 
       display: flex;
@@ -65,9 +66,9 @@
   }
 
   &-name {
-    font-family: var(--a5e-primary-font);
-    font-size: var(--a5e-xxl-text);
-    border: 0;
+    font-family: var(--a5e-font-family-display);
+    font-size: var(--a5e-text-2xl);
+    border: var(--a5e-border-width-none);
     background: transparent;
     text-overflow: ellipsis;
 
@@ -80,7 +81,8 @@
   &-image {
     width: 2rem;
     aspect-ratio: 1 / 1;
-    border-radius: 4px;
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-strong);
+    border-radius: var(--a5e-radius-sm);
     cursor: pointer;
   }
 

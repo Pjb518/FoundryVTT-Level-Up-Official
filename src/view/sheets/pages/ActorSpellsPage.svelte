@@ -1,194 +1,179 @@
 <script lang="ts">
-    import { getContext } from "svelte";
+  import { getContext } from "svelte";
+  import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
+  import createItem from "#utils/createItem.ts";
+  import { filterItems } from "#utils/view/filterItems.ts";
+  import { prepareSpellBooks } from "#utils/view/helpers/prepareSpellBooks.ts";
+  import { DeletionConfirmationDialog } from "#view/dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
+  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+  import UtilityBar from "#view/snippets/UtilityBar.svelte";
+  import SpellBook from "../components/actor/SpellBook.svelte";
+  import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
 
-    import { filterItems } from "#utils/view/filterItems.ts";
-    import { prepareSpellBooks } from "#utils/view/helpers/prepareSpellBooks.ts";
+  async function addSpellBook() {
+    const initialSpellBookQuantity = Object.keys(actorStore.spellBooks ?? {}).length;
 
-    import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-    import { DeletionConfirmationDialog } from "#view/dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
+    const newSpellBookId = await actor.spellBooks.add({});
 
-    import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
-
-    import SpellBook from "../components/actor/SpellBook.svelte";
-    import SpellBookConfig from "../components/actor/SpellBookConfig.svelte";
-    import UtilityBar from "#view/snippets/UtilityBar.svelte";
-    import createItem from "#utils/createItem.ts";
-
-    async function addSpellBook() {
-        const initialSpellBookQuantity = Object.keys(
-            actorStore.spellBooks ?? {},
-        ).length;
-
-        const newSpellBookId = await actor.spellBooks.add({});
-
-        if (initialSpellBookQuantity === 0) {
-            updateCurrentSpellBook(newSpellBookId);
-        } else {
-            // biome-ignore lint/correctness/noSelfAssign: <explanation>
-            currentSpellBook = currentSpellBook;
-        }
-
-        configureSpellBook(newSpellBookId);
+    if (initialSpellBookQuantity === 0) {
+      updateCurrentSpellBook(newSpellBookId);
+    } else {
+      // biome-ignore lint/correctness/noSelfAssign: <explanation>
+      currentSpellBook = currentSpellBook;
     }
 
-    async function configureSpellBook(spellBookId: string) {
-        const dialog = new GenericConfigDialog(
-            actor,
-            "Configure Spell Book",
-            SpellBookConfig,
-            { spellBookId },
-        );
+    configureSpellBook(newSpellBookId);
+  }
 
-        await dialog.render(true);
-    }
-
-    async function deleteSpellBook(spellBookId: string) {
-        const initialSpellBookQuantity = Object.keys(
-            actor.system.spellBooks ?? {},
-        ).length;
-
-        const dialog = new DeletionConfirmationDialog(
-            undefined,
-            false,
-            "SpellBook",
-        );
-        await dialog.render(true);
-
-        const { confirmDeletion } = await dialog.promise;
-
-        if (!confirmDeletion) return;
-
-        actor.spellBooks.remove(spellBookId);
-
-        if (initialSpellBookQuantity === 1) {
-            updateCurrentSpellBook(null);
-        }
-
-        if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys(
-                actor.system.spellBooks ?? {},
-            )?.[0];
-
-            updateCurrentSpellBook(firstSpellBook);
-        }
-    }
-
-    function sortHandler(reverse: boolean) {
-        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
-    }
-
-    function updateCurrentSpellBook(spellBookId: string) {
-        const { uuid } = actor;
-        currentSpellBook = spellBookId;
-
-        actorSheetTempSettings[uuid].currentSpellBook = spellBookId;
-    }
-
-    let actor: any = getContext("actor");
-    let sheet: any = getContext("sheet");
-    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
-
-    let actorStore = $derived(actor.reactive.system);
-
-    let currentSpellBook = $derived(
-        actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
-            Object.keys(actorStore.spellBooks ?? {})?.[0],
+  async function configureSpellBook(spellBookId: string) {
+    const dialog = new GenericConfigDialog(
+      actor,
+      "Configure Spell Book",
+      SpellBookConfig,
+      {
+        spellBookId,
+      },
     );
 
-    let filterOptions = $state({
-        searchTerm: "",
-        searchDescription: false,
-        page: "spells",
-    });
+    await dialog.render(true);
+  }
 
-    let filterFunction = $derived.by(() => {
-        const { inclusive, exclusive } = activeFilters;
+  async function deleteSpellBook(spellBookId: string) {
+    const initialSpellBookQuantity = Object.keys(actor.system.spellBooks ?? {}).length;
 
-        if (!inclusive.length && !exclusive.length) return undefined;
+    const dialog = new DeletionConfirmationDialog(undefined, false, "SpellBook");
+    await dialog.render(true);
 
-        return (item: any) => {
-            const filterableValues = new Set();
+    const { confirmDeletion } = await dialog.promise;
 
-            //Activation Cost
-            const actions = Object.values(item.system.actions || {});
-            for (const action of actions) {
-                const activationType = action.activation?.type;
-                if (activationType) filterableValues.add(activationType);
-            }
+    if (!confirmDeletion) return;
 
-            //Components
-            if (item.system.components.material)
-                filterableValues.add("material");
-            if (item.system.components.seen) filterableValues.add("seen");
-            if (item.system.components.vocalized)
-                filterableValues.add("vocalized");
+    actor.spellBooks.remove(spellBookId);
 
-            //Miscellaneous
-            if (item.system.concentration)
-                filterableValues.add("concentration");
-            if (item.system.ritual) filterableValues.add("ritual");
-            if (item.system.prepared) filterableValues.add("prepared");
+    if (initialSpellBookQuantity === 1) {
+      updateCurrentSpellBook(null);
+    }
 
-            //Primary Spell School
-            const primarySpellSchool = item.system.schools.primary;
-            if (primarySpellSchool) filterableValues.add(primarySpellSchool);
+    if (currentSpellBook === spellBookId) {
+      const firstSpellBook = Object.keys(actor.system.spellBooks ?? {})?.[0];
 
-            for (const value of filterableValues) {
-                if (exclusive.includes(value)) return false;
-            }
+      updateCurrentSpellBook(firstSpellBook);
+    }
+  }
 
-            if (inclusive.length > 0) {
-                for (const value of filterableValues) {
-                    if (inclusive.includes(value)) return true;
-                }
+  function sortHandler(reverse: boolean) {
+    sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
+  }
 
-                return false;
-            }
+  function updateCurrentSpellBook(spellBookId: string) {
+    const { uuid } = actor;
+    currentSpellBook = spellBookId;
 
-            return true;
-        };
-    });
+    actorSheetTempSettings[uuid].currentSpellBook = spellBookId;
+  }
 
-    let items = $derived(
-        filterItems(actor.reactive, "spell", {
-            searchTerm: filterOptions.searchTerm,
-            searchDescription: filterOptions.searchDescription,
-            filters: filterFunction,
-        }),
-    );
+  let actor: any = getContext("actor");
+  let sheet: any = getContext("sheet");
+  let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-    let itemsBySpellBook = $derived(prepareSpellBooks(actor.reactive, items));
+  let actorStore = $derived(actor.reactive.system);
 
-    const openCompendium = game.a5e.utils.openCompendium;
+  let currentSpellBook = $derived(
+    actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
+      Object.keys(actorStore.spellBooks ?? {})?.[0],
+  );
 
-    let spellBooks = $derived(actor.reactive.spellBooks);
-    let showDescription = $state(false);
+  let filterOptions = $state({
+    searchTerm: "",
+    searchDescription: false,
+    page: "spells",
+  });
 
-    let activeFilters = $derived(
-        actor.reactive.flags.a5e?.filters?.spells?.[currentSpellBook] ?? {
-            inclusive: [],
-            exclusive: [],
-        },
-    );
+  let filterFunction = $derived.by(() => {
+    const { inclusive, exclusive } = activeFilters;
 
-    let spellLevels = Object.entries(CONFIG.A5E.spellLevels) as string[][];
+    if (!inclusive.length && !exclusive.length) return undefined;
+
+    return (item: any) => {
+      const filterableValues = new Set();
+
+      //Activation Cost
+      const actions = Object.values(item.system.actions || {});
+      for (const action of actions) {
+        const activationType = action.activation?.type;
+        if (activationType) filterableValues.add(activationType);
+      }
+
+      //Components
+      if (item.system.components.material) filterableValues.add("material");
+      if (item.system.components.seen) filterableValues.add("seen");
+      if (item.system.components.vocalized) filterableValues.add("vocalized");
+
+      //Miscellaneous
+      if (item.system.concentration) filterableValues.add("concentration");
+      if (item.system.ritual) filterableValues.add("ritual");
+      if (item.system.prepared) filterableValues.add("prepared");
+
+      //Primary Spell School
+      const primarySpellSchool = item.system.schools.primary;
+      if (primarySpellSchool) filterableValues.add(primarySpellSchool);
+
+      for (const value of filterableValues) {
+        if (exclusive.includes(value)) return false;
+      }
+
+      if (inclusive.length > 0) {
+        for (const value of filterableValues) {
+          if (inclusive.includes(value)) return true;
+        }
+
+        return false;
+      }
+
+      return true;
+    };
+  });
+
+  let items = $derived(
+    filterItems(actor.reactive, "spell", {
+      searchTerm: filterOptions.searchTerm,
+      searchDescription: filterOptions.searchDescription,
+      filters: filterFunction,
+    }),
+  );
+
+  let itemsBySpellBook = $derived(prepareSpellBooks(actor.reactive, items));
+
+  const openCompendium = game.a5e.utils.openCompendium;
+
+  let spellBooks = $derived(actor.reactive.spellBooks);
+  let showDescription = $state(false);
+
+  let activeFilters = $derived(
+    actor.reactive.flags.a5e?.filters?.spells?.[currentSpellBook] ?? {
+      inclusive: [],
+      exclusive: [],
+    },
+  );
+
+  let spellLevels = Object.entries(CONFIG.A5E.spellLevels) as string[][];
 </script>
 
 {#if actor.isOwner}
-    <UtilityBar
-        bind:filterOptions
-        showAddIcon={true}
-        addIconOptions={spellLevels}
-        showDescriptionButton={true}
-        showSearchDescriptionButton={true}
-        bind:showDescription
-        showFilters={true}
-        showSortButton={true}
-        {sortHandler}
-        subPage={currentSpellBook}
-        onAddIconClick={(subType) => createItem(actor, "spell", subType)}
-    >
-        <!-- <button
+  <UtilityBar
+    bind:filterOptions
+    showAddIcon={true}
+    addIconOptions={spellLevels}
+    showDescriptionButton={true}
+    showSearchDescriptionButton={true}
+    bind:showDescription
+    showFilters={true}
+    showSortButton={true}
+    {sortHandler}
+    subPage={currentSpellBook}
+    onAddIconClick={(subType) => createItem(actor, "spell", subType)}
+  >
+    <!-- <button
             class="a5e-button a5e-button--transparent"
             data-tooltip="Import Spells from Compendium"
             data-tooltip-direction="UP"
@@ -197,160 +182,160 @@
         >
             <i class="fa-solid fa-download"></i>
         </button> -->
-    </UtilityBar>
+  </UtilityBar>
 {/if}
 
 {#if !sheetIsLocked() || [...spellBooks].length > 1}
-    <nav class="a5e-spellbook-list">
-        {#each [...spellBooks] as [spellBookId, spellBook], idx}
-            <!-- svelte-ignore a11y_click_events_have_key_events -->
-            <!-- svelte-ignore a11y_no_static_element_interactions -->
-            <div
-                class="a5e-spellbook-list__item"
-                class:a5e-spellbook-list__item--active={currentSpellBook
-                    ? currentSpellBook === spellBookId
-                    : idx === 0}
-                onclick={() => updateCurrentSpellBook(spellBookId)}
-            >
-                {spellBook.name}
-
-                {#if !sheetIsLocked()}
-                    <button
-                        type="button"
-                        class="a5e-button a5e-button--transparent a5e-control-button"
-                        data-tooltip="Configure Spell Book"
-                        aria-label="Configure Spell Book"
-                        onclick={(e) => {
-                            e.stopPropagation();
-                            e.preventDefault();
-                            configureSpellBook(spellBookId);
-                        }}
-                    >
-                        <i class="fa-solid fa-gear"> </i>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="a5e-button a5e-button--transparent a5e-control-button"
-                        data-tooltip="Delete Spell Book"
-                        aria-label="Delete Spell Book"
-                        onclick={(e) => {
-                            console.log(e);
-                            e.stopPropagation();
-                            e.preventDefault();
-                            deleteSpellBook(spellBookId);
-                        }}
-                    >
-                        <i class="fa-solid fa-trash"> </i>
-                    </button>
-                {/if}
-            </div>
-        {/each}
+  <nav class="a5e-spellbook-list">
+    {#each [...spellBooks] as [spellBookId, spellBook], idx}
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <div
+        class="a5e-spellbook-list__item"
+        class:a5e-spellbook-list__item--active={currentSpellBook
+          ? currentSpellBook === spellBookId
+          : idx === 0}
+        onclick={() => updateCurrentSpellBook(spellBookId)}
+      >
+        {spellBook.name}
 
         {#if !sheetIsLocked()}
-            <button
-                class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
-                data-tooltip="Create New Spell Book"
-                aria-label="Create New Spell Book"
-                onclick={() => addSpellBook()}
-            >
-                <i class="fa-solid fa-plus"></i>
-            </button>
+          <button
+            type="button"
+            class="a5e-button a5e-button--transparent a5e-control-button"
+            data-tooltip="Configure Spell Book"
+            aria-label="Configure Spell Book"
+            onclick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              configureSpellBook(spellBookId);
+            }}
+          >
+            <i class="fa-solid fa-gear"> </i>
+          </button>
+
+          <button
+            type="button"
+            class="a5e-button a5e-button--transparent a5e-control-button"
+            data-tooltip="Delete Spell Book"
+            aria-label="Delete Spell Book"
+            onclick={(e) => {
+              console.log(e);
+              e.stopPropagation();
+              e.preventDefault();
+              deleteSpellBook(spellBookId);
+            }}
+          >
+            <i class="fa-solid fa-trash"> </i>
+          </button>
         {/if}
-    </nav>
+      </div>
+    {/each}
+
+    {#if !sheetIsLocked()}
+      <button
+        class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
+        data-tooltip="Create New Spell Book"
+        aria-label="Create New Spell Book"
+        onclick={() => addSpellBook()}
+      >
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    {/if}
+  </nav>
 {/if}
 
 {#if currentSpellBook && itemsBySpellBook[currentSpellBook]}
-    <SpellBook
-        spellBookId={currentSpellBook}
-        items={itemsBySpellBook[currentSpellBook]}
-        bind:showDescription
-    />
+  <SpellBook
+    spellBookId={currentSpellBook}
+    items={itemsBySpellBook[currentSpellBook]}
+    bind:showDescription
+  />
 {/if}
 
 <style lang="scss">
-    .disable-pointer-events {
-        pointer-events: none;
-    }
+  .disable-pointer-events {
+    pointer-events: none;
+  }
 
-    .a5e-spellbook-list {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.375rem;
+  .a5e-spellbook-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: var(--a5e-sm-text);
+    font-family: var(--a5e-secondary-font);
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
+    margin-bottom: 0.25rem;
+    list-style: none;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--a5e-spacing-md);
+      width: fit-content;
+      margin: var(--a5e-spacing-none);
+      padding: 0.25rem 0.5rem;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: 1;
+      background: var(--a5e-background-medium);
+      color: var(--a5e-text-color-dark);
+      border: 1px solid var(--a5e-border-color);
+      border-radius: var(--a5e-border-radius-standard);
+
+      &:focus,
+      &:hover {
+        box-shadow: none;
+      }
+
+      &--active {
+        background-color: var(--a5e-color-primary);
+        border-color: hsl(190, 21%, 28%);
+        color: hsl(190, 21%, 100%);
+      }
+
+      &--add {
+        min-width: 2rem;
         font-size: var(--a5e-sm-text);
-        font-family: var(--a5e-secondary-font);
-        margin: 0;
-        padding: 0;
-        margin-bottom: 0.25rem;
-        list-style: none;
+        font-family: "Font Awesome Pro 6";
+      }
+    }
+  }
 
-        &__item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            width: fit-content;
-            margin: 0;
-            padding: 0.25rem 0.5rem;
-            font-size: inherit;
-            font-family: inherit;
-            line-height: 1;
-            background: var(--a5e-background-medium);
-            color: var(--a5e-text-color-dark);
-            border: 1px solid var(--a5e-border-color);
-            border-radius: var(--a5e-border-radius-standard);
+  .a5e-control-button {
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
+    transition: var(--a5e-transition-standard);
+    color: inherit;
 
-            &:focus,
-            &:hover {
-                box-shadow: none;
-            }
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 
-            &--active {
-                background-color: var(--a5e-color-primary);
-                border-color: hsl(190, 21%, 28%);
-                color: hsl(190, 21%, 100%);
-            }
+  .recharge-button {
+    flex-grow: 0;
+    width: fit-content;
+    padding: var(--a5e-spacing-none);
+    margin: var(--a5e-spacing-none);
+    margin-left: 0.25rem;
+    background: none;
+    color: #999;
+    border: 0;
 
-            &--add {
-                min-width: 2rem;
-                font-size: var(--a5e-sm-text);
-                font-family: "Font Awesome Pro 6";
-            }
-        }
+    transition: var(--a5e-transition-standard);
+
+    &:hover {
+      color: #555;
+      transform: scale(1.2);
     }
 
-    .a5e-control-button {
-        margin: 0;
-        padding: 0;
-        transition: var(--a5e-transition-standard);
-        color: inherit;
-
-        &:hover {
-            transform: scale(1.2);
-        }
+    &:hover,
+    &:focus {
+      box-shadow: none;
     }
-
-    .recharge-button {
-        flex-grow: 0;
-        width: fit-content;
-        padding: 0;
-        margin: 0;
-        margin-left: 0.25rem;
-        background: none;
-        color: #999;
-        border: 0;
-
-        transition: var(--a5e-transition-standard);
-
-        &:hover {
-            color: #555;
-            transform: scale(1.2);
-        }
-
-        &:hover,
-        &:focus {
-            box-shadow: none;
-        }
-    }
+  }
 </style>

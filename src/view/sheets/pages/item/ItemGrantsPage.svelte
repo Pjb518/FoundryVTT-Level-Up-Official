@@ -1,12 +1,10 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { localize } from "#utils/localization/localize.ts";
-
   import { ItemGrantsManager } from "#managers/ItemGrantsManager.ts";
-
-  import ItemGrantList from "../../components/item/ItemGrantList.svelte";
-  import Section from "#view/snippets/Section.svelte";
+  import { localize } from "#utils/localization/localize.ts";
   import Menu from "#view/snippets/Menu.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import ItemGrantList from "../../components/item/ItemGrantList.svelte";
 
   function addGrant(detail: string) {
     const data = {
@@ -99,18 +97,18 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     list-style: none;
-    margin: 0;
+    margin: var(--a5e-spacing-none);
     margin-right: -0.375rem;
-    padding: 0;
+    padding: var(--a5e-spacing-none);
     padding-right: 0.375rem;
     overflow-y: auto;
 
     &__item {
       display: flex;
       flex-direction: column;
-      // gap: 0.5rem;
+      // gap: var(--a5e-spacing-sm);
     }
   }
 

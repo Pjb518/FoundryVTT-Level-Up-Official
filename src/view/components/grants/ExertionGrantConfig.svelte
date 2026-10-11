@@ -65,16 +65,12 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) =>
-          onUpdateValue("name", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
 
-  <Section
-    heading="Exertion Bonus Configuration"
-    --a5e-section-body-gap="0.75rem"
-  >
+  <Section heading="Exertion Bonus Configuration" --a5e-section-body-gap="0.75rem">
     <RadioGroup
       heading="Exertion Bonus Mode"
       options={[
@@ -115,7 +111,7 @@
     flex-direction: column;
     height: 100%;
     padding: var(--padding, 0.75rem);
-    gap: 0.75rem;
+    gap: var(--a5e-spacing-md);
     background: var(--background, var(--a5e-color-background-sheet));
   }
 

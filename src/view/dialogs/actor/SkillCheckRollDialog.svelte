@@ -62,18 +62,13 @@
 
   const localizedSkill = localize(CONFIG.A5E.skills[skillKey]);
   const abilities = { none: "A5E.None", ...CONFIG.A5E.abilities };
-  const hideExpertiseDice = game.settings.get(
-    "a5e",
-    "hideExpertiseDice",
-  ) as boolean;
+  const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice") as boolean;
 
   const buttonText = localize("A5E.rollLabels.prompts.abilityCheck", {
     ability: localizedSkill,
   });
 
-  let abilityKey = $state(
-    options.abilityKey || actor.system.skills[skillKey].ability,
-  );
+  let abilityKey = $state(options.abilityKey || actor.system.skills[skillKey].ability);
   let ability = $derived(actor.reactive.system.abilities[abilityKey].check);
 
   let visibilityMode = $state(
@@ -107,9 +102,7 @@
     }),
   );
 
-  let { expertiseDie, expertiseDieSource } = $derived(
-    getInitialExpertiseDieSelection(),
-  );
+  let { expertiseDie, expertiseDieSource } = $derived(getInitialExpertiseDieSelection());
 
   let rollModeData = $derived(
     RollOverrideManager.resolveRollMode(skill, initialRollMode, {
@@ -213,8 +206,8 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    gap: var(--a5e-spacing-sm);
+    padding: var(--a5e-spacing-md);
   }
 
   .roll-formula-preview {

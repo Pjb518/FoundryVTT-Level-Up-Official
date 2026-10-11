@@ -1,170 +1,174 @@
 <script>
-	import getFormattedTimeFromSeconds from '#utils/getFormattedTimeFromSeconds';
-	import { localize } from '#utils/localization/localize.ts';
+  import getFormattedTimeFromSeconds from "#utils/getFormattedTimeFromSeconds";
+  import { localize } from "#utils/localization/localize.ts";
 
-	let {
-		actor,
-		description,
-		conditionId,
-		linked = null,
-		img,
-		_id,
-		name,
-		onIncreaseCounter,
-		onDeleteEffect,
-	} = $props();
+  let {
+    actor,
+    description,
+    conditionId,
+    linked = null,
+    img,
+    _id,
+    name,
+    onIncreaseCounter,
+    onDeleteEffect,
+  } = $props();
 
-	function getEffectDuration() {
-		const effect = actor?.effects.get(_id);
-		const duration = effect?.duration ?? {};
+  function getEffectDuration() {
+    const effect = actor?.effects.get(_id);
+    const duration = effect?.duration ?? {};
 
-		let notes = '<p class="a5e-effect-duration-tag a5e-tag a5e-tag--active a5e-tag--tight">';
+    let notes =
+      '<p class="a5e-effect-duration-tag a5e-tag a5e-tag--active a5e-tag--tight">';
 
-		notes += '<i class="icon fa-regular fa-clock"></i>';
+    notes += '<i class="icon fa-regular fa-clock"></i>';
 
-		const { secondsRemaining } = duration;
+    const { secondsRemaining } = duration;
 
-		if (secondsRemaining === Infinity) {
-			notes += 'Infinite</p>';
-			return notes;
-		}
+    if (secondsRemaining === Infinity) {
+      notes += "Infinite</p>";
+      return notes;
+    }
 
-		if (secondsRemaining <= 0) {
-			return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
-		}
+    if (secondsRemaining <= 0) {
+      return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
+    }
 
-		notes += `${secondsRemaining ? 'Remaining' : ''} ${getFormattedTimeFromSeconds(secondsRemaining)}`;
-		notes += '</p>';
+    notes += `${secondsRemaining ? "Remaining" : ""} ${getFormattedTimeFromSeconds(secondsRemaining)}`;
+    notes += "</p>";
 
-		return notes;
-	}
+    return notes;
+  }
 
-	function getEffectNotes() {
-		const effect = actor?.effects.get(_id);
+  function getEffectNotes() {
+    const effect = actor?.effects.get(_id);
 
-		let notes = '<div class="a5e-effect-notes">';
+    let notes = '<div class="a5e-effect-notes">';
 
-		notes += duration;
+    notes += duration;
 
-		if (conditionId) {
-			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+    if (conditionId) {
+      notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Condition
                 </p>`;
-		} else {
-			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+    } else {
+      notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Active Effect
                 </p>`;
-		}
+    }
 
-		if (linked) {
-			notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+    if (linked) {
+      notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Applied by: ${conditions?.[linked]}
                 </p>`;
-		}
+    }
 
-		if (effect.origin) {
-			const itemName = fromUuidSync(effect.origin)?.name;
-			if (itemName) {
-				notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
+    if (effect.origin) {
+      const itemName = fromUuidSync(effect.origin)?.name;
+      if (itemName) {
+        notes += `<p class="a5e-tag a5e-tag--active a5e-tag--tight">
                 Applied by: ${itemName}
                 </p>`;
-			}
-		}
+      }
+    }
 
-		notes += '</div>';
-		return notes;
-	}
+    notes += "</div>";
+    return notes;
+  }
 
-	function getEffectDescription(actor) {
-		const localized = localize(description);
-		if (localized) return localize(description);
+  function getEffectDescription(actor) {
+    const localized = localize(description);
+    if (localized) return localize(description);
 
-		const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
+    const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
 
-		if (conditionId === 'corruption') {
-			return localize(`A5E.tracks.corruption.hints.${corruption}`);
-		}
+    if (conditionId === "corruption") {
+      return localize(`A5E.tracks.corruption.hints.${corruption}`);
+    }
 
-		if (name === localize('A5E.Exhaustion')) {
-			return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
-		}
+    if (name === localize("A5E.Exhaustion")) {
+      return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
+    }
 
-		if (conditionId === 'fatigue') {
-			return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
-		}
+    if (conditionId === "fatigue") {
+      return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
+    }
 
-		if (conditionId === 'inebriated') {
-			return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
-		}
+    if (conditionId === "inebriated") {
+      return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
+    }
 
-		if (conditionId === 'strife') {
-			return localize(`A5E.tracks.strife.hints.${strife}`);
-		}
+    if (conditionId === "strife") {
+      return localize(`A5E.tracks.strife.hints.${strife}`);
+    }
 
-		return '';
-	}
+    return "";
+  }
 
-	function getEffectName() {
-		const { corruption, fatigue, inebriated, strife } = actorData.attributes;
+  function getEffectName() {
+    const { corruption, fatigue, inebriated, strife } = actorData.attributes;
 
-		if (conditionId === 'corruption') return `${name} (${corruption}) `;
-		if (conditionId === 'fatigue') return `${name} (${fatigue}) `;
-		if (conditionId === 'inebriated') return `${name} (${inebriated}) `;
-		if (conditionId === 'strife') return `${name} (${strife}) `;
+    if (conditionId === "corruption") return `${name} (${corruption}) `;
+    if (conditionId === "fatigue") return `${name} (${fatigue}) `;
+    if (conditionId === "inebriated") return `${name} (${inebriated}) `;
+    if (conditionId === "strife") return `${name} (${strife}) `;
 
-		return name;
-	}
+    return name;
+  }
 
-	function getEffectRemovalNote() {
-		if (linked) return '';
+  function getEffectRemovalNote() {
+    if (linked) return "";
 
-		if (
-			conditionId === 'corruption' ||
-			conditionId === 'fatigue' ||
-			conditionId === 'inebriated' ||
-			conditionId === 'strife'
-		) {
-			return `
+    if (
+      conditionId === "corruption" ||
+      conditionId === "fatigue" ||
+      conditionId === "inebriated" ||
+      conditionId === "strife"
+    ) {
+      return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
                 </small>
             `;
-		}
+    }
 
-		return `
+    return `
             <small class="a5e-tooltip__note">
-                Right click the icon to remove this ${conditionId ? 'condition' : 'effect'}.
+                Right click the icon to remove this ${conditionId ? "condition" : "effect"}.
             </small>
         `;
-	}
+  }
 
-	const colors = {
-		1: '#919f00',
-		2: '#a09200',
-		3: '#af8300',
-		4: '#bd7100',
-		5: '#cb5c00',
-		6: '#d63f00',
-		7: '#e00006',
-	};
+  const colors = {
+    1: "#919f00",
+    2: "#a09200",
+    3: "#af8300",
+    4: "#bd7100",
+    5: "#cb5c00",
+    6: "#d63f00",
+    7: "#e00006",
+  };
 
-	const { conditions } = CONFIG.A5E;
+  const { conditions } = CONFIG.A5E;
 
-	let duration = $state(getEffectDuration(actor));
+  let duration = $state(getEffectDuration(actor));
 
-	$effect(() => {
-		const durationHook = Hooks.on('updateWorldTime', () => (duration = getEffectDuration(actor)));
+  $effect(() => {
+    const durationHook = Hooks.on(
+      "updateWorldTime",
+      () => (duration = getEffectDuration(actor)),
+    );
 
-		return () => Hooks.off('updateWorldTime', durationHook);
-	});
+    return () => Hooks.off("updateWorldTime", durationHook);
+  });
 
-	let actorData = $derived(actor?.reactive?.system);
-	let corruption = $derived(actorData?.attributes.corruption ?? 0);
-	let fatigue = $derived(actorData?.attributes.fatigue ?? 0);
-	let inebriated = $derived(actorData?.attributes.inebriated ?? 0);
-	let strife = $derived(actorData?.attributes.strife ?? 0);
+  let actorData = $derived(actor?.reactive?.system);
+  let corruption = $derived(actorData?.attributes.corruption ?? 0);
+  let fatigue = $derived(actorData?.attributes.fatigue ?? 0);
+  let inebriated = $derived(actorData?.attributes.inebriated ?? 0);
+  let strife = $derived(actorData?.attributes.strife ?? 0);
 
-	let tooltip = $derived(`
+  let tooltip = $derived(`
         <h3 class="a5e-tooltip__heading">${getEffectName()}</h3>
         ${getEffectDescription(actor)}
         ${getEffectRemovalNote()}
@@ -173,139 +177,139 @@
 </script>
 
 <div
-	class:linked={!!linked}
-	class:corruption-counter={conditionId === "corruption"}
-	class:fatigue-counter={conditionId === "fatigue"}
-	class:inebriated-counter={conditionId === "inebriated"}
-	class:strife-counter={conditionId === "strife"}
-	style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
-        fatigue
-    ]}; --strife-col: {colors[
-        strife
-    ]};  --corruption: '{corruption}'; --corruption-col: {colors[
-        corruption
-    ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
+  class:linked={!!linked}
+  class:corruption-counter={conditionId === "corruption"}
+  class:fatigue-counter={conditionId === "fatigue"}
+  class:inebriated-counter={conditionId === "inebriated"}
+  class:strife-counter={conditionId === "strife"}
+  style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+    fatigue
+  ]}; --strife-col: {colors[
+    strife
+  ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+    corruption
+  ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
 >
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<li
-		class="a5e-effect-item"
-		data-tooltip={tooltip}
-		data-tooltip-direction="LEFT"
-		data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
-		onclick={() => onIncreaseCounter?.(_id)}
-		onauxclick={() => linked ?? onDeleteEffect?.(_id)}
-	>
-		<img
-			class="a5e-effect-item__icon"
-			class:a5e-effect-item__icon--svg={img?.endsWith(".svg")}
-			src={img}
-			alt={name}
-		>
-	</li>
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+  <li
+    class="a5e-effect-item"
+    data-tooltip={tooltip}
+    data-tooltip-direction="LEFT"
+    data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
+    onclick={() => onIncreaseCounter?.(_id)}
+    onauxclick={() => linked ?? onDeleteEffect?.(_id)}
+  >
+    <img
+      class="a5e-effect-item__icon"
+      class:a5e-effect-item__icon--svg={img?.endsWith(".svg")}
+      src={img}
+      alt={name}
+    />
+  </li>
 </div>
 
 <style lang="scss">
-    .a5e-effect-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: var(--icon-size, 2.5rem);
-        width: var(--icon-size, 2.5rem);
-        border-radius: 50%;
-        background-color: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(3px);
-        filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
-        box-shadow:
-            0 0 0 1px #e9d7a1,
-            0 0 0 2px #956d58;
-        cursor: pointer;
-        overflow: hidden;
+  .a5e-effect-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--icon-size, 2.5rem);
+    width: var(--icon-size, 2.5rem);
+    border-radius: 50%;
+    background-color: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(3px);
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+    box-shadow:
+      0 0 0 1px #e9d7a1,
+      0 0 0 2px #956d58;
+    cursor: pointer;
+    overflow: hidden;
 
-        &__icon {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            object-position: top;
-            border: none;
+    &__icon {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      border: none;
 
-            &--svg {
-                height: 75%;
-                width: 75%;
-            }
-        }
+      &--svg {
+        height: 75%;
+        width: 75%;
+      }
     }
+  }
 
-    .linked,
-    .corruption-counter,
-    .fatigue-counter,
-    .inebriated-counter,
-    .strife-counter {
-        position: relative;
+  .linked,
+  .corruption-counter,
+  .fatigue-counter,
+  .inebriated-counter,
+  .strife-counter {
+    position: relative;
 
-        &::after {
-            content: "\f0c1";
-            position: absolute;
-            top: -0.4rem;
-            right: -0.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 1rem;
-            padding: 1px;
-            font: var(--fa-font-solid);
-            font-size: var(--a5e-text-size-xs);
-            font-weight: 400;
-            color: white;
-            background-color: rgba(20, 20, 20, 0.6);
-            box-shadow:
-                0 0 0 1px #e9d7a1,
-                0 0 0 2px #956d58;
-            backdrop-filter: blur(1px);
-            border-radius: 50%;
-            aspect-ratio: 1/1;
-        }
+    &::after {
+      content: "\f0c1";
+      position: absolute;
+      top: -0.4rem;
+      right: -0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1rem;
+      padding: 1px;
+      font: var(--fa-font-solid);
+      font-size: var(--a5e-text-size-xs);
+      font-weight: 400;
+      color: white;
+      background-color: rgba(20, 20, 20, 0.6);
+      box-shadow:
+        0 0 0 1px #e9d7a1,
+        0 0 0 2px #956d58;
+      backdrop-filter: blur(1px);
+      border-radius: 50%;
+      aspect-ratio: 1/1;
     }
+  }
 
-    .corruption-counter::after {
-        content: var(--corruption);
-        font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-text-size-sm);
-        background-color: var(--corruption-col);
-    }
+  .corruption-counter::after {
+    content: var(--corruption);
+    font-family: --a5e-font-sans-serif;
+    font-size: var(--a5e-text-size-sm);
+    background-color: var(--corruption-col);
+  }
 
-    .fatigue-counter::after {
-        content: var(--fatigue);
-        font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-text-size-sm);
-        background-color: var(--fatigue-col);
-    }
+  .fatigue-counter::after {
+    content: var(--fatigue);
+    font-family: --a5e-font-sans-serif;
+    font-size: var(--a5e-text-size-sm);
+    background-color: var(--fatigue-col);
+  }
 
-    .inebriated-counter::after {
-        content: var(--inebriated);
-        font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-text-size-sm);
-        background-color: var(--inebriated-col);
-    }
+  .inebriated-counter::after {
+    content: var(--inebriated);
+    font-family: --a5e-font-sans-serif;
+    font-size: var(--a5e-text-size-sm);
+    background-color: var(--inebriated-col);
+  }
 
-    .strife-counter::after {
-        content: var(--strife);
-        font-family: --a5e-font-sans-serif;
-        font-size: var(--a5e-text-size-sm);
-        background-color: var(--strife-col);
-    }
+  .strife-counter::after {
+    content: var(--strife);
+    font-family: --a5e-font-sans-serif;
+    font-size: var(--a5e-text-size-sm);
+    background-color: var(--strife-col);
+  }
 
-    /* Tooltip styles - these apply to dynamically generated HTML */
-    :global(.a5e-effect-duration-tag) {
-        display: flex;
-        gap: 0.25rem; /* u-gap-xs */
-        align-items: center; /* u-align-center */
-    }
+  /* Tooltip styles - these apply to dynamically generated HTML */
+  :global(.a5e-effect-duration-tag) {
+    display: flex;
+    gap: 0.25rem; /* u-gap-xs */
+    align-items: center; /* u-align-center */
+  }
 
-    :global(.a5e-effect-notes) {
-        display: flex; /* u-flex */
-        flex-direction: row-reverse; /* u-flex-row-reverse */
-        gap: 0.75rem; /* u-gap-md */
-        font-size: var(--a5e-text-size-xs); /* u-text-xs */
-    }
+  :global(.a5e-effect-notes) {
+    display: flex; /* u-flex */
+    flex-direction: row-reverse; /* u-flex-row-reverse */
+    gap: var(--a5e-spacing-md); /* u-gap-md */
+    font-size: var(--a5e-text-size-xs); /* u-text-xs */
+  }
 </style>

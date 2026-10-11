@@ -122,8 +122,8 @@
     flex-wrap: wrap;
     gap: 0.25rem;
 
-    margin: 0;
-    padding: 0;
+    margin: var(--a5e-spacing-none);
+    padding: var(--a5e-spacing-none);
 
     font-size: var(--a5e-xs-text);
     width: 100%;

@@ -1,5 +1,5 @@
 <script>
-  import { getContext, createEventDispatcher } from "svelte";
+  import { createEventDispatcher, getContext } from "svelte";
   import { localize } from "#utils/localization/localize.ts";
 
   import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -44,8 +44,7 @@
   }
 
   function getHealingBonus() {
-    if (jsonValue === undefined)
-      return $actor.reactive.system.bonuses.hitPoint[bonusID];
+    if (jsonValue === undefined) return $actor.reactive.system.bonuses.hitPoint[bonusID];
 
     try {
       const obj = JSON.parse(jsonValue || '""') ?? {};
@@ -130,7 +129,7 @@
     flex-direction: column;
     height: 100%;
     padding: var(--padding, 0.75rem);
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     background: var(--background, var(--a5e-color-background-sheet));
   }
 

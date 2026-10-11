@@ -1,204 +1,200 @@
 <script lang="ts">
-    import { localize } from "#utils/localization/localize.ts";
+  import { localize } from "#utils/localization/localize.ts";
 
-    import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
-    import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
-    import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
-    import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
-    import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
-    import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
+  import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
+  import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
+  import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
+  import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
+  import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
+  import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
 
-    import ConditionResistanceValue from "./ConditionResistanceValue.svelte";
+  import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
+  import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  import ConditionResistanceValue from "./ConditionResistanceValue.svelte";
 
-    import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import RadioGroup from "#view/snippets/RadioGroup.svelte";
+  type Props = {
+    key: string;
+    type: string;
+    optionsList: Record<string, any>;
+    value: any;
+    onchange: (value: any) => void;
+  };
 
-    type Props = {
-        key: string;
-        type: string;
-        optionsList: Record<string, any>;
-        value: any;
-        onchange: (value: any) => void;
-    };
-
-    function getConditionalObj(value: any) {
-        if (type === "conditional" && typeof value !== "object") {
-            ui.notifications.warn("Conditional object is malformed.");
-            return {
-                comparisonOperator: "==",
-                comparisonValue: "",
-                positiveValue: "",
-                negativeValue: "",
-            };
-        }
-
-        return value;
+  function getConditionalObj(value: any) {
+    if (type === "conditional" && typeof value !== "object") {
+      ui.notifications.warn("Conditional object is malformed.");
+      return {
+        comparisonOperator: "==",
+        comparisonValue: "",
+        positiveValue: "",
+        negativeValue: "",
+      };
     }
 
-    let { key, type, optionsList, value, onchange }: Props = $props();
+    return value;
+  }
 
-    let componentType = $state(optionsList[key]?.type ?? "DEFAULT");
-    // TODO: This gives an error
-    let conditionalObj = $state(getConditionalObj(value));
+  let { key, type, optionsList, value, onchange }: Props = $props();
+
+  let componentType = $state(optionsList[key]?.type ?? "DEFAULT");
+  // TODO: This gives an error
+  let conditionalObj = $state(getConditionalObj(value));
 </script>
 
 <!-- Adding Components Based on Type AND MODE -->
 {#if type === "conditional"}
-    <div class="a5e-conditional-container">
-        If original value is
+  <div class="a5e-conditional-container">
+    If original value is
 
-        <select
-            class="a5e-input a5e-input--slim a5e-input--fit"
-            bind:value={conditionalObj.comparisonOperator}
-            onchange={() => onchange(conditionalObj)}
-        >
-            <option value="==">equal to</option>
-            <option value="!==">not equal</option>
-            <option value=">">greater than</option>
-            <option value=">=">greater than or equal to</option>
-            <option value="<">less than</option>
-            <option value="<=">less than or equal to</option>
-        </select>
+    <select
+      class="a5e-input a5e-input--slim a5e-input--fit"
+      bind:value={conditionalObj.comparisonOperator}
+      onchange={() => onchange(conditionalObj)}
+    >
+      <option value="==">equal to</option>
+      <option value="!==">not equal</option>
+      <option value=">">greater than</option>
+      <option value=">=">greater than or equal to</option>
+      <option value="<">less than</option>
+      <option value="<=">less than or equal to</option>
+    </select>
 
-        <input
-            class="a5e-input a5e-input--slim a5e-conditional-input"
-            type="text"
-            bind:value={conditionalObj.comparisonValue}
-            onchange={() => onchange(conditionalObj)}
-        />
+    <input
+      class="a5e-input a5e-input--slim a5e-conditional-input"
+      type="text"
+      bind:value={conditionalObj.comparisonValue}
+      onchange={() => onchange(conditionalObj)}
+    />
 
-        then change to
+    then change to
 
-        <input
-            class="a5e-input a5e-input--slim a5e-conditional-input"
-            type="text"
-            bind:value={conditionalObj.positiveValue}
-            onchange={() => onchange(conditionalObj)}
-        />
+    <input
+      class="a5e-input a5e-input--slim a5e-conditional-input"
+      type="text"
+      bind:value={conditionalObj.positiveValue}
+      onchange={() => onchange(conditionalObj)}
+    />
 
-        else change to
+    else change to
 
-        <input
-            class="a5e-input a5e-input--slim a5e-conditional-input"
-            type="text"
-            bind:value={conditionalObj.negativeValue}
-            onchange={() => onchange(conditionalObj)}
-        />
-    </div>
+    <input
+      class="a5e-input a5e-input--slim a5e-conditional-input"
+      type="text"
+      bind:value={conditionalObj.negativeValue}
+      onchange={() => onchange(conditionalObj)}
+    />
+  </div>
 {:else if componentType === "RADIO"}
-    <RadioGroup
-        heading="A5E.effects.options"
-        allowDeselect={false}
-        options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value ?? []}
-        onUpdateSelection={(value) => onchange(value)}
-    />
+  <RadioGroup
+    heading="A5E.effects.options"
+    allowDeselect={false}
+    options={optionsList[key]?.options ?? [[null, null]]}
+    selected={value ?? []}
+    onUpdateSelection={(value) => onchange(value)}
+  />
 {:else if componentType === "CHECKBOX"}
-    <CheckboxGroup
-        heading="A5E.effects.options"
-        options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value || []}
-        onUpdateSelection={(value) => onchange(value)}
-    />
+  <CheckboxGroup
+    heading="A5E.effects.options"
+    options={optionsList[key]?.options ?? [[null, null]]}
+    selected={value || []}
+    onUpdateSelection={(value) => onchange(value)}
+  />
 {:else if componentType === "TAG_GROUP"}
-    <CustomTagGroup
-        heading="A5E.effects.options"
-        options={optionsList[key]?.options ?? [[null, null]]}
-        selected={value || []}
-        onUpdateSelection={(value) => {
-            onchange(value);
-        }}
-    />
+  <CustomTagGroup
+    heading="A5E.effects.options"
+    options={optionsList[key]?.options ?? [[null, null]]}
+    selected={value || []}
+    onUpdateSelection={(value) => {
+      onchange(value);
+    }}
+  />
 {:else if componentType === "ABILITY_BONUS"}
-    <AbilityBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <AbilityBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "ATTACK_BONUS"}
-    <AttackBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <AttackBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "DAMAGE_BONUS"}
-    <DamageBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <DamageBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "HEALING_BONUS"}
-    <HealingBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <HealingBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "INITIATIVE_BONUS"}
-    <InitiativeBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <InitiativeBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "SKILL_BONUS"}
-    <SkillBonusConfigDialog
-        data={value}
-        --padding="0"
-        --background="none"
-        onchange={(value) => onchange(value)}
-    />
+  <SkillBonusConfigDialog
+    data={value}
+    --padding="0"
+    --background="none"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "CONDITION_RESISTANCE"}
-    <ConditionResistanceValue
-        data={value}
-        onchange={(value) => onchange(value)}
-    />
+  <ConditionResistanceValue data={value} onchange={(value) => onchange(value)} />
 {:else if componentType === "NONE"}
-    <!--  -->
+  <!--  -->
 {:else}
-    <div class="a5e-effect-change-section u-w-full">
-        <h3 class="a5e-effect-change-section__heading">
-            {localize("A5E.effects.value")}
-        </h3>
+  <div class="a5e-effect-change-section u-w-full">
+    <h3 class="a5e-effect-change-section__heading">
+      {localize("A5E.effects.value")}
+    </h3>
 
-        <input
-            class="a5e-input a5e-input--slim"
-            type="text"
-            {value}
-            onchange={({ currentTarget }) => onchange(currentTarget.value)}
-        />
-    </div>
+    <input
+      class="a5e-input a5e-input--slim"
+      type="text"
+      {value}
+      onchange={({ currentTarget }) => onchange(currentTarget.value)}
+    />
+  </div>
 {/if}
 
 <style lang="scss">
-    .a5e-conditional {
-        &-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        &-input {
-            width: 8rem;
-            height: 27px;
-            font-size: var(--a5e-sm-text);
-        }
+  .a5e-conditional {
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--a5e-spacing-sm);
     }
 
-    .a5e-effect-change-section {
-        display: flex;
-        flex-direction: column;
-        gap: 0.275rem;
-
-        &__heading {
-            margin: 0;
-            font-size: var(--a5e-sm-text);
-            font-weight: bold;
-        }
+    &-input {
+      width: 8rem;
+      height: 27px;
+      font-size: var(--a5e-sm-text);
     }
+  }
+
+  .a5e-effect-change-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.275rem;
+
+    &__heading {
+      margin: var(--a5e-spacing-none);
+      font-size: var(--a5e-sm-text);
+      font-weight: bold;
+    }
+  }
 </style>

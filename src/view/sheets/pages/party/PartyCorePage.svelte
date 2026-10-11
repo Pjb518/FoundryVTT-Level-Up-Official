@@ -339,8 +339,8 @@
       align-content: center;
       gap: 0.25rem;
 
-      padding: 0;
-      margin: 0;
+      padding: var(--a5e-spacing-none);
+      margin: var(--a5e-spacing-none);
       list-style-type: none;
     }
   }

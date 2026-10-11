@@ -1,12 +1,11 @@
 <script lang="ts">
-  import GroupToggleHeading from "./GroupToggleHeading.svelte";
-  import MultiStateCheckBoxGroup from "./MultiStateCheckBoxGroup.svelte";
-
   import {
     getGroupTriState,
-    toggleGroupInTriState,
     type ProductSourceTree,
+    toggleGroupInTriState,
   } from "#utils/prepareProductSourceTree.ts";
+  import GroupToggleHeading from "./GroupToggleHeading.svelte";
+  import MultiStateCheckBoxGroup from "./MultiStateCheckBoxGroup.svelte";
 
   type Props = {
     auxEnabled?: boolean;
@@ -91,7 +90,7 @@
   .a5e-grouped-source-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
     width: 100%;
 
     &__publisher {

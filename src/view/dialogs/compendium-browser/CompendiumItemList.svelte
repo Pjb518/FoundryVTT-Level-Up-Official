@@ -74,9 +74,7 @@
 
   function getTotalDocuments() {
     return packs.reduce((total, pack) => {
-      const count = pack.index.filter((doc) =>
-        matchesCompendiumType(doc),
-      ).length;
+      const count = pack.index.filter((doc) => matchesCompendiumType(doc)).length;
       return total + count;
     }, 0);
   }
@@ -91,10 +89,8 @@
     const { collection } = d;
 
     const isOwner =
-      collection.testUserPermission(
-        game.user,
-        CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER,
-      ) || game.user!.isGM;
+      collection.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER) ||
+      game.user!.isGM;
 
     if (!isOwner) {
       ui.notifications.warn(
@@ -312,7 +308,7 @@
 
   .a5e-compendium-import-button {
     grid-area: import;
-    margin: 0;
+    margin: var(--a5e-spacing-none);
     padding: 0.25rem;
     color: var(--a5e-button-gray);
     background: transparent;
@@ -343,7 +339,7 @@
     gap: 0.25rem;
     grid-area: components;
     margin: 0 0.25rem;
-    padding: 0;
+    padding: var(--a5e-spacing-none);
     font-family: var(--a5e-primary-font);
     list-style: none;
   }

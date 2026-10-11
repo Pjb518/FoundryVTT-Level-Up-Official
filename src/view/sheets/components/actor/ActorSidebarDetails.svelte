@@ -40,9 +40,7 @@
       return actor.reactive[dialogMethod]?.({ propertyKey });
     }
 
-    ui.notifications.warn(
-      localize("A5E.validations.warnings.modifiedByEffect"),
-    );
+    ui.notifications.warn(localize("A5E.validations.warnings.modifiedByEffect"));
   }
 
   let details: Detail[] = $derived([
@@ -221,8 +219,8 @@
     }
 
     &-values {
-      margin: 0;
-      padding: 0;
+      margin: var(--a5e-spacing-none);
+      padding: var(--a5e-spacing-none);
 
       display: flex;
       gap: 0.25rem;
@@ -233,7 +231,7 @@
     }
 
     &-value {
-      margin: 0;
+      margin: var(--a5e-spacing-none);
       padding-inline: 0.125rem;
     }
   }

@@ -2,16 +2,15 @@
   import { setContext } from "svelte";
 
   import type { Tab } from "#view/navigation/data.ts";
-
-  import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
   import NavigationBar from "#view/navigation/NavigationBar.svelte";
+  import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
 
   import ArchetypePropertiesPage from "./pages/item/ArchetypePropertiesPage.svelte";
   import ClassPropertiesPage from "./pages/item/ClassPropertiesPage.svelte";
+  import DestinyFeaturesPage from "./pages/item/DestinyFeaturesPage.svelte";
   import ItemGrantsPage from "./pages/item/ItemGrantsPage.svelte";
   import OriginCorePage from "./pages/item/OriginCorePage.svelte";
   import OriginResourcesPage from "./pages/item/OriginResourcesPage.svelte";
-  import DestinyFeaturesPage from "./pages/item/DestinyFeaturesPage.svelte";
 
   type Props = {
     item: any;
@@ -87,12 +86,7 @@
 <main class="a5e-origin-sheet">
   <ItemSheetHeader />
 
-  <NavigationBar
-    {currentTab}
-    {tabs}
-    showLock={false}
-    onTabChange={updateCurrentTab}
-  />
+  <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
   <section class="a5e-origin-sheet__page">
     <currentTab.component />
@@ -112,7 +106,7 @@
       "secondaryNavigation"
       "page";
     grid-template-rows: min-content min-content min-content 1fr;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
 
     padding-block: 0.5rem;
     padding-inline: 0.5rem;

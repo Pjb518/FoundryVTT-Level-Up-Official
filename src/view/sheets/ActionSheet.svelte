@@ -1,11 +1,10 @@
 <script lang="ts">
-  import type { Action } from "#types/action.d.ts";
-  import type { Tab } from "#view/navigation/data.ts";
-
   import { setContext } from "svelte";
+  import type { Action } from "#types/action.d.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
-  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import type { Tab } from "#view/navigation/data.ts";
 
   import NavigationBar from "../navigation/NavigationBar.svelte";
 
@@ -122,12 +121,7 @@
     />
   </header>
 
-  <NavigationBar
-    {currentTab}
-    {tabs}
-    showLock={false}
-    onTabChange={updateCurrentTab}
-  />
+  <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
   <section class="a5e-action-sheet__page">
     <currentTab.component />
@@ -147,7 +141,7 @@
       "page"
       "footer";
     grid-template-rows: min-content min-content 1fr min-content;
-    gap: 0.5rem;
+    gap: var(--a5e-spacing-sm);
 
     padding-inline: 0.5rem;
     padding-block: 0.5rem;
@@ -156,7 +150,7 @@
       grid-area: header;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--a5e-spacing-sm);
 
       &-image {
         width: 3rem;
