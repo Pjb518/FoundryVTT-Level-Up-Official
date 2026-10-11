@@ -1,13 +1,10 @@
 .a5e-input {
-  /* background: 1px solid var(--a5e-input-background); */
-  /* border: 1px solid var(--a5e-input-border); */
 
   width: 100%;
   height: 2rem;
-  padding-inline: 0.5rem, 2rem;
-  font-family: var(--a5e-primary-font);
-  font-size: var(--a5e-sm-text);
-  font-weight: 400;
+  font-family: var(--a5e-font-family-primary);
+  font-size: var(--a5e-text-sm);
+  font-weight: var(--a5e-text-regular);
   text-overflow: ellipsis;
   box-shadow: none;
 
@@ -22,7 +19,7 @@
 
   &--small {
     width: 4rem;
-    padding: 0 0.5rem;
+    padding: var(--a5e-spacing-none) var(--a5e-spacing-sm);
 
     &[type='number'] {
       text-align: center;
@@ -39,11 +36,11 @@
 
   /* Custom */
   &--character-name {
-    padding-inline: 0 3px;
-    border: 0;
+    padding-inline: var(--a5e-spacing-none) 3px;
+    border: var(--a5e-border-width-none);
     background: transparent;
-    font-family: var(--a5e-primary-font);
-    font-size: var(--a5e-xl-text);
+    font-family: var(--a5e-font-family-display);
+    font-size: var(--a5e-text-3xl);
 
     &:active,
     &:focus {
@@ -53,22 +50,22 @@
 
   &--actor-footer {
     width: 3rem;
-    height: 1.5rem;
-    border: 0.5px solid var(--a5e-border-color);
+    height: var(--a5e-control-height-xs);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border);
     background: transparent;
     font-size: inherit;
     text-align: center;
-    padding: 0 0.5rem;
+    padding: var(--a5e-spacing-none) var(--a5e-spacing-sm);
   }
 
   &--hp {
     width: 3rem;
     text-align: center;
-    height: 27px;
+    height: var(--a5e-control-height-sm);
     background: transparent;
-    border: none;
-    padding: 0 0.25rem;
-    font-weight: 600;
+    border: var(--a5e-border-width-none);
+    padding: var(--a5e-spacing-none) var(--a5e-spacing-xs);
+    font-weight: var(--a5e-font-weight-semibold);
 
     &-temp,
     &-bonus {
