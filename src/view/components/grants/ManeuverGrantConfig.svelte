@@ -334,7 +334,7 @@
     column-gap: var(--a5e-spacing-md);
     row-gap: 0.25rem;
     margin-top: 0.5rem;
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
 
     &__header {
       display: contents;

@@ -183,7 +183,7 @@
   }
 
   .action-button {
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     color: var(--a5e-button-gray);
     border: 0;
     background: none;

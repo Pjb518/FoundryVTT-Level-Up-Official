@@ -201,7 +201,7 @@
     display: flex;
     align-items: center;
 
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     color: #999;
     border: 0;
     background: none;

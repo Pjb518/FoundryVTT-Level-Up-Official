@@ -108,7 +108,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--a5e-spacing-sm);
-      padding: 0.5rem;
+      padding: var(--a5e-spacing-sm);
       color: var(--a5e-text-color-white);
     }
 

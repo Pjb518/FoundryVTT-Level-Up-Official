@@ -125,7 +125,7 @@
 
 <style lang="scss">
   .action-button {
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     color: var(--icon-color, #999);
     border: 0;
     background: none;

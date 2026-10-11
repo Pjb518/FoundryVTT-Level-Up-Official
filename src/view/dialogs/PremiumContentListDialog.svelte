@@ -33,7 +33,7 @@
   }
 
   :global(.a5e-premium-content-list-dialog .window-content) {
-    padding: 0.5rem;
+    padding: var(--a5e-spacing-sm);
   }
 
   article {

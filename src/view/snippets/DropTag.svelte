@@ -110,7 +110,7 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.05);
     gap: var(--a5e-spacing-sm);
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     border-radius: 4px;
     font-size: var(--a5e-drop-tag-font-size, inherit);
   }

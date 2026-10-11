@@ -185,7 +185,7 @@
     &__coins {
       display: flex;
       gap: 0.25rem;
-      padding: 0.25rem;
+      padding: var(--a5e-spacing-xs);
       align-items: center;
       justify-content: space-between;
 
@@ -222,7 +222,7 @@
     align-items: center;
     width: 100%;
     gap: var(--a5e-spacing-sm);
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     padding-right: 0.5rem;
     font-size: var(--a5e-sm-text);
     background: var(--a5e-background-light);
@@ -244,7 +244,7 @@
 
   .delete-button {
     margin-inline: auto 0.5rem;
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
   }
 
   .a5e-quantity-wrapper {

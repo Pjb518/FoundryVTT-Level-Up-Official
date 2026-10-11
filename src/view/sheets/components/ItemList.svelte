@@ -1,18 +1,15 @@
 <script lang="ts">
-  import type { Action } from "#types/action.d.ts";
-
   import { getContext } from "svelte";
   import { slide } from "svelte/transition";
-  import { localize } from "#utils/localization/localize.ts";
-
   import { pressedKeys } from "#stores/pressedKeysStore.svelte.ts";
-  import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
+  import type { Action } from "#types/action.d.ts";
+  import { localize } from "#utils/localization/localize.ts";
   import { getSummaryData } from "#utils/summaries/getSummaryData.ts";
-
+  import { getKeyPressAsOptions } from "#utils/view/getKeyPressAsOptions.ts";
+  import Self from "./ItemList.svelte";
   import ItemListActionButtons from "./ItemListActionButtons.svelte";
   import ItemListData from "./ItemListData.svelte";
   import ItemListSummary from "./ItemListSummary.svelte";
-  import Self from "./ItemList.svelte";
 
   type Props = {
     item: Item;
@@ -41,8 +38,7 @@
     const actionListFlag = item.reactive.flags.a5e?.showActionList ?? true;
     if (actionListFlag === false) return false;
 
-    if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked())
-      return false;
+    if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked()) return false;
 
     return true;
   }
@@ -139,8 +135,7 @@
 
   const { A5E } = CONFIG;
 
-  let rightClickConfigure =
-    game.settings?.get("a5e", "itemRightClickConfigure") ?? false;
+  let rightClickConfigure = game.settings?.get("a5e", "itemRightClickConfigure") ?? false;
 
   let isGM = game.user?.isGM;
 
@@ -155,8 +150,7 @@
   let sortDirection = $derived(item.reactive.system.containerSortDirection);
 
   let containerItems = $derived(
-    item.reactive.type === "object" &&
-      item.reactive.system.objectType === "container"
+    item.reactive.type === "object" && item.reactive.system.objectType === "container"
       ? [...(actor.reactive.items?.values() ?? [])]
           .filter((child) => child.system.containerId === item.uuid)
           .sort((a, b) => sortContainer(a, b))
@@ -179,8 +173,7 @@
   class="a5e-item"
   class:a5e-item--highlight={Number(itemStore.prepared ?? 0) ===
     A5E.PREPARED_STATES.PREPARED ||
-    (itemStore.equippedState === A5E.EQUIPPED_STATES.EQUIPPED &&
-      !itemStore?.containerId)}
+    (itemStore.equippedState === A5E.EQUIPPED_STATES.EQUIPPED && !itemStore?.containerId)}
   class:a5e-item--purple-highlight={Number(itemStore.prepared ?? 0) ===
     A5E.PREPARED_STATES.ALWAYS_PREPARED}
   class:a5e-item--red-highlight={itemStore.requiresBloodied}
@@ -272,7 +265,7 @@
 
 <style lang="scss">
   .description-wrapper {
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
   }
 
   .disable-pointer-events {

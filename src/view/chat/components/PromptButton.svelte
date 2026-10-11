@@ -58,7 +58,7 @@
     height: 2.5rem;
 
     &--effect {
-      padding: 0.25rem;
+      padding: var(--a5e-spacing-xs);
       border-radius: 4px;
     }
   }

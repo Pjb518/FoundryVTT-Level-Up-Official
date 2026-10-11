@@ -309,7 +309,7 @@
   .a5e-compendium-import-button {
     grid-area: import;
     margin: var(--a5e-spacing-none);
-    padding: 0.25rem;
+    padding: var(--a5e-spacing-xs);
     color: var(--a5e-button-gray);
     background: transparent;
     border: 0;

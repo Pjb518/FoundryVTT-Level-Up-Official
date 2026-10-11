@@ -75,7 +75,7 @@
     grid-template-rows: min-content min-content minmax(0, 1fr);
     gap: var(--a5e-spacing-sm);
 
-    padding: 0.5rem;
+    padding: var(--a5e-spacing-sm);
 
     &__page {
       grid-area: page;

@@ -107,7 +107,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--a5e-spacing-md);
-    padding: 0.5rem;
+    padding: var(--a5e-spacing-sm);
   }
 
   .module-list {

@@ -109,7 +109,7 @@
     min-width: 85%;
 
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: var(--a5e-spacing-sm);
 
     background: rgba(139, 37, 37, 0.85);
     color: rgba(255 255 255 / 0.75);

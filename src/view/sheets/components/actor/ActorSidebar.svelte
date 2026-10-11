@@ -46,7 +46,7 @@
     gap: 0.25rem;
 
     height: 100%;
-    padding: 0.5rem;
+    padding: var(--a5e-spacing-sm);
     border-right: 1px solid var(--a5e-border-color);
 
     background: rgba(0, 0, 0, 0.05);
