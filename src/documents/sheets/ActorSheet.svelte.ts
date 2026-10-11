@@ -362,7 +362,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		const options = {} as DragDropOptions;
 
 		const currentSpellBook: string =
-			this.tempSettings?.currentSpellBook ?? Object.keys(this.actor?.system?.spellBooks)?.[0];
+			this.tempSettings?.currentSpellBook ?? this.actor?.spellBooks?.default?._id;
 
 		const target = event.target?.closest('.a5e-item');
 		const targetUUID = target?.getAttribute('data-document-uuid');

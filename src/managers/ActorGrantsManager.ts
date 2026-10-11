@@ -544,25 +544,28 @@ class ActorGrantsManager extends Map<string, Grant> {
 				}
 
 				// Create or Update Spellbooks
-				const spellBook: Record<string, any> = {
+				const config: Record<string, any> = {
 					ability: spellCastingAbility,
-					name: `${options.cls.name} Spell Book`,
 					showSpellSlots: false,
+				};
+				const spellBook: Record<string, any> = {
+					name: `${options.cls.name} Spell Book`,
+					config,
 				};
 
 				const resourceType = options.cls?.casting?.resource || 'slots';
-				if (resourceType === 'slots') spellBook.showSpellSlots = true;
-				else if (resourceType === 'points') spellBook.showSpellPoints = true;
-				else if (resourceType === 'inventions') spellBook.showSpellInventions = true;
-				else if (resourceType === 'artifactCharges') spellBook.showArtifactCharges = true;
-				else spellBook.showSpellSlots = true;
+				if (resourceType === 'slots') config.showSpellSlots = true;
+				else if (resourceType === 'points') config.showSpellPoints = true;
+				else if (resourceType === 'inventions') config.showSpellInventions = true;
+				else if (resourceType === 'artifactCharges') config.showArtifactCharges = true;
+				else config.showSpellSlots = true;
 
 				if (Object.keys(this.actor?.classes ?? {}).length > 1) {
 					// Create New SpellBook
 					this.actor.spellBooks.add(spellBook);
 				} else {
 					// Update first spellbook
-					const spellBookId = this.actor.spellBooks.first()?._id;
+					const spellBookId = this.actor.spellBooks.default?._id;
 					this.actor.update({
 						[`system.spellBooks.${spellBookId}`]: spellBook,
 					});
