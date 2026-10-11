@@ -191,7 +191,7 @@
             displayOnly={true}
             optionStyles="
                 max-width: 98%;
-                border: 1px solid var(--a5e-border-color);
+                border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
             "
             --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
             --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"

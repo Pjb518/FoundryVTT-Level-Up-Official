@@ -121,7 +121,7 @@
     align-items: center;
     padding-inline: 0.75rem;
     padding-block: 0.125rem;
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     border-radius: var(--a5e-border-radius-standard);
     /* background-color: var(--a5e-button-regular); */
 

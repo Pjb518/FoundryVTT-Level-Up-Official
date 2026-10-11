@@ -283,7 +283,7 @@
       line-height: 1;
       background: var(--a5e-background-medium);
       color: var(--a5e-text-color-dark);
-      border: 1px solid var(--a5e-border-color);
+      border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
       border-radius: var(--a5e-border-radius-standard);
 
       &:focus,

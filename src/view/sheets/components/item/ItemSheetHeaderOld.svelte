@@ -215,7 +215,7 @@
       text-align: center;
       background-color: var(--a5e-input-background);
       box-shadow: none;
-      border: 1px solid var(--a5e-border-color);
+      border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
       border-radius: 5px;
 
       &:focus {

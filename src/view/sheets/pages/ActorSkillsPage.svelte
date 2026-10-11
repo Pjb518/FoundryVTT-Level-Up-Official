@@ -133,7 +133,7 @@
     margin: var(--a5e-spacing-none);
     padding: var(--a5e-spacing-none);
     list-style: none;
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     border-radius: var(--a5e-border-radius-standard);
 
     &--column-flow {

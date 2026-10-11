@@ -42,7 +42,7 @@
   .ac-formula-preview {
     padding: var(--a5e-spacing-sm);
     font-size: var(--a5e-text-sm);
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     border-radius: 4px;
   }
 </style>

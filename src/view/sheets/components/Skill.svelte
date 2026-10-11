@@ -177,7 +177,7 @@
     gap: var(--a5e-spacing-sm);
     padding-inline: var(--a5e-spacing-sm);
     margin: var(--a5e-spacing-none);
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     border-top: 0;
     font-family: var(--a5e-font-primary);
     font-size: var(--a5e-text-sm);

@@ -58,7 +58,7 @@
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--a5e-border-color);
+      border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
       background: var(--a5e-status-track-icon-background);
       border-radius: 50%;
       box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;

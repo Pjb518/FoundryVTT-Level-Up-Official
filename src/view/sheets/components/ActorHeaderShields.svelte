@@ -251,7 +251,7 @@
     width: 3.5rem;
     padding: 0.125rem 0;
 
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     border-radius: 4px;
 
     &__label {

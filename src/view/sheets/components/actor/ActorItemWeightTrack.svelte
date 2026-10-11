@@ -48,7 +48,7 @@
 
 <style lang="scss">
   .a5e-actor-track-container {
-    border: 1px solid var(--a5e-border-color);
+    border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
     flex: 0 0 100%;
     position: relative;
     height: 1rem;

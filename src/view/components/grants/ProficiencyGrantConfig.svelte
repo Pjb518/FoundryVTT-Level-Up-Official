@@ -20,11 +20,10 @@
   };
 
   function addOptsGroup() {
-    updateDocumentDataFromField(
-      item,
-      `system.grants.${grantId}.config.keys.options`,
-      [...grant.config.keys.options, { count: 0, candidates: [] }],
-    );
+    updateDocumentDataFromField(item, `system.grants.${grantId}.config.keys.options`, [
+      ...grant.config.keys.options,
+      { count: 0, candidates: [] },
+    ]);
   }
 
   function deleteOptsGroup(idx: number) {
@@ -74,9 +73,7 @@
 
     console.log(selectedMode);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    return convertValues([
-      ...(grant.config.keys.options[idx ?? 0].candidates ?? []),
-    ]);
+    return convertValues([...(grant.config.keys.options[idx ?? 0].candidates ?? [])]);
   }
 
   function updateImage() {
@@ -115,9 +112,7 @@
 
     const opts = foundry.utils.deepClone(grant.config.keys.options);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    const toKeep = opts[idx].candidates.filter(
-      (val) => !val.startsWith(proficiencyType),
-    );
+    const toKeep = opts[idx].candidates.filter((val) => !val.startsWith(proficiencyType));
     // @ts-expect-error
     opts[idx].candidates = [...toKeep, ...converted];
     onUpdateValue("config.keys.options", opts);
@@ -134,9 +129,7 @@
   const configObject = prepareProficiencyConfigObject();
   const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-  let grant = $derived(
-    item.reactive.system.grants[grantId],
-  ) as Grant<"proficiency">;
+  let grant = $derived(item.reactive.system.grants[grantId]) as Grant<"proficiency">;
 
   // View vars
   let addModes = $derived(getModes());
@@ -169,8 +162,7 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) =>
-          onUpdateValue("label", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("label", currentTarget.value)}
       />
     </div>
   </header>
@@ -184,9 +176,10 @@
         --a5e-section-body-gap="0.75rem"
       >
         <RadioGroup
-          options={Object.entries(configObject ?? {}).map(
-            ([key, { label }]) => [key, _loc(label)],
-          )}
+          options={Object.entries(configObject ?? {}).map(([key, { label }]) => [
+            key,
+            _loc(label),
+          ])}
           selected={proficiencyType}
           allowDeselect={false}
           onUpdateSelection={(value) => (proficiencyType = value)}
@@ -204,9 +197,7 @@
             configObject={options}
             existingProperties={selectedOpts}
             disabledProperties={disabled}
-            headings={proficiencyType === "tool"
-              ? toolCategories
-              : weaponCategories}
+            headings={proficiencyType === "tool" ? toolCategories : weaponCategories}
             onUpdateSelection={(value) => {
               onUpdateSelections(value);
             }}
@@ -272,7 +263,7 @@
                 displayOnly={true}
                 optionStyles="
                 max-width: 98%;
-                border: 1px solid var(--a5e-border-color);
+                border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
                 "
                 --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
                 --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"
@@ -307,7 +298,7 @@
                   displayOnly={true}
                   optionStyles="
                       max-width: 98%;
-                      border: 1px solid var(--a5e-border-color);
+                      border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
                       "
                   --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
                   --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"
@@ -329,9 +320,7 @@
               }}
             />
 
-            <label for="a5e-prof-grant-count-{idx}">
-              Selectable Options Count
-            </label>
+            <label for="a5e-prof-grant-count-{idx}"> Selectable Options Count </label>
           </div>
         </Section>
       {/each}
@@ -342,15 +331,13 @@
         <Checkbox
           label="Upgrade to expertise dice if already proficient"
           checked={grant.config.upgradeToExpertise ?? true}
-          onUpdateSelection={(value) =>
-            onUpdateValue("config.upgradeToExpertise", value)}
+          onUpdateSelection={(value) => onUpdateValue("config.upgradeToExpertise", value)}
         />
 
         <Checkbox
           label="Grant 5e expertise in these instead of proficiency"
           checked={grant.config.isExpertise ?? false}
-          onUpdateSelection={(value) =>
-            onUpdateValue("config.isExpertise", value)}
+          onUpdateSelection={(value) => onUpdateValue("config.isExpertise", value)}
         />
       {/if}
 

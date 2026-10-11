@@ -326,7 +326,7 @@
     }
 
     &__field--input {
-      border: 1px solid var(--a5e-border-color);
+      border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
       border-radius: var(--a5e-border-radius-standard);
       margin-bottom: 0.25rem;
       padding-inline: 1rem;
