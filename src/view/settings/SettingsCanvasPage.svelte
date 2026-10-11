@@ -18,13 +18,26 @@
     );
     let updates: SvelteMap<string, any> = $derived(getContext("updates"));
 
+    let automateMovement = $derived(settings["automateMovement"].value);
     let visionRules = $derived(settings["automateVisionRules"].value);
     let charOnlyVisionRules = $derived(
         settings["visionRulesApplyToCharactersOnly"].value,
     );
 </script>
 
-<Section heading="VIsion Settings" --a5e-section-body-gap="0.5rem">
+<Section heading="Movement Settings" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.automateMovement">
+        <Checkbox
+            label="A5E.settings.automateMovement"
+            checked={updates.get("automateMovement") ?? automateMovement ?? true}
+            onUpdateSelection={(detail) => {
+                updates.set("automateMovement", detail);
+            }}
+        />
+    </FieldWrapper>
+</Section>
+
+<Section heading="Vision Settings" --a5e-section-body-gap="0.5rem">
     <FieldWrapper hint="A5E.settings.hints.automateVisionRules">
         <Checkbox
             label="A5E.settings.automateVisionRules"
