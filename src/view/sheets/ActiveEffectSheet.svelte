@@ -79,7 +79,7 @@
 
     &__page {
       grid-area: page;
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
       overflow-y: hidden;
       min-height: 0;
       height: 100%;

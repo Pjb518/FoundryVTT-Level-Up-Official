@@ -143,7 +143,7 @@
     grid-template-rows: min-content min-content 1fr min-content;
     gap: var(--a5e-spacing-sm);
 
-    padding-inline: 0.5rem;
+    padding-inline: var(--a5e-spacing-sm);
     padding-block: 0.5rem;
 
     &__header {

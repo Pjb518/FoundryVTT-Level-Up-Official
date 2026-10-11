@@ -131,7 +131,7 @@
     background-color: var(--a5e-background-box);
     align-items: center;
     gap: var(--a5e-spacing-sm);
-    padding-inline: 0.5rem;
+    padding-inline: var(--a5e-spacing-sm);
     padding-block: 0.25rem;
 
     &__img {

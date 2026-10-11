@@ -178,7 +178,7 @@
       gap: 0.25rem;
       background-color: var(--a5e-color-primary);
       color: var(--a5e-text-color-white);
-      padding-inline: 0.25rem;
+      padding-inline: var(--a5e-spacing-xs);
       padding-block: 0.125rem;
     }
 

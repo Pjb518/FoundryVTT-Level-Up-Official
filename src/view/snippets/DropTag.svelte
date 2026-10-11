@@ -124,7 +124,7 @@
   .a5e-tag-count {
     width: 3rem;
     height: 1.25rem;
-    padding-inline: 0.25rem;
+    padding-inline: var(--a5e-spacing-xs);
     padding-block: 0rem;
     font-size: var(--a5e-xs-text);
     text-align: center;

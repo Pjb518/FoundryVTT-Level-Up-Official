@@ -139,7 +139,7 @@
       &__page {
         grid-area: page;
         overflow-y: auto;
-        padding-inline: 0.5rem;
+        padding-inline: var(--a5e-spacing-sm);
         height: 100%;
         min-height: 0;
       }

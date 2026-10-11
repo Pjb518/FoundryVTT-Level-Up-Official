@@ -358,7 +358,7 @@
     flex-direction: column;
     gap: 0.25rem;
     margin-block: 0.125rem;
-    padding-inline: 0.25rem;
+    padding-inline: var(--a5e-spacing-xs);
   }
 
   .a5e-warning {

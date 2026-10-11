@@ -109,7 +109,7 @@
     gap: var(--a5e-spacing-sm);
 
     padding-block: 0.5rem;
-    padding-inline: 0.5rem;
+    padding-inline: var(--a5e-spacing-sm);
 
     &__page {
       grid-area: page;

@@ -175,7 +175,7 @@
     display: flex;
     align-items: center;
     gap: var(--a5e-spacing-sm);
-    padding-inline: 0.5rem;
+    padding-inline: var(--a5e-spacing-sm);
     margin: var(--a5e-spacing-none);
     border: 1px solid var(--a5e-border-color);
     border-top: 0;

@@ -3,29 +3,26 @@
   import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
   import type { Tab } from "../navigation/data.ts";
-
-  import ActorSidebar from "./components/actor/ActorSidebar.svelte";
-  import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
   import NavigationBar from "../navigation/NavigationBar.svelte";
-
-  import ActorCorePage from "./pages/ActorCorePage.svelte";
-  import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
-  import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
-  import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
-  import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
-  import ActorHackingPage from "./pages/ActorHackingPage.svelte";
-  import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
-  import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
-  import ActorNotesPage from "./pages/ActorNotesPage.svelte";
-  import ActorEffectsPage from "./pages/ActorEffectsPage.svelte";
-  import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
-  import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
-
+  import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
+  import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
   import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
-  import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
   import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
+  import ActorSidebar from "./components/actor/ActorSidebar.svelte";
   import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
+  import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
+  import ActorCorePage from "./pages/ActorCorePage.svelte";
+  import ActorEffectsPage from "./pages/ActorEffectsPage.svelte";
+  import ActorFeaturesPage from "./pages/ActorFeaturesPage.svelte";
+  import ActorHackingPage from "./pages/ActorHackingPage.svelte";
+  import ActorInteractionsPage from "./pages/ActorInteractionsPage.svelte";
+  import ActorInventoryPage from "./pages/ActorInventoryPage.svelte";
+  import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
+  import ActorNotesPage from "./pages/ActorNotesPage.svelte";
+  import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
+  import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
+  import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
 
   let { actor, sheet } = $props();
 
@@ -33,8 +30,7 @@
 
   let currentInteractionTab = $derived(
     interactionTabs.find(
-      (name) =>
-        name === actorSheetTempSettings[actor.uuid]?.currentInteractionTab,
+      (name) => name === actorSheetTempSettings[actor.uuid]?.currentInteractionTab,
     ) ?? "journey",
   );
 
@@ -131,8 +127,7 @@
         component: ActorSettingsPage,
         hasSubNavigation: true,
         display:
-          !actor.pack &&
-          actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER,
+          !actor.pack && actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER,
       },
     ];
   }
@@ -141,14 +136,11 @@
 
   let tabs = $derived(getTabs(actor.reactive.flags));
   let currentTab = $derived(
-    tabs.find(
-      (tab) => tab.name === actorSheetTempSettings[actor.uuid]?.currentTab,
-    ) ?? tabs[0],
+    tabs.find((tab) => tab.name === actorSheetTempSettings[actor.uuid]?.currentTab) ??
+      tabs[0],
   );
 
-  let sheetIsLocked = $derived(
-    !actor.isOwner ? true : (flags?.sheetIsLocked ?? true),
-  );
+  let sheetIsLocked = $derived(!actor.isOwner ? true : (flags?.sheetIsLocked ?? true));
 
   setContext("actor", actor);
   setContext("sheet", sheet);
@@ -160,12 +152,7 @@
 
   <ActorSheetHeader />
 
-  <NavigationBar
-    {currentTab}
-    {tabs}
-    showLock={true}
-    onTabChange={updateCurrentTab}
-  />
+  <NavigationBar {currentTab} {tabs} showLock={true} onTabChange={updateCurrentTab} />
 
   <section class="a5e-actor-sheet__page">
     <currentTab.component />
@@ -203,7 +190,7 @@
       display: flex;
       flex-direction: column;
 
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
       padding-block: 0.75rem;
       overflow-y: hidden;
       min-height: 0;
@@ -220,7 +207,7 @@
       font-size: var(--a5e-sm-text);
       padding-right: var(--a5e-actor-footer-padding-right, 0);
       padding-block: 0.5rem;
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
     }
   }
 </style>

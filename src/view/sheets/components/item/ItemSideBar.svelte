@@ -67,7 +67,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--a5e-spacing-md);
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
 
       &__header {
         display: flex;

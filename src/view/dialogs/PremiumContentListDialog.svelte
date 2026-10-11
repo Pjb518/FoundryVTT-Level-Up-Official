@@ -38,7 +38,7 @@
 
   article {
     height: 100%;
-    padding-inline: 0.25rem;
+    padding-inline: var(--a5e-spacing-xs);
     overflow: auto;
   }
 

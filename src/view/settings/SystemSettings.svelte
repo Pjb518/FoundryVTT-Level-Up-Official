@@ -181,7 +181,7 @@
       flex-direction: column;
       gap: var(--a5e-spacing-md);
 
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
       padding-block: 0.75rem;
       overflow-x: hidden;
     }
@@ -196,7 +196,7 @@
       font-size: var(--a5e-sm-text);
       padding-right: var(--a5e-actor-footer-padding-right, 0);
       padding-block: 0.5rem;
-      padding-inline: 0.5rem;
+      padding-inline: var(--a5e-spacing-sm);
     }
   }
 </style>
