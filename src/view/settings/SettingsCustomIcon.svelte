@@ -57,7 +57,7 @@
   }
 
   .condition-icon {
-    height: 1.5rem;
+    height: var(--a5e-control-height-xs);
     width: 1.5rem;
     object-fit: cover;
   }

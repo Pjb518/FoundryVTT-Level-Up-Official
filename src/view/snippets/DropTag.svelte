@@ -117,7 +117,7 @@
 
   .a5e-tag-img {
     width: 1.5rem;
-    height: 1.5rem;
+    height: var(--a5e-control-height-xs);
     border-radius: 4px;
   }
 

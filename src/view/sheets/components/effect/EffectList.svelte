@@ -227,7 +227,7 @@
 
   .effect-activate-button {
     width: 1.5rem;
-    height: 1.5rem;
+    height: var(--a5e-control-height-xs);
     padding: var(--a5e-spacing-none);
     margin: var(--a5e-spacing-none);
     background: transparent;
@@ -365,7 +365,7 @@
     display: flex;
     align-items: center;
     width: 1.5rem;
-    height: 1.5rem;
+    height: var(--a5e-control-height-xs);
     margin-inline: 0.5rem 0.5rem;
     border-radius: 50%;
     color: var(--a5e-track-color);
@@ -377,7 +377,7 @@
       z-index: 1;
       display: flex;
       width: 1.5rem;
-      height: 1.5rem;
+      height: var(--a5e-control-height-xs);
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
@@ -396,7 +396,7 @@
       display: none;
       align-items: center;
       gap: var(--a5e-spacing-sm);
-      height: 1.5rem;
+      height: var(--a5e-control-height-xs);
       padding: 0 1rem 0 0.5rem;
       border: 1px solid var(--a5e-track-icon-border);
       border-left: 0;
