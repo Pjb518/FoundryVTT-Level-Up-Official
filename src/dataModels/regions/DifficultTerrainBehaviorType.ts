@@ -13,6 +13,12 @@ const schema = () => ({
 			required: true,
 			nullable: false,
 			initial: 0,
+
+			choices: () => {
+				const choices = { ...foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS };
+				delete choices[-2];
+				return choices;
+			},
 		}),
 	),
 });
@@ -34,6 +40,9 @@ class DifficultTerrainBehaviorType extends RegionBehaviorType<DifficultTerrainBe
 		};
 	}
 
+	static override LOCALIZATION_PREFIXES = ['A5E.regionBehaviors'];
+
+	/** @inheritdoc */
 	static override events = {
 		[CONST.REGION_EVENTS.BEHAVIOR_VIEWED]: this.#onBehaviorViewed,
 		[CONST.REGION_EVENTS.BEHAVIOR_UNVIEWED]: this.#onBehaviorUnviewed,

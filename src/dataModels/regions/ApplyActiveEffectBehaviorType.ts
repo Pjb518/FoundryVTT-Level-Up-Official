@@ -19,6 +19,11 @@ const schema = () => ({
 			required: true,
 			nullable: false,
 			initial: 0,
+			choices: () => {
+				const choices = { ...foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS };
+				delete choices[-2];
+				return choices;
+			},
 		}),
 	),
 	effects: new fields.SetField(
@@ -44,6 +49,9 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 			...schema(),
 		};
 	}
+
+	/** @inheritdoc */
+	static override LOCALIZATION_PREFIXES = ['A5E.regionBehaviors'];
 
 	#evaluateApplication(token: TokenDocument) {
 		if (token.disposition === CONST.TOKEN_DISPOSITIONS.SECRET) return false;

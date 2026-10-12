@@ -1,3 +1,4 @@
+import { regionBehaviors } from '#data/regions/index.ts';
 import { TerrainDataA5E } from '#data/terrainDataA5E.ts';
 import { ActorA5E } from '#documents/actor/actor.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
@@ -43,16 +44,6 @@ import activateActionMacro from '../macros/activateActionMacro.js';
 import activateItemMacro from '../macros/activateItemMacro.js';
 import createMacro from '../macros/createMacro.js';
 import { A5eEnricherManager } from '../managers/A5eEnricherManager.ts';
-import { ActionsManager } from '../managers/ActionsManager.ts';
-import { ContainerManager } from '../managers/ContainerManager.ts';
-import ForeignDocumentManager from '../managers/ForeignDocumentManager.ts';
-import HitDiceManager from '../managers/HitDiceManager.ts';
-import { ItemGrantsManager } from '../managers/ItemGrantsManager.ts';
-import { ModifierManager } from '../managers/ModifierManager.ts';
-import { ResourceConsumptionManager } from '../managers/ResourceConsumptionManager.ts';
-import RestManager from '../managers/RestManagerO.js';
-import { RollPreparationManager } from '../managers/RollPreparationManager.ts';
-import TemplatePreparationManager from '../managers/TemplatePreparationManager.js';
 import { handleMigration } from '../migration/handlers/handleMigration.ts';
 import { handlePackMigration } from '../migration/handlers/handlePackMigration.ts';
 import { MigrationList } from '../migration/MigrationList.ts';
@@ -91,9 +82,6 @@ export default function init() {
 	CONFIG.Dice.terms.d = BaseDie;
 	CONFIG.Dice.termTypes.D20Die = D20Die;
 	CONFIG.Dice.termTypes.ExpertiseDie = ExpertiseDie;
-
-	// CONFIG.Dice.CountDownPool = CountDownPool;
-
 	CONFIG.Dice.types.push(D20Die, ExpertiseDie);
 
 	CONFIG.MeasuredTemplate.defaults.angle = 60;
@@ -103,6 +91,15 @@ export default function init() {
 	CONFIG.ActiveEffect.dataModels = activeEffectModels;
 	CONFIG.ChatMessage.dataModels = chatDataModels;
 	CONFIG.Item.dataModels = itemDataModels;
+
+	CONFIG.RegionBehavior.dataModels = {
+		...CONFIG.RegionBehavior.dataModels,
+		...regionBehaviors.dataModels,
+	};
+	CONFIG.RegionBehavior.typeIcons = {
+		...CONFIG.RegionBehavior.typeIcons,
+		...regionBehaviors.typeIcons,
+	};
 
 	// ActiveEffect Config
 	CONFIG.ActiveEffect.changeTypes = {
