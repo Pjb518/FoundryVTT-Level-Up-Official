@@ -125,7 +125,21 @@ export default class HitDiceManager {
 		await this.#actor.updateEmbeddedDocuments('Item', updates);
 	}
 
-	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true): Promise<any> {
+  #getRollFormula(size: number, quantity: number, conMod: number, hitDiceType: string): string {
+    const bonusesManager = this.#actor.BonusesManager;
+    const override = bonusesManager?.getHitDiceOverrideFormula(hitDiceType);
+
+    const diceTerm = override
+      ? Array.from({ length: quantity }, () => `(${override})`).join(' + ')
+      : `${quantity}d${size}`;
+
+    const bonus = bonusesManager?.getHitDiceBonusFormula(hitDiceType, quantity) ?? '';
+
+    return [diceTerm, `${quantity * conMod}`, bonus].filter(Boolean).join(' + ');
+  }
+
+	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true, 
+    hitDiceType = heal ? 'healing' : 'other' ): Promise<any> {
 		const actorData = this.#actor.system;
 		const conMod = Number.parseInt(actorData.abilities.con.check.mod, 10) || 0;
 
@@ -135,7 +149,12 @@ export default class HitDiceManager {
 			if (!dieSize) return null;
 			if (attributes.hitDice[dieSize].current - quantity < 0) return null;
 
-			const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
+      const formula = this.#getRollFormula(
+        Number.parseInt(dieSize.slice(1), 10),
+        quantity,
+        conMod,
+        hitDiceType,
+      );
 
 			const { hookData, chatData } = await this.#rollHitDice(
 				dieSize,
@@ -143,6 +162,7 @@ export default class HitDiceManager {
 				quantity,
 				formula,
 				heal,
+        hitDiceType,
 			);
 
 			this.#actor.update({
@@ -181,7 +201,7 @@ export default class HitDiceManager {
 		}
 
 		const { size }: { size: number } = cls.hitDice;
-		const formula = `${quantity}d${size} + ${quantity * conMod}`;
+    const formula = this.#getRollFormula(size, quantity, conMod, hitDiceType);
 		const { hookData, chatData } = await this.#rollHitDice(
 			`d${size}`,
 			cls.hitDice.current,
@@ -206,10 +226,12 @@ export default class HitDiceManager {
 		quantity: number,
 		formula: string,
 		heal: boolean,
+    hitDiceType: string,
 	): Promise<{ hookData: any; chatData: any }> {
 		const { attributes } = this.#actor.system;
 
-		const roll = await new Roll(formula).roll();
+    const size = Number.parseInt(dieSize.slice(1), 10);
+		const roll = await new Roll(formula, { ...this.#actor.getRollData(), size }).roll();
 
 		const title = localize('A5E.HitDiceChatHeader', {
 			dieSize: dieSize.toUpperCase(),
@@ -243,6 +265,7 @@ export default class HitDiceManager {
 			newHp: heal ? Math.min(attributes.hp.value + hpDelta, maxHP) : 0,
 			roll,
 			quantity,
+      hitDiceType,
 		};
 
 		return { hookData, chatData };

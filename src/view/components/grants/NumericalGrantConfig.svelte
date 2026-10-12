@@ -15,6 +15,7 @@
             | "abilities"
             | "damage"
             | "healing"
+            | "hitDice"
             | "movement"
             | "senses"
             | "skills";
@@ -55,6 +56,11 @@
             selectTypes: CONFIG.A5E.healingTypes,
             selectProperty: "healingType",
         },
+      hitDice: {
+          selectHeading: "A5E.contexts.bonusType",
+          selectTypes: CONFIG.A5E.hitDiceBonusTypes,
+          selectProperty: "bonusType",
+      },
         movement: {
             selectHeading: "A5E.Unit",
             selectTypes: CONFIG.A5E.distanceUnits,
@@ -70,6 +76,7 @@
     const hasSelectDialog = [
         "damage",
         "healing",
+        "hitDice",
         "movement",
         "senses",
     ].includes(grantType);

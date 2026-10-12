@@ -5,6 +5,7 @@
     import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
     import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
     import HealingBonusConfigDialog from "#view/components/bonuses/HealingBonusConfigDialog.svelte";
+    import HitDiceBonusConfigDialog from "#view/components/bonuses/HitDiceBonusConfigDialog.svelte";
     import InitiativeBonusConfigDialog from "#view/components/bonuses/InitiativeBonusConfigDialog.svelte";
     import SkillBonusConfigDialog from "#view/components/bonuses/SkillBonusConfigDialog.svelte";
 
@@ -136,6 +137,13 @@
         --background="none"
         onchange={(value) => onchange(value)}
     />
+{:else if componentType === 'HIT_DICE_BONUS'}
+    <HitDiceBonusConfigDialog
+      data={value}
+      --padding="0"
+      --background="none"
+      onchange={(value) => onchange(value)}
+      />
 {:else if componentType === "INITIATIVE_BONUS"}
     <InitiativeBonusConfigDialog
         data={value}

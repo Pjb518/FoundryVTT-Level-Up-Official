@@ -11,6 +11,7 @@ import DamageBonusConfigDialog from '#view/components/bonuses/DamageBonusConfigD
 import ExertionBonusConfigDialog from '#view/components/bonuses/ExertionBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '#view/components/bonuses/HealingBonusConfigDialog.svelte';
 import HitPointsBonusConfigDialog from '#view/components/bonuses/HitPointsBonusConfigDialog.svelte';
+import HitDiceBonusConfigDialog from "#view/components/bonuses/HitDiceBonusConfigDialog.svelte";
 import InitiativeBonusConfigDialog from '#view/components/bonuses/InitiativeBonusConfigDialog.svelte';
 import MovementBonusConfigDialog from '#view/components/bonuses/MovementBonusConfigDialog.svelte';
 import SensesBonusConfigDialog from '#view/components/bonuses/SensesBonusConfigDialog.svelte';
@@ -96,6 +97,7 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		damageVulnerabilities: DetailsConfigDialog,
 		exertionBonus: ExertionBonusConfigDialog,
 		healingBonus: HealingBonusConfigDialog,
+    hitDiceBonus: HitDiceBonusConfigDialog,
 		hitPointsBonus: HitPointsBonusConfigDialog,
 		health: HitPointsConfigDialog,
 		initiative: InitiativeConfigDialog,
@@ -1402,10 +1404,9 @@ class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<
 		this.rollSavingThrow(undefined, options);
 	}
 
-	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true) {
-		const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity, heal);
-		return chatCard;
-	}
+  async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true, hitDiceType = heal ? 'healing' : 'other') {
+    return this.HitDiceManager?.rollHitDice(dieSize, quantity, heal, hitDiceType);
+  }
 
 	async rollSavingThrow(abilityKey?: string, options: SavingThrowRollOptions = {}) {
 		let dialogData;

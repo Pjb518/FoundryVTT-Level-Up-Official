@@ -172,6 +172,30 @@ export default function getContextsMap(
 		}
 	}
 
+  if (contextType === 'hitDice') {
+    map.push(
+      {
+        heading: 'A5E.contexts.hitDiceType',
+        options: Object.entries(CONFIG.A5E.hitDiceBonusContexts),
+        selectedProperty: 'context.hitDiceTypes',
+        component: 'TagGroup',
+      },
+      {
+        heading: 'A5E.contexts.perDie',
+        selectedProperty: 'context.perDie',
+        component: 'Checkbox',
+      },
+    );
+
+    if (type === 'grant') {
+      map.push({
+        heading: 'context.default',
+        selectedProperty: 'context.default',
+        component: 'Checkbox',
+      });
+    }
+  }
+
 	if (contextType === 'hitPoint') {
 		map.push({
 			heading: 'A5E.contexts.perLevel',

@@ -5,6 +5,7 @@ import type {
 	Bonuses,
 	DamageBonus,
 	HealingBonus,
+  HitDiceBonus,
 	HitPointsBonus,
 	InitiativeBonus,
 	MovementBonus,
@@ -586,6 +587,50 @@ class BonusesManager {
 			return [key, healingBonus];
 		});
 	}
+
+  prepareHitDiceBonuses(hitDiceType: string): [string, HitDiceBonus][] {
+    const bonuses = this.#bonuses.hitDice ?? {};
+    const counts: Record<string, number> = {};
+
+    return Object.entries(bonuses).reduce((acc: [string, HitDiceBonus][], [key, bonus]) => {
+      const formula = bonus.formula?.trim();
+      if (!formula) return acc;
+
+    const hitDiceTypes = bonus.context?.hitDiceTypes ?? [];
+    if (hitDiceTypes.length && !hitDiceTypes.includes(hitDiceType)) return acc;
+
+    bonus.formula = formula;
+
+      if (!bonus.label) {
+        const bonusType = bonus.bonusType ?? 'add';
+        counts[bonusType] = (counts[bonusType] ?? 0) + 1;
+        const label = game.i18n.localize(CONFIG.A5E.bonusLabels.hitDice.defaultName);
+        bonus.defaultLabel = `${label} #${counts[bonusType]}`;
+      }
+
+      acc.push([key, bonus]);
+      return acc;
+    }, []);
+  }
+
+  getHitDiceBonusFormula(hitDiceType: string, quantity = 1): string {
+    const parts = this.prepareHitDiceBonuses(hitDiceType)
+      .filter(([, bonus]) => bonus.bonusType !== 'override')
+      .map(([, bonus]) => {
+        if (bonus.context.perDie && quantity  > 1) return `(${bonus.formula}) * ${quantity}`;
+        return bonus.formula;
+    });
+
+    return parts.join(' + ').trim();
+  }
+
+  getHitDiceOverrideFormula(hitDiceType: string): string | null {
+    const overrides = this.prepareHitDiceBonuses(hitDiceType).filter(
+      ([, bonus]) => bonus.bonusType === 'override',
+    );
+
+    return overrides.at(-1)?.[1].formula ?? null;
+  }
 
 	prepareInitiativeBonuses({
 		abilityKey,
