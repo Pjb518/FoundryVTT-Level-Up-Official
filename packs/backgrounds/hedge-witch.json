@@ -30,7 +30,35 @@
 					]
 				},
 				"bonus": "1",
-				"label": "Default ASI"
+				"label": "Default ASI",
+				"id": "8X6ZJFdaQelIvUnw",
+				"name": "Default ASI",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"wis"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						]
+					}
+				}
 			},
 			"nomlzT6kRqxuYxQW": {
 				"grantType": "proficiency",
@@ -45,7 +73,31 @@
 					]
 				},
 				"proficiencyType": "skill",
-				"label": "Skill Proficiencies"
+				"label": "Skill Proficiencies",
+				"id": "nomlzT6kRqxuYxQW",
+				"name": "Skill Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:nat"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:med",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"lSpq3lmJGyw12HY6": {
 				"grantType": "feature",
@@ -58,6 +110,26 @@
 							"selectionLimit": 1
 						}
 					]
+				},
+				"id": "lSpq3lmJGyw12HY6",
+				"name": "Background Feature",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.aUiRg0WZLSv1fSmj",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"pO2kuzagaYvlqWce": {
@@ -79,6 +151,32 @@
 							"quantity": 1
 						}
 					]
+				},
+				"id": "pO2kuzagaYvlqWce",
+				"name": "Suggested Equipment",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.pwgkdtzl4t3n9xrr",
+								"quantityOverride": 5
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yobed5dj5zmxjnjh",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"2rBr8TnzxxsKM7ug": {
@@ -91,6 +189,28 @@
 						"herbalismKit"
 					],
 					"total": 1
+				},
+				"id": "2rBr8TnzxxsKM7ug",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:teaMastersSet",
+									"tool:herbalismKit"
+								]
+							}
+						]
+					},
+					"isExpertise": false
 				}
 			}
 		},

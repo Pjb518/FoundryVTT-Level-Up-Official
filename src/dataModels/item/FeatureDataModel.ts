@@ -1,6 +1,7 @@
 import { A5EBaseItemData } from './base.ts';
 import type { ActionsData, ArmorData, UsesData } from './common.ts';
 import { actions, armor, uses } from './common.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
@@ -18,7 +19,8 @@ const schema = {
 	}),
 	featType: new fields.StringField({ required: true, initial: '' }),
 	featureType: new fields.StringField({ required: true, initial: '' }),
-	grants: new fields.ObjectField({ required: true, initial: {} }),
+	grants: new GrantsField(),
+	// grants: new fields.ObjectField(),
 	hidden: new fields.BooleanField({ required: true, initial: false }),
 	prerequisite: new fields.StringField({ required: true, initial: '' }),
 	requiresBloodied: new fields.BooleanField({ required: true, initial: false }),

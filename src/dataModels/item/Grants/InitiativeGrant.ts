@@ -1,58 +1,89 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { initiativeBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class InitiativeGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(initiativeBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(initiativeBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Initiative Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'initiative',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace InitiativeGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class InitiativeGrant extends BaseGrant<InitiativeGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'initiative';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'initiative';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({
-				required: true,
-				initial: 'initiative',
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(initiativeBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Initiative Grant',
-			}),
-		});
+	static override defineSchema(): InitiativeGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: any): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Initiative Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'Initiative Grant',
+			default: this.config.context.default ?? true,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'initiative',
+			bonusType: this.#type,
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.initiative.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.initiative.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -71,8 +102,8 @@ export default class InitiativeGrant extends BaseGrant {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
@@ -81,3 +112,5 @@ export default class InitiativeGrant extends BaseGrant {
 		});
 	}
 }
+
+export { InitiativeGrant };

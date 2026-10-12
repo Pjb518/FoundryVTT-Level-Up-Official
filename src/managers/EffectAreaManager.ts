@@ -8,7 +8,7 @@ import type { RollStateManager } from './RollStateManager.ts';
 class EffectAreaManager {
 	#action: A5EActionData;
 
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#consumers: RollStateManager.WorkflowState['consumptionData'];
 

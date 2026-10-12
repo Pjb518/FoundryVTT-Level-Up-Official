@@ -27,7 +27,35 @@
 					]
 				},
 				"bonus": "1",
-				"label": "Default ASI"
+				"label": "Default ASI",
+				"id": "vm9uKJbxx6o1CVaB",
+				"name": "Default ASI",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"cha"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						]
+					}
+				}
 			},
 			"p2Jc2DklkUvgltVL": {
 				"grantType": "proficiency",
@@ -42,7 +70,31 @@
 					]
 				},
 				"proficiencyType": "skill",
-				"label": "Skill Proficiencies"
+				"label": "Skill Proficiencies",
+				"id": "p2Jc2DklkUvgltVL",
+				"name": "Skill Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:dec"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:prc",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"gE9MTiqrRVy561Oz": {
 				"grantType": "feature",
@@ -57,6 +109,26 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "gE9MTiqrRVy561Oz",
+				"name": "Background Feature",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.l9uv0eb90o9ziirj",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"8KtfQdiGh6HLlxKr": {
@@ -74,6 +146,28 @@
 							"quantity": 1
 						}
 					]
+				},
+				"id": "8KtfQdiGh6HLlxKr",
+				"name": "Suggested Equipment",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.3906eejw1gtmziv1",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"BuvxIoOL6cTaaPIL": {
@@ -90,7 +184,23 @@
 						"disguiseKit"
 					]
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "BuvxIoOL6cTaaPIL",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:disguiseKit"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "dungeonDelversGuide",

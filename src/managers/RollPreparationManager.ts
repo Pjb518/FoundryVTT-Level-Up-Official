@@ -16,17 +16,20 @@ import type { ItemA5e } from '../documents/item/item.ts';
 import type { RollStateManager } from './RollStateManager.ts';
 
 class RollPreparationManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#item: ItemA5e;
 
 	#state: RollStateManager.WorkflowState;
+
+	#isCrit: boolean | undefined;
 
 	constructor(state: RollStateManager.WorkflowState) {
 		this.#actor = state.actor;
 		this.#item = state.item;
 
 		this.#state = state;
+		this.#isCrit = undefined;
 	}
 
 	/** ================================================ */
@@ -47,7 +50,7 @@ class RollPreparationManager {
 
 				if (roll.type === 'damage') {
 					hasDamageRoll = true;
-					return await this.#prepareDamageRoll(roll, attackRoll, { applyGenericBonus: true });
+					return await this.#prepareDamageRoll(roll, { applyGenericBonus: true });
 				}
 
 				if (roll.type === 'healing') {
@@ -64,7 +67,7 @@ class RollPreparationManager {
 		);
 
 		if (hasDamageRoll) {
-			prepared.push(...(await this.#prepareBonusDamageRolls(attackRoll)));
+			prepared.push(...(await this.#prepareBonusDamageRolls()));
 		}
 
 		if (hasHealingRoll) {
@@ -106,7 +109,7 @@ class RollPreparationManager {
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new Roll(rollFormula).evaluate();
+		const roll = await new Roll(rollFormula).evaluate({ allowInteractive: true });
 		const label = localize('A5E.abilities.headings.checkSpecific', { ability });
 
 		return {
@@ -137,10 +140,13 @@ class RollPreparationManager {
 
 		const critThreshold = Math.min(globalCritThreshold, _roll.critThreshold ?? 20);
 
-		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate();
+		const roll = await CONFIG.Dice.D20Roll.fromTerms(_roll.terms).evaluate({
+			allowInteractive: true,
+		});
 		const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
 		const isCrit = ((roll.dice[0].total as number) ?? 0) >= critThreshold;
+		this.#isCrit = isCrit;
 
 		return {
 			attackType: _roll.attackType,
@@ -154,7 +160,7 @@ class RollPreparationManager {
 		};
 	}
 
-	async #prepareBonusDamageRolls(attackRoll: RollStateManager.WorkflowState['attack']) {
+	async #prepareBonusDamageRolls() {
 		const damageBonuses = this.#state.damageBonuses;
 
 		const bonusDamage = Object.values(damageBonuses).filter(
@@ -172,7 +178,6 @@ class RollPreparationManager {
 						damageType,
 						getFormula: () => formula,
 					} as DamageRollData,
-					attackRoll,
 					{ context },
 				),
 			),
@@ -215,10 +220,9 @@ class RollPreparationManager {
 
 	async #prepareDamageRoll(
 		_roll: DamageRollData,
-		attackRoll: RollStateManager.WorkflowState['attack'],
 		{ applyGenericBonus = false, context = {} }: RollPreparationManager.DamageRollOptions = {},
 	): Promise<PreparedDamageData | null> {
-		const { isCrit } = attackRoll ?? {};
+		const isCrit = this.#isCrit;
 		const { canCrit, critBonus, damageType } = _roll ?? {};
 
 		// Apply Generic Bonuses to all damage rolls that aren't bonuses
@@ -248,42 +252,28 @@ class RollPreparationManager {
 		});
 		if (!rollFormula) return null;
 
+		// Get crit config here to determine manual rolls
+		const critConfig = constructCriticalConfig();
+		const isPowerful = critConfig.powerfulCritical;
+		let allowInteractive = !isCrit;
+		if (isPowerful) allowInteractive = true;
+
 		// Construct Rolls
-		const roll = new DamageRoll(rollFormula, this.#actor.getRollData(this.#item));
+		const roll = await new DamageRoll(rollFormula, this.#actor.getRollData(this.#item)).evaluate({
+			allowInteractive,
+		});
 
 		// Construct Critical roll
 		const critFormula = rollFormula;
-		const critConfig = constructCriticalConfig();
-		const critRoll = new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
+		const critRoll = await new DamageRoll(critFormula, this.#actor.getRollData(this.#item), {
 			isCrit: canCrit ?? true,
 			critical: {
 				...critConfig,
+				// @ts-expect-error
+				baseTerms: roll.terms.map((t) => t.results),
 				bonusDamage: critBonusFormula,
 			},
-		});
-
-		// TODO: Update the terms to reflect roll
-
-		// const r = await new Roll(rollFormula).evaluate();
-		// let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
-		// let roll = baseRoll;
-		// let critRoll = baseRoll;
-
-		// if (canCrit ?? true) {
-		// 	if (context?.isCritBonus) {
-		//    Left
-		//    critRoll = roll;
-		// 		baseRoll = await new Roll('0').evaluate();
-		// 		roll = baseRoll;
-		// 	} else {
-		//    Done ------
-		// 		let bonus = critBonus || '';
-		// 		bonus += genericCritBonusDamage ? ` + ${genericCritBonusDamage}` : '';
-		// 		critRoll = await constructCritDamageRoll(roll, bonus);
-		// 	}
-		// }
-
-		// if (isCrit) roll = critRoll;
+		}).evaluate({ allowInteractive: !allowInteractive });
 
 		const label = damageType
 			? localize('A5E.damage.labels.specific', {
@@ -294,11 +284,11 @@ class RollPreparationManager {
 		return {
 			// baseRoll: baseRoll as EvaluatedRoll,
 			canCrit: canCrit ?? true,
-			critRoll: await critRoll.evaluate(),
+			critRoll,
 			damageType,
 			label,
 			userLabel: _roll.label,
-			roll: await roll.evaluate(),
+			roll,
 			type: 'damage',
 		};
 	}
@@ -359,7 +349,7 @@ class RollPreparationManager {
 			label,
 			userLabel: _roll.label,
 			healingType: _roll.healingType,
-			roll: await roll.evaluate(),
+			roll: await roll.evaluate({ allowInteractive: true }),
 			type: 'healing',
 		};
 	}
@@ -375,7 +365,7 @@ class RollPreparationManager {
 		if (!rollFormula) return null;
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		let label = localize('A5E.rollLabels.prompts.savingThrow', { ability });
 		if (_roll.saveType === 'concentration') {
@@ -409,7 +399,7 @@ class RollPreparationManager {
 		const rollFormula = _roll?.rollFormula ?? (defaultData.rollFormula as string);
 		if (!rollFormula) return null;
 
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		const label =
 			ability && ability !== 'none'
@@ -481,7 +471,7 @@ class RollPreparationManager {
 
 		if (!rollFormula) return null;
 
-		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate();
+		const roll = await new CONFIG.Dice.BaseRoll(rollFormula).evaluate({ allowInteractive: true });
 
 		return {
 			label,
@@ -514,7 +504,6 @@ class RollPreparationManager {
 		const actorData = this.#actor.system;
 
 		const casterLevel: number =
-			// @ts-expect-error
 			this.#actor?.levels?.character ??
 			// @ts-expect-error
 			actorData.details.level ??
@@ -539,9 +528,14 @@ class RollPreparationManager {
 		else if (casterLevel >= 5) multiplier = 1;
 
 		// Apply die scaling
+		// @ts-expect-error
+		const faceIdx = CONFIG.A5E.DICE_SIDES.indexOf(die.denom || 0);
 		const scaledDie = new foundry.dice.terms.Die({
 			number: (die.number ?? 0) + multiplier * scalingDie.number,
-			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			faces:
+				CONFIG.A5E.DICE_SIDES_MAP[
+					Math.clamp(multiplier * scalingDie.faces + faceIdx, 1, scalingDie.cap ?? 5)
+				] ?? 0,
 			modifiers: [...die.modifiers],
 		}).formula;
 
@@ -634,7 +628,7 @@ class RollPreparationManager {
 
 		// Get Scaling Info
 		const config = roll.scaling.config;
-		const scalingDie = { number: config.number, faces: config.denom };
+		const scalingDie = { number: config.number, faces: config.denom, cap: config.cap };
 		const scalingBonus = new Roll(config.value || '');
 
 		// Get Multiplier
@@ -643,9 +637,14 @@ class RollPreparationManager {
 		if (multiplier === 0) return roll.getFormula();
 
 		// Apply die scaling
+		// @ts-expect-error
+		const faceIdx = CONFIG.A5E.DICE_SIDES.indexOf(die.denom || 0);
 		const scaledDie = new foundry.dice.terms.Die({
 			number: (die.number ?? 0) + multiplier * scalingDie.number,
-			faces: (die.denom ?? 0) + multiplier * scalingDie.faces,
+			faces:
+				CONFIG.A5E.DICE_SIDES_MAP[
+					Math.clamp(multiplier * scalingDie.faces + faceIdx, 1, scalingDie.cap ?? 5)
+				] ?? 0,
 			modifiers: [...die.modifiers],
 		}).formula;
 

@@ -2,7 +2,7 @@
 	"id": "a5e",
 	"title": "Level Up: Advanced 5th Edition (Official)",
 	"description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
-	"version": "1.2.16",
+	"version": "1.4.7",
 	"authors": [
 		{
 			"name": "Phillip Best",
@@ -42,6 +42,13 @@
 			"name": "a5e-maneuvers",
 			"label": "A5E Maneuvers",
 			"path": "packs/maneuvers.db",
+			"type": "Item",
+			"system": "a5e"
+		},
+		{
+			"name": "a5e-hacking-maneuvers",
+			"label": "A5E Hacking Maneuvers",
+			"path": "packs/hackingManeuvers.db",
 			"type": "Item",
 			"system": "a5e"
 		},
@@ -215,6 +222,7 @@
 				"a5e-monsters",
 				"a5e-adventuring-gear",
 				"a5e-maneuvers",
+				"a5e-hacking-maneuvers",
 				"a5e-spells",
 				"a5e-archetypes",
 				"a5e-classes",
@@ -265,7 +273,8 @@
 	"documentTypes": {
 		"Actor": {
 			"character": {},
-			"npc": {}
+			"npc": {},
+			"party": {}
 		},
 		"ChatMessage": {
 			"item": {},
@@ -274,6 +283,7 @@
 		},
 		"Item": {
 			"feature": {},
+			"hacking": {},
 			"maneuver": {},
 			"object": {},
 			"spell": {},
@@ -284,6 +294,9 @@
 			"destiny": {},
 			"heritage": {},
 			"interaction": {}
+		},
+		"RegionBehavior": {
+			"difficultTerrain": {}
 		}
 	},
 	"compatibility": {
@@ -293,5 +306,5 @@
 	},
 	"url": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official",
 	"manifest": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json",
-	"download": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/download/1.2.16/a5e.zip"
+	"download": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/download/1.4.7/a5e.zip"
 }

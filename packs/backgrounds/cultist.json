@@ -7,7 +7,7 @@
 		"grants": {
 			"jaNpYkseTb0LhSOq": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "jaNpYkseTb0LhSOq",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "jaNpYkseTb0LhSOq",
+				"name": "Default ASI",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"d6wROVAXf9DI9ub0": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "d6wROVAXf9DI9ub0",
 				"default": true,
@@ -53,11 +80,28 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "d6wROVAXf9DI9ub0",
+				"name": "Background Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.tzgof5ybf4hxrs5k",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"NDnOXOUWvrMNH7eA": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "NDnOXOUWvrMNH7eA",
 				"default": true,
@@ -84,11 +128,39 @@
 						}
 					],
 					"total": 4
+				},
+				"id": "NDnOXOUWvrMNH7eA",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.gq2nddbv35cshykz",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.dnd5e-items.le22tnpcahrphad0",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.14bjydsg9yfp4vwk",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.7tw73cwd1j8zf3g5",
+								"quantityOverride": "5"
+							}
+						],
+						"total": 4
+					}
 				}
 			},
 			"TtqgFktpnaORm4r9": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "TtqgFktpnaORm4r9",
 				"default": true,
@@ -104,11 +176,32 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "TtqgFktpnaORm4r9",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:rel"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:arc",
+									"skill:dec"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"sR8pMGmsYySzxXGE": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"traits": {
 					"base": [],
@@ -143,7 +236,47 @@
 					"total": 1,
 					"traitType": "languages"
 				},
-				"label": "Languages"
+				"label": "Languages",
+				"id": "sR8pMGmsYySzxXGE",
+				"name": "Languages",
+				"img": "",
+				"levelType": "character",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"druidic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"cant",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
+				}
 			}
 		},
 		"source": "adventurersGuide",

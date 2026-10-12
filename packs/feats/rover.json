@@ -65,7 +65,29 @@
 					"base": []
 				},
 				"img": "",
-				"bonus": ""
+				"bonus": "",
+				"id": "PvvzfuiMOXs5SuIU",
+				"name": "Rover",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"con",
+							"wis"
+						],
+						"total": 1
+					},
+					"bonus": "",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"Igsvc4TY9zC8mRCy": {
 				"grantType": "proficiency",
@@ -83,7 +105,19 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "Igsvc4TY9zC8mRCy",
+				"name": "Rover (Survival)",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:sur"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"8nVJy0PWmnd2Pfff": {
 				"grantType": "skillSpecialty",
@@ -104,7 +138,24 @@
 					"total": 2
 				},
 				"skill": "sur",
-				"img": ""
+				"img": "",
+				"id": "8nVJy0PWmnd2Pfff",
+				"name": "Rover",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"dungeoneering",
+							"foraging",
+							"hunting",
+							"tracking",
+							"wayfinding"
+						],
+						"total": 2
+					},
+					"skill": "sur"
+				}
 			},
 			"0JgaxMOghipf6wUz": {
 				"grantType": "movement",
@@ -125,6 +176,23 @@
 				"unit": "feet",
 				"context": {
 					"isHover": false
+				},
+				"id": "0JgaxMOghipf6wUz",
+				"name": "Rover",
+				"type": "movement",
+				"config": {
+					"movementTypes": {
+						"base": [
+							"walk"
+						],
+						"options": [],
+						"total": 0
+					},
+					"bonus": "5",
+					"context": {
+						"isHover": false
+					},
+					"unit": "feet"
 				}
 			},
 			"zvmR1mOf7B0iiK10": {
@@ -144,7 +212,28 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "zvmR1mOf7B0iiK10",
+				"name": "Rover (Tools)",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:cartographersTools",
+									"tool:herbalismKit",
+									"tool:navigatorsTools",
+									"tool:poisonersKit"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "4 levels in ranger, no levels in non-ranger classes at time of feat acquisition",

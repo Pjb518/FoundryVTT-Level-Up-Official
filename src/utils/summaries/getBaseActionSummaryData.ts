@@ -2,6 +2,7 @@ import type { A5EActionData } from '../../dataModels/item/actions/ActionDataMode
 import type { ItemA5e } from '../../documents/item/item.ts';
 import getActivationCostLabel from './getActivationCostLabel.ts';
 import getAreaLabel from './getAreaLabel.ts';
+import getAttackRollLabel from './getAttackRollLabel.ts';
 import getDamageLabel from './getDamageLabel.ts';
 import getDurationLabel from './getDurationLabel.ts';
 import getRangeLabels from './getRangeLabels.ts';
@@ -12,6 +13,7 @@ export default function getBaseActionSummaryData(item: ItemA5e, action: A5EActio
 	return {
 		activationCost: getActivationCostLabel(item, action),
 		area: getAreaLabel(action),
+		attackRoll: getAttackRollLabel(action),
 		damage: getDamageLabel(action),
 		duration: getDurationLabel(item, action),
 		ranges: getRangeLabels(action),

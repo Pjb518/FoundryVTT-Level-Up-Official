@@ -3,7 +3,7 @@ import type { ItemA5e } from '../documents/item/item.ts';
 import getSpellBookDC from './getSpellBookDC.ts';
 
 export function computeSaveDC(
-	actor: Actor.OfType<'base'> | undefined,
+	actor: Creature | undefined,
 	item: ItemA5e,
 	saveDC: { bonus: string; type: string },
 ): number | null {

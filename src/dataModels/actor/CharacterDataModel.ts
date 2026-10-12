@@ -250,6 +250,10 @@ class A5ECharacterData extends foundry.abstract.TypeDataModel<
 			...migrationData(),
 		};
 	}
+
+	override prepareBaseData() {
+		super.prepareBaseData();
+	}
 }
 
 // eslint-disable-next-line import/prefer-default-export

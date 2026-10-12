@@ -1,7 +1,7 @@
 import { d20RollModification } from '../common.ts';
-import { ExpertiseDieField } from '../fields/ExpertiseDieField.ts';
+import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
+import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
-
 import {
 	getAbilitiesBonusData,
 	getAttackBonusData,
@@ -15,34 +15,50 @@ import {
 	getSensesBonusData,
 	getSkillBonusData,
 } from './Bonuses.ts';
+import { spellBookSchema } from './SpellBook.ts';
 
 const { fields } = foundry.data;
 
 // TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
-	abilities: new fields.SchemaField(
-		Object.keys(CONFIG.A5E.abilities ?? {}).reduce((acc, abl) => {
-			acc[abl] = new fields.SchemaField({
-				value: new fields.NumberField({ required: true, initial: 10, integer: true }),
-				check: new fields.SchemaField({
-					expertiseDice: new ExpertiseDieField(),
-					// bonus: new fields.StringField({ required: true, initial: '' }),
-					...d20RollModification(),
+	abilities: new MappingField(
+		new fields.SchemaField({
+			value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+			mod: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				integer: true,
+				initial: 0,
+			}),
+			check: new fields.SchemaField({
+				mod: new fields.NumberField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 0,
 				}),
-				save: new fields.SchemaField({
-					proficient: new fields.BooleanField({ required: true, initial: false }),
-					expertiseDice: new ExpertiseDieField(),
-
-					// bonus: new fields.StringField({ required: true, initial: '' }),
-					...d20RollModification(),
-					...(abl === 'con'
-						? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) }
-						: {}),
+				// bonus: new fields.StringField({ required: true, initial: '' }),
+				...d20RollModification(),
+			}),
+			save: new fields.SchemaField({
+				proficient: new fields.BooleanField({ required: true, initial: false }),
+				mod: new fields.NumberField({
+					persisted: false,
+					required: true,
+					nullable: false,
+					initial: 0,
 				}),
-			});
 
-			return acc;
-		}, {}),
+				// bonus: new fields.StringField({ required: true, initial: '' }),
+				...d20RollModification(),
+			}),
+		}),
+		{
+			required: true,
+			nullable: false,
+			initialKeys: Object.keys(CONFIG.A5E.abilities),
+		},
 	),
 });
 
@@ -57,9 +73,11 @@ export const attributes = () => ({
 			new fields.StringField({ required: true, nullable: false, initial: '' }),
 			{ required: true, nullable: false },
 		),
+		proficient: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 		...d20RollModification(),
 	}),
 	death: new fields.SchemaField({
+		proficient: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 		success: new fields.NumberField({
 			required: true,
 			nullable: false,
@@ -98,10 +116,16 @@ export const attributes = () => ({
 			initial: 0,
 			integer: true,
 		}),
+		max: new fields.NumberField({
+			persisted: false,
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true,
+		}),
 	}),
 	initiative: new fields.SchemaField({
 		ability: new fields.StringField({ required: true, initial: 'dex' }),
-		expertiseDice: new ExpertiseDieField(),
 		// TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
 		// bonus: new fields.StringField({ required: true, initial: '' }),
 		...d20RollModification(),
@@ -277,10 +301,10 @@ export const currency = () => ({
 	currency: new fields.SchemaField({
 		cp: new fields.NumberField({ required: true, initial: 0, integer: true }),
 		sp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		ep: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		gp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		pp: new fields.NumberField({ required: true, initial: 0, integer: true }),
-		cr: new fields.NumberField({ required: true, initial: 0, integer: true }),
+		ep: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		gp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		pp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
+		cr: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true }),
 	}),
 });
 
@@ -345,11 +369,9 @@ export const resources = () => ({
 /** Used in system.rolls */
 const attackData = () => ({
 	incoming: new fields.SchemaField({
-		expertiseDice: new ExpertiseDieField(),
 		...d20RollModification(),
 	}),
 	outgoing: new fields.SchemaField({
-		expertiseDice: new ExpertiseDieField(),
 		...d20RollModification(),
 	}),
 });
@@ -374,54 +396,81 @@ export const rolls = () => ({
 	),
 	death: new fields.SchemaField(
 		{
-			expertiseDice: new ExpertiseDieField(),
 			...d20RollModification(),
 		},
 		{ persisted: false },
 	),
 });
 
-export const skills = () => ({
-	skills: new fields.SchemaField(
-		Object.keys(CONFIG.A5E.skills ?? {}).reduce((acc, skill) => {
-			acc[skill] = new fields.SchemaField({
-				ability: new fields.StringField({
-					required: true,
-					initial: CONFIG.A5E.skillDefaultAbilities[skill] ?? 'int',
-				}),
-				proficient: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-					min: 0,
-					max: 2,
-				}),
-				specialties: new fields.ArrayField(
-					new fields.StringField({ required: true, initial: '' }),
-					{ required: true, initial: [] },
-				),
-				expertiseDice: new ExpertiseDieField(),
-				bonuses: new fields.SchemaField({
-					check: new fields.StringField({ required: true, initial: '' }),
-					passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
-				}),
-				...d20RollModification(),
-			});
+function initialSkillValue(key: string, initial: any) {
+	initial.ability = CONFIG.A5E.skillDefaultAbilities[key] ?? 'int';
+	return initial;
+}
 
-			return acc;
-		}, {}),
+export const skills = () => ({
+	skills: new MappingField(
+		new fields.SchemaField({
+			ability: new fields.StringField({ required: true, initial: '' }),
+			proficient: new fields.NumberField({
+				required: true,
+				initial: 0,
+				integer: true,
+				min: 0,
+				max: 2,
+			}),
+			specialties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+				required: true,
+				initial: [],
+			}),
+			bonuses: new fields.SchemaField({
+				check: new fields.StringField({ required: true, initial: '' }),
+				passive: new fields.NumberField({ required: true, initial: 0, integer: true }),
+			}),
+			mod: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
+			deterministicBonus: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
+			passive: new fields.NumberField({
+				persisted: false,
+				required: true,
+				nullable: false,
+				initial: 0,
+			}),
+			...d20RollModification(),
+		}),
+		{
+			required: true,
+			nullable: false,
+			initialKeys: Object.keys(CONFIG.A5E.skills),
+			initialValue: initialSkillValue,
+		},
 	),
 });
 
 export const spellBooks = () => ({
-	spellBooks: new RecordField(
-		new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-		new fields.ObjectField(),
-		{
-			required: true,
-			initial: () => ({ [foundry.utils.randomID()]: {} }),
+	spellBooks: new fields.TypedObjectField(new fields.SchemaField(spellBookSchema()), {
+		required: true,
+		nullable: false,
+		validateKey: (key: string) => foundry.data.validators.isValidId(key),
+		initial: () => {
+			const _id = foundry.utils.randomID();
+			return {
+				[_id]: {
+					...new fields.SchemaField(spellBookSchema()).getInitialValue(),
+					_id,
+					default: true,
+				},
+			};
 		},
-	),
+	}),
 });
 
 export const traits = () => ({
@@ -434,6 +483,14 @@ export const traits = () => ({
 		conditionImmunities: new fields.ArrayField(
 			new fields.StringField({ required: true, initial: '' }),
 			{ required: true, initial: [] },
+		),
+		conditionResistances: new fields.TypedObjectField(
+			new fields.SchemaField({
+				condition: new fields.StringField({ required: true, initial: '' }),
+				custom: new fields.BooleanField({ required: true, initial: false }),
+				...conditionResistanceValueFields(),
+			}),
+			{ required: true, initial: {} },
 		),
 		damageImmunities: new fields.ArrayField(
 			new fields.StringField({ required: true, initial: '' }),

@@ -15,7 +15,8 @@ export default function registerEffectLocalizationConfig() {
     'flags.a5e.effects.bonuses.hitDice': 'A5E.effects.keys.bonuses.hitDice',
 		'flags.a5e.effects.bonuses.initiative': 'A5E.effects.keys.bonuses.initiative',
 		'flags.a5e.effects.bonuses.skills': 'A5E.effects.keys.bonuses.skill',
-		'flags.a5e.effects.conditionImmunities.all': 'A5E.effects.keys.flags.conditionImmunities.all',
+		'flags.a5e.effects.conditionResistances': 'A5E.effects.keys.flags.conditionResistances',
+		'flags.a5e.effects.conditionImmunities.all':'A5E.effects.keys.flags.conditionImmunities.all',
 		'flags.a5e.effects.damageImmunities.all': 'A5E.effects.keys.flags.damageImmunities.all',
 		'flags.a5e.effects.damageResistances.all': 'A5E.effects.keys.flags.damageResistances.all',
 		'flags.a5e.effects.damageVulnerabilities.all':

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { getContext } from "svelte";
     import { localize } from "#utils/localization/localize.ts";
+    import { itemControls } from "../../../../stores/itemControlsStore.svelte.ts";
 
     import { DeletionConfirmationDialog } from "#view/dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
 
@@ -187,7 +188,7 @@
 
     {#if doc.isOwner}
         {#if !sheetIsLocked()}
-            <div class="track">
+            <div class="track" class:open={itemControls.open}>
                 <i class="track-icon icon fa-solid fa-ellipsis-vertical"></i>
 
                 <ul class="track-items">
@@ -419,7 +420,8 @@
             transition: var(--a5e-transition-standard);
         }
 
-        &:hover {
+        &:hover,
+        &.open {
             overflow: initial;
 
             .track-items {

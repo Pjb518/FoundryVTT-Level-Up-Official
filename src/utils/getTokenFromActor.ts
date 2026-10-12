@@ -1,13 +1,13 @@
-import TokenDocumentA5e from '../documents/tokenDocument';
+import { TokenDocumentA5E } from '../scene/token/tokenDocument.ts';
 
 export default function getTokenFromActor(actor: any): TokenDocumentA5e | null {
 	// Check parent
-	if (actor?.parent instanceof TokenDocumentA5e) {
+	if (actor?.parent instanceof TokenDocumentA5E) {
 		return actor.parent;
 	}
 
 	// Check Sheet
-	if (actor.sheet && actor.sheet.token instanceof TokenDocumentA5e) {
+	if (actor.sheet && actor.sheet.token instanceof TokenDocumentA5E) {
 		return actor.sheet.token;
 	}
 

@@ -1,85 +1,117 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { hitDiceBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class HitDiceGrant extends BaseGrant {
-	#configComponent = NumericalGrantConfig;
+import fields = foundry.data.fields;
 
-	#type = 'hitDice';
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+  // Config
+  config: new fields.SchemaField({
+    bonusType: new fields.StringField({
+      required: true,
+      nullable: false,
+      initial: 'add',
+      choices: ['add', 'override', 'modifier'],
+    }),
+    bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+    context: new fields.SchemaField(hitDiceBonusContextGrant()),
+  }),
+  // Applied
+  applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+  // Overrides
+  name: new fields.StringField({
+    required: true,
+    nullable: false,
+    initial: 'New Hit Dice Grant',
+  }),
+  type: new fields.StringField({
+    required: true,
+    nullable: false,
+    blank: false,
+    initial: 'hitDice',
+  }),
+});
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'hitDice' }),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(hitDiceBonusContextGrant()),
-			bonusType: new fields.StringField({
-				required: true,
-				initial: 'add',
-        choices: ['add', 'override', 'modifier'],
-			}),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Hit Dice Grant',
-			}),
-		});
-	}
-
-	override getApplyData(actor: typeof Actor): any {
-		if (!actor) return {};
-
-		const bonusId = foundry.utils.randomID();
-		const bonus = {
-			context: { ...this.context },
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Hit Dice Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
-      bonusType: this.bonusType,
-		};
-
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
-			bonusId,
-			type: 'hitDice',
-			grantType: 'bonus',
-			level: this.level,
-		};
-
-		return {
-			[`system.bonuses.hitDice.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
-			},
-		};
-	}
-
-	override getSelectionComponent() {
-		return null;
-	}
-
-	override getSelectionComponentProps() {
-		return null;
-	}
-
-	override requiresConfig() {
-		return false;
-	}
-
-	override async configureGrant() {
-		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
-			grantType: this.#type,
-		};
-
-		super.configureGrant('Configure Hit Dice Grant', dialogData, this.#configComponent, {
-			width: 400,
-		});
-	}
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace HitDiceGrant {
+  type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
 }
+
+class HitDiceGrant extends BaseGrant<HitDiceGrant.Schema> {
+  #configcomponent = numericalgrantconfig;
+
+  #type = 'hitdice';
+
+  static override type = 'hitdice';
+
+  static override defineschema(): hitdicegrant.schema {
+    // @ts-expect-error
+    return {
+      ...super.defineschema(),
+      ...schema(),
+    };
+  }
+
+  override getapplydata(actor: character): any {
+    if (!actor) return {};
+
+    const bonusid = foundry.utils.randomid();
+    const { default: isdefault, ...context } = this.config.context;
+    const bonus = {
+      context,
+      formula: this.config.bonus,
+      bonustype: this.config.bonustype,
+      label: this.name || this.item?.name || 'hit dice grant',
+      default: isdefault ?? true,
+      img: this.img || this?.item?.img,
+    };
+
+    const applieddata: typeof this.applied = {
+      bonusid,
+      bonustype: 'hitdice',
+      granttype: 'bonus',
+      level: this.level,
+      isapplied: true,
+    };
+
+    return {
+      applieddata: this._getappliedupdate(applieddata),
+      updatedata: {
+              [`system.bonuses.hitdice.${bonusid}`]: bonus,
+      },
+    };
+  }
+
+  override getselectioncomponent() {
+    return null;
+  }
+
+  override getselectioncomponentprops() {
+    return null;
+  }
+
+  override requiresconfig() {
+    return false;
+  }
+
+  override async configuregrant() {
+    const dialogdata = {
+      document: this.item,
+      grantid: this.id,
+      granttype: this.#type,
+      };
+
+      super.configuregrant('configure hit dice grant', dialogdata, this.#configcomponent, {
+        width: 400,
+        });
+  }
+}
+
+export { HitDiceGrant };

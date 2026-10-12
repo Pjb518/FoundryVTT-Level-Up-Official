@@ -1,21 +1,27 @@
-import type { SpellBookData } from 'types/spellBook';
-import SpellBook from '../dataModels/actor/SpellBook';
-import type { BaseActorA5e } from '../documents/actor/base';
+import { SpellBook } from '../dataModels/actor/SpellBook.ts';
 
 export default class SpellBookManager extends Map<string, SpellBook> {
-	private actor: Actor.OfType<'character'>;
+	private actor: Creature;
 
-	constructor(actor: BaseActorA5e) {
+	// @ts-expect-error
+	#default: SpellBook = null;
+
+	constructor(actor: Creature) {
 		super();
 
 		this.actor = actor;
 
 		// Initialize the spell books
-		const spellBookData: SpellBookData = this.actor.system.spellBooks ?? {};
-		Object.entries(spellBookData ?? {}).forEach(([id, data]: [string, SpellBookData]) => {
-			const spellBook = new SpellBook(data, { parent: this.actor });
-			spellBook._id = id;
+		const spellBookData: Record<string, SpellBook.Data> = this.actor.system.spellBooks ?? {};
+
+		Object.entries(spellBookData).forEach(([id, data]) => {
+			const spellBook = new SpellBook(
+				{ ...foundry.utils.deepClone(data), _id: id },
+				{ parent: this.actor },
+			);
+
 			this.set(id, spellBook);
+			if (spellBook.default) this.#default = spellBook;
 
 			// Make a reference to the spell book on the actor.
 			// TODO: Note: This might be unstable, needs further testing.
@@ -23,31 +29,59 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		});
 	}
 
-	async add(data: SpellBookData) {
+	// ======================================
+	// Getters
+	// ======================================
+
+	/** Gets default spell book */
+	get default(): SpellBook | undefined {
+		return this.#default ?? this.first();
+	}
+
+	/** Gets all the spells from all the books */
+	get spells(): Item.OfType<'spell'>[] {
+		return [...this.values()].flatMap((spellBook) => [...spellBook.spells.values()]);
+	}
+
+	// ======================================
+	// API Methods
+	// ======================================
+
+	/** Add a spellbook  */
+	async add(data: Partial<SpellBook.Data> = {}) {
 		const id = data?._id ?? foundry.utils.randomID();
 
+		// The first spell book on an actor is always the default.
+		const isDefault = this.size === 0 ? true : (data.default ?? false);
+
 		await this.actor.update({
-			[`system.spellBooks.${id}`]: data,
+			[`system.spellBooks.${id}`]: { ...data, _id: id, default: isDefault },
 		});
 
 		return id;
 	}
 
-	remove(id: string) {
+	/** Remove a spellbook */
+	async remove(id: string) {
 		const spellBook = this.get(id);
 		if (!spellBook) return;
 
-		spellBook.delete();
+		await spellBook.delete();
 	}
 
+	/** Remove all spell books */
 	removeAll() {
-		this.forEach((spellBook: SpellBook) => spellBook.delete());
+		this.forEach((spellBook: SpellBook) => {
+			spellBook.delete();
+		});
 	}
 
+	/** Get the first spell book */
 	first() {
 		return this.values().next().value;
 	}
 
+	/** Get spell save dcs as a string */
 	getSpellDCString(returnIfSingle = false) {
 		if (this.size <= 1 && returnIfSingle) return '';
 

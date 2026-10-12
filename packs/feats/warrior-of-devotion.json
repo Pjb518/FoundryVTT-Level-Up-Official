@@ -64,7 +64,29 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "lrm1slp6oNANVUWg",
+				"name": "Warrior of Devotion",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"YXwBBvGaYftqlGZZ": {
 				"grantType": "proficiency",
@@ -82,7 +104,19 @@
 				},
 				"proficiencyType": "tool",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "YXwBBvGaYftqlGZZ",
+				"name": "Tool Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:smithsTools"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"EtRYT2PMA5oHwDF9": {
 				"grantType": "proficiency",
@@ -100,7 +134,27 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "EtRYT2PMA5oHwDF9",
+				"name": "Weapon Proficiency",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"weapon:battleCenser",
+									"weapon:rampartShield",
+									"weapon:torchMace"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "Dedicated Guardian feat, 8 levels in herald, no levels in non-herald classes at time of feat acquisition",

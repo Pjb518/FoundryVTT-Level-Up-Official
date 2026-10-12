@@ -7,11 +7,8 @@ import { getSummaryData } from '../../utils/summaries/getSummaryData.ts';
 import type ArchetypeItemA5e from './archetype.ts';
 import type ClassItemA5e from './class.ts';
 import type { RevitalizeOptions } from './data.ts';
-import type FeatureItemA5e from './feature.ts';
 import type { ItemA5e } from './item.ts';
-import type ObjectItemA5e from './object.ts';
 import type OriginItemA5e from './origin.ts';
-import type SpellItemA5e from './spell.ts';
 
 // *****************************************************************************************
 type ItemMap = {
@@ -24,11 +21,11 @@ type ItemMap = {
 	destiny: OriginItemA5e;
 	heritage: OriginItemA5e;
 
-	feature: FeatureItemA5e;
+	feature: ItemA5e;
 	interaction: ItemA5e;
 	maneuver: ItemA5e;
-	object: ObjectItemA5e;
-	spell: SpellItemA5e;
+	object: ItemA5e;
+	spell: ItemA5e;
 
 	[
 		K: foundry.abstract.Document.ModuleSubType
@@ -59,8 +56,6 @@ declare interface ItemA5E extends Identity<typeof BaseItemA5e> {
  * @extends {Item}
  */
 class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubType> {
-	declare initialized: boolean;
-
 	dialogs: {
 		actions: Record<string, any>;
 		areaScaling: Record<string, any>;
@@ -114,6 +109,10 @@ class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubT
 
 	// *****************************************************************************************
 
+	isType<SubType extends Item.SubType = Item.SubType>(type: SubType): this is Item.OfType<SubType> {
+		return this.type === type;
+	}
+
 	get reactive() {
 		this.#subscribe();
 
@@ -129,17 +128,11 @@ class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubT
 	/**                      Data Prep                         */
 	/** ------------------------------------------------------ */
 	protected override _initialize(options?: Record<string, unknown>) {
-		this.initialized = false;
-
 		super._initialize(options);
 	}
 
 	override prepareData() {
-		if (this.initialized) return;
-		if (!this.parent || this.parent.initialized) {
-			this.initialized = true;
-			super.prepareData();
-		}
+		super.prepareData();
 	}
 
 	override prepareBaseData() {}

@@ -3,6 +3,9 @@ import { localize } from '#utils/localization/localize.ts';
 import fields = foundry.data.fields;
 import DataModel = foundry.abstract.DataModel;
 
+import getAttackAbility from '#utils/getAttackAbility.ts';
+import { getNearestDocument } from '#utils/getNearestDocument.ts';
+import { getRollFormula } from '#utils/getRollFormula.ts';
 import { scalingFieldBase, scalingFieldRoll } from '../../fields/ScalingField.ts';
 
 // ======================================================
@@ -222,6 +225,33 @@ export class AttackRollData extends DataModel<AttackRollData.Schema> {
 		// Check if invalid
 		this.formulaInvalid = false;
 		if (!this.bonus || !Roll.validate(this.bonus)) this.formulaInvalid = true;
+	}
+
+	getFormula() {
+		const { attackType } = this;
+		// const item = this.getNearestDocument();
+		const item = getNearestDocument(this);
+		const actor = item?.actor;
+		if (!actor) return null;
+
+		const BonusesManager = actor.BonusesManager;
+
+		const ability = getAttackAbility(actor, item, this);
+		const selectedAttackBonuses = BonusesManager.getDefaultSelections('attacks', {
+			item,
+			attackType,
+		});
+
+		return getRollFormula(actor, {
+			ability,
+			attackBonus: this.bonus ?? '',
+			expertiseDie: actor.system.rolls.attack[attackType].outgoing.experiseDice,
+			proficient: this.proficient,
+			rollMode: actor.system.rolls.attack[attackType].outgoing.rollMode,
+			situationalMods: '',
+			selectedAttackBonuses,
+			type: 'attack',
+		});
 	}
 }
 

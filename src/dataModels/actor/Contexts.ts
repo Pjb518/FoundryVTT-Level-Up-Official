@@ -72,7 +72,7 @@ const damageBonusSchema = () => ({
 });
 
 export const damageBonusContext = () => ({ ...damageBonusSchema() });
-export const damageBonusContextGrant = () => ({ ...damageBonusSchema, ...grantContextCommon });
+export const damageBonusContextGrant = () => ({ ...damageBonusSchema(), ...grantContextCommon() });
 
 // -------------------------------------
 // Healing Bonus Contexts
@@ -131,10 +131,10 @@ export const hitPointsBonusContextGrant = () => ({
 // -------------------------------------
 const initiativeBonusSchema = () => ({
 	abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-		initial: Object.keys(CONFIG.A5E.abilities),
+		initial: [],
 	}),
 	skills: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-		initial: Object.keys(CONFIG.A5E.skills),
+		initial: [],
 	}),
 });
 

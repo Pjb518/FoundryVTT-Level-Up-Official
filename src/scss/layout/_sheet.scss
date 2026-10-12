@@ -1,42 +1,32 @@
 .a5e-sheet {
-    border: 0;
-    background: var(--a5e-sheet-background);
-    font-size: var(--a5e-base-font-size) !important;
+  border: 0;
+  background: var(--a5e-sheet-background);
+  font-size: var(--a5e-base-font-size) !important;
 
-    *:not(
-        .fa-classic,
-        .fa-light,
-        .fa-regular,
-        .fa-solid,
-        .fa-thin,
-        .fal,
-        .far,
-        .fas,
-        .fat
-    ) {
-        font-family: var(--a5e-nimble-font);
+  &--action,
+  &--active-effect,
+  &--actor,
+  &--item,
+  &--dialog {
+    .window-content {
+      padding: 0;
     }
+  }
 
-    &--action,
-    &--active-effect,
-    &--actor,
-    &--item,
-    &--dialog {
-        .window-content {
-            padding: 0;
-        }
+  &--action-activation {
+    .window-content {
+      overflow-y: auto;
+      max-height: 90vh;
     }
+  }
 
-    &--action-activation {
-        .window-content {
-            overflow-y: auto;
-            max-height: 90vh;
-        }
+  &--compendium-sheet {
+    .window-content {
+      padding: 0 !important;
     }
+  }
 
-    &--compendium-sheet {
-        .window-content {
-            padding: 0 !important;
-        }
-    }
+  &--party {
+    max-height: 85vh;
+  }
 }

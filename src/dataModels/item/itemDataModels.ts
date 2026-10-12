@@ -4,6 +4,7 @@ import { A5EClassData } from './ClassDataModel.ts';
 import { A5ECultureData } from './CultureDataModel.ts';
 import { A5EDestinyData } from './DestinyDataModel.ts';
 import { A5EFeatureData } from './FeatureDataModel.ts';
+import { A5EHackingData } from './HackingDataModel.ts';
 import { A5EHeritageData } from './HeritageDataModel.ts';
 import { A5EInteractionData } from './InteractionDataModel.ts';
 import { A5EManeuverData } from './ManeuverDataModel.ts';
@@ -19,6 +20,7 @@ const itemDataModels = {
 	heritage: A5EHeritageData,
 
 	feature: A5EFeatureData,
+	hacking: A5EHackingData,
 	interaction: A5EInteractionData,
 	maneuver: A5EManeuverData,
 	object: A5EObjectData,
@@ -39,6 +41,7 @@ declare module 'fvtt-types/configuration' {
 			heritage: typeof A5EHeritageData;
 
 			feature: typeof A5EFeatureData;
+			hacking: typeof A5EHackingData;
 			interaction: typeof A5EInteractionData;
 			maneuver: typeof A5EManeuverData;
 			object: typeof A5EObjectData;

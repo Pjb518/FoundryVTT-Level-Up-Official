@@ -7,7 +7,7 @@
 		"grants": {
 			"bGFXaXCcljxCX5Mb": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "bGFXaXCcljxCX5Mb",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "bGFXaXCcljxCX5Mb",
+				"name": "Default ASI",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"dex"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"eHfOWSk6dcT3kEjP": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "eHfOWSk6dcT3kEjP",
 				"default": true,
@@ -53,11 +80,32 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "eHfOWSk6dcT3kEjP",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:ste"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:dec",
+									"skill:itm"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"UqGYQ0G233YqyjyM": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "UqGYQ0G233YqyjyM",
 				"default": true,
@@ -84,11 +132,27 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "UqGYQ0G233YqyjyM",
+				"name": "Tool Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:diceSet",
+							"tool:boardGameSet",
+							"tool:playingCardSet",
+							"tool:thievesTools"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"m5Es8LHwAh69cy0o": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "m5Es8LHwAh69cy0o",
 				"default": true,
@@ -107,11 +171,31 @@
 						}
 					],
 					"total": 2
+				},
+				"id": "m5Es8LHwAh69cy0o",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.dnd5e-items.le22tnpcahrphad0",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.3k3o90tq7gclpuem",
+								"quantityOverride": 0
+							}
+						],
+						"total": 2
+					}
 				}
 			},
 			"ZIb2fuyo9RdoPLsW": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Background Feature",
 				"features": {
@@ -124,6 +208,24 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "ZIb2fuyo9RdoPLsW",
+				"name": "Background Feature",
+				"img": "",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.6u2csj62l76dv1cx",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			}
 		},

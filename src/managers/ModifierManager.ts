@@ -2,11 +2,11 @@ import type { ItemA5e } from '#documents/item/item.ts';
 import { localize } from '#utils/localization/localize.ts';
 
 class ModifierManager {
-	actor: Actor.OfType<'base'>;
+	actor: Creature;
 
 	rollData: ModifierManager.RollData;
 
-	constructor(actor: Actor.OfType<'base'>, rollData: ModifierManager.RollData) {
+	constructor(actor: Creature, rollData: ModifierManager.RollData) {
 		this.actor = actor;
 		this.rollData = rollData;
 	}
@@ -151,11 +151,18 @@ class ModifierManager {
 	}
 
 	#getAbilitySaveModifier() {
-		const { ability } = this.rollData;
+		const { ability, saveType } = this.rollData;
 
-		if (!ability) return null;
+		let proficient = false;
 
-		const proficient = this.actor.system.abilities[ability]?.save?.proficient;
+		if (saveType === 'concentration') {
+			proficient = this.actor.system.attributes.concentration.proficient ?? false;
+		} else if (saveType === 'death') {
+			proficient = this.actor.system.attributes.death.proficient ?? false;
+		} else if (ability) {
+			proficient = this.actor.system.abilities[ability]?.save?.proficient;
+		}
+
 		const proficiencyBonus = this.actor.system.attributes.prof;
 
 		return {
@@ -176,8 +183,7 @@ class ModifierManager {
 
 		return {
 			label: localize('A5E.ConcentrationBonus'),
-			// @ts-expect-error
-			value: this.actor.system.abilities.con.save.concentrationBonus as string,
+			value: this.actor.system.attributes.concentration.bonus as string,
 		};
 	}
 

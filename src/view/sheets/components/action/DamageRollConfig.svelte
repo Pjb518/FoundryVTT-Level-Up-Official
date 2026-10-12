@@ -1,241 +1,243 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import type { ItemA5e } from "#documents/item/item.ts";
-    import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
-    import { localize } from "#utils/localization/localize.ts";
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-    import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
-    import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
-    import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-    import Checkbox from "#view/snippets/Checkbox.svelte";
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import Section from "#view/snippets/Section.svelte";
-    import type { DamageRollData } from "../../../../dataModels/item/actions/ActionRollsDataModel.ts";
-    import type { RollProps } from "./data.ts";
+  import { getContext } from "svelte";
+  import type { ItemA5e } from "#documents/item/item.ts";
+  import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
+  import { localize } from "#utils/localization/localize.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
+  import RollScalingDialog from "#view/dialogs/action/RollScalingDialog.svelte";
+  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+  import Checkbox from "#view/snippets/Checkbox.svelte";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import Section from "#view/snippets/Section.svelte";
+  import type { DamageRollData } from "../../../../dataModels/item/actions/ActionRollsDataModel.ts";
+  import type { RollProps } from "./data.ts";
 
-    type Props = Omit<RollProps, "roll"> & {
-        roll: DamageRollData;
-    };
+  type Props = Omit<RollProps, "roll"> & {
+    roll: DamageRollData;
+  };
 
-    function configureScaling() {
-        let dialog = item.dialogs.rollScaling[rollId];
+  function configureScaling() {
+    let dialog = item.dialogs.rollScaling[rollId];
 
-        if (!dialog) {
-            item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
-                item,
-                `${item.name} Damage Scaling Configuration`,
-                RollScalingDialog,
-                {
-                    actionId,
-                    propertyKey: `actions.${actionId}.rolls.${rollId}.scaling`,
-                    scalingType: "roll",
-                },
-                { width: 432 },
-            );
+    if (!dialog) {
+      item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
+        item,
+        `${item.name} Damage Scaling Configuration`,
+        RollScalingDialog,
+        {
+          actionId,
+          propertyKey: `actions.${actionId}.rolls.${rollId}.scaling`,
+          scalingType: "roll",
+        },
+        { width: 432 },
+      );
 
-            dialog = item.dialogs.rollScaling[rollId];
-        }
-
-        dialog.render(true);
+      dialog = item.dialogs.rollScaling[rollId];
     }
 
-    let { deleteRoll, duplicateRoll, roll, rollId }: Props = $props();
+    dialog.render(true);
+  }
 
-    let item: ItemA5e = getContext("item");
-    let actionId: string = getContext("actionId");
+  let { deleteRoll, duplicateRoll, roll, rollId }: Props = $props();
 
-    const { damageTypes, dieModifiers } = CONFIG.A5E;
+  let item: ItemA5e = getContext("item");
+  let actionId: string = getContext("actionId");
 
-    let scalingSummary = $derived(
-        // @ts-expect-error
-        prepareScalingSummary("damage", roll?.scaling, {
-            damageType: damageTypes[roll.damageType],
-            level: getOrdinalNumber(item.system.level ?? 1),
-        }),
-    );
+  const { damageTypes, dieModifiers } = CONFIG.A5E;
+
+  let scalingSummary = $derived(
+    // @ts-expect-error
+    prepareScalingSummary("damage", roll?.scaling, {
+      damageType: damageTypes[roll.damageType],
+      level: getOrdinalNumber(item.system.level ?? 1),
+    }),
+  );
 </script>
 
 <FieldWrapper
-    heading="A5E.Label"
-    buttons={[
-        {
-            classes:
-                "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
-            handler: () => duplicateRoll(actionId, roll),
-        },
-        {
-            classes:
-                "icon fas fa-trash a5e-field-wrapper__header-button--scale",
-            handler: () => deleteRoll(actionId, rollId),
-        },
-    ]}
-    --a5e-field-wrapper-button-wrapper-gap="0.75rem"
+  heading="A5E.Label"
+  buttons={[
+    {
+      classes: "icon fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+      handler: () => duplicateRoll(actionId, roll),
+    },
+    {
+      classes: "icon fas fa-trash a5e-field-wrapper__header-button--scale",
+      handler: () => deleteRoll(actionId, rollId),
+    },
+  ]}
+  --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
-    <input
-        class="a5e-input a5e-input--slim"
-        type="text"
-        value={roll.label ?? ""}
-        onchange={({ currentTarget }) =>
-            updateDocumentDataFromField(
-                item,
-                `system.actions.${actionId}.rolls.${rollId}.label`,
-                currentTarget.value,
-            )}
-    />
+  <input
+    class="a5e-input a5e-input--slim"
+    type="text"
+    value={roll.label ?? ""}
+    onchange={({ currentTarget }) =>
+      updateDocumentDataFromField(
+        item,
+        `system.actions.${actionId}.rolls.${rollId}.label`,
+        currentTarget.value,
+      )}
+  />
 </FieldWrapper>
 
 <Section
-    --a5e-section-body-direction="row"
-    --a5e-section-body-wrap="nowrap"
-    --a5e-section-body-padding="0"
+  --a5e-section-body-direction="row"
+  --a5e-section-body-wrap="nowrap"
+  --a5e-section-body-padding="0"
 >
-    <FieldWrapper heading="A5E.damage.headings.die.number">
-        <input
-            class="a5e-input a5e-input--slim a5e-input--small"
-            type="number"
-            value={roll.die.number || 0}
-            onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                    item,
-                    `system.actions.${actionId}.rolls.${rollId}.die.number`,
-                    Number.parseInt(currentTarget.value, 10),
-                )}
-        />
-    </FieldWrapper>
+  <FieldWrapper heading="A5E.damage.headings.die.number">
+    <input
+      class="a5e-input a5e-input--slim a5e-input--small"
+      type="number"
+      value={roll.die.number || 0}
+      onchange={({ currentTarget }) =>
+        updateDocumentDataFromField(
+          item,
+          `system.actions.${actionId}.rolls.${rollId}.die.number`,
+          Number.parseInt(currentTarget.value, 10),
+        )}
+    />
+  </FieldWrapper>
 
-    <FieldWrapper heading="A5E.damage.headings.die.denom">
-        <input
-            class="a5e-input a5e-input--slim a5e-input--small"
-            type="number"
-            value={roll.die.denom || 0}
-            onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                    item,
-                    `system.actions.${actionId}.rolls.${rollId}.die.denom`,
-                    Number.parseInt(currentTarget.value, 10),
-                )}
-        />
-    </FieldWrapper>
+  <FieldWrapper heading="A5E.damage.headings.die.denom">
+    <select
+      class="a5e-input a5e-input--slim a5e-input--fit"
+      onchange={({ currentTarget }) =>
+        updateDocumentDataFromField(
+          item,
+          `system.actions.${actionId}.rolls.${rollId}.die.denom`,
+          Number.parseInt(currentTarget.value, 10),
+        )}
+    >
+      {#each CONFIG.A5E.DICE_SIDES as side}
+        <option selected={side === (roll.die.denom ?? 0)} value={side}>
+          {side === 0 ? "" : `d${side}`}
+        </option>
+      {/each}
+    </select>
+  </FieldWrapper>
 </Section>
 
 {#if roll.die.number && roll.die.denom}
-    <FieldWrapper heading="Modifier Options">
-        <CheckboxGroup
-            options={Object.entries(dieModifiers)}
-            selected={[...((roll.die.modifiers as Set<string>) ?? [])]}
-            onUpdateSelection={(values) =>
-                updateDocumentDataFromField(
-                    item,
-                    `system.actions.${actionId}.rolls.${rollId}.die.modifiers`,
-                    values,
-                )}
-        />
-    </FieldWrapper>
+  <FieldWrapper heading="Modifier Options">
+    <CheckboxGroup
+      options={Object.entries(dieModifiers)}
+      selected={[...((roll.die.modifiers as Set<string>) ?? [])]}
+      onUpdateSelection={(values) =>
+        updateDocumentDataFromField(
+          item,
+          `system.actions.${actionId}.rolls.${rollId}.die.modifiers`,
+          values,
+        )}
+    />
+  </FieldWrapper>
 {/if}
 
 <Section
-    --a5e-section-body-direction="row"
-    --a5e-section-body-wrap="nowrap"
-    --a5e-section-body-padding="0"
+  --a5e-section-body-direction="row"
+  --a5e-section-body-wrap="nowrap"
+  --a5e-section-body-padding="0"
 >
-    <FieldWrapper
-        heading="A5E.damage.headings.formula"
-        hint={scalingSummary}
-        --a5e-field-wrapper-grow="1"
+  <FieldWrapper
+    heading="A5E.damage.headings.formula"
+    hint={scalingSummary}
+    --a5e-field-wrapper-grow="1"
+  >
+    <div class="a5e-action-config__flex-container">
+      <input
+        class="a5e-input a5e-input--slim"
+        id="{actionId}-{rollId}-damage-formula"
+        type="text"
+        value={roll.formula ?? ""}
+        onchange={({ currentTarget }) =>
+          updateDocumentDataFromField(
+            item,
+            `system.actions.${actionId}.rolls.${rollId}.formula`,
+            currentTarget.value,
+          )}
+      />
+
+      <button
+        type="button"
+        class="a5e-button a5e-button--scaling"
+        data-tooltip="A5E.scaling.headings.configureDamage"
+        data-tooltip-direction="UP"
+        aria-label="Configure Scaling"
+        onclick={configureScaling}
+      >
+        <i class="icon fa-solid fa-arrow-up-right-dots"></i>
+      </button>
+    </div>
+  </FieldWrapper>
+
+  <FieldWrapper heading="A5E.damage.headings.type">
+    <select
+      id="{actionId}-{rollId}-damage-type"
+      class="a5e-input a5e-input--slim a5e-input--fit"
+      onchange={({ currentTarget }) =>
+        updateDocumentDataFromField(
+          item,
+          `system.actions.${actionId}.rolls.${rollId}.damageType`,
+          currentTarget.value,
+        )}
     >
-        <div class="a5e-action-config__flex-container">
-            <input
-                class="a5e-input a5e-input--slim"
-                id="{actionId}-{rollId}-damage-formula"
-                type="text"
-                value={roll.formula ?? ""}
-                onchange={({ currentTarget }) =>
-                    updateDocumentDataFromField(
-                        item,
-                        `system.actions.${actionId}.rolls.${rollId}.formula`,
-                        currentTarget.value,
-                    )}
-            />
+      <option value={null} selected={roll.damageType === "null"}>
+        {localize("A5E.None")}
+      </option>
 
-            <button
-                type="button"
-                class="a5e-button a5e-button--scaling"
-                data-tooltip="A5E.scaling.headings.configureDamage"
-                data-tooltip-direction="UP"
-                aria-label="Configure Scaling"
-                onclick={configureScaling}
-            >
-                <i class="icon fa-solid fa-arrow-up-right-dots"></i>
-            </button>
-        </div>
-    </FieldWrapper>
-
-    <FieldWrapper heading="A5E.damage.headings.type">
-        <select
-            id="{actionId}-{rollId}-damage-type"
-            class="a5e-input a5e-input--slim a5e-input--fit"
-            onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                    item,
-                    `system.actions.${actionId}.rolls.${rollId}.damageType`,
-                    currentTarget.value,
-                )}
-        >
-            <option value={null} selected={roll.damageType === "null"}>
-                {localize("A5E.None")}
-            </option>
-
-            {#each Object.entries(damageTypes) as [key, name] (key)}
-                <option value={key} selected={roll.damageType === key}>
-                    {localize(name as string)}
-                </option>
-            {/each}
-        </select>
-    </FieldWrapper>
+      {#each Object.entries(damageTypes) as [key, name] (key)}
+        <option value={key} selected={roll.damageType === key}>
+          {localize(name as string)}
+        </option>
+      {/each}
+    </select>
+  </FieldWrapper>
 </Section>
 
 <Checkbox
-    label="A5E.damage.labels.doubleOnCrit"
-    checked={roll.canCrit ?? true}
-    onUpdateSelection={(value) => {
-        updateDocumentDataFromField(
-            item,
-            `system.actions.${actionId}.rolls.${rollId}.canCrit`,
-            value,
-        );
-    }}
+  label="A5E.damage.labels.doubleOnCrit"
+  checked={roll.canCrit ?? true}
+  onUpdateSelection={(value) => {
+    updateDocumentDataFromField(
+      item,
+      `system.actions.${actionId}.rolls.${rollId}.canCrit`,
+      value,
+    );
+  }}
 />
 
 {#if roll.canCrit ?? true}
-    <FieldWrapper
-        heading="A5E.damage.headings.bonusOnCrit"
-        hint="When you score a critical hit, this damage is added after doubling
+  <FieldWrapper
+    heading="A5E.damage.headings.bonusOnCrit"
+    hint="When you score a critical hit, this damage is added after doubling
     the attack's damage."
-    >
-        <input
-            id="{actionId}-{rollId}-crit-bonus"
-            class="a5e-input a5e-input--slim"
-            type="text"
-            value={roll.critBonus ?? ""}
-            onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                    item,
-                    `system.actions.${actionId}.rolls.${rollId}.critBonus`,
-                    currentTarget.value,
-                )}
-        />
-    </FieldWrapper>
+  >
+    <input
+      id="{actionId}-{rollId}-crit-bonus"
+      class="a5e-input a5e-input--slim"
+      type="text"
+      value={roll.critBonus ?? ""}
+      onchange={({ currentTarget }) =>
+        updateDocumentDataFromField(
+          item,
+          `system.actions.${actionId}.rolls.${rollId}.critBonus`,
+          currentTarget.value,
+        )}
+    />
+  </FieldWrapper>
 {/if}
 
 <Checkbox
-    label="A5E.damage.labels.defaultSelection"
-    checked={roll.default ?? true}
-    onUpdateSelection={(value) => {
-        updateDocumentDataFromField(
-            item,
-            `system.actions.${actionId}.rolls.${rollId}.default`,
-            value,
-        );
-    }}
+  label="A5E.damage.labels.defaultSelection"
+  checked={roll.default ?? true}
+  onUpdateSelection={(value) => {
+    updateDocumentDataFromField(
+      item,
+      `system.actions.${actionId}.rolls.${rollId}.default`,
+      value,
+    );
+  }}
 />

@@ -30,13 +30,30 @@ interface SelectionData {
 }
 
 class BonusesManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
-	#bonuses: Actor.OfType<'base'>['system']['bonuses'];
+	#bonuses: Creature['system']['bonuses'];
 
-	constructor(actor: Actor.OfType<'base'>) {
+	constructor(actor: Creature) {
 		this.#actor = actor;
 		this.#bonuses = this.#actor.system.bonuses ?? {};
+	}
+
+	get grantBonuses() {
+		const bonuses: Record<string, { id: string; source: string }[]> = {};
+
+		[...this.#actor.grants.values()].forEach((g) => {
+			// @ts-expect-error
+			if (!g.applied.bonusId) return;
+			// @ts-expect-error
+			let bonusType: string = g.applied.bonusType;
+			if (g.type === 'exertion') bonusType = 'exertion';
+
+			bonuses[bonusType] ??= [];
+			bonuses[bonusType].push({ id: g.applied.bonusId, source: g.item?.name || g.name });
+		});
+
+		return bonuses;
 	}
 
 	// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -553,7 +570,7 @@ class BonusesManager {
 		const counts = {};
 
 		const healingRolls = rolls.healing ?? [];
-		const spellLevel = item.type === 'spell' ? item.system.level || 1 : null;
+		const spellLevel = item?.type === 'spell' ? item.system.level || 1 : null;
 
 		if (!healingRolls.length) return [];
 

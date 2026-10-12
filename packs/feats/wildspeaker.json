@@ -64,7 +64,29 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "kWGjbmQsFqUz4MlZ",
+				"name": "Wildspeaker",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"wis"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"at1FmgeN7LaNjTVX": {
 				"grantType": "proficiency",
@@ -82,7 +104,19 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "at1FmgeN7LaNjTVX",
+				"name": "Skill Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:sur"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"f62G0xTeICMSJRfU": {
 				"grantType": "expertiseDice",
@@ -100,7 +134,21 @@
 				},
 				"expertiseType": "skill",
 				"img": "",
-				"expertiseCount": 1
+				"expertiseCount": 1,
+				"id": "f62G0xTeICMSJRfU",
+				"name": "Wildspeaker",
+				"type": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [
+							"nat"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				}
 			},
 			"vgjlgal5yfmhJsEj": {
 				"grantType": "proficiency",
@@ -119,7 +167,28 @@
 					],
 					"total": 2
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "vgjlgal5yfmhJsEj",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:carpentersTools",
+									"tool:leatherworkersTools",
+									"tool:woodcarversTools"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "Greenlord feat, 8 levels in druid, no levels in non-druid classes at time of feat acquisition",

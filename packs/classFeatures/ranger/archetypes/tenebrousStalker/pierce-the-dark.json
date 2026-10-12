@@ -50,6 +50,23 @@
 				"unit": "feet",
 				"context": {
 					"otherwiseBlind": false
+				},
+				"id": "UaZWz0jIL54SBkh2",
+				"name": "Darkvision",
+				"type": "senses",
+				"config": {
+					"senses": {
+						"base": [
+							"darkvision"
+						],
+						"options": [],
+						"total": 0
+					},
+					"bonus": "120",
+					"context": {
+						"otherwiseBlind": false
+					},
+					"unit": "feet"
 				}
 			},
 			"dVR0HhUa5YYKUcFM": {
@@ -64,7 +81,23 @@
 						"blindsight"
 					]
 				},
-				"label": "Blindsight"
+				"label": "Blindsight",
+				"id": "dVR0HhUa5YYKUcFM",
+				"name": "Blindsight",
+				"img": "",
+				"type": "senses",
+				"config": {
+					"senses": {
+						"base": [
+							"blindsight"
+						],
+						"options": [],
+						"total": 0
+					},
+					"bonus": "@attributes.senses.blindsight.distance + 30 * sign(@attributes.senses.blindsight.distance) - @attributes.senses.blindsight.distance",
+					"context": {},
+					"unit": "feet"
+				}
 			}
 		},
 		"prerequisite": "",

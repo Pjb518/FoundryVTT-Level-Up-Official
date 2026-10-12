@@ -7,7 +7,7 @@
 		"grants": {
 			"EK23hsIgIRCYQiqm": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "EK23hsIgIRCYQiqm",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "EK23hsIgIRCYQiqm",
+				"name": "Ability Score Increase",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"cha"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"btIa5RiOYONUdZb9": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "btIa5RiOYONUdZb9",
 				"default": true,
@@ -53,11 +80,28 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "btIa5RiOYONUdZb9",
+				"name": "Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.lo5obt0px93qczpg",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"9T8EScAkLUWhbW3Q": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Skill Proficiencies",
 				"keys": {
@@ -73,11 +117,32 @@
 				"proficiencyType": "skill",
 				"_id": "9T8EScAkLUWhbW3Q",
 				"default": true,
-				"img": ""
+				"img": "",
+				"id": "9T8EScAkLUWhbW3Q",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:dec"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:ins",
+									"skill:slt"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"2mgdu7mE3QgUYvjC": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"label": "Suggested Equipment",
 				"items": {
@@ -100,11 +165,35 @@
 				},
 				"_id": "2mgdu7mE3QgUYvjC",
 				"default": true,
-				"img": ""
+				"img": "",
+				"id": "2mgdu7mE3QgUYvjC",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8immo7012y7uj9u7",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.nzk5o2pu6bk18d67",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"yXBWmFyk7Bo9r20m": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Tool Proficiencies",
 				"traits": {
@@ -124,7 +213,22 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "yXBWmFyk7Bo9r20m",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:diceSet",
+							"tool:playingCardSet"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "adventurersGuide",

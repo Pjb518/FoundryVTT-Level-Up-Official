@@ -102,7 +102,24 @@
 				},
 				"skill": "itm",
 				"_id": "YWLlamGigsnVG3sy",
-				"img": ""
+				"img": "",
+				"id": "YWLlamGigsnVG3sy",
+				"name": "Legbreaker",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"authority",
+							"ferocity",
+							"interrogation",
+							"subtleThreats",
+							"weaponDisplays"
+						],
+						"total": 1
+					},
+					"skill": "itm"
+				}
 			},
 			"va3ikl8IHl4etfdP": {
 				"grantType": "damage",
@@ -122,6 +139,24 @@
 						"bludgeoning"
 					],
 					"default": false
+				},
+				"id": "va3ikl8IHl4etfdP",
+				"name": "Legbreaker Sneak Attack Damage",
+				"img": "",
+				"type": "damage",
+				"config": {
+					"damageType": "bludgeoning",
+					"bonus": "(((@classResources.sneak-attack)-2)d6)",
+					"context": {
+						"attackTypes": [
+							"meleeWeaponAttack",
+							"rangedWeaponAttack"
+						],
+						"damageTypes": [
+							"bludgeoning"
+						],
+						"default": false
+					}
 				}
 			}
 		},

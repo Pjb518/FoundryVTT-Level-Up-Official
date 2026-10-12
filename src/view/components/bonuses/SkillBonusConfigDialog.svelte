@@ -1,174 +1,174 @@
 <script lang="ts">
-    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
-    import Checkbox from "#view/snippets/Checkbox.svelte";
-    import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
-    import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
-    import Section from "#view/snippets/Section.svelte";
+  import Checkbox from "#view/snippets/Checkbox.svelte";
+  import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
+  import FieldWrapper from "#view/snippets/FieldWrapper.svelte";
+  import Section from "#view/snippets/Section.svelte";
 
-    type Props = {
-        document?: any;
-        bonusID?: string;
-        data?: Record<string, any>;
-        onchange?: (value: Record<string, any>) => void;
-    };
+  type Props = {
+    document?: any;
+    bonusID?: string;
+    data?: Record<string, any>;
+    onchange?: (value: Record<string, any>) => void;
+  };
 
-    function updateImage() {
-        const current = skillBonus?.img;
+  function updateImage() {
+    const current = skillBonus?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+    const filePicker = new foundry.applications.apps.FilePicker({
+      type: "image",
+      current,
+      callback: (path) => {
+        onUpdateValue("img", path);
+      },
+    });
 
-        return filePicker.browse();
+    return filePicker.browse();
+  }
+
+  function onUpdateValue(key, value) {
+    if (data === undefined) {
+      key = `system.bonuses.skills.${bonusID}.${key}`;
+      updateDocumentDataFromField(actor, key, value);
+      return;
     }
 
-    function onUpdateValue(key, value) {
-        if (data === undefined) {
-            key = `system.bonuses.skills.${bonusID}.${key}`;
-            updateDocumentDataFromField(actor, key, value);
-            return;
-        }
+    const newObj = foundry.utils.expandObject({
+      ...skillBonus,
+      [key]: value,
+    });
 
-        const newObj = foundry.utils.expandObject({
-            ...skillBonus,
-            [key]: value,
-        });
+    onchange?.(newObj);
+  }
 
-        onchange?.(newObj);
+  function getSKillBonus() {
+    if (data === undefined)
+      return actor.reactive.system.bonuses.skills[bonusID];
+
+    try {
+      const obj = data ?? {};
+      if (typeof obj !== "object") throw new Error();
+      obj.label = obj.label ?? "";
+      obj.formula = obj.formula ?? "";
+      obj.context = obj.context ?? {
+        skills: [],
+        requiresProficiency: false,
+        passiveOnly: false,
+      };
+      obj.default = obj.default ?? true;
+      obj.img = obj.img || "icons/svg/upgrade.svg";
+      return obj;
+    } catch (error) {
+      return {
+        label: "",
+        formula: "",
+        damageType: "",
+        context: {
+          skills: [],
+          requiresProficiency: false,
+          passiveOnly: false,
+        },
+        default: true,
+        img: "icons/svg/upgrade.svg",
+      };
     }
+  }
 
-    function getSKillBonus() {
-        if (data === undefined)
-            return actor.reactive.system.bonuses.skills[bonusID];
+  let {
+    document,
+    bonusID = "",
+    data = undefined,
+    onchange = undefined,
+  }: Props = $props();
 
-        try {
-            const obj = data ?? {};
-            if (typeof obj !== "object") throw new Error();
-            obj.label = obj.label ?? "";
-            obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {
-                skills: [],
-                requiresProficiency: false,
-                passiveOnly: false,
-            };
-            obj.default = obj.default ?? true;
-            obj.img = obj.img || "icons/svg/upgrade.svg";
-            return obj;
-        } catch (error) {
-            return {
-                label: "",
-                formula: "",
-                damageType: "",
-                context: {
-                    skills: [],
-                    requiresProficiency: false,
-                    passiveOnly: false,
-                },
-                default: true,
-                img: "icons/svg/upgrade.svg",
-            };
-        }
-    }
+  let actor = document;
 
-    let {
-        document,
-        bonusID = "",
-        data = undefined,
-        onchange = undefined,
-    }: Props = $props();
+  const { skills } = CONFIG.A5E;
 
-    let actor = document;
-
-    const { skills } = CONFIG.A5E;
-
-    let skillBonus = $derived(getSKillBonus() ?? {});
-    let passiveOnly = $derived(skillBonus.context.passiveOnly ?? false);
-    let skillsContext = $derived(skillBonus.context.skills ?? []);
-    let requiresProficiency = $derived(
-        skillBonus.context.requiresProficiency ?? false,
-    );
+  let skillBonus = $derived(getSKillBonus() ?? {});
+  let passiveOnly = $derived(skillBonus.context.passiveOnly ?? false);
+  let skillsContext = $derived(skillBonus.context.skills ?? []);
+  let requiresProficiency = $derived(
+    skillBonus.context.requiresProficiency ?? false,
+  );
 </script>
 
 <form class="a5e-bonus">
-    <header class="a5e-bonus__header">
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <!-- svelte-ignore a11y_click_events_have_key_events -->
-        <img
-            class="a5e-bonus-image"
-            src={skillBonus.img}
-            alt={skillBonus.label}
-            onclick={() => updateImage()}
-        />
+  <header class="a5e-bonus__header">
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <img
+      class="a5e-bonus-image"
+      src={skillBonus.img}
+      alt={skillBonus.label}
+      onclick={() => updateImage()}
+    />
 
-        <div class="a5e-bonus-name-wrapper">
-            <input
-                class="a5e-input a5e-bonus-name"
-                type="text"
-                name="name"
-                value={skillBonus.label ?? ""}
-                placeholder="Bonus Name"
-                onchange={({ currentTarget }) =>
-                    onUpdateValue("label", currentTarget.value)}
-            />
-        </div>
-    </header>
+    <div class="a5e-bonus-name-wrapper">
+      <input
+        class="a5e-input a5e-bonus-name"
+        type="text"
+        name="name"
+        value={skillBonus.label ?? ""}
+        placeholder="Bonus Name"
+        onchange={({ currentTarget }) =>
+          onUpdateValue("label", currentTarget.value)}
+      />
+    </div>
+  </header>
 
-    <Section --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.rollLabels.formula">
-            <input
-                class="a5e-input a5e-input--slim"
-                type="text"
-                value={skillBonus.formula ?? ""}
-                onchange={({ currentTarget }) =>
-                    onUpdateValue("formula", currentTarget.value)}
-            />
-        </FieldWrapper>
-    </Section>
+  <Section --a5e-section-margin="0.25rem 0">
+    <FieldWrapper heading="A5E.rollLabels.formula">
+      <input
+        class="a5e-input a5e-input--slim"
+        type="text"
+        value={skillBonus.formula ?? ""}
+        onchange={({ currentTarget }) =>
+          onUpdateValue("formula", currentTarget.value)}
+      />
+    </FieldWrapper>
+  </Section>
 
-    <Section
-        heading="Contexts"
-        hint="The context determines when the ability bonus applies"
-        --a5e-section-body-gap="0.75rem"
-    >
-        <CheckboxGroup
-            heading="A5E.contexts.skills"
-            options={Object.entries(skills)}
-            selected={skillsContext}
-            showToggleAllButton={true}
-            onUpdateSelection={(value) => {
-                onUpdateValue("context.skills", value);
-            }}
-        />
+  <Section
+    heading="Contexts"
+    hint="The context determines when the ability bonus applies"
+    --a5e-section-body-gap="0.75rem"
+  >
+    <CheckboxGroup
+      heading="A5E.contexts.skills"
+      options={Object.entries(skills)}
+      selected={skillsContext}
+      showToggleAllButton={true}
+      onUpdateSelection={(value) => {
+        onUpdateValue("context.skills", value);
+      }}
+    />
 
-        <Checkbox
-            label="A5E.contexts.requiresProficiency"
-            checked={requiresProficiency}
-            onUpdateSelection={(value) => {
-                onUpdateValue("context.requiresProficiency", value);
-            }}
-        />
+    <Checkbox
+      label="A5E.contexts.requiresProficiency"
+      checked={requiresProficiency}
+      onUpdateSelection={(value) => {
+        onUpdateValue("context.requiresProficiency", value);
+      }}
+    />
 
-        <Checkbox
-            label="A5E.contexts.passiveOnly"
-            checked={passiveOnly}
-            onUpdateSelection={(value) => {
-                onUpdateValue("context.passiveOnly", value);
-            }}
-        />
+    <Checkbox
+      label="A5E.contexts.passiveOnly"
+      checked={passiveOnly}
+      onUpdateSelection={(value) => {
+        onUpdateValue("context.passiveOnly", value);
+      }}
+    />
 
-        <FieldWrapper>
-            <Checkbox
-                label="Select Skill Bonus Automatically in Roll Prompt"
-                checked={skillBonus.default ?? true}
-                onUpdateSelection={(value) => {
-                    onUpdateValue("default", value);
-                }}
-            />
-        </FieldWrapper>
-    </Section>
+    <FieldWrapper>
+      <Checkbox
+        label="Select Skill Bonus Automatically in Roll Prompt"
+        checked={skillBonus.default ?? true}
+        onUpdateSelection={(value) => {
+          onUpdateValue("default", value);
+        }}
+      />
+    </FieldWrapper>
+  </Section>
 </form>

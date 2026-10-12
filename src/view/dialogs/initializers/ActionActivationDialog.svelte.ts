@@ -1,70 +1,69 @@
-import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
+import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
 
-import ActionActivationDialogComponent from "#view/dialogs/action/ActionActivationDialog.svelte";
+import ActionActivationDialogComponent from '#view/dialogs/action/ActionActivationDialog.svelte';
 
 /**
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export class ActionActivationDialog extends SvelteApplicationMixin(
-  foundry.applications.api.ApplicationV2,
+	foundry.applications.api.ApplicationV2,
 ) {
-  data;
+	data;
 
-  root = ActionActivationDialogComponent;
+	root = ActionActivationDialogComponent;
 
-  constructor({ actionId, actorDocument, itemDocument, options = {} }) {
-    // @ts-ignore
-    super({
-      classes: [
-        "a5e-sheet",
-        "a5e-sheet--dialog",
-        "a5e-sheet--action-activation",
-      ],
-      position: { width: 420, height: "auto" },
-      window: {
-        title: `${actorDocument.name}: Activate ${itemDocument.actions.get(actionId).name}`,
-      },
-    });
+	constructor({ actionId, actorDocument, itemDocument, options = {} }) {
+		const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+		const width = ActionActivationDialog.DEFAULT_OPTIONS.position.width * scale;
 
-    this.data = { actionId, actorDocument, itemDocument, options };
+		// @ts-expect-error
+		super({
+			classes: ['a5e-sheet', 'a5e-sheet--dialog', 'a5e-sheet--action-activation'],
+			position: { width, height: 'auto' },
+			window: {
+				title: `${actorDocument.name}: Activate ${itemDocument.actions.get(actionId).name}`,
+			},
+		});
 
-    this.promise = new Promise((resolve) => {
-      this.resolve = resolve;
-    });
-  }
+		this.data = { actionId, actorDocument, itemDocument, options };
 
-  static override DEFAULT_OPTIONS = {
-    classes: ["a5e-sheet a5e-sheet--dialog", "a5e-sheet--action-activation"],
-    position: { width: 420, height: "auto" },
-  };
+		this.promise = new Promise((resolve) => {
+			this.resolve = resolve;
+		});
+	}
 
-  async _prepareContext() {
-    return {
-      ...this.data,
-      dialog: this,
-    };
-  }
+	static override DEFAULT_OPTIONS = {
+		classes: ['a5e-sheet a5e-sheet--dialog', 'a5e-sheet--action-activation'],
+		position: { width: 420, height: 'auto' },
+	};
 
-  /** @inheritdoc */
-  close(options) {
-    this.#resolvePromise(null);
-    return super.close(options);
-  }
+	async _prepareContext() {
+		return {
+			...this.data,
+			dialog: this,
+		};
+	}
 
-  /**
-   * Resolves the dialog's promise and closes it.
-   *
-   * @param {object} results
-   * @returns
-   */
-  submit(results) {
-    this.#resolvePromise(results);
-    return super.close();
-  }
+	/** @inheritdoc */
+	close(options) {
+		this.#resolvePromise(null);
+		return super.close(options);
+	}
 
-  #resolvePromise(data) {
-    if (this.resolve) {
-      this.resolve(data);
-    }
-  }
+	/**
+	 * Resolves the dialog's promise and closes it.
+	 *
+	 * @param {object} results
+	 * @returns
+	 */
+	submit(results) {
+		this.#resolvePromise(results);
+		return super.close();
+	}
+
+	#resolvePromise(data) {
+		if (this.resolve) {
+			this.resolve(data);
+		}
+	}
 }

@@ -10,7 +10,7 @@ interface MigrationRecord {
 	version: number | null;
 	type: string; // TODO: Update this to be better
 	lastMigration: {
-		version: number | null;
+		schema: number | null;
 		system: string;
 		foundry: string;
 	} | null;
@@ -19,7 +19,7 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_MIGRATION_VERSION = 0.024;
+	static LATEST_MIGRATION_VERSION = 0.026;
 
 	static RECOMMENDED_SAFE_VERSION = 0.022;
 
@@ -104,25 +104,21 @@ class MigrationRunnerBase {
 		if ('game' in globalThis) {
 			const latestMigration = migrations.at(-1)!;
 			actorData.system.migrationData ??= { version: null, lastMigration: null };
-			// @ts-expect-error
-			this.#updateMigrationRecord(actorData.system.migration, latestMigration);
+			this.#updateMigrationRecord(actorData.system.migrationData, latestMigration);
 
 			for (const itemData of actorData.items) {
-				itemData.system._migration ??= { version: null, previous: null };
-				// @ts-expect-error
-				this.#updateMigrationRecord(itemData.system._migration, latestMigration);
+				itemData.system.migrationData ??= { version: null, previous: null };
+				this.#updateMigrationRecord(itemData.system.migrationData, latestMigration);
 
 				for (const effectData of itemData.effects) {
-					effectData.system._migration ??= { version: null, previous: null };
-					// @ts-expect-error
-					this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+					effectData.system.migrationData ??= { version: null, previous: null };
+					this.#updateMigrationRecord(effectData.system.migrationData, latestMigration);
 				}
 			}
 
 			for (const effectData of actorData.effects) {
-				effectData.system._migration ??= { version: null, previous: null };
-				// @ts-expect-error
-				this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+				effectData.system.migrationData ??= { version: null, previous: null };
+				this.#updateMigrationRecord(effectData.system.migrationData, latestMigration);
 			}
 		}
 
@@ -153,13 +149,11 @@ class MigrationRunnerBase {
 		if ('game' in globalThis) {
 			const latestMigration = migrations.at(-1)!;
 			itemData.system.migrationData ??= { version: null, lastMigration: null };
-			// @ts-expect-error
 			this.#updateMigrationRecord(itemData.system.migration, latestMigration);
 
 			for (const effectData of itemData.effects) {
-				effectData.system._migration ??= { version: null, previous: null };
-				// @ts-expect-error
-				this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+				effectData.system.migrationData ??= { version: null, previous: null };
+				this.#updateMigrationRecord(effectData.system.migrationData, latestMigration);
 			}
 		}
 
@@ -239,7 +233,6 @@ class MigrationRunnerBase {
 	}
 
 	#updateMigrationRecord(
-		type: string,
 		migration = {} as MigrationRecord,
 		latestMigration: MigrationBase | null = null,
 	) {
@@ -249,7 +242,7 @@ class MigrationRunnerBase {
 		migration.version = latestMigration?.version;
 
 		migration.lastMigration = {
-			version: fromVersion,
+			schema: fromVersion,
 			foundry: game.version,
 			system: game.system.version,
 		};

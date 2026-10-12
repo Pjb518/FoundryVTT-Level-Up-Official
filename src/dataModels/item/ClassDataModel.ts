@@ -1,8 +1,11 @@
+import { createInitialGrant } from '#utils/createInitialGrant.ts';
+
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
-const schema = {
+const schema = () => ({
 	slug: new fields.StringField({ nullable: false, initial: '' }),
 	archetypeLevel: new fields.NumberField({
 		required: true,
@@ -51,87 +54,89 @@ const schema = {
 			}, {}),
 		),
 	}),
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
-				proficiencyType: 'armor',
-				label: 'Armor Proficiencies',
+				name: 'Armor Proficiencies',
 				levelType: 'class',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
-				proficiencyType: 'weapon',
-				label: 'Weapon Proficiencies',
+				name: 'Weapon Proficiencies',
 				levelType: 'class',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
-				proficiencyType: 'tool',
-				label: 'Tool Proficiencies',
+				name: 'Tool Proficiencies',
 				levelType: 'character',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					isExpertise: false,
 				},
-				proficiencyType: 'savingThrow',
-				isExpertise: false,
-				label: 'Saving Throw Proficiencies',
+				name: 'Saving Throw Proficiencies',
 				levelType: 'character',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: {
+						base: [],
+						options: [],
+						total: 0,
+					},
+					isExpertise: false,
 				},
-				proficiencyType: 'skill',
-				isExpertise: false,
-				label: 'Skill Proficiencies',
+				name: 'Skill Proficiencies',
 				levelType: 'character',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'feature',
-				features: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('feature', {
+				config: {
+					features: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
-				label: '1st Level Class Features',
+				name: '1st Level Class Features',
 				levelType: 'class',
-			},
-			[foundry.utils.randomID()]: {
-				grantType: 'item',
-				items: {
-					base: [],
-					options: [],
-					total: 0,
+			}),
+			...createInitialGrant('item', {
+				config: {
+					items: {
+						base: [],
+						options: [],
+						total: 0,
+					},
 				},
-				label: 'Starting Equipment',
+				name: 'Starting Equipment',
 				levelType: 'character',
 				optional: true,
-			},
+			}),
 		}),
 	}),
 	resources: new fields.ArrayField(
@@ -163,10 +168,10 @@ const schema = {
 		maxPreparedFormula: new fields.StringField({ required: true, nullable: false, initial: '0' }),
 	}),
 	wealth: new fields.StringField({ nullable: false, initial: '' }),
-};
+});
 
 declare namespace A5EClassData {
-	type Schema = A5EBaseItemData.Schema & typeof schema;
+	type Schema = A5EBaseItemData.Schema & ReturnType<typeof schema>;
 	type BaseData = A5EBaseItemData.BaseData;
 	type DerivedData = A5EBaseItemData.DerivedData;
 }
@@ -180,10 +185,9 @@ class A5EClassData extends A5EBaseItemData<
 	static override defineSchema(): A5EClassData.Schema {
 		return {
 			...super.defineSchema(),
-			...schema,
+			...schema(),
 		};
 	}
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { A5EClassData };

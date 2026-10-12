@@ -180,6 +180,23 @@ export const settings = [
 			type: Boolean,
 		},
 	},
+	{
+		namespace,
+		key: 'droppedObjectEquippedState',
+		options: {
+			name: 'A5E.settings.droppedObjectEquippedState',
+			scope: scope.world,
+			config: false,
+			type: String,
+			choices: {
+				itemDefined: 'A5E.settings.droppedObjectEquippedStateItemDefined',
+				notCarried: 'A5E.equippedState.notCarried',
+				carried: 'A5E.equippedState.carried',
+				equipped: 'A5E.equippedState.equipped',
+			},
+			default: 'itemDefined',
+		},
+	},
 	// Canvas Settings
 	{
 		namespace,
@@ -190,6 +207,18 @@ export const settings = [
 			scope: scope.world,
 			config: false,
 			default: false,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'automateMovement',
+		options: {
+			name: 'A5E.settings.automateMovement',
+			hint: 'A5E.settings.hints.automateMovement',
+			scope: scope.world,
+			config: false,
+			default: true,
 			type: Boolean,
 		},
 	},
@@ -252,6 +281,23 @@ export const settings = [
 			config: false,
 			type: Boolean,
 			default: true,
+		},
+	},
+	{
+		namespace,
+		key: 'homebrewContent',
+		options: {
+			name: 'A5E.settings.homebrewContent',
+			scope: scope.world,
+			config: false,
+			type: Object,
+			default: {
+				damageTypes: {},
+				languages: {},
+				objectTypes: {},
+				spellSchools: { primary: {}, secondary: {} },
+				proficiencies: { armor: {}, tradition: {}, tool: {}, weapon: {} },
+			},
 		},
 	},
 	{
@@ -338,6 +384,30 @@ export const settings = [
 			name: 'A5E.settings.hideChatDescriptionsByDefault',
 			hint: 'A5E.settings.hints.hideChatDescriptionsByDefault',
 			scope: scope.client,
+			config: false,
+			default: false,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'showCombatRoundCards',
+		options: {
+			name: 'A5E.settings.showCombatRoundCards',
+			hint: 'A5E.settings.hints.showCombatRoundCards',
+			scope: scope.world,
+			config: false,
+			default: true,
+			type: Boolean,
+		},
+	},
+	{
+		namespace,
+		key: 'showCombatRoundCardsToPlayers',
+		options: {
+			name: 'A5E.settings.showCombatRoundCardsToPlayers',
+			hint: 'A5E.settings.hints.showCombatRoundCardsToPlayers',
+			scope: scope.world,
 			config: false,
 			default: false,
 			type: Boolean,
@@ -569,18 +639,6 @@ export const settings = [
 		},
 	},
 	// Misc Settings
-	{
-		namespace,
-		key: 'autoApplyFancySheets',
-		options: {
-			name: 'A5E.settings.autoApplyFancySheets',
-			hint: 'A5E.settings.hints.autoApplyFancySheets',
-			scope: scope.world,
-			config: false,
-			default: false,
-			type: Boolean,
-		},
-	},
 	{
 		namespace,
 		key: 'enableCascadingDamageAndHealing',
@@ -822,6 +880,18 @@ export const settings = [
 				},
 			},
 			type: Object,
+		},
+	},
+	// Temp Theme Settings
+	{
+		namespace,
+		key: 'expertimentalprimaryColor',
+		options: {
+			name: '[ Experimental ] Primary Color',
+			scope: scope.client,
+			config: true,
+			default: '#426066',
+			type: new foundry.data.fields.ColorField(),
 		},
 	},
 ];

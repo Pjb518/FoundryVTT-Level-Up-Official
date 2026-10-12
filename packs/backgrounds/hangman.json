@@ -7,7 +7,7 @@
 		"grants": {
 			"94hodgVdjGalcHXO": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "94hodgVdjGalcHXO",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "94hodgVdjGalcHXO",
+				"name": "Ability Score Increase",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"str"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"EDRP4aL9fqFej5xW": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "EDRP4aL9fqFej5xW",
 				"default": true,
@@ -53,11 +80,28 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "EDRP4aL9fqFej5xW",
+				"name": "Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.1cc5yif31xsuhd2d",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"23bfqAqHyaAdXvqD": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "23bfqAqHyaAdXvqD",
 				"default": true,
@@ -95,11 +139,50 @@
 					],
 					"total": 1,
 					"traitType": "languages"
+				},
+				"id": "23bfqAqHyaAdXvqD",
+				"name": "Languages",
+				"levelType": "character",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"druidic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"cant",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
 				}
 			},
 			"SThiF5hC4o55CG3J": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"keys": {
 					"base": [],
@@ -114,11 +197,31 @@
 				"label": "Skill Proficiencies",
 				"_id": "SThiF5hC4o55CG3J",
 				"default": true,
-				"img": ""
+				"img": "",
+				"id": "SThiF5hC4o55CG3J",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:itm",
+									"skill:med",
+									"skill:prf"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"J79KR6UAqJmJ7rJK": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "J79KR6UAqJmJ7rJK",
 				"default": true,
@@ -145,11 +248,39 @@
 						}
 					],
 					"total": 1
+				},
+				"id": "J79KR6UAqJmJ7rJK",
+				"name": "Suggested Equipment",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ws12a41dokkaqi8a",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.vzmgutyegssa2akj",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.98xicbemxwkxwr99",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
 				}
 			},
 			"1MFPMrmjOEzfJC1K": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"traits": {
 					"base": [
@@ -167,7 +298,21 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "1MFPMrmjOEzfJC1K",
+				"name": "Tool Proficiency",
+				"img": "",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:poisonersKit"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "thematicToolkitJudgeJuryAndExecutioner",

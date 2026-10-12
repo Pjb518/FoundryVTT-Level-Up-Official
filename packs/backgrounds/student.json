@@ -45,7 +45,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "LHHq1RqOKKhOsQSF",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"llR9LhD0Ci9xNCXi": {
 				"grantType": "proficiency",
@@ -67,7 +93,28 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "llR9LhD0Ci9xNCXi",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:eng",
+									"skill:his",
+									"skill:med",
+									"skill:nat",
+									"skill:per"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"5KnEZg1lhVNYEJcT": {
 				"grantType": "feature",
@@ -87,6 +134,22 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "5KnEZg1lhVNYEJcT",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.q9zu0cryDb7lVf3s",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"cUiftZDrw6YJ8xQA": {
@@ -110,6 +173,25 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "cUiftZDrw6YJ8xQA",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.WJ2Y1MmlR5XJDzft",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.t7tfskTBxYgau8eM",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"pe5L6JeUin3d8B7D": {
@@ -130,7 +212,26 @@
 					],
 					"total": 1
 				},
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "pe5L6JeUin3d8B7D",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:computers",
+									"tool:multiScanner",
+									"tool:medicalPouch"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"F462ircjPckdOxVW": {
 				"grantType": "skillSpecialty",
@@ -152,7 +253,25 @@
 					"total": 1
 				},
 				"skill": "his",
-				"img": ""
+				"img": "",
+				"id": "F462ircjPckdOxVW",
+				"name": "History Skill Specialty",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"arts",
+							"empires",
+							"genealogy",
+							"legends",
+							"militaryHistory",
+							"wars"
+						],
+						"total": 1
+					},
+					"skill": "his"
+				}
 			},
 			"ueHb8NqF6VjGLO3p": {
 				"grantType": "skillSpecialty",
@@ -182,7 +301,31 @@
 				},
 				"skill": "eng",
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Engineering Skill Specialty",
+				"id": "ueHb8NqF6VjGLO3p",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"architecture",
+							"chemistry",
+							"explosives",
+							"gadgetry",
+							"mathematics",
+							"mechanicalTraps",
+							"plumbing",
+							"robotics",
+							"siegecraft",
+							"starships",
+							"starshipEngines",
+							"starshipShields",
+							"weaponry"
+						],
+						"total": 1
+					},
+					"skill": "eng"
+				}
 			},
 			"u5ikHwRcmm19Ew6C": {
 				"grantType": "skillSpecialty",
@@ -207,7 +350,26 @@
 				},
 				"skill": "med",
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Medicine Skill Specialty",
+				"id": "u5ikHwRcmm19Ew6C",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"animals",
+							"autopsy",
+							"diseases",
+							"drugs",
+							"herbalism",
+							"mentalHealth",
+							"poisons",
+							"xenobiology"
+						],
+						"total": 1
+					},
+					"skill": "med"
+				}
 			},
 			"YoESeB6lBoOvI9MN": {
 				"grantType": "skillSpecialty",
@@ -230,7 +392,24 @@
 				},
 				"skill": "nat",
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Nature Skill Specialty",
+				"id": "YoESeB6lBoOvI9MN",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"astronomy",
+							"beastLore",
+							"farming",
+							"fey",
+							"plantLore",
+							"weather"
+						],
+						"total": 1
+					},
+					"skill": "nat"
+				}
 			},
 			"vrJgGo5zAUdNWiYg": {
 				"grantType": "skillSpecialty",
@@ -252,7 +431,23 @@
 				},
 				"skill": "per",
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Persuasion Skill Specialty",
+				"id": "vrJgGo5zAUdNWiYg",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"bribery",
+							"flattery",
+							"leadership",
+							"negotiation",
+							"peacemaking"
+						],
+						"total": 1
+					},
+					"skill": "per"
+				}
 			},
 			"bC5eAMOLGQNoVAVa": {
 				"grantType": "trait",
@@ -294,6 +489,46 @@
 					],
 					"total": 1,
 					"traitType": "languages"
+				},
+				"id": "bC5eAMOLGQNoVAVa",
+				"name": "Language",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"boggard",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"grippli",
+							"halfling",
+							"ignan",
+							"infernal",
+							"machine",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
 				}
 			}
 		},

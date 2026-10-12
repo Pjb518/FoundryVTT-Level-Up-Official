@@ -307,6 +307,9 @@ export default class ActiveEffectA5e extends ActiveEffect {
 
     // TODO: Refactor - Move to own utility function
     switch (change.key) {
+      case "flags.a5e.effects.conditionResistances":
+        newKey = `system.traits.conditionResistances.${foundry.utils.randomID()}`;
+        break;
       case "flags.a5e.effects.damageResistances.all":
       case "flags.a5e.effects.damageVulnerabilities.all":
       case "flags.a5e.effects.damageImmunities.all":

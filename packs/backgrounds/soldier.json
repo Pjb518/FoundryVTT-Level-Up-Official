@@ -7,7 +7,7 @@
 		"grants": {
 			"rOWYr8z0a71BAAEi": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "rOWYr8z0a71BAAEi",
 				"default": true,
@@ -33,11 +33,38 @@
 						"base"
 					],
 					"requiresProficiency": false
+				},
+				"id": "rOWYr8z0a71BAAEi",
+				"name": "Ability Score Increase",
+				"levelType": "character",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"str"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false
+					}
 				}
 			},
 			"Fq6dVRNrbxgwGL69": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "Fq6dVRNrbxgwGL69",
 				"default": true,
@@ -53,11 +80,28 @@
 					],
 					"options": [],
 					"total": 0
+				},
+				"id": "Fq6dVRNrbxgwGL69",
+				"name": "Feature",
+				"levelType": "character",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.t72yzc9mq3epjvvu",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"6MIl5NqbmR6Jbh7g": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "6MIl5NqbmR6Jbh7g",
 				"default": true,
@@ -73,11 +117,32 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "6MIl5NqbmR6Jbh7g",
+				"name": "Skill Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:ath"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:ani",
+									"skill:itm"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"HllVezvQjndoR9lj": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "HllVezvQjndoR9lj",
 				"default": true,
@@ -102,11 +167,31 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "HllVezvQjndoR9lj",
+				"name": "Tool Proficiencies",
+				"levelType": "character",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:diceSet",
+									"tool:boardGameSet",
+									"tool:playingCardSet"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"XFyAMVmPFk4qtCQ6": {
 				"grantType": "trait",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "XFyAMVmPFk4qtCQ6",
 				"default": true,
@@ -144,11 +229,50 @@
 					],
 					"total": 1,
 					"traitType": "languages"
+				},
+				"id": "XFyAMVmPFk4qtCQ6",
+				"name": "Languages",
+				"levelType": "character",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"druidic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"cant",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
 				}
 			},
 			"owhCb1ItyNc5rmcz": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"label": "Suggested Equipment",
 				"items": {
@@ -163,6 +287,27 @@
 						}
 					],
 					"total": 1
+				},
+				"id": "owhCb1ItyNc5rmcz",
+				"name": "Suggested Equipment",
+				"img": "",
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.w9t45o2j9aqx1qmp",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.pwgkdtzl4t3n9xrr",
+								"quantityOverride": "7"
+							}
+						],
+						"total": 1
+					}
 				}
 			}
 		},

@@ -1,7 +1,4 @@
-export default function getSpellBookDC(
-	actor: Actor.OfType<'base'>,
-	item: Item.OfType<'spell'>,
-): number {
+export default function getSpellBookDC(actor: Creature, item: Item.OfType<'spell'>): number {
 	let spellBook: any; // TODO: Types - Update this
 
 	const actorData: any = actor.system;

@@ -1,78 +1,124 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import NumericalGrantSelectionDialog from '#view/components/grants/NumericalGrantSelectionDialog.svelte';
 import { attackBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class AttackGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// CONFIG
+	config: new fields.SchemaField({
+		attackTypes: new fields.SchemaField({
+			base: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			options: new fields.ArrayField(
+				new fields.StringField({ required: true, nullable: false, initial: '' }),
+				{ required: true, initial: [] },
+			),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(attackBonusContextGrant()),
+	}),
+
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	attackTypes: new fields.SchemaField({
+		/** @deprecated */
+		base: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		/** @deprecated */
+		options: new fields.ArrayField(
+			new fields.StringField({ required: true, nullable: false, initial: '' }),
+			{ required: true, initial: [] },
+		),
+		/** @deprecated */
+		total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	}),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(attackBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Attack Bonus Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'attack',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace AttackGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class AttackGrant extends BaseGrant<AttackGrant.Schema> {
 	#component = NumericalGrantSelectionDialog;
 
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'attack';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'attack';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'attack' }),
-			attackTypes: new fields.SchemaField({
-				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
-					required: true,
-					initial: [],
-				}),
-				total: new fields.NumberField({
-					required: true,
-					initial: 0,
-					integer: true,
-				}),
-			}),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(attackBonusContextGrant()),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Attack Grant',
-			}),
-		});
+	static override defineSchema(): AttackGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: any, data: any) {
+	override getApplyData(actor: Character, data: any) {
 		if (!actor) return {};
 
-		const selected = data?.selected ?? this.attackTypes.base ?? [];
+		const selected = data?.selected ?? this.config.attackTypes.base ?? [];
 
 		// Construct bonus
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
 			context: {
 				attackTypes: selected,
-				...this.context,
+				...this.config.context,
 			},
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Attack Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'Attack Grant',
+			default: this.config.context.default ?? true,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'attacks',
+			bonusType: 'attacks',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.attacks.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.attacks.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -83,24 +129,24 @@ export default class AttackGrant extends BaseGrant {
 
 	override getSelectionComponentProps(data: any) {
 		return {
-			base: this.attackTypes.base ?? [],
-			bonus: this.bonus,
-			choices: this.attackTypes.options,
+			base: this.config.attackTypes.base ?? [],
+			bonus: this.config.bonus,
+			choices: this.config.attackTypes.options,
 			configObject: CONFIG.A5E.attackTypes,
-			count: this.attackTypes.total,
+			count: this.config.attackTypes.total,
 			heading: 'Attack Grant Selection',
 			selected: data?.selected ?? [],
 		};
 	}
 
 	override requiresConfig(): boolean {
-		return this.attackTypes.options.length;
+		return !!this.config.attackTypes.options.length;
 	}
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this?.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: 'attacks',
 		};
 
@@ -109,3 +155,5 @@ export default class AttackGrant extends BaseGrant {
 		});
 	}
 }
+
+export { AttackGrant };

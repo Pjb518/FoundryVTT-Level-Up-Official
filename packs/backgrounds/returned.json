@@ -34,7 +34,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "mRv2qhvQgZfnk5Wb",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"con"
+						],
+						"options": [
+							"str",
+							"dex",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"xL47HQIXW0F5orLl": {
 				"grantType": "proficiency",
@@ -55,7 +81,27 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "xL47HQIXW0F5orLl",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:rel"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:arc",
+									"skill:his"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"5GP1LUXsUoLZFlB4": {
 				"grantType": "feature",
@@ -75,7 +121,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "5GP1LUXsUoLZFlB4",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.i82kf6gjp3o65gyd",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"wEK4eJICSNxqABHz": {
 				"grantType": "trait",
@@ -116,6 +178,45 @@
 					"total": 1,
 					"base": [],
 					"traitType": "languages"
+				},
+				"id": "wEK4eJICSNxqABHz",
+				"name": "Language Proficiency",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"boggard",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"grippli",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"undercommon"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
 				}
 			}
 		},

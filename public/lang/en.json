@@ -2,7 +2,8 @@
 	"TYPES": {
 		"Actor": {
 			"character": "Player Character",
-			"npc": "Non-Player Character"
+			"npc": "Non-Player Character",
+			"party": "Party"
 		},
 		"Item": {
 			"archetype": "Archetype",
@@ -11,11 +12,16 @@
 			"culture": "Culture",
 			"destiny": "Destiny",
 			"feature": "Feature",
+			"hacking": "Hacking Maneuver",
 			"heritage": "Heritage",
 			"interaction": "Interaction",
 			"maneuver": "Maneuver",
 			"object": "Object",
 			"spell": "Spell"
+		},
+		"RegionBehavior": {
+			"applyActiveEffect": "Apply Active Effect",
+			"difficultTerrain": "Difficult Terrain"
 		}
 	},
 	"A5E.abilities": {
@@ -82,6 +88,12 @@
 				"damage": "Damage",
 				"healing": "Healing",
 				"savingThrow": "Saving Throw"
+			},
+			"countdown": {
+				"configuration": "Countdown Configuration",
+				"size": "Die Size",
+				"threshold": "Removal Threshold",
+				"title": "Countdown"
 			},
 			"recharge": {
 				"configuration": "Recharge Configuration",
@@ -418,10 +430,12 @@
 		"addRoll": "+ Add {type} Roll",
 		"toggleAll": "+ Toggle All",
 		"tooltips": {
+			"addSpellConsumer": "Add Spell Consumer",
 			"attune": "Attune to {item}",
 			"breakAttunement": "Break Attunement to {item}",
 			"charged": "Charged",
 			"configure": "Configure",
+			"countdown": "Roll Countdown",
 			"delete": "Delete",
 			"duplicate": "Duplicate",
 			"favorite": "Toggle Favorite",
@@ -507,6 +521,13 @@
 		"levelTypes": {
 			"character": "Character Level",
 			"class": "Class Level"
+		}
+	},
+	"A5E.combat": {
+		"chatCard": {
+			"ended": "Combat Ended",
+			"round": " Combat Round {round}",
+			"started": "Combat Started"
 		}
 	},
 	"A5E.conditions": {
@@ -677,7 +698,7 @@
 			"action": "Action Uses Consumer",
 			"current": "Current",
 			"item": "Item Uses Consumer",
-			"max": "Max",
+			"max": "Max Formula",
 			"per": "Recovery",
 			"remaining": "Uses Remaining",
 			"title": "Uses"
@@ -1100,6 +1121,7 @@
 			"flags": {
 				"carryCapacityAbility": "Carry Capacity Ability",
 				"conditionImmunities.all": "All Condition Immunities ",
+				"conditionResistances": "Condition Resistances",
 				"criticalHitThresholdSpell": "Spell Crit Hit Threshold",
 				"criticalHitThresholdWeapon": "Weapon Crit Hit Threshold",
 				"damageImmunities.all": "All Damage Immunities ",
@@ -1182,7 +1204,7 @@
 				"primary": {
 					"hideMax": "Resource 1 Hide Max Uses",
 					"label": "Resource 1 Label",
-					"max": "Resource 1 Max Uses",
+					"max": "Resource 1 Max Uses Formula",
 					"per": "Resource 1 Recovery",
 					"rechargeFormula": "Resource 1 Recharge Formula",
 					"rechargeThreshold": "Resource 1 Recharge Threshold",
@@ -1191,7 +1213,7 @@
 				"secondary": {
 					"hideMax": "Resource 2 Hide Max Uses",
 					"label": "Resource 2 Label",
-					"max": "Resource 2 Max Uses",
+					"max": "Resource 2 Max Uses Formula",
 					"per": "Resource 2 Recovery",
 					"rechargeFormula": "Resource 2 Recharge Formula",
 					"rechargeThreshold": "Resource 2 Recharge Threshold",
@@ -1200,7 +1222,7 @@
 				"tertiary": {
 					"hideMax": "Resource 3 Hide Max Uses",
 					"label": "Resource 3 Label",
-					"max": "Resource 3 Max Uses",
+					"max": "Resource 3 Max Uses Formula",
 					"per": "Resource 3 Recovery",
 					"rechargeFormula": "Resource 3 Recharge Formula",
 					"rechargeThreshold": "Resource 3 Recharge Threshold",
@@ -1209,7 +1231,7 @@
 				"quaternary": {
 					"hideMax": "Resource 4 Hide Max Uses",
 					"label": "Resource 4 Label",
-					"max": "Resource 4 Max Uses",
+					"max": "Resource 4 Max Uses Formula",
 					"per": "Resource 4 Recovery",
 					"rechargeFormula": "Resource 4 Recharge Formula",
 					"rechargeThreshold": "Resource 4 Recharge Threshold",
@@ -1697,6 +1719,7 @@
 		"headings": {
 			"ability": "Ability Grant",
 			"attack": "Attack Grant",
+			"currency": "Currency Grant",
 			"damage": "Damage Grant",
 			"exertion": "Exertion Grant",
 			"expertiseDice": "Expertise Dice Grant",
@@ -1707,17 +1730,21 @@
 			"initiative": "Initiative Grant",
 			"item": "Item Grant",
 			"level": "Level",
+			"maneuver": "Maneuver Grant",
 			"movement": "Movement Grant",
 			"proficiency": "Proficiency Grant",
 			"rollOverride": "Roll Override Grant",
 			"senses": "Senses Grant",
+			"settings": "Settings Grant",
 			"skill": "Skill Grant",
 			"skillSpecialty": "Skill Specialty Grant",
+			"spell": "Spell Grant",
 			"trait": "Trait Grant"
 		},
 		"headingsPlural": {
 			"ability": "Ability Grants",
 			"attack": "Attack Grants",
+			"currency": "Currency Grants",
 			"damage": "Damage Grants",
 			"exertion": "Exertion Grants",
 			"expertiseDice": "Expertise Dice Grants",
@@ -1727,13 +1754,28 @@
 			"hitPoint": "HP Grants",
 			"initiative": "Initiative Grants",
 			"item": "Item Grants",
+			"maneuver": "Maneuver Grants",
 			"movement": "Movement Grants",
 			"proficiency": "Proficiency Grants",
 			"rollOverride": "Roll Override Grants",
 			"senses": "Senses Grants",
+			"settings": "Settings Grants",
 			"skill": "Skill Grants",
 			"skillSpecialty": "Skill Specialty Grants",
+			"spell": "Spell Grants",
 			"trait": "Trait Grants"
+		},
+		"maneuver": {
+			"baseManeuvers": "Base Maneuvers",
+			"consumerType": "Consumer Type",
+			"every": "Every",
+			"exertionAmount": "Exertion Amount",
+			"maneuverConfig": "Maneuver Config",
+			"optionalManeuvers": "Optional Maneuvers",
+			"poolFilters": "Pool Filters",
+			"selectionType": "Selection Type",
+			"totalCount": "Total Count",
+			"usesFormula": "Uses formula"
 		}
 	},
 	"A5E.healing": {
@@ -1746,7 +1788,8 @@
 			"contexts": {
 				"all": "All Healing Rolls",
 				"healing": "Healing Rolls",
-				"temporaryHealing": "Temporary Healing Rolls"
+				"temporaryHealing": "Temporary Healing Rolls",
+				"hitDice": "Hit Dice Rolls"
 			},
 			"summaries": {
 				"contexts": {
@@ -1839,6 +1882,13 @@
 			"violPlural": "Viols",
 			"violinPlural": "Violins"
 		}
+	},
+	"A5E.hacking": {
+		"die": "Die",
+		"diePlural": "Dice",
+		"diceCost": "Dice Cost",
+		"properties": "Hacking Maneuver Properties",
+		"tab": "Hacking Maneuvers"
 	},
 	"A5E.interactions": {
 		"properties": "Interaction Properties",
@@ -1980,19 +2030,22 @@
 		}
 	},
 	"A5E.migration": {
-		"starting": "Applying Level Up system migration for version {version}. Please be patient and do not close your game or shut down your server.",
-		"finished": "Level Up system migration to version {version} completed!",
-		"running": "Running system migration ...",
 		"migrateDocument": "Migrate {type}",
 		"compendium": {
 			"starting": "Applying Migration to Compendium Pack {packName}. Please be patient and do not close your game or shut down your server.",
 			"finished": "Successfully Migrated Compendium Pack {packName}!",
 			"running": "Running Compendium Pack Migration ..."
+		},
+		"world": {
+			"starting": "Applying Level Up system migration for version {version}. Please be patient and do not close your game or shut down your server.",
+			"finished": "Level Up system migration to version {version} completed!",
+			"running": "Running system migration ..."
 		}
 	},
 	"A5E.objects": {
 		"bulky": "Bulky",
 		"condition": "Object Condition",
+		"contentsOnly": "Contents Only",
 		"craftingComponents": "Crafting Components",
 		"equipment": "Equipment",
 		"equippedState": "Equipped State",
@@ -2339,11 +2392,11 @@
 			"5eStyleExpertise": "When enabled, players will be able to select a two different tiers of proficiency for skills, as per the various 5e Expertise features.",
 			"5eStyleJackOfAllTrades": "When enabled, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.",
 			"alwaysShowActionDescription": "Always show the description of an action in the chat card regardless of the setting defined on the action.",
-			"autoApplyFancySheets": "When enabled, the system will automatically apply the fancy sheet to all possible compendiums. This requires all documents in the compendium to be of the same type.",
 			"automateConditions": "Automatically apply related effects for the selected conditions.",
 			"automateBloodiedApplication": "Enable automated application of the bloodied condition.",
 			"automatePrototypeTokenSize": "Enable the automatic setting of prototype token width and height on actor size change.",
 			"automateUnconsciousApplication": "Enable automated application of the unconscious and dead condition.",
+			"automateMovement": "Automatically apply movement rules. Climbing or swimming without a corresponding speed costs double movement, and difficult terrain increases the movement cost of the spaces it covers.",
 			"automateVisionRules": "Automatically apply vision rules to tokens when they are placed on the canvas.",
 			"visionRulesApplyToCharactersOnly": "Automatic application of vision rules will only be applied to characters.",
 			"blindDeathSaves": "When enabled, death saving rolls in chat cards and results on the actor will be hidden from players.",
@@ -2369,6 +2422,8 @@
 			"hideChatDescriptionsByDefault": "When this setting is enabled, the description sections of Item chat cards will be hidden by default. You can still reveal the description sections by clicking on the header of the chat card.",
 			"hideDeletionConfirmationDialog": "When this setting is enabled, you can delete items from actor sheets without being presented with a dialog window to confirm the deletion.",
 			"hideExpertiseDice": "When enabled, expertise dice will no longer be selectable in configuration windows and roll dialogs, and they will not be included in any roll formulae.",
+			"showCombatRoundCards": "Post a chat card when combat starts, a new round begins, and combat ends.",
+			"showCombatRoundCardsToPlayers": "When enabled, combat round chat cards are visible to players.",
 			"hideRandomizedHPRolls": "Hide the roll chat card for generating random NPC hit points.",
 			"hideSkillCriticalPrompt": "Hide the prompt button to roll on skill critical failure or success table.",
 			"hideSkillSpecialties": "When enabled, this will remove the ability to select skill specialties and will hide the skill specialties interface on the Actor skills tab.",
@@ -2390,6 +2445,7 @@
 			"replaceFatigueAndStrife": "When enabled, the Fatigue and Strife conditions will be replaced with the Exhaustion condition.",
 			"reverseAltBehavior": "By default, holding the left alt key will skip the roll dialog for rolls. If this setting is checked, the roll dialog will be skipped unless the alt key is held when clicking the roll button.",
 			"reverseInitiativeAltBehavior": "By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the alt key is held when clicking the roll button. Note this settings is affected by the 'Reverse Alt Behavior' setting. If the 'Reverse Alt Behavior' setting is enabled, this setting will flip the alt behavior of initiative rolls.",
+			"homebrewContent": "Add custom damage types, languages, object types, spell schools, and proficiencies to the world.",
 			"showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respect the identified state of the item.",
 			"showEffectsPanel": "The effects panel shows a summary of the conditions and temporary effects for the selected token. You can find these icons on the right side of the screen, left of the chat window.",
 			"showFavorPoints": "When enabled, Favor Points will be added to actors and as a resource.",
@@ -2415,9 +2471,27 @@
 			"actorBehavior": "Actor Behavior",
 			"compendia": "Compendium Settings",
 			"gpg": "GPG Content and Settings",
+			"homebrew": "Homebrew Content",
 			"pos": "Paradigms of Skill",
 			"sheetSettings": "Actor Sheet Settings",
 			"vrc": "Voidrunner's Codex"
+		},
+		"homebrewContent": "Homebrew Content",
+		"homebrewAdd": "Add",
+		"homebrewRemove": "Click to remove",
+		"homebrewDuplicate": "\"{label}\" already exists or is not a valid name and was skipped.",
+		"homebrew": {
+			"armor": "Armor",
+			"category": "Category",
+			"damageTypes": "Damage Types",
+			"languages": "Languages",
+			"objectTypes": "Object Types",
+			"primarySpellSchools": "Primary Spell Schools",
+			"proficiencies": "Proficiencies",
+			"secondarySpellSchools": "Secondary Spell Schools",
+			"tool": "Tool",
+			"tradition": "Tradition",
+			"weapon": "Weapon"
 		},
 		"title": "System Settings",
 		"reload": "This operation will refresh the page.",
@@ -2425,12 +2499,12 @@
 		"5eStyleExpertise": "Enable 5e-style Expertise",
 		"5eStyleJackOfAllTrades": "Enable 5e-style Jack of All Trades",
 		"alwaysShowActionDescription": "Always show action description",
-		"autoApplyFancySheets": "Automatically Apply Fancy Sheets to Compendia",
 		"automateBloodiedApplication": "Automatically apply Bloodied condition",
 		"automateHitDice": "Automatically calculate Hit Dice",
 		"automateSpellResources": "Automatically calculate Spell Resources",
 		"automatePrototypeTokenSize": "Automate Default Prototype Token Size",
 		"automateUnconsciousApplication": "Automatically apply Unconscious condition",
+		"automateMovement": "Automate Movement Costs",
 		"automateVisionRules": "Automate Vision Rules for Tokens",
 		"automaticallyExecuteAvailableMacros": "Automatically Execute Any Available Macros",
 		"visionRulesApplyToCharactersOnly": "Apply Vision Automation to Characters Only",
@@ -2458,6 +2532,8 @@
 		"doubleCarryingCapacity": "Double carrying capacity",
 		"enableCascadingDamageAndHealing": "Enable Cascading Damage And Healing",
 		"enableDamageRollColors": "Enable Damage Roll Colors",
+		"droppedObjectEquippedState": "Default Equipped State for Dropped Objects",
+		"droppedObjectEquippedStateItemDefined": "Item-Defined",
 		"effectsPanelIconSize": "Effect Panel Icon Size",
 		"effectsPanelIconSizeSmall": "Small",
 		"effectsPanelIconSizeMedium": "Medium",
@@ -2470,6 +2546,8 @@
 		"hideBrokenAndDamaged": "Hide Broken and Damaged Properties",
 		"hideChatDescriptionsByDefault": "Hide descriptions in chat cards",
 		"hideExpertiseDice": "Hide Expertise Dice",
+		"showCombatRoundCards": "Post combat round chat cards",
+		"showCombatRoundCardsToPlayers": "Show combat round chat cards to players",
 		"hideRandomizedHPRolls": "Hide NPC randomized hit point rolls",
 		"hideSkillCriticalPrompt": "Hide Skill Critical Prompt",
 		"hideSkillSpecialties": "Hide Skill Specialties",
@@ -2499,6 +2577,7 @@
 		"showDescriptionOnLimitedPerms": "Show description when ownership is limited",
 		"showEffectsPanel": "Show Effects Panel",
 		"showFavoritesSection": "Show favorites section",
+		"showHackingTab": "Show hacking tab",
 		"showManeuverTab": "Show maneuvers tab",
 		"showSpellTab": "Show spells tab",
 		"showPassiveScores": "Show passive skill scores",
@@ -2825,6 +2904,7 @@
 		"actions": "Actions",
 		"activation": "Activation",
 		"armorClassProperties": "Armor Class Properties",
+		"attributes": "Attributes",
 		"biography": "Bio",
 		"containerProperties": "Container Properties",
 		"core": "Core",
@@ -2834,7 +2914,10 @@
 		"features": "Features",
 		"featureProperties": "Feature Properties",
 		"grants": "Grants",
+		"hacking": "Hacking",
+		"hackingProperties": "Hacking Maneuver Properties",
 		"inventory": "Inventory",
+		"languages": "Languages",
 		"macro": "Macro",
 		"maneuvers": "Maneuvers",
 		"maneuverProperties": "Maneuver Properties",
@@ -3028,7 +3111,20 @@
 			"configurationPrompt": "{name}: Configure Alignment",
 			"conditions": {
 				"immunities": "Condition Immunities",
-				"immunitiesConfigurationPrompt": "{name}: Configure Condition Immunities"
+				"immunitiesConfigurationPrompt": "{name}: Configure Condition Immunities",
+				"resistances": "Condition Resistances",
+				"resistancesConfigurationPrompt": "{name}: Configure Condition Resistances",
+				"resistanceColumns": {
+					"add": "Add Condition Resistance",
+					"advDis": "Adv/Dis",
+					"advantage": "Adv",
+					"bonus": "Bonus",
+					"condition": "Condition",
+					"custom": "Custom",
+					"delete": "Delete",
+					"disadvantage": "Dis",
+					"expertise": "Expertise"
+				}
 			},
 			"damage": {
 				"immunities": "Damage Immunities",
@@ -3392,6 +3488,7 @@
 	},
 
 	"A5E.asi": "Ability Score Improvement",
+	"A5E.CritDamage": "Crit Damage",
 	"A5E.CriticalHitThreshold": "Critical Hit Threshold",
 	"A5E.Custom": "Custom",
 	"A5E.HintGrants": "right click on tags to open their sheets",
@@ -3417,5 +3514,16 @@
 	"A5E.UIClearAll": "Clear All",
 	"A5E.Uncategorized": "Uncategorized",
 	"A5E.Unit": "Unit",
-	"A5E.Unknown": "Unknown"
+	"A5E.Unknown": "Unknown",
+	"A5E.regionBehaviors": {
+		"FIELDS": {
+			"creatureSizes": { "label": "Creature Sizes" },
+			"creatureTypes": { "label": "Creature Types" },
+			"dispositions": { "label": "Affected Dispositions" },
+			"effects": { "label": "Effects" },
+			"isAura": { "label": "Is Aura" },
+			"isMagical": { "label": "Is Magical" },
+			"ignoredDispositions": { "label": "Ignored Dispositions" }
+		}
+	}
 }

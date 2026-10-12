@@ -52,6 +52,17 @@
     let consumeSupplyByDefault = $derived(
         settings["consumeSupplyByDefault"].value,
     );
+
+    const droppedObjectEquippedStateChoices =
+        settings.droppedObjectEquippedState.data.choices;
+    let droppedObjectEquippedState = $derived(
+        settings["droppedObjectEquippedState"].value,
+    );
+    let selectedDroppedObjectEquippedState = $derived(
+        updates.get("droppedObjectEquippedState") ??
+            droppedObjectEquippedState ??
+            "itemDefined",
+    );
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -155,6 +166,16 @@
                     />
                 </FieldWrapper>
             {/if}
+
+            <RadioGroup
+                heading="A5E.settings.droppedObjectEquippedState"
+                options={Object.entries(droppedObjectEquippedStateChoices)}
+                selected={selectedDroppedObjectEquippedState}
+                onUpdateSelection={(detail) => {
+                    updates.set("droppedObjectEquippedState", detail);
+                    selectedDroppedObjectEquippedState = detail;
+                }}
+            />
         </Section>
     {/if}
 

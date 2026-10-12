@@ -30,7 +30,35 @@
 					]
 				},
 				"bonus": "1",
-				"label": "Default ASI"
+				"label": "Default ASI",
+				"id": "6SyvSVo53Havmqm6",
+				"name": "Default ASI",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						]
+					}
+				}
 			},
 			"BHZXz6TEa1FhUJPk": {
 				"grantType": "proficiency",
@@ -45,7 +73,31 @@
 					]
 				},
 				"proficiencyType": "skill",
-				"label": "Skill Proficiencies"
+				"label": "Skill Proficiencies",
+				"id": "BHZXz6TEa1FhUJPk",
+				"name": "Skill Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:inv"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:nat",
+									"skill:med"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"ndwvIhh9gqCsHrFR": {
 				"grantType": "feature",
@@ -58,6 +110,26 @@
 							"selectionLimit": 1
 						}
 					]
+				},
+				"id": "ndwvIhh9gqCsHrFR",
+				"name": "Background Feature",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.1Z1CpPNz7sUKjfKi",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"JXfT1mEcyVgxbwDk": {
@@ -83,6 +155,36 @@
 							"quantity": 1
 						}
 					]
+				},
+				"id": "JXfT1mEcyVgxbwDk",
+				"name": "Suggested Equipment",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yobed5dj5zmxjnjh",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.filpdppptv1pil44",
+								"quantityOverride": 5
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.cfxrzm5r4ck6ihuy",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
 				}
 			},
 			"IQhy5q7lslkC3P7Y": {
@@ -93,6 +195,22 @@
 					"base": [
 						"alchemistsSupplies"
 					]
+				},
+				"id": "IQhy5q7lslkC3P7Y",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:alchemistsSupplies"
+						],
+						"options": []
+					},
+					"isExpertise": false
 				}
 			}
 		},

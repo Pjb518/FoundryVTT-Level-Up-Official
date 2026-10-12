@@ -9,12 +9,6 @@ import OriginItemA5e from './origin.ts';
 export default class ClassItemA5e extends OriginItemA5e<'class'> {
 	declare casting: ClassCastingData | null;
 
-	declare hitDice: {
-		current: number;
-		total: number;
-		size: number;
-	};
-
 	declare resources: ClassResourceManager;
 
 	get associatedLevels() {
@@ -32,6 +26,14 @@ export default class ClassItemA5e extends OriginItemA5e<'class'> {
 
 	get classLevels() {
 		return this.system.classLevels;
+	}
+
+	get hitDice() {
+		return {
+			current: this.totalHitDice - this.system.hp.hitDiceUsed,
+			total: this.totalHitDice,
+			size: this.system.hp.hitDiceSize,
+		};
 	}
 
 	get isStartingClass() {
@@ -71,13 +73,6 @@ export default class ClassItemA5e extends OriginItemA5e<'class'> {
 
 		// Set up class resource manager
 		this.resources = new ClassResourceManager(this);
-
-		// this.maxHP = this.prepareMaxHitPoints();
-		this.hitDice = {
-			current: this.totalHitDice - this.system.hp.hitDiceUsed,
-			total: this.totalHitDice,
-			size: this.system.hp.hitDiceSize,
-		};
 
 		this.casting = this.prepareCasterData();
 	}

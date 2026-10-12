@@ -1,6 +1,4 @@
-import type CharacterActorA5E from '../documents/actor/character';
-
-export default function getRequiredExperiencePoints(actor: CharacterActorA5E): number {
+export default function getRequiredExperiencePoints(actor: Actor.OfType<'character'>): number {
 	if (actor.type === 'character') {
 		let level = actor.levels?.character ?? 1;
 

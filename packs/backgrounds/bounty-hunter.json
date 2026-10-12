@@ -34,7 +34,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "uHdopQZG6sOTMl0u",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"str"
+						],
+						"options": [
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"zG7OyBkqukXvltRq": {
 				"grantType": "proficiency",
@@ -57,7 +83,29 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "zG7OyBkqukXvltRq",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:itm"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:dec",
+									"skill:ins",
+									"skill:inv",
+									"skill:ste"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"YGRtMRgOzxi5XKWV": {
 				"grantType": "feature",
@@ -77,7 +125,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "YGRtMRgOzxi5XKWV",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.plpi37jkl242lx3e",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"EmJ2rc6VcLFPPCnA": {
 				"grantType": "item",
@@ -112,7 +176,38 @@
 				"_id": "EmJ2rc6VcLFPPCnA",
 				"img": "",
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "EmJ2rc6VcLFPPCnA",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.3k3o90tq7gclpuem",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.udzib5bt3pd6jhu6",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ws12a41dokkaqi8a",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"SSfGZmCltnkKjOyF": {
 				"grantType": "proficiency",
@@ -132,7 +227,26 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "SSfGZmCltnkKjOyF",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:diceSet",
+									"tool:boardGameSet",
+									"tool:playingCardSet"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"pN0zMkffUrPRGjxF": {
 				"grantType": "proficiency",
@@ -152,7 +266,24 @@
 				"levelType": "character",
 				"optional": false,
 				"isExpertise": false,
-				"name": "undefined (Copy)"
+				"name": "Tool Proficiencies",
+				"id": "pN0zMkffUrPRGjxF",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:thievesTools",
+									"tool:poisonersKit"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"qxt97xObpzckUuRi": {
 				"grantType": "trait",
@@ -195,7 +326,48 @@
 					"total": 1,
 					"traitType": "languages"
 				},
-				"label": "Language Proficiencies"
+				"label": "Language Proficiencies",
+				"id": "qxt97xObpzckUuRi",
+				"name": "Language Proficiencies",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"abyssal",
+							"aquan",
+							"auran",
+							"boggard",
+							"celestial",
+							"common",
+							"deep",
+							"draconic",
+							"dwarvish",
+							"elvish",
+							"giant",
+							"gnoll",
+							"gnomish",
+							"goblin",
+							"grimlock",
+							"grippli",
+							"halfling",
+							"ignan",
+							"infernal",
+							"minotaur",
+							"mycelial",
+							"orc",
+							"primordial",
+							"sylvan",
+							"terran",
+							"cant",
+							"undercommon",
+							"druidic"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
+				}
 			}
 		},
 		"source": "moarComplete",

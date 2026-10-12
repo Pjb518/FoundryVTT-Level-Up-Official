@@ -1,18 +1,48 @@
+import { createInitialGrant } from '#utils/createInitialGrant.ts';
+
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
 const schema = {
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
-			[foundry.utils.randomID()]: {
-				grantType: 'movement',
-				movementTypes: { base: ['walk'] },
-				bonus: '30',
-				unit: 'feet',
-				label: 'Base Movement',
-			},
+			...createInitialGrant('movement', {
+				config: {
+					movementTypes: { base: ['walk'] },
+					bonus: '30',
+					unit: 'feet',
+				},
+				name: 'Base Movement',
+			}),
+			// Traits
+			...createInitialGrant('feature', {
+				level: 1,
+				levelType: 'character',
+				name: 'Traits',
+			}),
+			// Heritage Gifts
+			...createInitialGrant('feature', {
+				config: {
+					features: { total: 1 },
+					selectionType: 'limited',
+				},
+				level: 1,
+				levelType: 'character',
+				name: 'Heritage Gifts',
+			}),
+			// Paragon Gifts
+			...createInitialGrant('feature', {
+				config: {
+					features: { total: 1 },
+					selectionType: 'limited',
+				},
+				level: 10,
+				levelType: 'character',
+				name: 'Paragon Gifts',
+			}),
 		}),
 	}),
 };

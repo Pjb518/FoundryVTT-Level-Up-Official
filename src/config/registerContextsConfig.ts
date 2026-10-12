@@ -25,6 +25,7 @@ export default function registerContextsConfig() {
 	const healingBonusContexts = {
 		healing: 'A5E.healing.bonuses.contexts.healing',
 		temporaryHealing: 'A5E.healing.bonuses.contexts.temporaryHealing',
+		hitDice: 'A5E.healing.bonuses.contexts.hitDice',
 	};
 
 	const healingBonusSummariesByContext = {

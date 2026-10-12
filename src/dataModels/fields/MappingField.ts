@@ -1,132 +1,149 @@
-// @ts-nocheck
-/* eslint-disable max-len */
+import type { AnyObject, SimpleMerge } from 'fvtt-types/utils';
+
+import fields = foundry.data.fields;
+import DataField = foundry.data.fields.DataField;
+import DataModel = foundry.abstract.DataModel;
+
+declare namespace MappingField {
+	type DefaultOptions = SimpleMerge<
+		fields.TypedObjectField.DefaultOptions,
+		{
+			initialKeys: undefined;
+			initialValue: undefined;
+			initialKeysOnly: false;
+			entryLabel: undefined;
+			expandKeys: false;
+		}
+	>;
+
+	interface Options<BaseAssignmentType>
+		extends fields.TypedObjectField.Options<BaseAssignmentType> {
+		initialKeys?: string[] | undefined;
+
+		initialValue?: (key: string, initial: any) => Element | undefined;
+
+		initialKeysOnly?: boolean | undefined;
+
+		entryLabel?: (key: string) => string | undefined;
+	}
+}
 
 /**
- * A subclass of ObjectField that represents a mapping of keys to the provided DataField type.
- *
- * @param {DataField} model                    The class of DataField which should be embedded in this field.
- * @param {MappingFieldOptions} [options={}]   Options which configure the behavior of the field.
- * @property {string[]} [initialKeys]          Keys that will be created if no data is provided.
- * @property {MappingFieldInitialValueBuilder} [initialValue]  Function to calculate the initial value for a key.
- * @property {boolean} [initialKeysOnly=false]  Should the keys in the initialized data be limited to the keys provided
- *                                              by `options.initialKeys`?
+ * A subclass of TypedObjectField that represents a mapping of keys to the provided DataField type.
  */
-export default class MappingField extends foundry.data.fields.ObjectField {
-  constructor(model, options) {
-    if (!(model instanceof foundry.data.fields.DataField)) {
-      throw new Error(
-        "MappingField must have a DataField as its contained element",
-      );
-    }
-    super(options);
+class MappingField<
+	const Element extends DataField.Any,
+	const Options extends MappingField.Options<AnyObject> = MappingField.DefaultOptions,
+	const AssignmentType = fields.TypedObjectField.AssignmentType<Element, Options>,
+	const InitializedType = fields.TypedObjectField.InitializedType<Element, Options>,
+	const PersistedType extends
+		| AnyObject
+		| null
+		| undefined = fields.TypedObjectField.InitializedType<Element, Options>,
+> extends fields.TypedObjectField<
+	Element,
+	Options,
+	AssignmentType,
+	InitializedType,
+	PersistedType
+> {
+	/**  The embedded DataField definition which is contained in this field. */
+	model: Element;
 
-    /**
-     * The embedded DataField definition which is contained in this field.
-     * @type {DataField}
-     */
-    this.model = model;
-  }
+	declare initialKeys: string[] | undefined;
 
-  /* -------------------------------------------- */
+	declare initialValue: (key: string, initial: any, source?: unknown) => Element | undefined;
 
-  /** @inheritdoc */
-  static get _defaults() {
-    return foundry.utils.mergeObject(super._defaults, {
-      initialKeys: null,
-      initialValue: null,
-      initialKeysOnly: false,
-    });
-  }
+	declare initialKeysOnly: boolean;
 
-  /* -------------------------------------------- */
+	constructor(model: Element, options?: Options, context?: DataField.ConstructionContext) {
+		if (!(model instanceof DataField)) {
+			throw new Error('MappingField must have a DataField as its contained element');
+		}
+		super(model, options, context);
 
-  /** @inheritdoc */
-  _cleanType(value, options, _state) {
-    Object.entries(value).forEach(([k, v]) => {
-      if (k.startsWith("-=")) return;
-      value[k] = this.model.clean(v, options, _state);
-    });
+		this.model = this.element;
+	}
 
-    return value;
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
+	/** @inheritDoc */
+	static override get _defaults() {
+		return foundry.utils.mergeObject(super._defaults, {
+			initialKeys: undefined,
+			initialValue: undefined,
+			initialKeysOnly: false,
+			entryLabel: undefined,
+			expandKeys: false,
+		});
+	}
 
-  /** @inheritdoc */
-  getInitialValue(data: object) {
-    let keys = this.initialKeys;
-    const initial = super.getInitialValue(data);
-    if (!keys || !foundry.utils.isEmpty(initial)) return initial;
-    if (!(keys instanceof Array)) keys = Object.keys(keys);
-    for (const key of keys) initial[key] = this._getInitialValueForKey(key);
-    return initial;
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
+	/** @inheritDoc */
+	override getInitialValue(source?: unknown): InitializedType {
+		let keys = this.initialKeys;
+		const initial = super.getInitialValue(source);
+		if (!keys || !foundry.utils.isEmpty(initial)) return initial;
+		if (!Array.isArray(keys)) keys = Object.keys(keys);
+		for (const key of keys) initial[key] = this._getInitialValueForKey(key, source);
+		return initial;
+	}
 
-  /**
-   * Get the initial value for the provided key.
-   * @param {string} key       Key within the object being built.
-   * @param {object} [object]  Any existing mapping data.
-   * @returns {*}              Initial value based on provided field type.
-   */
-  _getInitialValueForKey(key, object) {
-    const initial = this.model.getInitialValue();
-    return this.initialValue?.(key, initial, object) ?? initial;
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
+	/** Get the initial value for the provided key. */
+	_getInitialValueForKey(key: string, source?: unknown): InitializedType {
+		const initial = this.element.getInitialValue();
+		// @ts-expect-error
+		return this.initialValue?.(key, initial, source) ?? initial;
+	}
 
-  override _validateType(value, options = {}) {
-    if (foundry.utils.getType(value) !== "Object")
-      throw new Error("must be an Object");
-    const errors = this._validateValues(value, options);
-    if (!foundry.utils.isEmpty(errors))
-      throw new foundry.data.fields.ModelValidationError(errors);
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
+	override initialize(
+		value: PersistedType,
+		model: DataModel.Any,
+		options?: DataField.InitializeOptions,
+	): InitializedType | (() => InitializedType | null) {
+		if (!value) return value as unknown as InitializedType;
+		const obj = {};
+		const initialKeys = Array.isArray(this.initialKeys)
+			? this.initialKeys
+			: Object.keys(this.initialKeys ?? {});
+		const keys = this.initialKeysOnly ? initialKeys : Object.keys(value);
+		for (const key of keys) {
+			const data = value[key] ?? this._getInitialValueForKey(key, value);
+			obj[key] = this.element.initialize(data, model, options);
+		}
+		return obj as unknown as InitializedType;
+	}
 
-  /**
-   * Validate each value of the object.
-   * @param {object} value     The object to validate.
-   * @param {object} options   Validation options.
-   * @returns {Object<Error>}  An object of value-specific errors by key.
-   */
-  _validateValues(value, options) {
-    const errors = {};
-    for (const [k, v] of Object.entries(value)) {
-      if (k.startsWith("-=")) continue;
-      const error = this.model.validate(v, options);
-      if (error) errors[k] = error;
-    }
-    return errors;
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
+	override _getField(parts: string[], options = {}) {
+		if (parts.length === 0) return this;
+		parts.pop();
+		// @ts-expect-error
+		return this.element._getField(parts, options);
+	}
 
-  override initialize(value, model, options = {}) {
-    if (!value) return value;
-    const obj = {};
-    const initialKeys =
-      this.initialKeys instanceof Array
-        ? this.initialKeys
-        : Object.keys(this.initialKeys ?? {});
-    const keys = this.initialKeysOnly ? initialKeys : Object.keys(value);
-    for (const key of keys) {
-      const data = value[key] ?? this._getInitialValueForKey(key, value);
-      obj[key] = this.model.initialize(data, model, options);
-    }
-    return obj;
-  }
+	/* -------------------------------------------- */
 
-  /* -------------------------------------------- */
-
-  /** @inheritdoc */
-  _getField(path) {
-    if (path.length === 0) return this;
-    if (path.length === 1) return this.model;
-    path.shift();
-    return this.model._getField(path);
-  }
+	/**
+	 * Get the formatted label for the specified field within the element of the provided key.
+	 */
+	getFieldLabel(key: string, parts: string[] = []): string | void {
+		// @ts-expect-error
+		const field = this.element._getField(parts);
+		if (!field) return;
+		// @ts-expect-error
+		const name = this.entryLabel?.(key);
+		// @ts-expect-error
+		if (!field.options.labelFormatter || !name) return field.label;
+		// @ts-expect-error
+		return _loc(field.options.labelFormatter, { name });
+	}
 }
+
+export { MappingField };

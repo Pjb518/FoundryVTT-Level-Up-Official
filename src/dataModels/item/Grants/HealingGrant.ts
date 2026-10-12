@@ -1,58 +1,91 @@
 import NumericalGrantConfig from '#view/components/grants/NumericalGrantConfig.svelte';
 import { healingBonusContextGrant } from '../../actor/Contexts.ts';
-import BaseGrant from './BaseGrant.ts';
+import { BaseGrant } from './BaseGrant.ts';
+import { bonusGrantSchema } from './common.ts';
 
-export default class HealingGrant extends BaseGrant {
+import fields = foundry.data.fields;
+
+// ======================================================
+// Schema
+// ======================================================
+const schema = () => ({
+	// Config
+	config: new fields.SchemaField({
+		healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
+		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		context: new fields.SchemaField(healingBonusContextGrant()),
+	}),
+	// Applied
+	applied: new fields.SchemaField(bonusGrantSchema(), { required: true, nullable: false }),
+
+	// Deprecations
+	/** @deprecated */
+	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
+	/** @deprecated */
+	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	/** @deprecated */
+	context: new fields.SchemaField(healingBonusContextGrant()),
+
+	// Overrides
+	name: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'New Healing Grant',
+	}),
+	type: new fields.StringField({
+		required: true,
+		nullable: false,
+		blank: false,
+		initial: 'healing',
+	}),
+});
+
+// ======================================================
+//                      NameSpace
+// ======================================================
+declare namespace HealingGrant {
+	type Schema = BaseGrant.Schema & ReturnType<typeof schema>;
+}
+
+class HealingGrant extends BaseGrant<HealingGrant.Schema> {
 	#configComponent = NumericalGrantConfig;
 
 	#type = 'healing';
 
-	static override defineSchema() {
-		const { fields } = foundry.data;
+	static override type = 'healing';
 
-		return this.mergeSchema(super.defineSchema(), {
-			grantType: new fields.StringField({ required: true, initial: 'healing' }),
-			bonus: new fields.StringField({ required: true, initial: '' }),
-			context: new fields.SchemaField(healingBonusContextGrant()),
-			healingType: new fields.StringField({
-				required: true,
-				initial: 'healing',
-			}),
-			label: new fields.StringField({
-				required: true,
-				initial: 'New Healing Grant',
-			}),
-		});
+	static override defineSchema(): HealingGrant.Schema {
+		// @ts-expect-error
+		return {
+			...super.defineSchema(),
+			...schema(),
+		};
 	}
 
-	override getApplyData(actor: typeof Actor): any {
+	override getApplyData(actor: Character): any {
 		if (!actor) return {};
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
-			formula: this.bonus,
-			label: this.label || this.parent?.name || 'Healing Grant',
-			default: this.context.default ?? true,
-			img: this.img || this?.parent?.img,
+			context: this.config.context,
+			formula: this.config.bonus,
+			label: this.name || this.item?.name || 'Healing Grant',
+			default: this.config.context.default ?? true,
+			img: this.img || this?.item?.img,
 		};
 
-		delete bonus.context.default;
-
-		const grantData = {
-			itemUuid: this.parent.uuid,
-			grantId: this._id,
+		const appliedData: typeof this.applied = {
 			bonusId,
-			type: 'healing',
+			bonusType: 'healing',
 			grantType: 'bonus',
 			level: this.level,
+			isApplied: true,
 		};
 
 		return {
-			[`system.bonuses.healing.${bonusId}`]: bonus,
-			'system.grants': {
-				...actor.system.grants,
-				[this._id]: grantData,
+			appliedData: this._getAppliedUpdate(appliedData),
+			updateData: {
+				[`system.bonuses.healing.${bonusId}`]: bonus,
 			},
 		};
 	}
@@ -71,8 +104,8 @@ export default class HealingGrant extends BaseGrant {
 
 	override async configureGrant() {
 		const dialogData = {
-			document: this.parent,
-			grantId: this._id,
+			document: this.item,
+			grantId: this.id,
 			grantType: this.#type,
 		};
 
@@ -81,3 +114,5 @@ export default class HealingGrant extends BaseGrant {
 		});
 	}
 }
+
+export { HealingGrant };

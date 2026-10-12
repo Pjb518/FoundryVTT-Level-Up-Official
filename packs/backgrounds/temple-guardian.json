@@ -35,7 +35,33 @@
 				"img": "",
 				"optional": false,
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "T75oAEHdiJX9r7uh",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"wis"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"9AJGpUKvXjMB5PJS": {
 				"grantType": "proficiency",
@@ -57,7 +83,27 @@
 				"optional": false,
 				"level": 1,
 				"levelType": "character",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "9AJGpUKvXjMB5PJS",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:rel"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:prc",
+									"skill:per"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"9VppshPzHXolQvRl": {
 				"grantType": "feature",
@@ -78,7 +124,23 @@
 					"total": 0
 				},
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "9VppshPzHXolQvRl",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.FPpc4g20nGj9kDeD",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"jJU92jvXYUvIIAFZ": {
 				"grantType": "item",
@@ -106,7 +168,30 @@
 					"total": 0
 				},
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "jJU92jvXYUvIIAFZ",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.kbj0f5ik1ai3v5jb",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"QGyZ6u363jhlCYaI": {
 				"grantType": "trait",
@@ -125,7 +210,22 @@
 				},
 				"_id": "QGyZ6u363jhlCYaI",
 				"img": "",
-				"levelType": "character"
+				"levelType": "character",
+				"id": "QGyZ6u363jhlCYaI",
+				"name": "Language",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"celestial",
+							"infernal",
+							"draconic"
+						],
+						"total": 1,
+						"traitType": "languages"
+					}
+				}
 			},
 			"zI0DCZt4lJ366pZd": {
 				"grantType": "proficiency",
@@ -141,7 +241,20 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"id": "zI0DCZt4lJ366pZd",
+				"name": "Tool Proficiencies",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:herbalismKit"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "sinuousSentinels",

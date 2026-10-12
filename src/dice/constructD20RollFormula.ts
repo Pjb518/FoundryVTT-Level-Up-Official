@@ -2,7 +2,7 @@ import type { ItemA5e } from '#documents/item/item.ts';
 import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 type Options = {
-	actor: Actor.OfType<'base'>;
+	actor: Creature;
 	expertiseDie?: number;
 	item: ItemA5e | null;
 	minRoll?: number;

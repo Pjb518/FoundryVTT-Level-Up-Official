@@ -1,5 +1,5 @@
+import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
 import type { Action } from '#types/action.d.ts';
-import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { ItemA5e } from '../documents/item/item.ts';
 
 import { ActionSheet } from '../documents/sheets/ActionSheet.svelte.ts';
@@ -7,7 +7,7 @@ import { ActionSheet } from '../documents/sheets/ActionSheet.svelte.ts';
 class ActionsManager extends Map<string, A5EActionData> {
 	#item: ItemA5e;
 
-	default: Action | null;
+	default: A5EActionData | null;
 
 	constructor(item: ItemA5e) {
 		super();
@@ -118,6 +118,80 @@ class ActionsManager extends Map<string, A5EActionData> {
 		return ActionsManager.addAction(this.#item, data, update, returnId);
 	}
 
+	/** Add a behavior to an action */
+	async addBehavior(actionId: string) {
+		const action = this.get(actionId);
+		if (!action) return null;
+
+		const types = foundry.documents.RegionBehavior.TYPES;
+		const typeLabels = CONFIG.RegionBehavior.typeLabels;
+
+		const documentTypes = types
+			.reduce(
+				(acc, type) => {
+					if (
+						(type === 'executeScript' || type === 'executeMacro') &&
+						!game.user.can('MACRO_SCRIPT')
+					) {
+						return acc;
+					}
+
+					acc.push({ value: type, label: _loc(typeLabels[type]) });
+					return acc;
+				},
+				[] as { value: string; label: string }[],
+			)
+			.sort((a, b) => a.label.localeCompare(b.label));
+
+		const template = 'templates/sidebar/document-create.html';
+		const html = await foundry.applications.handlebars.renderTemplate(template, {
+			folders: [],
+			hasTypes: true,
+			type: 'applyActiveEffect',
+			name: '',
+			defaultName: '',
+			folder: undefined,
+			hasFolders: false,
+			types: documentTypes,
+		});
+
+		const content = document.createElement('div');
+		content.innerHTML = html;
+
+		const data: { name: string; type: string } | null =
+			await foundry.applications.api.DialogV2.prompt(
+				foundry.utils.mergeObject(
+					{
+						content,
+						window: { title: `${action.name} - Add Action Behavior` },
+						position: { width: 360 },
+						ok: {
+							label: 'Create Behavior',
+							callback: async (event, button) => {
+								const fd = new foundry.applications.ux.FormDataExtended(button.form);
+								return fd.object;
+							},
+						},
+					},
+					{},
+				),
+			);
+
+		if (!data) return null;
+
+		const newBehavior = {
+			name: data.name || `${_loc(typeLabels[data.type])} Behavior`,
+			type: data.type,
+		};
+
+		await this.#item.update({
+			[`system.actions.${action.id}.area.behaviors`]: {
+				...action.area.behaviors,
+				[foundry.utils.randomID()]: newBehavior,
+			},
+		});
+	}
+
 	configure(actionId: string): void {
 		const actionName = this.#item.system.actions[actionId].name;
 
@@ -147,6 +221,59 @@ class ActionsManager extends Map<string, A5EActionData> {
 		}
 
 		sheet.render(true);
+	}
+
+	async editBehavior(actionId: string, behaviorId: string) {
+		const action = this.get(actionId);
+		if (!action) return ui.notifications.error(`No Action with id ${actionId} found.`);
+
+		const behavior = action?.area.behaviors[behaviorId];
+		if (!behavior) return ui.notifications.error(`No Behavior with id ${behaviorId} found.`);
+
+		const item = this.#item;
+
+		// Create a temporary class for it
+
+		const { name, type, ...system } = foundry.utils.deepClone(behavior);
+
+		const tempBehavior = {
+			name: name,
+			type: type,
+			system,
+		};
+
+		const regionDoc = new foundry.documents.RegionBehavior(tempBehavior);
+
+		const sheetCls = class extends foundry.applications.sheets.RegionBehaviorConfig {
+			// @ts-expect-error
+			override async _processSubmitData(event, form, submitData, options = {}) {
+				// Get submit data and modify it to match our needs
+				const updateData = {
+					name: submitData.name ?? behavior.name,
+					type: submitData.type ?? behavior.type,
+					...(submitData.system ?? {}),
+				};
+
+				// Update the behavior
+				item.update({
+					[`system.actions.${actionId}.area.behaviors.${behaviorId}`]: updateData,
+				});
+			}
+		};
+
+		const sheet = new sheetCls({ document: regionDoc });
+		await sheet.render(true);
+	}
+
+	async deleteBehavior(actionId: string, behaviorId: string) {
+		const action = this.get(actionId);
+		if (!action) return null;
+
+		this.#item.update({
+			[`system.actions.${actionId}.area.behaviors`]: {
+				[behaviorId]: _del,
+			},
+		});
 	}
 
 	/** ----------------------------------------- */
@@ -223,7 +350,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 				item,
 				[id, newAction],
 				'resource',
-				{ resource: 'exertion' },
+				{ resource: 'exertion', quantity: item.system.exertionCost || 1 },
 				false,
 			);
 		}

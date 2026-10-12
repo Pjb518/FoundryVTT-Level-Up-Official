@@ -26,6 +26,9 @@ export default class ItemSheet extends SvelteApplicationMixin(
 			root = ItemSheet.getSheetComponent(item.document.type);
 			options.classes = ['a5e-sheet', 'a5e-sheet--item'];
 			options.resizable = true;
+			options.position ??= {};
+			const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
+			options.position.width = ItemSheet.DEFAULT_OPTIONS.position.width * scale;
 		}
 
 		super(

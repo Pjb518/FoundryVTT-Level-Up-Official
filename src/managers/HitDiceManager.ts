@@ -1,7 +1,8 @@
 import { localize } from '#utils/localization/localize.ts';
+import { constructRollFormula } from '../dice/constructRollFormula.ts';
 
 export default class HitDiceManager {
-	#actor: Actor.OfType<'base'>;
+	#actor: Creature;
 
 	#automate: boolean;
 
@@ -11,7 +12,7 @@ export default class HitDiceManager {
 
 	dieSizes = new Set<number>();
 
-	constructor(actor: Actor.OfType<'base'>, automate = true) {
+	constructor(actor: Creature, automate = true) {
 		this.#actor = actor;
 		this.#automate = automate;
 
@@ -136,7 +137,7 @@ export default class HitDiceManager {
 
     const bonus = bonusesManager?.getHitDiceBonusFormula(hitDiceType, quantity) ?? '';
 
-    return [diceTerm, `${quantity * conMod}`, bonus].filter(Boolean).join(' + ');
+    return [diceTerm, `${quantity * conMod}[Constitution Mod]`, bonus].filter(Boolean).join(' + ');
   }
 
 	async rollHitDice(dieSize: string | null = null, quantity = 1, heal = true, 
@@ -233,7 +234,34 @@ export default class HitDiceManager {
 		const { attributes } = this.#actor.system;
 
     const size = Number.parseInt(dieSize.slice(1), 10);
-		const roll = await new Roll(formula, { ...this.#actor.getRollData(), size }).roll();
+    const sizedFormula = Roll.replaceFormulaData(formula, { size });
+
+    let roll: Roll.Evaluated<Roll>;
+
+    if (heal) {
+      // Get healing bonuses
+      const rollData = {
+        healing: [
+          {
+            type: 'healing',
+            formula: sizedFormula,
+            healingType: 'hitDice',
+          },
+        ],
+      };
+
+      const healingBonuses = this.#actor.BonusesManager._prepareGlobalHealingBonuses({}, rollData);
+
+      let healFormula = sizedFormula;
+      healingBonuses.forEach(([, bonus]) => {
+        healFormula += ` + ${bonus.formula}[${bonus.label}]`;
+      });
+
+      // @ts-expect-error
+      healFormula = constructRollFormula({ formula: healFormula, actor: this.#actor }).rollFormula;
+
+      roll = await new CONFIG.Dice.BaseRoll(healFormula).roll();
+    } else roll = await new Roll(sizedFormula, this.#actor.getRollData()).roll();
 
 		const title = localize('A5E.HitDiceChatHeader', {
 			dieSize: dieSize.toUpperCase(),

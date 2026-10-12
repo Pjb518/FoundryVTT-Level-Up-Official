@@ -66,7 +66,21 @@
 				"img": "",
 				"level": 1,
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "DMh0wjr7nx61rapE",
+				"name": "Armor Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"armor:light",
+							"armor:medium",
+							"armor:shield"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"NFChcKIuBe8nFatm": {
 				"grantType": "proficiency",
@@ -84,7 +98,19 @@
 				"img": "",
 				"level": 1,
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "NFChcKIuBe8nFatm",
+				"name": "Weapon Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:starship"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"Goo2N0ejbZmZExfj": {
 				"grantType": "proficiency",
@@ -107,7 +133,29 @@
 				"img": "",
 				"level": 1,
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "Goo2N0ejbZmZExfj",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:engineersToolbox"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:landVehicles",
+									"tool:waterVehicles",
+									"tool:airVehicles",
+									"tool:spaceVehicles"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"o5gDiip1mkY1o3iQ": {
 				"grantType": "proficiency",
@@ -126,7 +174,20 @@
 				"_id": "o5gDiip1mkY1o3iQ",
 				"img": "",
 				"level": 1,
-				"optional": false
+				"optional": false,
+				"id": "o5gDiip1mkY1o3iQ",
+				"name": "Saving Throw Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"savingThrow:str",
+							"savingThrow:con"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"JoPstkSqxv8WB9xc": {
 				"grantType": "proficiency",
@@ -153,7 +214,33 @@
 				"_id": "JoPstkSqxv8WB9xc",
 				"img": "",
 				"level": 1,
-				"optional": false
+				"optional": false,
+				"id": "JoPstkSqxv8WB9xc",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"skill:acr",
+									"skill:ath",
+									"skill:cul",
+									"skill:eng",
+									"skill:his",
+									"skill:ins",
+									"skill:itm",
+									"skill:med",
+									"skill:prc",
+									"skill:sur"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"CWtijdhyWZ1ZJOEz": {
 				"grantType": "feature",
@@ -183,7 +270,33 @@
 				"_id": "CWtijdhyWZ1ZJOEz",
 				"img": "",
 				"level": 1,
-				"optional": false
+				"optional": false,
+				"id": "CWtijdhyWZ1ZJOEz",
+				"name": "1st Level Class Features",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.T6ImxOzW8Iex3A2B",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.vKckTQevhrZgeJJ9",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.gE1zZWR81qB3jE7O",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"ocKlfaeYzGJoO5UZ": {
 				"grantType": "item",
@@ -210,7 +323,30 @@
 				"optional": true,
 				"_id": "ocKlfaeYzGJoO5UZ",
 				"img": "",
-				"level": 1
+				"level": 1,
+				"id": "ocKlfaeYzGJoO5UZ",
+				"name": "Starting Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.gGBU86Mkf7oikVX9",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.itjugwlLnNQxWSpF",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.00ZBYffPneeEPW2G",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"2Chj8mbbC7B1heDZ": {
 				"grantType": "ability",
@@ -239,7 +375,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "2Chj8mbbC7B1heDZ",
+				"name": "4th Level ASI (1st Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"nsCGQ6WR9reveOy1": {
 				"grantType": "ability",
@@ -268,7 +429,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "nsCGQ6WR9reveOy1",
+				"name": "4th Level ASI (2nd Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"MbgjUJItiihCWYJh": {
 				"grantType": "ability",
@@ -297,7 +483,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "MbgjUJItiihCWYJh",
+				"name": "8th Level ASI (1st Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"dNx2sIiF3FAsvBmR": {
 				"grantType": "ability",
@@ -326,7 +537,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "dNx2sIiF3FAsvBmR",
+				"name": "8th Level ASI (2nd Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"Fo7uYms5DaT60eSM": {
 				"grantType": "ability",
@@ -355,7 +591,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "Fo7uYms5DaT60eSM",
+				"name": "12th Level ASI (1st Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"NcDK3sxagb0aRzI4": {
 				"grantType": "ability",
@@ -384,7 +645,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "NcDK3sxagb0aRzI4",
+				"name": "12th Level ASI (2nd Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"uOeh0acIaSRWL9s8": {
 				"grantType": "ability",
@@ -413,7 +699,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "uOeh0acIaSRWL9s8",
+				"name": "16th Level ASI (1st Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"hwTf0tRcIWTSTgWr": {
 				"grantType": "ability",
@@ -442,7 +753,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "hwTf0tRcIWTSTgWr",
+				"name": "16th Level ASI (2nd Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"JDlbcu8necBRA3MS": {
 				"grantType": "ability",
@@ -471,7 +807,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "JDlbcu8necBRA3MS",
+				"name": "19th Level ASI (1st Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"AveK4tHVPZ8wZ3X0": {
 				"grantType": "ability",
@@ -500,7 +861,32 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "AveK4tHVPZ8wZ3X0",
+				"name": "19th Level ASI (2nd Point)",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"Q8WC8GssnH7N6I0r": {
 				"grantType": "feature",
@@ -526,7 +912,27 @@
 				"img": "",
 				"level": 2,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "2nd Level Class Features",
+				"id": "Q8WC8GssnH7N6I0r",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.7m0AClAInKjmnZZg",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.BUVT4bCKuew3fp8Z",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"xcSva2JFIS1X7EEe": {
 				"grantType": "feature",
@@ -547,7 +953,22 @@
 				"img": "",
 				"level": 5,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "5th Level Class Features",
+				"id": "xcSva2JFIS1X7EEe",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.o98sMvXTtHFdUaUx",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"oakCHnXn6B8SuwSX": {
 				"grantType": "feature",
@@ -568,7 +989,22 @@
 				"img": "",
 				"level": 6,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "6th Level Class Features",
+				"id": "oakCHnXn6B8SuwSX",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.nYgPt7iwBphw4oqM",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"Zjj6EGGOBNjzLuXs": {
 				"grantType": "feature",
@@ -589,7 +1025,22 @@
 				"img": "",
 				"level": 9,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "9th Level Class Features",
+				"id": "Zjj6EGGOBNjzLuXs",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.Cmf9T2oPv2TnO2ay",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"keyq9DmZQRueJvca": {
 				"grantType": "feature",
@@ -610,7 +1061,22 @@
 				"img": "",
 				"level": 10,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "10th Level Class Features",
+				"id": "keyq9DmZQRueJvca",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.pEnoklOvzepNDNMV",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"qWycrGXcINsVJXn5": {
 				"grantType": "feature",
@@ -631,7 +1097,22 @@
 				"img": "",
 				"level": 18,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "18th Level Class Features",
+				"id": "qWycrGXcINsVJXn5",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.k9JsSLxoRvsTllL2",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"DYkijmVcp37QD1C4": {
 				"grantType": "feature",
@@ -652,7 +1133,22 @@
 				"img": "",
 				"level": 20,
 				"optional": false,
-				"name": "undefined (Copy)"
+				"name": "20th Level Class Features",
+				"id": "DYkijmVcp37QD1C4",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.YHy8kbIZcNvMWp6o",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"BNjKJjXdCeK2kytB": {
 				"grantType": "item",
@@ -675,7 +1171,26 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "BNjKJjXdCeK2kytB",
+				"name": "Demolitionist’s Kit Light Maul",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.c502mUJcbXzk1wXT",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.F64osdwSOvI2W0LM",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"tlNVybACT8lwBpPT": {
 				"grantType": "item",
@@ -698,7 +1213,26 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "tlNVybACT8lwBpPT",
+				"name": "Master-at-Arms Kit Light Blade",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.s5ENPtUWFP8KQnn2",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.rRykVHVqM1Kzg2U1",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"QFUDLfiDvOosM7sX": {
 				"grantType": "item",
@@ -721,7 +1255,26 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "QFUDLfiDvOosM7sX",
+				"name": "Master-at-Arms Kit Medium Blade",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.3OzzmMUKQoMvuIQ2",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.VWFdZtIzxDZGA2qI",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"up2ivMnTsXgibBvD": {
 				"grantType": "item",
@@ -757,7 +1310,37 @@
 					"base": []
 				},
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Master-at-Arms Kit Pistol",
+				"id": "up2ivMnTsXgibBvD",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.Afq6SFeZMcZ4PDOJ",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.cjlmWzgQAU57WFhJ",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.K27Un3XDfxleIuVr",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.W41ZwSz4Z9Tlp1O2",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.niPIHiamCU0ovJfa",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"3A5n6KZdtZwHMoZ7": {
 				"grantType": "item",
@@ -793,7 +1376,37 @@
 					"base": []
 				},
 				"img": "",
-				"name": "undefined (Copy)"
+				"name": "Merc Kit Pistol",
+				"id": "3A5n6KZdtZwHMoZ7",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.Afq6SFeZMcZ4PDOJ",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.cjlmWzgQAU57WFhJ",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.K27Un3XDfxleIuVr",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.W41ZwSz4Z9Tlp1O2",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.niPIHiamCU0ovJfa",
+								"quantityOverride": 0
+							}
+						],
+						"total": 1
+					}
+				}
 			},
 			"bHZrvqrlIU6bbJXM": {
 				"grantType": "proficiency",
@@ -811,7 +1424,19 @@
 				},
 				"img": "",
 				"proficiencyType": "armor",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "bHZrvqrlIU6bbJXM",
+				"name": "Armor Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"armor:heavy"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"Opfshsqjk6EMuj5m": {
 				"grantType": "proficiency",
@@ -905,7 +1530,98 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "Opfshsqjk6EMuj5m",
+				"name": "Weapon Proficiencies",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:blaster",
+							"weapon:blowgun",
+							"weapon:club",
+							"weapon:dagger",
+							"weapon:handaxe",
+							"weapon:heavyCrossbow",
+							"weapon:joltPistol",
+							"weapon:greatclub",
+							"weapon:laserPistol",
+							"weapon:lightCrossbow",
+							"weapon:mace",
+							"weapon:quarterstaff",
+							"weapon:shockMace",
+							"weapon:sickle",
+							"weapon:sling",
+							"weapon:slugger",
+							"weapon:sonicMaul",
+							"weapon:spear",
+							"weapon:stunStick",
+							"weapon:tacticalBaton",
+							"weapon:bastardSword",
+							"weapon:battleaxe",
+							"weapon:battleGauntlet",
+							"weapon:bioChakram",
+							"weapon:brassKnuckles",
+							"weapon:combatChainsaw",
+							"weapon:combatKnife",
+							"weapon:compositeBow",
+							"weapon:dart",
+							"weapon:duelingDagger",
+							"weapon:duelingSword",
+							"weapon:electroHalberd",
+							"weapon:energyCrossbow",
+							"weapon:flail",
+							"weapon:flameBracer",
+							"weapon:flamethrower",
+							"weapon:garotte",
+							"weapon:glaive",
+							"weapon:greataxe",
+							"weapon:greatsword",
+							"weapon:grenadeLauncher",
+							"weapon:halberd",
+							"weapon:handCrossbow",
+							"weapon:hypodermicPistol",
+							"weapon:ionCannon",
+							"weapon:javelin",
+							"weapon:lance",
+							"weapon:lightHammer",
+							"weapon:longbow",
+							"weapon:longspear",
+							"weapon:longsword",
+							"weapon:maul",
+							"weapon:monoWhip",
+							"weapon:morningstar",
+							"weapon:net",
+							"weapon:netcaster",
+							"weapon:pike",
+							"weapon:plasmaSword",
+							"weapon:polaronGatlingGun",
+							"weapon:pulseRifle",
+							"weapon:punchingDagger",
+							"weapon:rapier",
+							"weapon:saber",
+							"weapon:scimitar",
+							"weapon:scythe",
+							"weapon:shortbow",
+							"weapon:shortsword",
+							"weapon:shotgun",
+							"weapon:slugRifle",
+							"weapon:sniperRifle",
+							"weapon:spearThrower",
+							"weapon:throwingDagger",
+							"weapon:tkGauntlet",
+							"weapon:trident",
+							"weapon:vibroknife",
+							"weapon:viperRetainer",
+							"weapon:warhammer",
+							"weapon:warPick",
+							"weapon:whip"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"resources": [

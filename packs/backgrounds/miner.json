@@ -34,7 +34,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "M3LdRetotR7idP0a",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"str"
+						],
+						"options": [
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"abOAOx9YnrtOSVMt": {
 				"grantType": "proficiency",
@@ -55,7 +81,27 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "abOAOx9YnrtOSVMt",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:eng"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:nat",
+									"skill:prc"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"dORcNib7lPT5ZA70": {
 				"grantType": "feature",
@@ -75,7 +121,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "dORcNib7lPT5ZA70",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.qh39dknb5t7xi4tq",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"G84cibN0OkmIu9FI": {
 				"grantType": "item",
@@ -110,7 +172,38 @@
 				"_id": "G84cibN0OkmIu9FI",
 				"img": "",
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "G84cibN0OkmIu9FI",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.pn2up6538kaog0ys",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ufyph3rlho818mv2",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.oo0ip5vii2mdsb2q",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.20lir2zeucw3iev3",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"kZODvQ4hS1AEryhe": {
 				"grantType": "proficiency",
@@ -145,7 +238,41 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "kZODvQ4hS1AEryhe",
+				"name": "Tool Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:bookbindersKit",
+									"tool:brewersSupplies",
+									"tool:calligraphersSupplies",
+									"tool:carpentersTools",
+									"tool:cartographersTools",
+									"tool:cobblersTools",
+									"tool:cooksUtensils",
+									"tool:glassblowersTools",
+									"tool:jewelersTools",
+									"tool:leatherworkersTools",
+									"tool:masonsTools",
+									"tool:paintersSupplies",
+									"tool:pottersTools",
+									"tool:tinkersTools",
+									"tool:weaversTools",
+									"tool:woodcarversTools",
+									"tool:smithsTools"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"mUsXJx3WYGL3oMv0": {
 				"grantType": "trait",
@@ -162,7 +289,20 @@
 					"total": 0,
 					"traitType": "languages"
 				},
-				"img": ""
+				"img": "",
+				"id": "mUsXJx3WYGL3oMv0",
+				"name": "Language Proficiency",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"undercommon"
+						],
+						"options": [],
+						"total": 0,
+						"traitType": "languages"
+					}
+				}
 			},
 			"K6U1TW3oEEfuNkIL": {
 				"grantType": "proficiency",
@@ -180,7 +320,22 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "K6U1TW3oEEfuNkIL",
+				"name": "Weapon Proficiencies",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:maul",
+							"weapon:warhammer",
+							"weapon:warPick"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"source": "moarComplete",

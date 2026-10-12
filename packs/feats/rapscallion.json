@@ -54,7 +54,28 @@
 					"requiresProficiency": false,
 					"default": true
 				},
-				"img": ""
+				"img": "",
+				"id": "bk3UwDc67ZT5mH1h",
+				"name": "Rapscallion",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"pHcWYhZwJW43UMGV": {
 				"grantType": "proficiency",
@@ -72,7 +93,19 @@
 				"proficiencyType": "skill",
 				"label": "Skill Proficiency",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "pHcWYhZwJW43UMGV",
+				"name": "Skill Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:dec"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"wGBrQqmwJeDsrY6J": {
 				"grantType": "proficiency",
@@ -90,7 +123,19 @@
 				},
 				"proficiencyType": "tool",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "wGBrQqmwJeDsrY6J",
+				"name": "Tool Proficiency",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"tool:forgeryKit"
+						],
+						"options": []
+					},
+					"isExpertise": false
+				}
 			},
 			"vQYEREIM3oE2FGFa": {
 				"grantType": "proficiency",
@@ -108,7 +153,27 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "vQYEREIM3oE2FGFa",
+				"name": "Rare Weapon Proficiency",
+				"img": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"weapon:assassinsGauntlet",
+									"weapon:bootDagger",
+									"weapon:swordPistol"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			}
 		},
 		"prerequisite": "3 levels in bard, 3 levels in rogue",

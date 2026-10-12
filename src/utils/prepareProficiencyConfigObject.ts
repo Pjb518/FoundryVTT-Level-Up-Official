@@ -10,6 +10,11 @@ export default function prepareProficiencyConfigObject() {
 			config: Object.entries(CONFIG.A5E.maneuverTraditions),
 			propertyKey: 'system.proficiencies.traditions',
 		},
+		languages: {
+			label: 'A5E.details.languages',
+			config: Object.entries(CONFIG.A5E.languages),
+			propertyKey: 'system.proficiencies.languages',
+		},
 		skill: {
 			label: 'A5E.skillLabels.titlePlural',
 			config: Object.entries(CONFIG.A5E.skills),
@@ -17,7 +22,11 @@ export default function prepareProficiencyConfigObject() {
 		},
 		savingThrow: {
 			label: 'A5E.rollLabels.savingThrows.titlePlural',
-			config: Object.entries(CONFIG.A5E.abilities),
+			config: [
+				...Object.entries(CONFIG.A5E.abilities),
+				['concentration', 'Concentration'],
+				['death', 'Death'],
+			],
 			propertyKey: '',
 		},
 		tool: {

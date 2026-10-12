@@ -1,43 +1,45 @@
+import { createInitialGrant } from '#utils/createInitialGrant.ts';
+
 import { A5EBaseItemData } from './base.ts';
+import { GrantsField } from './Grants/GrantsField.ts';
 
 import fields = foundry.data.fields;
 
 const schema = {
-	grants: new fields.ObjectField({
+	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
 			// Default ASI
-			[foundry.utils.randomID()]: {
-				grantType: 'ability',
-				abilities: { options: Object.keys(CONFIG.A5E.abilities), total: 1 },
-				context: { types: ['base'] },
-				bonus: '1',
-				label: 'Default ASI',
-			},
+			...createInitialGrant('ability', {
+				config: {
+					abilities: { options: Object.keys(CONFIG.A5E.abilities), total: 1 },
+					context: { types: ['base'] },
+					bonus: '1',
+				},
+				name: 'Default ASI',
+			}),
 			// Skill Proficiency
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				keys: { total: 1 },
-				proficiencyType: 'skill',
-				label: 'Skill Proficiencies',
-			},
+			...createInitialGrant('proficiency', {
+				config: {
+					keys: { total: 1 },
+				},
+				name: 'Skill Proficiencies',
+			}),
 			// Feature
-			[foundry.utils.randomID()]: {
+			...createInitialGrant('feature', {
 				grantType: 'feature',
-				label: 'Background Feature',
-			},
+				name: 'Background Feature',
+			}),
 			// Suggested Equipment
-			[foundry.utils.randomID()]: {
-				grantType: 'item',
-				label: 'Suggested Equipment',
+			...createInitialGrant('item', {
+				name: 'Suggested Equipment',
 				optional: true,
-			},
+			}),
 			// Trait Proficiency
-			[foundry.utils.randomID()]: {
-				grantType: 'proficiency',
-				proficiencyType: 'tool',
-				label: 'Tool Proficiencies',
-			},
+			...createInitialGrant('proficiency', {
+				config: {},
+				name: 'Tool Proficiencies',
+			}),
 		}),
 	}),
 };

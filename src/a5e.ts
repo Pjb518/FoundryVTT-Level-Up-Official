@@ -1,48 +1,51 @@
-import "./scss/main.scss";
+// @ts-expect-error
+import './scss/main.scss';
 
-import canvasInit from "./hooks/canvasInit.ts";
-import canvasReady from "./hooks/canvasReady.ts";
-import createActor from "./hooks/createActor.ts";
-import createToken from "./hooks/createToken.ts";
-import init from "./hooks/init.ts";
-import getDocumentDirectoryContext from "./hooks/getDocumentDirectoryContext.ts";
-import preDeleteChatMessage from "./hooks/preDeleteChatMessage.ts";
-import preCreateChatMessage from "./hooks/preCreateChatMessage.ts";
-import ready from "./hooks/ready.ts";
-import renderApplication from "./hooks/renderApplication.ts";
-import renderChatMessageHTML from "./hooks/renderChatMessageHTML.ts";
-import renderSettings from "./hooks/renderSettings.ts";
-import renderTokenHUDA5E from "./hooks/renderTokenHUDA5E.ts";
-import setup from "./hooks/setup.ts";
-import updateActor from "./hooks/updateActor.ts";
-import { renderAbstractSideBarTab } from "./hooks/renderAbstractSidebarTab.ts";
+import canvasInit from './hooks/canvasInit.ts';
+import canvasReady from './hooks/canvasReady.ts';
+import createActor from './hooks/createActor.ts';
+import createToken from './hooks/createToken.ts';
+import getDocumentDirectoryContext from './hooks/getDocumentDirectoryContext.ts';
+import init from './hooks/init.ts';
+import preCreateChatMessage from './hooks/preCreateChatMessage.ts';
+import preDeleteChatMessage from './hooks/preDeleteChatMessage.ts';
+import ready from './hooks/ready.ts';
+import { renderAbstractSideBarTab } from './hooks/renderAbstractSidebarTab.ts';
+import renderApplication from './hooks/renderApplication.ts';
+import renderChatMessageHTML from './hooks/renderChatMessageHTML.ts';
+import { renderHeadsUpDisplayContainer } from './hooks/renderHeadsUpDisplayContainer.ts';
+import renderSettings from './hooks/renderSettings.ts';
+import renderTokenHUDA5E from './hooks/renderTokenHUDA5E.ts';
+import setup from './hooks/setup.ts';
+import updateActor from './hooks/updateActor.ts';
 
-Hooks.once("init", init);
-Hooks.once("setup", setup);
-Hooks.once("ready", ready);
+Hooks.once('init', init);
+Hooks.once('setup', setup);
+Hooks.once('ready', ready);
 
-Hooks.on("canvasInit", canvasInit);
-Hooks.on("canvasReady", canvasReady);
+Hooks.on('canvasInit', canvasInit);
+Hooks.on('canvasReady', canvasReady);
 
-Hooks.on("getActorContextOptions", (app, options) =>
-  getDocumentDirectoryContext(app, options, "Actor"),
+Hooks.on('getActorContextOptions', (app, options) =>
+	getDocumentDirectoryContext(app, options, 'Actor'),
 );
-Hooks.on("getItemContextOptions", (app, options) =>
-  getDocumentDirectoryContext(app, options, "Item"),
+Hooks.on('getItemContextOptions', (app, options) =>
+	getDocumentDirectoryContext(app, options, 'Item'),
 );
-Hooks.on("getCompendiumContextOptions", (app, options) =>
-  getDocumentDirectoryContext(app, options, "Pack"),
+Hooks.on('getCompendiumContextOptions', (app, options) =>
+	getDocumentDirectoryContext(app, options, 'Pack'),
 );
 
-Hooks.on("createActor", createActor);
-Hooks.on("createToken", createToken);
+Hooks.on('createActor', createActor);
+Hooks.on('createToken', createToken);
 
-Hooks.on("updateActor", updateActor);
+Hooks.on('updateActor', updateActor);
 
-Hooks.on("renderAbstractSidebarTab", renderAbstractSideBarTab);
-Hooks.on("renderApplicationV2", renderApplication);
-Hooks.on("renderChatMessageHTML", renderChatMessageHTML);
-Hooks.on("preCreateChatMessage", preCreateChatMessage);
-Hooks.on("preDeleteChatMessage", preDeleteChatMessage);
-Hooks.on("renderSettings", renderSettings);
-Hooks.on("renderTokenHUDA5e", renderTokenHUDA5E);
+Hooks.on('renderAbstractSidebarTab', renderAbstractSideBarTab);
+Hooks.on('renderApplicationV2', renderApplication);
+Hooks.on('renderChatMessageHTML', renderChatMessageHTML);
+Hooks.on('preCreateChatMessage', preCreateChatMessage);
+Hooks.on('preDeleteChatMessage', preDeleteChatMessage);
+Hooks.on('renderSettings', renderSettings);
+Hooks.on('renderTokenHUDA5e', renderTokenHUDA5E);
+Hooks.on('renderHeadsUpDisplayContainer', renderHeadsUpDisplayContainer);

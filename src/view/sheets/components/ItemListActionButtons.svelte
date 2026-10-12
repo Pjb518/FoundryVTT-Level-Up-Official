@@ -2,6 +2,7 @@
     import type { Action } from "#types/action.d.ts";
 
     import { getContext } from "svelte";
+    import { itemControls } from "../../../stores/itemControlsStore.svelte.ts";
     import { DeletionConfirmationDialog } from "../../dialogs/initializers/DeletionConfirmationDialog.svelte.ts";
 
     type Props = {
@@ -61,8 +62,14 @@
         item.shareItemDescription(item.actions.get(action));
     }
 
-    const actor = getContext("actor");
+    const actor: any = getContext("actor");
     let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
+
+    async function onAddConsumer() {
+        await actor?.spellBooks
+            ?.get(item.system.spellBook)
+            ?.addSpellConsumers([item]);
+    }
 </script>
 
 {#if sheetIsLocked()}
@@ -81,7 +88,11 @@
 {#if !sheetIsLocked()}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class="track" onclick={(e) => e.stopPropagation()}>
+    <div
+        class="track"
+        class:open={itemControls.open}
+        onclick={(e) => e.stopPropagation()}
+    >
         <i class="track-icon icon fa-solid fa-ellipsis-vertical"></i>
 
         <ul class="track-items">
@@ -95,6 +106,19 @@
                     onclick={onConfigure}
                 ></button>
             </li>
+
+            {#if item.type === "spell" && !action}
+                <li>
+                    <button
+                        type="button"
+                        class="action-button icon fa-solid fa-coins"
+                        data-tooltip="A5E.buttons.tooltips.addSpellConsumer"
+                        data-tooltip-direction="UP"
+                        aria-label="Add Spell Consumer"
+                        onclick={onAddConsumer}
+                    ></button>
+                </li>
+            {/if}
 
             {#if item.type !== "feature"}
                 <li>
@@ -205,7 +229,8 @@
             transition: var(--a5e-transition-standard);
         }
 
-        &:hover {
+        &:hover,
+        &.open {
             overflow: initial;
 
             .track-items {

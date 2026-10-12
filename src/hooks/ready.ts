@@ -1,11 +1,9 @@
 import { mount } from 'svelte';
-
-import hotbarDrop from './hotBarDrop.ts';
-import { handleMigration } from '../migration/handlers/handleMigration.ts';
 import { collectSynergies } from '#utils/db/indexCompendiaFields.ts';
-
+import { ModuleIncompatibilityDialog } from '#view/dialogs/initializers/ModuleIncompatibilityDialog.svelte.ts';
 import KeyPressHandler from '#view/globals/KeyPressHandler.svelte';
-// import ModuleIncompatibilityDialog from "../apps/dialogs/initializers/ModuleIncompatibilityDialog.js";
+import { handleMigration } from '../migration/handlers/handleMigration.ts';
+import hotbarDrop from './hotBarDrop.ts';
 
 const CHANGELOG_PACK_ID = 'a5e.a5e-journals';
 const CHANGELOG_JOURNAL_NAME = 'A5E Changelog';
@@ -35,12 +33,12 @@ async function handleChangelog() {
 	);
 	if (!latestPage) return;
 
-	journal.sheet.render(true, { pageId: latestPage._id });
+	journal?.sheet?.render(true, { pageId: latestPage._id });
 
 	await game.settings.set('a5e', 'lastSeenChangelogVersion', game.system.version);
 }
 
-async function _handleIncompatibilityWarning() {
+async function handleIncompatibilityWarning() {
 	if (!game.user?.isGM) return;
 
 	const activeIncompatibleModules = Object.entries(CONFIG.A5E.moduleIncompatibilities).filter(
@@ -54,8 +52,16 @@ async function _handleIncompatibilityWarning() {
 }
 
 async function addKeyPressLogger() {
-	// eslint-disable-next-line no-new
 	mount(KeyPressHandler, { target: document.body });
+}
+
+function updateTheme() {
+	const primaryColor = game.settings.get('a5e', 'expertimentalprimaryColor')?.toString();
+	if (primaryColor && primaryColor !== '#426066') {
+		document.documentElement.style.setProperty('--a5e-color-primary', primaryColor);
+		const theme = document.querySelector('.theme-dark');
+		theme?.style.setProperty('--a5e-color-primary', primaryColor);
+	}
 }
 
 export default async function ready() {
@@ -64,6 +70,7 @@ export default async function ready() {
 	collectSynergies();
 	handleMigration();
 	handleChangelog();
-	// handleIncompatibilityWarning();
+	handleIncompatibilityWarning();
 	addKeyPressLogger();
+	updateTheme();
 }

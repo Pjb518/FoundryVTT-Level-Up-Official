@@ -34,7 +34,33 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "eDaIGTHRZpWO6DQV",
+				"name": "Default ASI",
+				"type": "ability",
+				"config": {
+					"abilities": {
+						"base": [
+							"int"
+						],
+						"options": [
+							"str",
+							"dex",
+							"con",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				}
 			},
 			"8Z1ZOnLpZe9gHLHd": {
 				"grantType": "proficiency",
@@ -56,7 +82,28 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "8Z1ZOnLpZe9gHLHd",
+				"name": "Skill Proficiencies",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:cul"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:his",
+									"skill:ins",
+									"skill:per"
+								]
+							}
+						]
+					},
+					"isExpertise": false
+				}
 			},
 			"UvR8DexnS71GyrCR": {
 				"grantType": "feature",
@@ -76,7 +123,23 @@
 				"img": "",
 				"level": 1,
 				"levelType": "character",
-				"optional": false
+				"optional": false,
+				"id": "UvR8DexnS71GyrCR",
+				"name": "Background Feature",
+				"type": "feature",
+				"config": {
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-background-features.Item.sy4hwojpxmqmbjso",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"uqNjbsS8gPIqMjze": {
 				"grantType": "item",
@@ -111,7 +174,38 @@
 				"_id": "uqNjbsS8gPIqMjze",
 				"img": "",
 				"level": 1,
-				"levelType": "character"
+				"levelType": "character",
+				"id": "uqNjbsS8gPIqMjze",
+				"name": "Suggested Equipment",
+				"type": "item",
+				"config": {
+					"items": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ito6po17oo0fjtag",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.32eyx6xvcv2xuqvo",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.82kz4htg65yqk0rq",
+								"quantityOverride": 0
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.vvvc3ailsmr450pw",
+								"quantityOverride": 0
+							}
+						],
+						"options": [],
+						"total": 0
+					}
+				}
 			},
 			"64XOQG38okyAr874": {
 				"grantType": "skillSpecialty",
@@ -128,7 +222,20 @@
 					"total": 0
 				},
 				"skill": "cul",
-				"img": ""
+				"img": "",
+				"id": "64XOQG38okyAr874",
+				"name": "Skill Specialty",
+				"type": "skillSpecialty",
+				"config": {
+					"specialties": {
+						"base": [
+							"laws"
+						],
+						"options": [],
+						"total": 0
+					},
+					"skill": "cul"
+				}
 			},
 			"29HCPHOt9P2Cwf7P": {
 				"grantType": "trait",
@@ -163,6 +270,41 @@
 						"unconscious"
 					],
 					"total": 1
+				},
+				"id": "29HCPHOt9P2Cwf7P",
+				"name": "Language Proficiency",
+				"img": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [],
+						"options": [
+							"blinded",
+							"bloodied",
+							"charmed",
+							"confused",
+							"deafened",
+							"doomed",
+							"encumbered",
+							"fatigue",
+							"frightened",
+							"grappled",
+							"incapacitated",
+							"invisible",
+							"paralyzed",
+							"petrified",
+							"poisoned",
+							"prone",
+							"rattled",
+							"restrained",
+							"slowed",
+							"strife",
+							"stunned",
+							"unconscious"
+						],
+						"total": 1,
+						"traitType": "conditionImmunities"
+					}
 				}
 			}
 		},

@@ -2,19 +2,19 @@ import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { ModifierManager } from '../managers/ModifierManager.ts';
 
 export function getRollFormula(
-	actor: Actor.OfType<'base'>,
+	actor: Creature,
 	rollData?: ModifierManager.RollData,
 	options?: { terms: false },
 ): string;
 
 export function getRollFormula(
-	actor: Actor.OfType<'base'>,
+	actor: Creature,
 	rollData: ModifierManager.RollData | undefined,
 	options: { terms: true },
 ): { rollFormula: string; terms: foundry.dice.terms.RollTerm[] };
 
 export function getRollFormula(
-	actor: Actor.OfType<'base'>,
+	actor: Creature,
 	rollData = {} as ModifierManager.RollData,
 	options = { terms: false },
 ) {
