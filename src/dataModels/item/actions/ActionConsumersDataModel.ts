@@ -314,7 +314,7 @@ class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
 			spellData.consume = 'noConsume';
 		}
 
-		if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
+		if (spellBook?.config.disableSpellConsumers) spellData.consume = 'noConsume';
 
 		const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 		if (spellData.consume === 'spellSlot')

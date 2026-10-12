@@ -1,6 +1,6 @@
-import type { SpellBookData } from 'types/spellBook';
-import SpellBook from '../dataModels/actor/SpellBook';
+import { SpellBook } from '../dataModels/actor/SpellBook';
 import type { ActorA5E } from '../documents/actor/actor';
+import type SpellItemA5e from '../documents/item/spell';
 
 export default class SpellBookManager extends Map<string, SpellBook> {
 	private actor: Actor.OfType<'character'>;
@@ -11,10 +11,12 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		this.actor = actor;
 
 		// Initialize the spell books
-		const spellBookData: SpellBookData = this.actor.system.spellBooks ?? {};
-		Object.entries(spellBookData ?? {}).forEach(([id, data]: [string, SpellBookData]) => {
-			const spellBook = new SpellBook(data, { parent: this.actor });
-			spellBook._id = id;
+		const spellBookData: Record<string, SpellBook.Data> = this.actor.system.spellBooks ?? {};
+		Object.entries(spellBookData).forEach(([id, data]) => {
+			const spellBook = new SpellBook(
+				{ ...foundry.utils.deepClone(data), _id: id },
+				{ parent: this.actor },
+			);
 			this.set(id, spellBook);
 
 			// Make a reference to the spell book on the actor.
@@ -23,21 +25,40 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		});
 	}
 
-	async add(data: SpellBookData) {
+	// ======================================
+	// Getters
+	// ======================================
+
+	get default(): SpellBook | undefined {
+		return [...this.values()].find((spellBook) => spellBook.default) ?? this.first();
+	}
+
+	get spells(): SpellItemA5e[] {
+		return [...this.values()].flatMap((spellBook) => [...spellBook.spells.values()]);
+	}
+
+	// ======================================
+	// API Methods
+	// ======================================
+
+	async add(data: Partial<SpellBook.Data> = {}) {
 		const id = data?._id ?? foundry.utils.randomID();
 
+		// The first spell book on an actor is always the default.
+		const isDefault = this.size === 0 ? true : (data.default ?? false);
+
 		await this.actor.update({
-			[`system.spellBooks.${id}`]: data,
+			[`system.spellBooks.${id}`]: { ...data, _id: id, default: isDefault },
 		});
 
 		return id;
 	}
 
-	remove(id: string) {
+	async remove(id: string) {
 		const spellBook = this.get(id);
 		if (!spellBook) return;
 
-		spellBook.delete();
+		await spellBook.delete();
 	}
 
 	removeAll() {

@@ -32,8 +32,7 @@
     let isSpellLevelVisible = $derived((level: string) => {
         if (!sheetIsLocked()) return true;
         const maxSlots = actorStore.spellResources.slots[level]?.max ?? 0;
-        const showSpellSlots =
-            actor.reactive.flags?.a5e?.showSpellSlots ?? true;
+        const showSpellSlots = spellBook?.config?.showSpellSlots ?? true;
         const spellQuantity = (categorizedItems[level] ?? []).length;
 
         if (spellQuantity) return true;
@@ -52,10 +51,10 @@
                     {showDescription}
                     {showUses}
                     level={Number(label)}
-                    showArtifactCharges={spellBook?.showArtifactCharges ??
+                    showArtifactCharges={spellBook?.config?.showArtifactCharges ??
                         false}
-                    showSpellPoints={spellBook?.showSpellPoints ?? false}
-                    showSpellSlots={spellBook?.showSpellSlots ?? true}
+                    showSpellPoints={spellBook?.config?.showSpellPoints ?? false}
+                    showSpellSlots={spellBook?.config?.showSpellSlots ?? true}
                     items={itemList}
                     type="spellLevels"
                 />
