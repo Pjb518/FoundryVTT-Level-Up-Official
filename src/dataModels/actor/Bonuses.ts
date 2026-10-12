@@ -69,7 +69,7 @@ export function getHealingBonusData() {
 export function getHitDiceBonusData() {
   return {
     context: new fields.SchemaField(hitDiceBonusContext()),
-    bonusType: new fields.StringField({ required: true, initial: 'add', choices: ['add', 'override'] }),
+    bonusType: new fields.StringField({ required: true, initial: 'add', choices: ['add', 'override', 'modifier'] }),
     ...baseBonusData(),
   };
 }

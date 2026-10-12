@@ -17,7 +17,7 @@ export default class HitDiceGrant extends BaseGrant {
 			bonusType: new fields.StringField({
 				required: true,
 				initial: 'add',
-        choices: ['add', 'override'],
+        choices: ['add', 'override', 'modifier'],
 			}),
 			label: new fields.StringField({
 				required: true,
@@ -31,7 +31,7 @@ export default class HitDiceGrant extends BaseGrant {
 
 		const bonusId = foundry.utils.randomID();
 		const bonus = {
-			context: this.context,
+			context: { ...this.context },
 			formula: this.bonus,
 			label: this.label || this.parent?.name || 'Hit Dice Grant',
 			default: this.context.default ?? true,

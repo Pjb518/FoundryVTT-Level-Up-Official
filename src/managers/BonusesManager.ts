@@ -615,7 +615,7 @@ class BonusesManager {
 
   getHitDiceBonusFormula(hitDiceType: string, quantity = 1): string {
     const parts = this.prepareHitDiceBonuses(hitDiceType)
-      .filter(([, bonus]) => bonus.bonusType !== 'override')
+      .filter(([, bonus]) => bonus.bonusType === 'add' || !bonus.bonusType)
       .map(([, bonus]) => {
         if (bonus.context.perDie && quantity  > 1) return `(${bonus.formula}) * ${quantity}`;
         return bonus.formula;
@@ -630,6 +630,16 @@ class BonusesManager {
     );
 
     return overrides.at(-1)?.[1].formula ?? null;
+  }
+
+  getHitDiceModifiers(hitDiceType: string): string {
+    const modifierPattern = /^(?:(?:rr?|xo?|k[hl]?|d[hl]?|min|max|cs|cf|df|sf|ms|even|odd)(?:[<>]=?|=)?\d*)+$/i;
+
+    return this.prepareHitDiceBonuses(hitDiceType)
+      .filter(([, bonus]) => bonus.bonusType === 'modifier')
+      .map(([, bonus]) => bonus.formula.replace(/\s+/g, ''))
+      .filter((modifier) => modifierPattern.test(modifier))
+      .join('');
   }
 
 	prepareInitiativeBonuses({

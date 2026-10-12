@@ -128,10 +128,11 @@ export default class HitDiceManager {
   #getRollFormula(size: number, quantity: number, conMod: number, hitDiceType: string): string {
     const bonusesManager = this.#actor.BonusesManager;
     const override = bonusesManager?.getHitDiceOverrideFormula(hitDiceType);
+    const modifiers = bonusesManager?.getHitDiceModifiers(hitDiceType) ?? '';
 
     const diceTerm = override
       ? Array.from({ length: quantity }, () => `(${override})`).join(' + ')
-      : `${quantity}d${size}`;
+      : `${quantity}d${size}${modifiers}`;
 
     const bonus = bonusesManager?.getHitDiceBonusFormula(hitDiceType, quantity) ?? '';
 
@@ -208,6 +209,7 @@ export default class HitDiceManager {
 			quantity,
 			formula,
 			heal,
+      hitDiceType,
 		);
 
 		cls.update({

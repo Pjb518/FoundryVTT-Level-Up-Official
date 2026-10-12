@@ -57,7 +57,7 @@ export interface HealingBonus {
 
 export interface HitDiceBonus {
   context: HitDiceBonusContext;
-  bonusType: 'add' | 'override';
+  bonusType: 'add' | 'override', 'modifier';
   formula: string;
   label: string;
   default: boolean;

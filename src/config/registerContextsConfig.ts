@@ -41,6 +41,7 @@ export default function registerContextsConfig() {
   const hitDiceBonusTypes = {
     add: 'A5E.hitDice.bonusTypes.add',
     override: 'A5E.hitDice.bonusTypes.override',
+    modifier: 'A5E.hitDice.bonusTypes.modifier',
   };
 
 	const skillBonusContexts = {

@@ -87,7 +87,7 @@
 
     let hitDiceBonus = $derived(getHitDiceBonus() ?? {});
     let hitDiceTypesContext = $derived(hitDiceBonus.context?.hitDiceTypes ?? []);
-    let isOverride = $derived(hitDiceBonus.bonusType === "override");
+    let isOverride = $derived(["override", "modifier"].includes(hitDiceBonus.bonusType));
 </script>
 
 <form class="a5e-bonus">
