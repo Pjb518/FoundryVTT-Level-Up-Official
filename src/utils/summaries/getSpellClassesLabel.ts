@@ -1,8 +1,8 @@
-import type SpellItemA5e from "../../documents/item/spell";
+import type Item.OfType<'spell'> from "../../documents/item/spell";
 
 import { localize } from "#utils/localization/localize.ts";
 
-export default function getClassesLabel(item: SpellItemA5e) {
+export default function getClassesLabel(item: Item.OfType<'spell'>) {
   const { classSpellLists } = CONFIG.A5E;
   const classes = [...(item.system.classes ?? [])];
   const elements: string[] = [];

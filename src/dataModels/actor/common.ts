@@ -1,9 +1,7 @@
 import { d20RollModification } from '../common.ts';
+import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
-import { spellBookSchema } from './SpellBook.ts';
-import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
-
 import {
 	getAbilitiesBonusData,
 	getAttackBonusData,
@@ -16,6 +14,7 @@ import {
 	getSensesBonusData,
 	getSkillBonusData,
 } from './Bonuses.ts';
+import { spellBookSchema } from './SpellBook.ts';
 
 const { fields } = foundry.data;
 

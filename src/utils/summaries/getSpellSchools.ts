@@ -1,6 +1,6 @@
-import type SpellItemA5e from '../../documents/item/spell';
+import type Item.OfType<'spell'> from '../../documents/item/spell';
 
-export default function getSpellSchools(item: SpellItemA5e) {
+export default function getSpellSchools(item: Item.OfType<'spell'>) {
 	const { spellSchools } = CONFIG.A5E;
 	const { schools } = item.system;
 

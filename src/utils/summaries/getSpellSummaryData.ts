@@ -1,29 +1,30 @@
-import { localize } from "#utils/localization/localize.ts";
-import type SpellItemA5e from "../../documents/item/spell";
+import { localize } from '#utils/localization/localize.ts';
+import type Item
+.OfType<'spell'> from "../../documents/item/spell"
 
-import getSpellClassesLabel from "./getSpellClassesLabel";
-import getSpellComponentsLabel from "./getSpellComponentsLabel";
-import getSpellSchools from "./getSpellSchools";
 import getPsionicDisciplines from './getPsionicDisciplines';
+import getSpellClassesLabel from './getSpellClassesLabel';
+import getSpellComponentsLabel from './getSpellComponentsLabel';
+import getSpellSchools from './getSpellSchools';
 
 export default function getSpellSummaryData(
-  item: SpellItemA5e,
-  options: Record<string, any>,
+	item: Item.OfType<'spell'>,
+	options: Record<string, any>,
 ) {
-  const spellClasses = getSpellClassesLabel(item);
-  const spellComponents = getSpellComponentsLabel(item);
-  const spellLevel = CONFIG.A5E.spellLevels[item.system.level] ?? "";
-  const spellSchools = getSpellSchools(item);
+	const spellClasses = getSpellClassesLabel(item);
+	const spellComponents = getSpellComponentsLabel(item);
+	const spellLevel = CONFIG.A5E.spellLevels[item.system.level] ?? '';
+	const spellSchools = getSpellSchools(item);
 	const psionicDiscipline = getPsionicDisciplines(item);
-  const spellProperties: string[] = [];
+	const spellProperties: string[] = [];
 
-  if (!options?.hideSpellLevel) spellProperties.push(spellLevel);
-  spellProperties.push(...spellSchools);
-  spellProperties.push(psionicDiscipline);
+	if (!options?.hideSpellLevel) spellProperties.push(spellLevel);
+	spellProperties.push(...spellSchools);
+	spellProperties.push(psionicDiscipline);
 
-  return {
-    spellClasses: options?.hideSpellClasses ? "" : spellClasses,
-    spellComponents: options?.hideSpellComponents ? "" : spellComponents,
-    spellProperties: spellProperties.filter(Boolean).join(", "),
-  };
+	return {
+		spellClasses: options?.hideSpellClasses ? '' : spellClasses,
+		spellComponents: options?.hideSpellComponents ? '' : spellComponents,
+		spellProperties: spellProperties.filter(Boolean).join(', '),
+	};
 }

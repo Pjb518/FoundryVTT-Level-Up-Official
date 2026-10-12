@@ -1,8 +1,8 @@
 import { localize } from "#utils/localization/localize.ts";
 
-import type SpellItemA5e from '../../documents/item/spell';
+import type Item.OfType<'spell'> from '../../documents/item/spell';
 
-export default function getPsionicDisciplines(item: SpellItemA5e) {
+export default function getPsionicDisciplines(item: Item.OfType<'spell'>) {
 	const { psionicDisciplines } = CONFIG.A5E;
 	const { disciplines } = item.system;
 

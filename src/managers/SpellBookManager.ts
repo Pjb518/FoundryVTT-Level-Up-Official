@@ -1,23 +1,26 @@
-import { SpellBook } from '../dataModels/actor/SpellBook';
-import type { ActorA5E } from '../documents/actor/actor';
-import type SpellItemA5e from '../documents/item/spell';
+import { SpellBook } from '../dataModels/actor/SpellBook.ts';
 
 export default class SpellBookManager extends Map<string, SpellBook> {
-	private actor: Actor.OfType<'character'>;
+	private actor: Creature;
 
-	constructor(actor: ActorA5E) {
+	#default: SpellBook = null;
+
+	constructor(actor: Creature) {
 		super();
 
 		this.actor = actor;
 
 		// Initialize the spell books
 		const spellBookData: Record<string, SpellBook.Data> = this.actor.system.spellBooks ?? {};
+
 		Object.entries(spellBookData).forEach(([id, data]) => {
 			const spellBook = new SpellBook(
 				{ ...foundry.utils.deepClone(data), _id: id },
 				{ parent: this.actor },
 			);
+
 			this.set(id, spellBook);
+			if (spellBook.default) this.#default = spellBook;
 
 			// Make a reference to the spell book on the actor.
 			// TODO: Note: This might be unstable, needs further testing.
@@ -29,11 +32,13 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 	// Getters
 	// ======================================
 
+	/** Gets default spell book */
 	get default(): SpellBook | undefined {
-		return [...this.values()].find((spellBook) => spellBook.default) ?? this.first();
+		return this.#default ?? this.first();
 	}
 
-	get spells(): SpellItemA5e[] {
+	/** Gets all the spells from all the books */
+	get spells(): Item.OfType<'spell'>[] {
 		return [...this.values()].flatMap((spellBook) => [...spellBook.spells.values()]);
 	}
 
@@ -41,6 +46,7 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 	// API Methods
 	// ======================================
 
+	/** Add a spellbook  */
 	async add(data: Partial<SpellBook.Data> = {}) {
 		const id = data?._id ?? foundry.utils.randomID();
 
@@ -54,6 +60,7 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		return id;
 	}
 
+	/** Remove a spellbook */
 	async remove(id: string) {
 		const spellBook = this.get(id);
 		if (!spellBook) return;
@@ -61,14 +68,19 @@ export default class SpellBookManager extends Map<string, SpellBook> {
 		await spellBook.delete();
 	}
 
+	/** Remove all spell books */
 	removeAll() {
-		this.forEach((spellBook: SpellBook) => spellBook.delete());
+		this.forEach((spellBook: SpellBook) => {
+			spellBook.delete();
+		});
 	}
 
+	/** Get the first spell book */
 	first() {
 		return this.values().next().value;
 	}
 
+	/** Get spell save dcs as a string */
 	getSpellDCString(returnIfSingle = false) {
 		if (this.size <= 1 && returnIfSingle) return '';
 
