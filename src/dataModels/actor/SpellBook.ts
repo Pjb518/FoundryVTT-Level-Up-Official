@@ -67,6 +67,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 		super(data, options);
 	}
 
+	/** @inheritdoc */
 	static override defineSchema() {
 		return {
 			...spellBookSchema(),
@@ -77,6 +78,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 	// Getters
 	// ======================================
 
+	/** Gets all the ids of the spell in this book */
 	get spellIds(): string[] {
 		return this.spells.map((spell: Item.OfType<'spell'>) => spell.id!);
 	}
@@ -84,12 +86,14 @@ export class SpellBook extends foundry.abstract.DataModel<
 	// ======================================
 	// Data Preparation
 	// ======================================
+
+	/** @inheritdoc */
 	prepareBaseData(): void {
 		const actor = this.parent as Creature;
 		this.spells = new foundry.utils.Collection();
 		if (!actor) return;
 
-		for (const item of actor.items) {
+		for (const item of actor.itemTypes.spell) {
 			if (item.type !== 'spell') continue;
 
 			if (item.system.spellBook !== this._id) continue;
@@ -100,6 +104,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 		this.prepareSpellBookStats();
 	}
 
+	/** Prepare stats for this spell book */
 	prepareSpellBookStats(): void {
 		const actor = this.parent as Creature;
 		if (!actor) return;
@@ -135,6 +140,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 	// ======================================
 	// API Methods
 	// ======================================
+	/** Add a spell to this book */
 	addSpell(item: Item.OfType<'spell'>) {
 		const actor = this.parent;
 		if (!actor) return;
@@ -144,6 +150,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 		actor.createEmbeddedDocuments('Item', [spell]);
 	}
 
+	/** Add multiple spells to this book */
 	addSpells(items: Item.OfType<'spell'>[]) {
 		const actor = this.parent;
 		if (!actor) return;
@@ -152,6 +159,7 @@ export class SpellBook extends foundry.abstract.DataModel<
 		actor.createEmbeddedDocuments('Item', spells);
 	}
 
+	/** Update a spell with its book id */
 	#updateSpellData(item: Item.OfType<'spell'>): any {
 		const actor = this.parent;
 		if (!actor) return null;
@@ -162,9 +170,14 @@ export class SpellBook extends foundry.abstract.DataModel<
 		return spell;
 	}
 
-	async addSpellConsumers(spells: Item.OfType<'spell'>[] = [...this.spells.values()]) {
+	/** Add Spell consumers to all spells on this book */
+	async addSpellConsumers(spells: Item.OfType<'spell'>[]) {
 		const actor = this.parent;
 		if (!actor) return;
+
+		if (spells.length === 0) {
+			spells = [...this.spells.values()];
+		}
 
 		const type = this.config.showSpellSlots ? 'spell' : 'itemUses';
 		const updates: Record<string, any>[] = [];
