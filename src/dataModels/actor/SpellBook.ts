@@ -1,6 +1,3 @@
-import type Item
-.OfType<'spell'> from '#documents/item/spell.ts'
-
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import { ActionsManager } from '../../managers/ActionsManager.ts';
 
@@ -58,7 +55,7 @@ export const spellBookSchema = () => ({
 
 export class SpellBook extends foundry.abstract.DataModel<
 	DataSchema & ReturnType<typeof spellBookSchema>,
-	Actor.Implementation
+	Creature
 > {
 	declare slug: string;
 
@@ -67,7 +64,6 @@ export class SpellBook extends foundry.abstract.DataModel<
 	spells: Collection<any> = new foundry.utils.Collection();
 
 	constructor(data: any, options: any = {}) {
-		// @ts-expect-error
 		super(data, options);
 	}
 

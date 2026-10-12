@@ -3,6 +3,7 @@ import { SpellBook } from '../dataModels/actor/SpellBook.ts';
 export default class SpellBookManager extends Map<string, SpellBook> {
 	private actor: Creature;
 
+	// @ts-expect-error
 	#default: SpellBook = null;
 
 	constructor(actor: Creature) {

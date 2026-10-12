@@ -1,5 +1,3 @@
-import type Item.OfType<'spell'> from '../../documents/item/spell';
-
 export default function getSpellComponentsLabel(item: Item.OfType<'spell'>) {
 	const components = Object.entries(item.system.components)
 		.reduce((acc, [component, hasComponent]) => {

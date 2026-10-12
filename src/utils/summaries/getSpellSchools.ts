@@ -1,5 +1,3 @@
-import type Item.OfType<'spell'> from '../../documents/item/spell';
-
 export default function getSpellSchools(item: Item.OfType<'spell'>) {
 	const { spellSchools } = CONFIG.A5E;
 	const { schools } = item.system;

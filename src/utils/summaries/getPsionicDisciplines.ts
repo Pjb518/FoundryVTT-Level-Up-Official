@@ -1,6 +1,4 @@
-import { localize } from "#utils/localization/localize.ts";
-
-import type Item.OfType<'spell'> from '../../documents/item/spell';
+import { localize } from '#utils/localization/localize.ts';
 
 export default function getPsionicDisciplines(item: Item.OfType<'spell'>) {
 	const { psionicDisciplines } = CONFIG.A5E;
@@ -12,5 +10,5 @@ export default function getPsionicDisciplines(item: Item.OfType<'spell'>) {
 
 	disciplineArray.sort((a, b) => a.localeCompare(b));
 
-	return disciplineArray.join(", ");
+	return disciplineArray.join(', ');
 }

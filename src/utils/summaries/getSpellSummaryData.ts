@@ -1,11 +1,9 @@
 import { localize } from '#utils/localization/localize.ts';
-import type Item
-.OfType<'spell'> from "../../documents/item/spell"
 
-import getPsionicDisciplines from './getPsionicDisciplines';
-import getSpellClassesLabel from './getSpellClassesLabel';
-import getSpellComponentsLabel from './getSpellComponentsLabel';
-import getSpellSchools from './getSpellSchools';
+import getPsionicDisciplines from './getPsionicDisciplines.ts';
+import getSpellClassesLabel from './getSpellClassesLabel.ts';
+import getSpellComponentsLabel from './getSpellComponentsLabel.ts';
+import getSpellSchools from './getSpellSchools.ts';
 
 export default function getSpellSummaryData(
 	item: Item.OfType<'spell'>,
