@@ -24,7 +24,7 @@ export const spellBookSchema = () => ({
 		initial: false,
 	}),
 	config: new fields.SchemaField({
-		ability: new fields.StringField({ required: true, initial: 'default' }),
+		ability: new fields.StringField({ required: true, nullable: false, initial: 'default' }),
 		disableSpellConsumers: new fields.BooleanField({
 			required: true,
 			nullable: false,
