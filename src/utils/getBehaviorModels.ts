@@ -13,6 +13,11 @@ export function getBehaviorModels() {
 
 			const schema = {
 				...def,
+				name: new foundry.data.fields.StringField({
+					required: true,
+					nullable: false,
+					initial: 'New Behavior',
+				}),
 				type: new foundry.data.fields.StringField({
 					required: true,
 					nullable: false,
