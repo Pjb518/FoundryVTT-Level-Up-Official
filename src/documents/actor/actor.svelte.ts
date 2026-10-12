@@ -226,6 +226,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return this.type === 'npc';
 	}
 
+	isFollower(): this is Actor.OfType<'follower'> {
+		return this.type === 'follower';
+	}
+
 	isParty(): this is Actor.OfType<'party'> {
 		return this.type === 'party';
 	}
@@ -3146,8 +3150,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	async distributeXP(this: Actor.OfType<'party'>, xp: number) {
 		if (!this.isParty()) return;
 
-		const members = this.members;
+		const members = this.members.filter((m) => !m.isFollower());
 		const count = members.length;
+		if (count === 0) return;
 
 		const awarded = Math.floor(xp / count);
 
@@ -3231,7 +3236,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Handle multi-leveled effects
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(statusId)) {
 			const delta = active ? 1 : -1;
-			const currLevel = this.system.attributes[statusId];
+			const currLevel = (this.system as any).attributes[statusId];
 			const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
 			if (delta === 1 && currLevel >= maxLevel) return undefined;
 			if (delta === -1 && currLevel <= 0) return undefined;

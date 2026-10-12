@@ -216,6 +216,7 @@ class TokenDocumentA5E extends TokenDocument {
 		switch (actor.type) {
 			case 'character':
 			case 'npc':
+			case 'follower':
 				return !actor.inCombat ? 'travel' : actor.statuses.has('prone') ? 'crawl' : 'walk';
 			case 'party':
 				return 'travel';

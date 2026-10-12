@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 export default function createActor(actor, options, userId) {
+	if (actor.isFollower()) return;
+
 	if (!options.fromCompendium) {
 		addBasicManuevers(actor, userId);
 		addDefaultInteractions(actor, userId);

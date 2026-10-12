@@ -122,6 +122,7 @@ const EQUIPPED_STATES = {
 	EQUIPPED: 2,
 };
 
+const FOLLOWER_EXPERIENCE_RANKS = ['inexperienced', 'seasoned', 'veteran'] as const;
 const FEATURES_LIST = ['background', 'class', 'culture', 'destiny', 'heritage'] as const;
 const MONSTER_FEATURE_LIST = ['legendaryAction', 'monster', 'naturalWeapon'] as const;
 
@@ -665,6 +666,12 @@ const featureTypes = {
 	naturalWeapon: 'A5E.features.types.naturalWeapon',
 	paragon: 'A5E.features.types.paragon',
 	other: 'A5E.features.types.other',
+};
+
+const followerExperienceTypes = {
+	inexperienced: 'A5E.follower.experienceTypes.inexperienced',
+	seasoned: 'A5E.follower.experienceTypes.seasoned',
+	veteran: 'A5E.follower.experienceTypes.veteran',
 };
 
 /**
@@ -2281,6 +2288,7 @@ const A5E = {
 	DICE_SIDES_MAP,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
+	FOLLOWER_EXPERIENCE_RANKS,
 	MONSTER_FEATURE_LIST,
 	PREPARED_STATES,
 	ROLL_MODE,
@@ -2333,6 +2341,7 @@ const A5E = {
 	featureTypes,
 	healingTypes,
 	healingColors,
+	followerExperienceTypes,
 	interactionTypes,
 	itemRarity,
 	itemTechLevels,
