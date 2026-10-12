@@ -1,4 +1,5 @@
 import type { AnyObject } from 'fvtt-types/utils';
+import { getBehaviorModels } from '#utils/getBehaviorModels.ts';
 import { groupBy } from '#utils/groupBy.ts';
 import { scalingFieldBase } from '../../fields/ScalingField.ts';
 import type { A5EObjectData } from '../ObjectDataModel.ts';
@@ -52,10 +53,34 @@ const actionSchema = () => ({
 		}),
 	}),
 
-	area: new fields.ObjectField({
-		required: false,
-		nullable: true,
-		initial: () => undefined,
+	// area: new fields.ObjectField({
+	// 	required: false,
+	// 	nullable: true,
+	// 	initial: () => undefined,
+	// }),
+
+	area: new fields.SchemaField({
+		quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+		shape: new fields.StringField({
+			required: true,
+			nullable: false,
+			initial: 'none',
+			choices: () => {
+				return {
+					none: 'None',
+					...CONFIG.A5E.areaTypes,
+				};
+			},
+		}),
+		length: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		height: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		radius: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		width: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		isAura: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+		behaviors: new fields.TypedObjectField(new fields.TypedSchemaField(getBehaviorModels())),
+
+		// TODO: Update this
+		scaling: new fields.ObjectField({ required: true, nullable: false }),
 	}),
 
 	duration: new fields.SchemaField({

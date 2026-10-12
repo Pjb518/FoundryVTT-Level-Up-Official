@@ -60,6 +60,7 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		if (actor.isParty()) return false;
 
 		if (this.dispositions.size && !this.dispositions.has(token.disposition)) return false;
+		// @ts-expect-error
 		if (this.creatureSizes.size && !this.creatureSizes.has(actor.system.traits.size)) return false;
 
 		if (this.creatureTypes.size) {
@@ -88,7 +89,9 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		const resumeMovement = movement ? token.pauseMovement() : undefined;
 		// @ts-expect-error
 		const effects = this.effects ? await Promise.all(this.effects.map(fromUuid)) : [];
+		// @ts-expect-error
 		const toCreate = this.#getEffectsToCreate(actor, effects);
+		// @ts-expect-error
 		if (toCreate.length) await actor.createEmbeddedDocuments('ActiveEffect', toCreate);
 
 		await resumeMovement?.();
