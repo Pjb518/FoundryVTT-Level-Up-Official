@@ -45,72 +45,72 @@ declare namespace HitDiceGrant {
 }
 
 class HitDiceGrant extends BaseGrant<HitDiceGrant.Schema> {
-  #configcomponent = numericalgrantconfig;
+  #configComponent = NumericalGrantConfig;
 
-  #type = 'hitdice';
+  #type = 'hitDice';
 
-  static override type = 'hitdice';
+  static override type = 'hitDice';
 
-  static override defineschema(): hitdicegrant.schema {
+  static override defineSchema(): HitDiceGrant.Schema {
     // @ts-expect-error
     return {
-      ...super.defineschema(),
+      ...super.defineSchema(),
       ...schema(),
     };
   }
 
-  override getapplydata(actor: character): any {
+  override getApplyData(actor: Character): any {
     if (!actor) return {};
 
-    const bonusid = foundry.utils.randomid();
-    const { default: isdefault, ...context } = this.config.context;
+    const bonusId = foundry.utils.randomID();
+    const { default: isDefault, ...context } = this.config.context;
     const bonus = {
       context,
       formula: this.config.bonus,
-      bonustype: this.config.bonustype,
-      label: this.name || this.item?.name || 'hit dice grant',
-      default: isdefault ?? true,
+      bonusType: this.config.bonusType,
+      label: this.name || this.item?.name || 'Hit Dice Grant',
+      default: isDefault ?? true,
       img: this.img || this?.item?.img,
     };
 
-    const applieddata: typeof this.applied = {
-      bonusid,
-      bonustype: 'hitdice',
-      granttype: 'bonus',
+    const appliedData: typeof this.applied = {
+      bonusId,
+      bonusType: 'hitDice',
+      grantType: 'bonus',
       level: this.level,
-      isapplied: true,
+      isApplied: true,
     };
 
     return {
-      applieddata: this._getappliedupdate(applieddata),
-      updatedata: {
-              [`system.bonuses.hitdice.${bonusid}`]: bonus,
+      appliedData: this._getAppliedUpdate(appliedData),
+      updateData: {
+        [`system.bonuses.hitDice.${bonusId}`]: bonus,
       },
     };
   }
 
-  override getselectioncomponent() {
+  override getSelectionComponent() {
     return null;
   }
 
-  override getselectioncomponentprops() {
+  override getSelectionComponentProps() {
     return null;
   }
 
-  override requiresconfig() {
+  override requiresConfig() {
     return false;
   }
 
-  override async configuregrant() {
-    const dialogdata = {
+  override async configureGrant() {
+    const dialogData = {
       document: this.item,
-      grantid: this.id,
-      granttype: this.#type,
-      };
+      grantId: this.id,
+      grantType: this.#type,
+    };
 
-      super.configuregrant('configure hit dice grant', dialogdata, this.#configcomponent, {
-        width: 400,
-        });
+    super.configureGrant('Configure Hit Dice Grant', dialogData, this.#configComponent, {
+      width: 400,
+    });
   }
 }
 

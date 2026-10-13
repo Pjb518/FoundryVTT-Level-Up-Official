@@ -91,7 +91,7 @@ export default function registerEffectGroupConfig() {
 				'flags.a5e.effects.bonuses.attacks',
 				'flags.a5e.effects.bonuses.damage',
 				'flags.a5e.effects.bonuses.healing',
-        'flags.a5e.effects.bonsues.hitDice',
+        'flags.a5e.effects.bonuses.hitDice',
 				'flags.a5e.effects.bonuses.skills',
 				'system.bonuses.abilities.check',
 				'system.bonuses.abilities.save',

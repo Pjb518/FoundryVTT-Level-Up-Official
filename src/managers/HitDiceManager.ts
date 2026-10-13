@@ -263,7 +263,7 @@ export default class HitDiceManager {
       roll = await new CONFIG.Dice.BaseRoll(healFormula).roll();
     } else roll = await new Roll(sizedFormula, this.#actor.getRollData()).roll();
 
-		const title = localize('A5E.HitDiceChatHeader', {
+		const title = localize('A5E.hitDicechatHeader', {
 			dieSize: dieSize.toUpperCase(),
 		});
 		const chatData = {

@@ -133,7 +133,7 @@
 
     <FieldWrapper heading="A5E.contexts.bonusType">
       <select
-        class="a5e-input a5e-input--slim a5e-intpu--fit"
+        class="a5e-input a5e-input--slim a5e-input--fit"
         onchange={({ currentTarget }) =>
           onUpdateValue("bonusType", currentTarget.value)}
       >
