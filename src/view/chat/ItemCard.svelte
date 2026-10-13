@@ -117,6 +117,7 @@
     if (!data) return;
 
     foundry.utils.setProperty(data, "flags.a5e", {
+      ...(data.flags?.a5e ?? {}),
       originItem: message.system.itemId ?? null,
     });
 

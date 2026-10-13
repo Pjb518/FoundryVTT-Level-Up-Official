@@ -107,17 +107,20 @@ class EffectAreaManager {
 	// --------------------------------------------
 	// Internal Functions - Behaviors / Regions
 	// --------------------------------------------
-	#getBehaviors(area) {
+	#getBehaviors() {
+		// We need to get raw unscaled area for this
+		const area = this.#action.toObject().area;
 		if (!area) return [];
 
 		const behaviors: any[] = [];
 
 		Object.values(area.behaviors ?? {}).forEach((behavior: any) => {
-			const { name, type, ...system } = behavior;
+			const { name, type, ...system } = foundry.utils.deepClone(behavior);
 			if (!name || !type) return;
 
 			behaviors.push({ name, type, system });
 		});
+		console.log(behaviors);
 
 		return behaviors;
 	}
@@ -132,14 +135,19 @@ class EffectAreaManager {
 
 		const regionData = {
 			name: this.#item.name,
-			behaviors: this.#getBehaviors(area),
+			behaviors: this.#getBehaviors(),
 			shapes: [] as any[],
 			color: game.user.color.toString(),
 			highlightMode: 'coverage',
 			displayMeasurements: true,
 			ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
 			visibility: CONST.REGION_VISIBILITY.ALWAYS,
-			flags: { a5e: { isAura: area?.isAura ?? false } },
+			flags: {
+				a5e: {
+					isAura: area?.isAura ?? false,
+					actorId: this.#actor.id ?? '',
+				},
+			},
 		};
 
 		const { x, y } = canvas.mousePosition;

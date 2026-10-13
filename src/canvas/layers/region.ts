@@ -16,15 +16,43 @@ const snappingMode = (type: string) => {
 };
 
 export class RegionLayerA5E extends RLayer {
-	override placeRegion(data: RDoc.CreateData, options?: RLayer.PlacementOptions) {
+	override async placeRegion(data: RDoc.CreateData, options?: RLayer.PlacementOptions) {
 		if (!data.displayMeasurements) return super.placeRegion(data, options);
 		if (data.highlightMode !== 'coverage') return super.placeRegion(data, options);
 
+		options ??= {} as RLayer.PlacementOptions;
 		const isAura = foundry.utils.getProperty(data, 'flags.a5e.isAura') ?? false;
+
+		// Set tokens to be interactive if emanation
+		// @ts-expect-error
+		if (data?.shapes?.some((s) => s.type === 'emanation')) options.attachToToken = true;
+
+		// Don't render a placement for auras. Place them directly on the token
+		if (isAura) {
+			const auraData = foundry.utils.deepClone(data);
+			const token = canvas?.scene?.tokens
+				// @ts-expect-error
+				.filter((t) => t.actor?.id === data.flags?.a5e?.actorId)
+				.at(0);
+
+			// @ts-expect-error
+			if (token && auraData.shapes?.length === 1) {
+				// Update aura data
+				auraData.attachment = { token: token.id };
+				const { x, y } = token.getCenterPoint();
+				auraData.shapes[0].x = x;
+				auraData.shapes[0].y = y;
+
+				// Style Data
+				auraData.displayMeasurements = false;
+				auraData.visibility = CONST.REGION_VISIBILITY.LAYER;
+
+				return CONFIG.Region.documentClass.create(auraData, { parent: canvas.scene });
+			}
+		}
 
 		// For cones, lines and walls
 		const placement = { aiming: false };
-		options ??= {} as RLayer.PlacementOptions;
 
 		options.onMove = ({ event, position, preview, shape, snap }) => {
 			if (canvas.grid!.type !== CONST.GRID_TYPES.SQUARE) return;
@@ -47,24 +75,6 @@ export class RegionLayerA5E extends RLayer {
 			const { x, y } = canvas!.grid!.getSnappedPoint(position, { mode: snappingMode(shape.type) });
 			position.x = x;
 			position.y = y;
-
-			// Update emanation base
-			if (shape.type === 'emanation') {
-				this._placementContext.attachToToken = true;
-
-				const tokens =
-					canvas.tokens.quadtree
-						?.getObjects(new PIXI.Rectangle(x, y, 0, 0))
-						.values()
-						// @ts-expect-error
-						.filter((t) => t.actor?.isCreature())
-						.toArray() ?? [];
-
-				if (tokens.length === 1 && !canvas.tokens.hover) canvas.tokens.hover = tokens[0];
-
-				// Remove hover if position changed
-				if (tokens.length !== 1) canvas.tokens.hover = null;
-			}
 
 			return;
 		};
@@ -94,6 +104,7 @@ export class RegionLayerA5E extends RLayer {
 			}
 
 			if (shape.type === 'emanation' && !isAura) {
+				// @ts-expect-error
 				this._placementContext.attachToToken = false;
 				document.updateSource({ attachment: { token: null } });
 			}
