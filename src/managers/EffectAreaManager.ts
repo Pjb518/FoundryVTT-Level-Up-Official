@@ -126,6 +126,8 @@ class EffectAreaManager {
 	// Internal Functions - Scaling
 	// --------------------------------------------
 	#getRegionData(area) {
+		if (!canvas.grid) return {};
+
 		const { shape, quantity } = area;
 
 		const regionData = {
@@ -137,6 +139,7 @@ class EffectAreaManager {
 			displayMeasurements: true,
 			ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
 			visibility: CONST.REGION_VISIBILITY.ALWAYS,
+			flags: { a5e: { isAura: area?.isAura ?? false } },
 		};
 
 		const { x, y } = canvas.mousePosition;
