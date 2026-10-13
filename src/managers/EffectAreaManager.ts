@@ -113,14 +113,20 @@ class EffectAreaManager {
 		if (!area) return [];
 
 		const behaviors: any[] = [];
-
 		Object.values(area.behaviors ?? {}).forEach((behavior: any) => {
 			const { name, type, ...system } = foundry.utils.deepClone(behavior);
 			if (!name || !type) return;
 
+			// Add customized behavior
+			if (type === 'applyActiveEffect') {
+				if (system.effects.length === 0) {
+					const effects = this.#action._effects ?? [];
+					system.effects = [...effects.values()].map((e) => e.uuid);
+				}
+			}
+
 			behaviors.push({ name, type, system });
 		});
-		console.log(behaviors);
 
 		return behaviors;
 	}

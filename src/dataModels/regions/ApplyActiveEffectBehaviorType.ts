@@ -84,7 +84,7 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		const { token, movement } = event.data;
 		const actor = token.actor;
 		if (!actor) return;
-		if (!this.#evaluateApplication) return;
+		if (!this.#evaluateApplication(token)) return;
 
 		const resumeMovement = movement ? token.pauseMovement() : undefined;
 		// @ts-expect-error

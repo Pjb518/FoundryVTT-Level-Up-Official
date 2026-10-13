@@ -191,9 +191,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 			if (newBehavior.isAura) newBehavior.dispositions = [1];
 			else newBehavior.dispositions = [0, -1];
 
-			// Add effects
-			const effects = action._effects ?? [];
-			newBehavior.effects = [...effects.values()].map((e) => e.uuid!);
+			// Effects are added on rolling
 		} else if (data.type === 'difficultTerrain') {
 			// Set magical
 			if (this.#item.isType('spell')) newBehavior.isMagical = true;
