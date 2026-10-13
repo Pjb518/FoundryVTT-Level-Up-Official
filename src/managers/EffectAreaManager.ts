@@ -1,6 +1,4 @@
 import type { ItemA5e } from '#documents/item/item.ts';
-import type { Action } from '#types/action.js';
-import type { Consumers } from '#types/consumers.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import type { RollStateManager } from './RollStateManager.ts';
@@ -107,6 +105,24 @@ class EffectAreaManager {
 	}
 
 	// --------------------------------------------
+	// Internal Functions - Behaviors / Regions
+	// --------------------------------------------
+	#getBehaviors(area) {
+		if (!area) return [];
+
+		const behaviors: any[] = [];
+
+		Object.values(area.behaviors ?? {}).forEach((behavior: any) => {
+			const { name, type, ...system } = behavior;
+			if (!name || !type) return;
+
+			behaviors.push({ name, type, system });
+		});
+
+		return behaviors;
+	}
+
+	// --------------------------------------------
 	// Internal Functions - Scaling
 	// --------------------------------------------
 	#getRegionData(area) {
@@ -114,6 +130,7 @@ class EffectAreaManager {
 
 		const regionData = {
 			name: this.#item.name,
+			behaviors: this.#getBehaviors(area),
 			shapes: [] as any[],
 			color: game.user.color.toString(),
 			highlightMode: 'coverage',

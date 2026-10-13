@@ -179,10 +179,25 @@ class ActionsManager extends Map<string, A5EActionData> {
 
 		if (!data) return null;
 
-		const newBehavior = {
+		const newBehavior: Record<string, any> = {
 			name: data.name || `${_loc(typeLabels[data.type])} Behavior`,
 			type: data.type,
 		};
+
+		if (data.type === 'applyActiveEffect') {
+			newBehavior.isAura = action.area?.isAura ?? false;
+
+			// Add dispositions
+			if (newBehavior.isAura) newBehavior.dispositions = [1];
+			else newBehavior.dispositions = [0, -1];
+
+			// Add effects
+			const effects = action._effects ?? [];
+			newBehavior.effects = [...effects.values()].map((e) => e.uuid!);
+		} else if (data.type === 'difficultTerrain') {
+			// Set magical
+			if (this.#item.isType('spell')) newBehavior.isMagical = true;
+		}
 
 		await this.#item.update({
 			[`system.actions.${action.id}.area.behaviors`]: {
