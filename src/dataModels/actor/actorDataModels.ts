@@ -1,4 +1,5 @@
 import { A5ECharacterData } from './CharacterDataModel.ts';
+import { A5EFollowerData } from './FollowerDataModel.ts';
 import { A5ENPCData } from './NPCDataModel.ts';
 import { A5EPartyData } from './PartyDataModel.ts';
 
@@ -6,6 +7,7 @@ const actorDataModels = {
 	character: A5ECharacterData,
 	npc: A5ENPCData,
 	party: A5EPartyData,
+	follower: A5EFollowerData,
 };
 
 export default actorDataModels;
@@ -17,6 +19,7 @@ declare module 'fvtt-types/configuration' {
 			character: typeof A5ECharacterData;
 			npc: typeof A5ENPCData;
 			party: typeof A5EPartyData;
+			follower: typeof A5EFollowerData;
 		};
 	}
 }

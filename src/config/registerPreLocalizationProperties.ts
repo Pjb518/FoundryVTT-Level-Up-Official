@@ -28,6 +28,8 @@ export default [
 	'damageTypes',
 	'distanceAbbreviations',
 	'distanceUnits',
+	'followerExperienceTypes',
+	'followerTypes',
 	'effectsKeyLocalizations',
 	'featureTypes',
 	'healingTypes',

@@ -122,6 +122,7 @@ const EQUIPPED_STATES = {
 	EQUIPPED: 2,
 };
 
+const FOLLOWER_EXPERIENCE_RANKS = ['inexperienced', 'seasoned', 'expert'] as const;
 const FEATURES_LIST = ['background', 'class', 'culture', 'destiny', 'heritage'] as const;
 const MONSTER_FEATURE_LIST = ['legendaryAction', 'monster', 'naturalWeapon'] as const;
 
@@ -658,6 +659,7 @@ const featureTypes = {
 	culture: 'A5E.features.types.culture',
 	destiny: 'A5E.features.types.destiny',
 	feat: 'A5E.features.types.feat',
+	followerFeature: 'A5E.features.types.followerFeature',
 	heritage: 'A5E.features.types.heritage',
 	knack: 'A5E.features.types.knack',
 	legendaryAction: 'A5E.features.types.legendaryAction',
@@ -665,6 +667,35 @@ const featureTypes = {
 	naturalWeapon: 'A5E.features.types.naturalWeapon',
 	paragon: 'A5E.features.types.paragon',
 	other: 'A5E.features.types.other',
+};
+
+const followerTypes = {
+	apothecary: 'A5E.follower.types.apothecary',
+	bodyguard: 'A5E.follower.types.bodyguard',
+	caretaker: 'A5E.follower.types.caretaker',
+	cleaner: 'A5E.follower.types.cleaner',
+	cook: 'A5E.follower.types.cook',
+	cryptographer: 'A5E.follower.types.cryptographer',
+	digger: 'A5E.follower.types.digger',
+	diviner: 'A5E.follower.types.diviner',
+	footpad: 'A5E.follower.types.footpad',
+	healer: 'A5E.follower.types.healer',
+	interpreter: 'A5E.follower.types.interpreter',
+	inventor: 'A5E.follower.types.inventor',
+	minstrel: 'A5E.follower.types.minstrel',
+	operative: 'A5E.follower.types.operative',
+	porter: 'A5E.follower.types.porter',
+	sage: 'A5E.follower.types.sage',
+	smith: 'A5E.follower.types.smith',
+	squire: 'A5E.follower.types.squire',
+	teamster: 'A5E.follower.types.teamster',
+	torchbearer: 'A5E.follower.types.torchbearer',
+};
+
+const followerExperienceTypes = {
+	inexperienced: 'A5E.follower.experienceTypes.inexperienced',
+	seasoned: 'A5E.follower.experienceTypes.seasoned',
+	expert: 'A5E.follower.experienceTypes.expert',
 };
 
 /**
@@ -2281,6 +2312,7 @@ const A5E = {
 	DICE_SIDES_MAP,
 	EQUIPPED_STATES,
 	FEATURES_LIST,
+	FOLLOWER_EXPERIENCE_RANKS,
 	MONSTER_FEATURE_LIST,
 	PREPARED_STATES,
 	ROLL_MODE,
@@ -2333,6 +2365,8 @@ const A5E = {
 	featureTypes,
 	healingTypes,
 	healingColors,
+	followerExperienceTypes,
+	followerTypes,
 	interactionTypes,
 	itemRarity,
 	itemTechLevels,

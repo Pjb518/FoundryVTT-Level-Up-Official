@@ -36,6 +36,7 @@ import ItemProxy from '../documents/item/itemProxy.ts';
 import ActiveEffectSheetA5e from '../documents/sheets/ActiveEffectSheet.svelte.ts';
 import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
 import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
+import { FollowerSheetA5E } from '../documents/sheets/FollowerSheet.svelte.ts';
 import { PartySheetA5E } from '../documents/sheets/PartySheet.svelte.ts';
 import { CombatantA5e } from '../encounter/Combatant.ts';
 import { EncounterA5e } from '../encounter/Encounter.ts';
@@ -199,6 +200,12 @@ export default function init() {
 		types: ['party'],
 		makeDefault: true,
 		label: 'A5E.sheetClasses.party',
+	});
+
+	foundry.documents.collections.Actors.registerSheet('a5e', FollowerSheetA5E, {
+		types: ['follower'],
+		makeDefault: true,
+		label: 'A5E.sheetClasses.follower',
 	});
 
 	foundry.documents.collections.Items.unregisterSheet(

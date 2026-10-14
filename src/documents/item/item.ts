@@ -877,7 +877,7 @@ class ItemA5e<
 	) {
 		if (this.parent?.documentName === 'Actor') {
 			const actor = this.parent;
-			await actor.grants.removeGrantsByItem(this);
+			await actor.grants?.removeGrantsByItem(this);
 		}
 	}
 

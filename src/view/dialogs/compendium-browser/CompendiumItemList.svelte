@@ -31,6 +31,8 @@
       );
     }
 
+    if (doc.type === "follower") return false;
+
     return doc.type === compendiumType;
   }
 

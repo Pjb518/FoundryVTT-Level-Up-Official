@@ -28,6 +28,8 @@ export async function createClassFeatureLikeIndex(packId: string) {
       "system.description",
       "system.classes",
       "system.concentration",
+      "system.experienceType",
+      "system.followerType",
       "system.featureType",
       "system.prerequisite",
       "system.source",

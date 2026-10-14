@@ -1,0 +1,208 @@
+{
+	"name": "Diviner (Expert)",
+	"type": "feature",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+	"system": {
+		"description": "<p>Once per week, the diviner channels a supernatural voice that reveals an event in the near future, granting you advantage on one ability check, attack roll, or saving throw you make in the next 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"lohJ6Rc7IZ9PSqdN": {
+				"name": "Diviner (Expert)",
+				"consumers": {
+					"CSZh26O7tJK6ER9M": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"zjmeDNn0SidnQ4kX"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "week",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featClasses": [],
+		"experienceType": "expert",
+		"featType": "",
+		"featureType": "followerFeature",
+		"grants": {},
+		"hidden": false,
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"synergy": "",
+		"followerType": "diviner"
+	},
+	"effects": [
+		{
+			"name": "Diviner",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"origin": "Item.hwhqBJWbzPTOElAR",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"type": "override",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"type": "override",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "zjmeDNn0SidnQ4kX",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 24,
+				"units": "hours",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Advantage on one ability check, attack roll, or saving throw you make in the next 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"createdTime": 1791985155126,
+				"modifiedTime": 1791985211246,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1791984376832,
+		"modifiedTime": 1791985155140,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "hSQI1tpRJb7OHzIv"
+}

@@ -23,10 +23,10 @@ import SkillBonusConfigDialog from '#view/components/bonuses/SkillBonusConfigDia
 import AbilityCheckRollDialog from '#view/dialogs/actor/AbilityCheckRollDialog.svelte';
 import AbilityConfigDialog from '#view/dialogs/actor/AbilityConfigDialog.svelte';
 import ArmorClassConfigDialog from '#view/dialogs/actor/ArmorClassConfigDialog.svelte';
+import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import DetailsConfigDialog from '#view/dialogs/actor/DetailsConfigDialog.svelte';
 import HitPointsConfigDialog from '#view/dialogs/actor/HitPointsConfigDialog.svelte';
 import InitiativeConfigDialog from '#view/dialogs/actor/InitiativeConfigDialog.svelte';
-import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import MovementConfigDialog from '#view/dialogs/actor/MovementConfigDialog.svelte';
 import RestDialog from '#view/dialogs/actor/RestDialog.svelte';
 import SavingThrowRollDialog from '#view/dialogs/actor/SavingThrowRollDialog.svelte';
@@ -224,6 +224,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	isNPC(): this is Actor.OfType<'npc'> {
 		return this.type === 'npc';
+	}
+
+	isFollower(): this is Actor.OfType<'follower'> {
+		return this.type === 'follower';
 	}
 
 	isParty(): this is Actor.OfType<'party'> {
@@ -531,7 +535,13 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Call Sub Methods
 		if (this.isCreature()) this.prepareCreatureBaseData();
+		if (this.isFollower()) this.prepareFollowerBaseData();
 		if (this.isParty()) this.preparePartyBaseData();
+	}
+
+	/** Prepares base data for followers */
+	prepareFollowerBaseData(this: Actor.OfType<'follower'>) {
+		this.BonusesManager = new BonusesManager(this as unknown as Creature);
 	}
 
 	/** Prepares common base data for creatures */
@@ -3146,8 +3156,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	async distributeXP(this: Actor.OfType<'party'>, xp: number) {
 		if (!this.isParty()) return;
 
-		const members = this.members;
+		const members = this.members.filter((m) => !m.isFollower());
 		const count = members.length;
+		if (count === 0) return;
 
 		const awarded = Math.floor(xp / count);
 
@@ -3231,7 +3242,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Handle multi-leveled effects
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(statusId)) {
 			const delta = active ? 1 : -1;
-			const currLevel = this.system.attributes[statusId];
+			const currLevel = (this.system as any).attributes[statusId];
 			const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
 			if (delta === 1 && currLevel >= maxLevel) return undefined;
 			if (delta === -1 && currLevel <= 0) return undefined;
