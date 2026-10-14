@@ -38,6 +38,15 @@ function getFeatureDetailsLabel(feature: Item): string {
 		featureProperties.push(feature.system.synergy);
 	}
 
+	if (feature.system.featureType === 'followerFeature') {
+		if (feature.system.followerType) {
+			featureProperties.push(localize(CONFIG.A5E.followerTypes[feature.system.followerType]));
+		}
+		featureProperties.push(
+			localize(CONFIG.A5E.followerExperienceTypes[feature.system.experienceType]),
+		);
+	}
+
 	if (feature.system.featureType === 'knack') {
 		featureProperties.push(CONFIG.A5E.knackTypes[parentClass]);
 	}

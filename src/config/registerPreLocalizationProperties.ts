@@ -29,6 +29,7 @@ export default [
 	'distanceAbbreviations',
 	'distanceUnits',
 	'followerExperienceTypes',
+	'followerTypes',
 	'effectsKeyLocalizations',
 	'featureTypes',
 	'healingTypes',

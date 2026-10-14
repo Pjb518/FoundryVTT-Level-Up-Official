@@ -16,7 +16,7 @@ class FollowerSheetA5E extends SvelteApplicationMixin(foundry.applications.sheet
 			foundry.utils.mergeObject(options, {
 				classes: ['a5e-sheet', 'a5e-sheet--follower'],
 				document: actor.document,
-				position: { width: 500, height: 'auto' },
+				position: { width: 700, height: 'auto' },
 				window: { resizable: true },
 			}),
 		);
@@ -28,9 +28,16 @@ class FollowerSheetA5E extends SvelteApplicationMixin(foundry.applications.sheet
 	static override DEFAULT_OPTIONS = {
 		baseApplication: 'ActorSheet',
 		classes: ['a5e-sheet', 'a5e-sheet--follower'],
-		position: { width: 500, height: 'auto' },
+		position: { width: 700, height: 'auto' },
 		window: { minimizable: true, resizable: true },
 	};
+
+	override async _onDropItem(event: DragEvent, item: Item) {
+		if (!this.follower.isOwner) return null;
+		if (item.type !== 'feature' || item.system.featureType !== 'followerFeature') return null;
+
+		return super._onDropItem(event, item);
+	}
 
 	protected async _prepareContext() {
 		return {

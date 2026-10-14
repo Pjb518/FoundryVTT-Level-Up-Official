@@ -1,0 +1,285 @@
+{
+	"name": "Sage (Expert)",
+	"type": "feature",
+	"img": "icons/sundries/books/book-open-purple.webp",
+	"system": {
+		"description": "<p><em>Choose one skill that the Sage is knowledgeable about.</em></p><p>Once per day, the sage can make a skill check for you as though you were proficient in that skill. In addition, you gain an expertise die on the check.</p><p>In addition, once per day you have advantage on an Intelligence check made to learn or recall a piece of knowledge.</p><p>Expert sages only grant the following ability when they are proficient in Arcana, Engineering, Nature, or Religion: once per week when the sage is able to see a creature they can learn information about from a Legends and Lore check using a skill they are proficient with, you gain advantage on your first attack roll against it.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"YqyjVTEG2npXQJfg": {
+				"name": "Skill Check",
+				"consumers": {
+					"zrDhsgvmQlhcVmjO": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/books/book-open-purple.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"rp6ozI5cBIUI42h0": {
+				"name": "Intelligence Check",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/books/book-open-purple.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"S7AhcpAPsdwHWGHV": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			},
+			"3rFb1vippRM11IiB": {
+				"name": "Legends and Lore Check",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"FtXztZaDQVr5F7PZ": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "week",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"asi": [],
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featClasses": [],
+		"experienceType": "expert",
+		"featType": "",
+		"featureType": "followerFeature",
+		"grants": {},
+		"hidden": false,
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"synergy": "",
+		"followerType": "sage"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1791984376844,
+		"modifiedTime": 1791997113856,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "5QfJxtyX9gaIfTFy"
+}

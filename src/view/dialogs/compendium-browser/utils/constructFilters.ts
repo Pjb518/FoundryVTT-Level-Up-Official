@@ -174,6 +174,19 @@ const featureConfig = {
 		key: 'system.featType',
 		type: 'value',
 	},
+	followerType: {
+		key: 'system.followerType',
+		type: 'value',
+	},
+	experienceType: {
+		key: 'system.experienceType',
+		type: 'value',
+	},
+	miscellaneous: {
+		subFilters: {
+			hasPrerequisite: { key: 'system.prerequisite', type: 'boolean' },
+		},
+	},
 	synergy: {
 		key: 'system.synergy',
 		type: 'value',

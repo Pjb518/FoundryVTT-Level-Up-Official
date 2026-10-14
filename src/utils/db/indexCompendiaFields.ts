@@ -5,6 +5,8 @@ const FIELD_MAPPINGS = {
 		'system.description',
 		'system.classes',
 		'system.concentration',
+		'system.experienceType',
+		'system.followerType',
 		'system.featClasses',
 		'system.featType',
 		'system.featureType',

@@ -23,10 +23,10 @@ import SkillBonusConfigDialog from '#view/components/bonuses/SkillBonusConfigDia
 import AbilityCheckRollDialog from '#view/dialogs/actor/AbilityCheckRollDialog.svelte';
 import AbilityConfigDialog from '#view/dialogs/actor/AbilityConfigDialog.svelte';
 import ArmorClassConfigDialog from '#view/dialogs/actor/ArmorClassConfigDialog.svelte';
+import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import DetailsConfigDialog from '#view/dialogs/actor/DetailsConfigDialog.svelte';
 import HitPointsConfigDialog from '#view/dialogs/actor/HitPointsConfigDialog.svelte';
 import InitiativeConfigDialog from '#view/dialogs/actor/InitiativeConfigDialog.svelte';
-import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import MovementConfigDialog from '#view/dialogs/actor/MovementConfigDialog.svelte';
 import RestDialog from '#view/dialogs/actor/RestDialog.svelte';
 import SavingThrowRollDialog from '#view/dialogs/actor/SavingThrowRollDialog.svelte';
@@ -535,7 +535,13 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Call Sub Methods
 		if (this.isCreature()) this.prepareCreatureBaseData();
+		if (this.isFollower()) this.prepareFollowerBaseData();
 		if (this.isParty()) this.preparePartyBaseData();
+	}
+
+	/** Prepares base data for followers */
+	prepareFollowerBaseData(this: Actor.OfType<'follower'>) {
+		this.BonusesManager = new BonusesManager(this as unknown as Creature);
 	}
 
 	/** Prepares common base data for creatures */

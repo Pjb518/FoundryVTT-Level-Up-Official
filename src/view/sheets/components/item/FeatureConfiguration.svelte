@@ -27,6 +27,8 @@
         classes5e,
         featClasses,
         featTypes,
+        followerExperienceTypes,
+        followerTypes,
         featureTypes,
         synergies,
     } = CONFIG.A5E;
@@ -149,6 +151,34 @@
             {/if}
         {/if}
 
+        {#if itemStore.featureType === "followerFeature"}
+            <RadioGroup
+                heading="A5E.follower.type"
+                options={Object.entries(followerTypes)}
+                selected={itemStore.followerType}
+                allowDeselect={true}
+                onUpdateSelection={(value) =>
+                    updateDocumentDataFromField(
+                        item,
+                        "system.followerType",
+                        value,
+                    )}
+            />
+
+            <RadioGroup
+                heading="A5E.follower.experienceType"
+                options={Object.entries(followerExperienceTypes)}
+                selected={itemStore.experienceType}
+                allowDeselect={false}
+                onUpdateSelection={(value) =>
+                    updateDocumentDataFromField(
+                        item,
+                        "system.experienceType",
+                        value,
+                    )}
+            />
+        {/if}
+
         <FieldWrapper>
             <Checkbox
                 label="A5E.items.requiresBloodied"
@@ -190,6 +220,31 @@
                     {itemStore.concentration ? "Yes" : "No"}
                 </dd>
             </div>
+
+            {#if itemStore.featureType === "followerFeature"}
+                <div class="a5e-dl-box__section">
+                    <dt class="a5e-dl-box__header">
+                        {localize("A5E.follower.type")}:
+                    </dt>
+
+                    <dd class="a5e-dl-box__content">
+                        {localize(followerTypes[itemStore.followerType]) ||
+                            localize("A5E.None")}
+                    </dd>
+                </div>
+
+                <div class="a5e-dl-box__section">
+                    <dt class="a5e-dl-box__header">
+                        {localize("A5E.follower.experienceType")}:
+                    </dt>
+
+                    <dd class="a5e-dl-box__content">
+                        {localize(
+                            followerExperienceTypes[itemStore.experienceType],
+                        )}
+                    </dd>
+                </div>
+            {/if}
 
             {#if ["class", "knack"].includes(itemStore.featureType) && itemStore.classes}
                 <div class="a5e-dl-box__section">

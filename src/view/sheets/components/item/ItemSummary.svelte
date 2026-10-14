@@ -98,6 +98,12 @@
         </p>
     {/if}
 
+    {#if summaryData.featureProperties}
+        <p class="a5e-summary__item-properties">
+            {summaryData.featureProperties}
+        </p>
+    {/if}
+
     {#if summaryData.spellProperties}
         <p class="a5e-summary__item-properties">
             {summaryData.spellProperties}

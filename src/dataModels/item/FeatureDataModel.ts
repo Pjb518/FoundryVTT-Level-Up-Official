@@ -17,6 +17,8 @@ const schema = {
 		required: true,
 		initial: [],
 	}),
+	followerType: new fields.StringField({ required: true, initial: '' }),
+	experienceType: new fields.StringField({ required: true, initial: 'inexperienced' }),
 	featType: new fields.StringField({ required: true, initial: '' }),
 	featureType: new fields.StringField({ required: true, initial: '' }),
 	grants: new GrantsField(),
