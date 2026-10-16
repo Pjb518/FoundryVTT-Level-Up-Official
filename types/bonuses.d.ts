@@ -2,6 +2,7 @@ import type {
   AbilityBonusContext,
   AttackBonusContext,
   DamageBonusContext,
+  HitDiceBonusContext,
   HealingBonusContext,
   HitPointsBonusContext,
   InitiativeBonusContext,
@@ -52,6 +53,16 @@ export interface HealingBonus {
   img: string;
   default: boolean;
   defaultLabel?: string;
+}
+
+export interface HitDiceBonus {
+  context: HitDiceBonusContext;
+  bonusType: 'add' | 'override' | 'modifier';
+  formula: string;
+  label: string;
+  default: boolean;
+  defaultLabel?: string;
+  img: string;
 }
 
 export interface HitPointsBonus {
@@ -105,6 +116,7 @@ export interface Bonuses {
   damage: { [id: string]: DamageBonus };
   exertion: { [id: string]: ExertionBonus };
   healing: { [id: string]: HealingBonus };
+  hitDice: { [id: string]: HitDiceBonus };
   hitPoint: { [id: string]: HitPointsBonus };
   initiative: { [id: string]: InitiativeBonus };
   movement: { [id: string]: MovementBonus };

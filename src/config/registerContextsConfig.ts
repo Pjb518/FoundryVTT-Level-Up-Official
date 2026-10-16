@@ -33,6 +33,18 @@ export default function registerContextsConfig() {
 		temporaryHealing: 'A5E.healing.bonuses.summaries.contexts.temporaryHealing',
 	};
 
+  const hitDiceBonusContexts = {
+    healing: 'A5E.hitDice.healing',
+    exertion: 'A5E.hitDice.exertion',
+    other: 'A5E.hitDice.other',
+  };
+
+  const hitDiceBonusTypes = {
+    add: 'A5E.hitDice.bonusTypes.add',
+    override: 'A5E.hitDice.bonusTypes.override',
+    modifier: 'A5E.hitDice.bonusTypes.modifier',
+  };
+
 	const skillBonusContexts = {
 		check: 'A5E.contexts.check',
 		passive: 'A5E.contexts.passive',
@@ -44,6 +56,8 @@ export default function registerContextsConfig() {
 		damageBonusSummariesByContext,
 		healingBonusContexts,
 		healingBonusSummariesByContext,
+    hitDiceBonusContexts,
+    hitDiceBonusTypes,
 		skillBonusContexts,
 	};
 }

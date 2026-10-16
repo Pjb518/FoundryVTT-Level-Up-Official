@@ -216,6 +216,7 @@ export default function modifyBaseOptions(options: Object) {
 	options['flags.a5e.effects.bonuses.attacks'] = [{}, MODES.CUSTOM_ONLY, null, 'ATTACK_BONUS'];
 	options['flags.a5e.effects.bonuses.damage'] = [{}, MODES.CUSTOM_ONLY, null, 'DAMAGE_BONUS'];
 	options['flags.a5e.effects.bonuses.healing'] = [{}, MODES.CUSTOM_ONLY, null, 'HEALING_BONUS'];
+  options['flags.a5e.effects.bonuses.hitDice'] = [{}, MODES.CUSTOM_ONLY, null, 'HIT_DICE_BONUS'];
 	options['flags.a5e.effects.bonuses.initiative'] = [
 		{},
 		MODES.CUSTOM_ONLY,

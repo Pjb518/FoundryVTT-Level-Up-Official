@@ -18,6 +18,11 @@ export interface DamageBonusContext {
   isCritBonus: boolean;
 }
 
+export interface HitDiceBonusContext {
+  hitDiceTypes: string[];
+  perDie: boolean;
+}
+
 export interface HealingBonusContext {
   healingTypes: string[];
   spellLevels: string[];
