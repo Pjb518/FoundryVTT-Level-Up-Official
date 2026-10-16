@@ -51,6 +51,7 @@
     // @ts-expect-error
     prepareScalingSummary("damage", roll?.scaling, {
       damageType: damageTypes[roll.damageType],
+      dieFaces: roll?.die?.denom,
       level: getOrdinalNumber(item.system.level ?? 1),
     }),
   );

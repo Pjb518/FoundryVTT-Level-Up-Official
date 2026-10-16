@@ -210,6 +210,14 @@
           ></i>
         {/if}
 
+        {#if doc.system?.prerequisite}
+          <i
+            class="a5e-item__icon icon fa-solid fa-key"
+            data-tooltip={doc.system.prerequisite}
+            data-tooltip-direction="UP"
+          ></i>
+        {/if}
+
         {#if doc.type === "spell" && doc.system?.rare}
           <i
             class="a5e-item__icon icon fa-solid fa-sun"

@@ -1,0 +1,311 @@
+{
+	"name": "Fiendish Aspect",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p><strong>Passive Effect:</strong> You gain 60ft of Darkvision and resistance to damage from Non-magical weapons.</p><p><strong>Active Effect: </strong><em><strong>Blade’s Kiss.</strong></em> If you’re wielding a bladed weapon, you can channel your Aspect into the blade as a Bonus Action, before making a melee attack. On a hit, the target must make a Constitution Saving Throw against your Maneuver DC or take 2d10 psychic damage. You will regain hit points equal to the damage the target takes. On a success, the target only takes damage from the regular hit, and you don’t regain any hit points.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"ArIKvgJWO6Hynn0n": {
+				"name": "Blade’s Kiss",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"Ko0ENTbRO7tMz8s8"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"E1DzrJ7Lhk9C9htg": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"VDw3qFXEnpO8kq61": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d10",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"SVa3BBVvcHTiyaaO": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Fiendish Aspect",
+				"bonus": "60",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false,
+					"default": true
+				},
+				"id": "",
+				"name": "Fiendish Aspect",
+				"flags": {},
+				"restriction": "",
+				"type": "senses",
+				"config": {
+					"senses": {
+						"base": [
+							"darkvision"
+						],
+						"options": [],
+						"total": 0
+					},
+					"bonus": "60",
+					"unit": "feet",
+					"context": {
+						"otherwiseBlind": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"fSYgwmfBpvKRUrrO": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Fiendish Aspect",
+				"traits": {
+					"base": [],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"id": "",
+				"name": "Fiendish Aspect",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"Nonmagical weapons"
+						],
+						"options": [],
+						"total": 0,
+						"traitType": "damageResistances"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"rollMode": 0,
+						"expertiseDice": 0,
+						"bonus": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.dutt46yQWQRpakwB",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Fatigue",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "Ko0ENTbRO7tMz8s8",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165149997,
+				"createdTime": 1792165149982
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1792165149982,
+		"modifiedTime": 1792165187719,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "dutt46yQWQRpakwB"
+}
