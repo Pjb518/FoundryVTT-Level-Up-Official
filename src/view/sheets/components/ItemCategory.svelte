@@ -165,7 +165,7 @@
                     {/if}
 
                     {#if type === "spellLevels" && showArtifactCharges}
-                        {localize("A5E.ArtifactChargesCost", {
+                        {localize("A5E.spells.spellcasting.artifactChargesCost", {
                             cost:
                                 A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ??
                                 0,
