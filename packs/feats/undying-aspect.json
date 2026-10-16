@@ -1,0 +1,329 @@
+{
+	"name": "Undying Aspect",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p><strong>Passive Effect:</strong> You gain resistance to necrotic damage.</p><p><strong>Active Effect: </strong><em><strong>Immobilising Touch.</strong></em> As your action, you touch one creature within melee range. The target must make a Constitution Saving Throw against your Spell DC (or Maneuver DC if you can’t cast spells), or be [[/condition id=paralyzed]] for 1 minute. At the end of each of their turn, the target can repeat the save to shake off the effect.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"ArIKvgJWO6Hynn0n": {
+				"name": "Immobilising Touch",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"Ko0ENTbRO7tMz8s8",
+					"jzaVCxLoaddngNTi"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"90WBXikIZQNysEEG": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "Spell DC"
+					},
+					"0Es8uB9MmfJACXie": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": "Maneuver DC"
+					}
+				},
+				"ranges": {
+					"Q9YTelKinHlRGhdR": {
+						"range": "touch",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"iOKMb38W4T4UQu90": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Undying Aspect",
+				"traits": {
+					"base": [],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"id": "",
+				"name": "Undying Aspect",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"necrotic"
+						],
+						"options": [],
+						"total": 0,
+						"traitType": "damageResistances"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"rollMode": 0,
+						"expertiseDice": 0,
+						"bonus": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.QHT8MZ1DPHWx6CcT",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.fatigue",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Fatigue",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "Ko0ENTbRO7tMz8s8",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165321373,
+				"createdTime": 1792165300351
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.QHT8MZ1DPHWx6CcT",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"paralyzed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Paralyzed",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "jzaVCxLoaddngNTi",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A paralyzed creature is incapacitated and can't move or speak.</p></li><li><p>A paralyzed creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against a paralyzed creature have advantage.</p></li><li><p>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"paralyzed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165328853,
+				"createdTime": 1792165300351
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1792165300351,
+		"modifiedTime": 1792165334095,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "QHT8MZ1DPHWx6CcT"
+}

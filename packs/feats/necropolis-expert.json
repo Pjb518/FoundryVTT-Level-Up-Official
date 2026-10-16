@@ -1,0 +1,191 @@
+{
+	"name": "Necropolis Expert",
+	"type": "feature",
+	"img": "icons/magic/death/bones-crossed-orange.webp",
+	"system": {
+		"description": "<p>You have studied extensively the ruins and secrets left behind by the dead, allowing you to face such creatures with a higher degree of preparation:</p><ul><li><p>You gain an expertise die on any checks made to identify what type of undead a given creature is.</p></li><li><p>If undead creatures are within a 60ft area of you, you cannot be surprised by them.</p></li><li><p>You have procured a holy symbol from a person of faith, and are able to @UUID[Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3]{Turn Undead} with it once per day. The Save DC is based on your Wisdom (8+Modifier+Proficiency.)</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"nVWDxQYo44pF8ljE": {
+				"name": "Turn Undead",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"size": "",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 30
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"CoNb7jN9dnj2MgvS": {
+						"ability": "wis",
+						"onSave": "",
+						"saveDC": {
+							"type": "wis",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"qMur3Pvmuv66yfcW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"ranges": {
+					"5uMxRlmbezL4JL0F": {
+						"range": "self"
+					}
+				},
+				"effects": [
+					"J5HTfJJO1IxBvppT"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "day",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.VKsYXttyOM5Hadha",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Turned",
+			"_id": "J5HTfJJO1IxBvppT",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1792161558090
+			},
+			"img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1792161557800,
+		"modifiedTime": 1792161557800,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "TGTKqYcvos6xT12Q"
+}

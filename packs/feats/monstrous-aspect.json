@@ -1,0 +1,356 @@
+{
+	"name": "Monstrous Aspect",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p><strong>Passive Effect:</strong> You gain immunity to both the [[/condition id=charmed]] and [[/condition id=frightened]] conditions.</p><p><strong>Active Effect: </strong><em><strong>Ominous Glower.</strong></em> As your action, you choose one creature within 60ft and channel your Aspect in your gaze. The target must make a Constitution Saving Throw against your Spell DC (or Maneuver DC if you can’t cast spells), or take 3d8 necrotic damage and become Frightened of you until the end of their next turn.</p><p>On a success, the target takes half damage and isn’t Frightened.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"ArIKvgJWO6Hynn0n": {
+				"name": "Ominous Glower",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"Ko0ENTbRO7tMz8s8",
+					"zdXHlSGnCbXXGG52"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"E3oFMmcHPQTV1GLc": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not frightened",
+						"label": "Spell DC"
+					},
+					"K3wSiEVrqvYYATjv": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, not frightened",
+						"label": "Maneuver DC"
+					}
+				},
+				"ranges": {
+					"wE3eo8Ub9wpR57Dy": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"V6aFFN4Vk4kkAMU7": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "necrotic",
+						"formula": "3d8",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"9qfpcv5sWb3mdyB7": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Monstrous Aspect",
+				"traits": {
+					"base": [
+						"charmed",
+						"frightened"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "conditionImmunities"
+				},
+				"id": "",
+				"name": "Monstrous Aspect",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"charmed",
+							"frightened"
+						],
+						"options": [],
+						"total": 0,
+						"traitType": "conditionImmunities"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"rollMode": 0,
+						"expertiseDice": 0,
+						"bonus": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.dHcznEhq0dNpIei4",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.fatigue",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Fatigue",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "Ko0ENTbRO7tMz8s8",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165283446,
+				"createdTime": 1792165254494
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.dHcznEhq0dNpIei4",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"frightened"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Frightened",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "zdXHlSGnCbXXGG52",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165289173,
+				"createdTime": 1792165254494
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1792165254494,
+		"modifiedTime": 1792165297379,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "dHcznEhq0dNpIei4"
+}
