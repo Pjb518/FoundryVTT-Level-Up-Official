@@ -1,4 +1,8 @@
+import { getVehicleCapacity } from './getVehicleCapacity.ts';
+
 export function calculateCarryCapacity(actor: Actor) {
+	if (actor.type === 'vehicle') return getVehicleCapacity(actor).carry;
+
 	const carryAbility = actor.getFlag('a5e', 'carryCapacityAbility') || 'str';
 
 	const ablScore = actor.system.abilities[carryAbility].value;

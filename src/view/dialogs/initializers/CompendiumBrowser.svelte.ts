@@ -16,7 +16,8 @@ export type CompendiumBrowserTab =
 	| 'npc'
 	| 'monsterFeature'
 	| 'object'
-	| 'spell';
+	| 'spell'
+	| 'vehicle';
 
 export interface CompendiumBrowserFilters {
 	searchTerm?: string;
@@ -55,7 +56,7 @@ export class CompendiumBrowser extends SvelteApplicationMixin(
 
 	static override DEFAULT_OPTIONS = {
 		classes: ['a5e-sheet', 'a5e-sheet--compendium-browser'],
-		position: { width: 700, height: 'auto' },
+		position: { width: 760, height: 'auto' },
 	};
 
 	override async _prepareContext() {

@@ -658,6 +658,7 @@ const featureTypes = {
 	class: 'A5E.features.types.class',
 	culture: 'A5E.features.types.culture',
 	destiny: 'A5E.features.types.destiny',
+	driverFeature: 'A5E.features.types.driverFeature',
 	feat: 'A5E.features.types.feat',
 	followerFeature: 'A5E.features.types.followerFeature',
 	heritage: 'A5E.features.types.heritage',
@@ -667,6 +668,27 @@ const featureTypes = {
 	naturalWeapon: 'A5E.features.types.naturalWeapon',
 	paragon: 'A5E.features.types.paragon',
 	other: 'A5E.features.types.other',
+};
+
+const vehicleTypes = {
+	land: 'A5E.vehicles.singular.land',
+	water: 'A5E.vehicles.singular.water',
+	air: 'A5E.vehicles.singular.air',
+	space: 'A5E.vehicles.singular.space',
+};
+
+const vehicleCapacity = {
+	lg: { supply: 40, bulky: 10, carry: 2000 },
+	huge: { supply: 80, bulky: 20, carry: 4000 },
+	grg: { supply: 800, bulky: 200, carry: 40000 },
+};
+
+const vehicleProperties = {
+	armed: 'A5E.vehicle.properties.armed',
+	drawn: 'A5E.vehicle.properties.drawn',
+	personal: 'A5E.vehicle.properties.personal',
+	threeDimensional: 'A5E.vehicle.properties.threeDimensional',
+	transport: 'A5E.vehicle.properties.transport',
 };
 
 const followerTypes = {
@@ -2382,6 +2404,9 @@ const A5E = {
 	movement,
 	movementAbbreviations,
 	distanceUnits,
+	vehicleCapacity,
+	vehicleTypes,
+	vehicleProperties,
 	distanceAbbreviations,
 	visionUnits,
 	objectTypes,

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 export default function createActor(actor, options, userId) {
-	if (actor.isFollower()) return;
+	if (actor.isFollower() || actor.isVehicle()) return;
 
 	if (!options.fromCompendium) {
 		addBasicManuevers(actor, userId);

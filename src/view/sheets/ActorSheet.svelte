@@ -20,6 +20,12 @@
   import ActorEffectsPage from "./pages/ActorEffectsPage.svelte";
   import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
   import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
+  import VehicleFeaturesPage from "./pages/VehicleFeaturesPage.svelte";
+  import VehicleSettingsPage from "./pages/VehicleSettingsPage.svelte";
+
+  import VehicleHeader from "./components/vehicle/VehicleHeader.svelte";
+  import VehicleInventoryFooter from "./components/vehicle/VehicleInventoryFooter.svelte";
+  import VehicleSidebar from "./components/vehicle/VehicleSidebar.svelte";
 
   import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
@@ -45,7 +51,42 @@
     actorSheetTempSettings[uuid].currentTab = name ?? "core";
   }
 
+  function getVehicleTabs(): Tab[] {
+    return [
+      {
+        name: "features",
+        label: "A5E.tabs.features",
+        icon: "fa-solid fa-table-list",
+        component: VehicleFeaturesPage,
+      },
+      {
+        name: "inventory",
+        label: "A5E.tabs.inventory",
+        icon: "fa-solid fa-box-open",
+        component: ActorInventoryPage,
+        footerComponent: VehicleInventoryFooter,
+      },
+      {
+        name: "effects",
+        label: "A5E.tabs.effects",
+        icon: "fa-solid fa-person-rays",
+        component: ActorEffectsPage,
+      },
+      {
+        name: "settings",
+        label: "A5E.tabs.settings",
+        icon: "fas fa-cog",
+        component: VehicleSettingsPage,
+        display:
+          !actor.pack &&
+          actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER,
+      },
+    ];
+  }
+
   function getTabs(flags: any): Tab[] {
+    if (isVehicle) return getVehicleTabs();
+
     return [
       {
         name: "core",
@@ -137,6 +178,8 @@
     ];
   }
 
+  const isVehicle = actor.type === "vehicle";
+
   let flags = $derived(actor.reactive.flags?.a5e ?? {});
 
   let tabs = $derived(getTabs(actor.reactive.flags));
@@ -156,9 +199,13 @@
 </script>
 
 <main class="a5e-actor-sheet">
-  <ActorSidebar />
-
-  <ActorSheetHeader />
+  {#if isVehicle}
+    <VehicleSidebar />
+    <VehicleHeader />
+  {:else}
+    <ActorSidebar />
+    <ActorSheetHeader />
+  {/if}
 
   <NavigationBar
     {currentTab}

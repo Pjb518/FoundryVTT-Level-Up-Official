@@ -35,6 +35,12 @@ const FIELD_MAPPINGS = {
 		'system.traits.size',
 		'system.source',
 	],
+	vehicle: [
+		'system.description',
+		'system.details.terrain',
+		'system.traits.size',
+		'system.source',
+	],
 	spell: [
 		'system.concentration',
 		'system.components',
