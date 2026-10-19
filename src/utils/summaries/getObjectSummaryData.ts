@@ -5,6 +5,7 @@ import getEndemicLifeProperties from './getEndemicLifeProperties.ts';
 import getMaterialProperties from './getMaterialProperties.ts';
 import getObjectMechanicsLabel from './getObjectMechanicsLabel.ts';
 import getShieldProperties from './getShieldProperties.ts';
+import getSiegeLabel from './getSiegeLabel.ts';
 import getWeaponAugments from './getWeaponAugments.ts';
 import getWeaponProperties from './getWeaponProperties.ts';
 
@@ -17,6 +18,7 @@ export default function getObjectSummaryData(
 		objectProperties: string;
 		craftingComponents?: string;
 		objectMechanics: string;
+		siege?: string;
 	} = {};
 
 	const { objectType } = item.system;
@@ -40,6 +42,8 @@ export default function getObjectSummaryData(
 	}
 
 	summaryData.objectMechanics = getObjectMechanicsLabel(item, options);
+
+	if (objectType === 'weapon') summaryData.siege = getSiegeLabel(item);
 
 	return summaryData;
 }

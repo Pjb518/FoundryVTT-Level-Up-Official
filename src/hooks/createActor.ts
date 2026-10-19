@@ -1,10 +1,48 @@
 /* eslint-disable no-console */
 export default function createActor(actor, options, userId) {
-	if (actor.isFollower() || actor.isVehicle()) return;
+	if (actor.isFollower()) return;
+
+	if (actor.isVehicle()) {
+		if (!options.fromCompendium) addDriverFeatures(actor, userId);
+		return;
+	}
 
 	if (!options.fromCompendium) {
 		addBasicManuevers(actor, userId);
 		addDefaultInteractions(actor, userId);
+	}
+}
+
+async function addDriverFeatures(actor, userId: string) {
+	if (game.user.id !== userId) return;
+
+	const existing = actor.items.find(
+		(i) => i.type === 'feature' && i.system.featureType === 'driverFeature',
+	);
+	if (existing) return;
+
+	const uuids = [
+		'Compendium.a5e.a5e-driver-features.Item.NvSdwycFbahkPBw0',
+		'Compendium.a5e.a5e-driver-features.Item.yXiVdcfxYGsIyJ6F',
+		'Compendium.a5e.a5e-driver-features.Item.D3O5y94DskBG2WHV',
+		'Compendium.a5e.a5e-driver-features.Item.GSW0zx4uRO94GOai',
+		'Compendium.a5e.a5e-driver-features.Item.aWkc8DfCDmVt0dPv',
+	];
+
+	try {
+		const features = await Promise.all(
+			uuids.map(async (uuid) => {
+				const doc = (await fromUuid(uuid)) as any;
+				doc._stats.compendiumSource = uuid;
+				return doc;
+			}),
+		);
+
+		await actor.createEmbeddedDocuments('Item', features);
+		console.info(`Added Driver Features to ${actor.name}`);
+	} catch (e) {
+		console.error(e);
+		console.error(`Error while adding Driver Features to ${actor.name}`);
 	}
 }
 

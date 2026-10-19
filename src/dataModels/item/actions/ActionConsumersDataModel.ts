@@ -235,7 +235,10 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		let current: number | null = null;
 		let max: number | null = null;
 
-		if (!foundry.utils.isEmpty(config)) {
+		if (this.resource === 'momentum') {
+			current = Number((actor.system as any).momentum ?? 0);
+			max = 1;
+		} else if (!foundry.utils.isEmpty(config)) {
 			let path: string;
 
 			if (this.resource === 'classResource') {

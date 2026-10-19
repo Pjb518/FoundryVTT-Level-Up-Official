@@ -550,7 +550,13 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Call Sub Methods
 		if (this.isCreature()) this.prepareCreatureBaseData();
 		if (this.isFollower()) this.prepareFollowerBaseData();
+		if (this.isVehicle()) this.prepareVehicleBaseData();
 		if (this.isParty()) this.preparePartyBaseData();
+	}
+
+	/** Prepares base data for vehicles */
+	prepareVehicleBaseData(this: Actor.OfType<'vehicle'>) {
+		this.BonusesManager = new BonusesManager(this as unknown as Creature);
 	}
 
 	/** Prepares base data for followers */
@@ -692,11 +698,23 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	static readonly COLLISION_FORMULAS: Record<string, string> = {
+		sm: '1d6',
+		med: '2d6',
 		lg: '4d6',
 		huge: '8d6',
 		grg: '12d6',
-		titan: '12d6',
+		titan: '16d6',
 	};
+
+	static readonly VEHICLE_SIZE_DEFAULT_PATHS: Record<string, 'str' | 'con' | 'passengers'> = {
+		'system.abilities.str.value': 'str',
+		'system.abilities.con.value': 'con',
+		'system.passengers.max': 'passengers',
+	};
+
+	static getVehicleSizeDefaults(size: string) {
+		return CONFIG.A5E.vehicleSizeDefaults[size as 'lg'] ?? CONFIG.A5E.vehicleSizeDefaults.lg;
+	}
 
 	get sizeCollisionFormula(): string {
 		if (!this.isVehicle()) return '';
@@ -3545,9 +3563,41 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		const size = (data as any)?.system?.traits?.size ?? 'lg';
 		const dimension = CONFIG.A5E.tokenDimensions[size] ?? 1;
 
+		const traits = (data as any)?.system?.traits ?? {};
+
+		const sizeDefaults = ActorA5E.getVehicleSizeDefaults(size);
+		const sizeUpdates = Object.fromEntries(
+			Object.entries(ActorA5E.VEHICLE_SIZE_DEFAULT_PATHS)
+				.filter(([path]) => !foundry.utils.hasProperty(data as object, path))
+				.map(([path, key]) => [path, sizeDefaults[key]]),
+		);
+
 		(this as any).updateSource({
+			...sizeUpdates,
 			'system.traits.size': size,
 			prototypeToken: { actorLink: true, width: dimension, height: dimension },
+			...(traits.damageImmunities ? {} : { 'system.traits.damageImmunities': ['poison', 'psychic'] }),
+			...(traits.conditionImmunities
+				? {}
+				: {
+						'system.traits.conditionImmunities': [
+							'blinded',
+							'charmed',
+							'confused',
+							'deafened',
+							'fatigue',
+							'frightened',
+							'incapacitated',
+							'paralyzed',
+							'petrified',
+							'poisoned',
+							'prone',
+							'slowed',
+							'strife',
+							'stunned',
+							'unconscious',
+						],
+					}),
 		});
 	}
 
@@ -3645,6 +3695,18 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			const dimension = CONFIG.A5E.tokenDimensions[newSize];
 			foundry.utils.setProperty(changed, 'prototypeToken.height', dimension);
 			foundry.utils.setProperty(changed, 'prototypeToken.width', dimension);
+		}
+
+		if (newSize) {
+			const oldDefaults = ActorA5E.getVehicleSizeDefaults(this._source.system.traits.size);
+			const newDefaults = ActorA5E.getVehicleSizeDefaults(newSize);
+
+			for (const [path, key] of Object.entries(ActorA5E.VEHICLE_SIZE_DEFAULT_PATHS)) {
+				if (foundry.utils.hasProperty(changed, path)) continue;
+				if (foundry.utils.getProperty(this._source, path) !== oldDefaults[key]) continue;
+
+				foundry.utils.setProperty(changed, path, newDefaults[key]);
+			}
 		}
 	}
 

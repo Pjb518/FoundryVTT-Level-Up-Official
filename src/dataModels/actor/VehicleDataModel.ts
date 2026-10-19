@@ -1,5 +1,5 @@
-import { migrationData } from '../common.ts';
-import { abilities, attributes, currency, traits } from './common.ts';
+import { migrationData, source } from '../common.ts';
+import { abilities, attributes, bonuses, currency, rolls, traits } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -79,6 +79,7 @@ const vehicleSchema = () => {
 			carry: new fields.NumberField({ required: true, nullable: true, initial: null, min: 0 }),
 		}),
 		collisionFormula: new fields.StringField({ required: true, initial: '' }),
+		rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 		crew: counterField(0),
 		passengers: counterField(0),
 		momentum: new fields.BooleanField({ required: true, initial: false }),
@@ -96,10 +97,12 @@ const vehicleSchema = () => {
 declare namespace A5EVehicleData {
 	type Schema = DataSchema &
 		ReturnType<typeof abilities> &
+		ReturnType<typeof bonuses> &
 		ReturnType<typeof currency> &
 		ReturnType<typeof traits> &
 		ReturnType<typeof vehicleSchema> &
-		ReturnType<typeof migrationData>;
+		ReturnType<typeof migrationData> &
+		ReturnType<typeof source>;
 
 	interface BaseData extends Record<string, any> {}
 	interface DerivedData extends Record<string, any> {}
@@ -114,9 +117,11 @@ class A5EVehicleData extends foundry.abstract.TypeDataModel<
 	static override defineSchema(): A5EVehicleData.Schema {
 		return {
 			...abilities(),
+			...bonuses(),
 			...currency(),
 			...traits(),
 			...migrationData(),
+			...source(),
 			...vehicleSchema(),
 		};
 	}
