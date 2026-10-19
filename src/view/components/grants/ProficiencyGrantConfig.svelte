@@ -166,7 +166,7 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) => onUpdateValue("label", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>
