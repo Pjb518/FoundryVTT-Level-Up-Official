@@ -68,6 +68,7 @@ export default function modifySpecialOptions(options: object) {
 	options['flags.a5e.effects.expertiseDice.all'] = [0, MODES.DEFAULT_MODES];
 	options['flags.a5e.effects.expertiseDice.allChecks'] = [0, MODES.DEFAULT_MODES];
 	options['flags.a5e.effects.expertiseDice.allSaves'] = [0, MODES.DEFAULT_MODES];
+	options['flags.a5e.effects.expertiseDice.attack.all'] = [0, MODES.DEFAULT_MODES];
 
 	// Add options for damage and conditions
 	options['flags.a5e.effects.damageImmunities.all'] = [[], MODES.CUSTOM_ONLY, null, 'NONE'];
