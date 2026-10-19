@@ -748,6 +748,18 @@ export const products: Record<string, ProductEntry> = {
 		moduleName: 'a5e-secrets-of-the-selkies',
 		moduleDeprecated: true,
 	},
+	singleClassSynergyArcanePower: {
+		abbreviation: 'SCS:AP',
+		affiliate: true,
+		category: 'premium',
+		publisher: 'purpleMartinGames',
+		productLine: 'scs',
+		systems: ['a5e'],
+		title: 'Single-Class Synergy, Volume 4: Arcane Power',
+		url: 'https://www.drivethrurpg.com/en/product/535130/single-class-synergy-volume-4-arcane-power-a5e?affiliate_id=1388381',
+		moduleName: 'a5e-arcane-power',
+		moduleDeprecated: true,
+	},
 	singleClassSynergyCoreFour: {
 		abbreviation: 'SCS:CF',
 		affiliate: true,

@@ -1,0 +1,264 @@
+{
+	"name": "Elemental Student",
+	"type": "feature",
+	"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
+	"system": {
+		"description": "<p>Your devotion to elemental magic is a bit stronger than that of your peers, and you have embraced learning as much as you can about the source of your power. You gain the following benefits:</p><ul><li><p>Your Strength, Dexterity, or elementalist spellcasting ability score increases by 1, to a maximum of 20.</p></li><li><p>You gain proficiency with the Arcana skill or an expertise die if you are already proficient. You also gain the “elementals” skill specialization for the Arcana skill. If you already have it, you gain another skill specialty of your choice. It does not count against your skill specialties known.</p></li><li><p>You gain proficiency with your choice of either alchemists’ supplies or herbalism kits.</p></li><li><p>You gain the @UUID[Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2]{Elemental Manipulation} cantrip. You can only use elemental options from it that correspond to one of your @UUID[Compendium.a5e.a5e-class-features.Item.5gs37uy2tqb15ot2]{Elemental Affinities}.</p></li><li><p>When you deal damage with your @UUID[Compendium.a5e.a5e-class-features.Item.uit7l3mc64l5h8h1]{Elemental Blast}, you can choose to reroll any damage dice with a result of 1. You must use the new result, even if it is another 1.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"iphHqiKz7tcx7VY6": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Elemental Student",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"options": [
+						"str",
+						"dex",
+						"int",
+						"wis",
+						"cha"
+					],
+					"base": [],
+					"total": 1
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Elemental Student",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"DB2gCsDAH7D3quwY": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Skill Proficiency",
+				"keys": {
+					"base": [
+						"arc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false,
+				"type": "proficiency",
+				"id": "",
+				"name": "New Proficiency Bonus Grant",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:arc"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:herbalismKit"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
+			},
+			"y1baKIMNh7TxC1rx": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Elemental Student",
+				"specialties": {
+					"base": [
+						"elementals"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "arc",
+				"img": "",
+				"type": "skillSpecialty",
+				"id": "",
+				"name": "Elemental Student",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"specialties": {
+						"base": [
+							"elementals"
+						],
+						"options": [],
+						"total": 0
+					},
+					"skill": "arc"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "skillSpecialty",
+					"selected": [],
+					"total": 0,
+					"skill": ""
+				}
+			},
+			"tySPYZeE5KYXXhnV": {
+				"id": "tySPYZeE5KYXXhnV",
+				"label": "",
+				"name": "Elemental Student",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2"
+						],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "4 levels in elementalist, no levels in non-elementalist classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"str",
+			"dex",
+			"spellcasting"
+		],
+		"featClasses": [
+			"elementalist"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Elemental Student",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792439270661,
+		"modifiedTime": 1792439376777,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "PU9ArVX1L9W7W1zx"
+}
