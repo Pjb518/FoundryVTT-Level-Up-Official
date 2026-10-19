@@ -48,22 +48,22 @@
     damage: {
       selectHeading: "A5E.damage.headings.type",
       selectTypes: CONFIG.A5E.damageTypes,
-      selectProperty: "config.damageType",
+      selectProperty: "damageType",
     },
     healing: {
       selectHeading: "A5E.healing.type",
       selectTypes: CONFIG.A5E.healingTypes,
-      selectProperty: "config.healingType",
+      selectProperty: "healingType",
     },
     movement: {
       selectHeading: "A5E.Unit",
       selectTypes: CONFIG.A5E.distanceUnits,
-      selectProperty: "config.unit",
+      selectProperty: "unit",
     },
     senses: {
       selectHeading: "A5E.Unit",
       selectTypes: CONFIG.A5E.visionUnits,
-      selectProperty: "config.unit",
+      selectProperty: "unit",
     },
     skills: {
       selectHeading: "",
@@ -135,23 +135,16 @@
         <select
           class="a5e-input a5e-input--slim a5e-input--fit"
           onchange={({ currentTarget }) =>
-            onUpdateValue(
-              `config.${configObject[grantType]?.selectProperty}`,
-              currentTarget.value,
-            )}
+            onUpdateValue(`config.${selectProperty}`, currentTarget.value)}
         >
           {#if selectProperty === "damageType"}
-            <option
-              value={null}
-              selected={grant[selectProperty] === "null" ||
-                grant[selectProperty] === null}
-            >
+            <option value="" selected={!grant.config[selectProperty]}>
               {localize("A5E.None")}
             </option>
           {/if}
 
           {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
-            <option value={key} selected={grant[selectProperty] === key}>
+            <option value={key} selected={grant.config[selectProperty] === key}>
               {localize(name as string)}
             </option>
           {/each}
