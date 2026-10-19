@@ -22,7 +22,7 @@
   function addOptsGroup() {
     updateDocumentDataFromField(item, `system.grants.${grantId}.config.keys.options`, [
       ...grant.config.keys.options,
-      { count: 0, candidates: [] },
+      { count: 1, candidates: [] },
     ]);
   }
 

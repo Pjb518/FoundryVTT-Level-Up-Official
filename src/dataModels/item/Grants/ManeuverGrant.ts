@@ -26,7 +26,7 @@ const schema = () => ({
 		maneuvers: new fields.SchemaField({
 			base: new fields.ArrayField(maneuverEntrySchema()),
 			options: new fields.ArrayField(maneuverEntrySchema()),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		}),
 		// List config
 		pool: new fields.SchemaField({

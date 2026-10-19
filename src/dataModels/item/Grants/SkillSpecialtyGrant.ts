@@ -20,7 +20,7 @@ const schema = () => ({
 				new fields.StringField({ required: true, nullable: false, initial: '' }),
 				{ required: true, initial: [] },
 			),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		}),
 		skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
 	}),

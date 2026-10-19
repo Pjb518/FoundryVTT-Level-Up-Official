@@ -44,7 +44,7 @@ const schema = () => ({
 			total: new fields.NumberField({
 				required: true,
 				nullable: false,
-				initial: 0,
+				initial: 1,
 			}),
 		}),
 
