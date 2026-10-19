@@ -26,7 +26,7 @@ const schema = () => ({
 			options: new fields.ArrayField(
 				new fields.StringField({ required: true, nullable: false, initial: '' }),
 			),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		}),
 
 		// List config

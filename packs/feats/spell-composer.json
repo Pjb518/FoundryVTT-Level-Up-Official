@@ -1,0 +1,388 @@
+{
+	"folder": null,
+	"name": "Spell Composer",
+	"type": "feature",
+	"img": "icons/tools/instruments/lute-gold-brown.webp",
+	"system": {
+		"description": "<p>You have begun to dabble with magic outside the scope of what most bards learn, but you have not neglected your artistic roots. You gain the following benefits:</p><ul><li><p>Your Strength, Wisdom, or Charisma increases by 1, to a maximum of 20.</p></li><li><p>You gain an expertise die to your Performance skill. Your maximum expertise die size for Performance increases to a d10. </p></li><li><p>You gain proficiency with a musical instrument of your choice.</p></li><li><p>You gain proficiency with a gaming set of your choice, disguise kits, forgery kits, navigator’s tools, or thieves’ tools.</p></li><li><p>You learn a 1st- or 2nd- level spell from the bard, cleric, or warlock list. It counts as a bard spell for you, and does not count against your spells known.</p></li><li><p>You learn an additional battle hymn from the 5th-8th list. It does not count against your battle hymns known.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"Au1rl7ez2rhltudW": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Spell Composer",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"wis",
+						"cha"
+					],
+					"base": []
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Spell Composer",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"TdcFwxjfU4XjsD7z": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Spell Composer",
+				"keys": {
+					"base": [
+						"prf"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1,
+				"type": "expertiseDice",
+				"id": "",
+				"name": "Spell Composer",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"prf"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				}
+			},
+			"NySZhipPE13W2V4Y": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Spell Composer (Instrument)",
+				"keys": {
+					"base": [],
+					"options": [
+						"acousticGuitar",
+						"bagpipes",
+						"casaba",
+						"castanet",
+						"drum",
+						"dulcimer",
+						"electricGuitar",
+						"flute",
+						"harmonica",
+						"harp",
+						"horn",
+						"keytar",
+						"lute",
+						"lyre",
+						"maraca",
+						"ocarina",
+						"panFlute",
+						"saxophone",
+						"shawm",
+						"theremin",
+						"trombone",
+						"viol",
+						"violin"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool",
+				"img": "",
+				"isExpertise": false,
+				"type": "proficiency",
+				"id": "",
+				"name": "New Proficiency Bonus Grant",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:acousticGuitar",
+									"tool:bagpipes",
+									"tool:casaba",
+									"tool:castanet",
+									"tool:drum",
+									"tool:dulcimer",
+									"tool:electricGuitar",
+									"tool:flute",
+									"tool:harmonica",
+									"tool:harp",
+									"tool:horn",
+									"tool:keytar",
+									"tool:lute",
+									"tool:lyre",
+									"tool:maraca",
+									"tool:ocarina",
+									"tool:panFlute",
+									"tool:saxophone",
+									"tool:shawm",
+									"tool:theremin",
+									"tool:trombone",
+									"tool:viol",
+									"tool:violin"
+								]
+							},
+							{
+								"count": 1,
+								"candidates": [
+									"tool:diceSet",
+									"tool:boardGameSet",
+									"tool:playingCardSet",
+									"tool:disguiseKit",
+									"tool:forgeryKit",
+									"tool:navigatorsTools",
+									"tool:thievesTools"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
+			},
+			"F0AaGA5DycWXImLU": {
+				"id": "F0AaGA5DycWXImLU",
+				"label": "",
+				"name": "Spell Composer",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "pool",
+					"spells": {
+						"base": [],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"spellLists": {
+								"inclusive": [
+									"bard",
+									"cleric",
+									"warlock"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"spellLevels": {
+								"inclusive": [
+									"1",
+									"2"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			},
+			"AMHkZu5W39kkZHmD": {
+				"id": "AMHkZu5W39kkZHmD",
+				"label": "",
+				"name": "Spell Composer",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.6prqen2qfzmnpbxg",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.w809qy93c5f33t2x",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.fjy7opusafsr55r1",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			}
+		},
+		"prerequisite": "8 levels in bard, Master Creative feat, no levels in non-bard classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"str",
+			"wis",
+			"cha"
+		],
+		"featClasses": [
+			"bard"
+		],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Master Creative",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792420435968,
+		"modifiedTime": 1792421600398,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "kFQebm8BLxus2nLk"
+}

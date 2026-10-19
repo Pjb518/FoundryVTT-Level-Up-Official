@@ -481,12 +481,18 @@ class ItemA5e<
 
 		let actionUses = {};
 		if (consumers.actionUses) {
-			actionUses = consumers.actionUses.getActivationData(this.actor!, this as ItemA5e);
+			actionUses = consumers.actionUses.getActivationData(
+				this.actor!,
+				this as ItemA5e,
+			).actionUsesData;
 		}
 
 		let itemUses = {};
 		if (consumers.itemUses) {
-			itemUses = consumers.itemUses.getActivationData(this.actor!, this as ItemA5e);
+			itemUses = consumers.itemUses.getActivationData(
+				this.actor!,
+				this as ItemA5e,
+			).itemUsesData;
 		}
 
 		let hitDice = {};

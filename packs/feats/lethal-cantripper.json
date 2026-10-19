@@ -1,0 +1,362 @@
+{
+	"name": "Lethal Cantripper",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+	"system": {
+		"description": "<p>You have pushed past what many consider to be possible with your cantrips, learning to threaten the “greater” magicks of other spellcasters with your humble fundamentals. You gain the following benefits:</p><ul><li><p>Your Strength, Constitution, or warcaster spellcasting ability score increases by 1, to a maximum of 20.</p></li><li><p>You gain an expertise die to your Arcana skill. Your maximum expertise die size for Arcana increases to a d12.</p></li><li><p>Your critical range for attacks made as part of a cantrip increases by 1, to a maximum range of 17-20.</p></li><li><p>You learn an additional Cutting Omen maneuver. As long as you have a cantrip of an appropriate spell school on your list of cantrips known, you can ignore requirements for unused spell slots of up to 4th level for the purpose of satisfying Cutting Omen maneuver requirements.</p></li><li><p>You can cast a single-target cantrip that deals damage as a reaction instead of using its usual action type in response to a creature within 30 feet of you casting a spell. If this cantrip successfully damages the target, it must make a Concentration check as if it were concentrating on a spell. If it fails, the spell it was casting is countered and lost. Succeed or fail, you lose the use of the cantrip you used to trigger this benefit for an hour. Once you have used this benefit a number of times equal to half your proficiency bonus, you can’t do so again until you finish a long rest.</p></li></ul><p>Once you have selected this feat, you can no longer gain levels in classes other than warcaster.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {
+			"t09Ym3BpvTcee4il": {
+				"name": "Lethal Cantripper",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A creature within 30 feet of you casting a spell"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"ADKG0tMCvs8cCJCB"
+				],
+				"macro": "",
+				"consumers": {
+					"tuxqzST58S0TG6sl": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"o4KLydl9JTj5lk5Z": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "floor(@prof/2)",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"Hfqsi8Z3FU5f6FP4": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Lethal Cantripper",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"con",
+						"int",
+						"cha"
+					],
+					"base": []
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Lethal Cantripper",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"2nOzWvyhwqpEgXjh": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Lethal Cantripper",
+				"keys": {
+					"base": [
+						"arc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"type": "expertiseDice",
+				"id": "",
+				"name": "Lethal Cantripper",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"arc"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				},
+				"expertiseCount": 1
+			},
+			"p2npInzvD80TrIVl": {
+				"id": "p2npInzvD80TrIVl",
+				"label": "",
+				"name": "Lethal Cantripper",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "maneuver",
+				"grantType": "maneuver",
+				"config": {
+					"selectionType": "pool",
+					"maneuvers": {
+						"base": [],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"maneuverTraditions": {
+								"inclusive": [
+									"cuttingOmen"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": null,
+					"consumerData": {
+						"type": "exertionDefault",
+						"exertionAmount": null,
+						"recover": "longRest",
+						"value": ""
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "12 levels in warcaster, Dangerous Cantripper feat, no levels in non-warcaster classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"str",
+			"con",
+			"spellcasting"
+		],
+		"featClasses": [],
+		"featType": "third",
+		"hidden": false,
+		"synergy": "Dangerous Cantripper",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.VCB2ewsWjifFgI9V",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Lethal Cantripper",
+			"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+			"_id": "ADKG0tMCvs8cCJCB",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 3600,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Lose the use of the cantrip you used to trigger this benefit for an hour.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792440014544,
+				"createdTime": 1792440014473
+			},
+			"start": null,
+			"showIcon": 1,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792440014473,
+		"modifiedTime": 1792440510110,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "374okDjxXzXt5HrM"
+}

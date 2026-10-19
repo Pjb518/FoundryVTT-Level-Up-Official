@@ -1924,11 +1924,7 @@ const toolsPlural = {
 	},
 } as const;
 
-// Flatten the tools config object and extract just the inner tools keys
-const toolsFlattened: Record<string, string> = Object.values(tools).reduce(
-	(acc, curr) => ({ ...acc, ...curr }),
-	{},
-);
+const toolsFlattened: Record<string, string> = Object.assign({}, ...Object.values(tools));
 
 const usesRecoveryTypeOptions = {
 	recoverAll: 'A5E.uses.recoveryTypes.recoverAll',

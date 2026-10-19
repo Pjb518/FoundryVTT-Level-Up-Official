@@ -157,7 +157,7 @@
       <FieldWrapper heading="Selectable Options Count">
         <input
           type="number"
-          value={grant?.config?.keys?.total ?? 0}
+          value={grant?.config?.keys?.total ?? 1}
           onchange={({ currentTarget }) =>
             onUpdateValue("config.keys.total", Number(currentTarget.value))}
         />

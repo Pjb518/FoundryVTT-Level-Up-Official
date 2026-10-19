@@ -111,6 +111,7 @@ export default function registerActiveEffectConfig() {
 		'flags.a5e.effects.expertiseDice.all',
 		'flags.a5e.effects.expertiseDice.allChecks',
 		'flags.a5e.effects.expertiseDice.allSaves',
+		'flags.a5e.effects.expertiseDice.attack.all',
 		'flags.a5e.effects.grants.rollMode.attack.all',
 		'flags.a5e.effects.rollMode.attack.all',
 		'flags.a5e.effects.rollMode.abilityCheck.all',

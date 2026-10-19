@@ -1,0 +1,311 @@
+{
+	"folder": null,
+	"name": "Arcanotechnologist",
+	"type": "feature",
+	"img": "icons/consumables/potions/flask-corked-blue-glow.webp",
+	"system": {
+		"description": "<p>Your skill with technomagical inventions exceeds that of even other artificers, and you have learned to squeeze that little bit extra out of your devices. You gain the following benefits:</p><ul><li><p>Your Dexterity, Intelligence, or Wisdom score increases by 1, to a maximum of 20.</p></li><li><p>You gain an expertise die to your Engineering skill. Your maximum expertise die size for Engineering increases to a d10. You also gain an Engineering skill specialty. It does not count against your skill specialties known.</p></li><li><p>You gain proficiency with sewing kits, smith’s tools or a type of artisan’s tools of your choice.</p></li><li><p>When throwing items of a type you can make with your @UUID[Compendium.a5e.a5e-class-features.Item.f2syblzgm6at7i7q]{Tactical Chemistry} feature you can throw them twice as far as usual.</p></li><li><p>You can combine a spell invention into a melee weapon. When a spell invention is combined into a weapon this way, it costs 10% more than usual, but the weapon functions as a spell focus for the spell. The weapon is still usable if the spell invention fizzles.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"qLPKISrhIb0FSccT": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Arcanotechnologist",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"options": [
+						"dex",
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Arcanotechnologist",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"int",
+							"wis"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"zoNF60iD19Wwj4z6": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Arcanotechnologist",
+				"keys": {
+					"base": [
+						"eng"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1,
+				"type": "expertiseDice",
+				"id": "",
+				"name": "Arcanotechnologist",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"eng"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				}
+			},
+			"z5UWSOhHBnllIajq": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Arcanotechnologist",
+				"keys": {
+					"base": [],
+					"options": [
+						"alchemistsSupplies",
+						"bookbindersKit",
+						"brewersSupplies",
+						"calligraphersSupplies",
+						"carpentersTools",
+						"cartographersTools",
+						"cobblersTools",
+						"cooksUtensils",
+						"glassblowersTools",
+						"jewelersTools",
+						"leatherworkersTools",
+						"masonsTools",
+						"paintersSupplies",
+						"pottersTools",
+						"tinkersTools",
+						"weaversTools",
+						"woodcarversTools",
+						"sewingKit",
+						"smithsTools"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool",
+				"img": "",
+				"isExpertise": false,
+				"type": "proficiency",
+				"id": "",
+				"name": "New Proficiency Bonus Grant",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tool:alchemistsSupplies",
+									"tool:bookbindersKit",
+									"tool:brewersSupplies",
+									"tool:calligraphersSupplies",
+									"tool:carpentersTools",
+									"tool:cartographersTools",
+									"tool:cobblersTools",
+									"tool:cooksUtensils",
+									"tool:glassblowersTools",
+									"tool:jewelersTools",
+									"tool:leatherworkersTools",
+									"tool:masonsTools",
+									"tool:paintersSupplies",
+									"tool:pottersTools",
+									"tool:tinkersTools",
+									"tool:weaversTools",
+									"tool:woodcarversTools",
+									"tool:sewingKit",
+									"tool:smithsTools"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
+			},
+			"FOnjYM1BKeQMpq2l": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Arcanotechnologist",
+				"specialties": {
+					"base": [],
+					"options": [
+						"architecture",
+						"chemistry",
+						"explosives",
+						"gadgetry",
+						"mathematics",
+						"mechanicalTraps",
+						"plumbing",
+						"siegecraft",
+						"weaponry"
+					],
+					"total": 1
+				},
+				"skill": "eng",
+				"type": "skillSpecialty",
+				"id": "",
+				"name": "Arcanotechnologist",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"specialties": {
+						"base": [],
+						"options": [
+							"architecture",
+							"chemistry",
+							"explosives",
+							"gadgetry",
+							"mathematics",
+							"mechanicalTraps",
+							"plumbing",
+							"siegecraft",
+							"weaponry"
+						],
+						"total": 1
+					},
+					"skill": "eng"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "skillSpecialty",
+					"selected": [],
+					"total": 0,
+					"skill": ""
+				}
+			}
+		},
+		"prerequisite": "4 levels in artificer, no levels in non-artificer classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"dex",
+			"int",
+			"wis"
+		],
+		"featClasses": [
+			"artificer",
+			"artificerrevised"
+		],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Arcanotechnologist",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792419799694,
+		"modifiedTime": 1792420253806,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "8GxekEULAtLiodat"
+}

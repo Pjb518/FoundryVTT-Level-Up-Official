@@ -59,6 +59,7 @@ export default function registerEffectGroupConfig() {
 			label: 'A5E.effects.groups.attackRollModes',
 			items: [
 				'flags.a5e.effects.rollMode.attack.all',
+				'flags.a5e.effects.expertiseDice.attack.all',
 				'system.rolls.meleeSpellAttack.outgoing.expertiseDice',
 				'system.rolls.meleeSpellAttack.outgoing.maxRoll',
 				'system.rolls.meleeSpellAttack.outgoing.minRoll',

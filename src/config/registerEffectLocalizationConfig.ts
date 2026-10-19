@@ -27,6 +27,8 @@ export default function registerEffectLocalizationConfig() {
 		'flags.a5e.effects.expertiseDice.all': 'A5E.effects.keys.flags.expertiseDice.all',
 		'flags.a5e.effects.expertiseDice.allChecks': 'A5E.effects.keys.flags.expertiseDice.allChecks',
 		'flags.a5e.effects.expertiseDice.allSaves': 'A5E.effects.keys.flags.expertiseDice.allSaves',
+		'flags.a5e.effects.expertiseDice.attack.all':
+			'A5E.effects.keys.flags.expertiseDice.attack.all',
 		'flags.a5e.effects.grants.rollMode.attack.all': 'A5E.effects.keys.flags.grantsRollMode.all',
 		'flags.a5e.effects.rollMode.abilityCheck.all':
 			'A5E.effects.keys.flags.rollMode.abilityChecks.all',
