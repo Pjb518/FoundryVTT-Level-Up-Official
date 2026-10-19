@@ -204,6 +204,22 @@ function getMonsterFilterConfig() {
 	];
 }
 
+function getVehicleFilterConfig() {
+	return [
+		{
+			filterKey: 'terrain',
+			heading: 'Vehicle Type',
+			options: CONFIG.A5E.vehicleTypes,
+		},
+		{
+			filterKey: 'size',
+			heading: 'Vehicle Size',
+			options: CONFIG.A5E.actorSizes,
+		},
+		getSourceFilterSection(),
+	];
+}
+
 function getMonsterFeatureFilterConfig() {
 	const featureTypeOptions = Object.fromEntries(
 		Object.entries(CONFIG.A5E.featureTypes).filter(([key]) =>
@@ -295,5 +311,6 @@ export function getFilterConfig(documentType: string, filterSelections?: Record<
 	if (documentType === 'monsterFeature') return getMonsterFeatureFilterConfig();
 	if (documentType === 'object') return getObjectFilterConfig();
 	if (documentType === 'spell') return getSpellFilterConfig();
+	if (documentType === 'vehicle') return getVehicleFilterConfig();
 	return getGenericConfig();
 }

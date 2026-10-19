@@ -7,7 +7,7 @@ type DocumentImageOptions = {
 export async function editDocumentImage(document: any, options = {} as DocumentImageOptions) {
 	// Add support for tokenizer
 	if (game.modules.get('vtta-tokenizer')?.active && !options.shiftKey) {
-		if (['character', 'npc', 'follower'].includes(document.type)) {
+		if (['character', 'npc', 'follower', 'vehicle'].includes(document.type)) {
 			Tokenizer?.tokenizeActor(document);
 
 			return null;

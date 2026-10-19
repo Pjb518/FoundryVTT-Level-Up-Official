@@ -4,7 +4,8 @@
 			"character": "Player Character",
 			"npc": "Non-Player Character",
 			"party": "Party",
-			"follower": "Follower"
+			"follower": "Follower",
+			"vehicle": "Vehicle"
 		},
 		"Item": {
 			"archetype": "Archetype",
@@ -1682,6 +1683,7 @@
 			"class": "Class Feature",
 			"culture": "Culture Feature",
 			"destiny": "Destiny Feature",
+			"driverFeature": "Driver Feature",
 			"feat": "Feat",
 			"followerFeature": "Follower Feature",
 			"heritage": "Heritage Feature",
@@ -2578,7 +2580,8 @@
 		"character": "Default A5e Character Sheet",
 		"item": "Default A5e Item Sheet",
 		"npc": "A5e NPC Sheet",
-		"follower": "A5e Follower Sheet"
+		"follower": "A5e Follower Sheet",
+		"vehicle": "A5e Vehicle Sheet"
 	},
 	"A5E.follower": {
 		"experienceType": "Experience Type",
@@ -3188,6 +3191,57 @@
 			"invalidSubObjectDocument": "Invalid object document type"
 		}
 	},
+	"A5E.vehicle": {
+		"addDriverDex": "Add the Driver's Dexterity modifier to AC",
+		"collision": {
+			"button": "Collision",
+			"configure": "Configure Collision Damage",
+			"configurePrompt": "{name}: Collision Damage",
+			"configureHint": "Leave blank to use the default formula for this vehicle's size.",
+			"damage": "Collision Damage",
+			"invalidFormula": "The collision damage formula is not valid.",
+			"label": "Collision",
+			"roll": "Roll Collision",
+			"title": "{name}: Collision"
+		},
+		"cost": "Cost",
+		"crew": "Crew",
+		"driver": "Driver",
+		"driverFeatureWarning": "Driver Features can only be added to vehicles.",
+		"impulse": {
+			"average": "Average",
+			"fast": "Fast",
+			"slow": "Slow"
+		},
+		"impulseSpeed": "Impulse Speed",
+		"journeySpeed": "Journey Speed",
+		"momentum": "Momentum",
+		"movementSpeed": "Movement Speed",
+		"noDriver": "No driver assigned",
+		"noMomentum": "No Momentum",
+		"settings": {
+			"bulky": "Max Bulky Items",
+			"carry": "Max Carrying Capacity",
+			"hint": "Leave a value blank to use the default for this vehicle's size.",
+			"supply": "Max Supply"
+		},
+		"maxBulky": "Maximum Bulky",
+		"maxSupply": "Maximum Supply",
+		"weight": "Weight",
+		"passengers": "Passengers",
+		"properties": {
+			"armed": "Armed",
+			"drawn": "Drawn",
+			"personal": "Personal",
+			"threeDimensional": "Three-Dimensional",
+			"transport": "Transport"
+		},
+		"propertiesConfigurationPrompt": "{name}: Configure Special Properties",
+		"removeDriver": "Remove Driver",
+		"specialProperties": "Special Properties",
+		"supply": "Supply",
+		"terrain": "Vehicle Type"
+	},
 	"A5E.vehicles": {
 		"singular": {
 			"air": "Air Vehicle",
@@ -3203,6 +3257,12 @@
 		}
 	},
 	"A5E.weapons": {
+		"siege": {
+			"ac": "AC",
+			"heading": "Siege Property",
+			"hp": "HP",
+			"size": "Size"
+		},
 		"proficiencies": "Weapon Proficiencies",
 		"proficienciesConfigurationPrompt": "{name}: Configure Weapon Proficiencies",
 		"titlePlural": "Weapons",
@@ -3272,6 +3332,7 @@
 			"rifled": "Rifled",
 			"scatter": "Scatter",
 			"shock": "Shock",
+			"siege": "Siege",
 			"simple": "Simple",
 			"surpriseShot": "Surprise Shot",
 			"thrown": "Thrown",

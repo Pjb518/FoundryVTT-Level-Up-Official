@@ -196,6 +196,12 @@ export default function init() {
 		label: 'A5E.sheetClasses.npc',
 	});
 
+	foundry.documents.collections.Actors.registerSheet('a5e', ActorSheetA5e, {
+		types: ['vehicle'],
+		makeDefault: true,
+		label: 'A5E.sheetClasses.vehicle',
+	});
+
 	foundry.documents.collections.Actors.registerSheet('a5e', PartySheetA5E, {
 		types: ['party'],
 		makeDefault: true,

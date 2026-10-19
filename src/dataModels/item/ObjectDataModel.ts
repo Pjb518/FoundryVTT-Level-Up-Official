@@ -141,6 +141,11 @@ const schema = () => ({
 		required: true,
 		initial: [],
 	}),
+	siege: new fields.SchemaField({
+		size: new fields.StringField({ required: true, nullable: false, initial: 'lg' }),
+		ac: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, min: 0 }),
+		hp: new fields.NumberField({ required: true, nullable: false, initial: 0, integer: true, min: 0 }),
+	}),
 	supply: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	techLevel: new fields.StringField({ required: true, initial: 'archaic' }),
 	unidentified: new fields.BooleanField({ required: true, initial: false }),

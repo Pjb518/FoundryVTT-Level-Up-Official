@@ -13,6 +13,10 @@
             label: "A5E.objects.craftingComponents",
         },
         {
+            field: "siege",
+            label: "A5E.weapons.properties.siege",
+        },
+        {
             field: "spellClasses",
             label: "Classes",
         },

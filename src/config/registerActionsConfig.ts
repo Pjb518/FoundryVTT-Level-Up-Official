@@ -54,6 +54,7 @@ export default function registerActionsConfig() {
 			label: 'A5E.consumers.favorPoints',
 		},
 		hp: { path: 'attributes.hp.value', label: 'A5E.hitPoints.title' },
+		momentum: { path: 'momentum', label: 'A5E.vehicle.momentum' },
 		// inspiration: {
 		// 	path: 'attributes.inspiration',
 		// 	label: 'A5E.consumers.inspiration',

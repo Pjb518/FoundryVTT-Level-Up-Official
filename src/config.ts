@@ -658,6 +658,7 @@ const featureTypes = {
 	class: 'A5E.features.types.class',
 	culture: 'A5E.features.types.culture',
 	destiny: 'A5E.features.types.destiny',
+	driverFeature: 'A5E.features.types.driverFeature',
 	feat: 'A5E.features.types.feat',
 	followerFeature: 'A5E.features.types.followerFeature',
 	heritage: 'A5E.features.types.heritage',
@@ -667,6 +668,39 @@ const featureTypes = {
 	naturalWeapon: 'A5E.features.types.naturalWeapon',
 	paragon: 'A5E.features.types.paragon',
 	other: 'A5E.features.types.other',
+};
+
+const vehicleSizeDefaults = {
+	sm: { str: 10, con: 10, passengers: 1 },
+	med: { str: 12, con: 12, passengers: 2 },
+	lg: { str: 14, con: 14, passengers: 3 },
+	huge: { str: 18, con: 18, passengers: 6 },
+	grg: { str: 22, con: 22, passengers: 0 },
+	titan: { str: 26, con: 26, passengers: 0 },
+};
+
+const vehicleTypes = {
+	land: 'A5E.vehicles.singular.land',
+	water: 'A5E.vehicles.singular.water',
+	air: 'A5E.vehicles.singular.air',
+	space: 'A5E.vehicles.singular.space',
+};
+
+const vehicleCapacity = {
+	sm: { supply: 10, bulky: 2, carry: 300 },
+	med: { supply: 15, bulky: 5, carry: 500 },
+	lg: { supply: 40, bulky: 10, carry: 2000 },
+	huge: { supply: 80, bulky: 20, carry: 4000 },
+	grg: { supply: 800, bulky: 200, carry: 40000 },
+	titan: { supply: 4000, bulky: 1000, carry: 200000 },
+};
+
+const vehicleProperties = {
+	armed: 'A5E.vehicle.properties.armed',
+	drawn: 'A5E.vehicle.properties.drawn',
+	personal: 'A5E.vehicle.properties.personal',
+	threeDimensional: 'A5E.vehicle.properties.threeDimensional',
+	transport: 'A5E.vehicle.properties.transport',
 };
 
 const followerTypes = {
@@ -2220,6 +2254,7 @@ const weaponProperties = {
 	rifled: 'A5E.weapons.properties.rifled',
 	scatter: 'A5E.weapons.properties.scatter',
 	shock: 'A5E.weapons.properties.shock',
+	siege: 'A5E.weapons.properties.siege',
 	simple: 'A5E.weapons.properties.simple',
 	stealthy: 'A5E.objects.properties.stealthy',
 	storage: 'A5E.objects.properties.storage',
@@ -2382,6 +2417,10 @@ const A5E = {
 	movement,
 	movementAbbreviations,
 	distanceUnits,
+	vehicleCapacity,
+	vehicleSizeDefaults,
+	vehicleTypes,
+	vehicleProperties,
 	distanceAbbreviations,
 	visionUnits,
 	objectTypes,

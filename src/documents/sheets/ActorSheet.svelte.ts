@@ -144,6 +144,18 @@ export default class ActorSheet extends SvelteApplicationMixin(
 		return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
 	}
 
+	override async _onDropActor(event: DragEvent, actor: any) {
+		if (this.actor.type !== 'vehicle') return super._onDropActor?.(event, actor);
+		if (!this.actor.isOwner) return null;
+
+		if (!actor?.isCreature?.()) {
+			ui.notifications.warn('Only a player character or NPC can be assigned as a driver.');
+			return null;
+		}
+
+		return this.actor.update({ 'system.driver': actor.uuid });
+	}
+
 	override async _onDropItem(event: DragEvent, item: Item) {
 		const options = await this.#getDragOptions(event, item);
 

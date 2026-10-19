@@ -18,7 +18,8 @@
     ];
 
     let actor: any = document;
-    const hitDice = prepareHitDice(actor);
+    const isVehicle = actor.type === "vehicle";
+    const hitDice = isVehicle ? [] : prepareHitDice(actor);
 
     let hp = $derived(actor.reactive.system.attributes.hp);
     let disableHitDice = $derived(
@@ -63,6 +64,7 @@
         {/if}
     {/each}
 
+    {#if !isVehicle}
     <hr class="a5e-rule" />
 
     <section class={`a5e-hit-die-container ${hitDieClasses}`}>
@@ -109,6 +111,7 @@
             </div>
         {/each}
     </section>
+    {/if}
 </article>
 
 <style lang="scss">

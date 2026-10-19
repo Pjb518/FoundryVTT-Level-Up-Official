@@ -1,120 +1,111 @@
 <script lang="ts">
-    import { getContext } from "svelte";
+  import { getContext } from "svelte";
+  import createItem from "#utils/createItem.ts";
+  import { filterItems } from "#utils/view/filterItems.ts";
+  import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
+  import { usesRequired } from "#utils/view/usesRequired.ts";
+  import UtilityBar from "../../snippets/UtilityBar.svelte";
+  import ItemCategory from "../components/ItemCategory.svelte";
 
-    import { filterItems } from "#utils/view/filterItems.ts";
-    import { groupItemsByType } from "#utils/view/groupItemsByType.ts";
-    import { usesRequired } from "#utils/view/usesRequired.ts";
+  function sortHandler(reverse: boolean) {
+    sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
+  }
 
-    import UtilityBar from "../../snippets/UtilityBar.svelte";
-    import ItemCategory from "../components/ItemCategory.svelte";
-    import createItem from "#utils/createItem.ts";
+  let actor: any = getContext("actor");
+  let sheet: any = getContext("sheet");
+  let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-    function sortHandler(reverse: boolean) {
-        sheet._sortEmbeddedAlphabetically(items, "Item", reverse);
-    }
+  let filterOptions = $state({
+    searchTerm: "",
+    searchDescription: false,
+    page: "features",
+  });
 
-    let actor: any = getContext("actor");
-    let sheet: any = getContext("sheet");
-    let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
+  let activeFilters = $derived(
+    actor.reactive.flags.a5e?.filters?.features ?? {
+      inclusive: [],
+      exclusive: [],
+    },
+  );
 
-    let filterOptions = $state({
-        searchTerm: "",
-        searchDescription: false,
-        page: "features",
-    });
+  let actorStore = $derived(actor.reactive.system);
 
-    let activeFilters = $derived(
-        actor.reactive.flags.a5e?.filters?.features ?? {
-            inclusive: [],
-            exclusive: [],
-        },
-    );
+  let filterFunction = $derived.by(() => {
+    const { inclusive, exclusive } = activeFilters;
 
-    let actorStore = $derived(actor.reactive.system);
+    if (!inclusive.length && !exclusive.length) return undefined;
 
-    let filterFunction = $derived.by(() => {
-        const { inclusive, exclusive } = activeFilters;
+    return (item: any) => {
+      const actions = Object.values(item.system.actions || {});
 
-        if (!inclusive.length && !exclusive.length) return undefined;
+      if (actions.length === 0) return inclusive.length === 0;
 
-        return (item: any) => {
-            const actions = Object.values(item.system.actions || {});
+      for (const action of actions) {
+        const activationType = action.activation?.type;
 
-            if (actions.length === 0) return inclusive.length === 0;
+        if (exclusive.includes(activationType)) return false;
+        if (inclusive.length > 0 && inclusive.includes(activationType)) {
+          return true;
+        }
+      }
 
-            for (const action of actions) {
-                const activationType = action.activation?.type;
+      if (inclusive.length > 0) return false;
 
-                if (exclusive.includes(activationType)) return false;
-                if (
-                    inclusive.length > 0 &&
-                    inclusive.includes(activationType)
-                ) {
-                    return true;
-                }
-            }
+      return true;
+    };
+  });
 
-            if (inclusive.length > 0) return false;
+  let items = $derived(
+    filterItems(actor.reactive, "feature", {
+      searchTerm: filterOptions.searchTerm,
+      searchDescription: filterOptions.searchDescription,
+      filters: filterFunction,
+    }),
+  );
 
-            return true;
-        };
-    });
+  let categorizedItems = $derived(groupItemsByType(items, "featureType"));
 
-    let items = $derived(
-        filterItems(actor.reactive, "feature", {
-            searchTerm: filterOptions.searchTerm,
-            searchDescription: filterOptions.searchDescription,
-            filters: filterFunction,
-        }),
-    );
+  const openCompendium = game.a5e.utils.openCompendium;
 
-    let categorizedItems = $derived(groupItemsByType(items, "featureType"));
+  let showDescription = $derived(filterOptions.showDescription);
+  let showFavorPoints = (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
+  let showUses = $derived(usesRequired(items));
 
-    const openCompendium = game.a5e.utils.openCompendium;
-
-    let showDescription = $derived(filterOptions.showDescription);
-    let showFavorPoints =
-        (game.settings.get("a5e", "showFavorPoints") as boolean) ?? false;
-    let showUses = $derived(usesRequired(items));
-
-    let featureTypes = Object.entries(CONFIG.A5E.featureTypes) as string[][];
+  let featureTypes = Object.entries(CONFIG.A5E.featureTypes).filter(
+    ([type]) => type !== "driverFeature",
+  ) as string[][];
 </script>
 
 {#if actor.isOwner}
-    <!--  -->
-    <UtilityBar
-        bind:filterOptions
-        showAddIcon={true}
-        addIconOptions={featureTypes}
-        showSearchDescriptionButton={true}
-        showDescriptionButton={true}
-        bind:showDescription
-        showFilters={true}
-        showSortButton={true}
-        {sortHandler}
-        onAddIconClick={(subType) => createItem(actor, "feature", subType)}
-    />
+  <!--  -->
+  <UtilityBar
+    bind:filterOptions
+    showAddIcon={true}
+    addIconOptions={featureTypes}
+    showSearchDescriptionButton={true}
+    showDescriptionButton={true}
+    bind:showDescription
+    showFilters={true}
+    showSortButton={true}
+    {sortHandler}
+    onAddIconClick={(subType) => createItem(actor, "feature", subType)}
+  />
 {/if}
 
 <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
-    {#if actor.type === "character"}
-        {#each Object.entries(categorizedItems) as [label, itemList]}
-            {#if itemList?.length}
-                <ItemCategory
-                    {label}
-                    {showDescription}
-                    {showUses}
-                    items={itemList}
-                    type="featureTypes"
-                />
-            {/if}
-        {/each}
-    {:else}
+  {#if actor.type === "character"}
+    {#each Object.entries(categorizedItems) as [label, itemList]}
+      {#if itemList?.length}
         <ItemCategory
-            {showDescription}
-            {showUses}
-            {items}
-            type="featureTypes"
+          {label}
+          {showDescription}
+          {showUses}
+          items={itemList}
+          type="featureTypes"
         />
-    {/if}
+      {/if}
+    {/each}
+  {:else}
+    <ItemCategory {showDescription} {showUses} {items} type="featureTypes" />
+  {/if}
 </section>

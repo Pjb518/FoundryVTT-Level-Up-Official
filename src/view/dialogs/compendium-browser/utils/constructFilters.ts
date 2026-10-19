@@ -241,6 +241,21 @@ const genericConfig = {
 	},
 };
 
+const vehicleFilterConfig = {
+	terrain: {
+		key: 'system.details.terrain',
+		type: 'value',
+	},
+	size: {
+		key: 'system.traits.size',
+		type: 'value',
+	},
+	source: {
+		key: 'system.source',
+		type: 'value',
+	},
+};
+
 const typeMap = {
 	archetype: archetypesFilterConfig,
 	feature: featureConfig,
@@ -251,6 +266,7 @@ const typeMap = {
 	monsterFeature: monsterFeatureConfig,
 	object: objectFilterConfig,
 	spell: spellsFilterConfig,
+	vehicle: vehicleFilterConfig,
 };
 
 function arrayFilter(key, value, mode) {

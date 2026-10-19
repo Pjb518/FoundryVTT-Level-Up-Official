@@ -3,6 +3,7 @@ import { ContainerManager } from '#managers/ContainerManager.ts';
 import { ItemGrantsManager } from '#managers/ItemGrantsManager.ts';
 import { RollStateManager } from '#managers/RollStateManager.ts';
 import type { Action } from '#types/action.d.ts';
+import { localize } from '#utils/localization/localize.ts';
 import { getSummaryData } from '#utils/summaries/getSummaryData.ts';
 import ActionSelectionDialog from '#view/dialogs/action/ActionSelectionDialog.svelte';
 import { ActionActivationDialog } from '#view/dialogs/initializers/ActionActivationDialog.svelte.ts';
@@ -710,12 +711,22 @@ class ItemA5e<
 	// Document Update Hooks
 	/** ================================================================= */
 
+	#isMisplacedDriverFeature(featureType?: string) {
+		if (this.type !== 'feature' || featureType !== 'driverFeature') return false;
+		if (this.parent?.documentName !== 'Actor' || (this.parent as any).isVehicle()) return false;
+
+		ui.notifications.warn(localize('A5E.vehicle.driverFeatureWarning'));
+		return true;
+	}
+
 	/** ---------------------------------- */
 	// Pre Create
 	/** ---------------------------------- */
 
 	/** @inheritdoc */
 	override async _preCreate(...[data, options, user]: Parameters<Item['_preCreate']>) {
+		if (this.#isMisplacedDriverFeature((this.system as any)?.featureType)) return false;
+
 		if (this.isType('feature')) await this._preCreateFeature(data, options, user);
 
 		await super._preCreate(data, options, user);
@@ -761,6 +772,9 @@ class ItemA5e<
 
 	/** @inheritdoc */
 	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
+		const featureType = foundry.utils.getProperty(data, 'system.featureType') as string | undefined;
+		if (this.#isMisplacedDriverFeature(featureType)) return false;
+
 		await super._preUpdate(data, options, user);
 
 		// Call sub methods

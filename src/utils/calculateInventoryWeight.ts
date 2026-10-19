@@ -3,6 +3,7 @@ export function calculateInventoryWeight(actor: Actor) {
 	const actorData = actor.system;
 	const items = actor.items.map((i) => i);
 
+	const isVehicle = actor.type === 'vehicle';
 	const carryAbility = actor.getFlag('a5e', 'carryCapacityAbility') ?? 'str';
 	const abilityValue = actorData.abilities[carryAbility].value;
 
@@ -31,7 +32,9 @@ export function calculateInventoryWeight(actor: Actor) {
 		0,
 	);
 
-	const excessSupplyWeight = 2 * Math.abs(Math.min(abilityValue - (actorData.supply ?? 0), 0));
+	const excessSupplyWeight = isVehicle
+		? 0
+		: 2 * Math.abs(Math.min(abilityValue - (actorData.supply ?? 0), 0));
 
 	const trackCurrencyWeight =
 		actor.flags?.a5e?.trackCurrencyWeight ?? game.settings.get('a5e', 'currencyWeight');

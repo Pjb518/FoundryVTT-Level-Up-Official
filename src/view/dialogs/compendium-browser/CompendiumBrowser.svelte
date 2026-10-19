@@ -101,6 +101,11 @@
             label: "Spells",
             icon: "fa-solid fa-wand-sparkles",
         },
+        {
+            name: "vehicle",
+            label: "Vehicles",
+            icon: "fa-solid fa-truck-monster",
+        },
     ];
 
     const _types = {
@@ -118,6 +123,7 @@
         monsterFeature: "Monster Features",
         object: "Objects",
         spell: "Spells",
+        vehicle: "Vehicles",
     };
 
     let currentTab = $state(tabs.find((t) => t.name === initialTab) ?? tabs[0]);
