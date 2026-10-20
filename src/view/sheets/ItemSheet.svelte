@@ -117,7 +117,11 @@
   setContext("sheet", sheet);
 </script>
 
-<main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
+<main
+  class="a5e-item-sheet"
+  ondragover={(e) => e.preventDefault()}
+  ondrop={(e) => _onDrop(e)}
+>
   <ItemSheetHeader />
 
   <NavigationBar

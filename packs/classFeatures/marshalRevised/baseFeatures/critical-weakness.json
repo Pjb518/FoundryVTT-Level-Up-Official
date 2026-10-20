@@ -1,0 +1,238 @@
+{
+	"folder": null,
+	"name": "Critical Weakness",
+	"type": "feature",
+	"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"pxmjcLbMTorJKwNq": {
+				"name": "Critical Weakness",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"xhzJKK7ZmyE3HIn9": {
+						"type": "damage",
+						"default": true,
+						"formula": "6",
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Y5XlU7U1zAzECavN": {
+						"range": "medium",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1",
+					"concentration": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"WgR5iBNTxZ9kWxMP"
+				],
+				"macro": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"description": "<p>Beginning at 17th level, you can focus your mind to identify any enemy’s weaknesses. Once per rest, you can use a bonus action to choose one creature you can see within 60 feet and expose a flaw in its defenses. Until the end of your next turn, any creature that can hear or see you has advantage on attack rolls made against that creature, and their attacks and spells deal an extra 6 damage to it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "marshalrevised",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"name": "Critical Weakness",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"origin": "Item.xg4HomDNdFNJmk31",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "system.rolls.meleeSpellAttack.incoming.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.rolls.meleeWeaponAttack.incoming.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.rolls.rangedSpellAttack.incoming.rollMode",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.rolls.rangedWeaponAttack.incoming.rollMode",
+						"type": "add",
+						"value": "",
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "WgR5iBNTxZ9kWxMP",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Until the end of your next turn, any creature that can hear or see you has advantage on attack rolls made against that creature, and their attacks and spells deal an extra 6 damage to it.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.9",
+				"createdTime": 1792532284700,
+				"modifiedTime": 1792532329222,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792532277731,
+		"modifiedTime": 1792532333784,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "xg4HomDNdFNJmk31"
+}

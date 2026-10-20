@@ -1,0 +1,248 @@
+{
+	"name": "Call to Arms",
+	"type": "feature",
+	"img": "icons/skills/melee/hand-grip-sword-orange.webp",
+	"effects": [
+		{
+			"name": "Call to Arms",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"origin": "Item.V5m9S0XZPgnnhc6v",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "system.attributes.initiative.expertiseDice",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "Ju81d9ozhNG6NEOe",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>You and each creature friendly to you that are within range of your Commanding Presence gain an expertise die to their initiative check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.9",
+				"createdTime": 1792531236304,
+				"modifiedTime": 1792531595290,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2yp6skDZjQ1DpaGC": {
+				"name": "Commanding Presence",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/intimidation-impressing.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 20,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {
+						"QNhaSVErG1WfDnC2": {
+							"name": "Call to Arms",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.V5m9S0XZPgnnhc6v.ActiveEffect.Ju81d9ozhNG6NEOe"
+							]
+						}
+					},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"Ju81d9ozhNG6NEOe"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"tUre6WV4eC6vG1My": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 6th level, when you roll initiative, you and each creature friendly to you that are within range of your Commanding Presence gain an expertise die to their initiative check. Additionally, when you roll for initiative, you can switch your result with that of any ally you can see.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"Mxo9uLofZ09bpvZ6": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Initiative Expertise",
+				"keys": {
+					"base": [],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "initiative",
+				"id": "",
+				"name": "New Expertise Dice Grant",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"expertiseCount": 1,
+					"expertiseType": "abilityCheck"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				},
+				"expertiseCount": 1
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "marshalrevised",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792531150817,
+		"modifiedTime": 1792531916502,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "V5m9S0XZPgnnhc6v"
+}
