@@ -1142,7 +1142,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
 			const baseDie = skill.expertiseDice ?? 0;
-			const expertiseDice = grants?.reduce((acc, grant) => {
+			const expertiseDice = (grants ?? []).reduce((acc, grant) => {
 				const { expertiseCount, selected } = grant.applied;
 				if (!selected.includes(key)) return acc;
 
@@ -3576,7 +3576,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			...sizeUpdates,
 			'system.traits.size': size,
 			prototypeToken: { actorLink: true, width: dimension, height: dimension },
-			...(traits.damageImmunities ? {} : { 'system.traits.damageImmunities': ['poison', 'psychic'] }),
+			...(traits.damageImmunities
+				? {}
+				: { 'system.traits.damageImmunities': ['poison', 'psychic'] }),
 			...(traits.conditionImmunities
 				? {}
 				: {
