@@ -13,7 +13,7 @@
     document: any;
     grantId: string;
     grantType:
-      "abilities" | "damage" | "healing" | "movement" | "senses" | "skills";
+      "abilities" | "damage" | "healing" | "hitDice" | "movement" | "senses" | "skills";
   };
 
   function updateImage() {
@@ -55,6 +55,11 @@
       selectTypes: CONFIG.A5E.healingTypes,
       selectProperty: "healingType",
     },
+    hitDice: {
+      selectHeading: "A5E.contexts.bonusType",
+      selectTypes: CONFIG.A5E.hitDiceBonusTypes,
+      selectProperty: "config.bonusType",
+    },
     movement: {
       selectHeading: "A5E.Unit",
       selectTypes: CONFIG.A5E.distanceUnits,
@@ -72,7 +77,7 @@
     },
   };
 
-  const hasSelectDialog = ["damage", "healing", "movement", "senses"].includes(
+  const hasSelectDialog = ["damage", "healing", "hitDice", "movement", "senses"].includes(
     grantType,
   );
 

@@ -5,6 +5,7 @@ export default function registerBonusesConfig() {
 		damage: 'A5E.damage.title',
 		exertion: 'A5E.exertion.title',
 		healing: 'A5E.healing.title',
+    hitDice: 'A5E.hitDice.title',
 		hitPoint: 'A5E.hitPoints.title',
 		initiative: 'A5E.initiative.title',
 		movement: 'A5E.details.movement.title',
@@ -18,6 +19,7 @@ export default function registerBonusesConfig() {
 		damage: 'damageBonus',
 		exertion: 'exertionBonus',
 		healing: 'healingBonus',
+    hitDice: 'hitDiceBonus',
 		hitPoint: 'hitPointsBonus',
 		initiative: 'initiativeBonus',
 		movement: 'movementBonus',
@@ -56,6 +58,12 @@ export default function registerBonusesConfig() {
 			defaultName: 'A5E.bonuses.labels.healing.defaultName',
 			dialogName: 'A5E.bonuses.labels.healing.dialogName',
 		},
+    hitDice: {
+      addButton: 'A5E.bonuses.labels.hitDice.addButton',
+      sectionHeader: 'A5E.bonuses.labels.hitDice.sectionHeader',
+      defaultName: 'A5E.bonuses.labels.hitDice.defaultName',
+      dialogName: 'A5E.bonuses.labels.hitDice.dialogName',
+    },
 		hitPoint: {
 			addButton: 'A5E.bonuses.labels.hitPoint.addButton',
 			sectionHeader: 'A5E.bonuses.labels.hitPoint.sectionHeader',

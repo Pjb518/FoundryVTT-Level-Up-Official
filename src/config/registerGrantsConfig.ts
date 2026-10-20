@@ -9,6 +9,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		feature: 'A5E.grants.headings.feature',
 		healing: 'A5E.grants.headings.healing',
 		hitPoint: 'A5E.grants.headings.hitPoint',
+    hitDice: 'A5E.grants.headings.hitDice',
 		item: 'A5E.grants.headings.item',
 		initiative: 'A5E.grants.headings.initiative',
 		maneuver: 'A5E.grants.headings.maneuver',

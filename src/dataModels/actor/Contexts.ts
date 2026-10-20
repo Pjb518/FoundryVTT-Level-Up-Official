@@ -93,6 +93,26 @@ export const healingBonusContextGrant = () => ({
 });
 
 // -------------------------------------
+// Hit Dice Contexts
+// -------------------------------------
+
+const hitDiceBonusSchema = () => ({
+  perDie: new fields.BooleanField({ required: true, initial: false }),
+  hitDiceTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+    initial: [],
+  }),
+});
+
+export const hitDiceBonusContext = () => ({
+  ...hitDiceBonusSchema(),
+});
+
+export const hitDiceBonusContextGrant = () => ({
+  ...hitDiceBonusSchema(),
+  ...grantContextCommon(),
+});
+
+// -------------------------------------
 // Hit Points Contexts
 // -------------------------------------
 const hitPointsBonusSchema = () => ({

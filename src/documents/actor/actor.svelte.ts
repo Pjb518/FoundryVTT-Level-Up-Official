@@ -16,6 +16,7 @@ import DamageBonusConfigDialog from '#view/components/bonuses/DamageBonusConfigD
 import ExertionBonusConfigDialog from '#view/components/bonuses/ExertionBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '#view/components/bonuses/HealingBonusConfigDialog.svelte';
 import HitPointsBonusConfigDialog from '#view/components/bonuses/HitPointsBonusConfigDialog.svelte';
+import HitDiceBonusConfigDialog from "#view/components/bonuses/HitDiceBonusConfigDialog.svelte";
 import InitiativeBonusConfigDialog from '#view/components/bonuses/InitiativeBonusConfigDialog.svelte';
 import MovementBonusConfigDialog from '#view/components/bonuses/MovementBonusConfigDialog.svelte';
 import SensesBonusConfigDialog from '#view/components/bonuses/SensesBonusConfigDialog.svelte';
@@ -88,6 +89,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		damageVulnerabilities: DetailsConfigDialog,
 		exertionBonus: ExertionBonusConfigDialog,
 		healingBonus: HealingBonusConfigDialog,
+    hitDiceBonus: HitDiceBonusConfigDialog,
 		hitPointsBonus: HitPointsBonusConfigDialog,
 		health: HitPointsConfigDialog,
 		initiative: InitiativeConfigDialog,
@@ -2503,10 +2505,15 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this.rollSavingThrow(undefined, options);
 	}
 
-	async rollHitDice(this: Creature, dieSize: string | null = null, quantity = 1, heal = true) {
-		const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity, heal);
-		return chatCard;
-	}
+  async rollHitDice(this: Creature,
+                    dieSize: string | null = null,
+                    quantity = 1,
+                    heal = true,
+                    hitDiceType = heal ? 'healing' : 'other'
+                    ) {
+    const chatCard = await this.HitDiceManager?.rollHitDice(dieSize, quantity, heal, hitDiceType);
+    return chatCard;
+  }
 
 	async rollSavingThrow(this: Creature, abilityKey?: string, options: SavingThrowRollOptions = {}) {
 		let dialogData: any;

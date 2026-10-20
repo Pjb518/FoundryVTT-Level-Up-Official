@@ -8,6 +8,7 @@ import { ExpertiseDiceGrant } from './ExpertiseDiceGrant.ts';
 import { FeatureGrant } from './FeatureGrant.ts';
 import { HealingGrant } from './HealingGrant.ts';
 import { HitPointGrant } from './HitPointGrant.ts';
+import { HitDiceGrant } from "./HitDiceGrant.ts";
 import { InitiativeGrant } from './InitiativeGrant.ts';
 import { ItemGrant } from './ItemGrant.ts';
 import { ManeuverGrant } from './ManeuverGrant.ts';
@@ -32,6 +33,7 @@ export default {
 	feature: FeatureGrant,
 	healing: HealingGrant,
 	hitPoint: HitPointGrant,
+  hitDice: HitDiceGrant,
 	initiative: InitiativeGrant,
 	item: ItemGrant,
 	maneuver: ManeuverGrant,
@@ -56,6 +58,7 @@ export const ITEM_GRANT_TYPES = {
 	feature: FeatureGrant,
 	healing: HealingGrant,
 	hitPoint: HitPointGrant,
+  hitDice: HitDiceGrant,
 	initiative: InitiativeGrant,
 	item: ItemGrant,
 	maneuver: ManeuverGrant,

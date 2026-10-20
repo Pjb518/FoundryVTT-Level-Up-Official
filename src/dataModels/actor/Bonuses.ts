@@ -3,6 +3,7 @@ import {
 	attackBonusContext,
 	damageBonusContext,
 	healingBonusContext,
+  hitDiceBonusContext,
 	hitPointsBonusContext,
 	initiativeBonusContext,
 	movementBonusContext,
@@ -63,6 +64,14 @@ export function getHealingBonusData() {
 		healingType: new fields.StringField({ required: true, initial: 'healing' }),
 		...baseBonusData(),
 	};
+}
+
+export function getHitDiceBonusData() {
+  return {
+    context: new fields.SchemaField(hitDiceBonusContext()),
+    bonusType: new fields.StringField({ required: true, initial: 'add', choices: ['add', 'override', 'modifier'] }),
+    ...baseBonusData(),
+  };
 }
 
 export function getHitPointBonusData() {
