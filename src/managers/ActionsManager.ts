@@ -306,10 +306,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 		newAction.effects = duplicatedEffects.map((e) => e.id);
 
 		await this.#item.update({
-			'system.actions': {
-				...this.#item.system.actions,
-				[newActionId]: newAction,
-			},
+			[`system.actions.${newActionId}`]: newAction,
 		});
 	}
 
