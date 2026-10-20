@@ -79,6 +79,13 @@ export const skillSpecialtyGrantSchema = () => ({
 	),
 	total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	skill: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	pool: new fields.ArrayField(
+		new fields.SchemaField({
+			skill: new fields.StringField({ required: true, nullable: false, initial: '' }),
+			specialty: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		}),
+		{ required: true, nullable: false, initial: [] },
+	),
 });
 
 export const traitGrantSchema = () => ({

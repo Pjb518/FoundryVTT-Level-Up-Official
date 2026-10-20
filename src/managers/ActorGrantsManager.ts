@@ -826,7 +826,27 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		if (grant.applied.grantType === 'skillSpecialty') {
 			grant = grant as Grant<'skillSpecialty'>;
-			const { skill } = grant.applied;
+			const { skill, pool } = grant.applied;
+
+			if (pool?.length) {
+				const bySkill: Record<string, Set<string>> = {};
+				pool.forEach((pick) => {
+					(bySkill[pick.skill] ??= new Set()).add(pick.specialty);
+				});
+
+				Object.entries(bySkill).forEach(([poolSkill, removals]) => {
+					const key = `system.skills.${poolSkill}.specialties`;
+					const current = new Set<string>(
+						(updates[key] as string[]) ??
+							(foundry.utils.getProperty(this.actor, key) as string[]) ??
+							[],
+					);
+					// @ts-expect-error
+					updates[key] = [...current.difference(removals)];
+				});
+
+				return updates;
+			}
 
 			const existing: Set<string> = new Set(
 				(foundry.utils.getProperty(this.actor, `system.skills.${skill}.specialties`) as string[]) ??
