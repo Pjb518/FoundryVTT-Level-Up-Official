@@ -1,0 +1,219 @@
+{
+	"name": "Come By",
+	"type": "feature",
+	"img": "icons/magic/movement/portal-vortex-orange.webp",
+	"system": {
+		"description": "<p>At 11th level, you leverage your knowledge of commanding collies and other herding breeds to similarly command your allies to inhibit your enemy’s movement. As an action, choose a number of allies within your Commanding Presence equal to half your Charisma modifier. Those allies may move up to half of their movement speed. This movement does not count against the target’s movement on their turn, and it does not provoke attacks of opportunity.</p><p>If an enemy creature would be flanked by allies who utilize this feature, that creature has disadvantage on its next attack roll, saving throw, or ability check until the start of your next turn. Once you have used this ability, you may not do so again until you complete a short or a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"actions": {
+			"BS6aBxoPHWypVTWc": {
+				"name": "Come By",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"cLwW8vdFPmTrnnMD"
+				],
+				"macro": "",
+				"consumers": {
+					"pqdFgY0tgIPrRcTj": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "marshalrevised",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.G8IYDrkBrOQSFKay",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Come By",
+			"img": "icons/magic/movement/portal-vortex-orange.webp",
+			"_id": "cLwW8vdFPmTrnnMD",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Disadvantage on its next attack roll, saving throw, or ability check until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.9",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792562117808,
+				"createdTime": 1792562079569
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792562079569,
+		"modifiedTime": 1792562079569,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "G8IYDrkBrOQSFKay"
+}

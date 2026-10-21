@@ -15,7 +15,7 @@
     },
   ) {
     const dragData = {
-      grantId: grant._id,
+      grantId: grant.id,
       itemUuid: item.uuid,
       type: "Grant",
     };
@@ -105,7 +105,7 @@
               aria-label="A5E.buttons.tooltips.duplicate"
               onclick={(e) => {
                 e.stopPropagation();
-                item.grants.duplicate(grant._id);
+                item.grants.duplicate(grant.id);
               }}
             >
               <i class="fa-solid fa-clone"></i>

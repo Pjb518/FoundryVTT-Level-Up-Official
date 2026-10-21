@@ -1,0 +1,156 @@
+{
+	"name": "Bolstering Presence",
+	"type": "feature",
+	"img": "icons/skills/social/thumbsup-approval-like.webp",
+	"system": {
+		"description": "<p>Also at 6th level, once initiative has been rolled, allies who start their turn within your @UUID[Compendium.a5e.a5e-class-features.Item.leCQfl7p55UwchuN]{Commanding Presence} gain temporary HP equal to your marshal level + your Charisma modifier. Once a target has gained temporary hit points from this feature, they may not do so until initiative is rolled again. These temporary hit points persist until combat ends, at which point they disappear.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"actions": {
+			"KonDTCyXHcX10LAP": {
+				"name": "Bolstering Presence",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"77n9jFVhOiVLGOgq": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classes.marshalrevised.level + @cha.mod",
+						"healingType": "temporaryHealing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "marshalrevised",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792531526777,
+		"modifiedTime": 1792532535956,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "ijOJ43oVk9Os1NOp"
+}

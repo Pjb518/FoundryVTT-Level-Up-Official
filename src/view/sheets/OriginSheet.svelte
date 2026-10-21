@@ -68,6 +68,23 @@
     ];
   }
 
+  async function _onDrop(event: DragEvent) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const transferData = event.dataTransfer?.getData("text/plain");
+    if (!transferData) return;
+
+    let dragData;
+    try {
+      dragData = JSON.parse(transferData);
+    } catch {
+      return;
+    }
+
+    await sheet._onDropDocument(dragData);
+  }
+
   function updateCurrentTab(name: string) {
     const newTabName = name ?? "core";
     currentTab = tabs.find((tab) => tab.name === newTabName) ?? tabs[0];
@@ -84,7 +101,11 @@
   setContext("sheet", sheet);
 </script>
 
-<main class="a5e-origin-sheet">
+<main
+  class="a5e-origin-sheet"
+  ondragover={(e) => e.preventDefault()}
+  ondrop={_onDrop}
+>
   <ItemSheetHeader />
 
   <NavigationBar

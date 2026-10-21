@@ -16,6 +16,7 @@ const snappingMode = (type: string) => {
 };
 
 export class RegionLayerA5E extends RLayer {
+	// @ts-expect-error
 	override async placeRegion(data: RDoc.CreateData, options?: RLayer.PlacementOptions) {
 		if (!data.displayMeasurements) return super.placeRegion(data, options);
 		if (data.highlightMode !== 'coverage') return super.placeRegion(data, options);
@@ -47,14 +48,26 @@ export class RegionLayerA5E extends RLayer {
 				auraData.displayMeasurements = false;
 				auraData.visibility = CONST.REGION_VISIBILITY.LAYER;
 
-				return CONFIG.Region.documentClass.create(auraData, { parent: canvas.scene });
+				if (game.user.isGM) {
+					return CONFIG.Region.documentClass.create(auraData, { parent: canvas.scene });
+				} else {
+					game.socket.emit('system.a5e', {
+						request: 'placeBehaviorRegion',
+						data: {
+							document: auraData,
+							sceneId: canvas.scene?.id,
+						},
+					});
+
+					return;
+				}
 			}
 		}
 
 		// For cones, lines and walls
 		const placement = { aiming: false };
 
-		options.onMove = ({ event, position, preview, shape, snap }) => {
+		options.onMove = ({ event, position, shape, snap }) => {
 			if (canvas.grid!.type !== CONST.GRID_TYPES.SQUARE) return;
 
 			if (placement.aiming && isAimable(shape.type)) {
@@ -121,7 +134,25 @@ export class RegionLayerA5E extends RLayer {
 			return undefined;
 		};
 
-		return super.placeRegion(data, options);
+		// @ts-expect-error
+		if (data.behaviors?.length > 0 && !game.user.isGM) {
+			options.create = false;
+		}
+
+		const placedDoc = await super.placeRegion(data, options);
+
+		// @ts-expect-error
+		if (data.behaviors?.length > 0 && !game.user.isGM) {
+			game.socket.emit('system.a5e', {
+				request: 'placeBehaviorRegion',
+				data: {
+					document: placedDoc,
+					sceneId: canvas.scene?.id,
+				},
+			});
+		}
+
+		return placedDoc;
 	}
 
 	/** Emanations should the token they are being drawn on */

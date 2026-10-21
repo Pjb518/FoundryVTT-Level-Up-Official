@@ -1,0 +1,223 @@
+{
+	"name": "Combat Maneuvers",
+	"type": "feature",
+	"img": "icons/skills/social/trading-justice-scale-gold.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>Starting at 2nd level, you gain the ability to use combat maneuvers. You gain proficiency in two combat traditions from the following list:</p><ul><li><p><strong>Adamant Mountain</strong></p></li><li><p>Biting Zephyr</p></li><li><p>Mirror's Glint</p></li><li><p>Mist and Shade</p></li><li><p>Rapid Current</p></li><li><p>Razor's Edge</p></li><li><p>Sanguine Knot</p></li><li><p>Spirited Steed</p></li><li><p>Unending Wheel</p></li></ul><p>You learn two maneuvers of your choice from traditions you are proficient with.</p><p>You gain an exertion pool equal to twice your proficiency bonus, regaining any spent exertion at the end of a short or long rest. You use your maneuvers by spending points from your exertion pool.</p><p>The Maneuvers Known column of the Marshal table shows when you learn more maneuvers from a tradition you are proficient with, while the Maneuver Degree column shows the highest degree you can select maneuvers from at a given level.</p><p>Additionally, whenever you learn a new maneuver, you can choose one of the maneuvers you know and replace it with another maneuver of the same degree from a tradition you are proficient with.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"VqFHWxXKrugQrMTq": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Combat Traditions",
+				"keys": {
+					"base": [],
+					"options": [
+						"bitingZephyr",
+						"mirrorsGlint",
+						"mistAndShade",
+						"rapidCurrent",
+						"razorsEdge",
+						"sanguineKnot",
+						"spiritedSteed",
+						"unendingWheel",
+						"adamantMountain"
+					],
+					"total": 2
+				},
+				"proficiencyType": "tradition",
+				"img": "",
+				"isExpertise": false,
+				"id": "",
+				"name": "Combat Traditions",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tradition:adamantMountain",
+									"tradition:bitingZephyr",
+									"tradition:mirrorsGlint",
+									"tradition:mistAndShade",
+									"tradition:rapidCurrent",
+									"tradition:razorsEdge",
+									"tradition:sanguineKnot",
+									"tradition:spiritedSteed",
+									"tradition:unendingWheel"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
+			},
+			"hh3cYWIsthzqQzP7": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Exertion Pool",
+				"exertionType": "pool",
+				"poolType": "doubleProf",
+				"id": "",
+				"name": "Combat Maneuvers",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "exertion",
+				"config": {
+					"bonus": "",
+					"exertionType": "pool",
+					"poolType": "doubleProf"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "exertion",
+					"exertionType": "",
+					"bonusId": ""
+				},
+				"bonus": ""
+			},
+			"emB6JZecVYCzXOp0": {
+				"id": "emB6JZecVYCzXOp0",
+				"label": "",
+				"name": "Combat Maneuvers",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "maneuver",
+				"grantType": "maneuver",
+				"config": {
+					"selectionType": "pool",
+					"maneuvers": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 2,
+						"filters": {
+							"maneuverDegrees": {
+								"inclusive": [
+									"1"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"maneuverTraditions": {
+								"inclusive": [
+									"adamantMountain",
+									"bitingZephyr",
+									"mirrorsGlint",
+									"mistAndShade",
+									"rapidCurrent",
+									"razorsEdge",
+									"sanguineKnot",
+									"spiritedSteed",
+									"unendingWheel"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": null,
+					"consumerData": {
+						"type": "exertionDefault",
+						"exertionAmount": null,
+						"recover": "longRest",
+						"value": ""
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "marshalrevised",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792530357401,
+		"modifiedTime": 1792530524310,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "tMoS4gh2iuUc2xy5"
+}

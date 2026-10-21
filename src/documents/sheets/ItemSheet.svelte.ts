@@ -107,8 +107,14 @@ export default class ItemSheet extends SvelteApplicationMixin(
 		if (!grantId || !itemUuid) return;
 
 		const document = (await fromUuid(itemUuid)) as Item;
-		const grant = foundry.utils.duplicate(document?.grants.get(grantId));
-		if (!grant) return;
+		const source: any = document?.grants.get(grantId);
+		if (!source) return;
+
+		const grant: any = foundry.utils.deepClone(
+			typeof source.toObject === 'function' ? source.toObject() : source,
+		);
+		delete grant.id;
+		delete grant._id;
 
 		// Change image
 		grant.img ??= document?.img;
