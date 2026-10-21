@@ -21,16 +21,31 @@
     }, []);
   }
 
-  function saveSettings() {
+  /** Temporarily updates variables */
+  function updateVariable(key: string, value: string | null) {
+    if (!value) return;
+
+    const variable = VAR_MAPPINGS[key];
+    if (!variable) return;
+
+    // TODO: Make this better
+    document.documentElement.style.setProperty(variable, value);
+    const theme = document.querySelector(".theme-dark");
+    // @ts-expect-error
+    theme?.style.setProperty(variable, value);
+  }
+
+  async function saveSettings() {
     const updatedTheme = foundry.utils.deepClone(currentTheme);
 
     // Update colors
     colors.forEach((color) => {
       updatedTheme[color.key] = color.value;
+      updateVariable(color.key, color.value);
     });
 
     // Update settings
-    game.settings.set("a5e", "themeSettings", {
+    await game.settings.set("a5e", "themeSettings", {
       currentTheme: currentThemeId,
       themes: {
         ...config.themes,
@@ -79,6 +94,7 @@
             position="fixed"
             onInput={(event) => {
               colorField.value = event.hex;
+              updateVariable(colorField.key, event.hex);
             }}
           />
 

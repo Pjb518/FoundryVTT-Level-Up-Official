@@ -86,6 +86,26 @@ class ThemeSettings extends SvelteApplicationMixin(foundry.applications.api.Appl
 			new this(options, dialogData).render(true, { focus: true });
 		});
 	}
+
+	/** @inheritdoc */
+	override close(options) {
+		// Reset variables
+		const currentTheme = this.config.themes[this.config.currentTheme] ?? {};
+
+		Object.entries(this.VAR_MAPPINGS ?? {}).forEach(([key, variable]) => {
+			let value = currentTheme[key];
+			if (value === null || value === undefined) return;
+
+			if (value instanceof Color) value = value.toString();
+
+			document.documentElement.style.setProperty(variable, value);
+			const theme = document.querySelector('.theme-dark');
+			// @ts-expect-error
+			theme?.style.setProperty(variable, value);
+		});
+
+		return super.close(options);
+	}
 }
 
 type InitializedField<T extends fields.DataField> = ReturnType<T['getInitialValue']>;
