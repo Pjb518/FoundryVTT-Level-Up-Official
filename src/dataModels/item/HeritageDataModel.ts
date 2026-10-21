@@ -6,6 +6,8 @@ import { GrantsField } from './Grants/GrantsField.ts';
 import fields = foundry.data.fields;
 
 const schema = {
+	heightFormula: new fields.StringField({ required: true, initial: '' }),
+	weightFormula: new fields.StringField({ required: true, initial: '' }),
 	grants: new GrantsField({
 		nullable: false,
 		initial: () => ({
