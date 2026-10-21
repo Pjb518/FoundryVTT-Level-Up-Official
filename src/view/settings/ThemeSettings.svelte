@@ -89,7 +89,7 @@
       {#each colors as colorField}
         <div class="a5e-theme-sheet__colors__color">
           <ColorPicker
-            label={colorField.label}
+            label="{colorField.label} [{colorField.value}]"
             hex={colorField.value}
             position="fixed"
             onInput={(event) => {
