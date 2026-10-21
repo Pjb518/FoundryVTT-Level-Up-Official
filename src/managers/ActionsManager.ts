@@ -255,7 +255,25 @@ class ActionsManager extends Map<string, A5EActionData> {
 			system,
 		};
 
-		const regionDoc = new foundry.documents.RegionBehavior(tempBehavior);
+		const regionDoc = new foundry.documents.RegionDocument({
+			name: '_temp',
+			behaviors: [tempBehavior],
+			// @ts-expect-error
+			ownership: { default: 0, [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
+		});
+
+		const behaviorDoc = [...regionDoc.behaviors][0];
+
+		// Override getUserLevel for this behavior
+		behaviorDoc.getUserLevel = function (user) {
+			const currentProto = Object.getPrototypeOf(this);
+			const clientProto = Object.getPrototypeOf(currentProto);
+			const baseProto = Object.getPrototypeOf(clientProto);
+			const docProto = Object.getPrototypeOf(baseProto);
+
+			const level = docProto.getUserLevel.call(this, user);
+			return level;
+		};
 
 		const sheetCls = class extends foundry.applications.sheets.RegionBehaviorConfig {
 			// @ts-expect-error
@@ -274,7 +292,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 			}
 		};
 
-		const sheet = new sheetCls({ document: regionDoc });
+		const sheet = new sheetCls({ document: behaviorDoc });
 		await sheet.render(true);
 	}
 
