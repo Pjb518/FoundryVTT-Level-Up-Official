@@ -1,6 +1,7 @@
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 import renderPartyViewer from './hooks/renderPartyViewer.ts';
 import { SystemSettings } from './settings/SystemSettings.svelte.ts';
+import { ThemeSettings } from './settings/ThemeSettings.svelte.ts';
 import { toggleItemControls } from './stores/itemControlsStore.svelte.ts';
 
 export function registerKeybindings() {
@@ -9,8 +10,8 @@ export function registerKeybindings() {
 		editable: [{ key: 'KeyP' }],
 		onDown: () => {
 			if (
-				//@ts-expect-error
 				!game.user.isGM &&
+				//@ts-expect-error
 				!game.settings.get('a5e', 'playersCanAccessPartyViewer')
 			) {
 				return;
@@ -22,7 +23,7 @@ export function registerKeybindings() {
 
 	game.keybindings.register('a5e', 'system-settings-open-close', {
 		name: 'Open/Close System Settings',
-		editable: [{ key: 'KeyS', modifiers: ['Alt'] }],
+		editable: [{ key: 'KeyS', modifiers: ['ALT'] }],
 		onDown: () => {
 			new SystemSettings().render(true);
 		},
@@ -30,7 +31,7 @@ export function registerKeybindings() {
 
 	game.keybindings.register('a5e', 'compendium-browser-open-close', {
 		name: 'Open/Close Compendium Browser',
-		editable: [{ key: 'KeyC', modifiers: ['Alt'] }],
+		editable: [{ key: 'KeyC', modifiers: ['ALT'] }],
 		onDown: () => {
 			new CompendiumBrowser().render(true);
 		},
@@ -39,10 +40,18 @@ export function registerKeybindings() {
 	game.keybindings.register('a5e', 'item-controls-toggle', {
 		name: 'Toggle Item Controls',
 		hint: 'Show or hide the quick action menu.',
-		editable: [{ key: 'KeyE', modifiers: ['Alt'] }],
+		editable: [{ key: 'KeyE', modifiers: ['ALT'] }],
 		onDown: () => {
 			toggleItemControls();
 			return true;
+		},
+	});
+
+	game.keybindings.register('a5e', 'theme-settings-open-close', {
+		name: 'Open/Close System Theme Settings',
+		editable: [{ key: 'KeyS', modifiers: ['ALT', 'SHIFT'] }],
+		onDown: () => {
+			new ThemeSettings().render(true);
 		},
 	});
 }

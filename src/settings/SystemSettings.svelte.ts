@@ -1,91 +1,84 @@
-import { SvelteApplicationMixin } from "#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts";
-import { localize } from "#utils/localization/localize.ts";
+import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
+import { localize } from '#utils/localization/localize.ts';
+import SystemSettingsComponent from '#view/settings/SystemSettings.svelte';
+import { settings } from './settings.ts';
 
-import { settings } from "./settings.ts";
+export class SystemSettings extends SvelteApplicationMixin(foundry.applications.api.ApplicationV2) {
+	data: Record<string, any>;
 
-import SystemSettingsComponent from "#view/settings/SystemSettings.svelte";
+	root = SystemSettingsComponent;
 
-export class SystemSettings extends SvelteApplicationMixin(
-  foundry.applications.api.ApplicationV2,
-) {
-  data: Record<string, any>;
+	store: Record<string, { data: any; value: any }> = $state({});
 
-  root = SystemSettingsComponent;
+	public promise = null;
 
-  store: Record<string, { data: any; value: any }> = $state({});
+	public resolve = null;
 
-  public promise = null;
+	constructor(options = {}, dialogData = {}) {
+		super({
+			id: 'a5e-system-settings',
+			classes: ['a5e-sheet', 'a5e-sheet--settings'],
+			position: { width: 650, height: 'auto' },
+			window: { title: localize('A5E.settings.title') },
+		});
 
-  public resolve = null;
+		this.populateSettings();
+		this.data = { settings: this.store };
 
-  constructor(options = {}, dialogData = {}) {
-    //@ts-expect-error
-    super({
-      id: "a5e-system-settings",
-      classes: ["a5e-sheet", "a5e-sheet--settings"],
-      position: { width: 650, height: "auto" },
-      window: { title: localize("A5E.settings.title") },
-    });
+		// @ts-expect-error
+		this.promise = new Promise((resolve) => {
+			// @ts-expect-error
+			this.resolve = resolve;
+		});
+	}
 
-    this.populateSettings();
-    this.data = { settings: this.store };
+	async _prepareContext() {
+		return {
+			...this.data,
+			dialog: this,
+		};
+	}
 
-    // @ts-expect-error
-    this.promise = new Promise((resolve) => {
-      // @ts-expect-error
-      this.resolve = resolve;
-    });
-  }
+	populateSettings() {
+		settings.forEach((setting) => {
+			this.store[setting.key] = {
+				data: setting.options,
+				value: game.settings.get(setting.namespace, setting.key),
+			};
+		});
+	}
 
-  async _prepareContext() {
-    return {
-      ...this.data,
-      dialog: this,
-    };
-  }
+	static getActiveApp(): SystemSettings {
+		// @ts-expect-error
+		return Object.values(ui.windows).find((app) => app.id === 'a5e-system-settings');
+	}
 
-  populateSettings() {
-    settings.forEach((setting) => {
-      this.store[setting.key] = {
-        data: setting.options,
-        value: game.settings.get(setting.namespace, setting.key),
-      };
-    });
-  }
+	static async show(options = {}, dialogData = {}) {
+		const app = this.getActiveApp();
+		if (app) return app.render(false, { focus: true });
 
-  static getActiveApp(): SystemSettings {
-    // @ts-ignore
-    return Object.values(ui.windows).find(
-      (app) => app.id === "a5e-system-settings",
-    );
-  }
+		return new Promise((resolve) => {
+			// @ts-expect-error
+			options.resolve = resolve;
 
-  static async show(options = {}, dialogData = {}) {
-    const app = this.getActiveApp();
-    if (app) return app.render(false, { focus: true });
+			new this(options, dialogData).render(true, { focus: true });
+		});
+	}
 
-    return new Promise((resolve) => {
-      // @ts-expect-error
-      options.resolve = resolve;
+	submit(results) {
+		this.#resolvePromise(results);
 
-      new this(options, dialogData).render(true, { focus: true });
-    });
-  }
+		if (results.reload) {
+			foundry.utils.debounce(() => window.location.reload(), 250)();
+		}
 
-  submit(results) {
-    this.#resolvePromise(results);
+		return super.close();
+	}
 
-    if (results.reload) {
-      foundry.utils.debounce(() => window.location.reload(), 250)();
-    }
-
-    return super.close();
-  }
-
-  #resolvePromise(data): void {
-    if (this.resolve) {
-      // @ts-expect-error
-      this.resolve(data);
-    }
-  }
+	#resolvePromise(data): void {
+		if (this.resolve) {
+			// @ts-expect-error
+			this.resolve(data);
+		}
+	}
 }

@@ -108,8 +108,6 @@
     settings["playersCanAccessPartyViewer"].value,
   );
 
-  $inspect(playersCanAccessPartyViewer);
-
   let tabs = getTabs();
   let currentTab = $derived(tabs[0]);
 

@@ -1,5 +1,6 @@
 import { A5E as CONFIG } from '../config.ts';
 import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner.ts';
+import { schema as themeSettingsSchema } from './ThemeSettings.svelte.ts';
 
 const namespace = 'a5e';
 
@@ -845,6 +846,7 @@ export const settings = [
 			name: 'A5E.settings.worldSchemaVersion',
 			scope: scope.world,
 			config: false,
+			// @ts-expect-error
 			default: MigrationRunnerFoundry.LATEST_SCHEMA_VERSION,
 			type: Number,
 		},
@@ -882,7 +884,17 @@ export const settings = [
 			type: Object,
 		},
 	},
-	// Temp Theme Settings
+	// Theme Settings
+	{
+		namespace,
+		key: 'themeSettings',
+		options: {
+			name: 'Theme Settings',
+			scope: scope.client,
+			config: false,
+			type: new foundry.data.fields.SchemaField(themeSettingsSchema()),
+		},
+	},
 	{
 		namespace,
 		key: 'expertimentalprimaryColor',

@@ -7,6 +7,7 @@ import type { D20Die } from '../src/dice/terms/D20Die.ts';
 import type { ExpertiseDie } from '../src/dice/terms/ExpertiseDie.ts';
 
 import type A5eGame from '../src/interfaces/A5eGame.interface';
+import type { ThemeSettings } from '../src/settings/ThemeSettings.svelte.ts';
 
 declare global {
 	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
@@ -117,8 +118,9 @@ declare module 'fvtt-types/configuration' {
 		'a5e.showFavorPoints': boolean;
 		'a5e.showVRCImplants': boolean;
 		'a5e.simpleRests': boolean;
+		'a5e.themeSettings': ThemeSettings.Config;
 		'a5e.useCredits': boolean;
-		'a5e.a5e.visionRulesApplyToCharactersOnly': boolean;
+		'a5e.visionRulesApplyToCharactersOnly': boolean;
 	}
 }
 
