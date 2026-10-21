@@ -486,8 +486,8 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 		// Handle action update
 		if (owningDocument?.documentName === 'Item' && actionId) {
 			const action = owningDocument.actions.get(actionId);
-			owningDocument.update({
-				[`system.actions.${actionId}.effects`]: [[...action.effects], ...effects.map((e) => e.id)],
+			await owningDocument.update({
+				[`system.actions.${actionId}.effects`]: [...action.effects, ...effects.map((e) => e.id)],
 			});
 		}
 	}

@@ -2,7 +2,7 @@
 	"id": "a5e",
 	"title": "Level Up: Advanced 5th Edition (Official)",
 	"description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
-	"version": "1.4.5",
+	"version": "1.4.10",
 	"authors": [
 		{
 			"name": "Phillip Best",
@@ -130,6 +130,13 @@
 			"system": "a5e"
 		},
 		{
+			"name": "a5e-driver-features",
+			"label": "A5E Driver Features",
+			"path": "packs/driverFeatures.db",
+			"type": "Item",
+			"system": "a5e"
+		},
+		{
 			"name": "a5e-heritage-features",
 			"label": "A5E Heritage Features",
 			"path": "packs/heritageFeatures.db",
@@ -140,6 +147,13 @@
 			"name": "a5e-feats",
 			"label": "A5E Feats",
 			"path": "packs/feats.db",
+			"type": "Item",
+			"system": "a5e"
+		},
+		{
+			"name": "a5e-follower-features",
+			"label": "A5E Follower Features",
+			"path": "packs/followerFeatures.db",
 			"type": "Item",
 			"system": "a5e"
 		},
@@ -176,6 +190,13 @@
 			"label": "A5E Monster Features",
 			"path": "packs/monsterFeatures.db",
 			"type": "Item",
+			"system": "a5e"
+		},
+		{
+			"name": "a5e-vehicles",
+			"label": "A5E Vehicles",
+			"path": "packs/vehicles.db",
+			"type": "Actor",
 			"system": "a5e"
 		},
 		{
@@ -236,11 +257,14 @@
 				"a5e-destiny-features",
 				"a5e-heritage-features",
 				"a5e-feats",
+				"a5e-follower-features",
+				"a5e-driver-features",
 				"a5e-paragon-gifts",
 				"a5e-interactions",
 				"a5e-journals",
 				"a5e-roll-tables",
-				"a5e-monster-features"
+				"a5e-monster-features",
+				"a5e-vehicles"
 			]
 		},
 		{
@@ -274,7 +298,9 @@
 		"Actor": {
 			"character": {},
 			"npc": {},
-			"party": {}
+			"party": {},
+			"follower": {},
+			"vehicle": {}
 		},
 		"ChatMessage": {
 			"item": {},
@@ -294,6 +320,9 @@
 			"destiny": {},
 			"heritage": {},
 			"interaction": {}
+		},
+		"RegionBehavior": {
+			"difficultTerrain": {}
 		}
 	},
 	"compatibility": {
@@ -303,5 +332,5 @@
 	},
 	"url": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official",
 	"manifest": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json",
-	"download": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/download/1.4.5/a5e.zip"
+	"download": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/download/1.4.10/a5e.zip"
 }

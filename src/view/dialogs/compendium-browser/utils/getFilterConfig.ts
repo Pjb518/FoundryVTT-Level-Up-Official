@@ -47,6 +47,9 @@ function getFeatureFilterConfig(filterSelections?: Record<string, any>) {
 		},
 	];
 
+	const followerFeatureSelected =
+		filterSelections?.featureType?.inclusive?.includes('followerFeature') ?? false;
+
 	if (featSelected && CONFIG.A5E.synergies && Object.keys(CONFIG.A5E.synergies).length > 0) {
 		config.push(
 			{
@@ -72,11 +75,31 @@ function getFeatureFilterConfig(filterSelections?: Record<string, any>) {
 		);
 	}
 
+	if (followerFeatureSelected) {
+		config.push(
+			{
+				filterKey: 'followerType',
+				heading: 'Follower Type',
+				options: CONFIG.A5E.followerTypes,
+			},
+			{
+				filterKey: 'experienceType',
+				heading: 'Experience Type',
+				options: CONFIG.A5E.followerExperienceTypes,
+			},
+		);
+	}
+
 	config.push(
 		{
 			filterKey: 'classes',
 			heading: 'Class',
 			options: CONFIG.A5E.classes,
+		},
+		{
+			filterKey: 'miscellaneous',
+			heading: 'Miscellaneous',
+			options: { hasPrerequisite: 'Has Prerequisite' },
 		},
 		getSourceFilterSection(),
 	);
@@ -181,6 +204,22 @@ function getMonsterFilterConfig() {
 	];
 }
 
+function getVehicleFilterConfig() {
+	return [
+		{
+			filterKey: 'terrain',
+			heading: 'Vehicle Type',
+			options: CONFIG.A5E.vehicleTypes,
+		},
+		{
+			filterKey: 'size',
+			heading: 'Vehicle Size',
+			options: CONFIG.A5E.actorSizes,
+		},
+		getSourceFilterSection(),
+	];
+}
+
 function getMonsterFeatureFilterConfig() {
 	const featureTypeOptions = Object.fromEntries(
 		Object.entries(CONFIG.A5E.featureTypes).filter(([key]) =>
@@ -272,5 +311,6 @@ export function getFilterConfig(documentType: string, filterSelections?: Record<
 	if (documentType === 'monsterFeature') return getMonsterFeatureFilterConfig();
 	if (documentType === 'object') return getObjectFilterConfig();
 	if (documentType === 'spell') return getSpellFilterConfig();
+	if (documentType === 'vehicle') return getVehicleFilterConfig();
 	return getGenericConfig();
 }

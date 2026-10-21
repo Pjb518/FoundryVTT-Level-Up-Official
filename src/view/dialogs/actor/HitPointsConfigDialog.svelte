@@ -18,7 +18,8 @@
   ];
 
   let actor: any = document;
-  const hitDice = prepareHitDice(actor);
+  const isVehicle = actor.type === "vehicle";
+  const hitDice = isVehicle ? [] : prepareHitDice(actor);
 
   let hp = $derived(actor.reactive.system.attributes.hp);
   let disableHitDice = $derived(
@@ -106,6 +107,55 @@
         </div>
       </div>
     {/each}
+
+    {#if !isVehicle}
+      <hr class="a5e-rule" />
+
+      <section class={`a5e-hit-die-container ${hitDieClasses}`}>
+        {#each hitDice as { dieSize, current, total }}
+          <div class="a5e-hit-die-wrapper">
+            <div class="a5e-hit-die">
+              <span class="a5e-hit-die__label">{dieSize}</span>
+            </div>
+
+            <div class="a5e-hit-die__input-container">
+              <input
+                class="a5e-hit-die__quantity"
+                type="number"
+                min="0"
+                name="system.attributes.hitDice.{dieSize}.current"
+                disabled={!!disableHitDice}
+                data-tooltip={disableHitDice
+                  ? "Update Hit Dice in class document.   "
+                  : ""}
+                value={current}
+                onchange={({ currentTarget }) =>
+                  updateDocumentDataFromField(
+                    actor,
+                    currentTarget.name,
+                    Number(currentTarget.value),
+                  )}
+              />
+              /
+              <input
+                class="a5e-hit-die__quantity"
+                type="number"
+                min="0"
+                name="system.attributes.hitDice.{dieSize}.total"
+                disabled={!!disableHitDice}
+                value={total}
+                onchange={({ currentTarget }) =>
+                  updateDocumentDataFromField(
+                    actor,
+                    currentTarget.name,
+                    Number(currentTarget.value),
+                  )}
+              />
+            </div>
+          </div>
+        {/each}
+      </section>
+    {/if}
   </section>
 </article>
 

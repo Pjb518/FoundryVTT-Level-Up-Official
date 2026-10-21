@@ -56,6 +56,19 @@ export function generateExpandedChanges(changes) {
 			removalKeys.push(change.key);
 		}
 
+		if (change.key === 'flags.a5e.effects.expertiseDice.attack.all') {
+			const attackTypes = Object.keys(CONFIG.A5E.attackTypes);
+
+			attackTypes.forEach((type) => {
+				const expandedChange = foundry.utils.deepClone(change);
+				expandedChange.key = `system.rolls.attack.${type}.outgoing.expertiseDice`;
+				expandedChange.effect = change.effect;
+				additionalChanges.push(expandedChange);
+			});
+
+			removalKeys.push(change.key);
+		}
+
 		/** --------------------------- */
 		// Movement
 		/** --------------------------- */

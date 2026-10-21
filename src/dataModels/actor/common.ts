@@ -1,8 +1,7 @@
 import { d20RollModification } from '../common.ts';
+import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
-import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
-
 import {
 	getAbilitiesBonusData,
 	getAttackBonusData,
@@ -15,6 +14,7 @@ import {
 	getSensesBonusData,
 	getSkillBonusData,
 } from './Bonuses.ts';
+import { spellBookSchema } from './SpellBook.ts';
 
 const { fields } = foundry.data;
 
@@ -454,14 +454,21 @@ export const skills = () => ({
 });
 
 export const spellBooks = () => ({
-	spellBooks: new RecordField(
-		new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-		new fields.ObjectField(),
-		{
-			required: true,
-			initial: () => ({ [foundry.utils.randomID()]: {} }),
+	spellBooks: new fields.TypedObjectField(new fields.SchemaField(spellBookSchema()), {
+		required: true,
+		nullable: false,
+		validateKey: (key: string) => foundry.data.validators.isValidId(key),
+		initial: () => {
+			const _id = foundry.utils.randomID();
+			return {
+				[_id]: {
+					...new fields.SchemaField(spellBookSchema()).getInitialValue(),
+					_id,
+					default: true,
+				},
+			};
 		},
-	),
+	}),
 });
 
 export const traits = () => ({

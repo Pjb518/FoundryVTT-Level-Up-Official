@@ -23,16 +23,17 @@ import SkillBonusConfigDialog from '#view/components/bonuses/SkillBonusConfigDia
 import AbilityCheckRollDialog from '#view/dialogs/actor/AbilityCheckRollDialog.svelte';
 import AbilityConfigDialog from '#view/dialogs/actor/AbilityConfigDialog.svelte';
 import ArmorClassConfigDialog from '#view/dialogs/actor/ArmorClassConfigDialog.svelte';
+import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import DetailsConfigDialog from '#view/dialogs/actor/DetailsConfigDialog.svelte';
 import HitPointsConfigDialog from '#view/dialogs/actor/HitPointsConfigDialog.svelte';
 import InitiativeConfigDialog from '#view/dialogs/actor/InitiativeConfigDialog.svelte';
-import ConditionResistanceConfigDialog from '#view/dialogs/actor/ConditionResistanceConfigDialog.svelte';
 import MovementConfigDialog from '#view/dialogs/actor/MovementConfigDialog.svelte';
 import RestDialog from '#view/dialogs/actor/RestDialog.svelte';
 import SavingThrowRollDialog from '#view/dialogs/actor/SavingThrowRollDialog.svelte';
 import SensesConfigDialog from '#view/dialogs/actor/SensesConfigDialog.svelte';
 import SkillCheckRollDialog from '#view/dialogs/actor/SkillCheckRollDialog.svelte';
 import SkillConfigDialog from '#view/dialogs/actor/SkillConfigDialog.svelte';
+import VehicleCollisionConfigDialog from '#view/dialogs/actor/VehicleCollisionConfigDialog.svelte';
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import type { D20Roll } from '../../dice/rolls/D20Roll.ts';
@@ -103,6 +104,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		terrain: DetailsConfigDialog,
 		tools: DetailsConfigDialog,
 		types: DetailsConfigDialog,
+		vehicleCollision: VehicleCollisionConfigDialog,
+		vehicleProperties: DetailsConfigDialog,
 		weapons: DetailsConfigDialog,
 	};
 
@@ -226,8 +229,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return this.type === 'npc';
 	}
 
+	isFollower(): this is Actor.OfType<'follower'> {
+		return this.type === 'follower';
+	}
+
 	isParty(): this is Actor.OfType<'party'> {
 		return this.type === 'party';
+	}
+
+	isVehicle(): this is Actor.OfType<'vehicle'> {
+		return this.type === 'vehicle';
 	}
 
 	/** ================================================================= */
@@ -254,10 +265,17 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Check if an actor is bloodied */
 	get isBloodied(): boolean {
-		if (!this.isCreature()) return false;
+		if (!this.isCreature() && !this.isVehicle()) return false;
 
 		const { max, value } = this.system.attributes.hp;
 		return (value / max) * 100 <= 50;
+	}
+
+	get driver(): Actor.Implementation | null {
+		if (!this.isVehicle() || !this.system.driver) return null;
+
+		const driver = fromUuidSync(this.system.driver as any) as Actor.Implementation | null;
+		return driver instanceof ActorA5E && driver.isCreature() ? driver : null;
 	}
 
 	/** Get current schema version of the actor */
@@ -531,7 +549,19 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Call Sub Methods
 		if (this.isCreature()) this.prepareCreatureBaseData();
+		if (this.isFollower()) this.prepareFollowerBaseData();
+		if (this.isVehicle()) this.prepareVehicleBaseData();
 		if (this.isParty()) this.preparePartyBaseData();
+	}
+
+	/** Prepares base data for vehicles */
+	prepareVehicleBaseData(this: Actor.OfType<'vehicle'>) {
+		this.BonusesManager = new BonusesManager(this as unknown as Creature);
+	}
+
+	/** Prepares base data for followers */
+	prepareFollowerBaseData(this: Actor.OfType<'follower'>) {
+		this.BonusesManager = new BonusesManager(this as unknown as Creature);
 	}
 
 	/** Prepares common base data for creatures */
@@ -624,6 +654,152 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		super.prepareDerivedData();
 
 		if (this.isCreature()) this.prepareCreatureDerivedData();
+		if (this.isVehicle()) this.prepareVehicleDerivedData();
+	}
+
+	/** Prepares derived data for vehicles */
+	prepareVehicleDerivedData(this: Actor.OfType<'vehicle'>) {
+		const { abilities, attributes, details } = this.system;
+		const isSpace = details.terrain === 'space';
+
+		const driverAbilities = this.driver?.system?.abilities as Record<string, any> | undefined;
+		const driverScore = (key: string) => driverAbilities?.[key]?.value ?? 0;
+
+		abilities.dex.value = driverScore('dex');
+
+		if (isSpace) {
+			abilities.str.value = driverScore('str');
+			abilities.con.value = driverScore('con');
+			abilities.wis.value = 10;
+		}
+
+		Object.values(abilities).forEach((ability: any) => {
+			const mod = Math.floor((ability.value - 10) / 2);
+
+			ability.mod = mod;
+			ability.check.mod = mod;
+			ability.check.deterministicBonus = mod;
+			ability.save.mod = mod;
+			ability.save.deterministicBonus = mod;
+		});
+
+		// Hit points
+		attributes.hp.max = attributes.hp.baseMax + attributes.hp.bonus;
+
+		// Armor class
+		const baseAC = getDeterministicBonus(
+			`${attributes.ac.baseFormula}` || '10',
+			this.getRollData(),
+		);
+		const driverDexMod =
+			attributes.ac.addDriverDex && isSpace ? Math.floor((driverScore('dex') - 10) / 2) : 0;
+
+		attributes.ac.value = Number.parseInt(String((baseAC ?? 10) + driverDexMod), 10) || 10;
+	}
+
+	static readonly COLLISION_FORMULAS: Record<string, string> = {
+		sm: '1d6',
+		med: '2d6',
+		lg: '4d6',
+		huge: '8d6',
+		grg: '12d6',
+		titan: '16d6',
+	};
+
+	static readonly VEHICLE_SIZE_DEFAULT_PATHS: Record<string, 'str' | 'con' | 'passengers'> = {
+		'system.abilities.str.value': 'str',
+		'system.abilities.con.value': 'con',
+		'system.passengers.max': 'passengers',
+	};
+
+	static getVehicleSizeDefaults(size: string) {
+		return CONFIG.A5E.vehicleSizeDefaults[size as 'lg'] ?? CONFIG.A5E.vehicleSizeDefaults.lg;
+	}
+
+	get sizeCollisionFormula(): string {
+		if (!this.isVehicle()) return '';
+		return ActorA5E.COLLISION_FORMULAS[this.system.traits.size] ?? ActorA5E.COLLISION_FORMULAS.lg;
+	}
+
+	get defaultCollisionFormula(): string {
+		if (!this.isVehicle()) return '';
+		return this.system.collisionFormula?.trim() || this.sizeCollisionFormula;
+	}
+
+	async rollCollision(this: Actor.OfType<'vehicle'>, formula?: string) {
+		if (!this.isOwner) return null;
+
+		let rollFormula = formula;
+
+		if (!rollFormula) {
+			const result = await foundry.applications.api.DialogV2.prompt({
+				window: { title: localize('A5E.vehicle.collision.title', { name: this.name }) },
+				content: `
+					<div class="form-group">
+						<label>${localize('A5E.vehicle.collision.damage')}</label>
+						<div class="form-fields">
+							<input type="text" name="formula" value="${this.defaultCollisionFormula}" autofocus>
+						</div>
+					</div>`,
+				ok: {
+					label: localize('A5E.vehicle.collision.roll'),
+					icon: '',
+					callback: (_event: Event, button: HTMLButtonElement) =>
+						((button.form as HTMLFormElement).elements as any).formula.value as string,
+				},
+				rejectClose: false,
+			} as any);
+
+			rollFormula = (result as string | null)?.trim();
+		}
+
+		if (!rollFormula) return null;
+
+		if (!Roll.validate(rollFormula)) {
+			ui.notifications.warn(localize('A5E.vehicle.collision.invalidFormula'));
+			return null;
+		}
+
+		const damageType = 'bludgeoning';
+		const roll = await new CONFIG.Dice.DamageRoll(rollFormula, this.getRollData()).evaluate({
+			allowInteractive: false,
+		});
+
+		const label = localize('A5E.damage.labels.specific', {
+			damageType: localize(CONFIG.A5E.damageTypes[damageType]),
+		});
+
+		const chatData = {
+			author: game.user?.id,
+			speaker: ChatMessage.getSpeaker({ actor: this as any }),
+			sound: CONFIG.sounds.dice,
+			rolls: [roll],
+			system: {
+				actorId: this.uuid,
+				actorName: this.name,
+				img: this.token?.texture.src ?? this.img,
+				rollData: [
+					{
+						canCrit: false,
+						critRoll: roll,
+						damageType,
+						label,
+						userLabel: localize('A5E.vehicle.collision.label'),
+						type: 'damage',
+					},
+				],
+				rollType: 'damage',
+			},
+			type: 'roll',
+		};
+
+		// @ts-expect-error
+		ChatMessage.applyMode(chatData, game.settings.get('core', 'messageMode'));
+		// @ts-expect-error
+		await ChatMessage.create(chatData);
+
+		await (this as any).applyDamage(roll.total ?? 0, damageType);
+		return roll;
 	}
 
 	/** Prepares derived data for creatures */
@@ -966,7 +1142,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		Object.entries(actorData.skills).forEach(([key, skill]) => {
 			const baseDie = skill.expertiseDice ?? 0;
-			const expertiseDice = grants?.reduce((acc, grant) => {
+			const expertiseDice = (grants ?? []).reduce((acc, grant) => {
 				const { expertiseCount, selected } = grant.applied;
 				if (!selected.includes(key)) return acc;
 
@@ -1819,6 +1995,21 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		// Call Sub Modules
 		if (this.isCreature()) this.getCreatureRollData(data, item);
+		if (this.isVehicle()) this.getVehicleRollData(data);
+
+		return data;
+	}
+
+	getVehicleRollData(this: Actor.OfType<'vehicle'>, data: Record<string, any>) {
+		data.prof = 0;
+
+		Object.entries(this.system.abilities).reduce((acc, [key, ability]) => {
+			acc.abilities ??= {};
+			acc.abilities[key] = { ...ability, mod: ability.check.mod };
+			acc[key] = { ...ability, mod: ability.check.mod };
+
+			return acc;
+		}, data);
 
 		return data;
 	}
@@ -2892,6 +3083,22 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		this.#configure('size', title, data, options);
 	}
 
+	configureCollision(this: Creature, data: Record<string, any> = {}, options = {}) {
+		const title = localize('A5E.vehicle.collision.configurePrompt', { name: this.name });
+		this.#configure('vehicleCollision', title, data, options);
+	}
+
+	configureVehicleProperties(this: Creature, data: Record<string, any> = {}, options = {}) {
+		const title = localize('A5E.vehicle.propertiesConfigurationPrompt', { name: this.name });
+
+		data.heading ??= 'A5E.vehicle.specialProperties';
+		data.propertyKey ??= 'system.details.specialProperties';
+		data.configObject ??= CONFIG.A5E.vehicleProperties;
+		data.type ??= 'vehicleProperties';
+
+		this.#configure('vehicleProperties', title, data, options);
+	}
+
 	configureSkill(this: Creature, data: Record<string, any> = {}, options = { width: 440 }) {
 		const title = localize('A5E.bonuses.labels.skillConfigurationPrompt', {
 			name: this.name,
@@ -3146,8 +3353,9 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	async distributeXP(this: Actor.OfType<'party'>, xp: number) {
 		if (!this.isParty()) return;
 
-		const members = this.members;
+		const members = this.members.filter((m) => !m.isFollower());
 		const count = members.length;
+		if (count === 0) return;
 
 		const awarded = Math.floor(xp / count);
 
@@ -3231,7 +3439,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Handle multi-leveled effects
 		if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(statusId)) {
 			const delta = active ? 1 : -1;
-			const currLevel = this.system.attributes[statusId];
+			const currLevel = (this.system as any).attributes[statusId];
 			const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
 			if (delta === 1 && currLevel >= maxLevel) return undefined;
 			if (delta === -1 && currLevel <= 0) return undefined;
@@ -3342,6 +3550,57 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Call Sub Methods
 		if (this.isCreature()) this._preCreateCreature(data, options, user);
 		if (this.isParty()) this._preCreateParty(data, options, user);
+		if (this.isVehicle()) this._preCreateVehicle(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Vehicle)
+	/** ---------------------------------- */
+	async _preCreateVehicle(
+		this: Actor.OfType<'vehicle'>,
+		...[data, _options, _user]: Parameters<Actor['_preCreate']>
+	) {
+		const size = (data as any)?.system?.traits?.size ?? 'lg';
+		const dimension = CONFIG.A5E.tokenDimensions[size] ?? 1;
+
+		const traits = (data as any)?.system?.traits ?? {};
+
+		const sizeDefaults = ActorA5E.getVehicleSizeDefaults(size);
+		const sizeUpdates = Object.fromEntries(
+			Object.entries(ActorA5E.VEHICLE_SIZE_DEFAULT_PATHS)
+				.filter(([path]) => !foundry.utils.hasProperty(data as object, path))
+				.map(([path, key]) => [path, sizeDefaults[key]]),
+		);
+
+		(this as any).updateSource({
+			...sizeUpdates,
+			'system.traits.size': size,
+			prototypeToken: { actorLink: true, width: dimension, height: dimension },
+			...(traits.damageImmunities
+				? {}
+				: { 'system.traits.damageImmunities': ['poison', 'psychic'] }),
+			...(traits.conditionImmunities
+				? {}
+				: {
+						'system.traits.conditionImmunities': [
+							'blinded',
+							'charmed',
+							'confused',
+							'deafened',
+							'fatigue',
+							'frightened',
+							'incapacitated',
+							'paralyzed',
+							'petrified',
+							'poisoned',
+							'prone',
+							'slowed',
+							'strife',
+							'stunned',
+							'unconscious',
+						],
+					}),
+		});
 	}
 
 	/** ---------------------------------- */
@@ -3414,6 +3673,43 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Call Sub Modules
 		if (this.isCreature()) this._preUpdateCreature(changed, options, user);
 		if (this.isParty()) this._preUpdateParty(changed, options, user);
+		if (this.isVehicle()) this._preUpdateVehicle(changed, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Update (Vehicle)
+	/** ---------------------------------- */
+	_preUpdateVehicle(
+		this: Actor.OfType<'vehicle'>,
+		...[changed, _options, _user]: Parameters<Actor['_preUpdate']>
+	) {
+		if ((foundry.utils.getProperty(changed, 'system.attributes.hp.value') as number) < 0) {
+			foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
+		}
+
+		const newSize = foundry.utils.getProperty(changed, 'system.traits.size') as string | undefined;
+		const automateTokenSize =
+			this.flags?.a5e?.automatePrototypeTokenSize ??
+			game.settings.get('a5e', 'automatePrototypeTokenSize') ??
+			true;
+
+		if (newSize && automateTokenSize) {
+			const dimension = CONFIG.A5E.tokenDimensions[newSize];
+			foundry.utils.setProperty(changed, 'prototypeToken.height', dimension);
+			foundry.utils.setProperty(changed, 'prototypeToken.width', dimension);
+		}
+
+		if (newSize) {
+			const oldDefaults = ActorA5E.getVehicleSizeDefaults(this._source.system.traits.size);
+			const newDefaults = ActorA5E.getVehicleSizeDefaults(newSize);
+
+			for (const [path, key] of Object.entries(ActorA5E.VEHICLE_SIZE_DEFAULT_PATHS)) {
+				if (foundry.utils.hasProperty(changed, path)) continue;
+				if (foundry.utils.getProperty(this._source, path) !== oldDefaults[key]) continue;
+
+				foundry.utils.setProperty(changed, path, newDefaults[key]);
+			}
+		}
 	}
 
 	/** ---------------------------------- */
@@ -3562,6 +3858,33 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		// Call Sub Modules
 		if (this.isCreature()) this._onUpdateCreature(changed, options, userId);
 		if (this.isParty()) this._onUpdateParty(changed, options, userId);
+		if (this.isVehicle()) this._onUpdateVehicle(changed, options, userId);
+
+		if (this.isCreature() && foundry.utils.hasProperty(changed, 'system.abilities')) {
+			this._refreshDrivenVehicles();
+		}
+	}
+
+	/** ---------------------------------- */
+	// On Update (Vehicle)
+	/** ---------------------------------- */
+	_onUpdateVehicle(
+		this: Actor.OfType<'vehicle'>,
+		...[changed, _options, userId]: Parameters<Actor['_onUpdate']>
+	) {
+		const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
+		if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
+	}
+
+	_refreshDrivenVehicles() {
+		for (const actor of game.actors ?? []) {
+			if (!(actor instanceof ActorA5E) || !actor.isVehicle()) continue;
+			if ((actor as any).system.driver !== this.uuid) continue;
+
+			actor.reset();
+
+			(Hooks as any).callAll('updateActor', actor, {}, { diff: true }, game.user?.id);
+		}
 	}
 
 	/** ---------------------------------- */

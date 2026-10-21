@@ -5,12 +5,16 @@
     summaryData: Record<string, any>;
   };
 
-  let { summaryData = {} } = $props();
+  let { summaryData = {} }: Props = $props();
 
   const fields = [
     {
       field: "craftingComponents",
       label: "A5E.objects.craftingComponents",
+    },
+    {
+      field: "siege",
+      label: "A5E.weapons.properties.siege",
     },
     {
       field: "spellClasses",
@@ -98,6 +102,12 @@
     </p>
   {/if}
 
+  {#if summaryData.featureProperties}
+    <p class="a5e-summary__item-properties">
+      {summaryData.featureProperties}
+    </p>
+  {/if}
+
   {#if summaryData.spellProperties}
     <p class="a5e-summary__item-properties">
       {summaryData.spellProperties}
@@ -148,10 +158,6 @@
       list-style: none;
       margin: 0 0 0 0;
       padding: 0 var(--inline-padding, 0);
-    }
-
-    &__field-header {
-      font-weight: bold;
     }
   }
 </style>

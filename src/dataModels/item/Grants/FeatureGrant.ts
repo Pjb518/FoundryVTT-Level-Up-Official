@@ -42,7 +42,7 @@ const schema = () => ({
 					selectionLimit: new fields.NumberField({ required: true, nullable: false, inital: 1 }),
 				}),
 			),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		}),
 
 		// List config

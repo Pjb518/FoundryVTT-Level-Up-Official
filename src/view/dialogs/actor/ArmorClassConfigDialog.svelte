@@ -31,6 +31,22 @@
     />
   </FieldWrapper>
 
+  {#if actor.type === "vehicle" && actorStore.details.terrain === "space"}
+    <FieldWrapper heading="A5E.vehicle.driver">
+      <label class="a5e-vehicle-ac-driver-dex">
+        <input
+          type="checkbox"
+          name="system.attributes.ac.addDriverDex"
+          checked={actorStore.attributes.ac.addDriverDex}
+          onchange={({ currentTarget }) =>
+            updateDocumentDataFromField(actor, currentTarget.name, currentTarget.checked)}
+        />
+
+        {localize("A5E.vehicle.addDriverDex")}
+      </label>
+    </FieldWrapper>
+  {/if}
+
   <FieldWrapper heading="A5E.armorClass.formula">
     <div class="ac-formula-preview">
       {acFormula}
@@ -39,6 +55,13 @@
 </Section>
 
 <style lang="scss">
+  .a5e-vehicle-ac-driver-dex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--a5e-sm-text);
+  }
+
   .ac-formula-preview {
     padding: var(--a5e-spacing-sm);
     font-size: var(--a5e-text-sm);

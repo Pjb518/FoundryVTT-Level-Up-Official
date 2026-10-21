@@ -56,7 +56,7 @@
 
     let currentSpellBook = $derived(
         actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
-            Object.keys(actorStore.spellBooks ?? {})?.[0],
+            actor.reactive.spellBooks?.default?._id,
     );
 </script>
 
@@ -95,7 +95,7 @@
 {/if}
 
 <!-- Artifact Charges -->
-{#if actor.reactive.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
+{#if actor.reactive.spellBooks?.get(currentSpellBook)?.config?.showArtifactCharges ?? false}
     <FieldWrapper
         heading="A5E.spells.spellcasting.artifactCharges"
         headingTooltip="Number Of Available Charges."
@@ -134,7 +134,7 @@
 {/if}
 
 <!-- Spell Inventions -->
-{#if actor.reactive.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
+{#if actor.reactive.spellBooks?.get(currentSpellBook)?.config?.showSpellInventions ?? false}
     <FieldWrapper
         heading="A5E.spells.spellcasting.inventions"
         headingTooltip="Number Of Available Inventions."
@@ -175,7 +175,7 @@
 
 <!-- Spell Points -->
 {#if startingClass !== "psyknight"}
-    {#if actor.reactive.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
+    {#if actor.reactive.spellBooks?.get(currentSpellBook)?.config?.showSpellPoints ?? false}
         <FieldWrapper
             heading="A5E.spells.spellcasting.points"
             --a5e-field-wrapper-direction="row"

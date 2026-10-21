@@ -15,8 +15,9 @@
     type: string;
   };
 
-  function getTooltipData(actor: Actor) {
-    const grantData = actor.grants.getGrantedTraits(type);
+  function getTooltipData(actor: Actor): Record<string, string> {
+    const grantData = actor.grants?.getGrantedTraits(type);
+    if (!grantData) return {};
 
     const data = {};
     for (const value of Object.values(grantData)) {
@@ -36,9 +37,7 @@
   const isRadioGroup = ["size"].includes(type);
   const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-  let selected = $derived(
-    foundry.utils.getProperty(actor.reactive, propertyKey),
-  );
+  let selected = $derived(foundry.utils.getProperty(actor.reactive, propertyKey));
   let tooltipData = $derived(getTooltipData(actor.reactive));
 
   let options = $derived(Object.entries(configObject)) as string[][];
@@ -92,11 +91,7 @@
           label="A5E.details.creature.labels.shapechanger"
           checked={actorStore.details.isShapechanger}
           onUpdateSelection={(value) => {
-            updateDocumentDataFromField(
-              actor,
-              "system.details.isShapechanger",
-              value,
-            );
+            updateDocumentDataFromField(actor, "system.details.isShapechanger", value);
           }}
         />
 

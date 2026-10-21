@@ -1,6 +1,4 @@
-import type SpellItemA5e from '../../documents/item/spell';
-
-export default function getSpellComponentsLabel(item: SpellItemA5e) {
+export default function getSpellComponentsLabel(item: Item.OfType<'spell'>) {
 	const components = Object.entries(item.system.components)
 		.reduce((acc, [component, hasComponent]) => {
 			if (hasComponent) acc.push(CONFIG.A5E.spellComponentAbbreviations[component]);

@@ -1,0 +1,497 @@
+{
+	"name": "Deadly Cantripper",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+	"system": {
+		"description": "<p>You continue to push yourself, learning more combat tactics, weapons, and ways to enhance your cantrips. You gain the following benefits:</p><ul><li><p>Your Dexterity, Constitution, or warcaster spellcasting ability score increases by 1, to a maximum of 20.</p></li><li><p>You gain an expertise die to your Arcana skill. Your maximum expertise die size for Arcana increases to a d10.</p></li><li><p>You gain proficiency with a martial weapon of your choice, or if you are already proficient with all martial weapons, a rare weapon of your choice.</p></li><li><p>Your critical range for attacks made as part of a cantrip increases by 1, to a maximum range of 17-20.</p></li><li><p>Whenever you score a critical hit with a cantrip, you can choose to apply the additional effect from Dangerous Cantripper to an allied creature within 30 instead of yourself.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {
+			"SZRmYRFRImpB0Bgt": {
+				"name": "Critical Hit",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"3temvFo6rvpGrxMa"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"VyEk4V9eeVuxZcLO": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"tnGiWs8WGkLQUfHO": {
+						"type": "healing",
+						"default": false,
+						"formula": "@prof",
+						"healingType": "temporaryHealing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"YIzpElClTu3OoK4i": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Deadly Cantripper",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"dex",
+						"con",
+						"int",
+						"cha"
+					],
+					"base": []
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Deadly Cantripper",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"dex",
+							"con",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 0
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"pBgq1XF6VN62No0H": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Deadly Cantripper",
+				"keys": {
+					"base": [
+						"arc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1,
+				"type": "expertiseDice",
+				"id": "",
+				"name": "Deadly Cantripper",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"arc"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				}
+			},
+			"mZsFzvHemNb75CXY": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Deadly Cantripper",
+				"keys": {
+					"base": [],
+					"options": [
+						"bastardSword",
+						"battleaxe",
+						"battleGauntlet",
+						"bioChakram",
+						"brassKnuckles",
+						"combatChainsaw",
+						"combatKnife",
+						"compositeBow",
+						"dart",
+						"duelingDagger",
+						"duelingSword",
+						"electroHalberd",
+						"energyCrossbow",
+						"flail",
+						"flameBracer",
+						"flamethrower",
+						"garotte",
+						"glaive",
+						"greataxe",
+						"greatsword",
+						"grenadeLauncher",
+						"halberd",
+						"handCrossbow",
+						"hypodermicPistol",
+						"ionCannon",
+						"javelin",
+						"lance",
+						"lightHammer",
+						"longbow",
+						"longspear",
+						"longsword",
+						"maul",
+						"monoWhip",
+						"morningstar",
+						"net",
+						"netcaster",
+						"pike",
+						"plasmaSword",
+						"polaronGatlingGun",
+						"pulseRifle",
+						"punchingDagger",
+						"rapier",
+						"saber",
+						"scimitar",
+						"scythe",
+						"shortbow",
+						"shortsword",
+						"shotgun",
+						"slugRifle",
+						"sniperRifle",
+						"spearThrower",
+						"throwingDagger",
+						"tkGauntlet",
+						"trident",
+						"vibroknife",
+						"viperRetainer",
+						"warhammer",
+						"warPick",
+						"whip"
+					],
+					"total": 1
+				},
+				"proficiencyType": "weapon",
+				"type": "proficiency",
+				"id": "",
+				"name": "New Proficiency Bonus Grant",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"weapon:bastardSword",
+									"weapon:battleaxe",
+									"weapon:battleGauntlet",
+									"weapon:bioChakram",
+									"weapon:brassKnuckles",
+									"weapon:combatChainsaw",
+									"weapon:combatKnife",
+									"weapon:compositeBow",
+									"weapon:dart",
+									"weapon:duelingDagger",
+									"weapon:duelingSword",
+									"weapon:electroHalberd",
+									"weapon:energyCrossbow",
+									"weapon:flail",
+									"weapon:flameBracer",
+									"weapon:flamethrower",
+									"weapon:garotte",
+									"weapon:glaive",
+									"weapon:greataxe",
+									"weapon:greatsword",
+									"weapon:grenadeLauncher",
+									"weapon:halberd",
+									"weapon:handCrossbow",
+									"weapon:hypodermicPistol",
+									"weapon:ionCannon",
+									"weapon:javelin",
+									"weapon:lance",
+									"weapon:lightHammer",
+									"weapon:longbow",
+									"weapon:longspear",
+									"weapon:longsword",
+									"weapon:maul",
+									"weapon:monoWhip",
+									"weapon:morningstar",
+									"weapon:net",
+									"weapon:netcaster",
+									"weapon:pike",
+									"weapon:plasmaSword",
+									"weapon:polaronGatlingGun",
+									"weapon:pulseRifle",
+									"weapon:punchingDagger",
+									"weapon:rapier",
+									"weapon:saber",
+									"weapon:scimitar",
+									"weapon:scythe",
+									"weapon:shortbow",
+									"weapon:shortsword",
+									"weapon:shotgun",
+									"weapon:slugRifle",
+									"weapon:sniperRifle",
+									"weapon:spearThrower",
+									"weapon:throwingDagger",
+									"weapon:tkGauntlet",
+									"weapon:trident",
+									"weapon:vibroknife",
+									"weapon:viperRetainer",
+									"weapon:warhammer",
+									"weapon:warPick",
+									"weapon:whip",
+									"weapon:assassinsGauntlet",
+									"weapon:battleBook",
+									"weapon:bootDagger",
+									"weapon:carbine",
+									"weapon:doubleWeapon",
+									"weapon:gearedSlingshot",
+									"weapon:mercurialMaul",
+									"weapon:musket",
+									"weapon:pistol",
+									"weapon:ratchetingCrossbow",
+									"weapon:revolver",
+									"weapon:ringBlade",
+									"weapon:shotgunRare",
+									"weapon:spikedChain",
+									"weapon:swordPistol"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
+			}
+		},
+		"prerequisite": "8 levels in warcaster, Dangerous Cantripper feat, no levels in non-warcaster classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"dex",
+			"con",
+			"spellcasting"
+		],
+		"featClasses": [],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Dangerous Cantripper",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.6f8V23POWa4IC4my",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Dangerous Cantripper (Speed)",
+			"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+			"_id": "3temvFo6rvpGrxMa",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Your speed increases by 10 feet until the beginning of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792440014546,
+				"createdTime": 1792440014474
+			},
+			"start": null,
+			"showIcon": 1,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792440014474,
+		"modifiedTime": 1792440418166,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "WnoZ7C2TwUZgYaeE"
+}

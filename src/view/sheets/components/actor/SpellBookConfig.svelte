@@ -47,11 +47,11 @@
       <RadioGroup
         allowDeselect={false}
         options={abilityOptions}
-        selected={book?.ability ?? "default"}
+        selected={book?.config?.ability ?? "default"}
         onUpdateSelection={(value) =>
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.ability`,
+            `system.spellBooks.${spellBookId}.config.ability`,
             value,
           )}
       />
@@ -60,11 +60,11 @@
     <FieldWrapper>
       <Checkbox
         label="Show Artifact Charges"
-        checked={book?.showArtifactCharges ?? false}
+        checked={book?.config?.showArtifactCharges ?? false}
         onUpdateSelection={(value) => {
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.showArtifactCharges`,
+            `system.spellBooks.${spellBookId}.config.showArtifactCharges`,
             value,
           );
         }}
@@ -74,11 +74,11 @@
     <FieldWrapper>
       <Checkbox
         label="Show Spell Inventions"
-        checked={book?.showSpellInventions ?? false}
+        checked={book?.config?.showSpellInventions ?? false}
         onUpdateSelection={(value) => {
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.showSpellInventions`,
+            `system.spellBooks.${spellBookId}.config.showSpellInventions`,
             value,
           );
         }}
@@ -88,11 +88,11 @@
     <FieldWrapper>
       <Checkbox
         label="Show Spell Points"
-        checked={book?.showSpellPoints ?? false}
+        checked={book?.config?.showSpellPoints ?? false}
         onUpdateSelection={(value) => {
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.showSpellPoints`,
+            `system.spellBooks.${spellBookId}.config.showSpellPoints`,
             value,
           );
         }}
@@ -102,11 +102,11 @@
     <FieldWrapper>
       <Checkbox
         label="Show Spell Slots"
-        checked={book?.showSpellSlots ?? true}
+        checked={book?.config?.showSpellSlots ?? true}
         onUpdateSelection={(value) => {
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.showSpellSlots`,
+            `system.spellBooks.${spellBookId}.config.showSpellSlots`,
             value,
           );
         }}
@@ -118,15 +118,23 @@
     >
       <Checkbox
         label="Disable Spell Consumers"
-        checked={book?.disableSpellConsumers ?? false}
+        checked={book?.config?.disableSpellConsumers ?? false}
         onUpdateSelection={(value) => {
           updateDocumentDataFromField(
             document,
-            `system.spellBooks.${spellBookId}.disableSpellConsumers`,
+            `system.spellBooks.${spellBookId}.config.disableSpellConsumers`,
             value,
           );
         }}
       />
+    </FieldWrapper>
+
+    <FieldWrapper
+      hint="Adds a spell consumer to every spell in this spell book that doesn't have one. If the spell book doesn't use spell slots, an item uses consumer is added instead."
+    >
+      <button type="button" class="a5e-button" onclick={() => book?.addSpellConsumers()}>
+        Add Consumers to All Spells
+      </button>
     </FieldWrapper>
   </Section>
 </form>

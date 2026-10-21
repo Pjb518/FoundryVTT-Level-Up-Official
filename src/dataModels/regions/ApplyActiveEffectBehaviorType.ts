@@ -19,6 +19,11 @@ const schema = () => ({
 			required: true,
 			nullable: false,
 			initial: 0,
+			choices: () => {
+				const choices = { ...foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS };
+				delete choices[-2];
+				return choices;
+			},
 		}),
 	),
 	effects: new fields.SetField(
@@ -45,6 +50,9 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		};
 	}
 
+	/** @inheritdoc */
+	static override LOCALIZATION_PREFIXES = ['A5E.regionBehaviors'];
+
 	#evaluateApplication(token: TokenDocument) {
 		if (token.disposition === CONST.TOKEN_DISPOSITIONS.SECRET) return false;
 
@@ -52,6 +60,7 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		if (actor.isParty()) return false;
 
 		if (this.dispositions.size && !this.dispositions.has(token.disposition)) return false;
+		// @ts-expect-error
 		if (this.creatureSizes.size && !this.creatureSizes.has(actor.system.traits.size)) return false;
 
 		if (this.creatureTypes.size) {
@@ -75,12 +84,14 @@ class ApplyActiveEffectBehaviorType extends RegionBehaviorType<ApplyActiveEffect
 		const { token, movement } = event.data;
 		const actor = token.actor;
 		if (!actor) return;
-		if (!this.#evaluateApplication) return;
+		if (!this.#evaluateApplication(token)) return;
 
 		const resumeMovement = movement ? token.pauseMovement() : undefined;
 		// @ts-expect-error
 		const effects = this.effects ? await Promise.all(this.effects.map(fromUuid)) : [];
+		// @ts-expect-error
 		const toCreate = this.#getEffectsToCreate(actor, effects);
+		// @ts-expect-error
 		if (toCreate.length) await actor.createEmbeddedDocuments('ActiveEffect', toCreate);
 
 		await resumeMovement?.();

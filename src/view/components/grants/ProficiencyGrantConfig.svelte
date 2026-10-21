@@ -22,12 +22,17 @@
   function addOptsGroup() {
     updateDocumentDataFromField(item, `system.grants.${grantId}.config.keys.options`, [
       ...grant.config.keys.options,
-      { count: 0, candidates: [] },
+      { count: 1, candidates: [] },
     ]);
   }
 
   function deleteOptsGroup(idx: number) {
     const updated = grant.config.keys.options.filter((_, i) => i !== idx);
+
+    if (selectedMode !== "base") {
+      const selectedIdx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
+      if (selectedIdx >= idx) selectedMode = "base";
+    }
 
     updateDocumentDataFromField(
       item,
@@ -71,9 +76,8 @@
       return convertValues([...grant.config.keys.base]);
     }
 
-    console.log(selectedMode);
     const idx = Number.parseInt(selectedMode.split("-")[1], 10) - 1;
-    return convertValues([...(grant.config.keys.options[idx ?? 0].candidates ?? [])]);
+    return convertValues([...(grant.config.keys.options[idx]?.candidates ?? [])]);
   }
 
   function updateImage() {
@@ -162,7 +166,7 @@
         name="name"
         value={grant.name ?? ""}
         placeholder="Bonus Name"
-        onchange={({ currentTarget }) => onUpdateValue("label", currentTarget.value)}
+        onchange={({ currentTarget }) => onUpdateValue("name", currentTarget.value)}
       />
     </div>
   </header>

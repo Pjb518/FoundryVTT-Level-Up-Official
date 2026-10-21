@@ -116,11 +116,11 @@
     const data = message.system.shapeData.value;
     if (!data) return;
 
-    foundry.utils.setProperty(
-      data,
-      "flags.a5e.originItem",
-      message.system.itemId ?? null,
-    );
+    foundry.utils.setProperty(data, "flags.a5e", {
+      ...(data.flags?.a5e ?? {}),
+      originItem: message.system.itemId ?? null,
+    });
+
     canvas.regions.placeRegion(data);
   }
 

@@ -1,11 +1,8 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { Action } from "#types/action.js";
   import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
   import { localize } from "#utils/localization/localize.ts";
-  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { prepareScalingSummary } from "#utils/view/helpers/prepareScalingSummary.ts";
-  import { updateAssociatedValues } from "#utils/view/updateAssociatedValues.ts";
   import TemplateScalingDialog from "#view/dialogs/action/TemplateScalingDialog.svelte";
   import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
 
@@ -33,11 +30,22 @@
     dialog.render(true);
   }
 
-  function removeArea() {
+  function updateArea(key: string, value: any) {
+    let area = item.system.actions[actionId].area;
+
+    if (key === "shape") {
+      const behaviors: Record<string, any> = {};
+      Object.keys(area?.behaviors ?? {}).forEach((id) => {
+        behaviors[id] = _del;
+      });
+
+      area = { shape: value, behaviors, scaling: {} };
+    } else {
+      area[key] = value;
+    }
+
     item.update({
-      [`system.actions.${actionId}`]: {
-        area: _del,
-      },
+      [`system.actions.${actionId}.area`]: _replace(area),
     });
   }
 
@@ -77,15 +85,7 @@
     type="radio"
     checked={key ? action.area?.shape === key : isEmpty(action.area)}
     onclick={({ currentTarget }) => {
-      removeArea();
-      if (key === null) return;
-
-      updateAssociatedValues(
-        item,
-        `system.actions.${actionId}.area.shape`,
-        currentTarget.value,
-        `system.actions.${actionId}.area.quantity`,
-      );
+      updateArea("shape", currentTarget.value);
     }}
   />
 
@@ -104,7 +104,7 @@
   --a5e-section-gap="0.5rem"
 >
   <div class="a5e-area-shape__list">
-    {@render AreaShape(null, "A5E.None")}
+    {@render AreaShape("none", "A5E.None")}
 
     {#each Object.entries(A5E.areaTypes) as [key, name] (key)}
       {@render AreaShape(key, name)}
@@ -120,11 +120,7 @@
           type="number"
           value={action.area?.quantity ?? 1}
           onchange={({ currentTarget }) =>
-            updateDocumentDataFromField(
-              item,
-              `system.actions.${actionId}.area.quantity`,
-              Number(currentTarget.value),
-            )}
+            updateArea("quantity", Number.parseInt(currentTarget.value, 10))}
         />
       </FieldWrapper>
 
@@ -136,11 +132,7 @@
               type="number"
               value={action.area?.[prop] ?? 0}
               onchange={({ currentTarget }) =>
-                updateDocumentDataFromField(
-                  item,
-                  `system.actions.${actionId}.area.${prop}`,
-                  Number(currentTarget.value),
-                )}
+                updateArea(prop, Number.parseInt(currentTarget.value, 10))}
             />
           </FieldWrapper>
         {/if}
@@ -161,6 +153,60 @@
     <small class="a5e-area-shape__scaling-hint">
       {scalingSummary}
     </small>
+
+    <FieldWrapper>
+      <Checkbox
+        label="Is Aura (This defines if the shape is bound to token)"
+        checked={action.area?.isAura ?? false}
+        onUpdateSelection={(checked) => updateArea("isAura", checked)}
+      />
+    </FieldWrapper>
+
+    <FieldWrapper
+      heading="Behaviors"
+      buttons={[
+        {
+          htmlString: '<i class="fa-solid fa-plus"></i>',
+          tooltip: "Add Behavior",
+          handler: () => item.actions.addBehavior(actionId),
+        },
+      ]}
+    >
+      <!-- Display Behaviors -->
+      <ul class="a5e-area-shape__behaviors">
+        {#each Object.entries(action.area?.behaviors ?? {}) as [behaviorId, behavior] (behaviorId)}
+          <li class="a5e-area-shape__behavior">
+            <i class={CONFIG.RegionBehavior.typeIcons[behavior.type]}></i>
+
+            <span>{behavior.name}</span>
+
+            <div class="a5e-area-shape__behavior__buttons">
+              <button
+                type="button"
+                class="a5e-button a5e-button--transparent"
+                aria-label="Edit Behavior"
+                data-tooltip="Edit Behavior"
+                data-tooltip-direction="UP"
+                onclick={() => item.actions.editBehavior(actionId, behaviorId)}
+              >
+                <i class="fa-solid fa-gear"></i>
+              </button>
+
+              <button
+                type="button"
+                class="a5e-button a5e-button--transparent"
+                aria-label="Delete Behavior"
+                data-tooltip="Delete Behavior"
+                data-tooltip-direction="UP"
+                onclick={() => item.actions.deleteBehavior(actionId, behaviorId)}
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+          </li>
+        {/each}
+      </ul>
+    </FieldWrapper>
   {/if}
 </Section>
 
@@ -171,7 +217,7 @@
       grid-template-columns: repeat(5, 1fr);
       width: 100%;
       gap: 0.375rem;
-      margin: var(--a5e-spacing-none);
+      margin: 0;
     }
 
     &__input {
@@ -193,11 +239,11 @@
       display: flex;
       align-items: center;
       flex-grow: 1;
-      gap: var(--a5e-spacing-sm);
+      gap: 0.5rem;
       background-color: var(--a5e-action-area-label-background);
       border-radius: var(--a5e-border-radius-standard);
       border: 1px solid var(--a5e-action-area-label-border);
-      font-size: var(--a5e-text-sm);
+      font-size: var(--a5e-sm-text);
       padding: 0.375rem 0.5rem;
       cursor: pointer;
       transition: var(--a5e-transition-standard);
@@ -209,13 +255,37 @@
 
     &__details {
       display: flex;
-      gap: var(--a5e-spacing-md);
+      gap: 0.75rem;
       width: 100%;
       align-items: end;
     }
 
     &__scaling-hint {
-      font-size: var(--a5e-text-xs);
+      font-size: var(--a5e-xs-text);
+    }
+
+    &__behaviors {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: var(--a5e-sm-text);
+    }
+
+    &__behavior {
+      display: grid;
+      gap: 0.25rem;
+      grid-template-columns: 2rem minmax(0, 1fr) min-content;
+      width: 100%;
+      min-width: 0;
+      align-items: center;
+
+      &__buttons {
+        display: flex;
+        gap: 0.25rem;
+        justify-content: center;
+        font-size: var(--a5e-sm-text);
+        width: 100%;
+      }
     }
   }
 </style>

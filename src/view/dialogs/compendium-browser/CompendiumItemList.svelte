@@ -31,6 +31,8 @@
       );
     }
 
+    if (doc.type === "follower") return false;
+
     return doc.type === compendiumType;
   }
 
@@ -200,6 +202,14 @@
           <i
             class="a5e-item__icon icon fa-solid fa-link"
             data-tooltip="Requires Attunement"
+            data-tooltip-direction="UP"
+          ></i>
+        {/if}
+
+        {#if doc.system?.prerequisite}
+          <i
+            class="a5e-item__icon icon fa-solid fa-key"
+            data-tooltip={doc.system.prerequisite}
             data-tooltip-direction="UP"
           ></i>
         {/if}

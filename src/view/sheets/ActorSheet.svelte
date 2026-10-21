@@ -6,11 +6,19 @@
   import NavigationBar from "../navigation/NavigationBar.svelte";
   import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
   import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
+  import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
+  import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
+  import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
+  import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
   import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
   import ActorSidebar from "./components/actor/ActorSidebar.svelte";
   import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
+  import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
+  import VehicleHeader from "./components/vehicle/VehicleHeader.svelte";
+  import VehicleInventoryFooter from "./components/vehicle/VehicleInventoryFooter.svelte";
+  import VehicleSidebar from "./components/vehicle/VehicleSidebar.svelte";
   import ActorBonusesPage from "./pages/ActorBonusesPage.svelte";
   import ActorCorePage from "./pages/ActorCorePage.svelte";
   import ActorEffectsPage from "./pages/ActorEffectsPage.svelte";
@@ -21,8 +29,8 @@
   import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
   import ActorNotesPage from "./pages/ActorNotesPage.svelte";
   import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
-  import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
-  import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
+  import VehicleFeaturesPage from "./pages/VehicleFeaturesPage.svelte";
+  import VehicleSettingsPage from "./pages/VehicleSettingsPage.svelte";
 
   let { actor, sheet } = $props();
 
@@ -41,7 +49,41 @@
     actorSheetTempSettings[uuid].currentTab = name ?? "core";
   }
 
+  function getVehicleTabs(): Tab[] {
+    return [
+      {
+        name: "features",
+        label: "A5E.tabs.features",
+        icon: "fa-solid fa-table-list",
+        component: VehicleFeaturesPage,
+      },
+      {
+        name: "inventory",
+        label: "A5E.tabs.inventory",
+        icon: "fa-solid fa-box-open",
+        component: ActorInventoryPage,
+        footerComponent: VehicleInventoryFooter,
+      },
+      {
+        name: "effects",
+        label: "A5E.tabs.effects",
+        icon: "fa-solid fa-person-rays",
+        component: ActorEffectsPage,
+      },
+      {
+        name: "settings",
+        label: "A5E.tabs.settings",
+        icon: "fas fa-cog",
+        component: VehicleSettingsPage,
+        display:
+          !actor.pack && actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER,
+      },
+    ];
+  }
+
   function getTabs(flags: any): Tab[] {
+    if (isVehicle) return getVehicleTabs();
+
     return [
       {
         name: "core",
@@ -132,6 +174,8 @@
     ];
   }
 
+  const isVehicle = actor.type === "vehicle";
+
   let flags = $derived(actor.reactive.flags?.a5e ?? {});
 
   let tabs = $derived(getTabs(actor.reactive.flags));
@@ -148,9 +192,13 @@
 </script>
 
 <main class="a5e-actor-sheet">
-  <ActorSidebar />
-
-  <ActorSheetHeader />
+  {#if isVehicle}
+    <VehicleSidebar />
+    <VehicleHeader />
+  {:else}
+    <ActorSidebar />
+    <ActorSheetHeader />
+  {/if}
 
   <NavigationBar {currentTab} {tabs} showLock={true} onTabChange={updateCurrentTab} />
 

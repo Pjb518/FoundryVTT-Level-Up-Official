@@ -1,4 +1,5 @@
 import { mount } from 'svelte';
+import { SocketManager } from '#managers/SocketManager.ts';
 import { collectSynergies } from '#utils/db/indexCompendiaFields.ts';
 import { ModuleIncompatibilityDialog } from '#view/dialogs/initializers/ModuleIncompatibilityDialog.svelte.ts';
 import KeyPressHandler from '#view/globals/KeyPressHandler.svelte';
@@ -73,4 +74,7 @@ export default async function ready() {
 	handleIncompatibilityWarning();
 	addKeyPressLogger();
 	// updateTheme();
+
+	// Add socket listener
+	const socketManager = new SocketManager();
 }

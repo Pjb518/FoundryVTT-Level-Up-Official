@@ -682,7 +682,7 @@
   </div>
 {/if}
 
-{#if actor.isCreature() && ((!actionId && itemStore?.uses?.max) || (action && action.uses?.max))}
+{#if (actor.isCreature() || actor.isVehicle()) && ((!actionId && itemStore?.uses?.max) || (action && action.uses?.max))}
   <div class="uses-wrapper">
     <input
       class="number-input"

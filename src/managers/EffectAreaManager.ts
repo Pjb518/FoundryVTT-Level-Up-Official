@@ -1,6 +1,4 @@
 import type { ItemA5e } from '#documents/item/item.ts';
-import type { Action } from '#types/action.js';
-import type { Consumers } from '#types/consumers.js';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import type { RollStateManager } from './RollStateManager.ts';
@@ -107,19 +105,55 @@ class EffectAreaManager {
 	}
 
 	// --------------------------------------------
+	// Internal Functions - Behaviors / Regions
+	// --------------------------------------------
+	#getBehaviors() {
+		// We need to get raw unscaled area for this
+		const area = this.#action.toObject().area;
+		if (!area) return [];
+
+		const behaviors: any[] = [];
+		Object.values(area.behaviors ?? {}).forEach((behavior: any) => {
+			const { name, type, ...system } = foundry.utils.deepClone(behavior);
+			if (!name || !type) return;
+
+			// Add customized behavior
+			if (type === 'applyActiveEffect') {
+				if (system.effects.length === 0) {
+					const effects = this.#action._effects ?? [];
+					system.effects = [...effects.values()].map((e) => e.uuid);
+				}
+			}
+
+			behaviors.push({ name, type, system });
+		});
+
+		return behaviors;
+	}
+
+	// --------------------------------------------
 	// Internal Functions - Scaling
 	// --------------------------------------------
 	#getRegionData(area) {
+		if (!canvas.grid) return {};
+
 		const { shape, quantity } = area;
 
 		const regionData = {
 			name: this.#item.name,
+			behaviors: this.#getBehaviors(),
 			shapes: [] as any[],
 			color: game.user.color.toString(),
 			highlightMode: 'coverage',
 			displayMeasurements: true,
 			ownership: { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER },
 			visibility: CONST.REGION_VISIBILITY.ALWAYS,
+			flags: {
+				a5e: {
+					isAura: area?.isAura ?? false,
+					actorId: this.#actor.id ?? '',
+				},
+			},
 		};
 
 		const { x, y } = canvas.mousePosition;

@@ -359,7 +359,7 @@
       <input
         type="number"
         value={selectionType === "limited"
-          ? (grant.config.features.total ?? 0)
+          ? (grant.config.features.total ?? 1)
           : (grant.config.pool.count ?? 1)}
         onchange={({ currentTarget }) => {
           const key =

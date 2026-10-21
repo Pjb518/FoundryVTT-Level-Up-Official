@@ -61,8 +61,12 @@
     item.shareItemDescription(item.actions.get(action));
   }
 
-  const actor = getContext("actor");
+  const actor: any = getContext("actor");
   let sheetIsLocked: () => boolean = getContext("sheetIsLocked");
+
+  async function onAddConsumer() {
+    await actor?.spellBooks?.get(item.system.spellBook)?.addSpellConsumers([item]);
+  }
 </script>
 
 {#if sheetIsLocked()}
@@ -95,6 +99,19 @@
           onclick={onConfigure}
         ></button>
       </li>
+
+      {#if item.type === "spell" && !action}
+        <li>
+          <button
+            type="button"
+            class="action-button icon fa-solid fa-coins"
+            data-tooltip="A5E.buttons.tooltips.addSpellConsumer"
+            data-tooltip-direction="UP"
+            aria-label="Add Spell Consumer"
+            onclick={onAddConsumer}
+          ></button>
+        </li>
+      {/if}
 
       {#if item.type !== "feature"}
         <li>

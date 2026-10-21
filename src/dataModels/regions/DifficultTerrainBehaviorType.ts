@@ -1,3 +1,5 @@
+import type { RegionEvent } from './data.ts';
+
 import fields = foundry.data.fields;
 import RegionBehaviorType = foundry.data.regionBehaviors.RegionBehaviorType;
 
@@ -11,6 +13,12 @@ const schema = () => ({
 			required: true,
 			nullable: false,
 			initial: 0,
+
+			choices: () => {
+				const choices = { ...foundry.applications.sheets.TokenConfig.TOKEN_DISPOSITIONS };
+				delete choices[-2];
+				return choices;
+			},
 		}),
 	),
 });
@@ -32,27 +40,33 @@ class DifficultTerrainBehaviorType extends RegionBehaviorType<DifficultTerrainBe
 		};
 	}
 
+	static override LOCALIZATION_PREFIXES = ['A5E.regionBehaviors'];
+
+	/** @inheritdoc */
 	static override events = {
 		[CONST.REGION_EVENTS.BEHAVIOR_VIEWED]: this.#onBehaviorViewed,
 		[CONST.REGION_EVENTS.BEHAVIOR_UNVIEWED]: this.#onBehaviorUnviewed,
 		[CONST.REGION_EVENTS.REGION_BOUNDARY]: this.#onRegionBoundary,
 	};
 
-	static async #onBehaviorViewed(event) {
+	static async #onBehaviorViewed(event: RegionEvent) {
 		canvas.tokens.recalculatePlannedMovementPaths();
 	}
 
-	static async #onBehaviorUnviewed(event) {
+	static async #onBehaviorUnviewed(event: RegionEvent) {
 		canvas.tokens.recalculatePlannedMovementPaths();
 	}
 
-	static async #onRegionBoundary(event) {
+	static async #onRegionBoundary(event: RegionEvent) {
 		canvas.tokens.recalculatePlannedMovementPaths();
 	}
 
 	/** @inheritdoc */
-	_getTerrainEffects(token, segment) {
-		console.log('Here');
+	_getTerrainEffects(token: TokenDocument.Implementation, segment) {
+		if (token.disposition === CONST.TOKEN_DISPOSITIONS.SECRET) return [];
+
+		if (this.ignoredDispositions.has(token.disposition)) return [];
+		return [{ name: 'difficultTerrain', difficultTerrain: true }];
 	}
 
 	/** @inheritdoc */

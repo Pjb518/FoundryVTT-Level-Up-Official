@@ -26,7 +26,7 @@ const schema = () => ({
 			options: new fields.ArrayField(
 				new fields.StringField({ required: true, nullable: false, initial: '' }),
 			),
-			total: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+			total: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		}),
 
 		// List config
@@ -114,7 +114,7 @@ class SpellGrant extends BaseGrant<SpellGrant.Schema> {
 		const actorUpdates: Record<string, any> = {};
 
 		// Get / Create Spell book
-		const spellBook = data?.spellBook || Object.keys(actor.system.spellBooks ?? {})[0] || 'new';
+		const spellBook = data?.spellBook || actor.spellBooks?.default?._id || 'new';
 		let selectedBook: string;
 
 		if (spellBook !== 'new') selectedBook = spellBook;

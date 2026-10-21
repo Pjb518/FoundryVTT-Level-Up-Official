@@ -162,6 +162,14 @@ class ResourceConsumptionManager {
 		}
 
 		const { path } = config;
+
+		if (resource === 'momentum') {
+			const momentum = Number(foundry.utils.getProperty(this.#actor.system, path) ?? 0);
+			this.#updates.actor[`system.${path}`] = Math.clamp(momentum - quantity, 0, 1) > 0;
+
+			return;
+		}
+
 		const value = (foundry.utils.getProperty(this.#actor.system, path) as number) ?? 0;
 
 		if (resource === 'fatigue' || resource === 'strife') {

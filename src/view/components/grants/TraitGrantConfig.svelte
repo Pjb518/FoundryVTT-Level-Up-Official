@@ -146,7 +146,7 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant?.config.traits?.total ?? 0}
+        value={grant?.config.traits?.total ?? 1}
         onchange={({ currentTarget }) =>
           onUpdateValue("config.traits.total", Number(currentTarget.value))}
       />

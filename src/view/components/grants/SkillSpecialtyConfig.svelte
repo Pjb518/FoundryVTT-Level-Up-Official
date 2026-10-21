@@ -57,6 +57,13 @@
   ) as SkillSpecialtyGrant;
   let skill = $derived(grant?.config.skill || "acr");
   let specialties = $derived(skillSpecialties[skill]);
+  let selectionType = $derived(grant?.config.selectionType || "limited");
+  const selectionTypeOpts = Object.entries(
+    (grant?.schema?.getField("config.selectionType") as any)?.choices ?? {
+      limited: "Limited",
+      pool: "Pool",
+    },
+  );
 
   setContext("item", item);
   setContext("grantId", grantId);
@@ -87,6 +94,45 @@
     </div>
   </header>
 
+  <Section
+    heading="Selection Type"
+    --a5e-section-margin="0.25rem 0"
+    --a5e-section-body-direction="row"
+  >
+    <RadioGroup
+      options={selectionTypeOpts}
+      selected={selectionType}
+      allowDeselect={false}
+      onUpdateSelection={(value) => {
+        onUpdateValue("config.selectionType", value);
+      }}
+    />
+  </Section>
+
+  {#if selectionType === "pool"}
+    <FieldWrapper heading="Only Proficient Skills">
+      <input
+        type="checkbox"
+        checked={grant?.config.pool?.proficientOnly ?? true}
+        onchange={({ currentTarget }) =>
+          onUpdateValue("config.pool.proficientOnly", currentTarget.checked)}
+      />
+    </FieldWrapper>
+
+    <FieldWrapper heading="Selectable Options Count">
+      <input
+        class="a5e-input a5e-input--slim a5e-input--small"
+        type="number"
+        min="1"
+        value={grant?.config.pool?.count ?? 1}
+        onchange={({ currentTarget }) =>
+          onUpdateValue(
+            "config.pool.count",
+            Math.max(1, Number(currentTarget.value)),
+          )}
+      />
+    </FieldWrapper>
+  {:else}
   <Section
     heading="Skill Specialty Selection"
     --a5e-section-margin="0.25rem 0"
@@ -129,7 +175,7 @@
       <input
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
-        value={grant?.config.specialties?.total ?? 0}
+        value={grant?.config.specialties?.total ?? 1}
         onchange={({ currentTarget }) =>
           onUpdateValue(
             "config.specialties.total",
@@ -138,6 +184,7 @@
       />
     </FieldWrapper>
   {/key}
+  {/if}
 
   <GrantConfig />
 </form>

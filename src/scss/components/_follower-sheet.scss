@@ -1,0 +1,140 @@
+.a5e-follower-sheet {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 1rem;
+  max-height: 80vh;
+  padding-block-end: 0.75rem;
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 0;
+  }
+
+  &__sidebar-heading {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 0;
+    font-family: var(--a5e-secondary-font);
+    font-size: var(--a5e-md-text);
+    text-align: center;
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      flex: 1;
+      height: 1px;
+      content: "";
+    }
+
+    &::before {
+      background: linear-gradient(90deg, transparent, var(--a5e-border-color));
+    }
+
+    &::after {
+      background: linear-gradient(90deg, var(--a5e-border-color), transparent);
+    }
+  }
+
+  &__summary-box {
+    padding: 0.5rem;
+    overflow-y: auto;
+    font-size: var(--a5e-sm-text);
+    border: 1px solid var(--a5e-border-color);
+    border-radius: var(--a5e-border-radius-standard);
+  }
+
+  &__uses-row {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  &__uses-box {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__uses {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__empty {
+    margin: 0;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 0;
+    overflow-y: auto;
+  }
+
+  &__header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__name-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name {
+    width: 100%;
+    padding: 0;
+    font-family: var(--a5e-secondary-font);
+    font-size: 1.5rem;
+    background: transparent;
+    border: 0;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: var(--a5e-sm-text);
+    font-style: italic;
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__feature-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__feature-name {
+    flex: 1;
+  }
+
+  &__icon-button {
+    padding: 0.25rem;
+    margin-inline-start: 0.25rem;
+    font-size: var(--a5e-sm-text);
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+}

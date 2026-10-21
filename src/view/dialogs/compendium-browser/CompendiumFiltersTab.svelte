@@ -13,6 +13,7 @@
   };
 
   const FEAT_ONLY_FILTERS = ["asi", "featClasses", "featType", "synergy"];
+  const FOLLOWER_ONLY_FILTERS = ["followerType", "experienceType"];
 
   function onUpdateExclusiveMode(detail, filterKey) {
     filterOptions.selections = {
@@ -56,17 +57,26 @@
         ? Object.fromEntries(FEAT_ONLY_FILTERS.map((k) => [k, undefined]))
         : {};
 
-    // "source" holds exactly one value per document, so OR-combining multiple `!==` exclusions
-    // (the default exclusiveMode) is a no-op - at most one of them can ever be false for a given
-    // doc, so `.some()` is true for virtually everything. AND is the only combinator that
-    // actually excludes every selected source, and it's correct even when 0 or 1 are excluded,
-    // so it's forced here rather than left to the (otherwise general-purpose) AND/OR toggle.
+    const wasFollowerSelected =
+      filterSelections["featureType"]?.inclusive?.includes("followerFeature") ?? false;
+
+    const isFollowerSelected =
+      filterKey === "featureType"
+        ? (detail[0] as string[]).includes("followerFeature")
+        : wasFollowerSelected;
+
+    const clearedFollowerFilters =
+      filterKey === "featureType" && wasFollowerSelected && !isFollowerSelected
+        ? Object.fromEntries(FOLLOWER_ONLY_FILTERS.map((k) => [k, undefined]))
+        : {};
+
     const exclusiveMode =
       filterKey === "source" ? 1 : (filterSelections[filterKey]?.exclusiveMode ?? 0);
 
     filterOptions.selections = {
       ...filterOptions.selections,
       ...clearedFeatFilters,
+      ...clearedFollowerFilters,
       [filterKey]: {
         inclusive: detail[0],
         inclusiveMode: filterSelections[filterKey]?.inclusiveMode ?? 0,

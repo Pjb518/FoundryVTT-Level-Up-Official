@@ -1,0 +1,416 @@
+{
+	"name": "Aberrant Aspect",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p><strong>Passive Effect:</strong> You gain 60ft of Telepathy.</p><p><strong>Active Effect: </strong><em><strong>Psychic Thrust.</strong></em> As an action, you target one creature within 30ft and send a painful pulse through their mind. The target must make an Intelligence save against your Spell DC if you’re a spellcaster, Maneuver DC if you’re not. On a fail, the target takes 4d6 damage and is [[/condition id=rattled]] until the end of its next turn. A creature that is already Rattled becomes [[/condition id=stunned]] on a failure. On a success, the target takes half the damage and doesn’t suffer the relevant condition effect.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"gOedCG6VEkewhiIp": {
+				"name": "Psychic Thrust",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-standard-moon.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"zV4hUu4IjOpwbav0",
+					"sPtrXc4bbaDF48Ab",
+					"uUnj0CcU5mQ4yvgX"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"fegF1WPxUqc6knPn": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage, no condition",
+						"label": "Spell DC"
+					},
+					"VkCtDthsilhPiZyh": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "int",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage, no condition",
+						"label": "Maneuver DC"
+					}
+				},
+				"ranges": {
+					"KxkTuaa36iI9Gmmq": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"8EpqCvvvR2z2QqoQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "4d6",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"aeeK5vbibcTFuxiI": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Aberrant Aspect",
+				"traits": {
+					"base": [],
+					"options": [],
+					"total": 0,
+					"traitType": "languages"
+				},
+				"id": "",
+				"name": "Aberrant Aspect",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"Telepathy (60 ft.)"
+						],
+						"options": [],
+						"total": 0,
+						"traitType": "languages"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"rollMode": 0,
+						"expertiseDice": 0,
+						"bonus": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.mMXrMtI21osanR2F",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.fatigue",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Fatigue",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "zV4hUu4IjOpwbav0",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165008387,
+				"createdTime": 1792164960701
+			},
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		},
+		{
+			"origin": "Item.mMXrMtI21osanR2F",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"rattled"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Rattled",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "sPtrXc4bbaDF48Ab",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A rattled creature cannot benefit from expertise dice.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li><li><p>A rattled creature cannot take reactions.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165017845,
+				"createdTime": 1792164960701
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		},
+		{
+			"origin": "Item.mMXrMtI21osanR2F",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"rattled"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Stunned",
+			"img": "icons/sundries/flags/banner-standard-moon.webp",
+			"_id": "uUnj0CcU5mQ4yvgX",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<ul><li><p>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</p></li><li><p>The creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against the creature have advantage.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792165026923,
+				"createdTime": 1792164960701
+			},
+			"folder": null,
+			"showIcon": 2,
+			"start": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1792164960701,
+		"modifiedTime": 1792165036683,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "mMXrMtI21osanR2F"
+}

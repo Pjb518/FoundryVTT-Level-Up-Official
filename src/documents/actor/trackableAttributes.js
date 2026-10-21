@@ -26,4 +26,12 @@ export default {
 		bar: [...base.bar],
 		value: [...base.value, 'details.cr'],
 	},
+	vehicle: {
+		bar: [...base.bar, 'crew', 'passengers'],
+		value: [
+			...Object.keys(A5E.abilities).map((a) => `abilities.${a}.value`),
+			'attributes.hp.temp',
+			'attributes.ac.value',
+		],
+	},
 };

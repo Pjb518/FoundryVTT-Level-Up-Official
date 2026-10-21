@@ -1,0 +1,213 @@
+{
+	"name": "Black Raider Cohort (Spellcaster)",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-standard-moon.webp",
+	"system": {
+		"description": "<p>You gain the ability to cast the @UUID[Compendium.a5e.a5e-spells.Item.zhtyft34531a9nil]{Haste} spell once per day without expending a spell slot. When you do this, you can choose to target one unwilling enemy creature and drop Concentration within the same turn. Such a target will have to make a Constitution save against your Spell DC or suffer the same consequences as if the natural end of a Haste spell occurred, without having gained any of the spell’s benefits.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "dastardlyDesertDeeds",
+		"actions": {
+			"Ikqn4SJIAwDs1jXu": {
+				"name": "Haste",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1",
+					"concentration": false
+				},
+				"ranges": {
+					"zy5OhYsb22xDETXf": {
+						"range": "short",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"area": {
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"Xq6JoJwk6HsVXsl3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"tKq7uG3dK0wDisd6": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"nDrJBYuPhU4FkoiI"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "day",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "must have taken Raider Initiate previously, must be able to cast at least one spell",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "second",
+		"hidden": false,
+		"synergy": "Black Raider Initiate",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.H2ulzn41dpvWy7DI",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hasted",
+			"_id": "nDrJBYuPhU4FkoiI",
+			"disabled": false,
+			"duration": {
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Until the spell ends, the target's Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action.</p><p>When the spell ends, the target is tired and cannot move or take actions until after its next turn.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.7",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792164815788,
+				"createdTime": 1792164815775
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null,
+			"start": null,
+			"showIcon": 1
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.7",
+		"createdTime": 1792164815775,
+		"modifiedTime": 1792164839212,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "H2ulzn41dpvWy7DI"
+}

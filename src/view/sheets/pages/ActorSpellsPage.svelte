@@ -48,16 +48,14 @@
 
     if (!confirmDeletion) return;
 
-    actor.spellBooks.remove(spellBookId);
+    await actor.spellBooks.remove(spellBookId);
 
     if (initialSpellBookQuantity === 1) {
       updateCurrentSpellBook(null);
     }
 
     if (currentSpellBook === spellBookId) {
-      const firstSpellBook = Object.keys(actor.system.spellBooks ?? {})?.[0];
-
-      updateCurrentSpellBook(firstSpellBook);
+      updateCurrentSpellBook(actor.spellBooks.default?._id);
     }
   }
 
@@ -80,7 +78,7 @@
 
   let currentSpellBook = $derived(
     actorSheetTempSettings[actor.uuid]?.currentSpellBook ??
-      Object.keys(actorStore.spellBooks ?? {})?.[0],
+      actor.reactive.spellBooks?.default?._id,
   );
 
   let filterOptions = $state({

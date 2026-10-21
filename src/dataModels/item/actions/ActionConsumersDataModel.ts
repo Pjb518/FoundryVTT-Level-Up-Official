@@ -235,7 +235,10 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		let current: number | null = null;
 		let max: number | null = null;
 
-		if (!foundry.utils.isEmpty(config)) {
+		if (this.resource === 'momentum') {
+			current = Number((actor.system as any).momentum ?? 0);
+			max = 1;
+		} else if (!foundry.utils.isEmpty(config)) {
 			let path: string;
 
 			if (this.resource === 'classResource') {
@@ -314,7 +317,7 @@ class SpellConsumerData extends DataModel<SpellConsumerData.Schema> {
 			spellData.consume = 'noConsume';
 		}
 
-		if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
+		if (spellBook?.config.disableSpellConsumers) spellData.consume = 'noConsume';
 
 		const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 		if (spellData.consume === 'spellSlot')

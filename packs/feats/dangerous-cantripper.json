@@ -1,0 +1,483 @@
+{
+	"name": "Dangerous Cantripper",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+	"system": {
+		"description": "<p>Where many would settle into comfortable familiarity with their cantrips, you have instead sought mastery, squeezing every drop of excellence you can out of your magic. You gain the following benefits:</p><ul><li><p>Your Strength, Dexterity, or warcaster spellcasting ability score increases by 1, to a maximum of 20.</p></li><li><p>Whenever you miss with a cantrip requiring an attack roll, you channel your frustration into a brief burst of magical energy. Hostile creatures within 10 feet of you must make a Wisdom saving throw or suffer 1d4 points of psychic damage.</p></li><li><p>Whenever you score a critical hit with a cantrip, choose one of the following:</p><ul><li><p>Your speed increases by 10 feet until the beginning of your next turn.</p></li><li><p>You gain temporary hit points equal to your proficiency bonus until the beginning of your next rest.</p></li></ul></li><li><p>You gain proficiency with the Cutting Omen combat tradition and a 1st- or 2nd- degree maneuver of your choice from it. As long as you have a cantrip of an appropriate spell school on your list of cantrips known, you can ignore requirements for unused spell slots of up to 2nd level for the purpose of satisfying Cutting Omen maneuver requirements.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "singleClassSynergyArcanePower",
+		"actions": {
+			"H8BGxLR4WwtoCYVY": {
+				"name": "Cantrip Miss",
+				"id": "H8BGxLR4WwtoCYVY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"eUtmqRRbG4MBjGUt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "wis",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"nu1hBRk1Ug6xB01a": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {
+					"O9ycM0sG6x2IofL7": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "1d4",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 10,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			},
+			"og7Torc2BYfIv7oO": {
+				"name": "Critical Hit",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"s8L1H4Uortuzpf8l"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"tnGiWs8WGkLQUfHO": {
+						"type": "healing",
+						"default": false,
+						"formula": "@prof",
+						"healingType": "temporaryHealing",
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "",
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"eTtqQe8JYZhczT4q": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Dangerous Cantripper",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"str",
+						"dex",
+						"int",
+						"cha"
+					],
+					"base": []
+				},
+				"img": "",
+				"type": "ability",
+				"id": "",
+				"name": "Dangerous Cantripper",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"abilities": {
+						"base": [],
+						"options": [
+							"str",
+							"dex",
+							"int",
+							"wis",
+							"cha"
+						],
+						"total": 1
+					},
+					"bonus": "1",
+					"context": {
+						"types": [
+							"base"
+						],
+						"requiresProficiency": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
+			},
+			"bXX3hQxCqc3wFvqe": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Dangerous Cantripper",
+				"keys": {
+					"base": [
+						"cuttingOmen"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tradition",
+				"type": "proficiency",
+				"id": "",
+				"name": "New Proficiency Bonus Grant",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"config": {
+					"keys": {
+						"base": [
+							"tradition:cuttingOmen"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
+			},
+			"sC4ii4uFxPWakCEk": {
+				"id": "sC4ii4uFxPWakCEk",
+				"label": "",
+				"name": "Dangerous Cantripper",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "maneuver",
+				"grantType": "maneuver",
+				"config": {
+					"selectionType": "pool",
+					"maneuvers": {
+						"base": [],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"maneuverTraditions": {
+								"inclusive": [
+									"cuttingOmen"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"maneuverDegrees": {
+								"inclusive": [
+									"1",
+									"2"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": null,
+					"consumerData": {
+						"type": "exertionDefault",
+						"exertionAmount": null,
+						"recover": "longRest",
+						"value": ""
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
+		"prerequisite": "4 levels in warcaster, no levels in non-warcaster classes at time of feat acquisition",
+		"requiresBloodied": false,
+		"asi": [
+			"str",
+			"dex",
+			"spellcasting"
+		],
+		"featClasses": [],
+		"featType": "first",
+		"hidden": false,
+		"synergy": "Dangerous Cantripper",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [
+		{
+			"origin": "Item.9fIdxQPFmZE9PdFL",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "add",
+						"value": "10",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
+			},
+			"name": "Dangerous Cantripper (Speed)",
+			"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+			"_id": "s8L1H4Uortuzpf8l",
+			"type": "base",
+			"disabled": false,
+			"duration": {
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
+			},
+			"description": "<p>Your speed increases by 10 feet until the beginning of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.8",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792440249872,
+				"createdTime": 1792440173274
+			},
+			"start": null,
+			"showIcon": 1,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.8",
+		"createdTime": 1792440173274,
+		"modifiedTime": 1792440312196,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "wxeEyo6LPCXP3mjL"
+}

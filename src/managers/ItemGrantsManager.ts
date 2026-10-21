@@ -70,16 +70,20 @@ export class ItemGrantsManager extends Map<string, Grant> {
 	}
 
 	async duplicate(id: string) {
-		const newGrant = foundry.utils.deepClone(this.#item.system.grants?.[id] ?? {});
-		// @ts-expect-error
-		newGrant.name = `${newGrant.name} (Copy)`;
+		const source: any = this.#item.system.grants?.[id];
+		if (!source) return;
+
+		const newGrant: any = foundry.utils.deepClone(
+			typeof source.toObject === 'function' ? source.toObject() : source,
+		);
+
+		const newId = foundry.utils.randomID();
+		newGrant.id = newId;
+		if (newGrant._id) newGrant._id = newId;
+		if (newGrant.name) newGrant.name = `${newGrant.name} (Copy)`;
 
 		await this.#item.update({
-			// @ts-expect-error
-			'system.grants': {
-				...this.#item.system.grants,
-				[foundry.utils.randomID()]: newGrant,
-			},
+			[`system.grants.${newId}`]: newGrant,
 		});
 	}
 

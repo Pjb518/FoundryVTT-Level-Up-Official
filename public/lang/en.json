@@ -3,7 +3,9 @@
 		"Actor": {
 			"character": "Player Character",
 			"npc": "Non-Player Character",
-			"party": "Party"
+			"party": "Party",
+			"follower": "Follower",
+			"vehicle": "Vehicle"
 		},
 		"Item": {
 			"archetype": "Archetype",
@@ -18,6 +20,10 @@
 			"maneuver": "Maneuver",
 			"object": "Object",
 			"spell": "Spell"
+		},
+		"RegionBehavior": {
+			"applyActiveEffect": "Apply Active Effect",
+			"difficultTerrain": "Difficult Terrain"
 		}
 	},
 	"A5E.abilities": {
@@ -420,6 +426,7 @@
 		"addRoll": "+ Add {type} Roll",
 		"toggleAll": "+ Toggle All",
 		"tooltips": {
+			"addSpellConsumer": "Add Spell Consumer",
 			"attune": "Attune to {item}",
 			"breakAttunement": "Break Attunement to {item}",
 			"charged": "Charged",
@@ -464,6 +471,7 @@
 		"gambler": "Gambler",
 		"herald": "Herald",
 		"marshal": "Marshal",
+		"marshalRevised": "Marshal (Revised)",
 		"monk": "Monk",
 		"paladin": "Paladin",
 		"psion": "Psion",
@@ -1118,7 +1126,8 @@
 				"expertiseDice": {
 					"all": "Global Expertise Dice",
 					"allChecks": "Global Checks Expertise Dice",
-					"allSaves": "Global Saves Expertise Dice"
+					"allSaves": "Global Saves Expertise Dice",
+					"attack": { "all": "Global Attack Expertise Dice" }
 				},
 				"movement": {
 					"allDistances": "All Movement Distances",
@@ -1676,7 +1685,9 @@
 			"class": "Class Feature",
 			"culture": "Culture Feature",
 			"destiny": "Destiny Feature",
+			"driverFeature": "Driver Feature",
 			"feat": "Feat",
+			"followerFeature": "Follower Feature",
 			"heritage": "Heritage Feature",
 			"knack": "Knack",
 			"legendaryAction": "Legendary Action",
@@ -2270,7 +2281,7 @@
 			"spellPoints": "Spell Points"
 		},
 		"summaries": {
-			"artifactCharge": {
+			"artifactCharges": {
 				"damage": "Plus an additional {formula} damage per additional artifact charge expended.",
 				"duration": "",
 				"healing": "Plus an additional {formula} {healingType} per additional artifact charge expended.",
@@ -2278,7 +2289,7 @@
 				"template": "The {shape}'s {property} increases by {value} {unit} for every additional artifact charge expended.",
 				"templateMulti": "The {shape}'s {property} increases by {value} {unit} and its {property2} increases by {value2} {unit} for every additional artifact charge expended."
 			},
-			"steppedArtifactCharge": {
+			"steppedArtifactCharges": {
 				"damage": "Plus an additional {formula} damage per additional {step} artifact charges expended.",
 				"duration": "",
 				"healing": "Plus an additional {formula} {healingType} per additional {step} artifact charges expended.",
@@ -2310,7 +2321,7 @@
 				"template": "The {shape}'s {property} increases by {value} {unit} for every {step} slot levels above {level}.",
 				"templateMulti": "The {shape}'s {property} increases by {value} {unit} and its {property2} increases by {value2} {unit} for every {step} slot levels above {level}."
 			},
-			"spellPoint": {
+			"spellPoints": {
 				"damage": "Plus an additional {formula} damage per additional spell point expended.",
 				"duration": "",
 				"healing": "Plus an additional {formula} {healingType} per additional spell point expended.",
@@ -2318,7 +2329,7 @@
 				"template": "The {shape}'s {property} increases by {value} {unit} for every additional spell point expended.",
 				"templateMulti": "The {shape}'s {property} increases by {value} {unit} and its {property2} increases by {value2} {unit} for every additional spell point expended."
 			},
-			"steppedSpellPoint": {
+			"steppedSpellPoints": {
 				"damage": "Plus an additional {formula} damage per additional {step} spell points expended.",
 				"duration": "",
 				"healing": "Plus an additional {formula} {healingType} per additional {step} spell points expended.",
@@ -2335,7 +2346,7 @@
 				"templateMulti": "The {shape}'s {property} increases by {value} {unit} and its {property2} increases by {value2} {unit} for every additional use expended."
 			},
 			"steppedUses": {
-				"damage": "Plus an additional {formula} {healingType} at 5th, 11th, and 17th level.",
+				"damage": "Plus an additional {formula} damage per additional {step} uses expended.",
 				"duration": "",
 				"healing": "Plus an additional {formula} {healingType} per additional {step} uses expended.",
 				"target": "Plus an additional {formula} {targetType} per additional {step} uses expended.",
@@ -2371,6 +2382,7 @@
 			"automateBloodiedApplication": "Enable automated application of the bloodied condition.",
 			"automatePrototypeTokenSize": "Enable the automatic setting of prototype token width and height on actor size change.",
 			"automateUnconsciousApplication": "Enable automated application of the unconscious and dead condition.",
+			"automateMovement": "Automatically apply movement rules. Climbing or swimming without a corresponding speed costs double movement, and difficult terrain increases the movement cost of the spaces it covers.",
 			"automateVisionRules": "Automatically apply vision rules to tokens when they are placed on the canvas.",
 			"visionRulesApplyToCharactersOnly": "Automatic application of vision rules will only be applied to characters.",
 			"blindDeathSaves": "When enabled, death saving rolls in chat cards and results on the actor will be hidden from players.",
@@ -2478,6 +2490,7 @@
 		"automateSpellResources": "Automatically calculate Spell Resources",
 		"automatePrototypeTokenSize": "Automate Default Prototype Token Size",
 		"automateUnconsciousApplication": "Automatically apply Unconscious condition",
+		"automateMovement": "Automate Movement Costs",
 		"automateVisionRules": "Automate Vision Rules for Tokens",
 		"automaticallyExecuteAvailableMacros": "Automatically Execute Any Available Macros",
 		"visionRulesApplyToCharactersOnly": "Apply Vision Automation to Characters Only",
@@ -2568,7 +2581,46 @@
 	"A5E.sheetClasses": {
 		"character": "Default A5e Character Sheet",
 		"item": "Default A5e Item Sheet",
-		"npc": "A5e NPC Sheet"
+		"npc": "A5e NPC Sheet",
+		"follower": "A5e Follower Sheet",
+		"vehicle": "A5e Vehicle Sheet"
+	},
+	"A5E.follower": {
+		"experienceType": "Experience Type",
+		"feature": "Follower Feature",
+		"type": "Follower Type",
+		"featureSummary": "Feature Summary",
+		"uses": "Uses",
+		"personality": "Personality",
+		"quirk": "Quirk",
+		"motivation": "Motivation",
+		"experienceTypes": {
+			"inexperienced": "Inexperienced",
+			"seasoned": "Seasoned",
+			"expert": "Expert"
+		},
+		"types": {
+			"apothecary": "Apothecary",
+			"bodyguard": "Bodyguard",
+			"caretaker": "Caretaker",
+			"cleaner": "Cleaner",
+			"cook": "Cook",
+			"cryptographer": "Cryptographer",
+			"digger": "Digger",
+			"diviner": "Diviner",
+			"footpad": "Footpad",
+			"healer": "Healer",
+			"interpreter": "Interpreter",
+			"inventor": "Inventor",
+			"minstrel": "Minstrel",
+			"operative": "Operative",
+			"porter": "Porter",
+			"sage": "Sage",
+			"smith": "Smith",
+			"squire": "Squire",
+			"teamster": "Teamster",
+			"torchbearer": "Torchbearer"
+		}
 	},
 	"A5E.shieldProperties": {
 		"handsFree": "Hands-Free",
@@ -3141,6 +3193,57 @@
 			"invalidSubObjectDocument": "Invalid object document type"
 		}
 	},
+	"A5E.vehicle": {
+		"addDriverDex": "Add the Driver's Dexterity modifier to AC",
+		"collision": {
+			"button": "Collision",
+			"configure": "Configure Collision Damage",
+			"configurePrompt": "{name}: Collision Damage",
+			"configureHint": "Leave blank to use the default formula for this vehicle's size.",
+			"damage": "Collision Damage",
+			"invalidFormula": "The collision damage formula is not valid.",
+			"label": "Collision",
+			"roll": "Roll Collision",
+			"title": "{name}: Collision"
+		},
+		"cost": "Cost",
+		"crew": "Crew",
+		"driver": "Driver",
+		"driverFeatureWarning": "Driver Features can only be added to vehicles.",
+		"impulse": {
+			"average": "Average",
+			"fast": "Fast",
+			"slow": "Slow"
+		},
+		"impulseSpeed": "Impulse Speed",
+		"journeySpeed": "Journey Speed",
+		"momentum": "Momentum",
+		"movementSpeed": "Movement Speed",
+		"noDriver": "No driver assigned",
+		"noMomentum": "No Momentum",
+		"settings": {
+			"bulky": "Max Bulky Items",
+			"carry": "Max Carrying Capacity",
+			"hint": "Leave a value blank to use the default for this vehicle's size.",
+			"supply": "Max Supply"
+		},
+		"maxBulky": "Maximum Bulky",
+		"maxSupply": "Maximum Supply",
+		"weight": "Weight",
+		"passengers": "Passengers",
+		"properties": {
+			"armed": "Armed",
+			"drawn": "Drawn",
+			"personal": "Personal",
+			"threeDimensional": "Three-Dimensional",
+			"transport": "Transport"
+		},
+		"propertiesConfigurationPrompt": "{name}: Configure Special Properties",
+		"removeDriver": "Remove Driver",
+		"specialProperties": "Special Properties",
+		"supply": "Supply",
+		"terrain": "Vehicle Type"
+	},
 	"A5E.vehicles": {
 		"singular": {
 			"air": "Air Vehicle",
@@ -3156,6 +3259,12 @@
 		}
 	},
 	"A5E.weapons": {
+		"siege": {
+			"ac": "AC",
+			"heading": "Siege Property",
+			"hp": "HP",
+			"size": "Size"
+		},
 		"proficiencies": "Weapon Proficiencies",
 		"proficienciesConfigurationPrompt": "{name}: Configure Weapon Proficiencies",
 		"titlePlural": "Weapons",
@@ -3225,6 +3334,7 @@
 			"rifled": "Rifled",
 			"scatter": "Scatter",
 			"shock": "Shock",
+			"siege": "Siege",
 			"simple": "Simple",
 			"surpriseShot": "Surprise Shot",
 			"thrown": "Thrown",
@@ -3487,5 +3597,16 @@
 	"A5E.UIClearAll": "Clear All",
 	"A5E.Uncategorized": "Uncategorized",
 	"A5E.Unit": "Unit",
-	"A5E.Unknown": "Unknown"
+	"A5E.Unknown": "Unknown",
+	"A5E.regionBehaviors": {
+		"FIELDS": {
+			"creatureSizes": { "label": "Creature Sizes" },
+			"creatureTypes": { "label": "Creature Types" },
+			"dispositions": { "label": "Affected Dispositions" },
+			"effects": { "label": "Effects" },
+			"isAura": { "label": "Is Aura" },
+			"isMagical": { "label": "Is Magical" },
+			"ignoredDispositions": { "label": "Ignored Dispositions" }
+		}
+	}
 }

@@ -314,7 +314,7 @@
         class="a5e-input a5e-input--slim a5e-input--small"
         type="number"
         value={selectionType === "limited"
-          ? (grant.config.maneuvers.total ?? 0)
+          ? (grant.config.maneuvers.total ?? 1)
           : (grant.config.pool.count ?? 1)}
         onchange={({ currentTarget }) => {
           const key =
