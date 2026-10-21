@@ -391,6 +391,55 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return heritages[0] as Item.OfType<'heritage'>;
 	}
 
+	get heightWeightFormulas() {
+		const details = (this.system as any).details ?? {};
+		const heritage = this.heritage?.system as any;
+
+		return {
+			height: (details.heightFormula || heritage?.heightFormula || '').trim() as string,
+			weight: (details.weightFormula || heritage?.weightFormula || '').trim() as string,
+		};
+	}
+
+	async rollHeightAndWeight() {
+		const { height: heightFormula, weight: weightFormula } = this.heightWeightFormulas;
+		if (!heightFormula || !weightFormula) return;
+
+		const speaker = ChatMessage.getSpeaker({ actor: this as any });
+		const rollData = this.getRollData();
+
+		const heightRoll = await new Roll(heightFormula, rollData).evaluate();
+		const diceTotal = heightRoll.terms
+			.filter((term: any) => term instanceof foundry.dice.terms.DiceTerm)
+			.reduce((sum: number, term: any) => sum + (term.total ?? 0), 0);
+
+		const weightRoll = await new Roll(weightFormula, {
+			...rollData,
+			heightRoll: diceTotal,
+		}).evaluate();
+
+		const inches = Math.round(heightRoll.total ?? 0);
+		const pounds = Math.round(weightRoll.total ?? 0);
+
+		await heightRoll.toMessage({
+			speaker,
+			flavor: localize('A5E.details.heightWeightSpecific', {
+				type: localize('A5E.details.height'),
+			}),
+		});
+		await weightRoll.toMessage({
+			speaker,
+			flavor: localize('A5E.details.heightWeightSpecific', {
+				type: localize('A5E.details.weight'),
+			}),
+		});
+
+		await this.update({
+			'system.details.height': `${Math.floor(inches / 12)}' ${inches % 12}"`,
+			'system.details.weight': `${pounds} lbs.`,
+		} as any);
+	}
+
 	/** Gets the total supply from items and supply field */
 	get totalSupply() {
 		if (!this.isChar()) return 0;

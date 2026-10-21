@@ -92,6 +92,7 @@ const characterSchema = () => ({
 		hairColor: new fields.StringField({ required: true, initial: '' }),
 		heritage: new fields.StringField({ required: true, initial: '' }),
 		height: new fields.StringField({ required: true, initial: '' }),
+		heightFormula: new fields.StringField({ required: true, initial: '' }),
 		level: new fields.NumberField({
 			required: true,
 			nullable: false,
@@ -106,6 +107,7 @@ const characterSchema = () => ({
 		prestige: new fields.NumberField({ required: true, initial: 1, integer: true }),
 		skinColor: new fields.StringField({ required: true, initial: '' }),
 		weight: new fields.StringField({ required: true, initial: '' }),
+		weightFormula: new fields.StringField({ required: true, initial: '' }),
 		xp: new fields.NumberField({ required: true, initial: 0, integer: true }),
 		...details(),
 	}),
