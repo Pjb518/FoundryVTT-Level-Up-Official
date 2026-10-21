@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"cLwW8vdFPmTrnnMD"
@@ -52,7 +53,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -64,8 +70,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -85,7 +107,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -99,11 +126,13 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.7w414RIH0bJYeZOi",
+			"origin": "Item.G8IYDrkBrOQSFKay",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -116,41 +145,40 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+						"type": "override",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Come By",
 			"img": "icons/magic/movement/portal-vortex-orange.webp",
 			"_id": "cLwW8vdFPmTrnnMD",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Disadvantage on its next attack roll, saving throw, or ability check until the start of your next turn.</p>",
 			"tint": "#ffffff",
@@ -165,24 +193,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.368",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1792526810021
+				"systemVersion": "1.4.9",
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T",
+				"modifiedTime": 1792562117808,
+				"createdTime": 1792562079569
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.368",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1792526809901,
-		"modifiedTime": 1792526809901,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.9",
+		"createdTime": 1792562079569,
+		"modifiedTime": 1792562079569,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "G8IYDrkBrOQSFKay"
 }

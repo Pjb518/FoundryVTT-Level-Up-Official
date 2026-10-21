@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,7 +50,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "M5T8MpGCcyjxYQ1p",
 				"label": "Portable Fortifications",
 				"keys": {
 					"base": [
@@ -56,21 +60,40 @@
 				},
 				"proficiencyType": "skill",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "",
+				"name": "Portable Fortifications",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:eng"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": true
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
 			},
 			"6kxaSazT2U3YNlCw": {
 				"grantType": "feature",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "6kxaSazT2U3YNlCw",
 				"label": "Portable Fortifications",
 				"features": {
 					"options": [
 						{
 							"uuid": "Compendium.a5e-our-fearless-leader.class-and-features.Item.O56uA8LLMLz3tanr",
-							"name": "Offensive Defense",
-							"img": "icons/skills/melee/shield-block-bash-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -80,7 +103,45 @@
 							"selectionLimit": 1
 						}
 					],
-					"total": 1
+					"total": 1,
+					"base": []
+				},
+				"id": "",
+				"name": "Portable Fortifications",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.g5h3OixAjXxAZsdW",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.x5ewMbsuUD1SPXSz",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -90,18 +151,20 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.368",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1792526809901,
-		"modifiedTime": 1792526809901,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.9",
+		"createdTime": 1792533191493,
+		"modifiedTime": 1792561396348,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "gNIZsDYeCXqNaGFG"
 }

@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,19 +45,47 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"pMyT3WmadkXB9jBo": {
-				"grantType": "item",
+			"TJ4KPPzwhpDs4Cmw": {
+				"id": "TJ4KPPzwhpDs4Cmw",
+				"label": "",
+				"name": "Defensive Maneuvers",
+				"img": "",
+				"flags": {},
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "pMyT3WmadkXB9jBo",
-				"label": "Defensive Maneuvers",
-				"items": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-maneuvers.Item.gjqpaaf7taqpun9y"
-						}
-					]
+				"restriction": "",
+				"type": "maneuver",
+				"grantType": "maneuver",
+				"config": {
+					"selectionType": "limited",
+					"maneuvers": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-maneuvers.Item.gjqpaaf7taqpun9y"
+							}
+						],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null,
+					"consumerData": {
+						"type": "itemUses",
+						"exertionAmount": null,
+						"recover": "longRest",
+						"value": "1"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -62,18 +95,20 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.368",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1792526809901,
-		"modifiedTime": 1792526809901,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.9",
+		"createdTime": 1792561413691,
+		"modifiedTime": 1792561450354,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "x5ewMbsuUD1SPXSz"
 }

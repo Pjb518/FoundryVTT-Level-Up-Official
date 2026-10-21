@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/skills/movement/figure-running-gray.webp",
 	"system": {
-		"description": "<p>Starting at 18th level, your command of your allies’ movement intensifies. All allies within the range of your Commanding Presence may benefit from your Come By ability.</p><p>Additionally, allies who move as a result of this ability may either cast one cantrip or make a single weapon attack against the enemy creature. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
+		"description": "<p>Starting at 18th level, your command of your allies’ movement intensifies. All allies within the range of your Commanding Presence may benefit from your @UUID[Compendium.a5e.a5e-class-features.Item.G8IYDrkBrOQSFKay]{Come By} ability.</p><p>Additionally, allies who move as a result of this ability may either cast one cantrip or make a single weapon attack against the enemy creature. Once you have used this ability, you may not do so again until you complete a long rest.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -41,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -50,7 +51,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -62,8 +68,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -83,7 +105,12 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -97,18 +124,20 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.368",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1792526809901,
-		"modifiedTime": 1792526809901,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.9",
+		"createdTime": 1792562248577,
+		"modifiedTime": 1792562255437,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
 	},
 	"_id": "ZQgmuA25u5DV2zbJ"
 }
