@@ -1,8 +1,8 @@
 import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
 import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
 
-import ItemSheetComponent from '#view/sheets/ItemSheetOld.svelte';
-// import ItemSheetComponent from '#view/sheets/ItemSheet.svelte';
+import ItemSheetComponent from '#view/sheets/ItemSheet.svelte';
+import ItemSheetComponentOld from '#view/sheets/ItemSheetOld.svelte';
 import LimitedSheetComponent from '#view/sheets/LimitedSheet.svelte';
 import OriginSheet from '#view/sheets/OriginSheet.svelte';
 
@@ -45,7 +45,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
 	static override DEFAULT_OPTIONS = {
 		baseApplication: 'ItemSheet',
 		classes: ['a5e-sheet', 'a5e-sheet--item'],
-		position: { width: 565, height: 592 },
+		position: { width: 570, height: 592 },
 		actions: {
 			openSourceLink: ItemSheet.#onSourceLinkClick,
 		},
@@ -198,6 +198,7 @@ export default class ItemSheet extends SvelteApplicationMixin(
 		if (type === 'culture') return OriginSheet;
 		if (type === 'destiny') return OriginSheet;
 		if (type === 'heritage') return OriginSheet;
-		return ItemSheetComponent;
+		if (type === 'object') return ItemSheetComponent;
+		return ItemSheetComponentOld;
 	}
 }

@@ -82,6 +82,21 @@
     ];
   }
 
+  async function _onDrop(
+    event: DragEvent & {
+      currentTarget: EventTarget & HTMLElement;
+    },
+  ) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const transferData = event.dataTransfer?.getData("text/plain");
+    if (!transferData) return;
+
+    const dragData = JSON.parse(transferData);
+    sheet._onDropDocument(dragData);
+  }
+
   function updateCurrentTab(name: string) {
     const newTabName = name ?? "core";
 
@@ -100,7 +115,11 @@
   setContext("sheet", sheet);
 </script>
 
-<div class="a5e-item-sheet">
+<div
+  class="a5e-item-sheet"
+  ondragover={(e) => e.preventDefault()}
+  ondrop={(e) => _onDrop(e)}
+>
   <ItemSideBar />
 
   <main class="a5e-item-sheet__main">

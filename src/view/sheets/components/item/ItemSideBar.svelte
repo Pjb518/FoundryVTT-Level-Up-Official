@@ -2,9 +2,10 @@
   import { getContext } from "svelte";
   import { type ItemA5e } from "#documents/item/item.ts";
   import getBaseActionSummary from "#utils/summaries/getBaseActionSummaryData.ts";
+  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
   import { getProperties } from "#utils/view/item/getProperties.ts";
-
+  import { getToggles } from "#utils/view/item/getToggles.ts";
   import ItemSummary from "#view/sheets/components/item/ItemSummary.svelte";
   import Pill from "#view/snippets/Pill.svelte";
 
@@ -22,13 +23,55 @@
 
   let itemData = $derived(item.reactive.system);
   let itemProperties = $derived(getProperties(item.reactive));
+  let itemToggles = $derived(getToggles(item.reactive));
   let actionSummaries = $derived(getActionSummaries());
 </script>
 
 <aside class="a5e-item-sheet__aside">
-  <img class="a5e-item-sheet__image" src={item.reactive.img} alt={item.reactive.name} />
+  <div class="a5e-item-sheet__aside__image-wrapper">
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <img
+      class="a5e-item-sheet__aside__image"
+      src={item.reactive.img}
+      alt={item.reactive.name}
+      onclick={() => editDocumentImage(item)}
+    />
+  </div>
 
-  <div class="a5e-item-sheet__aside__toggles"></div>
+  {#if itemToggles.length}
+    <div class="a5e-item-sheet__aside__toggles__wrapper">
+      <div class="a5e-item-sheet__aside__header">Toggles</div>
+
+      <div class="a5e-item-sheet__aside__toggles">
+        {#each itemToggles as { label, property }}
+          {let propVal = $derived(foundry.utils.getProperty(itemData, property))}
+
+          <Pill
+            onclick={() =>
+              updateDocumentDataFromField(item, `system.${property}`, !propVal)}
+            --a5e-pill-width="100%"
+          >
+            <div class="a5e-item-sheet__aside__toggle">
+              <span>Toggle {label}</span>
+              <button
+                type="button"
+                class="a5e-button a5e-button--transparent"
+                aria-label="Toggle {label}"
+                data-tooltip-direction="UP"
+              >
+                {#if propVal}
+                  <i class="fa-solid fa-toggle-on"></i>
+                {:else}
+                  <i class="fa-solid fa-toggle-off"></i>
+                {/if}
+              </button>
+            </div>
+          </Pill>
+        {/each}
+      </div>
+    </div>
+  {/if}
 
   <div class="a5e-item-sheet__aside__properties__wrapper">
     <div class="a5e-item-sheet__aside__header">Properties</div>
@@ -66,8 +109,25 @@
     &__aside {
       display: flex;
       flex-direction: column;
-      gap: var(--a5e-spacing-md);
+      gap: var(--a5e-spacing-lg);
       padding-inline: var(--a5e-spacing-sm);
+
+      &__image-wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: var(--a5e-spacing-md);
+      }
+
+      &__image {
+        width: 10rem;
+        aspect-ratio: 1/1;
+        border-radius: 0.25rem;
+        border: var(--a5e-border-width-thin) solid var(--a5e-color-primary);
+        outline: var(--a5e-border-width-thin) solid var(--a5e-color-primary);
+        outline-offset: 4px;
+      }
 
       &__header {
         display: flex;
@@ -139,12 +199,25 @@
           }
         }
       }
-    }
 
-    &__image {
-      width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 0.25rem;
+      &__toggles {
+        display: flex;
+        flex-direction: column;
+        gap: var(--a5e-spacing-sm);
+        font-size: var(--a5e-text-sm);
+
+        &__wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: var(--a5e-spacing-sm);
+        }
+      }
+
+      &__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
     }
   }
 </style>
