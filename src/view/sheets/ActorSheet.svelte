@@ -3,18 +3,14 @@
   import { actorSheetTempSettings } from "#stores/ActorSheetTempSettingsStore.svelte.ts";
 
   import type { Tab } from "../navigation/data.ts";
+
   import NavigationBar from "../navigation/NavigationBar.svelte";
   import ActorSheetHeader from "./components/ActorSheetHeader.svelte";
   import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
-  import ActorFeaturesFooter from "./components/actor/ActorFeaturesFooter.svelte";
-  import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInteractionFooter from "./components/actor/ActorInteractionFooter.svelte";
   import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
-  import ActorInventoryFooter from "./components/actor/ActorInventoryFooter.svelte";
-  import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
   import ActorManeuverFooter from "./components/actor/ActorManueverFooter.svelte";
   import ActorSidebar from "./components/actor/ActorSidebar.svelte";
-  import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
   import ActorSpellsFooter from "./components/actor/ActorSpellsFooter.svelte";
   import VehicleHeader from "./components/vehicle/VehicleHeader.svelte";
   import VehicleInventoryFooter from "./components/vehicle/VehicleInventoryFooter.svelte";
@@ -29,6 +25,8 @@
   import ActorManeuversPage from "./pages/ActorManeuversPage.svelte";
   import ActorNotesPage from "./pages/ActorNotesPage.svelte";
   import ActorSettingsPage from "./pages/ActorSettingsPage.svelte";
+  import ActorSkillsPage from "./pages/ActorSkillsPage.svelte";
+  import ActorSpellsPage from "./pages/ActorSpellsPage.svelte";
   import VehicleFeaturesPage from "./pages/VehicleFeaturesPage.svelte";
   import VehicleSettingsPage from "./pages/VehicleSettingsPage.svelte";
 

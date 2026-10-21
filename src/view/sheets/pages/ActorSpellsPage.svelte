@@ -232,6 +232,7 @@
 
     {#if !sheetIsLocked()}
       <button
+        type="button"
         class="a5e-spellbook-list__item a5e-spellbook-list__item--add"
         data-tooltip="Create New Spell Book"
         aria-label="Create New Spell Book"

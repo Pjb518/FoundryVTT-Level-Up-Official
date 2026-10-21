@@ -9,7 +9,7 @@
     action?: Action;
   };
 
-  let { item, action = null } = $props();
+  let { item, action = null }: Props = $props();
 
   async function onConfigure(e: MouseEvent) {
     e.stopPropagation();

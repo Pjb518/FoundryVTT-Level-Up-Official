@@ -42,7 +42,7 @@
             updateDocumentDataFromField(actor, currentTarget.name, currentTarget.checked)}
         />
 
-        {localize("A5E.vehicle.addDriverDex")}
+        {_loc("A5E.vehicle.addDriverDex")}
       </label>
     </FieldWrapper>
   {/if}
@@ -58,8 +58,8 @@
   .a5e-vehicle-ac-driver-dex {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: var(--a5e-sm-text);
+    gap: var(--a5e-spacing-sm);
+    font-size: var(--a5e-text-sm);
   }
 
   .ac-formula-preview {
