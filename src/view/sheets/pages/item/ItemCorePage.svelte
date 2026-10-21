@@ -23,8 +23,7 @@
       {
         name: "unidentifiedDescription",
         label: "Unidentified",
-        display:
-          item.type === "object" && (itemStore.unidentified || game.user?.isGM),
+        display: item.type === "object" && (itemStore.unidentified || game.user?.isGM),
       },
       {
         name: "gmNotes",
@@ -48,9 +47,7 @@
   let currentTab = $derived.by(() => {
     const name =
       selectedTabName ??
-      (itemStore?.unidentified && !game.user?.isGM
-        ? tabs[1]?.name
-        : tabs[0]?.name);
+      (itemStore?.unidentified && !game.user?.isGM ? tabs[1]?.name : tabs[0]?.name);
     return tabs.find((tab) => tab.name === name) ?? tabs[0];
   });
 

@@ -73,7 +73,7 @@ export default async function ready() {
 	handleChangelog();
 	handleIncompatibilityWarning();
 	addKeyPressLogger();
-	// updateTheme();
+	updateTheme();
 
 	// Add socket listener
 	const socketManager = new SocketManager();

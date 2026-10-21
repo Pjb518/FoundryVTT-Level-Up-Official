@@ -4,7 +4,7 @@
   import type { Tab } from "#view/navigation/data.ts";
 
   import NavigationBar from "../navigation/NavigationBar.svelte";
-  import ItemSheetHeader from "./components/item/ItemSheetHeaderOld.svelte";
+  import ItemSheetHeaderOld from "./components/item/ItemSheetHeaderOld.svelte";
 
   import ItemActionsPage from "./pages/item/ItemActionsPage.svelte";
   import ItemCorePage from "./pages/item/ItemCorePage.svelte";
@@ -115,8 +115,12 @@
   setContext("sheet", sheet);
 </script>
 
-<main class="a5e-item-sheet" ondrop={(e) => _onDrop(e)}>
-  <ItemSheetHeader />
+<main
+  class="a5e-item-sheet"
+  ondragover={(e) => e.preventDefault()}
+  ondrop={(e) => _onDrop(e)}
+>
+  <ItemSheetHeaderOld />
 
   <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />
 
@@ -135,9 +139,8 @@
     grid-template-areas:
       "header"
       "primaryNavigation"
-      "secondaryNavigation"
       "page";
-    grid-template-rows: min-content min-content min-content minmax(0, 1fr);
+    grid-template-rows: min-content min-content minmax(0, 1fr);
     gap: var(--a5e-spacing-sm);
 
     padding-block: 0.5rem;
@@ -146,6 +149,7 @@
       grid-area: page;
       overflow-y: auto;
       padding-inline: var(--a5e-spacing-sm);
+      height: 100%;
     }
   }
 </style>

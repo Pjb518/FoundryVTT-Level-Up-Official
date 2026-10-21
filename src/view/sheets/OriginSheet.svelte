@@ -3,7 +3,7 @@
 
   import type { Tab } from "#view/navigation/data.ts";
   import NavigationBar from "#view/navigation/NavigationBar.svelte";
-  import ItemSheetHeader from "./components/item/ItemSheetHeader.svelte";
+  import ItemSheetHeader from "./components/item/ItemSheetHeaderOld.svelte";
 
   import ArchetypePropertiesPage from "./pages/item/ArchetypePropertiesPage.svelte";
   import ClassPropertiesPage from "./pages/item/ClassPropertiesPage.svelte";
@@ -100,11 +100,7 @@
   setContext("sheet", sheet);
 </script>
 
-<main
-  class="a5e-origin-sheet"
-  ondragover={(e) => e.preventDefault()}
-  ondrop={_onDrop}
->
+<main class="a5e-origin-sheet" ondragover={(e) => e.preventDefault()} ondrop={_onDrop}>
   <ItemSheetHeader />
 
   <NavigationBar {currentTab} {tabs} showLock={false} onTabChange={updateCurrentTab} />

@@ -1,7 +1,8 @@
 import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationMixin.svelte.ts';
 import getDocumentSourceTooltip from '#utils/getDocumentSourceTooltip.ts';
 
-import ItemSheetComponent from '#view/sheets/ItemSheet.svelte';
+import ItemSheetComponent from '#view/sheets/ItemSheetOld.svelte';
+// import ItemSheetComponent from '#view/sheets/ItemSheet.svelte';
 import LimitedSheetComponent from '#view/sheets/LimitedSheet.svelte';
 import OriginSheet from '#view/sheets/OriginSheet.svelte';
 
