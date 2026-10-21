@@ -1,0 +1,265 @@
+{
+	"name": "Dauntless",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+	"effects": [
+		{
+			"name": "Call to Arms",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"origin": "Item.V5m9S0XZPgnnhc6v",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [
+					{
+						"key": "system.attributes.initiative.expertiseDice",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "bcKd3p2kTzNoKOWm",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>You and each creature friendly to you that are within range of your Commanding Presence gain an expertise die to their initiative check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.9",
+				"createdTime": 1792531893958,
+				"modifiedTime": 1792531893958,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		},
+		{
+			"name": "Dauntless",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"origin": "Item.4WE6EkWKozwRK20U",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "1XkKVLZo83kVlZZ1",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>You and allies within your Commanding Presence have advantage on saving throws against spells and effects that cause the charmed or frightened conditions.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.368",
+				"systemId": "a5e",
+				"systemVersion": "1.4.9",
+				"createdTime": 1792531964375,
+				"modifiedTime": 1792532020709,
+				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PaYRWkpeZH5gW5nW": {
+				"name": "Commanding Presence",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/intimidation-impressing.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 30,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {
+						"QNhaSVErG1WfDnC2": {
+							"name": "Call to Arms",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.V5m9S0XZPgnnhc6v.ActiveEffect.Ju81d9ozhNG6NEOe"
+							]
+						},
+						"0p41aaOJYqgMsA6f": {
+							"name": "Dauntless",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.4WE6EkWKozwRK20U.ActiveEffect.1XkKVLZo83kVlZZ1"
+							]
+						}
+					},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"bcKd3p2kTzNoKOWm",
+					"1XkKVLZo83kVlZZ1"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"tUre6WV4eC6vG1My": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 13th level, you and allies within your Commanding Presence have advantage on saving throws against spells and effects that cause the charmed or frightened conditions.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "marshalrevised",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"class": "",
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792531880910,
+		"modifiedTime": 1792532622054,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "4WE6EkWKozwRK20U"
+}

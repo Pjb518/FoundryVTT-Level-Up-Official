@@ -1,0 +1,199 @@
+{
+	"name": "Charismatic Commander",
+	"type": "feature",
+	"img": "icons/environment/people/commoner.webp",
+	"system": {
+		"description": "<p>Also at 13th level, you gain an additional number of inexperienced followers equal to your proficiency bonus.</p><p>As a bonus action, you may form your followers into a defensive body that is at your command. While in this formation, your followers have the statistics of a @UUID[Compendium.a5e.a5e-monsters.Actor.ef7tpqwh6mbh1yat]{Guard Squad}. The squad acts on your initiative, and you may issue commands to move or attack as a free action. If no command is issued, the guard squad instead takes the Dodge action. When the squad is reduced to 0 hit points, your followers do not die but disband and retreat and cannot be rallied again until you complete a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "ourFearlessLeader",
+		"actions": {
+			"PhJSLudeYhpVn0eC": {
+				"name": "Charismatic Commander",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"efIqVRgoCpPy2RRe": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
+			}
+		},
+		"class": "",
+		"classes": "marshalrevised",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"zQeXojkcLXeV449Z": {
+				"id": "zQeXojkcLXeV449Z",
+				"label": "",
+				"name": "Charismatic Commander",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 5,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"followerFeature"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"experienceType": {
+								"inclusive": [
+									"inexperienced"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": "",
+		"followerType": "",
+		"experienceType": "inexperienced"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "14.368",
+		"systemId": "a5e",
+		"systemVersion": "1.4.9",
+		"createdTime": 1792532082009,
+		"modifiedTime": 1792532111395,
+		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+	},
+	"_id": "Z2XCg823w1wOoG0Y"
+}

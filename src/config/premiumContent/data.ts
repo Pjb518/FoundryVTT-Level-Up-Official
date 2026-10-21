@@ -671,6 +671,17 @@ export const products: Record<string, ProductEntry> = {
 		moduleName: 'a5e-obscure-medicinals',
 		moduleDeprecated: true,
 	},
+	ourFearlessLeader: {
+		abbreviation: 'OFL',
+		affiliate: true,
+		category: 'premium',
+		publisher: 'plantWitchPress',
+		systems: ['a5e'],
+		title: 'Our Fearless Leader',
+		url: 'https://www.drivethrurpg.com/en/product/548224/our-fearless-leader-the-marshal-reimagined-a5e?affiliate_id=1388381',
+		moduleName: 'a5e-our-fearless-leader',
+		moduleDeprecated: true,
+	},
 	outOfTheWilds: {
 		abbreviation: 'OotW',
 		affiliate: true,
