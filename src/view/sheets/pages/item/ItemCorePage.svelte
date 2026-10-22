@@ -52,60 +52,39 @@
   });
 
   let property = $derived(getProperty());
-  let isGM = game.user.isGM;
 </script>
 
-<SecondaryNavigationBar
-  currentTab={currentTab.name}
-  {tabs}
-  onTabChange={updateCurrentTab}
-/>
+<div class="a5e-item-sheet__core-wrapper">
+  <SecondaryNavigationBar
+    currentTab={currentTab.name}
+    {tabs}
+    onTabChange={updateCurrentTab}
+  />
 
-<section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-  {#if Object.values(summaryData ?? {}).some(Boolean)}
-    <ItemSummary {summaryData} --inline-padding="0.25rem" />
+  <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
+    {#if Object.values(summaryData ?? {}).some(Boolean)}
+      <ItemSummary {summaryData} --inline-padding="0.25rem" />
 
-    <hr class="a5e-rule a5e-rule--card" />
-  {/if}
+      <hr class="a5e-rule a5e-rule--card" />
+    {/if}
 
-  <!-- Description -->
-  <!-- {#if !itemStore.unidentified || isGM}
-    <div class="a5e-item-sheet__editor">
+    {#key `${property}::${itemStore[property]}`}
       <Editor
-        content={itemStore.description}
+        content={itemStore[property]}
         document={item}
         documentUuid={item.uuid}
-        field="system.description"
+        field="system.{property}"
         manageSecrets={item.isOwner}
       />
-    </div>
-  {/if} -->
-
-  <!-- Unidentified Description -->
-  <!-- {#if (item.isType("object") && item.unidentified) || isGM}
-
-  {/if} -->
-
-  <!-- GM Notes -->
-  <!-- {#if isGM}
-
-  {/if} -->
-
-  {#key `${property}::${itemStore[property]}`}
-    <!-- <div class="a5e-item-sheet__editor"> -->
-    <Editor
-      content={itemStore[property]}
-      document={item}
-      documentUuid={item.uuid}
-      field="system.{property}"
-      manageSecrets={item.isOwner}
-    />
-    <!-- </div> -->
-  {/key}
-</section>
+    {/key}
+  </section>
+</div>
 
 <style lang="scss">
-  .a5e-item-sheet__editor {
-    // height: 100%;
+  .a5e-item-sheet__core-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
   }
 </style>

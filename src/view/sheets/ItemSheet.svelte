@@ -162,10 +162,11 @@
 
       &__page {
         grid-area: page;
-        overflow-y: auto;
         padding-inline: var(--a5e-spacing-sm);
         height: 100%;
-        min-height: 0;
+        // min-height: 0;
+        overflow-y: auto;
+        padding-bottom: var(--a5e-spacing-md);
       }
     }
   }
