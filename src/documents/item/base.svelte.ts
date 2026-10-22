@@ -120,33 +120,6 @@ class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubT
 	}
 
 	// *****************************************************************************************
-	get sourceId(): string | null {
-		return this._stats.compendiumSource || null;
-	}
-
-	/** ------------------------------------------------------ */
-	/**                      Data Prep                         */
-	/** ------------------------------------------------------ */
-	protected override _initialize(options?: Record<string, unknown>) {
-		super._initialize(options);
-	}
-
-	override prepareData() {
-		super.prepareData();
-	}
-
-	override prepareBaseData() {}
-
-	override prepareDerivedData() {}
-
-	/** @inheritdoc */
-	override getRollData() {
-		const data = { ...super.getRollData() };
-
-		return data;
-	}
-
-	// *****************************************************************************************
 	/**
    * A handler for activating an item. An actionId can be passed to this method to use a specific
    * action defined on the item. If there are no actions defined, this method defaults to

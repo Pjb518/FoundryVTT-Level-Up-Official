@@ -10,13 +10,6 @@ export default class ArchetypeItemA5e extends OriginItemA5e<'archetype'> {
 
 	declare resources: ClassResourceManager;
 
-	get classLevels() {
-		const cls = this.class;
-		if (!cls) return 0;
-
-		return cls.system.classLevels;
-	}
-
 	get slug(): string {
 		return this.system.slug || this.name.slugify({ strict: true });
 	}

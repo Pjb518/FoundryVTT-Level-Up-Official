@@ -24,10 +24,6 @@ export default class ClassItemA5e extends OriginItemA5e<'class'> {
 		return Math.floor(this.hitDice.size / 2) + 1;
 	}
 
-	get classLevels() {
-		return this.system.classLevels;
-	}
-
 	get hitDice() {
 		return {
 			current: this.totalHitDice - this.system.hp.hitDiceUsed,

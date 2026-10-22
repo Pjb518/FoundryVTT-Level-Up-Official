@@ -1,3 +1,4 @@
+import { createSubscriber } from 'svelte/reactivity';
 import { ActionsManager } from '#managers/ActionsManager.ts';
 import { ContainerManager } from '#managers/ContainerManager.ts';
 import { ItemGrantsManager } from '#managers/ItemGrantsManager.ts';
@@ -10,8 +11,21 @@ import { ActionActivationDialog } from '#view/dialogs/initializers/ActionActivat
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDataModel.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
-import { BaseItemA5e } from './base.svelte.ts';
 import type { ActionActivationOptions } from './data.ts';
+
+import FDoc = foundry.abstract.Document;
+
+// *****************************************************************************************
+
+declare module 'fvtt-types/configuration' {
+	interface DocumentClassConfig {
+		Item: typeof ItemA5E<Item.SubType>;
+	}
+
+	interface ConfiguredItem<SubType extends Item.SubType> {
+		document: ItemA5E<SubType>;
+	}
+}
 
 // *****************************************************************************************
 
@@ -19,9 +33,7 @@ import type { ActionActivationOptions } from './data.ts';
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class ItemA5e<
-	SubType extends Item.SubType = 'interaction' | 'feature' | 'object' | 'spell',
-> extends BaseItemA5e<SubType> {
+class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType> {
 	/** Manager in charge of actions on the item */
 	declare actions: ActionsManager;
 
@@ -31,13 +43,114 @@ class ItemA5e<
 	/** Manager in charge of grants on an item */
 	declare grants: SubType extends 'feature' ? ItemGrantsManager : null;
 
+	dialogs: {
+		actions: Record<string, any>;
+		areaScaling: Record<string, any>;
+		rollScaling: Record<string, any>;
+		targetScaling: Record<string, any>;
+	};
+
+	#subscribe: () => void;
+
+	// *****************************************************************************************
+
+	constructor(data, context) {
+		super(data, context);
+
+		this.dialogs ??= {
+			actions: {},
+			areaScaling: {},
+			rollScaling: {},
+			targetScaling: {},
+		};
+
+		this.#subscribe = createSubscriber((update) => {
+			const updateItemHook = Hooks.on('updateItem', (triggeringDocument, _, { diff }) => {
+				if (diff === false) return;
+
+				if (triggeringDocument._id === this.id) update();
+			});
+
+			const embeddedEffectHooks = ['create', 'delete', 'update'].reduce(
+				(hooks, hookType) => {
+					hooks[hookType] = Hooks.on(
+						// @ts-expect-error
+						`${hookType}ActiveEffect`,
+						(triggeringDocument: any, _, { diff }) => {
+							if (diff === false) return;
+
+							if (triggeringDocument?.parent?._id === this.id) update();
+						},
+					);
+
+					return hooks;
+				},
+				{} as Record<string, number>,
+			);
+
+			return () => {
+				Hooks.off('updateItem', updateItemHook);
+				Hooks.off('createActiveEffect', embeddedEffectHooks.create);
+				Hooks.off('deleteActiveEffect', embeddedEffectHooks.delete);
+				Hooks.off('updateActiveEffect', embeddedEffectHooks.update);
+			};
+		});
+	}
+
+	/** Gets a reactive instance of the actor */
+	get reactive() {
+		this.#subscribe();
+
+		return this;
+	}
+
 	/** ================================================================= */
 	// Type Helpers
 	/** ================================================================= */
 
+	/** Narrows down type to a certain item subtype */
+	isType<SubType extends Item.SubType = Item.SubType>(type: SubType): this is Item.OfType<SubType> {
+		// @ts-expect-error
+		return this.type === type;
+	}
+
 	/** ================================================================= */
 	// Getters
 	/** ================================================================= */
+
+	/** ---------------------------------- */
+	//  Generic
+	/** ---------------------------------- */
+
+	/** Get source id for this document if available */
+	get sourceId(): string | null {
+		return this._stats.compendiumSource || null;
+	}
+
+	/** ---------------------------------- */
+	//  Getters (Archetype / Class)
+	/** ---------------------------------- */
+
+	/** Get class levels for this archetype or class. */
+	get classLevels(): number {
+		if (this.isType('class')) return this.system.classLevels;
+		if (this.isType('archetype')) {
+			const cls = this.class;
+			if (!cls) return 0;
+
+			return cls.system.classLevels;
+		}
+
+		return 0;
+	}
+
+	/** ---------------------------------- */
+	//  Getters (Archetype)
+	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Getters (Class)
+	/** ---------------------------------- */
 
 	/** ---------------------------------- */
 	//  Getters (Object)
@@ -102,7 +215,8 @@ class ItemA5e<
 	/** ================================================================= */
 	// Initialize
 	/** ================================================================= */
-	protected override _initialize(options?: Record<string, unknown>) {
+	protected override _initialize(options?: FDoc.InitializeOptions) {
+		// Unset Managers
 		this.actions = null!;
 		this.containerItems = null;
 		this.grants = null as this['grants'];
@@ -185,42 +299,55 @@ class ItemA5e<
 	/** ================================================================= */
 
 	/** @inheritdoc */
-	override async duplicateItem() {
-		if (this.isType('object')) {
-			// This is done here because we don't want to call super
-			if (this.system.objectType === 'container') {
-				if (!this.actor) return null;
+	async duplicateItem() {
+		const owningActor = this.actor;
+		let create = true;
 
-				const container = await ContainerManager.createContainerOnActor(this.actor, this);
-				return container;
-			}
+		const newItem = foundry.utils.deepClone(this);
+		newItem.name = `${newItem.name} (Copy)`;
 
-			this.duplicateObject();
-		}
+		if (this.isType('object')) create = await this.duplicateObject(newItem);
 
-		super.duplicateItem();
+		if (create === false) return;
+
+		if (owningActor) owningActor.createEmbeddedDocuments('Item', [newItem]);
+		else Item.createDocuments([newItem]);
 	}
 
 	/** ---------------------------------- */
 	// Object
 	/** ---------------------------------- */
 	/** Duplicate data for objects */
-	async duplicateObject(this: Item.OfType<'object'>) {}
+	async duplicateObject(this: Item.OfType<'object'>, newItem: Item.OfType<'object'>) {
+		newItem.system.containerId = null;
+
+		// This is done here because we don't want to call super
+		if (this.system.objectType === 'container') {
+			if (!this.actor) return true;
+
+			await ContainerManager.createContainerOnActor(this.actor, newItem);
+			return false;
+		}
+	}
 
 	// *****************************************************************************************
 
+	/** ================================================================= */
+	// Activation Methods
+	/** ================================================================= */
+
 	/**
-   * A handler for activating an item. An actionId can be passed to this method to use a specific
-   * action defined on the item. If there are no actions defined, this method defaults to
-   * outputting the item's description.
-   *
-  //  * This method accepts an options object to further customize the activation process.
-   *
-   * @param actionId - The action id
-   * @param options
-   * @returns
-   */
-	override async activate(actionId: string | null, options: ActionActivationOptions = {}) {
+	 * A handler for activating an item. An actionId can be passed to this method to use a specific
+	 * action defined on the item. If there are no actions defined, this method defaults to
+	 * outputting the item's description.
+	 *
+	 * This method accepts an options object to further customize the activation process.
+	 *
+	 * @param actionId - The action id
+	 * @param options
+	 * @returns
+	 */
+	async activate(actionId: string | null, options: ActionActivationOptions = {}) {
 		// Do not allow an item to activate if it not attached to an actor or if the user does
 		// not have owner permissions for the actor.
 		if (!this.actor?.isOwner) return;
@@ -230,7 +357,7 @@ class ItemA5e<
 			options.executeMacro ??= this.system.macro.trim().length > 0 || this.actions.hasMacro;
 		}
 
-		if (this.actions.count === 0) {
+		if (!this.actions || this.actions.count === 0) {
 			// If no actions are defined, default to outputting just the item description.
 			this.shareItemDescription(null, options);
 		} else if (this.actions.count === 1) {
@@ -256,6 +383,83 @@ class ItemA5e<
 
 			this.#activateAction(promise.actionId, options);
 		}
+	}
+
+	/** Share the item description of an item to chat */
+	async shareItemDescription(action: Action | null, options: Record<string, any>) {
+		const chatData = {
+			author: (game as Game).user?.id,
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			system: {
+				actorId: this.actor?.uuid,
+				actorName: this.name,
+				actionName: action?.name,
+				img: action?.img ?? this.img,
+				itemId: this.uuid,
+				actionDescription: action?.descriptionOutputs?.includes('action')
+					? await foundry.applications.ux.TextEditor.enrichHTML(action.description, {
+							secrets: this.isOwner,
+							relativeTo: this,
+							rollData: this?.actor?.getRollData(this) ?? {},
+						})
+					: null,
+				itemDescription:
+					(action?.descriptionOutputs?.includes('item') ?? true)
+						? await foundry.applications.ux.TextEditor.enrichHTML(this.system.description, {
+								secrets: this.isOwner,
+								relativeTo: this,
+								rollData: this?.actor?.getRollData(this) ?? {},
+							})
+						: null,
+				unidentifiedDescription:
+					(action?.descriptionOutputs?.includes('item') ?? true)
+						? // @ts-expect-error
+							await foundry.applications.ux.TextEditor.enrichHTML(
+								this.system.unidentifiedDescription,
+								{
+									secrets: this.isOwner,
+									relativeTo: this,
+									rollData: this?.actor?.getRollData(this) ?? {},
+								},
+							)
+						: null,
+				summaryData: getSummaryData(this, action, {
+					hideSpellClasses: true,
+					hideSpellComponents: true,
+					hideSpellLevel: true,
+				}),
+			},
+			type: 'item',
+		};
+
+		// @ts-expect-error
+		ChatMessage.applyMode(chatData, game.settings.get('core', 'messageMode'));
+		const chatCard = ChatMessage.create(chatData);
+
+		// Execute Macro
+		if (options.executeMacro) {
+			// @ts-expect-error
+			if (!(this.system.macro?.trim().length > 0)) {
+				ui.notifications?.error(`There is no macro configured for ${this.name}.`);
+				return chatCard;
+			}
+
+			try {
+				// @ts-expect-error
+				const { macro } = this.system;
+
+				const AsyncFunction = async function _() {}.constructor;
+				AsyncFunction('actor', 'item', 'options', macro)(this.actor, this, { options });
+			} catch (err) {
+				ui.notifications?.error(
+					`Could not execute the macro for ${this.name}. See the browser console for more details.`,
+				);
+				console.error(err);
+			}
+		}
+
+		Hooks.callAll('a5e.itemActivate', this, { action });
+		return chatCard;
 	}
 
 	// TODO: Find out where this is being used.
@@ -489,10 +693,7 @@ class ItemA5e<
 
 		let itemUses = {};
 		if (consumers.itemUses) {
-			itemUses = consumers.itemUses.getActivationData(
-				this.actor!,
-				this as ItemA5e,
-			).itemUsesData;
+			itemUses = consumers.itemUses.getActivationData(this.actor!, this as ItemA5e).itemUsesData;
 		}
 
 		let hitDice = {};
@@ -522,10 +723,35 @@ class ItemA5e<
 		};
 	}
 
+	// *****************************************************************************************
+
 	/** ================================================================= */
 	// Helper Methods
 	/** ================================================================= */
 
+	/** ---------------------------------- */
+	//  Helper Methods (Base)
+	/** ---------------------------------- */
+
+	/** Render the sheet of an item for configuration */
+	async configureItem() {
+		await this.sheet?.render({ force: true });
+	}
+
+	/** Toggle the favorite property on this item */
+	async toggleFavorite() {
+		if (!this.actor) return;
+
+		await this.update({
+			'system.favorite': !this.system.favorite,
+		});
+	}
+
+	/** ---------------------------------- */
+	//  Helper Methods (Action Item)
+	/** ---------------------------------- */
+
+	/** Recharge an item */
 	async recharge(actionId: string, state = false) {
 		if (state || !this.actor) return;
 		let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
@@ -714,6 +940,16 @@ class ItemA5e<
 	}
 
 	/** ================================================================= */
+	// Roll Data
+	/** ================================================================= */
+
+	/** @inheritdoc */
+	override getRollData() {
+		const data = { ...super.getRollData() };
+		return data;
+	}
+
+	/** ================================================================= */
 	// Document Update Hooks
 	/** ================================================================= */
 
@@ -731,6 +967,7 @@ class ItemA5e<
 
 	/** @inheritdoc */
 	override async _preCreate(...[data, options, user]: Parameters<Item['_preCreate']>) {
+		// TODO: What is happening here
 		if (this.#isMisplacedDriverFeature((this.system as any)?.featureType)) return false;
 
 		if (this.isType('feature')) await this._preCreateFeature(data, options, user);
@@ -933,4 +1170,4 @@ class ItemA5e<
 	}
 }
 
-export { ItemA5e };
+export { ItemA5E };

@@ -508,7 +508,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ================================================================= */
-	// Data Preperation Methods
+	// Data Preparation Methods
 	/** ================================================================= */
 
 	/**
@@ -2049,20 +2049,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return data;
 	}
 
-	getVehicleRollData(this: Actor.OfType<'vehicle'>, data: Record<string, any>) {
-		data.prof = 0;
-
-		Object.entries(this.system.abilities).reduce((acc, [key, ability]) => {
-			acc.abilities ??= {};
-			acc.abilities[key] = { ...ability, mod: ability.check.mod };
-			acc[key] = { ...ability, mod: ability.check.mod };
-
-			return acc;
-		}, data);
-
-		return data;
-	}
-
 	/** ---------------------------------- */
 	//  Roll Data (Creature)
 	/** ---------------------------------- */
@@ -2176,6 +2162,25 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	//  Roll Data (Party)
 	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Roll Data (Vehicle)
+	/** ---------------------------------- */
+
+	/** Gets roll data for vehicles */
+	getVehicleRollData(this: Actor.OfType<'vehicle'>, data: Record<string, any>) {
+		data.prof = 0;
+
+		Object.entries(this.system.abilities).reduce((acc, [key, ability]) => {
+			acc.abilities ??= {};
+			acc.abilities[key] = { ...ability, mod: ability.check.mod };
+			acc[key] = { ...ability, mod: ability.check.mod };
+
+			return acc;
+		}, data);
+
+		return data;
+	}
 
 	/** ================================================================= */
 	// Resources Reset Handlers
