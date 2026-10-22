@@ -1,7 +1,6 @@
 import { localize } from '#utils/localization/localize.ts';
-import type ObjectItemA5e from '../../documents/item/object';
 
-export default function getAttunementLabel(item: ObjectItemA5e) {
+export default function getAttunementLabel(item: Item.OfType<'object'>) {
 	const { requiresAttunement, attuned, attunementHint } = item.system;
 
 	if (!requiresAttunement) return '';

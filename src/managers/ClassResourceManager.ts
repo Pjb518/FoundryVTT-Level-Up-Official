@@ -1,6 +1,4 @@
-import { getDeterministicBonus } from '../dice/getDeterministicBonus';
-import type ArchetypeItemA5e from '../documents/item/archetype';
-import type ClassItemA5e from '../documents/item/class';
+import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 
 interface ClassResource {
 	name: string;
@@ -12,11 +10,11 @@ interface ClassResource {
 }
 
 export default class ClassResourceManager extends Map<string, ClassResource> {
-	private item: ClassItemA5e | ArchetypeItemA5e;
+	private item: Item.OfType<'class'> | Item.OfType<'archetype'>;
 
 	rollData: Record<string, number | string> = {};
 
-	constructor(item: ClassItemA5e | ArchetypeItemA5e) {
+	constructor(item: Item.OfType<'archetype'> | Item.OfType<'class'>) {
 		super();
 
 		this.item = item;
@@ -44,7 +42,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
 	get level() {
 		if (this.item.type === 'class') return this.item.system.classLevels;
 
-		const cls = (this.item as ArchetypeItemA5e).class;
+		const cls = (this.item as Item.OfType<'archetype'>).class;
 		if (!cls) return null;
 
 		return cls.system.classLevels;
@@ -65,7 +63,6 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
 				value = getDeterministicBonus(
 					rawValue as string,
 					// TODO: Types - Remove when types are fixed
-					// @ts-expect-error
 					doc.getRollData(this.item),
 					{ strict: true },
 				);

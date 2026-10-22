@@ -1,8 +1,4 @@
-import type ObjectItemA5e from '../../documents/item/object';
-
-import { localize } from '#utils/localization/localize.ts';
-
-export default function getMountedProperties(item: ObjectItemA5e) {
+export default function getMountedProperties(item: Item.OfType<'object'>) {
 	const { versatileOptions, weaponProperties } = CONFIG.A5E;
 
 	const properties = item.system.mounted
@@ -14,7 +10,7 @@ export default function getMountedProperties(item: ObjectItemA5e) {
 		});
 
 	if (properties.length) {
-		return localize('A5E.weapons.properties.mountedSpecific', {
+		return _loc('A5E.weapons.properties.mountedSpecific', {
 			dice: properties.join(' / '),
 		});
 	}

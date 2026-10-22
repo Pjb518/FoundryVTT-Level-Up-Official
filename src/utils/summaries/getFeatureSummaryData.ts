@@ -1,8 +1,5 @@
-import { localize } from '#utils/localization/localize.ts';
-import type { ItemA5e } from '../../documents/item/item';
-
 export default function getFeatureSummaryData(
-	item: ItemA5e,
+	item: ActionItem,
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	options: Record<string, any>,
 ) {
@@ -10,10 +7,8 @@ export default function getFeatureSummaryData(
 
 	const { followerType, experienceType } = item.system;
 
-	const type = followerType ? localize(CONFIG.A5E.followerTypes[followerType]) : '';
-	const experience = experienceType
-		? localize(CONFIG.A5E.followerExperienceTypes[experienceType])
-		: '';
+	const type = followerType ? _loc(CONFIG.A5E.followerTypes[followerType]) : '';
+	const experience = experienceType ? _loc(CONFIG.A5E.followerExperienceTypes[experienceType]) : '';
 
 	return { featureProperties: type && experience ? `${type} (${experience})` : type || experience };
 }

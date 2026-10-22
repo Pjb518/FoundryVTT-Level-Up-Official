@@ -1,7 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { ItemA5e } from "#documents/item/item.ts";
-  import type { Action } from "#types/action.js";
 
   import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
   import { isStandardRange } from "#utils/isStandardRange.ts";
@@ -70,7 +68,7 @@
   let { index, id }: Props = $props();
 
   let actor: Creature = getContext("actor");
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
   let actionId: string = getContext("actionId");
   let action: A5EActionData = $derived(item.reactive.actions.get(actionId)!);
 

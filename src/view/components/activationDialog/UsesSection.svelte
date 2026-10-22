@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { ItemA5e } from "#documents/item/item.ts";
   import { ResourceConsumptionManager } from "#managers/ResourceConsumptionManager.ts";
   import type { RollStateManager } from "#managers/RollStateManager.ts";
   import { localize } from "#utils/localization/localize.ts";
@@ -26,7 +25,7 @@
   }: Props = $props();
 
   let actor: Actor.OfType<"base"> = getContext("actor");
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
   let actionId: string = getContext("actionId");
   let action = $derived(item.reactive.actions.get(actionId)!);
 

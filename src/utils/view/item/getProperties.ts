@@ -1,6 +1,4 @@
-import type { ItemA5e } from '#documents/item/item.ts';
-
-export function getProperties(item: ItemA5e) {
+export function getProperties(item: ActionItem) {
 	const properties: { value: string; source: string }[] = [];
 
 	// Object

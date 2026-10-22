@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { type ItemA5e } from "#documents/item/item.ts";
   import getBaseActionSummary from "#utils/summaries/getBaseActionSummaryData.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
@@ -19,7 +18,7 @@
     return summaryData;
   }
 
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
 
   let itemData = $derived(item.reactive.system);
   let itemProperties = $derived(getProperties(item.reactive));

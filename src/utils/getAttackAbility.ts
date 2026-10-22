@@ -1,5 +1,4 @@
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 
 import getSpellBookAbility from './getSpellBookAbility.ts';
 
@@ -8,7 +7,7 @@ import getSpellBookAbility from './getSpellBookAbility.ts';
  */
 export default function getAttackAbility(
 	actor: Creature,
-	item: ItemA5e,
+	item: ActionItem,
 	attackData: AttackRollData | undefined | null,
 ): string {
 	if (!attackData) return 'str';

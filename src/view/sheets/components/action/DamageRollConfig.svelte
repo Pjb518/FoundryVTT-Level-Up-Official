@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { ItemA5e } from "#documents/item/item.ts";
   import { getOrdinalNumber } from "#utils/getOrdinalNumber.ts";
   import { localize } from "#utils/localization/localize.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
@@ -42,7 +41,7 @@
 
   let { deleteRoll, duplicateRoll, roll, rollId }: Props = $props();
 
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
   let actionId: string = getContext("actionId");
 
   const { damageTypes, dieModifiers } = CONFIG.A5E;

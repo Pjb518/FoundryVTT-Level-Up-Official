@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { ItemA5e } from "#documents/item/item.ts";
   import type { RollStateManager } from "#managers/RollStateManager.ts";
   import { getRollFormula } from "#utils/getRollFormula.ts";
   import CheckboxGroup from "#view/snippets/CheckboxGroup.svelte";
@@ -28,7 +27,7 @@
 
   const actor: Actor.OfType<"base"> = getContext("actor");
   const dialog: any = getContext("dialog");
-  const item: ItemA5e = getContext("item");
+  const item: ActionItem = getContext("item");
 
   let situationalMods = $state("");
   let parts = $state(rollState.config.attackRoll!);

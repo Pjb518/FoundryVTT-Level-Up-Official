@@ -918,13 +918,13 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		if (consumers.actionUses) {
 			actionUses = consumers.actionUses.getActivationData(
 				this.actor!,
-				this as ItemA5e,
+				this as ActionItem,
 			).actionUsesData;
 		}
 
 		let itemUses = {};
 		if (consumers.itemUses) {
-			itemUses = consumers.itemUses.getActivationData(this.actor!, this as ItemA5e).itemUsesData;
+			itemUses = consumers.itemUses.getActivationData(this.actor!, this as ActionItem).itemUsesData;
 		}
 
 		let hitDice = {};
@@ -941,7 +941,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 		let spell = {};
 		if (consumers.spell) {
-			spell = consumers.spell.getActivationData(this.actor!, this as ItemA5e).spellData;
+			spell = consumers.spell.getActivationData(this.actor!, this as ActionItem).spellData;
 			console.log(spell);
 		}
 
@@ -1009,7 +1009,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		}
 
 		const currentData = this.toObject();
-		const compendiumData = ((await fromUuid(sourceId)) as BaseItemA5e | null)?.toObject();
+		const compendiumData = ((await fromUuid(sourceId)) as Item.Implementation | null)?.toObject();
 
 		if (!compendiumData) {
 			if (options.notify !== false) {

@@ -1,15 +1,14 @@
 import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
 import type { Action } from '#types/action.d.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 
 import { ActionSheet } from '../documents/sheets/ActionSheet.svelte.ts';
 
 class ActionsManager extends Map<string, A5EActionData> {
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	default: A5EActionData | null;
 
-	constructor(item: ItemA5e) {
+	constructor(item: ActionItem) {
 		super();
 
 		this.#item = item;
@@ -353,7 +352,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 	 * Static Methods
 	 * ************************************************ */
 	static async addAction(
-		item: ItemA5e,
+		item: ActionItem,
 		data: Record<string, any> = {},
 		update = true,
 		returnId = false,
@@ -405,7 +404,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 	/** ----------------------------------------- */
 
 	static async addRoll(
-		item: ItemA5e,
+		item: ActionItem,
 		action: [string, Action],
 		type: string, // TODO: Switch to roll types
 		data: Record<string, any> = {},
@@ -455,7 +454,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 	/** ----------------------------------------- */
 
 	static async addPrompt(
-		item: ItemA5e,
+		item: ActionItem,
 		action: [string, Action],
 		type: string, // TODO: Change to prompt types
 		data: Record<string, any> = {},
@@ -492,7 +491,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 	/** ----------------------------------------- */
 
 	static async addConsumer(
-		item: ItemA5e,
+		item: ActionItem,
 		action: [string, Action],
 		type: string, // TODO: Use consumer types here
 		data: Record<string, any> = {},
@@ -540,7 +539,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 	}
 
 	/** ----------------------------------------- */
-	static async addEffect(item: ItemA5e, actionId: string, effectId: string) {
+	static async addEffect(item: ActionItem, actionId: string, effectId: string) {
 		const action = item.actions.get(actionId);
 		if (!action) return false;
 
@@ -553,7 +552,7 @@ class ActionsManager extends Map<string, A5EActionData> {
 
 	/** ----------------------------------------- */
 
-	static getActionName(item: ItemA5e): string {
+	static getActionName(item: ActionItem): string {
 		const type = game.settings.get('a5e', 'newActionNameType');
 
 		if (type === 'action') return 'New Action';

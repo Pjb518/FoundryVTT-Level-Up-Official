@@ -1,6 +1,5 @@
 <script lang="ts">
   import { setContext } from "svelte";
-  import { type ItemA5e } from "#documents/item/item.ts";
 
   import type { Tab } from "#view/navigation/data.ts";
   import NavigationBar from "../navigation/NavigationBar.svelte";
@@ -17,7 +16,7 @@
   import ItemPropertiesPage from "./pages/item/ItemPropertiesPage.svelte";
 
   type Props = {
-    item: ItemA5e;
+    item: ActionItem;
     sheet: any;
     editable: boolean;
   };

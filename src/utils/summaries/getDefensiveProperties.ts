@@ -1,17 +1,13 @@
-import type ObjectItemA5e from "../../documents/item/object";
+export default function getDefensiveProperties(item: Item.OfType<'object'>) {
+	const { defensiveProperties, weaponProperties } = CONFIG.A5E;
 
-import { localize } from "#utils/localization/localize.ts";
+	if (item.system.defensiveProperties) {
+		const properties = defensiveProperties[item.system.defensiveProperties];
 
-export default function getDefensiveProperties(item: ObjectItemA5e) {
-  const { defensiveProperties, weaponProperties } = CONFIG.A5E;
+		return _loc('A5E.weapons.properties.defensiveSpecific', {
+			type: properties,
+		});
+	}
 
-  if (item.system.defensiveProperties) {
-    const properties = defensiveProperties[item.system.defensiveProperties];
-
-    return localize("A5E.weapons.properties.defensiveSpecific", {
-      type: properties,
-    });
-  }
-
-  return weaponProperties.defensive;
+	return weaponProperties.defensive;
 }

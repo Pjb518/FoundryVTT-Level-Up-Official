@@ -1,6 +1,5 @@
 <script lang="ts">
     import { getContext } from "svelte";
-    import type { ItemA5e } from "#documents/item/item.ts";
     import { localize } from "#utils/localization/localize.ts";
     import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
     import Checkbox from "#view/snippets/Checkbox.svelte";
@@ -24,7 +23,7 @@
 
     const { resourceConsumerConfig } = CONFIG.A5E;
 
-    const item: ItemA5e = getContext("item");
+    const item: ActionItem = getContext("item");
     const actionId: string = getContext("actionId");
 
     let selectedResource: string = $derived(consumer.resource ?? "");

@@ -12,7 +12,6 @@ import registerCharacterClassesConfig from './config/registerCharacterClassesCon
 import registerClassesConfig from './config/registerClassesConfig.ts';
 import registerConditionsConfig from './config/registerConditionsConfig.ts';
 import registerContextsConfig from './config/registerContextsConfig.ts';
-import registerDocumentConfig from './config/registerDocumentConfig.ts';
 import registerEffectGroupConfig from './config/registerEffectGroupConfig.ts';
 import registerEffectLocalizationConfig from './config/registerEffectLocalizationConfig.ts';
 import registerEncounterElements from './config/registerEncounterElements.ts';
@@ -2291,7 +2290,6 @@ const weightColumnOptions = {
 /*               Function Configs                    */
 /* ------------------------------------------------- */
 // These are sorted by priority
-const documentConfig = registerDocumentConfig();
 
 const classesConfig = registerClassesConfig();
 
@@ -2472,7 +2470,6 @@ const A5E = {
 
 	// Function Properties
 	// These are purposefully done first
-	...documentConfig,
 	...classesConfig,
 	...contextsConfig,
 	...conditionsConfig,

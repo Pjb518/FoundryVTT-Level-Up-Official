@@ -88,7 +88,7 @@
     return ammoConsumer[1].itemId;
   }
 
-  function hasAmmunition(item: ItemA5e, action: Action) {
+  function hasAmmunition(item: ActionItem, action: Action) {
     let _action = action;
 
     if (!item.actions) return false;
@@ -127,12 +127,12 @@
     );
   }
 
-  function hasRecharge(item: ItemA5e) {
+  function hasRecharge(item: ActionItem) {
     if (actionId && action) return action.uses?.per === "recharge";
     return item.reactive.system?.uses?.per === "recharge";
   }
 
-  function hasCountdown(item: ItemA5e) {
+  function hasCountdown(item: ActionItem) {
     if (actionId && action) {
       return action.uses?.per === "countdown" && (action.uses?.value ?? 0) > 0;
     }

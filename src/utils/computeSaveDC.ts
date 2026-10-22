@@ -1,10 +1,9 @@
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 import getSpellBookDC from './getSpellBookDC.ts';
 
 export function computeSaveDC(
 	actor: Creature | undefined,
-	item: ItemA5e,
+	item: ActionItem,
 	saveDC: { bonus: string; type: string },
 ): number | null {
 	if (!actor) return null;

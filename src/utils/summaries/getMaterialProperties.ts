@@ -1,42 +1,38 @@
-import type ObjectItemA5e from "../../documents/item/object";
+export default function getMaterialPropertiesSummary(item: Item.OfType<'object'>) {
+	const { flaws, materialProperties, modPorts } = CONFIG.A5E;
 
-import { localize } from "#utils/localization/localize.ts";
+	return item.system.materialProperties.map((property) => {
+		if (property === 'flaw') {
+			const flawTypes = item.system.flaws
+				?.map((flaw) => _loc(flaws[flaw]) ?? null)
+				?.filter(Boolean)
+				?.sort((a, b) => a.localeCompare(b));
 
-export default function getMaterialPropertiesSummary(item: ObjectItemA5e) {
-  const { flaws, materialProperties, modPorts } = CONFIG.A5E;
+			if (!flawTypes.length) return materialProperties.flaw;
 
-  return item.system.materialProperties.map((property) => {
-    if (property === "flaw") {
-      const flawTypes = item.system.flaws
-        ?.map((flaw) => localize(flaws[flaw]) ?? null)
-        ?.filter(Boolean)
-        ?.sort((a, b) => a.localeCompare(b));
+			return _loc('A5E.objects.properties.flawSpecific', {
+				type: flawTypes.join(', '),
+			});
+		}
 
-      if (!flawTypes.length) return materialProperties.flaw;
+		if (property === 'spacefaring') {
+			if (item.system.modPorts) {
+				if (item.system.modPorts !== '1') {
+					const modPort = modPorts[item.system.modPorts];
+					return _loc('A5E.objects.properties.spacefaringSpecificPlural', {
+						type: modPort,
+					});
+				}
 
-      return localize("A5E.objects.properties.flawSpecific", {
-        type: flawTypes.join(", "),
-      });
-    }
+				const modPort = modPorts[item.system.modPorts];
+				return _loc('A5E.objects.properties.spacefaringSpecific', {
+					type: modPort,
+				});
+			}
 
-    if (property === "spacefaring") {
-      if (item.system.modPorts) {
-        if (item.system.modPorts !== "1") {
-          const modPort = modPorts[item.system.modPorts];
-          return localize("A5E.objects.properties.spacefaringSpecificPlural", {
-            type: modPort,
-          });
-        }
+			return _loc('A5E.objects.properties.spacefaring');
+		}
 
-        const modPort = modPorts[item.system.modPorts];
-        return localize("A5E.objects.properties.spacefaringSpecific", {
-          type: modPort,
-        });
-      }
-
-      return localize("A5E.objects.properties.spacefaring");
-    }
-
-    return materialProperties[property] ?? property;
-  }) as string[];
+		return materialProperties[property] ?? property;
+	}) as string[];
 }

@@ -1,13 +1,12 @@
 import type * as ConsumerData from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 import type { RollStateManager } from './RollStateManager.ts';
 
 class ResourceConsumptionManager {
 	#actor: Actor.OfType<'character'> | Actor.OfType<'npc'>;
 
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	#action: A5EActionData;
 

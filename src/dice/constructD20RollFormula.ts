@@ -1,10 +1,9 @@
-import type { ItemA5e } from '#documents/item/item.ts';
 import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 type Options = {
 	actor: Creature;
 	expertiseDie?: number;
-	item: ItemA5e | null;
+	item: ActionItem | null;
 	minRoll?: number;
 	maxRoll?: number;
 	modifiers?: ({

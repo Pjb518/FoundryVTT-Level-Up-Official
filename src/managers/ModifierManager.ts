@@ -1,4 +1,3 @@
-import type { ItemA5e } from '#documents/item/item.ts';
 import { localize } from '#utils/localization/localize.ts';
 
 class ModifierManager {
@@ -297,7 +296,7 @@ declare namespace ModifierManager {
 			| 'meleeWeaponAttack'
 			| 'rangedSpellAttack'
 			| 'rangedWeaponAttack';
-		item?: ItemA5e;
+		item?: ActionItem;
 		expertiseDie?: number;
 		minRoll?: number;
 		maxRoll?: number;
