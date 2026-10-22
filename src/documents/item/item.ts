@@ -161,9 +161,31 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		return this._stats.compendiumSource || null;
 	}
 
+	/** Returns the identifier for this class. TODO: This needs to be global soon */
+	get slug() {
+		return this.system.slug || this.name.slugify({ strict: true });
+	}
+
 	/** ---------------------------------- */
 	//  Getters (Archetype / Class)
 	/** ---------------------------------- */
+
+	/** Get parent class for this archetype. TODO: Move to data model */
+	get class(): Item.OfType<'class'> | null {
+		if (!this.actor) return null;
+
+		if (this.isType('archetype')) {
+			if (!this.system.class) {
+				ui.notifications?.error('Archetype is missing a class reference.');
+			}
+
+			const slug = this.system.class;
+			const cls = this.actor.itemTypes.class.find((i) => i.slug === slug);
+			return cls || null;
+		}
+
+		return null;
+	}
 
 	/** Get class levels for this archetype or class. */
 	get classLevels(): number {
@@ -254,11 +276,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	get maxHP() {
 		if (this.isType('class')) return this.prepareMaxHitPoints();
 		return 0;
-	}
-
-	/** Returns the identifier for this class. TODO: This needs to be global soon */
-	get slug() {
-		return this.system.slug || this.name.slugify({ strict: true });
 	}
 
 	/** Returns the total hit dice this class grants. TODO: Move to data model */
@@ -376,7 +393,16 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this.grants = new ItemGrantsManager(this) as this['grants'];
 
 		// Call Sub methods
+		if (this.isType('archetype')) this.prepareArchetypeBaseData();
 		if (this.isType('class')) this.prepareClassBaseData();
+	}
+
+	/** ---------------------------------- */
+	//  Base Data Prep (Archetype)
+	/** ---------------------------------- */
+	prepareArchetypeBaseData(this: Item.OfType<'archetype'>) {
+		this.casting = this.prepareCasterData();
+		this.resources = new ClassResourceManager(this);
 	}
 
 	/** ---------------------------------- */
@@ -1365,7 +1391,16 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	// Roll Data (Archetype)
 	/** ---------------------------------- */
 	/** Gets roll data for an archetype Item */
-	getArchetypeRollData(this: Item.OfType<'archetype'>, data: Record<string, any>) {}
+	getArchetypeRollData(this: Item.OfType<'archetype'>, data: Record<string, any>) {
+		const resources = this.resources?.rollData ?? {};
+
+		data.actorTransfer = {
+			resources,
+			...resources,
+		};
+
+		return data;
+	}
 
 	/** ---------------------------------- */
 	// Roll Data (Class)
