@@ -115,7 +115,7 @@
       flex-direction: column;
       gap: var(--a5e-spacing-lg);
       padding-inline: var(--a5e-spacing-sm);
-      background: var(--a5e-color-surface-raised);
+      background: var(--a5e-item-sheet-aside-background);
       overflow: hidden;
 
       &__image-wrapper {
