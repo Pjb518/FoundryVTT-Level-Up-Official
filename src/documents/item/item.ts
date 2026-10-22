@@ -13,9 +13,11 @@ import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDa
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
 import { MigrationRunnerBase } from '../../migration/runner/base.ts';
-import type { ActionActivationOptions } from './data.ts';
+import type { ActionActivationOptions, ClassCastingData } from './data.ts';
 
 import FDoc = foundry.abstract.Document;
+
+import ClassResourceManager from '#managers/ClassResourceManager.ts';
 
 // *****************************************************************************************
 
@@ -39,11 +41,17 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** Manager in charge of actions on the item */
 	declare actions: ActionsManager;
 
+	/** Casting data for classes and archetypes */
+	declare casting: ClassCastingData | null;
+
 	/** Manager in charge of container items on a container */
 	declare containerItems: ContainerManager | null;
 
 	/** Manager in charge of grants on an item */
 	declare grants: SubType extends 'feature' ? ItemGrantsManager : null;
+
+	/** Manager in charge of class resources */
+	declare resources: SubType extends 'archetype' | 'class' ? ClassResourceManager : null;
 
 	dialogs: {
 		actions: Record<string, any>;
@@ -178,6 +186,87 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	//  Getters (Class)
 	/** ---------------------------------- */
 
+	/** Gets hp associated with each level as a string. TODO: Move to Data model*/
+	get associatedLevels(): string[] {
+		if (this.isType('class')) {
+			const { levels } = this.system.hp;
+			return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
+				if (!value) return acc;
+				acc.push(level);
+				return acc;
+			}, [] as string[]);
+		}
+
+		return [] as string[];
+	}
+
+	/** Gets the selected archetype for this class if any */
+	get archetype(): Item.OfType<'archetype'> | null {
+		if (!this.actor) return null;
+
+		if (this.isType('class')) {
+			const { slug } = this;
+
+			const cls = this.actor.itemTypes.archetype.find((i) => i.system.class === slug);
+			return cls || null;
+		}
+
+		return null;
+	}
+
+	/** Gets Average Hp for this class. TODO: Move to data model */
+	get averageHP(): number {
+		if (this.isType('class')) {
+			return Math.floor(this.hitDice.size / 2) + 1;
+		}
+
+		return 0;
+	}
+
+	/** Get hit dice data for this class. TODO: Move to data model */
+	get hitDice() {
+		if (this.isType('class')) {
+			return {
+				current: this.totalHitDice - this.system.hp.hitDiceUsed,
+				total: this.totalHitDice,
+				size: this.system.hp.hitDiceSize,
+			};
+		}
+
+		return {
+			current: 0,
+			total: 0,
+			size: 0,
+		};
+	}
+
+	/** Checks if this class is the starting class for this actor. TODO: Move to data model */
+	get isStartingClass(): boolean {
+		if (this.isType('class')) {
+			if (!this.actor) return false;
+			return this.actor.system.classes?.startingClass === this.slug;
+		}
+
+		return false;
+	}
+
+	/** Gets the max hp for the actor. TODO: Move to data model */
+	get maxHP() {
+		if (this.isType('class')) return this.prepareMaxHitPoints();
+		return 0;
+	}
+
+	/** Returns the identifier for this class. TODO: This needs to be global soon */
+	get slug() {
+		return this.system.slug || this.name.slugify({ strict: true });
+	}
+
+	/** Returns the total hit dice this class grants. TODO: Move to data model */
+	get totalHitDice() {
+		if (this.isType('class')) return this.classLevels;
+		return 0;
+	}
+
 	/** ---------------------------------- */
 	//  Getters (Object)
 	/** ---------------------------------- */
@@ -285,6 +374,85 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** Prepares base data for origin items */
 	prepareOriginBaseData(this: OriginItem) {
 		this.grants = new ItemGrantsManager(this) as this['grants'];
+
+		// Call Sub methods
+		if (this.isType('class')) this.prepareClassBaseData();
+	}
+
+	/** ---------------------------------- */
+	//  Base Data Prep (Class)
+	/** ---------------------------------- */
+
+	/** Prepares base data for class items */
+	prepareClassBaseData(this: Item.OfType<'class'>) {
+		this.resources = new ClassResourceManager(this);
+		this.casting = this.prepareCasterData();
+	}
+
+	/** Prepare Caster Data for this class. TODO: Move to data model */
+	prepareCasterData(this: Item.OfType<'class'> | Item.OfType<'archetype'>) {
+		const { casterType } = this.system.spellcasting;
+		if (!casterType || casterType === 'none' || !this.classLevels) {
+			return this.archetype?.casting ?? null;
+		}
+
+		const progressionConfig = CONFIG.A5E.casterProgression[casterType] ?? null;
+		if (!progressionConfig) return null;
+
+		const { type, config, resource, multiplier, roundUp, multiclassMode } = progressionConfig;
+
+		const data: ClassCastingData = {
+			casterType,
+			resource,
+			progressionType: type,
+		};
+
+		// Add spellcasting resource data
+		if (type === 'multiplier' && resource === 'slots') {
+			const roundFunc = Math.ceil;
+			const slots = config[roundFunc(this.classLevels * (multiplier ?? 1))] ?? [];
+
+			data.slots = Object.fromEntries(
+				slots.map((slot: number, idx: number) => {
+					const skip = Math.round(1 / multiplier) > this.classLevels;
+					if (multiplier < 1 && skip && !roundUp) return [idx + 1, 0];
+
+					return [idx + 1, slot];
+				}),
+			);
+		}
+
+		if (type === 'reference') {
+			const ref = config[this.classLevels];
+			data.multiclassMode = multiclassMode;
+			if (resource === 'slots') {
+				data.slots = { [ref.level]: ref.slots };
+			} else if (resource === 'points') {
+				data.points = ref.points;
+				data.maxLevel = ref.level;
+			} else if (resource === 'inventions') {
+				data.inventions = ref.count;
+				data.maxLevel = ref.level;
+			} else if (resource === 'artifactCharges') {
+				data.charges = ref.charges;
+				data.maxLevel = ref.level;
+			}
+		}
+
+		return data;
+	}
+
+	/** Prepare Max Hit Points for this class. TODO: Move to data model */
+	prepareMaxHitPoints(this: Item.OfType<'class'>) {
+		const { levels } = this.system.hp;
+
+		const actor = this.actor;
+		const maxLevel = actor ? actor.levels.character : 20;
+
+		return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
+			if (!value || level > maxLevel) return acc;
+			return acc + (value as number);
+		}, 0);
 	}
 
 	/** ================================================================= */
@@ -337,7 +505,9 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** @inheritdoc */
 	async duplicateItem() {
 		const owningActor = this.actor;
-		let create = true;
+
+		// biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
+		let create: boolean | void = true;
 
 		const newItem = foundry.utils.deepClone(this);
 		newItem.name = `${newItem.name} (Copy)`;
@@ -355,7 +525,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	/** Duplicate data for objects */
 	async duplicateObject(this: Item.OfType<'object'>, newItem: Item.OfType<'object'>) {
-		newItem.system.containerId = null;
+		newItem.system.containerId = '';
 
 		// This is done here because we don't want to call super
 		if (this.system.objectType === 'container') {
@@ -389,7 +559,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		if (!this.actor?.isOwner) return;
 
 		if (this.actor?.getFlag('a5e', 'automaticallyExecuteAvailableMacros') ?? true) {
-			// @ts-expect-error
 			options.executeMacro ??= this.system.macro.trim().length > 0 || this.actions.hasMacro;
 		}
 
@@ -1174,6 +1343,51 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** @inheritdoc */
 	override getRollData() {
 		const data = { ...super.getRollData() };
+
+		// Call sub methods
+		if (this.isOriginItem()) this.getOriginRollData(data);
+
+		return data;
+	}
+
+	/** ---------------------------------- */
+	// Roll Data (Origin)
+	/** ---------------------------------- */
+	getOriginRollData(this: OriginItem, data: Record<string, any>) {
+		// Call sub methods
+		if (this.isType('archetype')) this.getArchetypeRollData(data);
+		if (this.isType('class')) this.getClassRollData(data);
+
+		return data;
+	}
+
+	/** ---------------------------------- */
+	// Roll Data (Archetype)
+	/** ---------------------------------- */
+	/** Gets roll data for an archetype Item */
+	getArchetypeRollData(this: Item.OfType<'archetype'>, data: Record<string, any>) {}
+
+	/** ---------------------------------- */
+	// Roll Data (Class)
+	/** ---------------------------------- */
+	/** Gets roll data for a class Item */
+	getClassRollData(this: Item.OfType<'class'>, data: Record<string, any>) {
+		const resources = this.resources?.rollData ?? {};
+
+		const { archetype } = this;
+		if (archetype) {
+			const subResources = archetype.resources?.rollData ?? {};
+			Object.assign(resources, subResources);
+		}
+
+		data.actorTransfer = {
+			level: this.classLevels,
+			hitDiceSize: this.system.hp.hitDiceSize,
+			hitDiceUsed: this.system.hp.hitDiceUsed,
+			resources,
+			...resources,
+		};
+
 		return data;
 	}
 
@@ -1209,7 +1423,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// Call sub methods
 		if (this.isType('feature')) create = await this._preCreateFeature(data, options, user);
 		if (this.isType('spell')) create = await this._preCreateSpell(data, options, user);
-
 		if (this.isOriginItem()) create = await this._preCreateOrigin(data, options, user);
 
 		if (create === false) return false;
@@ -1259,10 +1472,18 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	// Pre Create (Origin)
 	/** ---------------------------------- */
+
+	/** Pre Create data for an origin Item. This must return true if item is to be created */
 	async _preCreateOrigin(
 		this: OriginItem,
 		...[data, options, user]: Parameters<Item['_preCreate']>
 	) {
+		let create: boolean | void = true;
+
+		// Call sub methods
+		if (this.isType('class')) create = await this._preCreateClass(data, options, user);
+
+		if (create === false) return false;
 		if (user.id !== game.userId) return;
 
 		// Apply grants if any
@@ -1274,8 +1495,49 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			// @ts-expect-error
 			if (!options.noGrant) await actor.grants.createInitialGrants(this, true);
 		}
+	}
 
-		// Call sub methods
+	/** ---------------------------------- */
+	// Pre Create (Class)
+	/** ---------------------------------- */
+
+	/** Pre Create data for a class Item. This must return true if item is to be created */
+	async _preCreateClass(
+		this: Item.OfType<'class'>,
+		...[data, options, user]: Parameters<Item['_preCreate']>
+	) {
+		foundry.utils.setProperty(data, 'system.classLevels', 1);
+		foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
+
+		// Reset hp rolls
+		Array.from({ length: 19 }, (_, i) => i + 2).forEach((level) => {
+			foundry.utils.setProperty(data, `system.hp.levels.${level}`, 0);
+		});
+
+		if (this.parent?.documentName === 'Actor') {
+			const actor = this.parent;
+			const { classes } = actor;
+
+			if (!Object.keys(classes).length) {
+				await actor.update({ 'system.classes.startingClass': this.slug });
+
+				// Update starting hp
+				const startingHp = this?.system?.hp?.hitDiceSize ?? 6;
+				foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
+			} else {
+				foundry.utils.setProperty(data, 'system.hp.levels.1', 0);
+			}
+
+			const existing = classes[this.slug];
+			if (existing) {
+				existing.update({
+					'system.classLevels': Math.min(existing.system.classLevels + 1, 20),
+				});
+				return false;
+			}
+		}
+
+		this.updateSource(data);
 	}
 
 	/** ---------------------------------- */
@@ -1290,13 +1552,14 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// Call sub methods
 		if (this.isType('feature')) update = await this._preUpdateFeature(data, options, user);
 		if (this.isType('object')) update = await this._preUpdateObject(data, options, user);
+		if (this.isOriginItem()) update = await this._preUpdateOrigin(data, options, user);
 
 		if (update === false) return false;
 		await super._preUpdate(data, options, user);
 	}
 
 	/** ---------------------------------- */
-	// Pre Update (Object)
+	// Pre Update (Feature)
 	/** ---------------------------------- */
 
 	/** Pre Update for objects */
@@ -1343,6 +1606,66 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	}
 
 	/** ---------------------------------- */
+	// Pre Update (Origin)
+	/** ---------------------------------- */
+
+	/** Pre Update for objects */
+
+	async _preUpdateOrigin(
+		this: OriginItem,
+		...[data, options, user]: Parameters<Item['_preUpdate']>
+	) {
+		let update: boolean | void = true;
+
+		// Call sub methods
+		if (this.isType('class')) update = await this._preUpdateClass(data, options, user);
+
+		return update;
+	}
+
+	/** ---------------------------------- */
+	// Pre Update (Class)
+	/** ---------------------------------- */
+
+	/** Pre Update for objects */
+	async _preUpdateClass(
+		this: Item.OfType<'class'>,
+		...[data, options, user]: Parameters<Item['_preUpdate']>
+	) {
+		const keys = Object.keys(foundry.utils.flattenObject(data));
+		if (keys.includes('system.hp.hitDiceSize') && (this.isStartingClass || !this.parent)) {
+			const size = foundry.utils.getProperty(data, 'system.hp.hitDiceSize');
+			// @ts-expect-error
+			await this.updateSource({ 'system.hp.levels.1': size });
+		}
+
+		if (
+			keys.includes('system.slug') &&
+			this.isStartingClass &&
+			this.parent?.documentName === 'Actor'
+		) {
+			const slug = foundry.utils.getProperty(data, 'system.slug');
+			this.parent.update({ 'system.classes.startingClass': slug });
+		}
+
+		// Clamp hitDice used
+		if (keys.includes('system.hp.hitDiceUsed')) {
+			const used = foundry.utils.getProperty(data, 'system.hp.hitDiceUsed') as number;
+			const max = this.totalHitDice;
+			data.system.hp.hitDiceUsed = Math.clamp(used, 0, max);
+		}
+
+		if (this.parent?.documentName === 'Actor' && keys.includes('system.classLevels')) {
+			const actor = this.parent;
+			const currentLevel = this.system.classLevels;
+			const newLevel = foundry.utils.getProperty(data, 'system.classLevels');
+			// @ts-expect-error
+			const result = await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
+			if (!result) return false;
+		}
+	}
+
+	/** ---------------------------------- */
 	// On Create
 	/** ---------------------------------- */
 
@@ -1363,6 +1686,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 		// Call sub methods
 		if (this.isType('object')) this._onCreateObject(data, options, userId);
+		if (this.isOriginItem()) this._onCreateOrigin(data, options, userId);
 	}
 
 	/** ---------------------------------- */
@@ -1407,6 +1731,42 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		});
 
 		await this.update(updates);
+	}
+
+	/** ---------------------------------- */
+	// On Create (Origin)
+	/** ---------------------------------- */
+
+	/** On Create for origin items */
+	async _onCreateOrigin(
+		this: OriginItem,
+		...[data, options, userId]: Parameters<Item['_onCreate']>
+	) {
+		// Call Sub Methods
+		if (this.isType('class')) this._onCreateClass(data, options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Create (Class)
+	/** ---------------------------------- */
+
+	/** On Create for class items */
+	async _onCreateClass(
+		this: Item.OfType<'class'>,
+		...[data, options, userId]: Parameters<Item['_onCreate']>
+	) {
+		// Update class resource values
+		if (this.actor) {
+			const clsLevel = this.resources.level ?? 1;
+			const resourceData = this.resources.consumableResources.reduce((acc, r) => {
+				acc[r.slug] = getDeterministicBonus(r.reference[clsLevel], this.actor?.getRollData()) ?? 0;
+				return acc;
+			}, {});
+
+			this.actor?.update({
+				'system.resources.classResources': resourceData,
+			});
+		}
 	}
 
 	/** ---------------------------------- */
@@ -1473,6 +1833,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	// On Delete (Origin)
 	/** ---------------------------------- */
+
+	/** On Delete for origin items */
 	async _onDeleteOrigin(this: OriginItem, ...[options, userId]: Parameters<Item['_onDelete']>) {
 		if (this.parent?.documentName === 'Actor') {
 			const actor = this.parent;
@@ -1480,6 +1842,36 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		}
 
 		// Call Sub Methods
+		if (this.isType('class')) this._onDeleteClass(options, userId);
+	}
+
+	/** ---------------------------------- */
+	// On Delete (Class)
+	/** ---------------------------------- */
+
+	/** On Delete for class items */
+	async _onDeleteClass(
+		this: Item.OfType<'class'>,
+		...[options, userId]: Parameters<Item['_onDelete']>
+	) {
+		if (this.isStartingClass && this.parent?.documentName === 'Actor') {
+			const actor = this.parent;
+			actor.update({ 'system.classes.startingClass': '' });
+		}
+
+		if (this.actor) {
+			// Delete associated archetype
+			const { archetype } = this;
+			if (archetype) archetype.delete();
+
+			// Delete actor resource data
+			const resourceData = this.resources.consumableResources.reduce((acc, r) => {
+				acc[`${r.slug}`] = _del;
+				return acc;
+			}, {});
+
+			this.actor?.update({ 'system.resources.classResources': resourceData });
+		}
 	}
 }
 
