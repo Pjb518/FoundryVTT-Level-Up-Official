@@ -71,7 +71,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--a5e-spacing-sm);
-    margin-bottom: 0.75rem;
+    margin-top: var(--a5e-spacing-sm);
+    margin-bottom: var(--a5e-spacing-md);
 
     &__item-name {
       font-family: var(--a5e-secondary-font);
