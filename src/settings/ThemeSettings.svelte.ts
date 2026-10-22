@@ -20,9 +20,12 @@ export const schema = () => ({
 });
 
 class ThemeSettings extends SvelteApplicationMixin(foundry.applications.api.ApplicationV2) {
-	VAR_MAPPINGS = {
+	/** Variable mappings */
+	static VAR_MAPPINGS = {
 		primaryColor: '--a5e-color-primary',
 	};
+
+	VAR_MAPPINGS = ThemeSettings.VAR_MAPPINGS;
 
 	config: ThemeSettings.Config;
 
@@ -90,21 +93,30 @@ class ThemeSettings extends SvelteApplicationMixin(foundry.applications.api.Appl
 	/** @inheritdoc */
 	override close(options) {
 		// Reset variables
-		const currentTheme = this.config.themes[this.config.currentTheme] ?? {};
+		ThemeSettings.applyGlobalTheme();
+
+		return super.close(options);
+	}
+
+	/** Apply Selected themes on startup */
+	static applyGlobalTheme() {
+		const lightTheme = document.querySelector<HTMLElement>('.theme-light');
+		const darkTheme = document.querySelector<HTMLElement>('.theme-dark');
+		const themeSettings = game.settings.get('a5e', 'themeSettings');
+
+		const currentTheme = themeSettings.themes[themeSettings.currentTheme] ?? {};
 
 		Object.entries(this.VAR_MAPPINGS ?? {}).forEach(([key, variable]) => {
 			let value = currentTheme[key];
 			if (value === null || value === undefined) return;
 
+			// Convert number string values to strings
 			if (value instanceof Color) value = value.toString();
 
 			document.documentElement.style.setProperty(variable, value);
-			const theme = document.querySelector('.theme-dark');
-			// @ts-expect-error
-			theme?.style.setProperty(variable, value);
+			if (lightTheme) lightTheme.style.setProperty(variable, value);
+			if (darkTheme) darkTheme.style.setProperty(variable, value);
 		});
-
-		return super.close(options);
 	}
 }
 
