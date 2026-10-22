@@ -11,6 +11,8 @@ import { ActionActivationDialog } from '#view/dialogs/initializers/ActionActivat
 import { GenericConfigDialog } from '#view/dialogs/initializers/GenericConfigDialog.svelte.ts';
 import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDataModel.ts';
 import { getDeterministicBonus } from '../../dice/getDeterministicBonus.ts';
+import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration.ts';
+import { MigrationRunnerBase } from '../../migration/runner/base.ts';
 import type { ActionActivationOptions } from './data.ts';
 
 import FDoc = foundry.abstract.Document;
@@ -107,6 +109,30 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ================================================================= */
 	// Type Helpers
 	/** ================================================================= */
+
+	/** Narrows down items to items that support actions */
+	isActionItem(): this is ActionItem {
+		return (
+			this.type === 'feature' ||
+			this.type === 'hacking' ||
+			this.type === 'interaction' ||
+			this.type === 'maneuver' ||
+			this.type === 'object' ||
+			this.type === 'spell'
+		);
+	}
+
+	/** Narrows down type of items that are origin items */
+	isOriginItem(): this is OriginItem {
+		return (
+			this.type === 'archetype' ||
+			this.type === 'background' ||
+			this.type === 'class' ||
+			this.type === 'culture' ||
+			this.type === 'destiny' ||
+			this.type === 'heritage'
+		);
+	}
 
 	/** Narrows down type to a certain item subtype */
 	isType<SubType extends Item.SubType = Item.SubType>(type: SubType): this is Item.OfType<SubType> {
@@ -238,6 +264,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 		// Call Sub Methods
 		if (this.isType('object')) this.prepareObjectBaseData();
+		if (this.isOriginItem()) this.prepareOriginBaseData();
 	}
 
 	/** ---------------------------------- */
@@ -249,6 +276,15 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		if (this.system.objectType === 'container') {
 			this.containerItems = new ContainerManager(this);
 		}
+	}
+
+	/** ---------------------------------- */
+	//  Base Data Prep (Origin)
+	/** ---------------------------------- */
+
+	/** Prepares base data for origin items */
+	prepareOriginBaseData(this: OriginItem) {
+		this.grants = new ItemGrantsManager(this) as this['grants'];
 	}
 
 	/** ================================================================= */
@@ -726,6 +762,198 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	// *****************************************************************************************
 
 	/** ================================================================= */
+	// Revitalize
+	/** ================================================================= */
+
+	/** Update the current item with a copy of what is in the compendium */
+	async revitalize(options: RevitalizeOptions = {}): Promise<Record<string, any> | null> {
+		if (!options.skipDialog) {
+			// Confirmation Dialog
+			const confirm = await foundry.applications.api.DialogV2.confirm({
+				// @ts-expect-error
+				window: { title: `Confirm Revitalize - ${this.name}` },
+				content: '<p>Confirm updating item from compendium source?</p>',
+				modal: true,
+			});
+
+			if (!confirm) return null;
+		}
+
+		options.notify ??= true;
+		options.update ??= true;
+		options.updateImg ??= true;
+		options.updateEffects ??= true;
+		options.updateName ??= true;
+
+		const { sourceId } = this;
+
+		// TODO: Revitalize - Try to find source
+
+		if (!sourceId) {
+			if (options.notify !== false) {
+				ui.notifications?.error('Cannot revitalize an item without a source ID.');
+			}
+
+			return null;
+		}
+
+		if (this.uuid === sourceId) {
+			if (options.notify !== false) {
+				ui.notifications?.error('Cannot revitalize an item that is already the source.');
+			}
+
+			return null;
+		}
+
+		if (!sourceId.startsWith('Compendium.')) {
+			if (options.notify !== false) {
+				ui.notifications?.error('Cannot revitalize an item that is not from a compendium.');
+			}
+
+			return null;
+		}
+
+		const currentData = this.toObject();
+		const compendiumData = ((await fromUuid(sourceId)) as BaseItemA5e | null)?.toObject();
+
+		if (!compendiumData) {
+			if (options.notify !== false) {
+				ui.notifications?.error('Unable to find source.');
+			}
+			return null;
+		}
+
+		if (currentData.type !== compendiumData.type) {
+			if (options.notify !== false) {
+				ui.notifications?.error('Cannot revitalize an item with a different type.');
+			}
+
+			return null;
+		}
+
+		const updates: Record<string, any> = {
+			name: options.updateName ? compendiumData.name : currentData.name,
+			img: options.updateImg ? compendiumData.img : currentData.img,
+			system: foundry.utils.deepClone(compendiumData.system),
+			_stats: { compendiumSource: sourceId },
+		};
+
+		// TODO: Revitalize - Add support for grants
+		// Don't update grants
+		// @ts-expect-error
+		if (this.system?.grants) updates.system.grants = this.system.grants;
+
+		// Ignore favorite state
+		updates.system.favorite = this.system.favorite;
+
+		// Ignore current uses
+		// @ts-expect-error
+		if (this.system.uses?.max) {
+			// @ts-expect-error
+			updates.system.uses.value = this.system.uses.value;
+		}
+
+		// Don't update some properties for archetypes
+		if (this.type === 'archetype') {
+			updates.system.spellcasting.ability.base = this.system.spellcasting.ability.base;
+		}
+
+		// Don't update some properties for classes
+		if (this.type === 'class') {
+			updates.system.classLevels = this.system.classLevels;
+			updates.system.hp = this.system.hp;
+			updates.system.spellcasting.ability.base = this.system.spellcasting.ability.base;
+		}
+
+		// Don't update some properties for objects
+		if (this.type === 'object') {
+			// Ignore container data
+			updates.system.containerId = this.system.containerId;
+			updates.system.items = this.system.items;
+
+			// Ignore states
+			updates.system.damagedState = this.system.damagedState;
+			updates.system.equippedState = this.system.equippedState;
+			updates.system.unidentified = this.system.unidentified;
+
+			// Ignore proficiency
+			updates.system.proficient = this.system.proficient;
+
+			// Ignore quantity
+			updates.system.quantity = this.system.quantity;
+		}
+
+		// Don't update some properties for spells
+		if (this.type === 'spell') {
+			updates.system.spellBook = this.system.spellBook;
+		}
+
+		// TODO: Don't update some action properties
+		if (compendiumData.system.actions) {
+			// @ts-expect-error
+			const currentActions = this.system.actions;
+			const compendiaActions = compendiumData.system.actions;
+
+			const updatedActions = Object.entries(compendiaActions).reduce((acc, [actionId, action]) => {
+				const updatedAction = foundry.utils.deepClone(action) as Record<string, any>;
+
+				const existing = currentActions[actionId];
+
+				if (!existing) {
+					acc[actionId] = updatedAction;
+					return acc;
+				}
+
+				// Ignore current action uses
+				// @ts-expect-error
+				if (action.uses?.value) {
+					foundry.utils.setProperty(updatedAction, 'uses.value', existing.uses?.value);
+				}
+
+				acc[actionId] = updatedAction;
+				return acc;
+			}, {});
+
+			updates.system.actions = updatedActions;
+		}
+
+		// Update effects
+		if (options.updateEffects) {
+			const currentEffects = [...this.effects];
+			// @ts-expect-error
+			const compendiaEffects = [...compendiumData.effects] as ActiveEffect[];
+
+			const updatedEffects = compendiaEffects.reduce((acc, effect) => {
+				const updatedEffect = foundry.utils.deepClone(effect);
+
+				const existing = currentEffects.find((e) => e._id === effect._id);
+				if (!existing) {
+					acc.push(updatedEffect);
+					return acc;
+				}
+
+				// Ignore flags
+				updatedEffect.flags = existing.flags;
+
+				acc.push(updatedEffect);
+				return acc;
+			}, [] as ActiveEffect[]);
+
+			updates.effects = updatedEffects;
+		}
+
+		if (options.update) {
+			await this.update(updates, { diff: false, recursive: false });
+		}
+
+		if (options.notify !== false) ui.notifications?.info('Item revitalized.');
+
+		return updates;
+	}
+
+	// *****************************************************************************************
+
+	/** ================================================================= */
 	// Helper Methods
 	/** ================================================================= */
 
@@ -953,29 +1181,37 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	// Document Update Hooks
 	/** ================================================================= */
 
-	#isMisplacedDriverFeature(featureType?: string) {
-		if (this.type !== 'feature' || featureType !== 'driverFeature') return false;
-		if (this.parent?.documentName !== 'Actor' || (this.parent as any).isVehicle()) return false;
-
-		ui.notifications.warn(localize('A5E.vehicle.driverFeatureWarning'));
-		return true;
-	}
-
 	/** ---------------------------------- */
 	// Pre Create
 	/** ---------------------------------- */
 
 	/** @inheritdoc */
 	override async _preCreate(...[data, options, user]: Parameters<Item['_preCreate']>) {
-		// TODO: What is happening here
-		if (this.#isMisplacedDriverFeature((this.system as any)?.featureType)) return false;
+		// Perform migration if needed
+		const version = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const docVersion = this.system.migrationData?.version;
 
-		if (this.isType('feature')) await this._preCreateFeature(data, options, user);
+		if (!docVersion) {
+			this.updateSource({
+				// @ts-expect-error
+				'this.system.migrationData': {
+					version,
+					type: 'Item',
+				},
+			});
+		} else if (docVersion < version) {
+			await handleDocumentImportMigration(this);
+		}
 
-		await super._preCreate(data, options, user);
+		// biome-ignore lint/suspicious/noConfusingVoidType: <This can be void>
+		let create: boolean | void = true;
 
 		// Call sub methods
-		if (this.isType('spell')) await this._preCreateSpell(data, options, user);
+		if (this.isType('feature')) create = await this._preCreateFeature(data, options, user);
+		if (this.isType('spell')) create = await this._preCreateSpell(data, options, user);
+
+		if (create === false) return false;
+		await super._preCreate(data, options, user);
 	}
 
 	/** ---------------------------------- */
@@ -986,6 +1222,13 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		...[data, options, user]: Parameters<Item['_preCreate']>
 	) {
 		if (user.id !== game.userId) return;
+
+		if (this.system.featureType === 'driverFeature') {
+			if (this.actor && !this.actor.isVehicle()) {
+				ui.notifications.warn(localize('A5E.vehicle.driverFeatureWarning'));
+				return false;
+			}
+		}
 
 		// Apply grants if any
 		if (this.parent?.documentName === 'Actor' && this.parent.isChar()) {
@@ -999,6 +1242,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	// Pre Create (Spell)
 	/** ---------------------------------- */
+
+	/** Pre Create data for a spell. This must return true if item is to be created */
 	async _preCreateSpell(
 		this: Item.OfType<'spell'>,
 		...[data, options, user]: Parameters<Item['_preCreate']>
@@ -1015,13 +1260,32 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 	/** @inheritdoc */
 	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
-		const featureType = foundry.utils.getProperty(data, 'system.featureType') as string | undefined;
-		if (this.#isMisplacedDriverFeature(featureType)) return false;
-
-		await super._preUpdate(data, options, user);
+		// biome-ignore lint/suspicious/noConfusingVoidType: <This can be void>
+		let update: boolean | void = false;
 
 		// Call sub methods
-		if (this.isType('object')) await this._preUpdateObject(data, options, user);
+		if (this.isType('feature')) update = await this._preUpdateFeature(data, options, user);
+		if (this.isType('object')) update = await this._preUpdateObject(data, options, user);
+
+		if (update === false) return false;
+		await super._preUpdate(data, options, user);
+	}
+
+	/** ---------------------------------- */
+	// Pre Update (Object)
+	/** ---------------------------------- */
+
+	/** Pre Update for objects */
+	async _preUpdateFeature(
+		this: Item.OfType<'feature'>,
+		...[data, options, user]: Parameters<Item['_preUpdate']>
+	) {
+		if (foundry.utils.getProperty(data, 'system.featureType') === 'driverFeature') {
+			if (this.actor && !this.actor.isVehicle()) {
+				ui.notifications.warn(localize('A5E.vehicle.driverFeatureWarning'));
+				return false;
+			}
+		}
 	}
 
 	/** ---------------------------------- */
@@ -1061,6 +1325,17 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** @inheritdoc */
 	override _onCreate(...[data, options, userId]: Parameters<Item['_onCreate']>) {
 		super._onCreate(data, options, userId);
+
+		if (userId === game.userId) {
+			// Update effect origins
+			const effects = this.effects.contents;
+			const updateArr = effects.map((effect) => ({
+				_id: effect._id,
+				origin: this.uuid,
+			}));
+
+			this.updateEmbeddedDocuments('ActiveEffect', updateArr);
+		}
 
 		// Call sub methods
 		if (this.isType('object')) this._onCreateObject(data, options, userId);

@@ -1,13 +1,13 @@
-import type { MigrationData } from '../common';
-import { migrationData } from '../common';
+import type { MigrationData } from '../common.ts';
+import { migrationData } from '../common.ts';
+import { description, favorite, macro, secretDescription, source } from './common';
 import type {
 	DescriptionData,
 	FavoriteData,
 	MacroData,
 	SecretDescriptionData,
 	SourceData,
-} from './common';
-import { description, favorite, macro, secretDescription, source } from './common';
+} from './common.ts';
 
 declare namespace A5EBaseItemData {
 	interface Schema

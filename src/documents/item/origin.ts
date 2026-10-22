@@ -1,17 +1,10 @@
-import { ItemGrantsManager } from '../../managers/ItemGrantsManager.ts';
+import type { ItemGrantsManager } from '../../managers/ItemGrantsManager.ts';
 import { BaseItemA5e } from './base.svelte.ts';
 
 export default class OriginItemA5e<
 	SubType extends Item.SubType = Item.SubType,
 > extends BaseItemA5e<SubType> {
 	declare grants: ItemGrantsManager;
-
-	override prepareBaseData() {
-		super.prepareBaseData();
-
-		// Setup Grants System
-		this.grants = new ItemGrantsManager(this);
-	}
 
 	override async _preCreate(data, options, user): Promise<boolean | void> {
 		if (user.id !== game.userId) {
