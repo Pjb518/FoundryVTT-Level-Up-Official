@@ -92,6 +92,7 @@
   {/if} -->
 
   {#key `${property}::${itemStore[property]}`}
+    <!-- <div class="a5e-item-sheet__editor"> -->
     <Editor
       content={itemStore[property]}
       document={item}
@@ -99,6 +100,7 @@
       field="system.{property}"
       manageSecrets={item.isOwner}
     />
+    <!-- </div> -->
   {/key}
 </section>
 

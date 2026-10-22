@@ -136,16 +136,17 @@
 <style lang="scss">
   .a5e-item-sheet {
     display: grid;
+    grid-template-areas: "aside main";
     grid-template-columns: 2fr 4fr;
+    grid-template-rows: auto;
     gap: var(--a5e-spacing-sm);
     height: 100%;
     padding-right: 0.25rem;
-    overflow: auto;
 
     &__main {
+      grid-area: main;
+
       position: relative;
-      width: 100%;
-      height: 100%;
 
       display: grid;
       grid-template-areas:
@@ -154,6 +155,10 @@
         "page";
       grid-template-rows: min-content min-content minmax(0, 1fr);
       gap: var(--a5e-spacing-sm);
+
+      height: 100%;
+      min-height: 0;
+      width: 100%;
 
       &__page {
         grid-area: page;
