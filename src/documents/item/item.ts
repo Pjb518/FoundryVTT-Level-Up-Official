@@ -1210,6 +1210,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		if (this.isType('feature')) create = await this._preCreateFeature(data, options, user);
 		if (this.isType('spell')) create = await this._preCreateSpell(data, options, user);
 
+		if (this.isOriginItem()) create = await this._preCreateOrigin(data, options, user);
+
 		if (create === false) return false;
 		await super._preCreate(data, options, user);
 	}
@@ -1252,6 +1254,28 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			ui.notifications.error('You must select a spell book to create a spell.');
 			return false;
 		}
+	}
+
+	/** ---------------------------------- */
+	// Pre Create (Origin)
+	/** ---------------------------------- */
+	async _preCreateOrigin(
+		this: OriginItem,
+		...[data, options, user]: Parameters<Item['_preCreate']>
+	) {
+		if (user.id !== game.userId) return;
+
+		// Apply grants if any
+		if (this.actor) {
+			const actor = this.actor;
+
+			// Keep id of the original document
+			options.keepId = true;
+			// @ts-expect-error
+			if (!options.noGrant) await actor.grants.createInitialGrants(this, true);
+		}
+
+		// Call sub methods
 	}
 
 	/** ---------------------------------- */
@@ -1396,6 +1420,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// Call sub methods
 		if (this.isType('feature')) this._onDeleteFeature(options, userId);
 		if (this.isType('object')) this._onDeleteObject(options, userId);
+
+		if (this.isOriginItem()) this._onDeleteOrigin(options, userId);
 	}
 
 	/** ---------------------------------- */
@@ -1404,7 +1430,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 	/** On Delete for objects */
 	async _onDeleteFeature(
-		this: Item.OfType<'object'>,
+		this: Item.OfType<'feature'>,
 		...[options, userId]: Parameters<Item['_onDelete']>
 	) {
 		if (this.parent?.documentName === 'Actor') {
@@ -1442,6 +1468,18 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// Clean up container if item is deleted
 		const container = await fromUuid<Item.OfType<'object'>>(this.system.containerId);
 		if (container) await container?.containerItems?.delete(this.uuid!);
+	}
+
+	/** ---------------------------------- */
+	// On Delete (Origin)
+	/** ---------------------------------- */
+	async _onDeleteOrigin(this: OriginItem, ...[options, userId]: Parameters<Item['_onDelete']>) {
+		if (this.parent?.documentName === 'Actor') {
+			const actor = this.parent;
+			await actor.grants?.removeGrantsByItem(this);
+		}
+
+		// Call Sub Methods
 	}
 }
 
