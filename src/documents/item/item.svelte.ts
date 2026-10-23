@@ -390,6 +390,32 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this.tags.add(`${prefix}:slug:${this.slug}`);
 		this.tags.add(`${prefix}:id:${this.id}`);
 
+		// Feature Tags
+		if (this.isType('feature')) {
+			this.tags.add(`type:${prefix}:${this.system.featureType}`);
+			this.tags.add(`featureType:${this.system.featureType}`);
+
+			if (this.system.asi.length) {
+				this.system.asi.forEach((p) => this.tags.add(`${prefix}:asi:${p}`));
+			}
+
+			if (this.system.class) this.tags.add(`${prefix}:class:${this.system.class}`);
+			if (this.system.classes) this.tags.add(`${prefix}:class:${this.system.classes}`);
+			if (this.system.concentration) this.tags.add(`${prefix}:requires-concentration`);
+
+			this.system.featClasses.forEach((p) => this.tags.add(`${prefix}:feat-class:${p}`));
+			this.tags.add(`${prefix}:experience:${this.system.experienceType}`);
+
+			if (this.system.followerType) this.tags.add(`${prefix}:follower:${this.system.followerType}`);
+			if (this.system.featType) this.tags.add(`${prefix}:feat-type:${this.system.featType}`);
+			if (this.system.hidden) this.tags.add(`${prefix}:hidden`);
+
+			if (this.system.prerequisite) this.tags.add(`${prefix}:has-prerequisite`);
+			if (this.system.requiresBloodied) this.tags.add(`${prefix}:requires-bloodied`);
+
+			if (this.system.synergy) this.tags.add(`${prefix}:synergy:${this.system.synergy}`);
+		}
+
 		// Object Tags
 		if (this.isType('object')) {
 			this.tags.add(`type:${prefix}:${this.system.objectType}`);
