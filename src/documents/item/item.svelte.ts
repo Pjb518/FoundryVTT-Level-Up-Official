@@ -414,6 +414,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			if (this.system.requiresBloodied) this.tags.add(`${prefix}:requires-bloodied`);
 
 			if (this.system.synergy) this.tags.add(`${prefix}:synergy:${this.system.synergy}`);
+
+			return;
 		}
 
 		// Maneuver Tags
@@ -427,6 +429,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			if (this.system.prerequisite) this.tags.add(`${prefix}:has-prerequisite`);
 
 			this.tags.add(`${prefix}:tradition:${this.system.tradition}`);
+
+			return;
 		}
 
 		// Object Tags
@@ -521,6 +525,40 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 				});
 
 				this.system.weaponAugments.forEach((p) => this.tags.add(`${prefix}:augment:${p}`));
+			}
+
+			return;
+		}
+
+		// Spell Tags
+		if (this.isType('spell')) {
+			this.system.classes.forEach((p) => this.tags.add(`${prefix}:class:p`));
+
+			const components = this.system.components;
+			if (components.vocalized) this.tags.add(`${prefix}:component:vocalized`);
+			if (components.seen) this.tags.add(`${prefix}:component:seen`);
+			if (components.material) this.tags.add(`${prefix}:component:material`);
+
+			if (this.system.concentration) this.tags.add(`${prefix}:requires-concentration`);
+
+			this.system.disciplines.forEach((p) => this.tags.add(`${prefix}:discipline:${p}`));
+			this.tags.add(`${prefix}:level:${this.system.level}`);
+
+			if (this.system.materialsConsumed) this.tags.add(`${prefix}:component:material:consumed`);
+			if (this.system.prepared === 1) this.tags.add(`${prefix}:prepared`);
+			if (this.system.prepared === 2) this.tags.add(`${prefix}:prepared:always`);
+			if (this.system.prerequisite) this.tags.add(`${prefix}:has-prerequisite`);
+			if (this.system.rare) this.tags.add(`${prefix}:rare`);
+			if (this.system.ritual) this.tags.add(`${prefix}:component:ritual`);
+
+			this.tags.add(`${prefix}:school:${this.system.schools.primary}`);
+
+			this.system.schools.secondary.forEach((p) => {
+				this.tags.add(`${prefix}:school:${p}`);
+			});
+
+			if (this.system.spellBook) {
+				this.tags.add(`${prefix}:spellbook:${this.system.spellBook}`);
 			}
 		}
 	}
