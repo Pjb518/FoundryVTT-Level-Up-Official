@@ -382,9 +382,108 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 	/** Populates tags for the item */
 	populateTags() {
+		const prefix = this.type;
+
 		// Base Tags
-		this.tags.add(`identifier:${this.slug}`);
-		this.tags.add(`type:${this.type}`);
+		this.tags.add(`type:${prefix}`);
+		this.tags.add(`source:${this.system.source}`);
+		this.tags.add(`${prefix}:slug:${this.slug}`);
+		this.tags.add(`${prefix}:id:${this.id}`);
+
+		// Object Tags
+		if (this.isType('object')) {
+			this.tags.add(`type:${prefix}:${this.system.objectType}`);
+			this.tags.add(`objectType:${this.system.objectType}`);
+
+			if (this.system.attuned) this.tags.add(`${prefix}:attuned`);
+			if (this.system.requiresAttunement) this.tags.add(`${prefix}:requires-attunement`);
+			if (this.system.bulky) this.tags.add(`${prefix}:bulky`);
+			if (this.system.damagedState) this.tags.add(`${prefix}:damaged`);
+			if (this.system.equippedState === 0) this.tags.add(`${prefix}:not-equipped`);
+			if (this.system.equippedState === 1) this.tags.add(`${prefix}:carried`);
+			if (this.system.equippedState === 2) this.tags.add(`${prefix}:equipped`);
+			if (this.system.implant) this.tags.add(`${prefix}:implant`);
+			if (this.system.plotItem) this.tags.add(`${prefix}:plot-item`);
+			if (this.system.proficient) this.tags.add(`${prefix}:proficient`);
+			this.tags.add(`${prefix}:rarity:mundane`);
+			if (this.system.supply) this.tags.add(`${prefix}:is-supply`);
+			this.tags.add(`${prefix}:tech-level:${this.system.techLevel}`);
+			if (this.system.unidentified) this.tags.add(`${prefix}:unidentified`);
+
+			this.system.materialProperties.forEach((p) => {
+				this.tags.add(`${prefix}:property:${p}`);
+				if (p === 'flaw')
+					this.system.flaws.forEach((f) => this.tags.add(`${prefix}:property:${p}:${f}`));
+			});
+
+			// Ammunition
+			if (this.system.objectType === 'ammunition') {
+				this.system.ammunitionProperties.forEach((p) => {
+					this.tags.add(`${prefix}:property:${p}`);
+				});
+			}
+
+			// Armor
+			if (this.system.objectType === 'armor') {
+				if (this.system.armorCategory) {
+					this.tags.add(`${prefix}:category:${this.system.armorCategory}`);
+				}
+
+				this.system.armorMods.forEach((p) => this.tags.add(`${prefix}:armor-mod:${p}`));
+				this.system.armorProperties.forEach((p) => this.tags.add(`${prefix}:property:${p}`));
+
+				if (this.system.armorProperties.includes('defensive')) {
+					this.tags.add(`${prefix}:property:defensive:${this.system.defensiveProperties}`);
+				}
+			}
+
+			// Container
+			if (this.system.objectType === 'container') {
+				if (this.system.capacity.value) {
+					this.tags.add(`${prefix}:capacity:${this.system.capacity.value}`);
+				}
+
+				if (this.system.capacity.weightlessContents) {
+					this.tags.add(`$${prefix}:weightless-contents`);
+				}
+			}
+
+			// Endemic Life
+			if (this.system.objectType === 'endemicLife') {
+				this.system.endemicLifeProperties.biomes.forEach((p) => {
+					this.tags.add(`${prefix}:property:biome:${p}`);
+				});
+
+				this.system.endemicLifeProperties.regions.forEach((p) => {
+					this.tags.add(`${prefix}:property:region:${p}`);
+				});
+
+				this.system.endemicLifeProperties.properties.forEach((p) => {
+					this.tags.add(`${prefix}:property:${p}`);
+				});
+			}
+
+			// Shield
+			if (this.system.objectType === 'shield') {
+				this.system.shieldProperties.forEach((p) => this.tags.add(`${prefix}:property:${p}`));
+				if (this.system.shieldCategory)
+					this.tags.add(`${prefix}:category:${this.system.shieldCategory}`);
+			}
+
+			// Weapon
+			if (this.system.objectType === 'weapon') {
+				this.system.weaponProperties.forEach((p) => {
+					this.tags.add(`${prefix}:property:${p}`);
+					if (p === 'mounted') {
+						this.system.mounted.forEach((m) => this.tags.add(`${prefix}:property:${p}:${m}`));
+					} else if (p === 'versatile') {
+						this.tags.add(`${prefix}:property:${p}:${this.system.versatile}`);
+					}
+				});
+
+				this.system.weaponAugments.forEach((p) => this.tags.add(`${prefix}:augment:${p}`));
+			}
+		}
 	}
 
 	/** ---------------------------------- */
