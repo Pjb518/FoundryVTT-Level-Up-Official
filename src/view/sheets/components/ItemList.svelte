@@ -9,10 +9,10 @@
   import Self from "./ItemList.svelte";
   import ItemListActionButtons from "./ItemListActionButtons.svelte";
   import ItemListData from "./ItemListData.svelte";
-  import ItemListSummary from "./ItemListSummary.svelte";
+  import ItemSummary from "./item/ItemSummary.svelte";
 
   type Props = {
-    item: Item;
+    item: Item.Implementation;
     action?: Action;
     actionId?: string;
     showDescription: boolean;
@@ -235,7 +235,7 @@
         localize("A5E.NoUnidentifiedDescription")}
     {:else}
       {#if Object.values(summaryData).some(Boolean)}
-        <ItemListSummary {summaryData} --margin-bottom="0.375rem" />
+        <ItemSummary {summaryData} --margin-bottom="0.375rem" />
 
         {#if description}
           <hr class="a5e-rule" style="margin-block: 0.5rem;" />
