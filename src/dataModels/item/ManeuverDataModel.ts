@@ -37,6 +37,7 @@ class A5EManeuverData extends A5EBaseItemData<
 > {
 	/** @inheritDoc */
 	static override defineSchema(): A5EManeuverData.Schema {
+		// @ts-expect-error
 		return {
 			...super.defineSchema(),
 			...actions(),

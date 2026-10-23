@@ -416,6 +416,19 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			if (this.system.synergy) this.tags.add(`${prefix}:synergy:${this.system.synergy}`);
 		}
 
+		// Maneuver Tags
+		if (this.isType('maneuver')) {
+			if (this.system.concentration) this.tags.add(`${prefix}:requires-concentration`);
+
+			this.tags.add(`${prefix}:degree:${this.system.degree}`);
+			this.tags.add(`${prefix}:exertion-cost:${this.system.exertionCost}`);
+
+			if (this.system.isStance) this.tags.add(`${prefix}:stance`);
+			if (this.system.prerequisite) this.tags.add(`${prefix}:has-prerequisite`);
+
+			this.tags.add(`${prefix}:tradition:${this.system.tradition}`);
+		}
+
 		// Object Tags
 		if (this.isType('object')) {
 			this.tags.add(`type:${prefix}:${this.system.objectType}`);
