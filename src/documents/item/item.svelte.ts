@@ -390,6 +390,11 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this.tags.add(`${prefix}:slug:${this.slug}`);
 		this.tags.add(`${prefix}:id:${this.id}`);
 
+		// Add in Custom tags
+		if (this.system.tags.size) {
+			this.system.tags.forEach((t) => this.tags.add(t));
+		}
+
 		// Feature Tags
 		if (this.isType('feature')) {
 			this.tags.add(`type:${prefix}:${this.system.featureType}`);
@@ -532,7 +537,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 		// Spell Tags
 		if (this.isType('spell')) {
-			this.system.classes.forEach((p) => this.tags.add(`${prefix}:class:p`));
+			this.system.classes.forEach((p) => this.tags.add(`${prefix}:class:${p}`));
 
 			const components = this.system.components;
 			if (components.vocalized) this.tags.add(`${prefix}:component:vocalized`);
@@ -1129,7 +1134,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		let spell = {};
 		if (consumers.spell) {
 			spell = consumers.spell.getActivationData(this.actor!, this as ActionItem).spellData;
-			console.log(spell);
 		}
 
 		return {
@@ -1768,7 +1772,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** @inheritdoc */
 	override async _preUpdate(...[data, options, user]: Parameters<Item['_preUpdate']>) {
 		// biome-ignore lint/suspicious/noConfusingVoidType: <This can be void>
-		let update: boolean | void = false;
+		let update: boolean | void = true;
 
 		// Call sub methods
 		if (this.isType('feature')) update = await this._preUpdateFeature(data, options, user);
