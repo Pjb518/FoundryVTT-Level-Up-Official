@@ -13,7 +13,7 @@
   let item: any = getContext("item");
   let itemStore = $derived(item.reactive.system);
 
-  let editMode = $state(true);
+  let editMode = $state(false);
 </script>
 
 <Section
@@ -58,7 +58,6 @@
           heading="Custom Tags"
           values={itemStore.tags}
           onUpdateSelection={(values) => {
-            console.log(values);
             updateDocumentDataFromField(item, "system.tags", values);
           }}
           preProcessValue={(value) => {
@@ -70,6 +69,21 @@
     </FieldWrapper>
 
     <!-- Source -->
+    <FieldWrapper heading="A5E.metadata.source.setting">
+      <div>
+        <select
+          class="a5e-input a5e-input--slim a5e-input--fit"
+          onchange={({ currentTarget }) =>
+            updateDocumentDataFromField(item, "system.source", currentTarget.value)}
+        >
+          {#each Object.entries(CONFIG.A5E.products) as [value, { title }]}
+            <option {value} selected={value === itemStore.source}>
+              {title}
+            </option>
+          {/each}
+        </select>
+      </div>
+    </FieldWrapper>
 
     <Checkbox
       label="A5E.metadata.favorite.setting"
@@ -92,6 +106,26 @@
     <dl class="a5e-dl-box">
       <div class="a5e-dl-box__section">
         <dt class="a5e-dl-box__header">
+          {localize("A5E.metadata.slug.title")}:
+        </dt>
+
+        <dd class="a5e-dl-box__content">
+          {item.reactive.slug}
+        </dd>
+      </div>
+
+      <div class="a5e-dl-box__section">
+        <dt class="a5e-dl-box__header">
+          {localize("A5E.metadata.source.title")}:
+        </dt>
+
+        <dd class="a5e-dl-box__content">
+          {CONFIG.A5E.products[itemStore.source].title ?? itemStore.source}
+        </dd>
+      </div>
+
+      <div class="a5e-dl-box__section">
+        <dt class="a5e-dl-box__header">
           {localize("A5E.metadata.favorite.title")}:
         </dt>
 
@@ -99,6 +133,7 @@
           {itemStore.favorite ? "Yes" : "No"}
         </dd>
       </div>
+
       {#if item.type === "feature"}
         <div class="a5e-dl-box__section">
           <dt class="a5e-dl-box__header">

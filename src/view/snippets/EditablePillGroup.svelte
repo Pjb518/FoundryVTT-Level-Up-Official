@@ -49,6 +49,7 @@
     class="a5e-input a5e-input--slim"
     onchange={({ currentTarget }) => {
       addValue(currentTarget.value);
+      currentTarget.value = "";
     }}
   />
 </FieldWrapper>

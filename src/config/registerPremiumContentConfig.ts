@@ -610,6 +610,14 @@ export default function registerPremiumContentConfig() {
 			title: 'Heroes Old and New',
 			url: 'https://bit.ly/3UevPrJ',
 		},
+		homebrew: {
+			abbreviation: 'HB',
+			affiliate: false,
+			publisher: '',
+			systems: ['a5e'],
+			title: 'Homebrew',
+			utl: '',
+		},
 		moarComplete: {
 			abbreviation: 'MoAR',
 			affiliate: true,

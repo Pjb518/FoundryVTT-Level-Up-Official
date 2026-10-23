@@ -578,6 +578,15 @@ export const products: Record<string, ProductEntry> = {
 		moduleName: 'a5e-heroes-old-and-new',
 		moduleDeprecated: true,
 	},
+	homebrew: {
+		abbreviation: 'HB',
+		affiliate: false,
+		category: 'content',
+		publisher: '',
+		systems: ['a5e'],
+		title: 'Homebrew',
+		url: '',
+	},
 	moarComplete: {
 		abbreviation: 'MoAR',
 		affiliate: true,
