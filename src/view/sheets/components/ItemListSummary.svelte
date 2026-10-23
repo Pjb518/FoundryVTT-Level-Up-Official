@@ -108,10 +108,6 @@
 </div>
 
 <style lang="scss">
-  .field-header {
-    font-weight: bold;
-  }
-
   .summary-wrapper .item-properties {
     display: block;
     margin-bottom: 0;

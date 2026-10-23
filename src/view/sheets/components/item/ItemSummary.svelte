@@ -17,6 +17,10 @@
       label: "A5E.weapons.properties.siege",
     },
     {
+      field: "armorClass",
+      label: "Armor Class",
+    },
+    {
       field: "spellClasses",
       label: "Classes",
     },
@@ -84,6 +88,12 @@
     </p>
   {/if}
 
+  {#if summaryData.armorClassData}
+    <p class="a5e-summary__item-properties">
+      {summaryData.armorClassData}
+    </p>
+  {/if}
+
   {#if summaryData.objectProperties}
     <p class="a5e-summary__item-properties">
       {summaryData.objectProperties}
@@ -142,6 +152,10 @@
       padding-block: 0.5rem;
       gap: var(--a5e-spacing-sm);
       font-size: var(--a5e-text-sm);
+    }
+
+    &__field-header {
+      font-weight: bold;
     }
 
     &__item-properties {

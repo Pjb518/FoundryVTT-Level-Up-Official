@@ -1,3 +1,4 @@
+import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
 import type { A5E } from '../src/config.ts';
 import type { BaseRoll } from '../src/dice/rolls/BaseRoll.ts';
 import type { D20Roll } from '../src/dice/rolls/D20Roll.ts';
@@ -39,6 +40,9 @@ declare global {
 
 	/** Alias for Item.OfType<archetype | background | class | culture | destiny | heritage> */
 	type OriginItem = OriginItems;
+
+	/** Alias for ActionData */
+	type Action = A5EActionData;
 }
 
 declare module 'fvtt-types/configuration' {
