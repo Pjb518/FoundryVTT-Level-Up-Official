@@ -1,5 +1,5 @@
-import type { MigrationData } from '../common.ts';
-import { migrationData } from '../common.ts';
+import type { MigrationData, SlugData } from '../common.ts';
+import { migrationData, slugData } from '../common.ts';
 import { description, favorite, macro, secretDescription, source } from './common';
 import type {
 	DescriptionData,
@@ -17,7 +17,8 @@ declare namespace A5EBaseItemData {
 			MacroData,
 			MigrationData,
 			SecretDescriptionData,
-			SourceData {}
+			SourceData,
+			SlugData {}
 	type BaseData = Record<string, any>;
 	type DerivedData = Record<string, any>;
 }
@@ -36,6 +37,7 @@ class A5EBaseItemData<
 			...migrationData(),
 			...secretDescription(),
 			...source(),
+			...slugData(),
 		};
 	}
 }

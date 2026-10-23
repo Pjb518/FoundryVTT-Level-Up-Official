@@ -60,6 +60,9 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		targetScaling: Record<string, any>;
 	};
 
+	/** Tags to run predicates against */
+	tags: Set<string> = new Set();
+
 	#subscribe: () => void;
 
 	// *****************************************************************************************
@@ -161,7 +164,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		return this._stats.compendiumSource || null;
 	}
 
-	/** Returns the identifier for this class. TODO: This needs to be global soon */
+	/** Returns the identifier for this item. */
 	get slug() {
 		return this.system.slug || this.name.slugify({ strict: true });
 	}
@@ -352,6 +355,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this.actions = null!;
 		this.containerItems = null;
 		this.grants = null as this['grants'];
+		this.tags = new Set<string>();
 
 		super._initialize(options);
 	}
@@ -368,9 +372,19 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		this.actions = new ActionsManager(this);
 		if (this.isType('feature')) this.grants = new ItemGrantsManager(this) as this['grants'];
 
+		// Populate tags
+		this.populateTags();
+
 		// Call Sub Methods
 		if (this.isType('object')) this.prepareObjectBaseData();
 		if (this.isOriginItem()) this.prepareOriginBaseData();
+	}
+
+	/** Populates tags for the item */
+	populateTags() {
+		// Base Tags
+		this.tags.add(`identifier:${this.slug}`);
+		this.tags.add(`type:${this.type}`);
 	}
 
 	/** ---------------------------------- */
@@ -800,7 +814,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			actionId,
 			action,
 			dialog: activationData,
-			// @ts-expect-error
 			macro: this.system.macro,
 			options,
 			rolls,
@@ -809,10 +822,8 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		// Trigger Macros
 		if (options.executeMacro) {
 			// Execute System Macro
-			// @ts-expect-error
 			if (this.system.macro?.trim().length > 0) {
 				try {
-					// @ts-expect-error
 					const { macro } = this.system;
 
 					const AsyncFunction = async function _() {}.constructor;
@@ -862,7 +873,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			itemDocument: this,
 		});
 
-		dialog.render(true);
+		dialog.render({ force: true });
 		return dialog.promise;
 	}
 
@@ -965,7 +976,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 		if (!options.skipDialog) {
 			// Confirmation Dialog
 			const confirm = await foundry.applications.api.DialogV2.confirm({
-				// @ts-expect-error
 				window: { title: `Confirm Revitalize - ${this.name}` },
 				content: '<p>Confirm updating item from compendium source?</p>',
 				modal: true,
@@ -1175,7 +1185,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 
 	/** Recharge an item */
-	async recharge(actionId: string, state = false) {
+	async recharge(this: ActionItem, actionId: string, state = false) {
 		if (state || !this.actor) return;
 		let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
 		let current = this.system.uses.value;

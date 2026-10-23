@@ -3,7 +3,21 @@ import { RollModeField } from './fields/RollModeField.ts';
 
 const { fields } = foundry.data;
 
-// eslint-disable-next-line import/prefer-default-export
+// -----------------------------------------
+// Meta Data
+// -----------------------------------------
+export const slugData = () => ({
+	slug: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	tags: new fields.SetField(
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
+	),
+});
+
+export type SlugData = ReturnType<typeof slugData>;
+
+// -----------------------------------------
+// Migration Data
+// -----------------------------------------
 export const migrationData = () => ({
 	migrationData: new fields.SchemaField({
 		version: new fields.NumberField({
