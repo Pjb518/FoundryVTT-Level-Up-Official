@@ -2,22 +2,25 @@ import { SvelteApplicationMixin } from '#lib/ApplicationMixin/SvelteApplicationM
 
 import CompendiumBrowserComponent from '../compendium-browser/CompendiumBrowser.svelte';
 
-export type CompendiumBrowserTab =
-	| 'archetype'
-	| 'background'
-	| 'class'
-	| 'culture'
-	| 'destiny'
-	| 'feature'
-	| 'hacking'
-	| 'heritage'
-	| 'interaction'
-	| 'maneuver'
-	| 'npc'
-	| 'monsterFeature'
-	| 'object'
-	| 'spell'
-	| 'vehicle';
+export const COMPENDIUM_BROWSER_TABS = [
+	'archetype',
+	'background',
+	'class',
+	'culture',
+	'destiny',
+	'feature',
+	'hacking',
+	'heritage',
+	'interaction',
+	'maneuver',
+	'npc',
+	'monsterFeature',
+	'object',
+	'spell',
+	'vehicle',
+] as const;
+
+export type CompendiumBrowserTab = (typeof COMPENDIUM_BROWSER_TABS)[number];
 
 export interface CompendiumBrowserFilters {
 	searchTerm?: string;
@@ -80,7 +83,19 @@ export class CompendiumBrowser extends SvelteApplicationMixin(
 		tab: CompendiumBrowserTab,
 		filters: CompendiumBrowserFilters,
 	): CompendiumBrowser {
-		const browser = new CompendiumBrowser({ tab, filters });
+		const selections = Object.fromEntries(
+			Object.entries(filters.selections ?? {}).map(([key, value]) => [
+				key,
+				{
+					inclusive: [],
+					inclusiveMode: 0,
+					exclusive: [],
+					exclusiveMode: 0,
+					...value,
+				},
+			]),
+		);
+		const browser = new CompendiumBrowser({ tab, filters: { ...filters, selections } });
 		browser.render(true);
 		return browser;
 	}

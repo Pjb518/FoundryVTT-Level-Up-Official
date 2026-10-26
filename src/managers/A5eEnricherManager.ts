@@ -1,7 +1,13 @@
 import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
+import {
+	COMPENDIUM_BROWSER_TABS,
+	CompendiumBrowser,
+	type CompendiumBrowserFilters,
+	type CompendiumBrowserTab,
+} from '../view/dialogs/initializers/CompendiumBrowser.svelte.ts';
 
 declare namespace A5eEnricherManager {
-	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose' | 'ref';
+	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose' | 'ref' | 'browser';
 }
 
 class A5eEnricherManager {
@@ -15,6 +21,12 @@ class A5eEnricherManager {
 				pattern: /\[\[\/(?<enricherType>check|save|condition|ref)(?<argString> [^\]]+)?]]/gi,
 				enricher: this.parseEnricherInput.bind(this),
 			},
+			{
+				// [[/browser tab=spell label="Fire spells" search="fire" selections='{"key":{"inclusive":["1"]}}']]
+				// Own pattern: selections JSON may contain `]`.
+				pattern: /\[\[\/(?<enricherType>browser)(?<argString> .+?)]]/gi,
+				enricher: this.parseEnricherInput.bind(this),
+			},
 			// {
 			// 	// [[/choose label="Some label" argString]]
 			// 	pattern: /\[\[\/choose flavor=(?:"([^"]+)"|([^"\s]+))(.*)\]\]/gi,
@@ -25,6 +37,7 @@ class A5eEnricherManager {
 		// FIXME: This is inefficient
 		document.body.addEventListener('click', this.onRoll.bind(this));
 		document.body.addEventListener('click', this.onEffect.bind(this));
+		document.body.addEventListener('click', this.onBrowser.bind(this));
 		// document.body.addEventListener('click', this.onChoose.bind(this));
 	}
 
@@ -47,6 +60,8 @@ class A5eEnricherManager {
 			enricherType: string;
 			argString: string;
 		};
+
+		if (enricherType.toLowerCase() === 'browser') return this.#enrichBrowser(argString, options);
 
 		const args = this.#parseArguments(argString);
 		args.enricherType = enricherType.toLowerCase();
@@ -112,6 +127,23 @@ class A5eEnricherManager {
 
 			args[key] = value;
 		});
+
+		return args;
+	}
+
+	/**
+	 * Parses `key=value` arguments where values may be double-quoted, single-quoted
+	 * (allowing JSON inside), or a bare token.
+	 * @param argString   The raw arguments string
+	 * @returns A record of lowercase keys to string values
+	 */
+	#parseBrowserArguments(argString: string): Record<string, string> {
+		const expr = /(\w+)=(?:"([^"]*)"|'([^']*)'|(\S+))/g;
+		const args: Record<string, string> = {};
+
+		for (const match of argString.matchAll(expr)) {
+			args[match[1].toLowerCase()] = match[2] ?? match[3] ?? match[4];
+		}
 
 		return args;
 	}
@@ -261,6 +293,55 @@ class A5eEnricherManager {
 
 		if (!args.label) label = `${CONFIG.A5E.abilities[ability]} ${label}`;
 		return this.#createRollButton(args, options, label);
+	}
+
+	/**
+	 * Validates arguments for a compendium browser link and builds it.
+	 * @param argString   The raw arguments string
+	 * @param options     Options provided to customize text enrichment. Unused
+	 * @returns An HTML element to insert in place of the matched text.
+	 */
+	async #enrichBrowser(
+		argString: string,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		options?: TextEditor.EnrichmentOptions,
+	): Promise<HTMLElement | null> {
+		const args = this.#parseBrowserArguments(argString);
+		const { tab, label, search, description, selections } = args;
+
+		if (!tab) return this.createInvalidTag('No tab provided.');
+		if (!(COMPENDIUM_BROWSER_TABS as readonly string[]).includes(tab)) {
+			return this.createInvalidTag(`Invalid tab: ${tab}.`);
+		}
+		if (!label) return this.createInvalidTag('No label provided.');
+
+		let selectionsJson: string | undefined;
+		if (selections) {
+			try {
+				const parsed = JSON.parse(selections);
+				if (foundry.utils.getType(parsed) !== 'Object') {
+					return this.createInvalidTag('Selections must be a JSON object.');
+				}
+				selectionsJson = JSON.stringify(parsed);
+			} catch {
+				return this.createInvalidTag('Selections is not valid JSON.');
+			}
+		}
+
+		const span = document.createElement('span');
+		span.classList.add('a5e-enricher');
+		span.classList.add('a5e-enricher--browser');
+
+		this.#addToDataset(span, {
+			tab,
+			search,
+			description: description === 'true' ? 'true' : undefined,
+			selections: selectionsJson,
+		});
+
+		span.dataset.tooltip = 'Open Compendium Browser';
+		span.innerHTML = `<i class="icon fa-solid fa-book-open"></i>${foundry.utils.escapeHTML(label)}`;
+		return span;
 	}
 
 	async #enrichReference(key: string, options?: TextEditor.EnrichmentOptions) {
@@ -531,8 +612,39 @@ class A5eEnricherManager {
 		}
 	}
 
+	/**
+	 * Opens the compendium browser with the filters stored on the clicked link.
+	 * @param event   Triggering click event.
+	 */
+	onBrowser(event: MouseEvent): void {
+		const target = (event.target as HTMLElement | null)?.closest(
+			'.a5e-enricher--browser',
+		) as HTMLElement | null;
+
+		if (!target) return;
+		event.stopPropagation();
+
+		const { tab, search, description, selections } = target.dataset;
+		if (!tab) return;
+
+		const filters: CompendiumBrowserFilters = {};
+		if (search) filters.searchTerm = search;
+		if (description === 'true') filters.searchDescription = true;
+
+		if (selections) {
+			try {
+				filters.selections = JSON.parse(selections);
+			} catch {
+				ui.notifications?.warn('Compendium browser link has invalid selections.');
+				return;
+			}
+		}
+
+		CompendiumBrowser.openWithFilters(tab as CompendiumBrowserTab, filters);
+	}
+
 	/* -------------------------------------------- */
-	/*  Choose Enrichers                            */
+	/*  Choose Enrichers                           */
 	/* -------------------------------------------- */
 
 	async #enrichChoose(

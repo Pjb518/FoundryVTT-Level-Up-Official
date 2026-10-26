@@ -17,6 +17,48 @@
     shownDocuments = 0;
   }
 
+  /** Builds a `[[/browser ...]]` enricher from the current tab and filters and copies it. */
+  async function copyEnricher() {
+    const clean = (value: string) => value.replaceAll('"', "").trim();
+
+    const selections: Record<string, any> = {};
+    for (const [key, value] of Object.entries(filterOptions.selections ?? {})) {
+      if (!value) continue;
+      const {
+        inclusive = [],
+        exclusive = [],
+        inclusiveMode,
+        exclusiveMode,
+        min,
+        max,
+      } = value;
+      if (!inclusive.length && !exclusive.length && min == null && max == null) continue;
+
+      selections[key] = {
+        ...(inclusive.length && { inclusive }),
+        ...(inclusive.length && inclusiveMode && { inclusiveMode }),
+        ...(exclusive.length && { exclusive }),
+        ...(exclusive.length && exclusiveMode && { exclusiveMode }),
+        ...(min != null && { min }),
+        ...(max != null && { max }),
+      };
+    }
+
+    const parts = [`tab=${currentTab.name}`, `label="${clean(currentTab.label)}"`];
+
+    const search = clean(filterOptions.searchTerm ?? "");
+    if (search) parts.push(`search="${search}"`);
+    if (search && filterOptions.searchDescription) parts.push("description=true");
+
+    if (Object.keys(selections).length) {
+      const json = JSON.stringify(selections).replaceAll("'", "\\u0027");
+      parts.push(`selections='${json}'`);
+    }
+
+    await game.clipboard.copyPlainText(`[[/browser ${parts.join(" ")}]]`);
+    ui.notifications?.info("Copied compendium browser enricher to clipboard.");
+  }
+
   const {
     tab: initialTab,
     filters: initialFilters,
@@ -166,6 +208,21 @@
         }}
       >
         <i class="a5e-compendia-header__button fa-solid fa-book"></i>
+      </button>
+
+      <button
+        type="button"
+        class="a5e-button a5e-cb__header-button"
+        aria-label="Copy filters as enricher link"
+        data-tooltip="Copy filters as enricher link"
+        data-tooltip-direction="UP"
+        onclick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          copyEnricher();
+        }}
+      >
+        <i class="a5e-compendia-header__button fa-solid fa-link"></i>
       </button>
 
       <button
