@@ -895,15 +895,4 @@ export const settings = [
 			type: new foundry.data.fields.SchemaField(themeSettingsSchema()),
 		},
 	},
-	{
-		namespace,
-		key: 'expertimentalprimaryColor',
-		options: {
-			name: '[ Experimental ] Primary Color',
-			scope: scope.client,
-			config: true,
-			default: '#426066',
-			type: new foundry.data.fields.ColorField(),
-		},
-	},
 ];

@@ -1,4 +1,3 @@
-import type { ItemA5e } from '#documents/item/item.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import { getDeterministicBonus } from '../dice/getDeterministicBonus.ts';
 import type { RollStateManager } from './RollStateManager.ts';
@@ -10,7 +9,7 @@ class EffectAreaManager {
 
 	#consumers: RollStateManager.WorkflowState['consumptionData'];
 
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	#state: RollStateManager.WorkflowState;
 

@@ -30,6 +30,12 @@ export default class ItemSheet extends SvelteApplicationMixin(
 			options.position ??= {};
 			const scale = Math.max((game.settings.get('core', 'uiConfig')?.fontScale ?? 5) / 5, 1);
 			options.position.width = ItemSheet.DEFAULT_OPTIONS.position.width * scale;
+
+			// TEMP: Adds new width for item sheets
+			if (item.document.type === 'object') {
+				options.position.width = 620;
+				options.position.height = 650;
+			}
 		}
 
 		super(

@@ -1,7 +1,8 @@
-import type { ItemA5e } from '../../documents/item/item.ts';
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function getJourneyActivitySummaryData(item: ItemA5e, options: Record<string, any>) {
+export default function getJourneyActivitySummaryData(
+	item: ActionItem,
+	options: Record<string, any>,
+) {
 	const summaryData: {
 		criticalFailure?: string;
 		failure?: string;

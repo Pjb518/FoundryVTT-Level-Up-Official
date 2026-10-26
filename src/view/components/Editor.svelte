@@ -24,15 +24,14 @@
       return;
     }
 
-    // @ts-ignore
+    // @ts-expect-error
     const secret = new foundry.applications.ux.HTMLSecret({
       parentSelector: "prose-mirror",
       callbacks: {
         content: (_secret: HTMLElement) => content,
         update: (secret: HTMLElement, content: string) => {
-          secret.closest<HTMLElement & { value: string }>(
-            "prose-mirror",
-          )!.value = content;
+          secret.closest<HTMLElement & { value: string }>("prose-mirror")!.value =
+            content;
         },
       },
     });
@@ -60,10 +59,7 @@
 
   function onEditorActivation(node: HTMLElement) {
     node.addEventListener("click", (e: MouseEvent) => {
-      if (
-        e.target instanceof HTMLElement &&
-        e.target.closest('[data-action="save"]')
-      ) {
+      if (e.target instanceof HTMLElement && e.target.closest('[data-action="save"]')) {
         handleSave();
       }
     });
@@ -136,18 +132,14 @@
     );
 
     const element =
-      foundry.applications.elements.HTMLProseMirrorElement.create(
-        actualEditorOptions,
-      );
+      foundry.applications.elements.HTMLProseMirrorElement.create(actualEditorOptions);
 
     proseMirrorContainerEl.innerHTML = element.outerHTML;
 
     proseMirrorContainerEl.firstChild?.addEventListener("plugins", (e: any) => {
       e.detail.highlightDocumentMatches =
-        // @ts-ignore
-        ProseMirror.ProseMirrorHighlightMatchesPlugin.build(
-          ProseMirror.defaultSchema,
-        );
+        // @ts-expect-error
+        ProseMirror.ProseMirrorHighlightMatchesPlugin.build(ProseMirror.defaultSchema);
     });
 
     bindSecretUI();
@@ -155,7 +147,6 @@
 </script>
 
 <div
-  style="display: contents;"
   class="a5e-editor-wrapper {rest.class ?? ''}"
   bind:this={proseMirrorContainerEl}
   use:onEditorActivation
@@ -163,6 +154,7 @@
 
 <style lang="scss">
   .a5e-editor-wrapper {
+    display: contents;
     height: 100%;
 
     :global(prose-mirror) {

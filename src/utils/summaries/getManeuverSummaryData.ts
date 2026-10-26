@@ -1,8 +1,5 @@
-import { localize } from '#utils/localization/localize.ts';
-import type { ItemA5e } from '../../documents/item/item';
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function getManeuverSummaryData(item: ItemA5e, options: Record<string, any>) {
+export default function getManeuverSummaryData(item: ActionItem, options: Record<string, any>) {
 	if (item.type !== 'maneuver') {
 		return { maneuverProperties: '' };
 	}
@@ -14,7 +11,7 @@ export default function getManeuverSummaryData(item: ItemA5e, options: Record<st
 
 	const exertionCost = item.system.exertionCost
 		? `(${item.system.exertionCost}
-    ${localize(item.system.exertionCost > 1 ? 'A5E.exertion.pointPlural' : 'A5E.exertion.point')})`
+    ${_loc(item.system.exertionCost > 1 ? 'A5E.exertion.pointPlural' : 'A5E.exertion.point')})`
 		: '';
 
 	const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]

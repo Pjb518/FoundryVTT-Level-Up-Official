@@ -8,7 +8,6 @@ import type {
 } from '../dataModels/item/actions/ActionConsumersDataModel.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 import { EffectAreaManager } from './EffectAreaManager.ts';
 import { ResourceConsumptionManager } from './ResourceConsumptionManager.ts';
 import { RollOverrideManager } from './RollOverrideManager.ts';
@@ -17,7 +16,7 @@ import { RollPreparationManager } from './RollPreparationManager.ts';
 class RollStateManager {
 	#actor: Creature;
 
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	#actionId: string;
 
@@ -27,7 +26,7 @@ class RollStateManager {
 
 	#options: ActionActivationOptions;
 
-	constructor(item: ItemA5e, actionId: string, options: ActionActivationOptions) {
+	constructor(item: ActionItem, actionId: string, options: ActionActivationOptions) {
 		this.#item = item;
 		this.#actor = item.actor as unknown as Creature;
 		this.#actionId = actionId;

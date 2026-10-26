@@ -1,10 +1,9 @@
-import type { ItemA5e } from '#documents/item/item.ts';
 import { simplifyOperatorTerms } from './simplifyOperatorTerms.ts';
 
 type Options = {
 	actor: Creature;
 	formula?: string;
-	item: ItemA5e;
+	item: ActionItem;
 	modifiers?: any;
 };
 

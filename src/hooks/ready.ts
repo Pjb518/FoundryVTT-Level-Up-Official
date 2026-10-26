@@ -4,6 +4,7 @@ import { collectSynergies } from '#utils/db/indexCompendiaFields.ts';
 import { ModuleIncompatibilityDialog } from '#view/dialogs/initializers/ModuleIncompatibilityDialog.svelte.ts';
 import KeyPressHandler from '#view/globals/KeyPressHandler.svelte';
 import { handleMigration } from '../migration/handlers/handleMigration.ts';
+import { ThemeSettings } from '../settings/ThemeSettings.svelte.ts';
 import hotbarDrop from './hotBarDrop.ts';
 
 const CHANGELOG_PACK_ID = 'a5e.a5e-journals';
@@ -56,15 +57,6 @@ async function addKeyPressLogger() {
 	mount(KeyPressHandler, { target: document.body });
 }
 
-function updateTheme() {
-	const primaryColor = game.settings.get('a5e', 'expertimentalprimaryColor')?.toString();
-	if (primaryColor && primaryColor !== '#426066') {
-		document.documentElement.style.setProperty('--a5e-color-primary', primaryColor);
-		const theme = document.querySelector('.theme-dark');
-		theme?.style.setProperty('--a5e-color-primary', primaryColor);
-	}
-}
-
 export default async function ready() {
 	Hooks.on('hotbarDrop', hotbarDrop);
 
@@ -73,7 +65,7 @@ export default async function ready() {
 	handleChangelog();
 	handleIncompatibilityWarning();
 	addKeyPressLogger();
-	updateTheme();
+	ThemeSettings.applyGlobalTheme();
 
 	// Add socket listener
 	const socketManager = new SocketManager();

@@ -1,6 +1,5 @@
 <script lang="ts">
   import { setContext } from "svelte";
-  import { type ItemA5e } from "#documents/item/item.ts";
 
   import type { Tab } from "#view/navigation/data.ts";
   import NavigationBar from "../navigation/NavigationBar.svelte";
@@ -17,7 +16,7 @@
   import ItemPropertiesPage from "./pages/item/ItemPropertiesPage.svelte";
 
   type Props = {
-    item: ItemA5e;
+    item: ActionItem;
     sheet: any;
     editable: boolean;
   };
@@ -136,16 +135,17 @@
 <style lang="scss">
   .a5e-item-sheet {
     display: grid;
+    grid-template-areas: "aside main";
     grid-template-columns: 2fr 4fr;
+    grid-template-rows: auto;
     gap: var(--a5e-spacing-sm);
     height: 100%;
     padding-right: 0.25rem;
-    overflow: auto;
 
     &__main {
+      grid-area: main;
+
       position: relative;
-      width: 100%;
-      height: 100%;
 
       display: grid;
       grid-template-areas:
@@ -155,12 +155,17 @@
       grid-template-rows: min-content min-content minmax(0, 1fr);
       gap: var(--a5e-spacing-sm);
 
+      height: 100%;
+      min-height: 0;
+      width: 100%;
+
       &__page {
         grid-area: page;
-        overflow-y: auto;
         padding-inline: var(--a5e-spacing-sm);
         height: 100%;
-        min-height: 0;
+        // min-height: 0;
+        overflow-y: auto;
+        padding-bottom: var(--a5e-spacing-md);
       }
     }
   }

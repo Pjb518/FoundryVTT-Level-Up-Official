@@ -1,13 +1,13 @@
-import type { MigrationData } from '../common';
-import { migrationData } from '../common';
+import type { MigrationData, SlugData } from '../common.ts';
+import { migrationData, slugData } from '../common.ts';
+import { description, favorite, macro, secretDescription, source } from './common';
 import type {
 	DescriptionData,
 	FavoriteData,
 	MacroData,
 	SecretDescriptionData,
 	SourceData,
-} from './common';
-import { description, favorite, macro, secretDescription, source } from './common';
+} from './common.ts';
 
 declare namespace A5EBaseItemData {
 	interface Schema
@@ -17,7 +17,8 @@ declare namespace A5EBaseItemData {
 			MacroData,
 			MigrationData,
 			SecretDescriptionData,
-			SourceData {}
+			SourceData,
+			SlugData {}
 	type BaseData = Record<string, any>;
 	type DerivedData = Record<string, any>;
 }
@@ -36,6 +37,7 @@ class A5EBaseItemData<
 			...migrationData(),
 			...secretDescription(),
 			...source(),
+			...slugData(),
 		};
 	}
 }

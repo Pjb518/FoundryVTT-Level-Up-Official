@@ -6,7 +6,6 @@ import { GrantsField } from './Grants/GrantsField.ts';
 import fields = foundry.data.fields;
 
 const schema = () => ({
-	slug: new fields.StringField({ nullable: false, initial: '' }),
 	archetypeLevel: new fields.NumberField({
 		required: true,
 		nullable: false,

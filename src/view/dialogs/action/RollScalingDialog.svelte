@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { ItemA5e } from "#documents/item/item.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
@@ -7,7 +6,7 @@
   import type { DamageRollData } from "../../../dataModels/item/actions/ActionRollsDataModel.ts";
 
   type Props = {
-    document: ItemA5e;
+    document: ActionItem;
     actionId: string;
     rollId?: string;
     propertyKey: string;
@@ -26,14 +25,9 @@
     ][];
   }
 
-  let {
-    document,
-    actionId,
-    propertyKey,
-    scalingType = "default",
-  }: Props = $props();
+  let { document, actionId, propertyKey, scalingType = "default" }: Props = $props();
 
-  let item: ItemA5e = document;
+  let item: ActionItem = document;
 
   let scaling = $derived(
     foundry.utils.getProperty(item.reactive.system, propertyKey),
@@ -72,10 +66,7 @@
               )}
           />
 
-          <label
-            for="system.{propertyKey}.step"
-            class="a5e-scaling-dialog__label"
-          >
+          <label for="system.{propertyKey}.step" class="a5e-scaling-dialog__label">
             Per Every {scalingMode === "spellLevel" ? "Level" : "Use"}
           </label>
         </div>
@@ -177,10 +168,7 @@
 
       <!-- Default Types -->
       <div class="a5e-scaling-dialog__config a5e-scaling-dialog__config--long">
-        <label
-          for="system.{propertyKey}.config.value"
-          class="a5e-scaling-dialog__label"
-        >
+        <label for="system.{propertyKey}.config.value" class="a5e-scaling-dialog__label">
           Bonus Increment
         </label>
 
@@ -191,11 +179,7 @@
           id="system.{propertyKey}.config.value"
           value={scaling.config.value ?? ""}
           onchange={({ currentTarget }) => {
-            updateDocumentDataFromField(
-              item,
-              currentTarget.name,
-              currentTarget.value,
-            );
+            updateDocumentDataFromField(item, currentTarget.name, currentTarget.value);
           }}
         />
       </div>

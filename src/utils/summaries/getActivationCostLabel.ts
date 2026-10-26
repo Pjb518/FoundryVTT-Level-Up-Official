@@ -1,8 +1,7 @@
 import type { Action } from 'types/action';
 import { localize } from '#utils/localization/localize.ts';
-import type { ItemA5e } from '../../documents/item/item';
 
-export default function getActivationCostLabel(item: ItemA5e, action: Action) {
+export default function getActivationCostLabel(item: ActionItem, action: Action) {
 	if (foundry.utils.isEmpty(action)) return '';
 
 	const { activation } = action;

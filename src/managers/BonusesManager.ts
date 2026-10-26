@@ -12,7 +12,6 @@ import type {
 	SkillBonus,
 } from 'types/bonuses.d.ts';
 import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 import arraysAreEqual from '../utils/arraysAreEqual.ts';
 
 interface SelectionData {
@@ -23,7 +22,7 @@ interface SelectionData {
 		| 'rangedWeaponAttack'
 		| 'meleeSpellAttack'
 		| 'rangedSpellAttack';
-	item?: ItemA5e;
+	item?: ActionItem;
 	rolls?: any;
 	skillKey?: string;
 }
@@ -149,7 +148,7 @@ class BonusesManager {
 	 * @returns
 	 */
 	getAttackBonusFormula(
-		item: ItemA5e,
+		item: ActionItem,
 		type:
 			| 'meleeWeaponAttack'
 			| 'rangedWeaponAttack'
@@ -378,7 +377,7 @@ class BonusesManager {
 	}
 
 	prepareAttackBonuses(
-		item: ItemA5e,
+		item: ActionItem,
 		type:
 			| 'meleeWeaponAttack'
 			| 'rangedWeaponAttack'
@@ -432,7 +431,7 @@ class BonusesManager {
 	 *
 	 * @returns
 	 */
-	prepareGlobalDamageBonuses(item: ItemA5e, rolls: any): [string, DamageBonus][] {
+	prepareGlobalDamageBonuses(item: ActionItem, rolls: any): [string, DamageBonus][] {
 		const attackRoll: any[] = rolls.attack ?? [];
 		const damageRoll: any[] = rolls.damage ?? [];
 		const spellLevel = item.type === 'spell' ? item.system.level : null;
@@ -476,7 +475,7 @@ class BonusesManager {
 	}
 
 	_prepareGlobalDamageBonuses(
-		item: ItemA5e,
+		item: ActionItem,
 		rolls: ReturnType<A5EActionData['getRollsByType']>,
 	): [string, DamageBonus][] {
 		const attackRoll: any[] = rolls.attack ?? [];
@@ -521,7 +520,7 @@ class BonusesManager {
 		});
 	}
 
-	prepareGlobalHealingBonuses(item: ItemA5e, rolls: any): [string, HealingBonus][] {
+	prepareGlobalHealingBonuses(item: ActionItem, rolls: any): [string, HealingBonus][] {
 		const bonuses = this.#bonuses.healing;
 		const counts = {};
 
@@ -562,7 +561,7 @@ class BonusesManager {
 	}
 
 	_prepareGlobalHealingBonuses(
-		item: ItemA5e,
+		item: ActionItem,
 		rolls: ReturnType<A5EActionData['getRollsByType']>,
 	): [string, HealingBonus][] {
 		const bonuses = this.#bonuses.healing;

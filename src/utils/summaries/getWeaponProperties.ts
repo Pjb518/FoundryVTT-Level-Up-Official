@@ -1,11 +1,9 @@
-import type ObjectItemA5e from '../../documents/item/object';
+import getBreakerProperties from './getBreakerProperties.ts';
+import getDefensiveProperties from './getDefensiveProperties.ts';
+import getMountedProperties from './getMountedProperties.ts';
+import getVersatileProperties from './getVersatileProperties.ts';
 
-import getBreakerProperties from './getBreakerProperties';
-import getDefensiveProperties from './getDefensiveProperties';
-import getMountedProperties from './getMountedProperties';
-import getVersatileProperties from './getVersatileProperties';
-
-export default function getWeaponProperties(item: ObjectItemA5e) {
+export default function getWeaponProperties(item: Item.OfType<'object'>) {
 	const { weaponProperties } = CONFIG.A5E;
 
 	return item.system.weaponProperties

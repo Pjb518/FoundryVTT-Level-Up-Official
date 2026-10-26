@@ -11,6 +11,7 @@ const schema = {
 		initial: [],
 	}),
 	class: new fields.StringField({ required: true, initial: '' }),
+	/** @deprecated This needs to be removed since we don't have config for it. */
 	classes: new fields.StringField({ required: true, initial: '' }),
 	concentration: new fields.BooleanField({ required: true, initial: false }),
 	featClasses: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
@@ -42,6 +43,7 @@ class A5EFeatureData extends A5EBaseItemData<
 > {
 	/** @inheritDoc */
 	static override defineSchema(): A5EFeatureData.Schema {
+		// @ts-expect-error
 		return {
 			...super.defineSchema(),
 			...actions(),

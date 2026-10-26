@@ -9,7 +9,7 @@ const schema = {
 		required: true,
 		initial: 0,
 		integer: true,
-    nullable: false,
+		nullable: false,
 		min: 0,
 	}),
 };

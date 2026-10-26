@@ -12,13 +12,12 @@ import { constructD20RollFormula } from '../dice/constructD20RollFormula.ts';
 import { constructRollFormula } from '../dice/constructRollFormula.ts';
 import { constructCriticalConfig } from '../dice/damage/constructCriticalConfig.ts';
 import { DamageRoll } from '../dice/rolls/DamageRoll.ts';
-import type { ItemA5e } from '../documents/item/item.ts';
 import type { RollStateManager } from './RollStateManager.ts';
 
 class RollPreparationManager {
 	#actor: Creature;
 
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	#state: RollStateManager.WorkflowState;
 

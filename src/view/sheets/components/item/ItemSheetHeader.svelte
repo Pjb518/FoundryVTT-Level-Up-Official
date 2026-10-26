@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { type ItemA5e } from "#documents/item/item.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   function getItemDetails() {
@@ -13,7 +12,7 @@
     return details;
   }
 
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
 
   let itemData = $derived(item.reactive.system);
   let itemDetails = $derived(getItemDetails());
@@ -71,7 +70,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--a5e-spacing-sm);
-    margin-bottom: 0.75rem;
+    margin-top: var(--a5e-spacing-sm);
+    margin-bottom: var(--a5e-spacing-md);
 
     &__item-name {
       font-family: var(--a5e-secondary-font);

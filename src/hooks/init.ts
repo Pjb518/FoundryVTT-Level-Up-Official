@@ -1,6 +1,7 @@
 import { regionBehaviors } from '#data/regions/index.ts';
 import { TerrainDataA5E } from '#data/terrainDataA5E.ts';
 import { ActorA5E } from '#documents/actor/actor.svelte.ts';
+import { ItemA5E } from '#documents/item/item.svelte.ts';
 import { ConditionManager } from '#managers/ConditionManager.ts';
 import { managers } from '#managers/index.ts';
 import { CompendiumBrowser } from '#view/dialogs/initializers/CompendiumBrowser.svelte.ts';
@@ -32,11 +33,10 @@ import EffectOption from '../documents/activeEffect/EffectOption.ts';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions.ts';
 import trackableAttributes from '../documents/actor/trackableAttributes.js';
 import { ChatMessageA5e } from '../documents/chatMessage.ts';
-import ItemProxy from '../documents/item/itemProxy.ts';
 import ActiveEffectSheetA5e from '../documents/sheets/ActiveEffectSheet.svelte.ts';
 import ActorSheetA5e from '../documents/sheets/ActorSheet.svelte.ts';
-import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
 import { FollowerSheetA5E } from '../documents/sheets/FollowerSheet.svelte.ts';
+import ItemSheetA5e from '../documents/sheets/ItemSheet.svelte.ts';
 import { PartySheetA5E } from '../documents/sheets/PartySheet.svelte.ts';
 import { CombatantA5e } from '../encounter/Combatant.ts';
 import { EncounterA5e } from '../encounter/Encounter.ts';
@@ -66,7 +66,7 @@ export default function init() {
 	CONFIG.ChatMessage.documentClass = ChatMessageA5e;
 	CONFIG.Combat.documentClass = EncounterA5e;
 	CONFIG.Combatant.documentClass = CombatantA5e;
-	CONFIG.Item.documentClass = ItemProxy;
+	CONFIG.Item.documentClass = ItemA5E;
 	CONFIG.Token.documentClass = TokenDocumentA5E;
 	CONFIG.Token.objectClass = TokenA5E;
 	CONFIG.Token.rulerClass = TokenRulerA5E;
@@ -141,8 +141,8 @@ export default function init() {
 			D20Roll,
 		},
 		documentClasses: {
-			...A5E.Actor.documentClasses,
-			...A5E.Item.documentClasses,
+			ActorA5E,
+			ItemA5E,
 			TokenDocumentA5E,
 			TokenA5E,
 		},

@@ -1,3 +1,4 @@
+import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
 import type { A5E } from '../src/config.ts';
 import type { BaseRoll } from '../src/dice/rolls/BaseRoll.ts';
 import type { D20Roll } from '../src/dice/rolls/D20Roll.ts';
@@ -13,8 +14,22 @@ declare global {
 	/** Alias for foundry.data.fields.DataSchema used in TypeDataModel schema declarations */
 	type DataSchema = foundry.data.fields.DataSchema;
 
+	/** Alias for Actor.OfType<'char | npc'> */
 	type Creature = Actor.OfType<'character'> | Actor.OfType<'npc'>;
+
+	/** Alias for Actor.OfType<char> */
 	type Character = Actor.OfType<'character'>;
+
+	/** Alias for Items that support actions */
+	type ActionItem =
+		| Item.OfType<'feature'>
+		| Item.OfType<'hacking'>
+		| Item.OfType<'interaction'>
+		| Item.OfType<'maneuver'>
+		| Item.OfType<'object'>
+		| Item.OfType<'spell'>;
+
+	/** Alias for Item.OfType<archetype | background | class | culture | destiny | heritage> */
 	type OriginItems =
 		| Item.OfType<'archetype'>
 		| Item.OfType<'background'>
@@ -22,6 +37,12 @@ declare global {
 		| Item.OfType<'culture'>
 		| Item.OfType<'destiny'>
 		| Item.OfType<'heritage'>;
+
+	/** Alias for Item.OfType<archetype | background | class | culture | destiny | heritage> */
+	type OriginItem = OriginItems;
+
+	/** Alias for ActionData */
+	type Action = A5EActionData;
 }
 
 declare module 'fvtt-types/configuration' {

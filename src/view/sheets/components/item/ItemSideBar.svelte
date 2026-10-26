@@ -1,6 +1,5 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import { type ItemA5e } from "#documents/item/item.ts";
   import getBaseActionSummary from "#utils/summaries/getBaseActionSummaryData.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { editDocumentImage } from "#utils/view/editDocumentImage.ts";
@@ -19,7 +18,7 @@
     return summaryData;
   }
 
-  let item: ItemA5e = getContext("item");
+  let item: ActionItem = getContext("item");
 
   let itemData = $derived(item.reactive.system);
   let itemProperties = $derived(getProperties(item.reactive));
@@ -28,7 +27,7 @@
 </script>
 
 <aside class="a5e-item-sheet__aside">
-  <div class="a5e-item-sheet__aside__image-wrapper">
+  <header class="a5e-item-sheet__aside__image-wrapper">
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <img
@@ -37,80 +36,86 @@
       alt={item.reactive.name}
       onclick={() => editDocumentImage(item)}
     />
-  </div>
+  </header>
 
-  {#if itemToggles.length}
-    <div class="a5e-item-sheet__aside__toggles__wrapper">
-      <div class="a5e-item-sheet__aside__header">Toggles</div>
+  <section class="a5e-item-sheet__aside__main">
+    {#if itemToggles.length}
+      <div class="a5e-item-sheet__aside__toggles__wrapper">
+        <div class="a5e-item-sheet__aside__header">Toggles</div>
 
-      <div class="a5e-item-sheet__aside__toggles">
-        {#each itemToggles as { label, property }}
-          {let propVal = $derived(foundry.utils.getProperty(itemData, property))}
+        <div class="a5e-item-sheet__aside__toggles">
+          {#each itemToggles as { label, property }}
+            {let propVal = $derived(foundry.utils.getProperty(itemData, property))}
 
-          <Pill
-            onclick={() =>
-              updateDocumentDataFromField(item, `system.${property}`, !propVal)}
-            --a5e-pill-width="100%"
-          >
-            <div class="a5e-item-sheet__aside__toggle">
-              <span>Toggle {label}</span>
-              <button
-                type="button"
-                class="a5e-button a5e-button--transparent"
-                aria-label="Toggle {label}"
-                data-tooltip-direction="UP"
-              >
-                {#if propVal}
-                  <i class="fa-solid fa-toggle-on"></i>
-                {:else}
-                  <i class="fa-solid fa-toggle-off"></i>
-                {/if}
-              </button>
+            <Pill
+              onclick={() =>
+                updateDocumentDataFromField(item, `system.${property}`, !propVal)}
+              --a5e-pill-width="100%"
+            >
+              <div class="a5e-item-sheet__aside__toggle">
+                <span>Toggle {label}</span>
+                <button
+                  type="button"
+                  class="a5e-button a5e-button--transparent"
+                  aria-label="Toggle {label}"
+                  data-tooltip-direction="UP"
+                >
+                  {#if propVal}
+                    <i class="fa-solid fa-toggle-on"></i>
+                  {:else}
+                    <i class="fa-solid fa-toggle-off"></i>
+                  {/if}
+                </button>
+              </div>
+            </Pill>
+          {/each}
+        </div>
+      </div>
+    {/if}
+
+    <div class="a5e-item-sheet__aside__properties__wrapper">
+      <div class="a5e-item-sheet__aside__header">Properties</div>
+
+      <ul class="a5e-item-sheet__aside__properties">
+        {#each itemProperties as property}
+          <Pill label={property.value} />
+        {/each}
+      </ul>
+    </div>
+
+    <div class="a5e-item-sheet__aside__summaries__wrapper">
+      <div class="a5e-item-sheet__aside__header">Action Summary</div>
+
+      <div class="a5e-item-sheet__aside__summaries">
+        {#each actionSummaries as { actionName, actionData }}
+          <Pill --a5e-pill-width="100%">
+            <div class="a5e-item-sheet__aside__summary">
+              <div class="a5e-item-sheet__aside__summary__header">
+                <span>{actionName}</span>
+              </div>
+
+              <div class="a5e-item-sheet__aside__summary__details">
+                <ItemSummary summaryData={actionData} />
+              </div>
             </div>
           </Pill>
         {/each}
       </div>
     </div>
-  {/if}
-
-  <div class="a5e-item-sheet__aside__properties__wrapper">
-    <div class="a5e-item-sheet__aside__header">Properties</div>
-
-    <ul class="a5e-item-sheet__aside__properties">
-      {#each itemProperties as property}
-        <Pill label={property.value} />
-      {/each}
-    </ul>
-  </div>
-
-  <div class="a5e-item-sheet__aside__summaries__wrapper">
-    <div class="a5e-item-sheet__aside__header">Action Summary</div>
-
-    <div class="a5e-item-sheet__aside__summaries">
-      {#each actionSummaries as { actionName, actionData }}
-        <Pill --a5e-pill-width="100%">
-          <div class="a5e-item-sheet__aside__summary">
-            <div class="a5e-item-sheet__aside__summary__header">
-              <span>{actionName}</span>
-            </div>
-
-            <div class="a5e-item-sheet__aside__summary__details">
-              <ItemSummary summaryData={actionData} />
-            </div>
-          </div>
-        </Pill>
-      {/each}
-    </div>
-  </div>
+  </section>
 </aside>
 
 <style lang="scss">
   .a5e-item-sheet {
     &__aside {
+      grid-area: aside;
+
       display: flex;
       flex-direction: column;
       gap: var(--a5e-spacing-lg);
       padding-inline: var(--a5e-spacing-sm);
+      background: var(--a5e-item-sheet-aside-background);
+      overflow: hidden;
 
       &__image-wrapper {
         display: flex;
@@ -118,6 +123,15 @@
         justify-content: center;
         align-items: center;
         margin-top: var(--a5e-spacing-md);
+      }
+
+      &__main {
+        display: flex;
+        flex-direction: column;
+        gap: var(--a5e-spacing-lg);
+        overflow: auto;
+
+        scrollbar-width: none;
       }
 
       &__image {

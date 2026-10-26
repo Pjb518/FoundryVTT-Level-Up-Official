@@ -108,8 +108,7 @@
     }
 
     &__icon {
-      padding-inline: 0.15rem;
-      font-size: 0.85rem;
+      font-size: var(--a5e-pill-icon-size, 0.85rem);
     }
 
     &--tight {
@@ -119,6 +118,10 @@
     &__wrapper {
       margin: var(--a5e-spacing-none);
       list-style: none;
+
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
     }
   }
 </style>

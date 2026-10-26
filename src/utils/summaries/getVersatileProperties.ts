@@ -1,17 +1,13 @@
-import type ObjectItemA5e from "../../documents/item/object";
+export default function getVersatileProperties(item: Item.OfType<'object'>) {
+	const { versatileOptions, weaponProperties } = CONFIG.A5E;
 
-import { localize } from "#utils/localization/localize.ts";
+	if (item.system.versatile) {
+		const versatile = versatileOptions[item.system.versatile];
 
-export default function getVersatileProperties(item: ObjectItemA5e) {
-  const { versatileOptions, weaponProperties } = CONFIG.A5E;
+		return _loc('A5E.weapons.properties.versatileSpecific', {
+			die: versatile,
+		});
+	}
 
-  if (item.system.versatile) {
-    const versatile = versatileOptions[item.system.versatile];
-
-    return localize("A5E.weapons.properties.versatileSpecific", {
-      die: versatile,
-    });
-  }
-
-  return weaponProperties.versatile;
+	return weaponProperties.versatile;
 }

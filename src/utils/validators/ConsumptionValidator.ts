@@ -1,14 +1,13 @@
 import type { RollStateManager } from '#managers/RollStateManager.ts';
 import { localize } from '#utils/localization/localize.ts';
 import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel.ts';
-import type { ItemA5e } from '../../documents/item/item.ts';
 
 export default class ConsumptionValidator {
 	#action: A5EActionData;
 
 	#actor: Creature;
 
-	#item: ItemA5e;
+	#item: ActionItem;
 
 	availableConsumers: any;
 

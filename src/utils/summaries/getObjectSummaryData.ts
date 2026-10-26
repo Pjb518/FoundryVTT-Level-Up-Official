@@ -25,9 +25,12 @@ export default function getObjectSummaryData(
 
 	const objectProperties = getMaterialProperties(item);
 
-	if (objectType === 'armor')
+	if (objectType === 'armor') {
+		// Add armor type
+		objectProperties.push(CONFIG.A5E.armor[item.system.armorCategory] ?? item.system.armorCategory);
+
 		objectProperties.push(...getArmorProperties(item), ...getArmorMods(item));
-	else if (objectType === 'shield') objectProperties.push(...getShieldProperties(item));
+	} else if (objectType === 'shield') objectProperties.push(...getShieldProperties(item));
 	else if (objectType === 'weapon')
 		objectProperties.push(...getWeaponProperties(item), ...getWeaponAugments(item));
 

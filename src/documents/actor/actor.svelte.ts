@@ -44,7 +44,6 @@ import { ActiveEffectA5E } from '../activeEffect/ae.svelte.ts';
 import automateHpConditions from '../activeEffect/utils/automateHpConditions.js';
 import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLevelConditions.js';
 import { generateExpandedChanges } from '../activeEffect/utils/generateExpandedChanges.ts';
-import type { BaseItemA5e } from '../item/base.svelte.ts';
 import type {
 	AbilityCheckRollOptions,
 	ActorDialogs,
@@ -508,7 +507,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	}
 
 	/** ================================================================= */
-	// Data Preperation Methods
+	// Data Preparation Methods
 	/** ================================================================= */
 
 	/**
@@ -2039,7 +2038,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ================================================================= */
 
 	/** @inheritdoc */
-	override getRollData(item: BaseItemA5e | null = null) {
+	override getRollData(item: Item.Implementation | null = null) {
 		const data = { ...super.getRollData() };
 
 		// Call Sub Modules
@@ -2049,26 +2048,16 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 		return data;
 	}
 
-	getVehicleRollData(this: Actor.OfType<'vehicle'>, data: Record<string, any>) {
-		data.prof = 0;
-
-		Object.entries(this.system.abilities).reduce((acc, [key, ability]) => {
-			acc.abilities ??= {};
-			acc.abilities[key] = { ...ability, mod: ability.check.mod };
-			acc[key] = { ...ability, mod: ability.check.mod };
-
-			return acc;
-		}, data);
-
-		return data;
-	}
-
 	/** ---------------------------------- */
 	//  Roll Data (Creature)
 	/** ---------------------------------- */
 
 	/** Get Creature Roll Data */
-	getCreatureRollData(this: Creature, data: Record<string, any>, item: BaseItemA5e | null = null) {
+	getCreatureRollData(
+		this: Creature,
+		data: Record<string, any>,
+		item: Item.Implementation | null = null,
+	) {
 		const { abilities, skills } = this.system;
 
 		data.prof = this.system.attributes.prof || 0;
@@ -2149,7 +2138,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	getCharRollData(
 		this: Actor.OfType<'character'>,
 		data: Record<string, any>,
-		_item: BaseItemA5e | null = null,
+		_item: Item.Implementation | null = null,
 	) {
 		data.level = this.levels?.character ?? data.level ?? this.system.details.level;
 
@@ -2176,6 +2165,25 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** ---------------------------------- */
 	//  Roll Data (Party)
 	/** ---------------------------------- */
+
+	/** ---------------------------------- */
+	//  Roll Data (Vehicle)
+	/** ---------------------------------- */
+
+	/** Gets roll data for vehicles */
+	getVehicleRollData(this: Actor.OfType<'vehicle'>, data: Record<string, any>) {
+		data.prof = 0;
+
+		Object.entries(this.system.abilities).reduce((acc, [key, ability]) => {
+			acc.abilities ??= {};
+			acc.abilities[key] = { ...ability, mod: ability.check.mod };
+			acc[key] = { ...ability, mod: ability.check.mod };
+
+			return acc;
+		}, data);
+
+		return data;
+	}
 
 	/** ================================================================= */
 	// Resources Reset Handlers

@@ -1,5 +1,4 @@
 import type { ActorA5E } from '../documents/actor/actor.svelte.ts';
-import type { BaseItemA5e } from '../documents/item/base.svelte.ts';
 import {
 	COMPENDIUM_BROWSER_TABS,
 	CompendiumBrowser,
@@ -663,7 +662,7 @@ class A5eEnricherManager {
 			if (arg.groups?.type === 'uuid') {
 				value = `@UUID[${arg.groups?.value}]`;
 				// eslint-disable-next-line no-await-in-loop
-				const item = (await fromUuid(arg.groups?.value)) as BaseItemA5e;
+				const item = (await fromUuid(arg.groups?.value)) as Item.Implementation;
 				icons.push(item?.img as string);
 			} else {
 				value = `${arg.groups?.value}`;
