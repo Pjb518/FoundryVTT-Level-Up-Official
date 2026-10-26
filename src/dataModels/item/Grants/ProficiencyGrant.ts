@@ -31,7 +31,7 @@ const schema = () => ({
 		upgradeToExpertise: new fields.BooleanField({
 			required: true,
 			nullable: false,
-			initial: true,
+			initial: false,
 		}),
 	}),
 
