@@ -106,7 +106,7 @@ function renderCategorySections(
 	return sections;
 }
 
-const allProducts = Object.values(products);
+const allProducts = Object.values(products).filter((product) => !product.excludeFromWiki);
 
 const contentModules = allProducts.filter((product) => getWikiCategory(product) === 'content');
 const utilityModules = allProducts.filter((product) => getWikiCategory(product) === 'utility');

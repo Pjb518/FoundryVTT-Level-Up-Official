@@ -13,6 +13,7 @@ export interface ProductEntry {
 	moduleName?: string;
 	moduleDeprecated?: boolean;
 	excludeFromFilters?: boolean;
+	excludeFromWiki?: boolean;
 }
 
 export const DEPRECATED_MODULE_REASON =
@@ -586,6 +587,7 @@ export const products: Record<string, ProductEntry> = {
 		systems: ['a5e'],
 		title: 'Homebrew',
 		url: '',
+		excludeFromWiki: true,
 	},
 	moarComplete: {
 		abbreviation: 'MoAR',
