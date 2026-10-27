@@ -1,4 +1,4 @@
-import { conditionResistanceValueFields } from '#data/fields/ConditionResistanceFields.ts';
+import { conditionResistanceRollModification } from '#data/common.ts';
 import prepareTraitGrantConfigObject from '#utils/prepareTraitGrantConfigObject.ts';
 import TraitGrantConfig from '#view/components/grants/TraitGrantConfig.svelte';
 import TraitGrantSelectionDialog from '#view/components/grants/TraitGrantSelectionDialog.svelte';
@@ -30,7 +30,7 @@ const schema = () => ({
 			}),
 		}),
 		upgradeResist: new fields.BooleanField({ required: true, nullable: false, initial: false }),
-		resistance: new fields.SchemaField(conditionResistanceValueFields(), {
+		resistance: new fields.SchemaField(conditionResistanceRollModification(), {
 			required: true,
 			nullable: false,
 		}),

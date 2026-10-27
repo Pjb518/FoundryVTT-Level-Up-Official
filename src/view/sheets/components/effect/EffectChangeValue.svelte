@@ -1,6 +1,8 @@
 <script lang="ts">
   import { localize } from "#utils/localization/localize.ts";
 
+  import ConditionResistanceConfigDialog from "#view/dialogs/actor/ConditionResistanceConfigDialog.svelte";
+
   import AbilityBonusConfigDialog from "#view/components/bonuses/AbilityBonusConfigDialog.svelte";
   import AttackBonusConfigDialog from "#view/components/bonuses/AttackBonusConfigDialog.svelte";
   import DamageBonusConfigDialog from "#view/components/bonuses/DamageBonusConfigDialog.svelte";
@@ -11,7 +13,6 @@
 
   import CustomTagGroup from "#view/snippets/CustomTagGroup.svelte";
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
-  import ConditionResistanceValue from "./ConditionResistanceValue.svelte";
 
   type Props = {
     key: string;
@@ -152,7 +153,11 @@
     onchange={(value) => onchange(value)}
   />
 {:else if componentType === "CONDITION_RESISTANCE"}
-  <ConditionResistanceValue data={value} onchange={(value) => onchange(value)} />
+  <ConditionResistanceConfigDialog
+    data={value}
+    --padding="0"
+    onchange={(value) => onchange(value)}
+  />
 {:else if componentType === "NONE"}
   <!--  -->
 {:else}

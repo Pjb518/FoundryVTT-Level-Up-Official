@@ -3,11 +3,13 @@
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
 
   type Props = {
-    document: Actor;
-    propertyKey: string;
+    document?: Actor;
+    propertyKey?: string;
+    data?: Record<string, any> | string;
+    onchange?: (value: Record<string, any>) => void;
   };
 
-  let { document, propertyKey }: Props = $props();
+  let { document, propertyKey, data = undefined, onchange = undefined }: Props = $props();
   const actor = document;
 
   const columns = "A5E.traits.headings.conditions.resistanceColumns";
@@ -27,35 +29,54 @@
     .map(([id, name]) => [id, localize(name as string)])
     .sort((a, b) => a[1].localeCompare(b[1]));
 
+  // With `data` the component edits a standalone map (e.g. an effect change value),
+  // otherwise it edits the actor's resistances at `propertyKey`.
   let resistances = $derived(
     Object.entries(
-      foundry.utils.getProperty(actor.reactive._source, propertyKey) ?? {},
+      (data !== undefined
+        ? typeof data === "object"
+          ? data
+          : {}
+        : foundry.utils.getProperty(actor!.reactive._source, propertyKey!)) ?? {},
     ) as [string, any][],
   );
 
+  function commit(id: string, patch: Record<string, any> | null) {
+    if (data !== undefined) {
+      const next = foundry.utils.deepClone(Object.fromEntries(resistances));
+      if (patch === null) delete next[id];
+      else next[id] = { ...(next[id] ?? {}), ...patch };
+      onchange?.(next);
+      return;
+    }
+
+    if (patch === null) {
+      actor!.update({ [`${propertyKey}.${id}`]: _del });
+      return;
+    }
+
+    const entries = Object.entries(patch);
+    if (entries.length === 1) {
+      const [field, value] = entries[0];
+      updateDocumentDataFromField(actor, `${propertyKey}.${id}.${field}`, value);
+    } else actor!.update({ [`${propertyKey}.${id}`]: patch });
+  }
+
   function addRow() {
-    actor.update({
-      [`${propertyKey}.${foundry.utils.randomID()}`]: {
-        condition: "",
-        custom: false,
-      },
-    });
+    commit(foundry.utils.randomID(), { condition: "", custom: false });
   }
 
   function deleteRow(id: string) {
-    actor.update({ [`${propertyKey}.${id}`]: _del });
+    commit(id, null);
   }
 
   function update(id: string, field: string, value: number | string | boolean) {
-    updateDocumentDataFromField(actor, `${propertyKey}.${id}.${field}`, value);
+    commit(id, { [field]: value });
   }
 
   function onSelectCondition(id: string, value: string) {
-    if (value === CUSTOM) {
-      actor.update({
-        [`${propertyKey}.${id}`]: { custom: true, condition: "" },
-      });
-    } else update(id, "condition", value);
+    if (value === CUSTOM) commit(id, { custom: true, condition: "" });
+    else update(id, "condition", value);
   }
 </script>
 
@@ -171,7 +192,7 @@
     --resistance-columns: 1fr 5.5rem 5rem 4rem 1.25rem;
 
     height: 100%;
-    padding: var(--a5e-spacing-md);
+    padding: var(--padding, var(--a5e-spacing-md));
     overflow: auto;
   }
 
