@@ -114,13 +114,7 @@ const characterSchema = () => ({
 	classes: new fields.SchemaField({
 		startingClass: new fields.StringField({ required: true, initial: '' }),
 	}),
-	resources: new fields.SchemaField(
-		{
-			classResources: new fields.ObjectField({ required: true, nullable: false }),
-			...resources(),
-		},
-		{ required: true, nullable: false },
-	),
+	...resources(),
 	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({

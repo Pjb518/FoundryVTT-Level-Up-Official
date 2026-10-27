@@ -1113,7 +1113,7 @@ const resourceRecoveryOptions = {
 	week: 'A5E.durations.week',
 	month: 'A5E.durations.month',
 	year: 'A5E.durations.year',
-};
+} as const;
 
 const rollModes = {
 	normal: 'A5E.rollLabels.modes.normal',

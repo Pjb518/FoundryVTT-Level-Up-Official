@@ -18,7 +18,6 @@ import { spellBookSchema } from './SpellBook.ts';
 
 const { fields } = foundry.data;
 
-// TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
 	abilities: new MappingField(
 		new fields.SchemaField({
@@ -347,6 +346,14 @@ export const proficiencies = () => ({
 });
 
 export const resources = () => ({
+	resources: new MappingField(
+		new fields.SchemaField({
+			name: new fields.StringField({ required: true, nullable: false, initial: '' }),
+			value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		}),
+	),
+});
+/* export const resources = () => ({
 	...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
 		acc[res] = new fields.SchemaField({
 			label: new fields.StringField({ required: true, initial: '' }),
@@ -362,7 +369,7 @@ export const resources = () => ({
 
 		return acc;
 	}, {}),
-});
+}) */
 
 /** Used in system.rolls */
 const attackData = () => ({

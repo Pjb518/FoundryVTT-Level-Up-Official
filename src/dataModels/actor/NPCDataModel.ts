@@ -58,26 +58,7 @@ const npcSchema = () => ({
 		}),
 		...details(),
 	}),
-	resources: new fields.SchemaField(
-		{
-			legendaryActions: new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-				max: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-			}),
-			legendaryResistances: new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-				max: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-			}),
-			lairActions: new fields.SchemaField({
-				value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-				max: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-				initiative: new fields.NumberField({ required: true, nullable: false, initial: 20 }),
-			}),
-
-			...resources(),
-		},
-		{ required: true, nullable: false },
-	),
+	...resources(),
 	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({
