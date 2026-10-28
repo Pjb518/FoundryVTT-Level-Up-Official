@@ -9,7 +9,7 @@ import fields = foundry.data.fields;
 const TYPE_OPTS = { required: true, nullable: false, blank: false };
 
 const baseSchema = () => ({
-	name: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	name: new fields.StringField({ required: true, nullable: false, initial: 'New Resource' }),
 	slug: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	per: new fields.StringField({
 		required: true,
@@ -26,8 +26,8 @@ const counterSchema = () => ({
 });
 
 const diceSchema = () => ({
-	size: new fields.StringField({ required: true, nullable: false, initial: 1 }),
-	denom: new fields.StringField({ required: true, nullable: false, initial: 1 }),
+	size: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+	denom: new fields.NumberField({ required: true, nullable: false, initial: 4 }),
 	modifiers: new fields.SetField(
 		new fields.StringField({ required: true, nullable: false, initial: '' }),
 		{ required: true, nullable: false },

@@ -1,180 +1,170 @@
-<script>
-  import { getContext } from "svelte";
-  import { localize } from "#utils/localization/localize.ts";
-  import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
-  import GenericActorResourceConfigDialog from "#view/dialogs/actor/GenericActorResourceConfigDialog.svelte";
-  import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
-  import { getDeterministicBonus } from "../../../../dice/getDeterministicBonus.ts";
+<script lang="ts">
+    import { getContext } from "svelte";
+    import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
+    import GenericActorResourceConfigDialog from "#view/dialogs/actor/GenericActorResourceConfigDialog.svelte";
+    import { GenericConfigDialog } from "#view/dialogs/initializers/GenericConfigDialog.svelte.ts";
+    import { getDeterministicBonus } from "../../../../dice/getDeterministicBonus.ts";
 
-  let { resource, source } = $props();
+    function configureResource(id: string) {
+        let diag = actor.dialogs.genericResources[id];
 
-  const actor = getContext("actor");
-  const genericResources = ["primary", "secondary", "tertiary", "quaternary"];
+        if (!diag) {
+            diag = actor.dialogs.genericResources[id] = new GenericConfigDialog(
+                actor,
+                `${actor.name}: Generic Resource Dialog`,
+                GenericActorResourceConfigDialog,
+                { source: id },
+            );
+        }
 
-  function configureResource() {
-    let dialog = actor.dialogs.genericResources[source];
-
-    if (!dialog) {
-      actor.dialogs.genericResources[source] = new GenericConfigDialog(
-        actor,
-        `${actor.name}: Generic Resource Dialog`,
-        GenericActorResourceConfigDialog,
-        { source },
-      );
-
-      dialog = actor.dialogs.genericResources[source];
+        diag.render({ force: true });
     }
 
-    dialog.render(true);
-  }
+    const actor: Creature = getContext("actor");
+    const sheetIsLocked: () => boolean = getContext("sheetIsLocked");
 
-  function incrementResource() {
-    resource.value = Math.max(resource.value + 1, 0);
-    updateDocumentDataFromField(
-      actor,
-      `system.resources.${source}.value`,
-      Number(resource.value),
-    );
-  }
+    let actorData = $derived(actor.reactive.system);
+    let resources = $derived(actorData.resources);
 
-  function decrementResource() {
-    resource.value = Math.max(resource.value - 1, 0);
-    updateDocumentDataFromField(
-      actor,
-      `system.resources.${source}.value`,
-      Number(resource.value),
-    );
-  }
-
-  function updateResourceValue(value) {
-    if (isClassResource) {
-      updateDocumentDataFromField(
-        actor,
-        `system.resources.classResources.${source}`,
-        Number(value),
-      );
-    } else {
-      updateDocumentDataFromField(
-        actor,
-        `system.resources.${source}.value`,
-        Number(value),
-      );
-    }
-  }
-
-  function determineResourceVisibility(sheetIsLocked) {
-    // Add class resources when sheet is locked
-    if (!sheetIsLocked && !isClassResource) return true;
-
-    // Add resource is Hide Max is set
-    if (sheetIsLocked && resource.hideMax) return true;
-
-    // Add resource is max is not 0
-    if (sheetIsLocked && max !== 0) return true;
-
-    return false;
-  }
-
-  function canRecharge(sheetIsLocked) {
-    if (!sheetIsLocked) return false;
-    if (resource.per !== "recharge") return false;
-    if (resource.hideMax) return true;
-
-    // Return false if the resource has a max value and the current value equals the max value
-    return resource.value < max;
-  }
-
-  let isClassResource = $derived(!genericResources.includes(source));
-  let max = $derived(getDeterministicBonus(resource.max, actor.getRollData()));
-  let sheetIsLocked = $derived(
-    !actor.isOwner ? true : (actor.reactive.flags?.a5e?.sheetIsLocked ?? true),
-  );
-  let showRechargeButton = $derived(canRecharge(sheetIsLocked));
-  let showResource = $derived(determineResourceVisibility(sheetIsLocked));
+    $inspect(resources);
 </script>
 
-{#if showResource}
-  <li class="a5e-resource">
-    <header class="a5e-resource__header">
-      <input
-        type="text"
-        name="system.resources.{source}.label"
-        value={resource.label}
-        class="a5e-input a5e-input--slim a5e-resource__label"
-        placeholder={localize(
-          `A5E.consumers.resources.titlePlural${source.capitalize()}`,
+<div class="a5e-resources-wrapper">
+    {#each Object.entries(resources ?? {}) as [id, resource] (id)}
+        {let slug = $derived(
+            resource.slug || resource.name.slugify({ strict: true }),
         )}
-        disabled={sheetIsLocked}
-        onchange={({ target }) =>
-          updateDocumentDataFromField(actor, target.name, target.value)}
-      />
 
-      {#if !sheetIsLocked && !isClassResource}
-        <button
-          type="button"
-          class="a5e-button a5e-button--config"
-          onclick={configureResource}
-          aria-labelledby="Configure Resource"
-        >
-          <i class="icon fas fa-gear"></i>
-        </button>
-      {/if}
+        <div class="a5e-resource a5e-resource--{resource.type}">
+            <span class="a5e-resource__name">
+                {resource.name || "New Resource"}
+            </span>
 
-      {#if showRechargeButton}
-        <button
-          type="button"
-          class="a5e-button a5e-resource__btn icon fas fa-dice"
-          data-tooltip="Recharge Resource"
-          data-tooltip-direction="UP"
-          aria-labelledby="Recharge Resource"
-          onclick={() => actor.rechargeGenericResource(source)}
-        >
-        </button>
-      {/if}
-    </header>
+            <div class="a5e-resource__data-container">
+                {#if resource.type === "counter"}
+                    <!-- Counter Type -->
+                    <button
+                        type="button"
+                        class="a5e-button a5e-resource__button"
+                        onclick={() => null}
+                    >
+                        -
+                    </button>
 
-    <div class="a5e-resource__value-container">
-      {#if resource.hideMax}
-        <button
-          class="a5e-button a5e-resource__btn icon fas fa-minus"
-          type="button"
-          aria-labelledby="Decrement Resource"
-          disabled={resource.value === 0}
-          onclick={decrementResource}
-        >
-        </button>
-      {/if}
+                    <input
+                        class="a5e-input a5e-resource__input"
+                        type="number"
+                        value={resource.value ?? 0}
+                        onchange={({ currentTarget }) =>
+                            updateDocumentDataFromField(
+                                actor,
+                                `system.resources.${slug}.value`,
+                                Number.parseInt(currentTarget.value, 10),
+                            )}
+                    />
 
-      <input
-        class="a5e-resource__number-input"
-        class:a5e-resource__number-input--disabled={!actor.isOwner}
-        type="number"
-        value={resource.value}
-        placeholder="0"
-        min="0"
-        onchange={({ target }) => updateResourceValue(target.value)}
-      />
+                    <button
+                        type="button"
+                        class="a5e-button a5e-resource__button"
+                        onclick={() => null}>+</button
+                    >
+                {:else if resource.type === "dice"}
+                    <!-- Dice Type -->
+                {:else if resource.type === "item"}
+                    <!-- Item Type -->
+                {:else if resource.type === "uses"}
+                    <!-- Uses Type -->
+                    <input
+                        class="a5e-input a5e-resource__input"
+                        type="number"
+                        value={resource.value ?? 0}
+                        onchange={({ currentTarget }) =>
+                            updateDocumentDataFromField(
+                                actor,
+                                `system.resources.${slug}.value`,
+                                Number.parseInt(currentTarget.value, 10),
+                            )}
+                    />
 
-      {#if resource.hideMax}
-        <button
-          class="a5e-button a5e-resource__btn icon fas fa-plus"
-          type="button"
-          aria-labelledby="Increment Resource"
-          onclick={incrementResource}
-        >
-        </button>
-      {:else}
-        <span class="a5e-resource__seperator"> / </span>
+                    /
 
-        <input
-          type="number"
-          name="system.resources.{source}.max"
-          value={getDeterministicBonus(resource.max ?? 0, actor.getRollData())}
-          class="a5e-resource__number-input a5e-resource__number-input--disabled"
-          placeholder="0"
-          disabled
-        />
-      {/if}
-    </div>
-  </li>
-{/if}
+                    <input
+                        class="a5e-input a5e-resource__input"
+                        type="number"
+                        disabled={true}
+                        value={getDeterministicBonus(
+                            resource.max,
+                            actor.getRollData(),
+                        )}
+                    />
+                {/if}
+            </div>
+
+            {#if !sheetIsLocked()}
+                <button
+                    type="button"
+                    class="a5e-button a5e-button--transparent a5e-resource__button"
+                    aria-label="Configure"
+                    data-tooltip="Configure"
+                    data-tooltip-direction="UP"
+                    onclick={() => configureResource(id)}
+                >
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+            {/if}
+        </div>
+    {/each}
+</div>
+
+<style lang="scss">
+    .a5e-resource {
+        display: grid;
+        grid-template-areas: "name data config";
+        grid-template-columns: 1fr min-content min-content;
+        gap: var(--a5e-spacing-md);
+        align-items: center;
+        background: var(--a5e-color-surface);
+        border: var(--a5e-border-width-thin) solid
+            var(--a5e-color-border-subtle);
+        padding-block: var(--a5e-spacing-xs);
+        padding-inline: var(--a5e-spacing-sm);
+
+        font-size: var(--a5e-text-sm);
+        font-family: var(--a5e-font-family-primary);
+
+        &__name {
+            grid-area: name;
+
+            white-space: no-wrap;
+            overflow: hidden;
+            text-overflow: ellipses;
+        }
+
+        &__data-container {
+            grid-area: data;
+
+            display: flex;
+            gap: var(--a5e-spacing-sm);
+        }
+
+        &__input {
+            height: 1.125rem;
+            width: 6ch;
+            text-align: center;
+        }
+
+        &__button {
+            grid-area: config;
+
+            font-size: var(--a5e-text-xs);
+        }
+    }
+
+    .a5e-resources-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--a5e-spacing-md);
+
+        margin-bottom: var(--a5e-spacing-md);
+    }
+</style>

@@ -1530,7 +1530,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Prepare Resources for a char */
 	prepareResources(this: Actor.OfType<'character'>) {
-		const source = this._source.system.resources as any;
+		/* const source = this._source.system.resources as any;
 
 		const genericResources = foundry.utils.deepClone(source);
 		delete genericResources.classResources;
@@ -1567,7 +1567,7 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 		const resources = { ...genericResources, ...classResources };
 
-		this.system.resources = resources;
+		this.system.resources = resources */
 	}
 
 	/** Prepares data for roll mode and expertise dice that are not skills */

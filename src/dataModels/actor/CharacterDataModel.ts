@@ -254,7 +254,7 @@ class A5ECharacterData extends foundry.abstract.TypeDataModel<
 	static override migrateData(data) {
 		data.resources = Object.fromEntries(
 			Object.entries(data.resources).map(([id, r]) => {
-				r.type = 'uses';
+				// r.type ??= 'uses';
 				return [id, r];
 			}),
 		);

@@ -1115,6 +1115,13 @@ const resourceRecoveryOptions = {
 	year: 'A5E.durations.year',
 } as const;
 
+const resourceTypes = {
+	counter: 'Counter',
+	dice: 'Dice',
+	item: 'Item',
+	uses: 'Uses',
+} as const;
+
 const rollModes = {
 	normal: 'A5E.rollLabels.modes.normal',
 	advantage: 'A5E.rollLabels.modes.advantage',
@@ -2426,6 +2433,7 @@ const A5E = {
 	regions,
 	repairTools,
 	resourceRecoveryOptions,
+	resourceTypes,
 	rollModes,
 	rollTypes,
 	saveDCOptions,

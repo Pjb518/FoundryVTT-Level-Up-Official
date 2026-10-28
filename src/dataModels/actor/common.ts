@@ -347,7 +347,10 @@ export const proficiencies = () => ({
 });
 
 export const resources = () => ({
-	resources: new MappingField(new fields.TypedSchemaField(RESOURCE_DATA_TYPES)),
+	resources: new MappingField(new fields.TypedSchemaField(RESOURCE_DATA_TYPES), {
+		required: true,
+		nullable: false,
+	}),
 });
 
 /* export const resources = () => ({
