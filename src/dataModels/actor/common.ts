@@ -1,3 +1,4 @@
+import { RESOURCE_DATA_TYPES } from '#data/fields/ResourcesField.ts';
 import { d20RollModification } from '../common.ts';
 import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
 import { MappingField } from '../fields/MappingField.ts';
@@ -346,13 +347,9 @@ export const proficiencies = () => ({
 });
 
 export const resources = () => ({
-	resources: new MappingField(
-		new fields.SchemaField({
-			name: new fields.StringField({ required: true, nullable: false, initial: '' }),
-			value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-		}),
-	),
+	resources: new MappingField(new fields.TypedSchemaField(RESOURCE_DATA_TYPES)),
 });
+
 /* export const resources = () => ({
 	...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
 		acc[res] = new fields.SchemaField({
