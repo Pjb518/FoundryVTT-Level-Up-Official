@@ -7,6 +7,14 @@
     import RadioGroup from "#view/snippets/RadioGroup.svelte";
     import Section from "#view/snippets/Section.svelte";
 
+    function deleteResource() {
+        actor.update({
+            [`system.resources.${source}`]: _del,
+        });
+
+        dialog.close();
+    }
+
     async function onDrop(
         event: DragEvent & {
             currentTarget: EventTarget & HTMLElement;
@@ -66,7 +74,7 @@
         );
     }
 
-    let { document, source } = $props();
+    let { document, dialog, source } = $props();
 
     const actor: Creature = document;
     const recoveryOptions = Object.entries(
@@ -242,6 +250,10 @@
         selected={resource.per}
         onUpdateSelection={(detail) => updateValue("per", detail)}
     />
+
+    <button class="" type="button" onclick={deleteResource}>
+        Delete Resource
+    </button>
 </Section>
 
 <style lang="scss">

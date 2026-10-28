@@ -45,10 +45,17 @@
                     <!-- Counter Type -->
                     <button
                         type="button"
-                        class="a5e-button a5e-resource__button"
-                        onclick={() => null}
+                        class="a5e-button a5e-button--transparent a5e-resource__button"
+                        aria-label="Decrease"
+                        onclick={() => {
+                            updateDocumentDataFromField(
+                                actor,
+                                `system.resources.${slug}.value`,
+                                Math.max(0, resource.value - 1),
+                            );
+                        }}
                     >
-                        -
+                        <i class="fa-solid fa-minus"></i>
                     </button>
 
                     <input
@@ -65,13 +72,65 @@
 
                     <button
                         type="button"
-                        class="a5e-button a5e-resource__button"
-                        onclick={() => null}>+</button
+                        class="a5e-button a5e-button--transparent a5e-resource__button"
+                        aria-label="Increase"
+                        onclick={() => resource.useResource()}
                     >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
                 {:else if resource.type === "dice"}
                     <!-- Dice Type -->
+                    {#if resource.consumeType === "pool"}
+                        <input
+                            class="a5e-input a5e-resource__input"
+                            type="number"
+                            value={resource.value ?? 0}
+                            onchange={({ currentTarget }) =>
+                                updateDocumentDataFromField(
+                                    actor,
+                                    `system.resources.${slug}.value`,
+                                    Number.parseInt(currentTarget.value, 10),
+                                )}
+                        />
+                    {/if}
+
+                    <span>{resource.size}d{resource.denom}</span>
+
+                    <button
+                        type="button"
+                        class="a5e-button a5e-button--transparent a5e-resource__button"
+                        aria-label="Use Resource"
+                        data-tooltip="Use Resource"
+                        data-tooltip-direction="UP"
+                        onclick={() => resource.useResource()}
+                    >
+                        <i class="fa-solid fa-dice"></i>
+                    </button>
                 {:else if resource.type === "item"}
                     <!-- Item Type -->
+                    {let item = $derived(actor.items.get(resource.itemId))}
+                    {let consumeType = $derived(resource.consumeType)}
+                    {#if item}
+                        <input
+                            class="a5e-input a5e-resource__input"
+                            type="number"
+                            value={consumeType === "uses"
+                                ? item.system.uses.value
+                                : item.system.quantity}
+                            disabled={true}
+                        />
+
+                        <button
+                            type="button"
+                            class="a5e-button a5e-button--transparent a5e-resource__button"
+                            aria-label="Use Resource"
+                            data-tooltip="Use Resource"
+                            data-tooltip-direction="UP"
+                            onclick={() => resource.useResource()}
+                        >
+                            <i class="fa-solid fa-dice"></i>
+                        </button>
+                    {/if}
                 {:else if resource.type === "uses"}
                     <!-- Uses Type -->
                     <input
@@ -144,6 +203,7 @@
             grid-area: data;
 
             display: flex;
+            align-items: center;
             gap: var(--a5e-spacing-sm);
         }
 
@@ -165,6 +225,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: var(--a5e-spacing-md);
 
-        margin-bottom: var(--a5e-spacing-md);
+        margin-bottom: var(--a5e-spacing-lg);
     }
 </style>

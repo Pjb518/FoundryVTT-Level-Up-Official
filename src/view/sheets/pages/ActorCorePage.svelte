@@ -4,6 +4,7 @@
     import { usesRequired } from "#utils/view/usesRequired.ts";
     import GenericActorResources from "#view/sheets/components/actor/GenericActorResource.svelte";
     import ItemCategory from "#view/sheets/components/ItemCategory.svelte";
+    import Section from "#view/snippets/Section.svelte";
     import ActorSkillsPage from "./ActorSkillsPage.svelte";
 
     const actor = getContext("actor");
@@ -17,14 +18,31 @@
     let showUses = $derived(usesRequired(favoritesList));
 </script>
 
-{#if !(flags.a5e?.hideGenericResources ?? actor.type === "npc")}
-    <div class="a5e-resources-wrapper">
-        <GenericActorResources />
-    </div>
-{/if}
+<section class="a5e-page-wrapper a5e-page-wrapper--item-list">
+    {#if !(flags.a5e?.hideGenericResources ?? actor.type === "npc")}
+        <div class="a5e-resources-wrapper">
+            <Section
+                heading="Resources"
+                headerButtons={[
+                    {
+                        htmlString: '<i class="fa-solid fa-plus"></i>',
+                        tooltip: "Add Resource",
+                        handler: () =>
+                            actor.update({
+                                "system.resources.new-resource": {
+                                    type: "uses",
+                                    slug: "new-resource",
+                                },
+                            }),
+                    },
+                ]}
+            >
+                <GenericActorResources />
+            </Section>
+        </div>
+    {/if}
 
-{#if flags.a5e?.showFavoritesSection ?? true}
-    <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
+    {#if flags.a5e?.showFavoritesSection ?? true}
         <ItemCategory
             label="A5E.tabs.favoriteItems"
             icon="fas fa-star a5e-section-header__icon"
@@ -33,7 +51,7 @@
             {showQuantity}
             {showUses}
         />
-    </section>
-{:else}
-    <ActorSkillsPage />
-{/if}
+    {:else}
+        <ActorSkillsPage />
+    {/if}
+</section>
