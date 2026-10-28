@@ -101,10 +101,22 @@ class ActiveEffectA5E<SubType extends ActiveEffect.SubType> extends ActiveEffect
 				let result: any;
 
 				switch (change.key) {
-					case 'flags.a5e.effects.conditionResistances':
-						newKey = `system.traits.conditionResistances.${foundry.utils.randomID()}`;
-						result = change.value;
-						break;
+					case 'flags.a5e.effects.conditionResistances': {
+						const value = change.value as any;
+						if (!value || typeof value !== 'object') return;
+
+						const entries: Record<string, any> = 'condition' in value ? { _: value } : value;
+
+						Object.values(entries).forEach((entry) => {
+							if (!entry?.condition) return;
+
+							const key = `system.traits.conditionResistances.${foundry.utils.randomID()}`;
+							if (modifyTarget) foundry.utils.setProperty(targetDoc, key, entry);
+							changes[key] = entry;
+						});
+
+						return;
+					}
 					case 'flags.a5e.effects.damageResistances.all':
 					case 'flags.a5e.effects.damageVulnerabilities.all':
 					case 'flags.a5e.effects.damageImmunities.all':

@@ -95,6 +95,24 @@ export const d20RollModification = () => ({
 
 export type D20RollModification = ReturnType<typeof d20RollModification>;
 
+export const conditionResistanceRollModification = () => ({
+	...d20RollModification(),
+	expertiseDice: new fields.NumberField({
+		required: true,
+		nullable: false,
+		integer: true,
+		initial: 0,
+		min: 0,
+		max: 6,
+	}),
+	bonus: new fields.NumberField({
+		required: true,
+		nullable: false,
+		integer: true,
+		initial: 0,
+	}),
+});
+
 // -----------------------------------------
 // Source
 // -----------------------------------------

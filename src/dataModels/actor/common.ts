@@ -1,5 +1,4 @@
-import { d20RollModification } from '../common.ts';
-import { conditionResistanceValueFields } from '../fields/ConditionResistanceFields.ts';
+import { conditionResistanceRollModification, d20RollModification } from '../common.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
 import {
@@ -486,7 +485,7 @@ export const traits = () => ({
 			new fields.SchemaField({
 				condition: new fields.StringField({ required: true, initial: '' }),
 				custom: new fields.BooleanField({ required: true, initial: false }),
-				...conditionResistanceValueFields(),
+				...conditionResistanceRollModification(),
 			}),
 			{ required: true, initial: {} },
 		),
