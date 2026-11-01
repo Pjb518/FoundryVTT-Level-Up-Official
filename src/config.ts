@@ -882,15 +882,20 @@ const maneuverTraditions = {
 	adamantMountain: 'A5E.maneuvers.traditions.adamantMountain',
 	arcaneArtillery: 'A5E.maneuvers.traditions.arcaneArtillery',
 	arcaneKnight: 'A5E.maneuvers.traditions.arcaneKnight',
+	arcaneKnightMartialArtistry: 'A5E.maneuvers.traditions.arcaneKnightMartialArtistry',
 	awakenedMind: 'A5E.maneuvers.traditions.awakenedMind',
 	beastUnity: 'A5E.maneuvers.traditions.beastUnity',
 	bitingZephyr: 'A5E.maneuvers.traditions.bitingZephyr',
 	blazingStarglaive: 'A5E.maneuvers.traditions.blazingStarglaive',
 	comedicJabs: 'A5E.maneuvers.traditions.comedicJabs',
 	cuttingOmen: 'A5E.maneuvers.traditions.cuttingOmen',
+	duskwoodSniper: 'A5E.maneuvers.traditions.duskwoodSniper',
 	eldritchBlackguard: 'A5E.maneuvers.traditions.eldritchBlackguard',
+	eldritchBlackguardMartialArtistry: 'A5E.maneuvers.traditions.eldritchBlackguardMartialArtistry',
+	fourNations: 'A5E.maneuvers.traditions.fourNations',
 	gallantHeart: 'A5E.maneuvers.traditions.gallantHeart',
 	grindingCog: 'A5E.maneuvers.traditions.grindingCog',
+	inquisitorsBrand: 'A5E.maneuvers.traditions.inquisitorsBrand',
 	mindfulBody: 'A5E.maneuvers.traditions.mindfulBody',
 	mirrorsGlint: 'A5E.maneuvers.traditions.mirrorsGlint',
 	mistAndShade: 'A5E.maneuvers.traditions.mistAndShade',
@@ -899,9 +904,13 @@ const maneuverTraditions = {
 	sanctifiedSteel: 'A5E.maneuvers.traditions.sanctifiedSteel',
 	sanguineKnot: 'A5E.maneuvers.traditions.sanguineKnot',
 	selflessSentinel: 'A5E.maneuvers.traditions.selflessSentinel',
+	serpentsGrip: 'A5E.maneuvers.traditions.serpentsGrip',
 	spiritedSteed: 'A5E.maneuvers.traditions.spiritedSteed',
+	surgeonsPrecision: 'A5E.maneuvers.traditions.surgeonsPrecision',
 	temperedIron: 'A5E.maneuvers.traditions.temperedIron',
+	thunderingBombard: 'A5E.maneuvers.traditions.thunderingBombard',
 	toothAndClaw: 'A5E.maneuvers.traditions.toothAndClaw',
+	trickshotChicanery: 'A5E.maneuvers.traditions.trickshotChicanery',
 	unendingWheel: 'A5E.maneuvers.traditions.unendingWheel',
 	viciousVein: 'A5E.maneuvers.traditions.viciousVein',
 	vipersFangs: 'A5E.maneuvers.traditions.vipersFangs',
@@ -1936,6 +1945,7 @@ const weaponCategories = {
 	martial: 'A5E.weapons.categories.martial',
 	rare: 'A5E.weapons.categories.rare',
 	exotic: 'A5E.weapons.categories.exotic',
+	firearms: 'A5E.weapons.categories.firearms',
 	miscellaneous: 'A5E.weapons.categories.miscellaneous',
 	other: 'A5E.weapons.categories.other',
 };
@@ -2055,8 +2065,13 @@ const weapons = {
 		skullCrusher: 'A5E.weapons.singular.skullCrusher',
 		torchMace: 'A5E.weapons.singular.torchMace',
 	},
+	firearms: {
+		lightFirearm: 'A5E.weapons.singular.lightFirearm',
+		heavyFirearm: 'A5E.weapons.singular.heavyFirearm',
+	},
 	miscellaneous: {
 		improvised: 'A5E.weapons.singular.improvised',
+		siegeWeapon: 'A5E.weapons.singular.siegeWeapon',
 		starship: 'A5E.weapons.singular.starship',
 	},
 };
@@ -2176,8 +2191,13 @@ const weaponsPlural = {
 		skullCrusher: 'A5E.weapons.plural.skullCrusher',
 		torchMace: 'A5E.weapons.plural.torchMace',
 	},
+	firearms: {
+		lightFirearm: 'A5E.weapons.plural.lightFirearm',
+		heavyFirearm: 'A5E.weapons.plural.heavyFirearm',
+	},
 	miscellaneous: {
 		improvised: 'A5E.weapons.plural.improvised',
+		siegeWeapon: 'A5E.weapons.plural.siegeWeapon',
 		starship: 'A5E.weapons.plural.starship',
 	},
 };
@@ -2215,8 +2235,10 @@ const weaponProperties = {
 	ammunition: 'A5E.weapons.properties.ammunition',
 	aquatic: 'A5E.weapons.properties.aquatic',
 	areaFire: 'A5E.weapons.properties.areaFire',
+	assistive: 'A5E.weapons.properties.assistive',
 	blackPowderPyrotechnics: 'A5E.weapons.properties.blackPowderPyrotechnics',
 	breaker: 'A5E.weapons.properties.breaker',
+	brutal: 'A5E.weapons.properties.brutal',
 	burstFire: 'A5E.weapons.properties.burstFire',
 	clubbing: 'A5E.weapons.properties.clubbing',
 	compounding: 'A5E.weapons.properties.compounding',
@@ -2240,6 +2262,7 @@ const weaponProperties = {
 	overkill: 'A5E.weapons.properties.overkill',
 	parrying: 'A5E.weapons.properties.parrying',
 	parryingImmunity: 'A5E.weapons.properties.parryingImmunity',
+	precision: 'A5E.weapons.properties.precision',
 	punching: 'A5E.weapons.properties.punching',
 	quickdraw: 'A5E.weapons.properties.quickdraw',
 	range: 'A5E.weapons.properties.range',
@@ -2263,6 +2286,7 @@ const weaponProperties = {
 };
 
 const breakerProperties = {
+	brushVines: 'Brush/Vines',
 	wood: 'Wood',
 	stone: 'Stone',
 };
