@@ -1,0 +1,220 @@
+{
+	"folder": null,
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/sundries/flags/banner-flag-blue.webp",
+	"system": {
+		"description": "<p>At 3rd level, when you choose this archetype, you learn how to draw forth power to shatter your enemy's formations or reinforce your own. You gain the following two channel divinity options.</p><ul><li><p><strong>Shatter Formation.</strong> As an action, you can use your Channel Divinity to unleash a thunderous blast of power. Hostile creatures within 30 feet of you make a Strengh saving throw. On a failed save they take your proficiency bonus + Constitution modifier thunder damage and are cast back 15ft. On a successful save they are only pushed back 5ft.</p></li><li><p><strong>Cry Havoc.</strong> As a bonus action on your turn, you can roar out an encouraging call that rallies your allies. You and all friendly targets within 30ft are healed of damage equal to your proficiency ponus + Charisma modifer.</p></li></ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"AM3XurL14O4VQc1P": {
+				"name": "Shatter Formation",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you can use your Channel Divinity to unleash a thunderous blast of power. Hostile creatures within 30 feet of you make a Strengh saving throw. On a failed save they take your proficiency bonus + Constitution modifier thunder damage and are cast back 15ft. On a successful save they are only pushed back 5ft.</p>",
+				"consumers": {
+					"XxdsxB7sWc9UwnVg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"prompts": {
+					"A2jNWhVThpbskEnw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "No damage, pushed back 5ft.",
+						"label": ""
+					}
+				},
+				"rolls": {
+					"5xsoqykN1dEfzGBY": {
+						"type": "damage",
+						"default": true,
+						"formula": "@con.mod + @prof",
+						"damageType": "thunder",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "AM3XurL14O4VQc1P",
+				"img": "icons/sundries/flags/banner-standard-moon.webp",
+				"default": false,
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {
+					"A7x3RK8vD6Q4JpDz": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"F3cCfvjgnbNdasJt": {
+				"name": "Cry Havoc",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As a bonus action on your turn, you can roar out an encouraging call that rallies your allies. You and all friendly targets within 30ft are healed of damage equal to your proficiency ponus + Charisma modifer.</p>",
+				"consumers": {
+					"FcEiwoqyizAKJFrf": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "channel-divinity",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"rolls": {
+					"kRmAOBWScCwAnk60": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod + @prof",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"R9jZPdWu0XEZa59d": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "DywSgOEISHqIKgDQ"
+}

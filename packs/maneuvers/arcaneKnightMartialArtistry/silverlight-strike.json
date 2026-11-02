@@ -1,0 +1,177 @@
+{
+	"name": "Silverlight Strike",
+	"type": "maneuver",
+	"img": "icons/magic/symbols/cog-shield-white-blue.webp",
+	"system": {
+		"actions": {
+			"TPoxBKBW8IU1berT": {
+				"name": "Silverlight Strike",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"ranges": {},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"hokPnlGBlhheZeKu": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"consumers": {
+					"hEAGjZlj7JeOyzkI": {
+						"type": "resource",
+						"resource": "exertion",
+						"quantity": 2,
+						"classIdentifier": "",
+						"restore": false,
+						"default": true,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"upgLh8by9uggUBaG"
+				],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>With a pale silver aura engulfing your weapon, you strike at your target to unleash a powerful burst of light. Make a melee weapon attack. On a successful hit your weapon deals radiant damage in place of any other damage types it normally deals and your target becomes blinded and deafened for up to 1 minute. At the end of the creature’s turn, it may make a Constitution saving throw to end this effect.</p>",
+		"favorite": false,
+		"secretDescription": "<p><em>Source: Gate Pass Gazette #9</em></p>",
+		"source": "martialArtistry",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneKnightMartialArtistry",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.vnSiydETchzxpnno",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Blinded and Deafened",
+			"img": "icons/magic/symbols/cog-shield-white-blue.webp",
+			"_id": "upgLh8by9uggUBaG",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded",
+				"deafened"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813218
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "8J9EmME3Q7L7NGPh"
+}

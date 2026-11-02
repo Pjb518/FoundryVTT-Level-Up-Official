@@ -1,0 +1,210 @@
+{
+	"name": "Deflector",
+	"type": "feature",
+	"img": "icons/skills/melee/swords-parry-block-blue.webp",
+	"system": {
+		"description": "<p>When you have one hand free, you may add your proficiency bonus to your AC until the end of the current turn as a reaction to being attacked.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"vF1W89Q8XJcVILVx": {
+				"name": "Deflector",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Being attacked"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"qlUcqZrV83ugsdp4"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"DPUYQhhOUyw9YQQC": {
+				"grantType": "feature",
+				"level": 10,
+				"levelType": "class",
+				"optional": false,
+				"_id": "DPUYQhhOUyw9YQQC",
+				"label": "Casting Style Improvement",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.spcxpccliWX1XMJM",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"CwN9PtR2LOfTyN9E": {
+				"grantType": "feature",
+				"level": 19,
+				"levelType": "class",
+				"optional": false,
+				"_id": "CwN9PtR2LOfTyN9E",
+				"label": "Cantrip Mastery",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.i6C79Y0sBU2UZ9ed",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.fseJZ06h2mtUsYjw",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Deflector",
+			"img": "icons/skills/melee/swords-parry-block-blue.webp",
+			"_id": "qlUcqZrV83ugsdp4",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "@prof",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Add your proficiency bonus to your AC until the end of the current turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753249
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753087,
+		"modifiedTime": 1793567753087,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "Wlj9Pl32TY50muM6"
+}

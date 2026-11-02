@@ -1,0 +1,217 @@
+{
+	"name": "Bloody Banner",
+	"type": "object",
+	"img": "icons/sundries/flags/banner-worn-red.webp",
+	"system": {
+		"description": "<p>As pain bears down on you, you raise your banner high and roar, defiantly, in the face of your enemies, encouraging your allies in battle. As a reaction to becoming bloodied, you may raise this banner to activate its power. When you do so, choose up to three creatures within 50ft who can see your banner. Those characters gain inspiration.</p><p>Once you have used this ability, you cannot do so again until you’ve taken a long reast.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"zKbAtibVvlAANVxD": {
+				"name": "Bloody Banner",
+				"consumers": {
+					"TzPidpGXJ8vkZ0yi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "Becoming bloodied"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"M0BWQY8bmMLry9LP"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"8sFj5SzPhqkQJZJo": {
+						"range": 50,
+						"unit": "feet"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 3,
+					"scaling": {},
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "The uniform or tabard of a soldier killed in a heroic battle",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "2,500 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "rare",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.bDxy00vMQrTkEf3O",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Bloody Banner",
+			"img": "icons/sundries/flags/banner-worn-red.webp",
+			"_id": "M0BWQY8bmMLry9LP",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.inspiration",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain inspiration.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567790284
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"folder": null,
+	"_id": "HWE6uQX7Yxu9qO3G"
+}

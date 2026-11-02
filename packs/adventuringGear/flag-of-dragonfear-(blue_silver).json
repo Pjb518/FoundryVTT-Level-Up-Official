@@ -1,0 +1,278 @@
+{
+	"name": "Flag of Dragonfear (Blue/Silver)",
+	"type": "object",
+	"img": "icons/sundries/flags/banner-flag-red-white.webp",
+	"system": {
+		"description": "<p>Few things spark more fear in the heart of mortals than the roar of a dragon, a roar this banner contains. As an action, you can raise the banner and unleash a roar. When you do so, the magic of the banner causes your roar to resound with the might and power of a dragon which gives the [[/condition id=frightened]] condition to all enemies within 120ft for up to one minute. A Charisma saving throw is required to resist the effect, and can be repeated at the end of each turn, the DC can be found below.</p><ul><li>White/Brass: Rare, 4,000 gp, DC 14, Cold</li><li>Black/Copper: Rare, 5,000 gp, DC 15, Acid</li><li>Green/Bronze: Very Rare, 7,000 gp, DC 16, Poison</li><li>Blue/Silver: Very Rare, 9,000 gp, DC 17, Lightning</li><li>Red/Gold: Legendary, 12,000gp, DC 19, Fire</li></ul><p>You also gain resistance to energy damage based on the dragon type so long as you are attuned to the flag of dragonfear.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"EngcOOl2gn6K03aE": {
+				"name": "Flag of Dragonfear",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-flag-red-white.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 120,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"9jhaObvcApomtZvk"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {
+					"vz2ZFj7iyuMS7Mif": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "17"
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"CGtotkHy3rQtFgh6": {
+						"range": "self"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "Six scales or teeth from a Chromatic or Metallic Dragon",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "9,000 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.TNS41WgGhqlVMPkx",
+			"transfer": false,
+			"system": {
+				"effectType": "passive",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Flag of Dragonfear",
+			"img": "icons/sundries/flags/banner-flag-red-white.webp",
+			"_id": "7q8sinYm4k7Ejmhj",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to lightning damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567790299
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.TNS41WgGhqlVMPkx",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Frightened",
+			"img": "icons/sundries/flags/banner-flag-red-white.webp",
+			"_id": "9jhaObvcApomtZvk",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</p></li><li><p>A frightened creature can't willingly move closer to the source of its fear.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567790299
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"folder": null,
+	"_id": "lawKaLsH7ZI2N3yo"
+}

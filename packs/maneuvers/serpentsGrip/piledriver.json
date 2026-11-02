@@ -1,0 +1,192 @@
+{
+	"name": "Piledriver",
+	"type": "maneuver",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-green.webp",
+	"system": {
+		"description": "<p>Twisting your grip on your opponent, you leap into a sitting position to slam their head into the ground, using both your weight and theirs against them. Your grappled target must make a Strength or Dexterity saving throw to avoid taking your unarmed attack damage and being [[/condition id=paralyzed]] for a number of rounds equal to your Constitution modifier. On a successful saving throw they are not paralyzed.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Piledriver",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"emsD8Ve1w5giLTzH"
+				],
+				"macro": "",
+				"prompts": {
+					"2KcwQJPrjcGAfkBM": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"2fXkehZ1ctEGR8En": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"HYU7n1P783aOQ9jZ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "1 + @str.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "serpentsGrip"
+	},
+	"effects": [
+		{
+			"origin": "Item.tJyqywpObYqp6DX9",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Paralyzed",
+			"img": "icons/magic/control/debuff-energy-hold-levitate-green.webp",
+			"_id": "emsD8Ve1w5giLTzH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul><li><p>A paralyzed creature is incapacitated and can't move or speak.</p></li><li><p>A paralyzed creature automatically fails Strength and Dexterity saving throws.</p></li><li><p>Attack rolls against a paralyzed creature have advantage.</p></li><li><p>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</p></li></ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"paralyzed"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567813213
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "OAOAwJo0m4mMZ3Mz"
+}

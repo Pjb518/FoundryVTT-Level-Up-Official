@@ -1,0 +1,396 @@
+{
+	"name": "Graduated Mage",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-star-pentagon-blue.webp",
+	"system": {
+		"description": "<p>At 20th level, your apprentice mage’s magical might reaches its pinnacle. They may now cast their @UUID[Compendium.a5e-martial-artistry.class-features.Item.jWwOyCjFEFhLSoiE]{Tricky Training} and @UUID[Compendium.a5e-martial-artistry.class-features.Item.GlSD7IARuoODjDhv]{Journeyman Mage} spells any number of times per day.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"qpRCYQPoSML7BKaf": {
+				"name": "Color Spray",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"ranges": {
+					"h6n4jeQH8M79f8fY": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": 15,
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {},
+				"rolls": {
+					"oBGd6ysFUceyrL5h": {
+						"type": "generic",
+						"default": true,
+						"formula": "6d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						},
+						"label": "Hit Point Pool"
+					}
+				},
+				"prompts": {},
+				"id": "qpRCYQPoSML7BKaf",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/beams-rays-orange-purple-small.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"lSH40Apghvanp3CG": {
+				"name": "Grease",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"BUdL0wxxhsJgZimT": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"width": "10",
+					"placeTemplate": true,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"x3fsh7AbWzZKqIT6": {
+						"ability": "dex",
+						"onSave": "Dexterity negates",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "lSH40Apghvanp3CG",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/water/vortex-water-whirlpool-blue.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"IfvB09EqUQelE0M6": {
+				"name": "Hold Person",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"rmPJFnEeukXjCUNG": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"Npdatp8WDrXifPQc": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"effects": [
+					"dkU4hpDgL2fg0UcZ"
+				],
+				"id": "IfvB09EqUQelE0M6",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/control/debuff-chains-blue.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"2Xy4nFKqYWVuYRrT": {
+				"name": "Shatter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"EvHFEGUcyQTmKGf3": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "10",
+					"placeTemplate": true
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"C3oTsTKrSzRw6k20": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "3d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"bsqDTMKJveP4gUoq": {
+						"ability": "con",
+						"onSave": "Constitution halves.",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.RpKdreM6qtnoxl3y",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Held",
+			"_id": "dkU4hpDgL2fg0UcZ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
+			"statuses": [
+				"paralyzed"
+			],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752934
+			},
+			"img": "icons/magic/control/debuff-chains-blue.webp",
+			"type": "base",
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "YZklsSRsCj3aAoDr"
+}

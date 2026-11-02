@@ -1,0 +1,130 @@
+{
+	"name": "Elemental Defense",
+	"type": "maneuver",
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"system": {
+		"description": "<p>When you are attacked in melee, you may spend your reaction to reduce any damage taken by 1d10 + Wisdom modifier. The attacker takes Basic Melee damage of a type determined by your chosen element.</p><ul><li><p><strong>Water:</strong> Cold</p></li><li><p><strong>Fire:</strong> Fire</p></li></ul><p></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"BMwaL0brMRxb4wgE": {
+				"name": "Elemental Defense",
+				"consumers": {
+					"AY5k6jK7pvUNp9x1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "You are attacked in melee"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"2AvbhGJASXs4g25I": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d10 + @wis.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"uYZmsp0d27T9sAHA": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "1 + @str.mod",
+						"scaling": {},
+						"label": "Water"
+					},
+					"2WHr3iDZ6jFoIsrI": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "1 + @str.mod",
+						"scaling": {},
+						"label": "Fire"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "Water or Fire",
+		"tradition": "fourNations"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567813045,
+		"modifiedTime": 1793567813045,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "neuHCY4oqD8l621u"
+}

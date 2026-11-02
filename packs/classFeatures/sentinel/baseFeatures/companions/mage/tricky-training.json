@@ -1,0 +1,207 @@
+{
+	"name": "Tricky Training",
+	"type": "feature",
+	"img": "icons/magic/air/air-smoke-casting.webp",
+	"system": {
+		"description": "<p>At 4th level, your apprentice mage gains access to @UUID[Compendium.a5e.a5e-spells.Item.lxu7vfccmpg4ntno]{Color Spray} and @UUID[Compendium.a5e.a5e-spells.Item.2u5jeuyp9tya031k]{Grease}. They may use one of these spells per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"rT1l2LqwBpQfc1Ps": {
+				"name": "Color Spray",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1"
+				},
+				"ranges": {
+					"h6n4jeQH8M79f8fY": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": 15,
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"5hNYf8LSv3sqoYXu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"oBGd6ysFUceyrL5h": {
+						"type": "generic",
+						"default": true,
+						"formula": "6d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						},
+						"label": "Hit Point Pool"
+					}
+				},
+				"prompts": {},
+				"id": "rT1l2LqwBpQfc1Ps",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/light/beams-rays-orange-purple-small.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"MDwaqezOSRMVBZku": {
+				"name": "Grease",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"BUdL0wxxhsJgZimT": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"width": "10",
+					"placeTemplate": true,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"x3fsh7AbWzZKqIT6": {
+						"ability": "dex",
+						"onSave": "Dexterity negates",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"AZ0uMp4d9iVyA7KJ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/water/vortex-water-whirlpool-blue.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753087,
+		"modifiedTime": 1793567753087,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "MZZLPAA5NjvOaQrq"
+}

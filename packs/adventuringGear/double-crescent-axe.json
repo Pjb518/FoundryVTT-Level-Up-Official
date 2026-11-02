@@ -1,0 +1,314 @@
+{
+	"folder": null,
+	"name": "Double Crescent Axe",
+	"type": "object",
+	"img": "icons/weapons/axes/axe-double-jagged-black.webp",
+	"system": {
+		"description": "<p>The double crescent axe is known by many names in various cultures. The drek, for example, call it a mek’tar. The weapon’s shape is defined by a crescent shaped edge with forward curling blades at the ends nestled into a second, longer, crescent which also has forward curling blades at the ends. With the back of the larger curving crescent typically having hand-holds cut into it in at least two, but often three, places.</p><p>When wielded with the hands on grips on either side of the weapon, it functions as a weapon with the double weapon property and each end deals 1d6 damage. However if both hands are used on the same grip, it is instead treated as a versatile weapon dealing 1d10 damage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"ZXK1j2xljIQ0w1Qf": {
+				"name": "Double Crescent Axe",
+				"descriptionOutputs": [
+					"item"
+				],
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"ranges": {
+					"5cPO9xOLXdEdGUHh": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"QKdxaAxxoYA1scyM": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"1GK1jhxtP9HFZJ61": {
+						"type": "damage",
+						"default": false,
+						"label": "Axe",
+						"damageType": "slashing",
+						"formula": "1d6 + @str.mod",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"HvzPyy8O6l3Egztd": {
+						"type": "damage",
+						"default": false,
+						"label": "Versatile",
+						"formula": "1d10 + @str.mod",
+						"damageType": "slashing",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"id": "ZXK1j2xljIQ0w1Qf",
+				"img": "icons/weapons/axes/axe-double-jagged-black.webp",
+				"default": false,
+				"description": "",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"bedkXjkIx5hI1tG2": {
+				"name": "Off Hand",
+				"descriptionOutputs": [
+					"item"
+				],
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"ranges": {
+					"5cPO9xOLXdEdGUHh": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"QKdxaAxxoYA1scyM": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"1GK1jhxtP9HFZJ61": {
+						"type": "damage",
+						"default": false,
+						"label": "",
+						"damageType": "slashing",
+						"formula": "1d6 + min(@str.mod,0)",
+						"canCrit": true,
+						"critBonus": "",
+						"scaling": {}
+					}
+				},
+				"id": "bedkXjkIx5hI1tG2",
+				"img": "icons/weapons/axes/axe-double-jagged-black.webp",
+				"default": false,
+				"description": "",
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"MVmWR9ZY8j2QHpK3": {
+				"name": "Parry",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"v86baFFbbi1VFKp0": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "round",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/axes/axe-double-jagged-black.webp",
+				"id": "ZMyeg5PeOLkwNXmj",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "45 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "d10",
+		"weaponAugments": [],
+		"weaponProperties": [
+			"parrying",
+			"versatile",
+			"dualWielding",
+			"twoHanded"
+		],
+		"weight": 7,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "qKYjuEgHvvjaddIj"
+}

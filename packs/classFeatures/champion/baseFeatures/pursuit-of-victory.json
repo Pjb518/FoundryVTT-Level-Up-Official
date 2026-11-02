@@ -1,0 +1,282 @@
+{
+	"name": "Pursuit of Victory",
+	"type": "feature",
+	"img": "icons/commodities/treasure/cup-trophy-gold.webp",
+	"system": {
+		"description": "<p>At 12th level your @UUID[Compendium.a5e-martial-artistry.class-features.Item.lnVBcerfzUAnwSpM]{Questing} ability improves. You now declare a quest which will take multiple days to complete, allowing you to benefit from long rests before its completion. The quest must be something you could reasonably accomplish within a week.</p><p>Each day that your quest continues, you may declare an additional quest to represent a milestone in completing your overarching quest. These smaller quests face the normal limitations and penalties of the questing class feature.</p><p>If you fail to accomplish your week long quest before the end of the 7th day, you immediately gain 3 levels of strife.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"iFnUD2jBsXa4pygE": {
+				"name": "Questing",
+				"consumers": {
+					"yIIByrQK16zQNhCQ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "inspiration",
+						"quantity": 1,
+						"restore": true,
+						"label": ""
+					},
+					"qt2BYUnmSjJJ7jwz": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "iFnUD2jBsXa4pygE",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/environment/wilderness/terrain-river-road-gray.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"YDhciT6ryGjjRuXB"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Pdqp1VrQwgpvQLhG": {
+				"name": "Failed Quest",
+				"consumers": {
+					"Ub0vuteQK40D4wdL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"k5e0mnPNXFQJ0v1u"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 7,
+			"max": "7",
+			"per": "week",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.gNYXpTAsLJF8Px6o",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Questing",
+			"img": "icons/environment/wilderness/terrain-river-road-gray.webp",
+			"_id": "YDhciT6ryGjjRuXB",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You immediately gain inspiration and ignore the effects of fatigue, including the doomed condition, until your chosen quest ends. In addition, you have advantage on saving throws against Charms and Illusions which would sway you from your quest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753269
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.gNYXpTAsLJF8Px6o",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Failed Quest",
+			"img": "icons/commodities/treasure/cup-trophy-gold.webp",
+			"_id": "k5e0mnPNXFQJ0v1u",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immediately gain 3 levels of strife.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753269
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753087,
+		"modifiedTime": 1793567753087,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "T9zs5KYjQ3s0RKTS"
+}

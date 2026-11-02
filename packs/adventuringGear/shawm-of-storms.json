@@ -1,0 +1,252 @@
+{
+	"name": "Shawm of Storms",
+	"type": "object",
+	"img": "icons/tools/instruments/flute-simple-wood.webp",
+	"system": {
+		"description": "<p>Allows the use of @UUID[Compendium.a5e.a5e-spells.Item.t9s6kq3pvokx53dk]{Call Lightning} once per long rest. Once per short rest, a bard playing the shawm of storms can use the @UUID[Compendium.a5e.a5e-class-features.Item.w809qy93c5f33t2x]{Call to Arms} battle hymn. The triggering attack for this use becomes lightning damage. Finally, the shawm of storms is always clearly audible within any storm, no matter how loud or violent.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"lAMaUESNIGBIBP8X": {
+				"name": "Call Lightning",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"SzndNvd8Vuz2BvPe": {
+						"range": "100 feet above you"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "60",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 0,
+					"type": "Area",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {},
+				"prompts": {},
+				"consumers": {
+					"CzvTY3q4G2sGbPAG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "lAMaUESNIGBIBP8X",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/lightning/bolts-forked-large-blue-yellow.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"M9Gl1fTwShmDVJBF": {
+				"name": "Lightning Bolt",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"evH4bO0I0VcGHYl9": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						},
+						"damageType": "lightning",
+						"canCrit": false,
+						"critBonus": "",
+						"label": ""
+					},
+					"N0TK7qm67IRLoTB9": {
+						"type": "damage",
+						"default": false,
+						"label": "Stormy Conditions",
+						"formula": "4d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						},
+						"damageType": "lightning",
+						"canCrit": false,
+						"critBonus": ""
+					}
+				},
+				"prompts": {
+					"lw4FLGSFNvmDDj8Z": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "0"
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"descriptionOutputs": [],
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "icons/magic/lightning/bolts-forked-large-blue-yellow.webp",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "Wood that was struck by lightning",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "tool",
+		"plotItem": false,
+		"price": "3,000 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "rare",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"folder": null,
+	"_id": "ALlmz1SDW6QNeSMF"
+}

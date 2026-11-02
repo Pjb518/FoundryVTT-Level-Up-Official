@@ -1,0 +1,210 @@
+{
+	"name": "Rigged Weapon",
+	"type": "maneuver",
+	"img": "icons/weapons/guns/gun-blunderbuss-gold.webp",
+	"system": {
+		"description": "<p>In an act of desperation, you are able to overload a firearm in order to turn it into a makeshift grenade. As an action, you may overload a firearm with ammunition and throw it as an improvised weapon of its size, or place it somewhere deliberately. Choose an amount of time between immediately and three rounds. If you select immediately, the weapon explodes immediately after you throw it, otherwise it explodes on your turn during the round of your choosing. All creatures within 10ft, 15ft if using an energy firearm or an automatic firearm, must make a Dexterity saving throw or take three times the weapon’s damage. On a successful saving throw, they take half damage. Objects in the area take full damage.</p><p>If placed with a time of 2 rounds or more, objects in the area do not benefit from hardness to avoid damage. Using this maneuver destroys the firearm.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"GPWXW3EbsNeBxsM6": {
+				"name": "Rigged Weapon (Regular)",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "GPWXW3EbsNeBxsM6",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/guns/gun-blunderbuss-gold.webp",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"D6qUUahM4ED88bKG": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"SdAQlbX4MGVRlwzi": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"VevrgLb8qzbUMV7z": {
+						"range": "medium"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"Sd1CuAWioTQJIvky": {
+				"name": "Rigged Weapon (Energy or Automatic Firearm)",
+				"consumers": {
+					"D17BXstzOTPQiHN8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"D6qUUahM4ED88bKG": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"SdAQlbX4MGVRlwzi": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"VevrgLb8qzbUMV7z": {
+						"range": "medium"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "thunderingBombard"
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567812689,
+		"modifiedTime": 1793567812689,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "nepSFNdg4wufDezw"
+}

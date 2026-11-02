@@ -1,0 +1,196 @@
+{
+	"name": "For the Cause",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+	"system": {
+		"description": "<p>At 18th level, you’ve shown, repeatedly, you’re willing to do most anything for the cause; even die for it. If you are bloodied at the start of your turn in combat while outnumbered and you have a defensive target selected, you may declare a Last Stand. A last stand lasts for one minute, and you immediately gain inspiration, immunity to fear and the poisoned condition, and advantage to attack rolls and saving throws. You become immune to the unconscious condition and no longer roll death saving throws for the duration. However, you will die at the end of the last stand as if you had the Doomed condition, though no magic can prevent your death.</p><p>Once you have used this ability you cannot do so again until you take a long rest in a safe haven.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"qZUsj7V4H2HK5NvR": {
+				"name": "Last Stand",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"effects": [
+					"iAXjm2mueT7cg0Ul"
+				],
+				"macro": "",
+				"consumers": {
+					"wKsnhn1eDOzqjgir": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "inspiration",
+						"quantity": 1,
+						"restore": true,
+						"label": ""
+					},
+					"Z7fUkUgK6XTDuQeq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.LkYcyfu3H4LPN3Ds",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Last Stand",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "iAXjm2mueT7cg0Ul",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\",\"poisoned\",\"unconscious\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A last stand lasts for one minute, and you immediately gain inspiration, immunity to fear and the poisoned condition, and advantage to attack rolls and saving throws. You become immune to the unconscious condition and no longer roll death saving throws for the duration. However, you will die at the end of the last stand as if you had the Doomed condition, though no magic can prevent your death.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752650
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752450,
+		"modifiedTime": 1793567752450,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "JTci67M0czj8b3bK"
+}

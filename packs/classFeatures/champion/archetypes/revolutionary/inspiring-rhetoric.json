@@ -1,0 +1,224 @@
+{
+	"name": "Inspiring Rhetoric",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+	"system": {
+		"description": "<p>When you become a revolutionary champion at 3rd level, you come to understand the power of a few words of well placed encouragement. You gain a number of Rhetoric Dice equal to your Charisma modifier. Each of these dice is 1d4. As a bonus action on your turn, you may grant one of these dice to the defensive target of your @UUID[Compendium.a5e-martial-artistry.class-features.Item.tPfqD52k4rw0U11H]{Rise to the Challenge} class feature. If they do not use the die by the start of your next turn, it is lost, and you recover all uses at the end of a long rest. The die can be used in one of the following ways:</p><p><strong>Overcome:</strong> Gain expertise on a Strength or Dexterity skill or ability check.</p><p><strong>Recover:</strong> Regain 1d4 + your Charisma modifier in hit points.</p><p><strong>Resist:</strong> Gain expertise on a Wisdom or Charisma save against Fear, Charm, and Illusion effects.</p><p><strong>Strike:</strong> Add 1d4 damage to a successful weapon attack. The damage is of the same type as the weapon attack.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"eUlRNj9zICmPiFYl": {
+				"name": "Grant Rhetoric Die",
+				"id": "eUlRNj9zICmPiFYl",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"dJOvqEcSQofHjPSx"
+				],
+				"macro": "",
+				"consumers": {
+					"wG9nxsCkBgbZrhEB": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "rhetoric-die",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"nTfn1V1c8eBwUn2X": {
+				"name": "Recover",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"WGXVUUT9N5DHYkJC": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classResources.rhetoric-die-size + @cha.mod",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.vYJ8wjRivEGvYMN4",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Inspiring Rhetoric",
+			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"_id": "dJOvqEcSQofHjPSx",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If they do not use the die by the start of your next turn, it is lost, and you recover all uses at the end of a long rest. The die can be used in one of the following ways:</p><p><strong>Overcome:</strong> Gain expertise on a Strength or Dexterity skill or ability check.</p><p><strong>Recover:</strong> Regain 1d4 + your Charisma modifier in hit points.</p><p><strong>Resist:</strong> Gain expertise on a Wisdom or Charisma save against Fear, Charm, and Illusion effects.</p><p><strong>Strike:</strong> Add 1d4 damage to a successful weapon attack. The damage is of the same type as the weapon attack.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567753554
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "89Iaj5JA0L7vDNrS"
+}

@@ -1,0 +1,189 @@
+{
+	"name": "Hognose Flop",
+	"type": "feature",
+	"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+	"system": {
+		"description": "<p>At 14th level, you have learned that not everyone double-taps downed opponents. Once per long rest, when you would be reduced to 0 HP, you can instead drop to 1 HP and feign death with a deception or performance check against your enemy’s passive insight. On a success, they assume you are dead until you move, take an action, or talk.</p><p>If a creature attacks you while you are in the hognose flop, you can use your reaction to make an attack with a firearm which has advantage, ignoring disadvantage from being within 5ft of an enemy. On a hit, you deal damage as though you landed a critical hit. On a critical hit, your target also cannot make attacks until the start of their next turn.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"C1Q324wC8fn38T1l": {
+				"name": "Hognose Flop",
+				"consumers": {
+					"FZ5FFb9fmnh8SFV9": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "C1Q324wC8fn38T1l",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"0ItQ2TmivYJWwrS7": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					},
+					"BgfGPqREK3y27HBx": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "dec",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					},
+					"Qqia53KJHKbHl5Jf": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "prf",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"GxLOqv5UNli6HXIB": {
+				"name": "Firearm",
+				"consumers": {
+					"OejrORkUGeTEp5rs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "A creature attacks you while you are in the hognose flop"
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "gunslinger",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753087,
+		"modifiedTime": 1793567753087,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "u8BeCukHK1q7cbTu"
+}

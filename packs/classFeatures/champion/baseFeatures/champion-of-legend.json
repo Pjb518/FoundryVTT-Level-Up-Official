@@ -1,0 +1,171 @@
+{
+	"name": "Champion of Legend",
+	"type": "feature",
+	"img": "icons/skills/melee/sword-winged-holy-orange.webp",
+	"system": {
+		"description": "<p>At 20th level, you have become a legend among those who whisper your name in reverent tones and hushed halls or shout it from parapets and street corners in breathless cheers.</p><p>If you are reduced to 0 HP while you have @UUID[Compendium.a5e-martial-artistry.class-features.Item.tPfqD52k4rw0U11H]{Rise to the Challenge} active, you do not fall unconscious; though you do begin dying and must make death saving throws normally.</p><p>If you are reduced to 0 HP while within reach of completing your current quest, you may instead choose to become Doomed and continue acting toward that goal. Your HP total increases to 1/2 of your normal maximum, leaving you bloodied. Should you be reduced to 0 HP again before achieving your goal you will die permanently when the Doomed condition ends, and no magic can resurrect you.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"4pc4USAMLWKkrVqw": {
+				"name": "Reach of Quest",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"WQGsb3Y25NR9uC5u"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "champion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.BRSCeusm83lWJWc8",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Champion of Legend",
+			"img": "icons/skills/melee/sword-winged-holy-orange.webp",
+			"_id": "WQGsb3Y25NR9uC5u",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"doomed\",\"bloodied\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.hp.max",
+					"value": "@attributes.hp.baseMax * 0.5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If you are reduced to 0 HP while within reach of completing your current quest, you may instead choose to become Doomed and continue acting toward that goal. Your HP total increases to 1/2 of your normal maximum, leaving you bloodied. Should you be reduced to 0 HP again before achieving your goal you will die permanently when the Doomed condition ends, and no magic can resurrect you.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"doomed",
+				"bloodied"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752312
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "xH2OcTKDE0hLDdh0"
+}

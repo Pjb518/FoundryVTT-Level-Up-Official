@@ -1,0 +1,185 @@
+{
+	"name": "Ambushing Expertise",
+	"type": "feature",
+	"img": "icons/magic/nature/stealth-hide-beast-eyes-green.webp",
+	"system": {
+		"description": "<p>At 6th level, you’ve gotten very careful about covering your tracks to prepare perfect ambushes. Once per long rest, you can grant up to 5 creatures, including yourself, the benefits of the @UUID[Compendium.a5e.a5e-spells.Item.zlsdqrnf2t9thns7]{Pass Without Trace} spell without using magic. This effect lasts for 10 minutes so long as a given ally is within 60ft of you and can see you communicating with gestures.</p><p>In addition, treat any initiative roll below 10 as a 10 and add your modifiers as normal.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"pLl2g4JlQazabPtM": {
+				"name": "Pass Without Trace",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {},
+				"area": {
+					"shape": "sphere",
+					"radius": 0,
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 6,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"92sqUq6rW5qQL6WP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"effects": [
+					"vmeOTCwmot71V9Wu"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "gunslinger",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.6ZUyE5XQ69VSu3Cl",
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Pass Without Trace",
+			"_id": "vmeOTCwmot71V9Wu",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and allies within the area gain advantage and an expertise die on Dexterity (Stealth) checks as an aura of secrecy enshrouds you. Creatures in the area leave behind no evidence of their passage.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567752307
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
+			"type": "base",
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752092,
+		"modifiedTime": 1793567752092,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "zc8oMfHAR4hzC4Jh"
+}

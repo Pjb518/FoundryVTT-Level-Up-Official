@@ -1,0 +1,159 @@
+{
+	"name": "Power Unleashed",
+	"type": "feature",
+	"img": "icons/magic/unholy/hands-praying-fire-green.webp",
+	"system": {
+		"description": "<p>Having attained 20th level as a warcaster, your spellcasting attribute increases by 4, to a maximum of 24.</p><p>In addition, once per long rest when you cast a cantrip with @UUID[Compendium.a5e-martial-artistry.class-features.Item.pcMDE3CQh7ReDQuU]{Warcaster Edge’s} exertion expenditure applied to it, you may target any number of creatures that you can see who are in range of the spell. When you do so, each creature targeted must make an Intelligence of Charisma saving throw, your choice when you case the cantrip, or take an amount of damage as though you had used @UUID[Compendium.a5e-martial-artistry.class-features.Item.yzRWpRozx01k3Rml]{Splitcast} on every dice of the cantrip. On a successful save your target takes half the damage.</p><p>A @UUID[Compendium.a5e.a5e-spells.Item.c1qq11be32b3s1qr]{Fire Bolt} for example would deal 4d10 plus 4 times your spellcasting ability modifier to each target that fails their saving throw.</p><p>Any benefit of your @UUID[Compendium.a5e-martial-artistry.class-features.Item.MOk2HS46kvcPuhjE]{Casting Style}, @UUID[Compendium.a5e-martial-artistry.class-features.Item.pYrRHnVROMpEGzOF]{Casting Style Improvement}, or @UUID[Compendium.a5e-martial-artistry.class-features.Item.opU8qnbnhxNshkER]{Cantrip Mastery} that applies to your cantrips also applies to this cantrip, as does any archetype benefit.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"kDD93VyHcHBauY2N": {
+				"name": "Power Unleashed",
+				"consumers": {
+					"sQtDjCd9UVPbicGr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"5l5vsEonbocavfuj": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					},
+					"TdSoF64fsUWubGS6": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "Half damage",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"6locfgsRZeDHBXMA": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "6locfgsRZeDHBXMA",
+				"label": "Power Unleashed",
+				"bonus": "4",
+				"abilities": {
+					"options": [
+						"int",
+						"cha"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "Hz8E9OCOu1enIaQt"
+}

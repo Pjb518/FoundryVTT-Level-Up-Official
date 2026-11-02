@@ -1,0 +1,187 @@
+{
+	"name": "Cursed Edge",
+	"type": "maneuver",
+	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+	"system": {
+		"actions": {
+			"SIc1aLP19OWJxJaK": {
+				"name": "Cursed Edge",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"NKYGT08C8saUsoDw": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1,
+						"classIdentifier": "",
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"CGs7NYzF3v5Jdg31": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d4",
+						"damageType": "necrotic",
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"Tcyntf4GpMYBE1hM": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"7QaKigZ2uIBnlJPn"
+				],
+				"macro": ""
+			}
+		},
+		"description": "<p>Foul magic guides your blade. As an action, make a melee weapon attack and apply a minor curse to your target on a successful hit. This curse lasts for up to 1 minute and causes your target to become [[/condition id=rattled]] for the duration. If your target is already under the effects of a curse, they take an additional 1d4 necrotic damage from your attack. Your target can make a Charisma save at the end of each of their turns to end this effect.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg11",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "eldritchBlackguardMartialArtistry",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.0y8YBmd023Intrak",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Cursed",
+			"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
+			"_id": "7QaKigZ2uIBnlJPn",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Become rattled for the duration. If your target is already under the effects of a curse, they take an additional 1d4 necrotic damage from your attack.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567812919
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567812689,
+		"modifiedTime": 1793567812689,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "N5qqTOlNQfVA1mQV"
+}

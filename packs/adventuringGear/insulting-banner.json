@@ -1,0 +1,241 @@
+{
+	"name": "Insulting Banner",
+	"type": "object",
+	"img": "icons/sundries/flags/banner-flag-white.webp",
+	"system": {
+		"description": "<p>Raising your banner high and calling out to the heavens, you attempt to invoke a blessing upon your allies, but you are met with merciless laughter. While this banner looks like a @UUID[Compendium.a5e-martial-artistry.equipment.Item.YMeszzrfeFxTPouy]{Blessed Banner} it is in fact a cursed item. When not in combat this banner functions like a Blessed Banner, however, if you attempt to use it while engaged in battle it instead casts @UUID[Compendium.a5e.a5e-spells.Item.ohrkuqnbaeutcwox]{Vicious Mockery} on all creatures within 10ft, including you, as a 5th level Bard dealing 2d6 psychic damage and causing your next attack roll to have disadvantage. A Wisdom saving throw DC 16 negates the effect.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"PnJVvRSyeADkeM9O": {
+				"name": "Vicious Mockery",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": "5"
+				},
+				"ranges": {
+					"wovAVIgaqdMIxS71": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"size": "",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"3mVtkEN5WEN31cOO": {
+						"canCrit": false,
+						"damageType": "psychic",
+						"formula": "2d6",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"BeJ6xErJLROEWQj1": {
+						"ability": "wis",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "16"
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"action"
+				],
+				"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+				"effects": [
+					"n39wJmNfswJPHth8"
+				],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "The shroud of a conman",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "2,000 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "rare",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.JBYGDqF5fzjA1sVG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Insulting Banner",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"_id": "n39wJmNfswJPHth8",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Next attack roll to have disadvantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567790269
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"folder": null,
+	"_id": "0eAO3mblfY6dGUyB"
+}

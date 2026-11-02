@@ -1,0 +1,175 @@
+{
+	"folder": null,
+	"name": "Warmaker’s Reserve",
+	"type": "feature",
+	"img": "icons/consumables/drinks/alcohol-spirits-bottle-green.webp",
+	"system": {
+		"description": "<p>At 15th level, you’ve learned to stash a small reserve of healing on your person. Once per long rest, while you are at 0 HP and dying, you may choose to pull out a flask, vial, crystal or other container and consume your Reserve by drinking it or breaking the reserve. Doing so allows you to immediately expend up to 5 hit dice as if you had taken a short rest at the start of your turn, before you roll your death saving throw. As a bonus action, you may attempt a performance check to appear to be dying or dead, but you can neither move nor take your action on the turn that you use this ability.</p><p>If you have no hit dice available, you instead become stable with 1 HP.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"H2H9UNn1F2vCXnpH": {
+				"name": "Warmaker’s Reserve",
+				"consumers": {
+					"g3svwfNPE2bkbvlI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "H2H9UNn1F2vCXnpH",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/trades/smithing-smelter-tongs.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"xTCAFgwk9BsPC7px": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"48dIjW01y9AXpL9n": {
+				"name": "Appear Dead",
+				"consumers": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"0y8jJF2Jo9JKgTl6": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prf",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "artificer",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "PSC1C9f1o9zOfzRQ"
+}

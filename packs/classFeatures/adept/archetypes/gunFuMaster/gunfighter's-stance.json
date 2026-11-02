@@ -1,0 +1,116 @@
+{
+	"folder": null,
+	"name": "Gunfighter's Stance",
+	"type": "feature",
+	"img": "icons/equipment/feet/boots-collared-rounded-leather.webp",
+	"system": {
+		"description": "<p>At 11th level, you position your body relative to attackers in ways that reduce their chances of hitting. Not just facing them side-on to present the narrowest target line, but you can often predict where a bullet will go. If you are hit by a ranged weapon attack you may expend your reaction to reduce the damage by 1d10 + your Dexterity modifier + your Adept Level. You may then make an immediate attack roll on the target with a light firearm you possess, even if the firearm is not readied.</p><p>In addition, possessing this ability counts as having the @UUID[Compendium.a5e.a5e-class-features.Item.6hkqh73swnupa2r7]{Deflect Missiles} focus feature.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"npvGnAD1vaRuEplw": {
+				"name": "Gunfighter's Stance",
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Hit by a ranged weapon attack",
+					"cost": 1
+				},
+				"rolls": {
+					"gUjWaxKLQfQXJhaM": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d10 + @dex.mod + @classes.adept.level",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "adept",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752755,
+		"modifiedTime": 1793567752755,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "mZSgHTS4hBzjAmoX"
+}

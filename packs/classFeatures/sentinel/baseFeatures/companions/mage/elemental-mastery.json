@@ -1,0 +1,311 @@
+{
+	"name": "Elemental Mastery",
+	"type": "feature",
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"system": {
+		"description": "<p>At 19th level, your apprentice mage may cast @UUID[Compendium.a5e.a5e-spells.Item.nolt36wjo8dxxuik]{Ice Storm} and @UUID[Compendium.a5e.a5e-spells.Item.1b2ean5arnl3tob0]{Wall of Fire} each once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"7GpY9oFeb0V9tUvD": {
+				"name": "Ice Storm",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"iFYGK2988TCHUQdW": {
+						"range": "300 feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "20",
+					"height": "40",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"RJswfwUMum6hRBet": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "2d8",
+						"type": "damage",
+						"label": "Bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true
+					},
+					"FlHzinZS5Uyzm5ZA": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "4d6",
+						"type": "damage",
+						"label": "Cold",
+						"critBonus": "",
+						"scaling": {},
+						"default": true
+					}
+				},
+				"prompts": {
+					"oAJZGHaZp40FpkkC": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"86dxpOVsCQNw0qz2": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "7GpY9oFeb0V9tUvD",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"nIIBHkLtOFZMtGYW": {
+				"name": "Wall",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"3HzYqcZsgM7RKCUM": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "wall",
+					"placeTemplate": false,
+					"quantity": 6,
+					"length": 10,
+					"width": 1,
+					"height": 20
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"JkefHMRJo7Iwy9xB": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "5d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"ti1mGAgiG88D4Bts": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "nIIBHkLtOFZMtGYW",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"6psTmlr3z9Vo3tLo": {
+				"name": "Ring",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"3HzYqcZsgM7RKCUM": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
+				},
+				"target": {
+					"quantity": 0,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"JkefHMRJo7Iwy9xB": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "5d8",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"bkHdDvsEQVe6oG9P": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/barrier-wall-explosion-orange.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "sentinel",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "PuYopKjDEjMeemUy"
+}

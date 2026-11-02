@@ -1,0 +1,214 @@
+{
+	"name": "Lay on Hands",
+	"type": "feature",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+	"system": {
+		"description": "<p>Your blessed touch can heal wounds. You have a pool of healing power equal to your herald level × 5. During a short rest you can roll hit dice to add the value to your Lay on Hands pool. Your pool refills completely at the end of a long rest.</p><p>As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature up to the maximum amount remaining in your pool.</p><p>Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.</p><p>This feature has no effect on undead or constructs.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"oR47LscoZpeUXN56": {
+				"name": "Heal",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"812HT9pyCLouxfKW": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"FUytO9g647AZ5Fdo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.lay-on-hands",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"3RiMOHrDqbG3YcDV": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "1"
+						},
+						"healingType": "healing",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "oR47LscoZpeUXN56",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"9w9L1meRxvps7OHe": {
+				"name": "Cure",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"812HT9pyCLouxfKW": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"FUytO9g647AZ5Fdo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.lay-on-hands",
+						"resource": "classResource",
+						"quantity": 5,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"3RiMOHrDqbG3YcDV": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "1"
+						},
+						"healingType": "healing",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "herald",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567752450,
+		"modifiedTime": 1793567752450,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "FEiNuETdwimgh9Oh"
+}

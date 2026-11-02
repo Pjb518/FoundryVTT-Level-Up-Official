@@ -1,0 +1,131 @@
+{
+	"name": "Careful Recovery",
+	"type": "feature",
+	"img": "icons/magic/life/cross-area-circle-green-white.webp",
+	"system": {
+		"description": "<p>At 6th level, you become more able to recover from your sacrifices between offensives. With a successful medicine check against DC 15, you may roll a number of d8s equal to your spellcasting modifier and recover that many hit points during a short rest. Alternatively, you can recover one level of fatigue or strife with the same DC 15 medicine check.</p><p>You can only benefit from your careful recovery once per long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"EzRh9G5ueMwsZN8V": {
+				"name": "Careful Recovery",
+				"consumers": {
+					"oy1taLbtCeoug11d": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"HtmLZ0u0vfjZFP0J": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "med",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					},
+					"EqPy9hXeQYDc2uln": {
+						"type": "healing",
+						"default": false,
+						"formula": "((@spellcasting.mod)d8)",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "warcaster",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"asi": [],
+		"featClasses": [],
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567753398,
+		"modifiedTime": 1793567753398,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"_id": "uUdrosP3JW2SKE1T"
+}

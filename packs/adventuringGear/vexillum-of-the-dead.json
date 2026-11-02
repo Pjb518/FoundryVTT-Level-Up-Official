@@ -1,0 +1,595 @@
+{
+	"name": "Vexillum of the Dead",
+	"type": "object",
+	"img": "icons/sundries/flags/banner-skull-red.webp",
+	"system": {
+		"description": "<p>his horrifying banner is only ever seen flying over armies of the undead. This banner has [[/r 1d12]] charges when found, and grants the following benefits to all undead within a 120ft radius:</p><ul><li><strong>Radiant Resistance:</strong> Undead gain resistance to radiant damage.</li><li><strong>Turning Protection:</strong> Undead cannot be turned by Channel Divinity</li><li><strong>Shade of Night:</strong> Undead within the area that are affected by sunlight may ignore the effect of even direct sunlight.</li></ul><p>In addition, the wielder of the vexillum of the dead can expend one or more charges from the banner to produce the following effects:</p><ul><li><strong>Arise:</strong> Cast @UUID[Compendium.a5e.a5e-spells.Item.evhh5s6v0ctzop82]{Create Undead} at 9th level. (2 charges)</li><li><strong>Bolster:</strong> Restores 10 hit points or 40 morale to up to 5 undead or 1 unit within 120ft. (1 charge)</li><li><strong>Malediction:</strong> Cast @UUID[Compendium.a5e.a5e-spells.Item.339zx6f5jk81fobw]{Bestow Curse} at 9th level. DC 18 (1 charge)</li><li><strong>Slaughter:</strong> Cast @UUID[Compendium.a5e.a5e-spells.Item.f64g6d7u9y9wxfij]{Circle of Death} at 9th level. DC 18 (2 charges)</li></ul><p>The vexillum of the dead can hold a maximum of 15 charges and recovers 1 charge when someone dies from the Slaughter power or while under the effects of the Malediction. It also recovers 1d4 charges at midnight.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "martialArtistry",
+		"actions": {
+			"YLRed18UtnRvzcVb": {
+				"name": "Vexillum of the Dead",
+				"id": "YLRed18UtnRvzcVb",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-skull-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [
+					"HGKE8VarTGTddUgX"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"oN3XscgvWZaNr5Nb": {
+						"range": "long"
+					}
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"7lRpg4jHjgm7w4IG": {
+				"name": "Arise",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ponBqFDob1vUIrV8": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "other",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"consumers": {
+					"aUoqe7QlCPU4UvXV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"id": "7lRpg4jHjgm7w4IG",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/death/skull-trio-badge-purple.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"KJ5PvdYHRbwFfjjf": {
+				"name": "Bolster",
+				"consumers": {
+					"B0R64oYQRMl9VkyB": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "KJ5PvdYHRbwFfjjf",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-skull-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"vGeG2EDji3ed9tqx": {
+						"range": "long"
+					}
+				},
+				"rolls": {
+					"tPQUfr6zgbSyxhj8": {
+						"type": "healing",
+						"default": true,
+						"formula": "10",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"j6QgN0zdXF2w49BY": {
+				"name": "Malediction",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"ranges": {
+					"7kCGpenqBfTBkHf5": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 0,
+					"type": "creature",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"prompts": {
+					"TMF7oR2EHe2nnSU0": {
+						"ability": "wis",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "18"
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"AeZHYev99XXnsYnQ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "j6QgN0zdXF2w49BY",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/unholy/hand-claw-fire-blue.webp",
+				"effects": [],
+				"macro": "",
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"yrcT3QEY5ALzQSLi": {
+				"name": "Slaughter",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"EXtKk1azTxb5bMtw": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "60",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "",
+					"scaling": {},
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"rolls": {
+					"qCAXuxhAEFVQLkE8": {
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "15d6",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						},
+						"critBonus": "",
+						"default": true,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"HjCw7c6KR0AObxal": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "18"
+						},
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
+					}
+				},
+				"consumers": {
+					"yXwx2j4HEhJGACR5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2,
+						"label": ""
+					}
+				},
+				"id": "yrcT3QEY5ALzQSLi",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/unholy/barrier-fire-pink.webp",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"IucClULHBVhin2UK": {
+				"name": "Recover Charge From Slaughter or Malediction",
+				"consumers": {
+					"3FFMVoEq8iYqvwRx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1,
+						"label": ""
+					}
+				},
+				"id": "IucClULHBVhin2UK",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/flags/banner-skull-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"gA2w4kHjBqQ03VXS": {
+				"name": "Midnight",
+				"consumers": {
+					"tj3IOHT4k1gsd6jS": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"JPA8SY6sRvBYvgRU": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "",
+					"heard": false,
+					"otherText": "",
+					"seen": false
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "15",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"attunementHint": "",
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "The souls of the dead woven into fabric",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "Priceless",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "artifact",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "archaic",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [],
+		"weaponProperties": [],
+		"weight": 0,
+		"containerSortDirection": "ascending",
+		"containerSortMethod": "none",
+		"endemicLifeProperties": {
+			"biomes": [],
+			"creatureType": "",
+			"properties": [],
+			"regions": [],
+			"size": "",
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.LCKw3eJ3nnbJBbfT",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"changes": []
+			},
+			"name": "Vexillum of the Dead",
+			"img": "icons/sundries/flags/banner-skull-red.webp",
+			"_id": "HGKE8VarTGTddUgX",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"radiant\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This banner grants the following benefits to all undead within a 120ft radius:</p><ul><li><strong>Radiant Resistance:</strong> Undead gain resistance to radiant damage.</li><li><strong>Turning Protection:</strong> Undead cannot be turned by Channel Divinity</li><li><strong>Shade of Night:</strong> Undead within the area that are affected by sunlight may ignore the effect of even direct sunlight.</li></ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "13.351",
+				"systemId": "a5e",
+				"systemVersion": "1.1.14",
+				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
+				"modifiedTime": 1793567790271
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "13.351",
+		"systemId": "a5e",
+		"systemVersion": "1.1.14",
+		"createdTime": 1793567790068,
+		"modifiedTime": 1793567790068,
+		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+	},
+	"folder": null,
+	"_id": "gPkM6sI4nY9QEzAU"
+}
