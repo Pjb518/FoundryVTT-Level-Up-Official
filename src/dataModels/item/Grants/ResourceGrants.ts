@@ -1,5 +1,6 @@
 import ResourceGrantConfig from '#view/components/grants/ResourceGrantConfig.svelte';
 import { BaseGrant } from './BaseGrant.ts';
+import { resourceGrantSchema } from './common.ts';
 
 import fields = foundry.data.fields;
 
@@ -16,7 +17,7 @@ const TYPE_OPTS = { ...DEFAULT_OPTS, blank: false };
 
 const configSchema = () => ({
 	counter: {
-		slug: new fields.StringField({ ...DEFAULT_OPTS, inital: '' }),
+		slug: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
 		levelData: new fields.ArrayField(
 			new fields.SchemaField({
 				level: new fields.NumberField({ ...DEFAULT_OPTS, initial: 1 }),
@@ -27,7 +28,7 @@ const configSchema = () => ({
 		type: new fields.StringField({ ...TYPE_OPTS, initial: 'counter' }),
 	},
 	dice: {
-		slug: new fields.StringField({ ...DEFAULT_OPTS, inital: '' }),
+		slug: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
 		consumeType: new fields.StringField({
 			required: true,
 			nullable: false,
@@ -56,7 +57,7 @@ const configSchema = () => ({
 		type: new fields.StringField({ ...TYPE_OPTS, initial: 'dice' }),
 	},
 	uses: {
-		slug: new fields.StringField({ ...DEFAULT_OPTS, inital: '' }),
+		slug: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
 		levelData: new fields.ArrayField(
 			new fields.SchemaField({
 				max: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
@@ -71,7 +72,7 @@ const configSchema = () => ({
 
 const schema = () => ({
 	config: new fields.TypedSchemaField(configSchema()),
-	applied: new fields.SchemaField({}),
+	applied: new fields.SchemaField(resourceGrantSchema(), { required: true, nullable: false }),
 
 	// Overrides
 	name: new fields.StringField({ required: true, nullable: false, initial: 'New Resource Grant' }),
@@ -107,7 +108,21 @@ class ResourceGrant extends BaseGrant<ResourceGrant.Schema> {
 	}
 
 	override getApplyData(actor: Character, data: any): any {
-		return { appliedData: {} };
+		const appliedData: typeof this.applied = {
+			grantType: 'resource',
+			slug: this.config.slug || this.name.slugify({ strict: true }),
+			isApplied: true,
+			level: 1,
+		};
+
+		const updateData = {
+			[`system.resources.${appliedData.slug}`]: {
+				name: this.name,
+				type: this.config.type,
+			},
+		};
+
+		return { appliedData: this._getAppliedUpdate(appliedData), updateData };
 	}
 
 	override getSelectionComponent() {

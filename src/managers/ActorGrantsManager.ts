@@ -37,7 +37,11 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 			Object.values(item.system.grants ?? {}).forEach((grant) => {
 				// Only add applied grants
-				if (!grant.applied.isApplied) return;
+				if (!grant.applied.isApplied) {
+					if (grant.type === 'resource') {
+					} else return;
+				}
+
 				this.set(grant.fullId, grant);
 			});
 		});

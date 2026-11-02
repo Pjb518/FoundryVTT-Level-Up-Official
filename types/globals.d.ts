@@ -1,4 +1,5 @@
 import type { A5EActionData } from '#data/item/actions/ActionDataModel.ts';
+import type { Grant as GrantData } from '#data/item/Grants/GrantsField.ts';
 import type { A5E } from '../src/config.ts';
 import type { BaseRoll } from '../src/dice/rolls/BaseRoll.ts';
 import type { D20Roll } from '../src/dice/rolls/D20Roll.ts';
@@ -43,6 +44,9 @@ declare global {
 
 	/** Alias for ActionData */
 	type Action = A5EActionData;
+
+	/** Alias for Grant Data */
+	type Grant = GrantData;
 }
 
 declare module 'fvtt-types/configuration' {

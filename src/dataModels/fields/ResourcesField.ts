@@ -17,6 +17,7 @@ const baseSchema = () => ({
 		initial: 'longRest',
 		choices: () => CONFIG.A5E.resourceRecoveryOptions,
 	}),
+	grantedBy: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 const counterSchema = () => ({
@@ -167,16 +168,15 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
-		const { itemId, consumeType } = this;
+		const { itemId } = this;
 
 		const item = actor.items.get(itemId);
 		if (!item) return null;
 
-		const property = consumeType === 'quantity' ? 'system.quantity' : 'system.uses.value';
-		let newValue = consumeType === 'quantity' ? item.system.quantity : item.system.uses?.value;
+		let newValue = item.system.uses?.value;
 		newValue = Math.max((newValue ?? 0) - 1, 0);
 
-		const data = { [property]: newValue };
+		const data = { 'item.system.uses.value': newValue };
 
 		if (update) return item.update(data);
 		return item.update(data);
