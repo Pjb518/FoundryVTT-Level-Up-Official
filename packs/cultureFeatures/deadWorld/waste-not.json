@@ -42,7 +42,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -51,7 +52,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -63,8 +69,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -84,7 +106,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -97,7 +124,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "73HQWKjjRHYZS0kA",
 				"label": "Waste Not",
 				"keys": {
 					"base": [
@@ -106,7 +132,31 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "weapon"
+				"proficiencyType": "weapon",
+				"id": "",
+				"name": "Waste Not",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:improvised"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -115,17 +165,21 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567773305,
-		"modifiedTime": 1793567773305,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793651890331,
+		"modifiedTime": 1793652382898,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "BEDz0A9n4OQbia2f"
 }
