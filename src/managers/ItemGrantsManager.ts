@@ -109,7 +109,11 @@ export class ItemGrantsManager extends Map<string, Grant> {
 	 * ************************************************ */
 	static async addGrant(item: any, data = {}, update = true, returnId = false) {
 		const model = ITEM_GRANT_TYPES[data.type || 'skill'];
-		const initial = model.schema.getInitialValue();
+
+		// For Resource Grants assign the default resource type
+		foundry.utils.setProperty(data, 'config.type', 'uses');
+
+		const initial = model.schema.getInitialValue(data);
 		initial.levelType = ['class', 'archetype'].includes(item.type) ? 'class' : 'character';
 
 		const newGrant: Grant = foundry.utils.mergeObject(initial, data);

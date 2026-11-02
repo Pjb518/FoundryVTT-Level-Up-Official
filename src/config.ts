@@ -19,6 +19,7 @@ import registerFilterConfig from './config/registerFilterConfig.ts';
 import registerGrantsConfig from './config/registerGrantsConfig.ts';
 import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties.ts';
 import registerReducerConfig from './config/registerReducerConfig.ts';
+import { registerResourcesConfig } from './config/registerResourcesConfig.ts';
 import registerSettingsConfig from './config/registerSettingsConfig.ts';
 
 /* ------------------------------------------------- */
@@ -2332,6 +2333,7 @@ const publisherConfig = registerPublisherConfig();
 const productLineConfig = registerProductLineConfig();
 const reducerConfig = registerReducerConfig();
 const settingsConfig = registerSettingsConfig();
+const resourcesConfig = registerResourcesConfig();
 
 /* ------------------------------------------------- */
 /*                    Object                         */
@@ -2495,6 +2497,7 @@ const A5E = {
 	...publisherConfig,
 	...productLineConfig,
 	...reducerConfig,
+	...resourcesConfig,
 	...settingsConfig,
 	PRELOCALIZED_KEYS,
 };

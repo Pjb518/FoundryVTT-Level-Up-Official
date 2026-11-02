@@ -38,7 +38,13 @@ const diceSchema = () => ({
 		required: true,
 		nullable: false,
 		initial: 'none',
-		choices: { none: 'None', pool: 'Pool' },
+		choices: () => CONFIG.A5E.diceResourceConsumeType,
+	}),
+	useType: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'decrement',
+		choices: () => CONFIG.A5E.diceResourceUseType,
 	}),
 	type: new fields.StringField({ ...TYPE_OPTS, initial: 'dice' }),
 	...baseSchema(),
@@ -46,12 +52,6 @@ const diceSchema = () => ({
 
 const itemSchema = () => ({
 	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	consumeType: new fields.StringField({
-		required: true,
-		nullable: false,
-		initial: 'uses',
-		choices: { quantity: 'Quantity', uses: 'Uses' },
-	}),
 	type: new fields.StringField({ ...TYPE_OPTS, initial: 'item' }),
 	...baseSchema(),
 });
