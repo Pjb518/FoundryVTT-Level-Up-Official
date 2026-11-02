@@ -37,7 +37,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"consumers": {},
@@ -48,7 +49,12 @@
 					"heard": false,
 					"otherText": "",
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"seen": false,
 					"type": ""
 				},
@@ -58,8 +64,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -79,7 +101,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -93,11 +120,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.NRDpwuWJsdWCi0dT",
+			"origin": "Item.MZxBbMTI6ZG6jtZ7",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -110,29 +141,26 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.attributes.fatigue",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Fatigue",
-			"img": "icons/creatures/slimes/slime-movement-swirling-blue.webp",
+			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
 			"_id": "VB49vIKKZLOvmpFH",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -140,23 +168,26 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567793930
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793636598633,
+				"createdTime": 1793636119664
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793636119664,
+		"modifiedTime": 1793636674248,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "MZxBbMTI6ZG6jtZ7"
 }

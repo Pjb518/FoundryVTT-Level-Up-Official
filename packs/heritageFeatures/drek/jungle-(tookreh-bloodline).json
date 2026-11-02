@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/nature/plant-bamboo-green.webp",
 	"system": {
-		"description": "<p>The darkened jungles are inhabited by predators of every possible description. Even the plantlife is occasionally murderous and relies on dead animal matter to ensure the soil near their roots is filled with nutrients. Thus, the drek of the jungle rely on keen senses and a resistance to plant toxins to survive.</p><h2>Ambush Predator</h2><p>You gain proficiency in the Perception and Stealth skills.</p><h2>Swift Climber</h2><p>You gain a climb speed of 30ft and gain expertise on checks made to climb.</p><h2>Toxin Resistance</h2><p>You have resistance to poison damage and immunity to ingested poisons and toxins.</p>",
+		"description": "<h2>Ambush Predator</h2><p>You gain proficiency in the Perception and Stealth skills.</p><h2>Swift Climber</h2><p>You gain a climb speed of 30ft and gain expertise on checks made to climb.</p><h2>Toxin Resistance</h2><p>You have resistance to poison damage and immunity to ingested poisons and toxins.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,35 +45,91 @@
 		"concentration": false,
 		"featureType": "heritage",
 		"grants": {
-			"wc1DMgZO2awOQ9bM": {
-				"grantType": "feature",
+			"ARbg1WO8wZQWD4DU": {
+				"id": "ARbg1WO8wZQWD4DU",
+				"label": "",
+				"name": "Ambush Predator",
+				"img": "",
+				"flags": {},
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "wc1DMgZO2awOQ9bM",
-				"label": "Jungle (Tookreh Bloodline)",
+				"restriction": "",
+				"type": "proficiency",
+				"grantType": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"skill:prc",
+							"skill:ste"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"keys": {
+					"base": [],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "armor",
+				"isExpertise": false
+			},
+			"VSKEsJLBIN0DjQXu": {
+				"id": "VSKEsJLBIN0DjQXu",
+				"label": "",
+				"name": "Jungle (Tookreh Bloodline)",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.E3dXObX8fhPgbZYt",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.ozhlYpkHAxgDgHn5",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.1ywfLckulYJdKsc4",
-							"name": "Ambush Predator",
-							"img": "icons/magic/nature/stealth-hide-beast-eyes-green.webp",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.lkA4IKpzCx5SBH9I",
-							"name": "Swift Climber",
-							"img": "icons/environment/wilderness/tree-ash.webp",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.SkoeAu6aRnfj8Cq9",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					]
+					"base": [],
+					"options": [],
+					"total": 0
 				}
 			}
 		},
@@ -78,18 +139,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793638301074,
+		"modifiedTime": 1793650071123,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "vYcpQOliuXx8HBRa"
 }

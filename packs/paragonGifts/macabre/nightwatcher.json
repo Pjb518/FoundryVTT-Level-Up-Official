@@ -45,7 +45,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"prompts": {},
@@ -53,7 +54,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -65,8 +71,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -86,13 +108,18 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "",
 		"concentration": false,
-		"featureType": "heritage",
+		"featureType": "paragon",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
@@ -100,11 +127,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.jks5CTILwIX4Y26F",
+			"origin": "Item.FXInlFQqbSVoITMY",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -117,29 +148,28 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"invisible"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Nightwatcher",
-			"img": "icons/creatures/magical/spirit-undead-ghost-tan-teal.webp",
+			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
 			"_id": "8l9FBvG6x8c3xWqA",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 600,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Once per long rest you may become invisible for up to 10 minutes, so long as you make no hostile actions and remain in darkness or shadows during the duration.</p>",
 			"tint": "#ffffff",
@@ -155,23 +185,26 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567817204
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793650191225,
+				"createdTime": 1793649422970
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567817155,
-		"modifiedTime": 1793567817155,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793649422970,
+		"modifiedTime": 1793650197435,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "FXInlFQqbSVoITMY"
 }

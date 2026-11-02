@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/perception/eye-ringed-green.webp",
 	"system": {
-		"description": "<p>When you look into the mirror, it’s hard to recognize the person staring back. The eyes are different, somehow.</p><h2>Darkvision</h2><p>You gain Darkvision to a range of 120ft, and you gain expertise to Perception checks based on sight.</p><h2>Farsight</h2><p>You do not take disadvantage when making perception checks to see something within 3 miles, barring issues of sight-lines.</p><h2>Contraction Delay</h2><p>Your eyes adjust to light conditions slowly, and you gain disadvantage on saving throws against temporary blinding effects such as flashbangs. The maximum duration of such blinding effects, however, is reduced by a number of rounds equal to your Constitution modifier.</p>",
+		"description": "<h2>Darkvision</h2><p>You gain Darkvision to a range of 120ft, and you gain expertise to Perception checks based on sight.</p><h2>Farsight</h2><p>You do not take disadvantage when making perception checks to see something within 3 miles, barring issues of sight-lines.</p><h2>Contraction Delay</h2><p>Your eyes adjust to light conditions slowly, and you gain disadvantage on saving throws against temporary blinding effects such as flashbangs. The maximum duration of such blinding effects, however, is reduced by a number of rounds equal to your Constitution modifier.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,21 +50,16 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "HLtBZXSqmlxzx0j2",
 				"label": "Ocular Enhancements",
 				"features": {
 					"base": [
 						{
 							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.16TciJQgFFmutSnO",
-							"name": "Darkvision",
-							"img": "icons/magic/light/explosion-star-small-blue-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.ttCrTOFSvb22W5yK",
-							"name": "Farsight",
-							"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -68,7 +68,51 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"id": "",
+				"name": "Ocular Enhancements",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.Jow2qCzA6qdhOUTL",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.tJfuLA3RjsshQWlB",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.9YnbZrptsgSJgjsJ",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -78,18 +122,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793649347124,
+		"modifiedTime": 1793650071122,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "fp1YlSZHlRn08A49"
 }

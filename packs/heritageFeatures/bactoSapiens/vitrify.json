@@ -37,7 +37,8 @@
 				"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"consumers": {},
@@ -46,7 +47,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -58,8 +64,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -79,7 +101,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -93,11 +120,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.fA9IOoXwRgVXv63K",
+			"origin": "Item.WVAIhHa9RlnWlpja",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -110,35 +141,33 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "subtract",
+						"value": "5",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Vitrify",
-			"img": "icons/creatures/slimes/slime-movement-swirling-blue.webp",
+			"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
 			"_id": "CQPR62QxZckR9b5u",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "5",
-					"mode": 3,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Reduces your movement speed by 5ft but grants you a +1 AC bonus and allows you to live normally in environments below 5c (41f) without difficulty. Vitrification forcibly reverts you to your natural form, and you cannot shapeshift while vitrified.</p>",
 			"tint": "#ffffff",
@@ -146,23 +175,26 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567793935
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793636869278,
+				"createdTime": 1793636755930
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793636755930,
+		"modifiedTime": 1793636873707,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "WVAIhHa9RlnWlpja"
 }

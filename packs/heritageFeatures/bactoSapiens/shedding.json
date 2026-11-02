@@ -37,7 +37,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"consumers": {
@@ -56,13 +57,29 @@
 						"default": true,
 						"formula": "1",
 						"healingType": "healing",
-						"scaling": {},
-						"label": ""
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -74,8 +91,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -95,7 +128,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -109,11 +147,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.Nf89mKn2GXFgRZWQ",
+			"origin": "Item.eXu1sAo7bJbh6BuD",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -126,35 +168,33 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.traits.size",
+						"type": "override",
+						"value": "sm",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.movement.walk.distance",
+						"type": "override",
+						"value": "25",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Shedding",
 			"img": "icons/creatures/slimes/slime-movment-dripping-green.webp",
 			"_id": "5bVJoYzES84R7wLf",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.traits.size",
-					"value": "sm",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "25",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -162,23 +202,26 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567793933
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793636562877,
+				"createdTime": 1793636096509
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793636096509,
+		"modifiedTime": 1793636678319,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "eXu1sAo7bJbh6BuD"
 }

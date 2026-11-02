@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/water/ice-snowman.webp",
 	"system": {
-		"description": "<p>Psychrophiles, or cryophilic bacteria, thrive in cold environments and even under thick layers of ice. They are, thusly, well adapted to harsh cold climates with little access to sunlight, resources, or even liquid water. Adapting to such a harsh environment requires extreme cellular control both for the purposes of photosynthesis and avoiding ice-expansion destroying cellular membranes.</p><h2>Vitrify</h2><p>You may spend a bonus action to alter your cellular membranes into a hard crystalline structure that is particularly durable. Doing so reduces your movement speed by 5ft but grants you a +1 AC bonus and allows you to live normally in environments below 5c (41f) without difficulty. Vitrification forcibly reverts you to your natural form, and you cannot shapeshift while vitrified. You can end this state by spending another bonus action to revert your cellular membranes.</p><h2>Photosynthetic</h2><p>More than most bacto sapiens, you rely on sunlight to sustain yourself. So long as you are exposed to natural sunlight or UV rays each day, you can go a number of days equal to your Constitution score without supply and gain no fatigue.</p>",
+		"description": "<h2>Vitrify</h2><p>You may spend a bonus action to alter your cellular membranes into a hard crystalline structure that is particularly durable. Doing so reduces your movement speed by 5ft but grants you a +1 AC bonus and allows you to live normally in environments below 5c (41f) without difficulty. Vitrification forcibly reverts you to your natural form, and you cannot shapeshift while vitrified. You can end this state by spending another bonus action to revert your cellular membranes.</p><h2>Photosynthetic</h2><p>More than most bacto sapiens, you rely on sunlight to sustain yourself. So long as you are exposed to natural sunlight or UV rays each day, you can go a number of days equal to your Constitution score without supply and gain no fatigue.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,14 +50,11 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "0ivyX7Mzit3W1cmY",
 				"label": "Psychrophile",
 				"features": {
 					"base": [
 						{
 							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.fA9IOoXwRgVXv63K",
-							"name": "Vitrify",
-							"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -61,7 +63,46 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"id": "",
+				"name": "Psychrophile",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.WVAIhHa9RlnWlpja",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.nFBSmdkrIRB6QQYE",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 0
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -71,18 +112,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793636267261,
+		"modifiedTime": 1793636814621,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "NeUyVFKzC3CMnAAj"
 }

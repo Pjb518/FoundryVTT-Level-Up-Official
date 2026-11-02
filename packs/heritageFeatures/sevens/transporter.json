@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/environment/settlement/wagon.webp",
 	"system": {
-		"description": "<p>These quadrupedal adventuring type loqren-77 are grown specifically for heavy lifting and transporting of goods or young to and from ships. Their four legs and forelimbs grow with interlocking joints and ratcheting functions that allow them to carry and maneuver an impressive amount of weight.</p><h2>Bulk Goods</h2><p>Grown specifically to carry large and heavy objects, you can carry an additional 2 bulky items balanced on, or strapped to, your rear torso.</p><h2>Heavyweight</h2><p>Your carrying capacity is tripled.</p><h2>Motility</h2><p>Due to your additional limbs and their ratcheting functions your speed increases by 10ft and your jumping distance doubles, so long as you do not exceed half of your carrying capacity and are not holding more than three bulky items.</p>",
+		"description": "<h2>Bulk Goods</h2><p>Grown specifically to carry large and heavy objects, you can carry an additional 2 bulky items balanced on, or strapped to, your rear torso.</p><h2>Heavyweight</h2><p>Your carrying capacity is tripled.</p><h2>Motility</h2><p>Due to your additional limbs and their ratcheting functions your speed increases by 10ft and your jumping distance doubles, so long as you do not exceed half of your carrying capacity and are not holding more than three bulky items.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,7 +50,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "U69eO7PsQY0G60Sc",
 				"label": "Transporter",
 				"features": {
 					"base": [
@@ -68,14 +72,54 @@
 					"options": [],
 					"total": 0
 				},
-				"img": ""
+				"img": "",
+				"id": "",
+				"name": "Transporter",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.wGhulCbqk35qjcld",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.f0wAU2ddaNz19D8n",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.EI2xvDLgiDPuQwaA",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
 			},
 			"90h4ym2Q6HUgoi9d": {
 				"grantType": "feature",
 				"level": 10,
 				"levelType": "character",
 				"optional": false,
-				"_id": "90h4ym2Q6HUgoi9d",
 				"label": "Paragon Gift",
 				"features": {
 					"base": [
@@ -88,7 +132,38 @@
 					"options": [],
 					"total": 0
 				},
-				"img": ""
+				"img": "",
+				"id": "",
+				"name": "Transporter Paragon",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-paragon-gifts.Item.YQwy4s9m6SmBO4f9",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -97,18 +172,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793650550713,
+		"modifiedTime": 1793651115464,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "AiJNunzzIkOA2C5M"
 }

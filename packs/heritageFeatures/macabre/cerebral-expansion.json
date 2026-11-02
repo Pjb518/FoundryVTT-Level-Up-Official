@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/commodities/biological/organ-brain-pink-purple.webp",
 	"system": {
-		"description": "<p>While you were dead, your brain was altered in a rather dramatic fashion, resulting in higher cognitive abilities.</p><h2>Fast Learner</h2><p>Cut any training or retraining times, as well as resulting costs, to 1/5th.</p><h2>Mental Focus</h2><p>Choose three intelligence or wisdom based skills that you gain expertise in. You may retrain these three skills during a long rest. You do not need to be proficient to gain this expertise.</p><h2>Cortextual Stress</h2><p>You gain disadvantage when making saving throws against mental stress effects. However, you also ignore the penalties of the first level of Strife.</p>",
+		"description": "<h2>Fast Learner</h2><p>Cut any training or retraining times, as well as resulting costs, to 1/5th.</p><h2>Mental Focus</h2><p>Choose three intelligence or wisdom based skills that you gain expertise in. You may retrain these three skills during a long rest. You do not need to be proficient to gain this expertise.</p><h2>Cortextual Stress</h2><p>You gain disadvantage when making saving throws against mental stress effects. However, you also ignore the penalties of the first level of Strife.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,21 +50,16 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "y3nv8Yru1IfkuNpe",
 				"label": "Cerebral Expansion",
 				"features": {
 					"base": [
 						{
 							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.AVCI0Wuh1Mqga23v",
-							"name": "Fast Learner",
-							"img": "icons/sundries/books/book-open-purple.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.heritage-features.Item.mG802QcCFOa5JR7n",
-							"name": "Mental Focus",
-							"img": "icons/commodities/biological/organ-brain-pink.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -68,7 +68,51 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"id": "",
+				"name": "Cerebral Expansion",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.93FetQdsyrA3KGVc",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.ZP8onXQ7Y7lm6zLz",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.SGebPc51I9jjDqJR",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -78,18 +122,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793649337010,
+		"modifiedTime": 1793650071122,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "cqQNwbwcPgwQd1p2"
 }

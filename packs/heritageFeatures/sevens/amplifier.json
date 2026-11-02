@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
 	"system": {
-		"description": "<p>Some adventuring type loqren-77 possess a psychic amplifier somewhere within their body, often as part of one or more hindbrains along their primary nerve cord. This amplifier works both ways, giving them increased range to their telepathic contact but also allowing them to sense certain thought-forms in the people and creatures around them.</p><h2>Sense Motive</h2><p>Your telepathic awareness allows you to sense motivations in the people around you, granting you expertise on Insight and Persuasion checks.</p><h2>Telepathy</h2><p>Your touch telepathy gains a range of 120ft and no longer requires physical contact.</p>",
+		"description": "<h2>Sense Motive</h2><p>Your telepathic awareness allows you to sense motivations in the people around you, granting you expertise on Insight and Persuasion checks.</p><h2>Telepathy</h2><p>Your touch telepathy gains a range of 120ft and no longer requires physical contact.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,7 +50,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "0I3zbr53PWiIeCNM",
 				"label": "Amplifier",
 				"features": {
 					"base": [
@@ -63,14 +67,44 @@
 					"options": [],
 					"total": 0
 				},
-				"img": ""
+				"img": "",
+				"id": "",
+				"name": "Amplifier",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-heritage-features.Item.UbE6B8T9eUsVuj5G",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
 			},
 			"xNHBbJCkw2ZSQlvk": {
 				"grantType": "feature",
 				"level": 10,
 				"levelType": "character",
 				"optional": false,
-				"_id": "xNHBbJCkw2ZSQlvk",
 				"label": "Paragon Gift",
 				"features": {
 					"base": [
@@ -79,8 +113,83 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"id": "",
+				"name": "Amplifier Paragon",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-paragon-gifts.Item.JroHpSiZAkwU9hPM",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
+			},
+			"qTc2xFpEXax9oGdq": {
+				"id": "qTc2xFpEXax9oGdq",
+				"label": "",
+				"name": "Sense Motive",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "expertiseDice",
+				"grantType": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [
+							"ins",
+							"per"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				},
+				"keys": {
+					"base": [],
+					"options": [],
+					"total": 0
+				},
+				"expertiseCount": 1,
+				"expertiseType": "abilityCheck"
 			}
 		},
 		"prerequisite": "",
@@ -89,18 +198,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567793810,
-		"modifiedTime": 1793567793810,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793650535332,
+		"modifiedTime": 1793650737653,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Qw0Qb2l4Gx0dRcqP"
 }
