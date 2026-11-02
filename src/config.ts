@@ -1543,6 +1543,8 @@ const skillSpecialties = {
 		concealingEmotions: 'A5E.skillSpecialties.concealingEmotions',
 		liesOfOmission: 'A5E.skillSpecialties.liesOfOmission',
 		mimicry: 'A5E.skillSpecialties.mimicry',
+    nonthreatening: 'A5E.skillSpecialties.nonthreatening',
+    passingBlame: 'A5E.skillSpecialties.passingBlame',
 	},
 	eng: {
 		architecture: 'A5E.skillSpecialties.architecture',
