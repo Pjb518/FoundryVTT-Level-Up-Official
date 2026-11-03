@@ -35,7 +35,7 @@ class ResourceConsumptionManager {
 
 		// Promise all here
 		consumers.forEach((consumer) => {
-			const consumerType = consumer.type;
+			const consumerType = consumer?.type;
 			if (!consumerType) return;
 
 			if (consumerType === 'actionUses') this.#consumeActionUses(actionUses);
@@ -128,13 +128,13 @@ class ResourceConsumptionManager {
 		}
 
 		await this.#actor.updateEmbeddedDocuments('Item', [
+			// @ts-expect-error
 			{ _id: item.id, 'system.quantity': newQuantity },
 		]);
 	}
 
 	#consumeResource(consumer: ConsumerData.ResourceConsumerData) {
-		const { resource } = consumer;
-		let { classIdentifier } = consumer;
+		const { resource, resourceSlug } = consumer;
 
 		const consumptionData = this.#state.consumptionData.resources?.[consumer.id] ?? {};
 		const quantity = consumptionData.quantity ?? consumer.quantity ?? 1;
@@ -142,20 +142,18 @@ class ResourceConsumptionManager {
 		const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 		if (!this.#actor || !resource || !config) return;
 
-		// Handle class resources
-		if (resource === 'classResource') {
-			classIdentifier = classIdentifier.replace('@classResources.', '');
+		// Handle named resources
+		if (resource === 'namedResource') {
+			const r = foundry.utils.getProperty(this.#actor.system, `resources.${resourceSlug}`) as
+				| any
+				| undefined;
+			if (!r) return;
 
-			const value =
-				(foundry.utils.getProperty(
-					this.#actor._source.system,
-					`resources.classResources.${classIdentifier}`,
-				) as number) ?? 0;
-
-			this.#updates.actor[`system.resources.classResources.${classIdentifier}`] = Math.max(
-				value - quantity,
-				0,
-			);
+			if (r.type === 'item') r.useResource({ quantity });
+			else {
+				const data = r.useResource({ quantity, update: false });
+				Object.assign(this.#updates.actor, data);
+			}
 
 			return;
 		}

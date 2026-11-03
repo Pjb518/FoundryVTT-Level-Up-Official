@@ -7,12 +7,12 @@
   import RadioGroup from "#view/snippets/RadioGroup.svelte";
   import Section from "#view/snippets/Section.svelte";
 
-  function deleteResource() {
+  async function deleteResource() {
+    await dialog.close();
+
     actor.update({
       [`system.resources.${source}`]: _del,
     });
-
-    dialog.close();
   }
 
   async function onDrop(

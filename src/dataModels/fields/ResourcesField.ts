@@ -145,6 +145,14 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 		return { ...diceSchema() };
 	}
 
+	getFormula(quantity = 1): string {
+		if (this.consumeType === 'none') {
+			return `${this.size}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
+		}
+
+		return `${quantity}d${this.denom}${this.modifiers.size > 0 ? `${[...this.modifiers].join('')}` : ''}`;
+	}
+
 	/** Logic to apply when using this resource */
 	useResource({ quantity = 1, update = true, rollDice = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
@@ -172,15 +180,17 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 			updates.denom = CONFIG.A5E.DICE_SIDES[newValue];
 		}
 
-		// TODO: Roll Dice
+		// Roll Dice
 		if (rollDice) {
+			const roll = new Roll(this.getFormula(quantity), actor.getRollData());
+			roll.toMessage({ flavor: `${this.name} Roll` });
 		}
 
 		if (update) {
 			actor.update({ [`system.resources.${slug}`]: updates });
 		}
 
-		return { data: { [`system.resources.${slug}`]: updates } };
+		return { [`system.resources.${slug}`]: updates };
 	}
 
 	/** Logic to apply when using this resource */

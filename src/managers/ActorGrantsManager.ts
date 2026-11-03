@@ -818,8 +818,8 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 		if (grant.applied.grantType === 'resource') {
 			grant = grant as Grant<'resource'>;
-			const { resourceId } = grant.applied;
-			if (resourceId) updates[`system.resources.${resourceId}`] = _del;
+			const { slug } = grant.applied;
+			if (slug) updates[`system.resources.${slug}`] = _del;
 
 			return updates;
 		}

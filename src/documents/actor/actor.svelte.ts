@@ -1532,7 +1532,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	/** Prepare Resources for a char */
 	prepareResources(this: Actor.OfType<'character'>) {
 		const grants = this.grants?.byType('resource') ?? [];
-		console.log(grants);
 
 		const resources = this._source.system.resources;
 
@@ -1565,6 +1564,11 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 					consumeType: grant.config.consumeType || 'none',
 					useType: grant.config.useType ?? 'decrement',
 				};
+
+				if (grant.config.consumeType === 'none') {
+					config.size = levelData?.size ?? 1;
+					config.denom = levelData?.denom ?? 4;
+				}
 			} else if (grant.config.type === 'uses') {
 				const levelData = grant.config.levelData
 					.filter((l) => l.level <= level)

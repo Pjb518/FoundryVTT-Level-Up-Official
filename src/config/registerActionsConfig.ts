@@ -45,7 +45,7 @@ export default function registerActionsConfig() {
 	const configurableConsumers = new Set(['actionUses', 'itemUses', 'hitDice', 'spell']);
 
 	const resourceConsumerConfig = {
-		classResource: { path: 'resources.classResources', label: 'Class Resource' },
+		namedResource: { path: 'resources', label: 'Named Resource' },
 		exertion: { path: 'attributes.exertion.current', label: 'A5E.exertion.title' },
 		/** @deprecated */
 		fatigue: { path: 'attributes.fatigue', label: 'A5E.conditions.fatigue.name' },
@@ -63,22 +63,6 @@ export default function registerActionsConfig() {
 		/** @deprecated */
 		strife: { path: 'attributes.strife', label: 'A5E.conditions.strife.name' },
 		supply: { path: 'supply', label: 'A5E.supply.title' },
-		primaryResource: {
-			path: 'resources.primary.value',
-			label: 'A5E.consumers.resources.titlePluralPrimary',
-		},
-		secondaryResource: {
-			path: 'resources.secondary.value',
-			label: 'A5E.consumers.resources.titlePluralSecondary',
-		},
-		tertiaryResource: {
-			path: 'resources.tertiary.value',
-			label: 'A5E.consumers.resources.titlePluralTertiary',
-		},
-		quaternaryResource: {
-			path: 'resources.quaternary.value',
-			label: 'A5E.consumers.resources.titlePluralQuaternary',
-		},
 	} as const;
 
 	const spellConsumerModes = {
