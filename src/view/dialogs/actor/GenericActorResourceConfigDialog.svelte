@@ -157,9 +157,9 @@
           <input
             class="a5e-input a5e-input--small a5e-input--slim"
             type="number"
-            value={resource.size}
+            value={resource.defaultDie.size}
             onchange={({ currentTarget }) =>
-              updateValue("size", Number.parseInt(currentTarget.value, 10))}
+              updateValue("defaultDie.size", Number.parseInt(currentTarget.value, 10))}
           />
         </FieldWrapper>
 
@@ -167,10 +167,10 @@
           <select
             class="a5e-input a5e-input--slim a5e-input--fit"
             onchange={({ currentTarget }) =>
-              updateValue("denom", Number.parseInt(currentTarget.value, 10))}
+              updateValue("defaultDie.denom", Number.parseInt(currentTarget.value, 10))}
           >
             {#each CONFIG.A5E.DICE_SIDES as side}
-              <option selected={side === (resource.denom ?? 0)} value={side}>
+              <option selected={side === (resource.defaultDie.denom ?? 0)} value={side}>
                 {side === 0 ? "" : `d${side}`}
               </option>
             {/each}
@@ -187,7 +187,7 @@
       </FieldWrapper>
     {/if}
 
-    {#if (resource.type === "dice" && resource.consumeType === "pool") || resource.type === "uses"}
+    {#if (resource.type === "dice" && resource.consumeType === "none") || resource.type === "uses"}
       <FieldWrapper heading="Current Value">
         <input
           class="a5e-input a5e-input--small a5e-input--slim"

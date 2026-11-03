@@ -816,6 +816,14 @@ class ActorGrantsManager extends Map<string, Grant> {
 			return updates;
 		}
 
+		if (grant.applied.grantType === 'resource') {
+			grant = grant as Grant<'resource'>;
+			const { resourceId } = grant.applied;
+			if (resourceId) updates[`system.resources.${resourceId}`] = _del;
+
+			return updates;
+		}
+
 		if (grant.applied.grantType === 'settings') {
 			grant = grant as Grant<'settings'>;
 

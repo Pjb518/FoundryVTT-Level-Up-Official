@@ -17,7 +17,12 @@ const baseSchema = () => ({
 		initial: 'longRest',
 		choices: () => CONFIG.A5E.resourceRecoveryOptions,
 	}),
-	grantedBy: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	grantedBy: new fields.StringField({
+		persisted: false,
+		required: true,
+		nullable: false,
+		initial: '',
+	}),
 });
 
 const counterSchema = () => ({
@@ -33,6 +38,10 @@ const diceSchema = () => ({
 		new fields.StringField({ required: true, nullable: false, initial: '' }),
 		{ required: true, nullable: false },
 	),
+	defaultDie: new fields.SchemaField({
+		size: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+		denom: new fields.NumberField({ required: true, nullable: false, initial: 4 }),
+	}),
 	value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	max: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	consumeType: new fields.StringField({
@@ -95,20 +104,20 @@ class CounterResource extends DataModel<CounterResource.Schema> {
 	}
 
 	/** Logic to apply when using this resource */
-	useResource(update = true) {
+	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
 		const { value } = this;
 		const slug = this.slug || this.name.slugify({ strict: true });
 
-		const newValue = value + 1;
+		const newValue = value + quantity;
 
 		const data = {
 			[`system.resources.${slug}.value`]: newValue,
 		};
 
-		if (update) return actor.update(data);
+		if (update) actor.update(data);
 		return data;
 	}
 
@@ -123,8 +132,8 @@ class CounterResource extends DataModel<CounterResource.Schema> {
 			[`system.resources.${slug}.value`]: 0,
 		};
 
-		if (update) return actor.update(data);
-		return data;
+		if (update) actor.update(data);
+		return { data, recovered: this.value === 0 };
 	}
 }
 
@@ -137,12 +146,41 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 	}
 
 	/** Logic to apply when using this resource */
-	useResource(update = true) {
+	useResource({ quantity = 1, update = true, rollDice = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
-		const { value } = this;
+		const { consumeType, denom, size, useType, value } = this;
 		const slug = this.slug || this.name.slugify({ strict: true });
+
+		const updates: Record<string, any> = {};
+
+		// If consume type is none decrement value
+		if (consumeType === 'none') {
+			const newValue = Math.max(value - quantity, 0);
+			updates.value = newValue;
+		} else if (consumeType === 'number') {
+			const newValue = useType === 'decrement' ? Math.max(size - quantity, 0) : size + quantity;
+			updates.size = newValue;
+		} else if (consumeType === 'size') {
+			// @ts-expect-error
+			const faceIdx = CONFIG.A5E.DICE_SIDES.indexOf(denom || 0);
+			const newValue =
+				useType === 'decrement'
+					? Math.max(faceIdx - quantity, 0)
+					: Math.min(faceIdx + quantity, CONFIG.A5E.DICE_SIDES.length - 1);
+			updates.denom = CONFIG.A5E.DICE_SIDES[newValue];
+		}
+
+		// TODO: Roll Dice
+		if (rollDice) {
+		}
+
+		if (update) {
+			actor.update({ [`system.resources.${slug}`]: updates });
+		}
+
+		return { data: { [`system.resources.${slug}`]: updates } };
 	}
 
 	/** Logic to apply when using this resource */
@@ -150,8 +188,25 @@ class DiceResource extends DataModel<DiceResource.Schema> {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
-		const { value } = this;
+		const { consumeType, defaultDie } = this;
 		const slug = this.slug || this.name.slugify({ strict: true });
+
+		const updates: Record<string, any> = {};
+		let restored = 0;
+
+		if (consumeType === 'none') {
+			updates.value = getDeterministicBonus(this.max, actor.getRollData());
+			restored = updates.value - this.value;
+		} else if (consumeType === 'number') {
+			updates.size = defaultDie.size;
+			restored = updates.size - this.size;
+		} else if (consumeType === 'size') {
+			updates.denom = defaultDie.denom;
+			restored = updates.denom - this.denom ? 1 : 0;
+		}
+
+		if (update) actor.update({ [`system.resources.${slug}`]: updates });
+		return { data: { [`system.resources.${slug}`]: updates }, restored };
 	}
 }
 
@@ -164,7 +219,7 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 	}
 
 	/** Logic to apply when using this resource */
-	useResource(update = true) {
+	useResource({ quantity = 1, update = true } = {}) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
@@ -174,18 +229,19 @@ class ItemResource extends DataModel<ItemResource.Schema> {
 		if (!item) return null;
 
 		let newValue = item.system.uses?.value;
-		newValue = Math.max((newValue ?? 0) - 1, 0);
+		newValue = Math.max((newValue ?? 0) - quantity, 0);
 
 		const data = { 'item.system.uses.value': newValue };
 
-		if (update) return item.update(data);
-		return item.update(data);
+		// @ts-expect-error
+		item.update(data);
 	}
 
 	/** Logic to apply when using this resource */
 	resetResource(update = true) {
-		if (update) return null;
-		return {};
+		if (update) {
+		}
+		return { data: {}, recovered: 0 };
 	}
 }
 
@@ -198,14 +254,14 @@ class UsesResource extends DataModel<UsesResource.Schema> {
 	}
 
 	/** Logic to apply when using this resource */
-	useResource(update = true) {
+	useResource({ quantity = 1, update = true }) {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
 		const { value } = this;
 		const slug = this.slug || this.name.slugify({ strict: true });
 
-		const newValue = Math.max(value - 1, 0);
+		const newValue = Math.max(value - quantity, 0);
 		const data = {
 			[`system.resources.${slug}.value`]: newValue,
 		};
@@ -219,7 +275,7 @@ class UsesResource extends DataModel<UsesResource.Schema> {
 		const actor = this.getNearestDocument() as Actor.Implementation;
 		if (actor?.documentName !== 'Actor') return;
 
-		const { max } = this;
+		const { value, max } = this;
 		const slug = this.slug || this.name.slugify({ strict: true });
 
 		const newValue = getDeterministicBonus(max, actor.getRollData());
@@ -227,8 +283,8 @@ class UsesResource extends DataModel<UsesResource.Schema> {
 			[`system.resources.${slug}.value`]: newValue,
 		};
 
-		if (update) return actor.update(data);
-		return data;
+		if (update) actor.update(data);
+		return { data, recovered: newValue - value };
 	}
 }
 

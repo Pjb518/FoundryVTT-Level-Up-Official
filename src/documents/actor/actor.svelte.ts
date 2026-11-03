@@ -1556,8 +1556,10 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 					.at(-1);
 
 				config = {
-					size: levelData?.size ?? 1,
-					denom: levelData?.denom ?? 4,
+					defaultDie: {
+						size: levelData?.size ?? 1,
+						denom: levelData?.denom ?? 4,
+					},
 					max: levelData?.max ?? '',
 					per: levelData?.per ?? 'longRest',
 					consumeType: grant.config.consumeType || 'none',
@@ -1578,7 +1580,6 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			const resource = foundry.utils.mergeObject(resources[slug] ?? {}, {
 				name: grant.name,
 				slug,
-				grantedBy: grant.item?.uuid,
 				type: grant.config.type,
 				...config,
 			});
@@ -1586,6 +1587,8 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			this.system.resources[slug] = new RESOURCE_DATA_TYPES[resource.type](resource, {
 				parent: this,
 			});
+
+			this.system.resources[slug].grantedBy = grant.item?.uuid;
 		});
 	}
 
