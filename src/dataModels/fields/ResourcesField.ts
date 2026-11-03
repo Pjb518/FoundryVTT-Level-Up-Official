@@ -309,7 +309,14 @@ export const RESOURCE_DATA_TYPES = {
 };
 
 export type ResourceTypes = keyof typeof RESOURCE_DATA_TYPES;
-export type Resource<T extends ResourceTypes = ResourceTypes> = Extract<
+/* export type Resource<T extends ResourceTypes = ResourceTypes> = Extract<
 	Actor.OfType<'character'>['system']['resources'][string],
 	{ type: T }
 >;
+ */
+declare global {
+	export type Resource<T extends ResourceTypes = ResourceTypes> = Extract<
+		Actor.OfType<'character'>['system']['resources'][string],
+		{ type: T }
+	>;
+}

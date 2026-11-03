@@ -18,7 +18,7 @@ const TYPE_OPTS = { ...DEFAULT_OPTS, blank: false };
 const configSchema = () => ({
 	counter: {
 		slug: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
-		levelData: new fields.ArrayField(
+		reference: new fields.ArrayField(
 			new fields.SchemaField({
 				level: new fields.NumberField({ ...DEFAULT_OPTS, initial: 1 }),
 				per: new fields.StringField({ ...PER_OPTS }),
@@ -41,7 +41,7 @@ const configSchema = () => ({
 			initial: 'decrement',
 			choices: () => CONFIG.A5E.diceResourceUseType,
 		}),
-		levelData: new fields.ArrayField(
+		reference: new fields.ArrayField(
 			new fields.SchemaField({
 				size: new fields.NumberField({ ...DEFAULT_OPTS, initial: 1 }),
 				denom: new fields.NumberField({ ...DEFAULT_OPTS, initial: 4 }),
@@ -58,7 +58,7 @@ const configSchema = () => ({
 	},
 	uses: {
 		slug: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
-		levelData: new fields.ArrayField(
+		reference: new fields.ArrayField(
 			new fields.SchemaField({
 				max: new fields.StringField({ ...DEFAULT_OPTS, initial: '' }),
 				level: new fields.NumberField({ ...DEFAULT_OPTS, initial: 1 }),

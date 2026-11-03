@@ -1549,35 +1549,35 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			let config: Record<string, any> = {};
 
 			if (grant.config.type === 'dice') {
-				const levelData = grant.config.levelData
+				const reference = grant.config.reference
 					.filter((l) => l.level <= level)
 					.sort((a, b) => a.level - b.level)
 					.at(-1);
 
 				config = {
 					defaultDie: {
-						size: levelData?.size ?? 1,
-						denom: levelData?.denom ?? 4,
+						size: reference?.size ?? 1,
+						denom: reference?.denom ?? 4,
 					},
-					max: levelData?.max ?? '',
-					per: levelData?.per ?? 'longRest',
+					max: reference?.max ?? '',
+					per: reference?.per ?? 'longRest',
 					consumeType: grant.config.consumeType || 'none',
 					useType: grant.config.useType ?? 'decrement',
 				};
 
 				if (grant.config.consumeType === 'none') {
-					config.size = levelData?.size ?? 1;
-					config.denom = levelData?.denom ?? 4;
+					config.size = reference?.size ?? 1;
+					config.denom = reference?.denom ?? 4;
 				}
 			} else if (grant.config.type === 'uses') {
-				const levelData = grant.config.levelData
+				const reference = grant.config.reference
 					.filter((l) => l.level <= level)
 					.sort((a, b) => a.level - b.level)
 					.at(-1);
 
 				config = {
-					per: levelData?.per ?? 'longRest',
-					max: levelData?.max ?? '',
+					per: reference?.per ?? 'longRest',
+					max: reference?.max ?? '',
 				};
 			}
 
