@@ -146,6 +146,7 @@ declare module 'fvtt-types/configuration' {
 		'a5e.themeSettings': ThemeSettings.Config;
 		'a5e.useCredits': boolean;
 		'a5e.visionRulesApplyToCharactersOnly': boolean;
+		'a5e.worldSchemaVersion': number;
 	}
 }
 
