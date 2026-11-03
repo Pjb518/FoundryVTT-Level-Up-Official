@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,30 +45,11 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"7pA6kBnXZucbcMhR": {
-				"grantType": "proficiency",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "7pA6kBnXZucbcMhR",
-				"label": "Weapon Proficiency",
-				"keys": {
-					"base": [
-						"improvised"
-					],
-					"options": [],
-					"total": 0
-				},
-				"proficiencyType": "weapon",
-				"img": "",
-				"isExpertise": false
-			},
 			"u3rzdkG0fNAPnokM": {
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "u3rzdkG0fNAPnokM",
 				"label": "Skill Proficiencies",
 				"keys": {
 					"base": [],
@@ -73,7 +59,39 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "",
+				"name": "Bonus Proficiencies",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:improvised"
+						],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:ath",
+									"skill:ani"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -82,18 +100,31 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793730466858,
+		"modifiedTime": 1793730547856,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo",
+		"compendiumSource": "Compendium.a5e.a5e-class-features.Item.y3tmgufqGyO5wSAU",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5enasv14",
+			"uuid": "Item.y3tmgufqGyO5wSAU",
+			"coreVersion": "14.369",
+			"systemId": "a5e",
+			"systemVersion": "1.4.10"
+		}
 	},
 	"_id": "y3tmgufqGyO5wSAU"
 }

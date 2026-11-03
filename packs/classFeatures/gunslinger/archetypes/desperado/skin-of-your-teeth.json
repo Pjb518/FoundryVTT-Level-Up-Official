@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/creatures/abilities/mouth-teeth-human.webp",
 	"system": {
-		"description": "<p>At 9th level, you may use @UUID[Compendium.a5e-martial-artistry.class-features.Item.AWiZFrqu2qWKDyXJ]{Dustkiss} without expending exertion. If you expend exertion, you instead take no damage on a successful save and half damage on a failed save.</p>",
+		"description": "<p>At 9th level, you may use @UUID[Compendium.a5e.a5e-class-features.Item.JS8ZTeK1own1FVy8]{Dustkiss} without expending exertion. If you expend exertion, you instead take no damage on a successful save and half damage on a failed save.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -44,7 +45,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -53,7 +53,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -65,8 +70,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -86,7 +107,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -100,18 +126,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793730331218,
+		"modifiedTime": 1793730372808,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "WVWW162qNn4VdSRD"
 }

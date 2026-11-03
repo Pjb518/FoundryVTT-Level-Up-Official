@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/equipment/waist/belt-buckle-arrow-brown.webp",
 	"system": {
-		"description": "<p>You have picked up enough bits and bobs here and there to gain proficiency in Thieves’ Cant. In addition, when you take the Gather Information downtime activity, you may roll a gambling check each week. Whenever you roll a 15 or higher, you can reduce your total by 5 to reduce the remaining time needed to gather information by 1 week, so long as the wager is 100gp or more.</p>",
+		"description": "<p>You have picked up enough bits and bobs here and there to gain proficiency in Thieves’ Cant. In addition, when you take the @UUID[Compendium.a5e.a5e-interactions.Item.05G1Mu3N7Cp5ZzHM]{Gather Information} downtime activity, you may roll a gambling check each week. Whenever you roll a 15 or higher, you can reduce your total by 5 to reduce the remaining time needed to gather information by 1 week, so long as the wager is 100gp or more.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,15 +50,46 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "bBMOcOhhO6X5iANr",
 				"label": "Buscadero",
 				"traits": {
-					"base": [
-						"cant"
-					],
+					"base": [],
 					"options": [],
 					"total": 0,
 					"traitType": "languages"
+				},
+				"id": "",
+				"name": "Buscadero",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "trait",
+				"config": {
+					"traits": {
+						"base": [
+							"cant"
+						],
+						"options": [],
+						"total": 1,
+						"traitType": "languages"
+					},
+					"upgradeResist": false,
+					"resistance": {
+						"bonus": 0,
+						"expertiseDice": 0,
+						"maxRoll": 20,
+						"minRoll": 1,
+						"rollMode": 0
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "trait",
+					"selected": [],
+					"upgraded": [],
+					"total": 0,
+					"traitType": "",
+					"resistanceIds": []
 				}
 			}
 		},
@@ -63,18 +99,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793727520637,
+		"modifiedTime": 1793727665718,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "ZWvSB29b04Cs2AFg"
 }

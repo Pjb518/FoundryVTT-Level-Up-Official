@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/skills/targeting/crosshair-mark-rough-pink.webp",
 	"system": {
-		"description": "<p>At 3rd level, your flexibility in fighting styles shines. Choose two @UUID[Compendium.a5e-martial-artistry.class-features.Item.lYRgmjHcrQ7AqqGd]{Fighting Styles} you do not know from the Gunslinger class. As a bonus action, you can go into the zone for one minute. When you go into the zone, you gain access to one of the fighting styles you have selected. You can use this ability once per short rest.</p>",
+		"description": "<p>At 3rd level, your flexibility in fighting styles shines. Choose two @UUID[Compendium.a5e.a5e-class-features.Item.NLonu2zN9M2eqp9x]{Fighting Styles} you do not know from the Gunslinger class. As a bonus action, you can go into the zone for one minute. When you go into the zone, you gain access to one of the fighting styles you have selected. You can use this ability once per short rest.</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -50,7 +51,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -62,8 +68,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -83,7 +105,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -96,7 +123,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "HX480TcZXROsqHAL",
 				"label": "In the Zone",
 				"features": {
 					"total": 2,
@@ -139,7 +165,68 @@
 					],
 					"base": []
 				},
-				"img": ""
+				"img": "",
+				"id": "",
+				"name": "In the Zone",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.jaVJnfDvsi8Vfs0y",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.EsSXycitVshVxPwK",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.Zfqdf4U85Sni4kdN",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.29C7m17ubJYKE5j9",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.mSsnhlr1dGppl2gv",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.9uGit7x5WLKjC7Lr",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.v5WOyiZP732b8zj9",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"total": 2
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -148,18 +235,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793730476973,
+		"modifiedTime": 1793730658065,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "fPPqXuYfe1GKdLdG"
 }
