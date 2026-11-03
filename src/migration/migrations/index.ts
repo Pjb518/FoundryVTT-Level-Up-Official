@@ -11,3 +11,4 @@ export { Migration023MigrateRoll } from './023-migrate-roll.ts';
 export { Migration024MigrateConcentration } from './024-migrate-concentration.ts';
 export { Migration025MigrateGrants } from './025-migrate-grants.ts';
 export { Migration026MigrateGrants } from './026-migrate-grants.ts';
+export { Migration027MigrateResources } from './027-migrate-resources.ts';

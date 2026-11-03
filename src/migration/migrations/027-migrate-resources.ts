@@ -1,4 +1,3 @@
-import { itemControls } from '#stores/itemControlsStore.svelte.ts';
 import { MigrationBase } from '../MigrationBase.ts';
 
 export class Migration027MigrateResources extends MigrationBase {
@@ -155,7 +154,7 @@ export class Migration027MigrateResources extends MigrationBase {
 	#updateGrantItem(item: Item.OfType<'feature'>) {
 		Object.entries(item.system.grants ?? {}).forEach(([grantId, grant]) => {
 			// @ts-expect-error
-			if (!grant.config.bonus) return;
+			if (!grant.config?.bonus) return;
 
 			// Update bonus
 			foundry.utils.setProperty(
