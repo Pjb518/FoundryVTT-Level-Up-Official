@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"WQGsb3Y25NR9uC5u"
@@ -45,7 +46,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -57,8 +63,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -78,7 +100,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -92,11 +119,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.BRSCeusm83lWJWc8",
+			"origin": "Item.xH2OcTKDE0hLDdh0",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -109,35 +140,35 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"doomed"
+						],
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "system.attributes.hp.max",
+						"type": "add",
+						"value": "floor(@attributes.hp.baseMax/2)",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Champion of Legend",
 			"img": "icons/skills/melee/sword-winged-holy-orange.webp",
 			"_id": "WQGsb3Y25NR9uC5u",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"doomed\",\"bloodied\"]",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.hp.max",
-					"value": "@attributes.hp.baseMax * 0.5",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>If you are reduced to 0 HP while within reach of completing your current quest, you may instead choose to become Doomed and continue acting toward that goal. Your HP total increases to 1/2 of your normal maximum, leaving you bloodied. Should you be reduced to 0 HP again before achieving your goal you will die permanently when the Doomed condition ends, and no magic can resurrect you.</p>",
 			"tint": "#ffffff",
@@ -148,24 +179,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752312
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793720174156,
+				"createdTime": 1793720094792
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793720094792,
+		"modifiedTime": 1793720203534,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "xH2OcTKDE0hLDdh0"
 }

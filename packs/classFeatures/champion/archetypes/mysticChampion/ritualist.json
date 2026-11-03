@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/magic/symbols/rune-sigil-hook-white-red.webp",
 	"system": {
-		"description": "<p>Finally, at third level you learn how to perform magical rituals from the cleric, druid, herald, warlock, or wizard spell list. You gain access to one 1st level spell from that list and a ritual book in which it is stored. When you find a new spell from that list in written form, you can copy it to your ritual book for 50gp and 2 hours per level of the spell. You cannot learn rituals of a level higher than half your character level, rounded up.</p><p>You must have the ritual book in your possession to perform any ritual contained within.</p>",
+		"description": "<p>Finally, at third level you learn how to perform magical rituals from the cleric, druid, herald, warlock, or wizard spell list. You gain access to one 1st level spell from that list and a ritual book in which it is stored. When you find a new spell from that list in written form, you can copy it to your ritual book for 50gp and 2 hours per level of the spell. You cannot learn rituals of a level higher than half your character level, rounded up.</p><p>You must have the ritual book in your possession to perform any ritual contained within.</p><p>[[/browser tab=spell label=\"1st-level Ritual Spells\" selections='{\"spellLists\":{\"inclusive\":[\"cleric\",\"druid\",\"herald\",\"warlock\",\"wizard\"]},\"spellLevels\":{\"inclusive\":[\"1\"]},\"miscellaneous\":{\"inclusive\":[\"ritual\"]}}']]</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,32 +32,110 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "champion",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"e7o9bpf7BgoBuGSW": {
+				"id": "e7o9bpf7BgoBuGSW",
+				"label": "",
+				"name": "Ritualist",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "pool",
+					"spells": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"spellLists": {
+								"inclusive": [
+									"cleric",
+									"druid",
+									"herald",
+									"warlock",
+									"wizard"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"spellLevels": {
+								"inclusive": [
+									"1"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"miscellaneous": {
+								"inclusive": [
+									"ritual"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793721714462,
+		"modifiedTime": 1793721899582,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "BWLEIrQZvXVIXMFv"
 }

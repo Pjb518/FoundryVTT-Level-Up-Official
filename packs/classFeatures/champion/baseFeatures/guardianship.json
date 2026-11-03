@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"vo5MJCPw2Eeqwtgg",
@@ -49,7 +50,6 @@
 						"classIdentifier": "rise-to-the-challenge",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -70,7 +70,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 2,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -82,8 +87,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"J3hhA1sLyrtaZQy4": {
@@ -103,7 +124,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -111,13 +133,20 @@
 				"prompts": {},
 				"ranges": {
 					"kabGp3MftqPAeMeF": {
-						"range": "fiveFeet"
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -129,8 +158,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"64VPsKZa7eCI6ZTT": {
@@ -150,7 +195,8 @@
 				},
 				"duration": {
 					"unit": "round",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"UJThnibB5PSuoM9C"
@@ -162,7 +208,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -174,8 +225,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -195,7 +262,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -209,11 +281,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.m4ue6FdqUFyqnZQE",
+			"origin": "Item.uJ9oIQKx8ZVJ3C82",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -232,16 +308,12 @@
 			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
 			"_id": "vo5MJCPw2Eeqwtgg",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>So long as you are within 10ft of your defensive target, you may use the help action as a bonus action to give them aid. In addition, if someone makes an attack roll against your defensive target you may use your reaction to swap spaces with your target so long as they are willing. This causes the attack, whether melee, ranged, or spell, to target you instead. You must be within 5ft of your defensive target to use this reaction.</p>",
 			"tint": "#ffffff",
@@ -255,16 +327,19 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753276
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793719956944,
+				"createdTime": 1793719956913
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.m4ue6FdqUFyqnZQE",
+			"origin": "Item.uJ9oIQKx8ZVJ3C82",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -283,16 +358,12 @@
 			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
 			"_id": "e0IJnBpwlIjy4HN5",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>So long as you are within 10ft of your offensive target, you may use your bonus action to hinder them, reducing their movement speed by 15ft. This reduction also includes the speed of any mount they are on but not vehicles. In addition, if you are within reach of your offensive target when they make an attack which does not target you, you may use your reaction to attempt a basic maneuver before the roll is made, potentially foiling the attack.</p>",
 			"tint": "#ffffff",
@@ -306,16 +377,19 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753276
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793719956944,
+				"createdTime": 1793719956913
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.m4ue6FdqUFyqnZQE",
+			"origin": "Item.uJ9oIQKx8ZVJ3C82",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -334,16 +408,12 @@
 			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
 			"_id": "X1z0UMa9YYPH41R5",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Disadvantage on attack rolls against targets other than you and must make a Charisma save any time they willingly move more than 30ft away from you. On a failed save, they are unable to move any further. On a successful save, they become rattled but are able to move freely.</p>",
 			"tint": "#ffffff",
@@ -351,16 +421,19 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753276
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793719956944,
+				"createdTime": 1793719956913
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.m4ue6FdqUFyqnZQE",
+			"origin": "Item.uJ9oIQKx8ZVJ3C82",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -373,22 +446,28 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"rattled"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Rattled",
 			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
 			"_id": "TvrVn5GrJoaPp5AC",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<ul><li><p>A rattled creature cannot benefit from expertise dice.</p></li><li><p>A creature that is immune to being stunned is immune to being rattled.</p></li><li><p>A rattled creature cannot take reactions.</p></li></ul>",
 			"tint": "#ffffff",
@@ -402,16 +481,19 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753276
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793719978846,
+				"createdTime": 1793719956913
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.m4ue6FdqUFyqnZQE",
+			"origin": "Item.uJ9oIQKx8ZVJ3C82",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -430,23 +512,12 @@
 			"img": "icons/magic/life/heart-hand-gold-green-light.webp",
 			"_id": "UJThnibB5PSuoM9C",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "15",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Reduce their movement speed by 15ft.</p>",
 			"tint": "#ffffff",
@@ -461,24 +532,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753276
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793719956944,
+				"createdTime": 1793719956913
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793719956913,
+		"modifiedTime": 1793719983226,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "uJ9oIQKx8ZVJ3C82"
 }

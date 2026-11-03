@@ -3,7 +3,7 @@
 	"type": "feature",
 	"img": "icons/skills/trades/woodcutting-logging-axe-stump.webp",
 	"system": {
-		"description": "<p>Also at 2nd level, you begin to pick up a variety of developed talents to help you make your way. At 2nd level, you gain a warrior's forte of your choice. Your warrior's forte options are detailed at the end of the champion class entry and you gain additional choices as you gain levels, as shown by the class table.</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.iAi2OhjUmgmlfkmE]{Maximal Effort}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.A4jiAEQVNdN1yuOB]{Single Minded Drive}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.wsAITGmDR7lqLfkr]{Knight and Squire}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.NsxDMOIB9DvyXlIa]{Knight-Errant}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.4z3Mg2W9JRL2LleZ]{Ascetic Journey}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.TTJnxNwhMIbqhE45]{Common Burdens}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.ATiyLECZjee056hu]{Courtly Taster}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.0Z74G1L66vFgYiOm]{Iron Will}</p><p>@UUID[Compendium.a5e.a5e-class-features.Item.JzVwJ2keQcCrEC4E]{Rough Traveler}</p>",
+		"description": "<p>Also at 2nd level, you begin to pick up a variety of developed talents to help you make your way. At 2nd level, you gain a warrior's forte of your choice. Your warrior's forte options are detailed at the end of the champion class entry and you gain additional choices as you gain levels, as shown by the class table.</p><p>[[/browser tab=feature label=\"Warrior’s Forte\" selections='{\"featureType\":{\"inclusive\":[\"knack\"]},\"classes\":{\"inclusive\":[\"champion\"]}}']]</p>",
 		"favorite": false,
 		"macro": "",
 		"migrationData": {
@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,304 +45,280 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"XdxLUBosLA2rf65B": {
-				"grantType": "feature",
+			"JaUb087AnsRtpAw4": {
+				"id": "JaUb087AnsRtpAw4",
+				"label": "",
+				"name": "2nd Level Warrior’s Forte",
+				"img": "",
+				"flags": {},
 				"level": 2,
 				"levelType": "class",
 				"optional": false,
-				"_id": "XdxLUBosLA2rf65B",
-				"label": "2nd Level Warrior’s Forte",
-				"features": {
-					"total": 1,
-					"options": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5iCB9hMG8fK2f0qT",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.H5f5NX96gmdzhcAr",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.hSwij9Gv7UJhoj9c",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vBFgb2YCYOnRb3L5",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.txhuhKcS7LUMFufz",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ccWYKgt1RAtIYqP7",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.OXKrpt4GMOJtpgzO",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vGfUAR6OmwSRu6Dv",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"base": []
-				},
-				"img": ""
-			},
-			"s8vVi2rLEMEh9pFr": {
+				"restriction": "",
+				"type": "feature",
 				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"knack"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"classes": {
+								"inclusive": [
+									"champion"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": "{}"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			},
+			"qVXwBSkL8M9sIVoP": {
+				"id": "qVXwBSkL8M9sIVoP",
+				"label": "",
+				"name": "6th Level Warrior’s Forte",
+				"img": "",
+				"flags": {},
 				"level": 6,
 				"levelType": "class",
 				"optional": false,
-				"_id": "s8vVi2rLEMEh9pFr",
-				"label": "6th Level Warrior’s Forte",
-				"features": {
-					"total": 1,
-					"options": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5iCB9hMG8fK2f0qT",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.H5f5NX96gmdzhcAr",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.hSwij9Gv7UJhoj9c",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vBFgb2YCYOnRb3L5",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.txhuhKcS7LUMFufz",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ccWYKgt1RAtIYqP7",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.OXKrpt4GMOJtpgzO",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vGfUAR6OmwSRu6Dv",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.6buDg6EAaCllFIKs",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"base": []
-				},
-				"img": "",
-				"name": "undefined (Copy)"
-			},
-			"CBOxW9EVjGQbvPFM": {
+				"restriction": "",
+				"type": "feature",
 				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"knack"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"classes": {
+								"inclusive": [
+									"champion"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": "{}"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			},
+			"PtGLOMXqKTjI0DWW": {
+				"id": "PtGLOMXqKTjI0DWW",
+				"label": "",
+				"name": "10th Level Warrior’s Forte",
+				"img": "",
+				"flags": {},
 				"level": 10,
 				"levelType": "class",
 				"optional": false,
-				"_id": "CBOxW9EVjGQbvPFM",
-				"label": "10th Level Warrior’s Forte",
-				"features": {
-					"total": 1,
-					"options": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5iCB9hMG8fK2f0qT",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.H5f5NX96gmdzhcAr",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.hSwij9Gv7UJhoj9c",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vBFgb2YCYOnRb3L5",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.txhuhKcS7LUMFufz",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ccWYKgt1RAtIYqP7",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.OXKrpt4GMOJtpgzO",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vGfUAR6OmwSRu6Dv",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.6buDg6EAaCllFIKs",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"base": []
-				},
-				"img": "",
-				"name": "undefined (Copy)"
-			},
-			"QH8udUfgktXMsPv2": {
+				"restriction": "",
+				"type": "feature",
 				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"knack"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"classes": {
+								"inclusive": [
+									"champion"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": "{}"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			},
+			"cHRdzRYP89IKA5PR": {
+				"id": "cHRdzRYP89IKA5PR",
+				"label": "",
+				"name": "14th Level Warrior’s Forte",
+				"img": "",
+				"flags": {},
 				"level": 14,
 				"levelType": "class",
 				"optional": false,
-				"_id": "QH8udUfgktXMsPv2",
-				"label": "14th Level Warrior’s Forte",
-				"features": {
-					"total": 1,
-					"options": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5iCB9hMG8fK2f0qT",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.H5f5NX96gmdzhcAr",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.hSwij9Gv7UJhoj9c",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vBFgb2YCYOnRb3L5",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.txhuhKcS7LUMFufz",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ccWYKgt1RAtIYqP7",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.OXKrpt4GMOJtpgzO",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vGfUAR6OmwSRu6Dv",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.6buDg6EAaCllFIKs",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"base": []
-				},
-				"img": "",
-				"name": "undefined (Copy)"
-			},
-			"43ToH9dUjUql8OHD": {
+				"restriction": "",
+				"type": "feature",
 				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"knack"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"classes": {
+								"inclusive": [
+									"champion"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
+						}
+					},
+					"changes": "{}"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
+			},
+			"hEWbpEI36UGPoj0N": {
+				"id": "hEWbpEI36UGPoj0N",
+				"label": "",
+				"name": "16th Level Warrior’s Forte",
+				"img": "",
+				"flags": {},
 				"level": 16,
 				"levelType": "class",
 				"optional": false,
-				"_id": "QH8udUfgktXMsPv2",
-				"label": "16th Level Warrior’s Forte",
-				"features": {
-					"total": 1,
-					"options": [
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5iCB9hMG8fK2f0qT",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.H5f5NX96gmdzhcAr",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.hSwij9Gv7UJhoj9c",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vBFgb2YCYOnRb3L5",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.txhuhKcS7LUMFufz",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ccWYKgt1RAtIYqP7",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.OXKrpt4GMOJtpgzO",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.vGfUAR6OmwSRu6Dv",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.6buDg6EAaCllFIKs",
-							"limitedReselection": true,
-							"selectionLimit": 1
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "pool",
+					"features": {
+						"base": [],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {
+							"featureType": {
+								"inclusive": [
+									"knack"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							},
+							"classes": {
+								"inclusive": [
+									"champion"
+								],
+								"inclusiveMode": 0,
+								"exclusive": [],
+								"exclusiveMode": 0
+							}
 						}
-					],
-					"base": []
+					},
+					"changes": "{}"
 				},
-				"img": "",
-				"name": "undefined (Copy)"
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
+				"features": {
+					"base": [],
+					"options": [],
+					"total": 0
+				}
 			}
 		},
 		"prerequisite": "",
@@ -346,18 +327,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793717946477,
+		"modifiedTime": 1793718266973,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "F6ZGineVw1xrsQUS"
 }

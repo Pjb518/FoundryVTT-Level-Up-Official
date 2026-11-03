@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"iAXjm2mueT7cg0Ul"
@@ -46,7 +47,6 @@
 						"classIdentifier": "",
 						"resource": "inspiration",
 						"quantity": 1,
-						"restore": true,
 						"label": ""
 					},
 					"Z7fUkUgK6XTDuQeq": {
@@ -61,7 +61,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -73,8 +78,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -94,7 +115,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -103,16 +129,20 @@
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
-		"requiresBloodied": false,
+		"requiresBloodied": true,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.LkYcyfu3H4LPN3Ds",
+			"origin": "Item.JTci67M0czj8b3bK",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -125,41 +155,44 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.traits.conditionImmunities",
+						"type": "add",
+						"value": [
+							"frightened",
+							"poisoned",
+							"unconscious"
+						],
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.rollMode.abilitySave.all",
+						"type": "override",
+						"value": 1,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Last Stand",
 			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
 			"_id": "iAXjm2mueT7cg0Ul",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.traits.conditionImmunities",
-					"value": "[\"frightened\",\"poisoned\",\"unconscious\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.all",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>A last stand lasts for one minute, and you immediately gain inspiration, immunity to fear and the poisoned condition, and advantage to attack rolls and saving throws. You become immune to the unconscious condition and no longer roll death saving throws for the duration. However, you will die at the end of the last stand as if you had the Doomed condition, though no magic can prevent your death.</p>",
 			"tint": "#ffffff",
@@ -173,24 +206,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752650
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793722368346,
+				"createdTime": 1793722275415
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793722275415,
+		"modifiedTime": 1793722379814,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "JTci67M0czj8b3bK"
 }

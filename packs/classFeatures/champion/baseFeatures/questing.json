@@ -24,15 +24,6 @@
 						"default": true,
 						"quantity": 1,
 						"label": ""
-					},
-					"yIIByrQK16zQNhCQ": {
-						"type": "resource",
-						"default": true,
-						"classIdentifier": "",
-						"resource": "inspiration",
-						"quantity": 1,
-						"restore": true,
-						"label": ""
 					}
 				},
 				"id": "",
@@ -50,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"DI39x2q7ltgLgbx4"
@@ -61,7 +53,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -73,8 +70,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -94,7 +107,12 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -108,11 +126,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.lnVBcerfzUAnwSpM",
+			"origin": "Item.ODYsXgw5q0mwxp4N",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -131,23 +153,12 @@
 			"img": "icons/environment/wilderness/terrain-river-road-gray.webp",
 			"_id": "DI39x2q7ltgLgbx4",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>You immediately gain inspiration and ignore the effects of fatigue, including the doomed condition, until your chosen quest ends. In addition, you have advantage on saving throws against Charms and Illusions which would sway you from your quest.</p>",
 			"tint": "#ffffff",
@@ -155,24 +166,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753257
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793718551348,
+				"createdTime": 1793718551336
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793718551336,
+		"modifiedTime": 1793718589718,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "ODYsXgw5q0mwxp4N"
 }
