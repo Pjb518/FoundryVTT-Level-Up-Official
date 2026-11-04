@@ -136,17 +136,17 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		pack: string | null,
 		{ diff = true } = {},
 	) {
-		const { DocumentClass } = collection;
+		const { documentClass } = collection;
 		try {
-			await DocumentClass.updateDocuments(updateGroup, { noHook: true, pack, diff });
+			await documentClass.updateDocuments(updateGroup, { noHook: true, pack, diff });
 		} catch (batchError) {
 			console.warn(batchError);
 			for (const source of updateGroup) {
 				try {
-					await DocumentClass.updateDocuments([source], { noHook: true, pack, diff });
+					await documentClass.updateDocuments([source], { noHook: true, pack, diff });
 				} catch (err) {
 					console.warn(err);
-					const uuid = collection.get(source._id ?? '')?.uuid;
+					const uuid = collection.get(source._id ?? '')?.uuid || source?.uuid || source?._id;
 					if (uuid)
 						MigrationRunnerFoundry.lastRunFailures.set(
 							uuid,
@@ -640,6 +640,10 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		for (const phase of migrationPhases) {
 			if (phase.length > 0) await this.runMigrations(phase);
+		}
+
+		if (MigrationRunnerFoundry.lastRunFailures.size) {
+			console.error(MigrationRunnerFoundry.lastRunFailures);
 		}
 
 		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);

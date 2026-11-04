@@ -63,7 +63,14 @@ export class Migration027MigrateResources extends MigrationBase {
 		});
 
 		// Assign new resources
-		foundry.utils.setProperty(source, 'system.resources', newResources);
+		if ('game' in globalThis) {
+			Object.entries(newResources ?? {}).forEach(([slug, r]) => {
+				newResources[slug] = _replace(r);
+			});
+			foundry.utils.setProperty(source, 'system.resources', newResources);
+		} else {
+			foundry.utils.setProperty(source, 'system.resources', newResources);
+		}
 
 		// Migrate bonuses
 		Object.entries(source.system.bonuses ?? {}).forEach(([key, bonuses]) => {
@@ -117,7 +124,7 @@ export class Migration027MigrateResources extends MigrationBase {
 				if (consumer.type !== 'resource') return;
 
 				// @ts-expect-error Removed
-				const slug = consumer.classIdentifier.replaceAll('@classResources', '');
+				const slug = consumer.classIdentifier?.replaceAll('@classResources', '');
 
 				const newConsumer = {
 					default: consumer.default,
