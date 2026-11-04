@@ -13,8 +13,6 @@ export class Migration027MigrateResources extends MigrationBase {
 		const resources = source.system.resources ?? {};
 		const classResources = foundry.utils.deepClone(resources.classResources ?? {});
 
-		// delete resources.classResources;
-
 		Object.entries(resources).forEach(([slug, resource]) => {
 			// Delete class resources
 			if (slug === 'classResources' && 'game' in globalThis) {
@@ -132,13 +130,13 @@ export class Migration027MigrateResources extends MigrationBase {
 				if (consumer.type !== 'resource') return;
 
 				// @ts-expect-error Removed
-				const slug = consumer.classIdentifier?.replaceAll('@classResources', '');
+				const slug = consumer.classIdentifier?.replaceAll('@classResources.', '');
 
 				const newConsumer = {
 					default: consumer.default,
 					label: consumer.label,
 					id: consumer.id,
-					resource: consumer.resource,
+					resource: consumer.resource === 'classResource' ? 'namedResource' : consumer.resource,
 					resourceSlug: slug,
 					quantity: consumer.quantity,
 					type: 'resource',
@@ -172,6 +170,13 @@ export class Migration027MigrateResources extends MigrationBase {
 			if (!grant.config?.bonus) return;
 
 			// Update bonus
+			foundry.utils.setProperty(
+				item,
+				`system.grants.${grantId}.config.bonus`,
+				// @ts-expect-error
+				this.#replaceFormula(grant.config.bonus),
+			);
+
 			foundry.utils.setProperty(
 				item,
 				`system.grants.${grantId}.bonus`,
