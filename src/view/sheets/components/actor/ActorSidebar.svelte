@@ -49,7 +49,7 @@
     padding: var(--a5e-spacing-sm);
     border-right: 1px solid var(--a5e-border-color);
 
-    background: rgba(0, 0, 0, 0.05);
+    background: var(--a5e-actor-sheet-aside-background);
 
     &__hp-container {
       display: flex;
