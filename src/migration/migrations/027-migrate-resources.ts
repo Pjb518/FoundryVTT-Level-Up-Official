@@ -182,7 +182,6 @@ export class Migration027MigrateResources extends MigrationBase {
 	}
 
 	#updateOriginItem(item: Item.OfType<'class'> | Item.OfType<'archetype'>, actor: Character) {
-		console.log(item.system.resources);
 		(item.system.resources ?? []).forEach((resource) => {
 			const reference = Object.entries(resource?.reference ?? {}).reduce((acc, [key, val], idx) => {
 				const level = Number.parseInt(key, 10);
