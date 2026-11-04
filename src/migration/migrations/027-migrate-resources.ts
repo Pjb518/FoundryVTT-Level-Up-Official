@@ -58,7 +58,7 @@ export class Migration027MigrateResources extends MigrationBase {
 			}
 
 			if ('game' in globalThis) newResources[slug] = _replace(newResource);
-			else newResources[slug] = _replace(newResource);
+			else newResources[slug] = newResource;
 		});
 
 		// Add classResources as resources
