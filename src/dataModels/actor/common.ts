@@ -353,24 +353,6 @@ export const resources = () => ({
 	}),
 });
 
-/* export const resources = () => ({
-	...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
-		acc[res] = new fields.SchemaField({
-			label: new fields.StringField({ required: true, initial: '' }),
-			value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-			max: new fields.StringField({ required: true, initial: '' }),
-			per: new fields.StringField({ required: true, initial: '' }),
-			hideMax: new fields.BooleanField({ required: true, initial: false }),
-			recharge: new fields.SchemaField({
-				formula: new fields.StringField({ required: true, initial: '1d6' }),
-				threshold: new fields.NumberField({ required: true, initial: 6, integer: true }),
-			}),
-		});
-
-		return acc;
-	}, {}),
-}) */
-
 /** Used in system.rolls */
 const attackData = () => ({
 	incoming: new fields.SchemaField({

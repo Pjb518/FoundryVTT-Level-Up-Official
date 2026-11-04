@@ -12,8 +12,8 @@ const baseSchema = () => ({
 	_id: new fields.StringField({ persisted: false, required: true, nullable: false, initial: '' }),
 	id: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	/** @deprecated */
-	label: new fields.StringField({ requied: true, nullable: false, initial: '' }),
-	name: new fields.StringField({ requied: true, nullable: false, initial: '' }),
+	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	name: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	img: new fields.StringField({
 		required: true,
 		nullable: false,

@@ -28,27 +28,27 @@
   }
 
   function addLevel() {
-    const maxLevel = Math.max(...grant.config.levelData.map((d) => d.level));
+    const maxLevel = Math.max(...grant.config.reference.map((d) => d.level));
     const newLevel = maxLevel + 1;
     const newData = grant.toObject();
 
-    const levels = [...(newData.config.levelData ?? []), { level: newLevel }].sort(
+    const levels = [...(newData.config.reference ?? []), { level: newLevel }].sort(
       (a, b) => a.level - b.level,
     );
 
-    onUpdateValue("config.levelData", levels);
+    onUpdateValue("config.reference", levels);
   }
 
   function deleteLevel(idx: number) {
     const grantData = grant.toObject();
-    const levels = grantData.config.levelData.toSpliced(idx, 1);
+    const levels = grantData.config.reference.toSpliced(idx, 1);
 
     if (levels.length === 0) {
       ui.notifications.error("Grant needs at least one level of data.");
       return;
     }
 
-    onUpdateValue("config.levelData", levels);
+    onUpdateValue("config.reference", levels);
   }
 
   function getLevelConfigHeader() {
@@ -70,7 +70,7 @@
   }
 
   function onUpdateLevelData(idx: number, key: string, value: any) {
-    const levels = grant.toObject()?.config?.levelData ?? [];
+    const levels = grant.toObject()?.config?.reference ?? [];
     if (!levels.at(idx)) return;
 
     const currentLevel = levels.at(idx).level;
@@ -91,10 +91,10 @@
 
     if (key === "level") {
       onUpdateValue(
-        "config.levelData",
+        "config.reference",
         levels.sort((a, b) => a.level - b.level),
       );
-    } else onUpdateValue("config.levelData", levels);
+    } else onUpdateValue("config.reference", levels);
   }
 
   function onUpdateType(type: string) {
@@ -239,7 +239,7 @@
         {/each}
       </header>
 
-      {#each grant.config.levelData as data, idx (idx)}
+      {#each grant.config.reference as data, idx (idx)}
         <div class="level-config__row">
           {@render LevelField(idx, data)}
 

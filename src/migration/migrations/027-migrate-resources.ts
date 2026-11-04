@@ -18,7 +18,7 @@ export class Migration027MigrateResources extends MigrationBase {
 		Object.entries(resources).forEach(([slug, resource]) => {
 			// Delete class resources
 			if (slug === 'classResources' && 'game' in globalThis) {
-				newResources[slug] = del;
+				newResources[slug] = _del;
 			}
 
 			// Return if neither value nor max is set and resource is not a counter
@@ -182,8 +182,7 @@ export class Migration027MigrateResources extends MigrationBase {
 	}
 
 	#updateOriginItem(item: Item.OfType<'class'> | Item.OfType<'archetype'>, actor: Character) {
-		const resourceGrants = {} as Record<string, any>;
-
+		console.log(item.system.resources);
 		(item.system.resources ?? []).forEach((resource) => {
 			const reference = Object.entries(resource?.reference ?? {}).reduce((acc, [key, val], idx) => {
 				const level = Number.parseInt(key, 10);
@@ -201,17 +200,20 @@ export class Migration027MigrateResources extends MigrationBase {
 					reference,
 					type: 'uses',
 				},
-				applied: {},
+				applied: {
+					isApplied: true,
+					grantType: 'resource',
+					slug:
+						resource.slug || 'game' in globalThis ? resource.name.slugify({ strict: true }) : '',
+					level: 1,
+				},
+				levelType: 'class',
 				type: 'resource',
+				grantType: 'resource',
 			};
 
 			const id = foundry.utils.randomID();
-			resourceGrants[id] = grant;
-		});
-
-		foundry.utils.setProperty(item, 'system.grants', {
-			...(item.system.grants ?? {}),
-			...resourceGrants,
+			foundry.utils.setProperty(item, `system.grants.${id}`, grant);
 		});
 	}
 
