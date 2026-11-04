@@ -123,6 +123,11 @@ export class Migration027MigrateResources extends MigrationBase {
 				change.value.formula = this.#replaceFormula(change.value.formula);
 			}
 		});
+
+		// Remove old changes from compendium files
+		if (!('game' in globalThis)) {
+			foundry.utils.setProperty(source, '-=changes', null);
+		}
 	}
 
 	#updateActionItem(item: ActionItem) {
