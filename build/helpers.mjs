@@ -146,7 +146,7 @@ export function flattenObject(obj, _d = 0) {
 	for (const [k, v] of Object.entries(obj)) {
 		const t = getType(v);
 		if (t === 'Object') {
-			if (isEmpty$1(v)) flat[k] = v;
+			if (isEmpty(v)) flat[k] = v;
 			const inner = flattenObject(v, _d + 1);
 			for (const [ik, iv] of Object.entries(inner)) {
 				flat[`${k}.${ik}`] = iv;
@@ -163,7 +163,7 @@ export function flattenObject(obj, _d = 0) {
  * @param {*} value       The value to test
  * @returns {boolean}     Is the value empty-like?
  */
-export function isEmpty$1(value) {
+export function isEmpty(value) {
 	const t = getType(value);
 	switch (t) {
 		case 'undefined':
@@ -208,7 +208,7 @@ export function getType(variable) {
 		[Map, 'Map'],
 		[Promise, 'Promise'],
 		[Error, 'Error'],
-		// [Color$1, 'number']
+		[Color, 'number'],
 	];
 	if ('HTMLElement' in globalThis) prototypes.push([globalThis.HTMLElement, 'HTMLElement']);
 	for (const [cls, type] of prototypes) {
@@ -411,3 +411,16 @@ export function objectsEqual(a, b) {
 		return v0 === v1;
 	});
 }
+
+/**
+ * Generate a random string ID of a given requested length.
+ * @param length The length of the random ID to generate
+ * @return Return a string containing random letters and numbers
+ */
+export function randomID(length = 16) {
+	const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	const r = Array.from({ length }, () => (Math.random() * chars.length) >> 0);
+	return r.map((i) => chars[i]).join('');
+}
+
+class Color extends Number {}
