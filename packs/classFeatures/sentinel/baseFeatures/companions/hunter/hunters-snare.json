@@ -25,7 +25,6 @@
 						"classIdentifier": "hunters-snare",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -44,7 +43,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -53,7 +53,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -65,8 +70,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"KYY5wuiJu81HqqST": {
@@ -86,19 +107,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
 					"shape": "line",
 					"quantity": 1,
-					"length": 30,
-					"width": 15,
-					"placeTemplate": true
+					"length": 0,
+					"width": 0,
+					"radius": 0,
+					"height": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -118,7 +140,12 @@
 				},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -130,7 +157,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			},
@@ -151,19 +183,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
 					"shape": "square",
 					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true,
-					"width": 5
+					"radius": 0,
+					"width": 0,
+					"height": 0,
+					"length": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"jWgIhm2vnIKWLCjo"
@@ -186,7 +219,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -198,7 +236,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			}
@@ -219,7 +262,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -233,11 +281,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.RsEEvtDLkFwCbsyv",
+			"origin": "Item.ln83OKJpf2TC2EXA",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -250,29 +302,28 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"prone"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Prone",
 			"img": "icons/environment/traps/trap-jaw-steel.webp",
 			"_id": "jWgIhm2vnIKWLCjo",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<ul><li><p>A prone creature's only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until it stands up.</p></li><li><p>Standing up requires half a creature’s movement.</p></li><li><p>A prone creature makes melee attack rolls with disadvantage.</p></li><li><p>An attack roll against a prone creature is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</p></li></ul>",
 			"tint": "#ffffff",
@@ -282,24 +333,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752937
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793807239935,
+				"createdTime": 1793807215850
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793807215850,
+		"modifiedTime": 1793807243904,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "ln83OKJpf2TC2EXA"
 }

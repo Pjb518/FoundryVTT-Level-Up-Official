@@ -25,23 +25,36 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"ranges": {
 					"rmPJFnEeukXjCUNG": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
 					"quantity": 0,
 					"type": "creature",
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"heard": false,
 					"otherText": "",
 					"seen": false
@@ -86,7 +99,12 @@
 					"per": "longRest",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			},
@@ -99,22 +117,36 @@
 				},
 				"duration": {
 					"unit": "instantaneous",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"EvHFEGUcyQTmKGf3": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
 					"shape": "sphere",
-					"radius": "10",
-					"placeTemplate": true
+					"radius": 10,
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
 					"quantity": 0,
 					"type": "",
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"heard": false,
 					"otherText": "",
 					"seen": false
@@ -127,11 +159,20 @@
 						"type": "damage",
 						"scaling": {
 							"mode": "spellLevel",
-							"formula": "1d8"
+							"formula": "1d8",
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							}
 						},
 						"critBonus": "",
 						"default": true,
-						"label": ""
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"prompts": {
@@ -171,7 +212,12 @@
 					"per": "longRest",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			}
@@ -192,25 +238,76 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "sentinel",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"D8gG5AhUDivXeBIr": {
+				"id": "D8gG5AhUDivXeBIr",
+				"label": "",
+				"name": "Journeyman Mage",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.4gcxix2l4zvy9kdu"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.GlSD7IARuoODjDhv",
+			"origin": "Item.Aglvuw21G3jb85Il",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -221,34 +318,24 @@
 			"transfer": false,
 			"name": "Held",
 			"_id": "zKv09PTWNhMQuf3L",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"paralyzed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p>",
 			"statuses": [
 				"paralyzed"
 			],
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752634
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793807632469,
+				"createdTime": 1793807632451
 			},
 			"img": "icons/magic/control/debuff-chains-blue.webp",
 			"type": "base",
@@ -267,18 +354,20 @@
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793807632451,
+		"modifiedTime": 1793807653997,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Aglvuw21G3jb85Il"
 }

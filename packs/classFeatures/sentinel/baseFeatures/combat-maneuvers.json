@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,7 +50,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "qZYLoCfRiwCU3wTT",
 				"label": "Combat Traditions",
 				"keys": {
 					"base": [],
@@ -60,17 +64,67 @@
 				},
 				"proficiencyType": "tradition",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "",
+				"name": "Combat Maneuvers",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"tradition:adamantMountain",
+									"tradition:arcaneKnight",
+									"tradition:eldritchBlackguard",
+									"tradition:eldritchBlackguardMartialArtistry",
+									"tradition:sanguineKnot",
+									"tradition:selflessSentinel"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
 			},
 			"2wSj0URGFx3uyjD7": {
 				"grantType": "exertion",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "2wSj0URGFx3uyjD7",
 				"label": "Exertion Pool",
 				"exertionType": "pool",
-				"poolType": "doubleProf"
+				"poolType": "doubleProf",
+				"id": "",
+				"name": "Combat Maneuvers",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "exertion",
+				"config": {
+					"bonus": "",
+					"exertionType": "pool",
+					"poolType": "doubleProf"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "exertion",
+					"exertionType": "",
+					"bonusId": ""
+				},
+				"bonus": ""
 			}
 		},
 		"prerequisite": "",
@@ -79,18 +133,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793738307970,
+		"modifiedTime": 1793738477250,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "hz4O2Jma2lGyewbk"
 }

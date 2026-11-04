@@ -15,7 +15,95 @@
 		},
 		"secretDescription": "",
 		"source": "martialArtistry",
-		"actions": {},
+		"actions": {
+			"UANJReOCKxKs4dP4": {
+				"name": "Aura of Terror",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 15,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {
+						"DSJ91GvKFCNMqLZv": {
+							"name": "Aura of Terror",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								-1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.hpTjPBb57ppO0L8i.ActiveEffect.YbYhiLxZyRYWkCI6"
+							]
+						}
+					},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [
+					"YbYhiLxZyRYWkCI6"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"5976pS6V3T35KG78": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
+				"rolls": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
@@ -32,7 +120,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -46,18 +139,65 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
-	"effects": [],
+	"effects": [
+		{
+			"name": "Aura of Terror",
+			"img": "icons/magic/death/skull-energy-light-purple.webp",
+			"origin": "Item.hpTjPBb57ppO0L8i",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"_id": "YbYhiLxZyRYWkCI6",
+			"type": "base",
+			"disabled": false,
+			"start": null,
+			"duration": {
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
+			},
+			"description": "<p>Hostile creatures within 15ft of you have disadvantage on saving throws against fear effects. Creatures immune to fear within the area lose their immunity but have advantage on saving throws against fear effects.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"showIcon": 1,
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "14.369",
+				"systemId": "a5e",
+				"systemVersion": "1.4.10",
+				"createdTime": 1793814619481,
+				"modifiedTime": 1793814641023,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
+			}
+		}
+	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793814560960,
+		"modifiedTime": 1793814689945,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "hpTjPBb57ppO0L8i"
 }

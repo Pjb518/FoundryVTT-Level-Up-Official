@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"Z9zNM2mEKST42hHs"
@@ -50,13 +51,20 @@
 				"prompts": {},
 				"ranges": {
 					"74GqPEJX7530iwqx": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -68,8 +76,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"6NZ87Mg2l44UsqeT": {
@@ -89,7 +113,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -104,7 +129,9 @@
 				"prompts": {},
 				"ranges": {
 					"f1CzBRJlYtlm7M6a": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {
@@ -112,13 +139,29 @@
 						"type": "generic",
 						"default": true,
 						"formula": "1d6",
-						"scaling": {},
-						"label": ""
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -130,8 +173,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -151,7 +210,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -165,11 +229,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.vorsVh0jOizAOKIg",
+			"origin": "Item.eUrkVjofi9XQGeTj",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -182,22 +250,33 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.expertiseDice.attack.all",
+						"type": "add",
+						"value": "2",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "flags.a5e.effects.expertiseDice.allSaves",
+						"type": "add",
+						"value": "2",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Blessing",
 			"img": "icons/skills/social/trading-justice-scale-yellow.webp",
 			"_id": "Z9zNM2mEKST42hHs",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Gains a 1d6 expertise die they can use on an attack roll or saving throw within the next minute.</p>",
 			"tint": "#ffffff",
@@ -211,24 +290,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753557
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793804119655,
+				"createdTime": 1793804002243
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793804002243,
+		"modifiedTime": 1793807243906,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "eUrkVjofi9XQGeTj"
 }

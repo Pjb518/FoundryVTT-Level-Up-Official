@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,7 +50,6 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "phhnwo7sQXYnAj6o",
 				"label": "Backstab",
 				"bonus": "(@classResources.backstab)d4",
 				"context": {
@@ -58,28 +62,32 @@
 					"spellLevels": []
 				},
 				"img": "",
-				"damageType": ""
-			},
-			"LRcD5gLeiCAJKDTA": {
-				"grantType": "damage",
-				"level": 7,
-				"levelType": "class",
-				"optional": false,
-				"_id": "phhnwo7sQXYnAj6o",
-				"label": "Derring Do",
-				"bonus": "(@classResources.backstab)d8",
-				"context": {
-					"attackTypes": [
-						"meleeWeaponAttack"
-					],
-					"default": false,
-					"damageTypes": [],
-					"isCritBonus": false,
-					"spellLevels": []
-				},
-				"img": "icons/skills/movement/ball-spinning-blue.webp",
 				"damageType": "",
-				"name": "undefined (Copy)"
+				"id": "",
+				"name": "Backstab",
+				"flags": {},
+				"restriction": "",
+				"type": "damage",
+				"config": {
+					"damageType": "",
+					"bonus": "((@classResources.backstab)d4)",
+					"context": {
+						"attackTypes": [
+							"meleeWeaponAttack"
+						],
+						"damageTypes": [],
+						"isCritBonus": false,
+						"spellLevels": [],
+						"default": false
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -88,18 +96,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793808154520,
+		"modifiedTime": 1793808497158,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "rzxTdkX4Hwz1gKGN"
 }

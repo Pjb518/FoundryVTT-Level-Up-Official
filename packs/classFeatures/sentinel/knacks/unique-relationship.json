@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,71 +50,52 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "a806U15EWe8x2huC",
 				"label": "Unique Relationship",
 				"features": {
 					"total": 1,
 					"options": [
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.5EvaTDZp8Bo8CX7r",
-							"name": "Unique Relationship (Acolyte)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.v0hHjAJQCBIx6sNo",
-							"name": "Unique Relationship (Construct)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.EpJckumVB9fs9Jyc",
-							"name": "Unique Relationship (Cultist)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.8lJV93gsv1elBuL1",
-							"name": "Unique Relationship (Fey)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.KmdXqcd3w2J35qsa",
-							"name": "Unique Relationship (Hedge Wizard)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.FKQQ35tNnxZCLKjP",
-							"name": "Unique Relationship (Hunter)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.pEfwNnbWYlxnyQhk",
-							"name": "Unique Relationship (Mage)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.zY9YZn9JhRRetfen",
-							"name": "Unique Relationship (Scoundrel)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.BbkQWmbQXZhQ2wxJ",
-							"name": "Unique Relationship (Squire)",
-							"img": "icons/magic/control/control-influence-crown-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -118,7 +104,85 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"base": []
+				},
+				"id": "",
+				"name": "Unique Relationship",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.STT7vlxh7Hj7RK0P",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.Vio6ETq60WNrU5RF",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.oPzbGZgRmAHlJxbw",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.Vr9JA4L0Tawfayme",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.nUWuhGvqfkpBI4US",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.7ajAWVcnTPw8Af4O",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.2TZ7pGb72Nw9cRXM",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.qukHhaJjpqIN1xiS",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.usPcn3UKlIFmrdpL",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.uannSaTPzxkl9NUb",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -127,19 +191,23 @@
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
-		"hidden": false,
-		"synergy": ""
+		"hidden": true,
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793813033637,
+		"modifiedTime": 1793813718182,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Yn7JiqK4FDt7UA9R"
 }

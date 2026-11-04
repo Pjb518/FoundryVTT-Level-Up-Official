@@ -822,6 +822,7 @@ const knackTypes = {
 	scholar: 'Scholarly Discovery',
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
+  sentinel: 'Teamwork',
 	sorcerer: 'Arcane Innovation',
 	trooper: 'Drill',
 	warlock: 'Secret of Arcana',

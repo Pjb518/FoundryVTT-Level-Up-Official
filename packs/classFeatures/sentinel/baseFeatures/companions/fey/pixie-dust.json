@@ -41,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"JVa441Hz5DvUly8V"
@@ -62,13 +63,20 @@
 				},
 				"ranges": {
 					"p0X9HHgRH21UCbX4": {
-						"range": "fiveFeet"
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -80,8 +88,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"8AYKOtZA4T6nwUWA": {
@@ -109,7 +133,8 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"zAFtLEqMaVDnPFfI"
@@ -118,13 +143,20 @@
 				"prompts": {},
 				"ranges": {
 					"mvPNyQqbZvSXGOyW": {
-						"range": "fiveFeet"
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 3,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -136,8 +168,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"GN7mpcBKFXU1wrhG": {
@@ -164,18 +212,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
 					"shape": "cube",
 					"quantity": 1,
-					"width": 10,
-					"placeTemplate": true
+					"width": 0,
+					"radius": 0,
+					"height": 0,
+					"length": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [
 					"THQbxOUT1PheBAcy"
@@ -196,13 +246,20 @@
 				},
 				"ranges": {
 					"Gqxgi37UXrGYrgaj": {
-						"range": "fiveFeet"
+						"range": "fiveFeet",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -214,7 +271,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			}
@@ -235,7 +297,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -249,11 +316,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.uGf9TrQO5BeNwSP7",
+			"origin": "Item.zDyXL7pYv9M1lw2e",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -266,29 +337,28 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"charmed"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Charmed",
 			"img": "icons/commodities/materials/powder-black.webp",
 			"_id": "JVa441Hz5DvUly8V",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"charmed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<ul><li><p>A charmed creature can't take any hostile action against the charmer.</p></li><li><p>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</p></li></ul>",
 			"tint": "#ffffff",
@@ -304,16 +374,19 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753574
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793757278124,
+				"createdTime": 1793757258496
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		},
 		{
-			"origin": "Item.uGf9TrQO5BeNwSP7",
+			"origin": "Item.zDyXL7pYv9M1lw2e",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -326,29 +399,26 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.attributes.movement.fly.distance",
+						"type": "override",
+						"value": 30,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Flight",
 			"img": "icons/commodities/materials/powder-black.webp",
 			"_id": "zAFtLEqMaVDnPFfI",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Gain a fly speed of 30ft for up to 1 minute. This effect ends early if they land.</p>",
 			"tint": "#ffffff",
@@ -362,16 +432,19 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753574
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793757296674,
+				"createdTime": 1793757258496
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.uGf9TrQO5BeNwSP7",
+			"origin": "Item.zDyXL7pYv9M1lw2e",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -384,22 +457,29 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"unconscious",
+							"prone"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Sleep",
 			"img": "icons/commodities/materials/powder-black.webp",
 			"_id": "THQbxOUT1PheBAcy",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -413,24 +493,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753574
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793757326060,
+				"createdTime": 1793757258496
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793757258496,
+		"modifiedTime": 1793807243907,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "zDyXL7pYv9M1lw2e"
 }

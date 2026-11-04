@@ -32,18 +32,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
 					"shape": "emanation",
 					"quantity": 1,
-					"radius": 10,
-					"placeTemplate": true
+					"radius": 0,
+					"width": 0,
+					"height": 0,
+					"length": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"vbZajYBXjxku8ODJ"
@@ -65,7 +67,9 @@
 				},
 				"ranges": {
 					"KGnzEoSFsd6BxLvc": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {
@@ -76,13 +80,29 @@
 						"critBonus": "",
 						"damageType": "thunder",
 						"formula": "3d6",
-						"scaling": {},
-						"label": ""
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -94,7 +114,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			}
@@ -115,7 +140,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -129,11 +159,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.rRWGjkCYrGsM1D7a",
+			"origin": "Item.SEayJEaFFpGdjegb",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -146,29 +180,28 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"poisoned"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Poisoned",
 			"img": "icons/magic/death/skull-fire-white-yellow.webp",
 			"_id": "vbZajYBXjxku8ODJ",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
 			"tint": "#ffffff",
@@ -184,24 +217,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753545
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793812045621,
+				"createdTime": 1793812028401
 			},
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793812028401,
+		"modifiedTime": 1793812050776,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "SEayJEaFFpGdjegb"
 }

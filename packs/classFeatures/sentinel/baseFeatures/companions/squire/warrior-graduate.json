@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,30 +45,11 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"ndSFS458vZEUrYPW": {
-				"grantType": "proficiency",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "ndSFS458vZEUrYPW",
-				"label": "Armor Proficiency",
-				"keys": {
-					"base": [
-						"heavy"
-					],
-					"options": [],
-					"total": 0
-				},
-				"img": "",
-				"proficiencyType": "armor",
-				"isExpertise": false
-			},
 			"rSsOTZAOcDairBrn": {
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "rSsOTZAOcDairBrn",
 				"label": "Weapon Proficiencies",
 				"keys": {
 					"base": [
@@ -132,16 +118,120 @@
 				},
 				"proficiencyType": "weapon",
 				"img": "",
-				"isExpertise": false
+				"isExpertise": false,
+				"id": "",
+				"name": "Warrior Graduate",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"armor:heavy",
+							"weapon:bastardSword",
+							"weapon:battleaxe",
+							"weapon:battleGauntlet",
+							"weapon:bioChakram",
+							"weapon:brassKnuckles",
+							"weapon:combatChainsaw",
+							"weapon:combatKnife",
+							"weapon:compositeBow",
+							"weapon:dart",
+							"weapon:duelingDagger",
+							"weapon:duelingSword",
+							"weapon:electroHalberd",
+							"weapon:energyCrossbow",
+							"weapon:flail",
+							"weapon:flameBracer",
+							"weapon:flamethrower",
+							"weapon:garotte",
+							"weapon:glaive",
+							"weapon:greataxe",
+							"weapon:greatsword",
+							"weapon:grenadeLauncher",
+							"weapon:halberd",
+							"weapon:handCrossbow",
+							"weapon:hypodermicPistol",
+							"weapon:ionCannon",
+							"weapon:javelin",
+							"weapon:lance",
+							"weapon:lightHammer",
+							"weapon:longbow",
+							"weapon:longspear",
+							"weapon:longsword",
+							"weapon:maul",
+							"weapon:monoWhip",
+							"weapon:morningstar",
+							"weapon:net",
+							"weapon:netcaster",
+							"weapon:pike",
+							"weapon:plasmaSword",
+							"weapon:polaronGatlingGun",
+							"weapon:pulseRifle",
+							"weapon:punchingDagger",
+							"weapon:rapier",
+							"weapon:saber",
+							"weapon:scimitar",
+							"weapon:scythe",
+							"weapon:shortbow",
+							"weapon:shortsword",
+							"weapon:shotgun",
+							"weapon:slugRifle",
+							"weapon:sniperRifle",
+							"weapon:spearThrower",
+							"weapon:throwingDagger",
+							"weapon:tkGauntlet",
+							"weapon:trident",
+							"weapon:vibroknife",
+							"weapon:viperRetainer",
+							"weapon:warhammer",
+							"weapon:warPick",
+							"weapon:whip"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
 			},
 			"n2bcTuk3P1aOTVpp": {
 				"grantType": "hitPoint",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "n2bcTuk3P1aOTVpp",
 				"label": "Warrior Graduate",
-				"bonus": "20"
+				"bonus": "20",
+				"id": "",
+				"name": "Warrior Graduate",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "hitPoint",
+				"config": {
+					"bonus": "20",
+					"context": {
+						"perLevel": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				},
+				"context": {
+					"perLevel": false,
+					"default": true
+				}
 			}
 		},
 		"prerequisite": "",
@@ -150,18 +240,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793810556022,
+		"modifiedTime": 1793810594456,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Dnp1IwUHU2bIyRth"
 }
