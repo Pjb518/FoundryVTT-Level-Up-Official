@@ -22,7 +22,7 @@ export const schema = () => ({
 class ThemeSettings extends SvelteApplicationMixin(foundry.applications.api.ApplicationV2) {
 	/** Variable mappings */
 	static VAR_MAPPINGS = {
-		primaryColor: '--a5e-color-primary',
+		primaryColor: '--a5e-color-primary-base',
 	};
 
 	VAR_MAPPINGS = ThemeSettings.VAR_MAPPINGS;

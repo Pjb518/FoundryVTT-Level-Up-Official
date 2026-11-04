@@ -2,57 +2,92 @@
   /* ----------------------------------
       Primary Color
   ------------------------------------ */
-  --a5e-color-primary: hsl(190, 21%, 33%);
+  --a5e-color-primary-base: oklch(46.793% 0.0365 211.469);
 
   /* Primary Color Scale */
-  --a5e-color-primary-50: color-mix(in srgb, var(--a5e-color-primary), white 95%);
-  --a5e-color-primary-100: color-mix(in srgb, var(--a5e-color-primary), white 90%);
-  --a5e-color-primary-200: color-mix(in srgb, var(--a5e-color-primary), white 75%);
-  --a5e-color-primary-300: color-mix(in srgb, var(--a5e-color-primary), white 55%);
-  --a5e-color-primary-400: color-mix(in srgb, var(--a5e-color-primary), white 25%);
-
-  --a5e-color-primary-500: var(--a5e-color-primary);
-
-  --a5e-color-primary-600: color-mix(in srgb, var(--a5e-color-primary), black 12%);
-  --a5e-color-primary-700: color-mix(in srgb, var(--a5e-color-primary), black 25%);
-  --a5e-color-primary-800: color-mix(in srgb, var(--a5e-color-primary), black 40%);
-  --a5e-color-primary-900: color-mix(in srgb, var(--a5e-color-primary), black 55%);
+  --a5e-color-primary-50: oklch(from var(--a5e-color-primary-base) 0.985 0.007 h);
+  --a5e-color-primary-100: oklch(from var(--a5e-color-primary-base) 0.95847 0.013 h);
+  --a5e-color-primary-200: oklch(from var(--a5e-color-primary-base) 0.9054 0.022 h);
+  --a5e-color-primary-300: oklch(from var(--a5e-color-primary-base) 0.82049 0.031 h);
+  --a5e-color-primary-400: oklch(from var(--a5e-color-primary-base) 0.70374 0.037 h);
+  --a5e-color-primary-500: oklch(from var(--a5e-color-primary-base) 0.57638 0.039 h);
+  --a5e-color-primary-600: oklch(from var(--a5e-color-primary-base) 0.48085 0.039 h);
+  --a5e-color-primary-700: oklch(from var(--a5e-color-primary-base) 0.40792 0.036 h);
+  --a5e-color-primary-800: oklch(from var(--a5e-color-primary-base) 0.32587 0.033 h);
+  --a5e-color-primary-900: oklch(from var(--a5e-color-primary-base) 0.25293 0.027 h);
+  --a5e-color-primary-950: oklch(from var(--a5e-color-primary-base) 0.18 0.022 h);
 
   /* ----------------------------------
       Neutrals
   ------------------------------------ */
   /* Light: barely-there tint */
   --a5e-color-neutral-0: oklch(1 0 0);
-  --a5e-color-neutral-50: oklch(from var(--a5e-color-primary) 0.985 0.003 h);
-  --a5e-color-neutral-100: oklch(from var(--a5e-color-primary) 0.97 0.004 h);
-  --a5e-color-neutral-200: oklch(from var(--a5e-color-primary) 0.922 0.006 h);
-  --a5e-color-neutral-300: oklch(from var(--a5e-color-primary) 0.87 0.008 h);
+  --a5e-color-neutral-50: oklch(from var(--a5e-color-primary-base) 0.985 0.002 h);
+  --a5e-color-neutral-100: oklch(from var(--a5e-color-primary-base) 0.96 0.004 h);
+  --a5e-color-neutral-200: oklch(from var(--a5e-color-primary-base) 0.91 0.007 h);
+  --a5e-color-neutral-300: oklch(from var(--a5e-color-primary-base) 0.83 0.01 h);
 
   /* Mid */
-  --a5e-color-neutral-400: oklch(from var(--a5e-color-primary) 0.708 0.01 h);
-  --a5e-color-neutral-500: oklch(from var(--a5e-color-primary) 0.556 0.012 h);
+  --a5e-color-neutral-400: oklch(from var(--a5e-color-primary-base) 0.72 0.011 h);
+  --a5e-color-neutral-500: oklch(from var(--a5e-color-primary-base) 0.6 0.012 h);
 
   /* Dark */
-  --a5e-color-neutral-600: oklch(from var(--a5e-color-primary) 0.444 0.012 h);
-  --a5e-color-neutral-700: oklch(from var(--a5e-color-primary) 0.371 0.012 h);
-  --a5e-color-neutral-800: oklch(from var(--a5e-color-primary) 0.269 0.01 h);
-  --a5e-color-neutral-900: oklch(from var(--a5e-color-primary) 0.205 0.008 h);
-  --a5e-color-neutral-950: oklch(from var(--a5e-color-primary) 0.145 0.006 h);
+  --a5e-color-neutral-600: oklch(from var(--a5e-color-primary-base) 0.51 0.012 h);
+  --a5e-color-neutral-700: oklch(from var(--a5e-color-primary-base) 0.43 0.011 h);
+  --a5e-color-neutral-800: oklch(from var(--a5e-color-primary-base) 0.34 0.01 h);
+  --a5e-color-neutral-900: oklch(from var(--a5e-color-primary-base) 0.26 0.008 h);
+  --a5e-color-neutral-950: oklch(from var(--a5e-color-primary-base) 0.18 0.007 h);
 
   /* ----------------------------------
       Status Color Tokens
   ------------------------------------ */
-  --a5e-color-danger: #c83f49;
-  --a5e-color-danger-emphasis: #a92d38;
+  --a5e-color-danger-50: oklch(98.425% 0.008 27.227);
+  --a5e-color-danger-100: oklch(96.175% 0.019 29.545);
+  --a5e-color-danger-200: oklch(91.372% 0.044 26.584);
+  --a5e-color-danger-300: oklch(83.83% 0.089 26.757);
+  --a5e-color-danger-400: oklch(73.395% 0.163 27.063);
+  --a5e-color-danger-500: oklch(62.061% 0.21 27.096);
+  --a5e-color-danger-600: oklch(52.677% 0.211 27.03);
+  --a5e-color-danger-700: oklch(44.181% 0.18 27.169);
+  --a5e-color-danger-800: oklch(34.725% 0.142 26.993);
+  --a5e-color-danger-900: oklch(26.431% 0.108 27.055);
+  --a5e-color-danger-950: oklch(17.928% 0.073 26.91);
 
-  --a5e-color-warning: #c78a22;
-  --a5e-color-warning-emphasis: #986615;
+  --a5e-color-warning-50: oklch(98.456% 0.012 75.369);
+  --a5e-color-warning-100: oklch(95.179% 0.039 74.803);
+  --a5e-color-warning-200: oklch(88.63% 0.096 75.179);
+  --a5e-color-warning-300: oklch(77.982% 0.16 74.975);
+  --a5e-color-warning-400: oklch(67.866% 0.143 75.378);
+  --a5e-color-warning-500: oklch(56.837% 0.12 75.427);
+  --a5e-color-warning-600: oklch(48.468% 0.102 75.115);
+  --a5e-color-warning-700: oklch(41.043% 0.087 74.062);
+  --a5e-color-warning-800: oklch(32.834% 0.069 75.675);
+  --a5e-color-warning-900: oklch(25.323% 0.053 75.297);
+  --a5e-color-warning-950: oklch(18.059% 0.038 76.551);
 
-  --a5e-color-success: #27845b;
-  --a5e-color-success-emphasis: #1c6846;
+  --a5e-color-success-50: oklch(98.465% 0.024 151.199);
+  --a5e-color-success-100: oklch(96.3% 0.054 151.683);
+  --a5e-color-success-200: oklch(91.911% 0.094 152.238);
+  --a5e-color-success-300: oklch(84.917% 0.136 152.015);
+  --a5e-color-success-400: oklch(75.47% 0.163 151.976);
+  --a5e-color-success-500: oklch(64.916% 0.171 151.998);
+  --a5e-color-success-600: oklch(54.893% 0.144 152.032);
+  --a5e-color-success-700: oklch(45.927% 0.12 152.189);
+  --a5e-color-success-800: oklch(35.83% 0.094 151.978);
+  --a5e-color-success-900: oklch(27.082% 0.071 152.117);
+  --a5e-color-success-950: oklch(17.932% 0.047 152.631);
 
-  --a5e-color-info: #3478c5;
-  --a5e-color-info-emphasis: #245da0;
+  --a5e-color-info-50: oklch(98.546% 0.008 241.661);
+  --a5e-color-info-100: oklch(96.142% 0.02 245.636);
+  --a5e-color-info-200: oklch(91.308% 0.045 246.245);
+  --a5e-color-info-300: oklch(83.702% 0.087 245.36);
+  --a5e-color-info-400: oklch(73.222% 0.148 245.373);
+  --a5e-color-info-500: oklch(61.908% 0.157 245.302);
+  --a5e-color-info-600: oklch(52.409% 0.133 245.395);
+  --a5e-color-info-700: oklch(44.171% 0.112 245.243);
+  --a5e-color-info-800: oklch(34.79% 0.088 245.018);
+  --a5e-color-info-900: oklch(26.388% 0.067 245.403);
+  --a5e-color-info-950: oklch(18.032% 0.045 244.777);
 
   /* ----------------------------------
       Gameplay Color Tokens
@@ -62,18 +97,12 @@
 
 
   /* ----------------------------------
-      Scrollbar
-  ------------------------------------ */
-  --a5e-scrollbar-track: transparent;
-  --a5e-scrollbar-thumb: var(--a5e-color-primary);
-  --a5e-scrollbar-thumb-hover: var(--a5e-color-primary-hover);
-  --a5e-scrollbar-thumb-active: var(--a5e-color-primary-active);
-
-  /* ----------------------------------
       Semantic Color Tokens
   ------------------------------------ */
   /* This is fallback*/
   --a5e-color-primary-text: white;
-  --a5e-color-primary-text: color-contrast(var(--a5e-color-primary) vs white, black);
-
+  --a5e-color-primary-text: color-contrast(
+    var(--a5e-color-primary) vs white,
+    black
+  );
 }
