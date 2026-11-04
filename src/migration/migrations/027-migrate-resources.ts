@@ -203,8 +203,7 @@ export class Migration027MigrateResources extends MigrationBase {
 				applied: {
 					isApplied: true,
 					grantType: 'resource',
-					slug:
-						resource.slug || 'game' in globalThis ? resource.name.slugify({ strict: true }) : '',
+					slug: resource.slug || resource.name?.slugify?.({ strict: true }) || '',
 					level: 1,
 				},
 				levelType: 'class',
