@@ -150,8 +150,11 @@ export class Migration027MigrateResources extends MigrationBase {
 
 				// Delete class Identifier
 				if (!('game' in globalThis)) {
-					// @ts-expect-error
-					delete item.system.actions[actionId].consumers[consumerId].classIdentifier;
+					foundry.utils.setProperty(
+						item.system.actions,
+						`${actionId}.consumers.${consumerId}.-=classIdentifier`,
+						null,
+					);
 				}
 			});
 
