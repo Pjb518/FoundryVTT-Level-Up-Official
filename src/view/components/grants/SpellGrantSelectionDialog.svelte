@@ -36,11 +36,9 @@
   }
 
   function getSpellBookOptions() {
-    const spellBooks = Object.entries(actor.system.spellBooks ?? {}).map(
-      ([id, sb]) => {
-        return [id, sb.name];
-      },
-    );
+    const spellBooks = Object.entries(actor.system.spellBooks ?? {}).map(([id, sb]) => {
+      return [id, sb.name];
+    });
 
     spellBooks.unshift(["new", "Create New Spell Book"]);
     return spellBooks as string[][];
@@ -121,9 +119,7 @@
   const { filters } = constructFilters(filtersSelections, "spell");
 
   let selected = $derived([...new Set(base.concat(preSelected))]);
-  let totalCount = $derived(
-    selectionType === "limited" ? base.length + count : count,
-  );
+  let totalCount = $derived(selectionType === "limited" ? base.length + count : count);
   let remainingSelections = $derived(totalCount - selected.length);
   let summary = $derived(getGrantSummary(selected));
 </script>
@@ -131,13 +127,15 @@
 <Section heading="Spell Grant - {grant.name}" --a5e-section-body-gap="0.75rem">
   <FieldWrapper
     heading="Spell Selection"
-    buttons={[
-      {
-        htmlString: '<i class="fa-solid fa-books"></i>',
-        tooltip: "Open Compendium Browser",
-        handler: () => openBrowser(),
-      },
-    ]}
+    buttons={selectionType !== "limited"
+      ? [
+          {
+            htmlString: '<i class="fa-solid fa-books"></i>',
+            tooltip: "Open Compendium Browser",
+            handler: () => openBrowser(),
+          },
+        ]
+      : []}
     warning={remainingSelections === 1
       ? "1 choice remaining"
       : `${remainingSelections} choices remaining.`}

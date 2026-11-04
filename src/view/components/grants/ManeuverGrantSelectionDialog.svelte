@@ -90,29 +90,24 @@
   const filtersSelections = grant.config.pool.filters;
   const { filters } = constructFilters(filtersSelections, "maneuver");
 
-  let selected = $derived([
-    ...new Set(base.map((o) => o.uuid).concat(preSelected)),
-  ]);
-  let totalCount = $derived(
-    selectionType === "limited" ? base.length + count : count,
-  );
+  let selected = $derived([...new Set(base.map((o) => o.uuid).concat(preSelected))]);
+  let totalCount = $derived(selectionType === "limited" ? base.length + count : count);
   let remainingSelections = $derived(totalCount - selected.length);
   let summary = $derived(getGrantSummary(selected));
 </script>
 
-<Section
-  heading="Maneuver Grant - {grant.name}"
-  --a5e-section-body-gap="0.75rem"
->
+<Section heading="Maneuver Grant - {grant.name}" --a5e-section-body-gap="0.75rem">
   <FieldWrapper
     heading="Maneuver Selection"
-    buttons={[
-      {
-        htmlString: '<i class="fa-solid fa-books"></i>',
-        tooltip: "Open Compendium Browser",
-        handler: () => openBrowser(),
-      },
-    ]}
+    buttons={selectionType !== "limited"
+      ? [
+          {
+            htmlString: '<i class="fa-solid fa-books"></i>',
+            tooltip: "Open Compendium Browser",
+            handler: () => openBrowser(),
+          },
+        ]
+      : []}
     warning={remainingSelections === 1
       ? "1 choice remaining"
       : `${remainingSelections} choices remaining.`}

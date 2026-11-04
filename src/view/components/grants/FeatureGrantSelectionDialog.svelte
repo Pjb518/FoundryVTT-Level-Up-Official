@@ -49,8 +49,7 @@
         }
 
         const takenCount = grantIds.length;
-        if (!data.limitedReselection || data.selectionLimit > takenCount)
-          return;
+        if (!data.limitedReselection || data.selectionLimit > takenCount) return;
 
         selections.push(docId);
       },
@@ -172,9 +171,7 @@
   let selectedOptions = $derived([
     ...new Set(base.map((o) => o.uuid).concat(preSelected)),
   ]);
-  let totalCount = $derived(
-    selectionType === "limited" ? base.length + count : count,
-  );
+  let totalCount = $derived(selectionType === "limited" ? base.length + count : count);
   let remainingSelections = $derived(totalCount - selectedOptions.length);
   let summary = $derived(getGrantSummary(selectedOptions));
 </script>
@@ -185,17 +182,23 @@
     {
       classes: "add-button",
       handler: () => (choicesLocked = !choicesLocked),
-      htmlString: `<i class="icon fa-solid ${
-        choicesLocked ? "fa-plus" : "fa-minus"
-      }" />`,
-      tooltip: choicesLocked
-        ? "Locked to Grant Options"
-        : "Free Selection Mode",
+      htmlString: `<i class="icon fa-solid ${choicesLocked ? "fa-plus" : "fa-minus"}" />`,
+      tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
     },
   ]}
   --a5e-section-body-gap="0.75rem"
 >
   <FieldWrapper
+    heading="Feature Selection"
+    buttons={selectionType !== "limited"
+      ? [
+          {
+            htmlString: '<i class="fa-solid fa-books"></i>',
+            tooltip: "Open Compendium Browser",
+            handler: () => openBrowser(),
+          },
+        ]
+      : []}
     warning={remainingSelections === 1
       ? `1 choice remaining`
       : `${remainingSelections} choices remaining.`}

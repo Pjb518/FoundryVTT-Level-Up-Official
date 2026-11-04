@@ -250,17 +250,6 @@ class A5ECharacterData extends foundry.abstract.TypeDataModel<
 	override prepareBaseData() {
 		super.prepareBaseData();
 	}
-
-	static override migrateData(data) {
-		data.resources = Object.fromEntries(
-			Object.entries(data.resources).map(([id, r]) => {
-				// r.type ??= 'uses';
-				return [id, r];
-			}),
-		);
-
-		return data;
-	}
 }
 
 // eslint-disable-next-line import/prefer-default-export
