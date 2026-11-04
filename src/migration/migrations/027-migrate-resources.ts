@@ -133,7 +133,7 @@ export class Migration027MigrateResources extends MigrationBase {
 				const slug = consumer.classIdentifier?.replaceAll('@classResources.', '');
 
 				const newConsumer = {
-					default: consumer.default,
+					default: consumer.default ?? true,
 					label: consumer.label,
 					id: consumer.id,
 					resource: consumer.resource === 'classResource' ? 'namedResource' : consumer.resource,
@@ -147,6 +147,12 @@ export class Migration027MigrateResources extends MigrationBase {
 					`actions.${actionId}.consumers.${consumerId}`,
 					newConsumer,
 				);
+
+				// Delete class Identifier
+				if (!('game' in globalThis)) {
+					// @ts-expect-error
+					delete item.system.actions[actionId].consumers[consumerId].classIdentifier;
+				}
 			});
 
 			// Update damage, healing, and generic roll formulas
