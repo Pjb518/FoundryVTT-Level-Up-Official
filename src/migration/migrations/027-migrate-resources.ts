@@ -111,6 +111,20 @@ export class Migration027MigrateResources extends MigrationBase {
 		}
 	}
 
+	override async updateEffect(source: ActiveEffect, parent?: any): Promise<void> {
+		const changes = source.system?.changes ?? [];
+
+		changes.forEach((change) => {
+			if (typeof change.value === 'string') {
+				change.value = this.#replaceFormula(change.value);
+				// @ts-expect-error
+			} else if (typeof change.value === 'object' && change.value?.formula) {
+				// @ts-expect-error
+				change.value.formula = this.#replaceFormula(change.value.formula);
+			}
+		});
+	}
+
 	#updateActionItem(item: ActionItem) {
 		// Update AC Data
 		// @ts-expect-error
