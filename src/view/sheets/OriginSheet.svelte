@@ -49,13 +49,13 @@
         display: item.type === "destiny",
       },
       // Resources
-      {
+      /*   {
         name: "resources",
         label: "A5E.tabs.resources",
         icon: "fa-solid fa-dice-d20",
         component: OriginResourcesPage,
         display: ["archetype", "class"].includes(item.type),
-      },
+      } */
       // Grants
       {
         name: "grants",

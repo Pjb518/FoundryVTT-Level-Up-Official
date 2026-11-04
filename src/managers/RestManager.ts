@@ -210,11 +210,8 @@ class RestManager {
 				if (r.type === 'uses') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
 			}
 
-			console.log(slug, r, data);
 			Object.assign(this.#updates.actor, data);
 		});
-
-		console.log(this.#updates.actor);
 	}
 
 	#restoreHitDice() {
@@ -423,18 +420,17 @@ class RestManager {
 		});
 
 		// Recharge resources
-		const resources = ['primary', 'secondary', 'tertiary', 'quaternary'];
+		Object.entries(actor.system.resources ?? {}).forEach(([, r]) => {
+			if (r.per !== duration) return;
 
-		Object.entries(actor.system.resources ?? {}).forEach(([slug, r]) => {
-			if (r.per !== duration || !r.max) return;
+			// Don't reset item types
+			if (r.type === 'item') return;
+			if (!r.type) return;
 
-			const max = getDeterministicBonus(r.max, actor.getRollData());
+			// @ts-expect-error
+			const { data } = r.resetResource(false);
 
-			if (resources.includes(slug)) {
-				actorUpdates[`system.resources.${slug}.value`] = max;
-			} else {
-				actorUpdates[`system.resources.classResources.${slug}`] = max;
-			}
+			Object.assign(actorUpdates, data);
 		});
 
 		await actor.update(actorUpdates);

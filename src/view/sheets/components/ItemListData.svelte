@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import type { Action } from "types/action.d.ts";
-  import { formulaIsClassResource } from "#utils/formulaIsClassResource.ts";
+  import { formulaIsNamedResource } from "#utils/formulaIsNamedResource.ts";
   import { localize } from "#utils/localization/localize.ts";
   import updateDocumentDataFromField from "#utils/updateDocumentDataFromField.ts";
   import { weightRequired } from "#utils/view/weightRequired.ts";
@@ -152,7 +152,7 @@
     event.preventDefault();
 
     const { target } = event;
-    if (isClassResource) {
+    if (isNamedResource) {
       updateDocumentDataFromField(actor, target.name, Number(target.value));
     } else {
       updateDocumentDataFromField(item, target.name, Number(target.value));
@@ -210,20 +210,18 @@
 
     if (!maxFormula) return usesData;
 
-    if (isClassResource) {
-      const reg = new RegExp(/@classResources.(\S+)/gm);
+    if (isNamedResource) {
+      const reg = new RegExp(/@resource.(\S+)/gm);
       const slug = reg.exec(maxFormula)?.[1];
 
       if (!slug) return usesData;
 
       const resource =
-        foundry.utils.getProperty(
-          actor._source,
-          `system.resources.classResources.${slug}`,
-        ) ?? getDeterministicBonus(maxFormula, actor.getRollData(item));
+        foundry.utils.getProperty(actor._source, `system.resources.${slug}`) ??
+        getDeterministicBonus(maxFormula, actor.getRollData(item));
 
       usesData[usesType].value = resource;
-      usesData[usesType].updatePath = `system.resources.classResources.${slug}`;
+      usesData[usesType].updatePath = `system.resources.${slug}`;
     }
 
     return usesData;
@@ -251,7 +249,7 @@
     false) as boolean;
 
   let flags = $derived(actor.reactive.flags);
-  let isClassResource = $derived.by(() => {
+  let isNamedResource = $derived.by(() => {
     const maxFormula =
       usesType === "action" && action
         ? (action.uses?.max ?? "")
@@ -259,7 +257,7 @@
 
     if (!maxFormula) return false;
 
-    return formulaIsClassResource(maxFormula);
+    return formulaIsNamedResource(maxFormula);
   });
 
   let uses = $derived(generateUsesConfig());
@@ -688,7 +686,7 @@
       class="number-input"
       id="{actor.id}-{item.id}-current-uses"
       type="number"
-      name={isClassResource
+      name={isNamedResource
         ? `${uses[usesType].updatePath}`
         : `${uses[usesType].updatePath}.value`}
       value={uses[usesType].value}
