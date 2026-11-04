@@ -1533,6 +1533,17 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	prepareResources(this: Actor.OfType<'character'>) {
 		const grants = this.grants?.byType('resource') ?? [];
 
+		const PRIORITY = {
+			class: 0,
+			archetype: 1,
+			feature: 2,
+		};
+
+		// Sort these based on priority
+		grants.sort((a, b) => {
+			return (PRIORITY[a.item?.type] ?? 0) - (PRIORITY[b.item?.type] ?? 0);
+		});
+
 		const resources = this._source.system.resources;
 
 		grants.forEach((grant) => {
