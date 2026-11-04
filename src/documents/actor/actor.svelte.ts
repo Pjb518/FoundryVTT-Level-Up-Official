@@ -2135,6 +2135,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			data.spellDC = this.system.attributes.spellDC;
 		}
 
+		// Inject Resources
+		Object.entries(this.system.resources ?? {}).forEach(([slug, resource]) => {
+			data.resource ??= {};
+			data.resource[slug] = resource;
+		});
+
 		// Call Sub Modules Here becuase target needs to go last
 		if (this.type === 'character') this.getCharRollData(data, item);
 
@@ -2168,18 +2174,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	) {
 		data.level = this.levels?.character ?? data.level ?? this.system.details.level;
 
-		const resources = {};
-
 		data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
 			const classData = cls.getRollData()?.actorTransfer ?? {};
 			acc[slug] = classData;
 
-			Object.assign(resources, classData.resources);
-
 			return acc;
 		}, {});
-
-		data.classResources = resources;
 
 		return data;
 	}
