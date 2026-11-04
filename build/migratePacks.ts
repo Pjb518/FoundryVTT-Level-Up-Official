@@ -21,6 +21,7 @@ globalThis.foundry = {
 		mergeObject: utils.mergeObject,
 		objectsEqual: utils.objectsEqual,
 		setProperty: utils.setProperty,
+		randomID: utils.randomId,
 	},
 };
 
