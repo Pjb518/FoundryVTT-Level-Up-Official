@@ -140,7 +140,7 @@ export class Migration027MigrateResources extends MigrationBase {
 
 		Object.entries(item.system.actions ?? {}).forEach(([actionId, action]) => {
 			// Update max uses
-			if (action.uses.max.length > 0) {
+			if (action.uses?.max?.length > 0) {
 				foundry.utils.setProperty(
 					item.system.actions,
 					`${actionId}.uses.max`,
