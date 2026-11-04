@@ -168,6 +168,12 @@ export class Migration027MigrateResources extends MigrationBase {
 						`actions.${actionId}.rolls.${rollId}.formula`,
 						updated,
 					);
+				} else if (roll.bonus?.length) {
+					foundry.utils.setProperty(
+						item.system,
+						`actions.${actionId}.rolls.${rollId}.bonus`,
+						this.#replaceFormula(roll.bonus),
+					);
 				}
 			});
 		});
