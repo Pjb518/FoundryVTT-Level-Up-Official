@@ -164,7 +164,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    overflow-y: auto;
+
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .currency {
@@ -205,6 +208,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.275rem;
+    overflow-y: auto;
   }
 
   .a5e-document-list {
