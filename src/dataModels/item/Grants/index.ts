@@ -13,6 +13,7 @@ import { ItemGrant } from './ItemGrant.ts';
 import { ManeuverGrant } from './ManeuverGrant.ts';
 import { MovementGrant } from './MovementGrant.ts';
 import { ProficiencyGrant } from './ProficiencyGrant.ts';
+import { ResourceGrant } from './ResourceGrants.ts';
 import { RollOverrideGrant } from './RollOverrideGrant.ts';
 import { SensesGrant } from './SensesGrant.ts';
 import { SettingsGrant } from './SettingsGrant.ts';
@@ -36,6 +37,7 @@ export default {
 	item: ItemGrant,
 	maneuver: ManeuverGrant,
 	movement: MovementGrant,
+	resource: ResourceGrant,
 	proficiency: ProficiencyGrant,
 	rollOverride: RollOverrideGrant,
 	senses: SensesGrant,
@@ -61,6 +63,7 @@ export const ITEM_GRANT_TYPES = {
 	maneuver: ManeuverGrant,
 	movement: MovementGrant,
 	proficiency: ProficiencyGrant,
+	resource: ResourceGrant,
 	rollOverride: RollOverrideGrant,
 	senses: SensesGrant,
 	settings: SettingsGrant,

@@ -14,6 +14,7 @@ export default function registerGrantsConfig(config: Record<string, any>) {
 		maneuver: 'A5E.grants.headings.maneuver',
 		movement: 'A5E.grants.headings.movement',
 		proficiency: 'A5E.grants.headings.proficiency',
+		resource: 'A5E.grants.headings.resource',
 		rollOverride: 'A5E.grants.headings.rollOverride',
 		senses: 'A5E.grants.headings.senses',
 		settings: 'A5E.grants.headings.settings',

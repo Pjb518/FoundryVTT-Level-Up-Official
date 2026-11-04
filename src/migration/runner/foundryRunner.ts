@@ -16,12 +16,34 @@ interface MigrateOptions {
 }
 
 class MigrationRunnerFoundry extends MigrationRunnerBase {
+	/** Raw source data for the world */
 	#sourceData: any;
 
+	/** Failures for last run migration. */
+	static lastRunFailures = new Map<string, string>();
+
+	/** Check if the world needs to be migrated */
 	override needsMigration(): boolean {
 		return super.needsMigration(game.settings.get('a5e', 'worldSchemaVersion') as number);
 	}
 
+	/** Get schema version of a compendium entry */
+	static schemaVersionFromIndex(entry: any): number {
+		const system = entry.system;
+		return Number(system.migrationData?.version);
+	}
+
+	/** Flatten an error and its cause into a single human-readable message */
+	static #flattenError(error: unknown): string {
+		const parts: string[] = [];
+		for (let current: unknown = error; current instanceof Error; current = current.cause) {
+			parts.push(current.message);
+		}
+
+		return parts.length > 0 ? parts.join(': ') : String(error);
+	}
+
+	/** Ensure that an actor or item reflects the current data schema before it is created */
 	static async ensureSchemaVersion(document: any, migrations: MigrationBase[]): Promise<void> {
 		if (migrations.length === 0) return;
 		const currentVersion = MigrationRunnerFoundry.LATEST_MIGRATION_VERSION;
@@ -70,29 +92,19 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		}
 	}
 
+	/** Migrate documents in batches */
 	async #migrateDocuments(
 		collection: any,
 		migrations: MigrationBase[],
 		options?: MigrateOptions,
 	): Promise<void> {
-		const { documentClass } = collection;
 		const pack = 'metadata' in collection ? collection.metadata.id : null;
 		const updateGroup: any[] = [];
 		const { fromSourceData, packData } = options ?? {};
 
 		for (const document of collection.contents) {
-			if (updateGroup.length === 50) {
-				try {
-					await documentClass.updateDocuments(updateGroup, {
-						noHook: true,
-						pack,
-					});
-				} catch (e) {
-					console.error(e);
-				} finally {
-					// TODO: Update progress bar
-					updateGroup.length = 0;
-				}
+			if (updateGroup.length === 100) {
+				await this.#saveUpdateGroup(collection, updateGroup, pack);
 			}
 
 			const updated =
@@ -112,16 +124,63 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		}
 
 		if (updateGroup.length > 0) {
-			try {
-				await documentClass.updateDocuments(updateGroup, {
-					noHook: true,
-					pack,
-				});
-			} catch (e) {
-				// TODO: Update progress bar
-				console.warn(e);
+			await this.#saveUpdateGroup(collection, updateGroup, pack);
+		}
+	}
+
+	/** Save a batch, retrying one-by-one on failure so a single rejected document doesn't sink the batch, and
+	 *  recording each rejection reason. */
+	async #saveUpdateGroup(
+		collection: any,
+		updateGroup: any,
+		pack: string | null,
+		{ diff = true } = {},
+	) {
+		const { documentClass } = collection;
+		try {
+			await documentClass.updateDocuments(updateGroup, { noHook: true, pack, diff });
+		} catch (batchError) {
+			console.warn(batchError);
+			for (const source of updateGroup) {
+				try {
+					await documentClass.updateDocuments([source], { noHook: true, pack, diff });
+				} catch (err) {
+					console.warn(err);
+					const uuid = collection.get?.(source._id ?? '')?.uuid || source?.uuid || source?._id;
+					if (uuid)
+						MigrationRunnerFoundry.lastRunFailures.set(
+							uuid,
+							MigrationRunnerFoundry.#flattenError(err),
+						);
+				}
+			}
+		} finally {
+			// TODO: Update Progress
+			updateGroup.length = 0;
+		}
+	}
+
+	/**
+	 * Remove special keys from object with side-effects without applying them.
+	 * Sometimes data may be persisted with special keys and not removing them causes issues.
+	 * Remove once https://github.com/foundryvtt/foundryvtt/issues/13201 is complete if it also covers saved documents
+	 */
+	#removeSpecialKeys<T>(data: T) {
+		if (Array.isArray(data)) {
+			for (const value of data) {
+				this.#removeSpecialKeys(value);
+			}
+		} else if (foundry.utils.isPlainObject(data)) {
+			for (const key of Object.keys(data)) {
+				if (key.startsWith('-=')) {
+					delete data[key];
+				} else {
+					this.#removeSpecialKeys(data[key]);
+				}
 			}
 		}
+
+		return data;
 	}
 
 	async #migrateAdventureDocuments(collection: any, migrations: MigrationBase[]): Promise<void> {
@@ -185,6 +244,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			baseActor = foundry.utils.deepClone(actor._source);
 		}
 
+		baseActor = this.#removeSpecialKeys(baseActor);
+
 		const updatedActor = await (async () => {
 			try {
 				return await this.getUpdatedActor(baseActor, migrations);
@@ -193,6 +254,12 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 				if (error instanceof Error) {
 					console.error(`Error thrown while migrating ${actor.uuid}: ${error.message}`);
 				}
+
+				MigrationRunnerFoundry.lastRunFailures.set(
+					actor.uuid,
+					MigrationRunnerFoundry.#flattenError(error),
+				);
+
 				return null;
 			}
 		})();
@@ -263,6 +330,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			baseItem = item._source.toObject();
 		}
 
+		baseItem = this.#removeSpecialKeys(baseItem);
+
 		const updatedItem = await (() => {
 			try {
 				return this.getUpdatedItem(baseItem, migrations);
@@ -270,6 +339,11 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 				if (e instanceof Error) {
 					console.error(`Error thrown while migrating ${item.uuid}: ${e.message}`);
 				}
+
+				MigrationRunnerFoundry.lastRunFailures.set(
+					item.uuid,
+					MigrationRunnerFoundry.#flattenError(e),
+				);
 				return null;
 			}
 		})();
@@ -423,8 +497,36 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		// Migrate Actors
 		await this.#migrateDocuments(game.actors, migrations, options);
 
+		// Migrate invalid actors
+		const invalidActors = [...game.actors.invalidDocumentIds].map((id) => {
+			const a = game.actors.getInvalid(id);
+			// Set these into collection
+			game.actors.set(id, a);
+			return a;
+		});
+
+		if (invalidActors.length) {
+			console.log(`A5E | Attempting to migrate ${invalidActors.length} invalid actor documents.`);
+
+			const col = { documentClass: game.actors.documentClass, contents: invalidActors };
+			await this.#migrateDocuments(col, migrations, options);
+		}
+
 		// Migrate Items
 		await this.#migrateDocuments(game.items, migrations, options);
+
+		// Migrate invalid items
+		const invalidItems = [...game.items.invalidDocumentIds].map((id) => {
+			const i = game.items.getInvalid(id);
+			game.items.set(id, i);
+			return i;
+		});
+		if (invalidItems) {
+			console.log(`A5E | Attempting to migrate ${invalidItems.length} invalid item documents.`);
+
+			const col = { documentClass: game.items.documentClass, contents: invalidItems };
+			await this.#migrateDocuments(col, migrations, options);
+		}
 
 		// Update tiny docs
 		const promises: Promise<unknown>[] = [];
@@ -518,6 +620,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 	}
 
 	async runMigration(force = false): Promise<void> {
+		MigrationRunnerFoundry.lastRunFailures.clear();
 		const migrationVersion = {
 			latest: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
 			current: game.settings.get('a5e', 'worldSchemaVersion') as number,
@@ -525,7 +628,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		const systemVersion = game.system.version;
 
-		ui.notifications.info(localize('A5E.migration.world.starting', { version: systemVersion }));
+		ui.notifications.info(_loc('A5E.migration.world.starting', { version: systemVersion }));
 
 		const migrationsToRun = force
 			? this.migrations
@@ -546,8 +649,12 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			if (phase.length > 0) await this.runMigrations(phase);
 		}
 
+		if (MigrationRunnerFoundry.lastRunFailures.size) {
+			console.error(MigrationRunnerFoundry.lastRunFailures);
+		}
+
 		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);
-		ui.notifications.info(localize('A5E.migration.world.finished', { version: systemVersion }));
+		ui.notifications.info(_loc('A5E.migration.world.finished', { version: systemVersion }));
 	}
 
 	async #getTruePackSource(pack) {
@@ -571,9 +678,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 	}
 
 	async #setupSourceData() {
-		// const socket = await Game.connect(game.sessionId);
 		const socket = game.socket;
-		this.#sourceData = await Game.getData(socket, 'game');
+		this.#sourceData = await foundry.Game.getData(socket, 'game');
 	}
 }
 

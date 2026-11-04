@@ -17,8 +17,6 @@ import type { ActionActivationOptions, ClassCastingData } from './data.ts';
 
 import FDoc = foundry.abstract.Document;
 
-import ClassResourceManager from '#managers/ClassResourceManager.ts';
-
 // *****************************************************************************************
 
 declare module 'fvtt-types/configuration' {
@@ -49,9 +47,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 	/** Manager in charge of grants on an item */
 	declare grants: SubType extends 'feature' ? ItemGrantsManager : null;
-
-	/** Manager in charge of class resources */
-	declare resources: SubType extends 'archetype' | 'class' ? ClassResourceManager : null;
 
 	dialogs: {
 		actions: Record<string, any>;
@@ -597,7 +592,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	/** ---------------------------------- */
 	prepareArchetypeBaseData(this: Item.OfType<'archetype'>) {
 		this.casting = this.prepareCasterData();
-		this.resources = new ClassResourceManager(this);
 	}
 
 	/** ---------------------------------- */
@@ -606,7 +600,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 
 	/** Prepares base data for class items */
 	prepareClassBaseData(this: Item.OfType<'class'>) {
-		this.resources = new ClassResourceManager(this);
 		this.casting = this.prepareCasterData();
 	}
 
@@ -1581,36 +1574,17 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	// Roll Data (Archetype)
 	/** ---------------------------------- */
 	/** Gets roll data for an archetype Item */
-	getArchetypeRollData(this: Item.OfType<'archetype'>, data: Record<string, any>) {
-		const resources = this.resources?.rollData ?? {};
-
-		data.actorTransfer = {
-			resources,
-			...resources,
-		};
-
-		return data;
-	}
+	getArchetypeRollData(this: Item.OfType<'archetype'>, data: Record<string, any>) {}
 
 	/** ---------------------------------- */
 	// Roll Data (Class)
 	/** ---------------------------------- */
 	/** Gets roll data for a class Item */
 	getClassRollData(this: Item.OfType<'class'>, data: Record<string, any>) {
-		const resources = this.resources?.rollData ?? {};
-
-		const { archetype } = this;
-		if (archetype) {
-			const subResources = archetype.resources?.rollData ?? {};
-			Object.assign(resources, subResources);
-		}
-
 		data.actorTransfer = {
 			level: this.classLevels,
 			hitDiceSize: this.system.hp.hitDiceSize,
 			hitDiceUsed: this.system.hp.hitDiceUsed,
-			resources,
-			...resources,
 		};
 
 		return data;
@@ -1979,20 +1953,7 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 	async _onCreateClass(
 		this: Item.OfType<'class'>,
 		...[data, options, userId]: Parameters<Item['_onCreate']>
-	) {
-		// Update class resource values
-		if (this.actor) {
-			const clsLevel = this.resources.level ?? 1;
-			const resourceData = this.resources.consumableResources.reduce((acc, r) => {
-				acc[r.slug] = getDeterministicBonus(r.reference[clsLevel], this.actor?.getRollData()) ?? 0;
-				return acc;
-			}, {});
-
-			this.actor?.update({
-				'system.resources.classResources': resourceData,
-			});
-		}
-	}
+	) {}
 
 	/** ---------------------------------- */
 	// On Delete
@@ -2088,14 +2049,6 @@ class ItemA5E<SubType extends Item.SubType = Item.SubType> extends Item<SubType>
 			// Delete associated archetype
 			const { archetype } = this;
 			if (archetype) archetype.delete();
-
-			// Delete actor resource data
-			const resourceData = this.resources.consumableResources.reduce((acc, r) => {
-				acc[`${r.slug}`] = _del;
-				return acc;
-			}, {});
-
-			this.actor?.update({ 'system.resources.classResources': resourceData });
 		}
 	}
 }

@@ -195,21 +195,22 @@ class RestManager {
 	}
 
 	#restoreGenericResources() {
-		const resources = ['primary', 'secondary', 'tertiary', 'quaternary'];
-
 		Object.entries(this.#actor.system.resources ?? {}).forEach(([slug, r]) => {
-			if (!this.restTypes.includes(r.per) || !r.max) return;
+			if (!this.restTypes.includes(r.per)) return;
 
-			const max = getDeterministicBonus(r.max, this.#actor.getRollData());
-			const restored = max - r.value;
+			// Don't reset item types
+			if (r.type === 'item') return;
+			if (!r.type) return;
 
-			if (resources.includes(slug)) {
-				this.#updates.actor[`system.resources.${slug}.value`] = max;
-			} else {
-				this.#updates.actor[`system.resources.classResources.${slug}`] = max;
+			const { data, restored } = r.resetResource(false);
+
+			if (restored) {
+				if (r.type === 'counter') this.#summary.push(`Reset ${r.name} counter to 0.`);
+				if (r.type === 'dice') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
+				if (r.type === 'uses') this.#summary.push(`Recovered ${restored} uses of ${r.name}.`);
 			}
 
-			if (restored) this.#summary.push(`Recovered ${restored} uses of ${r.label}.`);
+			Object.assign(this.#updates.actor, data);
 		});
 	}
 
@@ -377,7 +378,7 @@ class RestManager {
 	// Recovery Methods for smaller increments
 	// -----------------------------------------------------------
 	// TODO: Optimize to not recharge if already full
-	static async recharge(actor: ActorA5E, options = {} as RestManager.RechargeData) {
+	static async recharge(actor: Creature, options = {} as RestManager.RechargeData) {
 		if (!actor) return;
 		const { duration } = options;
 
@@ -419,18 +420,17 @@ class RestManager {
 		});
 
 		// Recharge resources
-		const resources = ['primary', 'secondary', 'tertiary', 'quaternary'];
+		Object.entries(actor.system.resources ?? {}).forEach(([, r]) => {
+			if (r.per !== duration) return;
 
-		Object.entries(actor.system.resources ?? {}).forEach(([slug, r]) => {
-			if (r.per !== duration || !r.max) return;
+			// Don't reset item types
+			if (r.type === 'item') return;
+			if (!r.type) return;
 
-			const max = getDeterministicBonus(r.max, actor.getRollData());
+			// @ts-expect-error
+			const { data } = r.resetResource(false);
 
-			if (resources.includes(slug)) {
-				actorUpdates[`system.resources.${slug}.value`] = max;
-			} else {
-				actorUpdates[`system.resources.classResources.${slug}`] = max;
-			}
+			Object.assign(actorUpdates, data);
 		});
 
 		await actor.update(actorUpdates);

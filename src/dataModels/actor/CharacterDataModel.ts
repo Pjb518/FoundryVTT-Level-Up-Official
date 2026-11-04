@@ -114,13 +114,7 @@ const characterSchema = () => ({
 	classes: new fields.SchemaField({
 		startingClass: new fields.StringField({ required: true, initial: '' }),
 	}),
-	resources: new fields.SchemaField(
-		{
-			classResources: new fields.ObjectField({ required: true, nullable: false }),
-			...resources(),
-		},
-		{ required: true, nullable: false },
-	),
+	...resources(),
 	rolls: new fields.SchemaField({ ...rolls() }, { persisted: false }),
 	spellResources: new fields.SchemaField({
 		artifactCharges: new fields.SchemaField({
@@ -255,6 +249,17 @@ class A5ECharacterData extends foundry.abstract.TypeDataModel<
 
 	override prepareBaseData() {
 		super.prepareBaseData();
+	}
+
+	static override migrateData(data) {
+		data.resources = Object.fromEntries(
+			Object.entries(data.resources).map(([id, r]) => {
+				// r.type ??= 'uses';
+				return [id, r];
+			}),
+		);
+
+		return data;
 	}
 }
 

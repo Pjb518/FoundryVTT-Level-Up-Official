@@ -56,7 +56,7 @@ const hitDiceSchema = () => ({
 });
 
 const resourceSchema = () => ({
-	classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	resourceSlug: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	type: new fields.StringField({
@@ -227,7 +227,10 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 
 	getActivationData(actor: Creature, item?: ActionItem) {
 		const config = CONFIG.A5E.resourceConsumerConfig[this.resource] ?? {};
-		const label = localize(config?.label);
+		const label =
+			this.resource === 'namedResource'
+				? actor.system.resources[this.resourceSlug]?.name || _loc(config?.label)
+				: _loc(config?.label);
 
 		// Get available uses
 		let current: number | null = null;
@@ -239,16 +242,32 @@ class ResourceConsumerData extends DataModel<ResourceConsumerData.Schema> {
 		} else if (!foundry.utils.isEmpty(config)) {
 			let path: string;
 
-			if (this.resource === 'classResource') {
-				path = `resources.${this.classIdentifier}`;
+			if (this.resource === 'namedResource') {
+				path = `resources.${this.resourceSlug}`;
 			} else {
 				path = config.path.substring(0, config.path.lastIndexOf('.'));
 			}
 
 			const prop = foundry.utils.getProperty(actor.system, path) as any | undefined;
 
-			if (prop?.value != null || prop?.current != null) current = prop.value ?? prop.current;
-			if (prop?.max != null) max = getDeterministicBonus(prop.max, actor.getRollData());
+			if (
+				this.resource === 'namedResource' &&
+				prop?.type === 'dice' &&
+				prop?.consumeType !== 'none'
+			) {
+				if (prop.consumeType === 'number') {
+					current = prop.size ?? 0;
+					max = prop.defaultDie.size ?? 0;
+				} else {
+					current = prop.denom ?? 0;
+					max = prop.defaultDie.denom ?? 0;
+				}
+
+				if (prop?.useType === 'increment') max = 0;
+			} else {
+				if (prop?.value != null || prop?.current != null) current = prop.value ?? prop.current;
+				if (prop?.max != null) max = getDeterministicBonus(prop.max, actor.getRollData());
+			}
 		}
 
 		const usesData = {

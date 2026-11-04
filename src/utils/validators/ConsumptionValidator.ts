@@ -114,25 +114,42 @@ export default class ConsumptionValidator {
 		const config = CONFIG.A5E.resourceConsumerConfig?.[consumer.resource];
 		if (!config) return;
 
-		const { path, type } = config;
-		if (type !== 'value') return;
+		let { path } = config;
 
-		const availableUses = foundry.utils.getProperty(this.#actor.system, path);
-
-		if (typeof availableUses !== 'number') return;
-		if (consumer.resource === 'fatigue' || consumer.resource === 'strife') {
-			if (availableUses + consumer.quantity <= 7) return;
-			this.warnings.push(
-				localize('A5E.validations.warnings.resource', {
-					type: consumer.resource,
-				}),
-			);
+		if (consumer.resource === 'namedResource') {
+			path = `resources.${consumer.resourceSlug}`;
 		}
-		if (availableUses >= consumer.quantity) return;
+
+		const prop = foundry.utils.getProperty(this.#actor.system, path) as any | undefined;
+		if (prop === undefined || prop === null) return;
+
+		if (consumer.resource === 'namedResource') {
+			if (prop?.type === 'counter') return;
+			if (prop?.type === 'dice') {
+				if (prop.consumeType === 'number' && consumer.quantity <= prop.size) return;
+				else if (prop.consumeType === 'size' && consumer.quantity <= prop.denom) return;
+				else if (consumer.quantity <= prop.value) return;
+			} else if (prop?.type === 'item') {
+				const item = this.#actor.items.get(prop.itemId);
+				if (!item) return;
+				// @ts-expect-error
+				if (consumer.quantity <= item.system?.uses?.value ?? 0) return;
+			} else {
+				if (consumer.quantity <= prop.value) return;
+			}
+		} else if (consumer.resource === 'fatigue' || consumer.resource === 'strife') {
+			if (prop + consumer.quantity <= 7) return;
+		} else {
+			const availableUses = prop ?? 0;
+			if (availableUses < consumer.quantity) return;
+		}
+
+		// Assign Label
+		const label = consumer.resource === 'namedResource' ? prop.name : consumer.resource;
 
 		this.warnings.push(
 			localize('A5E.validations.warnings.resource', {
-				type: consumer.resource,
+				type: label,
 			}),
 		);
 	}

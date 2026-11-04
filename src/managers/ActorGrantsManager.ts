@@ -37,7 +37,11 @@ class ActorGrantsManager extends Map<string, Grant> {
 
 			Object.values(item.system.grants ?? {}).forEach((grant) => {
 				// Only add applied grants
-				if (!grant.applied.isApplied) return;
+				if (!grant.applied.isApplied) {
+					if (grant.type === 'resource') {
+					} else return;
+				}
+
 				this.set(grant.fullId, grant);
 			});
 		});
@@ -808,6 +812,14 @@ class ActorGrantsManager extends Map<string, Grant> {
 				// @ts-expect-error
 				updates[propKey] = [...profs.difference(removals)];
 			});
+
+			return updates;
+		}
+
+		if (grant.applied.grantType === 'resource') {
+			grant = grant as Grant<'resource'>;
+			const { slug } = grant.applied;
+			if (slug) updates[`system.resources.${slug}`] = _del;
 
 			return updates;
 		}

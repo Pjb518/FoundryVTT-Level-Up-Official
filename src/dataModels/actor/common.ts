@@ -1,3 +1,4 @@
+import { RESOURCE_DATA_TYPES } from '#data/fields/ResourcesField.ts';
 import { conditionResistanceRollModification, d20RollModification } from '../common.ts';
 import { MappingField } from '../fields/MappingField.ts';
 import { RecordField } from '../fields/RecordField.ts';
@@ -17,7 +18,6 @@ import { spellBookSchema } from './SpellBook.ts';
 
 const { fields } = foundry.data;
 
-// TODO: Maybe turn this into a typed object field
 export const abilities = () => ({
 	abilities: new MappingField(
 		new fields.SchemaField({
@@ -346,21 +346,10 @@ export const proficiencies = () => ({
 });
 
 export const resources = () => ({
-	...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
-		acc[res] = new fields.SchemaField({
-			label: new fields.StringField({ required: true, initial: '' }),
-			value: new fields.NumberField({ required: true, initial: 0, integer: true }),
-			max: new fields.StringField({ required: true, initial: '' }),
-			per: new fields.StringField({ required: true, initial: '' }),
-			hideMax: new fields.BooleanField({ required: true, initial: false }),
-			recharge: new fields.SchemaField({
-				formula: new fields.StringField({ required: true, initial: '1d6' }),
-				threshold: new fields.NumberField({ required: true, initial: 6, integer: true }),
-			}),
-		});
-
-		return acc;
-	}, {}),
+	resources: new MappingField(new fields.TypedSchemaField(RESOURCE_DATA_TYPES), {
+		required: true,
+		nullable: false,
+	}),
 });
 
 /** Used in system.rolls */

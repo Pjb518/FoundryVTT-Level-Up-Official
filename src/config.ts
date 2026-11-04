@@ -19,6 +19,7 @@ import registerFilterConfig from './config/registerFilterConfig.ts';
 import registerGrantsConfig from './config/registerGrantsConfig.ts';
 import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties.ts';
 import registerReducerConfig from './config/registerReducerConfig.ts';
+import { registerResourcesConfig } from './config/registerResourcesConfig.ts';
 import registerSettingsConfig from './config/registerSettingsConfig.ts';
 
 /* ------------------------------------------------- */
@@ -1113,7 +1114,14 @@ const resourceRecoveryOptions = {
 	week: 'A5E.durations.week',
 	month: 'A5E.durations.month',
 	year: 'A5E.durations.year',
-};
+} as const;
+
+const resourceTypes = {
+	counter: 'Counter',
+	dice: 'Dice',
+	item: 'Item',
+	uses: 'Uses',
+} as const;
 
 const rollModes = {
 	normal: 'A5E.rollLabels.modes.normal',
@@ -2325,6 +2333,7 @@ const publisherConfig = registerPublisherConfig();
 const productLineConfig = registerProductLineConfig();
 const reducerConfig = registerReducerConfig();
 const settingsConfig = registerSettingsConfig();
+const resourcesConfig = registerResourcesConfig();
 
 /* ------------------------------------------------- */
 /*                    Object                         */
@@ -2426,6 +2435,7 @@ const A5E = {
 	regions,
 	repairTools,
 	resourceRecoveryOptions,
+	resourceTypes,
 	rollModes,
 	rollTypes,
 	saveDCOptions,
@@ -2487,6 +2497,7 @@ const A5E = {
 	...publisherConfig,
 	...productLineConfig,
 	...reducerConfig,
+	...resourcesConfig,
 	...settingsConfig,
 	PRELOCALIZED_KEYS,
 };

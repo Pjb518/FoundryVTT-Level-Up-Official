@@ -52,6 +52,12 @@ export const proficiencyGrantSchema = () => ({
 	upgraded: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 });
 
+export const resourceGrantSchema = () => ({
+	...baseSchema(),
+	grantType: new fields.StringField({ required: true, nullable: false, initial: 'resource' }),
+	slug: new fields.StringField({ required: true, nullable: false, initial: '' }),
+});
+
 export const rollOverrideGrantSchema = () => ({
 	...baseSchema(),
 	grantType: new fields.StringField({ required: true, nullable: false, initial: 'rollOverride' }),

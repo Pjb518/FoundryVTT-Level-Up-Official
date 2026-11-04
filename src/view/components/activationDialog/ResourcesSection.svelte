@@ -21,7 +21,7 @@
 
   let { consumers, resourceData = $bindable() }: Props = $props();
 
-  let actor: Actor.OfType<"base"> = getContext("actor");
+  let actor: Creature = getContext("actor");
 
   // Setup resourceData
   const data = $state(

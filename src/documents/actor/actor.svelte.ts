@@ -1,6 +1,7 @@
 // *****************************************************************************************
 
 import { createSubscriber } from 'svelte/reactivity';
+import { RESOURCE_DATA_TYPES } from '#data/fields/ResourcesField.ts';
 import { ActorGrantsManager } from '#managers/ActorGrantsManager.ts';
 import { BonusesManager } from '#managers/BonusesManager.ts';
 import HitDiceManager from '#managers/HitDiceManager.ts';
@@ -1530,44 +1531,69 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 
 	/** Prepare Resources for a char */
 	prepareResources(this: Actor.OfType<'character'>) {
-		const source = this._source.system.resources as any;
+		const grants = this.grants?.byType('resource') ?? [];
 
-		const genericResources = foundry.utils.deepClone(source);
-		delete genericResources.classResources;
+		const resources = this._source.system.resources;
 
-		const classResourceData = source.classResources;
+		grants.forEach((grant) => {
+			const slug = grant.config.slug || grant.name.slugify({ strict: true });
 
-		const classResources = this.items.reduce((acc, i) => {
-			if (!['class', 'archetype'].includes(i.type)) return acc;
+			const item = grant.item!;
+			let levelType = 'class';
+			if (item.type === 'feature') levelType = 'character';
+			else levelType = 'class';
 
-			const resources = foundry.utils
-				// @ts-expect-error
-				.deepClone(i.resources.consumableResources)
-				.filter((r) => r.displayOnCore);
+			const level =
+				levelType === 'character' ? this.levels.character : (this.levels.classes[item.slug] ?? 1);
 
-			// @ts-expect-error
-			const clsLevel = i.resources.level;
+			let config: Record<string, any> = {};
 
-			resources.forEach((r) => {
-				acc[r.slug] = {
-					label: r.name,
-					value: classResourceData[r.slug] ?? r.reference[clsLevel] ?? 0,
-					max: r.reference[clsLevel] ?? 0,
-					per: r.recovery,
-					hideMax: false,
-					recharge: {
-						formula: '1d6',
-						threshold: 6,
+			if (grant.config.type === 'dice') {
+				const reference = grant.config.reference
+					.filter((l) => l.level <= level)
+					.sort((a, b) => a.level - b.level)
+					.at(-1);
+
+				config = {
+					defaultDie: {
+						size: reference?.size ?? 1,
+						denom: reference?.denom ?? 4,
 					},
+					max: reference?.max ?? '',
+					per: reference?.per ?? 'longRest',
+					consumeType: grant.config.consumeType || 'none',
+					useType: grant.config.useType ?? 'decrement',
 				};
+
+				if (grant.config.consumeType === 'none') {
+					config.size = reference?.size ?? 1;
+					config.denom = reference?.denom ?? 4;
+				}
+			} else if (grant.config.type === 'uses') {
+				const reference = grant.config.reference
+					.filter((l) => l.level <= level)
+					.sort((a, b) => a.level - b.level)
+					.at(-1);
+
+				config = {
+					per: reference?.per ?? 'longRest',
+					max: reference?.max ?? '',
+				};
+			}
+
+			const resource = foundry.utils.mergeObject(resources[slug] ?? {}, {
+				name: grant.name,
+				slug,
+				type: grant.config.type,
+				...config,
 			});
 
-			return acc;
-		}, {});
+			this.system.resources[slug] = new RESOURCE_DATA_TYPES[resource.type](resource, {
+				parent: this,
+			});
 
-		const resources = { ...genericResources, ...classResources };
-
-		this.system.resources = resources;
+			this.system.resources[slug].grantedBy = grant.item?.uuid;
+		});
 	}
 
 	/** Prepares data for roll mode and expertise dice that are not skills */
@@ -2109,6 +2135,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 			data.spellDC = this.system.attributes.spellDC;
 		}
 
+		// Inject Resources
+		Object.entries(this.system.resources ?? {}).forEach(([slug, resource]) => {
+			data.resource ??= {};
+			data.resource[slug] = resource;
+		});
+
 		// Call Sub Modules Here becuase target needs to go last
 		if (this.type === 'character') this.getCharRollData(data, item);
 
@@ -2142,18 +2174,12 @@ class ActorA5E<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubT
 	) {
 		data.level = this.levels?.character ?? data.level ?? this.system.details.level;
 
-		const resources = {};
-
 		data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
 			const classData = cls.getRollData()?.actorTransfer ?? {};
 			acc[slug] = classData;
 
-			Object.assign(resources, classData.resources);
-
 			return acc;
 		}, {});
-
-		data.classResources = resources;
 
 		return data;
 	}

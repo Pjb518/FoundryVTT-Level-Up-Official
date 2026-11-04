@@ -23,9 +23,14 @@ interface MigrationBase {
 abstract class MigrationBase {
 	static readonly version: number;
 
+	/** Schema version of the current Migration */
 	// @ts-expect-error
 	readonly version: number = this.constructor.version;
 
+	/**
+	 * Setting requiresFlush to true will indicate that the migration runner should not call any more
+	 * migrations after this in a batch. Use this if you are adding items to actors for instance.
+	 */
 	requiresFlush = false;
 }
 
