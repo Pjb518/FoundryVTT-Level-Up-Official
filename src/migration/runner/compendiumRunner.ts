@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { MigrationRunnerBase } from './base';
+import { MigrationRunnerBase } from './base.ts';
 
 class MigrationRunnerCompendium extends MigrationRunnerBase {
 	#isActor(doc: Record<string, any>): boolean {
