@@ -221,7 +221,7 @@
       flex-wrap: wrap;
 
       list-style: none;
-      font-size: var(--a5e-text-xs);
+      font-size: var(--a5e-text-sm);
     }
 
     &-value {
