@@ -146,7 +146,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 					await documentClass.updateDocuments([source], { noHook: true, pack, diff });
 				} catch (err) {
 					console.warn(err);
-					const uuid = collection.get(source._id ?? '')?.uuid || source?.uuid || source?._id;
+					const uuid = collection.get?.(source._id ?? '')?.uuid || source?.uuid || source?._id;
 					if (uuid)
 						MigrationRunnerFoundry.lastRunFailures.set(
 							uuid,
@@ -498,9 +498,13 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		await this.#migrateDocuments(game.actors, migrations, options);
 
 		// Migrate invalid actors
-		const invalidActors = [...game.actors.invalidDocumentIds].map((id) =>
-			game.actors.getInvalid(id),
-		);
+		const invalidActors = [...game.actors.invalidDocumentIds].map((id) => {
+			const a = game.actors.getInvalid(id);
+			// Set these into collection
+			game.actors.set(id, a);
+			return a;
+		});
+
 		if (invalidActors.length) {
 			console.log(`A5E | Attempting to migrate ${invalidActors.length} invalid actor documents.`);
 
@@ -512,8 +516,11 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		await this.#migrateDocuments(game.items, migrations, options);
 
 		// Migrate invalid items
-		// @
-		const invalidItems = [...game.items.invalidDocumentIds].map((id) => game.items.getInvalid(id));
+		const invalidItems = [...game.items.invalidDocumentIds].map((id) => {
+			const i = game.items.getInvalid(id);
+			game.items.set(id, i);
+			return i;
+		});
 		if (invalidItems) {
 			console.log(`A5E | Attempting to migrate ${invalidItems.length} invalid item documents.`);
 

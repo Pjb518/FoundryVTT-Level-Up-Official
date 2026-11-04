@@ -13,19 +13,29 @@ export class Migration027MigrateResources extends MigrationBase {
 		const resources = source.system.resources ?? {};
 		const classResources = foundry.utils.deepClone(resources.classResources ?? {});
 
-		delete resources.classResources;
+		// delete resources.classResources;
 
 		Object.entries(resources).forEach(([slug, resource]) => {
+			// Delete class resources
+			if (slug === 'classResources' && 'game' in globalThis) {
+				newResources[slug] = del;
+			}
+
 			// Return if neither value nor max is set and resource is not a counter
 			// @ts-expect-error
-			if (!resource.max.length && !resource.value && !resource.hideMax) return;
+			if (!resource.max.length && !resource.value && !resource.hideMax) {
+				if ('game' in globalThis) newResources[slug] = _del;
+				return;
+			}
+
+			let newResource: any;
 
 			// Add Resource as counter if hideMax was set
 			// @ts-expect-error
 			if (resource.hideMax) {
 				resource = resource as Resource<'counter'>;
 
-				newResources[slug] = {
+				newResource = {
 					// @ts-expect-error
 					name: resource.label,
 					value: resource.value,
@@ -33,25 +43,31 @@ export class Migration027MigrateResources extends MigrationBase {
 					per: resource.per,
 					type: 'counter',
 				};
-
-				return;
+			} else {
+				// Set all other resources as uses
+				resource = resource as Resource<'uses'>;
+				newResource = {
+					// @ts-expect-error
+					name: resource.label,
+					max: resource.max,
+					value: resource.value,
+					slug,
+					per: resource.per,
+					type: 'uses',
+				};
 			}
 
-			// Set all other resources as uses
-			resource = resource as Resource<'uses'>;
-			newResources[slug] = {
-				// @ts-expect-error
-				name: resource.label,
-				max: resource.max,
-				value: resource.value,
-				slug,
-				per: resource.per,
-				type: 'uses',
-			};
+			if ('game' in globalThis) newResources[slug] = _replace(newResource);
+			else newResources[slug] = _replace(newResource);
 		});
 
 		// Add classResources as resources
 		Object.entries(classResources).forEach(([slug, value]: [string, number]) => {
+			if (slug.startsWith('@')) {
+				if ('game' in globalThis) newResources[slug] = _del;
+				return;
+			}
+
 			newResources[slug] = {
 				name: '',
 				slug,
@@ -62,15 +78,7 @@ export class Migration027MigrateResources extends MigrationBase {
 			};
 		});
 
-		// Assign new resources
-		if ('game' in globalThis) {
-			Object.entries(newResources ?? {}).forEach(([slug, r]) => {
-				newResources[slug] = _replace(r);
-			});
-			foundry.utils.setProperty(source, 'system.resources', newResources);
-		} else {
-			foundry.utils.setProperty(source, 'system.resources', newResources);
-		}
+		foundry.utils.setProperty(source, 'system.resources', newResources);
 
 		// Migrate bonuses
 		Object.entries(source.system.bonuses ?? {}).forEach(([key, bonuses]) => {
