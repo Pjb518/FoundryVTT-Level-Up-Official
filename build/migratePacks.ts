@@ -1,10 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
-
+import { MigrationList } from '../src/migration/MigrationList.ts';
+import { MigrationRunnerCompendium } from '../src/migration/runner/compendiumRunner.ts';
 import * as utils from './helpers.mjs';
-import { MigrationRunnerCompendium } from '../src/migration/runner/compendiumRunner';
-import { MigrationList } from '../src/migration/MigrationList';
 
 // ---------------------------------------------------
 //             Setup Foundry utils
