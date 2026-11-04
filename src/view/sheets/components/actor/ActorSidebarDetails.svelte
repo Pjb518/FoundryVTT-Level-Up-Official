@@ -20,6 +20,7 @@
   import { prepareToolProficiencies } from "#utils/view/helpers/prepareToolProficiencies.ts";
   import { prepareWeaponProficiencies } from "#utils/view/helpers/prepareWeaponProficiencies.ts";
 
+  import Pill from "#view/snippets/Pill.svelte";
   import Tag from "#view/snippets/Tag.svelte";
 
   let actor: any = getContext("actor");
@@ -184,18 +185,7 @@
 
       <ul class="a5e-actor-details-values">
         {#each values as value}
-          <Tag
-            label={value}
-            {value}
-            tight={true}
-            displayOnly={true}
-            optionStyles="
-                max-width: 98%;
-                border: var(--a5e-border-width-thin) solid var(--a5e-color-border-subtle);
-            "
-            --a5e-tag-background-color="var(--a5e-actor-sidebar-pill-color)"
-            --a5e-tag-border-color="var(--a5e-actor-sidebar-pill-border)"
-          />
+          <Pill label={value} />
         {/each}
       </ul>
     </div>
@@ -205,12 +195,16 @@
 <style lang="scss">
   .a5e-actor-details {
     &__section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--a5e-spacing-xs);
       font-size: var(--a5e-text-sm);
 
       &-header {
         display: flex;
         align-items: center;
         gap: var(--a5e-spacing-sm);
+        font-size: var(--a5e-text-sm);
       }
 
       &-heading {

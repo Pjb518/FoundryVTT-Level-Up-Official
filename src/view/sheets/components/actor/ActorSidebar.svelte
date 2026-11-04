@@ -47,7 +47,7 @@
 
     height: 100%;
     padding: var(--a5e-spacing-sm);
-    border-right: 1px solid var(--a5e-border-color);
+    border-right: var(--a5e-border-width-thin) solid var(--a5e-color-border-primary);
 
     background: var(--a5e-actor-sheet-aside-background);
 
@@ -72,7 +72,7 @@
     &__details-wrapper {
       display: flex;
       flex-direction: column;
-      gap: var(--a5e-spacing-sm);
+      gap: var(--a5e-spacing-md);
       flex-grow: 1;
       overflow-y: auto;
       overflow-x: clip;
