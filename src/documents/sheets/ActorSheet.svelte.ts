@@ -55,7 +55,7 @@ export default class ActorSheet extends SvelteApplicationMixin(
 	static override DEFAULT_OPTIONS = {
 		baseApplication: 'ActorSheet',
 		classes: ['a5e-sheet', 'a5e-sheet--actor'],
-		position: { width: 755, height: 706 },
+		position: { width: 795, height: 706 },
 		actions: {
 			openSourceLink: ActorSheet.#onSourceLinkClick,
 		},
