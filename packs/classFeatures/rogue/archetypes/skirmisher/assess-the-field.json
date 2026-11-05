@@ -34,7 +34,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -44,7 +45,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -56,8 +62,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -77,7 +99,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -90,13 +117,47 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "kD8ERJRmjvegbK5W",
 				"label": "Assess the Field",
 				"bonus": "10",
 				"movementTypes": {
 					"base": [
 						"walk"
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"id": "",
+				"name": "Assess the Field",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "movement",
+				"config": {
+					"movementTypes": {
+						"base": [
+							"walk"
+						],
+						"options": [],
+						"total": 0
+					},
+					"bonus": "10",
+					"unit": "feet",
+					"context": {
+						"isHover": false,
+						"default": true
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "bonus",
+					"bonusId": "",
+					"bonusType": ""
+				},
+				"unit": "feet",
+				"context": {
+					"isHover": false,
+					"default": true
 				}
 			}
 		},
@@ -106,17 +167,21 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793916142446,
+		"modifiedTime": 1793916185893,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "EJg7DSZLAskLLLzC"
 }

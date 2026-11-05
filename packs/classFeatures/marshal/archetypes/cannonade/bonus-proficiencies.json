@@ -33,7 +33,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -41,33 +46,11 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"OjiZvQVxY1w1obst": {
-				"grantType": "proficiency",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "OjiZvQVxY1w1obst",
-				"label": "Bonus Proficiencies (Weapons)",
-				"keys": {
-					"base": [
-						"starship",
-						"siegeWeapon",
-						"lightFirearm",
-						"heavyFirearm"
-					],
-					"options": [],
-					"total": 0
-				},
-				"proficiencyType": "weapon",
-				"img": "",
-				"isExpertise": false
-			},
 			"sFg6CM3ck5QJpJ9b": {
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "sFg6CM3ck5QJpJ9b",
 				"label": "Bonus Proficiencies (Maneuver)",
 				"keys": {
 					"base": [
@@ -76,7 +59,35 @@
 					"options": [],
 					"total": 0
 				},
-				"proficiencyType": "tradition"
+				"proficiencyType": "tradition",
+				"id": "",
+				"name": "Bonus Proficiencies",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"weapon:lightFirearm",
+							"weapon:heavyFirearm",
+							"weapon:siegeWeapon",
+							"weapon:starship",
+							"tradition:thunderingBombard"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -85,17 +96,30 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793913250479,
+		"modifiedTime": 1793913306979,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo",
+		"compendiumSource": "Compendium.a5e.a5e-class-features.Item.VF1Pc5GUVIFTKWZ8",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5enasv14",
+			"uuid": "Item.VF1Pc5GUVIFTKWZ8",
+			"coreVersion": "14.369",
+			"systemId": "a5e",
+			"systemVersion": "1.4.10"
+		}
 	},
 	"_id": "VF1Pc5GUVIFTKWZ8"
 }

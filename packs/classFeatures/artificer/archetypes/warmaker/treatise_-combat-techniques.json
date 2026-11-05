@@ -34,7 +34,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -44,7 +45,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -56,8 +62,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -77,7 +99,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -90,19 +117,34 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "HEO30NSbJ3siQcLw",
 				"label": "Treatise: Combat Techniques",
 				"exertionType": "pool",
 				"poolType": "doubleProf",
 				"img": "",
-				"bonus": ""
+				"bonus": "",
+				"id": "",
+				"name": "Treatise: Combat Techniques",
+				"flags": {},
+				"restriction": "",
+				"type": "exertion",
+				"config": {
+					"bonus": "",
+					"exertionType": "pool",
+					"poolType": "doubleProf"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "exertion",
+					"exertionType": "",
+					"bonusId": ""
+				}
 			},
 			"zgnUcoC0bqcuPgYj": {
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "zgnUcoC0bqcuPgYj",
 				"label": "Treatise: Combat Techniques",
 				"keys": {
 					"base": [],
@@ -115,7 +157,41 @@
 					],
 					"total": 2
 				},
-				"proficiencyType": "tradition"
+				"proficiencyType": "tradition",
+				"id": "",
+				"name": "Treatise: Combat Techniques",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 2,
+								"candidates": [
+									"tradition:adamantMountain",
+									"tradition:arcaneKnight",
+									"tradition:bitingZephyr",
+									"tradition:arcaneKnightMartialArtistry",
+									"tradition:mistAndShade",
+									"tradition:temperedIron"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -124,17 +200,21 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793903916301,
+		"modifiedTime": 1793913306982,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "ampMQv1IDzgvblFm"
 }

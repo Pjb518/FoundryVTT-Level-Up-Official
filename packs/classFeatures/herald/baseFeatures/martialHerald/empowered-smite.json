@@ -30,7 +30,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"ylOjy9xm1Jo5VKGQ": {
@@ -39,7 +38,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -69,6 +67,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -82,18 +85,35 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": "1",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"qULDNTSW04l9gc1n": {
@@ -110,7 +130,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"nLnjTc0aqtUTKerP": {
@@ -119,7 +138,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -131,6 +149,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -147,17 +170,34 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"ZtEfdpTZ9GuDjSyN": {
@@ -174,7 +214,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"vSN1uqmF9VOkGxtn": {
@@ -183,7 +222,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -207,6 +245,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -223,17 +266,34 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -253,7 +313,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -267,11 +332,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.dZ3GVBW7TrDt48cY",
+			"origin": "Item.U10BlRlZvE3OblhO",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -282,38 +351,22 @@
 			"transfer": false,
 			"name": "Marking Smite",
 			"_id": "cQ6xoSCGRlW2k1wz",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from invisibility and has disadvantage on checks made to hide.</p>",
 			"statuses": [],
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753267
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917300495,
+				"createdTime": 1793917272294
 			},
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"type": "base",
@@ -328,48 +381,55 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "@token.light.bright",
+						"type": "override",
+						"value": "5",
+						"phase": "initial",
+						"priority": 0
+					},
+					{
+						"key": "@token.light.dim",
+						"type": "override",
+						"value": "10",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.dZ3GVBW7TrDt48cY",
+			"origin": "Item.U10BlRlZvE3OblhO",
 			"flags": {
 				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"_id": "1vnU1WbbwZaQGPAn",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"statuses": [
 				"prone"
 			],
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753267
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917314823,
+				"createdTime": 1793917272294
 			},
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"type": "base",
@@ -384,22 +444,34 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"prone"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793917272294,
+		"modifiedTime": 1793917320916,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "U10BlRlZvE3OblhO"
 }

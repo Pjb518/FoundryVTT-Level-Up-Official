@@ -30,7 +30,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"3gQwfWBlNeVnX4u7": {
@@ -39,7 +38,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -63,6 +61,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -79,17 +82,34 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"lZJSAEyVc6P6xdl5": {
@@ -106,7 +126,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"w11Pz6ctRHQNSglm": {
@@ -115,7 +134,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -139,6 +157,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -155,17 +178,34 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"macro": "",
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			},
 			"Dvs7CriZ9vlMTc4L": {
@@ -182,7 +222,6 @@
 						"classIdentifier": "@classResources.empowered-smite",
 						"resource": "classResource",
 						"quantity": 1,
-						"restore": false,
 						"label": ""
 					},
 					"aBRbljFd1kxgiIzT": {
@@ -191,7 +230,6 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 3,
-						"restore": false,
 						"label": ""
 					}
 				},
@@ -203,8 +241,19 @@
 						"critBonus": "",
 						"damageType": "radiant",
 						"formula": "1d6",
-						"scaling": {},
-						"label": ""
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"prompts": {
@@ -232,6 +281,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -245,7 +299,8 @@
 				"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"RAeoLDyFCVUohvdc"
@@ -254,11 +309,27 @@
 				"ranges": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
 					"seen": false
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -278,7 +349,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -292,11 +368,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.ChHn4w1EbqKwMXpL",
+			"origin": "Item.fheQitalmvTdnZvx",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -307,34 +387,24 @@
 			"transfer": false,
 			"name": "Blinded",
 			"_id": "GJ4xzv6HRq5o17BN",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [
 				"blinded"
 			],
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752338
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917336340,
+				"createdTime": 1793917325035
 			},
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"type": "base",
@@ -349,14 +419,26 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.statusConditions",
+						"type": "custom",
+						"value": [
+							"blinded"
+						],
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"showIcon": 2,
+			"start": null
 		},
 		{
-			"origin": "Item.ChHn4w1EbqKwMXpL",
+			"origin": "Item.fheQitalmvTdnZvx",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -367,32 +449,22 @@
 			"transfer": false,
 			"name": "Disorienting Smite",
 			"_id": "AAHSQFnGUzbGwIZ3",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Disadvantage on attack rolls.</p>",
 			"statuses": [],
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752338
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917355976,
+				"createdTime": 1793917325035
 			},
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"type": "base",
@@ -407,14 +479,24 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "flags.a5e.effects.rollMode.attack.all",
+						"type": "add",
+						"value": -1,
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"tint": "#ffffff",
 			"sort": 0,
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.ChHn4w1EbqKwMXpL",
+			"origin": "Item.fheQitalmvTdnZvx",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -433,16 +515,12 @@
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"_id": "RAeoLDyFCVUohvdc",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 60,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. </p>",
 			"tint": "#ffffff",
@@ -456,24 +534,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752338
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793917325063,
+				"createdTime": 1793917325035
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793917325035,
+		"modifiedTime": 1793917371881,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "fheQitalmvTdnZvx"
 }

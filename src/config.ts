@@ -712,6 +712,7 @@ const followerTypes = {
 	digger: 'A5E.follower.types.digger',
 	diviner: 'A5E.follower.types.diviner',
 	footpad: 'A5E.follower.types.footpad',
+  gunneryMaster: 'A5E.follower.types.gunneryMaster',
 	healer: 'A5E.follower.types.healer',
 	interpreter: 'A5E.follower.types.interpreter',
 	inventor: 'A5E.follower.types.inventor',

@@ -33,7 +33,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,8 +50,7 @@
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
-				"optional": false,
-				"_id": "1zDugsKOMll1M7Dd",
+				"optional": true,
 				"label": "Protest and Inform",
 				"keys": {
 					"base": [],
@@ -56,7 +60,37 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"id": "",
+				"name": "Protest and Inform",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [],
+						"options": [
+							{
+								"count": 1,
+								"candidates": [
+									"skill:per",
+									"skill:itm"
+								]
+							}
+						]
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				},
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -65,17 +99,21 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793904573650,
+		"modifiedTime": 1793913306982,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "DKHCsVn2c8tYY6Et"
 }
