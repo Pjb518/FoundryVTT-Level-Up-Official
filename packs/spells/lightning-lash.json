@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -17,7 +18,10 @@
 						"default": true,
 						"attackType": "meleeSpellAttack",
 						"proficient": true,
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
 					},
 					"akNi4QyCoMmXdwIp": {
 						"type": "damage",
@@ -28,9 +32,18 @@
 							"mode": "cantrip",
 							"formula": "1d6",
 							"config": {
-								"value": "1d6"
+								"value": "1d6",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -39,8 +52,11 @@
 						"default": true,
 						"ability": "con",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -49,24 +65,62 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
 				},
 				"ranges": {
 					"8TPAGSmt5vCltnJW": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"target": {
 					"type": "creatureObject",
-					"quantity": 1
+					"quantity": 1,
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"effects": [
 					"PNuI2bN5w4P3TTJb"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": ""
 			}
 		},
 		"description": "<p dir=\"ltr\">You shape a whip out of lightning and use it to lash your foes, potentially scrambling their reflexes in the process. Make a melee spell attack against a creature within the spell&rsquo;s range. On a hit, the target takes 1d6 lightning damage and must make a Constitution saving throw. On a failed save, it has disadvantage on Dexterity ability checks and saving throws until the end of your next turn.</p><p dir=\"ltr\">This spell&rsquo;s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
@@ -79,6 +133,11 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
@@ -86,7 +145,8 @@
 			"sorcerer",
 			"warlock",
 			"wizard",
-			"artificer"
+			"artificer",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -111,16 +171,19 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/lightning/bolt-strike-sparks-blue.webp",
-			"origin": "Item.kbOxQj8mztBnTY9D",
+			"origin": "Item.tqak90cmds8bfqni",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -134,21 +197,21 @@
 			"_id": "PNuI2bN5w4P3TTJb",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "rounds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793836992486,
+				"modifiedTime": 1793836992543,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -156,26 +219,43 @@
 				"changes": [
 					{
 						"key": "system.abilities.dex.check.rollMode",
-						"value": "-1",
+						"value": -1,
 						"priority": null,
-						"type": "override"
+						"type": "override",
+						"phase": "initial"
 					},
 					{
 						"key": "system.abilities.dex.save.rollMode",
-						"value": "-1",
+						"value": -1,
 						"priority": null,
-						"type": "override"
+						"type": "override",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "tqak90cmds8bfqni",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836992486,
+		"modifiedTime": 1793836992486,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "tqak90cmds8bfqni"
 }

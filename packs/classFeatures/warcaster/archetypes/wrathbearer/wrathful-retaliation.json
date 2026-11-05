@@ -24,6 +24,14 @@
 						"default": true,
 						"quantity": 1,
 						"label": ""
+					},
+					"EmSZa7y5HnBhOcii": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"id": "dP1irFKWdWB3FCkq",
@@ -41,7 +49,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"7QzpSvtYcVhT4AEL"
@@ -50,13 +59,20 @@
 				"prompts": {},
 				"ranges": {
 					"aqFMtZjUTiCttTmX": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -68,58 +84,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
-					}
-				}
-			},
-			"fHNHZIT2rh1XBJqf": {
-				"name": "Wrathful Retaliation (Strife)",
-				"consumers": {},
-				"id": "",
-				"default": false,
-				"description": "",
-				"descriptionOutputs": [
-					"item",
-					"action"
-				],
-				"img": "",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "Ally in your threatened area being successfully hit by an attack roll"
-				},
-				"duration": {
-					"unit": "",
-					"value": "0"
-				},
-				"effects": [
-					"6boaylPE8vSqO1y0",
-					"xTMvbrwbGHMFlBZD"
-				],
-				"macro": "",
-				"prompts": {},
-				"ranges": {
-					"aqFMtZjUTiCttTmX": {
-						"range": "short"
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				},
-				"rolls": {},
-				"target": {
+				"area": {
 					"quantity": 1,
-					"scaling": {},
-					"type": "",
-					"heard": false,
-					"otherText": "",
-					"seen": false
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -139,7 +121,12 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -153,11 +140,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.0V5vwU4v6PGW1aE9",
+			"origin": "Item.nLDmy7AGNqMgTTOG",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -176,23 +167,12 @@
 			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
 			"_id": "7QzpSvtYcVhT4AEL",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Disadvantage on the attacker’s next saving throw.</p>",
 			"tint": "#ffffff",
@@ -200,128 +180,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752333
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793836481078,
+				"createdTime": 1793836481054
 			},
-			"folder": null
-		},
-		{
-			"origin": "Item.0V5vwU4v6PGW1aE9",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": false,
-				"default": true,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Wrathful Retaliation",
-			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
-			"_id": "6boaylPE8vSqO1y0",
-			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.all",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Disadvantage on the attacker’s next saving throw.</p>",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752333
-			},
-			"folder": null
-		},
-		{
-			"origin": "Item.0V5vwU4v6PGW1aE9",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": true,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Strife",
-			"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
-			"_id": "xTMvbrwbGHMFlBZD",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752333
-			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836481054,
+		"modifiedTime": 1793836509277,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "nLDmy7AGNqMgTTOG"
 }

@@ -825,6 +825,7 @@ const knackTypes = {
   sentinel: 'Teamwork',
 	sorcerer: 'Arcane Innovation',
 	trooper: 'Drill',
+  warcaster: 'Legerdemain',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',

@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -45,57 +50,42 @@
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "NW0zq12Dss6Dxxag",
 				"label": "Initiation",
 				"features": {
 					"total": 1,
 					"options": [
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.gVbFLpoRdZWehjoa",
-							"name": "Adventurers",
-							"img": "icons/environment/wilderness/terrain-river-road-gray.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.upObjAIZmX87n3fo",
-							"name": "Circus Folk",
-							"img": "icons/environment/settlement/tent-flag.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.xeLsGyWsAh81oyoY",
-							"name": "Eldritch Encounter",
-							"img": "icons/creatures/tentacles/tentacle-eyes-yellow-pink.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.O2gStfgc1kGSVXJu",
-							"name": "Hedge Witch",
-							"img": "icons/magic/nature/leaf-juggle-humanoid-green.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.2ulTCii1DeandKy3",
-							"name": "Priesthood",
-							"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.ckEWwgfuT6eDgxzf",
-							"name": "Scholastics",
-							"img": "icons/sundries/books/book-stack.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
 							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.jZRKfLavU9PBRBJt",
-							"name": "Unholy Power",
-							"img": "icons/magic/unholy/hand-light-pink.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
@@ -104,7 +94,75 @@
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
-					]
+					],
+					"base": []
+				},
+				"id": "",
+				"name": "Initiation",
+				"img": "",
+				"flags": {},
+				"restriction": "",
+				"type": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [],
+						"options": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.mgHqXtRBkDmgn68J",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.UyRjMzf46IELDCFH",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.9efU1eXGYZP5Hs4f",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.MLVAVjXzteIqDe8O",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.VbO90ge4DqmwijAP",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.PS77x1helW1nYXKD",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.m51K4LZyCwws8J14",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							},
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.QuguCEz6Ig6HV1dp",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
 				}
 			}
 		},
@@ -114,18 +172,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793825339117,
+		"modifiedTime": 1793827506655,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "L3XErrVmvxqTBcN0"
 }

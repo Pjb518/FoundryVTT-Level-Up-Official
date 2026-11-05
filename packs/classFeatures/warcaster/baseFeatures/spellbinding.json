@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,45 +45,105 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"ykr6zAtjiqjM0mXK": {
-				"grantType": "feature",
+			"5zIsMLwlNiErpKGT": {
+				"id": "5zIsMLwlNiErpKGT",
+				"label": "Casting Style Improvement",
+				"name": "Casting Style Improvement",
+				"img": "",
+				"flags": {},
 				"level": 10,
 				"levelType": "class",
 				"optional": false,
-				"_id": "ykr6zAtjiqjM0mXK",
-				"label": "Casting Style Improvement",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.EdyChlOscLbLX38v",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.TYjXCsOnaEuVUoVz",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.R5PfxpihzmQ5ZWal",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			},
-			"YRCczvyEt442k4LB": {
-				"grantType": "feature",
+			"79jGcqJUUZyaFuC5": {
+				"id": "79jGcqJUUZyaFuC5",
+				"label": "Cantrip Mastery",
+				"name": "Cantrip Mastery",
+				"img": "",
+				"flags": {},
 				"level": 19,
 				"levelType": "class",
 				"optional": false,
-				"_id": "YRCczvyEt442k4LB",
-				"label": "Cantrip Mastery",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.97z23TyJE0tX8RJT",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.y3GIb8FjbzubZQz4",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.qmocNCuIZDgtvlCq",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -87,11 +152,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.9S3yMaCf5gGSay8E",
+			"origin": "Item.5CvtFRGcVDII2aha",
 			"transfer": false,
 			"system": {
 				"effectType": "passive",
@@ -104,29 +173,26 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.bonuses.spellDC",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Spellbinding",
 			"img": "icons/magic/fire/dagger-rune-enchant-blue.webp",
 			"_id": "ojVltUWiaSmjCXJ4",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.bonuses.spellDC",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>You gain a +1 to spell save DC for your warcaster cantrips.</p>",
 			"tint": "#ffffff",
@@ -134,24 +200,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752311
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793825601450,
+				"createdTime": 1793825459553
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793825459553,
+		"modifiedTime": 1793827814689,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "5CvtFRGcVDII2aha"
 }

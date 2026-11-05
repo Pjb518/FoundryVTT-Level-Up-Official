@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"qlUcqZrV83ugsdp4"
@@ -45,7 +46,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -57,8 +63,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -78,7 +100,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -86,45 +113,105 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"DPUYQhhOUyw9YQQC": {
-				"grantType": "feature",
+			"dhs4ClGcvHopV6mg": {
+				"id": "dhs4ClGcvHopV6mg",
+				"label": "Casting Style Improvement",
+				"name": "Casting Style Improvement",
+				"img": "",
+				"flags": {},
 				"level": 10,
 				"levelType": "class",
 				"optional": false,
-				"_id": "DPUYQhhOUyw9YQQC",
-				"label": "Casting Style Improvement",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.TBRMyNgOrV6KyGgq",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.spcxpccliWX1XMJM",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.R5PfxpihzmQ5ZWal",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			},
-			"CwN9PtR2LOfTyN9E": {
-				"grantType": "feature",
+			"8lp3gmIzGxC6KhFI": {
+				"id": "8lp3gmIzGxC6KhFI",
+				"label": "Cantrip Mastery",
+				"name": "Cantrip Mastery",
+				"img": "",
+				"flags": {},
 				"level": 19,
 				"levelType": "class",
 				"optional": false,
-				"_id": "CwN9PtR2LOfTyN9E",
-				"label": "Cantrip Mastery",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.dP6kXinyD1peqXYT",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.i6C79Y0sBU2UZ9ed",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.qmocNCuIZDgtvlCq",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -133,11 +220,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.fseJZ06h2mtUsYjw",
+			"origin": "Item.Wlj9Pl32TY50muM6",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -156,23 +247,12 @@
 			"img": "icons/skills/melee/swords-parry-block-blue.webp",
 			"_id": "qlUcqZrV83ugsdp4",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "@prof",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Add your proficiency bonus to your AC until the end of the current turn.</p>",
 			"tint": "#ffffff",
@@ -187,24 +267,27 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753249
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793827650252,
+				"createdTime": 1793827650235
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793827650235,
+		"modifiedTime": 1793827834919,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Wlj9Pl32TY50muM6"
 }

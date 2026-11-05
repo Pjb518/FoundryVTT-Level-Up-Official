@@ -32,25 +32,77 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "warcaster",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"TNzzaruYx1bnRpLd": {
+				"id": "TNzzaruYx1bnRpLd",
+				"label": "",
+				"name": "Priesthood",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.tvtm60k5wxyki9qc",
+							"Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.2ulTCii1DeandKy3",
+			"origin": "Item.VbO90ge4DqmwijAP",
 			"transfer": false,
 			"system": {
 				"effectType": "passive",
@@ -69,23 +121,12 @@
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
 			"_id": "dG7wRU13LV9yYmvd",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.spellcasting",
-					"value": "cha",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Your spellcasting ability is Charisma.</p>",
 			"tint": "#ffffff",
@@ -93,24 +134,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752296
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793826139815,
+				"createdTime": 1793826139798
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793826139798,
+		"modifiedTime": 1793827506654,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "VbO90ge4DqmwijAP"
 }

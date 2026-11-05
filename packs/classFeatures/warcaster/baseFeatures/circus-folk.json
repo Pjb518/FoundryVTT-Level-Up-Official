@@ -32,25 +32,77 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "warcaster",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"Yqxspzb7msubN75P": {
+				"id": "Yqxspzb7msubN75P",
+				"label": "",
+				"name": "Circus Folk",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.4oruofw2q7gso9hq",
+							"Compendium.a5e.a5e-spells.Item.ohrkuqnbaeutcwox"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.upObjAIZmX87n3fo",
+			"origin": "Item.UyRjMzf46IELDCFH",
 			"transfer": false,
 			"system": {
 				"effectType": "passive",
@@ -69,23 +121,12 @@
 			"img": "icons/environment/settlement/tent-flag.webp",
 			"_id": "i67CIvI9nPoChe7W",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.spellcasting",
-					"value": "cha",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Your spellcasting ability is Charisma.</p>",
 			"tint": "#ffffff",
@@ -93,24 +134,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753551
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793826043526,
+				"createdTime": 1793826043506
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793826043506,
+		"modifiedTime": 1793827506655,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "UyRjMzf46IELDCFH"
 }

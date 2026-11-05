@@ -6,7 +6,11 @@
 		"actions": {
 			"jy3XiimhPp5Kbj9L": {
 				"name": "Cast Spell",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {},
 				"rolls": {
 					"243mZAbBYgiE13vt": {
@@ -14,7 +18,10 @@
 						"default": true,
 						"attackType": "rangedSpellAttack",
 						"proficient": true,
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
 					},
 					"zX8fp69f69Bze9E9": {
 						"type": "damage",
@@ -25,9 +32,18 @@
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -37,8 +53,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -51,11 +70,40 @@
 						"config": {
 							"value": "1"
 						}
-					}
+					},
+					"heard": false,
+					"otherText": "",
+					"seen": false
 				},
 				"effects": [
 					"wmr7Gf8AiO0FhPZ7"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"ranges": {}
 			}
 		},
 		"description": "<p>You shoot a comet of cosmic light at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 radiant damage. If the target was an object, it takes no damage and instead emits bright light out to 30 ft. until the end of your next turn.</p><p>This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -68,6 +116,11 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
@@ -75,7 +128,8 @@
 			"cleric",
 			"warlock",
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -99,15 +153,18 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/air/air-pressure-shield-blue.webp",
 			"origin": "Item.gwhpqtmwnza3rh4p",
 			"flags": {
 				"a5e": {
@@ -122,21 +179,21 @@
 			"_id": "wmr7Gf8AiO0FhPZ7",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": 0,
-				"startRound": null,
-				"startTurn": null
+				"value": 0,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793836961597,
+				"modifiedTime": 1793836961597,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -144,20 +201,36 @@
 				"changes": [
 					{
 						"key": "@token.light.bright",
-						"value": "30",
+						"value": 30,
 						"priority": null,
-						"type": "override"
+						"type": "override",
+						"phase": "initial"
 					}
-				]
-			}
+				],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "gwhpqtmwnza3rh4p",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836961597,
+		"modifiedTime": 1793836961597,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "gwhpqtmwnza3rh4p"
 }

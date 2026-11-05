@@ -33,23 +33,38 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
-				"effects": [
-					"SzM4Tlsvu1xCU0Nv"
-				],
+				"effects": [],
 				"macro": "",
-				"consumers": {},
+				"consumers": {
+					"5ea6WX9aehZKQSTU": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 1,
+						"label": ""
+					}
+				},
 				"prompts": {},
 				"ranges": {
 					"6I00uxNMEmhFshj2": {
-						"range": "long"
+						"range": "long",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 6,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "creature",
 					"heard": false,
 					"otherText": "",
@@ -61,8 +76,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -82,7 +113,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -96,71 +132,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
-	"effects": [
-		{
-			"origin": "Item.FaYDTaEeBX1kFrQp",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": true,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Strife",
-			"img": "icons/skills/movement/ball-spinning-blue.webp",
-			"_id": "SzM4Tlsvu1xCU0Nv",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752612
-			},
-			"folder": null
-		}
-	],
+	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793833012351,
+		"modifiedTime": 1793833040429,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "jxav4WSS3dzZa71p"
 }

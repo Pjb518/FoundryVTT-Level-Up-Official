@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -21,9 +22,18 @@
 							"mode": "cantrip",
 							"formula": "1d6",
 							"config": {
-								"value": "1d6"
+								"value": "1d6",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"canCrit": true,
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -33,22 +43,62 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0",
+					"concentration": false
 				},
 				"ranges": {
 					"zUSrNL8eY1ruKKTb": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"effects": [
 					"4Y60cAw4Ywa0e6Zc"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			}
 		},
 		"description": "<p>You imbue your weapon with smoldering fury, searing your foes and hiding behind a veil of soot.</p><p>As part of the action to cast this spell, make an attack with your melee weapon. If you hit with the weapon attack it deals normal weapon damage, plus additional 1d6 fire damage and you are lightly obscured by smoke until the beginning of your next turn.</p><p>At 5th level, the target takes an additional 2d6 fire damage on a hit. This increases to 3d6 at level 11 and 4d6 at level 17.</p>",
@@ -61,12 +111,18 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -90,15 +146,18 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [
 		{
-			"icon": "icons/skills/melee/strike-weapons-orange.webp",
 			"origin": "Item.yp1ihjdlz89lr56w",
 			"flags": {
 				"a5e": {
@@ -113,35 +172,50 @@
 			"_id": "4Y60cAw4Ywa0e6Zc",
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
+				"value": 1,
+				"units": "turns",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "",
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793837024888,
+				"modifiedTime": 1793837024888,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": true,
 				"effectType": "onUse",
-				"changes": []
-			}
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
+			},
+			"start": null,
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"tint": "#ffffff",
+			"showIcon": 1,
+			"sort": 0
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "yp1ihjdlz89lr56w",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793837024888,
+		"modifiedTime": 1793837024888,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "yp1ihjdlz89lr56w"
 }

@@ -13,6 +13,7 @@ export default function registerCharacterClassesConfig() {
 		psyknight: 'A5E.characterClasses.psyknight',
 		herald: 'A5E.characterClasses.herald',
 		sorcerer: 'A5E.characterClasses.sorcerer',
+    warcaster: 'A5E.characterClasses.warcaster',
 		warlock: 'A5E.characterClasses.warlock',
 		wielder: 'A5E.characterClasses.wielder',
 		witch: 'A5E.characterClasses.witch',

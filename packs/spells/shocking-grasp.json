@@ -15,21 +15,39 @@
 				},
 				"duration": {
 					"unit": "instantaneous",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"YWTn7x1lDxo0DJo6": {
-						"range": "touch"
+						"range": "touch",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
-					"quantity": "",
-					"type": "creature"
+					"quantity": 0,
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"3dtIKI5ZRuME8AcX": {
@@ -37,25 +55,60 @@
 						"critThreshold": 20,
 						"type": "attack",
 						"attackType": "meleeSpellAttack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"proficient": true,
+						"default": true,
+						"label": ""
 					},
 					"0O3jFxHBaNOTZZX3": {
 						"canCrit": true,
 						"damageType": "lightning",
 						"formula": "1d8",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d8",
 							"config": {
-								"value": "1d8"
+								"value": "1d8",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>Electricity arcs from your hand to shock the target. Make a melee spell attack (with advantage if the target is wearing armor made of metal). On a hit, you deal 1d8 lightning damage, and the target can't take reactions until the start of its next turn as the electricity courses through its body.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -68,13 +121,19 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
 			"artificer",
 			"sorcerer",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -99,17 +158,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "ks87w0iees5tbu0z",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793837009032,
+		"modifiedTime": 1793837009032,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "ks87w0iees5tbu0z"
 }

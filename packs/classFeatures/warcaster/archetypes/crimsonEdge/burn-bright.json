@@ -33,14 +33,29 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
-				"effects": [
-					"pT3I4LomOhbordPC",
-					"Mx7dI5D4UNIzmFGd"
-				],
+				"effects": [],
 				"macro": "",
-				"consumers": {},
+				"consumers": {
+					"RHl5Psn5ixaICGn0": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "fatigue",
+						"quantity": 1,
+						"label": ""
+					},
+					"BHYTiXpjIBk4K1jY": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 1,
+						"label": ""
+					}
+				},
 				"prompts": {},
 				"ranges": {},
 				"rolls": {
@@ -51,13 +66,29 @@
 						"critBonus": "",
 						"damageType": "",
 						"formula": "2d8",
-						"scaling": {},
-						"label": ""
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": "",
+						"die": {
+							"modifiers": []
+						}
 					}
 				},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -69,8 +100,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -90,7 +137,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -104,123 +156,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
-	"effects": [
-		{
-			"origin": "Item.IHYQM6MLPlp1Acbk",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": false,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Fatigue",
-			"img": "icons/magic/fire/flame-burning-skull-orange.webp",
-			"_id": "pT3I4LomOhbordPC",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752669
-			},
-			"folder": null
-		},
-		{
-			"origin": "Item.IHYQM6MLPlp1Acbk",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": false,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Strife",
-			"img": "icons/magic/fire/flame-burning-skull-orange.webp",
-			"_id": "Mx7dI5D4UNIzmFGd",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752669
-			},
-			"folder": null
-		}
-	],
+	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793830460497,
+		"modifiedTime": 1793830956568,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "hiNHjAoTy2gf5j9F"
 }

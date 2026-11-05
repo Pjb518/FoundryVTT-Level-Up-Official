@@ -41,7 +41,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"QJlhfOpivwjrGkRw"
@@ -52,7 +53,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -64,8 +70,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -85,25 +107,79 @@
 			"per": "shortRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "warcaster",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"79TS7H31sYjE2Yzo": {
+				"id": "79TS7H31sYjE2Yzo",
+				"label": "",
+				"name": "Voice of Authority",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [],
+						"options": [
+							"Compendium.a5e.a5e-spells.Item.5o1rvwzxmsh5ji9i",
+							"Compendium.a5e.a5e-spells.Item.w8n4gqw7ugbcfqhh",
+							"Compendium.a5e.a5e-spells.Item.uy8he1yquaiym6y8",
+							"Compendium.a5e.a5e-spells.Item.eiek2vbzwijd0qac"
+						],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.GTL8VQ6a0zy8TMtR",
+			"origin": "Item.XzXG28JYKzetNBKL",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -122,35 +198,12 @@
 			"img": "icons/creatures/abilities/mouth-teeth-human.webp",
 			"_id": "QJlhfOpivwjrGkRw",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.dec",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.itm",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.per",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Advantage on a single Deception, Intimidation, or Persuasion check made during the duration.</p>",
 			"tint": "#ffffff",
@@ -158,24 +211,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752627
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793827989309,
+				"createdTime": 1793827989289
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793827989289,
+		"modifiedTime": 1793828059588,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "XzXG28JYKzetNBKL"
 }

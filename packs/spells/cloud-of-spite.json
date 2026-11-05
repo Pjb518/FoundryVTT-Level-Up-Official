@@ -8,7 +8,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -17,7 +18,21 @@
 						"default": true,
 						"canCrit": false,
 						"formula": "1d4",
-						"damageType": "lightning"
+						"damageType": "lightning",
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"scaling": {
+							"config": {
+								"value": "",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
+							},
+							"mode": ""
+						},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -26,8 +41,11 @@
 						"default": true,
 						"ability": "dex",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -36,8 +54,11 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
@@ -45,23 +66,55 @@
 					"shape": "square",
 					"quantity": 1,
 					"width": 5,
-					"placeTemplate": true
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"ranges": {
 					"igbQUlZmUUOIcX5K": {
-						"range": "short"
+						"range": "short",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
+					"value": "1",
+					"concentration": false
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
 				}
 			},
 			"RaVZOfKOAbUb7ZXG": {
 				"name": "Move Cloud",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -72,17 +125,61 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
 				}
 			},
 			"w3bup7TJBvvYDFdU": {
 				"name": "Deal Damage",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
@@ -96,9 +193,17 @@
 							"mode": "cantrip",
 							"formula": "1d4",
 							"config": {
-								"value": "1d4"
+								"value": "1d4",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -107,9 +212,11 @@
 						"default": true,
 						"ability": "dex",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "spellcasting",
+							"bonus": ""
 						},
-						"onSave": "Dexterity negates"
+						"onSave": "Dexterity negates",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -118,10 +225,53 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -135,13 +285,19 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"classes": [
 			"druid",
 			"sorcerer",
-			"witch"
+			"witch",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -166,19 +322,26 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "7rd9h0vhgq87oh64",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836975812,
+		"modifiedTime": 1793836975812,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "7rd9h0vhgq87oh64"
 }

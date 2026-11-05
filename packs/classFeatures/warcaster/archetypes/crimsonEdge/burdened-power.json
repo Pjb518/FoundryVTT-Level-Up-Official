@@ -33,20 +33,40 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
-				"effects": [
-					"uasmduB5BiN1tOmb",
-					"3J1zDBRwYF6MTPeF"
-				],
+				"effects": [],
 				"macro": "",
-				"consumers": {},
+				"consumers": {
+					"3Y5S85gM2GoQLSZa": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "fatigue",
+						"quantity": 2,
+						"label": ""
+					},
+					"95elcqks4vze0lPe": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 2,
+						"label": ""
+					}
+				},
 				"prompts": {},
 				"ranges": {},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -58,8 +78,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -79,7 +115,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -93,123 +134,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
-	"effects": [
-		{
-			"origin": "Item.ud6M93jOQZmUbF5q",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": false,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Fatigue",
-			"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
-			"_id": "uasmduB5BiN1tOmb",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753569
-			},
-			"folder": null
-		},
-		{
-			"origin": "Item.ud6M93jOQZmUbF5q",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": false,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Strife",
-			"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
-			"_id": "3J1zDBRwYF6MTPeF",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567753569
-			},
-			"folder": null
-		}
-	],
+	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753398,
-		"modifiedTime": 1793567753398,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793831243810,
+		"modifiedTime": 1793831286755,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "LZYWI2Bzzv8GVSEQ"
 }

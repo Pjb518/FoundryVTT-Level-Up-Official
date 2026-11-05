@@ -15,36 +15,62 @@
 				},
 				"duration": {
 					"unit": "instantaneous",
-					"value": ""
+					"value": "",
+					"concentration": false
 				},
 				"ranges": {
 					"swW2Dhm89yY7C2CK": {
-						"range": "medium"
+						"range": "medium",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
+					"shape": "none",
+					"quantity": 1,
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"target": {
 					"quantity": 2,
-					"type": "creature"
+					"type": "creature",
+					"heard": false,
+					"otherText": "",
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false
 				},
 				"rolls": {
 					"Cj65qeJjdlkUWDEc": {
 						"canCrit": false,
 						"damageType": "acid",
 						"formula": "1d6",
-						"name": "",
 						"type": "damage",
 						"scaling": {
 							"mode": "cantrip",
 							"formula": "1d6",
 							"config": {
-								"value": "1d6"
+								"value": "1d6",
+								"number": 0,
+								"denom": 0,
+								"cap": 5
 							}
-						}
+						},
+						"critBonus": "",
+						"die": {
+							"modifiers": []
+						},
+						"default": true,
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -55,11 +81,36 @@
 							"type": "spellcasting",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
-				"img": "icons/magic/acid/projectile-smoke-glowing.webp"
+				"img": "icons/magic/acid/projectile-smoke-glowing.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>The target is up to two creatures within 5 feet of each other.</p><p>A stinking bubble of acid is conjured out of thin air to fly at the targets, dealing 1d6 acid damage.</p><p>This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</p>",
@@ -72,14 +123,20 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"classes": [
 			"artificer",
 			"sorcerer",
 			"witch",
-			"wizard"
+			"wizard",
+			"warcaster"
 		],
 		"components": {
 			"vocalized": true,
@@ -102,17 +159,24 @@
 			]
 		},
 		"spellBook": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"disciplines": []
 	},
 	"folder": null,
-	"_id": "z3y2a7pwy9gzcv45",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836941609,
+		"modifiedTime": 1793836941609,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
+	},
+	"_id": "z3y2a7pwy9gzcv45"
 }

@@ -33,7 +33,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"Alv6g16qT5R26KnV"
@@ -41,11 +42,22 @@
 				"macro": "",
 				"consumers": {},
 				"prompts": {},
-				"ranges": {},
+				"ranges": {
+					"FfU6C9lRgMJDsYGu": {
+						"range": "self",
+						"unit": "",
+						"value": 0
+					}
+				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -57,8 +69,38 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "emanation",
+					"length": 0,
+					"height": 0,
+					"radius": 10,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {
+						"JspM9hIBHM0ccEAS": {
+							"name": "Defensive",
+							"type": "applyActiveEffect",
+							"isAura": true,
+							"dispositions": [
+								1
+							],
+							"creatureSizes": [],
+							"creatureTypes": [],
+							"effects": [
+								"Item.MsMHLtv1IRtUFRJX.ActiveEffect.Alv6g16qT5R26KnV"
+							]
+						}
+					},
+					"scaling": {}
 				}
 			}
 		},
@@ -78,7 +120,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -92,11 +139,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.R5PfxpihzmQ5ZWal",
+			"origin": "Item.MsMHLtv1IRtUFRJX",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -109,29 +160,26 @@
 						"schema": null
 					}
 				},
-				"changes": []
+				"changes": [
+					{
+						"key": "system.attributes.ac.changes.bonuses.value",
+						"type": "add",
+						"value": "1",
+						"phase": "initial",
+						"priority": 0
+					}
+				]
 			},
 			"name": "Defensive",
 			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
 			"_id": "Alv6g16qT5R26KnV",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Allies within your threatened area also gain a +1 bonus to AC.</p>",
 			"tint": "#ffffff",
@@ -139,24 +187,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752931
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793827913955,
+				"createdTime": 1793827878072
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752755,
-		"modifiedTime": 1793567752755,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793827878072,
+		"modifiedTime": 1793827949415,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "MsMHLtv1IRtUFRJX"
 }

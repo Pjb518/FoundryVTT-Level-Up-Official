@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,30 +45,11 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"fCwYvRsz69uJZPdl": {
-				"grantType": "proficiency",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "fCwYvRsz69uJZPdl",
-				"label": "Armor Proficiency",
-				"keys": {
-					"base": [
-						"medium"
-					],
-					"options": [],
-					"total": 0
-				},
-				"proficiencyType": "armor",
-				"img": "",
-				"isExpertise": false
-			},
 			"U6iApZYiI8DAyw4N": {
 				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "fCwYvRsz69uJZPdl",
 				"label": "Weapon Proficiency",
 				"keys": {
 					"base": [
@@ -133,7 +119,87 @@
 				"proficiencyType": "weapon",
 				"img": "",
 				"isExpertise": false,
-				"name": "undefined (Copy)"
+				"name": "Bonus Proficiencies",
+				"id": "",
+				"flags": {},
+				"restriction": "",
+				"type": "proficiency",
+				"config": {
+					"keys": {
+						"base": [
+							"armor:medium",
+							"weapon:bastardSword",
+							"weapon:battleaxe",
+							"weapon:battleGauntlet",
+							"weapon:bioChakram",
+							"weapon:brassKnuckles",
+							"weapon:combatChainsaw",
+							"weapon:combatKnife",
+							"weapon:compositeBow",
+							"weapon:dart",
+							"weapon:duelingDagger",
+							"weapon:duelingSword",
+							"weapon:electroHalberd",
+							"weapon:energyCrossbow",
+							"weapon:flail",
+							"weapon:flameBracer",
+							"weapon:flamethrower",
+							"weapon:garotte",
+							"weapon:glaive",
+							"weapon:greataxe",
+							"weapon:greatsword",
+							"weapon:grenadeLauncher",
+							"weapon:halberd",
+							"weapon:handCrossbow",
+							"weapon:hypodermicPistol",
+							"weapon:ionCannon",
+							"weapon:javelin",
+							"weapon:lance",
+							"weapon:lightHammer",
+							"weapon:longbow",
+							"weapon:longspear",
+							"weapon:longsword",
+							"weapon:maul",
+							"weapon:monoWhip",
+							"weapon:morningstar",
+							"weapon:net",
+							"weapon:netcaster",
+							"weapon:pike",
+							"weapon:plasmaSword",
+							"weapon:polaronGatlingGun",
+							"weapon:pulseRifle",
+							"weapon:punchingDagger",
+							"weapon:rapier",
+							"weapon:saber",
+							"weapon:scimitar",
+							"weapon:scythe",
+							"weapon:shortbow",
+							"weapon:shortsword",
+							"weapon:shotgun",
+							"weapon:slugRifle",
+							"weapon:sniperRifle",
+							"weapon:spearThrower",
+							"weapon:throwingDagger",
+							"weapon:tkGauntlet",
+							"weapon:trident",
+							"weapon:vibroknife",
+							"weapon:viperRetainer",
+							"weapon:warhammer",
+							"weapon:warPick",
+							"weapon:whip"
+						],
+						"options": []
+					},
+					"isExpertise": false,
+					"upgradeToExpertise": false
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "proficiency",
+					"selected": [],
+					"upgraded": false
+				}
 			}
 		},
 		"prerequisite": "",
@@ -142,11 +208,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.PUvB37IRgWJQLUKP",
+			"origin": "Item.oEJIvDPn1SQKFXJC",
 			"transfer": false,
 			"system": {
 				"effectType": "passive",
@@ -165,29 +235,12 @@
 			"img": "icons/magic/life/crosses-trio-red.webp",
 			"_id": "pFAe6gbTxWyUQTGD",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "@spellcasting.mod",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "@dex.mod",
-					"mode": 3,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>When wearing light or medium armor you may add your spellcasting modifier to your AC in place of your Dexterity modifier.</p>",
 			"tint": "#ffffff",
@@ -195,24 +248,39 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752666
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793831325886,
+				"createdTime": 1793831325871,
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"exportSource": null
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793831325871,
+		"modifiedTime": 1793831387707,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo",
+		"compendiumSource": "Compendium.a5e.a5e-class-features.Item.oEJIvDPn1SQKFXJC",
+		"duplicateSource": null,
+		"exportSource": {
+			"worldId": "a5enasv14",
+			"uuid": "Item.oEJIvDPn1SQKFXJC",
+			"coreVersion": "14.369",
+			"systemId": "a5e",
+			"systemVersion": "1.4.10"
+		}
 	},
 	"_id": "oEJIvDPn1SQKFXJC"
 }

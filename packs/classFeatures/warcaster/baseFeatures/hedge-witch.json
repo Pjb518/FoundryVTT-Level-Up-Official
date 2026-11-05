@@ -32,25 +32,77 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
 		"classes": "warcaster",
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"ZZszzWE7UV242QKI": {
+				"id": "ZZszzWE7UV242QKI",
+				"label": "",
+				"name": "Hedge Witch",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "spell",
+				"grantType": "spell",
+				"config": {
+					"selectionType": "limited",
+					"spells": {
+						"base": [
+							"Compendium.a5e.a5e-spells.Item.5o1rvwzxmsh5ji9i",
+							"Compendium.a5e.a5e-spells.Item.krg2pw9p0pa5praw"
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"alwaysPrepared": false,
+					"changes": null,
+					"consumerData": {
+						"type": "spell",
+						"recover": "",
+						"value": "longRest"
+					}
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"asi": [],
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.O2gStfgc1kGSVXJu",
+			"origin": "Item.MLVAVjXzteIqDe8O",
 			"transfer": false,
 			"system": {
 				"effectType": "passive",
@@ -69,23 +121,12 @@
 			"img": "icons/magic/nature/leaf-juggle-humanoid-green.webp",
 			"_id": "D4ozmwEltbXnUqSR",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.spellcasting",
-					"value": "int",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "<p>Your spellcasting ability is Intelligence.</p>",
 			"tint": "#ffffff",
@@ -93,24 +134,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752658
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793826111666,
+				"createdTime": 1793826111646
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793826111646,
+		"modifiedTime": 1793827506654,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "MLVAVjXzteIqDe8O"
 }

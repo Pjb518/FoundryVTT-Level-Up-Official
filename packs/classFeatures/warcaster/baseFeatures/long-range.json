@@ -32,7 +32,12 @@
 			"per": "",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -40,67 +45,105 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"PtdgrFVGZyWMUCrU": {
-				"grantType": "attack",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "PtdgrFVGZyWMUCrU",
-				"label": "Long Range",
-				"bonus": "1",
-				"attackTypes": {
-					"base": [
-						"rangedSpellAttack"
-					],
-					"options": [],
-					"total": 0
-				},
-				"context": {
-					"default": false,
-					"spellLevels": [],
-					"requiresProficiency": false
-				},
-				"img": ""
-			},
-			"sXRk6Z4cgB3zMa1Q": {
-				"grantType": "feature",
+			"SfQQZxVMWYChBNnZ": {
+				"id": "SfQQZxVMWYChBNnZ",
+				"label": "Casting Style Improvement",
+				"name": "Casting Style Improvement",
+				"img": "",
+				"flags": {},
 				"level": 10,
 				"levelType": "class",
 				"optional": false,
-				"_id": "sXRk6Z4cgB3zMa1Q",
-				"label": "Casting Style Improvement",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.OsUw5pzb2XQ1iJPu",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.QaV1YqOzr1mHcK5C",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.R5PfxpihzmQ5ZWal",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			},
-			"klxxKxpGCntRp0XR": {
-				"grantType": "feature",
+			"SMHG9qYYupL56Xm7": {
+				"id": "SMHG9qYYupL56Xm7",
+				"label": "Cantrip Mastery",
+				"name": "Cantrip Mastery",
+				"img": "",
+				"flags": {},
 				"level": 19,
 				"levelType": "class",
 				"optional": false,
-				"_id": "klxxKxpGCntRp0XR",
-				"label": "Cantrip Mastery",
+				"restriction": "",
+				"type": "feature",
+				"grantType": "feature",
+				"config": {
+					"selectionType": "limited",
+					"features": {
+						"base": [
+							{
+								"uuid": "Compendium.a5e.a5e-class-features.Item.yVfuQOwZJjsdvB3L",
+								"limitedReselection": true,
+								"selectionLimit": 1
+							}
+						],
+						"options": [],
+						"total": 1
+					},
+					"pool": {
+						"count": 1,
+						"filters": {}
+					},
+					"changes": null
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "document",
+					"documentIds": [],
+					"documentType": ""
+				},
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.8UnICKMnN1QASW7V",
+							"uuid": "Compendium.a5e-martial-artistry.class-features.Item.qmocNCuIZDgtvlCq",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
 					],
 					"options": [],
 					"total": 0
-				},
-				"img": ""
+				}
 			}
 		},
 		"prerequisite": "",
@@ -109,18 +152,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567753087,
-		"modifiedTime": 1793567753087,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793827681235,
+		"modifiedTime": 1793827835785,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "Gg4mErc72XHclsaf"
 }

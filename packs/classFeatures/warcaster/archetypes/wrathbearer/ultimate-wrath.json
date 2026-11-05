@@ -24,6 +24,14 @@
 						"default": true,
 						"quantity": 1,
 						"label": ""
+					},
+					"jL8NHwdnA26uCQJL": {
+						"type": "resource",
+						"default": false,
+						"classIdentifier": "",
+						"resource": "strife",
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"id": "3ZOxAtgt99MUbl3x",
@@ -41,7 +49,8 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [],
 				"macro": "",
@@ -50,7 +59,12 @@
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -62,53 +76,24 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
-				}
-			},
-			"hwwsuqcxcHfoy8Ts": {
-				"name": "Ultimate Wrath (Strife)",
-				"consumers": {},
-				"id": "",
-				"default": false,
-				"description": "",
-				"descriptionOutputs": [
-					"item",
-					"action"
-				],
-				"img": "",
-				"activation": {
-					"cost": 1,
-					"type": "",
-					"reactionTrigger": ""
 				},
-				"duration": {
-					"unit": "",
-					"value": "0"
-				},
-				"effects": [
-					"aqYVvElt7iIkGJBt"
-				],
-				"macro": "",
-				"prompts": {},
-				"ranges": {},
-				"rolls": {},
-				"target": {
+				"area": {
 					"quantity": 1,
-					"scaling": {},
-					"type": "",
-					"heard": false,
-					"otherText": "",
-					"seen": false
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -128,7 +113,12 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -142,71 +132,22 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
-	"effects": [
-		{
-			"origin": "Item.Kh0aXaGo1gOxVfF4",
-			"transfer": false,
-			"system": {
-				"effectType": "onUse",
-				"applyToSelf": true,
-				"default": true,
-				"migrationData": {
-					"version": null,
-					"type": "",
-					"lastMigration": {
-						"schema": null
-					}
-				},
-				"changes": []
-			},
-			"name": "Strife",
-			"img": "icons/magic/fire/explosion-mushroom-nuke-orange.webp",
-			"_id": "aqYVvElt7iIkGJBt",
-			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"tint": "#ffffff",
-			"statuses": [],
-			"sort": 0,
-			"flags": {},
-			"_stats": {
-				"coreVersion": "13.351",
-				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752645
-			},
-			"folder": null
-		}
-	],
+	"effects": [],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752450,
-		"modifiedTime": 1793567752450,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793836580153,
+		"modifiedTime": 1793836598411,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "INLTXFOy13kArfTM"
 }

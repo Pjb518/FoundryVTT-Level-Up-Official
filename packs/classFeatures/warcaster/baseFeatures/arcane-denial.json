@@ -32,18 +32,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"-=width": null,
-					"-=radius": null,
-					"-=height": null,
-					"-=length": null,
-					"shape": "circle",
+					"shape": "emanation",
 					"quantity": 1,
-					"radius": 7.5,
-					"placeTemplate": true
+					"radius": 7,
+					"width": 0,
+					"height": 0,
+					"length": 0,
+					"isAura": true,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"jq3NMfhX9zdzdCID"
@@ -60,13 +62,20 @@
 				"prompts": {},
 				"ranges": {
 					"xlCqJHAMeWjvlXNh": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -78,7 +87,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			},
@@ -98,14 +112,20 @@
 					"reactionTrigger": ""
 				},
 				"area": {
-					"shape": "circle",
+					"shape": "emanation",
 					"quantity": 1,
-					"radius": 7.5,
-					"placeTemplate": true
+					"radius": 7,
+					"length": 0,
+					"height": 0,
+					"width": 0,
+					"isAura": true,
+					"behaviors": {},
+					"scaling": {}
 				},
 				"duration": {
 					"unit": "",
-					"value": "0"
+					"value": "0",
+					"concentration": false
 				},
 				"effects": [
 					"nMITtKfdzaCcb3CR"
@@ -118,20 +138,26 @@
 						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 2,
-						"restore": false,
 						"label": ""
 					}
 				},
 				"prompts": {},
 				"ranges": {
 					"xlCqJHAMeWjvlXNh": {
-						"range": "self"
+						"range": "self",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"rolls": {},
 				"target": {
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"type": "",
 					"heard": false,
 					"otherText": "",
@@ -143,7 +169,12 @@
 					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 0,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
 				}
 			}
@@ -164,7 +195,12 @@
 			"per": "longRest",
 			"recharge": {
 				"formula": "",
-				"threshold": 0
+				"threshold": 0,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"class": "",
@@ -178,11 +214,15 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
-			"origin": "Item.2BXlGlCdMzCiaM5l",
+			"origin": "Item.npW7ZkOmkfqGTwU6",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -201,23 +241,12 @@
 			"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
 			"_id": "jq3NMfhX9zdzdCID",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -225,16 +254,19 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752323
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793828123367,
+				"createdTime": 1793828123338
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		},
 		{
-			"origin": "Item.2BXlGlCdMzCiaM5l",
+			"origin": "Item.npW7ZkOmkfqGTwU6",
 			"transfer": false,
 			"system": {
 				"effectType": "onUse",
@@ -253,23 +285,12 @@
 			"img": "icons/magic/defensive/barrier-shield-dome-pink.webp",
 			"_id": "nMITtKfdzaCcb3CR",
 			"type": "base",
-			"changes": [
-				{
-					"key": "system.attributes.strife",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": null,
+				"units": "seconds",
+				"expiry": null,
+				"expired": false
 			},
 			"description": "",
 			"tint": "#ffffff",
@@ -277,24 +298,27 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "13.351",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.1.14",
-				"lastModifiedBy": "xGHZVfC6qnAgOB1d",
-				"modifiedTime": 1793567752323
+				"systemVersion": "1.4.10",
+				"lastModifiedBy": "29yBsU5WLKNyhNxo",
+				"modifiedTime": 1793828123368,
+				"createdTime": 1793828123338
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1793567752092,
-		"modifiedTime": 1793567752092,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793828123338,
+		"modifiedTime": 1793828197227,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "npW7ZkOmkfqGTwU6"
 }
