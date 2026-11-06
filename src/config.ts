@@ -1,9 +1,6 @@
-// import registerModuleIncompatibilities from './config/registerModuleIncompatibilities.ts';
 import registerModuleIncompatibilities from './config/premiumContent/moduleIncompatibilities.ts';
 import registerProductLineConfig from './config/premiumContent/productLines.ts';
-// import registerPremiumContentConfig from './config/registerPremiumContentConfig.ts';
 import registerPremiumContentConfig from './config/premiumContent/products.ts';
-// import registerPublisherConfig from './config/registerPublisherConfig.ts';
 import registerPublisherConfig from './config/premiumContent/publishers.ts';
 import registerActionsConfig from './config/registerActionsConfig.ts';
 import registerActiveEffectConfig from './config/registerActiveEffectConfig.ts';
