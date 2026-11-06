@@ -89,11 +89,11 @@
 					"4Zwfme16LrMrQyD7": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "legend-dice-uses",
-						"resource": "classResource",
+						"resource": "namedResource",
 						"quantity": 1,
 						"restore": false,
-						"label": ""
+						"label": "",
+						"resourceSlug": "legend-dice-uses"
 					}
 				},
 				"prompts": {},
@@ -106,7 +106,7 @@
 					"LIhSPrAVi0trJjT1": {
 						"type": "healing",
 						"default": true,
-						"formula": "2 * @classResources.legend-dice-size",
+						"formula": "2 * @resource.legend-dice-size",
 						"healingType": "healing",
 						"scaling": {},
 						"label": ""
@@ -194,20 +194,6 @@
 			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
 			"_id": "1La10rYHDKMi9Quz",
 			"type": "base",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "60",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

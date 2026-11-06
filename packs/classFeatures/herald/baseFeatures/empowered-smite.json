@@ -15,20 +15,6 @@
 			"transfer": false,
 			"name": "Marking Smite",
 			"_id": "vvZvwbiXZrsqVdtJ",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "5",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "10",
-					"mode": 6,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -83,14 +69,6 @@
 			"transfer": false,
 			"name": "Prone",
 			"_id": "yhgN7UKeGtUZtZcn",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -154,16 +132,16 @@
 					"6PCXWzsE4tkz7XyY": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.divine-smite-uses",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "divine-smite-uses"
 					},
 					"zRaDTeWhpO617oz4": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.empowered-smite",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "empowered-smite"
 					}
 				},
 				"rolls": {
@@ -171,7 +149,7 @@
 						"type": "damage",
 						"default": true,
 						"canCrit": true,
-						"formula": "@classResources.divine-smite-damage",
+						"formula": "@resource.divine-smite-damage",
 						"damageType": "fire"
 					}
 				},
@@ -210,23 +188,23 @@
 					"M8KCZIYvhmPhoYhs": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.divine-smite-uses",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "divine-smite-uses"
 					},
 					"G1rbDtwBCCyLpWT8": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.empowered-smite",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "empowered-smite"
 					}
 				},
 				"rolls": {
 					"EPIiHzx80eByHP5g": {
 						"type": "damage",
 						"default": true,
-						"formula": "@classResources.divine-smite-damage",
+						"formula": "@resource.divine-smite-damage",
 						"damageType": "radiant"
 					}
 				},
@@ -253,23 +231,23 @@
 					"i78emYSSi2dKg9L3": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.divine-smite-uses",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "divine-smite-uses"
 					},
 					"A2zKsk3nWyUsdFEf": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.empowered-smite",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "empowered-smite"
 					}
 				},
 				"rolls": {
 					"FTGmCS31MEscwjeI": {
 						"type": "damage",
 						"default": true,
-						"formula": "@classResources.divine-smite-damage",
+						"formula": "@resource.divine-smite-damage",
 						"damageType": "force"
 					}
 				},

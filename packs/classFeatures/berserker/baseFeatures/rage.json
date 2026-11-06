@@ -15,26 +15,6 @@
 			"transfer": false,
 			"name": "Rage",
 			"_id": "BUM9Vlpn1Z7rJRzC",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.str",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
-					"mode": 2,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -135,11 +115,11 @@
 					"HvXmIXhp9gi2ReO5": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.rage",
-						"resource": "classResource",
+						"resource": "namedResource",
 						"quantity": 1,
 						"restore": false,
-						"label": ""
+						"label": "",
+						"resourceSlug": "rage"
 					}
 				},
 				"prompts": {},
@@ -187,7 +167,7 @@
 						"type": "healing",
 						"default": true,
 						"healingType": "temporaryHealing",
-						"formula": "@classResources.rage-hit-points",
+						"formula": "@resource.rage-hit-points",
 						"scaling": {},
 						"label": ""
 					}

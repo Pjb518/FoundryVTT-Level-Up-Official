@@ -26,18 +26,18 @@
 					"AQzNLjhXW2IAQFB9": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "dastardly-gambit-die-uses",
-						"resource": "classResource",
+						"resource": "namedResource",
 						"quantity": 1,
 						"restore": false,
-						"label": ""
+						"label": "",
+						"resourceSlug": "dastardly-gambit-die-uses"
 					}
 				},
 				"rolls": {
 					"wkEOiaYcSBr8sFIp": {
 						"type": "generic",
 						"default": true,
-						"formula": "@classResources.dastardly-gambit-die-size",
+						"formula": "@resource.dastardly-gambit-die-size",
 						"label": ""
 					}
 				},
@@ -152,14 +152,6 @@
 			"img": "icons/sundries/gaming/dice-pair-white-green.webp",
 			"_id": "MEI8toJhz2KS6rlQ",
 			"type": "base",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

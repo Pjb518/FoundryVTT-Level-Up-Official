@@ -24,9 +24,9 @@
 					"kupvKX58mKwK2iEp": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "@classResources.channel-divinity",
-						"resource": "classResource",
-						"quantity": 1
+						"resource": "namedResource",
+						"quantity": 1,
+						"resourceSlug": "channel-divinity"
 					}
 				},
 				"rolls": {
@@ -34,7 +34,7 @@
 						"type": "damage",
 						"default": true,
 						"label": "Necrotic Damage",
-						"formula": "@classResources.creeping-death",
+						"formula": "@resource.creeping-death",
 						"damageType": "necrotic",
 						"canCrit": false
 					}
@@ -123,7 +123,6 @@
 				"effectType": "onUse",
 				"changes": []
 			},
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,

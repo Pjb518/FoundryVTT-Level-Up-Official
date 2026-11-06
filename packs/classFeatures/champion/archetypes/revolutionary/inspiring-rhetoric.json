@@ -43,11 +43,11 @@
 					"wG9nxsCkBgbZrhEB": {
 						"type": "resource",
 						"default": true,
-						"classIdentifier": "rhetoric-die",
-						"resource": "classResource",
+						"resource": "namedResource",
 						"quantity": 1,
 						"restore": false,
-						"label": ""
+						"label": "",
+						"resourceSlug": "rhetoric-die"
 					}
 				},
 				"prompts": {},
@@ -99,7 +99,7 @@
 					"WGXVUUT9N5DHYkJC": {
 						"type": "healing",
 						"default": true,
-						"formula": "@classResources.rhetoric-die-size + @cha.mod",
+						"formula": "@resource.rhetoric-die-size + @cha.mod",
 						"healingType": "healing",
 						"scaling": {},
 						"label": ""
@@ -177,7 +177,6 @@
 			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
 			"_id": "dJOvqEcSQofHjPSx",
 			"type": "base",
-			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
