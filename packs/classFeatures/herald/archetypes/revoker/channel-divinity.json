@@ -28,7 +28,8 @@
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -39,12 +40,54 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
-				"img": "icons/magic/time/arrows-circling-pink.webp"
+				"img": "icons/magic/time/arrows-circling-pink.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"AccSQ86Xr0g7mldU": {
 				"name": "Choose to Succeed",
@@ -59,7 +102,8 @@
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -70,12 +114,54 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
-				"img": "icons/sundries/gaming/playing-cards.webp"
+				"img": "icons/sundries/gaming/playing-cards.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			}
 		},
 		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<p><em><strong>Second Chance.</strong></em> When a friendly creature (including yourself) is suffering effects as result of a failed saving throw, you can spend your reaction to allow it to attempt that saving throw again.</p>\n<p><em><strong>Choose to Succeed.</strong></em> When a friendly creature (including yourself) fails an ability check, you can spend your reaction to allow it to roll the check again with an expertise die.</p>",
@@ -88,77 +174,46 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {
-			"Pl8DbcikaxkNEj8a": {
-				"grantType": "feature",
-				"level": 1,
-				"optional": false,
-				"label": "Channel Divinity",
-				"features": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.24ug4h1p7cfhunpk",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.5hr6rv9v28lg4489",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"options": [],
-					"total": 0
-				},
-				"id": "Pl8DbcikaxkNEj8a",
-				"name": "Channel Divinity",
-				"img": "",
-				"levelType": "character",
-				"type": "feature",
-				"config": {
-					"features": {
-						"base": [
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.24ug4h1p7cfhunpk",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							},
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.5hr6rv9v28lg4489",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							}
-						],
-						"options": [],
-						"total": 0
-					}
-				}
-			}
-		},
+		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "herald",
 		"class": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"asi": [],
+		"featClasses": [],
+		"followerType": "",
+		"experienceType": "inexperienced",
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"effects": [],
 	"flags": {},
 	"_stats": {
-		"coreVersion": "12.330",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.22",
-		"createdTime": 1723405414529,
-		"modifiedTime": 1723405656067,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793994276797,
+		"modifiedTime": 1793997535802,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "3juypkg5zdlk14ke"
 }

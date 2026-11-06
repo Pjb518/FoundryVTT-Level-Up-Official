@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>When you arrive in a settlement, after you reveal who you are the local watch starts keeping an eye on you. Heads of illegal organizations may introduce themselves to you if they have goals well suited to your talents.</p>\n<p>Additionally, guards expect you&rsquo;re up to no good so are quick to leave their posts to follow you.</p>",
+		"description": "<p>When you arrive in a settlement, after you reveal who you are the local watch starts keeping an eye on you. Heads of illegal organizations may introduce themselves to you if they have goals well suited to your talents.</p><p><strong>In addition, you gain an expertise die on Deception checks.</strong></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "ourFearlessLeader",
@@ -26,12 +26,58 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"tWelBvc8kEqiSEAr": {
+				"id": "tWelBvc8kEqiSEAr",
+				"label": "",
+				"name": "Maverick",
+				"img": "",
+				"flags": {},
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"restriction": "",
+				"type": "expertiseDice",
+				"grantType": "expertiseDice",
+				"config": {
+					"keys": {
+						"base": [
+							"dec"
+						],
+						"options": [],
+						"total": 0
+					},
+					"expertiseCount": 1,
+					"expertiseType": "skill"
+				},
+				"applied": {
+					"level": 1,
+					"isApplied": false,
+					"grantType": "expertiseDice",
+					"selected": [],
+					"total": 0,
+					"expertiseCount": 1,
+					"expertiseType": ""
+				},
+				"keys": {
+					"base": [],
+					"options": [],
+					"total": 0
+				},
+				"expertiseCount": 1,
+				"expertiseType": "abilityCheck"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "marshalrevised",
@@ -48,16 +94,20 @@
 		"featClasses": [],
 		"featType": "",
 		"hidden": false,
-		"synergy": ""
+		"synergy": "",
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "13.351",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.1.14",
-		"createdTime": 1792526809901,
-		"modifiedTime": 1792526809901,
-		"lastModifiedBy": "xGHZVfC6qnAgOB1d"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793997095668,
+		"modifiedTime": 1793997166217,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "SmgW08qGWEquycy6"
 }

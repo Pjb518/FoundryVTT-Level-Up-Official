@@ -54,7 +54,12 @@
 					"heard": false,
 					"otherText": "",
 					"quantity": 1,
-					"scaling": {},
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
 					"seen": false,
 					"type": ""
 				},
@@ -66,7 +71,22 @@
 						"formula": "",
 						"threshold": 0,
 						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
+						"threshold": 6
 					}
+				},
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
 				}
 			}
 		},
@@ -82,34 +102,15 @@
 				"formula": "1d6",
 				"threshold": 6,
 				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
+				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {
-			"Cg2IwHElOWmuWjVM": {
-				"grantType": "feature",
-				"level": 1,
-				"levelType": "class",
-				"optional": false,
-				"_id": "Cg2IwHElOWmuWjVM",
-				"label": "Path of Duality",
-				"features": {
-					"total": 1
-				},
-				"id": "Cg2IwHElOWmuWjVM",
-				"name": "Path of Duality",
-				"img": "",
-				"type": "feature",
-				"config": {
-					"features": {
-						"base": [],
-						"options": [],
-						"total": 1
-					}
-				}
-			}
-		},
+		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "esper",
@@ -125,11 +126,10 @@
 		"featType": "",
 		"hidden": false,
 		"synergy": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"slug": "",
+		"tags": [],
+		"followerType": "",
+		"experienceType": "inexperienced"
 	},
 	"effects": [
 		{
@@ -155,12 +155,12 @@
 			"statuses": [],
 			"folder": null,
 			"_stats": {
-				"coreVersion": "14.367",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.2.8",
-				"createdTime": 1788744631284,
-				"modifiedTime": 1788744631284,
-				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793997209570,
+				"modifiedTime": 1793997209570,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
 			"system": {
 				"applyToSelf": false,
@@ -207,7 +207,7 @@
 					{
 						"key": "system.skills.per.expertiseDice",
 						"type": "add",
-						"value": "1",
+						"value": 1,
 						"phase": "initial",
 						"priority": 20
 					},
@@ -257,12 +257,12 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "14.367",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.2.8",
-				"createdTime": 1788744748799,
-				"modifiedTime": 1788744795890,
-				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793997209570,
+				"modifiedTime": 1793997209570,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			}
 		},
 		{
@@ -277,14 +277,14 @@
 					{
 						"key": "system.skills.dec.expertiseDice",
 						"type": "add",
-						"value": "1",
+						"value": 1,
 						"phase": "initial",
 						"priority": 20
 					},
 					{
 						"key": "system.attributes.senses.darkvision.distance",
 						"type": "add",
-						"value": "60",
+						"value": 60,
 						"phase": "initial",
 						"priority": 20
 					}
@@ -314,24 +314,24 @@
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "14.367",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "1.2.8",
-				"createdTime": 1788744802870,
-				"modifiedTime": 1788744832282,
-				"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793997209570,
+				"modifiedTime": 1793997209570,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			}
 		}
 	],
 	"folder": null,
 	"flags": {},
 	"_stats": {
-		"coreVersion": "14.367",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "1.2.8",
-		"createdTime": 1788744631284,
-		"modifiedTime": 1788744802888,
-		"lastModifiedBy": "vbAVLNZDSHl8wu0T"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793997209570,
+		"modifiedTime": 1793997227586,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "qbo302hh1n7s6fjd"
 }

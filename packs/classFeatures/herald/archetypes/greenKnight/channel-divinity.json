@@ -18,7 +18,8 @@
 				"name": "Blessing of Nature",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"z53Zc0rKfGP9ZlFV": {
@@ -26,7 +27,8 @@
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -37,19 +39,62 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
 				},
 				"ranges": {
 					"2j3WeYWqRlfzoDp1": {
-						"range": "touch"
+						"range": "touch",
+						"unit": "",
+						"value": 0
 					}
 				},
 				"effects": [
 					"woDB58PX3XLySsMX"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"macro": "",
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
+				}
 			},
 			"fK9uan9rZL0aK99C": {
 				"name": "Rely on Nature",
@@ -64,7 +109,8 @@
 						"default": true,
 						"resource": "namedResource",
 						"quantity": 1,
-						"resourceSlug": "channel-divinity"
+						"resourceSlug": "channel-divinity",
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -75,10 +121,53 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
+						"threshold": 6,
+						"type": "recoverAll"
+					},
+					"countdown": {
+						"size": 6,
 						"threshold": 6
 					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"area": {
+					"quantity": 1,
+					"shape": "none",
+					"length": 0,
+					"height": 0,
+					"radius": 0,
+					"width": 0,
+					"isAura": false,
+					"behaviors": {},
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "",
+					"value": "0",
+					"concentration": false
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"heard": false,
+					"otherText": "",
+					"quantity": 1,
+					"scaling": {
+						"config": {
+							"value": ""
+						},
+						"mode": ""
+					},
+					"seen": false,
+					"type": ""
 				}
 			}
 		},
@@ -92,72 +181,40 @@
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
+				"threshold": 6,
+				"type": "recoverAll"
+			},
+			"countdown": {
+				"size": 6,
 				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {
-			"3CX4cVYi29JDuQDB": {
-				"grantType": "feature",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"_id": "3CX4cVYi29JDuQDB",
-				"label": "Channel Divinity",
-				"features": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.f0fwxl74msbqby7h",
-							"name": "Blessing of Nature",
-							"img": "icons/svg/item-bag.svg",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.gnw6134l4p8ht3au",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					]
-				},
-				"id": "3CX4cVYi29JDuQDB",
-				"name": "Channel Divinity",
-				"img": "",
-				"type": "feature",
-				"config": {
-					"features": {
-						"base": [
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.f0fwxl74msbqby7h",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							},
-							{
-								"uuid": "Compendium.a5e.a5e-class-features.Item.gnw6134l4p8ht3au",
-								"limitedReselection": true,
-								"selectionLimit": 1
-							}
-						],
-						"options": [],
-						"total": 0
-					}
-				}
-			}
-		},
+		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "herald",
 		"class": "",
-		"price": {
-			"value": 0,
-			"denomination": "gp",
-			"special": ""
-		}
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {}
+		},
+		"slug": "",
+		"tags": [],
+		"asi": [],
+		"featClasses": [],
+		"followerType": "",
+		"experienceType": "inexperienced",
+		"featType": "",
+		"hidden": false,
+		"synergy": ""
 	},
 	"effects": [
 		{
-			"origin": "Item.ycsVcGqyQ5HgC6DY",
+			"origin": "Item.6adhlw3mitbhka1h",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -173,44 +230,47 @@
 			"system": {
 				"applyToSelf": true,
 				"effectType": "onUse",
-				"changes": []
+				"changes": [],
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {}
+				}
 			},
 			"disabled": false,
 			"duration": {
-				"startTime": null,
-				"seconds": 3600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
+				"value": 3600,
+				"units": "seconds",
+				"expiry": "turnStart",
+				"expired": false
 			},
 			"description": "<p>Be recognized by nature as one of its protectors for the next hour. For the duration, you gain advantage on Persuasion checks made to influence druids and beasts. Alternatively, you can end the blessing early to gain advantage on a Survival check made to find Supply or a Haven in the wilderness.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
 			"_stats": {
-				"compendiumSource": null,
-				"duplicateSource": null,
-				"coreVersion": "12.331",
+				"coreVersion": "14.369",
 				"systemId": "a5e",
-				"systemVersion": "0.19.23",
-				"createdTime": 1724095641740,
-				"modifiedTime": 1724095678942,
-				"lastModifiedBy": "Glw114cHAVexdKTu"
+				"systemVersion": "1.4.10",
+				"createdTime": 1793994091302,
+				"modifiedTime": 1793994091321,
+				"lastModifiedBy": "29yBsU5WLKNyhNxo"
 			},
-			"folder": null
+			"folder": null,
+			"start": null,
+			"showIcon": 1
 		}
 	],
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.331",
+		"coreVersion": "14.369",
 		"systemId": "a5e",
-		"systemVersion": "0.19.23",
-		"createdTime": 1724095495195,
-		"modifiedTime": 1724095701707,
-		"lastModifiedBy": "Glw114cHAVexdKTu"
+		"systemVersion": "1.4.10",
+		"createdTime": 1793994091302,
+		"modifiedTime": 1793997556111,
+		"lastModifiedBy": "29yBsU5WLKNyhNxo"
 	},
 	"_id": "6adhlw3mitbhka1h"
 }
