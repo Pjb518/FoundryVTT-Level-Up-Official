@@ -21,7 +21,7 @@ export class Migration027MigrateResources extends MigrationBase {
 
 			// Return if neither value nor max is set and resource is not a counter
 			// @ts-expect-error
-			if (!resource.max.length && !resource.value && !resource.hideMax) {
+			if (!resource?.max.length && !resource.value && !resource.hideMax) {
 				if ('game' in globalThis) newResources[slug] = _del;
 				return;
 			}
